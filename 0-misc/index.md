@@ -35,7 +35,7 @@ Authentication and Authorization services shared among the Application and Domai
 - Helm
 - Azure Devops
 
-###  Vendors
+### Vendors
 
 - Neo4j (graph db)
 - Elastic Search (search)
