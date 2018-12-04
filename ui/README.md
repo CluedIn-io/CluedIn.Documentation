@@ -221,5 +221,3 @@ Example of a complex configuration:
     isDefault: true,
 }
 ```
-
-## Entity configuration file
