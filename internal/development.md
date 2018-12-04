@@ -2,7 +2,7 @@
 
 ## CluedIn CI/CD
 
-![CI-CD](./assets/micro-services.png)
+![CI-CD](./assets/ci-cd.png)
 
 ### Feature Branching
 
