@@ -54,6 +54,6 @@ When you have multiple services, you decrease your chance of 'breaking' unexpect
 
 Naive example of how leveraging micro-service could help us on crawling.
 
-![Scaling Data ingestion](Scaling-Crawker-independant.png)
+![Scaling Data ingestion](./assets/Scaling-Crawker-independant.png)
 
 Of course, this could also be used for 'merging engine', 'computing KPIs'....
