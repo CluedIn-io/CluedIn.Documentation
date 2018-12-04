@@ -12,11 +12,11 @@ TODO
 
 ### Why moving towards a micro-service approach?
 
-The reason to move towards micro-service is not because it's a buzz world in the sofware engeneering work but because it does bring value for a platform like CluedIn.
+The reason to move towards micro-service is not because it's a buzz word in the software engeneering world but because it does bring value for a platform like CluedIn.
 
 In order to leverage Kubernetes ability to auto-scale, the whole platform needs to be able to scale organicaly.
 
-Here the term organicaly mean 'just in time'.
+Here the term organicaly means 'just in time'.
 
 By default, CluedIn would run each container as a single node.
 
@@ -28,7 +28,7 @@ Kubernetes would check for some 'live readiness' metrics in order to know which 
 
 #### Let dedicated tool doing the scaling
 
-By having micro-services in place, you let a tool dedicated to orchestratation to deal with the scability, it means you need less 'in-house' code to glue it all together, or to do 'custom code' to deploy and/or spin new box that would be needed. 
+By having micro-services in place, you let a tool dedicated to orchestratation to deal with the scability, it means you need less 'in-house' code to glue it all together, or 'custom code' to deploy and/or spin new box that would be needed. 
 
 #### Cost saving
 
@@ -36,7 +36,7 @@ By decoupling the platform into multiple container, we give the opportunity to K
 
 #### Scaling staff
 
-When you have all in one container, it makes it hard to the developers to move quickly as each time, they need to 'bring the whole world' with them (build/test/deployment). By having a clear cut between responsbility in the platform, it helps a developer to focus on one specific aspect of the platform.
+When you have all in one container, it makes it hard for the developers to move quickly as each time, they need to 'bring the whole world' with them (build/test/deployment). By having a clear cut between responsbility in the platform, it helps a developer to focus on one specific aspect.
 
 It also increases paralellism as people can work indepently in different aspects of the platform without the fear to 'break' other on-going development.
 
