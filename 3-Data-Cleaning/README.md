@@ -79,6 +79,30 @@ Files are a bad practises for data warehouse:
 
 ![Cleaning Banned Diagram](./assets/CleanDiagramRed.jpg)
 
+## Data Flux
+
+CluedIn.Clean is working on data flux. It means CluedIn.Clean needs to have the ability to apply the same cleaning 'pattern' on a later stage in the exact same way as setup during CluedIn.Clean.
+
+The UI of CluedIn.Clean is not the 'real' data but a Preview of the application of **cleaning policy** being configured.
+
+**Flux, not build for one-time**
+
+![Cleaning FLow](./assets/CleaningFlow.png)
+
+**Execution Options**
+
+As said what the user is doing is not to 'clean' the data but to **build a Clean Recipe** on a Flux (Search/GQL/Stream...) that he has setup.
+
+The user can have the options to:
+
+- Apply only once (maybe using the entity creation date to know which data to apply at the configuration time in Clean)
+- Apply on the 'flux', meaning that as soon as a 'new' Data is being setup for that stream, we will apply that 'clean policy'
+- Some options (Start Date ? End Date? )
+
+Draft Example:
+
+![Execution Options](./assets/ApplytPolicy.png)
+
 ## Features
 
 //TBD
