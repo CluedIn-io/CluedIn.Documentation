@@ -47,10 +47,6 @@ Deploy a CluedIn in a K8S cluster on Azure
 
 [CluedIn.Helm](https://github.com/CluedIn-io/CluedIn.Helm)
 
-## CI-CD
-
-Refer to [Continous Integration/Deployment](./CI.md)
-
 ## Architecture
 
 Refer to [Micro Service](./micro.md)
