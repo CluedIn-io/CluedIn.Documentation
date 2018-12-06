@@ -49,7 +49,7 @@ Deploy a CluedIn in a K8S cluster on Azure
 
 ## CI-CD
 
-Refer to [Continous Integraiton/Deployment](./CI.md)
+Refer to [Continous Integration/Deployment](./CI.md)
 
 ## Architecture
 
