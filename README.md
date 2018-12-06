@@ -13,3 +13,12 @@ Developers can use the CluedIn platform to:
 ## Categories
 
 1. [Setup and Deployment](./1-Setup-Deployment/index.md)
+2. Data Preparation
+3. Data Cleaning
+4. Data Governance
+5. MDM
+6. Data Consuming
+
+## Internal Practises
+
+[Internal Practises Guidelines](./internal/README.md)
