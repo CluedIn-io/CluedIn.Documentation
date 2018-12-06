@@ -2,7 +2,7 @@
 
 ## General Practises
 
-- [Github Practises](./development.md)
+- [Github Practises](./github.md)
 - [Development Environment](./development.md)
 - [Continoug Integration/Deployment](./CI.md)
 
