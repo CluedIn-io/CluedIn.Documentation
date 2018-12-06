@@ -8,7 +8,7 @@ For transparency purpose, anyone can view the code and P-R from any teams. If yo
 
 If you can fix the Error yourself:
 
-2. Create a branch called `/feature/[Github-ID-ISSUE]-[shot-description]`.
+2. Create a branch with appropriate name (see below for branch naming)
 3. Fix in your branch.
 4. Create a Pull Request.
 5. Wait for Code Review.
