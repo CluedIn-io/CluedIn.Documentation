@@ -4,7 +4,7 @@
 
 3 main services:
 
-- [Application Services](./application-services.md)
+- [Application Services](https://cluedinapp.docs.apiary.io/#)
 
 Application services are non-domain specific APIs needed to have a UI up and running.
 
