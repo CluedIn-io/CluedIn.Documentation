@@ -1,5 +1,11 @@
 # Plan to GQL first (and remove or mitigate REST APIs)
 
+## Some comments
+
+```
+…Another detail we have found important and highly successful: Our GraphQL layer IS NOT implemented or operated by the teams building RESTful services. The UI teams build that layer and Howard’s team provides the platform and runs the service.
+```
+
 ## Micro services
 
 - GQL should be GQL and that's it.
@@ -42,3 +48,8 @@ Find a solution when the API cannot be moved easily (way too many dependencies)c
 ### Some plans
 
 ![New Gql Service](./assets/NewGqlService.png)
+
+
+### Reference
+
+- https://itnext.io/istio-service-mesh-apollo-server-for-graphql-7e7421fce5d0
