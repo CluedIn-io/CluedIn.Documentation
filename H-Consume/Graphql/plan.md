@@ -59,6 +59,7 @@ Find a solution when the API cannot be moved easily (way too many dependencies)c
 
 - If we success having the GQL being the main entry point of our API, we could refactor CluedIn.App to be 'just' a way to secure the UI (with anti-forgery) for all public end-points.
 - Anti-forgery token should be a micro service !!!
+- Add data sources in GQL to leverage caching ( https://www.apollographql.com/docs/apollo-server/features/data-sources )
 
 ### Some References
 
