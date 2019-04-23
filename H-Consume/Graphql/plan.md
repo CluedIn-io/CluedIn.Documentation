@@ -55,6 +55,10 @@ Find a solution when the API cannot be moved easily (way too many dependencies)c
 
 ![Mesh service for authentication](./assets/GQL-with-envoy.png)
 
+### Notes
+
+- If we success having the GQL being the main entry point of our API, we could refactor CluedIn.App to be 'just' a way to secure the UI (with anti-forgery) for all public end-points.
+- Anti-forgery token should be a micro service !!!
 
 ### Some References
 
@@ -62,3 +66,5 @@ Find a solution when the API cannot be moved easily (way too many dependencies)c
 - https://blog.jayway.com/2018/10/22/understanding-istio-ingress-gateway-in-kubernetes/
 - https://www.linkedin.com/pulse/using-graphql-bff-pattern-implementation-rafael-rocha/
 - https://www.envoyproxy.io/docs/envoy/latest/configuration/http_filters/jwt_authn_filter.html?highlight=authentication
+- https://blog.christianposta.com/microservices/00-microservices-patterns-with-envoy-proxy-series/
+- https://hackernoon.com/service-mesh-moving-from-bare-bones-envoy-to-istio-e0fef88fc1e3
