@@ -1,38 +1,27 @@
 ---
-title: Welcome
 ---
 
-This is the **Edition** template from [CloudCannon](http://cloudcannon.com/).
-**Edition** is perfect for documenting your product, application or service.
-It's populated with example content to give you some ideas.
+# CluedIn Documentation
 
-ChatApp is a fictional chat application for sending messages and media to others.
-Teams and friend groups would use ChatApp to stay up to date if it existed.
+Welcome to CluedIn’s certified developer documentation. CluedIn helps people connect, manage, visualize, collaborate and act on data to make company data-driven. The CluedIn developer documentation allows you to discover how you can leverage APIs and CluedIn tools to extend CluedIn functionality for custom solutions.
 
-> [Sign up](http://example.com/signup) or learn more about ChatApp at [example.com](http://example.com/).
+Developers can use the CluedIn platform to:
 
-### Getting Started
+- Get CluedIn platform up and running locally.
+- Get CluedIn platform up and running in your own hosting environment.
+- Extend CluedIn functionality to their own external applications
+- Build integrations to connect to data from any source
+- Automate processes to extend CluedIn's platform at an enterprise scale
 
-Getting a message sent is quick and easy with ChatApp:
+## Categories
 
-1. Sign up for an account
-2. Add your friends from their email addresses
-3. Type a message or send a photo
+1. [Setup and Deployment](./1-Setup-Deployment/index.md)
+2. Data Preparation
+3. Data Cleaning
+4. Data Governance
+5. MDM
+6. Data Consuming
 
-> Feel free to send us a message at [feedback@example.com](mailto:feedback@example.com) with your feedback.
+## Internal Practises
 
-### Features
-
-Explore more of ChatApp by reading about our features:
-
-#### Media
-
-Send images, videos and other media to people. Sources include your computer, phone and Facebook.
-
-#### Contact Syncing
-
-Sync your contact list with your phone and/or Facebook contacts. Never lose your contacts between devices again!
-
-#### Devices
-
-ChatApp is available everywhere. Find out how to set it up on your all your devices.
+[Internal Practises Guidelines](./Z-Internal/README/)

@@ -1,3 +1,6 @@
+---
+category: Manipulation
+---
 # Data Cleaning
 
 ## Scoping

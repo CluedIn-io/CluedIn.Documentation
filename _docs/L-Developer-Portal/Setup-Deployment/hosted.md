@@ -1,3 +1,6 @@
+---
+category: Developer Portal
+---
 # Hosting CluedIn platform
 
 CluedIn uses Kubernetes in order to orchestrate the installation and the maintenance of the platform.

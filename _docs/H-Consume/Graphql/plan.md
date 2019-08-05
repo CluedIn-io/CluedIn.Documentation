@@ -1,3 +1,7 @@
+---
+category: Data Cleaning
+---
+
 # Plan to GQL first (and remove or mitigate REST APIs)
 
 ## Some comments
@@ -49,11 +53,11 @@ Find a solution when the API cannot be moved easily (way too many dependencies)c
 
 **Gql Service**
 
-![New Gql Service](./assets/NewGqlService.png)
+![New Gql Service](../assets/NewGqlService.png)
 
 **Envoy (auth) with Gql**
 
-![Mesh service for authentication](./assets/GQL-with-envoy.png)
+![Mesh service for authentication](../assets/GQL-with-envoy.png)
 
 ### Notes
 
@@ -63,7 +67,7 @@ Find a solution when the API cannot be moved easily (way too many dependencies)c
 
 ### Some References
 
-- https://itnext.io/istio-service-mesh-apollo-server-for-graphql-7e7421fce5d0
+- [https://itnext.io/istio-service-mesh-apollo-server-for-graphql-7e7421fce5d0](https://itnext.io/istio-service-mesh-apollo-server-for-graphql-7e7421fce5d0)
 - https://blog.jayway.com/2018/10/22/understanding-istio-ingress-gateway-in-kubernetes/
 - https://www.linkedin.com/pulse/using-graphql-bff-pattern-implementation-rafael-rocha/
 - https://www.envoyproxy.io/docs/envoy/latest/configuration/http_filters/jwt_authn_filter.html?highlight=authentication

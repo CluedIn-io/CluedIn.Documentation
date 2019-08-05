@@ -1,3 +1,7 @@
+---
+category: Misc
+---
+
 # Domain Services
 
 ## Integration

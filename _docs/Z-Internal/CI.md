@@ -1,3 +1,6 @@
+---
+category: Internal
+---
 ## CluedIn CI/CD
 
 ![CI-CD](./assets/ci-cd.png)

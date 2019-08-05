@@ -1,3 +1,7 @@
+---
+category: Misc
+---
+
 # Misc
 
 ## Architecture

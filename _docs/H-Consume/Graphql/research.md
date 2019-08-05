@@ -1,3 +1,7 @@
+---
+category: Data Cleaning
+---
+
 # Research GQL Frankenstein projects
 
 We have started a GQL api but never finished it.

@@ -1,3 +1,6 @@
+---
+category: Internal
+---
 # Internal Technical Documentation
 
 ## General Practises

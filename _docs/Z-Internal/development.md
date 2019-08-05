@@ -1,3 +1,6 @@
+---
+category: Internal
+---
 # Development Environment
 
 ## IDE
