@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div class="date">
+    <small >{{page.date | date: "%e %B %Y"}}
+            {% include post-tags.html tags=page.tags%}
+    </small>
+    <br/>
+</div>
+
+<h1>{{page.title}}</h1>
+{% if page.author%}
+<div class="author">
+     By {{page.author}}
+    </div>
+{% endif%}
+
+{{content}}
+
+<div class="category">
+    <small>    
+        {% if page.category %}
+        Check other blogposts about <a href="/category/{{page.category}}">
+            {{page.category | capitalize}}
+        </a>
+        {% endif %}
+    </small>
+</div>

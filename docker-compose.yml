@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  site:
+    command: bundle exec jekyll serve --force_polling -H 0.0.0.0 -D
+    build: .
+    volumes:
+      - .:/srv/jekyll
+      # - ./vendor/bundle:/usr/local/bundle
+    ports:
+      - 4000:4000
+      - 35729:35729
+      - 3000:3000
+      -   80:4000
+networks:
+  default:
+    driver: bridge
