@@ -25,7 +25,7 @@ social:
 
 timezone: Etc/UTC
 
-permalink: pretty
+permalink: none
 
 plugins:
   - jekyll-sitemap
@@ -41,7 +41,7 @@ exclude:
 collections:
   docs:
     title: Documentation
-    permalink: /:path/
+    #permalink: /:path/
     output: true
 
 defaults:
