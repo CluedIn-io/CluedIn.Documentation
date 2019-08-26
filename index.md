@@ -1,4 +1,6 @@
 ---
+category: Get CluedIn
+title: Get CluedIn
 ---
 
 # CluedIn Documentation

@@ -1,5 +1,6 @@
 ---
 category: Manipulation
+title: Clean
 ---
 # Data Cleaning
 

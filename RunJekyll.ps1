@@ -1,1 +1,0 @@
- docker run --mount type=bind,source=d:/projects/cluedIn/cluedin.documentation,target=/srv/jekyll -p 4000:4000 -it jekyll/jekyll:builder bash
