@@ -1,11 +1,15 @@
 ---
+category: Get CluedIn
+title: What is CluedIn
 ---
 
-# CluedIn Documentation
+# CluedIn
 
-Welcome to CluedIn’s certified developer documentation. CluedIn helps people connect, manage, visualize, collaborate and act on data to make company data-driven. The CluedIn developer documentation allows you to discover how you can leverage APIs and CluedIn tools to extend CluedIn functionality for custom solutions.
+<iframe width="640" height="360" frameborder="0" allowfullscreen src="https://player.vimeo.com/video/312062542?controls=1"></iframe>
 
-Developers can use the CluedIn platform to:
+CluedIn helps people connect, manage, visualize, collaborate and act on data to make company data-driven. The CluedIn developer documentation allows you to discover how you can leverage APIs and CluedIn tools to extend CluedIn functionality for custom solutions.
+
+Developers can use this documentation to:
 
 - Get CluedIn platform up and running locally.
 - Get CluedIn platform up and running in your own hosting environment.
@@ -15,13 +19,10 @@ Developers can use the CluedIn platform to:
 
 ## Categories
 
-1. [Setup and Deployment](./1-Setup-Deployment/index.md)
-2. Data Preparation
-3. Data Cleaning
-4. Data Governance
-5. MDM
-6. Data Consuming
+1. [Get Started](./docs/0-gettingStarted/index.html)
+2. [Data Integration](./0-gettingStarted/index.md)
+3. [Data Preparation](./0-gettingStarted/index.md)
+4. [Data Manipulation](./0-gettingStarted/index.md)
+5. [Data Governance](./0-gettingStarted/index.md)
+6. [Data Consume](./0-gettingStarted/index.md)
 
-## Internal Practises
-
-[Internal Practises Guidelines](./Z-Internal/README/)

@@ -1,6 +1,3 @@
----
-category: Internal
----
 #  Working in Github
 
 ##  Inner Sourcing Approach

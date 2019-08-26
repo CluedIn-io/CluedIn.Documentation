@@ -1,6 +1,3 @@
----
-category: Developer Portal
----
 # Setup and Deployment
 
 ## Getting Started

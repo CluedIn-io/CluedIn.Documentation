@@ -1,6 +1,3 @@
----
-category: Internal
----
 ## Micro Services
 
 ### Why moving towards a micro-service approach?

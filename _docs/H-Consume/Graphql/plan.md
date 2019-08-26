@@ -1,7 +1,3 @@
----
-category: Data Cleaning
----
-
 # Plan to GQL first (and remove or mitigate REST APIs)
 
 ## Some comments
