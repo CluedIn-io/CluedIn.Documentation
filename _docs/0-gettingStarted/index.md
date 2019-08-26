@@ -3,6 +3,6 @@ category: Get Started
 title: CluedIn Overview
 ---
 
-# Getting started
+### Getting started
 
 test

@@ -169,11 +169,15 @@ $nav-image: $baseurl + "/images/menu.svg";
 	}
 }
 
-.content,
 .page-header {
-	max-width: $content-max-width;
+	//max-width: $content-max-width;
 	//padding: 0 ($space + 5) $space;
 	//margin: $space auto 0 auto;
+	padding: 40px 64px 0 64px;
+}
+
+.content {
+	max-width: $content-max-width;
 	padding: 40px 64px;
 }
 
@@ -207,9 +211,9 @@ $nav-image: $baseurl + "/images/menu.svg";
 		}
 	}
 
-	@media (min-width: $full-width-break) {
+	/*@media (min-width: $full-width-break) {
 		margin-top: 55px;
-	}
+	}*/
 }
 
 nav,

@@ -79,12 +79,13 @@ h6 {
 }
 
 a {
-	color: #4A4A4A;
-	transition: color 0.2s ease;
+	color: #26a29a;
+	text-decoration: none;
+	#transition: color 0.2s ease;
 }
 
 a:hover {
-	color: #111;
+	text-decoration: underline;
 }
 
 p,
