@@ -2,7 +2,6 @@
 category: Misc
 ---
 
-# Running Jekyll Locally
 
 ## What is Jekyll
 
