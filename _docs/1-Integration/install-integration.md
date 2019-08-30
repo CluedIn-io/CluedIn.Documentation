@@ -26,7 +26,7 @@ Please close our template repository:
 
 ### Add the nuget package you want to install
 
-In the Packages.txt, add all the Nuget package you want to install.
+In the Packages.txt, add all the Nuget packages you want to install.
 
 If you have build a custom crawler, it would generally looks like:
 
@@ -36,3 +36,36 @@ CluedIn.Crawling.MyCrawler.Core
 CluedIn.Crawling.MyCrawler.Infrastructure
 CluedIn.Provider.MyCrawler
 ```
+
+### Run CluedIn
+
+```
+> docker run xxxxx
+```
+
+### CluedIn is running with your Crawler
+
+The app should be available under http://app.cluedin.test.
+
+### Create an organization
+
+TODO
+
+```
+> ./createOrganization.ps1
+```
+
+### Login to the org
+
+Go to http://acme.cluedin.test
+
+username: admin@acme.com
+pass: acme23
+
+### Look at the integration page
+
+
+URL: https://foobar.release23.cluedin-test.online/admin/integration/applications
+
+
+More information: [How to add an Integration using the CluedIn UI](./somelink)
