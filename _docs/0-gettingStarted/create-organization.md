@@ -19,7 +19,7 @@ Emails are transactional emails. You won't receive marketing email. They are ema
 
 Visit [How to configure SMTP]()
 
-### SignUp
+### SignUp with UI
 
 Visit our sign up URL: `https://app.[cluedin-domain]/signup`
 
@@ -27,5 +27,13 @@ Visit our sign up URL: `https://app.[cluedin-domain]/signup`
 
 > Some name are being reserved by CluedIn. For privacy reasons, this list is kept private. If you have trouble entering your name, contact CluedIn support.
 
+- 1. Enter your email 
+- 2. You will receive an email with a link to create your user, click on that click
+- 3. Follow the process (pick org name, username, password, accept Terms)
+- 4. You will be redirect to the login, login and you are 'in'
+
+### SignUp with a script
+
+Execute the script `./createOrg.ps1` located to XXXXXXXX
 
 

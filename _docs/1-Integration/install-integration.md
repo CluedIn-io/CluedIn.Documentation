@@ -69,3 +69,7 @@ URL: https://foobar.release23.cluedin-test.online/admin/integration/applications
 
 
 More information: [How to add an Integration using the CluedIn UI](./somelink)
+
+### Next steps
+
+[How to add an integration](./somelink)
