@@ -1,0 +1,5 @@
+Crawling
+
+Crawling servers are stateful but are transactional in nature i.e. if a complete crawl does not finish, then it will never have a state of “complete”. This also means that if you were to cancel a crawler half way through a job, that you will need to start the crawl from the start again or potentially from the data that had changed state in the source system since the last successful crawl time. Crawlers are responsible for fetching data from a source system. Crawlers are self hosted and when they are run, the CluedIn server is responsible for giving it everything that is necessary to successfully connect and pull the right data from a source system. 
+
+It is not recommended to run a Crawling server and a Processing Server in this same CluedIn host, due to the change in nature of stateless and stateful environments. 

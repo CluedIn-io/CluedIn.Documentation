@@ -1,0 +1,4 @@
+
+Dynamic Vocabularies
+
+There are many times where you will get data that cannot be statically mapped in code. In CluedIn these will map to dynamic vocabularies. Dynamic vocabularies are a way to tell CluedIn that a particular value has no Vocabulary mapping. Essentially CluedIn will start to inspect the values in these properties to infer the types and details of the static Vocabularies. This is not necessarily a bad thing and even in the static mapping cases, CluedIn will analyse the values anyway as to determine if a Vocabulary mapping was done incorrectly. This is important for anomaly detection and outlier detection of values. 

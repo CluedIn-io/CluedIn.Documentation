@@ -1,0 +1,3 @@
+Splitting Records
+
+Over time you will realise that there are certain situations where the fuzzy merging engine will merge incorrectly or you have an EntityCode that you thought was unique, but isn’t. In this was you will need to split entities. One can use the CluedIn API to be able to split and Entity out into a tree of Clues and the choose the particular Clue objects that caused the bad merge to occur. After this split, CluedIn will then process the split Clues (minus the removed Clues) back into the Entity. The bad entity code will then be kept in a curated datastore so that future recrawls will not cause this issue to occur again. 
