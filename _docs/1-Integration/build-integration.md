@@ -158,51 +158,53 @@ Steps:
 4. Create Clue Producer. See [](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Crawling/ClueProducers/UserClueProducer.cs)
 
 ```
-public class UserClueProducer : BaseClueProducer<User>
-  {
-    private readonly IClueFactory _factory;
-
-    public UserClueProducer(IClueFactory factory)
+    public class UserClueProducer : BaseClueProducer<User>
     {
-        this._factory = factory ?? throw new ArgumentNullException(nameof(factory));
+        private readonly IClueFactory _factory;
+
+        public UserClueProducer(IClueFactory factory)
+        {
+            this._factory = factory ?? throw new ArgumentNullException(nameof(factory));
+        }
+
+        protected override Clue MakeClueImpl(User input, Guid accountId)
+        {
+            if (input == null) throw new ArgumentNullException(nameof(input));
+
+            // TODO: Create clue specifying the type of entity it is and ID
+            var clue = this._factory.Create(EntityType.Person, input.id.ToString(), accountId);
+
+            // TODO: Populate clue data
+            var data = clue.Data.EntityData;
+
+            var vocab = new UserVocabulary();
+            data.Properties[vocab.Id] = input.id.PrintIfAvailable();
+
+            data.Name = input.name.PrintIfAvailable();
+            data.Properties[vocab.Name] = input.name.PrintIfAvailable();
+
+            data.Properties[vocab.Email] = input.email;
+            data.Properties[vocab.Username] = input.username;
+
+            clue.ValidationRuleSuppressions.AddRange(new[]
+            {
+                RuleConstants.DATA_001_File_MustBeIndexed,
+                RuleConstants.METADATA_002_Uri_MustBeSet,
+                RuleConstants.METADATA_003_Author_Name_MustBeSet,
+                RuleConstants.PROPERTIES_002_Unknown_VocabularyKey_Used
+            });
+
+            return clue;
+        }
     }
-
-    protected override Clue MakeClueImpl(User input, Guid accountId)
-    {
-      if (input == null) throw new ArgumentNullException(nameof(input));
-
-      // TODO: Create clue specifying the type of entity it is and ID
-      var clue = this._factory.Create(EntityType.Person, input.id.ToString(), accountId);
-
-      // TODO: Populate clue data
-      var data = clue.Data.EntityData;
-
-      var vocab = new UserVocabulary();
-      data.Properties[vocab.Id] = input.id.PrintIfAvailable();
-
-      data.Name = input.name.PrintIfAvailable();
-      data.Properties[vocab.Name] = input.name.PrintIfAvailable();
-
-      data.Properties[vocab.Email] = input.email;
-      data.Properties[vocab.Username] = input.username;
-
-      clue.ValidationRuleSuppressions.AddRange(new[]
-      {
-          RuleConstants.DATA_001_File_MustBeIndexed,
-          RuleConstants.METADATA_002_Uri_MustBeSet,
-          RuleConstants.METADATA_003_Author_Name_MustBeSet,
-          RuleConstants.PROPERTIES_002_Unknown_VocabularyKey_Used
-      });
-
-      return clue;
-    }
-  }
 ```
 
 5. Create Crawler class. See [HelloWorldCrawler.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Crawling/HelloWorldCrawler.cs)
 
+
+
 ```
-public class HelloWorldCrawler : ICrawlerDataGenerator
+    public class HelloWorldCrawler : ICrawlerDataGenerator
     {
         private readonly IHelloWorldClientFactory _clientFactory;
         public HelloWorldCrawler(IHelloWorldClientFactory clientFactory)
@@ -229,9 +231,16 @@ public class HelloWorldCrawler : ICrawlerDataGenerator
     }
 ```
 
-### Pushing data
-
 ### Deploying the crawler locally
+
+To test the crawler with the CluedIn Backend Server, copy the following DLL's to the servers `ServerComponents` folder:
+
+```
+CluedIn.Crawling.HelloWorld.Core.dll
+CluedIn.Crawling.HelloWorld.dll
+CluedIn.Crawling.HelloWorld.Infrastructure.dll
+CluedIn.Provider.HelloWorld.dll
+```
 
 ### Testing the crawler
 
