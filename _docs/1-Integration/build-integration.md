@@ -233,14 +233,7 @@ Steps:
 
 ### Deploying the crawler locally
 
-To test the crawler with the CluedIn Backend Server, copy the following DLL's to the servers `ServerComponents` folder:
-
-```
-CluedIn.Crawling.HelloWorld.Core.dll
-CluedIn.Crawling.HelloWorld.dll
-CluedIn.Crawling.HelloWorld.Infrastructure.dll
-CluedIn.Provider.HelloWorld.dll
-```
+TODO
 
 ### Testing the crawler
 
