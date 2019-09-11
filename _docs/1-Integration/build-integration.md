@@ -28,7 +28,7 @@ You will need to install node, npm, yeoman and the generator itself.
 
 First, install Yeoman and generator-cluedin-crawler using npm (we assume you have pre-installed node.js).
 
-```
+```shell
 > npm install -g yo generator-cluedin-crawler
 ```
 
@@ -36,19 +36,19 @@ First, install Yeoman and generator-cluedin-crawler using npm (we assume you hav
 
 All you need to do is mount the target folder where you would like the generator to create the files, and run the container. So for example if you want to crate the solution under `c:\projects\CluedinCrawler` you would run:
 
-```
+```shell
 docker run --rm -ti -v c:/projects/CluedinCrawler:/generated cluedin/generator-crawler-template
 ```
 
 If you are already in the target location you could just use the variable ${PWD}:
 
-```
+```shell
 docker run --rm -ti -v ${PWD}:/generated cluedin/generator-crawler-template
 ```
 
 To execute the script, simply go to the folder where you want to create the solution and invoke:
 
-```
+```shell
 > yo cluedin-crawler.
 ```
 
@@ -66,7 +66,7 @@ Steps:
 
 1. Create model classes. See [User.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Core/Models/User.cs)
 
-```
+```csharp
     public class User
     {
         public int id { get; set; }
@@ -78,7 +78,7 @@ Steps:
 
 2. Create class to fetch remote data. See [HelloworldClient.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Infrastructure/HelloWorldClient.cs)
 
-```
+```csharp
     public class HelloWorldClient
     {
         private const string BaseUri = "https://jsonplaceholder.typicode.com";
@@ -128,7 +128,7 @@ Steps:
 
 3. Create vocabulary. See [UserVocabulary.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Crawling/Vocabularies/UserVocabulary.cs)
 
-```
+```csharp
     public class UserVocabulary : SimpleVocabulary
     {
         public UserVocabulary()
@@ -157,7 +157,7 @@ Steps:
 
 4. Create Clue Producer. See [](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Crawling/ClueProducers/UserClueProducer.cs)
 
-```
+```csharp
     public class UserClueProducer : BaseClueProducer<User>
     {
         private readonly IClueFactory _factory;
@@ -203,7 +203,7 @@ Steps:
 
 
 
-```
+```csharp
     public class HelloWorldCrawler : ICrawlerDataGenerator
     {
         private readonly IHelloWorldClientFactory _clientFactory;
