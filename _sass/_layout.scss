@@ -248,7 +248,7 @@ nav > ul {
 	}
 
 	> a {
-		color: #666;
+		color: #cecece;
 		text-decoration: none;
 		font-size: 1.4rem;
 		padding: $space / 2 0 $space / 2 $space * 2;
@@ -258,13 +258,14 @@ nav > ul {
 	&.current > a,
 	> a:active,
 	> a:hover {
-		color: #111;
+		color:$cluedin-primary;
 	}
 
 	&.top-level > a {
 		line-height: 1.5;
 		font-weight: 600;
 		padding-left: $space;
+    color: #ebebeb;
 	}
 }
 
@@ -382,7 +383,7 @@ h4 svg {
 
 	&:focus {
 		outline: none;
-		border-left-color: $brand-colour;
+    box-shadow: 0 0 5px 3px rgba(35, 35, 35, .4), 0 0 2px 2px rgba(35, 35, 35, .24);
 	}
 }
 

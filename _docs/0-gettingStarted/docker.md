@@ -16,17 +16,17 @@ NOTE: **Only CluedIn certified developers** has access to the CluedIn DockerHub.
 
 #### 1. Clone the Simple-Docker-Deployment
 
-```
+```shell
 git clone https://github.com/CluedIn-io/Simple-Docker-Deployment
 ```
 
 #### 2. Pull latest image
 
-```
+```shell
 > docker pull cluedin/cluedin-server
 ```
 
-```
+```shell
 > docker pull cluedin/app
 ```
 

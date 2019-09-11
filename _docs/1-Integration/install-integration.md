@@ -20,7 +20,7 @@ Visit our [list of all official CluedIn integration](./someURL.html).
 
 Please close our template repository:
 
-```
+```shell
 > git clone https://github.com/CluedIn-io/CluedIn.Template.Crawling.Server
 ```
 
@@ -39,7 +39,7 @@ CluedIn.Provider.MyCrawler
 
 ### Run CluedIn
 
-```
+```shell
 > docker run xxxxx
 ```
 
@@ -51,7 +51,7 @@ The app should be available under http://app.cluedin.test.
 
 TODO
 
-```
+```shell
 > ./createOrganization.ps1
 ```
 
