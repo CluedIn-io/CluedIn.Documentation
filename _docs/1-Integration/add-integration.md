@@ -70,3 +70,19 @@ Another type of integration are 'on-prem', they are integration that you need to
 ### Data coming in
 
 Once the integration added, CluedIn will ingest the date, once that is done, you will receive a notification.
+
+### Product Owner
+
+You can set the Product Owner when you add an integration. You can have multiple Product Owners and it can change throughout the lifetime of the integration. 
+
+Setting the Product Owner will dictate certain actions and responsibilities. These responsibilites include: 
+
+ - They are responsible for accepting or rejecting Mesh Commands.
+ - They will be notified when a Subject Request Access contains data for this integration point. 
+ - They will be responsible for the CluedIn Clean projects that contain data from this integration point. 
+ - They will be notified when their system is involved in a Data Breach.
+ - They will be respomsible for accepting or rejecting the Data involved in a retention setup. 
+ - They are responsible for setting the Consent for the properties in their integration.
+ - They are responsible for resolving duplicates in their integration point. 
+ - They are responsible for the provider specific Vocabularies and the mappings to core Vocabularies.
+ 
