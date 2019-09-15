@@ -38,6 +38,23 @@ Id:john.smith@fakecompany.com
 Origin:
 Organization Id:
 
-But many would argue that an email is unique, and they are true in the case where we say that an email will uniquely identify “something”. It might not be a person, it may be a group or in some cases it may be a randomly generated email address that is used in automation or to track if an email is opened or not. This is why Vocabularies are very important. Vocabularies are your way to map certain properties to Core Vocabularies and in-turn you will be telling CluedIn to do some special processing on those values. One of the goals of the core vocabulary mappings is for CluedIn to make the bridge of Entity Codes between different integration sources. This also means that you don’t need to place any special business logic into your custom integrations. Your custom integrations should remain as simple as possible and only fetch, transform and map data into Clues. If you find that there is not a suitable Core Vocabulary to map your data into then you will need to implement a new processor on the CluedIn server - your integrations are not a place to place this complex logic. 
+But many would argue that an email is unique, and they are true in the case where we say that an email will uniquely identify “something”. It might not be a person, it may be a group or in some cases it may be a randomly generated email address that is used in automation or to track if an email is opened or not. This is why Vocabularies are very important. Vocabularies are your way to map certain properties to Core Vocabularies and in-turn you will be telling CluedIn to do some special processing on those values. One of the goals of the core vocabulary mappings is for CluedIn to make the bridge of Entity Codes between different integration sources. This also means that you don’t need to place any special business logic into your custom integrations. Your custom integrations should remain as simple as possible and only fetch, transform and map data into Clues. If you find that there is not a suitable Core Vocabulary to map your data into then you will need to implement a new processor on the CluedIn server - your integrations are not a place to place this complex logic. Some good examples of Entity Code Id's are:
 
-Edges are a part of the Clue object that is responsible for pointing to reference objects that may or may not exist now or in the future. 
+ - Passport Number
+ - Employee Id
+ - Twitter handle
+ - Tax File Number
+ - Social Security Number
+ - Company Id
+ - IBAN
+
+Edges are a part of the Clue object that is responsible for pointing to reference objects that may or may not exist now or in the future. Edges are one of the key pieces of CluedIn that allow you to properly map data across many different data sources. To create an Edge, you will only need the Entity Type and the Id of the target record. Most importantly, you don't need to specify what source that CluedIn will actually find this record in. The only important part is that the Entity Type and Id need to 100% match. If you have this in place, then CluedIn will do all the work to join your data where a join is identified. 
+
+Aliases are your way to set values that are a hint to a unique identity, but in no way are unique. Some good examples include references to a record that could uniquely identify different companies, people etc. The following are good examples of Aliases:
+
+ - Phone Numbers
+ - Nick Names
+ - User Names
+ - Initials
+ - Addresses
+
