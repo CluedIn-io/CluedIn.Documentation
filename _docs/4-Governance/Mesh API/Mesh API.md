@@ -40,4 +40,4 @@ Mesh API commands can be generated through the CluedIn REST API, or it can be al
  - Running the Data Privacy operations or Minification, Anonymisation, Deletion or Remove from Processing. 
  - When a particular property has gained higher mean data metrics than another and CluedIn has raised that property value as the recommended value. 
 
- Any of these operations will generate Mesh API commands and will place these under the affected Entities in the "Pending Changes" tab of the entity page. They will also be written into the Mesh Command Center.
+ Any of these operations will generate Mesh API commands and will place these under the affected Entities in the "Pending Changes" tab of the entity page. They will also be written into the Mesh Command Center. All Mesh Commands that are generated through the CluedIn User Interface are by default "Queued" and are not run until the Product Owner of the record that is being mutated accepts the change. You might find that an Entity has been merged from many sources and hence every single individual Product Owner will need to be involved in the Approval Process. 
