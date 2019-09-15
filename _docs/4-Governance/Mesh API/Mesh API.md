@@ -32,3 +32,12 @@ Step 2: If the user decides to run the command, it will make the appropriate cal
 Step 3: CluedIn will run the validation function so that you can check if your operation worked successfully e.g. if you ran a delete operation, you would expect that if you tried to lookup the value again that you would not get a record back. If your validation fails, then CluedIn will retry for a number of times and then mark the mesh command in a failed state. This means that there is a strong chance that the operation failed.
 
 When mesh operations are run, it will update the records in the source systems and in most cases will update their modification stamp as well. This means the next time that CluedIn runs a scheduled crawl against that system, if the source sends us the updated modification stamp then CluedIn will process it; if it does not send us the updated modification date then CluedIn will assume it is the same and throw it away in processing. This is due to the hash that CluedIn generates on entities as to do quick comparisons of records. 
+
+Mesh API commands can be generated through the CluedIn REST API, or it can be all managed through the CluedIn User Inteface. There are many operations that will generate a Mesh Command, but in summary - any mutation operation that runs in CluedIn will cause Mesh API commands by default. These include:
+
+ - Using CluedIn Clean to normalise values
+ - Directly Editing values in the "All Properties" tab of an Entity
+ - Running the Data Privacy operations or Minification, Anonymisation, Deletion or Remove from Processing. 
+ - When a particular property has gained higher mean data metrics than another and CluedIn has raised that property value as the recommended value. 
+
+ Any of these operations will generate Mesh API commands and will place these under the affected Entities in the "Pending Changes" tab of the entity page. They will also be written into the Mesh Command Center.

@@ -1253,3 +1253,9 @@ Integration 4
 
 Property 3 
 
+Why do my records show "Not enough data to show trend"?
+
+This is due to the fact that since the first metric for this record and for this specific metric (e.g. Completeness), the value of this score has not changed and hence CluedIn will not record this as a new value. 
+
+This is partially due to the fact that these metrics can take up quite a lot of storage when run over huge amounts of data. 
+

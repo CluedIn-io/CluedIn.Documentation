@@ -58,3 +58,6 @@ Aliases are your way to set values that are a hint to a unique identity, but in 
  - Initials
  - Addresses
 
+The Created and Modified Dates for a Clue are important. If these are available in your source system, it is important to map these into your Clues. Do not manually set these Dates e.g. DateTimeOffset.UtcNow as this means that CluedIn will think that this record has changed, and then on evaluation we will realise that potentially, no properties were changed. CluedIn will generate a DiscoveryDate for you, so you do not need to manually set this. When searching for records in CluedIn and sorting by "New", CluedIn will always set the highest of the 3 Date Properties (Created, Modified, Discovered) and will set the SortDate for you automatically. 
+
+Setting the Authors in your Clue is your way to add references to users that have modified, created or worked on your records. Each Clue can have many Authors. For setting Authors, you will set a PersonReference, which is very similar to an Entity Code, just without an Origin. 
