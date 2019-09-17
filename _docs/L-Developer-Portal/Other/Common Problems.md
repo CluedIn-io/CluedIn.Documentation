@@ -12,3 +12,6 @@ There are some properties that I don’t want to expose to downstream consumers
 
 It is common when ingesting data from multiple different sources that there are some properties are there as metadata or supplementary fields and hence are not intended to be projected out to downstream consumers. This is why, as developers, you can control the Visibility of Vocabularies. This is an enumeration which also has Flags, meaning that you can combine different Visibility properties together. 
 
+Order of Processing
+
+There are many times where the order of the initial processing of data can yield better results if managed. For example, for performance reasons, it is always a good idea to pre-clean data in CluedIn Clean before ingesting it and creating Entity Codes. Often this will lead to a faster processing, higher data quality and better results. Although possible, it is often best to be able to clean all the different permutations of bad entity codes before ingesting data into CluedIn. For lineage purposes, we would recommend that you store the original and bad entity codes in the property bag and fix the data for the Entity Codes. 

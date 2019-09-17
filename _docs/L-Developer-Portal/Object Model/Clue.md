@@ -16,6 +16,7 @@ Aliases
 Change Verbs
 Extracted Content e.g. Content of a file.
 Uri
+Tags
 External Uri's
 
 A Clue can have many Entity Codes associated with it. Imagine that you were integrating a record on a company and you had data on their local business identifier, website, LinkedIn Url, Facebook Url. These would all be considered ways to uniquely identify a company. Some are questionable as being unique identifiers, but most of the time we can accept that in more cases that not, they will be unique. For example, you could argue that a website is not a unique reference as chances are that you have purchased the website domain off a business that went bankrupt. This is completely fair, but we need to realise if this is the greater “evil” or not. More than often, a website will be unique to a company and for those times that it is not, we know that we might need to manually intervene in those records at a later point in time. 
