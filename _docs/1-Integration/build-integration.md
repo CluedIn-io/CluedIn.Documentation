@@ -28,7 +28,7 @@ You will need to install node, npm, yeoman and the generator itself.
 
 First, install Yeoman and generator-cluedin-crawler using npm (we assume you have pre-installed node.js).
 
-```shell
+```
 > npm install -g yo generator-cluedin-crawler
 ```
 
@@ -36,19 +36,19 @@ First, install Yeoman and generator-cluedin-crawler using npm (we assume you hav
 
 All you need to do is mount the target folder where you would like the generator to create the files, and run the container. So for example if you want to crate the solution under `c:\projects\CluedinCrawler` you would run:
 
-```shell
+```
 docker run --rm -ti -v c:/projects/CluedinCrawler:/generated cluedin/generator-crawler-template
 ```
 
 If you are already in the target location you could just use the variable ${PWD}:
 
-```shell
+```
 docker run --rm -ti -v ${PWD}:/generated cluedin/generator-crawler-template
 ```
 
 To execute the script, simply go to the folder where you want to create the solution and invoke:
 
-```shell
+```
 > yo cluedin-crawler.
 ```
 
@@ -66,7 +66,7 @@ Steps:
 
 1. Create model classes. See [User.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Core/Models/User.cs)
 
-```csharp
+```
     public class User
     {
         public int id { get; set; }
@@ -78,7 +78,7 @@ Steps:
 
 2. Create class to fetch remote data. See [HelloworldClient.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Infrastructure/HelloWorldClient.cs)
 
-```csharp
+```
     public class HelloWorldClient
     {
         private const string BaseUri = "https://jsonplaceholder.typicode.com";
@@ -128,7 +128,7 @@ Steps:
 
 3. Create vocabulary. See [UserVocabulary.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Crawling/Vocabularies/UserVocabulary.cs)
 
-```csharp
+```
     public class UserVocabulary : SimpleVocabulary
     {
         public UserVocabulary()
@@ -157,7 +157,7 @@ Steps:
 
 4. Create Clue Producer. See [](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Crawling/ClueProducers/UserClueProducer.cs)
 
-```csharp
+```
     public class UserClueProducer : BaseClueProducer<User>
     {
         private readonly IClueFactory _factory;
@@ -202,8 +202,7 @@ Steps:
 5. Create Crawler class. See [HelloWorldCrawler.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Crawling/HelloWorldCrawler.cs)
 
 
-
-```csharp
+```
     public class HelloWorldCrawler : ICrawlerDataGenerator
     {
         private readonly IHelloWorldClientFactory _clientFactory;
@@ -230,6 +229,49 @@ Steps:
         }       
     }
 ```
+
+6. Implement IExtendedProviderMetadata on Provider class. [HelloWorldProvider.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Provider/HelloWorldProvider.cs)
+
+In order for the CluedIn Backend to discover and configure your Provider with the User Interface, you must implement the following C# interface:
+
+```
+    public interface IExtendedProviderMetadata
+    {
+        string Icon { get; }            // see notes below
+
+        string Domain { get; }          // The Url to your application
+
+        string About { get; }           // A sentence describingthe purpose of your application
+
+        string AuthMethods { get; }     // A serialised JSON array of Authentication Methods supports (TODO Obtain list of )
+
+        string Properties { get; }      // TODO find out how this is used by UI
+
+        string ServiceType { get; }     // IE CRMType etc (TODO get full list)
+
+        string Aliases { get; }         // TODO find out how used in the UI
+
+        Guide Guide { get; set; }       // Instructions on how to configure your Provider in the UI
+
+        string Details { get; set; }    // Details of how this provider/crawler will interact with your application
+
+        string Category { get; set; }   // The category your provider fall under to allow filtering in the UI
+
+        string Type { get; set; }       // Available options [cloud, on-premise]
+    }
+```
+
+* For your icon to be found, you must add it as an Embedded Resource via the Build Action property in your Provider project. See [Build actions](https://docs.microsoft.com/en-us/visualstudio/ide/build-actions?view=vs-2019). The convention we are using is to place the icon image file under a `Resources` folder. The `Icon` property above must point to this file using '.' notation rather than '\'. For example:
+
+```
+- Provider.HellowWorld.csproj
+    \Resources
+        \cluedin.png
+```
+
+would be represented as `Resources.cluedin.png`
+
+
 
 ### Deploying the crawler locally
 
