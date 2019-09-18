@@ -202,7 +202,6 @@ Steps:
 5. Create Crawler class. See [HelloWorldCrawler.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Crawling/HelloWorldCrawler.cs)
 
 
-
 ```csharp
     public class HelloWorldCrawler : ICrawlerDataGenerator
     {
@@ -230,6 +229,49 @@ Steps:
         }       
     }
 ```
+
+6. Implement IExtendedProviderMetadata on Provider class. [HelloWorldProvider.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Provider/HelloWorldProvider.cs)
+
+In order for the CluedIn Backend to discover and configure your Provider with the User Interface, you must implement the following C# interface:
+
+```csharp
+    public interface IExtendedProviderMetadata
+    {
+        string Icon { get; }            // see notes below
+
+        string Domain { get; }          // The Url to your application
+
+        string About { get; }           // A sentence describingthe purpose of your application
+
+        string AuthMethods { get; }     // A serialised JSON array of Authentication Methods supports (TODO Obtain list of )
+
+        string Properties { get; }      // TODO find out how this is used by UI
+
+        string ServiceType { get; }     // IE CRMType etc (TODO get full list)
+
+        string Aliases { get; }         // TODO find out how used in the UI
+
+        Guide Guide { get; set; }       // Instructions on how to configure your Provider in the UI
+
+        string Details { get; set; }    // Details of how this provider/crawler will interact with your application
+
+        string Category { get; set; }   // The category your provider fall under to allow filtering in the UI
+
+        string Type { get; set; }       // Available options [cloud, on-premise]
+    }
+```
+
+* For your icon to be found, you must add it as an Embedded Resource via the Build Action property in your Provider project. See [Build actions](https://docs.microsoft.com/en-us/visualstudio/ide/build-actions?view=vs-2019). The convention we are using is to place the icon image file under a `Resources` folder. The `Icon` property above must point to this file using '.' notation rather than '\'. For example:
+
+```
+- Provider.HellowWorld.csproj
+    \Resources
+        \cluedin.png
+```
+
+would be represented as `Resources.cluedin.png`
+
+
 
 ### Deploying the crawler locally
 
