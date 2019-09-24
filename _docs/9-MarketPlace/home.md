@@ -20,7 +20,7 @@ Some integration fetch data (Connectors), some enrich data (Enrichers), some all
 
 The first step after having installed CluedIn is usually to bring data in. 
 
-This is done using an [Connector](https://cluedin-marketplace.herokuapp.com/search?q=cl&type=integrations).
+This is done using an [Connector](https://cluedin-marketplace.herokuapp.com/search?type=connectors).
 
 If you were to not find what you are looking for in the MarketPlace, you can always [build an integration](/docs/1-Integration/build-integration.html) yourself.
 
@@ -28,7 +28,7 @@ If you were to not find what you are looking for in the MarketPlace, you can alw
 
 ### Enricher
 
-[Enricher](https://cluedin-marketplace.herokuapp.com/search?q=cl&type=enrichers) enables you to enrich data by using external sources.
+[Enricher](https://cluedin-marketplace.herokuapp.com/search?type=enrichers) enables you to enrich data by using external sources.
 
 
 ---
