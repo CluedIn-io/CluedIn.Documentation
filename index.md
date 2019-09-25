@@ -20,9 +20,12 @@ Developers can use this documentation to:
 ## Categories
 
 1. [Get Started]({% link ./docs/0-gettingStarted/default.md %})
-2. [Data Integration]({% link ./0-gettingStarted/index.md %})
-3. [Data Preparation]({% link ./0-gettingStarted/index.md %})
-4. [Data Manipulation]({% link ./0-gettingStarted/index.md %})
-5. [Data Governance]({% link ./0-gettingStarted/index.md %})
-6. [Data Consume]({% link ./0-gettingStarted/index.md %})
+2. [Integration]({% link ./1-Integration/index.md %})
+3. [Preparation]({% link ./2-Preparation/index.md %})
+4. [Manipulation]({% link ./3-Preparation/index.md %})
+5. [Governance]({% link ./4-Governance/index.md %})
+6. [Consume]({% link ./5-Consume/index.md %})
 
+## Marketplace
+
+[Marketplace Documentation]({% link ./9-MarketPlace/home.md %})
