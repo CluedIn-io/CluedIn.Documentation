@@ -1,6 +1,7 @@
 ---
 category: Get Started
 title: How to configure SMTP?
+hideMenu: true
 ---
 
 ### Introduction
