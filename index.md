@@ -19,7 +19,7 @@ Developers can use this documentation to:
 
 ## Categories
 
-1. [Get Started](./docs/0-gettingStarted/default.md)
+1. [Get Started](./docs/0-gettingStarted/0-default.md)
 2. [Integration](./1-Integration/index.md)
 3. [Preparation](./2-Preparation/index.md)
 4. [Manipulation](./3-Preparation/index.md)
