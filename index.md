@@ -19,13 +19,13 @@ Developers can use this documentation to:
 
 ## Categories
 
-1. [Get Started](./docs/0-gettingStarted/0-default.md)
-2. [Integration](./1-Integration/index.md)
-3. [Preparation](./2-Preparation/index.md)
-4. [Manipulation](./3-Preparation/index.md)
-5. [Governance](./4-Governance/index.md)
-6. [Consume](./5-Consume/index.md)
+1. [Get Started](./docs/0-gettingStarted/0-default.html)
+2. [Integration](./1-Integration/index.html)
+3. [Preparation](./2-Preparation/index.html)
+4. [Manipulation](./3-Preparation/index.html)
+5. [Governance](./4-Governance/index.html)
+6. [Consume](./5-Consume/index.html)
 
 ## Marketplace
 
-[Marketplace Documentation](./9-MarketPlace/home.md)
+[Marketplace Documentation](./9-MarketPlace/home.html)
