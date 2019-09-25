@@ -19,10 +19,10 @@ Developers can use this documentation to:
 
 ## Categories
 
-1. [Get Started](% link ./docs/0-gettingStarted/default.md %})
-2. [Data Integration]((% ./0-gettingStarted/index.md %})
-3. [Data Preparation]((% ./0-gettingStarted/index.md %})
-4. [Data Manipulation]((% ./0-gettingStarted/index.md %})
-5. [Data Governance]((% ./0-gettingStarted/index.md %})
-6. [Data Consume]((% ./0-gettingStarted/index.md %})
+1. [Get Started]({% link ./docs/0-gettingStarted/default.md %})
+2. [Data Integration]({% link ./0-gettingStarted/index.md %})
+3. [Data Preparation]({% link ./0-gettingStarted/index.md %})
+4. [Data Manipulation]({% link ./0-gettingStarted/index.md %})
+5. [Data Governance]({% link ./0-gettingStarted/index.md %})
+6. [Data Consume]({% link ./0-gettingStarted/index.md %})
 
