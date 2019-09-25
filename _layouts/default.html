@@ -55,7 +55,7 @@
 							<ul>
 								{% for item in items %}
 									if 
-									{% if !item.hideMenu %}
+									{% if item.hideMenu != true %}
 										<li class="nav-item {% if item.url == page.url %}current{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
 									{% endif %}
 								{% endfor %}
