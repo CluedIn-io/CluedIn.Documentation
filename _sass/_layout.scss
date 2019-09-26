@@ -471,7 +471,15 @@ img {
 	display: block;
 }
 
+main {
+	display: flex;
+  align-items: flex-start;
+	max-width: 1200px;
+}
 article {
+  flex-grow: 1;
+  width: 0;
+	max-width: 100ch;
 	h1, h2, h3, h4, h5 {
 		letter-spacing: 0;
 		text-indent: 0;
@@ -492,4 +500,17 @@ article {
 	h5 {
 		font-size: 1.3rem;
 	}
+}
+aside {
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	width: 260px;
+	max-height: calc(100vh - 64px);
+	margin-top: -36px;
+	margin-left: auto;
+	padding: 40px 56px;
+	padding-right: 0;
+	position: sticky;
+	top: 64px;
 }

@@ -77,12 +77,16 @@
 				<h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
 				<h3>{{ page.title }}</h3>
 			</div>
+			<main>
 			<article class="content">
 				{{ content }}
 			</article>
-			<div style="{ margin-top: '10px' }">
-				<a href="{{ site.github.repository_url }}/tree/master/{{ page.path }}">Edit this Page</a>
-			</div>
+				<aside id="sticky-menu">
+					<div>
+						<a href="{{ site.github.repository_url }}/tree/master/{{ page.path }}">Edit this Page</a>
+					</div>
+				</aside>
+			</main>
 		</section>
 
 		<script>
