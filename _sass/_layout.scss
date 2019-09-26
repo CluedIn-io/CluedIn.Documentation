@@ -472,6 +472,10 @@ img {
 }
 
 article {
+	h1, h2, h3, h4, h5 {
+		letter-spacing: 0;
+		text-indent: 0;
+	}
 	h1 {
 		font-size: 1.8rem;
 	}
