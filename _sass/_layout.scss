@@ -523,6 +523,9 @@ aside {
 			margin-bottom: .725rem;
 			list-style: none;
 			a {
+				&:hover {
+					color: #26a29acc
+				}
 				text-decoration: none;
 			}
 		}
