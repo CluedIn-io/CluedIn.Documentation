@@ -4,7 +4,7 @@
 title: CluedIn Documentation
 url: "https://github.com/CluedIn-io/CluedIn.Documentation/tree/feature/jekill"
 baseurl:
-google_analytics_key:
+google_analytics_key: UA-148807692-1
 show_full_navigation: true
 
 
