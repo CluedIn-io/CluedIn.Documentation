@@ -514,3 +514,17 @@ aside {
 	position: sticky;
 	top: 109px;
 }
+
+#sticky-menu {
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			margin-bottom: .725rem;
+			list-style: none;
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+}

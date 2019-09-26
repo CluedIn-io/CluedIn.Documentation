@@ -7,12 +7,12 @@
 
 		{% seo %}
 		{% feed_meta %}
-
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
 		<link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
 		<link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png">
 		<link rel="icon" type="image/png" href="{{ site.baseurl }}/touch-icon.png" sizes="192x192">
 		<link rel="icon" type="image/png" href="{{ site.baseurl }}/images/favicon.png">
+		<script src="https://kit.fontawesome.com/53f65601e3.js" crossorigin="anonymous"></script>
 
 		{% if jekyll.environment == 'production' and site.google_analytics_key != '' %}
 			<script>
@@ -82,9 +82,48 @@
 				{{ content }}
 			</article>
 				<aside id="sticky-menu">
-					<div>
-						<a href="{{ site.github.repository_url }}/tree/master/{{ page.path }}">Edit this Page</a>
-					</div>
+					<ul>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="{{ site.github.repository_url }}/tree/master/{{ page.path }}"
+								>
+									<i class="fab fa-github"></i>
+									Edit this page
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://twitter.com/CluedInHQ"
+								>
+									<i class="fab fa-twitter"></i>
+									Follow us
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.facebook.com/cluedinhq/"
+								>
+									<i class="fab fa-facebook"></i>
+									Like us
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.youtube.com/channel/UC3jeVGsDC97C81ISJLUhszQ"
+								>
+									<i class="fab fa-youtube"></i>
+									Subscribe
+								</a>
+						</li>
+					</ul>
 				</aside>
 			</main>
 		</section>
