@@ -162,10 +162,10 @@ $nav-image: $baseurl + "/images/menu.svg";
 	background-color: $content-background-color;
 	color: $content-color;
 
-	h3::before {
+	h3::before, h1::before, h2::before {
 		content: "";
 		@extend hr;
-		margin: 60px 0;
+		margin: 30px 0;
 	}
 }
 
@@ -178,7 +178,7 @@ $nav-image: $baseurl + "/images/menu.svg";
 
 .content {
 	max-width: $content-max-width;
-	padding: 40px 64px;
+	padding: 0 64px;
 }
 
 .page-header {
