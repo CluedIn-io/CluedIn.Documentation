@@ -21,10 +21,7 @@ Developers can use this documentation to:
 
 1. [Get Started](./docs/0-gettingStarted/0-default.html)
 2. [Integration](./1-Integration/index.html)
-3. [Preparation](./2-Preparation/index.html)
-4. [Manipulation](./3-Preparation/index.html)
-5. [Governance](./4-Governance/index.html)
-6. [Consume](./5-Consume/index.html)
+
 
 ## Marketplace
 
