@@ -6,6 +6,7 @@ url: "https://github.com/CluedIn-io/CluedIn.Documentation/tree/feature/jekill"
 baseurl:
 google_analytics_key: UA-148807692-1
 show_full_navigation: true
+version: "2.4"
 
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
