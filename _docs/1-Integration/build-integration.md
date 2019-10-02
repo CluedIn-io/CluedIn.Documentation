@@ -241,7 +241,7 @@ In order for the CluedIn Backend to discover and configure your Provider with th
 
         string Domain { get; }          // The Url to your application
 
-        string About { get; }           // A sentence describingthe purpose of your application
+        string About { get; }           // A sentence describing the purpose of your application
 
         string AuthMethods { get; }     // A serialised JSON array of Authentication Methods supports (TODO Obtain list of )
 
@@ -261,17 +261,7 @@ In order for the CluedIn Backend to discover and configure your Provider with th
     }
 ```
 
-* For your icon to be found, you must add it as an Embedded Resource via the Build Action property in your Provider project. See [Build actions](https://docs.microsoft.com/en-us/visualstudio/ide/build-actions?view=vs-2019). The convention we are using is to place the icon image file under a `Resources` folder. The `Icon` property above must point to this file using '.' notation rather than '\'. For example:
-
-```
-- Provider.HellowWorld.csproj
-    \Resources
-        \cluedin.png
-```
-
-would be represented as `Resources.cluedin.png`
-
-
+For more information, refer to [Integration and the CluedIn UI](/docs/1-Integration/inetgration-compatible-with-UI.html)
 
 ### Deploying the crawler locally
 
