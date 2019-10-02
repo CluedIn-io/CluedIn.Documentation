@@ -1,6 +1,6 @@
 ---
 category: Upgrade
-title: From V2.3.X to V.2.4.x
+title: From V2.3.x to V.2.4.x
 ---
 
 ### Instruction
