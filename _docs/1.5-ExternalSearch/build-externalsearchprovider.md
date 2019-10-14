@@ -1,11 +1,11 @@
 ---
-category: ExternalSearch
-title: Build External Search provider
+category: Enricher
+title: Build enricher
 ---
 
 ### Introduction
 
-In CluedIn, an External Search Provider allows you to take input from data flowing through the processing pipeline and then lookup services (typically external API’s) as to enrich just a single particular entity. 
+In CluedIn, an Enricher allows you to take input from data flowing through the processing pipeline and then lookup services (typically external API’s) as to enrich just a single particular entity. 
 
 In our HelloWorld example (see [CluedIn.Enricher.HelloWorld(]https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld)) we will obtain `Person` data from an external source called [JSON Placeholder](https://jsonplaceholder.typicode.com)
 
