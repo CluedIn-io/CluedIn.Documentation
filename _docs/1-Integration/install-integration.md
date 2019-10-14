@@ -18,7 +18,7 @@ Visit our [list of all official CluedIn integration](./someURL.html).
 
 ### How to run
 
-Please close our template repository:
+Please clone our template repository:
 
 ```shell
 > git clone https://github.com/CluedIn-io/CluedIn.Template.Crawling.Server
