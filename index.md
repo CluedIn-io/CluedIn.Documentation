@@ -17,11 +17,23 @@ Developers can use this documentation to:
 - Build integrations to connect to data from any source
 - Automate processes to extend CluedIn's platform at an enterprise scale
 
+## Required skills
+- For Installation/Configuration of production environments:
+    - Basic understanding of Kubernetes
+    - Basic understanding of Docker
+    - Basic understanding of Helm charts
+    - Experience with Powershell/Bash
+    - SSL
+    - DNS
+
+- To extend the main CluedIn platform with all the custom capabilities:
+    - Basic knowledge of C#
+    - Basic knowledge of Docker
+
 ## Categories
 
 1. [Get Started](./docs/0-gettingStarted/0-default.html)
 2. [Integration](./1-Integration/index.html)
-
 
 ## Marketplace
 
