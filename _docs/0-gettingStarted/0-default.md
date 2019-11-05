@@ -30,9 +30,9 @@ Notice all the communication from the browser into the application comes through
 
 ### Installation
 
-[Using Docker](/docs/0-gettingStarted/docker.html)
-[Using Kubernetes](/docs/0-gettingStarted/kubernetes.html)
+- [Using Docker](/docs/0-gettingStarted/docker.html)
+- [Using Kubernetes](/docs/0-gettingStarted/kubernetes.html)
 
 ### Integration
 
-[Build my first crawler](/docs/1-integration/index.html)
+- [Build my first crawler](/docs/1-integration/index.html)
