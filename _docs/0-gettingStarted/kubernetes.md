@@ -85,6 +85,9 @@ Once you have set all the required values for your installation in the `values.y
 
     Now that you have generated the manifests for all the resources, you can apply them in bulk running `kubectl apply -f .`
 
+#### Monitoring
+
+Check the [monitoring and logging](/docs/0-gettingStarted/monitoring.html) section to learn how to verify if the application is running successfully. You are able to check the logs, and connect to the interfaces of the different tools CluedIn is using.
 
 ### Other things to note
 
