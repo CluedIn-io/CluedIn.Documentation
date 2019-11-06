@@ -4,6 +4,28 @@ title: Monitoring the application
 hideMenu: true
 ---
 
+## Logging 
+
+CluedIn uses structured logging. You can configure any sink, but only 3 have been tested with the application.
+1. Console: this sink is enabled by default.
+
+1. [Seq](https://datalust.co/seq): To enable it, you just need to add the `seq` image you want to use:
+    ```yaml
+    seq:
+        image: datalust/seq
+    ```
+    
+    You can access it using port-forwarding or you could enable an ingress route:
+    ```yaml
+    seq:
+        public_endpoint: /seq
+    ```
+
+1. [Azure Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+
+TODO
+
+
 ## Admin UIs
 It is sometimes useful, for example for debugging purposes, to be able to log in to some of the tools / dependencies that CluedIn uses. The easiest way is to set up a proxy using a machine that has ```kubectl``` configured to access the cluster.
 
@@ -50,13 +72,12 @@ kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app
 Then point your browser to ```localhost:9200/_plugin/inquisitor/#/```
 
 ### SqlServer
-Well-known relational Database. You can retrieve the password by executing either:
-
+Well-known relational Database. You can retrieve the password by executing this command in a bash shell:
 ```bash
 kubectl get secret <release-name>-cluedin-sql-password -o jsonpath="{.data.SA_PASSWORD}" | base64 --decode
 ```
-if using Linux. Or using Powershell:
 
+Or using Powershell:
 ```powershell
 [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($(kubectl get secret <release-name>-cluedin-sql-password -o jsonpath="{.data.SA_PASSWORD}")))
 ```
@@ -68,28 +89,4 @@ kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app
 ```
 You can then use Visual Studio, or the MSSQL Management Studio to connect to the database on localhost. If there is already a SQLServer instance in your machine, there will be a port clash. See note below to map to a different local port.
 
-*_Note_*: You can map the port to a different local port if there is a conflict with existing open ports in your machine using the syntax ```kubectl port-forward <pod> <local-port>:<remote-port>```
-
-### Logging 
-
-CluedIn uses structured logging. You can configure any sink, but only 3 have been tested with the application.
-1. Console
-    The console sink is enabled by default.
-
-1. [Seq](https://datalust.co/seq)
-    To enable it, you just need to add the `seq` image you want to use:
-
-    ```yaml
-    seq:
-        image: datalust/seq
-    ```
-    
-    You can access it using port-forwarding or you could enable an ingress route:
-    ```yaml
-    seq:
-        public_endpoint: /seq
-    ```
-
-1. [Azure Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
-
-TODO
+*Note*: You can map the port to a different local port if there is a conflict with existing open ports in your machine using the syntax ```kubectl port-forward <pod> <local-port>:<remote-port>```

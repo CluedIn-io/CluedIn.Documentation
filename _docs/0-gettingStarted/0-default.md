@@ -30,8 +30,8 @@ Notice all the communication from the browser into the application comes through
 
 ### Installation
 
-- [Using Docker](/docs/0-gettingStarted/docker.html)
-- [Using Kubernetes](/docs/0-gettingStarted/kubernetes.html)
+- For development and evaluation purposes [using Docker](/docs/0-gettingStarted/docker-local.html)
+- For testing and production environments [using Kubernetes](/docs/0-gettingStarted/kubernetes.html)
 
 ### Integration
 
