@@ -3,73 +3,81 @@ category: Integration
 title: Install Integration
 ---
 
-### Introduction
+### Using Docker
 
-To install an integration, you will need it being packaged using Nuget.
-
-### Official CluedIn integrations
-
-Visit our [list of all official CluedIn integration](./someURL.html).
+If you are running CluedIn using Docker, for testing and evaluation purposes, you can follow the [adding extra components](/docs/0-gettingStarted/docker-local.html#adding-extra-components) instructions.
 
 
-### Pre-requesite
+### Installing integrations in Kubernetes 
 
-- Docker
+#### Via the helm chart
 
-### How to run
+In a production environment, using Kubernetes, you can add the components you want to install through the [`values.yml`](/docs/0-gettingStarted/kubernetes.html#installation) file. You can also specify different nuget sources for those packages:
 
-Please clone our template repository:
+```yaml
+cluedin:
+    components:
+        packages:
+        - nuget.package1
+        - nuget.package2
+        sources: # optionally add nuget sources
+            mynugetfeed: # any name you want to give to this feed
+                url: url-to-my-nuget-feed
+```
+
+If those sources require authentication, you can create a secret with a variable `KEY` with the PAT credentials:
 
 ```shell
-> git clone https://github.com/CluedIn-io/CluedIn.Template.Crawling.Server
+kubectl create secret generic --from-literal=KEY=<token-to-access-nuget> my-nuget-secret
+```
+Then you can add the name of the secret to the `values.yml` file.
+```yaml
+cluedin:
+    secrets:
+    - my-nuget-secret
 ```
 
-### Add the nuget package you want to install
+---
+#### Via custom image
 
-In the Packages.txt, add all the Nuget packages you want to install.
+Alternatively you could build your own Docker image, using the CluedIn one as a base, copying the files for the components. This has the advantage that the container can start up quicker, as it does not have to download nuget packages, plus also it does not require communication to the nuget feed. 
 
-If you have build a custom crawler, it would generally looks like:
+You can add:
 
-```
-CluedIn.Crawling.MyCrawler
-CluedIn.Crawling.MyCrawler.Core
-CluedIn.Crawling.MyCrawler.Infrastructure
-CluedIn.Provider.MyCrawler
-```
+1. DLLs you want to install
 
-### Run CluedIn
+    ```Dockerfile
+    FROM cluedin/cluedin-server:ltsc2019-latest
 
-```shell
-> docker run xxxxx
-```
+    COPY <your-dlls> /app/ServerComponent
+    ```
 
-### CluedIn is running with your Crawler
+1. a list of nuget packages and a `nuget.config`:
+    ```Dockerfile
+    # escape=`
 
-The app should be available under http://app.cluedin.test.
+    FROM cluedin/cluedin-server:ltsc2019-develop
 
-### Create an organization
+    COPY nuget.config Packages.txt /nuget/
 
-TODO
+    RUN /Install-Packages.ps1 -PackageListFile \nuget\Packages.txt -nugetConfig \nuget\nuget.config; `
+        mv \packages\*.dll \app\ServerComponent\; `
+        rm \nuget -Recurse -Force
+    ```
 
-```shell
-> ./createOrganization.ps1
-```
+2. nuget packages from a private repo that requires authentication:
+    ```Dockerfile
+    # escape=`
 
-### Login to the org
+    FROM cluedin/cluedin-server:ltsc2019-develop
 
-Go to http://acme.cluedin.test
+    ARG KEY
 
-username: admin@acme.com
-pass: acme23
+    COPY nuget.config Packages.txt /nuget/
 
-### Look at the integration page
+    RUN /Install-Packages.ps1 -Key=$KEY -FeedNames @('private-feed-1','private-feed-2') -PackageListFile \nuget\Packages.txt -nugetConfig \nuget\nuget.config; `
+        mv \packages\*.dll \app\ServerComponent\; `
+        rm \nuget -Recurse -Force
+    ```
+    You would then pass the key as a build argument: e.g. `docker build . --build-arg=KEY=<my-nuget-key> -t my-custom-cluedin-server-image`
 
-
-URL: https://foobar.release23.cluedin-test.online/admin/integration/applications
-
-
-More information: [How to add an Integration using the CluedIn UI](./somelink)
-
-### Next steps
-
-[How to add an integration](./somelink)
