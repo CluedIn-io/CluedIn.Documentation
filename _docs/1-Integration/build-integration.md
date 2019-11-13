@@ -263,10 +263,10 @@ In order for the CluedIn Backend to discover and configure your Provider with th
 
 For more information, refer to [Integration and the CluedIn UI](/docs/1-Integration/inetgration-compatible-with-UI.html)
 
-### Deploying the crawler locally
+### Deploying the provider locally
 
-TODO
+If you are running CluedIn locally for testing purposes using Docker, you can follow [these instructions](/docs/0-gettingStarted/docker-local.html#adding-extra-components) to add the integration.
 
-### Testing the crawler
+### Testing the provider
 
 Please refer to [install an integration](/docs/1-Integration/install-integration.html)

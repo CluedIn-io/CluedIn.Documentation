@@ -1,6 +1,6 @@
 ---
-category: Enricher
-title: Build enricher
+category: Integration
+title: Build Enricher
 ---
 
 ### Introduction

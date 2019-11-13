@@ -45,6 +45,7 @@ As a minimum, there are some settings you will need to adjust in the `values.yml
 - [SSL configuration](/docs/0-gettingStarted/ssl.html)
 - [Email](/docs/0-gettingStarted/email.html)
 - Resources: All deployments in the chart are configured with sensible, but fairly minimal resource requests. You can override those within the `values.yaml` file.
+- [Extra components to install in the server](/docs/1-Integration/install-integration.html)
 
 Optionally, you can also adjust other settings to cater for more complex scenarios:
 - [Persistence](/docs/0-gettingStarted/persistence.html)
