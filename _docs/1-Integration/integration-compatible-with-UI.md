@@ -5,9 +5,9 @@ title: Integration and the CluedIn UI
 
 ### Introduction
 
-To be able to let someone adding and managing an Integration from the user interface, you need to add some information in your crawler.
+To be able to let someone adding and managing an Integration from the user interface, you need to add some information in your provider.
 
-If you don't, the crawler will be valid but you will deteriorate the User experience of the product.
+If you don't, the provider will be valid but you will deteriorate the User experience of the product.
 
 ### IExtendedProviderMetadata interface
 
@@ -41,7 +41,7 @@ The code:
 
         Guide Guide { get; set; }       // Instructions on how to configure your Provider in the UI
 
-        string Details { get; set; }    // Details of how this provider/crawler will interact with your application
+        string Details { get; set; }    // Details of how this provider will interact with your application
 
         string Category { get; set; }   // The category your provider fall under to allow filtering in the UI
 

@@ -1,21 +1,25 @@
 ---
 category: Integration
-title: Connectors
+title: What are integrations
 ---
 
-### Introduction
+## Introduction
 
-The first thing you need to do when CluedIn is running, is to feed it with Data. By default CluedIn does not ship any Integrations for you.
+The first thing you need to do when CluedIn is running, is to feed it with Data. You need to choose which data you want to add to CluedIn. Data is pushed into CluedIn via integrations. You have two options
 
-They are 2 ways to ingest data in CluedIn.
+- [Installing an existing integration](/docs/1-Integration/install-integration.html) e.g. from CluedIn's marketplace
+- Building a custom integration
 
-- Installing an official CluedIn integration.
-- Building a custom integration.
+There are two main types of integrations:
 
-#### Installing my first integration
+### Providers
 
-[I want to install my first integration](/docs/1-Integration/install-integration.html)
+These integrations allow you to add data into CluedIn. They can connect to cloud tools, databases, file systems, etc. extract the data you want to send to CluedIn and assemble it in a format CluedIn will understand.
 
-#### Building my first integration
+There are many *providers* available in our marketplace, but alternatively you can also [build your own](/docs/1-Integration/build-integration.html) to cater for your specific requirements. In order to do this though, you will require some C# coding experience.
 
-[I want to build my first integration](/docs/1-Integration/build-integration.html)
+### Enrichers
+
+Their mission is to add extra information to improve data that is already in CluedIn. Data in CluedIn is structured in entities; these are similar to records. They can contain information about a person, a company, a task, etc. An enricher will use the existing information CluedIn to then query other external systems to try to find out more information about that entity, i.e. *enrich* it.
+
+We have a list of available *enrichers* in our marketplace, but you can also [build your own](/docs/1-Integration/build-enricher.html), as long as you have some C# coding experience. 
