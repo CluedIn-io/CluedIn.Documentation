@@ -5,7 +5,7 @@ title: Build Enricher
 
 ### Introduction
 
-In CluedIn, an Enricher allows you to take input from data flowing through the processing pipeline and then lookup services (typically external API’s) as to enrich just a single particular entity. 
+In CluedIn, an Enricher allows you to take input from data flowing through the processing pipeline and then lookup services (typically external API’s) as to enrich just a single particular entity.
 
 In our HelloWorld example (see [CluedIn.Enricher.HelloWorld(]https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld)) we will obtain `Person` data from an external source called [JSON Placeholder](https://jsonplaceholder.typicode.com)
 
@@ -41,6 +41,8 @@ then run the generator, providing a `Name` and `Entity Type` (ie Person, Company
 yo cluedin-externalsearch
 ```
 
+See the `Naming Integrations` in the [Build Integration](./build-integration.md) documentation for more information on how the CluedIn Server finds and loads type from Integration assemblies.
+
 ### Adding models
 
 First we will setup a `User` class to receive the data. See [User.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/Models/User.cs):
@@ -66,7 +68,7 @@ Next we will add a client class, and associated interface, to fetch data from th
 
 		private readonly IRestClient _client;
 
-		public HelloWorldClient(IRestClient client) 
+		public HelloWorldClient(IRestClient client)
 		{
 			_client = client ?? throw new ArgumentNullException(nameof(client));
 
@@ -177,12 +179,12 @@ Lastly we will add the provider class (see [HelloWorldExternalSearchProvider.cs]
 		public override IEnumerable<IExternalSearchQueryResult> ExecuteSearch(ExecutionContext context, IExternalSearchQuery query)
         {
             var id = query.QueryParameters["id"].FirstOrDefault();
-           
+
             if (string.IsNullOrEmpty(id))
                 yield break;
- 
+
             var user = _client.GetUser(id).Result;
-			if (user != null) 
+			if (user != null)
 				yield return new ExternalSearchQueryResult<User>(query, user);
         }
 
@@ -209,13 +211,13 @@ Lastly we will add the provider class (see [HelloWorldExternalSearchProvider.cs]
         {
             return null;
         }
- 
+
         private IEntityMetadata CreateMetadata(IExternalSearchQueryResult<User> resultItem)
         {
             var metadata = new EntityMetadataPart();
- 
+
             PopulateMetadata(metadata, resultItem);
- 
+
             return metadata;
         }
 
@@ -223,15 +225,15 @@ Lastly we will add the provider class (see [HelloWorldExternalSearchProvider.cs]
         {
 	        return new EntityCode(EntityType.Person, CodeOrigin.CluedIn.CreateSpecific("helloworld"), resultItem.Data.id);
         }
- 
+
         private void PopulateMetadata(IEntityMetadata metadata, IExternalSearchQueryResult<User> resultItem)
         {
             var code = GetOriginEntityCode(resultItem);
- 
+
             metadata.EntityType       = EntityType.Person;
             metadata.Name             = resultItem.Data.name;
             metadata.OriginEntityCode = code;
- 
+
             metadata.Codes.Add(code);
 			metadata.Properties[HelloWorldVocabularies.User.Email] = resultItem.Data.email;
 		}
