@@ -44,6 +44,7 @@ As a minimum, there are some settings you will need to adjust in the `values.yml
 - [DNS / hostnames](/docs/0-gettingStarted/dns-hostnames.html)
 - [SSL configuration](/docs/0-gettingStarted/ssl.html)
 - [Email](/docs/0-gettingStarted/email.html)
+- [Securing access with OAuth2](/docs/0-gettingStarted/oauth2.html)
 - Resources: All deployments in the chart are configured with sensible, but fairly minimal resource requests. You can override those within the `values.yaml` file.
 - [Extra components to install in the server](/docs/1-Integration/install-integration.html)
 
