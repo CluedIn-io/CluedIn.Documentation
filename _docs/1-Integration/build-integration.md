@@ -58,7 +58,8 @@ To avoid cumbersome boilerplating, CluedIn provides you a script to generate a w
     git commit -m "Initial commit"
     ```
 
-1. Open the solution in Visual Studio and build it or alternatively you should also build it from the command line using the dotnet cli: `dotnet build`
+
+1. Open the solution in Visual Studio and build it or alternatively you should also build it from the command line using the dotnet cli: `dotnet build` 
 
 
 ### Adding a Model
@@ -70,7 +71,8 @@ The following is the minimal steps required to replicate the _Hello World_ examp
 1. Create model classes. You can use a subgenerator for this:
     ```shell
     docker run --rm -ti -v ${PWD}:/generated cluedin/generator-crawler-template crawler-template:model
-    ```
+    ```  
+
 1. Answer the questions as follows, to create a User model and vocabulary, similar to the one in the example [User.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Core/Models/User.cs)
     ```shell
          _-----_     ╭──────────────────────────╮
@@ -82,7 +84,6 @@ The following is the minimal steps required to replicate the _Hello World_ examp
          |  ~  |
        __'.___.'__
      ´   `  |° ´ Y `
-
     ? What is the model name? User
     ? What is the entity type? Person
     ? Enter a comma separated list of properties to add to the model id,name,username,email
@@ -118,14 +119,15 @@ The following is the minimal steps required to replicate the _Hello World_ examp
         private const string BaseUri = "https://jsonplaceholder.typicode.com";
     ```
 
-1. Since this is a public endpoint we don't need to pass any tokens. Remove or comment out line 31
+1. Since this is a public endpoint we don't need to pass any tokens. Remove or comment out line 42
+
     ```csharp
     // client.AddDefaultParameter("api_key", myfirstintegrationCrawlJobData.ApiKey, ParameterType.QueryString);`
     ```
 1. Add a method to retrieve users (you will need to import some namespaces too):
 
     ```csharp
-    public async Task<IList<User>> GetUsers() => await this.GetAsync<IList<User>>("users");
+    public async Task<IList<User>> GetUsers() => await GetAsync<IList<User>>("users");
     ```
 
 1. In the `src/MyFirstIntegration.Crawling/MyFirstIntegrationCrawler.cs` you retrieve the data you want to insert in CluedIn. Add the following inside the `GetData` method:
@@ -148,47 +150,20 @@ The following is the minimal steps required to replicate the _Hello World_ examp
 
 1. Execute the tests - they should all pass.
 
+1. Before adding the integration to CluedIn, open the file `src\MyFirstIntegration.Core\MyFirstIntegrationConstants.cs` and modify the values for the constants before the `TODO` comment. This information will be used in the GUI of CluedIn to show information about the integration. In particular you should set the `CrawlerDescription`, `Integration`, `Uri` (if this integration corresponds to an online tool), and `IconResourceName`. This last property corresponds to the path of an embedded resource in the Provider project.
+
 ### Architecture
 
 As you can see in the example - these are the main components:
 - A *client* that knows how to retrieve data from your source (e.g. `MyFirstIntegrationClient.cs`). It has methods to produce plain objects with the information.
 - The method `GetData` in the main Crawling class `MyFirstIntegrationCrawler.cs` - you can consider this as the entrypoint for the provider. This method will invoke the correct methods of the *client*, in order to yield plain objects.
 - A *Vocabulary* class (e.g. `UserVocabulary.cs`) which is for the most part generated automatically. This class defines the different keys of the data you are processing and how they map to generic terms (email, address, company) also in use in other sources. In addition it can define the relationship with other *Vocabularies* (also known as edges). For example the relationship between a user and a company.
-- A *ClueProducer* (e.g. `UserClueProducer.cs`) which is essentially a translation of the plain object (retrieved by the *client*) into a *clue*, which is the object understood by CluedIn. It uses the keys from the *Vocabulary* to map the data from the object to the clue.
+- A *ClueProducer* (e.g. `UserClueProducer.cs`) which essentially translates the plain object (retrieved by the *client*) into a *clue*, which is the object understood by CluedIn. It uses the keys from the *Vocabulary* to map the data from the object to the clue.
 
 In this case the sample API was very open and generic, however in other cases you may need extra information (credentials, datasources, etc.) on how to connect to the source, or what data to retrieve. This can be captured in the *CrawlJobData* (e.g. `MyFirstIntegrationCrawlJobData.cs`). You can enrich it with whatever properties you need. However, you will also need to expand two methods in the *Provider* (e.g. `MyFirstIntegrationProvider.cs`):
 - `GetCrawlJobData` which translates the keys from a generic dictionary into the *CrawlJobData* object and
 - `GetHelperConfiguration` which performs the opposite translation (from the *CrawlJobData* to a dictionary)
 
-### Naming Integrations
-
-It is important to name new Integrations such as Crawlers and Enrichers carefully so that they can be detected and loaded at application startup.
-
-The CluedIn Server uses configuration settings to determine which assemblies to load and, from these, which types to register in the application's IoC container.
-
-Search patterns and exclude filters can be configured by modifying the values of appSettings in the `Code\Server.ConsoleHostV2\App.config` configuration file. The two setting keys that control this behaviour are `ComponentHost.ComponentSearchPatterns` and `ComponentHost.FileExcludes`.
-
-For example, if a customer wants to include custom assemblies into the container registrations the file prefix can be added to the `ComponentHost.ComponentSearchPatterns` list.
-
-Note: These patterns are [Regular expression](https://en.wikipedia.org/wiki/Regular_expression) patterns rather than file [globbing](https://searchsecurity.techtarget.com/definition/globbing) wildcard values.
-
-The default configuration settings for the two configuration keys are shown below:
-
-```Xml
-<add key="ComponentHost.ComponentSearchPatterns" value="CluedIn.*" />
-
-<add key="ComponentHost.FileExcludes" value="
-        CluedIn.Logging.Errors,
-        CluedIn.Test.*,
-        CluedIn.Tests.*,
-        CluedIn.*.Test.*,
-        CluedIn.*._Name_.*,
-        Unit.Test.*,
-        Integration.Test.*
-" />
-```
-
-If you find that your Integration is not being loaded by the CluedIn Server check the configuration settings to ensure that the assembly name is not being filtered out by the `ComponentHost.FileExcludes` regular expression patterns.
 
 ### Deploying the provider locally
 
