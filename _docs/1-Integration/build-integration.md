@@ -58,6 +58,7 @@ To avoid cumbersome boilerplating, CluedIn provides you a script to generate a w
     git commit -m "Initial commit"
     ```
 
+
 1. Open the solution in Visual Studio and build it or alternatively you should also build it from the command line using the dotnet cli: `dotnet build` 
 
 
@@ -71,6 +72,7 @@ The following is the minimal steps required to replicate the _Hello World_ examp
     ```shell
     docker run --rm -ti -v ${PWD}:/generated cluedin/generator-crawler-template crawler-template:model
     ```  
+
 1. Answer the questions as follows, to create a User model and vocabulary, similar to the one in the example [User.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Core/Models/User.cs)
     ```shell
          _-----_     ╭──────────────────────────╮
@@ -82,7 +84,6 @@ The following is the minimal steps required to replicate the _Hello World_ examp
          |  ~  |
        __'.___.'__
      ´   `  |° ´ Y `
-    
     ? What is the model name? User
     ? What is the entity type? Person
     ? Enter a comma separated list of properties to add to the model id,name,username,email
@@ -119,6 +120,7 @@ The following is the minimal steps required to replicate the _Hello World_ examp
     ```
 
 1. Since this is a public endpoint we don't need to pass any tokens. Remove or comment out line 42
+
     ```csharp
     // client.AddDefaultParameter("api_key", myfirstintegrationCrawlJobData.ApiKey, ParameterType.QueryString);`
     ```
@@ -161,6 +163,7 @@ As you can see in the example - these are the main components:
 In this case the sample API was very open and generic, however in other cases you may need extra information (credentials, datasources, etc.) on how to connect to the source, or what data to retrieve. This can be captured in the *CrawlJobData* (e.g. `MyFirstIntegrationCrawlJobData.cs`). You can enrich it with whatever properties you need. However, you will also need to expand two methods in the *Provider* (e.g. `MyFirstIntegrationProvider.cs`):
 - `GetCrawlJobData` which translates the keys from a generic dictionary into the *CrawlJobData* object and
 - `GetHelperConfiguration` which performs the opposite translation (from the *CrawlJobData* to a dictionary)
+
 
 ### Deploying the provider locally
 

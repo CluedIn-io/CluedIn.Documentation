@@ -20,11 +20,14 @@ CluedIn uses structured logging. You can configure any sink, but only 3 have bee
     seq:
         public_endpoint: /seq
     ```
-
+    By default the seq endpoint is protected with an [Oauth2 proxy](/docs/0-gettingStarted/oauth2.html).
 1. [Azure Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
-
-TODO
-
+    All you need to do is add the key for the Application Insights instance you want to use:
+    ```yaml
+    logging:
+        appInsightsKey: 'your-app-instance-key-guid'
+    ```
+    By default it will send full telemetry of the frontend application, and all the logs from the CluedIn server will be sent as trace information.
 
 ## Admin UIs
 It is sometimes useful, for example for debugging purposes, to be able to log in to some of the tools / dependencies that CluedIn uses. The easiest way is to set up a proxy using a machine that has ```kubectl``` configured to access the cluster.
