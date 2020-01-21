@@ -1,6 +1,6 @@
 Administration Operations
 
-You will need to have a role of Admin to be able to run these operations. There is only one way to become an Admin and that is by manually adding a mapping in the Relation Store of CluedIn in the AspnetUserRoles table. 
+You will need to have a role of "Admin" to be able to run these operations. There is only one way to become an Admin and that is by manually adding a mapping in the Relational Store of CluedIn in the AspnetUserRoles table. 
 
 Post Processing
 
