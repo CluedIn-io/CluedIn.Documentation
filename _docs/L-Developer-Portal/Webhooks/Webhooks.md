@@ -121,3 +121,93 @@ Here is some example code on how you could set this up with Hubspot.
                 }
             });
         }
+
+This will setup all the scaffolding you will need to be able to automatically create webhooks with your source systems when an integration is added to CluedIn. The next step is that you need to be able to process the data that these webhooks will post to CluedIn. 
+
+If you have used the Crawler Templates that CluedIn provides then you will see a Folder in your Provider project called "Webhooks". This will have two files within it to start with in the template. The first is the Webhook PreValidator. This is responsible for validating "pre-flight" checks that come as a part of the standard Webhook flow. 
+
+using CluedIn.Core.Webhooks;
+using CluedIn.Crawling.Custom.Core;
+
+namespace Custom.Provider.YourTool.WebHooks
+{
+    public class YourTool_WebhookPreValidator : BaseWebhookPrevalidator
+    {
+        public YourTool_WebhookPreValidator()
+            : base(YourToolConstants.ProviderId, YourToolConstants.ProviderName)
+        {
+        }
+    }
+}
+
+You will then also need to implement the WebhookProcessor such as:
+
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Threading.Tasks;
+using CluedIn.Core;
+using CluedIn.Core.Agent.Jobs;
+using CluedIn.Core.Configuration;
+using CluedIn.Core.Data;
+using CluedIn.Core.DataStore;
+using CluedIn.Core.Messages.Processing;
+using CluedIn.Core.Providers;
+using CluedIn.Core.Webhooks;
+using CluedIn.Crawling;
+using CluedIn.Crawling.YourTool.Core;
+
+namespace Custom.Provider.YourTool.WebHooks
+{
+    public class YourToolWebhookProcessor : BaseWebhookProcessor
+    {
+        public YourToolWebhookProcessor(ApplicationContext appContext)
+            : base(appContext)
+        {
+        }
+
+        public override bool Accept(IWebhookDefinition webhookDefinition)
+        {
+            return webhookDefinition.ProviderId == HubSpotConstants.ProviderId || base.Accept(webhookDefinition);
+        }
+
+        public override IEnumerable<Clue> DoProcess(ExecutionContext context, WebhookDataCommand command)
+        {
+            try
+            {
+                if (ConfigurationManager.AppSettings.GetFlag("Feature.Webhooks.Log.Posts", false))
+                    context.Log.Debug(() => command.HttpPostData);
+
+                var configurationDataStore = context.ApplicationContext.Container.Resolve<IConfigurationRepository>();
+                if (command.WebhookDefinition.ProviderDefinitionId != null)
+                {
+                    var providerDefinition = context.Organization.Providers.GetProviderDefinition(context, command.WebhookDefinition.ProviderDefinitionId.Value);
+                    var jobDataCheck       = context.ApplicationContext.Container.ResolveAll<IProvider>().FirstOrDefault(providerInstance => providerDefinition != null && providerInstance.Id == providerDefinition.ProviderId);
+                    var configStoreData    = configurationDataStore.GetConfigurationById(context, command.WebhookDefinition.ProviderDefinitionId.Value);  
+
+                    // If you have stopped the provider then don't process the webhooks
+                    if (providerDefinition?.WebHooks != null)
+                        if (providerDefinition.WebHooks == false || providerDefinition.IsEnabled == false)
+                            return new List<Clue>();
+
+                    if (jobDataCheck != null)
+                    {
+                        var crawlJobData = new YourToolCrawlJobData(configStoreData);
+
+                        var clues = new List<Clue>();
+
+                        //Create your Clues out of the object coming from the command.HttpPostData
+
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                context.Log.Error(new { command.HttpHeaders, command.HttpQueryString, command.HttpPostData, command.WebhookDefinitionId }, () => "Could not process web hook message", exception);
+            }
+
+            return new List<Clue>();
+        }
+    }
+}
