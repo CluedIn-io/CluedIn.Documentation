@@ -1,4 +1,5 @@
 Export Targets
+Export Targets
 
 Export Targets are used to authenticate with an integration point with the intention that CluedIn will make data available to this consumer. Good examples include: 
 

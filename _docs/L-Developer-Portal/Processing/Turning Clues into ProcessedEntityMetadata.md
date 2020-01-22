@@ -4,3 +4,4 @@ An Entity contains a property called a ProcessedEntityMetadata. This stores the 
 
  - The values that are the latest instance of a property.
  - The values that have the highest data metric scores.
+ - A combination of the highest data metrics and the source "trust" score that is set on the integration. 
