@@ -11,3 +11,5 @@ Graph Store: All data is included in the same Graph, but is isolated at the appl
 Relational Store: All data exists within the same Database, but uses application isolation to filter data by account. 
 Blob Store: All data exists within the same Database, but uses application isolation to filter data by account. 
 Redis Store: All data exists within the same Database, but uses application isolation to filter data by account. 
+
+There are some restricted names on what you can call your CluedIn account. These are controlled via the configuration setting ReservedOrganizationIds in your container.config.
