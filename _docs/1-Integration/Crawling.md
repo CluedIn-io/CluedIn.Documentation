@@ -15,3 +15,79 @@ Crawling data can be complex and error-prone and many things can go wrong such a
  - Source systems don't have an obvious way to filter the data
 
  Your crawlers will need to cater for all of the complexities mentioned above and more. You have full control over the granularity of error handling that you would like in your crawlers and hence e.g. managing how often to retry or how many times can be controlled in the crawler template framework.
+
+ Here is a list of things you should be covering with your crawler: 
+
+Test 429 Handling - Does the crawler handle limiting requests to e.g. Twitter. 
+
+Test that Dates are in the right format. - If we are using Dates in the Vocab, do they format to ToString("o") 
+
+Test Webhook processing, creation, deletion. - Does the webhook creation process and deletion process work. 
+
+Management Endpoint for Webhooks - Is there a link to the provider where the user can manage any webhooks that CluedIn creates. 
+
+Test that we are handling for configuration filters e.g. Folders, Labels. - What configuration can the user set to filter what the crawler goes out and gets. 
+
+OAuth2, OAuth, Basic, ApiToken, Custom - What type of authentication can this API support. 
+
+Refresh Token - How does a provider refresh an access token. 
+
+API Rate Limiting  - What rules are in place to limit what the crawler does. 
+
+Expire Token - When does an access token expire? 
+
+OAuth 2 flow endpoints. - What are the Oauth 2 flow endpoints. 
+
+Supports Webhooks - Does this provider support Webhooks. 
+
+Is Webhooks Manual or Automatic  - Does the provider support programmatic webhook creation or does the user need to manually set this up? 
+
+Endpoint for Creating a Webhook  
+
+Endpoint for Deleting a Webhook  
+
+Endpoint for getting webhooks  
+
+Configuration of Providers -> List, Tree, Setting, Checkbox? 
+
+Configuration for AutoWatching new things in providers - Will CluedIn automatically sync NEW folders and channels that are added into the provider. 
+
+Paging - How to page results in a reasonable amount of data at a time. 
+
+Filtering on only getting the latest (on the regular crawls) - Every 4 hour crawl only pulls the latest data since the previous crawl. Every weekly crawler gets everything again from the crawler. 
+
+Getting the Entity Statistics - Does the provider support a way to figure out how much data of different types they have. 
+
+Get Permissions - Are there any persmissions set in the provider for read/write access. 
+
+Uses a cursor to get latest or a date filter (what format) - If the provider uses a cursor instead of a date filter. 
+
+Url to Logo - What is the Url of a good high quality 400x400 image icon of the provider. 
+
+Description of Provider - Small description of the provider. 
+
+Schema for Connections - Does the crawler connect properly with the right edge type, edge direction. 
+
+Has a Dynamic Template - Does the provider support custom and dynamic objects e.g. SharePoint/Podio/Hubspot etc. 
+
+Test API Token or Credentials - Does the provider support Developer API tokens. 
+
+Type of Provider - Is it Cloud? Is it On-Premise? Is it for ToDo, Tasks, Code etc. 
+
+Schedule of How Often this Runs - How often does a crawl run. 
+
+How to Get Account Id and Account Display - What is the unique ID of the provider per user and what is the friendly name to display in the UI. 
+
+Id - What is the GUID of the provider. 
+
+ReAuth Endpoint - Endpoint in CluedIn to run the ReAuth Process. 
+
+Requirements and APP to be installed - Does CluedIn need to install an APP before it can talk to it. 
+
+Requires a Paid Account / Premium Account - Will CluedIn only work if the provider is a paid account. 
+
+App Install Url - What is the Install Url of an App if it requires an App to be installed first 
+
+Row in the Database - Add Row in Database script to insert new provider. 
+
+ 
