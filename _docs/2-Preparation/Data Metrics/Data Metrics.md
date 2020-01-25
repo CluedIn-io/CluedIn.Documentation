@@ -26,7 +26,6 @@ CluedIn Clean: Reconciliation. Manual Edit.
 CluedIn Train: Questions in the form of "Is Martin's best email msh@cluedin.com?", Are these photos of the same person? 
 
  
-
 Example of calculation 
 
 Property level 
@@ -41,7 +40,6 @@ Global level
 
 Property Level 
 
- 
 
 Entity 
 
