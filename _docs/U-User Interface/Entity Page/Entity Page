@@ -12,6 +12,18 @@ The "Pending Changes" window will show Mesh Commands that are ready to run for t
 
 The entity page allows you to show the "Suggested Searches" feature of CluedIn so that you can show widgets on the page that show related data. This data may be direction relations or very sophisticated queries.
 
+You will also note that your "entity-level" data quality scores are shown. 
+
+There are many actions that you can run from the entity page. These actions are located under the "More" dropdown. These actions include:
+
+ - Select records to merge
+ - Mark this record as sensitive
+ - Minimize this record to only have the metadata that you have consent for
+ - Anonymise this entire record and all places where it is referenced. 
+ - Remove this record from any automated processing in CluedIn or other third party systems. 
+ - Manually reprocess this record through all the external data providers enabled in your account (e.g. Google Places)
+ - Manually reprocess this record through the processing pipeline of CluedIn.
+
 On the Entity Page you will be able to see your visual view of a Record. CluedIn will automatically choose which properties from which systems are the most accuract and hence are the ones that we will natively display in the user interface as the "Golden Value".
 
 CluedIn has 3 possible mechanisms to choose the "Golden Value".
