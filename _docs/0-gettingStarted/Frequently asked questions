@@ -42,3 +42,11 @@ I have made a change in CluedIn that requires me to re-process all the data, wha
 
 This will happen many times with your CluedIn account! In fact, it is extremely normal and expected. CluedIn has been designed with the idea in mind that we will re-process the data all the time. Once you have made your change, you have quite a lot of control over the level of re-processing. You can re-process at a source level, globally, at a record level or even something a little more custom e.g. entity type level.
 
+Does CluedIn index everything?
+
+Yes. Yes we do. You can however influence the CluedIn engine to store data in a more optimum way. When you are setting up your Vocabularies, you have the chance to set a Vocabulary Type. This will influence how indexes are built and we would strongly recommend doing this. Even if you do not do this, all your content will be search-able, but you can always make things faster and more efficient if you setup your Vocabularies properly.
+
+With 4 databases, how does CluedIn guarantee transactions?
+
+CluedIn ingests data into an enterprise service bus. This helps us guarantee delivery of data. CluedIn utilises "Eventual Consistency" for the different data stores. This means that CluedIn takes all records off the bus into a transactional log. The different databases will then read off the transaction log as fast as they can. This gurantees transactional support on your data, but "eventual consistency" in the different data stores. With this setup and the fact that the different datastores will consume off the log in batches, it lessens the likelihood that the database will have issues with having a 100% consistency across the datasores at the same time.
+
