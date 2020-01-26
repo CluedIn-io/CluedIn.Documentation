@@ -15,3 +15,11 @@ It is common when ingesting data from multiple different sources that there are 
 Order of Processing
 
 There are many times where the order of the initial processing of data can yield better results if ordered differently. For example, for performance reasons, it is always a good idea to pre-clean data in CluedIn Clean before ingesting it and creating Entity Codes. Often this will lead to a faster processing, higher data quality and better results. Although possible, it is often best to be able to clean all the different permutations of bad entity codes before ingesting data into CluedIn. For lineage purposes, we would recommend that you store the original and bad entity codes in the property bag and fix the data for the Entity Codes. 
+
+Heavy Records
+
+There are times when you have records that are very "dense". It happens, it is natural. It is however that you should expect that these records take a lot longer to process than others. If possible, try to keep the number of versions/clues per records/entity to a minimum. There are many strategies that you can use to do this. In your crawlers you can break up records into sub-records.
+
+Heavy Out-going Relationships
+
+It is just a side-effect of using a Graph Database, that there are times where certain operations are more expensive than others. If you find that you have records that have a lot of outgoing references, then every time that we try to add a new outgoing reference, CluedIn will load all existing reference in order to check if the relationship exists already or not. If you have designed your integration correctly then this should never happen, but keep a look out for it if you find that your processing servers are slow. The concept in a graph is to not have "dense" nodes and hence if you can break up your nodes into sub-nodes then this will alleviate this type of problem.

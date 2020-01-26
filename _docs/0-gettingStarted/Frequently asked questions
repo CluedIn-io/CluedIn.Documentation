@@ -33,3 +33,12 @@ The majority of integrations that CluedIn has are working with the assumption th
 If CluedIn is connecting the data for us, won't that end up in a data model that is a mess?
 
 Yes! Because guess what? Your data landscape is typically a mess! The goal of CluedIn is not to form the perfect model of your data for a paritcular use case - it is to find how the data is naturally connected and then allow you to project your perfect model for ANY use case you can think of. You will find that the model that we build (we use the Graph for this part) will match the model that your data finds is the way to find links between your different systems. Using the same model, we give intuitive and simple to use tools to mutate this natural model to a more rigid model for the use cases that you want in that particular model. The good news is that the Graph was designed for running these types of projects - in fact, they are as fast as an index lookup. This means that projecting a "dirty" model into a clean one is something that scales and performs really well.
+
+The Admin screen of CluedIn is great, but I want to automate things! How do I do this?
+
+The good news is that the native CluedIn administration screen is built ontop of the same REST API that you have direct access to as well. This means that you can do everything in the REST API that you can do in the user interface (and more!). This also means that you can script anything in CluedIn via our REST API, PowerShell or other scripting languages. 
+
+I have made a change in CluedIn that requires me to re-process all the data, what do I do?
+
+This will happen many times with your CluedIn account! In fact, it is extremely normal and expected. CluedIn has been designed with the idea in mind that we will re-process the data all the time. Once you have made your change, you have quite a lot of control over the level of re-processing. You can re-process at a source level, globally, at a record level or even something a little more custom e.g. entity type level.
+
