@@ -2,7 +2,7 @@ Multitenant Solutions
 
 CluedIn has Multitenant support natively. This means that you can run multiple different CluedIn accounts, all from the same CluedIn instance. The data is isolated from each other, there is no way to bridge data from different CluedIn accounts, even within the same CluedIn instance. 
 
-Multitenant solutions are appropriate where you need to isolate data into respective groups. It is required that each account has its own unique name and mapped to a unique domain. It is also required that each user is unique, even across accounts i.e. a user can only exist in one account. 
+Multitenant solutions are appropriate where you need to isolate data into respective groups. It is required that each account has its own unique name and mapped to a unique sub-domain. It is also required that each user is unique, even across accounts i.e. a user can only exist in one account. 
 
 Data isolation is implemented differently at each store level. 
 
@@ -13,3 +13,11 @@ Blob Store: All data exists within the same Database, but uses application isola
 Redis Store: All data exists within the same Database, but uses application isolation to filter data by account. 
 
 There are some restricted names on what you can call your CluedIn account. These are controlled via the configuration setting ReservedOrganizationIds in your container.config.
+
+Can you bridge data from two accounts into one?
+
+There are special administrator end points that allow you to do this. You might find that you want to start out ingesting data from different sources into different accounts and only merge them when you are happy with the results. 
+
+Why would I want to use multi-tenancy?
+
+If you have one installation of CluedIn, but you have very different use-cases and data sources that must be isolated with no blending of data across data sources, then this would be a good reason to support multi-tenancy. Your CluedIn license has no restrictions on how many accounts you can have - so it is more about organization of data more than anything.

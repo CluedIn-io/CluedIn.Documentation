@@ -10,3 +10,7 @@ Step 2: You will be prompted with the ability to fill in an email. This can be i
 
 If you click on the "Suggested Users" tab, CluedIn will suggest people to invite based off the data you have already added to CluedIn. This allows you to discover users you might not have though about adding. 
 
+Can users add themselves to my account?
+
+If you have enabled it, you can have users with the same email domain, sign up automatically. This is useful if you are not using the LDAP provider support of CluedIn and if you would like anyone in your organisation to sign up if they would like access to your CluedIn account. 
+
