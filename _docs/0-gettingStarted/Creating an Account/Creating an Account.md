@@ -15,3 +15,7 @@ Once an account is created, you will be given an empty CluedIn account with 2 pi
 If creating subsequent accounts, they must have unique values than the ones previously used, except the password (that can be the same).
 
 You can signup by visiting the following Url of your CluedIn installation : https://app.<<insert your domain>>/signup
+
+Can I run CluedIn without an account?
+
+No. CluedIn is intended to be an application that runs on a server, not on your local developer machine and hence everything is setup in a way that is secure by default. This shows itself in many ways including the fact that you cannot run CluedIn without HTTPS and SSL. 
