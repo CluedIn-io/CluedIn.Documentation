@@ -1,6 +1,6 @@
 Creating an Account
 
-One can create many CluedIn accounts per CluedIn instance. This can be used for multi-tenancy, or simply for testing different things out. 
+One can create many CluedIn accounts per CluedIn instance. This can be useful for multi-tenancy, or simply for testing different things out. 
 
 When CluedIn is first installed, you will not have a default account created. You will need to use the REST API or the User Interface to be able to register your account. You will need to produce the following information:
 

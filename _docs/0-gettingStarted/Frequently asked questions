@@ -54,3 +54,20 @@ What happens if I ingest records that don't have any Id's that overlap?
 
 This happens all the time! In fact, it is the reason why systems like CluedIn exist. Firstly, although it might seem like there won't be overlap, often there is. You might find with your traditional approaches that tracking down the columns that match from system to system don't make it easy to find the links - but the eventual connectivity pattern of CluedIn will do all that work for you. For times when you definitely don't have Id overlaps, there are many fallbacks that yield good results. Firstly, you can use the out of the box integrations to external data sources (or build new providers) that may have the Id's that you need to link systems. Secondly, you have the CluedIn Fuzzy matching engine which can use non-identifying properties to find possible and statistically confident matches in duplicates or in linkages. 
 
+Why is CluedIn written in C#, isn't that slow?
+
+The team behind CluedIn purposefully chose .net core and C# as the language for our processing engine for many reasons. 
+
+1: Our core development team has decades of combined experience in building large, scalable and performant .net applications. 
+2: The .net environment has jumped leaps and bounds and has continued support for Microsoft and the community. The fact that it is open-source helped in the decision as well. 
+3: .net is designed to write very large applications and scale in maintaining, seperation of concern and ease of deployment. 
+4: .net and C# is very much, not slow. In fact, compared to the majority of popular languages today it is very fast. Some could argue that it is not as memory-efficient, but we think that the trade-offs to deliver solutions to you faster is well worth it. 
+
+What type of data is CluedIn not suited for?
+
+There are many use-cases where CluedIn could be considered overkill or not fit for purpose. There are many use-cases that do not need all of the data preperation and cleaning pieces of CluedIn. It could very much be argued that IOT data doesn't suffer from the same problems or require the same data preperation than other data such as operation business data. Hence here is a list of use-cases or data that we don't think is necessarily suitable for CluedIn:
+
+1: Processing Signal/IOT data that doesn't have data quality issues or doesn't need cataloging, governance - but rather needs to be made available in a Dashboard as fast as humanly possible. 
+2: If you have a limited amount of systems to integrate and there is no problems with determining how the records are conneceted between the different systems. A good example would be if you just wanted to intergate your Dropbox account with your CRM. 
+3: Where you do not want to move data. CluedIn copies data from sources to target. It won't necessarily take all the data, but it is an ingestion engine. You have to be very careful with this use-case as many problems cannot be properly solved without taking copies of the data. 
+

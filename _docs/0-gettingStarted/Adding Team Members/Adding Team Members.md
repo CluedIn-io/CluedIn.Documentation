@@ -1,8 +1,8 @@
 Adding Team Members
 
-New team members can be added to an existing account via their email address. This new member is by default added as a "User" and it is the responsibility of an Administrator to change their roles after they have entered the system. Users must have a matching email domain if using the manual approach of User management.
+New team members can be added to an existing account via their email address. This new member is by default added as a "User" and it is the responsibility of an Administrator to change their roles after they have entered the system. Users must have a matching email domain if using the manual approach of User management. Please see the Access Control part of our documentation to see what a "User" has rights to do within CluedIn.
 
-The recommendation is to use an LDAP / Single Sign On Provider for managing users and groups within CluedIn. In this way, Users are provisioned through Active Directory and no sensitive user information is ever store on the CluedIn side. This also allows you to manage access, users and roles from a central place. 
+The recommendation is to use an LDAP / Single Sign On Provider for managing users and groups within CluedIn. In this way, Users are provisioned through Active Directory and no sensitive user information is ever stored on the CluedIn side. This also allows you to manage access, users and roles from a central place. 
 
 Step 1: To invite a new user to CluedIn, navigate to the Users menu option and click on the "Administration" menu option and click on "Users". You will see a breakdown of roles and users. In the top right hand corner there is a button "Invite a New Team Member". 
 

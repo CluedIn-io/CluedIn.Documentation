@@ -21,3 +21,11 @@ There are special administrator end points that allow you to do this. You might 
 Why would I want to use multi-tenancy?
 
 If you have one installation of CluedIn, but you have very different use-cases and data sources that must be isolated with no blending of data across data sources, then this would be a good reason to support multi-tenancy. Your CluedIn license has no restrictions on how many accounts you can have - so it is more about organization of data more than anything.
+
+Can I host all my customers on one CluedIn instance, but have different accounts for each?
+
+If you are a partner of CluedIn, you will know that you cannot use the same license across customers unless agreed with your CluedIn account manager.
+
+Can I have multi-tenant support, but each customer gets their own database instances?
+
+Yes, you technically can but you have to be aware of the cost overheads of running it like this. It will most likely be more advantageous to simply run different instances. 
