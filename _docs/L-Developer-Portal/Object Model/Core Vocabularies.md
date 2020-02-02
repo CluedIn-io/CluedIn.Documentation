@@ -26,3 +26,11 @@ person.age
 person.gender
 
 These are all valid Core Vocabularies. 
+
+Can I add my own Core Vocabularies?
+
+Although you can, we suggest that you do not. The reason is mainly due to upgrade support and making sure your upgrades are as seemless and automated as possible. 
+
+How do I nest my Vocabularies?
+
+Instead of creating a VocabularyKey in your Vocabularies, you can create a CompositeVocabularyKey. This will ask you to set a Key and a Base Key. This is how you will build up your tree of Vocabularies. 
