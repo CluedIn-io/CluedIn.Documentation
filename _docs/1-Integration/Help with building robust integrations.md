@@ -24,4 +24,23 @@ Here is an exhaustive list of advice from the team to help you also build robust
 
   You might also find that endpoints (REST) change, but we do find that most providers are quite good at versioning their endpoints so that data will continue to flow. However, in this case you might find that changing to the new endpoints will require to to run a complete re-crawl as you might be getting more rich data from the new endpoints. Therefor some sources might be sophisticated enough that we don't require to fetch all data, but only the new fields that we are interested in. This complicates the crawler too much and it should potentially be avoided. It really depends on the source itself and if you find that you are charged a lot of money for pulling data. There are many integration sources that can be like this and it means that you may have to control this in your integration code. 
 
-  The CluedIn Crawler framework ships with a validation framework in which this can be extended as well. To add new Rules, all you need to do is implement the IClueValidationRule interface and then compile and drop this into your CluedIn directory to reboot.
+  The CluedIn Crawler framework ships with a validation framework in which this can be extended as well. To add new Rules, all you need to do is implement the IClueValidationRule interface and then compile and drop this into your CluedIn directory to reboot. The Framework currently watches for:
+
+DATA_001_File_MustBeIndexed
+ENTITYTYPE_001_Person_MustNotBeUsedDirectly
+ENTITYTYPE_002_Document_MustNotBeUsedDirectly
+METADATA_001_Name_MustBeSet
+METADATA_002_Uri_MustBeSet
+METADATA_003_Author_Name_MustBeSet
+METADATA_004_Invalid_EntityType
+METADATA_005_PreviewImage_RawData_MustBeSet
+METADATA_006_Created_Modified_Date_InFuture
+METADATA_007_Created_Modified_Date_InPast
+METADATA_008_Created_Modified_Date_UnixEpoch
+METADATA_009_Created_Modified_Date_MinDate
+METADATA_010_Created_Modified_Date_MaxDate
+EDGES_001_Outgoing_Edge_MustExist
+EDGES_002_Incoming_Edge_ShouldNotExist
+PROPERTIES_001_MustExist
+PROPERTIES_002_Unknown_VocabularyKey_Used
+PROPERTIES_003_Value_ShouldNotBeQuoted
