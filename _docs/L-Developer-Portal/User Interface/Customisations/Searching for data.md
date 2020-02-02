@@ -10,4 +10,6 @@ CluedIn provides a simple to use search over your data. This allows you to searc
 
  You can use the filters on the left hand side to filter your results by the automatic categorisation that CluedIn has given to the records. 
 
+ By default, the search does not bring back results for Shadow Entities. If you need this, you will need to enable this in your container.config file. We also do not show records that are only from external data sources. Once again, you can enable this in your container.config if you need to be able to search through this data. We have disabled these by default as they often cause clutter and noise in the data. 
+
  You have different views of your data that you can choose within the CluedIn User Interface. 
