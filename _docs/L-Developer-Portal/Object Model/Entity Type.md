@@ -467,4 +467,4 @@ namespace CluedIn.Core.Data
             }
         }
     }
-}
+}	
