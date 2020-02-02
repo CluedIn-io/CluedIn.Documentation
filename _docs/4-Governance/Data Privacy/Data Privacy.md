@@ -19,6 +19,8 @@ UncDataExtractor
 UriDataExtractor
 Data Classification Types
 
+You can implement your own new PII detection rules, and can use the above implementations as guides on how to achieve that. 
+
 Type list:
 
 /None
@@ -71,6 +73,7 @@ Type list:
 /Finance/BankAccount/AccountNumber
 /CryptoCurrency
 /CryptoCurrency/BitcoinAddress
+
 Extension to the entity level processed data
 
         <dataDescription>

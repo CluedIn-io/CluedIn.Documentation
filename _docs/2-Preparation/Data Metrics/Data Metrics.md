@@ -19,9 +19,9 @@ Accuracy
 
 Measurement: For all properties, how much are the same or similar in the property history. Use simple normalization to cater for more values. 
 
-How to increase Accuracy : Mesh to change the values in the source.  
+How to increase Accuracy : Run the generated mesh commands to change the values in the source systems, resulting in CluedIn showing that all source systems have the same value for a property.  
 
-CluedIn Clean: Reconciliation. Manual Edit. 
+CluedIn Clean: Manually Edit records or use the cleaning functions to normalise the values. 
 
 CluedIn Train: Questions in the form of "Is Martin's best email msh@cluedin.com?", Are these photos of the same person? 
 

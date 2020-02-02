@@ -159,10 +159,7 @@ Is stated in the singular
 
 An important element of the business glossary are relationships between the terms, policies, and rules. 
 
-  
-
 Examples of such relationships: 
-
   
 
 Is a synonym to 
@@ -175,13 +172,10 @@ Related to
 
 Is modifier of 
 
-  
 
 It is important to note that the Glossary is a Business Glossary, not a Data Dictionary and not a Vocabulary. In the flow of terms, the most raw entries are the Data Dictionary (keys from source systems) -> then the Vocabulary which is raw keys mapped into Vocabularies -> then the Business Glossary which is abstracting away underlying Vocabulary and raw keys. Data Dictionaries are managed by Data Engineers, Vocabularies are managed by Vocabulary Owners and Business Glossaries are managed by Glossary Owners.  
 
 You can generate Glossary Analytics in CluedIn by calling the analytics endpoint. This will show you information on usage, but more importantly it will show the lineage of the data that matches the Glossary filter and a set of histograms that aggregate the values within those terms. For example, this will allow you to easily see: 
-
-  
 
 - Number of matched records for a Glossary Term 
 
@@ -189,23 +183,13 @@ You can generate Glossary Analytics in CluedIn by calling the analytics endpoint
 
 - % of incomplete Glossary entries. For example, each Glossary term should have a definition, description and more. This can help you understand how "mapped" your business is.  
 
-  
-
 The Glossary Terms can also be used in the search user interface for CluedIn. For example, if you wanted to search for "Customers" then you would be given an option to execute ther underlying rules set to run that search instead of just searching for the word "Customers". 
-
-  
 
 To form your Glossary, we often recommend to interview the business users and to listen carefully to the words and terms that the business is using to request data. For example, if a business user asked for "I need all of our customers in Denmark that we have not signed and NDA with." 
 
-  
-
 You could interpret this many ways, but it is always best to start out granular and expand if necessary e.g. you could interpret "our customers" as a special type of customers. Start simple.  
 
-  
-
 From this we can extract a few Glossary Terms with some being mapped automatically out of the box from CluedIn: 
-
-  
 
 - Customer 
 
@@ -215,70 +199,49 @@ From this we can extract a few Glossary Terms with some being mapped automatical
 
 - Signed 
 
-  
 
 Denmark has already been mapped out of the box i.e. where organization.address.CountryCode = "DK". The reason we do not use the Country Name is because it is common that systems have multi-lingual content and instead of mapping every permutation of the name, we can use standards instead. 
 
-  
 
 Non Disclosure Agreement (NDA) could come in multiple forms. It could be that we don't have a Word Document that contains the word NDA in the title attached to the company record. It could be that there is a property in the CRM for setting a true or false if the NDA is signed or not.  
 
-  
 
 Signed could mean multiple things. For example, many digital signature platforms are avialable today that have API's that allows us to check if a certain agreement has been digitally signed and by whom. Many documents will be scanned PDF documents where smarted and more sophisticated techniques will need to be utilised to determined if a document is signed. At the end of the day, they will all map to Vocabularies, even if that Vocabulary came from a third party of external process. For example, if you utilised a third party machine learning platform to upload a document and it told us if it was signed or not then we will have a Vocabulary to has the value of the result in it.  
-
   
 
 There are 2 quality metrics that are calculated off Glossary Terms and usage. Trust, Usability and SOMETHING. The way to increase these quality metrics is to have more people create streams off Glossary Terms, to create Clean projects based off Glossary Terms and to have your other Quality MEtrics for the data associated with a Glossary Term be very high.  
 
   
-
-Usablity is also calculated off: 
-
-  
+Usablity is also calculated off:  
 
   - Are all modelling formats supported by the Glossary Term e.g. Supports Excel, Power BI, Data Robot, Azure ML. Often we will need to support writing to an online file so that systmes like Excel can use its "from file feature". 
 
   - How many streams are running off this Term versus others.  
 
-  
-
   Trust is calculated off: 
-
-  
 
    - The average ratings of the Glossary Terms and the data associated with it.  
 
    - Is all lineage available for all data sources for a Glossary Term.  
-
-  
+ 
 
 If a Glossary Term changes its RuleSet, all streams that use this term will prompt you to reprocess the stream. This typically means removing all data and streaming it all again. This howvere is down to the implementation of that reprocessing logic.  
 
   
-
 A Rulesset is a Query Filter that determines the records assocaited with the Glossary Term. This takes the shape of a string query that uses Lucene Syntax such as 
 
-  
 
 +entityType:/Organization +hubspot.deal.dealStage:123 
 
-  
 
 or something more complex like: 
 
-  
 
 +(entityType:"/Organization" entityType:"/Business") +(+hubspot.deal.dealStage:"123" -hubspot.deal.dealAmount:100000) which equates to "Results must have an Entity Type of Organization or Business and must have Deal Stage of 123 and not have a deal amount of 100000". 
 
-  
-
 Due to the Lexicon, you will be able to use the LexiconResolver.Resolve() class which can take e.g. "/Company" and resolve it to the underlying Entity Type. If you run the resolver over a query like above, it will resolve different terms to the correct underlying term such as "hubspot.sale.dealStage" can resolve to "hubspot.deal.dealStage" if there is a lexicon entry for "deal" of "sale". 
 
-  
-
 Glossary Terms must be unique and you cannot have a Lexicon Entry that is the same as a Glossary Term.  
-
 
 The Data Glossary will be evaluated in the following cases:
 
