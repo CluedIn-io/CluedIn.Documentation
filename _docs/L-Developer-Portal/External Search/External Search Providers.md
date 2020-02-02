@@ -31,3 +31,52 @@ Many of these external search providers will require you to purchase API tokens 
 Very similar to your integrations, you will need to construct a clue and use Vocabularies to be able to map back to core CluedIn vocabularies. 
 
 To enable a particular external search provider, you will need to change the respective “Enabled” flag in your container.config configuration file. By default, all are turned off in a new installation of CluedIn. This configuration file is also where we suggest that you place your appropriate API keys to talk to external providers that require it. 
+
+To be able to understand what lookup values an External Search provider supports and what types of Vocabularies it will enrich, you can call "api/integration/enricher/{id}/details" where id is the Id of the External Search Provider you are wanting to inspect. 
+
+Here is an example of what it will bring back for "Company House":
+
+    [Id("2A9E52AE-425B-4351-8AF5-6D374E8CC1A5")]
+    [Name("Company House Enricher")]
+    [EnrichSource("www.companyhouse.com")]
+    [LookupEntityTypes("/Organization")]
+    [ReturnedEntityTypes("/Organization", "/Person")]
+    [LookupVocabularies("CluedIn.Core.Data.Vocabularies.Vocabularies.CluedInOrganization")]
+    [ReturnedVocabularies("CompanyHouseVocabulary.Organization", "CompanyHouseVocabulary.Person")]
+    [LookupVocabulariesKeys(
+        "CluedIn.Core.Data.Vocabularies.Vocabularies.CluedInOrganization.CodesCompanyHouse",
+        "CluedIn.Core.Data.Vocabularies.Vocabularies.CluedInOrganization.AddressCountryCode",
+        "CluedIn.Core.Data.Vocabularies.Vocabularies.CluedInOrganization.OrganizationName"
+        )
+    ]
+    [ReturnedVocabulariesKeys(
+            "CompanyHouseVocabulary.Organization.CompanyNumber",
+            "CompanyHouseVocabulary.Organization.Charges",
+            "CompanyHouseVocabulary.Organization.CompanyStatus",
+            "CompanyHouseVocabulary.Organization.Type",
+            "CompanyHouseVocabulary.Organization.Jurisdiction",
+            "CompanyHouseVocabulary.Organization.Has_been_liquidated",
+            "CompanyHouseVocabulary.Organization.Has_insolvency_history",
+            "CompanyHouseVocabulary.Organization.Registered_office_is_in_dispute",
+            "CompanyHouseOrgAddressVocabulary.AddressLine1",
+            "CompanyHouseOrgAddressVocabulary.AddressLine2",
+            "CompanyHouseOrgAddressVocabulary.Locality",
+            "CompanyHouseOrgAddressVocabulary.PostCode",
+            "CompanyHouseVocabulary.Person.Name",
+            "CompanyHouseVocabulary.Person.Officer_role",
+            "CompanyHouseVocabulary.Person.Appointed_on",
+            "CompanyHouseVocabulary.Person.Date_of_birth",
+            "CompanyHouseVocabulary.Person.Country_of_residence",
+            "CompanyHouseVocabulary.Person.Occupation",
+            "CompanyHouseVocabulary.Person.Nationality",
+            "CompanyHouseVocabulary.Person.Resigned_on",
+            "CompanyHousePersonAddressVocabulary.CareOf",
+            "CompanyHousePersonAddressVocabulary.Region",
+            "CompanyHousePersonAddressVocabulary.Postal_code",
+            "CompanyHousePersonAddressVocabulary.Premises",
+            "CompanyHousePersonAddressVocabulary.Country",
+            "CompanyHousePersonAddressVocabulary.Locality",
+            "CompanyHousePersonAddressVocabulary.AddressLine1",
+            "CompanyHousePersonAddressVocabulary.AddressLine2"
+        )
+    ]
