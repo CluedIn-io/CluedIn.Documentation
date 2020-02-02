@@ -6,3 +6,96 @@ Although CluedIn will persist data into many datastores, CluedIn will construct 
 /PartOf
 
 All other types of edges will not play a role in parent processing. You can extend the inbuilt implementation to add your own Edge types to watch, but we do recommend against creating hard coded new edge types in your crawlers. 
+
+For a detailed list of supported Parent Aggregation types: 
+
+var ignoredParentEdgeTypes = new EntityEdgeType[]
+                    {
+                        "/Code",
+                        EntityEdgeType.Follows,
+                        EntityEdgeType.For,         // TODO: For relationships needs to be cleaned up
+                        EntityEdgeType.WorkedOn,    // TODO: Cleanup
+                        EntityEdgeType.Read,
+                        EntityEdgeType.ReadWrite,
+                    };
+
+                var nonTemporalLocalParentEdgeTypes = new[]
+                    {
+                        EntityEdgeType.At,
+                        EntityEdgeType.CreatedAt,
+                        EntityEdgeType.Modified,    // "/Modified",
+                        EntityEdgeType.ModifiedAt,
+                        EntityEdgeType.DiscoveredAt,
+
+                        // "/Involves",             // TODO: Cleanup    (/Mail)-[/Involves]->(/Mail/Thread)
+                        EntityEdgeType.IsType,      // TODO: Cleanup
+                        EntityEdgeType.LocatedIn,
+                        EntityEdgeType.Recipient,
+                        EntityEdgeType.RequestedBy,
+                        // EntityEdgeType.UsedBy,      // (/Provider/Root)-[/UsedBy]->(/Organization)
+                        EntityEdgeType.WorkedOn,    // TODO: Cleanup
+                        EntityEdgeType.WorkedOnBy,
+                        EntityEdgeType.Action,
+
+                        EntityEdgeType.Mentioned,
+                        // "/Has",                  // TODO: Cleanup
+                        EntityEdgeType.Author,
+                        EntityEdgeType.Birthday,
+
+                        EntityEdgeType.Created,
+                        EntityEdgeType.CreatedBy,
+                        EntityEdgeType.DeletedBy,
+                        EntityEdgeType.ManagedBy,
+                        EntityEdgeType.ModifiedBy,
+                        EntityEdgeType.OwnedBy,
+                        EntityEdgeType.Owns,
+
+                        EntityEdgeType.RequestedBy,
+                        EntityEdgeType.WorkedOnBy,
+
+                        EntityEdgeType.Received,
+                        EntityEdgeType.Attended,
+                        EntityEdgeType.Deployed,
+                        EntityEdgeType.DueOn,
+                        EntityEdgeType.InvitedTo,
+                        EntityEdgeType.MemberOf,
+                        EntityEdgeType.Presented,
+                        EntityEdgeType.Received,
+                        EntityEdgeType.Recipient,
+                        EntityEdgeType.Registered,
+                        EntityEdgeType.RequestedBy,
+                        EntityEdgeType.StartedOn,
+                        EntityEdgeType.EndedOn,
+                        EntityEdgeType.WitheldIn,
+                        EntityEdgeType.Competitor,
+                        EntityEdgeType.Investor,
+                        EntityEdgeType.ApprovedBy
+                    };
+
+                var nonTemporalParentEdgeTypes = new[]
+                    {
+                        EntityEdgeType.Parent,
+                        EntityEdgeType.PartOf,
+                        EntityEdgeType.AttachedTo,
+                        // EntityEdgeType.LocatedIn,
+                        EntityEdgeType.ManagedIn,
+                        EntityEdgeType.WorksFor,
+                        EntityEdgeType.UsedBy,      // (/Provider/Root)-[/UsedBy]->(/Organization)
+                    };
+
+                var parentOnlyEdgeTypes = new[]
+                    {
+                        EntityEdgeType.Represents   // Example: (/Infrastructure/Folder)-[/Represents]->(/Organization)
+                    };
+
+                return new RuleSet
+                    {
+                        IgnoredParentEdgeTypes          = ignoredParentEdgeTypes,
+                        NonTemporalLocalParentEdgeTypes = nonTemporalLocalParentEdgeTypes,
+                        NonTemporalParentEdgeTypes      = nonTemporalParentEdgeTypes,
+                        ParentOnlyEdgeTypes             = parentOnlyEdgeTypes,
+                        SelectLocalParentEdges          = SelectLocalParentEdgesV2,
+                        SelectParentEdges               = SelectParentEdgesV2,
+                        SelectParentOnlyEdges           = SelectParentOnlyEdgesV2,
+                        FilterIgnoredEdges              = FilterIgnoredEdgesV2
+                    };

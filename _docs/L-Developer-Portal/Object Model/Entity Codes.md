@@ -18,6 +18,8 @@ There are many times where Identifiers for Entity Codes are dirty, or not ready 
 
 There are many aspects of an Entity Code that will lead to slower processing time. If you find that you have a large amount of duplicate data that would cause you to have Entities with 1000's of EntityCodes, then processing this record will take significant time. Be careful of using Entity Codes that would cause this type of behaviour. It doesn't mean that you should not, it just means that you will pay a processing penalty. 
 
+There are also CluedIn specific Entity Codes. These are codes that use the Origin of "CluedIn" and then have a paramter in brackets that specifies a type of Origin e.g. CluedIn(cvr). This Origin shows that CluedIn has a generic, non-source specific Id from a record. 
+
 What if your record doesn't have a unique reference to construct an Entity Code? 
 
 This happens all the time. Often you will find that you need to merge or link records across systems that don't have Id's but rather require a more rules based or fuzzy merging to be able to link records. In this case, we will often suggest to create a composite Entity Code i.e. an Entity Code that you have constructed from a combination of column or property values that guarantee uniqueness. For example, if you have a Transaction record, you might find that a combination of the Transaction Date, Product, Location and Store will guarantee uniqueness. It is best to calculate a "Hash" of these values combined which means that we can calculate an Entity Code from this. 
