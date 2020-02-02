@@ -21,7 +21,7 @@ using CluedIn.Core;
 using CluedIn.Core.Data.Parts;
 using CluedIn.Core.FileTypes;
 
-namespace CluedIn.Crawling.ContentExtraction
+namespace Custom.Crawling.ContentExtraction
 {
     /// <summary>
     /// The mark down content extractor.
