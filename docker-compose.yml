@@ -7,10 +7,4 @@ services:
       - .:/srv/jekyll
       # - ./vendor/bundle:/usr/local/bundle
     ports:
-      - 4000:4000
-      # - 35729:35729
-      # - 3000:3000
-      # -   80:4000
-# networks:
-#   default:
-#     driver: bridge
+      - 80:4000
