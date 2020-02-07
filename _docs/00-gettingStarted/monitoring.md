@@ -20,7 +20,7 @@ CluedIn uses structured logging. You can configure any sink, but only 3 have bee
     seq:
         public_endpoint: /seq
     ```
-    By default the seq endpoint is protected with an [Oauth2 proxy](/docs/0-gettingStarted/oauth2.html).
+    By default the seq endpoint is protected with an [Oauth2 proxy](/docs/00-gettingStarted/oauth2.html).
 1. [Azure Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
     All you need to do is add the key for the Application Insights instance you want to use:
     ```yaml

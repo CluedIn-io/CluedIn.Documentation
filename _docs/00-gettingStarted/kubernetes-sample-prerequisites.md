@@ -83,7 +83,7 @@ You must have:
     ```powershell
     kubectl get svc -n ingress -o wide -l 'component=controller'
     ```
-    In your own DNS, configure that IP to whatever host you want to use for CluedIn. You could map it to a wildcard record; alternatively you can use [more specific entries](/docs/0-gettingStarted/kubernetes.html#hostnames-and-addresses).
+    In your own DNS, configure that IP to whatever host you want to use for CluedIn. You could map it to a wildcard record; alternatively you can use [more specific entries](/docs/00-gettingStarted/kubernetes.html#hostnames-and-addresses).
 
 1. Create a secret with your docker hub login credentials:
 

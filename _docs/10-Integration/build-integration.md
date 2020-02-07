@@ -167,8 +167,8 @@ In this case the sample API was very open and generic, however in other cases yo
 
 ### Deploying the provider locally
 
-If you are running CluedIn locally for testing purposes using Docker, you can follow [these instructions](/docs/0-gettingStarted/docker-local.html#adding-extra-components) to add the integration.
+If you are running CluedIn locally for testing purposes using Docker, you can follow [these instructions](/docs/00-gettingStarted/docker-local.html#adding-extra-components) to add the integration.
 
 ### Testing the provider in your environment
 
-Please refer to [install an integration](/docs/1-Integration/install-integration.html)
+Please refer to [install an integration](/docs/10-Integration/install-integration.html)

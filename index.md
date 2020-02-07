@@ -32,7 +32,7 @@ Developers can use this documentation to:
 
 ## Categories
 
-1. [Get Started](./docs/0-gettingStarted/0-default.html)
+1. [Get Started](./docs/00-gettingStarted/0-Welcome-to-CluedIn.html)
 2. [Integration](./1-Integration/index.html)
 
 ## Marketplace

@@ -5,14 +5,14 @@ title: Install Integration
 
 ### Using Docker
 
-If you are running CluedIn using Docker, for testing and evaluation purposes, you can follow the [adding extra components](/docs/0-gettingStarted/docker-local.html#adding-extra-components) instructions.
+If you are running CluedIn using Docker, for testing and evaluation purposes, you can follow the [adding extra components](/docs/00-gettingStarted/docker-local.html#adding-extra-components) instructions.
 
 
 ### Installing integrations in Kubernetes 
 
 #### Via the helm chart
 
-In a production environment, using Kubernetes, you can add the components you want to install through the [`values.yml`](/docs/0-gettingStarted/kubernetes.html#installation) file. You can also specify different nuget sources for those packages:
+In a production environment, using Kubernetes, you can add the components you want to install through the [`values.yml`](/docs/00-gettingStarted/kubernetes.html#installation) file. You can also specify different nuget sources for those packages:
 
 ```yaml
 cluedin:

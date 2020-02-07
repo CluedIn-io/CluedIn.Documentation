@@ -22,7 +22,7 @@ The first step after having installed CluedIn is usually to bring data in.
 
 This is done using an [Connector](https://cluedin-marketplace.herokuapp.com/search?type=connector).
 
-If you were to not find what you are looking for in the MarketPlace, you can always [build an integration](/docs/1-Integration/build-integration.html) yourself.
+If you were to not find what you are looking for in the MarketPlace, you can always [build an integration](/docs/10-Integration/build-integration.html) yourself.
 
 
 
@@ -35,10 +35,10 @@ If you were to not find what you are looking for in the MarketPlace, you can alw
 
 - Visit the [MarketPlace](https://cluedin-marketplace.herokuapp.com) 
 
-- View [How to build an integration](/docs/1-Integration/build-integration.html) 
+- View [How to build an integration](/docs/10-Integration/build-integration.html) 
 
 - [Publish your integration to the MarketPlace](https://github.com/CluedIn-io/MarketPlace.Store#how-to-add-integrations-) 
 
-- View [How to install an integration](/docs/1-Integration/install-integration.html) 
+- View [How to install an integration](/docs/10-Integration/install-integration.html) 
 
 

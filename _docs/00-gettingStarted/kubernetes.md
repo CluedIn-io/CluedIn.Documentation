@@ -7,7 +7,7 @@ title: CluedIn with Kubernetes
 
 CluedIn provides a *helm chart* to install CluedIn quickly in a Kubernetes cluster. [*Helm*](https://helm.sh/) is a package manager which simplifies the installation and management of complex applications in a Kubernetes environment. Charts are stored in a repository and they are invoked using the `helm-cli` tool from a terminal that has access to a Kubernetes cluster.
 
-The purpose of the chart is to install the CluedIn application, this includes the actual CluedIn server, website, and other [services required](/docs/0-gettingStarted/0-default.html) (storage, queues, etc.)
+The purpose of the chart is to install the CluedIn application, this includes the actual CluedIn server, website, and other [services required](/docs/00-gettingStarted/0-default.html) (storage, queues, etc.)
 
 #### Pre-requisites
 
@@ -23,7 +23,7 @@ Access to a Kubernetes cluster with both Linux **and Windows** nodes. In additio
 
 The helm chart repository containing the CluedIn chart must be registered. 
 
-You can see a step-by-step guide in the [example pre-requisite configuration](/docs/0-gettingStarted/kubernetes-sample-prerequisites.html)
+You can see a step-by-step guide in the [example pre-requisite configuration](/docs/00-gettingStarted/kubernetes-sample-prerequisites.html)
 
 
 
@@ -41,17 +41,17 @@ This creates a values.yml which you can modify to tailor how CluedIn will be ins
 
 As a minimum, there are some settings you will need to adjust in the `values.yml` file.
 
-- [DNS / hostnames](/docs/0-gettingStarted/dns-hostnames.html)
-- [SSL configuration](/docs/0-gettingStarted/ssl.html)
-- [Email](/docs/0-gettingStarted/email.html)
-- [Securing access with OAuth2](/docs/0-gettingStarted/oauth2.html)
+- [DNS / hostnames](/docs/00-gettingStarted/dns-hostnames.html)
+- [SSL configuration](/docs/00-gettingStarted/ssl.html)
+- [Email](/docs/00-gettingStarted/email.html)
+- [Securing access with OAuth2](/docs/00-gettingStarted/oauth2.html)
 - Resources: All deployments in the chart are configured with sensible, but fairly minimal resource requests. You can override those within the `values.yaml` file.
-- [Extra components to install in the server](/docs/1-Integration/install-integration.html)
+- [Extra components to install in the server](/docs/10-Integration/install-integration.html)
 
 Optionally, you can also adjust other settings to cater for more complex scenarios:
-- [Persistence](/docs/0-gettingStarted/persistence.html)
-- [SQL Server](/docs/0-gettingStarted/sqlserver.html)
-- [Scaling](/docs/0-gettingStarted/scaling.html)
+- [Persistence](/docs/00-gettingStarted/persistence.html)
+- [SQL Server](/docs/00-gettingStarted/sqlserver.html)
+- [Scaling](/docs/00-gettingStarted/scaling.html)
 
 #### Deployment options
 
@@ -89,7 +89,7 @@ Once you have set all the required values for your installation in the `values.y
 
 #### Monitoring
 
-Check the [monitoring and logging](/docs/0-gettingStarted/monitoring.html) section to learn how to verify if the application is running successfully. You are able to check the logs, and connect to the interfaces of the different tools CluedIn is using.
+Check the [monitoring and logging](/docs/00-gettingStarted/monitoring.html) section to learn how to verify if the application is running successfully. You are able to check the logs, and connect to the interfaces of the different tools CluedIn is using.
 
 ### Other things to note
 

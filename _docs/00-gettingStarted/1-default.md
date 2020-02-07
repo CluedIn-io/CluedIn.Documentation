@@ -30,9 +30,9 @@ Notice all the communication from the browser into the application comes through
 
 ### Installation
 
-- For development and evaluation purposes [using Docker](/docs/0-gettingStarted/docker-local.html)
-- For testing and production environments [using Kubernetes](/docs/0-gettingStarted/kubernetes.html)
+- For development and evaluation purposes [using Docker](/docs/00-gettingStarted/docker-local.html)
+- For testing and production environments [using Kubernetes](/docs/00-gettingStarted/kubernetes.html)
 
 ### Integration
 
-- [Build my first provider](/docs/1-integration/index.html)
+- [Build my first provider](/docs/10-integration/index.html)

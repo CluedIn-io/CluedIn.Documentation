@@ -14,7 +14,7 @@ The chart assumes the usage of Azure, however it is possible to use other provid
 1. Allow the following endpoints for redirection in the Azure AD application
     - `https://<clean-segment>.<prefix>.<hostname>/oauth2/callback`
     - `https://<app-segment>.<prefix>.<hostname>/oauth2/callback`
-    (refer to the [DNS](/docs/0-gettingStarted/dns-hostnames.html) section).
+    (refer to the [DNS](/docs/00-gettingStarted/dns-hostnames.html) section).
 
 1. Create a new _client secret_ (under Certificates and Secrets).
 
