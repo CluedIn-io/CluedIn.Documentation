@@ -100,7 +100,7 @@ header {
 		background-color: $brand-colour;
 		color: #fff;
 		margin: 0;
-		font-size: 1.7rem;
+		font-size: 1.45rem;
 		line-height: 0.8;
 		letter-spacing: 0;
 		font-weight: 600;
@@ -162,10 +162,10 @@ $nav-image: $baseurl + "/images/menu.svg";
 	background-color: $content-background-color;
 	color: $content-color;
 
-	h3::before {
+	h3::before, h1::before, h2::before {
 		content: "";
 		@extend hr;
-		margin: 60px 0;
+		margin: 30px 0;
 	}
 }
 
@@ -178,7 +178,7 @@ $nav-image: $baseurl + "/images/menu.svg";
 
 .content {
 	max-width: $content-max-width;
-	padding: 40px 64px;
+	padding: 0 64px;
 }
 
 .page-header {
@@ -190,24 +190,24 @@ $nav-image: $baseurl + "/images/menu.svg";
 	}
 
 	h2 {
-		font-size: 2rem;
-		margin-left: -1px;
+		font-size: 1.65rem;
+		margin-left: 0px;
 		color: #888;
 		letter-spacing: 0;
 	}
 
 	h3 {
-		font-size: 4rem;
-		margin-left: -4px;
+		font-size: 2.5rem;
+		margin-left: 0px;
 	}
 
 	@media (min-width: $mobile-break) {
 		h2 {
-			font-size: 2.65rem;
+			font-size: 1.65rem;
 		}
 
 		h3 {
-			font-size: 5.4rem;
+			font-size: 2.5rem;
 		}
 	}
 
@@ -248,7 +248,7 @@ nav > ul {
 	}
 
 	> a {
-		color: #666;
+		color: #cecece;
 		text-decoration: none;
 		font-size: 1.4rem;
 		padding: $space / 2 0 $space / 2 $space * 2;
@@ -258,13 +258,14 @@ nav > ul {
 	&.current > a,
 	> a:active,
 	> a:hover {
-		color: #111;
+		color:$cluedin-primary;
 	}
 
 	&.top-level > a {
 		line-height: 1.5;
 		font-weight: 600;
 		padding-left: $space;
+    color: #ebebeb;
 	}
 }
 
@@ -382,7 +383,7 @@ h4 svg {
 
 	&:focus {
 		outline: none;
-		border-left-color: $brand-colour;
+    box-shadow: 0 0 5px 3px rgba(35, 35, 35, .4), 0 0 2px 2px rgba(35, 35, 35, .24);
 	}
 }
 
@@ -468,4 +469,65 @@ img {
 
 .cms-editor-active .editor-link {
 	display: block;
+}
+
+main {
+	display: flex;
+  align-items: flex-start;
+	max-width: 1200px;
+}
+article {
+  flex-grow: 1;
+  width: 0;
+	max-width: 100ch;
+	h1, h2, h3, h4, h5 {
+		letter-spacing: 0;
+		text-indent: 0;
+		margin: 0 0 1em 0;
+	}
+	h1 {
+		font-size: 1.8rem;
+	}
+	h2 {
+		font-size: 1.73286rem;
+	}
+	h3 {
+		font-size: 1.5rem;
+	}
+	h4 {
+		font-size: 1.4rem;
+	}
+	h5 {
+		font-size: 1.3rem;
+	}
+}
+aside {
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	width: 260px;
+	max-height: calc(100vh - 64px);
+	margin-top: -36px;
+	margin-left: auto;
+	padding: 40px 56px;
+	padding-right: 0;
+	position: sticky;
+	top: 109px;
+}
+
+#sticky-menu {
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			margin-bottom: .725rem;
+			list-style: none;
+			a {
+				&:hover {
+					color: #26a29acc
+				}
+				text-decoration: none;
+			}
+		}
+	}
 }

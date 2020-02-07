@@ -9,7 +9,7 @@ An integration should not be specific to a user. When an integration is installe
 
 Eg: Slack account of multiple organizations, multiple shared email inbox from the same Exchange server, multiple Office 365 accounts...
 
-Please refer to the documentation on [How to build a crawler](./somelink)
+Please refer to the documentation on [How to build a provider](./somelink)
 
 > When installing an integration,
 > if you want CluedIn to only read, add the integration with a user that has read-only on ALL information
@@ -25,7 +25,7 @@ Cloud integration are generally integration for existing SaaS product such as Hu
 To authenticate to this integration, we have 3 authentication methods which variates based on the product.
 
 > Notice, if you are running CluedIn, on-prem, you will need to setup the Oauth process with the product you want to add.
-> Refer to the crawler's documentation and follow the steps.
+> Refer to the provider's documentation and follow the steps.
 
 *Oauth authentication*
 
@@ -42,7 +42,7 @@ Sometimes, the integration required multiple fields such as a 'URL', a username.
 
 #### On-premise integration
 
-Another type of integration are 'on-prem', they are integration that you need to install on your servers. A good example is a File system crawler which will scan all the files located into a physical hard-drive.
+Another type of integration are 'on-prem', they are integration that you need to install on your servers. A good example is a File system provider which will scan all the files located into a physical hard-drive.
 
 ### Adding an Integration
 
