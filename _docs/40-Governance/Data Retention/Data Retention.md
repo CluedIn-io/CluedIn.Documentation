@@ -1,4 +1,7 @@
-Data Retention
+---
+category: Governance
+title: Data Retention
+---
 
 Data Retention allows CluedIn to set temporal based limits on how long we can retain certain data. Rules on retention will change per industry, country and use-case. Becasue of this, CluedIn supports a generic retention framework that allows a user to specify some rules, which will then, inturn, either archive, purge (or other) data from CluedIn. If you have chosen to implement the Mesh API queries for these mutation commands, then these will also be triggered. This means that CluedIn can support Retention policies in integrated systems as well. 
 

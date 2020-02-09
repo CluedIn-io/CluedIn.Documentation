@@ -1,4 +1,7 @@
-Subject Access Requests
+---
+category: Governance
+title: Subject Access Requests
+---
 
 CluedIn allows a user to generate a subject access request to fulfil data privacy acts around the world. 
 

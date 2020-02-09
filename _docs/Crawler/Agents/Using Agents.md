@@ -1,4 +1,7 @@
-Using Agents
+---
+category: Crawler
+title: Using Agents
+---
 
 Agents are the orchestrators of running integrations. Agents allow you to run crawlers in remote environments, typically on different machines, even in different physical environments. 
 

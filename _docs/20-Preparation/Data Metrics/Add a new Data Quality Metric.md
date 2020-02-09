@@ -1,7 +1,11 @@
-Add a new Data Quality Metric
+---
+category: Preparation
+title: Add a new Data Quality Metric
+---
 
 Here is an example of how to calculate Accuracy of data. You can use this as a guide to implement your own custom data metrics.
 
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -426,3 +430,5 @@ namespace Custom.Metrics.Implementations
         }
     }
 }
+
+```

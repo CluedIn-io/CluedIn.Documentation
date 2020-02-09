@@ -103,3 +103,7 @@ You must have:
     helm repo add cluedin https://cluedin-io.github.io/CluedIn.Helm
     helm repo update
     ```
+
+NOTE: You can also place secrets into a Vault or Key Vault from your cloud provider of choice.
+
+![Diagram](azure-aks.png)

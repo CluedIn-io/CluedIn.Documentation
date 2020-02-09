@@ -1,4 +1,7 @@
-Help with building robust integrations
+---
+category: Integration
+title: Help with building robust integrations
+---
 
 With the CluedIn team building just over 220 integrations to date, we have learnt quite a lot of tips and tricks in guiding developers to build good and robust integrations. 
 

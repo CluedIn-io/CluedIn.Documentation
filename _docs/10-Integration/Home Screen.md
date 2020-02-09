@@ -1,4 +1,7 @@
-Home Screen
+---
+category: Integration
+title: Home Screen
+---
 
 Your integration Home Screen will give you details of how many data sources you have connected and actions to be able to add new integrations or configure existing sources. 
 

@@ -1,4 +1,7 @@
-Data Privacy
+---
+category: Governance
+title: Data Privacy
+---
 
 CluedIn detects PII data by default. Here is a description of how it is implemented.
 

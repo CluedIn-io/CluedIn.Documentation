@@ -1,4 +1,7 @@
-Outgoing Streams
+---
+category: Consume
+title: Outgoing Streams
+---
 
 It is often the case the introducing new platforms like CluedIn can be thought of as quite "disruptive" i.e. our teams need to learn a new system and query language to be able to interact with the data. 
 

@@ -1,4 +1,7 @@
-Export Targets
+---
+category: Consume
+title: Export Targets
+---
 
 Export Targets are used to authenticate with an integration point with the intention that CluedIn will make data available to this consumer via a push mechanish that CluedIn calls Outgoing Streams. Good examples include: 
 
@@ -22,6 +25,7 @@ Developers can add brand new Export Targets by implementing the OutgoingWebhookP
 
 Here is an example of how you could introduce a new Export Target:
 
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -133,3 +137,4 @@ namespace Custom.WebHooks.Actors
         }
     }
 }
+```

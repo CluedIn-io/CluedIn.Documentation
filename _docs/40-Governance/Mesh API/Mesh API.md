@@ -1,4 +1,7 @@
-Mesh API
+---
+category: Governance
+title: Mesh API
+---
 
 The Mesh API allows a developer to implement the ability for CluedIn to write back values from CluedIn to source systems. This comes in the form of the following operation types: 
 

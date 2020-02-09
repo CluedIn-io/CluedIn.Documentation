@@ -1,4 +1,7 @@
-Data Catalog
+---
+category: Governance
+title: Data Catalog
+---
 
 Using the Vocabularies in your integrations, CluedIn will automatically build you up a Data Catalog of all the properties that are available across all integrations that have been enabled in the platform. 
 

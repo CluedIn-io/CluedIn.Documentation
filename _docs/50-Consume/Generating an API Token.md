@@ -1,4 +1,7 @@
-Generating an API Token
+---
+category: Administration
+title: Generating an API Token
+---
 
 To consume that from CluedIn, you may need to generate an API token so that external sources can talk to CluedIn through its GraphQL endpoint. 
 

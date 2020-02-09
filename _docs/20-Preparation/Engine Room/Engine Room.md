@@ -1,4 +1,7 @@
-Engine Room
+---
+category: Preparation
+title: Engine Room
+---
 
 The processing pipeline in CluedIn can be described as a tree of different processing steps. Each processing step has dependencies on previous steps being run and hence you can conceptualise it as a dependency tree of processing steps. 
 
@@ -18,6 +21,7 @@ Configuration
 Footprint
 CluedIn uses a queuing system that operates the many different operations that CluedIn does on your data. This can be thought of as a Tree of processes. You can see that process tree below or by calling our {{url}}/api/queue/map endpoint.
 
+```json
 {
 	"CluedIn": {
 		"Incoming": {
@@ -69,6 +73,7 @@ CluedIn uses a queuing system that operates the many different operations that C
 		}
 	}
 }
+```
 
 Each Queue will have its own statistics and you can either call /api/queue/statistics to get all statistics of all queues or you can get an individual queue by calling {{url}}/api/queue/statistics?queueName=CluedIn.Core.Messages.Processing.Metrics.ArchiveMetricsValuesCommand:CluedIn.Core_CluedIn
 
@@ -76,6 +81,7 @@ You can also add an "expand=true" which will give you the aggregate values of al
 
 It will respond with the following details. Comments are for guidance in the user interface
 
+```json
 {
 	"Queues": {
 	"memory": 17500,
@@ -196,6 +202,7 @@ It will respond with the following details. Comments are for guidance in the use
 	"name": "CluedIn.Core.Messages.Processing.Metrics.ArchiveMetricsValuesCommand:CluedIn.Core_CluedIn"
 	}
 }
+```
 
 The Crawling statistics will report on the metrics for the fetching and mapping part of the process. It is often that Crawlers are run using Agents and these Agents may run on-premise and separate to the processing boxes.
 

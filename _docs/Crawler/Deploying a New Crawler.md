@@ -1,4 +1,7 @@
-Deploying a New Crawler
+---
+category: Crawler
+title: Deploying a New Crawler
+---
 
 You can deploy new crawlers in two main ways:
 

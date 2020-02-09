@@ -1,4 +1,7 @@
-Followed Entities
+---
+category: User Interface
+title: Followed Entities
+---
 
 There are some records that might be regularly accessed and hence, the followed entities allows you to save links to these records so you can easliy recall them. 
 

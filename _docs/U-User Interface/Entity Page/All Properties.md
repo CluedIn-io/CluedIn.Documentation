@@ -1,4 +1,7 @@
-All Properties
+---
+category: User Interface
+title: All Properties
+---
 
 This view will show you all meta data properties from all the source systems that have composed this record (entity). You can filter this list by the source system, the vocabulary groupings or the name of the property itself. 
 

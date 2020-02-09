@@ -1,4 +1,7 @@
-Entity Page
+---
+category: User Interface
+title: Entity Page
+---
 
 The entity page will show you a single view of the record, all metadata associated to this record and all records that have a connection to this record. 
 

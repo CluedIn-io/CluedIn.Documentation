@@ -1,4 +1,7 @@
-History
+---
+category: User Interface
+title: History
+---
 
 For data lineage reasons, it is important to be able to show and describe where your data has come from. In CluedIn, you can see this at an entity level, but also at a property level.
 

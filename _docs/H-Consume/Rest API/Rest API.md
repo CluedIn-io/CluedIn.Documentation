@@ -1,4 +1,7 @@
-Rest API
+---
+category: Consume
+title: Rest API
+---
 
 The CluedIn Web User Interface is driven off the Rest API. This means that whatever you can do the User Interface can also be automated and programmatically called from systems. Everything from creating new accounts, to adding integrations, to running searches can all be run through the Rest API. 
 

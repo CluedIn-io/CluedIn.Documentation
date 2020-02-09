@@ -1,4 +1,7 @@
-Data Glossary
+---
+category: Governance
+title: Data Glossary
+---
 
 The Data Glossary allows Data Governance teams to map a proper semantic model over data that typically will come from many different sources. 
 

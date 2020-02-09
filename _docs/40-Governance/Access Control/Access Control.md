@@ -1,4 +1,7 @@
-Access Control
+---
+category: Governance
+title: Access Control
+---
 
 CluedIn can enable or disable Read access at a datasource level. If you require more granular level security control, please talk to your CluedIn Account Manager to discuss the options. 
 

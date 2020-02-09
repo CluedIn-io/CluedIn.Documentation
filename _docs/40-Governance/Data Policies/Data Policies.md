@@ -1,4 +1,7 @@
-Data Policies
+---
+category: Governance
+title: Data Policies
+---
 
 Data Policies will allow you to generate Rules and Restrictions. Using the CluedIn Rules engine, you will be able to listen to certain data flowing through CluedIn or already persisted into the CluedIn Datastores and then react based off that. 
 

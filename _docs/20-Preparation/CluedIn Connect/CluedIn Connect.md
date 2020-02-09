@@ -1,4 +1,7 @@
-CluedIn Connect
+---
+category: Preparation
+title: CluedIn Connect
+---
 
 Whereas your crawlers are responsible for fetching data from datasources and creating edges. It is not the responsiblity of the crawlers to determine what type of relationship that linkage is. This is due to the nature that determining this is usually not static in nature and can sometimes take complex calculations to determine. Hence it is alwasy best practice to specify simple edge types in crawlers and then rules can be set in CluedIn Connect to run the smarts.
 

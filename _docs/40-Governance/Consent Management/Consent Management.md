@@ -1,4 +1,7 @@
-Consent Management
+---
+category: Governance
+title: Consent Management
+---
 
 The CluedIn consent management support allows you to map consent against Vocabulary Keys. This allows a Governance/Compliance team to map which Vocabulary keys they will need to prove consent for and then map that to the actual records that are in the CluedIn Data Hub.
 

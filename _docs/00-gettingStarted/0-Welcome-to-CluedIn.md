@@ -26,4 +26,6 @@ CluedIn is an application that runs in Docker containers and uses Kubernetes as 
 
 It is important to mention that CluedIn is a persistence layer. Unlike Data Virtualisation, CluedIn ingests parts of your source data into its platform. You have full control over what parts of your source data are ingested. The goal of CluedIn is to create the highest fidelity version of your data you will have in your business. This is not only the data itself, but the structure of the data as well. With CluedIn having the highest fidelity version of your data, it means that any business request for data, in any format, in any modelling can be served out of the CluedIn Data Hub. This will allow you to project data out exactly how the target systems would like as we contain the highest fidelity version of it. 
 
+![Diagram](high-fidelity.png)
+
 We hope you enjoy and get value out of your CluedIn solution. 

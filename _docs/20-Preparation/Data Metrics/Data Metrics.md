@@ -1,4 +1,7 @@
-Data Metrics
+---
+category: Preparation
+title: Data Metrics
+---
 
 Data Metrics will allow you to score and monitor the history of data quality over time. Data Metrics are aggregated on many different levels and you might find that you need to control how that aggregation is done at each level. 
 

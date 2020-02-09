@@ -1,4 +1,7 @@
-GraphQL
+---
+category: Consume
+title: GraphQL
+---
 
 CluedIn provides GraphQL as its way to pull and query data from it. The CluedIn GraphQL endpoint uses a combination of the different datastores to service the result of the query in question. 
 

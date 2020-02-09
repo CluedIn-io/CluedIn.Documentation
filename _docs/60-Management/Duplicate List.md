@@ -1,4 +1,7 @@
-Duplicate List
+---
+category: Management
+title: Duplicate List
+---
 
 Your duplicates menu will give you a list of different types of possible duplicate records. 
 
@@ -10,6 +13,7 @@ To do this, create a C# class and inherit from the IDuplicateQuery interface and
 
 Here as an example of a Duplicate Query detection that you could add yourself: 
 
+```csharp
 public class ContractDupicate : IDuplicateQuery	
     {	
         private readonly ExecutionContext executionContext;	
@@ -28,3 +32,4 @@ b.Must(a =>
             this.executionContext = executionContext;	
         }	
     }
+```

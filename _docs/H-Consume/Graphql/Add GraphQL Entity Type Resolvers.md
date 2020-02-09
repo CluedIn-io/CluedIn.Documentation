@@ -1,9 +1,14 @@
-Add GraphQL Entity Type Resolvers
+---
+category: Consume
+title: Add GraphQL Entity Type Resolvers
+---
 
 You can add your own specific resolvers to fetch data given filters such as what entity type a record is. 
 
 Here is an example of how to return Calendar Events in a different way through the GraphQL endpoints.
 
+
+```csharp
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -45,9 +50,11 @@ namespace Custom.GraphQL.Types.Specific
         }
     }
 }
+```
 
 Here is a more complex example:
 
+```csharp
 using System.Linq;
 
 using CluedIn.Core.Data;
@@ -57,7 +64,7 @@ using CluedIn.Core.GraphQL.Types.Specific;
 
 using GraphQL.Types;
 
-namespace Customer.GraphQL.Types.Specific
+namespace Custom.GraphQL.Types.Specific
 {
     /// <summary>The entity graph type.</summary>
     /// <seealso cref="Entity" />
@@ -68,19 +75,19 @@ namespace Customer.GraphQL.Types.Specific
         {
             this.Name = "Files_File_Entity";
 
-            //this.Field<ListGraphType<EntityInterface>>()
-            //    .Name("attendees")
-            //    .Resolve(ctx => ctx.GetDataLoader(async ids =>
-            //        {
-            //            // var ast = ctx.FieldAst;
-            //            // ast.SelectionSet.Selections;
+            this.Field<ListGraphType<EntityInterface>>()
+                .Name("attendees")
+                .Resolve(ctx => ctx.GetDataLoader(async ids =>
+                    {
+                        var ast = ctx.FieldAst;
+                        ast.SelectionSet.Selections;
 
-            //            var authors = data.GetEdgesOfType(ids, EntityEdgeType.Attended);
-            //            var lookup = authors.SelectMany(f => f.Endpoints.Select(ff => new { Key = f.ContextEntityId, Endpoint = ff }))
-            //                .ToLookup(x => x.Key, x => x.Endpoint);
+                        var authors = data.GetEdgesOfType(ids, EntityEdgeType.Attended);
+                        var lookup = authors.SelectMany(f => f.Endpoints.Select(ff => new { Key = f.ContextEntityId, Endpoint = ff }))
+                            .ToLookup(x => x.Key, x => x.Endpoint);
 
-            //            return lookup;
-            //        }).LoadAsync(ctx.Source.Id));
+                        return lookup;
+                    }).LoadAsync(ctx.Source.Id));
 
             EntityInterface.ConfigureInterface(this, data);
 
@@ -90,3 +97,4 @@ namespace Customer.GraphQL.Types.Specific
         }
     }
 }
+```

@@ -1,4 +1,7 @@
-Entity Type Translation
+---
+category: Preparation
+title: Entity Type Translation
+---
 
 Similar to Edge Types, there are many times where you will find that determining the type of data you are ingesting cannot be known upfront or it is not static in nature. Because of this, Entity Type Translation allows you to change the type of data at processing time. For example, CluedIn uses this engine by default to transform /Infrastructure/User clues into /Person or /Contact or maybe even a /Service/Account. This is due to the nature of data in source systems often being mixed and a more specific typing needs more analysis to determine the fact. 
 

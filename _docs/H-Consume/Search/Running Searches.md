@@ -1,4 +1,7 @@
-Running Searches
+---
+category: Consume
+title: Running Searches
+---
 
 CluedIn allows you to run searches on the data that exists within your account that (by default) is not only from External Data Sources or that is not a Shadow Entity. 
 
