@@ -13,34 +13,34 @@ A Clue is made up of generic properties and then a property bag to place all dat
 
 For more advanced uses, the Clue will also allow you to map:
 
-A Preview Image
-Authors
-Aliases
-Change Verbs
-Extracted Content e.g. Content of a file.
-Uri
-Tags
-External Uri's
+ - A Preview Image
+ - Authors
+ - Aliases
+ - Change Verbs
+ - Extracted Content e.g. Content of a file.
+ - Uri
+ - Tags
+ - External Uri's
 
 A Clue can have many Entity Codes associated with it. Imagine that you were integrating a record on a company and you had data on their local business identifier, website, LinkedIn Url, Facebook Url. These would all be considered ways to uniquely identify a company. Some are questionable as being unique identifiers, but most of the time we can accept that in more cases than not, they will be unique. For example, you could argue that a website is not a unique reference as chances are that you have purchased the website domain off a business that went bankrupt. This is completely fair, but we need to realise if this is the greater “evil” or not. More than often, a website will be unique to a company, but potentially not for a particular legal entity of that company, and for those times that it is not, we know that we might need to manually intervene in those records at a later point in time. 
 
 An Entity Code is made up from 5 different pieces:
 
-Entity Type
-Provider Definition Id
-Id
-Origin
-Organization Id
+ - Entity Type
+ - Provider Definition Id
+ - Id
+ - Origin
+ - Organization Id
 
 This combination will allow us to achieve absolute uniqueness across any datasource that we interact with. 
 
 If two Clues have exactly the same EntityCode, they have a 100% chance of merging. More often than not, Clues need to be processed to turn what is usually unique into something that would overlap with another system. For example, if we integrated two records on the same person from two different systems with exactly the same email address then this would never merge. 
 
-EntityType: /Person
-Provider Definition Id: 
-Id:john.smith@fakecompany.com
-Origin:Salesforce
-Organization Id:
+ - EntityType: /Person
+ - Provider Definition Id: 
+ - Id:john.smith@fakecompany.com
+ - Origin:Salesforce
+ - Organization Id:
 
 But many would argue that an email is unique, and they are true in the case where we say that an email will uniquely identify “something”. It might not be a person, it may be a group or in some cases it may be a randomly generated email address that is used in automation or to track if an email is opened or not. This is why Vocabularies are very important. Vocabularies are your way to map certain properties to Core Vocabularies and in-turn you will be telling CluedIn to do some special processing on those values. One of the goals of the core vocabulary mappings is for CluedIn to make the bridge of Entity Codes between different integration sources. This also means that you don’t need to place any special business logic into your custom integrations. Your custom integrations should remain as simple as possible and only fetch and map data into Clues. If you find that there is not a suitable Core Vocabulary to map your data into then you will need to implement a new processor on the CluedIn server - your integrations are not a place to place this complex logic. Some good examples of Entity Code Id's are:
 

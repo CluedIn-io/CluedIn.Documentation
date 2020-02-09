@@ -1,4 +1,7 @@
-Thumbnail Extractors
+---
+category: Developer
+title: Thumbnail Extractors
+---
 
 Thumbnail Extractors allow you to extract images from Data. The most common use case would be to set a Preview Image of a Clue. This is common for files such as Presentations, Spreadsheets and Videos to have a sample picture to preview what the file looks like. 
 

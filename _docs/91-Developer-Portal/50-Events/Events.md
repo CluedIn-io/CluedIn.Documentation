@@ -1,4 +1,8 @@
-Events
+---
+category: Developer
+title: Events
+---
+
 
 There are many events that occur within CluedIn while data is being ingested and processed. These Events are made available to you as a developer to interact with. 
 

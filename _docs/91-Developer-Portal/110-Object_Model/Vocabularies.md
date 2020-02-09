@@ -26,8 +26,10 @@ Vocabularies are your way to be able to describe properties that are coming in f
 
  Vocabularies are allowed (and designed) to be hierarchical in nature. This means that you can have many (max 10) levels of hierarchy in your Vocabularies. This is to allow you to be able to map Source systems into a Company, Department, Team or other levels. Here is a simple example of how a Vocabulary Key could map from source to Core.
 
+```yaml
  hubspot.contact.contactName - Provider Level
  	lego.sales.contact.fullName - Department Level
  	lego.marketing.contact.leadName - Department Level
  		lego.contact.Name - Company Level
  			person.fullName - CluedIn Core Vocabulary
+```

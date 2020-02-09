@@ -8,11 +8,11 @@ Core Vocabularies are where a lot of the “smarts” in CluedIn exist. If you m
 - Create new normalised representations of the phone number in industry standards e.g. E164. 
 - Will see if we can confidentially identify or merge records based off this phone number.
 
-Important Core Vocabularies
+## Important Core Vocabularies
 
-EditUrl
-PreviewUrl
-Body
+ - EditUrl
+ - PreviewUrl
+ - Body
 
 The role of Core Vocabularies is to merge records from different systems based off knowing that these Clues will have a different Origin. As you have already learnt about Entity Codes, they need to be exact for a merge to occur and simply the change of the Origin could cause records not to merge. 
 
@@ -22,18 +22,18 @@ As you learnt from the Vocabularies section, you can have a hierarchy of Vocabul
 
 Core Vocabularies do not include the namespace for a source system. It will typically have the Entity Type, the name of the key - or if it is a nested key like and address, it will have the nesting shown in the key name e.g. 
 
-organization.industry
-organization.address.city
-organization.address.countryName
-person.age
-person.gender
+ - organization.industry
+ - organization.address.city
+ - organization.address.countryName
+ - person.age
+ - person.gender
 
 These are all valid Core Vocabularies. 
 
-Can I add my own Core Vocabularies?
+## Can I add my own Core Vocabularies?
 
 Although you can, we suggest that you do not. The reason is mainly due to upgrade support and making sure your upgrades are as seemless and automated as possible. 
 
-How do I nest my Vocabularies?
+## How do I nest my Vocabularies?
 
 Instead of creating a VocabularyKey in your Vocabularies, you can create a CompositeVocabularyKey. This will ask you to set a Key and a Base Key. This is how you will build up your tree of Vocabularies. 

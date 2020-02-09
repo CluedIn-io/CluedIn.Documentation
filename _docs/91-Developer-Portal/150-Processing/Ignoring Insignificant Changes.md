@@ -1,4 +1,7 @@
-Ignoring Insignificant Changes
+---
+category: Developer
+title: Ignoring Insignificant Changes
+---
 
 When CluedIn processes Clues, it will generate a Hash value that will take certain values on the Clue and create a unique value that represents a hash of those values. 
 

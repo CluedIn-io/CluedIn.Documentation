@@ -1,4 +1,7 @@
-Turning Clues into ProcessedEntityMetadata
+---
+category: Developer
+title: Turning Clues into ProcessedEntityMetadata
+---
 
 An Entity contains a property called a ProcessedEntityMetadata. This stores the preferred values for properties from all the clues into a unified set of properties. What dictates these values will vary, but it essentially comes down to:
 

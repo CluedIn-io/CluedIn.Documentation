@@ -1,4 +1,7 @@
-Adding a new Processing Pipeline
+---
+category: Developer
+title: Adding a new Processing Pipeline
+---
 
 There are many reasons to add a new processing pipeline. The concept behind a processing pipeline is that it allows you to process input data and produce an output. 
 
@@ -12,10 +15,12 @@ CluedIn already has many processing pipeline steps that it ships with, including
 
  Imagine if you are ingesting data from a new system that you have built in-house. This system stores data on Dogs and their Vetenary visits. These are, by default, not well known Domain objects to CluedIn. Although it is completely fine to ingest these types of Domain objects, you can probably imagine that there will not be much out of the log logic that knows how to clean, enrich, measure and normalise data on Dogs. This is the reason why you would introduce new processing pipeline steps. In very high level pseduo code, you would visualise that you will have a process that will look something like this:
 
+```csharp
  (if EntityType == Dog)
  {
  	//Do some magic
  }
+ ```
 
 Here as an example of a Processor that you could implement that will run some custom entity merging logic that you may want:
 

@@ -7,11 +7,11 @@ An Entity Code is a way to instruct CluedIn to know what a completey unique refe
 
 An Entity Code is made up from 5 different pieces:
 
-Entity Type
-Provider Definition Id
-Id
-Origin
-Organization Id
+ - Entity Type
+ - Provider Definition Id
+ - Id
+ - Origin
+ - Organization Id
 
 This combination will allow us to achieve absolute uniqueness across any datasource that we interact with. 
 
@@ -23,7 +23,7 @@ There are many aspects of an Entity Code that will lead to slower processing tim
 
 There are also CluedIn specific Entity Codes. These are codes that use the Origin of "CluedIn" and then have a paramter in brackets that specifies a type of Origin e.g. CluedIn(cvr). This Origin shows that CluedIn has a generic, non-source specific Id from a record. 
 
-What if your record doesn't have a unique reference to construct an Entity Code? 
+## What if your record doesn't have a unique reference to construct an Entity Code? 
 
 This happens all the time. Often you will find that you need to merge or link records across systems that don't have Id's but rather require a more rules based or fuzzy merging to be able to link records. In this case, we will often suggest to create a composite Entity Code i.e. an Entity Code that you have constructed from a combination of column or property values that guarantee uniqueness. For example, if you have a Transaction record, you might find that a combination of the Transaction Date, Product, Location and Store will guarantee uniqueness. It is best to calculate a "Hash" of these values combined which means that we can calculate an Entity Code from this. 
 

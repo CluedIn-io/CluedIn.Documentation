@@ -1,4 +1,7 @@
-Extending an Existing Pipeline Process
+---
+category: Developer
+title: Extending an Existing Pipeline Process
+---
 
 Knowing that there are many processing pipelines that ship with the CluedIn product, you might find that you will want to only override small parts of CluedIn, rather than introducing your own custom pipeline processing steps. 
 

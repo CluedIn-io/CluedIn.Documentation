@@ -1,4 +1,7 @@
-Agent Jobs
+---
+category: Developer
+title: Agent Jobs
+---
 
 Your user interface will show you a list of the jobs that are running, have run and are scheduled to run within the platform. You can drill into the information on an individual job to see more details. 
 
@@ -51,6 +54,7 @@ id
 
 To call this you pass in the Job Id (that you have from the previous calls) and it will show you the details of the Job. There is LOTS of details here that will look nice in a UI.
 
+```
 [Id]
 ,[JobId]
 ,[AgentId]
@@ -93,6 +97,7 @@ To call this you pass in the Job Id (that you have from the previous calls) and 
 ,[ProcessingTasksReceivedCluesCount]
 ,[ProcessingTasksReceivedLogLinesCount]
 ,[ProcessingUpdatedDate]
+```
 
 [HttpGet]
 [Route("api/v1/jobs/executing")]
