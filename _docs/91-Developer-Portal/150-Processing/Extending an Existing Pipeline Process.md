@@ -4,6 +4,7 @@ Knowing that there are many processing pipelines that ship with the CluedIn prod
 
 You will notice in the ProcessingBase class that we offer many methods that you can override and hence introduce your own logic. 
 
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,5 +42,6 @@ namespace Your.Custom.Namespace
         }                    
     }
 }
+```
 
 Compile the code and then drop the DLL into the ServerComponent directory of CluedIn. 

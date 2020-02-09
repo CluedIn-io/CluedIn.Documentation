@@ -7,12 +7,23 @@ It is often the case the introducing new platforms like CluedIn can be thought o
 
 Although we offer our GraphQL api to "pull" data from CluedIn, we often recommend and prefer that you "push" the data from CluedIn to a target consumer. We call these out "Outgoing Streams" in which a CluedIn user will specify the filter of data that a consumer needs and a target and target model and CluedIn will open up a "long-running" stream of data that matches that filter in CluedIn today and in the future until you turn the stream off. 
 
+You may want to be able to push data to a business intelligence platform such as Power BI.
+
+![Diagram](stream-data-to-powerbi.png)
+
+You may also like to push data to machine learning platforms such as Azure ML. 
+
+![Diagram](stream-data-to-azureml.png)
+
 In version 2.7 of CluedIn, you can only setup streams using our API. In later versions we will allows users to do this through a user interface. 
+
+![Diagram](create-a-stream.png)
 
 To create an outgoing stream, you can call the CluedIn REST API at
 
 You will need to include a Body of JSON to POST to the REST API which has your instructions on what to create. 
 
+```json
 HTTPPOST
 {{url}}/api/v2/organization/providers?providerId=F084EAE7-6DF4-4FF6-BAED-082419BCC328
 
@@ -53,11 +64,13 @@ HTTPPOST
             }
         }
 }
+```
 
 Once this has run, CluedIn will then fetch historical data in CluedIn where the user.jobTitle Vocabulary is already "CEO" and then will maintain a watch on any new or modified records that match this filter. Everything this is triggered, CluedIn will post Entities in the format of the "EntityToSimpleJson" format to the Uri you see in the "uri" part of the message. 
 
 Developers can add their own "Transforms" that allow you to take data and mould it into the shape that you want. For example, here is a custom Transform that you could implement:
 
+```csharp
 using System.IO;
 
 using CluedIn.Core;
@@ -114,3 +127,4 @@ namespace Custom.WebHooks.Transforms
         }
     }
 }
+```

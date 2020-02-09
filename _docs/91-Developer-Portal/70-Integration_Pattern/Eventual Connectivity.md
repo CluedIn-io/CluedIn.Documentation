@@ -1,4 +1,7 @@
-Eventual Connectivity
+---
+category: Developer
+title: Eventual Connectivity
+---
 
 The CluedIn Eventual Connectivity pattern is at the heart of CluedIn. This pattern of integration makes it simple to blend data from many different systems into a unified and connected dataset. 
 

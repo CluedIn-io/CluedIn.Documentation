@@ -22,7 +22,9 @@ Changing the settings in this file, will require you to reset the CluedIn compon
 
 If you are wanting to add your own configuration when you are making extensions to the platform then we also allow you to do this. The recommended approach is that you will need to add your lines in the configuration like: 
 
+```xml
  <add key="Group.Key"  value="true" xdt:Locator="Condition(@key='Group.Key')" xdt:Transform="Replace" />
+```
 
 If you are adding your own configuration, it may be that you will also need to add this to the Docker YAML files. 
 

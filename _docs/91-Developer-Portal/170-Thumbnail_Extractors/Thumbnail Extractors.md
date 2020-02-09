@@ -6,6 +6,7 @@ There may be times where you are integrating datasources that are not supported 
 
 As an example, you could implement a new Thumbnail Extractor like so:
 
+```csharp
 using System;
 using System.IO;
 using System.Drawing;
@@ -89,5 +90,6 @@ namespace Custom.Images.Extractors
         }
     }
 }
+```
 
 You will then compile and drop the DLL into the ServerComponent directory and restart CluedIn. Now, when processing certain files, CluedIn will attemp to extract richer information from it and help you generate a Preview Image automatically. 

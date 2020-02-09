@@ -15,6 +15,7 @@ You will need to add references to the:
 
  - CluedIn.Core nuget package
 
+```csharp
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -81,3 +82,4 @@ namespace Custom.Crawling.ContentExtraction
         }
     }
 }
+```

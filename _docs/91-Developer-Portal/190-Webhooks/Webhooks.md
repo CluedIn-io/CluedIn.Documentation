@@ -10,6 +10,7 @@ You will need to implement 3 methods as to be able to handle the Create, Get and
 
 Here is some example code on how you could set this up with Hubspot. 
 
+```csharp
 		public override async Task<IEnumerable<WebHookSignature>> CreateWebHook(ExecutionContext context, [NotNull] CrawlJobData jobData, [NotNull] IWebhookDefinition webhookDefinition, [NotNull] IDictionary<string, object> config)
         {
             if (jobData == null)
@@ -122,10 +123,13 @@ Here is some example code on how you could set this up with Hubspot.
             });
         }
 
+```
+
 This will setup all the scaffolding you will need to be able to automatically create webhooks with your source systems when an integration is added to CluedIn. The next step is that you need to be able to process the data that these webhooks will post to CluedIn. 
 
 If you have used the Crawler Templates that CluedIn provides then you will see a Folder in your Provider project called "Webhooks". This will have two files within it to start with in the template. The first is the Webhook PreValidator. This is responsible for validating "pre-flight" checks that come as a part of the standard Webhook flow. 
 
+```csharp
 using CluedIn.Core.Webhooks;
 using CluedIn.Crawling.Custom.Core;
 
@@ -211,3 +215,4 @@ namespace Custom.Provider.YourTool.WebHooks
         }
     }
 }
+```

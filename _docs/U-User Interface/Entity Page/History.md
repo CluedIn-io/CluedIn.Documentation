@@ -5,6 +5,8 @@ title: History
 
 For data lineage reasons, it is important to be able to show and describe where your data has come from. In CluedIn, you can see this at an entity level, but also at a property level.
 
+![Diagram](entity-history.png)
+
 This is important for being able to have full trust and audit trail of where a particular value for a particular record has come from. This helps us answer, common lineage questions such as:
 
  - Why are we showing "Brisbane" as the city for CluedIn Headquarters in our BI tool?

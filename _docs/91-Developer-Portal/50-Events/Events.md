@@ -4,6 +4,7 @@ There are many events that occur within CluedIn while data is being ingested and
 
 Here are some of the events that you can hook into:
 
+```csharp
 AgentJobAbandonEvent
 AgentJobCrawlingFinishedEvent
 AgentJobEnqueuedEvent
@@ -22,5 +23,6 @@ WorkflowEvent
 WorkflowFailedEvent
 WorkflowFinishedEvent
 WorkflowStartedEvent
+```
 
 In your code, you can subscribe to one of these events.

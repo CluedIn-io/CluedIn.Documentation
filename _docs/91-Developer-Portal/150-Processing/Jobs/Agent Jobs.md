@@ -16,6 +16,7 @@ int page, int take, string state = null, Guid? configurationId = null
 You can page through all jobs with all states or you can filter by State and Congifuration Id (AKA ProviderDefinitionId)
 
 e.g. State can be one of the following:
+```csharp
 
 Unknown ,
 
@@ -41,7 +42,9 @@ Unknown ,
     Cancelled               ,
 
     /// <summary>The failed job state.</summary>
-    Failed                  
+    Failed   
+```
+               
 [HttpGet]
 [Route("api/v1/jobrun")]
 id

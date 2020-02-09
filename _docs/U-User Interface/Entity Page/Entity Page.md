@@ -5,6 +5,8 @@ title: Entity Page
 
 The entity page will show you a single view of the record, all metadata associated to this record and all records that have a connection to this record. 
 
+![Diagram](unified-view.png)
+
 The entity page is composed of many "tabs". The Overview tab is a view of the consolidated view of the record where it shows the most statistically accurate values of properties from across the different systems that ingested this data. 
 
 The "All Properties" tab will show you a meta data view of the record where you can filter and view the history of records by a property level. 
@@ -26,6 +28,10 @@ There are many actions that you can run from the entity page. These actions are 
  - Remove this record from any automated processing in CluedIn or other third party systems. 
  - Manually reprocess this record through all the external data providers enabled in your account (e.g. Google Places)
  - Manually reprocess this record through the processing pipeline of CluedIn.
+
+You can also see all of the "child" entities of this record in the "Parent Aggregation" component.
+
+![Diagram](parent-aggregation-view.png)
 
 On the Entity Page you will be able to see your visual view of a Record. CluedIn will automatically choose which properties from which systems are the most accuract and hence are the ones that we will natively display in the user interface as the "Golden Value".
 

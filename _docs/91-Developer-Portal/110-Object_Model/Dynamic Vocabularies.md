@@ -7,4 +7,4 @@ There are many times where you will get data that cannot be statically mapped in
 
 You can set a Dynamic Vocabulary by adding the "-custom" flag at the end of your Vocabulary Key. This will instruct the CluedIn Processing Server that it will need to do extra analysis on the values to help determine things that can statically be set with normal Vocabularies such as Data Types. Be aware that every time you use the "-custom" flag, that you will incur more than normal processing on the server. 
 
-If you use the DynamicVocabulary class for your Vocabulary then it will handle all of the "-custom" flag for you.
+If you use the `DynamicVocabulary` class for your `Vocabulary` then it will handle all of the "-custom" flag for you.

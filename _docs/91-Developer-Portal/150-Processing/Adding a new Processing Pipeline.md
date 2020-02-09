@@ -19,6 +19,7 @@ CluedIn already has many processing pipeline steps that it ships with, including
 
 Here as an example of a Processor that you could implement that will run some custom entity merging logic that you may want:
 
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,6 +79,7 @@ namespace Your.Custom.Namespace
         
     }
 }
+```
 
 
 

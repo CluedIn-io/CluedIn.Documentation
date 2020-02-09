@@ -1,8 +1,27 @@
-External Search Providers
+---
+category: Developer
+title: External Search Providers
+---
 
 In CluedIn, an External Search Provider allows you to take input from data flowing through the processing pipeline and then lookup services (typically external API’s) as to enrich just a single particular entity. 
 
 Imagine you have an API that allows you to lookup a company by an Identifier, Name or Website and it would bring back more, enriched data so that you could extend what data you had internally on that entity. A good example would be Crunchbase, Duns and Bradstreet or Open Corporates. One can register for these API’s and lookup individual records via certain values and it may return zero or many results. 
+
+For example, imagine the company Oracle. Here is an example of a "before" enrichment.
+
+![Diagram](oracle-properties.png)
+
+Here is the same record after 5 of the 35 prebuilt enrichers has been enabled. 
+
+![Diagram](oracle-properties-enriched.png)
+
+This is the un-enriched record from another view.
+
+![Diagram](oracle-unified-view.png)
+
+Here is thaat view after enrichment. 
+
+![Diagram](oracle-unified-view-enriched.png)
 
 At the same time, you could imagine that if you looked up via something like the name of a company, you might actually receive multiple results back. The External Search framework of CluedIn can help solve this particular situation where we lookup via "fuzzy" reference as well as key identifier lookups as well. 
 
@@ -36,6 +55,7 @@ To be able to understand what lookup values an External Search provider supports
 
 Here is an example of what it will bring back for "Company House":
 
+```csharp
     [Id("2A9E52AE-425B-4351-8AF5-6D374E8CC1A5")]
     [Name("Company House Enricher")]
     [EnrichSource("www.companyhouse.com")]
@@ -80,3 +100,4 @@ Here is an example of what it will bring back for "Company House":
             "CompanyHousePersonAddressVocabulary.AddressLine2"
         )
     ]
+```

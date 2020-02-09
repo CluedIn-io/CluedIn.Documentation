@@ -4,6 +4,7 @@ Suggested searches are a way for developers to bring in related data into the si
 
 For this, you can add your own custom suggested searches. Here is an example for implementing custom suggested searches.
 
+```csharp
 using System.Collections.Generic;
 
 using CluedIn.Core;
@@ -47,5 +48,6 @@ namespace Custom.SuggestedSearches.Providers
         }
     }
 }
+```
 
 You can then compile and drop this DLL into the ServerComponent folder and reboot CluedIn to see your changes reflected in the User Interface.

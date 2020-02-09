@@ -7,6 +7,8 @@ CluedIn provides GraphQL as its way to pull and query data from it. The CluedIn 
 
 You might find that a particular GraphQL query uses the Search, Graph and Blob Datastore to render the results. This is due to the query optimiser of CluedIn that determines the right datastore to serve the different parts of your query. This also allows immense flexibility with querying the data. An example would be that if we wanted to find all entities that are of a specific Entity Type and have a particular value for a property then you will find that the Search Store will service both these parts of the query and hence CluedIn will only ask it to service the query. If you then ask it to run this query, but return the full history of the records then CluedIn will run the search against the Search Store, but then using the results from the Search it will then ask the Blob Store to fetch the full object history out if it. Likewise, if you asked it to also return the records that are connected to these results of type Person, then it will most likely ask the Graph Store to fulfil that part of the query. 
 
+![Diagram](simple-graphql-example.png)
+
 The GraphQL endpoint has many different operations, including the ability to:
 
 Lookup entities by Id
