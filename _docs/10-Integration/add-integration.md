@@ -18,6 +18,8 @@ Please refer to the documentation on [How to build a provider](./somelink)
 
 ### Types of integration
 
+![Diagram](list-of-integrations.png)
+
 #### Cloud integration
 
 Cloud integration are generally integration for existing SaaS product such as Hubspot, Slack, Dropbox.
@@ -86,3 +88,7 @@ Setting the Product Owner will dictate certain actions and responsibilities. The
  - They are responsible for resolving duplicates in their integration point. 
  - They are responsible for the provider specific Vocabularies and the mappings to core Vocabularies.
  
+### Integration Access
+
+![Diagram](setting-access-at-integration-level.png)
+

@@ -29,6 +29,7 @@ Here is an exhaustive list of advice from the team to help you also build robust
 
   The CluedIn Crawler framework ships with a validation framework in which this can be extended as well. To add new Rules, all you need to do is implement the IClueValidationRule interface and then compile and drop this into your CluedIn directory to reboot. The Framework currently watches for:
 
+```csharp
 DATA_001_File_MustBeIndexed
 ENTITYTYPE_001_Person_MustNotBeUsedDirectly
 ENTITYTYPE_002_Document_MustNotBeUsedDirectly
@@ -47,3 +48,4 @@ EDGES_002_Incoming_Edge_ShouldNotExist
 PROPERTIES_001_MustExist
 PROPERTIES_002_Unknown_VocabularyKey_Used
 PROPERTIES_003_Value_ShouldNotBeQuoted
+```

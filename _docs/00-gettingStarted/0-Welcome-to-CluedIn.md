@@ -5,7 +5,7 @@ title: Welcome to CluedIn
 
 # Why do you need CluedIn?
 
-To understand the value of CluedIn, it is important to talk about why the platform exists first. We can all agree that nowadays all enterprise companies have many processes which are _fueled_ by data. This data is typically not in a ready-to-use state and hence it has to flow through some processes in order to make it ready for consumption. Whether the use-case is running advanced analytics, machine learning, business intelligence, anti-money laundering, obtaining a single view of your customer or for data privacy - it turns out that all of these use-cases end up requiring very similar data preparation processes and attention. 
+To understand the value of [CluedIn](https://www.cluedin.net), it is important to talk about why the platform exists first. We can all agree that nowadays all enterprise companies have many processes and projects which are _fueled_ by data. This data is typically not in a ready-to-use state and hence it has to flow through some processes in order to make it ready for consumption. Whether the use-case is running advanced analytics, machine learning, business intelligence, anti-money laundering, obtaining a single view of your customer or for data privacy - it turns out that all of these use-cases end up requiring very similar data preparation processes and attention. 
 
 ## Data management pillars
 
@@ -16,6 +16,10 @@ It all starts with data *discovery*. There is always a need to know where your d
 After this integration has been done, often the next step is to *normalise*, *standardise* and *clean* the data so that it can be processed by machines in a uniform, consistent and high-fidelity manner. While this is occurring, you need to make sure you have control over the data by ensuring there is a clear owner, responsible for its maintenance. This leads into the need for full traceabilty and audit trail of where this data is coming from, what is happening to it in this process of preparation and where it is being used. With privacy being a mandated concern, you also need to make sure you have control over personal data and how it is used within the business. Finally, this data needs to be easily and readily available for the business to consume to fuel it operational needs. 
 
 Whether your use case is Machine Learning or Business Intelligence, you will need to apply the same core pillars of data management detailed above. You might have extra steps in each use case, but these are at least the common pillars for any use-case involving data. CluedIn is this layer of foundation that encapsulates everything we mentioned above into a coherent, consistent end to end data hub of source to target data processing. 
+
+What you get in the end can be described well in this demonstration video.
+
+<iframe width="640" height="360" frameborder="0" allowfullscreen src="https://player.vimeo.com/video/331758206?controls=1"></iframe>
 
 ## Why did we create CluedIn? 
 

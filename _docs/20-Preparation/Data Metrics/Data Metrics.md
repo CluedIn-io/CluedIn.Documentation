@@ -5,6 +5,8 @@ title: Data Metrics
 
 Data Metrics will allow you to score and monitor the history of data quality over time. Data Metrics are aggregated on many different levels and you might find that you need to control how that aggregation is done at each level. 
 
+![Diagram](global-level-metrics.png)
+
 At the core of the Metrics are a way to calculate different types of scores given certain data values. This could be in the form of a percentage between 0 and 100, a simple integer or something more advanced. Most of the out of the box data metrics to do with Data Quality are in the form of a percentage between 0 and 100. To date, we support:
 
 Accuracy
@@ -40,6 +42,8 @@ Entity level
 Integration type level 
 Integration level 
 Global level 
+
+![Diagram](integration-level-metrics.png)
 
 Property Level 
 

@@ -5,10 +5,13 @@ title: Data Privacy
 
 CluedIn detects PII data by default. Here is a description of how it is implemented.
 
+![Diagram](intro-compliance.png)  
+
 Data Extractors
 
 Implemented data extractors:
 
+```csharp
 BitcoinAddressDataExtractor
 CreditCardDataExtractor
 CurrencyDataExtractor
@@ -21,11 +24,12 @@ PhoneNumberDataExtractor
 UncDataExtractor
 UriDataExtractor
 Data Classification Types
-
+```
 You can implement your own new PII detection rules, and can use the above implementations as guides on how to achieve that. 
 
 Type list:
 
+```csharp
 /None
 /DocumentBody
 /Email
@@ -76,9 +80,10 @@ Type list:
 /Finance/BankAccount/AccountNumber
 /CryptoCurrency
 /CryptoCurrency/BitcoinAddress
-
+```
 Extension to the entity level processed data
 
+```xml
         <dataDescription>
         	<dataClasses>
         		<class type="/documentBody" />
@@ -90,6 +95,7 @@ Extension to the entity level processed data
         		<class type="/ssn/dk" />
         	</dataClasses>
         </dataDescription>
+        ```
 DataClassificationTypeMetric
 
 Measures instance counts of found data classification types.
@@ -131,6 +137,7 @@ dataclassificationtype: metrics(names: ["dataclassificationtype"])
 }
 Get values for /CreditCard/Number dimension
 
+```json
 dataclassificationtype: metrics(names: ["dataclassificationtype"]) 
   {
     globalLevel: dimension(id : "11431454-A2BA-5F3C-94A2-17067A18EF23")
@@ -165,8 +172,9 @@ dataclassificationtype: metrics(names: ["dataclassificationtype"])
       }
     }
   }
+  ```
 Output
-
+```json
    "dataclassificationtype": [
       {
         "globalLevel": {
@@ -201,3 +209,5 @@ Output
         }
       }
     ]
+
+    ```

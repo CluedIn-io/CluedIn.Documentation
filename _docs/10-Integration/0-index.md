@@ -10,6 +10,8 @@ The first thing you need to do when CluedIn is running, is to feed it with Data.
 - [Installing an existing integration](/docs/10-Integration/install-integration.html) e.g. from CluedIn's marketplace
 - Building a custom integration
 
+![Diagram](intro-integrate.png)
+
 There are two main types of integrations:
 
 ### Providers

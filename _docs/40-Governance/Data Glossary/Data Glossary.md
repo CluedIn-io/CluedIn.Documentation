@@ -5,6 +5,8 @@ title: Data Glossary
 
 The Data Glossary allows Data Governance teams to map a proper semantic model over data that typically will come from many different sources. 
 
+![Diagram](intro-glossary.png)  
+
 The role of the Data Glossary is to map specific business terminolgy to one or many Vocabularies via a rules engine. For example, you might find that your definition of a "Customer" is an Entity of type /Organization where the organization.type = 'Enterprise' and the salesforce.accounting.isPaid = 'true' and the dinero.invoices.paymentDate is less than today. 
 
 Making these mappings will make it easier to query CluedIn, not having to know all the terminolgy that might not relate to your part of the business. 

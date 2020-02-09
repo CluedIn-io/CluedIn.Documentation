@@ -5,6 +5,8 @@ title: Data Policies
 
 Data Policies will allow you to generate Rules and Restrictions. Using the CluedIn Rules engine, you will be able to listen to certain data flowing through CluedIn or already persisted into the CluedIn Datastores and then react based off that. 
 
+![Diagram](intro-policies.png)  
+
 Rules are in place to flag when there are matches and will provide an optional operation on the data associated with the match. This includes actions such as: 
 
  - Masking Data

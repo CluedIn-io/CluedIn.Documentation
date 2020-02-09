@@ -36,6 +36,8 @@ One of the main use cases of CluedIn Clean is to clean erroneous Entity Code val
 
 CluedIn Clean projects are only committed and processed when the Commit button is pressed. Until that point, the projects are kept in their own sandbox environment. Once committed, CluedIn will take every row of data in that project and will create a respective Clue out of it, marking the source as “CluedIn Clean”. This will show itself in the history just like any other Clue that would have come from a source of data. This will provide you with the data lineage necessary to trace what clean operations have been made on the data as well. It is recommended to remove a cleaning dataset after you have committed it. You can always create another cleaning dataset at a later point. 
 
+![Diagram](intro-quarantine.png)
+
 Try to keep your cleaning projects relatively small i.e. less than 50,000 records at a time. This means that your cleaning will go a lot smoother as it doesn't have to analyse (potentially) millions of records every time that you want to clean the data. 
 
 Once you are finished with cleaning the data, you will have a commit button available on the main list of cleaning projects. This will then write the data back to CluedIn and will create any mesh commands that need to be created to write this clean data back to the source systems as well. 
