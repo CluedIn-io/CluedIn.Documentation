@@ -1,4 +1,7 @@
-Person Entity Type
+---
+category: Developer
+title: Person Entity Type
+---
 
 The Person Entity Type is a special Entity Type that if you are to set your Clue objects with this Entity Type, then many "smarts" will kick in on the CluedIn processing server. 
 

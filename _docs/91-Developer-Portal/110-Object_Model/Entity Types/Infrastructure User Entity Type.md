@@ -1,4 +1,7 @@
-Infrastructure User Entity Type
+---
+category: Developer
+title: Infrastructure User Entity Type
+---
 
 The Infrastructure User Entity Type is for a Clue where it is ambiguous what the Entity Type of a record is. It is mainly reserved for the following types of Entity Types where you cannot statically set a type:
 

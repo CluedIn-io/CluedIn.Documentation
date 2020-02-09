@@ -1,4 +1,7 @@
-Person Vocabulary
+---
+category: Developer
+title: Person Vocabulary
+---
 
 The CluedIn Person Vocabulary is a very important Vocabulary. By mapping your custom Clue Vocabularies into this core Person Vocabulary, a lot of "smarts" will kick in on the processing server to help automate cleaning, normalization, insights and more. 
 

@@ -1,4 +1,7 @@
-modify-integration
+---
+category: Integration
+title: Modify an Integration
+---
 
 There will be many times where you will need to change an integration. This may be due to changes in the source, changes in versions or fixing mistakes. 
 

@@ -1,4 +1,7 @@
-Organization Entity Type
+---
+category: Developer
+title: Organization Entity Type
+---
 
 The Organization Entity Type is a very special Entity type, where by marking one of your Clues as an Organization, then many "smarts" of the CluedIn processing engine will kick in. 
 
