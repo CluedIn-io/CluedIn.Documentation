@@ -12,6 +12,7 @@ Other examples could include:
 
 Here is an example of adding your own types of Integrity checks when CluedIn boots:
 
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -218,3 +219,4 @@ namespace Custom.Core.IntegrityChecks
         }
     }
 }
+```
