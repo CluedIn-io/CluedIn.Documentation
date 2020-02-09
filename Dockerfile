@@ -11,4 +11,4 @@ RUN chmod a+w Gemfile.lock && \
 	bundle config build.nokogiri --use-system-libraries && \
 	bundle install
 
-EXPOSE 35729
+EXPOSE 4000
