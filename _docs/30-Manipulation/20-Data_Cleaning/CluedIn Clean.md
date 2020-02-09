@@ -5,9 +5,11 @@ title: CluedIn Clean
 
 CluedIn Clean is an application targeted towards cleaning data so that downstream consumers of CluedIn can have a much more ready to use set of data. This includes:
 
-Normalising values to a common standard for downstream consumers. 
-Manually enriching entities from online and external data sets. 
-Having a bulk way to clean data and generate Mesh commands back to the source systems.
+ - Normalising values to a common standard for downstream consumers. 
+ - Manually enriching entities from online and external data sets. 
+ - Having a bulk way to clean data and generate Mesh commands back to the source systems.
+
+![Diagram](intro-clean.png)
 
 CluedIn Clean is targeted at Data Engineers and Business Analysts. The closer to the context of the data the resource is, the better. CluedIn Clean currently only supports cleaning data in Core Vocabularies. This is on purpose, as the Core Vocabularies are typically what downstream consumers will want to use. 
 

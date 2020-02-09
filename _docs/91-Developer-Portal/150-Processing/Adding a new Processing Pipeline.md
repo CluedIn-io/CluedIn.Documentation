@@ -81,8 +81,6 @@ namespace Your.Custom.Namespace
 }
 ```
 
-
-
  There is, however, the restriction that you must write this code in .net. There are many developers and users of CluedIn that will not know this and hence what we often suggest and recommend that, in fact, at the end of the day - CluedIn is really just talking in JSON and REST. Hence, if you need to create a custom processing pipeline, you can also build it completely outside of CluedIn completely and take the data from CluedIn using either our GraphQL api or using our streams mechanism to push data to another platform to process data there. 
 
  Once you have processed your data, all we ask is that you send that back to CluedIn with our REST endpoint for accepting clues in JSON or XML format.

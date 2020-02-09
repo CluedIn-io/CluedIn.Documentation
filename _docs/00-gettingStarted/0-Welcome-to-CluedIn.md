@@ -9,6 +9,8 @@ To understand the value of CluedIn, it is important to talk about why the platfo
 
 ## Data management pillars
 
+![Diagram](pillars.png)
+
 It all starts with data *discovery*. There is always a need to know where your data is and in what systems it lies. After this, there is typically a stage of data *integration*, where you need to bring multiple data sources together into a unified or connected set of data. During this phase, you need to make sure that you are not putting too much pressure on the source systems, but at the same time would like the data available to the business as soon as possible.
 
 After this integration has been done, often the next step is to *normalise*, *standardise* and *clean* the data so that it can be processed by machines in a uniform, consistent and high-fidelity manner. While this is occurring, you need to make sure you have control over the data by ensuring there is a clear owner, responsible for its maintenance. This leads into the need for full traceabilty and audit trail of where this data is coming from, what is happening to it in this process of preparation and where it is being used. With privacy being a mandated concern, you also need to make sure you have control over personal data and how it is used within the business. Finally, this data needs to be easily and readily available for the business to consume to fuel it operational needs. 

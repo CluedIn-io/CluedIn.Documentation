@@ -11,6 +11,8 @@ If you have added an integration to your account, the Engine Room will be able t
 
 You can click on any of the processing steps and you will see details as to the state and processing speed of that particular step. You can use this to gauge what is happening in CluedIn at any moment of processing. 
 
+![Diagram](quick-view-processing-statistics.png)
+
 It is often required to understand what is happening under the hood of CluedIn. A lot of this can be sourced from the many Adminstrator screens that come with CluedIn for the underlying systems. Due to complex security an infrastructure setups, many times you might find that you don't have access to these systems, but would still like to see some metrics and progress statistics. For this, we have our Statistics API which aggregates the statistics from across the different underlying stores.
 
 There are 4 types of statistics that we offer through this API:

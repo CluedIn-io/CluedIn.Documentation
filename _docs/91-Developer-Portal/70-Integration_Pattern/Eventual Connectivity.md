@@ -3,7 +3,7 @@ category: Developer
 title: Eventual Connectivity
 ---
 
-The CluedIn Eventual Connectivity pattern is at the heart of CluedIn. This pattern of integration makes it simple to blend data from many different systems into a unified and connected dataset. 
+The CluedIn `Eventual Connectivity` pattern is at the heart of CluedIn. This pattern of integration makes it simple to blend data from many different systems into a unified and connected dataset. 
 
 You will need to understand some of the core concepts behind the pattern:
 
@@ -16,7 +16,7 @@ You will need to understand some of the core concepts behind the pattern:
 
  The aim of CluedIn is to build a unified and connected dataset where the model of that data is generated from the data itself. This means that you don't have control over the modelling within CluedIn up-front (but you will have control later in the process). As you work more with CluedIn, you will realise that if we would like to do purpose fit modelling, then we will stream data out of CluedIn and make it available in other systems where purpose-fit modelling can be applied. 
 
- The Eventual Connectivity pattern is here to simplify the integration of data and to forgoe long and tedious architecture meetings to discuss how different systems will connect with each other. The Eventual Connectivity pattern will do the blending of data for you, as long as you can instruct it and guide it using the concepts mentioned above. 
+ The `Eventual Connectivity` pattern is here to simplify the integration of data and to forgoe long and tedious architecture meetings to discuss how different systems will connect with each other. The Eventual Connectivity pattern will do the blending of data for you, as long as you can instruct it and guide it using the concepts mentioned above. 
 
  The major project advantage of this pattern is that we can take one system, actually you can even take one object in a system at a time, mark up that object and let the pattern take care of finding how it will blend. 
 
