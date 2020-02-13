@@ -174,6 +174,7 @@ dataclassificationtype: metrics(names: ["dataclassificationtype"])
   }
   ```
 Output
+
 ```json
    "dataclassificationtype": [
       {
@@ -209,5 +210,4 @@ Output
         }
       }
     ]
-
-    ```
+```

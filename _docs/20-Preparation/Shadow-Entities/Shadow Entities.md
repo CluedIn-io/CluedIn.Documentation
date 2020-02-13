@@ -9,7 +9,7 @@ If you find that you are ingesting data and you expect a result to show up in th
 
 Shadow Entities are also constructed when the "Eventual Connectivity" patterns constructs an edge to an Entity via an Entity Code and that Entity Code doesn't not exist in any other data source yet. 
 
-![Diagram](intro-shadow-entitys.png)
+![Diagram](intro-shadow-entity.png)
 
 The Shadow Entity Center is the User Interface that CluedIn provides in which a Data Steward can manually link Shadow Entities to Entities. The main use-case of this is when we find a "soft" reference to a Person or Company in unstructured text and the Data Steward knows the exact Entity that this can be linked to or merged with. 
 
