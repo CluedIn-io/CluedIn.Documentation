@@ -5,14 +5,15 @@ title: CluedIn Clean
 
 ## Overview
 
-CluedIn Clean is an application targeted towards cleaning data so that downstream consumers of CluedIn can have a much more ready to use set of data. This includes:
+CluedIn Clean is an application targeted towards cleaning data so that downstream consumers of CluedIn can have a much more ready to use set of data. It is targeted at Data Engineers and Business Analysts. The closer to the context of the data the resource is, the better. CluedIn Clean currently only supports cleaning data in Core Vocabularies. This is on purpose, as the Core Vocabularies are typically what downstream consumers will want to use.
 
- - Normalising values to a common standard
- <!-- - Manually enriching entities from online and external data sets. 
- - Having a bulk way to clean data and generate Mesh commands back to the source systems. -->
+CluedIn Clean can help with the following tasks:
 
-
-CluedIn Clean is targeted at Data Engineers and Business Analysts. The closer to the context of the data the resource is, the better. CluedIn Clean currently only supports cleaning data in Core Vocabularies. This is on purpose, as the Core Vocabularies are typically what downstream consumers will want to use.
+- To normalise representations of values that are the same, but sometimes in different formats e.g. Addresses that are the same location, but the order of the different pieces of the address are different. 
+- To standardise representations of labels, geographical locations. Although not mandated, it is quite common to standardise on a language of data to downstream consumers e.g English, Danish, Italian. Hence CluedIn Clean can help with standardising this. 
+- To fix uniformity in casing of values e.g. First and Last Names of people.
+- To move values from one property to another. Sometimes you will find that you receive that where the intention was to have the city in the City column, but instead the Country was entered. CluedIn Clean can help with these types of issues. 
+- Perform transliteration, which is the ability to handle normalisation of text with accented and diacritic characters. 
 
 ## Creating a CluedIn Clean project
 
@@ -176,30 +177,14 @@ In either case, you get a list of buckets, i.e. possible terms that may refer to
 
 ### Reviewing
 
+Once all the changes have been made the project can be _frozen_ so no more modifications are allowed. This is done by sending the project for review. You can also select which users, from the ones with the right permission, should be reviewing the project. This information also becomes available in the list of projects.
+
+If the reviewer thinks something is not correct, the project can be placed again in _draft_ mode so changes are once more allowed.
+
 ### Committing
-------------------------------
-CluedIn Clean should be used for the following reasons:
 
- - To normalise representations of values that are the same, but sometimes in different formats e.g. Addresses that are the same location, but the order of the different pieces of the address are different. 
- - To standardise representations of labels, geographical locations. Although not mandated, it is quite common to standardise on a language of data to downstream consumers e.g English, Danish, Italian. Hence CluedIn Clean can help with standardising this. 
- - To fix uniformity in casing of values e.g. First and Last Names of people.
- - To manually enrich data using online external services and to manually choose which records are matching the ones that you intend to enrich. 
- - To move values from one property to another. Sometimes you will find that you receive that where the intention was to have the city in the City column, but instead the Country was entered. CluedIn Clean can help with these types of issues. 
- - To detect outliers in values for a particular property. 
+After the reviewer is happy with the changes in the data, this can be pushed into CluedIn by using the _Commit_ button. Depending on the size of the dataset this process can take a fair amount of time. It happens as a background process, independently of whether your browser is open or not. When this is over, the project is automatically archived. A committed project can not be modified again.
 
-CluedIn Clean should not be used for the following reasons:
+### Archiving projects
 
- - To correct data that requires business domain knowledge to fix e.g. First and Last Names spelt differently to how they are regularly spelt.
- - Add new fields.
- - Correct Entity Codes.
-
-CluedIn Clean can handle transliteration, which is the ability to handle normalisation of text with accented and diacritic characters. 
-
-One of the main use cases of CluedIn Clean is to clean erroneous Entity Code values before persisting them into the Datastores e.g. often you will find that we will mark certain properties as Entity Codes but then realise in the data that the values can have values like -1, N/A, Empty String etc. When you are adding an integration there is a simple flag that  can be set to ingest and process or ingest and place into a sandbox where only after the data has been cleaned will be then persist and create the proper entity codes. It is suggested that for the initial ingestion of data that it will go into CluedIn Clean in this sandbox environment and then for subsequent runs, we will accecpt that new types of anomaly data will have to be dealt with pro-rata. This will be handled by our Quarantine application that flags data that doesn't conform to what is expected. 
-
-
-![Diagram](intro-quarantine.png)
-
-Try to keep your cleaning projects relatively small i.e. less than 50,000 records at a time. This means that your cleaning will go a lot smoother as it doesn't have to analyse (potentially) millions of records every time that you want to clean the data. 
-
-Once you are finished with cleaning the data, you will have a commit button available on the main list of cleaning projects. This will then write the data back to CluedIn and will create any mesh commands that need to be created to write this clean data back to the source systems as well. 
+At any point if a project is no longer relevant it can be added to the list of archived projects. If the project has not been committed it can be restored and it can be further modified.
