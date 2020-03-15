@@ -21,7 +21,7 @@ The reason CluedIn embraces containers are the following:
 
 CluedIn has some a basic set of requirements.
 
-We are consistanly trying to keep the requirements as small as possible in order to get you up and running switfly.
+We are consistently trying to keep the requirements as small as possible in order to get you up and running switfly.
 
 Requirement List:
 

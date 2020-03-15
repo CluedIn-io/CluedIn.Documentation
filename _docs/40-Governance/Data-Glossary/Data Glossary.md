@@ -7,9 +7,9 @@ The Data Glossary allows Data Governance teams to map a proper semantic model ov
 
 ![Diagram](intro-glossary.png)  
 
-The role of the Data Glossary is to map specific business terminolgy to one or many Vocabularies via a rules engine. For example, you might find that your definition of a "Customer" is an Entity of type /Organization where the organization.type = 'Enterprise' and the salesforce.accounting.isPaid = 'true' and the dinero.invoices.paymentDate is less than today. 
+The role of the Data Glossary is to map specific business terminology to one or many Vocabularies via a rules engine. For example, you might find that your definition of a "Customer" is an Entity of type /Organization where the organization.type = 'Enterprise' and the salesforce.accounting.isPaid = 'true' and the dinero.invoices.paymentDate is less than today. 
 
-Making these mappings will make it easier to query CluedIn, not having to know all the terminolgy that might not relate to your part of the business. 
+Making these mappings will make it easier to query CluedIn, not having to know all the terminology that might not relate to your part of the business. 
 
 To create new glossary entries, you simply will need to enter a Name, Description and map this using the rules builder. When querying based off this Glossary, CluedIn will do the underlying mapping to resolve what you actually mean when you ask CluedIn to give you a list of "Customers".
 
@@ -17,9 +17,9 @@ The Glossary also allows you to set a list of allowed or preferred values per Vo
 
 The glossary will also help different parts of the business understand what data they are working with. If you find certain terminology hard to understand, the glossary will help describe what the intention behind certain data is. For example, if we wanted to know what the salesforce.accounting.isPaid value describes, we may set a description of "this details that a customer has paid on their end, but the money has not necessarily made it into our accounts yet. To see if the money is in our account, please use dinero.invoice.isPaid and check if it is true or false".
 
-The Business Glossary is a way to document and map common business terms into underlying queries against Vocabularies or potentially to more complex queries. The main value is to have a common set of business terms, but predominantly it is to fast-track requests for data when they are recieved. As an example, without a business glossary, if a request came in to give all customer data to the sales team - it is most likely that a lot of research and meetings would be needed to get to the bottom of what is deemed a "Customer". If this is mapped into CluedIn already then it is simply a matter of choosing a Glossary term which will evaluate the underlying filter for you.  
+The Business Glossary is a way to document and map common business terms into underlying queries against Vocabularies or potentially to more complex queries. The main value is to have a common set of business terms, but predominantly it is to fast-track requests for data when they are received. As an example, without a business glossary, if a request came in to give all customer data to the sales team - it is most likely that a lot of research and meetings would be needed to get to the bottom of what is deemed a "Customer". If this is mapped into CluedIn already then it is simply a matter of choosing a Glossary term which will evaluate the underlying filter for you.  
 
-The Glossary will also be able to handle more complex requirements such as "All Customers, what products they have purchased, and the invoices." You can imagine that this might be a bit harder to serve as we would need to know where this data is, how it connects (if it can at all) and then determin the model in which that request would like the data served. It might be that they want it in seperate files, it might be that they want it in a SQL database with all tables connected in a certain way or it might want it all as documents.  
+The Glossary will also be able to handle more complex requirements such as "All Customers, what products they have purchased, and the invoices." You can imagine that this might be a bit harder to serve as we would need to know where this data is, how it connects (if it can at all) and then determine the model in which that request would like the data served. It might be that they want it in separate files, it might be that they want it in a SQL database with all tables connected in a certain way or it might want it all as documents.  
   
 From a governance perspective CluedIn also tracks where this Glossary term is being utilised. Currently this will only be tracked if you use the Streams and if you use the Glossary term to consume the data. As soon as a Term is used in a Stream, Data Mart or Cleaning Project - it will be linked as a Linked Asset.  
 
@@ -99,16 +99,16 @@ In some cases you might find that they don't exactly match, but can at least be 
 
   
 
-Glossary entries should be created after the Vocabularies have been finished. You can have multiple layers of Vocabularies and hence there is the need for a mapping process that may span multiple layers. For example, at CluedIn we have a Glossary Term of "Customer" as a Legal Entity (Entity Type) where the hubspot.deal.dealStage='Closed Won' and where the dinero.invoice.isPaid='true' and where the danskeBank.income.amount = hubspot.deal.dealAmount and where the cluedin.organization.isBankrupt = false. This ruleset will expland and collapse in the future, but it is highly unlikely that the business terminology will change.  
+Glossary entries should be created after the Vocabularies have been finished. You can have multiple layers of Vocabularies and hence there is the need for a mapping process that may span multiple layers. For example, at CluedIn we have a Glossary Term of "Customer" as a Legal Entity (Entity Type) where the hubspot.deal.dealStage='Closed Won' and where the dinero.invoice.isPaid='true' and where the danskeBank.income.amount = hubspot.deal.dealAmount and where the cluedin.organization.isBankrupt = false. This rule-set will expand and collapse in the future, but it is highly unlikely that the business terminology will change.  
  
 A Tag is simply a category or classification that you can apply to a Term. This is useful for finding and filtering on Glossary Term's when there are many. A good example would be the "Commercial" Tag which allows me to tag certain Terms as being commercial in nature.  
 
-For more complex Glossary Terms, CluedIn users can pre-setup complex mapping and modelling rules. For example, if there was a term for SVC or KYC that mapped to a single view of the customer and all data related to it. This not only means that we need to filter by "Customer" but we need to return a "Graph" model. Also notice the complexity that "Customer" in this context can sometimes mean all Legal Entities - even if they are not a "Customer".  
+For more complex Glossary Terms, CluedIn users can pre-setup complex mapping and modeling rules. For example, if there was a term for SVC or KYC that mapped to a single view of the customer and all data related to it. This not only means that we need to filter by "Customer" but we need to return a "Graph" model. Also notice the complexity that "Customer" in this context can sometimes mean all Legal Entities - even if they are not a "Customer".  
 
 It is a good idea to pre-map models to Export Targets such as BI platforms, ML platforms, Knowledge Graphs or Relational Databases. For example, common BI platforms would either like the data in a relational model or in JSON packets of a particular format. To streamline data proliferation, Glossary Terms can be prebuilt to support different models.  
 
 
-When creating defintions for Term's, here are some rules to abide by: 
+When creating definitions for Term's, here are some rules to abide by: 
 
   
 
@@ -188,7 +188,7 @@ You can generate Glossary Analytics in CluedIn by calling the analytics endpoint
 
 - % of incomplete Glossary entries. For example, each Glossary term should have a definition, description and more. This can help you understand how "mapped" your business is.  
 
-The Glossary Terms can also be used in the search user interface for CluedIn. For example, if you wanted to search for "Customers" then you would be given an option to execute ther underlying rules set to run that search instead of just searching for the word "Customers". 
+The Glossary Terms can also be used in the search user interface for CluedIn. For example, if you wanted to search for "Customers" then you would be given an option to execute their underlying rules set to run that search instead of just searching for the word "Customers". 
 
 To form your Glossary, we often recommend to interview the business users and to listen carefully to the words and terms that the business is using to request data. For example, if a business user asked for "I need all of our customers in Denmark that we have not signed and NDA with." 
 
@@ -211,15 +211,15 @@ Denmark has already been mapped out of the box i.e. where organization.address.C
 Non Disclosure Agreement (NDA) could come in multiple forms. It could be that we don't have a Word Document that contains the word NDA in the title attached to the company record. It could be that there is a property in the CRM for setting a true or false if the NDA is signed or not.  
 
 
-Signed could mean multiple things. For example, many digital signature platforms are avialable today that have API's that allows us to check if a certain agreement has been digitally signed and by whom. Many documents will be scanned PDF documents where smarted and more sophisticated techniques will need to be utilised to determined if a document is signed. At the end of the day, they will all map to Vocabularies, even if that Vocabulary came from a third party of external process. For example, if you utilised a third party machine learning platform to upload a document and it told us if it was signed or not then we will have a Vocabulary to has the value of the result in it.  
+Signed could mean multiple things. For example, many digital signature platforms are available today that have API's that allows us to check if a certain agreement has been digitally signed and by whom. Many documents will be scanned PDF documents where smarted and more sophisticated techniques will need to be utilised to determined if a document is signed. At the end of the day, they will all map to Vocabularies, even if that Vocabulary came from a third party of external process. For example, if you utilised a third party machine learning platform to upload a document and it told us if it was signed or not then we will have a Vocabulary to has the value of the result in it.  
   
 
 There are 2 quality metrics that are calculated off Glossary Terms and usage. Trust, Usability and SOMETHING. The way to increase these quality metrics is to have more people create streams off Glossary Terms, to create Clean projects based off Glossary Terms and to have your other Quality MEtrics for the data associated with a Glossary Term be very high.  
 
   
-Usablity is also calculated off:  
+Usability is also calculated off:  
 
-  - Are all modelling formats supported by the Glossary Term e.g. Supports Excel, Power BI, Data Robot, Azure ML. Often we will need to support writing to an online file so that systmes like Excel can use its "from file feature". 
+  - Are all modeling formats supported by the Glossary Term e.g. Supports Excel, Power BI, Data Robot, Azure ML. Often we will need to support writing to an online file so that systems like Excel can use its "from file feature". 
 
   - How many streams are running off this Term versus others.  
 
@@ -230,10 +230,10 @@ Usablity is also calculated off:
    - Is all lineage available for all data sources for a Glossary Term.  
  
 
-If a Glossary Term changes its RuleSet, all streams that use this term will prompt you to reprocess the stream. This typically means removing all data and streaming it all again. This howvere is down to the implementation of that reprocessing logic.  
+If a Glossary Term changes its RuleSet, all streams that use this term will prompt you to reprocess the stream. This typically means removing all data and streaming it all again. This however is down to the implementation of that reprocessing logic.  
 
   
-A Rulesset is a Query Filter that determines the records assocaited with the Glossary Term. This takes the shape of a string query that uses Lucene Syntax such as 
+A rule-set is a Query Filter that determines the records associated with the Glossary Term. This takes the shape of a string query that uses Lucene Syntax such as 
 
 
 +entityType:/Organization +hubspot.deal.dealStage:123 

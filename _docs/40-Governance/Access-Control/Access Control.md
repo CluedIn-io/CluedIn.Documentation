@@ -11,7 +11,7 @@ By default, Read access is denied to all users except the user that was the orig
 
 ![Diagram](integration-level-access.png)  
 
-You have two ways to apply access control within CluedIn. The first is by visitings a particular user and setting which data sources that user has access to.  The other is by selecting a particular integration source and setting which users have read access to the integration point. 
+You have two ways to apply access control within CluedIn. The first is by visiting a particular user and setting which data sources that user has access to.  The other is by selecting a particular integration source and setting which users have read access to the integration point. 
 
 Step 1: Navigate to your Integrations page. 
 

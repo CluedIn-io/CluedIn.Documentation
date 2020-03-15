@@ -95,7 +95,7 @@ You must have:
         --docker-email='<your email>'
     ```
     For Docker Hub, the *repository-url* is ```docker.io```.
-    You should request access to the CluedIn Docker Hub repo for those credentials so you can pull the private Docker images with the application.
+    You should request access to the CluedIn Docker Hub repository for those credentials so you can pull the private Docker images with the application.
 
 1. Register the CluedIn helm chart
 

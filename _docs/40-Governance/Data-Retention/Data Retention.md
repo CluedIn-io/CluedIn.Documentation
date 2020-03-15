@@ -3,7 +3,7 @@ category: Governance
 title: Data Retention
 ---
 
-Data Retention allows CluedIn to set temporal based limits on how long we can retain certain data. Rules on retention will change per industry, country and use-case. Becasue of this, CluedIn supports a generic retention framework that allows a user to specify some rules, which will then, inturn, either archive, purge (or other) data from CluedIn. If you have chosen to implement the Mesh API queries for these mutation commands, then these will also be triggered. This means that CluedIn can support Retention policies in integrated systems as well. 
+Data Retention allows CluedIn to set temporal based limits on how long we can retain certain data. Rules on retention will change per industry, country and use-case. Because of this, CluedIn supports a generic retention framework that allows a user to specify some rules, which will then, in-turn, either archive, purge (or other) data from CluedIn. If you have chosen to implement the Mesh API queries for these mutation commands, then these will also be triggered. This means that CluedIn can support Retention policies in integrated systems as well. 
 
 ![Diagram](intro-retention.png)  
 
@@ -11,7 +11,7 @@ There are two ways to setup retention periods in CluedIn. The first is to set a 
 
 ![Diagram](create-new-retention.png)  
 
-When those periods are set to run, it will instruct CluedIn to queue all operations needed to complete the process and will ask the approriate owners to do the work in the Mesh Command Center. If you have not implemented the Mesh API for the source systems, the retention will simply notify you that you have a record in that system that needs to be manually actioned.
+When those periods are set to run, it will instruct CluedIn to queue all operations needed to complete the process and will ask the appropriate owners to do the work in the Mesh Command Center. If you have not implemented the Mesh API for the source systems, the retention will simply notify you that you have a record in that system that needs to be manually actioned.
 
 ![Diagram](retention-form.png)  
 

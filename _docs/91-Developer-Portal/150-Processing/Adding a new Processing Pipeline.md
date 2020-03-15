@@ -13,7 +13,7 @@ CluedIn already has many processing pipeline steps that it ships with, including
  - Automatically normalising dates, phone numbers, abbreviations.
  - Running entity detection on text.
 
- Imagine if you are ingesting data from a new system that you have built in-house. This system stores data on Dogs and their Vetenary visits. These are, by default, not well known Domain objects to CluedIn. Although it is completely fine to ingest these types of Domain objects, you can probably imagine that there will not be much out of the log logic that knows how to clean, enrich, measure and normalise data on Dogs. This is the reason why you would introduce new processing pipeline steps. In very high level pseduo code, you would visualise that you will have a process that will look something like this:
+ Imagine if you are ingesting data from a new system that you have built in-house. This system stores data on Dogs and their Veterinary visits. These are, by default, not well known Domain objects to CluedIn. Although it is completely fine to ingest these types of Domain objects, you can probably imagine that there will not be much out of the log logic that knows how to clean, enrich, measure and normalise data on Dogs. This is the reason why you would introduce new processing pipeline steps. In very high level pseudo code, you would visualise that you will have a process that will look something like this:
 
 ```csharp
  (if EntityType == Dog)

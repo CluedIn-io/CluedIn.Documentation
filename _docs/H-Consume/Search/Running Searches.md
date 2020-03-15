@@ -22,6 +22,6 @@ The inbuilt filters can be used to filter your data even more. You can apply mul
 
 ![Diagram](additional-filters.png)
 
-You can also run advanced searches will the ability to filter on very specific Vocaularies.
+You can also run advanced searches will the ability to filter on very specific Vocabularies.
 
 ![Diagram](advanced-search-filterss.png)

@@ -19,7 +19,7 @@ This is the un-enriched record from another view.
 
 ![Diagram](oracle-unified-view.png)
 
-Here is thaat view after enrichment. 
+Here is that view after enrichment. 
 
 ![Diagram](oracle-unified-view-enriched.png)
 

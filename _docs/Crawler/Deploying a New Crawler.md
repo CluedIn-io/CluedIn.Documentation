@@ -7,7 +7,7 @@ You can deploy new crawlers in two main ways:
 
 1: Moving files into the ServerComponent directory and running the respective commands to inject the required data into the Relational Store. 
 
-2: Use Docker to layer your crawler ontop of the base CluedIn instance. 
+2: Use Docker to layer your crawler on top of the base CluedIn instance. 
 
 For the first option, there are 3 main components that will need to be deployed:
 
@@ -19,4 +19,4 @@ For the first option, there are 3 main components that will need to be deployed:
 
 Note: You will need to reboot the CluedIn host to properly pick up these changes. 
 
-The second (and recommended) approach is to create a Docker container out of your crawler and then to change your Docker Compose file to reference your new Crawler. This will handle the entire deployment process for you and will even reboot the CluedIn host for you. This approach is recommeneded as it will also help to roll this new Crawler out to test and production environments with full capabilities of roll back and uninterrupted deployments. 
+The second (and recommended) approach is to create a Docker container out of your crawler and then to change your Docker Compose file to reference your new Crawler. This will handle the entire deployment process for you and will even reboot the CluedIn host for you. This approach is recommended as it will also help to roll this new Crawler out to test and production environments with full capabilities of roll back and uninterrupted deployments. 

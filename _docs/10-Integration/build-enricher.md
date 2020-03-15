@@ -20,7 +20,7 @@ CluedIn is a .NET platform. So you will need:
 
 ### Creating initial template
 
-To avoid cumbersome boilerplating, CluedIn provides you a script to generate a working Visual studio solution.
+To avoid cumbersome boiler-plating, CluedIn provides you a script to generate a working Visual studio solution.
 
 ### Install the generation tool
 
@@ -35,7 +35,7 @@ npm install -g yo
 npm install -g generator-cluedin-externalsearch
 ```
 
-then run the generator, providing a `Name` and `Entity Type` (ie Person, Company etc), with the following:
+then run the generator, providing a `Name` and `Entity Type` (i.e. Person, Company etc), with the following:
 
 ```shell
 yo cluedin-externalsearch

@@ -28,4 +28,4 @@ If you are wanting to add your own configuration when you are making extensions 
 
 If you are adding your own configuration, it may be that you will also need to add this to the Docker YAML files. 
 
-For documentation on describing the individual configuration settings, please install CluedIn and view the container.config file directly for inline comments. 
+For documentation on describing the individual configuration settings, please install CluedIn and view the container.config file directly for in-line comments. 

@@ -35,7 +35,7 @@ Example of calculation
 
 Property level 
 Property, integration type level 
-Property inldategration level 
+Property integration level 
 Entity integration type level 
 Entity integration level 
 Entity level 
@@ -76,7 +76,7 @@ Version 1 (HEAD)
 
 Property 1 
 
-Lastest Value 
+Latest Value 
 
 Property 2 
 
@@ -180,7 +180,7 @@ Old Value
 
 0 
 
-Lastest Value 
+Latest Value 
 
 1 
 
@@ -964,7 +964,7 @@ Old Value
 
 0 
 
-Lastest Value 
+Latest Value 
 
 1 
 

@@ -1,7 +1,7 @@
 ## Auto Publishing Repository Documentation to Git Hub Pages
 
 1. Create a '/docs' (*all lowercase*) folder under the root of your repository 
-2. Add the following to your repo's `azure-pipelines.yml` to create a build artifact
+2. Add the following to your repositories `azure-pipelines.yml` to create a build artifact
 
 ```
 resources:

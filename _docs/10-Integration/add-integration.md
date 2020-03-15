@@ -26,7 +26,7 @@ Cloud integration are generally integration for existing SaaS product such as Hu
 
 To authenticate to this integration, we have 3 authentication methods which variates based on the product.
 
-> Notice, if you are running CluedIn, on-prem, you will need to setup the Oauth process with the product you want to add.
+> Notice, if you are running CluedIn, on-premise, you will need to setup the Oauth process with the product you want to add.
 > Refer to the provider's documentation and follow the steps.
 
 *Oauth authentication*
@@ -44,7 +44,7 @@ Sometimes, the integration required multiple fields such as a 'URL', a username.
 
 #### On-premise integration
 
-Another type of integration are 'on-prem', they are integration that you need to install on your servers. A good example is a File system provider which will scan all the files located into a physical hard-drive.
+Another type of integration are 'on-premise', they are integration that you need to install on your servers. A good example is a File system provider which will scan all the files located into a physical hard-drive.
 
 ### Adding an Integration
 
@@ -64,7 +64,7 @@ Another type of integration are 'on-prem', they are integration that you need to
 
 6. Configure your integration and add it
 
-7. Congratz, your configuration is now added
+7. Congratulations, your configuration is now added
 
 ![available-integration](integration-add-4.png)
 
@@ -77,13 +77,13 @@ Once the integration added, CluedIn will ingest the date, once that is done, you
 
 You can set the Product Owner when you add an integration. You can have multiple Product Owners and it can change throughout the lifetime of the integration. 
 
-Setting the Product Owner will dictate certain actions and responsibilities. These responsibilites include: 
+Setting the Product Owner will dictate certain actions and responsibilities. These responsibilities include: 
 
  - They are responsible for accepting or rejecting Mesh Commands.
  - They will be notified when a Subject Request Access contains data for this integration point. 
  - They will be responsible for the CluedIn Clean projects that contain data from this integration point. 
  - They will be notified when their system is involved in a Data Breach.
- - They will be respomsible for accepting or rejecting the Data involved in a retention setup. 
+ - They will be responsible for accepting or rejecting the Data involved in a retention setup. 
  - They are responsible for setting the Consent for the properties in their integration.
  - They are responsible for resolving duplicates in their integration point. 
  - They are responsible for the provider specific Vocabularies and the mappings to core Vocabularies.

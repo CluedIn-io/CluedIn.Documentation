@@ -16,7 +16,7 @@ You need the command line tool from Kubernetes in order to run CluedIn.
 
 - [Helm](https://helm.sh/)
 
-CluedIn uses a tool called Helm in order to mange the Kuberetes application. Visit the [helm github page](https://github.com/helm/helm) to get assistance on how to install.
+CluedIn uses a tool called Helm in order to mange the Kubernetes application. Visit the [helm github page](https://github.com/helm/helm) to get assistance on how to install.
 
 ## Platform Agnostic
 
@@ -24,7 +24,7 @@ CluedIn can be installed on any cloud / premise platform that you have:
 
 - Azure
 - AWS
-- Google Cloug Platform
+- Google Cloud Platform
 - Locally on your servers
 
 ## How to use?

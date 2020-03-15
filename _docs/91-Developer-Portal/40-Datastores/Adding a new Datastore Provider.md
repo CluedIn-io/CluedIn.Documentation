@@ -3,7 +3,7 @@ category: Developer
 title: Adding a new Datastore Provider
 ---
 
-There are many types of database families today. Leveraging these different datastores provides flexiblity when it comes to using this data. 
+There are many types of database families today. Leveraging these different datastores provides flexibility when it comes to using this data. 
 
 Due to this, it might be that you are interested in storing your data in another datastore type that is not currently shipped with CluedIn. For example, if we wanted to provide support for your data in a Time Series database, this is where you would need to implement a brand new datastore. 
 

@@ -10,13 +10,13 @@ A design is missing for the Job Details.
 [HttpGet]
 [Route("api/v1/jobs")]
 
-This call will return 5 counts for the dashboard including completed, executing, failed, queued, cancelled.
+This call will return 5 counts for the dashboard including completed, executing, failed, queued, canceled.
 
 [HttpGet]
 [Route("api/v1/jobs")]
 int page, int take, string state = null, Guid? configurationId = null
 
-You can page through all jobs with all states or you can filter by State and Congifuration Id (AKA ProviderDefinitionId)
+You can page through all jobs with all states or you can filter by State and Configuration Id (AKA ProviderDefinitionId)
 
 e.g. State can be one of the following:
 ```csharp

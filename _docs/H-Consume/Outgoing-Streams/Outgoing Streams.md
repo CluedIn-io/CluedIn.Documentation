@@ -68,7 +68,7 @@ HTTPPOST
 
 Once this has run, CluedIn will then fetch historical data in CluedIn where the user.jobTitle Vocabulary is already "CEO" and then will maintain a watch on any new or modified records that match this filter. Everything this is triggered, CluedIn will post Entities in the format of the "EntityToSimpleJson" format to the Uri you see in the "uri" part of the message. 
 
-Developers can add their own "Transforms" that allow you to take data and mould it into the shape that you want. For example, here is a custom Transform that you could implement:
+Developers can add their own "Transforms" that allow you to take data and mold it into the shape that you want. For example, here is a custom Transform that you could implement:
 
 ```csharp
 using System.IO;

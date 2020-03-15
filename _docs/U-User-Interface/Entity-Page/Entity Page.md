@@ -33,7 +33,7 @@ You can also see all of the "child" entities of this record in the "Parent Aggre
 
 ![Diagram](parent-aggregation-view.png)
 
-On the Entity Page you will be able to see your visual view of a Record. CluedIn will automatically choose which properties from which systems are the most accuract and hence are the ones that we will natively display in the user interface as the "Golden Value".
+On the Entity Page you will be able to see your visual view of a Record. CluedIn will automatically choose which properties from which systems are the most accurate and hence are the ones that we will natively display in the user interface as the "Golden Value".
 
 CluedIn has 3 possible mechanisms to choose the "Golden Value".
 

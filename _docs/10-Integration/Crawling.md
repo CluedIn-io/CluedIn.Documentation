@@ -17,7 +17,7 @@ Crawling data can be complex and error-prone and many things can go wrong such a
  - Authentication can change mid crawl
  - Source systems don't have an obvious way to filter the data
 
- Your crawlers will need to cater for all of the complexities mentioned above and more. Fortunatly, the CluedIn crawler framework helps with all of the above mentioned complexities. You have full control over the granularity of error handling that you would like in your crawlers e.g. managing how often to retry or how many times.
+ Your crawlers will need to cater for all of the complexities mentioned above and more. Fortunately, the CluedIn crawler framework helps with all of the above mentioned complexities. You have full control over the granularity of error handling that you would like in your crawlers e.g. managing how often to retry or how many times.
 
  Here is a list of things you should be covering with any custom crawlers that you extend CluedIn with: 
 
@@ -55,7 +55,7 @@ Filtering on only getting the latest (on the regular crawls) - Every 4 hour craw
 
 Getting the Entity Statistics - Does the provider support a way to figure out how much data of different types they have? 
 
-Get Permissions - Are there any persmissions set in the provider for read/write access?
+Get Permissions - Are there any permissions set in the provider for read/write access?
 
 Does the source use a cursor to get latest or a date filter (what format) - If the provider uses a cursor instead of a date filter. 
 

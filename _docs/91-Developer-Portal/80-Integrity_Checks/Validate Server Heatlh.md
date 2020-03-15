@@ -3,7 +3,7 @@ category: Developer
 title: Validate Server Heatlh
 ---
 
-There might be times when you would like to Validate that CluedIn can operate propely once it has been booted. An example of this would be to validate that all Vocabularies are created properly. 
+There might be times when you would like to Validate that CluedIn can operate properly once it has been booted. An example of this would be to validate that all Vocabularies are created properly. 
 
 Essentially, the application will not boot if it does not pass all the validation and integrity checks.
 

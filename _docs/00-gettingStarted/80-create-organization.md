@@ -5,7 +5,7 @@ title: Create an organization
 
 ### Organization
 
-CluedIn can support [multitenancy](http://localhost/docs/05-Administration/60-Accounts_Multitenancy/0-index.html) (disabled by default).
+CluedIn can support [multi-tenancy](http://localhost/docs/05-Administration/60-Accounts_Multitenancy/0-index.html) (disabled by default).
 
 As such, the first thing you need to do for using CluedIn once installed is to create an organization.
 
@@ -15,7 +15,7 @@ As such, the first thing you need to do for using CluedIn once installed is to c
 
 By default, CluedIn is not shipping with any SMTP servers. You need to setup it before creating your organization.
 
-Emails are transactional emails. You won't receive marketing email. They are emails to inform you of some important actions that was taken by your users using your CluedIn installation and/or emails used for security check (signup, change password, invitation...)
+Emails are transactional emails. You won't receive marketing email. They are emails to inform you of some important actions that was taken by your users using your CluedIn installation and/or emails used for security check (sign-up, change password, invitation...)
 
 Visit [How to configure SMTP](/00-gettingStarted/email.html)
 
@@ -29,7 +29,7 @@ Visit our sign up URL: `https://app.[cluedin-domain]/signup`
 
 1. Enter your email 
 2. You will receive an email with a link to create your user, click on that click
-3. Follow the process (pick org name, username, password, accept Terms)
+3. Follow the process (pick organisation name, username, password, accept Terms)
 4. You will be redirect to the login page, use the credentials defined in the step above
 
 ### Create organization with a script

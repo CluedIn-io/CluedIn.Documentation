@@ -3,9 +3,9 @@ category: Governance
 title: Subject Access Requests
 ---
 
-CluedIn allows a user to generate a subject access request to fulfil data privacy acts around the world. 
+CluedIn allows a user to generate a subject access request to fulfill data privacy acts around the world. 
 
-The process of generating a request assumes that you have integrated the sources that contain personal data. We also assume that you have deduplicated the records to a high precision using the CluedIn list of duplicate suspects. 
+The process of generating a request assumes that you have integrated the sources that contain personal data. We also assume that you have de-duplicated the records to a high precision using the CluedIn list of duplicate suspects. 
 
 The first stage of registering a Subject Access Request is to specify that the identity of the request has been confirmed. This is important for not generating reports for an individual that has not confirmed their identity. 
 
@@ -15,7 +15,7 @@ Using the search facilities, CluedIn will only return matches for records that a
 
 It is at this point that you will notice two filters. The first is to include results from External Data Sources (where they have not merged with internal records) and Shadow Entities (where we only have unidentified references to people e.g. Name). You might find that during this process you will need to merge records manually. 
 
-After you have chosen your subject, you will click Next, which will start to generate the report. You may find that this report can take multiple minutes to generate. The more data you have assocaited with a person, the more time it will typically take. You do not need to stay on this report generation page for it to continue its work, you can continue on generating other reports or using CluedIn for other reasons. 
+After you have chosen your subject, you will click Next, which will start to generate the report. You may find that this report can take multiple minutes to generate. The more data you have associated with a person, the more time it will typically take. You do not need to stay on this report generation page for it to continue its work, you can continue on generating other reports or using CluedIn for other reasons. 
 
 After the report generation has finished, you will have the opportunity to review and edit the report before moving onto the next step. This gives you time to exclude parts of the report that you deem not necessary to share with the subject. 
 
@@ -30,4 +30,4 @@ The next stage allows you to run the mutation pieces of the subject access reque
  - Pseudonimisation (Generate a masked version of data that you do not have consent for)
  - Delete (Delete all records associated with this subject)
 
-For these operations to fulfil their role, the respective Mesh API's must be implemented. Each operation above may generate many mesh api commands. These mesh commands are only generated and queued. By default, CluedIn will not run these individual commands until a product owner of that data has manually instructed CluedIn to do so in the Pending Changes tab on the entity pages of the modified records in CluedIn.
+For these operations to fulfill their role, the respective Mesh API's must be implemented. Each operation above may generate many mesh api commands. These mesh commands are only generated and queued. By default, CluedIn will not run these individual commands until a product owner of that data has manually instructed CluedIn to do so in the Pending Changes tab on the entity pages of the modified records in CluedIn.

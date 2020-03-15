@@ -32,7 +32,7 @@ These are all valid Core Vocabularies.
 
 ## Can I add my own Core Vocabularies?
 
-Although you can, we suggest that you do not. The reason is mainly due to upgrade support and making sure your upgrades are as seemless and automated as possible. 
+Although you can, we suggest that you do not. The reason is mainly due to upgrade support and making sure your upgrades are as seamless and automated as possible. 
 
 ## How do I nest my Vocabularies?
 

@@ -20,7 +20,7 @@ CluedIn is a .NET platform. So you will need:
 
 ### Creating initial template
 
-To avoid cumbersome boilerplating, CluedIn provides you a script to generate a working Visual studio solution.
+To avoid cumbersome boiler-plating, CluedIn provides you a script to generate a working Visual studio solution.
 
 1. Create a folder for your provider
     ```shell
@@ -68,7 +68,7 @@ There are several steps needed to create a crawler that fetches data, creates Cl
 
 The following is the minimal steps required to replicate the _Hello World_ example:
 
-1. Create model classes. You can use a subgenerator for this:
+1. Create model classes. You can use a sub-generator for this:
     ```shell
     docker run --rm -ti -v ${PWD}:/generated cluedin/generator-crawler-template crawler-template:model
     ```  
