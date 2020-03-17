@@ -24,6 +24,21 @@ These are broken down in sections.
 6. [Cache Database](/docs/70-Statistics/50-Cache/Cache.html)
 7. [Configuration](/docs/70-Statistics/60-Configuration/Configuration.html)
 
+# Configurations needed
+
+This project needs to query for data from some specific sources, and these need to be set up in the container.config file found in the server folder.
+
+Configurations to add:
+
+```xml
+    <add key="MessageQueue.Management.Node"                             value="rabbit@cluedin-dev" xdt:Locator="Condition(@key='MessageQueue.Management.Node')" xdt:Transform="Replace" />
+    <add key="MessageQueue.Management.Password"                         value="guest" xdt:Locator="Condition(@key='MessageQueue.Management.Password')" xdt:Transform="Replace" />
+    <add key="MessageQueue.Management.Username"                         value="guest" xdt:Locator="Condition(@key='MessageQueue.Management.Username')" xdt:Transform="Replace" />
+    <add key="MessageQueue.Management"                                  value="http://localhost:15672" xdt:Locator="Condition(@key='MessageQueue.Management')" xdt:Transform="Replace" />
+    <add key="Statistics.Search"                                        value="http://localhost:9200" xdt:Locator="Condition(@key='Statistics.Search')" xdt:Transform="Replace" />
+    <add key="Statistics.Graph"                                         value="http://neo4j:@localhost:7474" xdt:Locator="Condition(@key='Statistics.Graph')" xdt:Transform="Replace" />
+```
+
 # Querying API for raw data
 
 All the data points presented as cards, charts, and lists can be requested directly from our REST API. On each section's page you will find a section showing an example JSON API response for the statistics described, and possibly explanations on data structures, if the complexity requires it.
