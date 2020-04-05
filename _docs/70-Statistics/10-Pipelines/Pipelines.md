@@ -26,11 +26,33 @@ In the charts you can see the number of data points currently processing and the
 
 The current memory usage is used to gauge the general health of the system. It provides the currently used RAM, the maximum RAM, and a health alarm (color coded into the card as red or green).
 
+**Notifications:**
+
+When the used memory percentage exceedes 75%, you will get a notification that will inform you of this.
+
+![Dashboard](00-Pipelines-Dashboard.png)
+
 # Pipeline Processes
 
 This panel is accesible from the Actions section.
 
 In the Pipeline Processes view we offer a visualisation grouping all the processors in our system, in a tree structure. Each node is either a group, or a Process.
+
+![Pipeline Processes](01-Pipelines-Tree-Map.png)
+
+The Pipeline Processes are grouped as follows:
+
+- Incoming - All processes found in this group relate to ingesting data into the application
+    - Main Processes - All the processes that relate to the main Clue Processing, which is done after the initial data ingestion
+- Webhooks - All processes relating to pulling and processing data from web hooks
+- Events - All processes that are triggered by events (applying Governance over data, such as anonymisation)
+- Errors - All processes relating to error processing and logging
+- Outgoing - All processes relating to pushing data to an external source
+- Metrics - All processes relating to the calculation of our different data metrics
+
+# Details
+
+![Pipeline Processes Details](02-Pipelines-Tree-Map-Details.png)
 
 The Process nodes can be clicked to reveal their properties:
 - Process Name - Friendly/DisplayName
@@ -42,16 +64,6 @@ The Process nodes can be clicked to reveal their properties:
 - Outgoing - The rate of outgoing data points per second
 
 The data is updated once per second.
-
-The Pipeline Processes are grouped as follows:
-
-- Incoming - All processes found in this group relate to ingesting data into the application
-    - Main Processes - All the processes that relate to the main Clue Processing, which is done after the initial data ingestion
-- Webhooks - All processes relating to pulling and processing data from web hooks
-- Events - All processes that are triggered by events (applying Governance over data, such as anonymisation)
-- Errors - All processes relating to error processing and logging
-- Outgoing - All processes relating to pushing data to an external source
-- Metrics - All processes relating to the calculation of our different data metrics
 
 # API
 
@@ -66,9 +78,15 @@ There are 2 endpoints that make up the Pipelines Overview, and the Pipelines Pro
 | Messages        | array of ints    | total number of messages currently in the pipelines  |
 | Incoming        | array of floats  | rate of messages incoming into the pipelines |
 | Outgoing        | array of floats  | rate of messages outgoing out of the pipelines |
-| Memory          | integer          | the currently used RAM in bytes |
-| MemoryLimit     | integer          | the maximum RAM usable |
-| MemoryAlarm     | boolean          | status of memory usage |
+
+#### Memory
+
+| Property        | Type             | Description   |
+|-----------------|------------------|---------------|
+| Used            | long             | the currently used RAM in bytes |
+| Available       | long             | the available RAM in bytes |
+| Max             | long             | the maximum RAM usable |
+| Alarm           | boolean          | status of memory usage |
 
 
 The statistics provided are updated to their current values each time the endpoint is queried.
@@ -118,9 +136,13 @@ Example response:
         0.2,
         0.0
     ],
-    "Memory": 93736960,
-    "MemoryLimit": 1651938099,
-    "MemoryAlarm": false
+    "Memory": {
+        "Used": 93736960,
+        "Available": 1558201139,
+        "Max": 1651938099,
+        "PercentageUsed": 0,
+        "Alarm": false
+    }
 }
 ```
 

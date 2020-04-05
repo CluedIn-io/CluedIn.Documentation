@@ -16,6 +16,10 @@ The data on this page is updated once per second.
 
 The data here provides a basic overview of what is in our Cache store and it's health.
 
+# Dashboard
+
+![Dashboard](00-Cache-Dashboard.png)
+
 # Overview
 
 - Memory - Used in size
@@ -38,11 +42,20 @@ The 2 axis chart shows the records count over the last 10 days.
 
 | Property            | Type                  | Description   |
 |---------------------|-----------------------|---------------|
-| Memory              | long                  | currently used RAM in bytes |
+| Memory              | object                  | currently used RAM in bytes |
 | LastPersistedAt     | string                | last persisted date time |
 | LastPersistedStatus | string                | last persisted status |
 | LastPersistedSize   | long                  | last persisted batch's size in bytes |
 | Records             | array of objects      | sum of all records over time |
+
+##### Memory
+
+| Property        | Type                  | Description   |
+|-----------------|-----------------------|---------------|
+| Used            | long                  | used memory in bytes |
+| Available       | long                  | available memory in bytes |
+| Max             | long                  | max memory in bytes |
+| PercentageUsed  | int                   | percentage used |
 
 ##### Records
 
@@ -57,14 +70,31 @@ When the endpoint is queried, a new value is added to this array, if there has b
 
 ```json
 {
-    "Memory": 3051520,
-    "LastPersistedAt": "Thursday, 05 March 2020 13:38:15",
+    "Memory": {
+        "Used": 3227648,
+        "Available": 3227648,
+        "Max": 6455296‬,
+        "PercentageUsed": 50
+    },
+    "LastPersistedAt": "Tuesday, 31 March 2020 10:49:58",
     "LastPersistedStatus": "ok",
-    "LastPersistedSize": "512000",
+    "LastPersistedSize": "581632",
     "Records": [
         {
-            "Value": 116,
-            "Date": "05/03/2020"
+            "Value": 35,
+            "Date": "17/03/2020"
+        },
+        {
+            "Value": 35,
+            "Date": "18/03/2020"
+        },
+        {
+            "Value": 53,
+            "Date": "23/03/2020"
+        },
+        {
+            "Value": 57,
+            "Date": "31/03/2020"
         }
     ]
 }

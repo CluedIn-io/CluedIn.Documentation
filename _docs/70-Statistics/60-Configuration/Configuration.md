@@ -20,7 +20,13 @@ The Configuration Endpoint exposes parts of the Configuration that are for read 
 
 For example, you can configure CluedIn with many different parameters and features, but if there are settings that are against our recommended settings, we can expose this in the configuration user interface to alert the first places to potentially look. This is also important to validate if the configuration that has been set is actually in action in the running state of the application. All settings are read-only.
 
+# Dashboard
+
+![Dashboard](00-Configuration-Dashboard.png)
+
 # Connection Strings
+
+![Connection Strings](01-Configuration-Connection-Strings.png)
 
 A table listing all connection strings, with the following columns:
 - Name

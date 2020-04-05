@@ -16,6 +16,11 @@ The data on this page is updated once per second.
 
 Different bottlenecks or problems with how the data has been structured can be identified through monitoring the entities, relationships, and different properties set in the graph.
 
+# Dashboard
+
+![Dashboard](00-Graph-Dashboard.png)
+![Side Panel Example](01-Graph-Side-Panel-Example.png)
+
 # Overview
 
 - Indexes

@@ -16,22 +16,30 @@ The data on this page is updated once per second.
 
 This page should give you an overview of the health of our search database, and the data contained inside.
 
+# Dashboard
+
+![Dashboard1](00-Search-Dashboard-1.png)
+![Dashboard2](00-Search-Dashboard-2.png)
+
 # Overview
 
-- Health - red = problem; yellow = possible problem, or soon to be; green = good
-- Nodes
 - Indices
+- Nodes
+- Threads Count
 - Open File Descriptors
 - Documents
-- Threads Count
+- Health - red = problem; yellow = possible problem, or soon to be; green = good
+- CPU Usage
+- Disk Size
+- Memory
+- Shard Status Distribution
+- Entities Count Chart (Last 10 Days)
+- Disk Size Chart (Last 10 Days)
+- Documents Count Chart (Last 10 Days)
 
 The overview section provides information about different key values that are of interest in the Search Database. Their count is given in overview, but some also offer a list breakdown.
 
 # Charts Overview
-
-## Memory
-
-The pie chart is made out of the used, max, and percentage of memory used.
 
 ## CPU
 
@@ -43,6 +51,10 @@ The chart is made out of the used, available, and percentage of disk size used.
 
 The 2 axis chart shows the used disk size in the last 10 days. 
 
+## Memory
+
+The pie chart is made out of the used, max, and percentage of memory used.
+
 ## Shard status distribution
 
 The pie chart provides a breakdown of the database shards and their status.
@@ -53,11 +65,19 @@ The pie chart shows a breakdown of all entity types, and how many entities each 
 
 The 2 axis chart shows the number of total entities over the last 10 days.
 
+## Disk Size
+
+The pie chart shows a breakdown of the current used, available, total and percentage used of disk size.
+
+The 2 axis chart shows the total used disk size over the last 10 days.
+
 ## Documents
 
 The 2 axis chart shows the total number of stored documents over the last 10 days.
 
 # Nodes
+
+![All Nodes](01-Search-All-Nodes.png)
 
 This panel is accesible from the Actions section.
 
@@ -72,6 +92,8 @@ The database's nodes are listed here with the following columns:
 - Thread Pool
 
 The Thread Pool breakdown of each node can be seen as a breakdown when the button under the column is clicked.
+
+![Thread Pool Breakdown](02-Search-Thread-Pool-Breakdown.png)
 
 # API
 
@@ -155,9 +177,10 @@ When the endpoint is queried, a new value is added to this array, if there has b
 
 | Property        | Type                  | Description   |
 |-----------------|-----------------------|---------------|
-| PercentageUsed  | int                   | percentage of used disk |
-| Total           | array of objects      | total disk used in bytes over time |
-| Free            | long                  | free disk space in bytes |
+| Used            | long or object        | used disk in bytes; for cluster it shows as array of LongDate pairs |
+| Available       | long                  | available disk in bytes |
+| Max             | long                  | max disk in bytes |
+| PercentageUsed  | int                   | percentage used |
 
 ###### Total objects
 
@@ -173,6 +196,7 @@ When the endpoint is queried, a new value is added to this array, if there has b
 | Property        | Type                  | Description   |
 |-----------------|-----------------------|---------------|
 | Used            | long                  | used memory in bytes |
+| Available       | long                  | available memory in bytes |
 | Max             | long                  | max memory in bytes |
 | PercentageUsed  | int                   | percentage used |
 
@@ -337,21 +361,23 @@ Nodes reuse some of the data structures defined above, so those will not be repe
         "StoreSize": 3603083
     },
     "Disk": {
-        "PercentageUsed": 42,
-        "Total": [
+        "Used": [
             {
-                "Value": 62725787648,
-                "Date": "05/03/2020"
+                "Value": 32004825088,
+                "Date": "05/04/2020"
             }
         ],
-        "Free": 36656398336
+        "Available": 30720962560,
+        "Max": 62725787648,
+        "PercentageUsed": 52
     },
     "ThreadsCount": 42,
     "ProcessingCPUPercent": 0,
     "Memory": {
-        "Used": 155576616,
+        "Used": 45059416,
+        "Available": 1011249832,
         "Max": 1056309248,
-        "PercentageUsed": 15
+        "PercentageUsed": 4
     },
     "OpenFileDescriptors": {
         "Min": 173,
@@ -368,9 +394,10 @@ Nodes reuse some of the data structures defined above, so those will not be repe
                     "StoreSize": 3603083
                 },
                 "Disk": {
-                    "PercentageUsed": 42,
-                    "Total": 62725787648,
-                    "Free": 36656398336
+                    "Used": 32004825088,
+                    "Max": 62725787648,
+                    "Available": 33937686528,
+                    "PercentageUsed": 52
                 },
                 "Threads": {
                     "Count": 42,
@@ -397,9 +424,10 @@ Nodes reuse some of the data structures defined above, so those will not be repe
                 },
                 "ProcessingCPUPercent": null,
                 "Memory": {
-                    "Used": 155576616,
+                    "Used": 45059416,
+                    "Available": 1011249832,
                     "Max": 1056309248,
-                    "PercentageUsed": 15
+                    "PercentageUsed": 4
                 },
                 "UptimeInMiliseconds": 20345428
             },
@@ -410,9 +438,10 @@ Nodes reuse some of the data structures defined above, so those will not be repe
                     "StoreSize": 3603083
                 },
                 "Disk": {
-                    "PercentageUsed": 42,
-                    "Total": 62725787648,
-                    "Free": 36656398336
+                    "Used": 32004825088,
+                    "Max": 62725787648,
+                    "Available": 33937686528,
+                    "PercentageUsed": 52
                 },
                 "Threads": {
                     "Count": 42,
@@ -439,9 +468,10 @@ Nodes reuse some of the data structures defined above, so those will not be repe
                 },
                 "ProcessingCPUPercent": null,
                 "Memory": {
-                    "Used": 155576616,
+                    "Used": 45059416,
+                    "Available": 1011249832,
                     "Max": 1056309248,
-                    "PercentageUsed": 15
+                    "PercentageUsed": 4
                 },
                 "UptimeInMiliseconds": 20345428
             }
