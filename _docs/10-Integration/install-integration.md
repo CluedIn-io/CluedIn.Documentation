@@ -1,3 +1,6 @@
+# TODO
+* Needs updating to the new way of installing components
+
 ---
 category: Integration
 title: Install Integration
