@@ -1,3 +1,7 @@
+# TODO
+* This has changed so needs re-write
+* Not sure these are configurable any more
+
 ---
 category: Get Started
 title: Configuring the Helm Chart

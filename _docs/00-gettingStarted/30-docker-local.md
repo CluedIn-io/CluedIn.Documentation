@@ -1,3 +1,8 @@
+# TODO
+* Re-write 
+* Remove windows + use cluedin.ps1 as starting point
+* Intro using mkcert for certificates
+
 ---
 category: Get Started
 title: CluedIn with Docker

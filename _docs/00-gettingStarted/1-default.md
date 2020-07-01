@@ -1,3 +1,9 @@
+# TODO
+* Update diagram
+* Update text description (Remove CLuedin.App references)
+* Update versions (ElasticSearch etc)
+
+
 ---
 category: Get Started
 title: CluedIn Overview

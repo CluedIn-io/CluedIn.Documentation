@@ -1,3 +1,6 @@
+# TODO
+* List all services that have persistence configurable
+
 ---
 category: Get Started
 title: Configuring the Helm Chart

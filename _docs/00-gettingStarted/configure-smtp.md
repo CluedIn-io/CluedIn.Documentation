@@ -1,3 +1,6 @@
+# TODO
+* Do all of this
+* Use cluedin.ps1 env ?
 ---
 category: Get Started
 title: How to configure SMTP?

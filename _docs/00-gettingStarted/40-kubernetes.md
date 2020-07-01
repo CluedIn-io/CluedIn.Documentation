@@ -1,3 +1,9 @@
+# TODO
+* Re-write 
+* Update to Helm v3 + get charts from public repo
+* Remove windows references
+* Idea: Possibly update cluedin.ps1 to output values file
+
 ---
 category: Get Started
 title: CluedIn with Kubernetes

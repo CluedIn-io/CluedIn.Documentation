@@ -1,3 +1,6 @@
+# TODO
+* Divide up appinsights and seq instructions
+
 ---
 category: Get Started
 title: Monitoring the application

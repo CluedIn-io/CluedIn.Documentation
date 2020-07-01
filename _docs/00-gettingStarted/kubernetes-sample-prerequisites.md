@@ -1,3 +1,8 @@
+# TODO
+* Move to Helm3 and remove need for Tiller instructions
+* Add new NGINX settings from Lucas
+* Remove need for taint / windows references
+
 ---
 category: Get Started
 title: Example pre-requisite configuration

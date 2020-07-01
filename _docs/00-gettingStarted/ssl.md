@@ -1,3 +1,7 @@
+# TODO
+* This can be simplified
+* Make clearer: LetsEncrypt instructions + passing root CA (mkcert)
+
 ---
 category: Get Started
 title: Configuring the Helm Chart
