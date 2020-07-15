@@ -15,7 +15,6 @@ If using SQLServer as a deployment inside the cluster (instead of for example SQ
 If you are using your own SQL installation, like SQL Azure, you will need to:
 
 1. Install the database definitions (DACPACs) to your SQL instance. This can be done from the command line using [`SqlPackage.exe`](https://docs.microsoft.com/en-us/sql/tools/sqlpackage?view=sql-server-2017#publish-parameters-properties-and-sqlcmd-variables). 
-  TODO: Where to get DacPacs from? Docker image? Github release?
 
 2. Create a secret with the *connection strings* for each database. The secret should have the following keys:
   ```yaml

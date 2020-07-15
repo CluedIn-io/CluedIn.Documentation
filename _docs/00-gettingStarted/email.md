@@ -1,15 +1,37 @@
-# TODO
-* Replace with cluedin.ps1 env ?
-
 ---
 category: Get Started
 title: Configuring the Helm Chart
 hideMenu: true
 ---
 
-## Email configuration
+In order to send emails, CluedIn must be configured with an SMTP server.
+This can be a company owned one for your organization or a temporary one using a service such as MailTrap or Sendgrid, for example, which are useful for simple testing.
 
-The CluedIn application requires access to a SMTP server to send email. You can pass its access credentials in the following properties:
+## Email Configuration - Docker/Local Machine
+
+Email configuration is simplified when running localy by using the `cluedin.ps1` helper script.
+
+You can configure any email settings as environment variables that will be passed into the application at runtime.
+
+This is acheive by using the `env` command :
+
+```bash
+./cluedin.ps1 env -set [NAME]=[VALUE]
+```
+
+The possible values for configuring email in CluedIn are:
+
+```
+CLUEDIN_EMAIL_HOST             (default: <blank>)
+CLUEDIN_EMAIL_PASS             (default: <blank>)
+CLUEDIN_EMAIL_PORT             (default: 587)
+CLUEDIN_EMAIL_SENDER           (default: noreply@cluedin.com)
+CLUEDIN_EMAIL_USER             (default: <blank>)   
+```
+
+## Email Configuration - Kubernetes
+
+WHen using Kubernetes the SMTP setting can be configured in the `values.yaml`. This can be done by setting the following properties:
 
 ```yaml
 email:

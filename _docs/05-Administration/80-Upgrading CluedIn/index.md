@@ -1,6 +1,3 @@
-# TODO
-* This should probably be expanded to go from v2 -> v3 (updating the authentication tables)
-
 ---
 category: Administration
 title: Changing versions

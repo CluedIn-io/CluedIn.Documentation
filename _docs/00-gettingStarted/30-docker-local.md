@@ -1,8 +1,3 @@
-# TODO
-* Re-write 
-* Remove windows + use cluedin.ps1 as starting point
-* Intro using mkcert for certificates
-
 ---
 category: Get Started
 title: CluedIn with Docker
@@ -10,66 +5,69 @@ title: CluedIn with Docker
 
 ## Introduction
 
-As CluedIn is a complex platform, CluedIn is providing you a template on how to run CluedIn using docker locally on your machine.
+This will show you how to install CluedIn on your local machine by running it inside Docker. CluedIn is a complex application, with many moving parts, so you will need to ensure you have adequate resources on the machine you intend to run it on.
 
 ### Requirements
 
-- Windows version **1903** or greater
-- Latest version of [Docker for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows) (> 19.03.4)
-- Docker [experimental features](https://docs.docker.com/docker-for-windows/#daemon) turned on 
-- Docker set up to run [Windows containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
+- At least 16Gb of free memory (It is preferable to run on a machine with 32Gb of RAM)
+- Latest version of [Docker](https://docs.docker.com/get-docker/) for your operating system  (Engine: > 19.03)
+- [Powershell 7](https://github.com/PowerShell/PowerShell) for your operating system - This is to run helper scripts
 - Access to the private repositories inside the [cluedin](https://hub.docker.com/u/cluedin/) DockerHub organization. You will require a Docker Hub account and request access from CluedIn; then use this account to do a ```docker login```.
     NOTE: **Only CluedIn certified developers** have access to the CluedIn DockerHub.
-
-You can verify if you satisfy these requirements and you can run simultaneously Windows and Linux containers by opening a `Powershell` console and running:
-```powershell
-docker info | sls 'Storage Driver'
-```
-
-The returned value should be:
-```
- Storage Driver: windowsfilter (windows) lcow (linux)
-```
 
 ### Running CluedIn
 
 #### First time preparation
 
-1. Clone the Simple-Docker-Deployment
+CluedIn provides a helper script to streamline the process of getting started.
+
+1. Clone the helper script from the CluedIn Home repo
     ```shell
-    git clone https://github.com/CluedIn-io/Simple-Docker-Deployment
+    git clone https://github.com/CluedIn-io/Home
     ```
 
-1. Pull latest images
+1. Open a powershell console on Windows - ( or `pwsh` on Mac & Linux ) and run:
     ```shell
-    docker-compose pull
+    ./cluedin.ps1 check
     ```
+    This will check a few things:
+    * That you have the needed software installed
+    * That you have the ports needed to run CluedIn available
+    * That you have logged into docker hub
 
-1. Open an **administrator `Powershell`** console, run ```./pki/Create-Certificates.ps1 -Trust```.
+    If all these checks are green you are ready to proceed. If ports are in use then you may need to stop any programs locally that may be using them and re-run `check` again.
 
+1. Pull the latest cluedin images to your local machine
+    ```shell
+    ./cluedin.ps1 pull
+    ```
+    You can use this command to refresh/update any images at a later date.
 
 #### Starting the application
 
-The application is run doing a via docker-compose You can then bring the application up doing:
+To start up the application use: 
 
 ```shell
-docker-compose up -d
+./cluedin.ps1 up
 ```
+This will start up the various containers in Docker and begin initilializing CluedIn for the first time.
 
-You can check if the the different services are created running:
+#### Checking application status
+
+Depending on the speed of the machine it is being installed onto CluedIn can take a moment to start up. 
+
+You can check the status of this by using:
 ```shell
-docker-compose ps
+./cluedin.ps1 status
 ```
 
-The CluedIn server component takes a while to boot up. You can verify it is starting correctly:
-```shell
-docker-compose logs -f server
-```
+CluedIn is ready when all the status checks are green.
 
-The server will be ready when you see the message `Server Started`. Open your browser and CluedIn should be available under [https://app.127.0.0.1.xip.io](https://app.127.0.0.1.xip.io).
+Open your browser and CluedIn will be available under [http://app.127.0.0.1.xip.io](http://app.127.0.0.1.xip.io).
 
 ![First screen](first-screen-app.PNG)
 
+#### Creating an organization
 
 In order to use CluedIn you need to create an *organization*. There are two ways to do this
 
@@ -84,28 +82,33 @@ In order to use CluedIn you need to create an *organization*. There are two ways
 
     *These values can be overridden by passing parameters to the Powershell script*
 
-- Using the UI
-    1. Navigate to the [https://app.127.0.0.1.xip.io/signup](https://app.127.0.0.1.xip.io/signup) page.
-    1. Fill in an email address (it can be fictitious)
-    1. Check the `/emails` folder. You should be able to open the file with the standard Mail application from Windows by double clicking on it.
-    1. Click on the *Setup my organization link* in the email
-    1. Fill in the information and click in *Sign up*
-    1. You will be redirected to the login screen. Simply add the information created in the step above.
-
 #### Stopping the application
 
-You can then stop and start the stack, using the usual docker-compose commands
+There are **two** ways to stop the application:
+
+#### Stopping (without deletion of data)
+
+To stop CluedIn but to preserve the data you created while running, use:
 
 ```shell
-docker-compose down # containers are removed, data is kept 
-docker-compose down -v # containers are removed and data is lost
+./cluedin.ps1 stop
 ```
 
-If you need to remove the certificates you can run
+To start CluedIn back up again, you can simply use `up` or :
 
-```powershell
-./pki/Remove-Certificates.ps1
+```shell
+./cluedin.ps1 start
 ```
+
+#### Stopping (with removal/reset of data)
+
+To completely remove CluedIn and all of the associated data use:
+
+```shell
+./cluedin.ps1 down
+```
+
+This is a destructive action but it is useful for resetting data in CluedIn.
 
 ### Adding extra components
 

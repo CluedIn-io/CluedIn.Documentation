@@ -1,9 +1,3 @@
-# TODO
-* Update diagram
-* Update text description (Remove CLuedin.App references)
-* Update versions (ElasticSearch etc)
-
-
 ---
 category: Get Started
 title: CluedIn Overview
@@ -26,7 +20,7 @@ You can distinguish two type of components.
 
 - Neo4j, a graph database, written in Java. You can either use the open source version, limited a single server, or the commercial version (if you required a cluster for extra resilience or performance).
 - SqlServer, relational database storage. Free developer editions are sufficient. It can run in Windows or Linux. Alternatively a SAAS option (like SQL Azure) can be used.
-- ElasticSearch, search index. It requires version 1.7.
+- ElasticSearch, search index. 
 - RabbitMQ, a queueing service.
 - Redis, cache table storage.
 

@@ -1,6 +1,3 @@
-# TODO
-* Add screenshot ?
-
 ---
 category: Administration
 title: Generating an API Token

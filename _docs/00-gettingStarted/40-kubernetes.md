@@ -1,9 +1,3 @@
-# TODO
-* Re-write 
-* Update to Helm v3 + get charts from public repo
-* Remove windows references
-* Idea: Possibly update cluedin.ps1 to output values file
-
 ---
 category: Get Started
 title: CluedIn with Kubernetes
@@ -17,7 +11,7 @@ The purpose of the chart is to install the CluedIn application, this includes th
 
 #### Pre-requisites
 
-Access to a Kubernetes cluster with both Linux **and Windows** nodes. In addition this cluster should have:
+Access to a Kubernetes cluster. In addition this cluster should have:
 - nginx ingress controller installed (it is possible to use a different ingress controller with extra customization).
 - DNS configuration pointing to the public IP of the ingress controller
 - a secret with the credentials for accessing the CluedIn images from Docker Hub.
