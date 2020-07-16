@@ -45,16 +45,16 @@ CluedIn provides a helper script to streamline the process of getting started.
 
 #### Starting the application
 
-To start up the application use: 
+To start up the application use:
 
 ```shell
 ./cluedin.ps1 up
 ```
-This will start up the various containers in Docker and begin initilializing CluedIn for the first time.
+This will start up the various containers in Docker and begin initializing CluedIn for the first time.
 
 #### Checking application status
 
-Depending on the speed of the machine it is being installed onto CluedIn can take a moment to start up. 
+Depending on the speed of the machine it is being installed onto CluedIn can take a moment to start up.
 
 You can check the status of this by using:
 ```shell
@@ -73,7 +73,7 @@ In order to use CluedIn you need to create an *organization*. There are two ways
 
 - Using a script. In a `Powershell` console run `bootstrap/Create-Organization.ps1`. This will create an organization with the following parameters:
 
-    |          |        |   
+    |          |        |
     |----------|--------|
     | name     | foobar |
     | url      | [https://foobar.127.0.0.1.xip.io](https://foobar.127.0.0.1.xip.io) |
@@ -110,6 +110,7 @@ To completely remove CluedIn and all of the associated data use:
 
 This is a destructive action but it is useful for resetting data in CluedIn.
 
+<!--
 ### Adding extra components
 
 You can add extra providers or enrichers in two different ways:
@@ -118,3 +119,4 @@ You can add extra providers or enrichers in two different ways:
     1. Add a a file named `Packages.txt` in the `./components` folder with the names of the nuget packages for the components you want to install.
     1. If the Nuget packages are not available publicly add a `nuget.config` file in the `./components` folder. Either pass the password token to the `nuget.config` or create a `KEY` environment variable with it.
 1. Copy the relevant DLLs for the components in the `./components` folder.
+-->
