@@ -15,14 +15,6 @@ You must have:
 - a local install of [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl) configured to talk to the cluster
 - a local install of the CLI for [helm](https://helm.sh/).
 
-1. Taint the Windows nodes of your cluster. This will avoid Linux pods to be scheduled on the Windows nodes. It's important to do this first, as it could affect the installation of Helm, or other components later.
-
-    ```powershell
-    kubectl taint node -l beta.kubernetes.io/os=windows windows=true:NoSchedule
-    ```
-
-    You can also apply a default taint to all the nodes in a node pool. This way if you scale the pool up or down the nodes will automatically be tainted. This can be done with the `az` cli but only when creating the node pool. See the [documentation for the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ext/aks-preview/aks/nodepool?view=azure-cli-latest#ext-aks-preview-az-aks-nodepool-add).
-
 1. Create a service account. If you are using RBAC in your Kubernetes cluster you will need to grant permissions to *Tiller* for it to be able to create resources in the cluster. Check [Helm's documentation](https://helm.sh/docs/using_helm/#rbac). In test environments, you may consider just granting Tiller cluster admin permissions:
 
     - Create a file with the following content
@@ -71,9 +63,6 @@ You must have:
         --namespace ingress \
         --name ingress  \
         --set rbac.create="true" \
-        --set controller.extraArgs.enable-ssl-passthrough="true"\
-        --set controller.nodeSelector."beta\.kubernetes\.io/os"="linux" \
-        --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"="linux"
     ```
 
     After a while the ingress controller will have a public IP that can be used to access the cluster. If you don't want a public IP (because you have something else, like an application gateway in front of it), you can modify the installation of the ingress controller in the step above - see Helm chart [documentation](controller.service.loadBalancerIP).

@@ -31,7 +31,7 @@ tls:
 ```
 This means you will require a secret to be able to access the DNS and create the entries. Further documentation can be found in [CertManager](https://github.com/jetstack/cert-manager). 
 
-##### Server SSL configuration
+#### Server SSL configuration
 As explained above (see [Hostnames and addresses](#hostnames-and-addresses)) the *api*, *auth*, *public-api* and *webhooks* components are accessible from the outside of the cluster through SSL only. They are all running in a Windows application which needs to receive the certificate for the SSL connection in **PFX** format. You should therefore create certificates for all those hostnames (or the same certificate with wildcard entries or [multiple SANs](https://www.ssl.com/faqs/what-is-a-san-certificate/)). Those certificates need to be added to a secret.
 
 Assuming you have the public certificate and private key files you need to:

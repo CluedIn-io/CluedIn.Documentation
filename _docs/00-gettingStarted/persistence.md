@@ -32,3 +32,17 @@ neo4j: #name of the deployment
     persistence:
         enabled: false
 ```
+
+### Azure Disk
+
+If you are running on Azure, you can enable persistence to be configured so that it will store data on dedicated azure disks. This allows you to use some of the management and backup features of this product. 
+
+To configure addd the following section to the persistence section in your values file..
+
+```yaml
+ azureDisk: 
+       data:
+         diskName: 
+         diskURI: 
+         diskKind: 
+```

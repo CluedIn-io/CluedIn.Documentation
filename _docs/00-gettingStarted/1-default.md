@@ -5,24 +5,27 @@ title: CluedIn Overview
 
 # Getting started
 
-The following diagram depicts the main components of a CluedIn application. ![Diagram](cluedin-diagram.png)
+The following diagram depicts the main components of a CluedIn application. ![Diagram](cluedin_arch.png)
 
 ## CluedIn architecture
 
-You can distinguish two type of components.
+CluedIn is made up of various functional layers.
 
-### CluedIn code
+### CluedIn Applications
 
-- CluedIn.App, a .net Core application hosting the application.
-- CluedIn API, CluedIn Processing and CluedIn Providers. These are Windows applications in .net 4.5, and therefore can only run in **Windows**. All three can be combined into one and run in the same container (for example during development/testing).
+We have a combinations of microservices running on .Net Core and NodeJS that handle various distinct functions, from handling the UI, to queuing and processing the large streams of data we need to ingest. 
 
-#### Dependencies
+### CluedIn Security
 
-- Neo4j, a graph database, written in Java. You can either use the open source version, limited a single server, or the commercial version (if you required a cluster for extra resilience or performance).
-- SqlServer, relational database storage. Free developer editions are sufficient. It can run in Windows or Linux. Alternatively a SAAS option (like SQL Azure) can be used.
-- ElasticSearch, search index. It requires version 1.7.
-- RabbitMQ, a queueing service.
-- Redis, cache table storage.
+This handles how we connect securely to the cluster and handle permissions and grants to the different services the system is made up of.
+
+### CluedIn Data
+
+- Neo4j - Manages complex relationships between CluedIn data objects ("Clues")You can either use the open source version, limited a single server, or the commercial version (if you required a cluster for extra resilience or performance).
+- SqlServer - Manages our relational data storage. Free developer editions are sufficient. It can run in Windows or Linux. Alternatively a SAAS option (like SQL Azure) can be used.
+- ElasticSearch - Indexes and searches the data for flexible querying. This can be scaled out as needed. 
+- RabbitMQ - The servicebus that handles queueing across the system.
+- Redis - Used as the cache for the system.
 
 The diagram shows the different communication paths within the application.
 
