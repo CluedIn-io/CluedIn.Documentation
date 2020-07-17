@@ -103,3 +103,9 @@ You can build your own docker image to contain the integration packages.  This h
     # Mount components folder which is where the integration components would be placed
     > docker run --rm -it -v '.:/components' my/cluedin-installer
     ```
+5. In the `values.yal` configure your custome image for the components install
+    ```yaml
+    cluedin:
+      components:
+          image: 'my/cluedin-installer'
+    ```
