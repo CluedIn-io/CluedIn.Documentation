@@ -172,3 +172,8 @@ If you are running CluedIn locally for testing purposes using Docker, you can fo
 ### Testing the provider in your environment
 
 Please refer to [install an integration](/docs/10-Integration/install-integration.html)
+
+
+### Generating Models, Vocabularies and ClueProducers
+
+Please refer to the [FileGenerator GitHub Repository](https://github.com/CluedIn-io/Crawling.FileGenerator). This can be used to generate basic models, vocabularies and clue producers using one of three options: Metadata file; CSV files with data; Microsoft SQL Server. The generators need to be updated depending on each data source - more details can be found in the README section of the repository.
