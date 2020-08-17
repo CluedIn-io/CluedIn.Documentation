@@ -19,3 +19,138 @@ Lookup Metrics of Data
 All value lookups are case sensitive by default and hence if you were to use our GraphQL search point to lookup organisation.industry:Banking then if you had a value in an entity that was “banking” (note the lower case “b”) then you would not match this data. Although this behaviour can be changed, there is a better way to handle this. One of the main ideas behind CluedIn is that we are going to give downstream consumers a standard representation of the data and hence “banking” and “Banking” are different variations of essentially the same value. We would rather that you use CluedIn Clean to normalise these values and standardise as a business on the way that you will represent values for downstream consumers. It is perfectly fine to not propagate these changes back to the sources using the Mesh API, but downstream consumers should receive a standardised representation of values. 
 
 If you decide that you would like to enabled case incentive values, you will need to extend the inbuilt ElasticEntity model within CluedIn and add in your own properties with their respective analysers to achieve that. 
+
+To help you get upskilled on our GraphQL implementation, here are some examples for you to play with.
+
+Get an entity by Id
+
+```{
+  entity(id:"e58f33ea-a916-500a-8c1b-4053bd042ace")
+  {
+    name
+  }
+}```
+
+![Diagram](1.png)
+
+Get entities by search
+
+```{
+  search(query:"Test")
+  {
+    entries
+    {
+      name
+    }
+  }
+}```
+
+![Diagram](2.png)
+
+Get entities by particular vocabulary keys
+
+```{
+  search(query:"user.firstName:John")
+  {
+    entries
+    {
+      name
+    }
+  }
+}```
+
+![Diagram](3.png)
+
+Get entities by a combination of vocabulary keys
+
+```{
+  search(query:"+user.firstName:John +user.lastName:Nesbitt")
+  {
+    entries
+    {
+      name
+    }
+  }
+}```
+
+Get all entities that have a value for a certain property
+
+```{
+  search(query:"user.firstName:*")
+  {
+    entries
+    {
+      name
+    }
+  }
+}```
+
+![Diagram](4.png)
+
+Get entities, 4 records at a time
+
+```{
+  search(query:"user.firstName:*", pageSize:4)
+  {
+    entries
+    {
+      name
+    }
+  }
+}```
+
+![Diagram](5.png)
+
+Change what properties come back in the results
+
+```{
+  search(query:"user.firstName:*", pageSize:4)
+  {
+    entries
+    {
+      name
+      createdDate
+      displayName
+      properties
+    }
+  }
+}```
+
+![Diagram](6.png)
+
+
+
+Change what metadata comes out of the properties
+
+```{
+  search(query:"user.firstName:*", pageSize:4)
+  {
+    entries
+    {
+      name
+      properties(propertyNames:["user.firstName"])
+    }
+  }
+}```
+
+![Diagram](7.png)
+
+
+Explore Edges
+
+```{
+  search(query: "user.firstName:*", pageSize: 4) {
+    entries {
+      name
+      edges {
+        outgoingOfType(entityType: "/Organization", edgeType: "/PartOf") {
+          entries {
+            name
+          }
+        }
+      }
+    }
+  }
+}```
+
+![Diagram](8.png)
