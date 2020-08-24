@@ -23,6 +23,15 @@ There are many aspects of an Entity Code that will lead to slower processing tim
 
 There are also CluedIn specific Entity Codes. These are codes that use the Origin of "CluedIn" and then have a paramter in brackets that specifies a type of Origin e.g. CluedIn(cvr). This Origin shows that CluedIn has a generic, non-source specific Id from a record. 
 
+## How do I make sure Entity Codes will blend across different data sources?
+
+Now that we know that an Entity Code will only merge with another Entity Code if they are 100% the same, we have to talk about how you would be able to merge records across different systems if the Origin will be different. There are many ways to achieve this, but one of the interesting ways is the "GUID trick".
+
+If a record has an Identifier that is a Guid/UUID, you can set the Origin as CluedIn as no matter the system, this should be unique. (Unless you are using determenistic GUIDS). We would recommend to do this and run tests to find out if this is the case. If you are wondering if you do use determinstic GUID's, doing some pre analysis on the data will help you but figuring our if many GUIDS overlap in a certain sequence of the GUID e.g. you might mind the first chunk of the GUID is replicated many times. This is a strong indicator you are using determistic Id's. 
+
+GUID's (random ones) are so unique that the chance of them being the same is close to impossible. Here is the other interesting part of this "trick". You could even determine that the EntityType can be generic as well due to its ability to be unique. You will have to craft these special entity codes in you Clues to e.g. look somemthing like /Generic#CluedIn:<GUID>. You will need to make sure your edges support the same mechanism. In doing this, your are instructing CluedIn that no matter the Entity Type, no matter the origin of the data, this record can be uniquely idetified by JUST the GUID.
+
+
 ## What if your record doesn't have a unique reference to construct an Entity Code? 
 
 This happens all the time. Often you will find that you need to merge or link records across systems that don't have Id's but rather require a more rules based or fuzzy merging to be able to link records. In this case, we will often suggest to create a composite Entity Code i.e. an Entity Code that you have constructed from a combination of column or property values that guarantee uniqueness. For example, if you have a Transaction record, you might find that a combination of the Transaction Date, Product, Location and Store will guarantee uniqueness. It is best to calculate a "Hash" of these values combined which means that we can calculate an Entity Code from this. 
