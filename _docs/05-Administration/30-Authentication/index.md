@@ -1,6 +1,3 @@
-# TODO
-* Hide this for v3.0
-
 ---
 category: Administration
 title: Authentication
