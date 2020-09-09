@@ -128,3 +128,8 @@ public IEnumerable<SqlEntity> GetObject()
     }
 }
 ```
+
+
+### Stream Delta Crawls
+
+Delta crawls can also be setup as consumers for stream platforms such as Kafka. One simple example of how a Client can be implemented with Kafka can be found in our [public Kafka example crawler](https://github.com/CluedIn-io/Crawling.ExampleKafka/blob/master/src/Kafka.Infrastructure/KafkaClient.cs).
