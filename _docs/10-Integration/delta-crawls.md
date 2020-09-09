@@ -39,7 +39,7 @@ var exportDefinitionRequest = new ExportDefinitionRequest
     Name = "CluedIn Contact Export",
     Fields = new Dictionary<string, string>
     {
-        { "EmailAddress", "{{Contact.Field(C_EmailAddress)}}"},
+        { "EmailAddress", "{{" + "Contact.Field(C_EmailAddress)" + "}}"},
         { "FirstName", "{{Contact.Field(C_FirstName)}}"},
         { "LastName", "{{Contact.Field(C_LastName)}}"}
     }
@@ -132,4 +132,4 @@ public IEnumerable<SqlEntity> GetObject()
 
 ### Stream Delta Crawls
 
-Delta crawls can also be setup as consumers for stream platforms such as Kafka. One simple example of how a Client can be implemented with Kafka can be found in our [public Kafka example crawler](https://github.com/CluedIn-io/Crawling.ExampleKafka/blob/master/src/Kafka.Infrastructure/KafkaClient.cs).
+Delta crawls can also be setup as consumers for stream platforms such as Kafka. If a Kafka stream has not been set up yet, make sure Change Data Capture is enabled for the database and CluedIn can implement [Debezium](https://debezium.io/documentation/reference/1.2/#_what_is_it) as a Kafka stream (if the database of choice is supported). After we implemented Debezium, we then integrate the crawlers with the stream. One simple example of how a Client can be implemented with Kafka can be found in our [public Kafka example crawler](https://github.com/CluedIn-io/Crawling.ExampleKafka/blob/master/src/Kafka.Infrastructure/KafkaClient.cs).
