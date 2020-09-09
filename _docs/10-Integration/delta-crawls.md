@@ -39,15 +39,15 @@ var exportDefinitionRequest = new ExportDefinitionRequest
     Name = "CluedIn Contact Export",
     Fields = new Dictionary<string, string>
     {
-        { "EmailAddress", "{{" + "Contact.Field(C_EmailAddress)" + "}}"},
-        { "FirstName", "{{Contact.Field(C_FirstName)}}"},
-        { "LastName", "{{Contact.Field(C_LastName)}}"}
+        { "EmailAddress", "Contact.Field(C_EmailAddress)"},
+        { "FirstName", "Contact.Field(C_FirstName)"},
+        { "LastName", "Contact.Field(C_LastName)"}
     }
 };
 
 if (!_jobData.FullCrawl && _jobData.LastCrawlFinishTime > DateTime.MinValue)
 {
-    exportDefinitionRequest.Filter = "'{{Contact.Field(C_DateModified)}}' > '" + $"{_jobData.LastCrawlFinishTime.ToString()}" + "'";
+    exportDefinitionRequest.Filter = "'Contact.Field(C_DateModified)' > '" + $"{_jobData.LastCrawlFinishTime.ToString()}" + "'";
 }
 
 var exportDefinitionResponse = await PostAsync<ExportDefinitionResponse>("contacts/exports", exportDefinitionRequest);
@@ -128,6 +128,8 @@ public IEnumerable<SqlEntity> GetObject()
     }
 }
 ```
+
+Please note that the syntax `Contact.Field(<field name>)` should be put in double brackets (as per API's documentation), which have not been included in the code snippet for formatting reasons.
 
 
 ### Stream Delta Crawls
