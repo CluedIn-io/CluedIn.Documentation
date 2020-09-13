@@ -16,3 +16,76 @@ When deploying your Agents, they will need to have the Agent API key match one o
 The simplest way to setup an agent is to remove the ServerComponent folder from CluedIn, leaving only the Agent folder. In container.config, you have to make sure that the URLs are correct (e.g. AgentServerUrl should have the value of the CluedIn's API endpoint).
 
 For communication, Agents cannot receive incoming messages but rather uses a polling mechanism to talk with the CluedIn Server. In this way, other systems cannot instruct the Agents with a Job to run. The Agents will post data, logs and health statistics back to the CluedIn server so that CluedIn has knowledge of what is running within the Agents and any possible issues that could be happening. 
+
+Executes Agent Jobs from the CluedIn System against a 3rd party / provider api
+
+![Diagram](agent-simple.png)
+
+Job results (clues) is sent back to CluedIn as payloads
+
+Agents can be deployed:
+ - Within the CluedIn cluster (cloud)
+ - As a separate isolated component (onprem)
+
+Cloud (within the CluedIn cluster)
+ - Directly connected to the backend
+ - Communicates with Agent Controller via direct reference from the container
+
+![Diagram](agent-complex.png)
+
+Onprem (outside of our control)
+ - Deployed as VM’s within customers own environment
+ - Enables access to customers environments that is not accessible from the CluedIn Cluster Directly
+ - Communicates with Agent Controller over HTTP, TLS
+ - No access to CluedIn databases, Message Bus etc.
+ - Deployed with ComponentHost + individual components
+ - Ie. Smaller deployment package than the full CluedIn
+ - Processing, WebApi, DataStores is not available
+ - Agent API key is used for “Authentication”
+
+
+Payload
+ - Binary Format
+ - Multiple Records
+ - Compressed
+
+Types of Payloads
+ - Clue Payloads
+ - Clues produced from Crawlers
+ - Agent Job Log Payloads
+ - Logs produced from the job/crawler execution
+ - (Log shipping from the Agent back to the CluedIn cluster)
+ - (CompressedRecord<T> Payload)
+
+Job Types
+ - Normal
+Execute job, finishes when crawling is done
+
+ - Continuous
+Does not finish
+Used to monitor as system and produce clues when changes happen
+Ie. File system monitoring, Kafka queue,....
+
+Jobs have statistics of
+Start / stop dates
+Current number of tasks
+Number of completed tasks
+Number of failed tasks
+Number of clues produced
+Number of payloads submitted
+
+
+Jobs can be restricted to only run on
+A specific agent
+A specific group of agents
+Any agent with type
+Cloud
+SharedProcessor (shared between multiple tenants)
+Onprem (A single tenant)
+
+Orchestration Server
+Agents automatically download updates from the server
+(Zip file deployed centrally)
+Enables updates of Agent deployed in scenarios where we do not have access to the machines they are running on.
+
+
