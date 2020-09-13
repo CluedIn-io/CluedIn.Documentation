@@ -82,6 +82,12 @@ In order to use CluedIn you need to create an *organization*. There are two ways
 
     *These values can be overridden by passing parameters to the Powershell script*
 
+You can also use the following command to create an account from the command line
+
+```shell
+./cluedin.ps1 createorg -name foobar -pass Foobar23!
+```
+
 #### Stopping the application
 
 There are **two** ways to stop the application:
