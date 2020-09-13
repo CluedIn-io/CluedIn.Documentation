@@ -5,7 +5,7 @@ title: CluedIn with Docker
 
 ## Introduction
 
-This will show you how to install CluedIn on your local machine by running it inside Docker. CluedIn is a complex application, with many moving parts, so you will need to ensure you have adequate resources on the machine you intend to run it on.
+This will show you how to install CluedIn on your local machine by running it inside Docker. CluedIn is an application with many services, so you will need to ensure you have adequate resources on the machine you intend to run it on.
 
 ### Requirements
 
