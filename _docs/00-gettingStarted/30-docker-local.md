@@ -69,20 +69,8 @@ Open your browser and CluedIn will be available under [http://app.127.0.0.1.xip.
 
 #### Creating an organization
 
-In order to use CluedIn you need to create an *organization*. There are two ways to do this
-
-- Using a script. In a `Powershell` console run `bootstrap/Create-Organization.ps1`. This will create an organization with the following parameters:
-
-    |          |        |
-    |----------|--------|
-    | name     | foobar |
-    | url      | [https://foobar.127.0.0.1.xip.io](https://foobar.127.0.0.1.xip.io) |
-    | admin    | admin@foobar.com |
-    | password | foobar23 |
-
-    *These values can be overridden by passing parameters to the Powershell script*
-
-You can also use the following command to create an account from the command line
+In order to use CluedIn you need to create an *organization*.
+You can use the following command to create an account from the command line
 
 ```shell
 ./cluedin.ps1 createorg -name foobar -pass Foobar23!
