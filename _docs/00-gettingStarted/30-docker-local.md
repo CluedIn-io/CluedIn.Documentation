@@ -104,6 +104,44 @@ To completely remove CluedIn and all of the associated data use:
 
 This is a destructive action but it is useful for resetting data in CluedIn.
 
+#### Running CluedIn locally with the dependencies in Docker and the CluedIn server running in the local enviornment - testing purposes
+
+1. First you need to have CluedIn build artifacts in the local environment. Also make sure the 9000-9007 ports are open on the machine where CluedIn needs to run.
+2. Remove the Agent folder from the CluedIn artifacts.
+3. [optional]: if you wish to access the enviornment from outside, make sure the previous ports are accessible from the machines where they are supposed to be accessible from. Then, you need to update the following URL variables (in ServerComponent/container.config) with the machine's IP address, followed by xip.io (e.g. 172.27.200.105.xip.io):
+
+* ServerUrl                  
+* ServerBlobUrl              
+* AgentServerUrl             
+* JobServerDashboardUrl      
+* ServerReturnUrl            
+* AuthServerUrl              
+* AuthReturnUrl              
+* WebhookServerUrl           
+* WebhookReturnUrl           
+* ServerPublicApiUrl         
+* PublicServerUrl            
+* ServerStatusUrl            
+* ServerLoggingUrl           
+* Domain                     
+
+Instead of changing these keys in `container.config`, you can also add environment variables like this: CLUEDIN_appSettings__[key name] (e.g. `CLUEDIN_appSettings__ServerUrl=http://172.27.200.105.xip.io`).
+
+*** Please note that this type of install is only meant for testing purposes. In a production environment the deployment is different and it relies on SSL/TLS certificate to encrypt the traffic: http://documentation.cluedin.net/docs/00-gettingStarted/ssl.html.
+
+4. Next, add any crawlers and their .dll dependencies in ServerComponent.
+5. Follow the steps from "First time preparation" section above.
+6. [if step 3 was done]: The same IP address must be put in the `env/default/.env` file in the following keys: `CLUEDIN_DOMAIN=172.27.200.105.xip.io` (with xip.io) and `CLUEDIN_SERVER_HOST=172.27.200.105` (without xip.io).
+7. cd into the Home repository and start the CluedIn dependencies: 
+```shell
+./cluedin.ps1 up -disable server
+```
+8. cd into the CluedIn folder and run the server:
+
+```shell
+dotnet CluedIn.Server.Host.dll
+```
+
 <!--
 ### Adding extra components
 
