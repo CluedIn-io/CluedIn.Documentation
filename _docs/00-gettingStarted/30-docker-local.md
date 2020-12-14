@@ -63,7 +63,7 @@ You can check the status of this by using:
 
 CluedIn is ready when all the status checks are green.
 
-Open your browser and CluedIn will be available under [http://app.127.0.0.1.xip.io](http://app.127.0.0.1.xip.io).
+Open your browser and CluedIn will be available under [http://app.127.0.0.1.xip.io:9080](http://app.127.0.0.1.xip.io:9080/signin).
 
 ![First screen](first-screen-app.PNG)
 
