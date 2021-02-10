@@ -104,6 +104,16 @@ To completely remove CluedIn and all of the associated data use:
 
 This is a destructive action but it is useful for resetting data in CluedIn.
 
+
+#### Increasing the log output
+
+The environment is configured for `Production` level logging by default.
+You can increase the amount of information produced by switching to `Development` before using `up` to start CluedIn.
+
+The following will update the environment for `Development` level logging.  It will persist for all future runs of CluedIn:
+```shell
+./cluedin.ps1 env -set CLUEDIN_ENVIRONMENT=Development
+```
 <!--
 ### Adding extra components
 
