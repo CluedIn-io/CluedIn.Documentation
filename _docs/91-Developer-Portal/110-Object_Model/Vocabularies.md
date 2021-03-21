@@ -33,3 +33,5 @@ Vocabularies are your way to be able to describe properties that are coming in f
  		lego.contact.Name - Company Level
  			person.fullName - CluedIn Core Vocabulary
 ```
+
+NOTE: When you map your Vocabularies, by default, CluedIn will only store the data for the final mapped key. For example, if you mapped from sap.person.jobTitle to user.jobTitle then CluedIn would not store the values of that key in both sap.person.jobTitle and user.jobTitle. If you would like to change the behaviour, make sure that you have one key that maps to user.jobTitle and one key that does not for the same input key. 
