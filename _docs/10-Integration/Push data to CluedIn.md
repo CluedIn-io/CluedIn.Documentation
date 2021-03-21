@@ -10,4 +10,4 @@ CluedIn will store all JSON pushed to this point in a sandbox until a user has m
 For example, you can see push data to CluedIn for popular Data Integration services like Azure Data Factory and Apache NIFI. 
 
 Apache NIFI: [View Video](https://www.cluedin.com/version.3.2)
-Azure Data Factory: [View Video](https://vimeo.com/525842986/0f5fb6b295)
+Azure Data Factory: [View Video](https://vimeo.com/521322930/70deff99bd)
