@@ -31,6 +31,8 @@ You can see a step-by-step guide in the [example pre-requisite configuration](/d
 
 You can retrieve all the configuration options for this helm chart using 
 
+You can see a quick guide here: [Quick Start](https://cluedin-io.github.io/Charts/)
+
 ```powershell
 helm inspect values cluedin/cluedin > values.yml
 ```
