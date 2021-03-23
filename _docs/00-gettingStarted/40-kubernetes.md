@@ -132,7 +132,7 @@ All the workloads may take up to 10 minutes to spin up. You can check your statu
 
 Additionall, you can check the health of the platform by going to `https://app.<hostname>/api/status` healthcheck API.
 
-You will be able to login to the platform by going to https://app.<hostname>/ (or http://app.<hostname> if not using SSL). 
+You will be able to login to the platform by going to `https://app.<hostname>/` (or `http://app.<hostname>/` if not using SSL). 
 
 #### Next Steps
 
@@ -142,7 +142,7 @@ Below you will find some useful links on achieving the above:
 - [Install a crawler/custom component](/docs/10-Integration/install-integration.html)
 
 Optionally, you can also adjust other settings to cater for more complex scenarios:
-- [Persistence](/docs/00-gettingStarted/persistence.html)
-- [SQL Server](/docs/00-gettingStarted/sqlserver.html)
+- [Persistence/Using Managed Disks](/docs/00-gettingStarted/persistence.html)
+- [Azure SQL Server](/docs/00-gettingStarted/sqlserver.html)
 - [Scaling](/docs/00-gettingStarted/scaling.html)
 - [Monitoring and logging](/docs/00-gettingStarted/monitoring.html)
