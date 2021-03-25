@@ -12,10 +12,14 @@ The purpose of the chart is to install the CluedIn application, this includes th
 ### Pre-requisites
 - Local install of [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl) configured to talk to the cluster
    - Cluster's kubeconfig can be fetched using the following commands:
-   ```
-   az login
-   az aks get-credentials --name <clusterName> --resource-group <clusterResourceGroup> --subscription <subscriptionId>
-   ```
+```powershell
+az login
+az aks get-credentials `
+  --name <clusterName> `
+  --resource-group <clusterResourceGroup> `
+  --subscription <subscriptionId>
+az create namespace cluedin
+```
 - Local install of the cli for [Helm](https://helm.sh/)
 
 
@@ -25,12 +29,12 @@ The purpose of the chart is to install the CluedIn application, this includes th
 
 Recommended nodepool sizing for an AKS cluster can be found below:
 
-| VM SKU Type        | Amount           | Purpose  | 
-| ------------- |:-------------:| -----:|
-| `Standard_DS2_v2` | 1 | Kubernetes agent internal processes |
-| `Standard_A8_v2` | 2 | Memory Optimized pool for Databases |
-| `Standard_F16s_v2` | 1 | CPU Optimized for Processing workloads |
-| `Standard_F4s_v2` | 2 | General Purpose nodepool to house CluedIn Microservices |
+| Node Pool         | VM SKU Type         | Amount        | Purpose  | 
+|-------------------|:-------------       |:-------------:| :----    |
+| Core Pool         | `Standard_DS2_v2`   | 1             | Kubernetes agent internal processes |
+| Data Pool         | `Standard_A8_v2`    | 2             | Memory Optimized pool for Databases |
+| Processing Pool   | `Standard_F16s_v2`  | 1             | CPU Optimized for Processing workloads |
+| General Pool      | `Standard_F4s_v2`   | 2             | General Purpose nodepool to house CluedIn Microservices |
 
 _Additionally, Memory Optimized and CPU Optimized pools can be tainted to only allow Database or Processing workloads._
 
@@ -40,9 +44,10 @@ In addition this cluster should have:
 - HAProxy ingress controller installed (it is possible to use a different ingress controller (like NGINX) with extra customization).
 
 You can use the following commands to install HAProxy using Helm:
-```
+```powershell
+kubectl create namespace cluedin
 helm repo add haproxy-ingress https://haproxy-ingress.github.io/charts
-helm install haproxy-ingress haproxy-ingress/haproxy-ingress --create-namespace --namespace=haproxy
+helm install haproxy-ingress haproxy-ingress/haproxy-ingress --namespace=cluedin
 ```
 - DNS configuration pointing to the public IP of the ingress controller for the following routes:
   - `app.<hostname>` (i.e. https://app.cluedin.com/)
@@ -57,7 +62,7 @@ helm install haproxy-ingress haproxy-ingress/haproxy-ingress --create-namespace 
 
 __*There is an option to run without SSL, although not recommended*__
 Set the following flag in values.yml to disable HTTPS connection:
-```
+```yaml
 tls:
     forceHttps: false
 ```
@@ -68,25 +73,30 @@ CluedIn Platform can be installed as a whole with the help of Helm.
 ### Preparation
 
 * The helm chart repository containing the CluedIn chart must be registered. 
-```
+```powershell
 helm repo add cluedin https://cluedin-io.github.io/CluedIn.Helm
 helm repo update
 ```
 
 * Secret with the credentials for accessing the CluedIn images from Docker Hub.
 _Secret can be created using the following command:_
-```
-kubectl create secret docker-registry docker-registry-key --docker-server='docker.io' --docker-username='<your Dockerhub username>' --docker-password='<your Dockerhub password>' --docker-email='<your Dockerhub email>'
+```powershell
+kubectl create secret docker-registry docker-registry-key `
+  --namespace cluedin
+  --docker-server='docker.io' `
+  --docker-username='<your Dockerhub username>' `
+  --docker-password='<your Dockerhub password>' `
+  --docker-email='<your Dockerhub email>'
 ```
 
 * Fetch values.yml configuration file to configure CluedIn Installation
-```
+```powershell
 helm inspect values cluedin/cluedin > values.yml
 ```
 ### Installation
 
 Fill out the values.yaml file, specifically the following objects:
-```
+```yaml
 bootstrap: 
   organization: 
     name: # Organization Account Name
@@ -97,33 +107,19 @@ bootstrap:
     emailDomain: # Admin account's Email domain
 ```
 
-```
+```yaml
 tls: 
   ingressCertSecret: # Name of the secret created in SSL certificate step
 ```
 
-```
-dns: 
-  prefix: # Prefix separating hostname from subdomain. (i.e. cluedin.test.cluedin.com). Set to 'none' if no prefix should be used.
-  hostname: 'cluedin.test' # Hostname with top level domain that application will be residing
-  subdomains: # Configuration for CluedIn microservice subdomains
-    app: 'app' 
-    api: 'server' 
-    public_api: 'public' 
-    auth: 'auth' 
-    clean: 'clean' 
-    webhook: 'webhook' 
-```
-
-```
-elasticsearch:
-    clusterName: <should match Helm release name>
-```
 This creates a values.yml which you can modify to tailor how CluedIn will be installed.
 
 Once values.yml file has been populated and settings are adjusted to your liking, you can install CluedIn Platform with the following Helm command:
-```
-helm upgrade <release-name (i.e. cluedin-dev, cluedin-prod)> cluedin/cluedin -n cluedin --install --values <path-to-values.yml>
+```powershell
+helm upgrade <release-name (i.e. cluedin-dev, cluedin-prod)> cluedin/cluedin `
+  -n cluedin `
+  --install `
+  --values <path-to-values.yml>
 ```
 
 Upon running the `helm upgrade` command, Helm will begin installation of CluedIn platform into your Kubernetes cluster. At the end of the installation process, you will be prompted with configuration of your install, URLs you can use to access your freshly installed platform. 
