@@ -10,14 +10,14 @@ If managed disks are being used to store CluedIn's databases data, the preferred
 In order to backup a disk and ensure the integrity of data, CluedIn workloads needs to be spun down. First workloads to be shutodwn are the pods that are accessing databases either by writing, or reading.
 
 You can use the following `kubectl` commands:
- ```
-    kubectl scale deployment -l role=processing --replicas=0
-    kubectl scale deployment -l role=main --replicas=0
-    kubectl scale deployment -l role=crawling --replicas=0
+ ```shell
+kubectl scale deployment -l role=processing --replicas=0
+kubectl scale deployment -l role=main --replicas=0
+kubectl scale deployment -l role=crawling --replicas=0
 ```
 
 Once containers has finished terminating, we can spin down the databases itself for disks to detach from the nodes:
-```
+```shell
 kubectl scale deployment -l app=sqlserver --replicas=0
 kubectl scale deployment -l app=neo4j --replicas=0
 kubectl scale statefulset -l chart=elasticsearch --replicas=0
@@ -33,16 +33,17 @@ https://docs.microsoft.com/en-us/azure/backup/restore-managed-disks
 
 Upon a successful backup or restore operation, the workloads can be spun back up:
 
-```
-    kubectl scale deployment -l app=neo4j --replicas=1
-    kubectl scale statefulset -l chart=elasticsearch --replicas=1
-    kubectl scale deployment -l app=rabbitmq --replicas=1
-    kubectl scale deployment -l app=redis --replicas=1
-    kubectl scale deployment -l app=openrefine --replicas=1
-    kubectl scale deployment -l role=processing --replicas=1
-    kubectl scale deployment -l role=main --replicas=1
-    kubectl scale deployment -l role=crawling --replicas=1
-    kubectl scale deployment -l app=sqlserver --replicas=1
+```shell
+kubectl scale deployment -l app=neo4j --replicas=1
+kubectl scale statefulset -l chart=elasticsearch --replicas=1
+kubectl scale deployment -l app=rabbitmq --replicas=1
+kubectl scale deployment -l app=redis --replicas=1
+kubectl scale deployment -l app=openrefine --replicas=1
+kubectl scale deployment -l app=sqlserver --replicas=1
+
+kubectl scale deployment -l role=processing --replicas=1
+kubectl scale deployment -l role=main --replicas=1
+kubectl scale deployment -l role=crawling --replicas=1
 ```
 
 # Backup and Restore using Velero
@@ -79,7 +80,7 @@ https://velero.io/docs/v1.5/basic-install/
 
 The following needs to be added to your values.yaml to configure Velero installation:
 
-```
+```yml
 velero:
   image:
     repository: vmware-tanzu/velero
@@ -164,3 +165,116 @@ When restoring from the backup, there are a couple of options.
     Restoring from the backup:
 
     `velero restore create --from-backup <backup name>`
+
+
+### Examples
+
+A simple PowerShell script to install kubectl on Linux, and spin down the workloads and databases:
+
+```powershell
+Param ([Parameter(Mandatory)]$namespace)
+Write-Host $namespace 
+
+function Install-Kubectl {
+    # This code is for Linux.
+    # Please, check the official documentation for other options to install kubectl: https://kubernetes.io/docs/tasks/tools/#kubectl
+    Write-Host "Installing kubectl.`n" -ForegroundColor Yellow
+    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    mkdir -p ~/.local/bin/kubectl
+    mv ./kubectl ~/.local/bin/kubectl
+    export PATH="$HOME/local/bin:$PATH"
+}
+
+function Stop-Deployment {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$namespace,
+        [Parameter(Mandatory=$true)]
+        [string]$name
+    )
+    Write-Host "  Stopping deployment '$name' in namespace '$namespace'."
+    kubectl scale deployment --namespace $namespace -l role=$name --replicas=0
+}
+
+function Stop-StatefulSet {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$namespace,
+        [Parameter(Mandatory=$true)]
+        [string]$name
+    )
+    Write-Host "  Stopping stateful set '$name' in namespace '$namespace'."
+    kubectl scale statefulset --namespace $namespace -l chart=$name --replicas=0
+}
+
+Install-Kubectl
+
+Write-Host "Shutting down the workloads." -ForegroundColor Cyan
+
+Stop-Deployment $namespace "processing"
+Stop-Deployment $namespace "main"
+Stop-Deployment $namespace "crawling"
+
+# Wait for the pods to shut down
+$secondsToWait = 60
+Write-Host "`nWaiting $secondsToWait seconds for the workloads to stop.`n"  -ForegroundColor Yellow
+Start-Sleep $secondsToWait
+
+Write-Host "Stopping the databases:" -ForegroundColor Cyan
+
+Stop-Deployment $namespace "sqlserver"
+Stop-Deployment $namespace "neo4j"
+Stop-StatefulSet $namespace "elasticsearch"
+Stop-Deployment $namespace "rabbitmq"
+Stop-Deployment $namespace "redis"
+Stop-Deployment $namespace "openrefine"
+```
+
+After the backup is completed, spin up the pods with a script like this:
+
+```powershell
+Param ([Parameter(Mandatory)]$namespace)
+Write-Host $namespace 
+
+function Start-Deployment {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$namespace,
+        [Parameter(Mandatory=$true)]
+        [string]$name
+    )
+    Write-Host "  Starting deployment '$name' in namespace '$namespace'."
+    kubectl scale deployment  --namespace $namespace -l app=neo4j --replicas=1
+}
+
+function Start-StatefulSet {
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$namespace,
+        [Parameter(Mandatory=$true)]
+        [string]$name
+    )
+    Write-Host "  Starting stateful set '$name' in namespace '$namespace'."
+    kubectl scale statefulset --namespace $namespace -l chart=$name --replicas=1
+}
+
+Write-Host "Starting the databases:" -ForegroundColor Cyan
+
+Start-Deployment $namespace "sqlserver"
+Start-Deployment $namespace "neo4j"
+Start-Deployment $namespace "elasticsearch"
+Start-Deployment $namespace "rabbitmq"
+Start-Deployment $namespace "redis"
+Start-Deployment $namespace "openrefine"
+
+# Wait for the pods to start up
+$secondsToWait = 60
+Write-Host "`nWaiting $secondsToWait seconds for the workloads to start.`n"  -ForegroundColor Yellow
+Start-Sleep $secondsToWait
+
+Write-Host "Starting the workloads." -ForegroundColor Cyan
+
+Start-Deployment $namespace "processing"
+Start-Deployment $namespace "main"
+Start-Deployment $namespace "crawling"
+```
