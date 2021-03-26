@@ -74,7 +74,7 @@ CluedIn Platform can be installed as a whole with the help of Helm.
 
 * The helm chart repository containing the CluedIn chart must be registered. 
 ```powershell
-helm repo add cluedin https://cluedin-io.github.io/CluedIn.Helm
+helm repo add cluedin https://cluedin-io.github.io/Charts/
 helm repo update
 ```
 
@@ -126,7 +126,7 @@ Upon running the `helm upgrade` command, Helm will begin installation of CluedIn
 
 All the workloads may take up to 10 minutes to spin up. You can check your status by running `kubectl get pods -n cluedin`, in a healthy installation scenario all the pods should be in a `Ready` state.
 
-Additionall, you can check the health of the platform by going to `https://app.<hostname>/api/status` healthcheck API.
+Additionally, you can check the health of the platform by going to `https://app.<hostname>/api/status` healthcheck API.
 
 You will be able to login to the platform by going to `https://app.<hostname>/` (or `http://app.<hostname>/` if not using SSL). 
 
@@ -134,7 +134,7 @@ You will be able to login to the platform by going to `https://app.<hostname>/` 
 
 After logging in to the platform, you can proceed with enabling single sign on for your users to access the platform, as well as start loading data in via Data Sources or installing some crawlers. 
 Below you will find some useful links on achieving the above:
-- [Enabling Single Sign On](/docs/05-Administration/index.html)
+- [Enabling Single Sign On](/docs/05-Administration/30-Authentication/index.html)
 - [Install a crawler/custom component](/docs/10-Integration/install-integration.html)
 
 Optionally, you can also adjust other settings to cater for more complex scenarios:
