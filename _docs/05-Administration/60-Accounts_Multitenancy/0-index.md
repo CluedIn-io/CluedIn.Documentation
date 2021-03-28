@@ -13,7 +13,7 @@ Data isolation is implemented differently at each store level. In the _Search St
 
 There are some restricted names on what you can call your CluedIn account. These are controlled via the configuration setting `ReservedOrganizationIds` in your `container.config` (or via the `values.yaml` file if using Kubernetes for deployment).
 
-Check the [installation instructions](http://localhost/docs/00-gettingStarted/create-organization.html) to create new accounts.
+Check the [installation instructions](/docs/00-gettingStarted/create-organization.html) to create new accounts.
 
 ## FAQ
 #### Can you bridge data from two accounts into one?

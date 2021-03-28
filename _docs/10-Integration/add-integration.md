@@ -9,7 +9,7 @@ An integration should not be specific to a user. When an integration is installe
 
 Eg: Slack account of multiple organizations, multiple shared email inbox from the same Exchange server, multiple Office 365 accounts...
 
-Please refer to the documentation on [How to build a provider](./somelink)
+Please refer to the documentation on [How to build an integration](/docs/10-Integration/build-integration.html)
 
 > When installing an integration,
 > if you want CluedIn to only read, add the integration with a user that has read-only on ALL information

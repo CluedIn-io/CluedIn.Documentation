@@ -23,4 +23,4 @@ If you are using Kubernetes to deploy CluedIn, you have built-in support for rol
 
 Although downgrading is not typically something that is done, there may be times where you need to rollback a deployment. 
 
-If you have installed [CluedIn in Kubernetes](http://localhost/docs/00-gettingStarted/kubernetes.html) you can easily downgrade/rollback. If you have used the _Helm chart_ you can then use the native Helm commands to rollback. Alternatively, if you have just used the Helm chart to create the definition files, those will be committed in a repository with source control, so you can just checkout a different branch or commit and apply the changes to Kubernetes.
+If you have installed [CluedIn in Kubernetes](/docs/00-gettingStarted/40-kubernetes.html) you can easily downgrade/rollback. If you have used the _Helm chart_ you can then use the native Helm commands to rollback. Alternatively, if you have just used the Helm chart to create the definition files, those will be committed in a repository with source control, so you can just checkout a different branch or commit and apply the changes to Kubernetes.

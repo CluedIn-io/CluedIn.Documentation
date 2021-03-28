@@ -7,7 +7,7 @@ title: CluedIn with Kubernetes
 
 CluedIn provides a *helm chart* to install CluedIn quickly in a Kubernetes cluster. [*Helm*](https://helm.sh/) is a package manager which simplifies the installation and management of complex applications in a Kubernetes environment. Charts are stored in a repository and they are invoked using the `helm-cli` tool from a terminal that has access to a Kubernetes cluster.
 
-The purpose of the chart is to install the CluedIn application, this includes the actual CluedIn server, website, and other [services required](/docs/00-gettingStarted/0-default.html) (storage, queues, etc.)
+The purpose of the chart is to install the CluedIn application, this includes the actual CluedIn server, website, and other [services required](/docs/00-gettingStarted/1-default.html) (storage, queues, etc.)
 
 ### Pre-requisites
 - Local install of [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl) configured to talk to the cluster

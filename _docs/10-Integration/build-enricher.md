@@ -41,7 +41,7 @@ then run the generator, providing a `Name` and `Entity Type` (ie Person, Company
 yo cluedin-externalsearch
 ```
 
-See the `Naming Integrations` in the [Build Integration](./build-integration.md) documentation for more information on how the CluedIn Server finds and loads type from Integration assemblies.
+See the `Naming Integrations` in the [Build Integration](/docs/10-Integration/build-integration.html) documentation for more information on how the CluedIn Server finds and loads type from Integration assemblies.
 
 ### Adding models
 
