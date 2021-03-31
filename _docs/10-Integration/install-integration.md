@@ -6,7 +6,7 @@ title: Install Integration
 
 #### Via the helm chart
 
-In a production environment, using Kubernetes, you can add the components you want to install through the [`values.yml`](/docs/00-gettingStarted/kubernetes.html#installation) file.
+In a production environment, using Kubernetes, you can add the components you want to install through the [`values.yml`](/docs/00-gettingStarted/40-kubernetes.html) file.
 You can specify your own packages and the versions to be installed.  You can also provide your own package feeds, authentication, and even an alternative installer image.
 
 ```yaml

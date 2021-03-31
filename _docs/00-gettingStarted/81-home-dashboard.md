@@ -11,7 +11,7 @@ Your home screen will show you notifications and high-level actions that span yo
 
 You can click on the notifications to see more details. The main concept of the home screen and the notifications is to direct you towards actioning a task that needs actioning. 
 
-![Diagram](home-screen-click-notification.png)
+![Diagram](home-screen-click-notifications.png)
 
 Such actions include:
 

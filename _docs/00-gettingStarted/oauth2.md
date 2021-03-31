@@ -6,7 +6,7 @@ hideMenu: true
 
 With the default values of the chart, OAuth2 authentication will be enabled to access the clean feature (URL `https://<clean-segment>.<prefix>.<hostname>`) and the `Seq` log monitoring tool.
 
-Internally it uses an Oauth2 proxy, which supports all the most common providers (Azure, Google, etc.). Read their [documentation](https://pusher.github.io/oauth2_proxy/auth-configuration) for further information.
+Internally it uses an Oauth2 proxy, which supports all the most common providers (Azure, Google, etc.). Read their [documentation](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview) for further information.
 
 The chart assumes the usage of Azure, however it is possible to use other providers:
 1. Create a new Application registration in Azure AD.

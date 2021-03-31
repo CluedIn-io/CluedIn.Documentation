@@ -65,14 +65,14 @@ You must have:
         --set rbac.create="true" \
     ```
 
-    After a while the ingress controller will have a public IP that can be used to access the cluster. If you don't want a public IP (because you have something else, like an application gateway in front of it), you can modify the installation of the ingress controller in the step above - see Helm chart [documentation](controller.service.loadBalancerIP).
+    After a while the ingress controller will have a public IP that can be used to access the cluster. If you don't want a public IP (because you have something else, like an application gateway in front of it), you can modify the installation of the ingress controller in the step above - see Helm chart [documentation](https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/) (controller.service.loadBalancerIP).
 
 1. To retrieve the public IP:
 
     ```powershell
     kubectl get svc -n ingress -o wide -l 'component=controller'
     ```
-    In your own DNS, configure that IP to whatever host you want to use for CluedIn. You could map it to a wildcard record; alternatively you can use [more specific entries](/docs/00-gettingStarted/kubernetes.html#hostnames-and-addresses).
+    In your own DNS, configure that IP to whatever host you want to use for CluedIn. You could map it to a wildcard record; alternatively you can use [more specific entries](/docs/00-gettingStarted/40-kubernetes.html#networking--ssl--dns).
 
 1. Create a secret with your docker hub login credentials:
 

@@ -80,3 +80,6 @@ defaults:
 types:
   - minor
   - major
+
+feed:
+  path: feed.xml
