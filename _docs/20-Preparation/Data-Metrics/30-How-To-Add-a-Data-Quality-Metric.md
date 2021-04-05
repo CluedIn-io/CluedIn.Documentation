@@ -1,6 +1,6 @@
 ---
 category: Preparation
-title: Add a new Data Quality Metric
+title: How to add a new Data Quality Metric
 ---
 
 Here is an example of how to calculate Accuracy of data. You can use this as a guide to implement your own custom data metrics.
