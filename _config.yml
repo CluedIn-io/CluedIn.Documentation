@@ -2,8 +2,8 @@
 # Site
 
 title: CluedIn Documentation
-url: "https://github.com/CluedIn-io/CluedIn.Documentation/tree/feature/jekill"
-baseurl:
+url: "https://documentation.cluedin.net/"
+baseurl: "https://documentation.cluedin.net/"
 google_analytics_key: UA-148807692-1
 show_full_navigation: false
 version: "3.2"
