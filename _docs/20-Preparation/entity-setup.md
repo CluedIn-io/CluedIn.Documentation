@@ -23,15 +23,15 @@ Here are some examples of how you might recognize an Entity
 
 Ex: Not recognized entity into search
 
-![not-recnogized-entity.PNG](not-recognized-entity.PNG)
+![not-recnogized-entity.png](not-recognized-entity.png)
 
 Ex: Not recognized entity into the Entity detail page
 
-![not-recnogized-entity-2.PNG](not-recognized-entity-2.PNG)
+![not-recnogized-entity-2.png](not-recognized-entity-2.png)
 
 Ex: Default Entity URL for the not recognized entity.
 
-![not-recnogized-entity-3.PNG](not-recognized-entity-3.PNG)
+![not-recnogized-entity-3.png](not-recognized-entity-3.png)
 
 
 ### How to configure?
@@ -51,7 +51,7 @@ You will not be abel to setup the values correctly.
 
 Ex: Organization Setup
 
-![configure-entity-3.PNG](configure-entity-3.PNG)
+![configure-entity-3.png](configure-entity-3.png)
 
 > Currently CluedIn does not support custom layout, the rendering engine is not yet exposed to external people to be used. If you are interested by such a feature, please contact CluedIn.
 
