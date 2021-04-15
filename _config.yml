@@ -3,7 +3,7 @@
 
 title: CluedIn Documentation
 url: "https://documentation.cluedin.net/"
-baseurl: "https://documentation.cluedin.net/"
+baseurl:
 google_analytics_key: UA-148807692-1
 show_full_navigation: false
 version: "3.2"
