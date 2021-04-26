@@ -97,6 +97,12 @@ The configuration key starts with the prefix Security.Roles.Mapping. followed by
 
 The value specified by the Role mapping setting is a regular expression to match incoming Role names against.
 
+###Delegating access to CluedIn from Active Directory
+
+Now that you have moved to using a SSO provider, then all access to users and groups is now done through Active Directory. Here is an example of a guide in Azure Active Directory that guides you through doing this against the Enterprise Application that you setup above. 
+
+![Diagram](ChangeAuthenticationType.png)
+
 ### NGINX Bad Request
 If you are running NGINX as your Ingress Controller and upon redirect you have a 502 Bad Request, you are missing the following annotations to your Ingress definition:
 
