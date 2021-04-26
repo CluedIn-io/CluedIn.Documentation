@@ -121,5 +121,9 @@ You can add extra providers or enrichers in two different ways:
 1. Via Nuget packages
     1. Add a a file named `Packages.txt` in the `./components` folder with the names of the nuget packages for the components you want to install.
     2. If the Nuget packages are not available publicly add a `nuget.config` file in the `./components` folder. Either pass the password token to the `nuget.config` or create a `KEY` environment variable with it.
-2. Copy the relevant DLLs for the components in the `./components/ServerComponent` folder.
+2. Copy the relevant DLLs for the components in the `./components/ServerComponent` folder. 
+
+You will also need to load in the deps.json files that are compiled in your C# projects.
+
+If you are wanting to debug your additions locally then you will also want to copy in the .PDB files.
 
