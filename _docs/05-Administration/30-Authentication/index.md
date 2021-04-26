@@ -3,6 +3,12 @@ category: Administration
 title: Authentication
 --- 
 
+## Default Authentication Provider
+
+By default CluedIn uses Microsoft Identity Server as its authentication provider. These means that users and roles are managed within the CluedIn application itself. It is recommended to enable SSO in staging and production environments, but for locally development, it is fine to use this authentication mechanism. 
+
+CluedIn will also expire the authentication after 15 minutes of inactivity within the CluedIn user interface. 
+
 ## Single Sign On with Azure AD
 
 ## App Registration
@@ -60,6 +66,7 @@ kubectl delete pod -l role=main
 ```
 
 *Dependent upon the version of kubectl you are using you may need to also append the namespace in the command above.
+
 ```
 kubectl delete pod -l role=main -n cluedin
 ```
