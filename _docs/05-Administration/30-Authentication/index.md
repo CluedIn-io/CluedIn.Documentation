@@ -71,7 +71,31 @@ kubectl delete pod -l role=main
 kubectl delete pod -l role=main -n cluedin
 ```
 
-After doing this, visit the login page for your CluedIn account again and you will notice that it will redirect you to the office 365 login page to authenticate. By default, your user will be created as a "User" and not an Administrator. You cna now manage this all within your Active Directory now.
+After doing this, visit the login page for your CluedIn account again and you will notice that it will redirect you to the office 365 login page to authenticate. By default, your user will be created as a "User" and not an Administrator. You can now manage this all within your Active Directory now.
+
+###Cleaning up after you have switched to a SSO provider
+
+After you have switched over to a Single Sign On provider you will still have your original user in the database. This user will not be able to login anymore so it is best to deactivate this user. To do this, you will also need to port-forward to the SQL database like above and switch the "Active column" on the AspNetUser table to false for this user. 
+
+###Mapping Active Directory Groups to Roles within CluedIn
+
+If you have switched to an SSO provider then you will need to map Groups in Active Directory to Roles within CluedIn. This is done using configuration files within CluedIn. 
+
+User Role mapping from configuration
+
+Roles returned from the IDP in tokens are mapped to built-in CluedIn Role types using configuration.
+
+The default configuration for this Role mapping is shown below:
+
+<add key="Security.Roles.Mapping.User" value=".*User" />
+
+<add key="Security.Roles.Mapping.OrganizationAdmin" value=".*Organization.*Admin" />
+
+<add key="Security.Roles.Mapping.ReportManager" value=".*ReportManager" />
+
+The configuration key starts with the prefix Security.Roles.Mapping. followed by the CluedIn Role name. The supported CluedIn roles are User, OrganizationAdmin and ReportManager, these roles are defined in the CluedIn.Core.Accounts.UserRoleType enumeration.
+
+The value specified by the Role mapping setting is a regular expression to match incoming Role names against.
 
 ### NGINX Bad Request
 If you are running NGINX as your Ingress Controller and upon redirect you have a 502 Bad Request, you are missing the following annotations to your Ingress definition:
