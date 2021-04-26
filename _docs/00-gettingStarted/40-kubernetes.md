@@ -108,6 +108,8 @@ bootstrap:
     emailDomain: # Admin account's Email domain
 ```
 
+*Be aware that you cannot use an organization prefix with a hyphen or period in it.
+
 ```yaml
 tls: 
   ingressCertSecret: # Name of the secret created in SSL certificate step
