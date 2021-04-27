@@ -14,6 +14,7 @@ This command will split the Entity record with the Id of 1c436fa6-f2a9-5564-aa1b
 When executeImediately is set to false only the analysis is done and the split operation is not performed. This will return a log of groupings of data parts that merges together.
 
 Example output:
+```json
 {"m_MaxCapacity":2147483647,"Capacity":222080,"m_StringValue":"Id:                3b107fbc-d64a-56e8-8970-fe7fcd0e0f87
 OriginEntityCode:  /Infrastructure/User#CustomerOrigin:175000304003611
 RSwoosh Groups
@@ -115,3 +116,4 @@ Operations: 27
    Save Operations : 1
    Post Commands   : 26
 ","m_currentThread":0}}
+```

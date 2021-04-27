@@ -38,6 +38,7 @@ Recommended nodepool sizing for an AKS cluster can be found below:
 
 _Additionally, Memory Optimized and CPU Optimized pools can be tainted to only allow Database or Processing workloads._
 
+The same size boxes with the amount of RAM and CPU can also be used for deploying into other cloud providers such as Amazon Web Services of Google Cloud.
 
 ### Networking / SSL / DNS
 In addition this cluster should have:
@@ -106,6 +107,8 @@ bootstrap:
     password: # Admin account's password
     emailDomain: # Admin account's Email domain
 ```
+
+*Be aware that you cannot use an organization prefix with a hyphen or period in it.
 
 ```yaml
 tls: 
