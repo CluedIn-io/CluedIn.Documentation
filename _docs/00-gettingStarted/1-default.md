@@ -5,11 +5,13 @@ title: CluedIn Overview
 
 # Getting started
 
-The following diagram depicts the main components of a CluedIn application. ![Diagram](cluedin_arch.png)
+The following diagram depicts the main components of the CluedIn application with a reference architecture on Microsoft Azure. You can also see a reference architecture directly on the [Microsoft](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/cluedin) website. 
+
+![Diagram](cluedin_arch.png)
 
 ## CluedIn Architecture
 
-CluedIn is made up of various functional layers.
+CluedIn is made up of various functional layers, all encapsulated into their own [Docker](https://www.docker.com/) containers.
 
 ### CluedIn Applications
 
@@ -21,13 +23,11 @@ This handles how we connect securely to the cluster and handle permissions and g
 
 ### CluedIn Data
 
-- Neo4j - Manages complex relationships between CluedIn data objects ("Clues") You can either use the open source version, limited to a single server, or the commercial version (if you require a cluster for extra resilience or performance).
-- SqlServer - Manages our relational data storage. Free developer editions are sufficient. Alternatively a SAAS option (like SQL Azure) can be used.
+- Neo4j - Manages complex relationships between CluedIn data objects ("Clues"). 
+- SqlServer - Manages our relational data storage. Alternatively a SAAS option (like SQL Azure) can be used.
 - ElasticSearch - Indexes and searches the data for flexible querying. This can be scaled out as needed. 
 - RabbitMQ - The servicebus that handles queueing across the system.
 - Redis - Used as the cache for the system.
-
-The diagram above shows the different communication paths within the application.
 
 Notice all the communication from the browser into the application comes through a set of ingress definitions (i.e. only a single public IP is required). The communication will all run over SSL in a production environment. 
 

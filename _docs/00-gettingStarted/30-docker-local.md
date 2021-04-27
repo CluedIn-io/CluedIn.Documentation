@@ -13,7 +13,7 @@ This will show you how to install CluedIn on your local machine by running it in
 - Latest version of [Docker](https://docs.docker.com/get-docker/) for your operating system  (Engine: > 19.03)
 - [Powershell 7](https://github.com/PowerShell/PowerShell) for your operating system - This is to run helper scripts
 - Access to the private repositories inside the [cluedin](https://hub.docker.com/u/cluedin/) DockerHub organization. You will require a Docker Hub account and request access from CluedIn; then use this account to do a ```docker login```.
-    NOTE: **Only CluedIn certified developers** have access to the CluedIn DockerHub.
+    NOTE: **Only CluedIn certified developers** have access to the CluedIn DockerHub. Please contact us on our [website](https://www.cluedin.com/) if you would like access.
 
 ### Running CluedIn
 
@@ -114,13 +114,16 @@ The following will update the environment for `Development` level logging.  It w
 ```shell
 ./cluedin.ps1 env -set CLUEDIN_ENVIRONMENT=Development
 ```
-<!--
 ### Adding extra components
 
 You can add extra providers or enrichers in two different ways:
 
 1. Via Nuget packages
     1. Add a a file named `Packages.txt` in the `./components` folder with the names of the nuget packages for the components you want to install.
-    1. If the Nuget packages are not available publicly add a `nuget.config` file in the `./components` folder. Either pass the password token to the `nuget.config` or create a `KEY` environment variable with it.
-1. Copy the relevant DLLs for the components in the `./components` folder.
--->
+    2. If the Nuget packages are not available publicly add a `nuget.config` file in the `./components` folder. Either pass the password token to the `nuget.config` or create a `KEY` environment variable with it.
+2. Copy the relevant DLLs for the components in the `./components/ServerComponent` folder. 
+
+You will also need to load in the deps.json files that are compiled in your C# projects.
+
+If you are wanting to debug your additions locally then you will also want to copy in the .PDB files.
+
