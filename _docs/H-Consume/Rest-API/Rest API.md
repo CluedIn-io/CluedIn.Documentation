@@ -7,6 +7,8 @@ The CluedIn Web User Interface is driven off the Rest API. This means that whate
 
 This can be very handy if you are wanting to completely automate the deployment process of your CluedIn account. For example, if you had a task to add 300 SharePoint instances to CluedIn then you can use the Rest API with your scripting language of choice to automate this. 
 
+You can view the full REST API Here: [Postman Collection](https://documenter.getpostman.com/view/26504/RVu8io2g)
+
 ## Post a Clue to CluedIn
 
 Our Rest API allows you to post data to it in the form of a Clue. 
