@@ -90,13 +90,14 @@ Enables updates of Agent deployed in scenarios where we do not have access to th
 
 
 ## Deploying an agent
-Agent can be deployed by downloading a build artifact with ServerComponent remove.
-You can find the link to the latest version here: {tbd}
+Agents can be deployed by downloading the Agent binaries and decompressing it onto an operating system of your choice. The folder ships with binaries for many different operating systems. We will use the example below of installing on a Windows machine. 
+
+Please ask your partner or direct CluedIn contact to give you access to these binaries. 
 
 ### Configuring the agent
-Agent can be configured by visiting `container.config` that is inside your `<agent-root>/Agent` folder.
+The Agent can be configured by visiting the `container.config` that is inside your `<agent-root>/Agent` folder.
 
-You should see a similar configuration file:
+You should see a file that looks like this configuration file:
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:urn="urn:schemas-microsoft-com:asm.v1" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
@@ -140,25 +141,25 @@ You should see a similar configuration file:
 ```
 ### Connecting to Kubernetes master server
 
-Fill out the following configuration to connect to your Kubernetes cluster that is running API and JobServer:
+You will need to fill out the following configuration to connect to your Kubernetes cluster that is running the CluedIn Server, API and JobServer:
 
-`ServerUrl` should contain a value for your CluedIn WebAPI. Usually it is `https://app.<hostname>/api/`
+`ServerUrl` should contain a value that is the route to your CluedIn WebAPI you have installed. Usually it is something like `https://app.<hostname>/api/`
 
 `ServerBlobUrl` should contain a value to your blob url. By default, it should be the same as your WebApi URL.
 
-`WebhookUrl` should contain your Webhook API Url. By default, it is https://app.<hostname>/webhooks/
+`WebhookUrl` should contain your Webhook API Url. By default, it is `https://app.<hostname>/webhooks/`
 
-`ServerStatusUrl` should be ttps://app.<hostname>/api/status
+`ServerStatusUrl` should be https://app.<hostname>/api/status
 
 `ServerLoggingUrl` should point to your WebApi. By default, it should be `https://app.<hostname>/api/`
 
-`AuthServerUrl` should point to your Auth API. By default, you can find Auth API over at `ttps://app.<hostname>/auth/`
+`AuthServerUrl` should point to your Authentication API. By default, you can find the Authentication API at `ttps://app.<hostname>/auth/`
 
 ### Agent Authentication
-#### *_BY DEFAULT, THE AGENT IS ALREADY SETUP TO RUN ON A DEFAULT ON PREMISE CRAWLER. CHANGING A TOKEN IS RECOMMENDED_*
+#### *_BY DEFAULT, THE AGENT IS ALREADY SETUP TO RUN ON A DEFAULT ON-PREMISES CRAWLER. CHANGING A TOKEN IS RECOMMENDED BUT NOT NEEDED TO GET THE AGENT COMMUNICATING WITH THE SERVER_*
 
-Agent has to authenticate against a registered agent. You can do this by port-forwarding to CluedIn SQL Server 
-(`kubectl port-forward -l app=sqlserver 1433 --address 0.0.0.0) and adding an agent registration to `DataStore.Db.OpenCommunication` > `dbo.Agent`, or just fill out a SQL query below:
+The Agent that you have downloaded has to authenticate against a registered agent within the CluedIn Server. You can do this by port-forwarding to the CluedIn SQL Server pod within your Kubernetes Cluster
+(`kubectl port-forward -l app=sqlserver 1433 --address 0.0.0.0) and adding an agent registration to `DataStore.Db.OpenCommunication` > `dbo.Agent`, or just fill out the SQL query below and execute against the DataStore.Db.OpenCommunication database:
 ```
 DECLARE @AgentId varchar(60);
 SET @AgentId = '6CF17140-0FB0-47C5-AAAA-9A40A0ECF8BA';
@@ -178,22 +179,25 @@ SET @DateTimeMin = (select cast(-53690 as datetime));
 INSERT INTO dbo.Agent (Id, AccountId, ApiKey, LastPing) VALUES (@AgentId, @OrganizationId, @AgentToken, @DateTimeMin);
 ```
 
-Then, set the `AgentToken` value in the `container.config`.
+After you have done this, copy the API Token you entered above, then set the `AgentToken` value in the `container.config` of the file you downloaded above.
 
 ### Deploying Crawlers
-In order to deploy a crawler, you will need to have a crawler assembly files either from Azure DevOps artifacts or by building a crawler locally. 
+In order to deploy a crawler into an agent you will need to have the crawler assembly files (Dll's) either from a Nuget Package or by compiling and building a crawler locally on your developer machine. 
+
 Assemblies required:
 * CluedIn.Crawling._CrawlerName_
 * CluedIn.Crawling._CrawlerName_.Core
 * CluedIn.Crawling._CrawlerName_.Infrastructure
 
-!!! _Note, that Provider project is not required because Provider is registereted in the cloud WebApi instance. Everything that is contained in the Provider project will be executed from the cluster_
+!!! _Note, that Provider project is not required in the agent because the Provider is registereted in the cloud WebApi instance. Everything that is contained in the Provider project will be executed from the cluster itself_
 
-!! _Ensure that all of the dependencies needed by your crawler are also deployed along with the crawler assemblies._
+!! _Ensure that all of the dependencies needed by your crawler are also deployed along with the crawler assemblies e.g. Nuget Dependencies._
 
 Crawler assemblies needs to be moved into `<agent-root>/Agent` folder and will be picked up once the Agent is started.
 
-On the cluster, you only need to deploy the `Provider` project's NuGet package. Parts responsible for crawling will be executed by the agent.
+On the cluster, you only need to deploy the `Provider` project's NuGet package parts responsible for your crawler that will be executed by the agent.
 
 ### Running the agent
-Running the agent is as simple as starting `CluedIn.Server.Host.exe` file. You will see an output where your agent is trying to load the assemblies and connct to the cluster. Make sure there is nothing blocking the call getting to the API server networking-wise.
+Running the agent is as simple as starting `CluedIn.Server.Host.exe` file. You will see an output where your agent is trying to load the assemblies and connect to the cluster. Make sure there is nothing blocking the call getting to the API server networking-wise. You can now login to CluedIn and add your integration and the actual crawling of data will be then done through the Agent instead of the CluedIn server in the Kubernetes cluster. 
+
+You can also register this as a Windows Service so that it can be automatically restarted if the Windows VM is to restart. You can use this guide here on how to setup a Windows Service: [Here](https://docs.microsoft.com/en-us/dotnet/framework/windows-services/how-to-install-and-uninstall-services)
