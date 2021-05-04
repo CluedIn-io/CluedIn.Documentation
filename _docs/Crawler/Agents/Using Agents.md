@@ -187,7 +187,9 @@ Assemblies required:
 * CluedIn.Crawling._CrawlerName_.Core
 * CluedIn.Crawling._CrawlerName_.Infrastructure
 
-_Note, that Provider project is not required because Provider is registereted in the cloud WebApi instance. Everything that is contained in the Provider project will be executed from the cluster_
+!!! _Note, that Provider project is not required because Provider is registereted in the cloud WebApi instance. Everything that is contained in the Provider project will be executed from the cluster_
+
+!! _Ensure that all of the dependencies needed by your crawler are also deployed along with the crawler assemblies._
 
 Crawler assemblies needs to be moved into `<agent-root>/Agent` folder and will be picked up once the Agent is started.
 
