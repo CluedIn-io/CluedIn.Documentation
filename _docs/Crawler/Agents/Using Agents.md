@@ -108,6 +108,7 @@ You should see a file that looks like this configuration file:
 
   <appSettings xdt:Transform="InsertIfMissing">
     <add key="ServerUrl"                                                value="https://localhost:9000/" xdt:Locator="Condition(@key='ServerUrl')" xdt:Transform="Replace" />
+     <add key="AgentServerUrl"                                                value="https://localhost:9000/" xdt:Locator="Condition(@key='AgentServerUrl')" xdt:Transform="Replace" />
     <add key="ServerBlobUrl"                                            value="https://localhost:9000/" xdt:Locator="Condition(@key='ServerBlobUrl')" xdt:Transform="Replace" />
     <add key="WebhookUrl"                                               value="https://localhost:9006/" xdt:Locator="Condition(@key='WebhookUrl')" xdt:Transform="Replace" />
     <add key="WebhookServerUrl"                                         value="https://localhost:9006/" xdt:Locator="Condition(@key='WebhookServerUrl')" xdt:Transform="Replace" />
@@ -145,6 +146,8 @@ You will need to fill out the following configuration to connect to your Kuberne
 
 `ServerUrl` should contain a value that is the route to your CluedIn WebAPI you have installed. Usually it is something like `https://app.<hostname>/api/`
 
+`AgentServerUrl` should contain a value that is the route to your CluedIn WebAPI you have installed. Usually it is something like `https://app.<hostname>/api/`
+
 `ServerBlobUrl` should contain a value to your blob url. By default, it should be the same as your WebApi URL.
 
 `WebhookUrl` should contain your Webhook API Url. By default, it is `https://app.<hostname>/webhooks/`
@@ -176,10 +179,11 @@ SET @OrganizationId = (SELECT Id AS OrganizationId FROM dbo.OrganizationProfile 
 DECLARE @DateTimeMin varchar(60);
 SET @DateTimeMin = (select cast(-53690 as datetime));
 
-INSERT INTO dbo.Agent (Id, AccountId, ApiKey, LastPing) VALUES (@AgentId, @OrganizationId, @AgentToken, @DateTimeMin);
+UPDATE dbo.Agent SET AccountId = @OrganizationId, ApiKey
+ = @AgentToken, LastPing  = @DateTimeMin) WHERE Id = @AgentId;
 ```
 
-After you have done this, copy the API Token you entered above, then set the `AgentToken` value in the `container.config` of the file you downloaded above.
+After you have done this, copy the API Token you entered above, then set the `ApiKey` value in the `container.config` of the file you downloaded above.
 
 ### Deploying Crawlers
 In order to deploy a crawler into an agent you will need to have the crawler assembly files (Dll's) either from a Nuget Package or by compiling and building a crawler locally on your developer machine. 
@@ -195,9 +199,9 @@ Assemblies required:
 
 Crawler assemblies needs to be moved into `<agent-root>/Agent` folder and will be picked up once the Agent is started.
 
-On the cluster, you only need to deploy the `Provider` project's NuGet package parts responsible for your crawler that will be executed by the agent.
+On the cluster, you need to deploy all your crawlers packages above plus the `Provider` project's NuGet package parts responsible for your crawler that will be executed by the agent.
 
 ### Running the agent
-Running the agent is as simple as starting `CluedIn.Server.Host.exe` file. You will see an output where your agent is trying to load the assemblies and connect to the cluster. Make sure there is nothing blocking the call getting to the API server networking-wise. You can now login to CluedIn and add your integration and the actual crawling of data will be then done through the Agent instead of the CluedIn server in the Kubernetes cluster. 
+Running the agent is as simple as starting `boot.sh` file. You will see an output where your agent is trying to load the assemblies and connect to the cluster. Make sure there is nothing blocking the call getting to the API server networking-wise. You can now login to CluedIn and add your integration and the actual crawling of data will be then done through the Agent instead of the CluedIn server in the Kubernetes cluster. 
 
 You can also register this as a Windows Service so that it can be automatically restarted if the Windows VM is to restart. You can use this guide here on how to setup a Windows Service: [Here](https://docs.microsoft.com/en-us/dotnet/framework/windows-services/how-to-install-and-uninstall-services)
