@@ -202,6 +202,10 @@ Crawler assemblies needs to be moved into `<agent-root>/Agent` folder and will b
 On the cluster, you need to deploy all your crawlers packages above plus the `Provider` project's NuGet package parts responsible for your crawler that will be executed by the agent.
 
 ### Running the agent
-Running the agent is as simple as starting `boot.sh` file. You will see an output where your agent is trying to load the assemblies and connect to the cluster. Make sure there is nothing blocking the call getting to the API server networking-wise. You can now login to CluedIn and add your integration and the actual crawling of data will be then done through the Agent instead of the CluedIn server in the Kubernetes cluster. 
+Running the agent is as simple as starting `boot.sh` file.
+
+For this, you may need to install something like [Cygwin](https://www.cygwin.com/) to be able to run .sh files on Windows. 
+
+ You will see an output where your agent is trying to load the assemblies and connect to the cluster. Make sure there is nothing blocking the call getting to the API server networking-wise. You can now login to CluedIn and add your integration and the actual crawling of data will be then done through the Agent instead of the CluedIn server in the Kubernetes cluster. 
 
 You can also register this as a Windows Service so that it can be automatically restarted if the Windows VM is to restart. You can use this guide here on how to setup a Windows Service: [Here](https://docs.microsoft.com/en-us/dotnet/framework/windows-services/how-to-install-and-uninstall-services)
