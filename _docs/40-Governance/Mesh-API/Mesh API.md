@@ -194,3 +194,9 @@ Making changes in source systems is much more disruptive and invasive than simpl
  - Mesh commands are handled at a ProviderDefinition level which means that one source system is not aware of how other systems are handling the change and can also be run independently of each other in no particular order. If order of change is needed then it is important to make these all within the same Mesh implementation. 
 
 The Mesh API can be setup to completely bypass the approval process that is within the MESH Center within the UI. This can be done within CluedIn but we recommend this is only done if you have some other way of approving changes or you are very confident with the implementation of your Mesh API. 
+
+###Mesh from CluedIn Clean changes
+
+By default, changes that come from CluedIn Clean will not cause Mesh Commands. If you would like this to happen then you will need to change your configuration to enable this. 
+
+You will need to set the `Feature.Clean.CreateMeshCommands` to true or if you are operating in a Kubernetes cluster it would be setting CLUEDIN_appSettings__Feature_Clean_CreateMeshCommands : true
