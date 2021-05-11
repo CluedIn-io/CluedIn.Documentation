@@ -152,7 +152,7 @@ You will need to fill out the following configuration to connect to your Kuberne
 
 `WebhookUrl` should contain your Webhook API Url. By default, it is `https://app.<hostname>/webhooks/`
 
-`ServerStatusUrl` should be https://app.<hostname>/api/status
+`ServerStatusUrl` should be `https://app.<hostname>/api/status`
 
 `ServerLoggingUrl` should point to your WebApi. By default, it should be `https://app.<hostname>/api/`
 
@@ -180,7 +180,7 @@ DECLARE @DateTimeMin varchar(60);
 SET @DateTimeMin = (select cast(-53690 as datetime));
 
 UPDATE dbo.Agent SET AccountId = @OrganizationId, ApiKey
- = @AgentToken, LastPing  = @DateTimeMin) WHERE Id = @AgentId;
+ = @AgentToken, LastPing  = @DateTimeMin WHERE Id = @AgentId;
 ```
 
 After you have done this, copy the API Token you entered above, then set the `ApiKey` value in the `container.config` of the file you downloaded above.
