@@ -210,6 +210,6 @@ For this, you may need to install something like [Cygwin](https://www.cygwin.com
 
 You can also register this as a Windows Service so that it can be automatically restarted if the Windows VM is to restart. You can use this guide here on how to setup a Windows Service: [Here](https://docs.microsoft.com/en-us/dotnet/framework/windows-services/how-to-install-and-uninstall-services)
 
-###Enable Verbos Logging
+###Enable Verbose Logging
 
 By default the Agent will be running with low logging verbosity. To increase this you can set the $env:ASPNETCORE_ENVIRONMENT = "verbose". You can also make sure this persists on the machine by setting it as a System Variable. You will need to close and restart your Agent and the session of the bash/command prompt you are using to invoke the boot.sh file to see the changes take effect. 
