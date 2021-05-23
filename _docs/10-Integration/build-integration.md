@@ -167,7 +167,25 @@ In this case the sample API was very open and generic, however in other cases yo
 
 ### Deploying the provider locally
 
-If you are running CluedIn locally for testing purposes using Docker, you can follow [these instructions](/docs/00-gettingStarted/docker-local.html#adding-extra-components) to add the integration.
+If you are running CluedIn locally for testing purposes using Docker, you can follow these instructions to add the integration.
+
+You most likely used the Home github repo to pull your CluedIn environment down and boot it up. You can now use this to inject extra components into CluedIn.
+
+Under the `env` folder you can use the `default` folder or you can create new environments (See Home Github Readme). 
+
+Within this folder there is a `components` folder. Create a new folder in here called `ServerComponent`. This is essentially a folder in which you can inject your own DLL files and CluedIn will look in this folder on boot of the CluedIn Server Docker Container and load these aseemblies as well. 
+
+In the example of a Crawler, you will need to copy the Dll files produced by your different projects (not including the test dll's), the .json dependency file, any third party libraries you used in your crawler (e.g. a custom Nuget package for talking to a service) and optionally you will want the pdb files if you would like to debug. 
+
+Copy all of these into your newly created `ServerComponent` folder and restart the CluedIn Server Docker container. Make sure that the version of your CluedIn dependencies are exactly the same as the version you are running of CluedIn. You can check this in your packages.props file.
+
+````xml
+<PropertyGroup Label="Dependency Versions">
+    <_ComponentHost>2.0.0-alpha-14</_ComponentHost>
+    <_AutoFixture>4.11.0</_AutoFixture>
+    <_CluedIn>3.2.2</_CluedIn>
+  </PropertyGroup>
+```
 
 ### Testing the provider in your environment
 
