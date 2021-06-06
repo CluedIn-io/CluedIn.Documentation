@@ -34,7 +34,3 @@ Developers can use this documentation to:
 
 1. [Get Started](./docs/00-gettingStarted/0-Welcome-to-CluedIn.html)
 2. [Integration](/docs/10-Integration/modify-integration.html)
-
-## Marketplace
-
-[Marketplace Documentation](/docs/90-MarketPlace/home.html)
