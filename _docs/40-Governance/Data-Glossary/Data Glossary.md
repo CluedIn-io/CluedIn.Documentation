@@ -63,7 +63,7 @@ ParentId
 A Term is the business terminology that you will be mapping. Good examples include Customer, Product, Transaction, Sale, Deal, Issue but can also extend to something more specific such as Churned Customer, Longterm Customer, Loyal Customer or more. You will need to set some metadata for this Term such as Description, Definition, Expiry Date an more - but the main concept is to map this to an underlying filter of Vocabularies that will derive the underlying data that matches this business terminology. A key entry in the business glossary is a business term. It is a business concept or entity identified by a unique name and defined by a meaningful description specific to the organization, in a language understood by everyone, IT and business people. 
 
 
-A Term could also be very specific such as EBITDA, however many of these Glossary Entries come out of the box with CluedIn and can be installed in the Market Place as they are industry terms that are not specific to your business.   
+A Term could also be very specific such as EBITDA, however many of these Glossary Entries come out of the box with CluedIn as they are industry terms that are not specific to your business.
 
 A Term Lexicon is an alias for a Term. A Term can have 0 or many Term Lexicon entries. You will find that different parts of a business will refer to the same underlying data in different business terms. For example, if you talk to the Sales department they might refer to the term as "Customers" but if you ask the Marketing department, they might call them "Champions" and move onto the Accounting department and they might call them "Billable Entities". You may find that underneath the Term, they all map to the same filter.  
 
