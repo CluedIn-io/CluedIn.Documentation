@@ -17,8 +17,8 @@ CluedIn will also expire the authentication after 15 minutes of inactivity withi
   * https://_accountSubdomain_._hostname_/
   * https://app._hostname_/auth/signin-oidc
 
-*Logout Uri
-  *<org account url>/logout
+* Logout Uri
+  * <org account url>/logout
 
 
 * API Permissions:
@@ -73,11 +73,11 @@ kubectl delete pod -l role=main -n cluedin
 
 After doing this, visit the login page for your CluedIn account again and you will notice that it will redirect you to the office 365 login page to authenticate. By default, your user will be created as a "User" and not an Administrator. You can now manage this all within your Active Directory now.
 
-###Cleaning up after you have switched to a SSO provider
+### Cleaning up after you have switched to a SSO provider
 
 After you have switched over to a Single Sign On provider you will still have your original user in the database. This user will not be able to login anymore so it is best to deactivate this user. To do this, you will also need to port-forward to the SQL database like above and switch the "Active column" on the AspNetUser table to false for this user. 
 
-###Mapping Active Directory Groups to Roles within CluedIn
+### Mapping Active Directory Groups to Roles within CluedIn
 
 If you have switched to an SSO provider then you will need to map Groups in Active Directory to Roles within CluedIn. This is done using configuration files within CluedIn. 
 
@@ -97,7 +97,7 @@ The configuration key starts with the prefix Security.Roles.Mapping. followed by
 
 The value specified by the Role mapping setting is a regular expression to match incoming Role names against.
 
-###Delegating access to CluedIn from Active Directory
+### Delegating access to CluedIn from Active Directory
 
 Now that you have moved to using a SSO provider, then all access to users and groups is now done through Active Directory. Here is an example of a guide in Azure Active Directory that guides you through doing this against the Enterprise Application that you setup above. 
 
