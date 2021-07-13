@@ -17,7 +17,7 @@ Rules can manually be created, but they can also be automated by cleaning data t
 
 New rule actions can be added in the platform by implementing the IRuleAction interface. Here is an example of how you could add an action of adding an Alias to an entity. 
 
-````csharp
+```csharp
 using System.Collections.Generic;
 using CluedIn.Core.Data.Parts;
 using CluedIn.Core.Processing;
@@ -46,3 +46,10 @@ namespace CluedIn.CustomRules.Actions
 
 
 ```
+
+
+##Clean Data with History
+
+Because CluedIn stores all the history of a record and how that record was composed, by default Cleaning projects will only clean the Golden Records. Although this is a valid use case, there are times when we would want to clean historical data that was not in the Golden Record. Cleaning the history will also play a major role in raising the data quality scores as well as being able to create all types of automated rules based off what data has been exposed to the CluedIn platform. 
+
+To clean data with history, make sure you select the "Clean with History" checkbox as you create your cleaning projects. 
