@@ -9,7 +9,7 @@ This will show you how to install CluedIn on your local machine by running it in
 
 ### Requirements
 
-- At least 16Gb of free memory (It is preferable to run on a machine with 32Gb of RAM)
+- At least 16Gb of free memory dedicated to docker (It is preferable to run on a machine with 32Gb of RAM)
 - Latest version of [Docker](https://docs.docker.com/get-docker/) for your operating system  (Engine: > 19.03)
 - [Powershell 7](https://github.com/PowerShell/PowerShell) for your operating system - This is to run helper scripts
 - Access to the private repositories inside the [cluedin](https://hub.docker.com/u/cluedin/) DockerHub organization. You will require a Docker Hub account and request access from CluedIn; then use this account to do a ```docker login```.
@@ -63,7 +63,7 @@ You can check the status of this by using:
 
 CluedIn is ready when all the status checks are green.
 
-Open your browser and CluedIn will be available under [http://app.127.0.0.1.xip.io:9080](http://app.127.0.0.1.xip.io:9080/signin).
+Open your browser and CluedIn will be available under [http://app.127.0.0.1.nip.io:9080](http://app.127.0.0.1.nip.io:9080/signin).
 
 ![First screen](first-screen-app.png)
 
