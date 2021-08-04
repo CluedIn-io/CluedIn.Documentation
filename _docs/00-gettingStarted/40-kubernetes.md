@@ -82,7 +82,7 @@ helm repo update
 _Secret can be created using the following command:_
 ```powershell
 kubectl create secret docker-registry docker-registry-key `
-  --namespace cluedin
+  --namespace cluedin `
   --docker-server='docker.io' `
   --docker-username='<your Dockerhub username>' `
   --docker-password='<your Dockerhub password>' `
