@@ -52,7 +52,7 @@ helm install haproxy-ingress haproxy-ingress/haproxy-ingress --namespace=cluedin
 - DNS configuration pointing to the public IP of the ingress controller for the following routes:
   - `app.<hostname>` (i.e. https://app.cluedin.com/)
   - `<accountName>.<hostname>` (i.e. https://cluedin.cluedin.com/)
-    - _External ingress controller's IP can be found by using `kubectl get services -n haproxy`_
+    - _External ingress controller's IP can be found by using `kubectl get services -n cluedin`_
 
 
 - Secret with the SSL certificates for the following routes:
