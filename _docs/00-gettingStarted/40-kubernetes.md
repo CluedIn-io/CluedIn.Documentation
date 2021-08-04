@@ -18,7 +18,6 @@ az aks get-credentials `
   --name <clusterName> `
   --resource-group <clusterResourceGroup> `
   --subscription <subscriptionId>
-az create namespace cluedin
 ```
 - Local install of the cli for [Helm](https://helm.sh/)
 
@@ -53,7 +52,7 @@ helm install haproxy-ingress haproxy-ingress/haproxy-ingress --namespace=cluedin
 - DNS configuration pointing to the public IP of the ingress controller for the following routes:
   - `app.<hostname>` (i.e. https://app.cluedin.com/)
   - `<accountName>.<hostname>` (i.e. https://cluedin.cluedin.com/)
-    - _External ingress controller's IP can be found by using `kubectl get services -n haproxy`_
+    - _External ingress controller's IP can be found by using `kubectl get services -n cluedin`_
 
 
 - Secret with the SSL certificates for the following routes:
@@ -83,7 +82,7 @@ helm repo update
 _Secret can be created using the following command:_
 ```powershell
 kubectl create secret docker-registry docker-registry-key `
-  --namespace cluedin
+  --namespace cluedin `
   --docker-server='docker.io' `
   --docker-username='<your Dockerhub username>' `
   --docker-password='<your Dockerhub password>' `
