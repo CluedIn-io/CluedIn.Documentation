@@ -18,7 +18,6 @@ az aks get-credentials `
   --name <clusterName> `
   --resource-group <clusterResourceGroup> `
   --subscription <subscriptionId>
-az create namespace cluedin
 ```
 - Local install of the cli for [Helm](https://helm.sh/)
 
