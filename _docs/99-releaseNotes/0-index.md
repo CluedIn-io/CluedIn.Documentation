@@ -3,9 +3,16 @@ category: Release notes
 title: Handy Links
 ---
 
+### CluedIn Releases
+[CluedIn Release Notes](https://cluedin-io.github.io/Releases/)
+
 ### Home Repo Releases
 
 [Github CluedIn-io/Home Release Notes](https://github.com/CluedIn-io/Home/releases)
+
+### Charts Repo Releases
+
+[Github CluedIn-io/Charts Release Notes](https://github.com/CluedIn-io/Charts/releases)
 
 ### Documentation Website
 
