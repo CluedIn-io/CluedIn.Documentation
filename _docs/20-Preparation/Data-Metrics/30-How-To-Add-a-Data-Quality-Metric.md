@@ -5,6 +5,9 @@ title: How to add a new Data Quality Metric
 
 Here is an example of how to calculate Accuracy of data. You can use this as a guide to implement your own custom data metrics.
 
+Note: you may also review other implementations [here](https://github.com/CluedIn-io/CluedIn.Custom.Metrics/tree/master/src/CluedIn.Custom.Metrics/Implementations)
+
+
 ```csharp
 using System;
 using System.Collections.Generic;

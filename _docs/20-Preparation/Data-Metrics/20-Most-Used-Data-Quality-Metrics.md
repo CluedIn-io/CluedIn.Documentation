@@ -24,6 +24,8 @@ In this article, we describe the most used data quality metrics. You can pick th
 - [Uniformity](#data-uniformity)
 - [Usability](#data-usability)
 
+Note: to install these - build and install the package from here [GitHub CluedIn-io/CluedIn.Custom.Metrics](https://github.com/CluedIn-io/CluedIn.Custom.Metrics)
+
 ## Data Accountability
 #### Description:
 The Data Accountability metric helps to keep track of ownership of the data. The more people are responsible for a record, the higher the accountability.
