@@ -26,7 +26,7 @@
 {% assign biggest_tag = tag_groups | sort: "count" | last %}
 
 {% for tag_group in sorted_tag_groups %}
-<a href="https://documentation.cluedin.net/tag#{{ tag_group.name }}" data-count="{{ tag_group.size }}" style="white-space:nowrap;">{{ tag_group.name | replace: "-", "&nbsp;" }}</a><span style="margin-right:3px;"></span>{% endfor %}
+<a href="{{ site.baseurl }}/tag#{{ tag_group.name }}" data-count="{{ tag_group.size }}" style="white-space:nowrap;">{{ tag_group.name | replace: "-", "&nbsp;" }}</a><span style="margin-right:3px;"></span>{% endfor %}
 
 <script>
     $(function() {

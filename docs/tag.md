@@ -38,7 +38,7 @@ nav_exclude: true
 <ul data-tag="{{ tag_group.name }}" style="display:none;">
     {% for page in site.pages %}
     {% if page.tags contains tag_group.name %}
-    <li><a href="{{ site.baseurl }}/{{ page.permalink }}">{{ page.title }}</a></li>{% endif %}{% endfor %}
+    <li><a href="./{{ page.permalink }}">{{ page.title }}</a></li>{% endif %}{% endfor %}
 </ul>
 {% endfor %}
 
