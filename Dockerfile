@@ -1,14 +1,13 @@
-FROM jekyll/jekyll:pages
+FROM ruby:2.6
 
-COPY Gemfile* /srv/jekyll/
+ENV LC_ALL C.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
 
-WORKDIR /srv/jekyll
+WORKDIR /usr/src/app
 
-RUN apk update && \
-	apk add ruby-dev gcc make curl build-base libc-dev libffi-dev zlib-dev libxml2-dev libgcrypt-dev libxslt-dev python
-
-RUN chmod a+w Gemfile.lock && \
-	bundle config build.nokogiri --use-system-libraries && \
-	bundle install
+COPY Gemfile just-the-docs.gemspec ./
+RUN gem install bundler && bundle install
 
 EXPOSE 4000
+

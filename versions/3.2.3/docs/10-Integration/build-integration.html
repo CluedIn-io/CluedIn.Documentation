@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Build Integration | CluedIn Documentation</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Build Integration" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/build-integration.html" />
+<meta property="og:url" content="https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/build-integration.html" />
+<meta property="og:site_name" content="CluedIn Documentation" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-05T17:48:06+00:00" />
+<script type="application/ld+json">
+{"datePublished":"2021-09-05T17:48:06+00:00","url":"https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/build-integration.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/siteicon.png"}},"description":"Introduction","headline":"Build Integration","dateModified":"2021-09-05T17:48:06+00:00","@type":"Article","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+		<link type="application/atom+xml" rel="alternate" href="https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/feed.xml" title="CluedIn Documentation" />
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
+		<link rel="stylesheet" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/css/main.css">
+		<link rel="apple-touch-icon" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/touch-icon.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/images/favicon.png">
+		<script src="https://kit.fontawesome.com/53f65601e3.js" crossorigin="anonymous"></script>
+
+		
+    <link rel="stylesheet" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/css/prism.css">
+    <!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2770606.js"></script>
+<!-- End of HubSpot Embed Code -->
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/"><img src="http://documentation.cluedin.net/beta-docs/versions/3.2.3/images/cluedin-logo-c.svg" width="40" height="40" alt="CluedIn Documentation logo"></a>
+				CluedIn Documentation
+				<button type="button" class="open-nav" id="open-nav"></button>
+			</h1>
+
+			<form action="http://documentation.cluedin.net/beta-docs/versions/3.2.3/search.html" method="get">
+				<input type="text" name="q" id="search-input" placeholder="Type to search" autofocus>
+				<input type="submit" value="Search" style="display: none;">
+			</form>
+
+			<nav >
+				<ul>
+					<li class="nav-item top-level ">
+						
+						<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/">What is CluedIn</a>
+					</li>
+				</ul>
+
+				<ul>
+					
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/ssl.html">Get Started</a>
+							<ul>
+								
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/1-default.html">CluedIn Overview</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/30-docker-local.html">CluedIn with Docker</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/40-kubernetes.html">CluedIn with Kubernetes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/81-home-dashboard.html">Home Dashboard</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/90-frequently-asked-questions.html">Frequently asked questions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/Running%20CluedIn%20Efficiently.html">Running CluedIn Efficiently for Cost</a></li>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/0-Welcome-to-CluedIn.html">Welcome to CluedIn</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/50-Consume/Generating%20an%20API%20Token.html">Administration</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/50-Consume/Generating%20an%20API%20Token.html">Generating an API Token</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/20-Users/Adding%20Team%20Members.html">Users</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/30-Authentication/index.html">Authentication</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/40-Theme/index.html">Theme</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/60-Accounts_Multitenancy/0-index.html">Multitenancy</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/70-Removing_data/index.html">Removing data</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/80-Upgrading%20CluedIn/index.html">Changing versions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/90-Backup_Restore/index.html">Backup and Restore</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/10-Profile/index.html">Profile</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level current">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/modify-integration.html">Integration</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/modify-integration.html">Modify an Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/Crawling.html">Crawling</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/Help%20with%20building%20robust%20integrations.html">Help with building robust integrations</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/Home%20Screen.html">Home Screen</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/Push%20data%20to%20CluedIn.html">Push Data to CluedIn</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/add-integration.html">How to add an Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/build-enricher.html">Build Enricher</a></li>
+									
+								
+									
+										<li class="nav-item current"><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/build-integration.html">Build Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/delta-crawls.html">Delta Crawls</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/install-integration.html">Install Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/integration-compatible-with-UI.html">Integration and the CluedIn UI</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/0-index.html">What are integrations</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/entity-setup.html">Preparation</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/entity-setup.html">Entity Type and UI</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/CluedIn-Connect/CluedIn%20Connect.html">CluedIn Connect</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Data-Metrics/10-Data-Quality-Metrics.html">Data Quality Metrics</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Data-Metrics/20-Most-Used-Data-Quality-Metrics.html">Most Used Data Quality Metrics</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Data-Metrics/30-How-To-Add-a-Data-Quality-Metric.html">How to add a new Data Quality Metric</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Data-Metrics/40-Data-Quality-Metrics-Explanations.html">Data Quality Metric Explanations</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Engine-Room/Engine%20Room.html">Engine Room</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Entity-Types/Entity%20Type%20Translation.html">Entity Type Translation</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Shadow-Entities/Shadow%20Entities.html">Shadow Entities</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Aggregate/Aggregation.html">Aggregation</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/10-Data_Training/CluedIn%20Train.html">Manipulation</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/10-Data_Training/CluedIn%20Train.html">CluedIn Train</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/20-Data_Cleaning/CluedIn%20Clean.html">CluedIn Clean</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/30-Merging_Records/Fuzzy%20Merging%20Explained.html">Fuzzy Merging Explained</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/30-Merging_Records/Merging%20Records.html">Merging Records</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/40-Mesh_Center/Mesh%20Center.html">Mesh Center</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/50-Splitting_Records/Splitting%20Records.html">Splitting Records</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/index.html">Transforming Data</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Subject-Access-Requests/Subject%20Access%20Requests.html">Governance</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Subject-Access-Requests/Subject%20Access%20Requests.html">Subject Access Requests</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Consent-Management/Consent%20Management.html">Consent Management</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Breaches/Data%20Breaches.html">Data Breaches</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Catalog/Data%20Catalog.html">Data Catalog</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Glossary/Data%20Glossary.html">Data Glossary</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Policies/Data%20Policies.html">Data Policies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Privacy/Data%20Privacy.html">Data Privacy</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Retention/Data%20Retention.html">Data Retention</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Governance.html">Data Governance</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Mesh-API/Mesh%20API.html">Mesh API</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Access-Control/Access%20Control.html">Access Control</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/60-Management/Duplicate%20List.html">Management</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/60-Management/Duplicate%20List.html">Duplicate List</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/60-Management/Rules/Rules.html">Rules</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/DeveloperPortal.html">Developer</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/DeveloperPortal.html">Developer Portal</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/10-Administration_Operations/Administration%20Operations.html">Administration Operations</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/100-Logging/Building%20a%20new%20Logging%20Provider.html">Building a new Logging Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Change%20Verbs.html">Change Verbs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Clue.html">Clue</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Core%20Vocabularies.html">Core Vocabularies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Data%20Part.html">Data Part</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Dynamic%20Vocabularies.html">Dynamic Vocabularies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Edge%20Types.html">Edge Types</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Edges.html">Edges</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Codes.html">Entity Codes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Type.html">Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Types/Infrastructure%20User%20Entity%20Type.html">Infrastructure User Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Types/Organization%20Entity%20Type.html">Organization Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Types/Person%20Entity%20Type.html">Person Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity.html">Entity</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Origin.html">Origin</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabularies.html">Vocabularies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabularies/Organization%20Vocaulary.html">Organization Vocaulary</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabularies/Person%20Vocabulary.html">Person Vocabulary</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabulary%20Groupings.html">Vocabulary Groupings</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabulary%20Values.html">Vocabulary Values</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/120-Other/Common%20Design%20Decisions.html">Common Design Decisions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/120-Other/Common%20Problems.html">Common Problems</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/130-Parent_Aggregation/Parent%20Aggregation.html">Parent Aggregation</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/140-Preview_Image/Setting%20a%20Preview%20Image%20for%20a%20Clue.html">Setting a Preview Image for a Clue</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Adding%20a%20new%20Processing%20Pipeline.html">Adding a new Processing Pipeline</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/CluedIn%20Performance%20Metrics.html">CluedIn Performance Metrics</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Extending%20an%20Existing%20Pipeline%20Process.html">Extending an Existing Pipeline Process</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Ignoring%20Insignificant%20Changes.html">Ignoring Insignificant Changes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Jobs/Agent%20Jobs.html">Agent Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Pipeline%20Overview.html">Processing Pipeline Overview</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20a%20Preprocessor.html">Adding a new PreProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20a%20new%20IProcessingFilter.html">Adding a new IProcessingFilter</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20an%20IDataPartProcessorExecutor.html">Adding an IDataPartProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20an%20IEntityTypeProcessor.html">Adding an IEntityTypeProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20an%20IMergePreProcessor.html">Adding an IMergePreProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Turning%20Clues%20into%20ProcessedEntityMetadata.html">Turning Clues into ProcessedEntityMetadata</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Workflows/Workflow%20Event%20Handlers.html">Workflow Event Handlers</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/170-Thumbnail_Extractors/Thumbnail%20Extractors.html">Thumbnail Extractors</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/20-Configuration/Changing%20Configuration%20Settings.html">Changing Configuration Settings</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/30-Content_Extraction/Content%20Extractors.html">Content Extractors</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/30-Content_Extraction/Downloading%20a%20File%20and%20Indexing%20the%20Content.html">Downloading a File and Indexing the Content</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/33-Commands/Commands.html">Commands</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/40-Datastores/Adding%20a%20new%20Datastore%20Provider.html">Adding a new Datastore Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/40-Datastores/Datastores.html">Datastores</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/40-Datastores/Switching%20a%20Datastore%20Provider.html">Switching a Datastore Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/50-Events/Events.html">Events</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/60-External_Search/Deploying%20a%20New%20External%20Search%20Provider.html">Deploying a New External Search Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/60-External_Search/External%20Search%20Providers.html">External Search Providers</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/70-Integration_Pattern/Eventual%20Connectivity.html">Eventual Connectivity</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/80-Integrity_Checks/Validate%20Server%20Heatlh.html">Validate Server Heatlh</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/90-Jobs/One%20Time%20Jobs.html">One Time Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/90-Jobs/Recurring%20Jobs.html">Recurring Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/90-Jobs/Scheduled%20Jobs.html">Scheduled Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/60-Management/Modelling/Modelling.html">Modelling</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/User%20Interface.html">User Interface</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/User%20Interface.html">User Interface</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/180-User_Interface/Customisations/Searching%20for%20data.html">Searching for data</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/180-User_Interface/Customisations/Suggested%20Searches.html">Suggested Searches</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/190-Webhooks/Webhooks.html">Webhooks</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Entity-Page/All%20Properties.html">All Properties</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Entity-Page/Entity%20Page.html">Entity Page</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Entity-Page/History.html">History</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Entity-Page/Pending%20Changes.html">Pending Changes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Followed-Entities/Followed%20Entities.html">Followed Entities</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Keep-in-the-loop/Keep%20in%20the%20loop.html">Keep in the loop</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/180-User_Interface/Customisations/Adding%20new%20Search%20Filters.html">Adding new Search Filters</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/55-Rules/Developing%20with%20Rules.html">Rules</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/55-Rules/Developing%20with%20Rules.html">Developing with Rules</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/98-upgrade-path/upgrade-23-to-24.html">Upgrade</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/98-upgrade-path/upgrade-23-to-24.html">From V2.3.x to V.2.4.x</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/99-releaseNotes/0-index.html">Release notes</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/99-releaseNotes/0-index.html">Handy Links</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Agents/Using%20Agents.html">Crawler</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Agents/Using%20Agents.html">Using Agents</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Crawler%20Validation%20Framework.html">Crawler Validation Framework</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Deploying%20a%20New%20Crawler.html">Deploying a New Crawler</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Mapping%20Encryption%20Levels%20and%20Integration%20Location.html">Mapping Encryption Levels and Integration Locations</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Search/Running%20Searches.html">Consume</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Search/Running%20Searches.html">Running Searches</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Data-Marts/Data%20Marts.html">Data Marts</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Export-Targets/Export%20Targets.html">Export Targets</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Graphql/Add%20GraphQL%20Entity%20Type%20Resolvers.html">Add GraphQL Entity Type Resolvers</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Graphql/GraphQL%20Actions.html">GraphQL Actions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Graphql/GraphQL.html">GraphQL</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Outgoing-Streams/Outgoing%20Streams.html">Streams</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Rest-API/Rest%20API.html">Rest API</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Search/Configuration%20Search%20Relevance.html">Configuration Search Relevance</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Consume.html">Consume</a></li>
+									
+								
+							</ul>
+						</li>
+					
+				</ul>
+			</nav>
+		</header>
+
+		<section class="main">
+			<div class="page-header">
+				<h2>Integration</h2>
+				<h3>Build Integration</h3>
+			</div>
+			<main>
+			<article class="content">
+				<h3 id="introduction">Introduction</h3>
+
+<p>CluedIn official integrations are one size fits all integrations. They will generally try to ingest as much data as they can.</p>
+
+<p>If you want to ingest data in a precise fashion or want to ingest data from an in-house tool, an old tool, from some custom APIs, you will need to create your own integration.</p>
+
+<h3 id="pre-requesite">Pre-requesite</h3>
+
+<p>CluedIn is a .NET platform. So you will need:</p>
+
+<ul>
+  <li>.NET installed</li>
+  <li>Visual Studio installed</li>
+  <li>Docker</li>
+</ul>
+
+<h3 id="creating-initial-template">Creating initial template</h3>
+
+<p>To avoid cumbersome boilerplating, CluedIn provides you a script to generate a working Visual studio solution.</p>
+
+<ol>
+  <li>Create a folder for your provider
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">mkdir </span>my-first-integration
+ <span class="nb">cd </span>my-first-integration
+</code></pre></div>    </div>
+  </li>
+  <li>Run the generator
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> docker run <span class="nt">--rm</span> <span class="nt">-ti</span> <span class="nt">-v</span> <span class="k">${</span><span class="nv">PWD</span><span class="k">}</span>:/generated cluedin/generator-crawler-template
+</code></pre></div>    </div>
+    <p>The generator will ask some questions and then generate all your solution files:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      _-----_     ╭──────────────────────────╮
+     |       |    │  Welcome to the awesome  │
+     |--<span class="o">(</span>o<span class="o">)</span><span class="nt">--</span>|    │    CluedIn integration   │
+    <span class="sb">`</span><span class="nt">---------</span>´   │        generator!        │
+     <span class="o">(</span> _´U<span class="sb">`</span>_ <span class="o">)</span>    ╰──────────────────────────╯
+     /___A___<span class="se">\ </span>  /
+      |  ~  |
+    __<span class="s1">'.___.'</span>__
+  ´   <span class="sb">`</span>  |° ´ Y <span class="sb">`</span>
+
+ ? Name of this crawler? MyFirstIntegration
+ ? Will it support webhooks? No
+ ? Does it require OAuth? No
+</code></pre></div>    </div>
+  </li>
+  <li>Initialize a git repo
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> git init
+ git add <span class="nb">.</span>
+ git commit <span class="nt">-m</span> <span class="s2">"Initial commit"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Open the solution in Visual Studio and build it or alternatively you should also build it from the command line using the dotnet cli: <code class="highlighter-rouge">dotnet build</code></li>
+</ol>
+
+<h3 id="adding-a-model">Adding a Model</h3>
+
+<p>There are several steps needed to create a crawler that fetches data, creates Clues and passes them back to CluedIn for processing. Please refer to our <a href="https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld">Hello World</a> sample repository for a working example. This is based on a simple external <a href="https://jsonplaceholder.typicode.com/users">JSON service </a></p>
+
+<p>The following is the minimal steps required to replicate the <em>Hello World</em> example:</p>
+
+<ol>
+  <li>Create model classes. You can use a subgenerator for this:
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> docker run <span class="nt">--rm</span> <span class="nt">-ti</span> <span class="nt">-v</span> <span class="k">${</span><span class="nv">PWD</span><span class="k">}</span>:/generated cluedin/generator-crawler-template crawler-template:model
+</code></pre></div>    </div>
+  </li>
+  <li>Answer the questions as follows, to create a User model and vocabulary, similar to the one in the example <a href="https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Core/Models/User.cs">User.cs</a>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      _-----_     ╭──────────────────────────╮
+     |       |    │    This sub-generator    │
+     |--<span class="o">(</span>o<span class="o">)</span><span class="nt">--</span>|    │   allows to create new   │
+    <span class="sb">`</span><span class="nt">---------</span>´   │       vocabularies       │
+     <span class="o">(</span> _´U<span class="sb">`</span>_ <span class="o">)</span>    ╰──────────────────────────╯
+     /___A___<span class="se">\ </span>  /
+      |  ~  |
+    __<span class="s1">'.___.'</span>__
+  ´   <span class="sb">`</span>  |° ´ Y <span class="sb">`</span>
+ ? What is the model name? User
+ ? What is the entity <span class="nb">type</span>? Person
+ ? Enter a comma separated list of properties to add to the model <span class="nb">id</span>,name,username,email
+ ? Choose the visibility <span class="k">for </span>key: <span class="nb">id</span><span class="o">(</span>undefined<span class="o">)</span> Visible
+ ? Choose the <span class="nb">type </span><span class="k">for </span>key <span class="nb">id </span>Integer
+ ? Should key <span class="nb">id </span>map to a common vocab? None
+ ? Choose the visibility <span class="k">for </span>key: name<span class="o">(</span>undefined<span class="o">)</span> Visible
+ ? Choose the <span class="nb">type </span><span class="k">for </span>key name Text
+ ? Should key name map to a common vocab? None
+ ? Choose the visibility <span class="k">for </span>key: username<span class="o">(</span>undefined<span class="o">)</span> Visible
+ ? Choose the <span class="nb">type </span><span class="k">for </span>key username Text
+ ? Should key username map to a common vocab? None
+ ? Choose the visibility <span class="k">for </span>key: email<span class="o">(</span>undefined<span class="o">)</span> Hidden
+ ? Choose the <span class="nb">type </span><span class="k">for </span>key email Email
+ ? Should key email map to a common vocab? ContactEmail
+    create src/MyFirstIntegration.Core/Models/User.cs
+    create src/MyFirstIntegration.Crawling/ClueProducers/UserClueProducer.cs
+    create src/MyFirstIntegration.Crawling/Vocabularies/UserVocabulary.cs
+    create <span class="nb">test</span>/MyFirstIntegration.Crawling.Unit.Test/ClueProducers/UserClueProducerTests.cs
+</code></pre></div>    </div>
+
+    <p>This will generate 4 files as shown above. If you try to run the tests you will notice there is a failing one, as we need to complete some work in the ClueProducer.</p>
+  </li>
+  <li>Go to the <code class="highlighter-rouge">src/MyFirstIntegration.Crawling/ClueProducers/UserClueProducer.cs</code> file, in line 29 uncomment the following code:
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">if</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">Name</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+     <span class="n">data</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">input</span><span class="p">.</span><span class="n">Name</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Delete all other comments in the <code class="highlighter-rouge">UserClueProducer.cs</code> file.</p>
+  </li>
+  <li>Open the <code class="highlighter-rouge">src/MyFirstIntegration.Infrastructure/MyFirstIntegrationClient.cs</code> and modify line 16 with the URL for the endpoint:
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     <span class="k">private</span> <span class="k">const</span> <span class="kt">string</span> <span class="n">BaseUri</span> <span class="p">=</span> <span class="s">"https://jsonplaceholder.typicode.com"</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Since this is a public endpoint we don’t need to pass any tokens. Remove or comment out line 42</p>
+
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1">// client.AddDefaultParameter("api_key", myfirstintegrationCrawlJobData.ApiKey, ParameterType.QueryString);`</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Add a method to retrieve users (you will need to import some namespaces too):</p>
+
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">IList</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;&gt;</span> <span class="nf">GetUsers</span><span class="p">()</span> <span class="p">=&gt;</span> <span class="k">await</span> <span class="n">GetAsync</span><span class="p">&lt;</span><span class="n">IList</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;&gt;(</span><span class="s">"users"</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>In the <code class="highlighter-rouge">src/MyFirstIntegration.Crawling/MyFirstIntegrationCrawler.cs</code> you retrieve the data you want to insert in CluedIn. Add the following inside the <code class="highlighter-rouge">GetData</code> method:
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     <span class="c1">//retrieve data from provider and yield objects</span>
+
+     <span class="k">foreach</span><span class="p">(</span> <span class="kt">var</span> <span class="n">user</span> <span class="k">in</span> <span class="n">client</span><span class="p">.</span><span class="nf">GetUsers</span><span class="p">().</span><span class="n">Result</span><span class="p">)</span>
+     <span class="p">{</span>
+         <span class="k">yield</span> <span class="k">return</span> <span class="n">user</span><span class="p">;</span>
+     <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>In order to test the provider, you can use the Integration test provided. Open the <code class="highlighter-rouge">test/integration/Crawling.MyFirstIntegration.Integration.Test/MyFirstIntegrationDataIngestion.cs</code> file, and in the <code class="highlighter-rouge">CorrectNumberOfEntityTypes</code> method add a new annotation to indicate the expectation of receiving 10 Persons (that’s what the sample endpoint returns by default):
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="p">[</span><span class="n">Theory</span><span class="p">]</span>
+ <span class="p">[</span><span class="nf">InlineData</span><span class="p">(</span><span class="s">"/Provider/Root"</span><span class="p">,</span> <span class="m">1</span><span class="p">)]</span>
+ <span class="p">[</span><span class="nf">InlineData</span><span class="p">(</span><span class="s">"/Person"</span><span class="p">,</span> <span class="m">10</span><span class="p">)]</span>
+ <span class="k">public</span> <span class="k">void</span> <span class="nf">CorrectNumberOfEntityTypes</span><span class="p">(</span><span class="kt">string</span> <span class="n">entityType</span><span class="p">,</span> <span class="kt">int</span> <span class="n">expectedCount</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Execute the tests - they should all pass.</p>
+  </li>
+  <li>Before adding the integration to CluedIn, open the file <code class="highlighter-rouge">src\MyFirstIntegration.Core\MyFirstIntegrationConstants.cs</code> and modify the values for the constants before the <code class="highlighter-rouge">TODO</code> comment. This information will be used in the GUI of CluedIn to show information about the integration. In particular you should set the <code class="highlighter-rouge">CrawlerDescription</code>, <code class="highlighter-rouge">Integration</code>, <code class="highlighter-rouge">Uri</code> (if this integration corresponds to an online tool), and <code class="highlighter-rouge">IconResourceName</code>. This last property corresponds to the path of an embedded resource in the Provider project.</li>
+</ol>
+
+<h3 id="architecture">Architecture</h3>
+
+<p>As you can see in the example - these are the main components:</p>
+<ul>
+  <li>A <em>client</em> that knows how to retrieve data from your source (e.g. <code class="highlighter-rouge">MyFirstIntegrationClient.cs</code>). It has methods to produce plain objects with the information.</li>
+  <li>The method <code class="highlighter-rouge">GetData</code> in the main Crawling class <code class="highlighter-rouge">MyFirstIntegrationCrawler.cs</code> - you can consider this as the entrypoint for the provider. This method will invoke the correct methods of the <em>client</em>, in order to yield plain objects.</li>
+  <li>A <em>Vocabulary</em> class (e.g. <code class="highlighter-rouge">UserVocabulary.cs</code>) which is for the most part generated automatically. This class defines the different keys of the data you are processing and how they map to generic terms (email, address, company) also in use in other sources. In addition it can define the relationship with other <em>Vocabularies</em> (also known as edges). For example the relationship between a user and a company.</li>
+  <li>A <em>ClueProducer</em> (e.g. <code class="highlighter-rouge">UserClueProducer.cs</code>) which essentially translates the plain object (retrieved by the <em>client</em>) into a <em>clue</em>, which is the object understood by CluedIn. It uses the keys from the <em>Vocabulary</em> to map the data from the object to the clue.</li>
+</ul>
+
+<p>In this case the sample API was very open and generic, however in other cases you may need extra information (credentials, datasources, etc.) on how to connect to the source, or what data to retrieve. This can be captured in the <em>CrawlJobData</em> (e.g. <code class="highlighter-rouge">MyFirstIntegrationCrawlJobData.cs</code>). You can enrich it with whatever properties you need. However, you will also need to expand two methods in the <em>Provider</em> (e.g. <code class="highlighter-rouge">MyFirstIntegrationProvider.cs</code>):</p>
+<ul>
+  <li><code class="highlighter-rouge">GetCrawlJobData</code> which translates the keys from a generic dictionary into the <em>CrawlJobData</em> object and</li>
+  <li><code class="highlighter-rouge">GetHelperConfiguration</code> which performs the opposite translation (from the <em>CrawlJobData</em> to a dictionary)</li>
+</ul>
+
+<h3 id="deploying-the-provider-locally">Deploying the provider locally</h3>
+
+<p>If you are running CluedIn locally for testing purposes using Docker, you can follow these instructions to add the integration.</p>
+
+<p>You most likely used the Home github repo to pull your CluedIn environment down and boot it up. You can now use this to inject extra components into CluedIn.</p>
+
+<p>Under the <code class="highlighter-rouge">env</code> folder you can use the <code class="highlighter-rouge">default</code> folder or you can create new environments (See Home Github Readme).</p>
+
+<p>Within this folder there is a <code class="highlighter-rouge">components</code> folder. Create a new folder in here called <code class="highlighter-rouge">ServerComponent</code>. This is essentially a folder in which you can inject your own DLL files and CluedIn will look in this folder on boot of the CluedIn Server Docker Container and load these aseemblies as well.</p>
+
+<p>In the example of a Crawler, you will need to copy the Dll files produced by your different projects (not including the test dll’s), the .json dependency file, any third party libraries you used in your crawler (e.g. a custom Nuget package for talking to a service) and optionally you will want the pdb files if you would like to debug.</p>
+
+<p>Copy all of these into your newly created <code class="highlighter-rouge">ServerComponent</code> folder and restart the CluedIn Server Docker container. Make sure that the version of your CluedIn dependencies are exactly the same as the version you are running of CluedIn. You can check this in your packages.props file.</p>
+
+<pre><code class="language-`xml">&lt;PropertyGroup Label="Dependency Versions"&gt;
+    &lt;_ComponentHost&gt;2.0.0-alpha-14&lt;/_ComponentHost&gt;
+    &lt;_AutoFixture&gt;4.11.0&lt;/_AutoFixture&gt;
+    &lt;_CluedIn&gt;3.2.2&lt;/_CluedIn&gt;
+  &lt;/PropertyGroup&gt;
+</code></pre>
+
+<h3 id="testing-the-provider-in-your-environment">Testing the provider in your environment</h3>
+
+<p>Please refer to <a href="/docs/10-Integration/install-integration.html">install an integration</a></p>
+
+<h3 id="generating-models-vocabularies-and-clueproducers">Generating Models, Vocabularies and ClueProducers</h3>
+
+<p>Please refer to the <a href="https://github.com/CluedIn-io/Crawling.FileGenerator">FileGenerator GitHub Repository</a>. This can be used to generate basic models, vocabularies and clue producers using one of three options: Metadata file; CSV files with data; Microsoft SQL Server. The generators need to be updated depending on each data source - more details can be found in the README section of the repository.</p>
+
+			</article>
+				<aside id="sticky-menu">
+					<ul>
+							<li>
+									For version 3.2
+							</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="/tree/master/_docs/10-Integration/build-integration.md"
+								>
+									<i class="fab fa-github"></i>
+									Edit this page
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://twitter.com/CluedInHQ"
+								>
+									<i class="fab fa-twitter"></i>
+									Follow us
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.facebook.com/cluedinhq/"
+								>
+									<i class="fab fa-facebook"></i>
+									Like us
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.linkedin.com/company/cluedin-aps/"
+								>
+									<i class="fab fa-linkedin-in"></i>
+									LinkedIn
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://vimeo.com/cluedin"
+								>
+									<i class="fab fa-vimeo"></i>
+									Vimeo
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.youtube.com/channel/UC3jeVGsDC97C81ISJLUhszQ"
+								>
+									<i class="fab fa-youtube"></i>
+									Subscribe
+								</a>
+						</li>
+					</ul>
+				</aside>
+			</main>
+		</section>
+
+		<script>
+			document.getElementById("open-nav").addEventListener("click", function () {
+				document.body.classList.toggle("nav-open");
+			});
+		</script>
+
+    <script async src="http://documentation.cluedin.net/beta-docs/versions/3.2.3/scripts/prism.js"></script>
+	</body>
+</html>

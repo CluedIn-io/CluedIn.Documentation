@@ -1,0 +1,3 @@
+User-agent: *
+Sitemap: https://documentation.cluedin.net//sitemap.xml
+Disallow: /search/

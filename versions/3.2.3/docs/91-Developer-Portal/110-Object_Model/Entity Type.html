@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Entity Type | CluedIn Documentation</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Entity Type" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An Entity Type is your way to tell a Clue its base object type. This could be any of the inbuilt Entity Types from CluedIn, or it could be custom types as well. A Clue can only have one type, but an entity may have decided its type based off different entity types from many Clues. For example, if one Clue was of type “/Infrastructure/Contact” and one was “Person”, then the final Entity will choose one of these types - you cannot have more than one Entity Type." />
+<meta property="og:description" content="An Entity Type is your way to tell a Clue its base object type. This could be any of the inbuilt Entity Types from CluedIn, or it could be custom types as well. A Clue can only have one type, but an entity may have decided its type based off different entity types from many Clues. For example, if one Clue was of type “/Infrastructure/Contact” and one was “Person”, then the final Entity will choose one of these types - you cannot have more than one Entity Type." />
+<link rel="canonical" href="https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Type.html" />
+<meta property="og:url" content="https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Type.html" />
+<meta property="og:site_name" content="CluedIn Documentation" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-05T17:48:06+00:00" />
+<script type="application/ld+json">
+{"datePublished":"2021-09-05T17:48:06+00:00","url":"https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Type.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/siteicon.png"}},"description":"An Entity Type is your way to tell a Clue its base object type. This could be any of the inbuilt Entity Types from CluedIn, or it could be custom types as well. A Clue can only have one type, but an entity may have decided its type based off different entity types from many Clues. For example, if one Clue was of type “/Infrastructure/Contact” and one was “Person”, then the final Entity will choose one of these types - you cannot have more than one Entity Type.","headline":"Entity Type","dateModified":"2021-09-05T17:48:06+00:00","@type":"Article","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+		<link type="application/atom+xml" rel="alternate" href="https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/feed.xml" title="CluedIn Documentation" />
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
+		<link rel="stylesheet" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/css/main.css">
+		<link rel="apple-touch-icon" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/touch-icon.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/images/favicon.png">
+		<script src="https://kit.fontawesome.com/53f65601e3.js" crossorigin="anonymous"></script>
+
+		
+    <link rel="stylesheet" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/css/prism.css">
+    <!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2770606.js"></script>
+<!-- End of HubSpot Embed Code -->
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/"><img src="http://documentation.cluedin.net/beta-docs/versions/3.2.3/images/cluedin-logo-c.svg" width="40" height="40" alt="CluedIn Documentation logo"></a>
+				CluedIn Documentation
+				<button type="button" class="open-nav" id="open-nav"></button>
+			</h1>
+
+			<form action="http://documentation.cluedin.net/beta-docs/versions/3.2.3/search.html" method="get">
+				<input type="text" name="q" id="search-input" placeholder="Type to search" autofocus>
+				<input type="submit" value="Search" style="display: none;">
+			</form>
+
+			<nav >
+				<ul>
+					<li class="nav-item top-level ">
+						
+						<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/">What is CluedIn</a>
+					</li>
+				</ul>
+
+				<ul>
+					
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/ssl.html">Get Started</a>
+							<ul>
+								
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/1-default.html">CluedIn Overview</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/30-docker-local.html">CluedIn with Docker</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/40-kubernetes.html">CluedIn with Kubernetes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/81-home-dashboard.html">Home Dashboard</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/90-frequently-asked-questions.html">Frequently asked questions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/Running%20CluedIn%20Efficiently.html">Running CluedIn Efficiently for Cost</a></li>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/0-Welcome-to-CluedIn.html">Welcome to CluedIn</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/50-Consume/Generating%20an%20API%20Token.html">Administration</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/50-Consume/Generating%20an%20API%20Token.html">Generating an API Token</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/20-Users/Adding%20Team%20Members.html">Users</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/30-Authentication/index.html">Authentication</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/40-Theme/index.html">Theme</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/60-Accounts_Multitenancy/0-index.html">Multitenancy</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/70-Removing_data/index.html">Removing data</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/80-Upgrading%20CluedIn/index.html">Changing versions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/90-Backup_Restore/index.html">Backup and Restore</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/10-Profile/index.html">Profile</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/modify-integration.html">Integration</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/modify-integration.html">Modify an Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/Crawling.html">Crawling</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/Help%20with%20building%20robust%20integrations.html">Help with building robust integrations</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/Home%20Screen.html">Home Screen</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/Push%20data%20to%20CluedIn.html">Push Data to CluedIn</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/add-integration.html">How to add an Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/build-enricher.html">Build Enricher</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/build-integration.html">Build Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/delta-crawls.html">Delta Crawls</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/install-integration.html">Install Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/integration-compatible-with-UI.html">Integration and the CluedIn UI</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/0-index.html">What are integrations</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/entity-setup.html">Preparation</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/entity-setup.html">Entity Type and UI</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/CluedIn-Connect/CluedIn%20Connect.html">CluedIn Connect</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Data-Metrics/10-Data-Quality-Metrics.html">Data Quality Metrics</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Data-Metrics/20-Most-Used-Data-Quality-Metrics.html">Most Used Data Quality Metrics</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Data-Metrics/30-How-To-Add-a-Data-Quality-Metric.html">How to add a new Data Quality Metric</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Data-Metrics/40-Data-Quality-Metrics-Explanations.html">Data Quality Metric Explanations</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Engine-Room/Engine%20Room.html">Engine Room</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Entity-Types/Entity%20Type%20Translation.html">Entity Type Translation</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Shadow-Entities/Shadow%20Entities.html">Shadow Entities</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Aggregate/Aggregation.html">Aggregation</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/10-Data_Training/CluedIn%20Train.html">Manipulation</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/10-Data_Training/CluedIn%20Train.html">CluedIn Train</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/20-Data_Cleaning/CluedIn%20Clean.html">CluedIn Clean</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/30-Merging_Records/Fuzzy%20Merging%20Explained.html">Fuzzy Merging Explained</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/30-Merging_Records/Merging%20Records.html">Merging Records</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/40-Mesh_Center/Mesh%20Center.html">Mesh Center</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/50-Splitting_Records/Splitting%20Records.html">Splitting Records</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/index.html">Transforming Data</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Subject-Access-Requests/Subject%20Access%20Requests.html">Governance</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Subject-Access-Requests/Subject%20Access%20Requests.html">Subject Access Requests</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Consent-Management/Consent%20Management.html">Consent Management</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Breaches/Data%20Breaches.html">Data Breaches</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Catalog/Data%20Catalog.html">Data Catalog</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Glossary/Data%20Glossary.html">Data Glossary</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Policies/Data%20Policies.html">Data Policies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Privacy/Data%20Privacy.html">Data Privacy</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Retention/Data%20Retention.html">Data Retention</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Governance.html">Data Governance</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Mesh-API/Mesh%20API.html">Mesh API</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Access-Control/Access%20Control.html">Access Control</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/60-Management/Duplicate%20List.html">Management</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/60-Management/Duplicate%20List.html">Duplicate List</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/60-Management/Rules/Rules.html">Rules</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level current">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/DeveloperPortal.html">Developer</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/DeveloperPortal.html">Developer Portal</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/10-Administration_Operations/Administration%20Operations.html">Administration Operations</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/100-Logging/Building%20a%20new%20Logging%20Provider.html">Building a new Logging Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Change%20Verbs.html">Change Verbs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Clue.html">Clue</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Core%20Vocabularies.html">Core Vocabularies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Data%20Part.html">Data Part</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Dynamic%20Vocabularies.html">Dynamic Vocabularies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Edge%20Types.html">Edge Types</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Edges.html">Edges</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Codes.html">Entity Codes</a></li>
+									
+								
+									
+										<li class="nav-item current"><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Type.html">Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Types/Infrastructure%20User%20Entity%20Type.html">Infrastructure User Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Types/Organization%20Entity%20Type.html">Organization Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Types/Person%20Entity%20Type.html">Person Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity.html">Entity</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Origin.html">Origin</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabularies.html">Vocabularies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabularies/Organization%20Vocaulary.html">Organization Vocaulary</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabularies/Person%20Vocabulary.html">Person Vocabulary</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabulary%20Groupings.html">Vocabulary Groupings</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabulary%20Values.html">Vocabulary Values</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/120-Other/Common%20Design%20Decisions.html">Common Design Decisions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/120-Other/Common%20Problems.html">Common Problems</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/130-Parent_Aggregation/Parent%20Aggregation.html">Parent Aggregation</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/140-Preview_Image/Setting%20a%20Preview%20Image%20for%20a%20Clue.html">Setting a Preview Image for a Clue</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Adding%20a%20new%20Processing%20Pipeline.html">Adding a new Processing Pipeline</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/CluedIn%20Performance%20Metrics.html">CluedIn Performance Metrics</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Extending%20an%20Existing%20Pipeline%20Process.html">Extending an Existing Pipeline Process</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Ignoring%20Insignificant%20Changes.html">Ignoring Insignificant Changes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Jobs/Agent%20Jobs.html">Agent Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Pipeline%20Overview.html">Processing Pipeline Overview</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20a%20Preprocessor.html">Adding a new PreProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20a%20new%20IProcessingFilter.html">Adding a new IProcessingFilter</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20an%20IDataPartProcessorExecutor.html">Adding an IDataPartProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20an%20IEntityTypeProcessor.html">Adding an IEntityTypeProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20an%20IMergePreProcessor.html">Adding an IMergePreProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Turning%20Clues%20into%20ProcessedEntityMetadata.html">Turning Clues into ProcessedEntityMetadata</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Workflows/Workflow%20Event%20Handlers.html">Workflow Event Handlers</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/170-Thumbnail_Extractors/Thumbnail%20Extractors.html">Thumbnail Extractors</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/20-Configuration/Changing%20Configuration%20Settings.html">Changing Configuration Settings</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/30-Content_Extraction/Content%20Extractors.html">Content Extractors</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/30-Content_Extraction/Downloading%20a%20File%20and%20Indexing%20the%20Content.html">Downloading a File and Indexing the Content</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/33-Commands/Commands.html">Commands</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/40-Datastores/Adding%20a%20new%20Datastore%20Provider.html">Adding a new Datastore Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/40-Datastores/Datastores.html">Datastores</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/40-Datastores/Switching%20a%20Datastore%20Provider.html">Switching a Datastore Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/50-Events/Events.html">Events</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/60-External_Search/Deploying%20a%20New%20External%20Search%20Provider.html">Deploying a New External Search Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/60-External_Search/External%20Search%20Providers.html">External Search Providers</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/70-Integration_Pattern/Eventual%20Connectivity.html">Eventual Connectivity</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/80-Integrity_Checks/Validate%20Server%20Heatlh.html">Validate Server Heatlh</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/90-Jobs/One%20Time%20Jobs.html">One Time Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/90-Jobs/Recurring%20Jobs.html">Recurring Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/90-Jobs/Scheduled%20Jobs.html">Scheduled Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/60-Management/Modelling/Modelling.html">Modelling</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/User%20Interface.html">User Interface</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/User%20Interface.html">User Interface</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/180-User_Interface/Customisations/Searching%20for%20data.html">Searching for data</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/180-User_Interface/Customisations/Suggested%20Searches.html">Suggested Searches</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/190-Webhooks/Webhooks.html">Webhooks</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Entity-Page/All%20Properties.html">All Properties</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Entity-Page/Entity%20Page.html">Entity Page</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Entity-Page/History.html">History</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Entity-Page/Pending%20Changes.html">Pending Changes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Followed-Entities/Followed%20Entities.html">Followed Entities</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Keep-in-the-loop/Keep%20in%20the%20loop.html">Keep in the loop</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/180-User_Interface/Customisations/Adding%20new%20Search%20Filters.html">Adding new Search Filters</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/55-Rules/Developing%20with%20Rules.html">Rules</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/55-Rules/Developing%20with%20Rules.html">Developing with Rules</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/98-upgrade-path/upgrade-23-to-24.html">Upgrade</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/98-upgrade-path/upgrade-23-to-24.html">From V2.3.x to V.2.4.x</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/99-releaseNotes/0-index.html">Release notes</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/99-releaseNotes/0-index.html">Handy Links</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Agents/Using%20Agents.html">Crawler</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Agents/Using%20Agents.html">Using Agents</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Crawler%20Validation%20Framework.html">Crawler Validation Framework</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Deploying%20a%20New%20Crawler.html">Deploying a New Crawler</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Mapping%20Encryption%20Levels%20and%20Integration%20Location.html">Mapping Encryption Levels and Integration Locations</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Search/Running%20Searches.html">Consume</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Search/Running%20Searches.html">Running Searches</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Data-Marts/Data%20Marts.html">Data Marts</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Export-Targets/Export%20Targets.html">Export Targets</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Graphql/Add%20GraphQL%20Entity%20Type%20Resolvers.html">Add GraphQL Entity Type Resolvers</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Graphql/GraphQL%20Actions.html">GraphQL Actions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Graphql/GraphQL.html">GraphQL</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Outgoing-Streams/Outgoing%20Streams.html">Streams</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Rest-API/Rest%20API.html">Rest API</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Search/Configuration%20Search%20Relevance.html">Configuration Search Relevance</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Consume.html">Consume</a></li>
+									
+								
+							</ul>
+						</li>
+					
+				</ul>
+			</nav>
+		</header>
+
+		<section class="main">
+			<div class="page-header">
+				<h2>Developer</h2>
+				<h3>Entity Type</h3>
+			</div>
+			<main>
+			<article class="content">
+				<p>An Entity Type is your way to tell a Clue its base object type. This could be any of the inbuilt Entity Types from CluedIn, or it could be custom types as well. A Clue can only have one type, but an entity may have decided its type based off different entity types from many Clues. For example, if one Clue was of type “/Infrastructure/Contact” and one was “Person”, then the final Entity will choose one of these types - you cannot have more than one Entity Type.</p>
+
+<p>Why do Entity Types have a “/” in them? CluedIn has a nested hierarchy of Entity Types that will separate the types by a forward slash. This hierarchy could be something such as “/Sales/Deal”, indicating that the “Deal” type is a child of the “Sale” entity type. We sometimes refer to these as “Namespaces”.</p>
+
+<p>By choosing certain Entity Types, CluedIn will do some automatic processing on that data. For example, if you add a custom Entity Type of “/Car”, then by default, CluedIn will most likely do absolutely no “smarts” on this entity. This is simply due to the fact that the CluedIn processing server will only listen to certain Entity Types and run extra processing on it. Your custom data will be persisted and made available - there is no issues with adding new types. If you would like to add “smarts” into the CluedIn processing server to handle your new Entity Type and either clean, validate, enrich or other - then you will need to add new Processors, based off the IProcessing interface.</p>
+
+<p>You can access all the default Entity Types using the Static EntityType class. Think of Entity Types like Domain Objects.</p>
+
+<p>Here is the list of supported Entity Types in a base install of CluedIn:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nn">CluedIn.Core.Data</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">EntityType</span>
+    <span class="p">{</span>
+        <span class="k">private</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">IDictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">EntityTypeSettings</span><span class="p">&gt;</span> <span class="n">SettingsCache</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ConcurrentDictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">EntityTypeSettings</span><span class="p">&gt;();</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">TemporalEntityType</span>           <span class="n">Temporal</span>            <span class="p">=</span> <span class="k">new</span> <span class="nf">TemporalEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">GeographyEntityType</span>          <span class="n">Geography</span>           <span class="p">=</span> <span class="k">new</span> <span class="nf">GeographyEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">LocationEntityType</span>           <span class="n">Location</span>            <span class="p">=</span> <span class="k">new</span> <span class="nf">LocationEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">ProviderEntityType</span>           <span class="n">Provider</span>            <span class="p">=</span> <span class="k">new</span> <span class="nf">ProviderEntityType</span><span class="p">();</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">InfrastructureEntityType</span>     <span class="n">Infrastructure</span>      <span class="p">=</span> <span class="k">new</span> <span class="nf">InfrastructureEntityType</span><span class="p">();</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Person</span>              <span class="p">=</span> <span class="s">"/Person"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">OrganizationEntityType</span>       <span class="n">Organization</span>        <span class="p">=</span> <span class="k">new</span> <span class="nf">OrganizationEntityType</span><span class="p">();</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">FilesEntityType</span>              <span class="n">Files</span>               <span class="p">=</span> <span class="k">new</span> <span class="nf">FilesEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">DocumentsEntityType</span>          <span class="n">Documents</span>           <span class="p">=</span> <span class="k">new</span> <span class="nf">DocumentsEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Document</span>            <span class="p">=</span> <span class="s">"/Document"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">ImagesEntityType</span>             <span class="n">Images</span>              <span class="p">=</span> <span class="k">new</span> <span class="nf">ImagesEntityType</span><span class="p">();</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">MailEntityType</span>               <span class="n">Mail</span>                <span class="p">=</span> <span class="k">new</span> <span class="nf">MailEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">MarketingEntityType</span>          <span class="n">Marketing</span>           <span class="p">=</span> <span class="k">new</span> <span class="nf">MarketingEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Project</span>             <span class="p">=</span> <span class="s">"/Project"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Topic</span>               <span class="p">=</span> <span class="s">"/Topic"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Tag</span>                 <span class="p">=</span> <span class="s">"/Tag"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">CommentEntityType</span>            <span class="n">Comment</span>             <span class="p">=</span> <span class="k">new</span> <span class="nf">CommentEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Announcement</span>        <span class="p">=</span> <span class="s">"/Announcement"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Partner</span>             <span class="p">=</span> <span class="s">"/Partner"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Discussion</span>          <span class="p">=</span> <span class="s">"/Discussion"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Note</span>                <span class="p">=</span> <span class="s">"/Note"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">PressRelease</span>        <span class="p">=</span> <span class="s">"/PressRelease"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Account</span>             <span class="p">=</span> <span class="s">"/Account"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Activity</span>            <span class="p">=</span> <span class="s">"/Activity"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Form</span>                <span class="p">=</span> <span class="s">"/Form"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Process</span>             <span class="p">=</span> <span class="s">"/Process"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">ProcessStage</span>        <span class="p">=</span> <span class="s">"/ProcessStage"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Question</span>            <span class="p">=</span> <span class="s">"/Question"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">ListEntityType</span>               <span class="n">List</span>                <span class="p">=</span> <span class="k">new</span> <span class="nf">ListEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">News</span>                <span class="p">=</span> <span class="s">"/News"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">FAQ</span>                 <span class="p">=</span> <span class="s">"/FAQ"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Task</span>                <span class="p">=</span> <span class="s">"/Task"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Skill</span>               <span class="p">=</span> <span class="s">"/Skill"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">IssueEntityType</span>              <span class="n">Issue</span>               <span class="p">=</span> <span class="k">new</span> <span class="nf">IssueEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">CalendarEntityType</span>           <span class="n">Calendar</span>            <span class="p">=</span> <span class="k">new</span> <span class="nf">CalendarEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">SourceCodeEntityType</span>         <span class="n">SourceCode</span>          <span class="p">=</span> <span class="k">new</span> <span class="nf">SourceCodeEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">PlanningEntityType</span>           <span class="n">Planning</span>            <span class="p">=</span> <span class="k">new</span> <span class="nf">PlanningEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">SalesEntityType</span>              <span class="n">Sales</span>               <span class="p">=</span> <span class="k">new</span> <span class="nf">SalesEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Component</span>           <span class="p">=</span> <span class="s">"/Component"</span><span class="p">;</span> <span class="c1">// TODO: Change to Software Component</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Channel</span>             <span class="p">=</span> <span class="s">"/Channel"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Product</span>             <span class="p">=</span> <span class="s">"/Product"</span><span class="p">;</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Enquiry</span>             <span class="p">=</span> <span class="s">"/Enquiry"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Idea</span>                <span class="p">=</span> <span class="s">"/Idea"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Link</span>                <span class="p">=</span> <span class="s">"/Links"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Certification</span>       <span class="p">=</span> <span class="s">"/Certification"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Unknown</span>             <span class="p">=</span> <span class="s">"/Unknown"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Card</span>                <span class="p">=</span> <span class="s">"/Card"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Template</span>            <span class="p">=</span> <span class="s">"/Template"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Industry</span>            <span class="p">=</span> <span class="s">"/Industry"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">PhoneNumber</span>         <span class="p">=</span> <span class="s">"/PhoneNumber"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">PhoneCall</span>           <span class="p">=</span> <span class="s">"/PhoneCall"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">Sms</span>                 <span class="p">=</span> <span class="s">"/Sms"</span><span class="p">;</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">EntityType</span>                   <span class="n">VoiceMail</span>           <span class="p">=</span> <span class="s">"/VoiceMail"</span><span class="p">;</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">WebEntityType</span>                <span class="n">Web</span>                 <span class="p">=</span> <span class="k">new</span> <span class="nf">WebEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">AccountingEntityType</span>         <span class="n">Accounting</span>          <span class="p">=</span> <span class="k">new</span> <span class="nf">AccountingEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">SupportEntityType</span>            <span class="n">Support</span>             <span class="p">=</span> <span class="k">new</span> <span class="nf">SupportEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">PaymentEntityType</span>            <span class="n">Payment</span>             <span class="p">=</span> <span class="k">new</span> <span class="nf">PaymentEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">FinanceEntityType</span>            <span class="n">Finance</span>             <span class="p">=</span> <span class="k">new</span> <span class="nf">FinanceEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">ConfigurationEntityType</span>      <span class="n">Configuration</span>       <span class="p">=</span> <span class="k">new</span> <span class="nf">ConfigurationEntityType</span><span class="p">();</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">HumanResourcesEntityType</span>     <span class="n">HR</span>                  <span class="p">=</span> <span class="k">new</span> <span class="nf">HumanResourcesEntityType</span><span class="p">();</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="n">EntityType</span> <span class="nf">FromFileCategory</span><span class="p">(</span><span class="n">FileCategory</span> <span class="n">category</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">switch</span> <span class="p">(</span><span class="n">category</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">case</span> <span class="n">FileCategory</span><span class="p">.</span><span class="n">Audio</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">EntityType</span><span class="p">.</span><span class="n">Documents</span><span class="p">.</span><span class="n">Audio</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">FileCategory</span><span class="p">.</span><span class="n">Video</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">EntityType</span><span class="p">.</span><span class="n">Documents</span><span class="p">.</span><span class="n">Video</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">FileCategory</span><span class="p">.</span><span class="n">PlainText</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">EntityType</span><span class="p">.</span><span class="n">Documents</span><span class="p">.</span><span class="n">PlainText</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">FileCategory</span><span class="p">.</span><span class="n">TextDocument</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">EntityType</span><span class="p">.</span><span class="n">Documents</span><span class="p">.</span><span class="n">Document</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">FileCategory</span><span class="p">.</span><span class="n">Presentation</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">EntityType</span><span class="p">.</span><span class="n">Documents</span><span class="p">.</span><span class="n">Presentation</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">FileCategory</span><span class="p">.</span><span class="n">Spreadsheet</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">EntityType</span><span class="p">.</span><span class="n">Documents</span><span class="p">.</span><span class="n">Spreadsheet</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">FileCategory</span><span class="p">.</span><span class="n">ImageBitmap</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">EntityType</span><span class="p">.</span><span class="n">Images</span><span class="p">.</span><span class="n">Image</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">FileCategory</span><span class="p">.</span><span class="n">Diagram</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">EntityType</span><span class="p">.</span><span class="n">Documents</span><span class="p">.</span><span class="n">Diagram</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">FileCategory</span><span class="p">.</span><span class="n">CompressedFileArchive</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">EntityType</span><span class="p">.</span><span class="n">Files</span><span class="p">.</span><span class="n">CompressedFileArchive</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="n">FileCategory</span><span class="p">.</span><span class="n">Win32Executable</span><span class="p">:</span>
+                    <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">TemporalEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Date</span>       <span class="p">=</span> <span class="s">"/Temporal/Date"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Week</span>       <span class="p">=</span> <span class="s">"/Temporal/Week"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Quarter</span>    <span class="p">=</span> <span class="s">"/Temporal/Quarter"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Month</span>      <span class="p">=</span> <span class="s">"/Temporal/Month"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Year</span>       <span class="p">=</span> <span class="s">"/Temporal/Year"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Decade</span>     <span class="p">=</span> <span class="s">"/Temporal/Decade"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Century</span>    <span class="p">=</span> <span class="s">"/Temporal/Century"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Millennium</span> <span class="p">=</span> <span class="s">"/Temporal/Millennium"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Temporal"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">InfrastructureEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">User</span>                         <span class="p">=</span> <span class="s">"/Infrastructure/User"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Location</span>                     <span class="p">=</span> <span class="s">"/Infrastructure/Location"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Contact</span>                      <span class="p">=</span> <span class="s">"/Infrastructure/Contact"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">License</span>                      <span class="p">=</span> <span class="s">"/Infrastructure/License"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Policy</span>                       <span class="p">=</span> <span class="s">"/Infrastructure/Policy"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Application</span>                  <span class="p">=</span> <span class="s">"/Infrastructure/Application"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Domain</span>                       <span class="p">=</span> <span class="s">"/Infrastructure/Domain"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Printer</span>                      <span class="p">=</span> <span class="s">"/Infrastructure/Printer"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Folder</span>                       <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Infrastructure/Folder"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Cloud</span>                        <span class="p">=</span> <span class="s">"/Infrastructure/Cloud"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Tenant</span>                       <span class="p">=</span> <span class="s">"/Infrastructure/Tenant"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Site</span>                         <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Infrastructure/Site"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Position</span>                     <span class="p">=</span> <span class="s">"/Infrastructure/Position"</span><span class="p">;</span> <span class="c1">// TODO</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">InfrastructureGroupEntityType</span> <span class="n">Group</span>     <span class="p">=</span> <span class="k">new</span> <span class="nf">InfrastructureGroupEntityType</span><span class="p">();</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">InfrastructureHostEntityType</span> <span class="n">Host</span>       <span class="p">=</span> <span class="k">new</span> <span class="nf">InfrastructureHostEntityType</span><span class="p">();</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">DirectoryItem</span>                <span class="p">=</span> <span class="s">"/Infrastructure/DirectoryItem"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">NetworkAddress</span>               <span class="p">=</span> <span class="s">"/Infrastructure/NetworkAddress"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Infrastructure"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">InfrastructureGroupEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Security</span>     <span class="p">=</span> <span class="s">"/Infrastructure/Group/Security"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Distribution</span> <span class="p">=</span> <span class="s">"/Infrastructure/Group/Distribution"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Infrastructure/Group"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">InfrastructureHostEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Server</span>       <span class="p">=</span> <span class="s">"/Infrastructure/Host/Server"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Computer</span>     <span class="p">=</span> <span class="s">"/Infrastructure/Host/Computer"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Laptop</span>       <span class="p">=</span> <span class="s">"/Infrastructure/Host/Laptop"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Infrastructure/Host"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">CommentEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Social</span>       <span class="p">=</span> <span class="s">"/Comment/Social"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Comment"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">OrganizationEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Competitor</span>   <span class="p">=</span> <span class="s">"/Organization/Competitor"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Department</span>   <span class="p">=</span> <span class="s">"/Organization/Department"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Unit</span>         <span class="p">=</span> <span class="s">"/Organization/Unit"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Organization"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">IssueEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Type</span>         <span class="p">=</span> <span class="s">"/Issue/Type"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Resolution</span>   <span class="p">=</span> <span class="s">"/Issue/Resolution"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Issue"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">CalendarEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Event</span>        <span class="p">=</span> <span class="s">"/Calendar/Event"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Meeting</span>      <span class="p">=</span> <span class="s">"/Calendar/Meeting"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Calendar"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">SourceCodeEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Repository</span>       <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/SourceCode/Repository"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Solution</span>         <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/SourceCode/Solution"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Project</span>          <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/SourceCode/Project"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Library</span>          <span class="p">=</span> <span class="s">"/SourceCode/Library"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Branch</span>           <span class="p">=</span> <span class="s">"/SourceCode/Branch"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">PullRequest</span>      <span class="p">=</span> <span class="s">"/SourceCode/PullRequest"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">File</span>             <span class="p">=</span> <span class="s">"/SourceCode/File"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">ChangeSet</span>        <span class="p">=</span> <span class="s">"/SourceCode/ChangeSet"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Build</span>            <span class="p">=</span> <span class="s">"/SourceCode/Build"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Deployment</span>       <span class="p">=</span> <span class="s">"/SourceCode/Deployment"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">DeploymentStatus</span> <span class="p">=</span> <span class="s">"/SourceCode/DeploymentStatus"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/SourceCode"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">PlanningEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">ProjectPlan</span>  <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Planning/ProjectPlan"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Iteration</span>    <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Planning/Iteration"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">KanbanBoard</span>  <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Planning/KanbanBoard"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Workspace</span>    <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Planning/Workspace"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Proposal</span>     <span class="p">=</span> <span class="s">"/Planning/Proposal"</span><span class="p">;</span>
+
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">PlanningScrumEntityType</span> <span class="n">Scrum</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">PlanningScrumEntityType</span><span class="p">();</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Planning"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">PlanningScrumEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Sprint</span>               <span class="p">=</span> <span class="s">"/Planning/Scrum/Sprint"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">BacklogItem</span>          <span class="p">=</span> <span class="s">"/Planning/Scrum/BacklogItem"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Epic</span>                 <span class="p">=</span> <span class="s">"/Planning/Scrum/Epic"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">SprintReview</span>         <span class="p">=</span> <span class="s">"/Planning/Scrum/SprintReview"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">SprintRetrospective</span>  <span class="p">=</span> <span class="s">"/Planning/Scrum/SprintRetrospective"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">DefinitionOfDone</span>     <span class="p">=</span> <span class="s">"/Planning/Scrum/DefinitionOfDone"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Planning/Scrum"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">SalesEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Sale</span>         <span class="p">=</span> <span class="s">"/Sales/Sale"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Contract</span>     <span class="p">=</span> <span class="s">"/Sales/Contract"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Deal</span>         <span class="p">=</span> <span class="s">"/Sales/Deal"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Quote</span>        <span class="p">=</span> <span class="s">"/Sales/Quote"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Lead</span>         <span class="p">=</span> <span class="s">"/Sales/Lead"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Opportunity</span>  <span class="p">=</span> <span class="s">"/Sales/Opportunity"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Order</span>        <span class="p">=</span> <span class="s">"/Sales/Order"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Sales"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">SupportEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Entitlement</span>  <span class="p">=</span> <span class="s">"/Support/Entitlement"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Ticket</span>       <span class="p">=</span> <span class="s">"/Support/Ticket"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Support"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">LocationEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Address</span>      <span class="p">=</span> <span class="s">"/Location/Address"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Location"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">GeographyEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Country</span>      <span class="p">=</span> <span class="s">"/Geography/Country"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">City</span>         <span class="p">=</span> <span class="s">"/Geography/City"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">State</span>        <span class="p">=</span> <span class="s">"/Geography/State"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">TimeZone</span>     <span class="p">=</span> <span class="s">"/Geography/TimeZone"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Territory</span>    <span class="p">=</span> <span class="s">"/Geography/Territory"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Geography"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">FilesEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">File</span>                     <span class="p">=</span> <span class="s">"/Files/File"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Directory</span>                <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Files/Directory"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">CompressedFileArchive</span>    <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Files/CompressedFileArchive"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Files"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">DocumentsEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Database</span>     <span class="p">=</span> <span class="s">"/Document/Database"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">PlainText</span>    <span class="p">=</span> <span class="s">"/Document/PlainText"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Document</span>     <span class="p">=</span> <span class="s">"/Document/Document"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Presentation</span> <span class="p">=</span> <span class="s">"/Document/Presentation"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Spreadsheet</span>  <span class="p">=</span> <span class="s">"/Document/Spreadsheet"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Audio</span>        <span class="p">=</span> <span class="s">"/Document/Audio"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Video</span>        <span class="p">=</span> <span class="s">"/Document/Video"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Diagram</span>      <span class="p">=</span> <span class="s">"/Document/Diagram"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Document"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">ImagesEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Image</span>        <span class="p">=</span> <span class="s">"/Image"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Album</span>        <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Album"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Diagram</span>      <span class="p">=</span> <span class="s">"/Image/Diagram"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Photograph</span>   <span class="p">=</span> <span class="s">"/Image/Photograph"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Image"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">ProviderEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Root</span>         <span class="p">=</span> <span class="s">"/Provider/Root"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Provider"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">MailEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Folder</span>       <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Mail/Folder"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Thread</span>       <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Mail/Thread"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Attachment</span>   <span class="p">=</span> <span class="s">"/Mail/Attachment"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Task</span> <span class="p">=</span> <span class="s">"/Mail/Task"</span><span class="p">;</span> <span class="c1">//</span>
+            <span class="p">[</span><span class="n">Obsolete</span><span class="p">]</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Event</span>        <span class="p">=</span> <span class="s">"/Mail/Event"</span><span class="p">;</span> <span class="c1">// TODO: Remove this</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Mail"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">MarketingEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Campaign</span> <span class="p">=</span> <span class="s">"/Marketing/Campaign"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Goal</span>     <span class="p">=</span> <span class="s">"/Marketing/Goal"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Ad</span>       <span class="p">=</span> <span class="s">"/Marketing/Ad"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Persona</span>  <span class="p">=</span> <span class="s">"/Marketing/Persona"</span><span class="p">;</span> <span class="c1">// TODO: Remove this</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Marketing"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">WebEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Site</span> <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Web/Site"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Page</span> <span class="p">=</span> <span class="s">"/Web/Page"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Web"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">AccountingEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Year</span>         <span class="p">=</span> <span class="s">"/Accounting/Year"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Period</span>       <span class="p">=</span> <span class="s">"/Accounting/Period"</span><span class="p">;</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">CostCenter</span>   <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Accounting/CostCenter"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Group</span>        <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/Accounting/Group"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"/Accounting"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">ListEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Item</span>         <span class="p">=</span> <span class="s">"/List/ListItem"</span><span class="p">;</span>
+            <span class="k">private</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">baseType</span>    <span class="p">=</span> <span class="n">EntityType</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"/List"</span><span class="p">,</span> <span class="n">settings</span> <span class="p">=&gt;</span> <span class="n">settings</span><span class="p">.</span><span class="n">IsEntityContainer</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">=&gt;</span> <span class="n">baseType</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">PaymentEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">PaymentCardEntityType</span> <span class="n">Card</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">PaymentCardEntityType</span><span class="p">();</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">=&gt;</span> <span class="s">"/Payment"</span><span class="p">;</span>
+
+            <span class="k">public</span> <span class="k">class</span> <span class="nc">PaymentCardEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+            <span class="p">{</span>
+                <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">CreditCard</span>       <span class="p">=</span> <span class="s">"/Payment/Card/CreditCard"</span><span class="p">;</span>
+                <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">DebitCard</span>        <span class="p">=</span> <span class="s">"/Payment/Card/DebitCard"</span><span class="p">;</span>
+                <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">ChargeCard</span>       <span class="p">=</span> <span class="s">"/Payment/Card/ChargeCard"</span><span class="p">;</span>
+                <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">ATMCard</span>          <span class="p">=</span> <span class="s">"/Payment/Card/ATMCard"</span><span class="p">;</span>
+                <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">StoreValueCard</span>   <span class="p">=</span> <span class="s">"/Payment/Card/StoreValueCard"</span><span class="p">;</span>
+                <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">GiftCard</span>         <span class="p">=</span> <span class="s">"/Payment/Card/GiftCard"</span><span class="p">;</span>
+                <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">StoreCard</span>        <span class="p">=</span> <span class="s">"/Payment/Card/StoreCard"</span><span class="p">;</span>
+
+                <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">=&gt;</span> <span class="s">"/Payment/Card"</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">FinanceEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">BankAccount</span>  <span class="p">=</span> <span class="s">"/Finance/BankAccount"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">=&gt;</span> <span class="s">"/Finance"</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">ConfigurationEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">Setting</span>  <span class="p">=</span> <span class="s">"/Configuration/Setting"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">=&gt;</span> <span class="s">"/Configuration"</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">class</span> <span class="nc">HumanResourcesEntityType</span> <span class="p">:</span> <span class="n">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">readonly</span> <span class="n">EntityType</span> <span class="n">WorkSchedule</span> <span class="p">=</span> <span class="s">"/HR/WorkSchedule"</span><span class="p">;</span>
+
+            <span class="k">protected</span> <span class="k">override</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">=&gt;</span> <span class="s">"/HR"</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">HierarichalEntityType</span>
+        <span class="p">{</span>
+            <span class="k">protected</span> <span class="k">abstract</span> <span class="n">EntityType</span> <span class="n">BaseType</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="p">}</span>
+
+            <span class="k">public</span> <span class="k">static</span> <span class="kt">bool</span> <span class="k">operator</span> <span class="p">==(</span><span class="n">EntityType</span> <span class="n">type1</span><span class="p">,</span> <span class="n">HierarichalEntityType</span> <span class="n">type2</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">type1</span> <span class="p">==</span> <span class="p">(</span><span class="n">EntityType</span><span class="p">)</span><span class="n">type2</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">public</span> <span class="k">static</span> <span class="kt">bool</span> <span class="k">operator</span> <span class="p">!=(</span><span class="n">EntityType</span> <span class="n">type1</span><span class="p">,</span> <span class="n">HierarichalEntityType</span> <span class="n">type2</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">type1</span> <span class="p">!=</span> <span class="p">(</span><span class="n">EntityType</span><span class="p">)</span><span class="n">type2</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">public</span> <span class="k">static</span> <span class="kt">bool</span> <span class="k">operator</span> <span class="p">==(</span><span class="n">HierarichalEntityType</span> <span class="n">type1</span><span class="p">,</span> <span class="n">EntityType</span> <span class="n">type2</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="p">((</span><span class="n">EntityType</span><span class="p">)</span><span class="n">type1</span><span class="p">)</span> <span class="p">==</span> <span class="n">type2</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">public</span> <span class="k">static</span> <span class="kt">bool</span> <span class="k">operator</span> <span class="p">!=(</span><span class="n">HierarichalEntityType</span> <span class="n">type1</span><span class="p">,</span> <span class="n">EntityType</span> <span class="n">type2</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="p">((</span><span class="n">EntityType</span><span class="p">)</span><span class="n">type1</span><span class="p">)</span> <span class="p">!=</span> <span class="n">type2</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">public</span> <span class="k">static</span> <span class="k">implicit</span> <span class="k">operator</span> <span class="nf">EntityType</span><span class="p">(</span><span class="n">HierarichalEntityType</span> <span class="n">type</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">type</span><span class="p">.</span><span class="n">BaseType</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">public</span> <span class="k">static</span> <span class="k">implicit</span> <span class="k">operator</span> <span class="kt">string</span><span class="p">(</span><span class="n">HierarichalEntityType</span> <span class="n">type</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">type</span><span class="p">.</span><span class="n">BaseType</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">public</span> <span class="k">override</span> <span class="kt">string</span> <span class="nf">ToString</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="p">((</span><span class="n">EntityType</span><span class="p">)</span><span class="k">this</span><span class="p">).</span><span class="nf">ToString</span><span class="p">();</span>
+            <span class="p">}</span>
+
+            <span class="k">public</span> <span class="k">override</span> <span class="kt">int</span> <span class="nf">GetHashCode</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="p">((</span><span class="n">EntityType</span><span class="p">)</span><span class="k">this</span><span class="p">).</span><span class="nf">GetHashCode</span><span class="p">();</span>
+            <span class="p">}</span>
+
+            <span class="k">public</span> <span class="k">override</span> <span class="kt">bool</span> <span class="nf">Equals</span><span class="p">(</span><span class="kt">object</span> <span class="n">obj</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">BaseType</span><span class="p">.</span><span class="nf">Equals</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>	
+</code></pre></div></div>
+
+			</article>
+				<aside id="sticky-menu">
+					<ul>
+							<li>
+									For version 3.2
+							</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="/tree/master/_docs/91-Developer-Portal/110-Object_Model/Entity Type.md"
+								>
+									<i class="fab fa-github"></i>
+									Edit this page
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://twitter.com/CluedInHQ"
+								>
+									<i class="fab fa-twitter"></i>
+									Follow us
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.facebook.com/cluedinhq/"
+								>
+									<i class="fab fa-facebook"></i>
+									Like us
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.linkedin.com/company/cluedin-aps/"
+								>
+									<i class="fab fa-linkedin-in"></i>
+									LinkedIn
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://vimeo.com/cluedin"
+								>
+									<i class="fab fa-vimeo"></i>
+									Vimeo
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.youtube.com/channel/UC3jeVGsDC97C81ISJLUhszQ"
+								>
+									<i class="fab fa-youtube"></i>
+									Subscribe
+								</a>
+						</li>
+					</ul>
+				</aside>
+			</main>
+		</section>
+
+		<script>
+			document.getElementById("open-nav").addEventListener("click", function () {
+				document.body.classList.toggle("nav-open");
+			});
+		</script>
+
+    <script async src="http://documentation.cluedin.net/beta-docs/versions/3.2.3/scripts/prism.js"></script>
+	</body>
+</html>
