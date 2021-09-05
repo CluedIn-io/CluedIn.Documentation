@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Using Agents | CluedIn Documentation</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Using Agents" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Agents are the orchestrators of running integrations. Agents allow you to run crawlers in remote environments, typically on different machines, even in different physical environments." />
+<meta property="og:description" content="Agents are the orchestrators of running integrations. Agents allow you to run crawlers in remote environments, typically on different machines, even in different physical environments." />
+<link rel="canonical" href="https://documentation.cluedin.net//https://documentation.cluedin.net/versions/3.2.3/docs/Crawler/Agents/Using%20Agents.html" />
+<meta property="og:url" content="https://documentation.cluedin.net//https://documentation.cluedin.net/versions/3.2.3/docs/Crawler/Agents/Using%20Agents.html" />
+<meta property="og:site_name" content="CluedIn Documentation" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-05T18:42:43+00:00" />
+<script type="application/ld+json">
+{"datePublished":"2021-09-05T18:42:43+00:00","url":"https://documentation.cluedin.net//https://documentation.cluedin.net/versions/3.2.3/docs/Crawler/Agents/Using%20Agents.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://documentation.cluedin.net//https://documentation.cluedin.net/versions/3.2.3/siteicon.png"}},"description":"Agents are the orchestrators of running integrations. Agents allow you to run crawlers in remote environments, typically on different machines, even in different physical environments.","headline":"Using Agents","dateModified":"2021-09-05T18:42:43+00:00","@type":"Article","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+		<link type="application/atom+xml" rel="alternate" href="https://documentation.cluedin.net//https://documentation.cluedin.net/versions/3.2.3/feed.xml" title="CluedIn Documentation" />
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
+		<link rel="stylesheet" href="https://documentation.cluedin.net/versions/3.2.3/css/main.css">
+		<link rel="apple-touch-icon" href="https://documentation.cluedin.net/versions/3.2.3/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="https://documentation.cluedin.net/versions/3.2.3/touch-icon.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="https://documentation.cluedin.net/versions/3.2.3/images/favicon.png">
+		<script src="https://kit.fontawesome.com/53f65601e3.js" crossorigin="anonymous"></script>
+
+		
+    <link rel="stylesheet" href="https://documentation.cluedin.net/versions/3.2.3/css/prism.css">
+    <!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2770606.js"></script>
+<!-- End of HubSpot Embed Code -->
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				<a href="https://documentation.cluedin.net/versions/3.2.3/"><img src="https://documentation.cluedin.net/versions/3.2.3/images/cluedin-logo-c.svg" width="40" height="40" alt="CluedIn Documentation logo"></a>
+				CluedIn Documentation
+				<button type="button" class="open-nav" id="open-nav"></button>
+			</h1>
+
+			<form action="https://documentation.cluedin.net/versions/3.2.3/search.html" method="get">
+				<input type="text" name="q" id="search-input" placeholder="Type to search" autofocus>
+				<input type="submit" value="Search" style="display: none;">
+			</form>
+
+			<nav >
+				<ul>
+					<li class="nav-item top-level ">
+						
+						<a href="https://documentation.cluedin.net/versions/3.2.3/">What is CluedIn</a>
+					</li>
+				</ul>
+
+				<ul>
+					
+					
+						<li class="nav-item top-level ">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/00-gettingStarted/ssl.html">Get Started</a>
+							<ul>
+								
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/00-gettingStarted/1-default.html">CluedIn Overview</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/00-gettingStarted/30-docker-local.html">CluedIn with Docker</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/00-gettingStarted/40-kubernetes.html">CluedIn with Kubernetes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/00-gettingStarted/81-home-dashboard.html">Home Dashboard</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/00-gettingStarted/90-frequently-asked-questions.html">Frequently asked questions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/00-gettingStarted/Running%20CluedIn%20Efficiently.html">Running CluedIn Efficiently for Cost</a></li>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/00-gettingStarted/0-Welcome-to-CluedIn.html">Welcome to CluedIn</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/50-Consume/Generating%20an%20API%20Token.html">Administration</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/50-Consume/Generating%20an%20API%20Token.html">Generating an API Token</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/05-Administration/20-Users/Adding%20Team%20Members.html">Users</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/05-Administration/30-Authentication/index.html">Authentication</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/05-Administration/40-Theme/index.html">Theme</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/05-Administration/60-Accounts_Multitenancy/0-index.html">Multitenancy</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/05-Administration/70-Removing_data/index.html">Removing data</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/05-Administration/80-Upgrading%20CluedIn/index.html">Changing versions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/05-Administration/90-Backup_Restore/index.html">Backup and Restore</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/05-Administration/10-Profile/index.html">Profile</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/10-Integration/modify-integration.html">Integration</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/10-Integration/modify-integration.html">Modify an Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/10-Integration/Crawling.html">Crawling</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/10-Integration/Help%20with%20building%20robust%20integrations.html">Help with building robust integrations</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/10-Integration/Home%20Screen.html">Home Screen</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/10-Integration/Push%20data%20to%20CluedIn.html">Push Data to CluedIn</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/10-Integration/add-integration.html">How to add an Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/10-Integration/build-enricher.html">Build Enricher</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/10-Integration/build-integration.html">Build Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/10-Integration/delta-crawls.html">Delta Crawls</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/10-Integration/install-integration.html">Install Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/10-Integration/integration-compatible-with-UI.html">Integration and the CluedIn UI</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/10-Integration/0-index.html">What are integrations</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/20-Preparation/entity-setup.html">Preparation</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/20-Preparation/entity-setup.html">Entity Type and UI</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/20-Preparation/CluedIn-Connect/CluedIn%20Connect.html">CluedIn Connect</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/20-Preparation/Data-Metrics/10-Data-Quality-Metrics.html">Data Quality Metrics</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/20-Preparation/Data-Metrics/20-Most-Used-Data-Quality-Metrics.html">Most Used Data Quality Metrics</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/20-Preparation/Data-Metrics/30-How-To-Add-a-Data-Quality-Metric.html">How to add a new Data Quality Metric</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/20-Preparation/Data-Metrics/40-Data-Quality-Metrics-Explanations.html">Data Quality Metric Explanations</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/20-Preparation/Engine-Room/Engine%20Room.html">Engine Room</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/20-Preparation/Entity-Types/Entity%20Type%20Translation.html">Entity Type Translation</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/20-Preparation/Shadow-Entities/Shadow%20Entities.html">Shadow Entities</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/20-Preparation/Aggregate/Aggregation.html">Aggregation</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/30-Manipulation/10-Data_Training/CluedIn%20Train.html">Manipulation</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/30-Manipulation/10-Data_Training/CluedIn%20Train.html">CluedIn Train</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/30-Manipulation/20-Data_Cleaning/CluedIn%20Clean.html">CluedIn Clean</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/30-Manipulation/30-Merging_Records/Fuzzy%20Merging%20Explained.html">Fuzzy Merging Explained</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/30-Manipulation/30-Merging_Records/Merging%20Records.html">Merging Records</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/30-Manipulation/40-Mesh_Center/Mesh%20Center.html">Mesh Center</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/30-Manipulation/50-Splitting_Records/Splitting%20Records.html">Splitting Records</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/30-Manipulation/index.html">Transforming Data</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/40-Governance/Subject-Access-Requests/Subject%20Access%20Requests.html">Governance</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/40-Governance/Subject-Access-Requests/Subject%20Access%20Requests.html">Subject Access Requests</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/40-Governance/Consent-Management/Consent%20Management.html">Consent Management</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/40-Governance/Data-Breaches/Data%20Breaches.html">Data Breaches</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/40-Governance/Data-Catalog/Data%20Catalog.html">Data Catalog</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/40-Governance/Data-Glossary/Data%20Glossary.html">Data Glossary</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/40-Governance/Data-Policies/Data%20Policies.html">Data Policies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/40-Governance/Data-Privacy/Data%20Privacy.html">Data Privacy</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/40-Governance/Data-Retention/Data%20Retention.html">Data Retention</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/40-Governance/Governance.html">Data Governance</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/40-Governance/Mesh-API/Mesh%20API.html">Mesh API</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/40-Governance/Access-Control/Access%20Control.html">Access Control</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/60-Management/Duplicate%20List.html">Management</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/60-Management/Duplicate%20List.html">Duplicate List</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/60-Management/Rules/Rules.html">Rules</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/DeveloperPortal.html">Developer</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/DeveloperPortal.html">Developer Portal</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/10-Administration_Operations/Administration%20Operations.html">Administration Operations</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/100-Logging/Building%20a%20new%20Logging%20Provider.html">Building a new Logging Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Change%20Verbs.html">Change Verbs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Clue.html">Clue</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Core%20Vocabularies.html">Core Vocabularies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Data%20Part.html">Data Part</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Dynamic%20Vocabularies.html">Dynamic Vocabularies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Edge%20Types.html">Edge Types</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Edges.html">Edges</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Codes.html">Entity Codes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Type.html">Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Types/Infrastructure%20User%20Entity%20Type.html">Infrastructure User Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Types/Organization%20Entity%20Type.html">Organization Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Types/Person%20Entity%20Type.html">Person Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity.html">Entity</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Origin.html">Origin</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabularies.html">Vocabularies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabularies/Organization%20Vocaulary.html">Organization Vocaulary</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabularies/Person%20Vocabulary.html">Person Vocabulary</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabulary%20Groupings.html">Vocabulary Groupings</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabulary%20Values.html">Vocabulary Values</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/120-Other/Common%20Design%20Decisions.html">Common Design Decisions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/120-Other/Common%20Problems.html">Common Problems</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/130-Parent_Aggregation/Parent%20Aggregation.html">Parent Aggregation</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/140-Preview_Image/Setting%20a%20Preview%20Image%20for%20a%20Clue.html">Setting a Preview Image for a Clue</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Adding%20a%20new%20Processing%20Pipeline.html">Adding a new Processing Pipeline</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/150-Processing/CluedIn%20Performance%20Metrics.html">CluedIn Performance Metrics</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Extending%20an%20Existing%20Pipeline%20Process.html">Extending an Existing Pipeline Process</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Ignoring%20Insignificant%20Changes.html">Ignoring Insignificant Changes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Jobs/Agent%20Jobs.html">Agent Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Pipeline%20Overview.html">Processing Pipeline Overview</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20a%20Preprocessor.html">Adding a new PreProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20a%20new%20IProcessingFilter.html">Adding a new IProcessingFilter</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20an%20IDataPartProcessorExecutor.html">Adding an IDataPartProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20an%20IEntityTypeProcessor.html">Adding an IEntityTypeProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20an%20IMergePreProcessor.html">Adding an IMergePreProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Turning%20Clues%20into%20ProcessedEntityMetadata.html">Turning Clues into ProcessedEntityMetadata</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Workflows/Workflow%20Event%20Handlers.html">Workflow Event Handlers</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/170-Thumbnail_Extractors/Thumbnail%20Extractors.html">Thumbnail Extractors</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/20-Configuration/Changing%20Configuration%20Settings.html">Changing Configuration Settings</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/30-Content_Extraction/Content%20Extractors.html">Content Extractors</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/30-Content_Extraction/Downloading%20a%20File%20and%20Indexing%20the%20Content.html">Downloading a File and Indexing the Content</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/33-Commands/Commands.html">Commands</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/40-Datastores/Adding%20a%20new%20Datastore%20Provider.html">Adding a new Datastore Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/40-Datastores/Datastores.html">Datastores</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/40-Datastores/Switching%20a%20Datastore%20Provider.html">Switching a Datastore Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/50-Events/Events.html">Events</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/60-External_Search/Deploying%20a%20New%20External%20Search%20Provider.html">Deploying a New External Search Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/60-External_Search/External%20Search%20Providers.html">External Search Providers</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/70-Integration_Pattern/Eventual%20Connectivity.html">Eventual Connectivity</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/80-Integrity_Checks/Validate%20Server%20Heatlh.html">Validate Server Heatlh</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/90-Jobs/One%20Time%20Jobs.html">One Time Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/90-Jobs/Recurring%20Jobs.html">Recurring Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/90-Jobs/Scheduled%20Jobs.html">Scheduled Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/60-Management/Modelling/Modelling.html">Modelling</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/U-User-Interface/User%20Interface.html">User Interface</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/U-User-Interface/User%20Interface.html">User Interface</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/180-User_Interface/Customisations/Searching%20for%20data.html">Searching for data</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/180-User_Interface/Customisations/Suggested%20Searches.html">Suggested Searches</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/190-Webhooks/Webhooks.html">Webhooks</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/U-User-Interface/Entity-Page/All%20Properties.html">All Properties</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/U-User-Interface/Entity-Page/Entity%20Page.html">Entity Page</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/U-User-Interface/Entity-Page/History.html">History</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/U-User-Interface/Entity-Page/Pending%20Changes.html">Pending Changes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/U-User-Interface/Followed-Entities/Followed%20Entities.html">Followed Entities</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/U-User-Interface/Keep-in-the-loop/Keep%20in%20the%20loop.html">Keep in the loop</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/180-User_Interface/Customisations/Adding%20new%20Search%20Filters.html">Adding new Search Filters</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/55-Rules/Developing%20with%20Rules.html">Rules</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/91-Developer-Portal/55-Rules/Developing%20with%20Rules.html">Developing with Rules</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/98-upgrade-path/upgrade-23-to-24.html">Upgrade</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/98-upgrade-path/upgrade-23-to-24.html">From V2.3.x to V.2.4.x</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/99-releaseNotes/0-index.html">Release notes</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/99-releaseNotes/0-index.html">Handy Links</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level current">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/Crawler/Agents/Using%20Agents.html">Crawler</a>
+							<ul>
+								
+									
+										<li class="nav-item current"><a href="https://documentation.cluedin.net/versions/3.2.3/docs/Crawler/Agents/Using%20Agents.html">Using Agents</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/Crawler/Crawler%20Validation%20Framework.html">Crawler Validation Framework</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/Crawler/Deploying%20a%20New%20Crawler.html">Deploying a New Crawler</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/Crawler/Mapping%20Encryption%20Levels%20and%20Integration%20Location.html">Mapping Encryption Levels and Integration Locations</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="https://documentation.cluedin.net/versions/3.2.3/docs/H-Consume/Search/Running%20Searches.html">Consume</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/H-Consume/Search/Running%20Searches.html">Running Searches</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/H-Consume/Data-Marts/Data%20Marts.html">Data Marts</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/H-Consume/Export-Targets/Export%20Targets.html">Export Targets</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/H-Consume/Graphql/Add%20GraphQL%20Entity%20Type%20Resolvers.html">Add GraphQL Entity Type Resolvers</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/H-Consume/Graphql/GraphQL%20Actions.html">GraphQL Actions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/H-Consume/Graphql/GraphQL.html">GraphQL</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/H-Consume/Outgoing-Streams/Outgoing%20Streams.html">Streams</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/H-Consume/Rest-API/Rest%20API.html">Rest API</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/H-Consume/Search/Configuration%20Search%20Relevance.html">Configuration Search Relevance</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="https://documentation.cluedin.net/versions/3.2.3/docs/H-Consume/Consume.html">Consume</a></li>
+									
+								
+							</ul>
+						</li>
+					
+				</ul>
+			</nav>
+		</header>
+
+		<section class="main">
+			<div class="page-header">
+				<h2>Crawler</h2>
+				<h3>Using Agents</h3>
+			</div>
+			<main>
+			<article class="content">
+				<p>Agents are the orchestrators of running integrations. Agents allow you to run crawlers in remote environments, typically on different machines, even in different physical environments.</p>
+
+<p>Agents are typically used for running hybrid environments of CluedIn where you may host CluedIn itself in the cloud, but need to run crawls on systems that live within an internal network of a business.</p>
+
+<p>The Agents are responsible for running scheduled crawls and the robustness of making sure that the crawlers can survive times where they crash.</p>
+
+<p>For running an Agent, you will need to register an Agent API key within the CluedIn datastore and then the Agents will need matching API keys in their configuration files on the remote machines. CluedIn will use Websockets to communicate between the Agents and the CluedIn Server.</p>
+
+<p>When deploying your Agents, they will need to have the Agent API key match one of the API Keys that are registered in the Agents Database within CluedIn. The API key must be associated with the Organization ID of the account that is running the Agent.</p>
+
+<p>The simplest way to setup an agent is to remove the ServerComponent folder from CluedIn, leaving only the Agent folder. In container.config, you have to make sure that the URLs are correct (e.g. AgentServerUrl should have the value of the CluedIn’s API endpoint).</p>
+
+<p>For communication, Agents cannot receive incoming messages but rather uses a polling mechanism to talk with the CluedIn Server. In this way, other systems cannot instruct the Agents with a Job to run. The Agents will post data, logs and health statistics back to the CluedIn server so that CluedIn has knowledge of what is running within the Agents and any possible issues that could be happening.</p>
+
+<p>Executes Agent Jobs from the CluedIn System against a 3rd party / provider api</p>
+
+<p><img src="agent-simple.png" alt="Diagram" /></p>
+
+<p>Job results (clues) is sent back to CluedIn as payloads</p>
+
+<p>Agents can be deployed:</p>
+<ul>
+  <li>Within the CluedIn cluster (cloud)</li>
+  <li>As a separate isolated component (onprem)</li>
+</ul>
+
+<p>Cloud (within the CluedIn cluster)</p>
+<ul>
+  <li>Directly connected to the backend</li>
+  <li>Communicates with Agent Controller via direct reference from the container</li>
+</ul>
+
+<p><img src="agent-complex.png" alt="Diagram" /></p>
+
+<p>Onprem (outside of our control)</p>
+<ul>
+  <li>Deployed as VM’s within customers own environment</li>
+  <li>Enables access to customers environments that is not accessible from the CluedIn Cluster Directly</li>
+  <li>Communicates with Agent Controller over HTTP, TLS</li>
+  <li>No access to CluedIn databases, Message Bus etc.</li>
+  <li>Deployed with ComponentHost + individual components</li>
+  <li>Ie. Smaller deployment package than the full CluedIn</li>
+  <li>Processing, WebApi, DataStores is not available</li>
+  <li>Agent API key is used for “Authentication”</li>
+</ul>
+
+<p>Payload</p>
+<ul>
+  <li>Binary Format</li>
+  <li>Multiple Records</li>
+  <li>Compressed</li>
+</ul>
+
+<p>Types of Payloads</p>
+<ul>
+  <li>Clue Payloads</li>
+  <li>Clues produced from Crawlers</li>
+  <li>Agent Job Log Payloads</li>
+  <li>Logs produced from the job/crawler execution</li>
+  <li>(Log shipping from the Agent back to the CluedIn cluster)</li>
+  <li>(CompressedRecord<T> Payload)</T></li>
+</ul>
+
+<p>Job Types</p>
+<ul>
+  <li>
+    <p>Normal
+Execute job, finishes when crawling is done</p>
+  </li>
+  <li>
+    <p>Continuous
+Does not finish
+Used to monitor as system and produce clues when changes happen
+Ie. File system monitoring, Kafka queue,….</p>
+  </li>
+</ul>
+
+<p>Jobs have statistics of
+Start / stop dates
+Current number of tasks
+Number of completed tasks
+Number of failed tasks
+Number of clues produced
+Number of payloads submitted</p>
+
+<p>Jobs can be restricted to only run on
+A specific agent
+A specific group of agents
+Any agent with type
+Cloud
+SharedProcessor (shared between multiple tenants)
+Onprem (A single tenant)</p>
+
+<p>Orchestration Server
+Agents automatically download updates from the server
+(Zip file deployed centrally)
+Enables updates of Agent deployed in scenarios where we do not have access to the machines they are running on.</p>
+
+<h2 id="deploying-an-agent">Deploying an agent</h2>
+<p>Agents can be deployed by downloading the Agent binaries and decompressing it onto an operating system of your choice. The folder ships with binaries for many different operating systems. We will use the example below of installing on a Windows machine.</p>
+
+<p>Please ask your partner or direct CluedIn contact to give you access to these binaries.</p>
+
+<h3 id="configuring-the-agent">Configuring the agent</h3>
+<p>The Agent can be configured by visiting the <code class="highlighter-rouge">container.config</code> that is inside your <code class="highlighter-rouge">&lt;agent-root&gt;/Agent</code> folder.</p>
+
+<p>You should see a file that looks like this configuration file:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;configuration</span> <span class="na">xmlns:urn=</span><span class="s">"urn:schemas-microsoft-com:asm.v1"</span> <span class="na">xmlns:xdt=</span><span class="s">"http://schemas.microsoft.com/XML-Document-Transform"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;xdt:Import</span> <span class="na">assembly=</span><span class="s">"ComponentHost"</span> <span class="na">namespace=</span><span class="s">"ComponentHost.Transforms"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;startup</span> <span class="na">xdt:Transform=</span><span class="s">"InsertIfMissing"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;supportedRuntime</span> <span class="na">version=</span><span class="s">"v4.0"</span> <span class="na">sku=</span><span class="s">".NETFramework,Version=v4.8"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/startup&gt;</span>
+
+  <span class="nt">&lt;appSettings</span> <span class="na">xdt:Transform=</span><span class="s">"InsertIfMissing"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"ServerUrl"</span>                                                <span class="na">value=</span><span class="s">"https://localhost:9000/"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='ServerUrl')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+     <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"AgentServerUrl"</span>                                                <span class="na">value=</span><span class="s">"https://localhost:9000/"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='AgentServerUrl')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"ServerBlobUrl"</span>                                            <span class="na">value=</span><span class="s">"https://localhost:9000/"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='ServerBlobUrl')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"WebhookUrl"</span>                                               <span class="na">value=</span><span class="s">"https://localhost:9006/"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='WebhookUrl')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"WebhookServerUrl"</span>                                         <span class="na">value=</span><span class="s">"https://localhost:9006/"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='WebhookServerUrl')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"ServerStatusUrl"</span>                                          <span class="na">value=</span><span class="s">"http://localhost:9004/"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='ServerStatusUrl')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"ServerLoggingUrl"</span>                                         <span class="na">value=</span><span class="s">"http://localhost:9005/"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='ServerLoggingUrl')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"ServerStatusDefaultRedirect"</span>                              <span class="na">value=</span><span class="s">"https://www.cluedin.net/"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='ServerStatusDefaultRedirect')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"AuthServerUrl"</span>                                            <span class="na">value=</span><span class="s">"https://localhost:9001/"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='AuthServerUrl')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"Domain"</span>                                                   <span class="na">value=</span><span class="s">"localhost"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='Domain')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"EmailServer"</span>                                              <span class="na">value=</span><span class="s">""</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='EmailServer')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"EmailPort"</span>                                                <span class="na">value=</span><span class="s">""</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='EmailPort')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"EmailDisplayName"</span>                                         <span class="na">value=</span><span class="s">""</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='EmailDisplayName')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"EmailSender"</span>                                              <span class="na">value=</span><span class="s">""</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='EmailSender')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"EmailUserName"</span>                                            <span class="na">value=</span><span class="s">""</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='EmailUserName')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"EmailPassword"</span>                                            <span class="na">value=</span><span class="s">""</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='EmailPassword')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"Logging.Targets.Exceptions"</span>                               <span class="na">value=</span><span class="s">"false"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='Logging.Targets.Exceptions')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"Health.TemporaryDirectory.Enabled"</span>                        <span class="na">value=</span><span class="s">"true"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='Health.TemporaryDirectory.Enabled')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"Health.TemporaryDirectory.FreeSpacePctThreshold"</span>          <span class="na">value=</span><span class="s">"0.0"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='Health.TemporaryDirectory.FreeSpacePctThreshold')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"Health.TemporaryDirectory.FreeSpaceBytesThreshold"</span>        <span class="na">value=</span><span class="s">"209715200"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='Health.TemporaryDirectory.FreeSpaceBytesThreshold')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- Agent --&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"Agent.Enabled"</span>                                            <span class="na">value=</span><span class="s">"true"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='Agent.Enabled')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"Agent.ErrorLogging.Project"</span>                               <span class="na">value=</span><span class="s">"6"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='Agent.ErrorLogging.Project')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"Agent.APIKey"</span>                                             <span class="na">value=</span><span class="s">"!2qwaszx12346"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='Agent.APIKey')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"Agent.TaskScheduler"</span>                                      <span class="na">value=</span><span class="s">"Default"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='Agent.TaskScheduler')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">"Agent.Queue.MaximumJobsToQueuePerCpu"</span>                     <span class="na">value=</span><span class="s">"1.5"</span> <span class="na">xdt:Locator=</span><span class="s">"Condition(@key='Agent.Queue.MaximumJobsToQueuePerCpu')"</span> <span class="na">xdt:Transform=</span><span class="s">"Replace"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/appSettings&gt;</span>
+
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></div></div>
+<h3 id="connecting-to-kubernetes-master-server">Connecting to Kubernetes master server</h3>
+
+<p>You will need to fill out the following configuration to connect to your Kubernetes cluster that is running the CluedIn Server, API and JobServer:</p>
+
+<p><code class="highlighter-rouge">ServerUrl</code> should contain a value that is the route to your CluedIn WebAPI you have installed. Usually it is something like <code class="highlighter-rouge">https://app.&lt;hostname&gt;/api/</code></p>
+
+<p><code class="highlighter-rouge">AgentServerUrl</code> should contain a value that is the route to your CluedIn WebAPI you have installed. Usually it is something like <code class="highlighter-rouge">https://app.&lt;hostname&gt;/api/</code></p>
+
+<p><code class="highlighter-rouge">ServerBlobUrl</code> should contain a value to your blob url. By default, it should be the same as your WebApi URL.</p>
+
+<p><code class="highlighter-rouge">WebhookUrl</code> should contain your Webhook API Url. By default, it is <code class="highlighter-rouge">https://app.&lt;hostname&gt;/webhooks/</code></p>
+
+<p><code class="highlighter-rouge">ServerStatusUrl</code> should be <code class="highlighter-rouge">https://app.&lt;hostname&gt;/api/status</code></p>
+
+<p><code class="highlighter-rouge">ServerLoggingUrl</code> should point to your WebApi. By default, it should be <code class="highlighter-rouge">https://app.&lt;hostname&gt;/api/</code></p>
+
+<p><code class="highlighter-rouge">AuthServerUrl</code> should point to your Authentication API. By default, you can find the Authentication API at <code class="highlighter-rouge">ttps://app.&lt;hostname&gt;/auth/</code></p>
+
+<h3 id="agent-authentication">Agent Authentication</h3>
+<h4 id="_by-default-the-agent-is-already-setup-to-run-on-a-default-on-premises-crawler-changing-a-token-is-recommended-but-not-needed-to-get-the-agent-communicating-with-the-server_"><em>_BY DEFAULT, THE AGENT IS ALREADY SETUP TO RUN ON A DEFAULT ON-PREMISES CRAWLER. CHANGING A TOKEN IS RECOMMENDED BUT NOT NEEDED TO GET THE AGENT COMMUNICATING WITH THE SERVER_</em></h4>
+
+<p>The Agent that you have downloaded has to authenticate against a registered agent within the CluedIn Server. You can do this by port-forwarding to the CluedIn SQL Server pod within your Kubernetes Cluster
+(<code class="highlighter-rouge">kubectl port-forward -l app=sqlserver 1433 --address 0.0.0.0) and adding an agent registration to </code>DataStore.Db.OpenCommunication<code class="highlighter-rouge"> &gt; </code>dbo.Agent`, or just fill out the SQL query below and execute against the DataStore.Db.OpenCommunication database:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DECLARE @AgentId varchar(60);
+SET @AgentId = '6CF17140-0FB0-47C5-AAAA-9A40A0ECF8BA';
+
+DECLARE @AgentGroup varchar(60);
+SET @AgentGroup = '612ed11a-b1b3-463f-b4a5-7c1bb7bd55a0';
+
+DECLARE @AgentToken varchar(60);
+SET @AgentToken = '--- INSERT YOUR API TOKEN HERE ---';
+
+DECLARE @OrganizationId varchar(60);
+SET @OrganizationId = (SELECT Id AS OrganizationId FROM dbo.OrganizationProfile WHERE OrganizationName = '--- INSERT YOUR CLIENT ID HERE ---');
+
+DECLARE @DateTimeMin varchar(60);
+SET @DateTimeMin = (select cast(-53690 as datetime));
+
+UPDATE dbo.Agent SET AccountId = @OrganizationId, ApiKey
+ = @AgentToken, LastPing  = @DateTimeMin WHERE Id = @AgentId;
+</code></pre></div></div>
+
+<p>After you have done this, copy the API Token you entered above, then set the <code class="highlighter-rouge">ApiKey</code> value in the <code class="highlighter-rouge">container.config</code> of the file you downloaded above.</p>
+
+<h3 id="deploying-crawlers">Deploying Crawlers</h3>
+<p>In order to deploy a crawler into an agent you will need to have the crawler assembly files (Dll’s) either from a Nuget Package or by compiling and building a crawler locally on your developer machine.</p>
+
+<p>Assemblies required:</p>
+<ul>
+  <li>CluedIn.Crawling.<em>CrawlerName</em></li>
+  <li>CluedIn.Crawling.<em>CrawlerName</em>.Core</li>
+  <li>CluedIn.Crawling.<em>CrawlerName</em>.Infrastructure</li>
+</ul>
+
+<p>!!! <em>Note, that Provider project is not required in the agent because the Provider is registereted in the cloud WebApi instance. Everything that is contained in the Provider project will be executed from the cluster itself</em></p>
+
+<p>!! <em>Ensure that all of the dependencies needed by your crawler are also deployed along with the crawler assemblies e.g. Nuget Dependencies.</em></p>
+
+<p>Crawler assemblies needs to be moved into <code class="highlighter-rouge">&lt;agent-root&gt;/Agent</code> folder and will be picked up once the Agent is started.</p>
+
+<p>On the cluster, you need to deploy all your crawlers packages above plus the <code class="highlighter-rouge">Provider</code> project’s NuGet package parts responsible for your crawler that will be executed by the agent.</p>
+
+<h3 id="running-the-agent">Running the agent</h3>
+<p>Running the agent is as simple as starting <code class="highlighter-rouge">boot.sh</code> file.</p>
+
+<p>For this, you may need to install something like <a href="https://www.cygwin.com/">Cygwin</a> to be able to run .sh files on Windows.</p>
+
+<p>You will see an output where your agent is trying to load the assemblies and connect to the cluster. Make sure there is nothing blocking the call getting to the API server networking-wise. You can now login to CluedIn and add your integration and the actual crawling of data will be then done through the Agent instead of the CluedIn server in the Kubernetes cluster.</p>
+
+<p>You can also register this as a Windows Service so that it can be automatically restarted if the Windows VM is to restart. You can use this guide here on how to setup a Windows Service: <a href="https://docs.microsoft.com/en-us/dotnet/framework/windows-services/how-to-install-and-uninstall-services">Here</a></p>
+
+<p>###Enable Verbose Logging</p>
+
+<p>By default the Agent will be running with low logging verbosity. To increase this you can set the $env:ASPNETCORE_ENVIRONMENT = “verbose”. You can also make sure this persists on the machine by setting it as a System Variable. You will need to close and restart your Agent and the session of the bash/command prompt you are using to invoke the boot.sh file to see the changes take effect.</p>
+
+			</article>
+				<aside id="sticky-menu">
+					<ul>
+							<li>
+									For version 3.2
+							</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="/tree/master/_docs/Crawler/Agents/Using Agents.md"
+								>
+									<i class="fab fa-github"></i>
+									Edit this page
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://twitter.com/CluedInHQ"
+								>
+									<i class="fab fa-twitter"></i>
+									Follow us
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.facebook.com/cluedinhq/"
+								>
+									<i class="fab fa-facebook"></i>
+									Like us
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.linkedin.com/company/cluedin-aps/"
+								>
+									<i class="fab fa-linkedin-in"></i>
+									LinkedIn
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://vimeo.com/cluedin"
+								>
+									<i class="fab fa-vimeo"></i>
+									Vimeo
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.youtube.com/channel/UC3jeVGsDC97C81ISJLUhszQ"
+								>
+									<i class="fab fa-youtube"></i>
+									Subscribe
+								</a>
+						</li>
+					</ul>
+				</aside>
+			</main>
+		</section>
+
+		<script>
+			document.getElementById("open-nav").addEventListener("click", function () {
+				document.body.classList.toggle("nav-open");
+			});
+		</script>
+
+    <script async src="https://documentation.cluedin.net/versions/3.2.3/scripts/prism.js"></script>
+	</body>
+</html>
