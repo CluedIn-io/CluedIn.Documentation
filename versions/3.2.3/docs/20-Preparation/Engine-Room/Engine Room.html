@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Engine Room | CluedIn Documentation</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Engine Room" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The processing pipeline in CluedIn can be described as a tree of different processing steps. Each processing step has dependencies on previous steps being run and hence you can conceptualise it as a dependency tree of processing steps." />
+<meta property="og:description" content="The processing pipeline in CluedIn can be described as a tree of different processing steps. Each processing step has dependencies on previous steps being run and hence you can conceptualise it as a dependency tree of processing steps." />
+<link rel="canonical" href="https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Engine-Room/Engine%20Room.html" />
+<meta property="og:url" content="https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Engine-Room/Engine%20Room.html" />
+<meta property="og:site_name" content="CluedIn Documentation" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-05T17:48:06+00:00" />
+<script type="application/ld+json">
+{"datePublished":"2021-09-05T17:48:06+00:00","url":"https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Engine-Room/Engine%20Room.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/siteicon.png"}},"description":"The processing pipeline in CluedIn can be described as a tree of different processing steps. Each processing step has dependencies on previous steps being run and hence you can conceptualise it as a dependency tree of processing steps.","headline":"Engine Room","dateModified":"2021-09-05T17:48:06+00:00","@type":"Article","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+		<link type="application/atom+xml" rel="alternate" href="https://documentation.cluedin.net//http://documentation.cluedin.net/beta-docs/versions/3.2.3/feed.xml" title="CluedIn Documentation" />
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
+		<link rel="stylesheet" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/css/main.css">
+		<link rel="apple-touch-icon" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/touch-icon.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/images/favicon.png">
+		<script src="https://kit.fontawesome.com/53f65601e3.js" crossorigin="anonymous"></script>
+
+		
+    <link rel="stylesheet" href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/css/prism.css">
+    <!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2770606.js"></script>
+<!-- End of HubSpot Embed Code -->
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/"><img src="http://documentation.cluedin.net/beta-docs/versions/3.2.3/images/cluedin-logo-c.svg" width="40" height="40" alt="CluedIn Documentation logo"></a>
+				CluedIn Documentation
+				<button type="button" class="open-nav" id="open-nav"></button>
+			</h1>
+
+			<form action="http://documentation.cluedin.net/beta-docs/versions/3.2.3/search.html" method="get">
+				<input type="text" name="q" id="search-input" placeholder="Type to search" autofocus>
+				<input type="submit" value="Search" style="display: none;">
+			</form>
+
+			<nav >
+				<ul>
+					<li class="nav-item top-level ">
+						
+						<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/">What is CluedIn</a>
+					</li>
+				</ul>
+
+				<ul>
+					
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/ssl.html">Get Started</a>
+							<ul>
+								
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/1-default.html">CluedIn Overview</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/30-docker-local.html">CluedIn with Docker</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/40-kubernetes.html">CluedIn with Kubernetes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/81-home-dashboard.html">Home Dashboard</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/90-frequently-asked-questions.html">Frequently asked questions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/Running%20CluedIn%20Efficiently.html">Running CluedIn Efficiently for Cost</a></li>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/00-gettingStarted/0-Welcome-to-CluedIn.html">Welcome to CluedIn</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/50-Consume/Generating%20an%20API%20Token.html">Administration</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/50-Consume/Generating%20an%20API%20Token.html">Generating an API Token</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/20-Users/Adding%20Team%20Members.html">Users</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/30-Authentication/index.html">Authentication</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/40-Theme/index.html">Theme</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/60-Accounts_Multitenancy/0-index.html">Multitenancy</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/70-Removing_data/index.html">Removing data</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/80-Upgrading%20CluedIn/index.html">Changing versions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/90-Backup_Restore/index.html">Backup and Restore</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/05-Administration/10-Profile/index.html">Profile</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/modify-integration.html">Integration</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/modify-integration.html">Modify an Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/Crawling.html">Crawling</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/Help%20with%20building%20robust%20integrations.html">Help with building robust integrations</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/Home%20Screen.html">Home Screen</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/Push%20data%20to%20CluedIn.html">Push Data to CluedIn</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/add-integration.html">How to add an Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/build-enricher.html">Build Enricher</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/build-integration.html">Build Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/delta-crawls.html">Delta Crawls</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/install-integration.html">Install Integration</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/integration-compatible-with-UI.html">Integration and the CluedIn UI</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/10-Integration/0-index.html">What are integrations</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level current">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/entity-setup.html">Preparation</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/entity-setup.html">Entity Type and UI</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/CluedIn-Connect/CluedIn%20Connect.html">CluedIn Connect</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Data-Metrics/10-Data-Quality-Metrics.html">Data Quality Metrics</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Data-Metrics/20-Most-Used-Data-Quality-Metrics.html">Most Used Data Quality Metrics</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Data-Metrics/30-How-To-Add-a-Data-Quality-Metric.html">How to add a new Data Quality Metric</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Data-Metrics/40-Data-Quality-Metrics-Explanations.html">Data Quality Metric Explanations</a></li>
+									
+								
+									
+										<li class="nav-item current"><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Engine-Room/Engine%20Room.html">Engine Room</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Entity-Types/Entity%20Type%20Translation.html">Entity Type Translation</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Shadow-Entities/Shadow%20Entities.html">Shadow Entities</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/20-Preparation/Aggregate/Aggregation.html">Aggregation</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/10-Data_Training/CluedIn%20Train.html">Manipulation</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/10-Data_Training/CluedIn%20Train.html">CluedIn Train</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/20-Data_Cleaning/CluedIn%20Clean.html">CluedIn Clean</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/30-Merging_Records/Fuzzy%20Merging%20Explained.html">Fuzzy Merging Explained</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/30-Merging_Records/Merging%20Records.html">Merging Records</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/40-Mesh_Center/Mesh%20Center.html">Mesh Center</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/50-Splitting_Records/Splitting%20Records.html">Splitting Records</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/30-Manipulation/index.html">Transforming Data</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Subject-Access-Requests/Subject%20Access%20Requests.html">Governance</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Subject-Access-Requests/Subject%20Access%20Requests.html">Subject Access Requests</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Consent-Management/Consent%20Management.html">Consent Management</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Breaches/Data%20Breaches.html">Data Breaches</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Catalog/Data%20Catalog.html">Data Catalog</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Glossary/Data%20Glossary.html">Data Glossary</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Policies/Data%20Policies.html">Data Policies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Privacy/Data%20Privacy.html">Data Privacy</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Data-Retention/Data%20Retention.html">Data Retention</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Governance.html">Data Governance</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Mesh-API/Mesh%20API.html">Mesh API</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/40-Governance/Access-Control/Access%20Control.html">Access Control</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/60-Management/Duplicate%20List.html">Management</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/60-Management/Duplicate%20List.html">Duplicate List</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/60-Management/Rules/Rules.html">Rules</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/DeveloperPortal.html">Developer</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/DeveloperPortal.html">Developer Portal</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/10-Administration_Operations/Administration%20Operations.html">Administration Operations</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/100-Logging/Building%20a%20new%20Logging%20Provider.html">Building a new Logging Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Change%20Verbs.html">Change Verbs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Clue.html">Clue</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Core%20Vocabularies.html">Core Vocabularies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Data%20Part.html">Data Part</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Dynamic%20Vocabularies.html">Dynamic Vocabularies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Edge%20Types.html">Edge Types</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Edges.html">Edges</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Codes.html">Entity Codes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Type.html">Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Types/Infrastructure%20User%20Entity%20Type.html">Infrastructure User Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Types/Organization%20Entity%20Type.html">Organization Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity%20Types/Person%20Entity%20Type.html">Person Entity Type</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Entity.html">Entity</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Origin.html">Origin</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabularies.html">Vocabularies</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabularies/Organization%20Vocaulary.html">Organization Vocaulary</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabularies/Person%20Vocabulary.html">Person Vocabulary</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabulary%20Groupings.html">Vocabulary Groupings</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/110-Object_Model/Vocabulary%20Values.html">Vocabulary Values</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/120-Other/Common%20Design%20Decisions.html">Common Design Decisions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/120-Other/Common%20Problems.html">Common Problems</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/130-Parent_Aggregation/Parent%20Aggregation.html">Parent Aggregation</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/140-Preview_Image/Setting%20a%20Preview%20Image%20for%20a%20Clue.html">Setting a Preview Image for a Clue</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Adding%20a%20new%20Processing%20Pipeline.html">Adding a new Processing Pipeline</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/CluedIn%20Performance%20Metrics.html">CluedIn Performance Metrics</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Extending%20an%20Existing%20Pipeline%20Process.html">Extending an Existing Pipeline Process</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Ignoring%20Insignificant%20Changes.html">Ignoring Insignificant Changes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Jobs/Agent%20Jobs.html">Agent Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Pipeline%20Overview.html">Processing Pipeline Overview</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20a%20Preprocessor.html">Adding a new PreProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20a%20new%20IProcessingFilter.html">Adding a new IProcessingFilter</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20an%20IDataPartProcessorExecutor.html">Adding an IDataPartProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20an%20IEntityTypeProcessor.html">Adding an IEntityTypeProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Processing%20Stages/Adding%20an%20IMergePreProcessor.html">Adding an IMergePreProcessor</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Turning%20Clues%20into%20ProcessedEntityMetadata.html">Turning Clues into ProcessedEntityMetadata</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/150-Processing/Workflows/Workflow%20Event%20Handlers.html">Workflow Event Handlers</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/170-Thumbnail_Extractors/Thumbnail%20Extractors.html">Thumbnail Extractors</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/20-Configuration/Changing%20Configuration%20Settings.html">Changing Configuration Settings</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/30-Content_Extraction/Content%20Extractors.html">Content Extractors</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/30-Content_Extraction/Downloading%20a%20File%20and%20Indexing%20the%20Content.html">Downloading a File and Indexing the Content</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/33-Commands/Commands.html">Commands</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/40-Datastores/Adding%20a%20new%20Datastore%20Provider.html">Adding a new Datastore Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/40-Datastores/Datastores.html">Datastores</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/40-Datastores/Switching%20a%20Datastore%20Provider.html">Switching a Datastore Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/50-Events/Events.html">Events</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/60-External_Search/Deploying%20a%20New%20External%20Search%20Provider.html">Deploying a New External Search Provider</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/60-External_Search/External%20Search%20Providers.html">External Search Providers</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/70-Integration_Pattern/Eventual%20Connectivity.html">Eventual Connectivity</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/80-Integrity_Checks/Validate%20Server%20Heatlh.html">Validate Server Heatlh</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/90-Jobs/One%20Time%20Jobs.html">One Time Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/90-Jobs/Recurring%20Jobs.html">Recurring Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/90-Jobs/Scheduled%20Jobs.html">Scheduled Jobs</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/60-Management/Modelling/Modelling.html">Modelling</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/User%20Interface.html">User Interface</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/User%20Interface.html">User Interface</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/180-User_Interface/Customisations/Searching%20for%20data.html">Searching for data</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/180-User_Interface/Customisations/Suggested%20Searches.html">Suggested Searches</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/190-Webhooks/Webhooks.html">Webhooks</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Entity-Page/All%20Properties.html">All Properties</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Entity-Page/Entity%20Page.html">Entity Page</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Entity-Page/History.html">History</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Entity-Page/Pending%20Changes.html">Pending Changes</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Followed-Entities/Followed%20Entities.html">Followed Entities</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/U-User-Interface/Keep-in-the-loop/Keep%20in%20the%20loop.html">Keep in the loop</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/180-User_Interface/Customisations/Adding%20new%20Search%20Filters.html">Adding new Search Filters</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/55-Rules/Developing%20with%20Rules.html">Rules</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/91-Developer-Portal/55-Rules/Developing%20with%20Rules.html">Developing with Rules</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/98-upgrade-path/upgrade-23-to-24.html">Upgrade</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/98-upgrade-path/upgrade-23-to-24.html">From V2.3.x to V.2.4.x</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/99-releaseNotes/0-index.html">Release notes</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/99-releaseNotes/0-index.html">Handy Links</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Agents/Using%20Agents.html">Crawler</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Agents/Using%20Agents.html">Using Agents</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Crawler%20Validation%20Framework.html">Crawler Validation Framework</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Deploying%20a%20New%20Crawler.html">Deploying a New Crawler</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/Crawler/Mapping%20Encryption%20Levels%20and%20Integration%20Location.html">Mapping Encryption Levels and Integration Locations</a></li>
+									
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Search/Running%20Searches.html">Consume</a>
+							<ul>
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Search/Running%20Searches.html">Running Searches</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Data-Marts/Data%20Marts.html">Data Marts</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Export-Targets/Export%20Targets.html">Export Targets</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Graphql/Add%20GraphQL%20Entity%20Type%20Resolvers.html">Add GraphQL Entity Type Resolvers</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Graphql/GraphQL%20Actions.html">GraphQL Actions</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Graphql/GraphQL.html">GraphQL</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Outgoing-Streams/Outgoing%20Streams.html">Streams</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Rest-API/Rest%20API.html">Rest API</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Search/Configuration%20Search%20Relevance.html">Configuration Search Relevance</a></li>
+									
+								
+									
+										<li class="nav-item "><a href="http://documentation.cluedin.net/beta-docs/versions/3.2.3/docs/H-Consume/Consume.html">Consume</a></li>
+									
+								
+							</ul>
+						</li>
+					
+				</ul>
+			</nav>
+		</header>
+
+		<section class="main">
+			<div class="page-header">
+				<h2>Preparation</h2>
+				<h3>Engine Room</h3>
+			</div>
+			<main>
+			<article class="content">
+				<p>The processing pipeline in CluedIn can be described as a tree of different processing steps. Each processing step has dependencies on previous steps being run and hence you can conceptualise it as a dependency tree of processing steps.</p>
+
+<p><img src="intro-engine-room.png" alt="Diagram" /></p>
+
+<p>The Engine Room is a visualisation of this processing workflow. It will give you statistics on amount of data processing in a particular state, error rates and will even allow you to introduce new processing sub-workflows.</p>
+
+<p>If you have added an integration to your account, the Engine Room will be able to report on what state that data is in the overall process. It will also help you gauge how much infrastructure you will need to scale to the point where you can keep up with the number of processing servers required.</p>
+
+<p>You can click on any of the processing steps and you will see details as to the state and processing speed of that particular step. You can use this to gauge what is happening in CluedIn at any moment of processing.</p>
+
+<p><img src="quick-view-processing-statistics.png" alt="Diagram" /></p>
+
+<p>It is often required to understand what is happening under the hood of CluedIn. A lot of this can be sourced from the many Adminstrator screens that come with CluedIn for the underlying systems. Due to complex security an infrastructure setups, many times you might find that you don’t have access to these systems, but would still like to see some metrics and progress statistics. For this, we have our Statistics API which aggregates the statistics from across the different underlying stores.</p>
+
+<p>There are 4 types of statistics that we offer through this API:</p>
+
+<p>Processing
+Crawling
+Configuration
+Footprint
+CluedIn uses a queuing system that operates the many different operations that CluedIn does on your data. This can be thought of as a Tree of processes. You can see that process tree below or by calling our /api/queue/map endpoint.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+	</span><span class="s2">"CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="s2">"Incoming"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.ProcessBigClueCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.ProcessLowPriorityClueCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.ProcessPrioritizedClueCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.IProcessingCommand:CluedIn.Core_CluedIn_Clues"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="s2">"CluedIn.ExternalSearch.ExternalSearchCommand:CluedIn.ExternalSearch_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.SplitEntityCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.DeduplicateCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.ParentsProcessingCommand:CluedIn.Core_CluedIn_ParentIds"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.ProcessEdgesCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.ProcessVersionHistoryCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.SaveEntityCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.PercolateEntityUpdateCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.MergeEntitiesCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.DeduplicateEntityCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.DeleteEntityCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.PostProcessingEntityCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+		</span><span class="p">},</span><span class="w">
+		</span><span class="s2">"Webhooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.WebhookDataCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.ProcessWebHookClueCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+		</span><span class="p">}</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"Events"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.AnonymiseDataCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.DeAnonymiseDataCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.Export.IExportCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.MeshDataCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.SendMailCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.AgentController.EnqueueAgentJobCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.RemoveDataCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.RemoveFromProcessingDataCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.ResyncEntityCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.WebApi.IWebApiCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.RefreshEntityBlobCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.Metrics.ArchiveMetricsValuesCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+		</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="s2">"CluedIn.Logging.Errors.ErrorPacket:CluedIn.Logging.Errors_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"Outgoing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="s2">"CluedIn.WebHooks.Commands.OutgoingCustomWebHookCommand:CluedIn.WebHooks_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"Metrics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.Metrics.ProcessEntityMetricsCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+		</span><span class="s2">"CluedIn.Core.Messages.Processing.Metrics.ProcessGlobalMetricsCommand:CluedIn.Core_CluedIn"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+		</span><span class="p">}</span><span class="w">
+	</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Each Queue will have its own statistics and you can either call /api/queue/statistics to get all statistics of all queues or you can get an individual queue by calling /api/queue/statistics?queueName=CluedIn.Core.Messages.Processing.Metrics.ArchiveMetricsValuesCommand:CluedIn.Core_CluedIn</p>
+
+<p>You can also add an “expand=true” which will give you the aggregate values of all child items or a parent (and child’s children etc.)</p>
+
+<p>It will respond with the following details. Comments are for guidance in the user interface</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+	</span><span class="s2">"Queues"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"memory"</span><span class="p">:</span><span class="w"> </span><span class="mi">17500</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"message_stats"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"disk_reads"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"disk_reads_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"disk_writes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"disk_writes_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"publish"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"publish_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"publish_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"publish_in_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"publish_out"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"publish_out_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"ack"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"ack_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"deliver_get"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"deliver_get_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"confirm"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"confirm_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"return_unroutable"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"return_unroutable_details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"redeliver"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"redeliver_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"deliver"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"deliver_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"deliver_no_ack"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"deliver_no_ack_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"get"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"get_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"get_no_ack"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"get_no_ack_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+	</span><span class="p">}</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"reductions"</span><span class="p">:</span><span class="w"> </span><span class="mi">255588</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"reductions_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"messages_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"messages_ready"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"messages_ready_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"messages_unacknowledged"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"messages_unacknowledged_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"idle_since"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-21 7:32:15"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"consumer_utilisation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"policy"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"exclusive_consumer_tag"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"consumers"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"recoverable_slaves"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"running"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"garbage_collection"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"max_heap_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"min_bin_vheap_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">46422</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"min_heap_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">233</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"fullsweep_after"</span><span class="p">:</span><span class="w"> </span><span class="mi">65535</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"minor_gcs"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"messages_ram"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"messages_ready_ram"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"messages_unacknowledged_ram"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"messages_persistent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"message_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"message_bytes_ready"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"message_bytes_unacknowledged"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"message_bytes_ram"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"message_bytes_persistent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"head_message_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"disk_reads"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"disk_writes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"backing_queue_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="s2">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"q1"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"q2"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"delta"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+	</span><span class="s2">"delta"</span><span class="p">,</span><span class="w">
+	</span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="mi">0</span><span class="w">
+	</span><span class="p">],</span><span class="w">
+	</span><span class="s2">"q3"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"q4"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"len"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"target_ram_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"infinity"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"next_seq_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"avg_ingress_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.5897681059900364E-190</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"avg_egress_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.5897681059900364E-190</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"avg_ack_ingress_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.5897681059900364E-190</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"avg_ack_egress_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2720273332920905E-189</span><span class="w">
+	</span><span class="p">},</span><span class="w">
+	</span><span class="s2">"node"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rabbit@cluedin-dev"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"exclusive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"auto_delete"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"durable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"vhost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/"</span><span class="p">,</span><span class="w">
+	</span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CluedIn.Core.Messages.Processing.Metrics.ArchiveMetricsValuesCommand:CluedIn.Core_CluedIn"</span><span class="w">
+	</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The Crawling statistics will report on the metrics for the fetching and mapping part of the process. It is often that Crawlers are run using Agents and these Agents may run on-premise and separate to the processing boxes.</p>
+
+<p>The Crawling statstics will report on many things including:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Number of Tasks generated by Crawl (number of records to crawl)
+Number of Completed Tasks (number of records that successfully crawled)
+Number of Failed Tasks (number of records that failed to crawl)
+Status
+Estimated Number of Records (optional)
+Configuration = [HttpGet] /api/configuration
+</code></pre></div></div>
+
+<p>Configuration is managed using Yaml and .Config files, however these are closed down from the User Interface. It is however very useful to explore the possible configuration options and also to be aware of the current state of the application. For example, we may want to know if a certain feature is enabled or not. The Configuration Endpoint exposes parts of the Configuration that are for read only access. We will not expose Secrets, Passwords, API Tokens or anything that exposes credentials. This is also useful for debugging and exploring potential issues. For example, you can configure CluedIn with many different parameters and features, but if there are settings that are against our recommended settings, we can expose this in the configuration user interface to alert the first places to potentially look. This is also important to validate if the configuration that has been set is actually in action in the running state of the application. All settings a read-only.</p>
+
+<p>Footprint</p>
+
+<p>Graph = api/graph/configuration
+Search = api/search/health</p>
+
+<p>It is valuable to know the running state of the CluedIn application. It is not as important for Data Stewards and Business Users to know this, but very much more adminstrators or systems owners that are not necessarily aware of how to operate the sub systems. For this, we expose some underlying metrics and statistics around memory, desk, cpu and utilisation. This will help you to understand if it might be necessary to increase the infrastructure of your CluedIn installation or potentially to dedicate more resources to a particular process. All values are read-only. For more advanced exploration, please use the underlying system adminstrator interfaces.</p>
+
+			</article>
+				<aside id="sticky-menu">
+					<ul>
+							<li>
+									For version 3.2
+							</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="/tree/master/_docs/20-Preparation/Engine-Room/Engine Room.md"
+								>
+									<i class="fab fa-github"></i>
+									Edit this page
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://twitter.com/CluedInHQ"
+								>
+									<i class="fab fa-twitter"></i>
+									Follow us
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.facebook.com/cluedinhq/"
+								>
+									<i class="fab fa-facebook"></i>
+									Like us
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.linkedin.com/company/cluedin-aps/"
+								>
+									<i class="fab fa-linkedin-in"></i>
+									LinkedIn
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://vimeo.com/cluedin"
+								>
+									<i class="fab fa-vimeo"></i>
+									Vimeo
+								</a>
+						</li>
+						<li>
+								<a
+									target="__blank"
+									rel="noopener"
+									href="https://www.youtube.com/channel/UC3jeVGsDC97C81ISJLUhszQ"
+								>
+									<i class="fab fa-youtube"></i>
+									Subscribe
+								</a>
+						</li>
+					</ul>
+				</aside>
+			</main>
+		</section>
+
+		<script>
+			document.getElementById("open-nav").addEventListener("click", function () {
+				document.body.classList.toggle("nav-open");
+			});
+		</script>
+
+    <script async src="http://documentation.cluedin.net/beta-docs/versions/3.2.3/scripts/prism.js"></script>
+	</body>
+</html>

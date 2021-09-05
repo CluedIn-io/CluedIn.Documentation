@@ -1,0 +1,54 @@
+{% assign rawtags = "" %}
+{% for post in site.pages %}
+  {% assign ttags = post.tags | join:'|' | append:'|' %}
+  {% assign rawtags = rawtags | append:ttags %}
+{% endfor %}
+{% assign rawtags = rawtags | split:'|' | sort %}
+
+{% assign tags = "" %}
+
+{% for tag in rawtags %}
+  {% if tag != "" %}
+    {% if tags == "" %}
+      {% assign tags = tag | split:'|' %}
+    {% else %}
+      {% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% assign distinct_tags = tags | uniq %}
+
+{% assign tag_groups = tags | group_by_exp: "item", "item" %}
+
+{% assign sorted_tag_groups = tag_groups | sort_natural: "name" %}
+
+{% assign biggest_tag = tag_groups | sort: "count" | last %}
+
+{% for tag_group in sorted_tag_groups %}
+<a href="{{ site.baseurl }}/tag#{{ tag_group.name }}" data-count="{{ tag_group.size }}" style="white-space:nowrap;">{{ tag_group.name | replace: "-", "&nbsp;" }}</a><span style="margin-right:3px;"></span>{% endfor %}
+
+<script>
+    $(function() {
+        const tags = $('a[data-count]');
+        const max = tags.map(function() {
+            return $(this).data('count');
+        }).get().sort(function(a, b) {
+            return b - a;
+        })[0];
+        console.log(max);
+
+        const minFontSize = 100;
+        const maxFontSize = 150;
+
+        tags.each(function() {
+            const tag = $(this);
+            const fontSize = tag.data('count') === 1 ?
+                95 :
+                Math.floor(tag.data('count') / max * (maxFontSize - minFontSize) + minFontSize);
+
+            tag.css('font-size', fontSize + '%');
+        });
+    });
+
+</script>
