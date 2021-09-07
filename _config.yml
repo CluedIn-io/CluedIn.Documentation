@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: CluedIn Docs
-description: CluedIn Docucumentation, Knowledge Base, and Tutorials
+description: CluedIn Documentation, Knowledge Base, and Tutorials
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://documentation.cluedin.net" # the base hostname & protocol for your site, e.g. http://example.com
 # baseurl: "" # the subpath of your site, e.g. /blog
