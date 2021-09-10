@@ -1,0 +1,26 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title>{{ site.title }}</title>
+    <link href="{{site.url}}"/>
+    <updated>{{ site.time | date_to_xmlschema }}</updated>
+    <author>
+        <name>CluedIn</name>
+    </author>
+    <id>{{ site.url }}/</id>
+
+    {% assign pages = site.pages | where_exp: "item", "item.last_modified" | sort: "last_modified" | limit: 10 %}
+    {% for page in pages %}
+    <entry>
+        <title>{{page.title | xml_escape}}</title>
+        <link href="{{site.url}}{{page.permalink}}" />
+        <id>{{site.url}}/{{page.permalink}}</id>
+        <updated>{{page.last_modified | date_to_xmlschema}}</updated>
+        <summary>{{page.title | xml_escape}} {{ page.tags | xml_escape }}</summary>
+    </entry>
+    {% endfor %}
+
+</feed>

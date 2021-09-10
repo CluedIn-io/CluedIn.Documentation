@@ -17,7 +17,6 @@ title: CluedIn Docs
 description: CluedIn Documentation, Knowledge Base, and Tutorials
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://documentation.cluedin.net" # the base hostname & protocol for your site, e.g. http://example.com
-# baseurl: "" # the subpath of your site, e.g. /blog
 # url: "http://127.0.0.1:4000" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: pretty
@@ -108,7 +107,19 @@ ga_tracking: UA-148807692-1
 ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true/nil by default)
 
 plugins:
+  - jekyll-sitemap
   - jekyll-seo-tag
+
+defaults:
+  -
+    scope:
+      path: 'versions/**'
+    values:
+      sitemap: false
+
+twitter:
+  username: cluedinhq
+  card: CluedIn - The Smart Data Fabric. Provides a modern enterprise data foundation and streamlines the process of making data ready to use.
 
 kramdown:
   syntax_highlighter_opts:

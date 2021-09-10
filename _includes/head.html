@@ -10,6 +10,8 @@
     {% endif %}
   {% endunless %}
 
+  <link type="application/atom+xml" rel="alternate" href="{{site.url}}/feed.xml" title="{{ site.title }}" />
+
   <link rel="shortcut icon" href="{{ 'favicon.png' | relative_url }}" type="image/x-icon">
 
   <link rel="stylesheet" href="{{ '/assets/css/just-the-docs-default.css' | relative_url }}">
