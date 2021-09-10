@@ -25,7 +25,7 @@ Once containers has finished terminating, we can spin down the databases itself 
 kubectl scale deployment -l app=sqlserver --replicas=0
 kubectl scale deployment -l app=neo4j --replicas=0
 kubectl scale statefulset -l chart=elasticsearch --replicas=0
-kubectl scale deployment -l app=rabbitmq --replicas=0
+kubectl scale statefulset -l helm.sh/chart=rabbitmq-8.10.2 --replicas=0
 kubectl scale deployment -l app=redis --replicas=0
 kubectl scale deployment -l app=openrefine --replicas=0
 ```
@@ -40,7 +40,7 @@ Upon a successful backup or restore operation, the workloads can be spun back up
 ```shell
 kubectl scale deployment -l app=neo4j --replicas=1
 kubectl scale statefulset -l chart=elasticsearch --replicas=1
-kubectl scale deployment -l app=rabbitmq --replicas=1
+kubectl scale statefulset -l helm.sh/chart=rabbitmq-8.10.2 --replicas=1
 kubectl scale deployment -l app=redis --replicas=1
 kubectl scale deployment -l app=openrefine --replicas=1
 kubectl scale deployment -l app=sqlserver --replicas=1
@@ -208,7 +208,7 @@ function Stop-StatefulSet {
         [string]$name
     )
     Write-Host "  Stopping stateful set '$name' in namespace '$namespace'."
-    kubectl scale statefulset --namespace $namespace -l chart=$name --replicas=0
+    kubectl scale statefulset --namespace $namespace -l $name --replicas=0
 }
 
 Install-Kubectl
@@ -228,8 +228,8 @@ Write-Host "Stopping the databases:" -ForegroundColor Cyan
 
 Stop-Deployment $namespace "sqlserver"
 Stop-Deployment $namespace "neo4j"
-Stop-StatefulSet $namespace "elasticsearch"
-Stop-Deployment $namespace "rabbitmq"
+Stop-StatefulSet $namespace "chart=elasticsearch"
+Stop-StatefulSet $namespace "helm.sh/chart=rabbitmq-8.10.2"
 Stop-Deployment $namespace "redis"
 Stop-Deployment $namespace "openrefine"
 ```
@@ -259,15 +259,15 @@ function Start-StatefulSet {
         [string]$name
     )
     Write-Host "  Starting stateful set '$name' in namespace '$namespace'."
-    kubectl scale statefulset --namespace $namespace -l chart=$name --replicas=1
+    kubectl scale statefulset --namespace $namespace -l $name --replicas=1
 }
 
 Write-Host "Starting the databases:" -ForegroundColor Cyan
 
 Start-Deployment $namespace "sqlserver"
 Start-Deployment $namespace "neo4j"
-Start-Deployment $namespace "elasticsearch"
-Start-Deployment $namespace "rabbitmq"
+Start-StatefulSet $namespace "chart=elasticsearch"
+Start-StatefulSet $namespace "helm.sh/chart=rabbitmq-8.10.2"
 Start-Deployment $namespace "redis"
 Start-Deployment $namespace "openrefine"
 
