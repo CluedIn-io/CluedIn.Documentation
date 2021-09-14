@@ -11,4 +11,14 @@ search_exclude: true
 <p>The page you requested could not be found. Try using the navigation {% if site.search_enabled != false %}or search {% endif %}to find what you're looking for or go to this <a href="{{ '/' | absolute_url }}">site's home page</a>.</p>
 
 
-<ul id="search-results-404"></ul>
+<script>
+    const pathname = window.location.pathname;
+    const supposedLocation = `https://documentation.cluedin.net/versions/3.2.3${pathname}`;
+
+    fetch(supposedLocation).then(response => {
+        if (window.location.href === supposedLocation.toLowerCase()) {
+            return;
+        }
+        window.location.href = supposedLocation;
+    });
+</script>
