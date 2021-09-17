@@ -19,7 +19,7 @@ layout: null
         <link href="{{site.url}}{{page.permalink}}" />
         <id>{{site.url}}/{{page.permalink}}</id>
         <updated>{{page.last_modified | date_to_xmlschema}}</updated>
-        <summary>{{page.title | xml_escape}} {{ page.tags | xml_escape }}</summary>
+        <summary>{{page.title | xml_escape}}. Tags: {{ page.tags | join: ", " }}.</summary>
     </entry>
     {% endfor %}
 
