@@ -70,7 +70,7 @@ You can check the status of this by using:
 
 CluedIn is ready when all the status checks are green.
 
-Open your browser and CluedIn will be available under [http://app.127.0.0.1.nip.io:9080](http://app.127.0.0.1.nip.io:9080/signin).
+Open your browser and CluedIn will be available under [http://app.127.0.0.1.nip.io:9080](http://app.127.0.0.1.nip.io:9080).
 
 ![First screen](../assets/images/deployment/first-screen-app.png)
 
@@ -111,6 +111,76 @@ To completely remove CluedIn and all of the associated data use:
 
 This is a destructive action but it is useful for resetting data in CluedIn.
 
+### Adding extra components (such as crawlers, providers, enrichers, connectors)
+
+#### Add CluedIn NuGet feed
+
+In order to satisify the dependances of any additional components to add to CluedIn will require adding the Public CluedIn NuGet feed:
+
+```shell
+./cluedin.ps1 packages -addfeed cluedin -uri  https://pkgs.dev.azure.com/CluedIn-io/Public/_packaging/Public/nuget/v3/index.json
+```
+
+This results in the following folder tree being created:
+
+```shell
+env/default
+env/default/.env
+env/default/packages
+env/default/packages/nuget.config
+env/default/packages/local
+env/default/packages/packages.txt
+```
+NOTE: you can inspect `nuget.config` and `packages.txt` for troubleshooting purposes.
+
+#### Adding SqlServer Connector example
+
+1. Download respective .nupkg files from [https://github.com/CluedIn-io/CluedIn.Connector.SqlServer/releases/](https://github.com/CluedIn-io/CluedIn.Connector.SqlServer/releases/) and save/copy into `env/default/packages/local`
+
+1. Add the package:
+
+    ```shell
+    ./cluedin.ps1 packages -add CluedIn.Connector.SqlServer
+    ```
+
+1. Restore the package to ensure all dependencies are present:
+
+    ```shell
+    ./cluedin.ps1 packages -restore
+    ```
+
+1. Trash/remove the `cluedin_default_server_1` container using Docker Desktop or `docker rm` command, then run `./cluedin.ps1 up` to force this container to be recreated as shown below:
+
+    ```shell
+    ./cluedin.ps1 up
+    +-----------------------------+
+    | CluedIn - Environment => up |
+    +-----------------------------+
+    ...
+    Creating cluedin_default_server_1 ... done
+    ...
+    ```
+
+**Sql Server Connector is now available to use as an Export Target, setup in the UI.**
+
+#### Deep clean extra components
+
+In the event you need to remove all packages, it can be useful as part of troubleshooting to "deep clean" the components.
+
+1. Delete the folders:
+
+    ```shell
+    env/default/components
+    env/default/packages
+    ```
+
+1. Use `./cluedin.ps1 down` or trash/remove the `cluedin_default_server_1` container using Docker Desktop or `docker rm` command.
+
+1. Use `./cluedin.ps1 up` to setup the cluster again.
+
+NOTE: Remember to "Add CluedIn NuGet feed" after deleting the `packages` folder and re-add any components you require.
+
+### Developing extra components
 
 #### Increasing the log output
 
