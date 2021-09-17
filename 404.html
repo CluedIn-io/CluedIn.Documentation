@@ -12,13 +12,27 @@ search_exclude: true
 
 
 <script>
-    const pathname = window.location.pathname;
-    const supposedLocation = `https://documentation.cluedin.net/versions/3.2.3${pathname}`;
-
-    fetch(supposedLocation).then(response => {
-        if (window.location.href === supposedLocation.toLowerCase()) {
+    function redirect() {
+        const pathname = window.location.pathname;
+        
+        if (pathname.toLowerCase().indexOf('versions/3.2.3') > -1) {
             return;
         }
-        window.location.href = supposedLocation;
-    });
+
+        const supposedLocation = `https://documentation.cluedin.net/versions/3.2.3${pathname}`;
+    
+        fetch(supposedLocation)
+            .then(response => {
+                if (!response.ok) {
+                    return;
+                }
+                if (window.location.href === supposedLocation.toLowerCase()) {
+                    return;
+                }
+
+                window.location.href = supposedLocation;
+            });
+    }
+
+    redirect();
 </script>
