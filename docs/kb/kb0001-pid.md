@@ -3,7 +3,7 @@ layout: default
 title: Azure Customer Usage Attribution
 permalink: /kb/azure-customer-usage-attribution
 nav_exclude: true
-tags: ["microsoft","azure"]
+tags: ["microsoft","azure","kubernetes","aks"]
 last_modified: 2021-09-20
 ---
 
