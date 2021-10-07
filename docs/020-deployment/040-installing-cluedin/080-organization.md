@@ -1,12 +1,14 @@
 ---
 layout: default
-nav_order: 3
-parent: Kubernetes
+nav_order: 1
+parent: Installing CluedIn
 grand_parent: Deployment
-permalink: /deployment/kubernetes/create-organization
-title: Create an Organization
+permalink: /deployment/installing-cluedin/organization
+title: Creating an Organization
 tags: ["deployment", "kubernetes", "organization"]
+last_modified: "2021-09-20"
 ---
+
 ## On this page
 {: .no_toc .text-delta }
 1. TOC

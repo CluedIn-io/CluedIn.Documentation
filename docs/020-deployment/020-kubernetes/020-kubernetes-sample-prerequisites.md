@@ -18,48 +18,6 @@ You must have:
 - a local install of [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl) configured to talk to the cluster
 - a local install of the CLI for [helm](https://helm.sh/).
 
-1. Create a service account. If you are using RBAC in your Kubernetes cluster you will need to grant permissions to *Tiller* for it to be able to create resources in the cluster. Check [Helm's documentation](https://helm.sh/docs/using_helm/#rbac). In test environments, you may consider just granting Tiller cluster admin permissions:
-
-    - Create a file with the following content
-
-        ```yaml
-        apiVersion: v1
-        kind: ServiceAccount
-        metadata:
-            name: tiller
-            namespace: kube-system
-        ---
-        apiVersion: rbac.authorization.k8s.io/v1
-        kind: ClusterRoleBinding
-        metadata:
-            name: tiller
-        roleRef:
-            apiGroup: rbac.authorization.k8s.io
-            kind: ClusterRole
-            name: cluster-admin
-        subjects:
-        -   kind: ServiceAccount
-            name: tiller
-            namespace: kube-system
-        ```
-        _In production scenarios you will have to be more restrictive with the permissions. See [Helm's documentation](https://helm.sh/docs/using_helm/#securing-your-helm-installation) for advice on security for production environments_
-    
-    - Run `kubectl apply -f <path-of-file>` to create the role binding
-    
-    
-    If not using RBAC, you will need to run the following
-    
-    ```powershell
-    kubectl create serviceaccount --namespace kube-system tiller
-    
-    kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
-    
-    kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}
-    ```
-
-
-1. If using RBAC, execute `helm init --service-account tiller`. This will install *Tiller* in the cluster, so you can install helm charts directly. If not using RBAC, do not use the service account parameter.
-
 1. Install the ingress controller:
     ```powershell
     helm install stable/nginx-ingress \

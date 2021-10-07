@@ -1,12 +1,14 @@
 ---
 layout: default
-nav_order: 11
-parent: Kubernetes
+nav_order: 1
+parent: Installing CluedIn
 grand_parent: Deployment
-permalink: /deployment/kubernetes/sql
+permalink: /deployment/installing-cluedin/sqlserver
 title: SQL Server
 tags: ["deployment", "kubernetes", "sqlserver"]
+last_modified: "2021-09-20"
 ---
+
 ## On this page
 {: .no_toc .text-delta }
 1. TOC

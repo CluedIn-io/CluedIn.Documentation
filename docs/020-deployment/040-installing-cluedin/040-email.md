@@ -1,12 +1,14 @@
 ---
 layout: default
-nav_order: 5
-parent: Kubernetes
+nav_order: 1
+parent: Email
 grand_parent: Deployment
-permalink: /deployment/kubernetes/email
+permalink: /deployment/installing-cluedin/email
 title: Email
 tags: ["deployment", "kubernetes", "email"]
+last_modified: "2021-09-20"
 ---
+
 ## On this page
 {: .no_toc .text-delta }
 1. TOC

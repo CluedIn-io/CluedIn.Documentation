@@ -1,12 +1,14 @@
 ---
 layout: default
-nav_order: 12
-parent: Kubernetes
+nav_order: 6
+parent: Installing CluedIn
 grand_parent: Deployment
-permalink: /deployment/kubernetes/monitoring
+permalink: /deployment/installing-cluedin/monitoring
 title: Monitoring
 tags: ["deployment", "kubernetes", "monitoring"]
+last_modified: "2021-09-20"
 ---
+
 ## On this page
 {: .no_toc .text-delta }
 1. TOC

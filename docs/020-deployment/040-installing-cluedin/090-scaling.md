@@ -1,11 +1,12 @@
 ---
 layout: default
-nav_order: 9
-parent: Kubernetes
+nav_order: 1
+parent: Installing CluedIn
 grand_parent: Deployment
-permalink: /deployment/kubernetes/scaling
+permalink: /deployment/installing-cluedin/scaling
 title: Scaling
 tags: ["deployment", "kubernetes", "scaling"]
+last_modified: "2021-09-20"
 ---
 
 The CluedIn Server is performing 3 main functions:

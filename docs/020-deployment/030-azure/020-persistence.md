@@ -1,13 +1,14 @@
 ---
-grand_parent: Deployment
 layout: default
-nav_order: 8
-parent: Kubernetes
+nav_order: 2
+parent: Azure
 grand_parent: Deployment
-permalink: /deployment/kubernetes/persistence
+permalink: /deployment/azure/persistence
 title: Persistence
-tags: ["deployment", "kubernetes", "persistence"]
+tags: ["deployment", "kubernetes", "aks", "persistence", "managed-disks"]
+last_modified: "2021-09-20"
 ---
+
 ## On this page
 {: .no_toc .text-delta }
 1. TOC
