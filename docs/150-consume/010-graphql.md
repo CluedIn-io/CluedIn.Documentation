@@ -5,7 +5,7 @@ parent: Consume
 nav_order: 10
 permalink: /consume/graphql
 tags: ["consume","graphql"]
-last_modified: "2021-10-08"
+last_modified: 2021-10-08
 ---
 
 CluedIn provides GraphQL as its way to pull and query data from it. The CluedIn GraphQL endpoint uses a combination of the different datastores to service the result of the query in question. 
