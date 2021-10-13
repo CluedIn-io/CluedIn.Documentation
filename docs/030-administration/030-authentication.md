@@ -5,6 +5,7 @@ parent: Administration
 permalink: /administration/authentication
 title: Authentication
 tags: ["administration", "authentication"]
+last_modified: 2021-10-13
 ---
 
 ## Default Authentication Provider
@@ -14,6 +15,10 @@ By default CluedIn uses Microsoft Identity Server as its authentication provider
 CluedIn will also expire the authentication after 15 minutes of inactivity within the CluedIn user interface. 
 
 ## Single Sign On with Azure AD
+
+**note:** you will need to respect the restrictions and limitations of the [Redirect URI](https://docs.microsoft.com/en-us/azure/active-directory/develop/reply-url)
+
+**note:** you MUST implement HTTPS for all CluedIn URIs before setting up SSO.
 
 ## App Registration
 * Redirect URIs:
