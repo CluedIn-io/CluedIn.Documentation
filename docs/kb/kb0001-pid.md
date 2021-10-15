@@ -3,8 +3,8 @@ layout: default
 title: Azure Customer Usage Attribution
 permalink: /kb/azure-customer-usage-attribution
 nav_exclude: true
-tags: ["microsoft","azure"]
-last_modified: 2021-09-09
+tags: ["microsoft","azure","kubernetes","aks"]
+last_modified: 2021-09-20
 ---
 
 This article describes how to create customers Azure resources associated with CluedIn as a Microsoft partner.
@@ -26,6 +26,9 @@ Before you start, please read the following Microsoft documentation articles:
 - [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using an ARM template](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-rm-template)
 - [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-ssh-keys-detailed)
 
+## Roles Assignment
+
+To create an AKS cluster, you have to [be assigned](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-steps) to a subscription's Owner or Contributor roles. If you are don't have one of these roles, you will need to ask someone who has one of these roles to perform the following steps.
 
 ## Create a Resource Group
 
