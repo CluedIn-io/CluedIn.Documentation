@@ -1,9 +1,9 @@
 ---
 layout: default
-nav_order: 1
-parent: Installing CluedIn
+nav_order: 9
+parent: CluedIn
 grand_parent: Deployment
-permalink: /deployment/installing-cluedin/scaling
+permalink: /deployment/cluedin/scaling
 title: Scaling
 tags: ["deployment", "kubernetes", "scaling"]
 last_modified: "2021-09-20"

@@ -12,15 +12,15 @@ tags: ["deployment", "docker", "docker-compose"]
 {:toc}
 ## Introduction
 
-This will show you how to install CluedIn on your local machine by running it inside Docker. CluedIn is an application with many services, so you will need to ensure you have adequate resources on the machine you intend to run it on.
+This article shows how to install CluedIn on your local machine by running it inside Docker. CluedIn is an application with many services, so you need to ensure you have adequate resources on the computer you intend to run it on.
 
 ### Requirements
 
-- At least 16Gb of free memory dedicated to docker (It is preferable to run on a machine with 32Gb of RAM)
+- At least 16Gb of free memory dedicated to Docker (It is preferable to run on a machine with 32Gb of RAM)
 - Latest version of [Docker](https://docs.docker.com/get-docker/) for your operating system  (Engine: > 19.03)
 - [Powershell 7](https://github.com/PowerShell/PowerShell) for your operating system - This is to run helper scripts
 - Access to the private repositories inside the [cluedin](https://hub.docker.com/u/cluedin/) DockerHub organization. You will require a Docker Hub account and request access from CluedIn; then use this account to do a ```docker login```.
-    NOTE: **Only CluedIn certified developers** have access to the CluedIn DockerHub. Please contact us on our [website](https://www.cluedin.com/) if you would like access.
+    NOTE: **Only CluedIn certified developers** have access to the CluedIn DockerHub. Please get in touch with us on our [website](https://www.cluedin.com/) if you would like access.
 
 ### Running CluedIn
 
@@ -37,14 +37,14 @@ CluedIn provides a helper script to streamline the process of getting started.
     ```shell
     ./cluedin.ps1 check
     ```
-    This will check a few things:
+    This command will check a few things:
     * That you have the needed software installed
     * That you have the ports needed to run CluedIn available
     * That you have logged into docker hub
 
-    If all these checks are green you are ready to proceed. If ports are in use then you may need to stop any programs locally that may be using them and re-run `check` again.
+    If all these checks are green, you are ready to proceed. However, if ports are in use, you may need to stop any programs locally that may be using them and re-run `check` again.
 
-1. Pull the latest cluedin images to your local machine
+1. Pull the latest CluedIn images to your local machine
     ```shell
     ./cluedin.ps1 pull
     ```
@@ -52,16 +52,16 @@ CluedIn provides a helper script to streamline the process of getting started.
 
 #### Starting the application
 
-To start up the application use:
+To start up the application, use:
 
 ```shell
 ./cluedin.ps1 up
 ```
-This will start up the various containers in Docker and begin initializing CluedIn for the first time.
+This command will start up the various containers in Docker and begin initializing CluedIn for the first time.
 
 #### Checking application status
 
-Depending on the speed of the machine it is being installed onto CluedIn can take a moment to start up.
+Depending on the speed of the machine it is being installed onto, CluedIn can take a moment to start up.
 
 You can check the status of this by using:
 ```shell
@@ -70,14 +70,14 @@ You can check the status of this by using:
 
 CluedIn is ready when all the status checks are green.
 
-Open your browser and CluedIn will be available under [http://app.127.0.0.1.nip.io:9080](http://app.127.0.0.1.nip.io:9080).
+Open your browser, and CluedIn will be available under [http://app.127.0.0.1.nip.io:9080](http://app.127.0.0.1.nip.io:9080).
 
 ![First screen](../assets/images/deployment/first-screen-app.png)
 
 #### Creating an organization
 
-In order to use CluedIn you need to create an *organization*.
-You can use the following command to create an account from the command line
+To use CluedIn, you need to create an *organization*.
+You can use the following command to create an account from the command line.
 
 ```shell
 ./cluedin.ps1 createorg -name foobar -pass Foobar23!
@@ -95,7 +95,7 @@ To stop CluedIn but to preserve the data you created while running, use:
 ./cluedin.ps1 stop
 ```
 
-To start CluedIn back up again, you can simply use `up` or :
+To start CluedIn back up again, you can use `up` or :
 
 ```shell
 ./cluedin.ps1 start
@@ -109,19 +109,19 @@ To completely remove CluedIn and all of the associated data use:
 ./cluedin.ps1 down
 ```
 
-This is a destructive action but it is useful for resetting data in CluedIn.
+This command is a destructive action, but it helps reset data in CluedIn.
 
 ### Adding extra components (such as crawlers, providers, enrichers, connectors)
 
 #### Add CluedIn NuGet feed
 
-In order to satisify the dependances of any additional components to add to CluedIn will require adding the Public CluedIn NuGet feed:
+To satisfy the dependencies of any additional components to add to CluedIn will require adding the Public CluedIn NuGet feed:
 
 ```shell
 ./cluedin.ps1 packages -addfeed cluedin -uri  https://pkgs.dev.azure.com/CluedIn-io/Public/_packaging/Public/nuget/v3/index.json
 ```
 
-This results in the following folder tree being created:
+This results in the following folder tree be created:
 
 ```shell
 env/default
@@ -131,7 +131,7 @@ env/default/packages/nuget.config
 env/default/packages/local
 env/default/packages/packages.txt
 ```
-NOTE: you can inspect `nuget.config` and `packages.txt` for troubleshooting purposes.
+NOTE: you can inspect `NuGet.config` and `packages.txt` for troubleshooting purposes.
 
 #### Adding SqlServer Connector example
 
@@ -161,11 +161,11 @@ NOTE: you can inspect `nuget.config` and `packages.txt` for troubleshooting purp
     ...
     ```
 
-**Sql Server Connector is now available to use as an Export Target, setup in the UI.**
+**SQL Server Connector is now available to use as an Export Target, set up in the UI.**
 
 #### Deep clean extra components
 
-In the event you need to remove all packages, it can be useful as part of troubleshooting to "deep clean" the components.
+If you need to remove all packages, it can be helpful as part of troubleshooting to "deep clean" the components.
 
 1. Delete the folders:
 
@@ -176,7 +176,7 @@ In the event you need to remove all packages, it can be useful as part of troubl
 
 1. Use `./cluedin.ps1 down` or trash/remove the `cluedin_default_server_1` container using Docker Desktop or `docker rm` command.
 
-1. Use `./cluedin.ps1 up` to setup the cluster again.
+1. Use `./cluedin.ps1 up` to set up the cluster again.
 
 NOTE: Remember to "Add CluedIn NuGet feed" after deleting the `packages` folder and re-add any components you require.
 
@@ -196,11 +196,11 @@ The following will update the environment for `Development` level logging.  It w
 You can add extra providers or enrichers in two different ways:
 
 1. Via Nuget packages
-    1. Add a a file named `Packages.txt` in the `./components` folder with the names of the nuget packages for the components you want to install.
-    2. If the Nuget packages are not available publicly add a `nuget.config` file in the `./components` folder. Either pass the password token to the `nuget.config` or create a `KEY` environment variable with it.
+    1. Add a file named `Packages.txt` in the `./components` folder with the names of the NuGet packages for the components you want to install.
+    2. If the Nuget packages are not available publicly, add a `NuGet.config` file in the `./components` folder. Either pass the password token to the `NuGet.config` or create a `KEY` environment variable with it.
 2. Copy the relevant DLLs for the components in the `./components/ServerComponent` folder. 
 
 You will also need to load in the deps.json files that are compiled in your C# projects.
 
-If you are wanting to debug your additions locally then you will also want to copy in the .PDB files.
+If you want to debug your additions locally then, you will also want to copy in the .PDB files.
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Installing CluedIn
+title: CluedIn
 parent: Deployment
 permalink: /deployment/installing-cluedin
 nav_order: 040

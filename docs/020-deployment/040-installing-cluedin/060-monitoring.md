@@ -1,9 +1,9 @@
 ---
 layout: default
 nav_order: 6
-parent: Installing CluedIn
+parent: CluedIn
 grand_parent: Deployment
-permalink: /deployment/installing-cluedin/monitoring
+permalink: /deployment/cluedin/monitoring
 title: Monitoring
 tags: ["deployment", "kubernetes", "monitoring"]
 last_modified: "2021-09-20"

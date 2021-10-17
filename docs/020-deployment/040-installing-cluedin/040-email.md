@@ -1,9 +1,9 @@
 ---
 layout: default
 nav_order: 1
-parent: Email
+parent: CluedIn
 grand_parent: Deployment
-permalink: /deployment/installing-cluedin/email
+permalink: /deployment/cluedin/email
 title: Email
 tags: ["deployment", "kubernetes", "email"]
 last_modified: "2021-09-20"

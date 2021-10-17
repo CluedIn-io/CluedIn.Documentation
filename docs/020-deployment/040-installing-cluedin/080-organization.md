@@ -1,9 +1,9 @@
 ---
 layout: default
-nav_order: 1
-parent: Installing CluedIn
+nav_order: 8
+parent: CluedIn
 grand_parent: Deployment
-permalink: /deployment/installing-cluedin/organization
+permalink: /deployment/cluedin/organization
 title: Creating an Organization
 tags: ["deployment", "kubernetes", "organization"]
 last_modified: "2021-09-20"
