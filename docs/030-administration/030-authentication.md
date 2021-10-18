@@ -5,7 +5,7 @@ parent: Administration
 permalink: /administration/authentication
 title: Authentication
 tags: ["administration", "authentication"]
-last_modified: 2021-10-13
+last_modified: 2021-10-18
 ---
 
 ## Default Authentication Provider
@@ -23,7 +23,7 @@ CluedIn will also expire the authentication after 15 minutes of inactivity withi
 ## App Registration
 * Redirect URIs:
   * https://app._hostname_/
-  * https://_accountSubdomain_._hostname_/
+  * https://_organization_._hostname_/
   * https://app._hostname_/auth/signin-oidc
 
 * Logout Uri
@@ -64,7 +64,7 @@ Navigate to the Database called Authentication, and either run this command from
 ```
 INSERT [SingleSignOn] ([Id],[OrganizationId],[LoginUrl],[LogoutUrl],[Active],[ChangePasswordUrl],[SingleSignOnProviderId],[ExternalId],[IssuerUrl],[SamlVersion],[Certificate],[CustomErrorUrl],[ExternalSecret],[AuthenticationScheme],[AuthorityUrl])
 
-SELECT '{a421253e-9086-4202-bfcc-c42eed712987}','<organization id>','<org account url>/ssocallback','<org account url>/logout',1,' ','{54118954-951f-41a9-b0a7-6de7d47e6c17}','<client id>',' ',0,' ',' ','<client secret>','aad','https://login.microsoftonline.com/common';
+SELECT '{a421253e-9086-4202-bfcc-c42eed712987}','<organization id>','<organization url>/ssocallback','<organization url>/logout',1,' ','{54118954-951f-41a9-b0a7-6de7d47e6c17}','<client id>',' ',0,' ',' ','<client secret>','aad','https://login.microsoftonline.com/common';
 ```
 
 You will now need to update the OrganizationAccount tables ExternalAuthenticationId column for this organization you have created to be  `54118954-951f-41a9-b0a7-6de7d47e6c17`. This will signal to CluedIn that this particular account uses Azure Active Directory as its identity provider.
