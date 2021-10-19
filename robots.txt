@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+Disallow: /version
+Sitemap: https://documentation.cluedin.net/sitemap.xml
