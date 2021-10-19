@@ -4,7 +4,7 @@ nav_order: 3
 parent: Administration
 permalink: /administration/authentication
 title: Authentication
-tags: ["administration", "authentication"]
+tags: ["administration", "authentication", "sso", "single-sign-on"]
 ---
 
 ## Default Authentication Provider

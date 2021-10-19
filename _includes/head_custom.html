@@ -1,0 +1,3 @@
+{% if page.tags %}
+<meta name="keywords" content="cluedin, master data management, mdm, mdm microsoft, cluedin documentation, cluedin docs, {{ page.tags | array_to_sentence_string | replace: "-", " " | replace: ", and", ", " }}">
+{% endif %}
