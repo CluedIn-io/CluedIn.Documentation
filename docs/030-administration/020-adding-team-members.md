@@ -4,7 +4,7 @@ nav_order: 2
 parent: Administration
 permalink: /administration/adding-team-members
 title: Adding Team Members
-tags: ["administration", "users"]
+tags: ["administration", "users", "sso", "single-sign-on"]
 ---
 
 ## Adding new users manually

@@ -4,7 +4,7 @@ nav_order: 1
 parent: Administration
 permalink: /administration/profile
 title: Profile
-tags: ["administration", "profile"]
+tags: ["administration", "profile", "sso", "single-sign-on"]
 ---
 
 ## Changing your password
