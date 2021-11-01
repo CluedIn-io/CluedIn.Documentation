@@ -5,7 +5,7 @@ parent: Deployment
 nav_order: 010
 permalink: /deployment/docker-compose
 tags: ["deployment", "docker", "docker-compose", "local-deployment"]
-last_modified: 2021-11-1
+last_modified: 2021-11-01
 ---
 
 To run CluedIn on a local computer, you don't need to set up a Kubernetes cluster. 
