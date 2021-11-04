@@ -82,35 +82,44 @@ kubectl delete pod -l role=main -n cluedin
 
 After doing this, visit the login page for your CluedIn account again and you will notice that it will redirect you to the office 365 login page to authenticate. By default, your user will be created as a "User" and not an Administrator. You can now manage this all within your Active Directory now.
 
+### Azure AD Application Role to CluedIn Role
+
+Once you have created your App Registration and attached that to your CluedIn instance, you have an option to create App Roles on AD side that would get translated into CluedIn Platform role and assigned to the user upon first sign in.
+
+This can be achieved by going to your App Registration and navigating the left hand side menu to *"App Roles"*
+
+//img 01
+
+Once in App Roles section, you can begin creating roles that match your needs. *(You can find all CluedIn roles by navigating to [Administration -> Roles](//img) in the web user interface.)*
+
+All the changes that are applied to App Registration will be live in your Azure subscription. We do not impose any hard requirements on how App Roles are setup, so adhere to your organization's internal requirements.
+
+//img 02
+
+Once App Role has been created, gain access to CluedIn's internal SQL _Authentication_ database and begin mapping CluedIn Roles to App Roles.
+
+You can use the following SQL insert statement or populate the values manually by Editing the table:
+```
+USE [DataStore.Db.Authentication]
+
+INSERT INTO [dbo].[SingleSignOnRoleMappings] (Id, SingleSignOnId, RoleId, MappedTo)
+
+VALUES ('<single sign on id>', '<cluedin role id>', '<app role value field>')
+```
+
+The following values needs to be replaced:
+* `<single sign on id>`  Corresponds to `Id` column in `SingleSignOn` table.
+* `<cluedin role id>` Corresponds to `Id` column in `AspNetRoles` table.
+* `<app role value field>` Corresponds to `Value` assigned in your App Role in App Registration.
+
+See the example below of mapping `OrganizationAdmin` CluedIn role to `CluedIn App Admin` AD app role.
+
+//img 03
+
+### Azure AD User assignment to Azure AD App Role
 ### Cleaning up after you have switched to a SSO provider
 
 After you have switched over to a Single Sign On provider you will still have your original user in the database. This user will not be able to login anymore so it is best to deactivate this user. To do this, you will also need to port-forward to the SQL database like above and switch the "Active column" on the AspNetUser table to false for this user. 
-
-### Mapping Active Directory Groups to Roles within CluedIn
-
-If you have switched to an SSO provider then you will need to map Groups in Active Directory to Roles within CluedIn. This is done using configuration files within CluedIn. 
-
-User Role mapping from configuration
-
-Roles returned from the IDP in tokens are mapped to built-in CluedIn Role types using configuration.
-
-The default configuration for this Role mapping is shown below:
-
-<add key="Security.Roles.Mapping.User" value=".*User" />
-
-<add key="Security.Roles.Mapping.OrganizationAdmin" value=".*Organization.*Admin" />
-
-<add key="Security.Roles.Mapping.ReportManager" value=".*ReportManager" />
-
-The configuration key starts with the prefix Security.Roles.Mapping. followed by the CluedIn Role name. The supported CluedIn roles are User, OrganizationAdmin and ReportManager, these roles are defined in the CluedIn.Core.Accounts.UserRoleType enumeration.
-
-The value specified by the Role mapping setting is a regular expression to match incoming Role names against.
-
-### Delegating access to CluedIn from Active Directory
-
-Now that you have moved to using a SSO provider, then all access to users and groups is now done through Active Directory. Here is an example of a guide in Azure Active Directory that guides you through doing this against the Enterprise Application that you setup above. 
-
-![Diagram](../assets/images/administration/change-authentication-type.png)
 
 ### NGINX Bad Request
 If you are running NGINX as your Ingress Controller and upon redirect you have a 502 Bad Request, you are missing the following annotations to your Ingress definition:
