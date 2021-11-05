@@ -4,6 +4,7 @@ title:
 has_children: false
 permalink: /tag
 nav_exclude: true
+sitemap: false
 ---
 
 {% assign rawtags = "" %}
