@@ -5,20 +5,20 @@ parent: Administration
 permalink: /administration/authentication
 title: Authentication
 tags: ["administration", "authentication", "sso", "single-sign-on"]
-last_modified: 2021-10-18
+last_modified: 2021-11-05
 ---
 
 ## Default Authentication Provider
 
-By default CluedIn uses Microsoft Identity Server as its authentication provider. These means that users and roles are managed within the CluedIn application itself. It is recommended to enable SSO in staging and production environments, but for locally development, it is fine to use this authentication mechanism. 
+By default, CluedIn uses Microsoft Identity Server as its authentication provider. This means that users and roles are managed within the CluedIn application itself. It is recommended to enable SSO in staging and production environments, but for local development, it is fine to use this authentication mechanism. 
 
 CluedIn will also expire the authentication after 15 minutes of inactivity within the CluedIn user interface. 
 
-## Single Sign On with Azure AD
+## Single Sign-On with Azure AD
 
-**note:** you will need to respect the restrictions and limitations of the [Redirect URI](https://docs.microsoft.com/en-us/azure/active-directory/develop/reply-url)
+**NOTE:** you will need to respect the restrictions and limitations of the [Redirect URI](https://docs.microsoft.com/en-us/azure/active-directory/develop/reply-url)
 
-**note:** you MUST implement HTTPS for all CluedIn URIs before setting up SSO.
+**NOTE:** you MUST implement HTTPS for all CluedIn URIs before setting up SSO.
 
 ## App Registration
 * Redirect URIs:
@@ -56,11 +56,11 @@ CluedIn will also expire the authentication after 15 minutes of inactivity withi
 ## Enabling SSO
 The following SQL query will have to be executed against Authentication database:
 
-This may require you to port-forward to the SQL instance running inside the kubernetes cluster using [kubectl port-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/). 
+This may require you to port-forward to the SQL instance running inside the Kubernetes cluster using [kubectl port-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/). 
 
-Navigate to the Database called Authentication, and either run this command from a command line or using your SQL Management Client such as SQL Server Management studio.
+Navigate to the database called Authentication, and either run this command from a command line or using your SQL Management Client such as SQL Server Management studio.
 
-( Fill out all values in the diamond operators in the command below)
+(Fill out all values in the diamond operators in the command below)
 ```
 INSERT [SingleSignOn] ([Id],[OrganizationId],[LoginUrl],[LogoutUrl],[Active],[ChangePasswordUrl],[SingleSignOnProviderId],[ExternalId],[IssuerUrl],[SamlVersion],[Certificate],[CustomErrorUrl],[ExternalSecret],[AuthenticationScheme],[AuthorityUrl])
 
@@ -74,49 +74,48 @@ Restart CluedIn API Pod
 kubectl delete pod -l role=main
 ```
 
-*Dependent upon the version of kubectl you are using you may need to also append the namespace in the command above.
+*Dependent upon the version of kubectl you are using, you may also need to append the namespace in the command above.
 
 ```
 kubectl delete pod -l role=main -n cluedin
 ```
 
-After doing this, visit the login page for your CluedIn account again and you will notice that it will redirect you to the office 365 login page to authenticate. By default, your user will be created as a "User" and not an Administrator. You can now manage this all within your Active Directory now.
+After doing this, visit the login page for your CluedIn account again, and you will notice that it will redirect you to the office 365 login page to authenticate. By default, your user will be created as a "User" and not an Administrator. You can manage this all within your Active Directory now.
 
-### Cleaning up after you have switched to a SSO provider
+### Azure AD Application Role to CluedIn Role
 
-After you have switched over to a Single Sign On provider you will still have your original user in the database. This user will not be able to login anymore so it is best to deactivate this user. To do this, you will also need to port-forward to the SQL database like above and switch the "Active column" on the AspNetUser table to false for this user. 
+Once you have created your App Registration and attached that to your CluedIn instance, you have an option to create App Roles on AD side that would get translated into CluedIn Platform role and assigned to the user upon first sign in.
 
-### Mapping Active Directory Groups to Roles within CluedIn
+This can be achieved by going to your App Registration and navigating the left-hand side menu to *"App Roles"*
 
-If you have switched to an SSO provider then you will need to map Groups in Active Directory to Roles within CluedIn. This is done using configuration files within CluedIn. 
+![App Roles](../assets/images/administration/app-role-nav.png)
 
-User Role mapping from configuration
+Once in the App Roles section, you can begin creating roles that match your needs. (You can find all CluedIn roles by navigating to *Administration -> Roles* in the web user interface).
 
-Roles returned from the IDP in tokens are mapped to built-in CluedIn Role types using configuration.
+All the changes that are applied to App Registration will be live in your Azure subscription. We do not impose any hard requirements on how App Roles are set up, so adhere to your organization's internal requirements.
 
-The default configuration for this Role mapping is shown below:
+![Edit App Role](../assets/images/administration/edit-app-role.png)
 
-<add key="Security.Roles.Mapping.User" value=".*User" />
+Once App Role has been created, gain access to CluedIn's internal SQL _Authentication_ database and begin mapping CluedIn Roles to App Roles.
 
-<add key="Security.Roles.Mapping.OrganizationAdmin" value=".*Organization.*Admin" />
-
-<add key="Security.Roles.Mapping.ReportManager" value=".*ReportManager" />
-
-The configuration key starts with the prefix Security.Roles.Mapping. followed by the CluedIn Role name. The supported CluedIn roles are User, OrganizationAdmin and ReportManager, these roles are defined in the CluedIn.Core.Accounts.UserRoleType enumeration.
-
-The value specified by the Role mapping setting is a regular expression to match incoming Role names against.
-
-### Delegating access to CluedIn from Active Directory
-
-Now that you have moved to using a SSO provider, then all access to users and groups is now done through Active Directory. Here is an example of a guide in Azure Active Directory that guides you through doing this against the Enterprise Application that you setup above. 
-
-![Diagram](../assets/images/administration/change-authentication-type.png)
-
-### NGINX Bad Request
-If you are running NGINX as your Ingress Controller and upon redirect you have a 502 Bad Request, you are missing the following annotations to your Ingress definition:
-
+You can use the following SQL insert statement or populate the values manually by Editing the table:
 ```
-    nginx.ingress.kubernetes.io/proxy-buffering: "on"
-    nginx.ingress.kubernetes.io/proxy-buffer-size: "128k"
-    nginx.ingress.kubernetes.io/proxy-buffers-number: "4"
+USE [DataStore.Db.Authentication]
+INSERT INTO [dbo].[SingleSignOnRoleMappings] (Id, SingleSignOnId, RoleId, MappedTo)
+VALUES ('<single sign on id>', '<cluedin role id>', '<app role value field>')
 ```
+
+The following values needs to be replaced:
+* `<single sign on id>`  Corresponds to `Id` column in `SingleSignOn` table.
+* `<cluedin role id>` Corresponds to `Id` column in `AspNetRoles` table.
+* `<app role value field>` Corresponds to `Value` assigned in your App Role in App Registration.
+
+See the example below of mapping `OrganizationAdmin` CluedIn role to `CluedIn App Admin` AD app role.
+
+![alt](../assets/images/administration/insert-role-mapping.png)
+
+### Azure AD User assignment to Azure AD App Role
+### Cleaning up after you have switched to an SSO provider
+
+After you have switched over to a Single Sign-On provider, you will still have your original user in the database. However, this user will not be able to login anymore, so it is best to deactivate this user. To do this, you will also need to port-forward to the SQL database like above and switch the "Active column" on the AspNetUser table to false for this user. 
+
