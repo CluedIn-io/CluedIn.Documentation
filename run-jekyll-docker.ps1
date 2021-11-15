@@ -5,4 +5,4 @@
 # https://jekyllrb.com/docs/configuration/options/
 # note: can take up to 5 minutes to come up
 # note: serve speed can be sped up by removing the --verbose flag
-docker run --name CluedIn.Documentation --rm -e "JEKYLL_ENV=docker" --volume="${PWD}:/srv/jekyll" --publish 4000:4000 jekyll/jekyll bash -c "gem install bundler:2.2.27 && jekyll serve --verbose -w --livereload --force_polling --config _config.yml,_config.docker.yml"
+docker run --name CluedIn.Documentation --rm -e "JEKYLL_ENV=docker" --volume="${PWD}:/srv/jekyll" --publish 4000:4000 --publish 35729:35729 jekyll/jekyll bash -c "gem install bundler:2.2.27 && jekyll serve -w --livereload --incremental --force_polling --config _config.yml,_config.docker.yml"
