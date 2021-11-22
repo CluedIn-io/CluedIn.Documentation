@@ -1,0 +1,48 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "resourceName": {
+            "value": "aks-cluedin-dev"
+        },
+        "location": {
+            "value": "uksouth"
+        },
+        "dnsPrefix": {
+            "value": "aks-cluedin-dev-dns"
+        },
+        "kubernetesVersion": {
+            "value": "1.20.9"
+        },
+        "networkPlugin": {
+            "value": "kubenet"
+        },
+        "enableRBAC": {
+            "value": true
+        },
+        "adminGroupObjectIDs": {
+            "value": []
+        },
+        "enablePrivateCluster": {
+            "value": false
+        },
+        "enableHttpApplicationRouting": {
+            "value": false
+        },
+        "enableAzurePolicy": {
+            "value": false
+        },
+        "vmssNodePool": {
+            "value": true
+        },
+        "workspaceName": {
+            "value": "DefaultWorkspace-5f2fa224-2bcd-4656-8f93-8480e825a331-SUK"
+        },
+        "omsWorkspaceId": {
+            "value": "/subscriptions/5f2fa224-2bcd-4656-8f93-8480e825a331/resourcegroups/defaultresourcegroup-suk/providers/microsoft.operationalinsights/workspaces/defaultworkspace-5f2fa224-2bcd-4656-8f93-8480e825a331-suk"
+        },
+        "workspaceRegion": {
+            "value": "uksouth"
+        }
+    }
+}
