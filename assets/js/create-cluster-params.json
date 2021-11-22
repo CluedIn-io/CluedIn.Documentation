@@ -36,10 +36,10 @@
             "value": true
         },
         "workspaceName": {
-            "value": "DefaultWorkspace-5f2fa224-2bcd-4656-8f93-8480e825a331-SUK"
+            "value": "DefaultWorkspace-{subscription-id}-SUK"
         },
         "omsWorkspaceId": {
-            "value": "/subscriptions/5f2fa224-2bcd-4656-8f93-8480e825a331/resourcegroups/defaultresourcegroup-suk/providers/microsoft.operationalinsights/workspaces/defaultworkspace-5f2fa224-2bcd-4656-8f93-8480e825a331-suk"
+            "value": "/subscriptions/{subscription-id}/resourcegroups/defaultresourcegroup-suk/providers/microsoft.operationalinsights/workspaces/defaultworkspace-{subscription-id}-suk"
         },
         "workspaceRegion": {
             "value": "uksouth"

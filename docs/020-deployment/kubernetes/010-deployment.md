@@ -6,8 +6,10 @@ grand_parent: Deployment
 permalink: /deployment/kubernetes/deployment
 title: Deployment
 tags: ["deployment", "kubernetes"]
+search_exclude: true
 ---
 
+# THIS DEPLOYMENT GUIDE HAS BEEN DEPRECATED AND REPLACED BY [A NEW ONE](../azure/step-by-step-install), IT WILL BE MADE UNAVAILABLE SOON.
 
 # Kubernetes
 {: .no_toc }

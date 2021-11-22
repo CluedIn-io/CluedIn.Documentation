@@ -1,9 +1,9 @@
 ---
 layout: default
-nav_order: 1
-parent: Installation
+nav_order: 80
+parent: Azure
 grand_parent: Deployment
-permalink: /deployment/installation/step-by-step-install
+permalink: /deployment/azure/step-by-step-install
 title: Step by step installation
 tags: ["deployment", "cluedin", "installation", "setup"]
 ---
@@ -87,9 +87,9 @@ The purpose of the chart is to install the CluedIn application, this includes th
     - You must be [added as a user](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory#add-a-new-user) in your company's Azure tenant
     - You must have the [Contributor role](https://documentation.cluedin.net/deployment/azure/aks#role-based-access-control-rbac) on the Azure Subscription you will be using for the installation.
 
-- Provision a Hostname for the CluedIn application, for example: cluedin-dev.companyName.com, this will be the hostname used in the remainder of the installation.
-- Purchase or generate an SSL certificate bound to *.hostname, for example: *.cluedin-dev.companyName.com. If you choose not to use HTTPS immediately (despite its importance, especially for production environments), you can reconfigure CluedIn later to use HTTPS.
-- You own a Docker Hub account, for which you requested access to CluedIn's Docker images. Please contact your appointed account or partner manager if you have not gotten the access enabled yet.
+- Provision a [hostname for the CluedIn application](https://documentation.cluedin.net/deployment/azure/dns), for example: `cluedin-dev.companyName.com`, this will be the hostname used in the remainder of the installation.
+- Purchase or generate an [SSL certificate](https://documentation.cluedin.net/deployment/azure/certificate) bound to *.hostname, for example: *.cluedin-dev.companyName.com. If you choose not to use HTTPS immediately (despite its importance, especially for production environments), you can reconfigure CluedIn later to use HTTPS.
+- You own a Docker Hub account, for which you requested access to CluedIn's Docker images. Please contact `support@cluedin.com` if you have not gotten the access enabled yet.
 
 ### Login to Azure
 
@@ -133,7 +133,7 @@ In this step, you will create an AKS cluster with the following nodepool sizing:
     - `dnsPrefix`: DNS prefix for your cluster, for example: aks-cluedin-dev-dns, aks-cluedin-test-dns etc...
     - `kubernetesVersion`: 1.20.9 or later
     - `networkPlugin`: can be "kubenet" or "azure". If you choose azure, you need to add another parameter called vnetSubnetID and add its value. More information on how to get the ID can be found [here](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet?view=azure-cli-latest). **For the remainder of the installation, we are using Kubenet.**
-    - `workspaceName`: choose a workspace name, this is used for the monitoring of your cluster.
+    - `workspaceName`: choose a workspace name, this is used for the monitoring of your cluster, it can be **DefaultWorkspace-{subscription-id}-{region}**, for example: DefaultWorkspace-abcd1234-a1b2-0123-9f8e-1234a567b890-WEU
     - `omsWorkspaceId`: The format should be /subscriptions/**{subscription-id}**/resourcegroups/defaultresourcegroup-**{region}**/providers/microsoft.operationalinsights/workspaces/**{workspaceName}**, you need to replace the parts in **bold** by the appropriate values. In order to find your subscription Id, you can run the following command 
         ```powershell
         az account show    
@@ -183,20 +183,22 @@ In this step, you will create an AKS cluster with the following nodepool sizing:
         ```
         If the external IP shows as "pending", give it a moment before trying again, then save the External IP address from the output, you will need it for your DNS configuration. 
         ![External IP](../../../assets/images/deployment/step-by-step-install/50-external-ip.png)
-- DNS Routine (If applicable): Through your DNS provider's management system, make your chosen host point to the public IP of the ingress controller for the following routes:
+- DNS Routing (If applicable): Through your DNS provider's management system, make your host point to the public IP of the ingress controller for the following routes:
   - `app.<hostname>`, for example: **app.cluedin-dev.companyName.com**
   - `<organizationName>.<hostname>`, for example: **product.cluedin-dev.companyName.com**
 
 - SSL Certificate (If applicable): Create a secret with the SSL certificates for the following routes:
-    - `app.<hostname>`, for example: **app.cluedin-dev.cluedin.com**
-    - `<organizationName>.<hostname>`, for example **product.cluedin-dev.companyName.com**
-    - `clean.<hostname>`, for example **clean.cluedin-dev.companyName.com**
-    - Admin URLs:
-        - `grafana.<hostname>`, for example **grafana.cluedin-dev.companyName.com**
-        - `promotheus.<hostname>`, for example **promotheus.cluedin-dev.companyName.com**
-        - `alertmanager.<hostname>`, for example **alertmanager.cluedin-dev.companyName.com**
-        - `alertmanager.<hostname>`, for example **alertmanager.cluedin-dev.companyName.com**
-    - If possible, the SSL Certificate can be a wildcard one, for example: ***.cluedin-dev.companyName.com**
+    - **Option 1**: specific subdomains
+        - `app.<hostname>`, for example: **app.cluedin-dev.cluedin.com**
+        - `<organizationName>.<hostname>`, for example **product.cluedin-dev.companyName.com**
+        - `clean.<hostname>`, for example **clean.cluedin-dev.companyName.com**
+        - Admin URLs:
+            - `grafana.<hostname>`, for example **grafana.cluedin-dev.companyName.com**
+            - `promotheus.<hostname>`, for example **promotheus.cluedin-dev.companyName.com**
+            - `alertmanager.<hostname>`, for example **alertmanager.cluedin-dev.companyName.com**
+            - `seq.<hostname>`, for example **seq.cluedin-dev.companyName.com**
+    - **Option 2**: Wildcard certificate
+        - If possible, the SSL Certificate can be a wildcard one, for example: ***.cluedin-dev.companyName.com**
     - The certificate secret can be created using the following command: 
     ```powershell 
     kubectl create secret tls <secret-name>--key <private-key-path> --cert <public-certificate-path>
@@ -259,13 +261,36 @@ If your hostname is *companyName.com* and you choose a prefix to your CluedIn de
       alertManagerAdmin: "alertmanager" # For alertmanager.cluedin-dev.companyName.com
       seq: "seq" # For seq.cluedin-dev.companyName.com
 ```
+
 Please note that the above is also equivalent to:
 ```yaml
   dns:
-    hostname: "cluedin-dev.companyName.com"
-    prefix: ""
-    subdomains: ...
+    hostname: "cluedin-dev.companyName.com" # The prefix is added to the hostname
+    prefix: "" # No further prefix defined
+    subdomains: 
+      application: "app" 
+      openrefine: "clean" 
+      grafanaAdmin: "grafana"
+      prometheusAdmin: "prometheus"
+      alertManagerAdmin: "alertmanager"
+      seq: "seq"
 ```
+
+Also, all the subdomains values can be overriden by values that you prefer, like in the following example:
+```yaml
+  dns:
+    hostname: "companyName.com" # Main company's hostname is used
+    prefix: "" # No prefix used
+    subdomains: 
+      application: "app-cluedin-dev" 
+      openrefine: "clean-cluedin-dev" 
+      grafanaAdmin: "grafana-cluedin-dev"
+      prometheusAdmin: "prometheus-cluedin-dev"
+      alertManagerAdmin: "alertmanager-cluedin-dev"
+      seq: "seq-cluedin-dev"
+```
+In this case, the app URL will be: `app-cluedin-dev.companyName.com`
+
 Finally, if you choose to use the Ingress controller's external IP with no specific hostname until you get your DNS configuration sorted out, the DNS section would be:
 ```yaml
   dns:
@@ -277,7 +302,7 @@ Finally, if you choose to use the Ingress controller's external IP with no speci
 *Please note that organization prefix cannot contain a hyphen or a dot in it.
 
 **SSL and HTTPS (If applicable)**
-If you are adding Modify the following section as per your needs:
+If you are configuring HTTPS too, modify the following section as per your needs:
 ```yaml
   ingress:
     forceHttps: True # Set to True if you want to force HTTPS usage
