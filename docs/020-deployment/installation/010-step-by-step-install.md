@@ -26,25 +26,25 @@ The purpose of the chart is to install the CluedIn application, this includes th
 ### Pre-requisites & Preparation
 - Install [PowerShell 7](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7) locally.
 - Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) for the specific OS you are using ([Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli), [MacOS](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos) or [Linux](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
-- Create a folder where you can store the different tools & files you will need for the installation, for example **C:\Users\YourUserName\AzureTools**
+- Create a folder where you can store the different tools & files you will need for the installation, for example **C:\Users\$env:username\AzureTools**, where `$env:username` contains your user name.
     - Open a PowerShell 7 session
-    ![PowerShell](../../screenshots/01-OpenPowershell.png)
-    - Create a new folder using the following command (replace MyUserName with the appropriate value)
+    ![PowerShell](../../../assets/images/deployment/step-by-step-install/01-open-powershell.png)
+    - Create a new folder using the following command:
         ```powershell
-        mkdir C:\Users\MyUserName\AzureTools
+        mkdir C:\Users\$env:username\AzureTools
         ```
         Navigate to the new folder
         ```powershell
-        cd C:\Users\MyUserName\AzureTools
+        cd C:\Users\$env:username\AzureTools
         ```
-        ![New Folder](../../screenshots/02-CreateAzureToolsFolder.png)
+        ![New Folder](../../../assets/images/deployment/step-by-step-install/02-create-azure-tools-folder.png)
     - Assign the path of your folder to a new Environment Variable, that you can name **AzureTools** for example:
         ```powershell
-        $env:AzureTools = "C:\Users\<YourUserName>\AzureTools"
+        $env:AzureTools = "C:\Users\$env:username\AzureTools"
         ```
     - Add the newly created variable to your machine's PATH variable:
         ```powershell
-        $env:PATH += ";C:\Users\<YourUserName>\AzureTools"
+        $env:PATH += ";C:\Users\$env:username\AzureTools"
         ```
     **Moving forwards, make sure you are inside the newly created folder.**
 - Install **kubectl** locally: [Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/), [MacOS](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/) or [Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
@@ -68,19 +68,20 @@ The purpose of the chart is to install the CluedIn application, this includes th
             kubectl version --client
             ```
             The results should look like the following
-            ![Kubectl](../../screenshots/03-Kubectl.png)
+            ![Kubectl](../../../assets/images/deployment/step-by-step-install/03-kubectl.png)
             Make sure kubcetl is added to your PATH through the AzureTools folder
             ```powershell
             $env:PATH -split ';'
             ```
-            ![Kubectl](../../screenshots/04-Kubectl-Path.png)
+            ![Kubectl](../../../assets/images/deployment/step-by-step-install/04-kubectl-path.png)
 - Install [Helm](https://helm.sh/docs/intro/install/)
     - Choose the latest release that suits your OS [here](https://github.com/helm/helm/releases)
     - Download the appropriate zip, for example: helm-vX.Y.Z-windows-amd64.zip for Windows x64
     - Extract the content on the zip into your AzureTools folder
 
     **After performing the above steps, your Azure Folder should look like the following:**
-    ![Azure Folder](../../screenshots/05-AzureFolderContent.png)
+    
+    ![Azure Folder](../../../assets/images/deployment/step-by-step-install/05-azure-folder-content.png)
 
 - Check your Azure access & permissions:
     - You must be [added as a user](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory#add-a-new-user) in your company's Azure tenant
@@ -97,19 +98,19 @@ Open a PowerShell session, and run the following command:
 az login
 ```
 A browser window will open with Microsoft Azure login page:
-![Azure Login](../../screenshots/30-LoginToAzure.png)
+![Azure Login](../../../assets/images/deployment/step-by-step-install/30-login-to-azure.png)
 
 Choose the account you want to use, enter the approptiate MFA information, once you are connected you will get this confirmation message
-![Loging successful](../../screenshots/40-AzureLoginSuccessful.png)
+![Loging successful](../../../assets/images/deployment/step-by-step-install/40-azure-login-successful.png)
 
 You can now read, create and access resources in your Azure tenant through Azure CLI.
 
 ### Create a resource group for your Kubernetes Cluster
 In connected PowerShell session, run the following command:
 ```powershell
-# location is the deployment region of the resource group. Example: eastus, centralus, westeurope etc...
-# rgName is the name of the resource group. Example: rg-cluedin-dev or rg-cluedin-prod
-# subscription is the name of the parent subscription for the resource group
+$location = "westeurope" # location is the deployment region of the resource group. Example: eastus, centralus, westeurope etc...
+$rgName = "rg-cluedin-dev" # rgName is the name of the resource group. Example: rg-cluedin-dev or rg-cluedin-prod
+$subscription = "DataOps-Subscription" # subscription is the name of the parent subscription for the resource group
 az group create --location $location --name $rgName --subscription $subscription
 ```
 
@@ -125,25 +126,25 @@ In this step, you will create an AKS cluster with the following nodepool sizing:
 
 **NB:** Later, you can choose to downscale or upscale your nodepools depending on your needs and the of your workloads.
 
-- Save this ![ARM Template](../../screenshots/createClusterTemplate.json) and ![ARM Template Parameters file](../../screenshots/createClusterParams.json) to your AzureTools folder.
-- Open the **createClusterParams.json** file and edit the values of the following parameters:
-    - resourceName: choose a name for your AKS cluster, for example: aks-cluedin-dev, aks-cluedin-test, aks-cluedin-prod etc...
-    - location: choose the deployment region, for example: uksouth, eastus, westeurope etc...
-    - dnsPrefix: DNS prefix for your cluster, for example: aks-cluedin-dev-dns, aks-cluedin-test-dns etc...
-    - kubernetesVersion: 1.20.9 or later
-    - networkPlugin: can be "kubenet" or "azure". If you choose azure, you need to add another parameter called vnetSubnetID and add its value. More information on how to get the ID can be found [here](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet?view=azure-cli-latest). **For the remainder of the installation, we are using Kubenet.**
-    - workspaceName: choose a workspace name, this is used for the monitoring of your cluster.
-    - omsWorkspaceId: The format should be /subscriptions/**{subscription-id}**/resourcegroups/defaultresourcegroup-**{region}**/providers/microsoft.operationalinsights/workspaces/**{workspaceName}**, you need to replace the parts in **bold** by the appropriate values. In order to find your subscription Id, you can run the following command 
+- Save this <a href="../../../assets/js/create-cluster-template.json" download>ARM Template</a> and <a href="../../../assets/js/create-cluster-params.json" download>ARM Template Parameters</a> files to your `C:\Users\$env:username\AzureTools` folder.
+- Open the **create-cluster-params.json** file and edit the values of the following parameters:
+    - `resourceName`: choose a name for your AKS cluster, for example: aks-cluedin-dev, aks-cluedin-test, aks-cluedin-prod etc...
+    - `location`: choose the deployment region, for example: uksouth, eastus, westeurope etc...
+    - `dnsPrefix`: DNS prefix for your cluster, for example: aks-cluedin-dev-dns, aks-cluedin-test-dns etc...
+    - `kubernetesVersion`: 1.20.9 or later
+    - `networkPlugin`: can be "kubenet" or "azure". If you choose azure, you need to add another parameter called vnetSubnetID and add its value. More information on how to get the ID can be found [here](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet?view=azure-cli-latest). **For the remainder of the installation, we are using Kubenet.**
+    - `workspaceName`: choose a workspace name, this is used for the monitoring of your cluster.
+    - `omsWorkspaceId`: The format should be /subscriptions/**{subscription-id}**/resourcegroups/defaultresourcegroup-**{region}**/providers/microsoft.operationalinsights/workspaces/**{workspaceName}**, you need to replace the parts in **bold** by the appropriate values. In order to find your subscription Id, you can run the following command 
         ```powershell
         az account show    
         ```
-- Once you finish editing the **createClusterParams.json**, save and close it.
+- Once you finish editing the **create-cluster-params.json**, save and close it.
 - Run the following script to create your AKS cluster with the predefined parameters:
     ```powershell
     $rgName = "resource-group-name" # example: "rg-cluedin-dev" 
     $deploymentName = "name-of-deployment" # example: "aks-cluedin-dev-deployment" 
-    $armTemplatePath = "C:\Users\YourUserName\AzureTools\createClusterTemplate.json" # ARM Template that you saved previously.
-    $paramsPath = "C:\Users\YourUserName\AzureTools\createClusterParams.json" # Params file that you saved and edited previously.
+    $armTemplatePath = "C:\Users\$env:username\AzureTools\create-cluster-template.json" # ARM Template that you saved previously.
+    $paramsPath = "C:\Users\$env:username\AzureTools\create-cluster-params.json" # Params file that you saved and edited previously.
 
     az deployment group create `
         --name $deploymentName `
@@ -181,7 +182,7 @@ In this step, you will create an AKS cluster with the following nodepool sizing:
         kubectl get services -n cluedin
         ```
         If the external IP shows as "pending", give it a moment before trying again, then save the External IP address from the output, you will need it for your DNS configuration. 
-        ![External IP](../../screenshots/50-ExternalIP.png)
+        ![External IP](../../../assets/images/deployment/step-by-step-install/50-external-ip.png)
 - DNS Routine (If applicable): Through your DNS provider's management system, make your chosen host point to the public IP of the ingress controller for the following routes:
   - `app.<hostname>`, for example: **app.cluedin-dev.companyName.com**
   - `<organizationName>.<hostname>`, for example: **product.cluedin-dev.companyName.com**
@@ -229,7 +230,7 @@ helm repo update
     ```
     The file will be downloaded to your AzureTools folder.
 
-    ![Values.yml](../../screenshots/60-ValuesYaml.png)
+    ![Values.yml](../../../assets/images/deployment/step-by-step-install/60-values-yaml.png)
 
 
 Fill out the values.yaml file, specifically the following sections:
@@ -296,7 +297,7 @@ Save the values.yml file. Please note that these different settings can be modif
 Run the following command to install CluedIn:
 ```powershell
 $releaseName = "choose a name for the release" # Example: cluedin-dev
-$pathToValuesYml = "Path to values.yml" # Example: C:\Users\YourUserName\AzureTools\values.yml
+$pathToValuesYml = "Path to values.yml" # Example: C:\Users\$env:username\AzureTools\values.yml
 helm upgrade $releaseName cluedin/cluedin -n cluedin --install --values $pathToValuesYml
 ```
 
