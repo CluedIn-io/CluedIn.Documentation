@@ -29,7 +29,7 @@ Here is an example of how the default Accuracy implementation is structured:
 ### Accuracy
 
 For all properties, how much are the same or similar in the property history. Use simple normalization to cater for more values. If you only have one value then accuracy is 50%.
-How to fix : Mesh to change the values in the source. 
+How to fix: Mesh to change the values in the source. 
 		CluedIn Clean: Reconciliation. Manual Edit.
 		CluedIn Train: Questions in the form of "Is Martin's best email msh@cluedin.com?", Are these photos of the same person?
 
