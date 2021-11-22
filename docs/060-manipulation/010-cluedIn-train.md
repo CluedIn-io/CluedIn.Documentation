@@ -14,7 +14,7 @@ In data there are rules and then there is data that does not abide to any rules.
 
 Amongst other use cases, common use cases for CluedIn Train include: 
 
-- Detecing objects in unstructured text (Named Entity Recognition)
+- Detecting objects in unstructured text (Named Entity Recognition)
 - Detect Personal Identifiers that are not covered by business rules
 - Detect Duplicates
 - Categorise and Classify Data

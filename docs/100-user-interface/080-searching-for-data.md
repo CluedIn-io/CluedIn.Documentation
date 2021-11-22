@@ -7,7 +7,7 @@ permalink: /user-interface/searching-for-data
 tags: ["ui","search"]
 ---
 
-CluedIn provides a simple to use search over your data. This allows you to search through your data like you would run a Google Search. We also offer different ways to search through your data in a more "query" based way. The search for business users will allow them to search for "Marketing" and it will bring back all results that contain the word "Marketing" in any single attribute of the data and will order the results by relevance. Relevance for CluedIn is mesasure on many different properties of data including:
+CluedIn provides a simple to use search over your data. This allows you to search through your data like you would run a Google Search. We also offer different ways to search through your data in a more "query" based way. The search for business users will allow them to search for "Marketing" and it will bring back all results that contain the word "Marketing" in any single attribute of the data and will order the results by relevance. Relevance for CluedIn is measured on many different properties of data including:
 
  - The number of term matches (the TFID from Elastic Search)
  - The recency of the data from a created date, discovered date or modified date with a logrithmic decay

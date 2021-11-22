@@ -18,7 +18,7 @@ Ex: `/Organization`, `/Person`.
 
 CluedIn ships with some pre-defined values for common Entity Type (document, file, organization...), however, you might want to have some very specific Entity Type that may not be configured by CluedIn.
 
-It means the UI won't really understand what this Entity Type is and will threat it as a Generic Entity.
+It means the UI won't really understand what this Entity Type is and will treat it as a Generic Entity.
 
 ### Impacts on the UI
 
@@ -47,7 +47,7 @@ Type in the search the Entity Type you are after and click on the one.
 
 > If the entity type is not showing, it means there are actually not Entities in CluedIn with that Entity Type.
 
-You will not be abel to setup the values correctly.
+You will not be able to setup the values correctly.
 
 - Display Name is the name that will be used to mention the entity type.
 - Icon is the icon used in several places in the UI so User can quickly see what kind of Entity it is.
