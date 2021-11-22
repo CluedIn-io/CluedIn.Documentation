@@ -26,7 +26,7 @@ The purpose of the chart is to install the CluedIn application, this includes th
 ### Pre-requisites & Preparation
 - Install [PowerShell 7](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7) locally.
 - Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) for the specific OS you are using ([Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli), [MacOS](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos) or [Linux](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
-- Create a folder where you can store the different tools & files you will need for the installation, for example **C:\Users\$env:username\AzureTools**, where `$env:username` contains your user name.
+- Create a folder where you can store the different tools & files you will need for the installation, for example **C:\Users\\$env:username\AzureTools**, where `$env:username` contains your user name.
     - Open a PowerShell 7 session
     ![PowerShell](../../../assets/images/deployment/step-by-step-install/01-open-powershell.png)
     - Create a new folder using the following command:
