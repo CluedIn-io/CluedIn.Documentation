@@ -313,7 +313,7 @@ Additionally, you can check the health of the platform by going to `https://app.
 
 You will be able to login to the platform by going to `https://app.<hostname>/` (or `http://app.<hostname>/` if not using SSL). 
 
-#### Next Steps
+### Next Steps
 
 After logging in to the platform, you can proceed with enabling single sign on for your users to access the platform, as well as start loading data in via Data Sources or installing some crawlers. 
 Below you will find some useful links on achieving the above:
