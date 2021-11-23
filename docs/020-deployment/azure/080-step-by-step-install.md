@@ -4,9 +4,10 @@ nav_order: 80
 parent: Azure
 grand_parent: Deployment
 permalink: /deployment/azure/step-by-step-install
-title: CluedIn Setup
+title: "Walkthrough: Install CluedIn on Azure"
 tags: ["deployment", "cluedin", "installation", "setup"]
-last_modified: 2021-11-21
+# last_modified: 2021-11-21
+nav_exclude: true
 ---
 
 {: .no_toc }
@@ -20,12 +21,12 @@ last_modified: 2021-11-21
 
 This installation process is done through command lines using [PowerShell 7](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl) and [Helm](https://helm.sh/).
 
-The purpose of the chart is to install the CluedIn application, this includes the actual CluedIn server, website, and other [services required](../../getting-started) (storage, queues, etc.)
+The purpose of the chart is to install the CluedIn application. This includes the actual CluedIn server, website, and other [services required](../../getting-started) (storage, queues, etc.)
 
 ### Pre-requisites & Preparation
 - Install [PowerShell 7](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7) locally.
 - Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) for the specific OS you are using ([Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli), [MacOS](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos) or [Linux](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
-- Create a folder where you can store the different tools & files you will need for the installation, for example **C:\Users\\$env:username\AzureTools**, where `$env:username` contains your user name.
+- Create a folder where you can store the different tools & files you will need for the installation, for example `C:\Users\\$env:username\AzureTools`, where `$env:username` contains your user name.
     - Open a PowerShell 7 session
     ![PowerShell](../../../assets/images/deployment/step-by-step-install/01-open-powershell.png)
     - Create a new folder using the following command:
@@ -75,7 +76,7 @@ The purpose of the chart is to install the CluedIn application, this includes th
             ![Kubectl](../../../assets/images/deployment/step-by-step-install/04-kubectl-path.png)
 - Install [Helm](https://helm.sh/docs/intro/install/)
     - Choose the latest release that suits your OS [here](https://github.com/helm/helm/releases)
-    - Download the appropriate zip, for example: helm-vX.Y.Z-windows-amd64.zip for Windows x64
+    - Download the appropriate zip, for example: `helm-vX.Y.Z-windows-amd64.zip` for Windows x64
     - Extract the content on the zip into your AzureTools folder
 
     **After performing the above steps, your Azure Folder should look like the following:**
@@ -99,7 +100,7 @@ az login
 A browser window will open with Microsoft Azure login page:
 ![Azure Login](../../../assets/images/deployment/step-by-step-install/30-login-to-azure.png)
 
-Choose the account you want to use, enter the approptiate MFA information, once you are connected you will get this confirmation message
+Choose the account you want to use, enter the appropriate MFA information. Once you are connected, you will get this confirmation message
 ![Loging successful](../../../assets/images/deployment/step-by-step-install/40-azure-login-successful.png)
 
 You can now read, create and access resources in your Azure tenant through Azure CLI.
@@ -123,16 +124,16 @@ In this step, you will create an AKS cluster with the following nodepool sizing:
 | Processing Pool   | `Standard_F16s_v2`  | 1             | CPU Optimized for Processing workloads |
 | General Pool      | `Standard_F4s_v2`   | 2             | General Purpose nodepool to house CluedIn Microservices |
 
-**NB:** Later, you can choose to downscale or upscale your nodepools depending on your needs and the of your workloads.
+**NB:** Later, you can choose to downscale or upscale your nodepools depending on your needs and your workloads.
 
 - Save this <a href="../../../assets/js/create-cluster-template.json" download>ARM Template</a> and <a href="../../../assets/js/create-cluster-params.json" download>ARM Template Parameters</a> files to your `C:\Users\$env:username\AzureTools` folder.
 - Open the **create-cluster-params.json** file and edit the values of the following parameters:
-    - `resourceName`: choose a name for your AKS cluster, for example: aks-cluedin-dev, aks-cluedin-test, aks-cluedin-prod etc...
-    - `location`: choose the deployment region, for example: uksouth, eastus, westeurope etc...
+    - `resourceName`: choose a name for your AKS cluster, for example: `aks-cluedin-dev`, `aks-cluedin-test`, `aks-cluedin-prod` etc...
+    - `location`: choose the deployment region, for example: `uksouth`, `eastus`, `westeurope` etc...
     - `dnsPrefix`: DNS prefix for your cluster, for example: aks-cluedin-dev-dns, aks-cluedin-test-dns etc...
     - `kubernetesVersion`: 1.20.9 or later
     - `networkPlugin`: can be "kubenet" or "azure". If you choose azure, you need to add another parameter called vnetSubnetID and add its value. More information on how to get the ID can be found [here](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet?view=azure-cli-latest). **For the remainder of the installation, we are using Kubenet.**
-    - `workspaceName`: choose a workspace name, this is used for the monitoring of your cluster, it can be **DefaultWorkspace-{subscription-id}-{region}**, for example: DefaultWorkspace-abcd1234-a1b2-0123-9f8e-1234a567b890-WEU
+    - `workspaceName`: choose a workspace name, this is used for the monitoring of your cluster, it can be **DefaultWorkspace-{subscription-id}-{region}**, for example: `DefaultWorkspace-abcd1234-a1b2-0123-9f8e-1234a567b890-WEU`
     - `omsWorkspaceId`: The format should be /subscriptions/**{subscription-id}**/resourcegroups/defaultresourcegroup-**{region}**/providers/microsoft.operationalinsights/workspaces/**{workspaceName}**, you need to replace the parts in **bold** by the appropriate values. In order to find your subscription Id, you can run the following command 
         ```powershell
         az account show    
@@ -169,7 +170,7 @@ In this step, you will create an AKS cluster with the following nodepool sizing:
         $clusterName = "cluster name" # for example: aks-cluedin-dev 
         az aks get-credentials --resource-group $rgName --name $clusterName
         ```
-- Install HAProxy ingress controller using helm:
+- Install HAProxy ingress controller using Helm:
     - Navigate to the AzureTools folder and create the namespace that will host the CluedIn components:
         ```powershell
         kubectl create namespace cluedin
@@ -180,7 +181,7 @@ In this step, you will create an AKS cluster with the following nodepool sizing:
         ```powershell
         kubectl get services -n cluedin
         ```
-        If the external IP shows as "pending", give it a moment before trying again, then save the External IP address from the output, you will need it for your DNS configuration. 
+        If the external IP shows as "pending", give it a moment before trying again, then save the External IP address from the output. You will need it for your DNS configuration. 
         ![External IP](../../../assets/images/deployment/step-by-step-install/50-external-ip.png)
 - DNS Routing (If applicable): Through your DNS provider's management system, make your host point to the public IP of the ingress controller for the following routes:
   - `app.<hostname>`, for example: **app.cluedin-dev.companyName.com**
@@ -206,7 +207,7 @@ In this step, you will create an AKS cluster with the following nodepool sizing:
 
 ### Install CluedIn using Helm
 
-- Start by registering the Helm chart repository containing CluedIn chart: 
+- Start by registering the Helm chart repository containing the CluedIn chart: 
 ```powershell
 helm repo add cluedin https://cluedin-io.github.io/Charts/
 helm repo update
@@ -299,7 +300,7 @@ Finally, if you choose to use the Ingress controller's external IP with no speci
     prefix: ""
 ```
 
-*Please note that organization prefix cannot contain a hyphen or a dot in it.
+*Please note that the organization prefix cannot contain a hyphen or a dot in it.
 
 **SSL and HTTPS (If applicable)**
 
@@ -327,7 +328,7 @@ $pathToValuesYml = "Path to values.yml" # Example: C:\Users\$env:username\AzureT
 helm upgrade $releaseName cluedin/cluedin -n cluedin --install --values $pathToValuesYml
 ```
 
-Upon running the `helm upgrade` command, Helm will begin installation of CluedIn platform into your Kubernetes cluster. At the end of the installation process, you will be prompted with configuration of your install, URLs you can use to access your freshly installed platform. 
+Upon running the `helm upgrade` command, Helm will begin installation of CluedIn platform into your Kubernetes cluster. At the end of the installation process, you will be prompted with the configuration of your install, URLs you can use to access your freshly installed platform. 
 
 All the workloads may take up to 10 minutes to spin up. You can check your status by running:
 ```powershell
@@ -335,7 +336,7 @@ kubectl get pods -n cluedin
 ```
 In a healthy installation scenario, all the pods should be in a `Ready` state.
 
-Additionally, you can check the health of the platform by going to `https://app.<hostname>/api/status` healthcheck API.
+Additionally, you can check the platform's health by going to `https://app.<hostname>/api/status` healthcheck API.
 
 You will be able to login to the platform by going to `https://app.<hostname>/` (or `http://app.<hostname>/` if not using SSL). 
 
