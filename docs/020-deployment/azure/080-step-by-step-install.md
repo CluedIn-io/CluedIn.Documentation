@@ -4,13 +4,11 @@ nav_order: 80
 parent: Azure
 grand_parent: Deployment
 permalink: /deployment/azure/step-by-step-install
-title: Step by step installation
+title: CluedIn Setup
 tags: ["deployment", "cluedin", "installation", "setup"]
 last_modified: 2021-11-21
 ---
 
-
-# Step by step installation
 {: .no_toc }
 ## On this page
 {: .no_toc .text-delta }

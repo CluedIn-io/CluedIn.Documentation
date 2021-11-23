@@ -9,7 +9,7 @@ tags: ["deployment", "kubernetes"]
 search_exclude: true
 ---
 
-# THIS DEPLOYMENT GUIDE HAS BEEN DEPRECATED AND REPLACED BY [A NEW ONE](../azure/step-by-step-install), IT WILL BE MADE UNAVAILABLE SOON.
+## THIS DEPLOYMENT GUIDE HAS BEEN DEPRECATED AND REPLACED BY [A NEW ONE](../azure/step-by-step-install), IT WILL BE MADE UNAVAILABLE SOON.
 
 # Kubernetes
 {: .no_toc }
