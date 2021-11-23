@@ -6,6 +6,7 @@ grand_parent: Deployment
 permalink: /deployment/azure/step-by-step-install
 title: Step by step installation
 tags: ["deployment", "cluedin", "installation", "setup"]
+last_modified: 2021-11-21
 ---
 
 
@@ -236,6 +237,7 @@ helm repo update
 
 
 Fill out the values.yaml file, specifically the following sections:
+
 **Default Organization and application Admin**
 ```yaml
 bootstrap: 
@@ -248,6 +250,7 @@ bootstrap:
     emailDomain: "companyName.com" # Admin account's Email domain, can be left empty and admin email's domain will be used in this case.
 ```
 **DNS Configuration**
+
 If your hostname is *companyName.com* and you choose a prefix to your CluedIn dev application that is *cluedin-dev*, your DNS section should like the following:
 ```yaml
   dns:
@@ -296,12 +299,12 @@ Finally, if you choose to use the Ingress controller's external IP with no speci
   dns:
     hostname: "EXTERNAL_IP_VALUE.nip.io"  # For example 20.90.172.127.nip.io
     prefix: ""
-    subdomains: ...
 ```
 
 *Please note that organization prefix cannot contain a hyphen or a dot in it.
 
 **SSL and HTTPS (If applicable)**
+
 If you are configuring HTTPS too, modify the following section as per your needs:
 ```yaml
   ingress:
@@ -317,7 +320,7 @@ If you are configuring HTTPS too, modify the following section as per your needs
 
 Save the values.yml file. Please note that these different settings can be modified later even after the installation of CluedIn.
 
-**Install Cluedin**
+**Finally, install Cluedin**
 
 Run the following command to install CluedIn:
 ```powershell
