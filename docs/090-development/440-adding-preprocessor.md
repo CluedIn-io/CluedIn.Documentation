@@ -5,9 +5,12 @@ parent: Development
 nav_order: 440
 permalink: /developer/preprocessor
 tags: ["development","processors"]
+last_modified: 2021-11-29
 ---
 
-If you look at the processing pipeline flow diagram, you can see that you have the ability very early on to inject custom logic to change a Clue before the processing starts. There are many good use cases this e.g. removing bad Entity Codes before data is processed. 
+If you look at the processing pipeline flow diagram below, you can see that you have the ability very early on to inject custom logic to change a Clue before the processing starts. There are many good use cases this e.g. removing bad Entity Codes before data is processed.
+
+<a href="../assets/images/development/processing-pipeline.png" target="_blank">![Processing Pipeline Flow Diagram](../assets/images/development/processing-pipeline.png)</a>
 
 The main use of the PreProcessor stage is that it is your first chance to manipulate the Clue in the context of the pipeline to be changed in any way that you want before CluedIn takes over and applies some automated processing. 
 
