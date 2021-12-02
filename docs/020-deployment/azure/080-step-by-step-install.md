@@ -118,11 +118,11 @@ az group create --location $location --name $rgName --subscription $subscription
 In this step, you will create an AKS cluster with the following nodepool sizing:
 
 | Node Pool         | VM SKU Type         | Amount        | Purpose  | 
-|-------------------|:-------------       |:-------------:| :----    |
-| Core Pool         | `Standard_DS2_v2`   | 1             | Kubernetes agent internal processes |
-| Data Pool         | `Standard_A8_v2`    | 2             | Memory Optimized pool for Databases |
-| Processing Pool   | `Standard_F16s_v2`  | 1             | CPU Optimized for Processing workloads |
-| General Pool      | `Standard_F4s_v2`   | 2             | General Purpose nodepool to house CluedIn Microservices |
+|-------------------|:------------------  |:-------------:| :----    |
+| Core Pool         |  Standard_DS2_v2    | 1             | Kubernetes agent internal processes |
+| Data Pool         |  Standard_A8_v2     | 2             | Memory Optimized pool for Databases |
+| Processing Pool   |  Standard_F16s_v2   | 1             | CPU Optimized for Processing workloads |
+| General Pool      |  Standard_F4s_v2    | 2             | General Purpose nodepool to house CluedIn Microservices |
 
 **NB:** Later, you can choose to downscale or upscale your nodepools depending on your needs and your workloads.
 
@@ -165,11 +165,12 @@ In this step, you will create an AKS cluster with the following nodepool sizing:
 ### Networking & Security
 
 - Merge your AKS context to your created cluster using the following command:
+
     ```powershell
-        $rgName = "resource group name" # for example: rg-cluedin-dev
-        $clusterName = "cluster name" # for example: aks-cluedin-dev 
-        az aks get-credentials --resource-group $rgName --name $clusterName
-        ```
+    $rgName = "resource group name" # for example: rg-cluedin-dev
+    $clusterName = "cluster name" # for example: aks-cluedin-dev 
+    az aks get-credentials --resource-group $rgName --name $clusterName
+    ```
 - Install HAProxy ingress controller using Helm:
     - Navigate to the AzureTools folder and create the namespace that will host the CluedIn components:
         ```powershell
