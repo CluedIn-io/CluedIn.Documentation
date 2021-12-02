@@ -39,7 +39,7 @@ To improve Data Accountability, assign a product owner to every integration conf
 
 ## Data Accuracy
 #### Description:
-The Accuracy is scored by the number of different data sources that are eluding to the same value of data for the same property. This does not mean that the values have to be the same but are eluding to the same value. For example, +45 53 53 53 53 might be an accurate phone number for a person, but so is 53 53 53 53. They are physically different values, but essentially, both are accurate.
+The Accuracy is scored by the number of different data sources that are alluding to the same value of data for the same property. This does not mean that the values have to be the same but are alluding to the same value. For example, +45 53 53 53 53 might be an accurate phone number for a person, but so is 53 53 53 53. They are physically different values, but essentially, both are accurate.
 
 #### How to improve this metric:
 Use CluedIn Mesh to change the values in the source. Use CluedIn Clean to reconcile the data in CluedIn databases.
@@ -157,7 +157,7 @@ The more data is used in streams, the higher the metric. The metric will eventua
 
 ## Data Uniformity
 #### Description:
-Measured very similar to [Accuracy](#data-accuracy) but is much stricter. Uniformity is scored on how many different sources are eluding to the same value in the same format. The closer the format, the higher the Uniformity. For example, if one record was telling me that the industry of a company was “Software” and another record was telling me “software”, then this is very close Uniformity, but not 100%. The more divergence in values, the lower in Uniformity.
+Measured very similar to [Accuracy](#data-accuracy) but is much stricter. Uniformity is scored on how many different sources are alluding to the same value in the same format. The closer the format, the higher the Uniformity. For example, if one record was telling me that the industry of a company was “Software” and another record was telling me “software”, then this is very close Uniformity, but not 100%. The more divergence in values, the lower in Uniformity.
 
 It is similar to [Accuracy](#data-accuracy), but the Uniformity is harsher and takes data types and string casing into account. This is why the Uniformity will always be lower than Accuracy.
 
