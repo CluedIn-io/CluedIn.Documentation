@@ -214,11 +214,11 @@ helm repo update
     Run the following command:
     ```powershell
     kubectl create secret docker-registry docker-registry-key `
-    --namespace cluedin `
-    --docker-server='docker.io' `
-    --docker-username='<your Dockerhub username>' `
-    --docker-password='<your Dockerhub password>' `
-    --docker-email='<your Docker Hub email>'
+        --namespace cluedin `
+        --docker-server='docker.io' `
+        --docker-username='<your Dockerhub username>' `
+        --docker-password='<your Dockerhub password>' `
+        --docker-email='<your Docker Hub email>'
     ```
 
     A confirmation message will appear when the secret is created.
