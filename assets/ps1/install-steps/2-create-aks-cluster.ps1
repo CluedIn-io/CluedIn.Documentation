@@ -4,12 +4,13 @@ Write-Host "Preparing the creation of the AKS Cluster..." -ForegroundColor Yello
 Write-Host "For this step, an ARM Template and its associated set of parameters will be used, you will be entering the required information shortly..." -ForegroundColor Yellow
 ############################################# DOWNLOAD ARM TEMPLATE #####################################################
 
-$armTemplatePath = "$env:AzureTools\create-cluster-template.json"
-$paramsPath = "$env:AzureTools\create-cluster-params.json"
+$armTemplatePath = "$($cluedinInstallFolder)$($sep)create-cluster-template.json"
+$paramsPath = "$($cluedinInstallFolder)$($sep)create-cluster-params.json"
 
 if([System.IO.File]::Exists($armTemplatePath)){
 	[System.IO.File]::Delete($armTemplatePath)
 }
+$ProgressPreference = 'SilentlyContinue'
 Invoke-WebRequest -Uri "$cluedinDocUrl/assets/js/create-cluster-template.json" -OutFile "$armTemplatePath"
 
 ############################################# DOWNLOAD ARM PARAMETERS ###################################################
@@ -17,6 +18,7 @@ if([System.IO.File]::Exists($paramsPath)){
 	[System.IO.File]::Delete($paramsPath)
 }
 Invoke-WebRequest -Uri "$cluedinDocUrl/assets/js/create-cluster-params.json" -OutFile "$paramsPath"
+$ProgressPreference = 'Continue'
 
 Write-Host "The ARM Template and the Parameters files used for the creation of the AKS Cluster have been loaded successfully." -ForegroundColor Green
 Write-Host "Proceeding with the setting of required parameters for the cluster creation..."
@@ -49,12 +51,19 @@ if((az group exists -n $rgName).ToLower() -eq 'true') {
 	az group create --name $rgName --subscription $subscription --location $location
 }
 #az deployment group create --name $deploymentName --resource-group $rgName --template-file $armTemplatePath --parameters $paramsPath
-Write-Host "Creation of the AKS Cluster will start now, this can take a few minutes..." -ForegroundColor Yellow
+$subscriptionId = (az account show --subscription $subscription --query 'id').Replace('"','')
+$userDomain = (az ad signed-in-user show --query 'userPrincipalName' | cut -d '@' -f 2 | sed 's/\"//')
+$startTime = $(Get-Date)
+Write-Host "Creation of the AKS Cluster will start now ($($startTime)), this can take up to 15 minutes..." -ForegroundColor Yellow
+Write-Host "You can check the status in real-time on https://portal.azure.com/#@$($userDomain)/resource/subscriptions/$($subscriptionId)/resourceGroups/$($rgName)/deployments" -ForegroundColor Yellow
+Write-Host ""
 $creationResult = az deployment group create --name $deploymentName --resource-group $rgName --template-file $armTemplatePath --parameters $paramsPath
 if($null -eq $creationResult) {
 	Write-Host "Cluster creation failed, please check output, address issues and start over." -ForegroundColor Red
 } elseif(($creationResult | ConvertFrom-Json).properties.provisioningState.ToLower() -eq "succeeded"){
-	Write-Host "Cluster $clusterName was created successfully!" -ForegroundColor Green
+	$elapsedTime = $(Get-Date) - $startTime
+	$duration = "{0:HH:mm:ss}" -f ([datetime]$elapsedTime.Ticks)
+	Write-Host "Cluster $clusterName was created successfully, process duration was $($duration)" -ForegroundColor Green
 }
 Write-Host "-------------------------------------------------------------------------------------------------------" -ForegroundColor Green
 Write-Host "Press press Enter to move to the next step..." -NoNewline -ForegroundColor Yellow

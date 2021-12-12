@@ -6,7 +6,7 @@ $releaseName = Read-Host
 if ([System.String]::IsNullOrWhiteSpace($releaseName)){
 	$releaseName = "cluedin-dev"
 }
-$pathToValues = "$env:AzureTools\values.yml"
+$pathToValues = "$($cluedinInstallFolder)$($sep)values.yml"
 helm upgrade $releaseName cluedin/cluedin -n $cluedinNamespace --install --values $pathToValues --debug
 
 Write-Host "CluedIn resources are currently being spun-up..." -ForegroundColor Yellow

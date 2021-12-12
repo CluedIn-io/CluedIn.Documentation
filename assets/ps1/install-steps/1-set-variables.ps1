@@ -38,17 +38,19 @@ Write-Host ""
 Write-Host "-------------------------------------Region-------------------------------------------" -ForegroundColor Green
 Write-Host ""
 # Enter region and check it is a valid one:
-$location = Read-Host "Enter the Azure Region"
+$availableLocationNames=(az account list-locations --query "[].{name:name}" --out tsv).Split("\t")
+$commaSeparatedLocations = [System.String]::Join(", ",$availableLocationNames)
+Write-Host "Enter the desired Azure Region from the following values: " -NoNewLine
+Write-Host "$($commaSeparatedLocations): " -ForegroundColor Yellow -NoNewLine
+$location = Read-Host
 While ([System.String]::IsNullOrWhiteSpace($location))
 {
 	$location = Read-Host "Region cannot be empty, please enter a valid value" -ForegroundColor Red
 }
 $location = $location.ToLower()
-$availableLocationNames=(az account list-locations --query "[].{name:name}" --out tsv).Split("\t")
 $availableLocationDisplayNames=(az account list-locations --query "[].{DisplayName:displayName}" --out tsv).Split("\t")
 While((-not $availableLocationNames.Contains($location.ToLower())) -and (-not $availableLocationDisplayNames.Contains($location))){
 	Write-Host "$location is not a valid location Name or DisplayName, please enter a valid value from the following: " -ForegroundColor Red -NoNewLine
-	$commaSeparatedLocations = [System.String]::Join(", ",$availableLocationNames)
 	Write-Host "$commaSeparatedLocations : " -ForegroundColor Yellow -NoNewLine
 	$location = Read-Host
 }
@@ -84,12 +86,12 @@ Write-Host ""
 Write-Host ""
 Write-Host "--------------------------------Deployment Name---------------------------------------" -ForegroundColor Green
 Write-Host ""
-$deploymentName = "aks-cluedin-dev-deployment"
-Write-Host "The default AKS Deployment Name is 'aks-cluedin-dev-deployment'. If you would like to override it, you can enter another value below"
-Write-Host "Otherwise, please press Enter to use the default name (aks-cluedin-dev-deployment): " -NoNewLine -ForegroundColor Yellow
+$deploymentName = "$($clusterName)-deployment"
+Write-Host "The default AKS Deployment Name is '$deploymentName'. If you would like to override it, you can enter another value below"
+Write-Host "Otherwise, please press Enter to use the default name ($($deploymentName)): " -NoNewLine -ForegroundColor Yellow
 $deploymentName = Read-Host
 if([System.String]::IsNullOrWhiteSpace($deploymentName)){
-	$deploymentName = "aks-cluedin-dev-deployment"
+	$deploymentName = "$($clusterName)-deployment"
 }
 Write-Host ""
 ########################################## END DEPLOYMENT NAME ######################################################
@@ -98,7 +100,7 @@ Write-Host ""
 Write-Host "------------------------------------- SUMMARY ----------------------------------------" -ForegroundColor Green
 Write-Host ""
 Write-Host "Your user name is " -NoNewLine
-Write-Host "$env:username" -ForegroundColor Green
+Write-Host "$currentUser" -ForegroundColor Green
 Write-Host "You chose the following values for your variables: " -ForegroundColor Yellow
 Write-Host " 1) Azure Subscription's Id or Name: " -NoNewLine
 Write-Host "$subscription" -ForegroundColor Green

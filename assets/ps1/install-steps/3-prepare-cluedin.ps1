@@ -4,7 +4,7 @@ Write-Host "Preparing CluedIn Installations..." -ForegroundColor Green
 Write-Host "Merging current context to Cluster $clusterName" -ForegroundColor Yellow
 az aks get-credentials --resource-group $rgName --name $clusterName
 
-Write-Host "Proceeding with the creation of the cluedin namespace" -ForegroundColor Yellow
+Write-Host "Proceeding with the creation of the cluedin namespace"
 Write-Host "Please press Enter if you would like to use the default namespace for CluedIn (cluedin). Otherwise, please enter a value of your choice (only lower case letters and hyphens are allowed): " -NoNewLine -ForegroundColor Yellow
 $cluedinNamespace = Read-Host
 $regex = New-Object -TypeName System.Text.RegularExpressions.Regex -ArgumentList "^[a-z-]+$"
@@ -20,7 +20,7 @@ kubectl create namespace $cluedinNamespace
 
 Write-Host "Proceeding with the installation of HAProxy Ingress Controller" -ForegroundColor Yellow
 Write-Host "Adding HAProxy Helm Repo and installing the chart" -ForegroundColor Yellow
-$haproxyRepoAdded = helm repo add haproxy-ingress https://haproxy-ingress.github.io/charts
+$haproxyRepoAdded = helm repo add haproxy-ingress https://haproxy-ingress.github.io/charts --force-update
 if($haproxyRepoAdded.Equals('"haproxy-ingress" has been added to your repositories')){
 	Write-Host $haproxyRepoAdded
 	helm repo update haproxy-ingress
@@ -44,7 +44,7 @@ $externalIP = $res.Split(' ')[3]
 Write-Host "HAProxy Ingress Controller's External IP is $externalIP" -ForegroundColor Green
 Write-Host ""
 Write-Host "Now we will be proceeding with addition of CluedIn's Helm repo"
-$cluedinRepoAdded = helm repo add cluedin https://cluedin-io.github.io/Charts/
+$cluedinRepoAdded = helm repo add cluedin https://cluedin-io.github.io/Charts/ --force-update
 if($cluedinRepoAdded.Equals('"cluedin" has been added to your repositories')){
 	Write-Host $cluedinRepoAdded -ForegroundColor Green
 	helm repo update cluedin
