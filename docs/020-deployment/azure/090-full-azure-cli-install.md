@@ -4,9 +4,9 @@ nav_order: 90
 parent: Azure
 grand_parent: Deployment
 permalink: /deployment/azure/cli-install
-title: "Install CluedIn using Azure CLI"
+title: "Install CluedIn using PowerShell"
 tags: ["deployment", "cluedin", "installation", "setup", "cli", "powershell"]
-# last_modified: 2021-12-07
+# last_modified: 2021-12-16
 nav_exclude: true
 ---
 
@@ -27,7 +27,6 @@ The purpose of the chart is to install the CluedIn application. This includes th
 - Install [PowerShell 7](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7) locally.
 - Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) for the specific OS you are using ([Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli), [MacOS](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos) or [Linux](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
 - You are an admin of your computer, or can run PowerShell as an admin.
-    **Moving forwards, make sure you are inside the newly created folder.**
 - Install **kubectl** locally: [Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/), [MacOS](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/) or [Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
     - Example for Windows:
         - In your PowerShell session, run the following commands one by one:
