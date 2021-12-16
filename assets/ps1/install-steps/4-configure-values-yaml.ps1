@@ -70,10 +70,26 @@ Write-Host "Setting DNS configuration" -ForegroundColor Yellow
 Write-Host "Would you like to add DNS configuration for your installation? (Y/N): " -NoNewLine
 $choice = Read-Host
 if((-not [System.String]::IsNullOrWhiteSpace($choice)) -and ($choice.ToLower().Equals('y'))){
+	
 	Write-Host "Please enter the hostname you are assigning to the CluedIn application (for example cluedin-dev.companyName.com, or companyName.com if you are using no prefix): " -NoNewLine
 	$hostname = Read-Host
+	# Check if DNS is bound to right IP
+	try {
+		$ip = ([System.Net.Dns]::GetHostAddresses($hostname)).IPAddressToString
+	} catch {
+		$ip = ""
+	}
+	if(-not ($ip -eq $externalIP)){
+		Write-Host " WARNING: DNS Name $hostname does not resolve to $externalIP, this will affect the installation of your application." -ForegroundColor Yellow
+		Write-Host "          You should configure you DNS properly and upgrade your CluedIn application with the right information later. Are you happy to abort and assign your IP as domain name? (Y/N) " -ForegroundColor Yellow -NoNewline
+		$abort = Read-Host
+		if((-not [System.String]::IsNullOrWhiteSpace($abort)) -and ($abort.ToLower().Equals('y'))) {
+			Write-Host "Setting External IP for hostname..."
+			$hostname = "$externalIP.nip.io"
+		} 
+	} 
 	$yaml.global.dns.hostname = $hostname
-}else{
+} else {
 	Write-Host "Setting External IP for hostname..."
 	$hostname = "$externalIP.nip.io"
 	$yaml.global.dns.hostname = $hostname
@@ -107,17 +123,17 @@ if((-not [System.String]::IsNullOrWhiteSpace($choice)) -and ($choice.ToLower().E
 	$yaml.global.dns.subdomains.seq = $seqPrefix
 } else {
 	Write-Host "Default prefixes will be used for your URLs:" -ForegroundColor Yellow
-	Write-Host " " $yaml.global.dns.subdomains.application -NoNewLine -ForegroundColor Green
+	Write-Host " $($yaml.global.dns.subdomains.application)." -NoNewLine -ForegroundColor Green
 	Write-Host $hostname -ForegroundColor Yellow
-	Write-Host " " $yaml.global.dns.subdomains.openrefine -NoNewLine -ForegroundColor Green
+	Write-Host " $($yaml.global.dns.subdomains.openrefine)." -NoNewLine -ForegroundColor Green
 	Write-Host $hostname -ForegroundColor Yellow
-	Write-Host " " $yaml.global.dns.subdomains.grafanaAdmin -NoNewLine -ForegroundColor Green
+	Write-Host " $($yaml.global.dns.subdomains.grafanaAdmin)." -NoNewLine -ForegroundColor Green
 	Write-Host $hostname -ForegroundColor Yellow
-	Write-Host " " $yaml.global.dns.subdomains.prometheusAdmin -NoNewLine -ForegroundColor Green
+	Write-Host " $($yaml.global.dns.subdomains.prometheusAdmin)." -NoNewLine -ForegroundColor Green
 	Write-Host $hostname -ForegroundColor Yellow
-	Write-Host " " $yaml.global.dns.subdomains.alertManagerAdmin -NoNewLine -ForegroundColor Green
+	Write-Host " $($yaml.global.dns.subdomains.alertManagerAdmin)." -NoNewLine -ForegroundColor Green
 	Write-Host $hostname -ForegroundColor Yellow
-	Write-Host " " $yaml.global.dns.subdomains.seq -NoNewLine -ForegroundColor Green
+	Write-Host " $($yaml.global.dns.subdomains.seq)." -NoNewLine -ForegroundColor Green
 	Write-Host $hostname -ForegroundColor Yellow
 }
 

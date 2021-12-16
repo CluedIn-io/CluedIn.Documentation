@@ -52,7 +52,8 @@ if((az group exists -n $rgName).ToLower() -eq 'true') {
 }
 #az deployment group create --name $deploymentName --resource-group $rgName --template-file $armTemplatePath --parameters $paramsPath
 $subscriptionId = (az account show --subscription $subscription --query 'id').Replace('"','')
-$userDomain = (az ad signed-in-user show --query 'userPrincipalName' | cut -d '@' -f 2 | sed 's/\"//')
+$upn = (az ad signed-in-user show --query 'userPrincipalName')
+$userDomain = $upn.Replace('"','').Substring($upn.IndexOf('@'))
 $startTime = $(Get-Date)
 Write-Host "Creation of the AKS Cluster will start now ($($startTime)), this can take up to 15 minutes..." -ForegroundColor Yellow
 Write-Host "You can check the status in real-time on https://portal.azure.com/#@$($userDomain)/resource/subscriptions/$($subscriptionId)/resourceGroups/$($rgName)/deployments" -ForegroundColor Yellow

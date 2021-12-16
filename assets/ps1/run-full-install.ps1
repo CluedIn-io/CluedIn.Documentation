@@ -20,26 +20,25 @@ if($IsMacOS -or $IsLinux) {
 $archiveNeeded = $false
 $cluedinInstallFolder += "Users$($sep)$($currentUser)$($sep)CluedinInstall"
 if(-not [System.IO.Directory]::Exists($cluedinInstallFolder)){
-	mkdir $cluedinInstallFolder
+	mkdir $cluedinInstallFolder | Out-Null
 } else {
 	$archiveNeeded = ((Get-ChildItem "$($cluedinInstallFolder)$($sep)*.*" | Measure-Object).count -gt 0)
 }
 # ARCHIVE OLD FILES
 if($archiveNeeded){
 	$archiveFolder="$($cluedinInstallFolder)$($sep)Archive-$(Get-Date -Format "yyyyddMMHHmmss")"
-	mkdir $archiveFolder
+	mkdir $archiveFolder | Out-Null
 	Get-ChildItem -Path $cluedinInstallFolder -File | Move-Item -Destination $archiveFolder -Exclude "$($cluedinInstallFolder)$($sep)Archive*"
 }
 
 # Set-Location $cluedinInstallFolder
 
 # SET CLUEDIN DOCUMENTATION URL FOR DOWNLOADS NEEDED IN THIS SCRIPT
-# $cluedinDocUrl = "https://documentation.cluedin.net"
-$cluedinDocUrl = "http://127.0.0.1:4000/"
+$cluedinDocUrl = "https://documentation.cluedin.net"
 
 $scriptsFolder = "$($cluedinInstallFolder)$($sep)scripts"
 if(-not [System.IO.Directory]::Exists("$scriptsFolder")){
-	mkdir "$scriptsFolder"
+	mkdir "$scriptsFolder" | Out-Null
 } else {
 	# CLEAR CONTENT
 	Get-ChildItem -Path $scriptsFolder -Include * -File -Recurse | ForEach-Object { $_.Delete()}

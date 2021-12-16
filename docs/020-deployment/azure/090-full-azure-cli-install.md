@@ -52,7 +52,7 @@ kubectl version --client
 - Install [Helm](https://helm.sh/docs/intro/install/)
     - Choose the latest release that suits your OS [here](https://github.com/helm/helm/releases)
     - Download the appropriate zip, for example: `helm-vX.Y.Z-windows-amd64.zip` for Windows x64
-    - Extract the content on the zip into your AzureTools folder
+    - Extract the content on the zip into your machine
 
 - Check your Azure access & permissions:
     - You must be [added as a user](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory#add-a-new-user) in your company's Azure tenant
@@ -60,7 +60,8 @@ kubectl version --client
 
 - Provision a [hostname for the CluedIn application](https://documentation.cluedin.net/deployment/azure/dns), for example: `cluedin-dev.companyName.com`.
 - Purchase or generate an [SSL certificate](https://documentation.cluedin.net/deployment/azure/certificate) bound to *.hostname, for example: *.cluedin-dev.companyName.com. If you choose not to use HTTPS immediately (despite its importance, especially for production environments), you can reconfigure CluedIn later to use HTTPS.
-- You own a Docker Hub account, for which you requested access to CluedIn's Docker images. Please contact `support@cluedin.com` if you have not gotten the access enabled yet.
+- You own or have access to a Docker Hub account, for which you requested access to CluedIn's Docker images. Please contact `support@cluedin.com` if you have not gotten the access enabled yet. 
+Please note that if you are using an account that has MFA enabled, you need to [create an Access Token](https://docs.docker.com/docker-hub/access-tokens/) and use it instead of your docker password when asked to enter your Docker credentials during the installation process.
 
 ### Download the Installation script and run it
 

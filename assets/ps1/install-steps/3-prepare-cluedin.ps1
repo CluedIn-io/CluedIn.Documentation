@@ -57,7 +57,7 @@ Write-Host "Please have your Docker.io credentials ready..." -ForegroundColor Ye
 Start-Sleep -Seconds 3
 Write-Host "Please enter your Docker username: " -NoNewLine -ForegroundColor Yellow
 $dockerUserName = Read-Host
-Write-Host "Please enter your Docker password: " -NoNewLine -ForegroundColor Yellow
+Write-Host "Please enter your Docker password (or Access Token if you have MFA enabled): " -NoNewLine -ForegroundColor Yellow
 $dockerPassword = Read-Host
 Write-Host "Please enter your Docker email: " -NoNewLine -ForegroundColor Yellow
 $dockerEmail = Read-Host
