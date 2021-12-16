@@ -18,31 +18,19 @@
             "value": "kubenet"
         },
         "enableRBAC": {
-            "value": true
-        },
-        "adminGroupObjectIDs": {
-            "value": []
+            "value": false
         },
         "enablePrivateCluster": {
             "value": false
         },
         "enableHttpApplicationRouting": {
-            "value": false
+            "value": true
         },
         "enableAzurePolicy": {
             "value": false
         },
         "vmssNodePool": {
             "value": true
-        },
-        "workspaceName": {
-            "value": "DefaultWorkspace-{subscription-id}-SUK"
-        },
-        "omsWorkspaceId": {
-            "value": "/subscriptions/{subscription-id}/resourcegroups/defaultresourcegroup-suk/providers/microsoft.operationalinsights/workspaces/defaultworkspace-{subscription-id}-suk"
-        },
-        "workspaceRegion": {
-            "value": "uksouth"
         }
     }
 }
