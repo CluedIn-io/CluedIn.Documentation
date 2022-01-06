@@ -22,7 +22,7 @@ CluedIn is an application that ships as a product with many dependencies. These 
 
 If we look at how we run projects, we will typically make changes, add functionality, and more. To run CluedIn as "cheaply" as possible, your best option is to have all of the additions and changes have as much overlap in reprocessing as possible. For example, if we have 1000 records in our CluedIn instance, we have added ten rules, three more streams, and two new quality metrics. Your best and cheapest option is only to need to reprocess the records that would be matched by the three rules, three streams, and new quality metrics. 
 
-The easiest way to do this today is to use your "actions" in GraphQL. For example, in GraphQL, you can come up with your filter using the search function, and for the matched records, you can run the postProcessing action. 
+The easiest way to do this today is to use your "actions" in GraphQL. For example, in GraphQL, you can come up with your filter using the search function, and for the matched records, you can run the postProcessing action. You will need to be in the Admin role to even see these commands as they allow you to run operations in bulk:
 
 ```JSON
 {
