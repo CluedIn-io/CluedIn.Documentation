@@ -5,8 +5,9 @@ parent: Azure
 grand_parent: Deployment
 permalink: /deployment/azure/setup
 title: CluedIn Setup
+description: "CluedIn Documentation: Install CluedIn on Azure"
 has_children: true
-tags: ["deployment", "installation", "setup"]
+tags: ["deployment", "installation", "setup", "azure"]
 last_modified: 2022-01-07
 ---
 
