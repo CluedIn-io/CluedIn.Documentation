@@ -7,6 +7,8 @@ permalink: /deployment/kubernetes/deployment
 title: Deployment
 tags: ["deployment", "kubernetes"]
 search_exclude: true
+nav_exclude: true
+# This deployment guide is deprecated and will not be visible or searchable, it's kept here for backup.
 ---
 
 # Kubernetes

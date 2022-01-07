@@ -29,7 +29,7 @@ if([System.String]::IsNullOrWhiteSpace($orgPrefix)){
 } else {
 	while($orgPrefix.EndsWith('-') -or (-not $orgPrefixRegex.IsMatch($orgPrefix))){
 		Write-Host "Organization Prefix is invalid, please use only letters, numbers or hyphens with no spaces." -ForegroundColor Red
-		Write-Host "Please enter an Organization Prefix, or press Enter if you want to use the Organization Name as prefix too: " -NoNewLine Yellow
+		Write-Host "Please enter an Organization Prefix, or press Enter if you want to use the Organization Name as prefix too: " -NoNewline -ForegroundColor Yellow
 		$orgPrefix = Read-Host
 		if([System.String]::IsNullOrWhiteSpace($orgPrefix)){
 			$orgPrefix = $orgName
