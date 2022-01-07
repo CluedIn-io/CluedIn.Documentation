@@ -73,4 +73,4 @@ You will need the CluedIn PAT to access the CluedIn NuGet feed. Don't hesitate t
 
 CluedIn provides a Helm chart that allows you to deploy a CluedIn application to your AKS easily. What you will need is to provide a few details about your infrastructure and CluedIn instance. See more information here.
 
-You can access the step by step installation process [here](./setup).
+You can access the step by step installation process [here](../azure/setup).
