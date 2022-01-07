@@ -5,13 +5,14 @@ parent: Administration
 permalink: /administration/backup-restore
 title: Backup and Restore
 tags: ["administration", "backup"]
+last_modified: 2022-01-05
 ---
 
 ## Backup and Restore of the Managed disks
 
 If managed disks are being used to store CluedIn's databases data, the preferred way of backup and restore is conducted by taking a snapshot of disks with in-built Azure functions from the outside of the cluster.
 
-In order to backup a disk and ensure the integrity of data, CluedIn workloads needs to be spun down. First workloads to be shutodwn are the pods that are accessing databases either by writing, or reading.
+In order to backup a disk and ensure the integrity of data, CluedIn workloads need to be spun down first. The first workloads to be shutdown are the pods that are accessing databases either by writing, or reading.
 
 You can use the following `kubectl` commands:
  ```shell
@@ -20,27 +21,26 @@ kubectl scale deployment -l role=main --replicas=0
 kubectl scale deployment -l role=crawling --replicas=0
 ```
 
-Once containers has finished terminating, we can spin down the databases itself for disks to detach from the nodes:
+Once containers have finished terminating, we can spin down the databases to ensure the disks have detached from the nodes:
 ```shell
 kubectl scale deployment -l app=sqlserver --replicas=0
 kubectl scale deployment -l app=neo4j --replicas=0
 kubectl scale statefulset -l chart=elasticsearch --replicas=0
-kubectl scale statefulset -l helm.sh/chart=rabbitmq-8.10.2 --replicas=0
+kubectl scale statefulset -l app.kubernetes.io/name=rabbitmq --replicas=0
 kubectl scale deployment -l app=redis --replicas=0
 kubectl scale deployment -l app=openrefine --replicas=0
 ```
 
-Lastly, we can backup the disks using in-built Azure functions as instructed in Azure Disk's documentation: https://docs.microsoft.com/en-us/azure/backup/backup-managed-disks
+Lastly, we can backup the disks using in-built Azure functions as directed in [Azure Disk's documentation](https://docs.microsoft.com/en-us/azure/backup/backup-managed-disks).
 
-Same documentation can be used to restore from managed disks:
-https://docs.microsoft.com/en-us/azure/backup/restore-managed-disks
+Same documentation can be used to [restore from managed disks](https://docs.microsoft.com/en-us/azure/backup/restore-managed-disks).
 
 Upon a successful backup or restore operation, the workloads can be spun back up:
 
 ```shell
 kubectl scale deployment -l app=neo4j --replicas=1
 kubectl scale statefulset -l chart=elasticsearch --replicas=1
-kubectl scale statefulset -l helm.sh/chart=rabbitmq-8.10.2 --replicas=1
+kubectl scale statefulset -l app.kubernetes.io/name=rabbitmq --replicas=1
 kubectl scale deployment -l app=redis --replicas=1
 kubectl scale deployment -l app=openrefine --replicas=1
 kubectl scale deployment -l app=sqlserver --replicas=1
@@ -54,8 +54,7 @@ kubectl scale deployment -l role=crawling --replicas=1
 
 If not using managed disks or looking into snapshotting disks from inside the cluster, you can use Velero.
 
-Refer to the official Velero documentation to find guidance on installation: 
-https://velero.io/docs/v1.5/basic-install/
+Please refer to the "Basic Install" section of the [Velero documentation](https://velero.io/docs).
 
 ### Pre-requisites
 
@@ -82,7 +81,7 @@ https://velero.io/docs/v1.5/basic-install/
 * Contributor role for Storage Account
 * Contributor role for Storage Blob data
 
-The following needs to be added to your values.yaml to configure Velero installation:
+The following is an example of what needs to be added to your values.yaml to configure Velero installation (check version information and latest Velero documentation):
 
 ```yml
 velero:
@@ -139,6 +138,13 @@ velero:
           storageLocation: azure-bucket
           snapshotVolumes: true      
           ttl: 720h0m0s
+```
+
+**note**: please compare and update based on the version you are installing; example commands for acquiring the default yaml are:
+```yml
+helm repo add vmware-tanzu https://vmware-tanzu.github.io/helm-charts
+helm repo update
+helm install velero vmware-tanzu/velero --dry-run -o yaml
 ```
 
 ### Backup
@@ -229,7 +235,7 @@ Write-Host "Stopping the databases:" -ForegroundColor Cyan
 Stop-Deployment $namespace "sqlserver"
 Stop-Deployment $namespace "neo4j"
 Stop-StatefulSet $namespace "chart=elasticsearch"
-Stop-StatefulSet $namespace "helm.sh/chart=rabbitmq-8.10.2"
+Stop-StatefulSet $namespace "app.kubernetes.io/name=rabbitmq"
 Stop-Deployment $namespace "redis"
 Stop-Deployment $namespace "openrefine"
 ```
@@ -267,7 +273,7 @@ Write-Host "Starting the databases:" -ForegroundColor Cyan
 Start-Deployment $namespace "sqlserver"
 Start-Deployment $namespace "neo4j"
 Start-StatefulSet $namespace "chart=elasticsearch"
-Start-StatefulSet $namespace "helm.sh/chart=rabbitmq-8.10.2"
+Start-StatefulSet $namespace "app.kubernetes.io/name=rabbitmq"
 Start-Deployment $namespace "redis"
 Start-Deployment $namespace "openrefine"
 
