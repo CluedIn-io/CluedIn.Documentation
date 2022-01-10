@@ -22,7 +22,7 @@ This installation process is done through command lines using [PowerShell 7](htt
 
 The purpose of the chart is to install the CluedIn application. This includes the actual CluedIn server, website, and other [services required](../../getting-started) (storage, queues, etc.)
 
-**Note**: Before proceeding with the installation, you must ensure that all [pre-requisites](../setup/#pre-requisites--preparation) are met.
+**Note**: Before proceeding with the installation, you must ensure that all [pre-requisites](../setup#pre-requisites--preparation) are met.
 
 ### Download the Installation script and run it
 
@@ -40,12 +40,12 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 After logging in to the platform, you can proceed with enabling single sign on for your users to access the platform, as well as start loading data in via Data Sources or installing some crawlers. 
 Below you will find some useful links on achieving the above:
-- [Enabling Single Sign On](../../administration/authentication)
-- [Restricting access to CluedIn Clean via Basic Authentication](../../kb/basic-auth-cluedin-clean)
-- [Install a crawler/custom component](../../integration/install-integrations)
+- [Enabling Single Sign On](/administration/authentication)
+- [Restricting access to CluedIn Clean via Basic Authentication](../../../kb/basic-auth-cluedin-clean)
+- [Install a crawler/custom component](/integration/install-integrations)
 
 Optionally, you can also adjust other settings to cater for more complex scenarios:
-- [Persistence/Using Managed Disks](./persistence)
-- [Azure SQL Server](./sql)
-- [Scaling](./scaling)
-- [Monitoring and logging](./monitoring)
+- [Persistence/Using Managed Disks](/deployment/kubernetes/persistence)
+- [Azure SQL Server](/deployment/kubernetes/sql)
+- [Scaling](deployment/kubernetes/scaling)
+- [Monitoring and logging](/deployment/kubernetes/monitoring)
