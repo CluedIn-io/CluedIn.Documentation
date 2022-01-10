@@ -47,5 +47,5 @@ Below you will find some useful links on achieving the above:
 Optionally, you can also adjust other settings to cater for more complex scenarios:
 - [Persistence/Using Managed Disks](/deployment/kubernetes/persistence)
 - [Azure SQL Server](/deployment/kubernetes/sql)
-- [Scaling](deployment/kubernetes/scaling)
+- [Scaling](/deployment/kubernetes/scaling)
 - [Monitoring and logging](/deployment/kubernetes/monitoring)
