@@ -1,5 +1,7 @@
 # Documentation Repo Starting Point
 
+Please have a read of the DevOps Wiki [here](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/168/Documentation)
+
 ## Introduction
 We use jekyll as the templating for the documentation. You can read more about that here:
 
