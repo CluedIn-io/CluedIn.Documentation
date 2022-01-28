@@ -6,6 +6,7 @@ nav_order: 090
 has_children: false
 permalink: /governance/mesh-api
 tags: ["governance","mesh-api"]
+last_modified: 2022-01-28
 ---
 
 The Mesh API allows a developer to implement the ability for CluedIn to write back values from CluedIn to source systems. This comes in the form of the following operation types: 
@@ -53,7 +54,7 @@ Due to the nature of certain data, for the MESH API, you might find that while d
 
 Let's use the following Mesh implementation as an example on how to implement others.
 
-https://github.com/CluedIn-io/CluedIn.Crawling.HubSpot/tree/develop/src/HubSpot.Provider/Mesh/HubSpot
+[HubSpot.Provider/Mesh/HubSpot](https://github.com/CluedIn-io/CluedIn.Crawling.HubSpot/tree/develop/src/HubSpot.Provider/Mesh/HubSpot)
 
 ```csharp
 using System;
@@ -162,7 +163,9 @@ In the example above, we are actually building an abstraction layer to handle al
 
 To implement the Mesh API, you will want to inherit from the BaseMeshProcessor class as this is your way to tell CluedIn that your new implementation should be included at boot time. Coming with this inheritence will be a set of methods that you can optionally override. Be aware that this class itself will require you to implement the abstract class in other implementations due to the fact that CluedIn's container will not boot abstract implementations of Mesh API's. 
 
-For example here is an implementation of the abstract class above for handling the editting / updating of Contacts in Hubspot: https://github.com/CluedIn-io/CluedIn.Crawling.HubSpot/blob/develop/src/HubSpot.Provider/Mesh/HubSpot/HubSpotContactMeshProcessor.cs
+For example here is an implementation of the abstract class above for handling the editting / updating of Contacts in Hubspot:
+ 
+[HubSpot.Provider/Mesh/HubSpot/HubSpotContactMeshProcessor.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HubSpot/blob/develop/src/HubSpot.Provider/Mesh/HubSpot/HubSpotContactMeshProcessor.cs):
 
 ```csharp
 using CluedIn.Core;
@@ -184,7 +187,7 @@ Notice how the implementation is literally only a constructor and changes the Ur
 
 Once you have implmemented the Mesh API, you can deploy it exactly like you deploy any other code to CluedIn - you will need to copy the dll's into the running application and reboot those parts. 
 
-###Making multiple source changes
+### Making multiple source changes
 
 The Mesh API framework is setup to be very flexible on what you run against the source system to implement the changes. Imagine a situation where given a change in CluedIn that triggers this Mesh API to be evaluated, you would like to remove all records from a system, not just the Golden Record. 
 
