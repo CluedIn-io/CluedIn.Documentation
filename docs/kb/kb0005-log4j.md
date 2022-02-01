@@ -4,7 +4,7 @@ title: CluedIn Security - Log4j2 CVE-2021-44228
 permalink: /kb/log4j
 nav_exclude: true
 tags: ["security"]
-last_modified: 2021-12-15
+last_modified: 2022-01-31
 ---
 
 On December 9th 2021 a high severity vulnerability was disclosed in the Apache Log4j2 library for all 
@@ -15,6 +15,13 @@ At CluedIn, we build .NET and Node.js services that are not impacted by the vuln
 However, we do utilise some third-party services that are Java based.
 
 This announcement details the usage of those services and their exposure to CVE-2021-44228.
+
+## Update: CVE-2021-45046
+After the intial wave of fixes an additonal issue was discovered ([CVE-2021-45-46](https://nvd.nist.gov/vuln/detail/CVE-2021-45046#vulnCurrentDescriptionTitle)) which highlighted that in some cases the proposed fixes for CVE-2021-44228 were insufficient.  
+
+In all cases, no actions are required for CluedIn services.  Notably Elasticsearch may have false positives, however [Elastic reccomends](https://discuss.elastic.co/t/apache-log4j2-remote-code-execution-rce-vulnerability-cve-2021-44228-esa-2021-31/291476#update-dec-15-10) the same changes as for the orginal CVE.
+
+Therefore, there are no additonal requirments for fixes with CluedIn.
 
 ## Neo4j
 
