@@ -87,7 +87,7 @@ Well-known relational Database. You can retrieve the password by executing this 
 kubectl get secret <release-name>-cluedin-sql-password -o jsonpath="{.data.SA_PASSWORD}" | base64 --decode
 ```
 
-Or using Powershell:
+Or using PowerShell:
 ```powershell
 [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($(kubectl get secret <release-name>-cluedin-sql-password -o jsonpath="{.data.SA_PASSWORD}")))
 ```

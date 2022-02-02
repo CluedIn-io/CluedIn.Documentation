@@ -46,7 +46,7 @@ Type in the search the Entity Type you are after and click on the one.
 
 > If the entity type is not showing, it means there are actually not Entities in CluedIn with that Entity Type.
 
-You will not be able to setup the values correctly.
+You will now be able to setup the values correctly.
 
 - Display Name is the name that will be used to mention the entity type.
 - Icon is the icon used in several places in the UI so User can quickly see what kind of Entity it is.

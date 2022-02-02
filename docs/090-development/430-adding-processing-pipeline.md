@@ -9,15 +9,15 @@ tags: ["development","processors"]
 
 There are many reasons to add a new processing pipeline. The concept behind a processing pipeline is that it allows you to process input data and produce an output. 
 
-The CluedIn processing pipeline can be conceptualised as a never ending stream of incoming data in which this data will flow through many processing pipelines. Some of the pipelines will take input, will fix or clean certain types of data and then output it for it to be input to another processing pipeline step. 
+The CluedIn processing pipeline can be conceptualized as a never ending stream of incoming data in which this data will flow through many processing pipelines. Some of the pipelines will take input, will fix or clean certain types of data and then output it for it to be input to another processing pipeline step. 
 
 CluedIn already has many processing pipeline steps that it ships with, including (but not limited to):
 
  - Detecting Duplicate Records.
- - Automatically normalising dates, phone numbers, abbreviations.
+ - Automatically normalizing dates, phone numbers, abbreviations.
  - Running entity detection on text.
 
- Imagine if you are ingesting data from a new system that you have built in-house. This system stores data on Dogs and their Vetenary visits. These are, by default, not well known Domain objects to CluedIn. Although it is completely fine to ingest these types of Domain objects, you can probably imagine that there will not be much out of the log logic that knows how to clean, enrich, measure and normalise data on Dogs. This is the reason why you would introduce new processing pipeline steps. In very high level pseduo code, you would visualise that you will have a process that will look something like this:
+ Imagine if you are ingesting data from a new system that you have built in-house. This system stores data on Dogs and their Vetenary visits. These are, by default, not well known Domain objects to CluedIn. Although it is completely fine to ingest these types of Domain objects, you can probably imagine that there will not be much out of the log logic that knows how to clean, enrich, measure and normalize data on Dogs. This is the reason why you would introduce new processing pipeline steps. In very high level pseudo code, you would visualize that you will have a process that will look something like this:
 
 ```csharp
  (if EntityType == Dog)
@@ -90,6 +90,6 @@ namespace Your.Custom.Namespace
 }
 ```
 
- There is, however, the restriction that you must write this code in .net. There are many developers and users of CluedIn that will not know this and hence what we often suggest and recommend that, in fact, at the end of the day - CluedIn is really just talking in JSON and REST. Hence, if you need to create a custom processing pipeline, you can also build it completely outside of CluedIn completely and take the data from CluedIn using either our GraphQL api or using our streams mechanism to push data to another platform to process data there. 
+ There is, however, the restriction that you must write this code in .net. There are many developers and users of CluedIn that will not know this and hence what we often suggest and recommend that, in fact, at the end of the day - CluedIn is really just talking in JSON and REST. Hence, if you need to create a custom processing pipeline, you can also build it completely outside of CluedIn completely and take the data from CluedIn using either our GraphQL API or using our streams mechanism to push data to another platform to process data there. 
 
  Once you have processed your data, all we ask is that you send that back to CluedIn with our REST endpoint for accepting clues in JSON or XML format.

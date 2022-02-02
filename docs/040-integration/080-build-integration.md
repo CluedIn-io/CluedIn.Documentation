@@ -160,11 +160,11 @@ The following is the minimal steps required to replicate the _Hello World_ examp
 
 As you can see in the example - these are the main components:
 - A *client* that knows how to retrieve data from your source (e.g. `MyFirstIntegrationClient.cs`). It has methods to produce plain objects with the information.
-- The method `GetData` in the main Crawling class `MyFirstIntegrationCrawler.cs` - you can consider this as the entrypoint for the provider. This method will invoke the correct methods of the *client*, in order to yield plain objects.
+- The method `GetData` in the main Crawling class `MyFirstIntegrationCrawler.cs` - you can consider this as the entry point for the provider. This method will invoke the correct methods of the *client*, in order to yield plain objects.
 - A *Vocabulary* class (e.g. `UserVocabulary.cs`) which is for the most part generated automatically. This class defines the different keys of the data you are processing and how they map to generic terms (email, address, company) also in use in other sources. In addition it can define the relationship with other *Vocabularies* (also known as edges). For example the relationship between a user and a company.
 - A *ClueProducer* (e.g. `UserClueProducer.cs`) which essentially translates the plain object (retrieved by the *client*) into a *clue*, which is the object understood by CluedIn. It uses the keys from the *Vocabulary* to map the data from the object to the clue.
 
-In this case the sample API was very open and generic, however in other cases you may need extra information (credentials, datasources, etc.) on how to connect to the source, or what data to retrieve. This can be captured in the *CrawlJobData* (e.g. `MyFirstIntegrationCrawlJobData.cs`). You can enrich it with whatever properties you need. However, you will also need to expand two methods in the *Provider* (e.g. `MyFirstIntegrationProvider.cs`):
+In this case the sample API was very open and generic, however in other cases you may need extra information (credentials, data sources, etc.) on how to connect to the source, or what data to retrieve. This can be captured in the *CrawlJobData* (e.g. `MyFirstIntegrationCrawlJobData.cs`). You can enrich it with whatever properties you need. However, you will also need to expand two methods in the *Provider* (e.g. `MyFirstIntegrationProvider.cs`):
 - `GetCrawlJobData` which translates the keys from a generic dictionary into the *CrawlJobData* object and
 - `GetHelperConfiguration` which performs the opposite translation (from the *CrawlJobData* to a dictionary)
 
@@ -173,13 +173,13 @@ In this case the sample API was very open and generic, however in other cases yo
 
 If you are running CluedIn locally for testing purposes using Docker, you can follow these instructions to add the integration.
 
-You most likely used the Home github repo to pull your CluedIn environment down and boot it up. You can now use this to inject extra components into CluedIn.
+You most likely used the Home GitHub repo to pull your CluedIn environment down and boot it up. You can now use this to inject extra components into CluedIn.
 
-Under the `env` folder you can use the `default` folder or you can create new environments (See Home Github Readme). 
+Under the `env` folder you can use the `default` folder or you can create new environments (See Home GitHub Readme). 
 
-Within this folder there is a `components` folder. Create a new folder in here called `ServerComponent`. This is essentially a folder in which you can inject your own DLL files and CluedIn will look in this folder on boot of the CluedIn Server Docker Container and load these aseemblies as well. 
+Within this folder there is a `components` folder. Create a new folder in here called `ServerComponent`. This is essentially a folder in which you can inject your own DLL files and CluedIn will look in this folder on boot of the CluedIn Server Docker Container and load these assemblies as well. 
 
-In the example of a Crawler, you will need to copy the Dll files produced by your different projects (not including the test dll's), the .json dependency file, any third party libraries you used in your crawler (e.g. a custom Nuget package for talking to a service) and optionally you will want the pdb files if you would like to debug. 
+In the example of a Crawler, you will need to copy the DLL files produced by your different projects (not including the test DLLs), the .json dependency file, any third party libraries you used in your crawler (e.g. a custom NuGet package for talking to a service) and optionally you will want the PDB files if you would like to debug. 
 
 Copy all of these into your newly created `ServerComponent` folder and restart the CluedIn Server Docker container. Make sure that the version of your CluedIn dependencies are exactly the same as the version you are running of CluedIn. You can check this in your packages.props file.
 

@@ -85,7 +85,7 @@ Stream your data to more platforms like PowerBI, Azure ML, SQL Server, etc.
 
 ## Data Interpretability
 #### Description:
-How perfect is your data at aligning to a core or non-provider-specific Vocabulary.? As soon as you see a record in CluedIn that has provider-specific Vocab, this gives the impression that records are harder to understand and indicates that you are bringing in data that you probably will not use because it is not part of a common semantic. Raise your Interpretability by adding more CORE Vocabularies to map your input data
+How perfect is your data at aligning to a core or non-provider-specific Vocabulary.? As soon as you see a record in CluedIn that has provider-specific Vocab, this gives the impression that records are harder to understand and indicates that you are bringing in data that you probably will not use because it is not part of a common semantic. Raise your Interpretability by adding more CORE Vocabularies to map your input data.
 
 The metric shows how many ingested properties match the core vocabulary versus the properties that don’t match. Interpretability is similar to the [Complexity](#data-complexity).
 
