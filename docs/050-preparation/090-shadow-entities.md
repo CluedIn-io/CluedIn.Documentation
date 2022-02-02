@@ -8,9 +8,9 @@ permalink: /preparation/shadow-entities
 tags: ["preparation","shadow-entities"]
 ---
 
-In an effort to remove "noise" from your CluedIn data, we have the idea of "Shadow Entitites". A Shadow entitiy is a record that exists in the datastores but has been flagged as a record that will be hidden from the results in your data access layers of CluedIn. This is based off the "Eventual Connectivity" pattern in that this Shadow Entity may turn into a real Entity when it is exposed to new and more data. 
+In an effort to remove "noise" from your CluedIn data, we have the idea of "Shadow Entities". A Shadow entity is a record that exists in the datastores but has been flagged as a record that will be hidden from the results in your data access layers of CluedIn. This is based off the "Eventual Connectivity" pattern in that this Shadow Entity may turn into a real Entity when it is exposed to new and more data. 
 
-If you find that you are ingesting data and you expect a result to show up in the search catalog (and it does not), chances are it is a Shadow Entity. Shadow Entities are usually constructed from "Unstrcutured Text" i.e. we have a reference to a Person or Company that is only a "soft" reference. 
+If you find that you are ingesting data and you expect a result to show up in the search catalog (and it does not), chances are it is a Shadow Entity. Shadow Entities are usually constructed from "Unstructured Text" i.e. we have a reference to a Person or Company that is only a "soft" reference. 
 
 Shadow Entities are also constructed when the "Eventual Connectivity" patterns constructs an edge to an Entity via an Entity Code and that Entity Code doesn't not exist in any other data source yet. 
 
@@ -35,7 +35,7 @@ This could be generated from Crawlers, but a majority of the time it is generate
 
 These will also cause Entity Codes but a special type of Entity Code (name Entity Codes) that doesn't act as a unique reference to an Object. Hence you will have many of these in an account (especially if you crawl files) and they will rarely be able to find a link or merge with another Entity based off these codes. Because of this, a Data Steward will need to manually link these up.
 
-Imagine the siutation where there is a reference to a "Tim Ward" or even a "Tim" in a Word document. It is hard, and in some cases close to impossible to know which Tim or Tim Ward you are referring too. If a human was to read the text and see the context then they might be able to tell or have a good guess - but more importantly if someone that is "close" to the data in the Graph might be better to add context around this "Soft reference". Even better, if we chose 2 or 3 people that are "close" to the data - that between them they could probably agree on who this "Tim" or "Tim Ward" is.
+Imagine the situation where there is a reference to a "Tim Ward" or even a "Tim" in a Word document. It is hard, and in some cases close to impossible to know which Tim or Tim Ward you are referring too. If a human was to read the text and see the context then they might be able to tell or have a good guess - but more importantly if someone that is "close" to the data in the Graph might be better to add context around this "Soft reference". Even better, if we chose 2 or 3 people that are "close" to the data - that between them they could probably agree on who this "Tim" or "Tim Ward" is.
 
 It might be that these 2 or 3 people are not users of the CluedIn platform and hence they will never have the option of adding context because they don't have access to CluedIn. Because of this CluedIn will choose the next most relevant people in line that DO have a user account in CluedIn, they will be the ones that are sent the data to label.
 
@@ -55,14 +55,16 @@ The UI picture is only a quick "mockup" but as you can imagine it would also be 
 
 To build the UI you will need to use the following backend endpoints
 
+```CSharp
 GET [Route("api/v1/shadow/all")]
 public async Task Get(string entityType, int page, int take)
+```
 
 This will allow you to page through the Shadow Entities, probably 20 at a time. As you can see you can also filter by entityType e.g. "/Organization" but if you don't specify one then "/Organization" will be chosen by default.
 
 When you select a record (4) and you want to merge it with the Shadow Entity you will want to use the Entity (4) as the Target and the Shadow Entity as the Source and call the Merge endpoint that already exists in the platform and that is in use on the Search page when you click the "Merge" button.
 
-There is no need for delete endpoints as once the merge is finished, that Shadow Entity will no longer be a shadow Entity. You will also notice that in the GET call that I return the TOTAL amount of Shadow Entites which allows you to serve the data for a Notification on the homescreen but also know how many records you need to page through to finish.
+There is no need for delete endpoints as once the merge is finished, that Shadow Entity will no longer be a shadow Entity. You will also notice that in the GET call that I return the TOTAL amount of Shadow Entitles which allows you to serve the data for a Notification on the homescreen but also know how many records you need to page through to finish.
 
 The final question you might have is "How do I get the content for the Content (2) part of the UI?"
 

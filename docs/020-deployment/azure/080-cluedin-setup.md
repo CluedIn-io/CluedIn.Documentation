@@ -70,7 +70,7 @@ kubectl version --client
 ```
             The results should look like the following
             ![Kubectl](../../../assets/images/deployment/step-by-step-install/03-kubectl.png)
-            Make sure kubcetl is added to your PATH through the AzureTools folder
+            Make sure kubectl is added to your PATH through the AzureTools folder
 ```powershell
 $env:PATH -split ';'
 ```

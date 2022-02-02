@@ -27,7 +27,7 @@ For more advanced uses, the Clue will also allow you to map:
  - Tags
  - External Uri's
 
-A Clue can have many Entity Codes associated with it. Imagine that you were integrating a record on a company and you had data on their local business identifier, website, LinkedIn Url, Facebook Url. These would all be considered ways to uniquely identify a company. Some are questionable as being unique identifiers, but most of the time we can accept that in more cases than not, they will be unique. For example, you could argue that a website is not a unique reference as chances are that you have purchased the website domain off a business that went bankrupt. This is completely fair, but we need to realise if this is the greater “evil” or not. More than often, a website will be unique to a company, but potentially not for a particular legal entity of that company, and for those times that it is not, we know that we might need to manually intervene in those records at a later point in time. 
+A Clue can have many Entity Codes associated with it. Imagine that you were integrating a record on a company and you had data on their local business identifier, website, LinkedIn URL, Facebook URL. These would all be considered ways to uniquely identify a company. Some are questionable as being unique identifiers, but most of the time we can accept that in more cases than not, they will be unique. For example, you could argue that a website is not a unique reference as chances are that you have purchased the website domain off a business that went bankrupt. This is completely fair, but we need to realize if this is the greater “evil” or not. More than often, a website will be unique to a company, but potentially not for a particular legal entity of that company, and for those times that it is not, we know that we might need to manually intervene in those records at a later point in time. 
 
 An Entity Code is made up from 5 different pieces:
 
@@ -37,7 +37,7 @@ An Entity Code is made up from 5 different pieces:
  - Origin
  - Organization Id
 
-This combination will allow us to achieve absolute uniqueness across any datasource that we interact with. 
+This combination will allow us to achieve absolute uniqueness across any data source that we interact with. 
 
 If two Clues have exactly the same EntityCode, they have a 100% chance of merging. More often than not, Clues need to be processed to turn what is usually unique into something that would overlap with another system. For example, if we integrated two records on the same person from two different systems with exactly the same email address then this would never merge. 
 
@@ -67,11 +67,11 @@ Aliases are your way to set values that are a hint to a unique identity, but in 
  - Initials
  - Addresses
 
-The Created and Modified Dates for a Clue are important. If these are available in your source system, it is important to map these into your Clues. Do not manually set these Dates e.g. DateTimeOffset.UtcNow as this means that CluedIn will think that this record has changed, and then on evaluation we will realise that potentially, no properties were changed. CluedIn will generate a DiscoveryDate for you, so you do not need to manually set this. When searching for records in CluedIn and sorting by "New", CluedIn will always set the highest of the 3 Date Properties (Created, Modified, Discovered) and will set the SortDate for you automatically. 
+The Created and Modified Dates for a Clue are important. If these are available in your source system, it is important to map these into your Clues. Do not manually set these Dates e.g. ```CsharpDateTimeOffset.UtcNow``` as this means that CluedIn will think that this record has changed, and then on evaluation we will realize that potentially, no properties were changed. CluedIn will generate a DiscoveryDate for you, so you do not need to manually set this. When searching for records in CluedIn and sorting by "New", CluedIn will always set the highest of the 3 Date Properties (Created, Modified, Discovered) and will set the SortDate for you automatically. 
 
 Setting the Authors in your Clue is your way to add references to users that have modified, created or worked on your records. Each Clue can have many Authors. For setting Authors, you will set a PersonReference, which is very similar to an Entity Code, just without an Origin. 
 
-Clues can be submitted to CluedIn in many ways. The preferred method is via the SDK's and Crawler Templates that we make available, however it can also be done using JSON. For example, you could post a Clue like so:
+Clues can be submitted to CluedIn in many ways. The preferred method is via the SDKs and Crawler Templates that we make available, however it can also be done using JSON. For example, you could post a Clue like so:
 
 ```json
 {

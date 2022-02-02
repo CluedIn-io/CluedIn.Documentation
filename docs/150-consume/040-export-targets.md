@@ -7,7 +7,7 @@ permalink: /consume/export-targets
 tags: ["consume","streams"]
 ---
 
-Export Targets are used to authenticate with an integration point with the intention that CluedIn will make data available to this consumer via a push mechanish that CluedIn calls Outgoing Streams. Good examples include: 
+Export Targets are used to authenticate with an integration point with the intention that CluedIn will make data available to this consumer via a push mechanism that CluedIn calls Outgoing Streams. Good examples include: 
 
  - Business Intelligence Tools
  - Data Warehouse Dimension Tables
@@ -19,3 +19,6 @@ Here are two examples of how to build a new Export Target:
 
 [SQL Server](https://github.com/CluedIn-io/CluedIn.Connector.SqlServer)
 [Snowflake](https://github.com/CluedIn-io/CluedIn.Connector.Snowflake)
+
+See the full list of public implementations of CluedIn Export Targets:
+[All CluedIn Export Targets](https://github.com/CluedIn-io?q=connector)

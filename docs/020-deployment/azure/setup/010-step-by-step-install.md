@@ -211,7 +211,7 @@ Please note that the above is also equivalent to:
       seq: "seq"
 ```
 
-Also, all the subdomains values can be overriden by values that you prefer, like in the following example:
+Also, all the subdomains values can be overridden by values that you prefer, like in the following example:
 ```yaml
   dns:
     hostname: "companyName.com" # Main company's hostname is used

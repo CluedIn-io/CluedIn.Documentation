@@ -8,7 +8,7 @@ permalink: /development/core-vocabularies
 tags: ["development","vocabularies"]
 ---
 
-Core Vocabularies are where a lot of the “smarts” in CluedIn exist. If you map your custom integration sources into Core Vocabularies, there is a high likelihood that something will be done on the data to your advantage. For example, if you map a phone number into the Core Vocabulary Phone Number then CluedIn will, amongst other things: 
+Core Vocabularies are where a lot of the “smarts” in CluedIn exist. If you map your custom integration sources' keys into Core Vocabulary keys, there is a high likelihood that something will be done on the data to your advantage. For example, if you map a phone number into a Core Vocabulary Phone Number Key then CluedIn will, amongst other things: 
 
 - Create new normalised representations of the phone number in industry standards e.g. E164. 
 - Will see if we can confidentially identify or merge records based off this phone number.
@@ -37,7 +37,7 @@ These are all valid Core Vocabularies.
 
 ## Can I add my own Core Vocabularies?
 
-Although you can, we suggest that you do not. The reason is mainly due to upgrade support and making sure your upgrades are as seemless and automated as possible. 
+Although you can, we suggest that you do not. The reason is mainly due to upgrade support and making sure your upgrades are as seamless and automated as possible. 
 
 ## How do I nest my Vocabularies?
 
