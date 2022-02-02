@@ -10,24 +10,24 @@ tags: ["governance","mesh-api"]
 
 The Mesh API allows a developer to implement the ability for CluedIn to write back values from CluedIn to source systems. This comes in the form of the following operation types: 
 
-Update
-Delete
-Archive
-Associate
-Disassociate
-Anonymize
-De-anonymize
-Remove from Processing
+* Update
+* Delete
+* Archive
+* Associate
+* Disassociate
+* Anonymise
+* De-anonymise
+* Remove from Processing
 
 Due to the nature of this feature, there are no mesh API’s that are implemented in a blank installation of CluedIn. This is due to the nature that most mutation operations will change requirements per customer. This does not mean however that a lot of the framework around the operations is not turned on by default. The following actions will cause mesh commands to be generated:
 
-Manually edit a property in the Property view within CluedIn
-Any operation within CluedIn Clean that changes values
-When a value is determined through the Data Quality scores to be a higher statistical confidence than what is in the source system. 
-When a core vocabulary is empty from one source and available in another.
-When a core vocabulary is enriched from Enrichers. 
-When the data governance pieces around Subject Access Requests are initiated i.e. Anonymization, Magnification, Deletion. 
-When a record merges within CluedIn or is Split within CluedIn.
+* Manually edit a property in the Property view within CluedIn
+* Any operation within CluedIn Clean that changes values
+* When a value is determined through the Data Quality scores to be a higher statistical confidence than what is in the source system. 
+* When a core vocabulary is empty from one source and available in another.
+* When a core vocabulary is enriched from Enrichers. 
+* When the data governance pieces around Subject Access Requests are initiated i.e. Anonymisation, Magnification, Deletion. 
+* When a record merges within CluedIn or is Split within CluedIn.
 
 All Mesh Commands are queued by default i.e. they don't automatically run. It requires the product owner of that integration point to click the "Approve" operation on that mesh command to physically run the command. You can see these commands in your Mesh Center from the main menu. It also requires that the authorization and authentication that has been provided for that source is given the right permissions to fulfil the operation. It may have been that for ingestion of data you are using an account that has read access, but for Mesh commands it will typically require write, delete and other types of permissions. 
 
@@ -37,9 +37,9 @@ It is often the case that with proper base implementations, that Mesh API implem
 
 By implementing the base classes for Mesh Processors you will receive a flow as follows:
 
-Step 1: Given input from CluedIn, you can construct a textual preview of what command you will be running against the source system.
-Step 2: If the user decides to run the command, it will make the appropriate call to the endpoint to make the mutation. 
-Step 3: CluedIn will run the validation function so that you can check if your operation worked successfully e.g. if you ran a delete operation, you would expect that if you tried to lookup the value again that you would not get a record back. If your validation fails, then CluedIn will retry for a number of times and then mark the mesh command in a failed state. This means that there is a strong chance that the operation failed.
+* Step 1: Given input from CluedIn, you can construct a textual preview of what command you will be running against the source system.
+* Step 2: If the user decides to run the command, it will make the appropriate call to the endpoint to make the mutation. 
+* Step 3: CluedIn will run the validation function so that you can check if your operation worked successfully e.g. if you ran a delete operation, you would expect that if you tried to lookup the value again that you would not get a record back. If your validation fails, then CluedIn will retry for a number of times and then mark the mesh command in a failed state. This means that there is a strong chance that the operation failed.
 
 When mesh operations are run, it will update the records in the source systems and in most cases will update their modification stamp as well. This means the next time that CluedIn runs a scheduled crawl against that system, if the source sends us the updated modification stamp then CluedIn will process it; if it does not send us the updated modification date then CluedIn will assume it is the same and throw it away in processing. This is due to the hash that CluedIn generates on entities as to do quick comparisons of records. 
 
@@ -56,7 +56,7 @@ Let's use the following Mesh implementation as an example on how to implement ot
 https://github.com/CluedIn-io/CluedIn.Crawling.HubSpot/tree/develop/src/HubSpot.Provider/Mesh/HubSpot
 
 ```csharp
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CluedIn.Core;
@@ -161,7 +161,7 @@ To implement the Mesh API, you will want to inherit from the BaseMeshProcessor c
 For example here is an implementation of the abstract class above for handling the editing / updating of Contacts in HubSpot: https://github.com/CluedIn-io/CluedIn.Crawling.HubSpot/blob/develop/src/HubSpot.Provider/Mesh/HubSpot/HubSpotContactMeshProcessor.cs
 
 ```csharp
-﻿using CluedIn.Core;
+using CluedIn.Core;
 
 namespace CluedIn.Provider.HubSpot.Mesh.HubSpot
 {
@@ -186,7 +186,7 @@ The Mesh API framework is setup to be very flexible on what you run against the 
 
 For this, you could essentially create a foreach loop that loops through all the Entity Codes with an Origin of your source (e.g. HubSpot) and then create a Mesh Command per instance of this. This is also why the Mesh Base Processor allows a List of queries to be returned.
 
-###Common things to think about
+### Common things to think about
 
 Making changes in source systems is much more disruptive and invasive than simply reading data from a system. For this reason, we have compiled a list of things to think about when you are implementing mesh commands. 
 
@@ -196,7 +196,7 @@ Making changes in source systems is much more disruptive and invasive than simpl
 
 The Mesh API can be setup to completely bypass the approval process that is within the MESH Center within the UI. This can be done within CluedIn but we recommend this is only done if you have some other way of approving changes or you are very confident with the implementation of your Mesh API. 
 
-###Mesh from CluedIn Clean changes
+### Mesh from CluedIn Clean changes
 
 By default, changes that come from CluedIn Clean will not cause Mesh Commands. If you would like this to happen then you will need to change your configuration to enable this. 
 

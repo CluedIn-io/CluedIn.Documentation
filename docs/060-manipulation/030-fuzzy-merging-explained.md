@@ -17,7 +17,7 @@ FuzzyEntityMatching can be disabled at a Global level using the configuration sw
 
 We then evaluate if the particular clue that we are going to lookup has processing intructions on it that either ignores or subscribes to the fuzzy matching process. 
 
-Now is your change to introduce custom logic in code to ignore certain records from continuing using the IProcessingFilter "IsFuzzyMatchEntityPrefiltered()" method. 
+Now is your chance to introduce custom logic in code to ignore certain records from continuing using the IProcessingFilter "IsFuzzyMatchEntityPrefiltered()" method. 
 
 After this CluedIn will then look at all implementations of the IFuzzyEntityMatcher interface including many that ship with CluedIn out of the box. These IFuzzyEntityMatchers are the pieces of logic that try to determine a group of possible matches of entities. 
 
