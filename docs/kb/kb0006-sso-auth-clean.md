@@ -75,7 +75,7 @@ From 3.3.0 a new chart `cluedin/cluedin-platform` is used to support improved fl
     helm upgrade -f values.yaml cluedin cluedin/cluedin
     ```
 
-### Using chart `cluedin/cluedin` (All CluedIn releases 3.3.0 and up)
+### Using chart `cluedin/cluedin-platform` (All CluedIn releases 3.3.0 and up)
 1. In the `values.yaml` for your deployment, configure the `oauth2` section
     ```yaml
     application:
