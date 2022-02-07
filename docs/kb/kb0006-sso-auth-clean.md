@@ -23,6 +23,13 @@ Before you start, make sure you have the following :
 - A working instance of CluedIn on AKS
 - Preferably Azure CLI and Kubectl on your local machine. Otherwise, you can also use Cloud Shell on Azure Portal. **The steps described below suppose you are using PowerShell locally.**
 
+## Configure your SSO provider
+You must register the appropriate redirect uris for your SSO provider.
+When using Azure App registrations you can do this under the `Authentication` section:
+![App Registration](../assets/images/kb/0006/app_registration.png)
+
+> Provide the _full_ url of the address to be protected followed by `/oauth2/callback` e.g. https://clean.example.com/oauth2/callback
+
 ## Connect to the AKS cluster
 
 Open PowerShell, then connect to your Azure tenant using the following command (replace values of variables were needed):
@@ -46,9 +53,8 @@ az login --tenant $tenant_id # this line will open the Azure Login page in your 
     $secretName = 'oauth2-proxy-config'
     $clientIdFromSsoProvider = '12345...'
     $clientSecretFromSsoProvider = '12345...'
-    $cookieSecretFromStep1 = '12345...'
     $cluedinNamespace = 'cluedin'
-    kubectl create secret generic $secretName --from-literal=OAUTH2_PROXY_CLIENT_ID=$clientIdFromSsoProvider --from-literal=OAUTH2_PROXY_CLIENT_SECRET=$clientSecretFromSsoProvider --from-literal=OAUTH2_PROXY_COOKIE_SECRET=$cookieSecretFromStep1 -n $cluedinNamespace
+    kubectl create secret generic $secretName --from-literal=OAUTH2_PROXY_CLIENT_ID=$clientIdFromSsoProvider --from-literal=OAUTH2_PROXY_CLIENT_SECRET=$clientSecretFromSsoProvider --from-literal=OAUTH2_PROXY_COOKIE_SECRET=$myPassword -n $cluedinNamespace
     ```
 
 ## Apply values for Helm chart
@@ -62,6 +68,12 @@ From 3.3.0 a new chart `cluedin/cluedin-platform` is used to support improved fl
     ```yaml
     oauth2:
         enabled: true
+          for:
+          - clean # Include the clean service and any others you want to configure
+          - seq
+          - openrefine
+          - grafana-admin
+          - prometheus-admin
         environment:
             OAUTH2_PROXY_EMAIL_DOMAIN: example.com # Match to your SSO provider domain
         secretRefName: oauth2-proxy-config # Match to the secret name in step 2
@@ -81,6 +93,12 @@ From 3.3.0 a new chart `cluedin/cluedin-platform` is used to support improved fl
     application:
         oauth2:
             enabled: true
+            for:
+            - clean # Include the clean service and any others you want to configure
+            - seq
+            - openrefine
+            - grafana-admin
+            - prometheus-admin
             environment:
                 OAUTH2_PROXY_EMAIL_DOMAIN: example.com # Match to your SSO provider domain
             secretRefName: oauth2-proxy-config # Match to the secret name in step 2
