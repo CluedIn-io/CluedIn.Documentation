@@ -20,16 +20,16 @@ CluedIn will also expire the authentication after 15 minutes of inactivity withi
 
 **NOTE:** you MUST implement HTTPS for all CluedIn URIs before setting up SSO.
 
+**NOTE:** prior to configuring your app registration you must select a unique scheme. All active SSO providers must have a distinct scheme that cannot be shared with another provider.  The scheme is simply a string value e.g. `aad` or `myorg-aad`
+
 ## App Registration
 * Redirect URIs:
   * https://app._hostname_/
   * https://_organization_._hostname_/
-  * https://app._hostname_/auth/signin-oidc
-
+  * https://app._hostname_/auth/signin-oidc  
+  * For multi-tenant scenarios you should also register the disitinct scheme redirect uri: https://app._hostname_/auth/signin-oidc-_scheme_ e.g. for the scheme `aad` register https://app._hostname_/auth/signin-oidc-`aad`
 * Logout Uri
   * <org account url>/logout
-
-
 * API Permissions:
   * Microsoft Graph
     * Email
@@ -64,7 +64,7 @@ Navigate to the database called Authentication, and either run this command from
 ```
 INSERT [SingleSignOn] ([Id],[OrganizationId],[LoginUrl],[LogoutUrl],[Active],[ChangePasswordUrl],[SingleSignOnProviderId],[ExternalId],[IssuerUrl],[SamlVersion],[Certificate],[CustomErrorUrl],[ExternalSecret],[AuthenticationScheme],[AuthorityUrl])
 
-SELECT '{a421253e-9086-4202-bfcc-c42eed712987}','<organization id>','<organization url>/ssocallback','<organization url>/logout',1,' ','{54118954-951f-41a9-b0a7-6de7d47e6c17}','<client id>',' ',0,' ',' ','<client secret>','aad','https://login.microsoftonline.com/common';
+SELECT '{a421253e-9086-4202-bfcc-c42eed712987}','<organization id>','<organization url>/ssocallback','<organization url>/logout',1,' ','{54118954-951f-41a9-b0a7-6de7d47e6c17}','<client id>',' ',0,' ',' ','<client secret>','<scheme>','https://login.microsoftonline.com/common';
 ```
 
 You will now need to update the OrganizationAccount tables ExternalAuthenticationId column for this organization you have created to be  `54118954-951f-41a9-b0a7-6de7d47e6c17`. This will signal to CluedIn that this particular account uses Azure Active Directory as its identity provider.
