@@ -22,4 +22,4 @@ You can set the details of each Vocabulary key in your Crawler Templates such as
 
 Clicking on an individual value will take you to all records that have that value for that Vocabulary Key. 
 
-You can filter your Data Catalog by the Entity Type, the source (e.g. Hubspot) or the type of Vocabulary it is e.g. Core, Provider.
+You can filter your Data Catalog by the Entity Type, the source (e.g. HubSpot) or the type of Vocabulary it is e.g. Core, Provider.

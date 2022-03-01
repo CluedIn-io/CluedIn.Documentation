@@ -11,7 +11,7 @@ tags: ["preparation","quality-metrics"]
 
 CluedIn calculates data quality metrics based off all data that is ingested into the platform. There are many times where you will want a verbose explanation on why a certain data quality score was given. For example, imagine if your had what you think is golden records, but CluedIn gave it very low quality scores - you would want to know exactly why. 
 
-The first option is to visualise this explanation within the user inteface by clicking on the "Explain" button when you see a data quality score widget. 
+The first option is to visualize this explanation within the user interface by clicking on the "Explain" button when you see a data quality score widget. 
 
 The second example would be to get this data from our GraphQL endpoint. 
 

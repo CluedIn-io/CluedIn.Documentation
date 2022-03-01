@@ -150,7 +150,7 @@ We will create a new organization called `foobar` by creating a Custom Resource 
     name: "foobar"
     adminUserSecret: "foobar-admin"
   ```
-  .. you can apply the resurce to the Kubernetes cluster to begin the creation process using :
+  .. you can apply the resource to the Kubernetes cluster to begin the creation process using :
   ```bash
   kubectl apply -n cluedin -f foobar-org.yaml
   ```
@@ -171,7 +171,7 @@ Any error messages from the process will be stored in the `STATUS` field and the
 
 #### Deleting an Organization
 
-  You can remove entirely remove an organization by deleteing the custom `Organization` resource that was created previously.
+  You can remove entirely remove an organization by deleting the custom `Organization` resource that was created previously.
   
   It can be deleted by using the file it was created with ..
 

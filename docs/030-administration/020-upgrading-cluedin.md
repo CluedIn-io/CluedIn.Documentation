@@ -11,7 +11,7 @@ To upgrade CluedIn, you will need to take many things into consideration.
 
 CluedIn deploys new versions of its software, crawlers and other products to the CluedIn Private Docker Repository. We deploy Stable, Beta and Alpha versions so that our customers can try out different parts of the platform at their discretion.
 
-It is always recommended to first check the release notes of the version you are upgrading to. You might find that if you are jumping a large number of versions, that the upgrade path is harder than smaller increments. If you have adhered to the best practices of CluedIn, then upgrading should be very straight forward. In essence, we offer ways for Developers to inject changes to CluedIn but very much do not recommend changing default CluedIn behaviour. If you have adhered to this then it will make your upgrade paths easier. 
+It is always recommended to first check the release notes of the version you are upgrading to. You might find that if you are jumping a large number of versions, that the upgrade path is harder than smaller increments. If you have adhered to the best practices of CluedIn, then upgrading should be very straight forward. In essence, we offer ways for Developers to inject changes to CluedIn but very much do not recommend changing default CluedIn behavior. If you have adhered to this then it will make your upgrade paths easier. 
 
 It is also a recommended practice that you also don't directly connect to the CluedIn data stores, but rather use our APIs to interact with the underlying data stores. If you have stuck to this principal, then changes to the underlying data stores can be automated during the upgrade process. 
 

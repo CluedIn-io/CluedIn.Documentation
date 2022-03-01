@@ -17,11 +17,11 @@ This can be a company owned one for your organization or a temporary one using a
 
 ## Email Configuration - Docker/Local Machine
 
-Email configuration is simplified when running localy by using the `cluedin.ps1` helper script.
+Email configuration is simplified when running locally by using the `cluedin.ps1` helper script.
 
 You can configure any email settings as environment variables that will be passed into the application at runtime.
 
-This is acheive by using the `env` command :
+This is achieve by using the `env` command :
 
 ```bash
 ./cluedin.ps1 env -set [NAME]=[VALUE]
