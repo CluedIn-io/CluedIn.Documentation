@@ -112,4 +112,4 @@ From 3.3.0 a new chart `cluedin/cluedin-platform` is used to support improved fl
     helm upgrade -f values.yaml cluedin cluedin/cluedin-platform
     ```
 
-For additonal configuration options, see: https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview/
+For additional configuration options, see: https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview/
