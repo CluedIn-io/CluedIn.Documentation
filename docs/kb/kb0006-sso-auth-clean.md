@@ -4,7 +4,7 @@ title: Restricting access to CluedIn Clean via SSO Authentication
 permalink: /kb/sso-auth-cluedin-clean
 nav_exclude: true
 tags: ["security","cluedin-clean","authentication","kubernetes", "sso"]
-last_modified: 2022-02-01
+last_modified: 2022-03-23
 ---
 This article describes how to enable your selected SSO provider to restrict access to the CluedIn Clean page.
 
@@ -99,7 +99,7 @@ From 3.3.0 a new chart `cluedin/cluedin-platform` is used to support improved fl
             - openrefine
             - grafana-admin
             - prometheus-admin
-            environment:
+            extraConfiguration:
                 OAUTH2_PROXY_EMAIL_DOMAIN: example.com # Match to your SSO provider domain
             secretRefName: oauth2-proxy-config # Match to the secret name in step 2
     ```
