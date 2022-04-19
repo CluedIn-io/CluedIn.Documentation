@@ -25,6 +25,42 @@ To install CluedIn in any cloud, you need a Kubernetes cluster. In Azure, this c
 
 Therefore, before installing CluedIn, you need to have a working AKS instance with an external IP address.
 
+### Kubernetes / CluedIn Helm Chart Supported Versions
+
+**As of April 2022:**
+
+(EOL = End of Life)
+
+| **K8s version** | **K8S release** | **AKS preview** | **AKS GA**  | **AKS EOL** | **K8S EOL** | **CluedIn 3.2.5** | **CluedIn 3.3.0**
+|------|-----------|----------|----------|---------|--|------------------------------|------------------------------|
+| 1.18 | Mar-25-20 | EOL      | EOL      | EOL     | Apr-30-21 | `cluedin` / `3.2.5-update.4` | `N/A`                        |
+| 1.19 | Aug-26-20 | EOL      | EOL      | EOL     | Oct-28-21 | `cluedin` / `3.2.5-update.4` | `N/A`                        |
+| 1.20 | Dec-08-20 | Jan 2021 | Mar 2021 | 1.23 GA | Feb-28-22 | `cluedin` / `3.2.5-update.4` | `cluedin-platform` / `1.0.2` |
+| 1.21 | Apr-08-21 | May 2021 | Jul 2021 | 1.24 GA | Jun-28-22 | `cluedin` / `3.2.5-update.4` | `cluedin-platform` / `1.0.2` |
+| 1.22 | Aug-04-21 | Sep 2021 | Dec 2021 | 1.25 GA | Nov-28-22 | `cluedin` / `3.2.5-update.4` | `cluedin-platform` / `1.0.2` |
+| 1.23 | Dec 2021  | Jan 2022 | Apr 2022 | 1.26 GA | Feb-28-23 | `cluedin` / `3.2.5-update.4` | `cluedin-platform` / `1.0.2` |
+
+**Notes**
+*  We broadly follow the Microsoft AKS release calendar: https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar
+* Kubernetes version history: https://en.wikipedia.org/wiki/Kubernetes#Release_timeline
+* CluedIn does not currently use any version-specific features of Kubernetes
+
+
+**Deprecation warnings**
+
+When installing the chart you may see warnings such as:
+```
+W0419 14:10:41.891611   47978 warnings.go:70] policy/v1beta1 PodSecurityPolicy is deprecated in v1.21+, unavailable in v1.25+
+W0419 14:10:41.897405   47978 warnings.go:70] policy/v1beta1 PodSecurityPolicy is deprecated in v1.21+, unavailable in v1.25+
+W0419 14:10:41.905217   47978 warnings.go:70] policy/v1beta1 PodSecurityPolicy is deprecated in v1.21+, unavailable in v1.25+
+W0419 14:10:41.913406   47978 warnings.go:70] policy/v1beta1 PodSecurityPolicy is deprecated in v1.21+, unavailable in v1.25+
+W0419 14:10:41.918653   47978 warnings.go:70] policy/v1beta1 PodSecurityPolicy is deprecated in v1.21+, unavailable in v1.25+
+W0419 14:10:41.923475   47978 warnings.go:70] policy/v1beta1 PodSecurityPolicy is deprecated in v1.21+, unavailable in v1.25+
+W0419 14:10:41.929713   47978 warnings.go:70] policy/v1beta1 PodSecurityPolicy is deprecated in v1.21+, unavailable in v1.25+
+```
+
+These are nothing to worry about until moving to version v1.25 (which at time of writing has not yet been released). Kubernetes working group has not released the replacement for this resource yet (we just know its going away) - Information available here : https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/. CluedIn will provide an update for this resource type in time for 1.25 migrations.
+
 ### DNS
 
 Next, you may not want to access CluedIn just by IP address, so you will need to choose the domain name that will be a part of the URL when you reach CluedIn.
