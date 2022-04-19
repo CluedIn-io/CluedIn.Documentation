@@ -25,7 +25,7 @@ To install CluedIn in any cloud, you need a Kubernetes cluster. In Azure, this c
 
 Therefore, before installing CluedIn, you need to have a working AKS instance with an external IP address.
 
-### Kubernetes / Helm Chart Supported Versions
+### Kubernetes / CluedIn Helm Chart Supported Versions
 
 **As of April 2022:**
 
@@ -40,13 +40,13 @@ Therefore, before installing CluedIn, you need to have a working AKS instance wi
 | 1.22 | Aug-04-21 | Sep 2021 | Dec 2021 | 1.25 GA | Nov-28-22 | `cluedin` / `3.2.5-update.4` | `cluedin-platform` / `1.0.2` |
 | 1.23 | Dec 2021  | Jan 2022 | Apr 2022 | 1.26 GA | Feb-28-23 | `cluedin` / `3.2.5-update.4` | `cluedin-platform` / `1.0.2` |
 
-## Notes
+**Notes**
 *  We broadly follow the Microsoft AKS release calendar: https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar
 * Kubernetes version history: https://en.wikipedia.org/wiki/Kubernetes#Release_timeline
 * CluedIn does not currently use any version-specific features of Kubernetes
 
 
-## Deprecation warnings
+**Deprecation warnings**
 
 When installing the chart you may see warnings such as:
 ```
