@@ -5,6 +5,7 @@ permalink: /kb/basic-auth-cluedin-clean
 nav_exclude: true
 tags: ["security","cluedin-clean","authentication","kubernetes"]
 last_modified: 2021-09-13
+is_kb: true
 ---
 
 This article describes how to enable [HAProxy Basic Authentication](https://github.com/jcmoraisjr/haproxy-ingress/tree/master/examples/auth/basic) to restrict access to CluedIn Clean page.

@@ -5,6 +5,7 @@ permalink: /kb/sync-aks-to-akv
 nav_exclude: true
 tags: ["kubernetes","azure","aks", "akv", "key-vault", "azure"]
 last_modified: 2021-11-02
+is_kb: true
 ---
 
 In this walkthrough, we will create a new Azure Key Vault, and then create a new Azure Kubernetes Service, and then we will synchronize the certificates and secrets from the Azure Key Vault to the Azure Kubernetes Service.

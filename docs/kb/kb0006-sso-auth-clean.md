@@ -5,6 +5,7 @@ permalink: /kb/sso-auth-cluedin-clean
 nav_exclude: true
 tags: ["security","cluedin-clean","authentication","kubernetes", "sso"]
 last_modified: 2022-03-23
+is_kb: true
 ---
 This article describes how to enable your selected SSO provider to restrict access to the CluedIn Clean page.
 

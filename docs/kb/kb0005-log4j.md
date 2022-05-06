@@ -5,6 +5,7 @@ permalink: /kb/log4j
 nav_exclude: true
 tags: ["security"]
 last_modified: 2022-01-31
+is_kb: true
 ---
 
 On December 9th 2021 a high severity vulnerability was disclosed in the Apache Log4j2 library for all 

@@ -5,6 +5,7 @@ permalink: /kb/azure-customer-usage-attribution
 nav_exclude: true
 tags: ["microsoft","azure","kubernetes","aks"]
 last_modified: 2021-09-20
+is_kb: true
 ---
 
 This article describes how to create customers Azure resources associated with CluedIn as a Microsoft partner.

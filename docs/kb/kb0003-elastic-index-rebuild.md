@@ -5,6 +5,7 @@ permalink: /kb/elastic-index-rebuild
 nav_exclude: true
 tags: ["search","elasticsearch","index","rebuild","reprocess","reindex"]
 last_modified: 2021-10-20
+is_kb: true
 ---
 
 ## On this page
