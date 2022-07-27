@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Azure
+title: Azure Kubernetes Service
 parent: Deployment
 permalink: /deployment/azure
 nav_order: 30
