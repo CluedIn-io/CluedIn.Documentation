@@ -1,4 +1,4 @@
-# Pre-Install Checks
+# CluedIn AMA - Pre-Install Checks
 
 Before beginning the installation there are a few checks and permissions that need to happen in order to ensure a smooth installation experience.
 
