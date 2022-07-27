@@ -26,7 +26,7 @@ This document will take you through what gets created and what purpose they serv
 When installing the AMA the first resource created is the `Managed Application` resource.
 This is the top-level resource that contains all the other resources that will be created.
 
-While has no direct functions at this time, if there is a problem with the installation it recommended to remove/delete this top-level resource and this, in turn, will cascade-delete all child resources.
+While it has no direct functions at this time, if there is a problem with the installation it recommended to remove/delete this top-level resource and this, in turn, will cascade-delete all child resources.
 
 ![img_1.png](../../../assets/images/ama/resources/img_1.png)
 
@@ -34,8 +34,8 @@ While has no direct functions at this time, if there is a problem with the insta
 ---
 **! NOTE !**
 
-When deleting a managed application it can take Azure a little time to de-register the installation from its billing and other back-end processes.
-If you need to run an installation a second time, in quick succession, it is recommended to change the name of the installation slightly so there is not a clash.
+Deleting a managed application can take Azure a little time to de-register the installation from its billing and other back-end processes.
+If you need to run an installation a second time, in quick succession, it is recommended to change the name of the installation slightly, so there is not a clash.
 
 ---
 
@@ -49,7 +49,7 @@ The managed application will create a managed resource group (usually with a nam
 
 ### Azure Resources
 
-The installation will deploy various Azure resource into the managed resource group and also install the CluedIn Kubernetes application using Helm.
+The installation will deploy various Azure resources into the managed resource group and also install the CluedIn Kubernetes application using Helm.
 
 All resources are created with a unique name to avoid any clashes with other resources.
 
@@ -65,7 +65,7 @@ The installation will create a managed identity that is used as the `owner` of t
 
 #### VNET (`vnet-`)
 
-A new VNET is created to hold all the network configuration for the services. This can be peered later with other VNETs if needed.
+A new VNET is created to hold all the network configurations for the services. This can be peered later with other VNETs if needed.
 
 A single subnet called `AksSubnet` is created to contain any AKS networking.
 
@@ -78,7 +78,7 @@ Default ranges/CIDRs are configured as follows:
 #### Public IP (`publicip-`)
 
 A public IP is created for use with the AKS ingress service.
-This is created here so that in the even of needing to reconfigure or re-create the AKS configuration the IP, that may have been used for DNS configuration, will not be lost/re-issued.
+This is created here so that in the event of needing to reconfigure or re-create the AKS configuration, the IP that may have been used for DNS configuration will not be lost/re-issued.
 
 ---
 
@@ -98,7 +98,7 @@ This also contains the installation log and the Helm chart `values.yaml` used to
 
 This is the main AKS/Kubernetes cluster that is used to host the CluedIn application.
 
-It also contains the 5 different node pools onto which the CluedIn application's various workloads will be deployed.
+It also contains the five different node pools onto which the CluedIn application's various workloads will be deployed.
 
 The node pools are as follows:
 
@@ -129,4 +129,4 @@ Persistent disks are created to hold data created by the installation. These can
 
 #### AKS - Log Analytics (`log-`) + ContainerInsights
 
-This is where log data is aggregated for the cluster and alerts and monitoring can be configured.
+This is where log data is aggregated for the cluster, and alerts and monitoring can be configured.

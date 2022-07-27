@@ -16,30 +16,30 @@ last_modified: 2022-07-27
 
 # CluedIn AMA - Pre-Install Checks
 
-Before beginning the installation there are a few checks and permissions that need to happen in order to ensure a smooth installation experience.
+Before beginning the installation, a few checks and permissions need to happen to ensure a smooth installation experience.
 
 ### Identify the user carrying out installation
 
 The user who is triggering the installation must have all the correct permissions assigned to them or their user group.
 
-CluedIn will be installed into an Azure Resource Group, the installation user would ideally be *at least*  a`Contributor` to that group or ideally the `Owner` of that resource group. 
+CluedIn will be installed into an Azure Resource Group. The installation user would ideally be *at least*  a`Contributor` to that group or ideally the `Owner` of that resource group. 
 
 ### Permission to purchase from the Azure Market Place
 
-The other permission required, is the ability to purchase paid-for applications from the Azure Marketplace. 
+The other permission required is the ability to purchase paid-for applications from the Azure Marketplace. 
 
 By default, this is usually set to `No` - Meaning it prevents users from deploying any software from Azure Marketplace.
 
 This must be set to `Free+Paid` in order to complete the purchase registration on the marketplace.
 
-More information available here: https://docs.microsoft.com/en-us/marketplace/azure-purchasing-invoicing#purchase-policy-management
+More information is available here: https://docs.microsoft.com/en-us/marketplace/azure-purchasing-invoicing#purchase-policy-management
 
 ### Check Azure registrations
 
-The final set of permissions are around provider registrations and quotas. Provider registrations allow you to create certain resource types in Azure.
-The CluedIn installation creates various different resource types so we need to check that the installation user has the correct authority to create them.
+The final set of permissions is around provider registrations and quotas. Provider registrations allow you to create certain resource types in Azure.
+The CluedIn installation creates various resource types, so we need to check that the installation user has the proper authority to create them.
 
-The list of registrations for CluedIn are as follows:
+The list of registrations for CluedIn is as follows:
 
 * `Microsoft.Cache`
 * `Microsoft.Capacity`
@@ -59,7 +59,7 @@ The list of registrations for CluedIn are as follows:
 
 There are four common VM family types that CluedIn will create as part of the AKS (Kubernetes) node pools. 
 
-The subscription needs to have enough spare vCPU quota in order to provision the different nodes.
+The subscription must have enough spare vCPU quota to provision the different nodes.
 
 * At least 36 vCPUs in the **StandardDSv4Family** quota
 
@@ -69,11 +69,11 @@ The subscription needs to have enough spare vCPU quota in order to provision the
 
 * At least 2 vCPUs in the **StandardDSv2Family** quota
 
-If you are looking to enable auto-scaling on the processing node you will need to ensure a higher quota on the FSv2 family. This will also depend on your license type.
+If you are looking to enable auto-scaling on the processing node, you will need to ensure a higher quota on the FSv2 family. This will also depend on your license type.
 
 ### Helper Script
 
-CluedIn have created a PowerShell script that can check the current users provider registrations.
+CluedIn have created a PowerShell script that can check the current user's provider registrations.
 
 It requires the Azure CLI (az) to be installed on the system running it. 
 
@@ -90,7 +90,7 @@ param(
 $ErrorActionPreference = 'Stop'
 
 if(!(Get-Command az)) {
-    Write-Error "You must install the azure cli to continue"
+    Write-Error "You must install the azure CLI to continue"
 }
 
 # Login

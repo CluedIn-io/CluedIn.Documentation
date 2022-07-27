@@ -20,6 +20,6 @@ This diagram represents the Azure resource architecture of the AMA solution runn
 
 ![img.png](../../../assets/images/ama/architecture/img.png)
 
-This diagram represents the CPU and memory allocation for each service running with an `Essential` license
+This diagram represents the CPU and memory allocation for each service running with an `Essential` license.
 
 ![img_1.png](../../../assets/images/ama/architecture/img_1.png)
