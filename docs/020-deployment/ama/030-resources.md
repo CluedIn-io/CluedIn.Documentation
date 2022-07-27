@@ -1,3 +1,19 @@
+---
+layout: default
+nav_order: 30
+parent: Azure Marketplace
+grand_parent: Deployment
+permalink: /deployment/azure-marketplace/resources
+title: Resources
+tags: ["deployment", "ama", "marketplace", "azure"]
+last_modified: 2022-07-27
+---
+
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
+
 # CluedIn AMA - Resources
 
 When installing the CluedIn Azure Marketplace Application (AMA) various Azure resources are created.

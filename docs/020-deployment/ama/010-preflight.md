@@ -1,3 +1,19 @@
+---
+layout: default
+nav_order: 10
+parent: Azure Marketplace
+grand_parent: Deployment
+permalink: /deployment/azure-marketplace/preflight
+title: Pre-Install Checks
+tags: ["deployment", "ama", "marketplace", "azure"]
+last_modified: 2022-07-27
+---
+
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
+
 # CluedIn AMA - Pre-Install Checks
 
 Before beginning the installation there are a few checks and permissions that need to happen in order to ensure a smooth installation experience.

@@ -1,3 +1,19 @@
+---
+layout: default
+nav_order: 20
+parent: Azure Marketplace
+grand_parent: Deployment
+permalink: /deployment/azure-marketplace/install
+title: Installation
+tags: ["deployment", "ama", "marketplace", "azure"]
+last_modified: 2022-07-27
+---
+
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
+
 # CluedIn AMA - Installation
 
 This document will take you through the various options provided by the Azure Marketplace Application (AMA) installer.
