@@ -174,7 +174,7 @@ By default, we do not create an event hub instance.
 
 CluedIn can be configured to use an existing instance of Azure Event Hub if provided with connection details.
 
-![img_17.png](img_17.png)
+![img_17.png](../../../assets/images/ama/installer/img_17.png)
 
 The installer can provision an Azure Event Hub instance for use by CluedIn. The Azure Event Hub resource will be created inside the managed resource group.
 
