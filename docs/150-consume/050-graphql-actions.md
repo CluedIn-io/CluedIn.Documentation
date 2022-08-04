@@ -20,7 +20,7 @@ Split Entities in Bulk.
     entries {
       name
       actions {
-          splitEntities
+          splitEntity
       }
     }
   }
