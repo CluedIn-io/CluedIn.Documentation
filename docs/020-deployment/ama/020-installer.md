@@ -14,6 +14,12 @@ last_modified: 2022-07-27
 1. TOC
 {:toc}
 
+<iframe src="https://player.vimeo.com/video/737493734?h=8832aa6f0f&title=0&byline=0&portrait=0" 
+    width="640"
+    height="360"
+    frameborder="0"
+    allowfullscreen></iframe>
+
 # CluedIn AMA - Installation
 
 This document will take you through the various options provided by the Azure Marketplace Application (AMA) installer.
