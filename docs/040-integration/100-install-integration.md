@@ -94,7 +94,7 @@ You can build your own docker image to contain the integration packages.  This h
 
     FROM alpine as final
     COPY --from=base ./components ./tmp/components
-    ENTRYPOINT ["sh", "-c", "false | cp $(ls -d /tmp/components/*/) -ir ./components 2>/dev/null"]
+    ENTRYPOINT ["sh", "-c", "false | cp $(ls -d /tmp/components/*/) -r ./components 2>/dev/null"]
     ```
     > If one or more feeds requires credentials, you'll need to expose an `ARG`
     and an `ENV` named `NUGETCRED_<feedname>` to allow passing to the install script.
