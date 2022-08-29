@@ -4,7 +4,7 @@ title: Restricting access to CluedIn Clean via Basic Authentication
 permalink: /kb/basic-auth-cluedin-clean
 nav_exclude: true
 tags: ["security","cluedin-clean","authentication","kubernetes"]
-last_modified: 2021-09-13
+last_modified: 2022-08-29
 is_kb: true
 ---
 
@@ -68,7 +68,7 @@ Run the following command to add required annotations to the Clean Ingress contr
 $secret_name = 'cluedin-clean-credentials' # secret name created in Step 3
 $ingress_name = 'cluedin-clean' # Name of the Clean ingress
 $namespace = 'cluedin' # name of the 
-kubectl annotate $ingress_name \
+kubectl annotate ingress $ingress_name \
         ingress.kubernetes.io/auth-type=basic \
         ingress.kubernetes.io/auth-secret=$secret_name -n $namesepace
 ```
