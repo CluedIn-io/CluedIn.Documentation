@@ -36,10 +36,12 @@ More information is available here: https://docs.microsoft.com/en-us/marketplace
 
 ### Check Azure registrations
 
-The final set of permissions is around provider registrations and quotas. Provider registrations allow you to create certain resource types in Azure.
+The final set of permissions is around resource provider registrations and quotas. 
+
+Resource Provider registrations allow you to create certain resource types in Azure.
 The CluedIn installation creates various resource types, so we need to check that the installation user has the proper authority to create them.
 
-The list of registrations for CluedIn is as follows:
+The list of resource provider registrations for CluedIn are as follows:
 
 * `Microsoft.Cache`
 * `Microsoft.Capacity`
@@ -55,19 +57,40 @@ The list of registrations for CluedIn is as follows:
 * `Microsoft.Storage`
 * `Microsoft.Sql`
 
+You can locate the `Resource Provider` section in the `Subscription` configuration on the Azure portal.
+
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
+Some may take a few minutes to register.
+
 ### Check vCPU quotas
 
-There are four common VM family types that CluedIn will create as part of the AKS (Kubernetes) node pools. 
+There are three common VM family types that CluedIn will create as part of the AKS (Kubernetes) node pools. 
 
 The subscription must have enough spare vCPU quota to provision the different nodes.
 
-* At least 36 vCPUs in the **StandardDSv4Family** quota
+If the quota is not available then the installation will fail.
 
-* At least 32 vCPUs in the **StandardDSv8Family** quota
+*Common*
 
-* At least 32 vCPUs in the **StandardFSv2Family** quota
+* System Pool - (1 x `Standard_DS2_v2`) - At least `2` vCPUs in the **StandardDSv2Family** quota
 
-* At least 2 vCPUs in the **StandardDSv2Family** quota
+* General Pool (2 x `Standard_D8s_v4`) and Data Pool - (3 x `Standard_D8s_v4`) - At least `40` vCPUs in the **StandardDSv8Family** quota
+
+The `D8s_v4` machines can be found as part of the `D-Series v4` set of compute resources.
+
+The next set is based on your license type:
+
+*Essential*
+- At least 8 vCPUs in the **StandardFSv2Family** quota
+
+*Professional*
+- At least 16 vCPUs in the **StandardFSv2Family** quota
+
+*Elite*
+- At least 32 vCPUs in the **StandardFSv2Family** quota
 
 If you are looking to enable auto-scaling on the processing node, you will need to ensure a higher quota on the FSv2 family. This will also depend on your license type.
 
