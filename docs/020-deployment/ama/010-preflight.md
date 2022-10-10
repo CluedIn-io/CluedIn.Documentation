@@ -79,6 +79,8 @@ If the quota is not available then the installation will fail.
 
 * General Pool (2 x `Standard_D8s_v4`) and Data Pool - (3 x `Standard_D8s_v4`) - At least `40` vCPUs in the **StandardDSv8Family** quota
 
+The `D8s_v4` machines can be found as part of the `D-Series v4` set of compute resources.
+
 The next set is based on your license type:
 
 *Essential*
