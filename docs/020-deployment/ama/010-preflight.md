@@ -28,11 +28,15 @@ CluedIn will be installed into an Azure Resource Group. The installation user wo
 
 The other permission required is the ability to purchase paid-for applications from the Azure Marketplace. 
 
-By default, this is usually set to `No` - Meaning it prevents users from deploying any software from Azure Marketplace.
+![marketplace-enable.png](marketplace-enable.png)
 
-This must be set to `Free+Paid` in order to complete the purchase registration on the marketplace.
+By default, this is usually set to `Off` - Meaning it prevents users from deploying any software from Azure Marketplace.
+
+This must be set to `Free/BYOL SKUs Only` in order to complete the purchase registration on the marketplace.
 
 More information is available here: https://docs.microsoft.com/en-us/marketplace/azure-purchasing-invoicing#purchase-policy-management
+
+**Note**: At present (Jan 2023) the Microsoft document above is showing the wrong screenshots for the Marketplace interface.
 
 ### Check Azure registrations
 
