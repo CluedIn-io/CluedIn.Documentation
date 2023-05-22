@@ -18,8 +18,8 @@ Enter your [Microsoft 365](https://www.microsoft365.com/) Credentials in CluedIn
     - Password
     - Redirect Uri (default: http://localhost/)
 4. You can find the values for this by navigating to either the PowerApps page or the Power Automate page and checking the Developer Resources information.
-![Developer Resources](./images/settings.png)
-![Developer Resources](./images/developer-resources.png)
+![Developer Resources 1](./images/settings.png)
+![Developer Resources 2](./images/developer-resources.png)
     - **Base Url** is the _Web API endpoint_ base URL
     - Environment Id
 5. For Client Id, you can generate this by navigating to your Azure Active Directory => App registration. Please refer to this [link](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/walkthrough-register-app-azure-active-directory).
