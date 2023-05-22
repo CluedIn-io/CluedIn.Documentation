@@ -2,7 +2,7 @@
 layout: default
 nav_order: 10
 parent: Features
-grand_parent: Microsoft Integration
+grand_parent: PowerApps Integration
 permalink: /microsoft-integration/powerapps/features/sync-entitytypes
 title: Sync Entity Types to Dataverse Tables
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
