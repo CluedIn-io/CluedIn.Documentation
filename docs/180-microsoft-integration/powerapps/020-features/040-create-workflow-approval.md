@@ -2,7 +2,7 @@
 layout: default
 nav_order: 40
 parent: Features
-grand_parent: Microsoft Integration
+grand_parent: PowerApps Integration
 permalink: /microsoft-integration/powerapps/features/create-workflow-approval
 title: Create a Workflow Approval process
 tags: ["integration", "microsoft", "powerapps", "dataverse"]

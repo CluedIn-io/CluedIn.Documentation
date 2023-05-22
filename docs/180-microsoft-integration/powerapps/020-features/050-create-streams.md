@@ -2,7 +2,7 @@
 layout: default
 nav_order: 50
 parent: Features
-grand_parent: Microsoft Integration
+grand_parent: PowerApps Integration
 permalink: /microsoft-integration/powerapps/features/create-streams
 title: Create Streams
 tags: ["integration", "microsoft", "powerapps", "dataverse"]

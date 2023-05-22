@@ -2,7 +2,7 @@
 layout: default
 nav_order: 30
 parent: Features
-grand_parent: Microsoft Integration
+grand_parent: PowerApps Integration
 permalink: /microsoft-integration/powerapps/features/create-workflow
 title: Create Power Automate Workflow
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
