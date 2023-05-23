@@ -19,11 +19,11 @@ This feature will allow you to automate the creation of Power Automate Workflow 
 - The Connection Id value can be found in the URL when you open the Dataverse connection you've created.
 ![Create Dataverse Connection Id](../images/create-dataverse-connection-id2.png)
 ## Ingestion Endpoint
-- As part of workflow automation, Ingestion Endpoint will be created as well. From our sample above, you can expect 2 Ingestion Endpoints to be created, which is for the '**cluedin_dog**' and '**crc12_customer**' table.
+- As part of workflow automation, Ingestion Endpoint will be created as well. From our sample above, you can expect two Ingestion Endpoints to be created, one for each of the '**cluedin_dog**' and '**crc12_customer**' tables.
 ![Power Automate Workflow Ingestion Endpoint](../images/power-automate-workflow-ingestion-endpoint.png)
 ## Workflows
 - The creation of workflow will depend on the values of Sync EntityTypes and Sync Dataverse Tables values.
-- Once the execution of the Job is done, from the sample values above, you can expect 2 workflows to be created, which is for the '**cluedin_dog**' and '**crc12_customer**' table.
+- Once the execution of the Job is done, from the sample values above, you can expect two workflows to be created, one for each of the '**cluedin_dog**' and '**crc12_customer**' tables.
 ![Power Automate Workflows](../images/power-automate-workflows.png)
 - Notification can be expected to show once the creation is successful.
 ![Power Automate Workflow Notification](../images/power-automate-workflow-notification.png)
@@ -33,7 +33,7 @@ This feature will allow you to automate the creation of Power Automate Workflow 
 - As we already know the structure of the table/vocab that we are working on, the system will automate the data mapping and processing.
 - By navigating to the Dataset Page, you can notice that the Map, Prepare and Process Tab is now available as we already automated the creation of the Data Mapping into our Vocabs.
 ![Auto Mapping](../images/ingestion-endpoint-automapping-01.png)
-- Looking into _Map_ Tab will give you the full view of all columns that have been mapped to our Vocabulary. Including Edges (Relationships) and Origin Entity Code (Keys), if there are any. 
+- Looking into _Map_ Tab will give you the full view of all columns mapped to our Vocabulary. Including Edges (Relationships) and Origin Entity Code (Keys), if there are any.
 ![Auto Mapping](../images/ingestion-endpoint-automapping-02.png)
-- Once the data has been received, you can expect to see that as processed data in CluedIn as we also enabled the Auto Submission property of the Ingestion Endpoint.
+- Once the data has been received, you can expect to see that as processed data in CluedIn, as we also enabled the Auto Submission property of the Ingestion Endpoint.
 ![Auto Processing](../images/ingestion-endpoint-auto-submission.png)

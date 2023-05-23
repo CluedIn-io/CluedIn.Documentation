@@ -16,7 +16,7 @@ This feature will allow you to automate the creation of Export Targets and Strea
 ![CluedIn Export Target](../images/create-export-target.png)
 #### Streams
 - The creation of a stream will depend on the values of Sync EntityTypes and Sync Dataverse Tables values.
-- Once the execution of the Job is done, from the sample values above, you can expect 2 streams to be created, which is for the '**cluedin_dog**' and '**crc12_customer**' table.
+- Once the execution of the Job is done, from the sample values above, two streams should have been created, one for each of the '**cluedin_dog**' and '**crc12_customer**' tables.
 ![CluedIn Streams](../images/cluedin-stream.png)
 - Each stream will have a certain configuration filtered by EntityType
 ![CluedIn Stream Configuration](../images/cluedin-stream-configuration.png)

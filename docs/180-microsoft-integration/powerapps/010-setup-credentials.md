@@ -12,7 +12,7 @@ last_modified: 2023-05-17
 Enter your [Microsoft 365](https://www.microsoft365.com/) Credentials in CluedIn Settings.
 1. Visit the CluedIn web application
 2. Navigate to Administration => Settings
-3. Scroll down to the Organization Settings section where you find the settings for PowerApps.
+3. Scroll down to the Organization Settings section, where you will find the settings for PowerApps.
 ![Input Microsoft Purview credentials](./images/cluedin-setting.png)
     - Username
     - Password

@@ -9,7 +9,7 @@ tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17
 ---
 
-An additional option in creating the workflow is the Approval process. This will enable you to approve a certain action before sending the data to the Ingestion Endpoint.
+An additional option in creating the workflow is the Approval process. This will enable you to approve a specific action before sending the data into the Ingestion Endpoint
 ![Create Workflow Approval process](../images/power-automate-workflow-approval-setting.png)
 ## Approval Connection Id
 - In the textbox above, you need to provide the Approval Connection Id. This Connection Id will allow you to access to create an approval workflow.
