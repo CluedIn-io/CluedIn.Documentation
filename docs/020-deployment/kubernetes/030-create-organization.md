@@ -13,9 +13,7 @@ tags: ["deployment", "kubernetes", "organization"]
 {:toc}
 ### Organization
 
-CluedIn can support [multitenancy](../../administration/multitenancy) (disabled by default).
-
-As such, the first thing you need to do for using CluedIn once installed is to create an organization.
+The first thing you need to do for using CluedIn once installed is to create an organization.
 
 ### Pre-requirement
 
