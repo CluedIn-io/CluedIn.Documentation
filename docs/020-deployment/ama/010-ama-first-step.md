@@ -38,7 +38,7 @@ If you choose the **committed-deal license**, contact your Account Executive or 
 
 The committed-deal license comes with such benefits as a **welcome package**, which includes real-time training where we explain how to run a CluedIn project, and a **fixed price** for the license. In addition, you will automatically get 2 free CluedIn licenses for **development and test environments**.
 
-We recommend using 3 different environments:
+We recommend using three different environments:
 
 - **Development** – for your development team or partner customizing your CluedIn application.  
 - **Test** – for your business users to validate the changes made by the development team.
@@ -86,8 +86,8 @@ With the pay-as-you-go license, you’ll be charged per hour of using CluedIn. W
 Your CluedIn instance sends us information about your **license** and the **number of records** that were processed. We need to verify that you have a valid license and that the number of records is within your plan. If you exceed the number of records, you’ll be charged an additional fee.
 
 We send the billing information to the Azure Marketplace. Every month, you’ll get an Azure invoice that will include:
-- **CluedIn usage**, which you discuss directly with CluedIn.
-- **Azure hosting**, which covers all your Azure services.
+- **CluedIn usage**  –  which you discuss directly with CluedIn.
+- **Azure hosting**  –  which covers all your Azure services.
 
 To pay an invoice, contact your procurement team.
 
