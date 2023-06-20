@@ -73,7 +73,7 @@ Make sure that the following **resource providers are registered**:
 - Microsoft.Storage
 - Microsoft.Sql
 
-You can register the resource providers [manually in the Azure portal](#manual-registration-of-resource-providers).
+You can register the resource providers in two ways: [manually in the Azure portal](#manual-registration-of-resource-providers) and [automatically by running a script](#automatic-registration-of-resource-providers).
 
 After you register the resource providers, run the [verification script](#verification-script) to make sure that all resource providers are registered.
 
@@ -96,6 +96,30 @@ Wait until the status of the resource provider is changed from **Registering** t
 
 For more information about registering resource providers, see <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types" target="_blank">Azure documentation</a>.
 
+## Automatic registration of resource providers
+If you want a faster way to register the needed resource providers, run the script for automatic registration of resource providers.
+
+**Prerequisites**
+
+1. PowerShell 7.
+    We recommend installing PowerShell via Winget: `winget search Microsoft.PowerShell`. For more details, see <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows" target="_blank">Installing PowerShell on Windows</a>.
+1. Azure CLI.
+    We recommend installing Azure CLI via Winget: `winget install -e --id Microsoft.AzureCLI`. For more details, see <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli" target="_blank">Install Azure CLI on Windows</a>.
+1. Your Azure subscription ID.
+    For more details, see [Get your Azure subscription ID](/deployment/infra-how-tos/get-subscription-id).
+
+**To run the script for registering resource providers**
+
+1. Download this <a href="../../../assets/ps1/pre-checks.ps1" download>script</a> and save it to a folder of your choice on your computer.
+1. Open your PowerShell terminal and run the following:
+
+```powershell
+.\pre-checks.ps1 <subscrioptionId> -Register
+# e.g. .\pre-checks.ps1 abc68d12-8e99-4890-b3a0-ca25816b1c26 -Register
+```
+You will get an autput similar to the following.
+![output-automatic_registration.png](../../assets/images/ama/install-guide/output-automatic-registration.png)
+
 ## Verification script
 The verification script checks if you have enough quota and if all required resource providers are registered.
 
@@ -108,8 +132,6 @@ The verification script checks if you have enough quota and if all required reso
 1. Your Azure subscription ID.
     For more details, see [Get your Azure subscription ID](/deployment/infra-how-tos/get-subscription-id).
 1. Azure region that you will select during installation.
-
-<hr>
 
 **To run the verification script**
 
