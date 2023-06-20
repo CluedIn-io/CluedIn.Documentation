@@ -3,7 +3,7 @@ layout: default
 title: How tos
 parent: Deployment
 permalink: /deployment/infra-how-tos
-nav_order: 50
+nav_order: 5
 has_children: true
 tags: ["deployment", "kubernetes", "azure", "aks", "microsoft", "marketplace", "azure-marketplace"]
 ---
