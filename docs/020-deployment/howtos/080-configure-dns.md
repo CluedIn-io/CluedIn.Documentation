@@ -16,7 +16,7 @@ As part of the CluedIn configuration, a base URL is used to make the application
 
 # DNS entries
 
-In this article, we'll use `deparmentX` as an example of the organization name that was entered during the [installation of CluedIn](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1188/Step-3-Install-on-AMA?anchor=initial-setup-tab) and `mycompany.com` as an example of the main domain.
+In this article, we'll use `deparmentX` as an example of the organization name that was entered during the [installation of CluedIn](/deployment/azure-marketplace/step-3#complete-the-initial-setup-tab) and `mycompany.com` as an example of the main domain.
 
 You need to have the **A-records** for the following DNS entries:
 
@@ -71,9 +71,9 @@ After you add the needed DNS entries, update your DNS configuration for CluedIn.
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
 - You should be connected to your AKS cluster.
-See [Connect to CluedIn cluster](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1226/Connect-to-CluedIn-cluster) for detailed instructions.
+See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
 - Your Helm repository is set up.
-See [Helm](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1220/Helm) for detailed instructions on how to set up the repository.
+See [Helm](/deployment/references/helm) for detailed instructions on how to set up the repository.
 
 If you have any questions about DNS configuration, you can request CluedIn support by sending an email to support@cluedin.com (or reach out to your delivery manager if you have a committed deal).
 

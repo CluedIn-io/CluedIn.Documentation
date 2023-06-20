@@ -21,9 +21,9 @@ In this article, you will learn how to create your own certificates and keys and
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
 - You should be connected to your AKS cluster.
-See [Connect to CluedIn cluster](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1226/Connect-to-CluedIn-cluster) for detailed instructions.
+See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
 - Your Helm repository is set up.
-See [Helm](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1220/Helm) for detailed instructions on how to set up the repository.
+See [Helm](/deployment/references/helm) for detailed instructions on how to set up the repository.
 
 If you have any questions, you can request CluedIn support by sending an email to support@cluedin.com (or reach out to your delivery manager if you have a committed deal).
 
@@ -34,7 +34,7 @@ If you want to use a Subject Alternative Name (SAN) or wildcard certificate for 
 **To create certificates and keys**
 
 1. From a suitable provider, obtain the following files: **TLS certificate**, **TLS private key (without password)**, and **Certificate authority's public certificate**. 
-The TLS certificates and keys must contain the DNS names for the CluedIn services as described in [Configure DNS](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1197/Configure-DNS).
+The TLS certificates and keys must contain the DNS names for the CluedIn services as described in [Configure DNS](/deployment/infra-how-tos/configure-dns).
 
 2. After you obtain the required files, convert the content of each file to base64 string using the `output.txt` command. For example: `bas64 /path/to/file > output.txt`
 3. Add the strings to your **values.yaml** file under the **Platform** section as shown in the example below. 
@@ -111,7 +111,7 @@ After a short time, you'll see the confirmation of your update in the console. C
  
 # Alternative certificate providers 
 
-If you can't obtain a certificate from a commercial certificate authority or from your internal public key infrastructure (PKI) service, you can use other methods to generate certificates. For example, you can generate certificates via [Let's Encrypt](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1199/Configure-certificates?anchor=let%27s-encrypt) or you can generate [self-signed certificates](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1199/Configure-certificates?anchor=self-signed-certificates).
+If you can't obtain a certificate from a commercial certificate authority or from your internal public key infrastructure (PKI) service, you can use other methods to generate certificates. For example, you can generate certificates via [Let's Encrypt](#lets-encrypt) or you can generate [self-signed certificates](#self-signed-certificates).
 
 While these methods provide the same level of encryption as the commercial and PKI issued certificates, they don't provide the same level of validation.
 
