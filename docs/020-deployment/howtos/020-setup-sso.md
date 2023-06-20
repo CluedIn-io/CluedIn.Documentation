@@ -150,8 +150,8 @@ Any changes made in the application registration will live in your Azure subscri
 The following is a list of the CluedIn application roles and recommended values to use when creating your Azure app roles with your application registration.
 
 | Display name | Value | Description |
-|---|---|---|
-| Data Governance Administrator | DataGovernanceAdministrator | Role responsible for approving changes made by Data Governance users |
+|--|--|--|
+| aData Governance Administrator | DataGovernanceAdministrator | Role responsible for approving changes made by Data Governance users |
 | Data Compliance | DataCompliance | Role responsible for daily operations around data compliance |
 | Data Steward | DataSteward | Role dedicated to cleaning data using Clean and Prepare modules |
 | Data Compliance Administrator | DataComplianceAdministrator | Role responsible for approving changes made by Data Compliance users |
