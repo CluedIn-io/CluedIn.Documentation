@@ -1,9 +1,9 @@
 ---
 layout: default
-nav_order: 1
+nav_order: 4
 parent: Azure Marketplace
 grand_parent: Deployment
-permalink: /deployment/azure-marketplace/step-2
+permalink: /deployment/azure-marketplace/step-4
 title: 4. Post-installation guide
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
@@ -11,7 +11,7 @@ last_modified: 2023-06-20
 
 At this point, you have a working, secure CluedIn environment. However, the default configuration provided by installation from the Azure Marketplace may not fit your organization's security policy. This guide will help you understand how to configure CluedIn to meet your needs.
 
-![Step_4.png](/.attachments/Step_4-0b2c8804-a818-463e-8405-c2eba7969397.png =900x)
+![overview-fourth-step.png](../../assets/images/ama/install-guide/overview-fourth-step.png =900x)
 
 # Configure custom DNS
 
@@ -35,7 +35,7 @@ Soon, we will create a guide on how to use the Azure Kubernetes Service (AKS) ba
 
 By default, CluedIn contains built-in alerts that are sent to our support team. You can configure your own alerts in the Azure portal. For details about alerts, see [Configure alerts](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1205/Alert).
 
-![Alerts.png](/.attachments/Alerts-f006d6e1-f53e-4f88-b36a-b6c3bcdf5c73.png =650x)
+![ama-registerAlert.png](../../assets/images/ama/install-guide/ama-registerAlert.png =650x)
 
 # Configure logging
 

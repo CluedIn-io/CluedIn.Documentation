@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 1
+nav_order: 2
 parent: Azure Marketplace
 grand_parent: Deployment
 permalink: /deployment/azure-marketplace/step-2
