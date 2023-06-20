@@ -8,6 +8,10 @@ title: Configure logging
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 In this article, you will get an overview of the logging options and you will learn how to configure the logging level that you need.
 
@@ -21,9 +25,7 @@ This sink is enabled by default.
 
 **Seq**
 
-By default, the Seq endpoint is protected with an OAuth2 proxy.
-
-To enable [Seq](https://datalust.co/seq), add the `seq` image that you want to use.
+By default, the Seq endpoint is protected with an OAuth2 proxy. To enable [Seq](https://datalust.co/seq), add the `seq` image that you want to use.
 
 ```
 yaml
@@ -58,7 +60,7 @@ The production-level log can include log message types as described in the follo
 
 
 | Log message type | Description |
-|--|--|
+|----|----|
 | INF | Informational messages |
 | WRN | System warnings |
 | ERR | System errors |
@@ -82,7 +84,7 @@ Examples of log messages are provided in the following table.
 
 
 | Log message type | Example |
-|--|--|
+|----|----|
 | Information log message created by thread 001 at 11:38 | `[#001 11:38:53 INF] Operating System:             Unix 5.15.0.58` |
 | Development/debug log message | `[#001 10:36:35 DBG] [ComponentHost] : Starting Metrics` |
 | Verbose/trace log message | `[#015 10:42:11 VRB][CluedIn.Core.ExecutionContext] Operation GetByEntityCode (/Organization#CluedIn xxxxx-XXXX-xxxx-xxxx) : 5475` |
@@ -95,25 +97,27 @@ The following procedure shows how to get the current cluedin-server config map, 
 
 **To apply your log level**
 
-1. Get the current configuration by running the following command:
-`kubectl get configmap cluedin-server -o yaml > cluedin-server.yaml --namespace cluedin`
-This command downloads the current cluedin-server config map into a local file named **cluedin-server.yaml**.
+1. Get the current configuration by running the following command. This command downloads the current cluedin-server config map into a local file named **cluedin-server.yaml**.
+```
+kubectl get configmap cluedin-server -o yaml > cluedin-server.yaml --namespace cluedin
+```
 2. Open the file that you downloaded in step 1 in the text editor of your choice.
 3. Change the value of ASPNETCORE_ENVIRONMENT to your required log level. You can use one of the following values: **production**, **development**, **debug**, **verbose**, or **trace**.
-    
 ```
 apiVersion: v1
     Data:
       ASPNETCORE_ENVIRONMENT: debug
 ```
 4. Apply the changed values from the local **cluedin-server.yaml** file to your Kubernetes cluedin-server config map by running the following command:
-`kubectl apply -f cluedin-server.yaml --namespace cluedin`
+```
+kubectl apply -f cluedin-server.yaml --namespace cluedin
+```
 
 After you apply the values, they won’t become active until the pod is restarted. This is because the values are applied during the pod startup process. After the required pod is restarted, you should see additional log types in your logging target or in the pod logs. 
 
 # Admin UIs
 
-For debugging purposes, it is helpful to be able to log in to some of the tools/dependencies used by CluedIn. The easiest way to do this is to set up a proxy using a machine that has ``kubectl`` configured to access the cluster. You can use the following tools:
+For debugging purposes, it is helpful to be able to log in to some of the tools/dependencies used by CluedIn. The easiest way to do this is to set up a proxy using a machine that has ```kubectl``` configured to access the cluster. You can use the following tools:
 
 - [Neo4J](#neo4j)
 - [RabbitMQ](#rabbitmq)
@@ -180,4 +184,7 @@ The port can be exposed locally using regular Kubernetes port-forwarding:
 ```powershell
 kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app=sqlserver') 1433
 ```
-You can then use Visual Studio or the MS SQL Management Studio to connect to the database on localhost. If there is already a SQL Server instance on your machine, there will be a port clash. If there is a conflict with the existing open ports on your machine, you can map the port to a different local port. To do that, use the following syntax: ```kubectl port-forward <pod> <local-port>:<remote-port>```
+You can then use Visual Studio or the MS SQL Management Studio to connect to the database on localhost. If there is already a SQL Server instance on your machine, there will be a port clash. If there is a conflict with the existing open ports on your machine, you can map the port to a different local port. To do that, use the following syntax:
+```
+kubectl port-forward <pod> <local-port>:<remote-port>
+```
