@@ -155,15 +155,15 @@ The following is a list of the CluedIn application roles and recommended values 
 | Data Compliance | DataCompliance | Role responsible for daily operations around data compliance |
 | Data Steward | DataSteward | Role dedicated to cleaning data using Clean and Prepare modules |
 | Data Compliance Administrator | DataComplianceAdministrator | Role responsible for approving changes made by Data Compliance users |
-| Admin | Admin | Administrator for the whole system, including multi-tenancy environment |
+| Admin | Admin | Administrator for the whole system |
 | Guest|	Guest | Guest User with minimal, read-only, permissions |
-| User | User | User that can view all modules in a read-only manner, in a multi-tenancy environment |
+| User | User | User that can view all modules in a read-only manner |
 | Data Architect | DataArchitect	| Role responsible for designing an Organizations enterprise data strategy |
 | Deduplication Reviewer | DeduplicationReviewer | Role responsible for reviewing Deduplication Project results and approving the groupings |
-| Organization User | OrganizationUser | User within an Organization that can view all modules in a read-only manner, in a multi-tenancy environment |
+| Organization User | OrganizationUser | User within an Organization that can view all modules in a read-only manner |
 | Data Governance | DataGovernance | Role responsible for monitoring and maintaining data quality |
 | Report Manager | ReportManager | User that can generate reports for compliance matters such as breach, subject request, and retention |
-| Organization Admin | OrganizationAdmin | Administrator within an Organization in multi-tenancy environment |
+| Organization Admin | OrganizationAdmin | Administrator within the Organization |
 | Deduplication | Administrator | DeduplicationAdministrator Role responsible for creating and maintaining Deduplication Projects and merging the results back into the system |
 | Data Steward Administrator | DataStewardAdministrator | Role responsible for approving changes made by Data Stewards |
  
