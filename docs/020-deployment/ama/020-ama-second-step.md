@@ -69,7 +69,7 @@ Make sure that the following **resource providers are registered**:
 - Microsoft.Storage
 - Microsoft.Sql
 
-You can register the resource providers in two ways: [manually in the Azure portal](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=manual-registration-of-resources) or [automatically by running a script in Azure CLI](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=automatic-registration-of-resources).
+You can register the resource providers in [manually in the Azure portal](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=manual-registration-of-resources).
 
 After you register the resource providers, run the [verification script](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=verification-script) to make sure that all resource providers are registered.
 
