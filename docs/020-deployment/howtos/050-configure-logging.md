@@ -115,11 +115,11 @@ After you apply the values, they won’t become active until the pod is restarte
 
 For debugging purposes, it is helpful to be able to log in to some of the tools/dependencies used by CluedIn. The easiest way to do this is to set up a proxy using a machine that has ``kubectl`` configured to access the cluster. You can use the following tools:
 
-- [Neo4J](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1202/Configure-logging?anchor=neo4j)
-- [RabbitMQ](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1202/Configure-logging?anchor=rabbitmq)
-- [Redis](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1202/Configure-logging?anchor=redis)
-- [ElasticSearch](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1202/Configure-logging?anchor=elasticsearch)
-- [SQL Server](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1202/Configure-logging?anchor=sql-server)
+- [Neo4J](#neo4j)
+- [RabbitMQ](#rabbitmq)
+- [Redis](#redis)
+- [ElasticSearch](#elasticsearch)
+- [SQL Server](#sql-server)
 
 In the following statements, ```<name-of-release>``` is how you named your Helm deployment. You can see the list of releases using ```helm list```.
 

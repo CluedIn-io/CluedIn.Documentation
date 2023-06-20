@@ -38,9 +38,9 @@ CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, th
 ## Advanced network configuration options
 
 **Important!** If you do not plan to make any changes to the default out-of-the-box network configuration, you can skip this section and check other configuration-related topics:
-- [Configure SSO](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1211/SSO)
-- [Configure DNS](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1197/DNS)
-- [Configure certificates](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1199/TLS-SSL)
+- [Configure SSO](/deployment/infra-how-tos/configure-sso)
+- [Configure DNS](*deployment/infra-how-tos/configure-dns)
+- [Configure certificates](/deployment/infra-how-tos/configure-certificates)
 
 <hr>
 
@@ -106,9 +106,9 @@ This section contains a procedure for configuring CluedIn to use your internal l
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
 - You should be connected to your AKS cluster.
-See [Connect to CluedIn cluster](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1226/Connect-to-CluedIn-cluster) for detailed instructions.
+See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
 - Your Helm repository is set up.
-See [Helm](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1220/Helm) for detailed instructions on how to set up the repository.
+See [Helm](/deployment/references/helm) for detailed instructions on how to set up the repository.
 
 If you have any questions, you can request CluedIn support by sending an email to support@cluedin.com (or reach out to your delivery manager if you have a committed deal).
 
