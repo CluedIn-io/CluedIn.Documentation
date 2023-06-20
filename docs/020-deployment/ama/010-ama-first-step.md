@@ -4,7 +4,7 @@ nav_order: 1
 parent: Azure Marketplace
 grand_parent: Deployment
 permalink: /deployment/azure-marketplace/step-1
-title: Business decisions before installation
+title: 1. Business decisions
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---

@@ -11,7 +11,7 @@ last_modified: 2023-06-20
 
 At this point, you have a working, secure CluedIn environment. However, the default configuration provided by installation from the Azure Marketplace may not fit your organization's security policy. This guide will help you understand how to configure CluedIn to meet your needs.
 
-![overview-fourth-step.png](../../assets/images/ama/install-guide/overview-fourth-step.png )
+![overview-fourth-step.png](../../assets/images/ama/install-guide/overview-fourth-step.png)
 
 # Configure custom DNS
 

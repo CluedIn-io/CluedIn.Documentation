@@ -11,7 +11,7 @@ last_modified: 2023-06-20
 
 In this article, you will learn about the pre-installation processes that you must perform to ensure successful installation of CluedIn.
 
-![Pre-installation checklist](../../assets/images/ama/install-guide/020-ama-second-step )
+![Pre-installation checklist](../../assets/images/ama/install-guide/020-ama-second-step.png)
 
 # Check qualification
 
@@ -91,8 +91,6 @@ Wait until the status of the resource provider is changed from **Registering** t
 1. Run the [script](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=verification-script) to verify that all resource providers are registered.
 
 For more information about registering resource providers, see [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
-
-**Note:** There is no additional charge for registering resource providers.
 
 ## Automatic registration of resource providers - Add script that Admin user can download and run
 
@@ -178,13 +176,6 @@ Add the following rules to your Azure Firewall as described in the table.
 
 # Configure network settings
 
-```
-DO NOT INCLUDE IN DOC - those are things we need to work on a dedicated network guide
-
-NOTE?: so the AMA deploys two parts a standard AKS managed cluster just  like if you went to the Azure portal and deployed  a 'vanilla' AKS no secret sauce or additional config
-NOTE2?: second part is the HELM deployment that deploys the cluedin application on top of that standard AKS deployment.
-NOTE 3?: the base for the AMA is a AKS public Cluster where the AKS API is managed by MS and accessed via a  public endpoint
-```
 CluedIn is very flexible in terms of network configuration. If you have any network-related questions, contact one of our infrastructure experts.
 
 ## Define VNet
