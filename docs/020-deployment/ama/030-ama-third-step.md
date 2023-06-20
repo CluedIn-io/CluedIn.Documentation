@@ -11,7 +11,7 @@ last_modified: 2023-06-20
 
 In this article, you will learn how to install CluedIn from the Azure Marketplace.
 
-**Important!** Make sure that you have completed all of the actions described in [Pre-installation checklist](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Pre-installation-checklist).
+**Important!** Make sure that you have completed all of the actions described in [Pre-installation checklist](/deployment/azure-marketplace/step-2).
 
 ![How_to_install_CluedIn.png](../../assets/images/ama/install-guide/overview-third-step.png)
 
@@ -68,7 +68,7 @@ On the **CluedIn - Initial Setup** tab, you can create the organization and the 
 **Important!** You can change SMTP details after installation by submitting a ticket to CluedIn support.
 1. If needed, enable SSO access for CluedIn, and then specify SSO details.
 ![Initial_setup_tab_SSO.png](../../assets/images/ama/install-guide/ama-install-basic-tab-5.png)
-**Important!** You can enable SSO access for CluedIn after installation. This is often the preferable option because some mapping of Azure AD groups to product groups is required. For more information, see [SSO](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1211/SSO).
+**Important!** You can enable SSO access for CluedIn after installation. This is often the preferable option because some mapping of Azure AD groups to product groups is required. For more information, see [SSO](/infra-how-tos/configure-sso).
 
 # Review the AKS Setup tab
 On the **CluedIn - AKS Setup** tab, you can customize the number of nodes that you want to use in your CluedIn instance, and you can also define autoscaling parameters.
@@ -161,4 +161,4 @@ You have CluedIn running in your own cloud environment.
 
 # Next steps
 
-Customize CluedIn to meet your organization's needs as described in our [Post-installation guide](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1189/Step-4-Post-installation-guide).
+Customize CluedIn to meet your organization's needs as described in our [Post-installation guide](/deployment/azure-marketplace/step-4).

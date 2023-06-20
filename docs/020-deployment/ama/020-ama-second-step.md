@@ -45,7 +45,7 @@ In addition, check if you have **enough quota for your plan**.
 | Professional | At least 16 vCPUs in the StandardFSv2Family quota |
 | Elite | At least 32 vCPUs in the StandardFSv2Family quota |
 
-You can check if you have enough quota by running a [verification script](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Pre-installation-checklist?anchor=verification-script).
+You can check if you have enough quota by running a [verification script](#verification-script).
 
 **Important!** If the quota is not available, then the installation will fail.
 
@@ -69,9 +69,9 @@ Make sure that the following **resource providers are registered**:
 - Microsoft.Storage
 - Microsoft.Sql
 
-You can register the resource providers in [manually in the Azure portal](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=manual-registration-of-resources).
+You can register the resource providers in [manually in the Azure portal](#manual-registration-of-resource-providers).
 
-After you register the resource providers, run the [verification script](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=verification-script) to make sure that all resource providers are registered.
+After you register the resource providers, run the [verification script](#verification-script) to make sure that all resource providers are registered.
 
 ## Manual registration of resource providers
 
@@ -102,7 +102,7 @@ We recommend installing PowerShell via Winget: `winget search Microsoft.PowerShe
 1. Azure CLI.
 We recommend installing Azure CLI via Winget: `winget install -e --id Microsoft.AzureCLI`. For more details, see [Install Azure CLI on Windows](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli).
 1. Your Azure subscription ID.
-For more details, see [Get your Azure subscription ID](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1193/Get-your-Azure-subscription-ID).
+For more details, see [Get your Azure subscription ID](/infra-how-tos/get-subscription-id).
 1. Azure region that you will select during installation.
 
 <hr>
@@ -173,7 +173,7 @@ CluedIn is very flexible in terms of network configuration. If you have any netw
 ## Define VNet
 During the installation process, CluedIn will install a newly created Azure VNet using an address space 10.0.0.0/8 and a subnet 10.0.0.0/16 for the Azure Kubernetes Service.
 
-If you have an existing VNet and you want to reuse it for CluedIn installation, contact one of our infrastructure experts for assistance. You can specify the existing VNet in the [Advanced configuration](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1188/Step-3-Installation-guide?anchor=review-the-advanced-configuration-tab) step of CluedIn installation.
+If you have an existing VNet and you want to reuse it for CluedIn installation, contact one of our infrastructure experts for assistance. You can specify the existing VNet in the [Advanced configuration](/azure-marketplace/step-3#review-the-advanced-configuration-tabb) step of CluedIn installation.
 
 ## Analyze CluedIn network configuration
 
@@ -187,7 +187,7 @@ As part of the AKS managed cluster, AMA or AKS (public cluster) is deployed as a
 
 ## Configuration changes and support
 
-If you need to change some network configurations, you can do that after you install CluedIn. For details about network customization, see [Advanced network configuration](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1210/Y-Advanced-network-configuration).
+If you need to change some network configurations, you can do that after you install CluedIn. For details about network customization, see [Advanced network configuration](/infra-how-tos/advanced-network).
 
 CluedIn provides support of Azure Load Balancer and Application Gateway. Other network configurations are not supported out of the box in any of our plans, so you might need the CluedIn infrastructure package hours.
 
@@ -201,4 +201,4 @@ CluedIn provides support of Azure Load Balancer and Application Gateway. Other n
 
 # Next steps
 
-Start the CluedIn installation process as described in our [Installation guide](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1188/Step-3-Install-on-AMA).
+Start the CluedIn installation process as described in our [Installation guide](/deployment/azure-marketplace/step-3).
