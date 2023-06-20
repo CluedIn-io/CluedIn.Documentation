@@ -8,6 +8,10 @@ title: 1. Business decisions
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 CluedIn is an Azure Managed Application (AMA) that is deployed within your company's Azure infrastructure. As a managed application, CluedIn is easy to deploy and operate. In addition, our support team can help you with the installation processes.
 
@@ -30,11 +34,11 @@ We offer two types of licenses: [pay-as-you-go](#pay-as-you-go-license) and [com
 
 ## Pay-as-you-go license
 
-If you choose the **pay-as-you go license**, you can install CluedIn directly from the Azure Marketplace and start using it without the need to contact anyone at CluedIn. Check out our [training materials](https://vimeo.com/showcase/10332033) to get started. With this type of license, you do not get a fixed price for using CluedIn and you will be charged per hour of use.
+If you choose the **pay-as-you go license**, you can install CluedIn directly from the Azure Marketplace and start using it without the need to contact anyone at CluedIn. Check out our <a href="https://vimeo.com/showcase/10332033" target="_blank">training materials</a> to get started. With this type of license, you do not get a fixed price for using CluedIn and you will be charged per hour of use.
 
 ## Committed-deal license
 
-If you choose the **committed-deal license**, contact your Account Executive or our [sales team](https://www.cluedin.com/get-in-touch)  to discuss the contract. We’ll make sure you get the best deal to get started with CluedIn. After you sign the contract, we’ll send you the **license key by email**.
+If you choose the **committed-deal license**, contact your Account Executive or our <a href="https://www.cluedin.com/get-in-touch" target="_blank">sales team</a> to discuss the contract. We’ll make sure you get the best deal to get started with CluedIn. After you sign the contract, we’ll send you the **license key by email**.
 
 The committed-deal license comes with such benefits as a **welcome package**, which includes real-time training where we explain how to run a CluedIn project, and a **fixed price** for the license. In addition, you will automatically get 2 free CluedIn licenses for **development and test environments**.
 
@@ -93,7 +97,7 @@ To pay an invoice, contact your procurement team.
 
 # Review terms and conditions
 
-For CluedIn, we use the [Standard Contract from Microsoft](https://www.cluedin.com/hubfs/microsoft-standard-contract-march-2019.pdf) . Please note that if you are a Microsoft user, your legal department has probably already approved this Standard Contract.
+For CluedIn, we use the <a href="https://www.cluedin.com/hubfs/microsoft-standard-contract-march-2019.pdf" target="_blank">Standard Contract from Microsoft</a>. Please note that if you are a Microsoft user, your legal department has probably already approved this Standard Contract.
 
 To make sure that the terms and conditions are appropriate for you, contact your legal team.
 
