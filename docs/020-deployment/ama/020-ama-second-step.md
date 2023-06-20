@@ -11,7 +11,7 @@ last_modified: 2023-06-20
 
 In this article, you will learn about the pre-installation processes that you must perform to ensure successful installation of CluedIn.
 
-![Pre-installation checklist](../../assets/images/ama/install-guide/020-ama-second-step.png)
+![Pre-installation checklist](../../assets/images/ama/install-guide/overview-second-step.png)
 
 # Check qualification
 
