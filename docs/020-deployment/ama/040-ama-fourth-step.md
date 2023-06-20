@@ -25,12 +25,6 @@ If you want to set up custom DNS entries, see [Configure DNS](https://dev.azure.
 
 By default, CluedIn installation is secured by using TLS. CluedIn uses the Automated Certificate Management Environment (ACME) protocol and the public Let's Encrypt certificate authority to issue certificates. However, this default configuration might not comply with your organization's security policy. If you want to use a Subject Alternative Name (SAN) or wildcard certificate for you domain, see [Using your own certificates and keys](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1199/TLS-SSL?anchor=using-your-own-certificates-and-keys).
 
-# Set up backup - do not add to the documentation portal
-
-By default, CluedIn does not include a backup solution setup. You must back up your CluedIn instance on your own. Based on our experience, each customer has their own backup strategy. However, we have created a guide on how to use a backup open-source system called Valero. For more information about Velero, see [Configure backup tool](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1201/Back-up).
-
-Soon, we will create a guide on how to use the Azure Kubernetes Service (AKS) backup.
-
 # Configure alerts
 
 By default, CluedIn contains built-in alerts that are sent to our support team. You can configure your own alerts in the Azure portal. For details about alerts, see [Configure alerts](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1205/Alert).
