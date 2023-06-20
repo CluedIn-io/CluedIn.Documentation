@@ -118,10 +118,9 @@ Provide your Azure Administrator with the following information:
 
 - If you have signed a committed deal:
   - Email with the license key issued by CluedIn.
-  - Link to our [Pre-installation checklist](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Pre-installation-checklist).
+  - Link to our [Pre-installation checklist](/deployment/azure-marketplace/step-2).
 
 - If you have decided to use the pay-as-you-go approach:
   - Plan that you have chosen.
-  - Link to our [Pre-installation checklist](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Pre-installation-checklist).
-
+  - Link to our [Pre-installation checklist](/deployment/azure-marketplace/step-2).
 
