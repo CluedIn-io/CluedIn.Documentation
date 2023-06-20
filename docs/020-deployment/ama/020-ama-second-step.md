@@ -11,7 +11,7 @@ last_modified: 2023-06-20
 
 In this article, you will learn about the pre-installation processes that you must perform to ensure successful installation of CluedIn.
 
-![Pre-installation checklist](../../assets/images/ama/install-guide/020-ama-second-step )
+![Pre-installation checklist](../../assets/images/ama/install-guide/020-ama-second-step.png)
 
 # Check qualification
 
@@ -69,7 +69,7 @@ Make sure that the following **resource providers are registered**:
 - Microsoft.Storage
 - Microsoft.Sql
 
-You can register the resource providers in two ways: [manually in the Azure portal](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=manual-registration-of-resources) or [automatically by running a script in Azure CLI](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=automatic-registration-of-resources).
+You can register the resource providers in [manually in the Azure portal](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=manual-registration-of-resources).
 
 After you register the resource providers, run the [verification script](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=verification-script) to make sure that all resource providers are registered.
 
@@ -92,16 +92,6 @@ Wait until the status of the resource provider is changed from **Registering** t
 
 For more information about registering resource providers, see [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
 
-**Note:** There is no additional charge for registering resource providers.
-
-## Automatic registration of resource providers - Add script that Admin user can download and run
-
-If you want a faster way to register the needed resource providers, execute the script in Azure CLI. Before that, make sure that you have installed [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
-
-1. Open the command prompt and run the `az login` command.
-1. Paste the script that would automatically register all the needed resources. _(Add the script)_
-1. Run another [script](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=verification-script) to verify that all resources are registered.
-
 ## Verification script
 The verification script checks if you have enough quota and if all required resource providers are registered.
 
@@ -119,7 +109,7 @@ For more details, see [Get your Azure subscription ID](https://dev.azure.com/Clu
 
 **To run the verification script**
 
-1. Download the [check.ps1]() verification script and save it to a folder of your choice on your computer.
+1. Download the [../../assets/ps1/check.ps1]() verification script and save it to a folder of your choice on your computer.
 1. Open your PowerShell terminal and run the following:
 
 ```powershell
@@ -178,13 +168,6 @@ Add the following rules to your Azure Firewall as described in the table.
 
 # Configure network settings
 
-```
-DO NOT INCLUDE IN DOC - those are things we need to work on a dedicated network guide
-
-NOTE?: so the AMA deploys two parts a standard AKS managed cluster just  like if you went to the Azure portal and deployed  a 'vanilla' AKS no secret sauce or additional config
-NOTE2?: second part is the HELM deployment that deploys the cluedin application on top of that standard AKS deployment.
-NOTE 3?: the base for the AMA is a AKS public Cluster where the AKS API is managed by MS and accessed via a  public endpoint
-```
 CluedIn is very flexible in terms of network configuration. If you have any network-related questions, contact one of our infrastructure experts.
 
 ## Define VNet
