@@ -11,7 +11,7 @@ last_modified: 2023-06-20
 
 In this article, you will learn about the pre-installation processes that you must perform to ensure successful installation of CluedIn.
 
-![Pre-installation checklist](../../assets/images/ama/install-guide/020-ama-second-step =900x)
+![Pre-installation checklist](../../assets/images/ama/install-guide/020-ama-second-step )
 
 # Check qualification
 
@@ -21,7 +21,7 @@ Because CluedIn will be installed in your Azure resource group, you need to be t
 
 In addition, you should have **permission to purchase paid applications** from the Azure Marketplace. Set the permission to **Free + Paid** to complete the purchase registration in the Azure Marketplace.
 
-![Check_qualification_Purchasing.png](../../assets/images/ama/install-guide/check-qualitifcation.png =650x)
+![Check_qualification_Purchasing.png](../../assets/images/ama/install-guide/check-qualitifcation.png)
 
 To learn how to allow purchases, see [Azure Marketplace purchasing](https://learn.microsoft.com/en-us/marketplace/azure-purchasing-invoicing).
 
@@ -85,9 +85,9 @@ For more information about the subscription, see [Get subscription and tenant ID
 1. On the left menu, under **Settings**, select **Resource providers**.
 
 1. One by one, find and select the resource providers that you want to register, and then select **Register**.
-![Manual_Registration_1](../../assets/images/ama/install-guide/register-resource-provider-1.png =650x)
+![Manual_Registration_1](../../assets/images/ama/install-guide/register-resource-provider-1.png)
 Wait until the status of the resource provider is changed from **Registering** to **Registered**.
-![Manual_Registration_2](../../assets/images/ama/install-guide/register-resource-provider-2.png =650x)
+![Manual_Registration_2](../../assets/images/ama/install-guide/register-resource-provider-2.png)
 1. Run the [script](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=verification-script) to verify that all resource providers are registered.
 
 For more information about registering resource providers, see [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
