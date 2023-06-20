@@ -17,7 +17,7 @@ In this article, you will learn about the decisions you need to make before star
 
 # Choose a license
 
-We offer two types of licenses: [pay-as-you-go](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1186/Step-1-Business-decisions-before-installation?anchor=pay-as-you-go-license) and [committed-deal](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1186/Step-1-Business-decisions-before-installation?anchor=committed-deal-license).
+We offer two types of licenses: [pay-as-you-go](#pay-as-you-go-license) and [committed-deal](#committed-deal-license).
 
 
 |  | Pay-as-you-go | Committed-deal |
