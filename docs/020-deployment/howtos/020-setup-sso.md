@@ -151,7 +151,7 @@ The following is a list of the CluedIn application roles and recommended values 
 
 | Display name | Value | Description |
 |--|--|--|
-| aData Governance Administrator | DataGovernanceAdministrator | Role responsible for approving changes made by Data Governance users |
+| Data Governance Administrator | DataGovernanceAdministrator | Role responsible for approving changes made by Data Governance users |
 | Data Compliance | DataCompliance | Role responsible for daily operations around data compliance |
 | Data Steward | DataSteward | Role dedicated to cleaning data using Clean and Prepare modules |
 | Data Compliance Administrator | DataComplianceAdministrator | Role responsible for approving changes made by Data Compliance users |
@@ -166,7 +166,7 @@ The following is a list of the CluedIn application roles and recommended values 
 | Organization Admin | OrganizationAdmin | Administrator within the Organization |
 | Deduplication | Administrator | DeduplicationAdministrator Role responsible for creating and maintaining Deduplication Projects and merging the results back into the system |
 | Data Steward Administrator | DataStewardAdministrator | Role responsible for approving changes made by Data Stewards |
- 
+
 # Create Kubernetes secret and enable SSO via Helm
 
 After you complete the Azure application registration and app roles configuration, you need to enable the SSO feature on the CluedIn platform to make SSO available to users when signing in to CluedIn.
