@@ -4,7 +4,7 @@ nav_order: 1
 parent: How tos
 grand_parent: Deployment
 permalink: /deployment/infra-how-tos/get-subscription-id
-title: Configure logging
+title: Subscription ID
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---

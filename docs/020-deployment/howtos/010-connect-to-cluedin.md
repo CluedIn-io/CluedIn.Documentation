@@ -17,6 +17,6 @@ last_modified: 2023-06-20
 
 1. In the Azure portal, navigate to your AKS resource.
 1. On the menu bar, select **Connect**.
-![connect-to-cluedin-1.png](../../assets/images/ama/install-guide/connect-to-cluedin-1.png)
+![connect-to-cluedin-1.png](../../assets/images/howtos/install-guide/connect-to-cluedin-1.png)
 In the right pane, you'll see the connection details and instructions that you can use to connect to your CluedIn cluster.
-![connect-to-cluedin-2.png](../../assets/images/ama/install-guide/connect-to-cluedin-2.png)
+![connect-to-cluedin-2.png](../../assets/images/howtos/install-guide/connect-to-cluedin-2.png)
