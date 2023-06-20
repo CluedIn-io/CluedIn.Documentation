@@ -187,7 +187,7 @@ As part of the AKS managed cluster, AMA or AKS (public cluster) is deployed as a
 
 ## Configuration changes and support
 
-If you need to change some network configurations, you can do that after you install CluedIn. For details about network customization, see [Advanced network configuration](/infra-how-tos/advanced-network).
+If you need to change some network configurations, you can do that after you install CluedIn. For details about network customization, see [Advanced network configuration](/deployment/infra-how-tos/advanced-network).
 
 CluedIn provides support of Azure Load Balancer and Application Gateway. Other network configurations are not supported out of the box in any of our plans, so you might need the CluedIn infrastructure package hours.
 
