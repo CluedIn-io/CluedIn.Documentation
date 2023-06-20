@@ -21,7 +21,7 @@ The following diagram shows default network configuration of CluedIn after insta
 
 The following diagram shows advanced network configuration of CluedIn.
 
-![ama-network-2.jpeg](../../assets/images/ama/howtos/ama-network-2.jpeg)
+![ama-network-2.jpeg](../../assets/images/ama/howtos/advanced-network-2.jpeg)
 
 
 Advanced network configuration (ingress vNet integration) allows you to specify the vNet and/or subnet address spaces that will be used to deploy your CluedIn platform. If you are deploying into your own network, see the following Microsoft guidelines for planning your Kubernetes networking model:
