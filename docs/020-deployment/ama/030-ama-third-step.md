@@ -8,6 +8,10 @@ title: 3. Installation guide
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 In this article, you will learn how to install CluedIn from the Azure Marketplace.
 
@@ -68,7 +72,7 @@ On the **CluedIn - Initial Setup** tab, you can create the organization and the 
 **Important!** You can change SMTP details after installation by submitting a ticket to CluedIn support.
 1. If needed, enable SSO access for CluedIn, and then specify SSO details.
 ![Initial_setup_tab_SSO.png](../../assets/images/ama/install-guide/ama-install-basic-tab-5.png)
-**Important!** You can enable SSO access for CluedIn after installation. This is often the preferable option because some mapping of Azure AD groups to product groups is required. For more information, see [SSO](/infra-how-tos/configure-sso).
+**Important!** You can enable SSO access for CluedIn after installation. This is often the preferable option because some mapping of Azure AD groups to product groups is required. For more information, see [Configure SSO](/deployment/infra-how-tos/configure-sso).
 
 # Review the AKS Setup tab
 On the **CluedIn - AKS Setup** tab, you can customize the number of nodes that you want to use in your CluedIn instance, and you can also define autoscaling parameters.
@@ -84,9 +88,10 @@ The **AKS Setup** tab contains the following settings:
 **Data Node Pool VM Count** contains a minimum number of VMs to ensure that all resources can be scheduled. If you need to increase the VM count, consult with CluedIn support.
 - **Processing node pool** that runs any CluedIn processing services.
 ![AKS_Setup_tab_Processing_node_pool.png](../../assets/images/ama/install-guide/ama-install-basic-tab-8.png)
-
 **Processing Node Size** depends on the license type you have selected on the **Basics** tab. If you have entered a license key on the **Basics** tab, then the machine type will be hidden because it is encoded into the license.
+
 You can enable **auto-scaling** for the processing node pool. It means that when CPU pressure (high workload) builds up in this node pool, AKS can start up new nodes to compensate for the increase in load. When the load returns to normal, the extra nodes will be shut down. However, be aware that there are additional infrastructure and licensing costs associated with scaling up. For more information about auto-scaling, contact CluedIn support.
+
 **Important!** You can enable auto-scaling after installation. 
 
 # Review the Service Setup tab

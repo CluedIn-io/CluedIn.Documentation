@@ -8,6 +8,10 @@ title: Configure DNS
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 
 As part of the CluedIn configuration, a base URL is used to make the application easily accessible by your browser. For proper configuration of CluedIn, you need to update the DNS settings. Specifically, you need to ensure that the A-records are configured to point either to your public IP address or a private IP address.
@@ -75,16 +79,20 @@ See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) f
 - Your Helm repository is set up.
 See [Helm](/deployment/references/helm) for detailed instructions on how to set up the repository.
 
-If you have any questions about DNS configuration, you can request CluedIn support by sending an email to support@cluedin.com (or reach out to your delivery manager if you have a committed deal).
+If you have any questions about DNS configuration, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> (or reach out to your delivery manager if you have a committed deal).
 
 <hr>
 
 **To update the DNS configuration for CluedIn**
 
 1. Download the current cluster configuration file by running the following command:
-`helm get values cluedin-platform -n cluedin -o yaml > Cluster-Current-values.yaml`
+```
+helm get values cluedin-platform -n cluedin -o yaml > Cluster-Current-values.yaml
+```
 2. Open the file in nano editor by running the following command:
-`nano Cluster-Current-values.yaml`
+```
+nano Cluster-Current-values.yaml
+```
 3. In the file, find a line that looks similar to the one shown below. Look for the entry named **dns**. It is the configuration that controls the DNS address used by CluedIn.
 ![configure-dns-1.png](../../assets/images/ama/howtos/configure-dns-1.png)
 4. Edit the value of the host name to reflect your main domain. If you have 3 environments (development, test, and production), update the value of the host name for each environment (`dev.mycompany.com`, `test.mycompany.com`, `prod.mycompany.com.`).

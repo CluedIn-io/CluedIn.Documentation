@@ -8,6 +8,10 @@ title: Configure certificates
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 The CluedIn front-end application uses **Transport Layer Security (TLS)** to encrypt access to the application over the network using HTTPS. CluedIn uses the Automated Certificate Management Environment (ACME) protocol and the public  Let's Encrypt certificate authority to issue certificates. 
 
@@ -15,19 +19,16 @@ While there are no specific requirements regarding the issuer and source of your
 
 In this article, you will learn how to create your own certificates and keys and update your server configuration with the newly generated certificates and keys. Also, you will learn about alternative certificate providers.
 
-# Create your own certificates and keys
-
 **Prerequisites**
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
 - You should be connected to your AKS cluster.
 See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
 - Your Helm repository is set up.
-See [Helm](/deployment/references/helm) for detailed instructions on how to set up the repository.
 
-If you have any questions, you can request CluedIn support by sending an email to support@cluedin.com (or reach out to your delivery manager if you have a committed deal).
+If you have any questions, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> (or reach out to your delivery manager if you have a committed deal).
 
-<hr>
+# Create your own certificates and keys
 
 If you want to use a Subject Alternative Name (SAN) or wildcard certificate for you domain, create your own certificates and keys.
 
@@ -66,7 +67,6 @@ nano Cluster-Current-values.yaml
 ```
 
 3. Add the section with base64 encoded values for the keys and secrets.
-
 ```
 platform:
   extraCertificateSecrets:
@@ -77,7 +77,6 @@ platform:
 ```
 
 4. Remove the following section of configuration.
-
 ```
   issuer:
     configuration:
@@ -95,17 +94,14 @@ platform:
                     kubernetes.io/ingress.class: haproxy
     isWildcard: false
 ```
-
 **Note:** We recommend that you remove Let's Encrypt issuer because you are configuring the system to use your own certificates and keys.
 
 5. Save the file.
 
-6. Post the new configuration to your cluster by running the following command.
-
+6. Post the new configuration to your cluster by running the following command:
 ```
 helm upgrade -i cluedin-platform cluedin/cluedin-platform  -n cluedin --create-namespace  --values Cluster-Current-values.yaml --set application.system.runDatabaseJobsOnUpgrade=false
 ```
-
 After a short time, you'll see the confirmation of your update in the console. CluedIn is now configured to use your new TLS certificate and keys.
 
  
@@ -131,9 +127,17 @@ The following procedure shows how to create a self-signed certificate using Open
 
 **To create self-signed certificate**
 
-1. Generate the certificate: `openssl req -x509 -newkey rsa:4096 -keyout domain.key -out domain.crt -sha256 -days 3650 -nodes -subj "/CN=mycompany.com"`
+1. Generate the certificate:
+```
+openssl req -x509 -newkey rsa:4096 -keyout domain.key -out domain.crt -sha256 -days 3650 -nodes -subj "/CN=mycompany.com"
+```
 
-1. Verify the certificate: `openssl x509 -text -noout -in domain.crt`
+1. Verify the certificate:
+```openssl x509 -text -noout -in domain.crt
+```
 
-1. Convert the certificate into pfx: `openssl pkcs12 -inkey domain.key -in domain.crt -export -out domain.pfx`
+1. Convert the certificate into pfx:
+```
+openssl pkcs12 -inkey domain.key -in domain.crt -export -out domain.pfx
+```
 

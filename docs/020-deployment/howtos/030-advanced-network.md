@@ -8,6 +8,10 @@ title: Advanced network configuration
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 In this article, you will learn about advanced network configuration options that are available to you during CluedIn installation.
 
@@ -39,7 +43,7 @@ CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, th
 
 **Important!** If you do not plan to make any changes to the default out-of-the-box network configuration, you can skip this section and check other configuration-related topics:
 - [Configure SSO](/deployment/infra-how-tos/configure-sso)
-- [Configure DNS](*deployment/infra-how-tos/configure-dns)
+- [Configure DNS](deployment/infra-how-tos/configure-dns)
 - [Configure certificates](/deployment/infra-how-tos/configure-certificates)
 
 <hr>
@@ -108,21 +112,24 @@ This section contains a procedure for configuring CluedIn to use your internal l
 - You should be connected to your AKS cluster.
 See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
 - Your Helm repository is set up.
-See [Helm](/deployment/references/helm) for detailed instructions on how to set up the repository.
 
-If you have any questions, you can request CluedIn support by sending an email to support@cluedin.com (or reach out to your delivery manager if you have a committed deal).
+If you have any questions, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> (or reach out to your delivery manager if you have a committed deal).
 
 <hr>
 
 **To configure CluedIn to use your load balancer and internal IP address**
 
 1. Download the current cluster configuration file by running the following command:
-`helm get values cluedin-platform -n cluedin -o yaml > Cluster-Current-values.yaml`
+```
+helm get values cluedin-platform -n cluedin -o yaml > Cluster-Current-values.yaml
+```
 
 2. Open the file in nano editor by running the following command:
-`nano Cluster-Current-values.yaml`
+```
+nano Cluster-Current-values.yaml
+```
 
-3. In the file, find a section that looks like the example below.
+3. In the file, find a section that looks like the example below. This section controls the load balancer configuration and associated IP address. The example shows external load balancer with external IP address.
 ```
   haproxy-ingress:
     controller:
@@ -131,9 +138,6 @@ If you have any questions, you can request CluedIn support by sending an email t
           service.beta.kubernetes.io/azure-load-balancer-resource-group: mrg-azurecluedin
         loadBalancerIP: 20.0.189.xxx
 ```
-
-This section controls the load balancer configuration and associated IP address. The example shows external load balancer with external IP address.
-
 4. Replace the section that you found with the following section.
 
 ```  

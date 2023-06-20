@@ -8,6 +8,10 @@ title: Configure SSO
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 In this article, you will learn how to configure single sign-on (SSO) for CluedIn using Azure Active Directory (AD) group-managed role membership.
 
@@ -41,7 +45,7 @@ Registering your application establishes a trust relationship between your appli
 ![Register_application_Name.png](../../assets/images/ama/howtos/configure-sso-2.png)
 1. Select the account types that can use the application.
 1. Select **Register**.
-When the registration finishes, the Azure portal displays the **Overview** pane of the application registration. Here you can see the **Application (client) ID**. This value uniquely identifies your application. You'll need it for [enabling SSO via Helm](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1211/Y-Configure-SSO?anchor=enable-sso-via-helm).
+When the registration finishes, the Azure portal displays the **Overview** pane of the application registration. Here you can see the **Application (client) ID**. This value uniquely identifies your application. You'll need it for [enabling SSO via Helm](#create-kubernetes-secret-and-enable-sso-via-helm).
 ![Register_application_Application_ID.png](../../assets/images/ama/howtos/configure-sso-3.png)
 
 After you register the application, complete the the following steps:
@@ -51,6 +55,7 @@ After you register the application, complete the the following steps:
 1. [Expose an API](#expose-an-api)
 1. [Map Azure AD application roles to CluedIn roles](#map-azure-ad-application-roles-to-cluedin-roles)
  
+
 ## Create a client secret
 
 A client secret is used to configure CluedIn to communicate with your Azure AD.
@@ -130,13 +135,13 @@ After you have created your application registration and attached it to your Clu
 1. In the Azure portal, in **App registrations**, select your application.
 1. Select **App roles**.
 1. In the menu, select **Create app role**.
-1. Enter the details of the role. See [CluedIn roles](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1211/SSO?anchor=cluedin-roles) for recommended values.
+1. Enter the details of the role. See [CluedIn roles](#cluedin-roles) for recommended values.
 ![Create_app_role.png](../../assets/images/ama/howtos/configure-sso-create-app-role-1.png)
 1. Select **Apply** to save your changes. The role is added to the **App roles** list.
 ![App_role_added.png](../../assets/images/ama/howtos/configure-sso-create-app-role-2.png)
 1. Repeat step 3-5 to add all roles.
 
-In the CluedIn application, you can find all CluedIn roles by navigating to **Administration** -> **Roles**.
+In the CluedIn application, you can find all CluedIn roles by navigating to **Administration** > **Roles**.
 
 Any changes made in the application registration will live in your Azure subscription. We do not impose strict requirements on how app roles are set up, so you can follow your organization’s internal requirements.
 
@@ -145,7 +150,7 @@ Any changes made in the application registration will live in your Azure subscri
 The following is a list of the CluedIn application roles and recommended values to use when creating your Azure app roles with your application registration.
 
 | Display name | Value | Description |
-|--|--|--|
+|----|----|----|
 | Data Governance Administrator| DataGovernanceAdministrator | Role responsible for approving changes made by Data Governance users |
 | Data Compliance | DataCompliance | Role responsible for daily operations around data compliance |
 | Data Steward | DataSteward | Role dedicated to cleaning data using Clean and Prepare modules |
@@ -170,11 +175,10 @@ After you complete the Azure application registration and app roles configuratio
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
 - You should be connected to your AKS cluster.
-See [Connect to CluedIn cluster](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1226/Connect-to-CluedIn-cluster) for detailed instructions.
+See [Connect to CluedIn cluster](/docs/020-deployment/howtos/010-connect-to-cluedin.md) for detailed instructions.
 - Your Helm repository is set up.
-See [Helm](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1220/Helm) for detailed instructions on how to set up the repository.
 
-If you have any questions, you can request CluedIn support by sending an email to support@cluedin.com (or reach out to your delivery manager if you have a committed deal).
+If you have any questions, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> (or reach out to your delivery manager if you have a committed deal).
 
 <hr>
 
@@ -182,10 +186,16 @@ Once you have connected to your cluster and you are able to issue commands using
 
 **To create Kubernetes secret and enable SSO via Helm**
 
-1. Create a new Kubernetes secret with your Azure app registration secret by running the following command: `kubectl create secret generic "myorg-sso-cs" -n cluedin --from-literal=clientSecret="1234-5678-9ABC"`
+1. Create a new Kubernetes secret with your Azure app registration secret by running the following command:
+```
+kubectl create secret generic "myorg-sso-cs" -n cluedin --from-literal=clientSecret="1234-5678-9ABC"
+```
 In the command, replace _1234-5678-9ABC_ with your Azure app registration secret.
 
-2. In Azure Cloud Shell, run the following command to create a new empty file: `nano Cluedin-SSO-Config.yaml`
+2. In Azure Cloud Shell, run the following command to create a new empty file:
+```
+nano Cluedin-SSO-Config.yaml
+```
 
 3. In the file, paste the following configuration:
 ```
@@ -207,9 +217,15 @@ spec:
 
 6. Save the file.
 
-7. Apply your SSO configuration by running the following command in Azure Cloud Shell: `kubectl apply -n cluedin -f Cluedin-SSO-Config.yaml`
+7. Apply your SSO configuration by running the following command in Azure Cloud Shell:
+```
+kubectl apply -n cluedin -f Cluedin-SSO-Config.yaml
+```
 
-8. Verify that the SSO feature has been enabled successfully by running the following command in Azure Cloud Shell: `kubectl get features -n cluedin`
+8. Verify that the SSO feature has been enabled successfully by running the following command in Azure Cloud Shell:
+```
+kubectl get features -n cluedin
+```
 
 If your SSO feature has been successfully applied, you should see something similar to the screenshot below.
 
@@ -226,7 +242,7 @@ After the app roles have been created, gain access to CluedIn’s internal SQL A
 1. Gain access to the internal database using Kubernetes port forwarding capability. You need to complete this process on a PC/server where you have access to a SQL client application to query and execute SQL commands.
 
 2. Use the following server address in your SQL client application: 127.0.0.1\mcr.microsoft.com/mssql/server,1433.
-Alternatively, you can request CluedIn support by sending an email to support@cluedin.com or reach out to your delivery manager.
+Alternatively, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> or reach out to your delivery manager.
 
 3. Use the following SQL insert statement (or populate the values manually by editing the table).
 ```
@@ -235,9 +251,9 @@ INSERT INTO [dbo].[SingleSignOnRoleMappings] (Id, SingleSignOnId, RoleId, Mapped
 VALUES ('<single sign on id>', '<cluedin role id>', '<app role value field>')
 ```
 4. Replace the following values:
-   - <single sign on id> – corresponds to the Id column in the SingleSignOn table.
-   - <cluedin role id> – corresponds to the Id column in the AspNetRoles table.
-   - <app role value field> – corresponds to the Value assigned in your app role in App Registration.
+   - single sign on id – corresponds to the Id column in the SingleSignOn table.
+   - cluedin role id – corresponds to the Id column in the AspNetRoles table.
+   - app role value field – corresponds to the Value assigned in your app role in App Registration.
 
 The following example shows the mapping of OrganizationAdmin CluedIn role to CluedIn App Admin AD app role.
 
