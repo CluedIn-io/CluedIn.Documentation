@@ -45,11 +45,11 @@ When the registration finishes, the Azure portal displays the **Overview** pane 
 ![Register_application_Application_ID.png](../../assets/images/ama/howtos/configure-sso-3.png)
 
 After you register the application, complete the the following steps:
-1. [Create a client secret](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1211/SSO?anchor=create-a-client-secret)
-1. [Add redirect URIs](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1211/SSO?anchor=add-redirect-uris)
-1. [Add API permissions](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1211/SSO?anchor=add-api-permissions)
-1. [Expose an API](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1211/SSO?anchor=expose-an-api)
-1. [Map Azure AD application roles to CluedIn roles](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1211/SSO?anchor=map-azure-ad-application-roles-to-cluedin-roles)
+1. [Create a client secret](#create-a-client-secret)
+1. [Add redirect URIs](#add-redirect-uris)
+1. [Add API permissions](#add-api-permissions-for-microsoft-graph)
+1. [Expose an API](#expose-an-api)
+1. [Map Azure AD application roles to CluedIn roles](#map-azure-ad-application-roles-to-cluedin-roles)
  
 ## Create a client secret
 
@@ -146,21 +146,21 @@ The following is a list of the CluedIn application roles and recommended values 
 
 | Display name | Value | Description |
 |--|--|--|
-|Data Governance Administrator| DataGovernanceAdministrator |Role responsible for approving changes made by Data Governance users|
-|Data Compliance | DataCompliance |Role responsible for daily operations around data compliance|
-|Data Steward |DataSteward |Role dedicated to cleaning data using Clean and Prepare modules|
-|Data Compliance Administrator |DataComplianceAdministrator |Role responsible for approving changes made by Data Compliance users|
-|Admin |Admin | Administrator for the whole system, including multi-tenancy environment|
-|Guest|	Guest| Guest User with minimal, read-only, permissions|
-|User | User| User that can view all modules in a read-only manner, in a multi-tenancy environment|
-|Data Architect | DataArchitect	| Role responsible for designing an Organizations enterprise data strategy|
-|Deduplication Reviewer | DeduplicationReviewer |Role responsible for reviewing Deduplication Project results and approving the groupings|
-|Organization User | OrganizationUser |User within an Organization that can view all modules in a read-only manner, in a multi-tenancy environment |
-|Data Governance | DataGovernance | Role responsible for monitoring and maintaining data quality|
-|Report Manager | ReportManager | User that can generate reports for compliance matters such as breach, subject request, and retention |
-|Organization Admin | OrganizationAdmin | Administrator within an Organization in multi-tenancy environment |
-|Deduplication | Administrator | DeduplicationAdministrator Role responsible for creating and maintaining Deduplication Projects and merging the results back into the system |
-|Data Steward Administrator | DataStewardAdministrator | Role responsible for approving changes made by Data Stewards |
+| Data Governance Administrator| DataGovernanceAdministrator | Role responsible for approving changes made by Data Governance users |
+| Data Compliance | DataCompliance | Role responsible for daily operations around data compliance |
+| Data Steward | DataSteward | Role dedicated to cleaning data using Clean and Prepare modules |
+| Data Compliance Administrator | DataComplianceAdministrator | Role responsible for approving changes made by Data Compliance users |
+| Admin | Admin | Administrator for the whole system, including multi-tenancy environment |
+| Guest|	Guest | Guest User with minimal, read-only, permissions |
+| User | User | User that can view all modules in a read-only manner, in a multi-tenancy environment |
+| Data Architect | DataArchitect	| Role responsible for designing an Organizations enterprise data strategy |
+| Deduplication Reviewer | DeduplicationReviewer | Role responsible for reviewing Deduplication Project results and approving the groupings |
+| Organization User | OrganizationUser | User within an Organization that can view all modules in a read-only manner, in a multi-tenancy environment |
+| Data Governance | DataGovernance | Role responsible for monitoring and maintaining data quality |
+| Report Manager | ReportManager | User that can generate reports for compliance matters such as breach, subject request, and retention |
+| Organization Admin | OrganizationAdmin | Administrator within an Organization in multi-tenancy environment |
+| Deduplication | Administrator | DeduplicationAdministrator Role responsible for creating and maintaining Deduplication Projects and merging the results back into the system |
+| Data Steward Administrator | DataStewardAdministrator | Role responsible for approving changes made by Data Stewards |
  
 # Create Kubernetes secret and enable SSO via Helm
 
