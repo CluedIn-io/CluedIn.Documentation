@@ -156,7 +156,7 @@ The following is a list of the CluedIn application roles and recommended values 
 | Data Steward | DataSteward | Role dedicated to cleaning data using Clean and Prepare modules |
 | Data Compliance Administrator | DataComplianceAdministrator | Role responsible for approving changes made by Data Compliance users |
 | Admin | Admin | Administrator for the whole system |
-| Guest|	Guest | Guest User with minimal, read-only, permissions |
+| Guest | Guest | Guest User with minimal, read-only, permissions |
 | User | User | User that can view all modules in a read-only manner |
 | Data Architect | DataArchitect	| Role responsible for designing an Organizations enterprise data strategy |
 | Deduplication Reviewer | DeduplicationReviewer | Role responsible for reviewing Deduplication Project results and approving the groupings |
