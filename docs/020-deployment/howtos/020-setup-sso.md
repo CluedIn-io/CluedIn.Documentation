@@ -22,11 +22,11 @@ SSO for CluedIn can be enabled in one of the following modes:
 
 Configuring SSO for CluedIn using Azure AD involves three main steps:
 
-1. [Register an application in the Azure portal](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1211/Y-Configure-SSO?anchor=register-an-application-in-the-azure-portal)
-1. [Create Kubernetes secret and enable SSO via Helm](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1211/Y-Configure-SSO?anchor=enable-sso-via-helm)
-1. [(Optional) Create custom role mappings](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1211/Y-Configure-SSO?anchor=(optional)-create-custom-role-mapping)
+1. [Register an application in the Azure portal](#register-an-application-in-the-azure-portal)
+1. [Create Kubernetes secret and enable SSO via Helm](#create-kubernetes-secret-and-enable-sso-via-helm)
+1. [(Optional) Create custom role mappings](#optional-create-custom-role-mapping)
 
-**Important!** Before configuring SSO, make sure that you have configured [DNS](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1197/Configure-DNS) and [TLS](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1199/Configure-certificates).
+**Important!** Before configuring SSO, make sure that you have configured [DNS](/deployment/infra-how-tos/configure-dns) and [TLS](/deployment/infra-how-tos/configure-certificates).
 
 # Register an application in the Azure portal
 
