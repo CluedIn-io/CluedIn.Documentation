@@ -13,7 +13,7 @@ CluedIn is an Azure Managed Application (AMA) that is deployed within your compa
 
 In this article, you will learn about the decisions you need to make before starting the CluedIn installation process.
 
-![Business decisions before installation](../../assets/images/ama/install-guide/overview-first-step.png=900x)
+![Business decisions before installation](../../assets/images/ama/install-guide/overview-first-step.png)
 
 # Choose a license
 
