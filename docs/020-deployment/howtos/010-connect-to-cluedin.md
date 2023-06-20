@@ -9,8 +9,6 @@ tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---
 
-# Connecting to your CluedIn cluster in Azure Cloud Shell 
-
 [Azure Cloud Shell](https://learn.microsoft.com/en-us/azure/cloud-shell/overview) provides an effective environment and the tools you need to interact with your AKS cluster without significant configuration or effort.
 
 **To connect to your CluedIn cluster in Azure Cloud Shell**
