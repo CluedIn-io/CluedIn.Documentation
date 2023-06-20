@@ -151,7 +151,7 @@ The following is a list of the CluedIn application roles and recommended values 
 
 | Display name | Value | Description |
 |--|--|--|
-| AData Governance Administrator | DataGovernanceAdministrator | Role responsible for approving changes made by Data Governance users |
+| Data Governance Administrator | DataGovernanceAdministrator | Role responsible for approving changes made by Data Governance users |
 | Data Compliance | DataCompliance | Role responsible for daily operations around data compliance |
 | Data Steward | DataSteward | Role dedicated to cleaning data using Clean and Prepare modules |
 | Data Compliance Administrator | DataComplianceAdministrator | Role responsible for approving changes made by Data Compliance users |
