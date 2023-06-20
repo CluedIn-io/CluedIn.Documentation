@@ -92,14 +92,6 @@ Wait until the status of the resource provider is changed from **Registering** t
 
 For more information about registering resource providers, see [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
 
-## Automatic registration of resource providers - Add script that Admin user can download and run
-
-If you want a faster way to register the needed resource providers, execute the script in Azure CLI. Before that, make sure that you have installed [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
-
-1. Open the command prompt and run the `az login` command.
-1. Paste the script that would automatically register all the needed resources. _(Add the script)_
-1. Run another [script](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1184/Step-2-Precheck?anchor=verification-script) to verify that all resources are registered.
-
 ## Verification script
 The verification script checks if you have enough quota and if all required resource providers are registered.
 
@@ -117,7 +109,7 @@ For more details, see [Get your Azure subscription ID](https://dev.azure.com/Clu
 
 **To run the verification script**
 
-1. Download the [check.ps1]() verification script and save it to a folder of your choice on your computer.
+1. Download the [../../assets/ps1/check.ps1]() verification script and save it to a folder of your choice on your computer.
 1. Open your PowerShell terminal and run the following:
 
 ```powershell
