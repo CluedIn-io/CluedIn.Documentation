@@ -100,25 +100,25 @@ nano Cluster-Current-values.yaml
 ```
     tls:
       hosts:
-      - departmentX.20.0.189.11.sslip.io
-      - app.20.0.189.11.sslip.io
-      - clean.20.0.189.11.sslip.io
-      - grafana.20.0.189.11.sslip.io
-      - prometheus.20.0.189.11.sslip.io
-      - alertmanager.20.0.189.11.sslip.io
-      - '*.20.0.189.11.sslip.io'
+       departmentX.20.0.189.11.sslip.io
+       app.20.0.189.11.sslip.io
+       clean.20.0.189.11.sslip.io
+       grafana.20.0.189.11.sslip.io
+       prometheus.20.0.189.11.sslip.io
+       alertmanager.20.0.189.11.sslip.io
+       '*.20.0.189.11.sslip.io'
 ```
 6. Replace all instances of `20.0.189.11.sslip.io` to `mycopmany.com`. The example of the updated section is shown below.
 ```
     tls:
       hosts:
-      - deparmentX.mycopmany.com
-      - app.mycopmany.com
-      - clean.mycopmany.com
-      - grafana.mycopmany.com
-      - prometheus.mycopmany.com
-      - alertmanager.mycopmany.com
-      - '*.mycopmany.com
+       deparmentX.mycopmany.com
+       app.mycopmany.com
+       clean.mycopmany.com
+       grafana.mycopmany.com
+       prometheus.mycopmany.com
+       alertmanager.mycopmany.com
+       '*.mycopmany.com
 ```
 7. If you are using multiple environments (development, test, and production), update the TLS hosts section for each environment:
    - Development – replace all instances of `20.0.189.11.sslip.io` to `dev.mycompany.com`
