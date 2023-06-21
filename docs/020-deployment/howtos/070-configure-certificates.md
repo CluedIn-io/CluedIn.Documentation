@@ -23,7 +23,9 @@ In this article, you will learn how to create your own certificates and keys and
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
 - You should be connected to your AKS cluster.
-See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
+
+    See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
+
 - Your Helm repository is set up.
 
 If you have any questions, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> (or reach out to your delivery manager if you have a committed deal).
@@ -35,7 +37,8 @@ If you want to use a Subject Alternative Name (SAN) or wildcard certificate for 
 **To create certificates and keys**
 
 1. From a suitable provider, obtain the following files: **TLS certificate**, **TLS private key (without password)**, and **Certificate authority's public certificate**. 
-The TLS certificates and keys must contain the DNS names for the CluedIn services as described in [Configure DNS](/deployment/infra-how-tos/configure-dns).
+    
+    The TLS certificates and keys must contain the DNS names for the CluedIn services as described in [Configure DNS](/deployment/infra-how-tos/configure-dns).
 
 2. After you obtain the required files, convert the content of each file to base64 string using the `output.txt` command. For example: `bas64 /path/to/file > output.txt`
 3. Add the strings to your **values.yaml** file under the **Platform** section as shown in the example below. 
@@ -51,7 +54,7 @@ platform:
 
 # Update your server configuration via Helm
 
-After you added the certificates and keys to your values.yaml file, you need to update the server configuration with your new TLS certificates and keys.
+After you added the certificates and keys to your **values.yaml** file, you need to update the server configuration with your new TLS certificates and keys.
 
 **To update the server configuration via Helm**
 
@@ -104,7 +107,6 @@ helm upgrade -i cluedin-platform cluedin/cluedin-platform  -n cluedin --create-n
 ```
 After a short time, you'll see the confirmation of your update in the console. CluedIn is now configured to use your new TLS certificate and keys.
 
- 
 # Alternative certificate providers 
 
 If you can't obtain a certificate from a commercial certificate authority or from your internal public key infrastructure (PKI) service, you can use other methods to generate certificates. For example, you can generate certificates via [Let's Encrypt](#lets-encrypt) or you can generate [self-signed certificates](#self-signed-certificates).
@@ -133,10 +135,11 @@ openssl req -x509 -newkey rsa:4096 -keyout domain.key -out domain.crt -sha256 -d
 ```
 
 1. Verify the certificate:
-```openssl x509 -text -noout -in domain.crt
+```
+openssl x509 -text -noout -in domain.crt
 ```
 
-1. Convert the certificate into pfx:
+1. Convert the certificate into the .pfx format:
 ```
 openssl pkcs12 -inkey domain.key -in domain.crt -export -out domain.pfx
 ```
