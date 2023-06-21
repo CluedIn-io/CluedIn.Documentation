@@ -27,8 +27,7 @@ In addition, you should have **permission to purchase paid applications** from t
 
 ![Check_qualification_Purchasing.png](../../assets/images/ama/install-guide/check-qualitifcation.png)
 
-To learn how to allow purchases, see <a href="https://learn.microsoft.com/en-us/marketplace/azure-purchasing-invoicing" target="_blank">Azure Marketplace purchasing</a>.
-
+To learn how to allow purchases, see <a href="https://learn.microsoft.com/en-us/marketplace/azure-purchasing-invoicing">Azure Marketplace purchasing</a>.
 
 # Check quota
 
@@ -84,7 +83,8 @@ This section contains the step-by-step procedure for manual registration of reso
 **To register resource providers**
 
 1. In the Azure portal, find and select the subscription where you need to install CluedIn.
-For more information about the subscription, see <a href="https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id" target="_blank">Get subscription and tenant IDs in the Azure portal</a>.
+
+    For more information about the subscription, see <a href="https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id">Get subscription and tenant IDs in the Azure portal</a>.
 
 1. On the left menu, under **Settings**, select **Resource providers**.
 
@@ -94,7 +94,7 @@ Wait until the status of the resource provider is changed from **Registering** t
 ![Manual_Registration_2](../../assets/images/ama/install-guide/register-resource-provider-2.png)
 1. Run the [verification script](#verification-script) to make sure that all resource providers are registered.
 
-For more information about registering resource providers, see <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types" target="_blank">Azure documentation</a>.
+For more information about registering resource providers, see <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types">Azure documentation</a>.
 
 ## Automatic registration of resource providers
 If you want a faster way to register the needed resource providers, run the script for automatic registration of resource providers.
@@ -103,10 +103,12 @@ If you want a faster way to register the needed resource providers, run the scri
 
 * PowerShell 7.
 
-    We recommend installing PowerShell via Winget: `winget search Microsoft.PowerShell`. For more details, see <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows" target="_blank">Installing PowerShell on Windows</a>.
+    We recommend installing PowerShell via Winget: `winget search Microsoft.PowerShell`. For more details, see <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows">Installing PowerShell on Windows</a>.
+
 * Azure CLI.
     
-    We recommend installing Azure CLI via Winget: `winget install -e --id Microsoft.AzureCLI`. For more details, see <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli" target="_blank">Install Azure CLI on Windows</a>.
+    We recommend installing Azure CLI via Winget: `winget install -e --id Microsoft.AzureCLI`. For more details, see <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli">Install Azure CLI on Windows</a>.
+
 * Your Azure subscription ID.
     
     For more details, see [Get your Azure subscription ID](/deployment/infra-how-tos/get-subscription-id).
@@ -115,8 +117,7 @@ If you want a faster way to register the needed resource providers, run the scri
 
 1. Download this <a href="../../../assets/ps1/pre-checks.ps1" download>script</a>.
 1. Open your PowerShell terminal and run the following:
-
-```powershell
+```
 .\pre-checks.ps1 <subscrioptionId> -Register
 # e.g. .\pre-checks.ps1 abc68d12-8e99-4890-b3a0-ca25816b1c26 -Register
 ```
@@ -130,11 +131,11 @@ The verification script checks if you have enough quota and if all required reso
 
 * PowerShell 7.
     
-    We recommend installing PowerShell via Winget: `winget search Microsoft.PowerShell`. For more details, see <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows" target="_blank">Installing PowerShell on Windows</a>.
+    We recommend installing PowerShell via Winget: `winget search Microsoft.PowerShell`. For more details, see <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows">Installing PowerShell on Windows</a>.
 
 * Azure CLI.
     
-    We recommend installing Azure CLI via Winget: `winget install -e --id Microsoft.AzureCLI`. For more details, see <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli" target="_blank">Install Azure CLI on Windows</a>.
+    We recommend installing Azure CLI via Winget: `winget install -e --id Microsoft.AzureCLI`. For more details, see <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli">Install Azure CLI on Windows</a>.
 
 * Your Azure subscription ID.
     
@@ -146,8 +147,7 @@ The verification script checks if you have enough quota and if all required reso
 
 1. Download this <a href="../../../assets/ps1/check.ps1" download>verification script</a>.
 1. Open your PowerShell terminal and run the following:
-
-```powershell
+```
 .\check.ps1 -SubscriptionId <subscrioptionId> -Location <location>
 # e.g. .\check.ps1 -SubscriptionId abc68d12-8e99-4890-b3a0-ca25816b1c26 -Location uksouth
 ```
@@ -200,7 +200,6 @@ Add the following rules to your Azure Firewall as described in the table.
 
 **Important!** If the rules have not been added, then the installation will fail.
 
-
 # Configure network settings
 
 CluedIn is very flexible in terms of network configuration. If you have any network-related questions, contact one of our infrastructure experts.
@@ -208,7 +207,7 @@ CluedIn is very flexible in terms of network configuration. If you have any netw
 ## Define VNet
 During the installation process, CluedIn will install a newly created Azure VNet using an address space 10.0.0.0/8 and a subnet 10.0.0.0/16 for the Azure Kubernetes Service.
 
-If you have an existing VNet and you want to reuse it for CluedIn installation, contact one of our infrastructure experts for assistance. You can specify the existing VNet in the <a href="/deployment/azure-marketplace/step-3#review-the-advanced-configuration-tab" target="_blank">Advanced configuration</a> step of CluedIn installation.
+If you have an existing VNet and you want to reuse it for CluedIn installation, contact one of our infrastructure experts for assistance. You can specify the existing VNet in the <a href="/deployment/azure-marketplace/step-3#review-the-advanced-configuration-tab">Advanced configuration</a> step of CluedIn installation.
 
 ## Analyze CluedIn network configuration
 
@@ -222,7 +221,7 @@ As part of the AKS managed cluster, AMA or AKS (public cluster) is deployed as a
 
 ## Configuration changes and support
 
-If you need to change some network configurations, you can do that after you install CluedIn. For details about network customization, see <a href="/deployment/infra-how-tos/advanced-network" target="_blank"> Advanced network configuration</a>.
+If you need to change some network configurations, you can do that after you install CluedIn. For details about network customization, see <a href="/deployment/infra-how-tos/advanced-network"> Advanced network configuration</a>.
 
 CluedIn provides support of Azure Load Balancer and Application Gateway. Other network configurations are not supported out of the box in any of our plans, so you might need the CluedIn infrastructure package hours.
 
@@ -236,4 +235,4 @@ CluedIn provides support of Azure Load Balancer and Application Gateway. Other n
 
 # Next steps
 
-Start the CluedIn installation process as described in our <a href="/deployment/azure-marketplace/step-3" target="_blank">Installation guide</a>.
+Start the CluedIn installation process as described in our <a href="/deployment/azure-marketplace/step-3">Installation guide</a>.
