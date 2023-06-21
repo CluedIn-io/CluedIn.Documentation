@@ -25,9 +25,9 @@ The default DNS configuration ensures security by using the Automated Certificat
 
 If you want to set up custom DNS entries, see [Configure DNS](/deployment/infra-how-tos/configure-dns).
 
-# Configure custom SSL Certificates
+# Configure custom SSL certificates
 
-By default, CluedIn installation is secured by using TLS. CluedIn uses the Automated Certificate Management Environment (ACME) protocol and the public Let's Encrypt certificate authority to issue certificates. However, this default configuration might not comply with your organization's security policy. If you want to use a Subject Alternative Name (SAN) or wildcard certificate for you domain, see [Create your own certificates and keys](deployment/infra-how-tos/configure-certificates#create-your-own-certificates-and-keys).
+By default, CluedIn installation is secured by using TLS. CluedIn uses the Automated Certificate Management Environment (ACME) protocol and the public Let's Encrypt certificate authority to issue certificates. However, this default configuration might not comply with your organization's security policy. If you want to use a Subject Alternative Name (SAN) or wildcard certificate for you domain, see [Create your own certificates and keys](/docs/020-deployment/howtos/070-configure-certificates.md#create-your-own-certificates-and-keys).
 
 # Configure alerts
 
@@ -43,20 +43,6 @@ By default, your CluedIn containers are configured to log at the production leve
 - WRN – system warnings
 - ERR – system errors
 - FTL – fatal system logs
-
-**Logging format and examples**
-
-By default, CluedIn will provide logs to the console in the following format:
-`[#{ThreadId:000} {Timestamp:HH:mm:ss} {Level:u3}][{SourceContext}] {Message:lj}{NewLine}{Exception}`
-
-Example of an information log created by thread 001 at 11:38:
-`[#001 11:38:53 INF] Operating System: Unix 5.15.0.58`
-
-Example of development/debug log:
-`[#001 10:36:35 DBG] [ComponentHost] : Starting Metrics`
-
-Example of verbose/trace logs:
-`[#015 10:42:11 VRB][CluedIn.Core.ExecutionContext] Operation GetByEntityCode (/Organization#CluedIn xxxxx-XXXX-xxxx-xxxx) : 5475`
 
 # Set up SSO
 
