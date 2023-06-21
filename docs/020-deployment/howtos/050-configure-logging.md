@@ -13,7 +13,7 @@ last_modified: 2023-06-20
 1. TOC
 {:toc}
 
-In this article, you will get an overview of the logging options and you will learn how to configure the logging level that you need.
+In this article, you will get an overview of the logging options and learn how to configure the logging level that you need.
 
 # Overview of logging
 
@@ -32,7 +32,7 @@ yaml
     seq:
         image: datalust/seq
 ```
-You can access Seq using port-forwarding, or you can enable an ingress route.
+You can access Seq using port-forwarding. Alternatively, you can enable an ingress route.
 
 ```
 yaml
@@ -42,7 +42,7 @@ yaml
 
 **Azure Application Insights**
 
-Add the key for the [Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview?tabs=net) instance that you want to use.
+Add the key to the [Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview?tabs=net) instance that you want to use.
 
 
 ```
@@ -68,11 +68,13 @@ The production-level log can include log message types as described in the follo
 
 You can adjust the verbosity of the log messages that your system generates. To do that, change the value of the ASPNETCORE_ENVIRONMENT variable to one of the following values:
 
-- Production
-- Development or debug
-- Verbose or trace
+- **Production**
+- **Development** or **debug**
+- **Verbose or trace**
 
-If you change the value of ASPNETCORE_ENVIRONMENT to **development** or **debug**, you will see log messages of the DBG type in addition to the four default types (INF, WRN, ERR, FTL). If you need a more granular level of detail, set the value of ASPNETCORE_ENVIRONMENT to **verbose** or **trace**. As a result, the VRB type will be added in addition to DBG and the four default types.
+If you change the value of ASPNETCORE_ENVIRONMENT to **development** or **debug**, you will see log messages of the DBG type in addition to the four default types (INF, WRN, ERR, FTL).
+
+If you need a more granular level of detail, set the value of ASPNETCORE_ENVIRONMENT to **verbose** or **trace**. As a result, the VRB type will be added in addition to DBG and the four default types.
 
 ## Log format and examples
 
@@ -97,22 +99,25 @@ The following procedure shows how to get the current cluedin-server config map, 
 
 **To apply your log level**
 
-1. Get the current configuration by running the following command. This command downloads the current cluedin-server config map into a local file named **cluedin-server.yaml**.
+1. Get the current configuration by running the following command:
 ```
 kubectl get configmap cluedin-server -o yaml > cluedin-server.yaml --namespace cluedin
 ```
-2. Open the file that you downloaded in step 1 in the text editor of your choice.
+ This command downloads the current cluedin-server config map into a local **cluedin-server.yaml** file.
+
+2. Open the downloaded file in the text editor of your choice.
+
 3. Change the value of ASPNETCORE_ENVIRONMENT to your required log level. You can use one of the following values: **production**, **development**, **debug**, **verbose**, or **trace**.
 ```
 apiVersion: v1
     Data:
       ASPNETCORE_ENVIRONMENT: debug
 ```
+
 4. Apply the changed values from the local **cluedin-server.yaml** file to your Kubernetes cluedin-server config map by running the following command:
 ```
 kubectl apply -f cluedin-server.yaml --namespace cluedin
 ```
-
 After you apply the values, they won’t become active until the pod is restarted. This is because the values are applied during the pod startup process. After the required pod is restarted, you should see additional log types in your logging target or in the pod logs. 
 
 # Admin UIs
@@ -132,59 +137,71 @@ If you want to use several tools simultaneously, you can proxy several ports at 
 ## Neo4j
 Neo4J is a graph database used to store the relationships between entities.
 
-```powershell
-kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app=neo4j') 7474 7687
-```
+**To connect to Neo4j via port forwarding**
 
-Then point your browser to ```localhost:7474```
+1. Run the following command:
+```
+kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app=neo4j') 7474 7687
+ ```
+2. Point your browser to ```localhost:7474```
 
 ## RabbitMQ
 RabbitMQ is a messaging bus.
 
-```powershell
-kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app=rabbitmq') 15672
-```
-Then point your browser to ```localhost:15672```
+**To connect to RabbitMQ via port forwarding**
+
+1. Run the following command:
+ ```
+ kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app=rabbitmq') 15672
+ ```
+2. Point your browser to ```localhost:15672```
 
 ## Redis
 Redis is a storage of cache and key-value pairs.
 
-```powershell
-kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app=redis') 6379
-```
-Redis does not have a default front end. But you can set one up on your computer using Docker. 
+**To connect to Redis via port forwarding**
 
-```powershell
-docker run --rm -p 8081:8081 -e REDIS_HOSTS=local:host.docker.internal:6379 rediscommander/redis-commander
+1. Run the following command:
+ ```
+ powershell kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app=redis') 6379
+ ```
+2. Set up the front end for Redis on your computer using Docker. To do that, run the following command:
 ```
-Then point your browser to ```localhost:8081```
+ docker run --rm -p 8081:8081 -e REDIS_HOSTS=local:host.docker.internal:6379 rediscommander/redis-commander
+```
+3. Point your browser to ```localhost:8081```
 
 ## ElasticSearch
 ElasticSearch is a search index.
 
-```powershell
-kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app=elasticsearch') 9200
-```
-Then point your browser to ```localhost:9200/_plugin/inquisitor/#/```
+**To connect to ElasticSearch via port forwarding**
+
+1. Run the following command:
+ ```
+ kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app=elasticsearch') 9200
+ ```
+2. Ppoint your browser to ```localhost:9200/_plugin/inquisitor/#/```
 
 ## SQL Server
 
-SQL Server is a relational database. You can retrieve the password by running the following command in a bash shell:
-```bash
-kubectl get secret <release-name>-cluedin-sql-password -o jsonpath="{.data.SA_PASSWORD}" | base64 --decode
-```
+SQL Server is relational database.
 
-Or you can retrieve the password using PowerShell:
-```powershell
-[System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($(kubectl get secret <release-name>-cluedin-sql-password -o jsonpath="{.data.SA_PASSWORD}")))
-```
+**To connect to SQL Server via port forwarding**
 
-The port can be exposed locally using regular Kubernetes port-forwarding:
-
-```powershell
-kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app=sqlserver') 1433
+1. Depending on the tool that you use, retrieve the password by doing one of the following actions:
+    - If you are using bash shell, run the following command:
+    ```
+    kubectl get secret <release-name>-cluedin-sql-password -o jsonpath="{.data.SA_PASSWORD}" | base64 --decode
+    ```
+    - If you are using PowerShell, run the following command:
+    ```
+    [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($(kubectl get secret <release-name>-cluedin-sql-password -o jsonpath="{.data.SA_PASSWORD}")))
+    ```
+2. To expose the port locally using regular Kubernetes port-forwarding, run the following command:
 ```
-You can then use Visual Studio or the MS SQL Management Studio to connect to the database on localhost. If there is already a SQL Server instance on your machine, there will be a port clash. If there is a conflict with the existing open ports on your machine, you can map the port to a different local port. To do that, use the following syntax:
+    kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app=sqlserver') 1433
+```
+Then, you can use either Visual Studio or the MS SQL Management Studio to connect to the database on localhost. If there is already a SQL Server instance on your machine, there will be a port clash. If there is a conflict with the existing open ports on your machine, you can map the port to a different local port. To do that, use the following syntax:
 ```
 kubectl port-forward <pod> <local-port>:<remote-port>
-```
+ ```
