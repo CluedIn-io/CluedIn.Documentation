@@ -17,13 +17,13 @@ In this article, you will learn about advanced network configuration options tha
 
 # Default network configuration example
 
-The following diagram shows default network configuration of CluedIn after installation.
+The following diagram shows the default network configuration of CluedIn after installation.
 
 ![ama-network-1.jpeg](../../assets/images/ama/install-guide/ama-network-1.jpeg)
 
 # Advanced network configuration example
 
-The following diagram shows advanced network configuration of CluedIn.
+The following diagram shows the advanced network configuration of CluedIn.
 
 ![ama-network-2.jpeg](../../assets/images/ama/howtos/advanced-network-2.jpeg)
 
@@ -33,11 +33,11 @@ Advanced network configuration (ingress vNet integration) allows you to specify 
 - [Plan IP addressing for your cluster](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster)
 - [Configure Azure CNI networking in Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni)
 
-The CluedIn platform requires the use of the **Azure CNI networking plug-in**. This plug-in is configured using routable vNet-based IP address at a per pod and node level. You need to plan the IP addressing for your cluster according to your current network topology. 
+The CluedIn platform requires using **Azure CNI networking plug-in**. This plug-in is configured using routable vNet-based IP address at a per pod and node level. You need to plan the IP addressing for your cluster according to your current network topology. 
 
 During the CluedIn installation, you will be asked for the **Kubernetes service address range**. Microsoft default values will work fine with CluedIn. However, these values can be customized, and it is important that your network is planned in accordance with the Microsoft guidance.
 
-CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, this is an absolute minimum configuration, and it does not consider any additional services and associated overhead.
+CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, this is an absolute minimum configuration, and it does not include any additional services and associated overhead.
 
 ## Advanced network configuration options
 
@@ -48,7 +48,7 @@ CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, th
 
 <hr>
 
-When installing CluedIn from the Azure Marketplace, you can set up advanced network configuration on the **CluedIn - Advanced Configuration** tab. You can choose from three networking options: 
+When installing CluedIn from the Azure Marketplace, you can set up advanced network configuration on the **CluedIn - Advanced Configuration** tab. You can choose from the three networking options: 
 
 - **Default** – a new vNet will be created using default values that may not allow you to integrate with the existing networks.
 
@@ -56,16 +56,16 @@ When installing CluedIn from the Azure Marketplace, you can set up advanced netw
 
 - **Use Existing vNet** – an existing vNet will be used and you need to specify both the vNet and the IP address ranges.
     
-The following section focuses on the IP address configuration because it is universal to both the **Modify IP ranges** option and the **Use Existing vNet** option.
+The following section focuses on the IP address configuration because it is universal to both the **Modify IP ranges** and the **Use Existing vNet** options.
 
 ## IP address configuration
 
-The following example is based on CluedIn essential configuration using the default node pool configuration with the existing Azure vNet.
+The following example is based on the CluedIn essential configuration using the default node pool configuration with the existing Azure vNet.
 
 ![advanced-network-ama-tab.png](../../assets/images/ama/howtos/advanced-network-ama-tab.png)
 
 
-When configuring vNet integration, only the following values need to be changed unless you have a very specific use case: 
+When configuring vNet integration, only the following values need to be changed, unless you have a very specific use case: 
 
 - AKS subnet
 - Kubernetes DNS service IP address 
@@ -75,7 +75,7 @@ When configuring vNet integration, only the following values need to be changed 
 
 In the example above, the existing vNet was used to configure the AKS subnet. This is a non-overlapping subnet in the target network space, so it can communicate with other Azure vNets and Azure resources.
 
-_10.240.0.0/23_  has a range of 10.240.0.0–10.240.1.255, totalling 512 IP addresses. The AKS subnet is used to allocate IP address to pods, nodes, and the load balancer IP.  
+_10.240.0.0/23_ has a range of 10.240.0.0–10.240.1.255, which is 512 IP addresses in total. The AKS subnet is used to allocate IP address to pods, nodes, and the load balancer IP.  
 
 Under a normal operation, the cluster and CluedIn use around 350 addresses, leaving around 162 addresses for scaling, upgrading, and additional services.  
 
@@ -110,12 +110,12 @@ This section contains a procedure for configuring CluedIn to use your internal l
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
 - You should be connected to your AKS cluster.
-See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
+
+    See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
+
 - Your Helm repository is set up.
 
 If you have any questions, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> (or reach out to your delivery manager if you have a committed deal).
-
-<hr>
 
 **To configure CluedIn to use your load balancer and internal IP address**
 
@@ -129,7 +129,7 @@ helm get values cluedin-platform -n cluedin -o yaml > Cluster-Current-values.yam
 nano Cluster-Current-values.yaml
 ```
 
-3. In the file, find a section that looks like the example below. This section controls the load balancer configuration and associated IP address. The example shows external load balancer with external IP address.
+3. In the file, find a section that looks like the example below.
 ```
   haproxy-ingress:
     controller:
@@ -138,8 +138,9 @@ nano Cluster-Current-values.yaml
           service.beta.kubernetes.io/azure-load-balancer-resource-group: mrg-azurecluedin
         loadBalancerIP: 20.0.189.xxx
 ```
-4. Replace the section that you found with the following section.
+ This section controls the load balancer configuration and associated IP address. The example shows external load balancer with external IP address.
 
+4. Replace the section that you found with the following section:
 ```  
 haproxy-ingress:
     controller:
@@ -149,13 +150,13 @@ haproxy-ingress:
         loadBalancerIP: XXX.XXX.XXX.XXX
 ```
 
-4. Reconfigure a new load balancer to use your internal IP address. To do this, replace `xxx.xxx.xxx.xxx` with the IP address from your AKS subnet range.
-The IP address can be any IP from the range that is not in use by the nodes, pods, or other resources. To verify that the IP address is not in use, look at connected devices in the vNet resource page in the Azure portal.
+5. Reconfigure a new load balancer to use your internal IP address. To do this, replace `xxx.xxx.xxx.xxx` with the IP address from your AKS subnet range.
 
-5. Save the file.
+    The IP address can be any IP from the range that is not in use by the nodes, pods, or other resources. To verify that the IP address is not in use, look at connected devices in the vNet resource page in the Azure portal.
 
-6. Post the new configuration to the cluster by running the following command:
+6. Save the file.
 
+7. Post the new configuration to the cluster by running the following command:
 ```
 helm upgrade -i cluedin-platform cluedin/cluedin-platform  -n cluedin --create-namespace  --values Cluster-Current-values.yaml --set application.system.runDatabaseJobsOnUpgrade=false
 ```
