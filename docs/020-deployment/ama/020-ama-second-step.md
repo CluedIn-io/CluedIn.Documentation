@@ -84,7 +84,7 @@ This section contains the step-by-step procedure for manual registration of reso
 **To register resource providers**
 
 1. In the Azure portal, find and select the subscription where you need to install CluedIn.
-For more information about the subscription, see [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id).
+For more information about the subscription, see <a href="https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id" target="_blank">Get subscription and tenant IDs in the Azure portal</a>.
 
 1. On the left menu, under **Settings**, select **Resource providers**.
 
@@ -101,16 +101,19 @@ If you want a faster way to register the needed resource providers, run the scri
 
 **Prerequisites**
 
-1. PowerShell 7.
+* PowerShell 7.
+
     We recommend installing PowerShell via Winget: `winget search Microsoft.PowerShell`. For more details, see <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows" target="_blank">Installing PowerShell on Windows</a>.
-1. Azure CLI.
+* Azure CLI.
+    
     We recommend installing Azure CLI via Winget: `winget install -e --id Microsoft.AzureCLI`. For more details, see <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli" target="_blank">Install Azure CLI on Windows</a>.
-1. Your Azure subscription ID.
+* Your Azure subscription ID.
+    
     For more details, see [Get your Azure subscription ID](/deployment/infra-how-tos/get-subscription-id).
 
 **To run the script for registering resource providers**
 
-1. Download this <a href="../../../assets/ps1/pre-checks.ps1" download>script</a> and save it to a folder of your choice on your computer.
+1. Download this <a href="../../../assets/ps1/pre-checks.ps1" download>script</a>.
 1. Open your PowerShell terminal and run the following:
 
 ```powershell
@@ -125,17 +128,23 @@ The verification script checks if you have enough quota and if all required reso
 
 **Prerequisites**
 
-1. PowerShell 7.
+* PowerShell 7.
+    
     We recommend installing PowerShell via Winget: `winget search Microsoft.PowerShell`. For more details, see <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows" target="_blank">Installing PowerShell on Windows</a>.
-1. Azure CLI.
+
+* Azure CLI.
+    
     We recommend installing Azure CLI via Winget: `winget install -e --id Microsoft.AzureCLI`. For more details, see <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli" target="_blank">Install Azure CLI on Windows</a>.
-1. Your Azure subscription ID.
+
+* Your Azure subscription ID.
+    
     For more details, see [Get your Azure subscription ID](/deployment/infra-how-tos/get-subscription-id).
-1. Azure region that you will select during installation.
+
+* Azure region that you will select during installation.
 
 **To run the verification script**
 
-1. Download this <a href="../../../assets/ps1/check.ps1" download>verification script</a> and save it to a folder of your choice on your computer.
+1. Download this <a href="../../../assets/ps1/check.ps1" download>verification script</a>.
 1. Open your PowerShell terminal and run the following:
 
 ```powershell
@@ -227,4 +236,4 @@ CluedIn provides support of Azure Load Balancer and Application Gateway. Other n
 
 # Next steps
 
-Start the CluedIn installation process as described in our [Installation guide](/deployment/azure-marketplace/step-3).
+Start the CluedIn installation process as described in our <a href="/deployment/azure-marketplace/step-3" target="_blank">Installation guide</a>.
