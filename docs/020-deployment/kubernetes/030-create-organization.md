@@ -2,7 +2,7 @@
 layout: default
 nav_order: 3
 parent: Kubernetes
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/kubernetes/create-organization
 title: Create an Organization
 tags: ["deployment", "kubernetes", "organization"]

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: How tos
-parent: Deployment
+parent: Installation
 permalink: /deployment/infra-how-tos
 nav_order: 5
 has_children: true

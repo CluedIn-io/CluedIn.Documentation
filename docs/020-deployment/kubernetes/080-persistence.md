@@ -3,7 +3,7 @@ grand_parent: Deployment
 layout: default
 nav_order: 8
 parent: Kubernetes
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/kubernetes/persistence
 title: Persistence
 tags: ["deployment", "kubernetes", "persistence"]

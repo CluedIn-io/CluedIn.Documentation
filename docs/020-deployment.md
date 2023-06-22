@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Deployment
+title: Installation
 nav_order: 20
 has_children: true
 permalink: /deployment

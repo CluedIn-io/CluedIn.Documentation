@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Local
-parent: Deployment
+parent: Installation
 nav_order: 10
 permalink: /deployment/docker-compose
 tags: ["deployment", "docker", "docker-compose", "local-deployment"]

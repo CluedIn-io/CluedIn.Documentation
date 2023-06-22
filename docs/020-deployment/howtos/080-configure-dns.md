@@ -2,7 +2,7 @@
 layout: default
 nav_order: 1
 parent: How tos
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-dns
 title: Configure DNS
 tags: ["deployment", "ama", "marketplace", "azure"]
