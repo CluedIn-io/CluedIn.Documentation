@@ -9,7 +9,7 @@ tags: ["integration", "microsoft", "powerapps", "dataverse", "powerautomate"]
 ---
 
 ## Introduction
-We now offering you an in-app experience for Power Apps and Power Automate where you can build your workflows directly within CluedIn or manage your Master Data directly in Power Apps.
+We are offering you an in-app experience for Power Apps and Power Automate. Now you can build your workflows directly within CluedIn or manage your master data directly in Power Apps.
 
 ## Capabilities
 ### PowerApps
