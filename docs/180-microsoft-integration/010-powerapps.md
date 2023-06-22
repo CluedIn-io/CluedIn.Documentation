@@ -13,7 +13,7 @@ We are offering you an in-app experience for Power Apps and Power Automate. Now 
 
 ## Capabilities
 ### PowerApps
-Managing your Master Data directly in Power Apps (Dataverse) and automatically synchronizing the update to CluedIn via Ingestion Endpoint will give you the capability to ease the operation of monitoring the changes in your data. You can quickly see the changes in your data in CluedIn History.
+Managing your master data directly in Power Apps (Dataverse) and automatically synchronizing the update with CluedIn via Ingestion Endpoint will make it easier for you to monitor the changes in your data. You can quickly see the changes in your data in CluedIn History.
 
 Keep your Golden Record synced in the Dataverse table.
 
