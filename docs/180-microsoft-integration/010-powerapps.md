@@ -23,7 +23,7 @@ Synchronize both Dataverse and CluedIn metadata such as Columns/Vocabularies, Re
 Utilizing the capability of Power Automate workflow in managing the data and providing an Approval sequence (through email or Teams notification) for any data that has been added or changed either in CluedIn or Dataverse.
 
 ## Architecture
-A diagram that will show you how CluedIn Interact with Microsoft Power Platform.
+The following diagram illustrates how CluedIn interacts with Microsoft Power Platform.
 - 2-way synchronization of Dataverse Metadata to CluedIn Entity Types & Vocabularies and vice versa
 - Keeping the Golden Record data into Dataverse Platform
 - Auto-mapping of columns, keys, and relationships.
