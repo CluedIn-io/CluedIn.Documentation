@@ -12,15 +12,36 @@ tags: ["integration", "microsoft", "powerapps", "dataverse", "powerautomate"]
 We are offering you an in-app experience for Power Apps and Power Automate. Now you can build your workflows directly within CluedIn or manage your master data directly in Power Apps.
 
 ## Capabilities
+This section describes the benefits of integration with PowerApps and Power Automate.
+
 ### PowerApps
 Managing your master data directly in Power Apps (Dataverse) and automatically synchronizing the update with CluedIn via Ingestion Endpoint will make it easier for you to monitor the changes in your data. You can quickly see the changes in your data in CluedIn History.
 
 Keep your Golden Record synced in the Dataverse table.
 
-Synchronize both Dataverse and CluedIn metadata such as Columns/Vocabularies, Relationships/Edges, and so on.
+CluedIn supports 2 ways of synchronization with Dataverse.
+
+| Dataverse                | CluedIn                       |
+|:-------------------------|:------------------------------|
+| Table Name: **Customer** | Entity Type: **/Customer**    |
+|                          | Vocabulary Name: **Customer** |
+
+| Dataverse |   | CluedIn |    |    |
+|:----------|:--|:--------|:---|:---|
+| _Colums_ | _Data Type_ | _Vocabulary Keys_ | _Data Type_ | _Data Mapping_ |
+| Id | Unique Identifier | customer.id | Guid | Origin Entity Code |
+| Name | Single line of Text _(Primary Column)_ | customer.name | Text | Display Name |
+| Age | Whole Number | customer.age | Integer | |
+| Birthday | Date and Time | customer.age | DateTime | |
+| Gender | Choice | customer.email | Lookup | |
+| Transaction | Lookup | customer.transactionId | Guid | Edge : _/Transaction_ |
+| Email _(Key)_ | Single line of text | customer.email | Text | Entity Code |
+
+CluedIn will use its streaming engine to synchronize golden records located in CluedIn with your Dataverse tables and uses its automated ingestion endpoint to synchronize new data coming from Dataverse.
+
 
 ### Power Automate
-Utilizing the capability of Power Automate workflow in managing the data and providing an Approval sequence (through email or Teams notification) for any data that has been added or changed either in CluedIn or Dataverse.
+Using our Power Automate integrations, CluedIn can generate an approval sequence (that you can be tailored) for accepting or rejecting data changed either from CluedIn to DataVerse or from DataVerse to CluedIn.
 
 ## Architecture
 The following diagram illustrates how CluedIn interacts with Microsoft Power Platform.
