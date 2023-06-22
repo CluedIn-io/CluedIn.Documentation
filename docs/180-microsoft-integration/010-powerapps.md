@@ -17,7 +17,7 @@ Managing your master data directly in Power Apps (Dataverse) and automatically s
 
 Keep your Golden Record synced in the Dataverse table.
 
-Synchronize both Dataverse and CluedIn metadata such as Columns/Vocabularies, Relationships/Edges, etc.
+Synchronize both Dataverse and CluedIn metadata such as Columns/Vocabularies, Relationships/Edges, and so on.
 
 ### Power Automate
 Utilizing the capability of Power Automate workflow in managing the data and providing an Approval sequence (through email or Teams notification) for any data that has been added or changed either in CluedIn or Dataverse.
