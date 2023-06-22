@@ -184,7 +184,7 @@ As a result, you will get a file named <b>results_<i>location</i>.json</b> that 
 # Configure firewall settings
 
 Your Azure Firewall should cover the following:
-- **Default AKS functionality** – logs and pods should be able to see Kubernetes API Server (as recommended in <a href="https://learn.microsoft.com/en-us/azure/aks/outbound-rules-control-egress" target="_blank">Azure AKS documentation</a>).
+- **Default AKS functionality** – logs and pods should be able to see Kubernetes API Server (as recommended in <a href="https://learn.microsoft.com/en-us/azure/aks/outbound-rules-control-egress">Azure AKS documentation</a>).
 - **CluedIn resource access** – resources needed for the CluedIn installation.
 
 Add the following rules to your Azure Firewall as described in the table.
