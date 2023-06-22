@@ -2,7 +2,7 @@
 layout: default
 nav_order: 1
 parent: Kubernetes
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/kubernetes/deployment
 title: Deployment
 tags: ["deployment", "kubernetes"]

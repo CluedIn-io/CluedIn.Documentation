@@ -2,7 +2,7 @@
 layout: default
 nav_order: 1
 parent: How tos
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/infra-how-tos/connect-to-cluedin
 title: Connect to CluedIn cluster
 tags: ["deployment", "ama", "marketplace", "azure"]

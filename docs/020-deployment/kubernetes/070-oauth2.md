@@ -2,7 +2,7 @@
 layout: default
 nav_order: 7
 parent: Kubernetes
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/kubernetes/oauth2
 title: OAuth2
 tags: ["deployment", "kubernetes", "oauth2"]

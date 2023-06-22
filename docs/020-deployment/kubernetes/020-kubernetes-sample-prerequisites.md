@@ -2,7 +2,7 @@
 layout: default
 nav_order: 2
 parent: Kubernetes
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/kubernetes/kubernetes-sample-prerequisites
 title: Example pre-requisite configuration
 tags: ["deployment", "kubernetes", "prerequisites"]

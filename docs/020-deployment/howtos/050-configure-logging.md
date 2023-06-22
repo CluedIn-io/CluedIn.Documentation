@@ -2,7 +2,7 @@
 layout: default
 nav_order: 1
 parent: How tos
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-logging
 title: Configure logging
 tags: ["deployment", "ama", "marketplace", "azure"]
@@ -70,7 +70,7 @@ You can adjust the verbosity of the log messages that your system generates. To 
 
 - **Production**
 - **Development** or **debug**
-- **Verbose or trace**
+- **Verbose** or **trace**
 
 If you change the value of ASPNETCORE_ENVIRONMENT to **development** or **debug**, you will see log messages of the DBG type in addition to the four default types (INF, WRN, ERR, FTL).
 

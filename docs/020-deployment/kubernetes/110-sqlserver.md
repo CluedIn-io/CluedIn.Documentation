@@ -2,7 +2,7 @@
 layout: default
 nav_order: 11
 parent: Kubernetes
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/kubernetes/sql
 title: SQL Server
 tags: ["deployment", "kubernetes", "sqlserver"]

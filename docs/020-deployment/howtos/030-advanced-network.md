@@ -2,7 +2,7 @@
 layout: default
 nav_order: 1
 parent: How tos
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/infra-how-tos/advanced-network
 title: Advanced network configuration
 tags: ["deployment", "ama", "marketplace", "azure"]
@@ -43,10 +43,8 @@ CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, th
 
 **Important!** If you do not plan to make any changes to the default out-of-the-box network configuration, you can skip this section and check other configuration-related topics:
 - [Configure SSO](/deployment/infra-how-tos/configure-sso)
-- [Configure DNS](deployment/infra-how-tos/configure-dns)
+- [Configure DNS](/deployment/infra-how-tos/configure-dns)
 - [Configure certificates](/deployment/infra-how-tos/configure-certificates)
-
-<hr>
 
 When installing CluedIn from the Azure Marketplace, you can set up advanced network configuration on the **CluedIn - Advanced Configuration** tab. You can choose from the three networking options: 
 

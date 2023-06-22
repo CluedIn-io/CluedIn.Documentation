@@ -2,7 +2,7 @@
 layout: default
 nav_order: 5
 parent: Kubernetes
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/kubernetes/email
 title: Email
 tags: ["deployment", "kubernetes", "email"]

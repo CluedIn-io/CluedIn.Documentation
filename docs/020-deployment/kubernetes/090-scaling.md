@@ -2,7 +2,7 @@
 layout: default
 nav_order: 9
 parent: Kubernetes
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/kubernetes/scaling
 title: Scaling
 tags: ["deployment", "kubernetes", "scaling"]

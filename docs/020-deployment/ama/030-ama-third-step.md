@@ -2,7 +2,7 @@
 layout: default
 nav_order: 3
 parent: Azure Marketplace
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/azure-marketplace/step-3
 title: 3. Installation guide
 tags: ["deployment", "ama", "marketplace", "azure"]

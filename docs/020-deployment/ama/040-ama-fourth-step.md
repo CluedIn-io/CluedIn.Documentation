@@ -2,7 +2,7 @@
 layout: default
 nav_order: 4
 parent: Azure Marketplace
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/azure-marketplace/step-4
 title: 4. Post-installation guide
 tags: ["deployment", "ama", "marketplace", "azure"]
@@ -19,7 +19,7 @@ At this point, you have a working, secure CluedIn environment. However, the defa
 
 # Configure custom DNS
 
-To avoid interruption in the adoption of CluedIn, external DNS names are provided by the <a href="https://sslip.io/" target="_blank">sslip.io</a> service by default without any upfront configuration. The sslip.io service is a DNS service that returns the IP address when queried with a host name that contains an embedded IP address.
+To avoid interruption in the adoption of CluedIn, external DNS names are provided by the <a href="https://sslip.io/">sslip.io</a> service by default without any upfront configuration. The sslip.io service is a DNS service that returns the IP address when queried with a host name that contains an embedded IP address.
 
 The default DNS configuration ensures security by using the Automated Certificate Management Environment (ACME) protocol to issue SSL Certificates via the HTTP challenge method. For more information about certificates, see [Configure certificates](/deployment/infra-how-tos/configure-certificates).
 
@@ -27,7 +27,7 @@ If you want to set up custom DNS entries, see [Configure DNS](/deployment/infra-
 
 # Configure custom SSL certificates
 
-By default, CluedIn installation is secured by using TLS. CluedIn uses the Automated Certificate Management Environment (ACME) protocol and the public Let's Encrypt certificate authority to issue certificates. However, this default configuration might not comply with your organization's security policy. If you want to use a Subject Alternative Name (SAN) or wildcard certificate for you domain, see [Create your own certificates and keys](/docs/020-deployment/howtos/070-configure-certificates.md#create-your-own-certificates-and-keys).
+By default, CluedIn installation is secured by using TLS. CluedIn uses the Automated Certificate Management Environment (ACME) protocol and the public Let's Encrypt certificate authority to issue certificates. However, this default configuration might not comply with your organization's security policy. If you want to use a Subject Alternative Name (SAN) or wildcard certificate for you domain, see [Configure certificates](/deployment/infra-how-tos/configure-certificates).
 
 # Configure alerts
 
@@ -46,7 +46,7 @@ By default, your CluedIn containers are configured to log at the production leve
 
 # Set up SSO
 
-CluedIn does not set up SSO directly out of the box. If you want to use SSO, see our [SSO guide](/deployment/infra-how-tos/configure-sso).
+CluedIn does not set up SSO directly out of the box. If you want to use SSO, see [Configure SSO](/deployment/infra-how-tos/configure-sso).
 
 # Results
 

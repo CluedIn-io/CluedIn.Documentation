@@ -2,7 +2,7 @@
 layout: default
 nav_order: 1
 parent: How tos
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-sso
 title: Configure SSO
 tags: ["deployment", "ama", "marketplace", "azure"]
@@ -80,13 +80,13 @@ Redirect URI is the location to which the Microsoft identity platform redirects 
 1. In the right pane, select **Web**.
 ![Add_redirect_URIs_Configure_platforms.png](../../assets/images/ama/howtos/configure-sso-5.png)
 1. In the **Configure Web** pane, specify the following:
-   1. In **Redirect URIs**, add a redirect URI for your application (for example, https://app.yourdomain.com).
+   1. In **Redirect URIs**, add a redirect URI for your application (for example, ```https://app.yourdomain.com```).
 ![Add_redirect_URIs_Redirect_URIs.png](../../assets/images/ama/howtos/configure-sso-6.png)
-   1. In **Front channel logout URI**, add a logout URL for your application (for example, https://app.yourdomain.com/logout).
+   1. In **Front channel logout URI**, add a logout URL for your application (for example, ```https://app.yourdomain.com/logout```).
 ![Add_redirect_URIs_Logout_URL.png](../../assets/images/ama/howtos/configure-sso-7.png)
    1. In the **Implicit grant and hybrid flows** section, select the **ID tokens** checkbox, and then select **Configure**.
 ![Add_redirect_URIs_ID_tokens.png](../../assets/images/ama/howtos/configure-sso-8.png)
-5. In the **Platform configurations** section, in **Web**, add additional URIs (for example, https://departmentX.yourdomain.com, https://app.yourdomain.com/auth/signin-oidc).
+5. In the **Platform configurations** section, in **Web**, add additional URIs (for example, ```https://departmentX.yourdomain.com```, ```https://app.yourdomain.com/auth/signin-oidc```).
 ![Add_redirect_URIs_additional.png](../../assets/images/ama/howtos/configure-sso-9.png)
 6. At the bottom of the page, select **Save**.
 
@@ -94,7 +94,7 @@ For more information about redirect URIs, see [Microsoft documentation](https://
 
 ## Add API permissions for Microsoft Graph
 
-When you register an application in the Azure portal, the Microsoft Graph API with the User.Read permission is added automatically. You need to add additional permissions for Microsoft Graph.
+When you register an application in the Azure portal, the Microsoft Graph API with the **User.Read** permission is added automatically. You need to add additional permissions for Microsoft Graph.
 
 **To add API permissions for Microsoft Graph**
 
@@ -118,9 +118,9 @@ You need to register a web API with the Microsoft identity platform and expose i
 2. Select **Expose an API**.
 3. In the **Scopes defined by this API** section, select **Add a scope**.
 4. Specify the following scope attributes:
-- **Scope name** – https://www.cluedin.net/sso/user_impersonation
-- **Who can consent** – Admins and Users
-- **Authorized client applications** – https://www.cluedin.net/sso/user_impersonation
+- **Scope name** – ```https://www.cluedin.net/sso/user_impersonation```
+- **Who can consent** – **Admins and Users**
+- **Authorized client applications** – ```https://www.cluedin.net/sso/user_impersonation```
 ![expose_api.png](../../assets/images/ama/howtos/expose_api.png)
 
 For detailed instructions on how to configure an app to expose web API, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
@@ -175,7 +175,7 @@ After you complete the Azure application registration and app roles configuratio
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
 - You should be connected to your AKS cluster.
 
-    See [Connect to CluedIn cluster](/docs/020-deployment/howtos/010-connect-to-cluedin.md) for detailed instructions.
+    See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
 
 - Your Helm repository is set up.
 

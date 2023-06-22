@@ -2,7 +2,7 @@
 layout: default
 nav_order: 10
 parent: Helm
-grand_parent: Deployment
+grand_parent: Installation
 permalink: /deployment/helm/pvc
 title: Persistent Volume Claims
 tags: ["deployment", "kubernetes", "azure", "aks"]
