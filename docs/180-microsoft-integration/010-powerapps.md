@@ -51,4 +51,4 @@ The following diagram illustrates how CluedIn interacts with Microsoft Power Pla
 - Approval workflow (approved through Teams or Outlook) for data change in the Dataverse table and pushing the data to CluedIn via Ingestion Endpoint.
 - Approval workflow (approved through Teams or Outlook) during CluedIn Clean or Manual Data Entry Data Processing.
 
-![Microsoft-CluedIn](./powerapps/images/microsoft-cluedin.jpg)
+![Microsoft-CluedIn](./powerapps/images/cluedin-powerapps-diagram.jpg)
