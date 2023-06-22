@@ -24,7 +24,7 @@ Utilizing the capability of Power Automate workflow in managing the data and pro
 
 ## Architecture
 The following diagram illustrates how CluedIn interacts with Microsoft Power Platform.
-- 2-way synchronization of Dataverse Metadata to CluedIn Entity Types & Vocabularies and vice versa
+- 2-way synchronization of Dataverse Metadata to CluedIn Entity Types & Vocabularies and vice versa.
 - Keeping the Golden Record data into Dataverse Platform
 - Auto-mapping of columns, keys, and relationships.
 - Approval workflow (approved through Teams or Outlook) when there's a change in the data in Dataverse table and pushing the data to CluedIn via Ingestion Endpoint
