@@ -5,5 +5,29 @@ parent: Microsoft Integration
 permalink: /microsoft-integration/powerapps
 nav_order: 40
 has_children: true
-tags: ["integration", "microsoft", "powerapps", "dataverse"]
+tags: ["integration", "microsoft", "powerapps", "dataverse", "powerautomate"]
 ---
+
+## Introduction
+We now offering you an in-app experience for Power Apps and Power Automate where you can build your workflows directly within CluedIn or manage your Master Data directly in Power Apps.
+
+## Capabilities
+### PowerApps
+Managing your Master Data directly in Power Apps (Dataverse) and automatically synchronizing the update to CluedIn via Ingestion Endpoint will give you the capability to ease the operation of monitoring the changes in your data. You can quickly see the changes in your data in CluedIn History.
+
+Keep your Golden Record synced in the Dataverse table.
+
+Synchronize both Dataverse and CluedIn metadata such as Columns/Vocabularies, Relationships/Edges, etc.
+
+### Power Automate
+Utilizing the capability of Power Automate workflow in managing the data and providing an Approval sequence (through email or Teams notification) for any data that has been added or changed either in CluedIn or Dataverse.
+
+## Architecture
+A diagram that will show you how CluedIn Interact with Microsoft Power Platform.
+- 2-way synchronization of Dataverse Metadata to CluedIn Entity Types & Vocabularies and vice versa
+- Keeping the Golden Record data into Dataverse Platform
+- Auto-mapping of columns, keys, and relationships.
+- Approval workflow (approved through Teams or Outlook) when there's a change in the data in Dataverse table and pushing the data to CluedIn via Ingestion Endpoint
+- Approval workflow (approved through Teams or Outlook) during CluedIn Clean or Manual Data Entry Data Processing.
+
+![Microsoft-CluedIn](./powerapps/images/microsoft-cluedin.jpg)
