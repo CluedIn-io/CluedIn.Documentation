@@ -31,7 +31,7 @@ By default, CluedIn installation is secured by using TLS. CluedIn uses the Autom
 
 # Configure alerts
 
-By default, CluedIn contains built-in alerts that are sent to our support team. You can configure your own alerts in the Azure portal.
+By default, CluedIn contains built-in alerts that are sent to our support team. You can configure your own alerts in the Azure portal. For more information about alerts, see [Configure alerts](/deployment/infra-how-tos/configure-alerts).
 
 # Configure logging
 
