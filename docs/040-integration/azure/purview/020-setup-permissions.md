@@ -13,14 +13,27 @@ tags: ["integration", "azure", "purview"]
 Purview integration is enabled via CluedIn's settings page. When the fields are left empty or blank, no synchronization is performed with Microsoft Purview.
 
 ## Credentials
-1. In CluedIn, navigate to the Administration > Settings page, and provide the [Microsoft Purview credentials](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal#open-the-microsoft-purview-governance-portal):
-- Base URL
-- Client ID
-- Client Secret
-- Tenant ID
+1. Enter [Microsoft Purview credentials](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal#open-the-microsoft-purview-governance-portal) in CluedIn's Settings
+   i. Visit CluedIn web application
+   ii. Navigate to Administration > Settings
+   iii. Scroll down to Organization Settings section and enter Purview credentials into the respective textboxes for the following details :
+      ![Input Microsoft Purview credentials](./Media/settings.png)
+      - Base URL
+      - Client ID
+      - Client Secret
+      - Tenant ID
 
-![Input Microsoft Purview credentials](./media/settings.png)
-Input Microsoft Purview credentials
+2. On the same Organization Settings page, navigate to "Purview: Collection Name" setting and enter the target collection path of your Purview instance. Ex. root_collection/collection1/targetcollection
+     
+3. Select one or more synchronization features
+   ![Optional settings](./Media/settings_optional.png)
+   - Synchronize Data Sources
+   - Synchronize Crawlers And Enrichers
+   - Synchronize Streams
+   - Synchronize Purview Glossary Terms To CluedIn Vocabularies
+   - Synchronize CluedIn Vocabularies to Purview Glossary Terms
+   - Synchronize Purview Glossaries Terms To CluedIn Glossary Terms
+   - Polling Data Sources
 
 ## Minimum Permission Requirements
 
@@ -40,16 +53,26 @@ The following table lists the Purview roles[^permissions] CluedIn requires per i
 
 # Setup Azure Data Factory
 ## Credentials
-Provide [Microsoft ADF Credentials](https://learn.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory) 
-- Base URL, format: 
-    > https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.DataFactory/factories/{factoryName}/
-- Client ID
-- Client Secret
-- Tenant ID
 
-![Input Microsoft Azure Data Factory credentials](./media/adf_settings.png)
+1. Enter [Microsoft ADF Credentials](https://learn.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory) in CluedIn's Settings
+   i. Visit CluedIn web application
+   ii. Navigate to Administration > Settings
+   iii. Scroll down to Organization Settings section and enter ADF credentials into the respective textboxes for the following details :
+      ![Input Microsoft Azure Data Factory credentials](./Media/adf_settings.png)
+      - Base URL (format: https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.DataFactory/factories/{factoryName}/)
+      - Client ID
+      - Client Secret
+      - Tenant ID
 
-## References
+2. Enabled the Automation button.
+![Input Microsoft Azure Data Factory credentials](./Media/adf_settings2.png)
+- Provide Term Name pattern to filter the asset that you want to automate.
+
+## ADF Automation Coverage
+- Azure SQL Server
+- Azure Data Lake gen 2
+- Azure File (in progress)
+
 [^permissions]: [Microsoft Purview Catalog Permissions](https://learn.microsoft.com/en-us/azure/purview/catalog-permissions)
 [^root-collection]: "Root Collection" refers to the top most collection of your Microsoft Purview instance.
 [^target-collection]: "Target Collection" refers to the "Collection Name" specified in CluedIn's organization settings.
