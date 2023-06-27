@@ -40,7 +40,14 @@ If you choose the **pay-as-you go license**, you can install CluedIn directly fr
 
 If you choose the **committed-deal license**, contact your Account Executive or our <a href="https://www.cluedin.com/get-in-touch" target="_blank">sales team</a> to discuss the contract. We’ll make sure you get the best deal to get started with CluedIn. After you sign the contract, we’ll send you the **license key by email**.
 
-The committed-deal license comes with such benefits as a **welcome package**, which includes real-time training where we explain how to run a CluedIn project, and a **fixed price** for the license. In addition, you will automatically get 2 free CluedIn licenses for **development and test environments**.
+The committed-deal license comes with such benefits as:
+
+- **Welcome package** that includes real-time training where we explain how to run a CluedIn project.
+- **Fixed price** for the license.
+- **Enterprise 24/7 support** in accordance with our enterprise support agreement and service level agreements (SLAs).
+- **Managed service from CluedIn** for the client's CluedIn application infrastructure.
+
+In addition, you will automatically get 2 free CluedIn licenses for **development and test environments**.
 
 We recommend using three different environments:
 
