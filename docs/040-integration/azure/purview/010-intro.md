@@ -73,7 +73,7 @@ This synchronization feature allows the import of Microsoft Purview Glossaries a
 
 ## Sync CluedIn Vocabularies to Purview Glossary Terms
 
-![Purview glossary terms created under the root glossary term "CluedIn" + [Your machine name], ex. "CluedIn-Dell"](./Media/vocab_to_glossary.png)
+![Purview glossary terms created under the root glossary term "CluedIn" + [Your machine name], ex. "CluedIn-Dell"](./media/vocab_to_glossary.png)
 Purview glossary terms created under the root glossary term "CluedIn" + [Your machine name], ex. "CluedIn-Dell"
 
 - By default, a "CluedIn" root glossary term is created in Purview glossaries.
@@ -95,12 +95,12 @@ The _"Sync Crawlers And Enrichers"_ feature will create or update existing crawl
 
 The "DataSource" provider types (data imported via files/endpoints/databases) are handled by the _"Sync Data Sources"_ feature.
 
-![Example of a Crawler lineage](./Media/crawler_lineage.png)
+![Example of a Crawler lineage](./media/crawler_lineage.png)
 Example of a Crawler lineage
 
 When a Crawler imports clues into CluedIn, this feature creates a lineage from the Crawler provider to the Entity Types of the CluedIn entities via the "Crawl" process.
 
-![Example of a Enricher lineage](./Media/enricher_lineage.png)
+![Example of a Enricher lineage](./media/enricher_lineage.png)
 Example of a Enricher lineage
 
 When an enricher enriches an entity, this feature creates a lineage from the Enricher provider to the Entity Types of the CluedIn entities via the "Enrich" process.

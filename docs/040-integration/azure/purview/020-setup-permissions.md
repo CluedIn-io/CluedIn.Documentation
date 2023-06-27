@@ -17,7 +17,7 @@ Purview integration is enabled via CluedIn's settings page. When the fields are 
    i. Visit CluedIn web application
    ii. Navigate to Administration > Settings
    iii. Scroll down to Organization Settings section and enter Purview credentials into the respective textboxes for the following details :
-      ![Input Microsoft Purview credentials](./Media/settings.png)
+      ![Input Microsoft Purview credentials](./media/settings.png)
       - Base URL
       - Client ID
       - Client Secret
@@ -26,7 +26,7 @@ Purview integration is enabled via CluedIn's settings page. When the fields are 
 2. On the same Organization Settings page, navigate to "Purview: Collection Name" setting and enter the target collection path of your Purview instance. Ex. root_collection/collection1/targetcollection
      
 3. Select one or more synchronization features
-   ![Optional settings](./Media/settings_optional.png)
+   ![Optional settings](./media/settings_optional.png)
    - Synchronize Data Sources
    - Synchronize Crawlers And Enrichers
    - Synchronize Streams
@@ -58,14 +58,14 @@ The following table lists the Purview roles[^permissions] CluedIn requires per i
    i. Visit CluedIn web application
    ii. Navigate to Administration > Settings
    iii. Scroll down to Organization Settings section and enter ADF credentials into the respective textboxes for the following details :
-      ![Input Microsoft Azure Data Factory credentials](./Media/adf_settings.png)
+      ![Input Microsoft Azure Data Factory credentials](./media/adf_settings.png)
       - Base URL (format: https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.DataFactory/factories/{factoryName}/)
       - Client ID
       - Client Secret
       - Tenant ID
 
 2. Enabled the Automation button.
-![Input Microsoft Azure Data Factory credentials](./Media/adf_settings2.png)
+![Input Microsoft Azure Data Factory credentials](./media/adf_settings2.png)
 - Provide Term Name pattern to filter the asset that you want to automate.
 
 ## ADF Automation Coverage
