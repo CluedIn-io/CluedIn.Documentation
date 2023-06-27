@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Setup credentials and permissions
-parent: Microsoft Purview
-grand_parent: Microsoft Azure Integrations
-permalink: /integration/azure-integrations/purview/setup
+parent: Microsoft Purview Integration
+grand_parent: Microsoft Integration
+permalink: /microsoft-integration/purview/setup
 nav_order: 020
 has_children: false
-tags: ["integration", "azure", "purview"]
+tags: ["integration", "microsoft", "azure", "purview"]
 ---
 
 # Setup Microsoft Purview

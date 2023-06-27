@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Introduction
-parent: Microsoft Purview
-grand_parent: Microsoft Azure Integrations
-permalink: /integration/azure-integrations/purview/introduction
+parent: Microsoft Purview Integration
+grand_parent: Microsoft Integration
+permalink: /microsoft-integration/purview/introduction
 nav_order: 010
 has_children: false
-tags: ["integration", "azure", "purview"]
+tags: ["integration", "microsoft", "azure", "purview"]
 ---
 
 # Overview
