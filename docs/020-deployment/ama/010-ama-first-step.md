@@ -43,11 +43,8 @@ If you choose the **committed-deal license**, contact your Account Executive or 
 The committed-deal license comes with such benefits as:
 
 - **Welcome package** that includes real-time training where we explain how to run a CluedIn project.
-
 - **Fixed price** for the license.
-
-- **Enterprise 24/7 support** as per our enterprise support agreement and SLAs.
-
+- **Enterprise 24/7 support** in accordance with our enterprise support agreement and service level agreements (SLAs).
 - **Managed service from CluedIn** for the client's CluedIn application infrastructure.
 
 In addition, you will automatically get 2 free CluedIn licenses for **development and test environments**.
