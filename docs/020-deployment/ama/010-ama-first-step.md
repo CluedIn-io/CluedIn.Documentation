@@ -13,8 +13,6 @@ last_modified: 2023-06-20
 1. TOC
 {:toc}
 
-CluedIn is an Azure Managed Application (AMA) that is deployed within your company's Azure infrastructure. As a managed application, CluedIn is easy to deploy and operate. In addition, our support team can help you with the installation processes.
-
 In this article, you will learn about the decisions you need to make before starting the CluedIn installation process.
 
 ![Business decisions before installation](../../assets/images/ama/install-guide/overview-first-step.png)
