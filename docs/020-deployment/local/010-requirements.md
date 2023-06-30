@@ -15,7 +15,7 @@ last_modified: 2023-06-30
 
 In this article, you will learn about the pre-installation processes that you must perform to ensure successful local installation of CluedIn.
 
-![pre-installation-local-checklist.png](/.attachments/pre-installation-local-checklist-d6e0a975-581c-4a66-9d61-cdf18c092cce.png)
+![local-installation-checklist.png](../../assets/images/local-install/local-installation-checklist.png)
 
 # Get access to CluedIn container registry
 
@@ -31,7 +31,7 @@ The first to do to be able to run CluedIn locally is to get access to CluedIn Az
 
     After you submit the form, you'll receive an email with instructions to verify your email address.
     
-    ![email-sample.png](/.attachments/email-sample-5bf2548b-e830-4825-880e-ff567a7893ae.png)
+    ![email-sample.png](../../assets/images/local-install/email-sample.png)
 
 1. In the email, select **Verify**.
 
@@ -39,11 +39,11 @@ The first to do to be able to run CluedIn locally is to get access to CluedIn Az
 
 1. Select **Confirm 'Verify'**.
 
-    ![confirm-email-verification.png](/.attachments/confirm-email-verification-b9e19136-2d88-447d-8e1c-471798cd12b5.png)
+    ![confirm-email-verification.png](../../assets/images/local-install/confirm-email-verification.png)
     
-    After you verify your email address, you'll receive an email with credentials. You'll need these credentials for [authenticating to ACR](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1277/Local-installation-guide?anchor=authenticate-to-cluedin-acr).
+    After you verify your email address, you'll receive an email with credentials. You'll need these credentials for authenticating to ACR.
 
-    ![email-access.png](/.attachments/email-access-61b15779-8308-4664-a344-7cf73d8d1614.png)
+    ![email-access.png](../../assets/images/local-install/email-access.png)
 
 # Check hardware requirements
 
@@ -62,7 +62,7 @@ Make sure that you have installed the following software:
 - [Git](https://gitforwindows.org/)
 - [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.3) 7 or higher
 
-In addition, make sure that you have access to [CluedIn container registry](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1275/part-1-installation-requirements?anchor=get-access-to-cluedin-container-registry).
+In addition, make sure that you have access to [CluedIn container registry](#get-access-to-cluedin-container-registry).
 
 # Results
 
@@ -71,4 +71,4 @@ In addition, make sure that you have access to [CluedIn container registry](http
 
 # Next steps
 
-Start the local installation of CluedIn as described in our [Local installation guide](). Add link
+Start the local installation of CluedIn as described in our Local installation guide.
