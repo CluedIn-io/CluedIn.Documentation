@@ -25,7 +25,7 @@ The first step for the local installation of CluedIn is to clone the CluedIn pub
 
 - In the command line, run the following command:
 
-    `git clone https://github.com/CluedIn-io/Home`
+    ```git clone https://github.com/CluedIn-io/Home```
 
     You will get an output similar to the following.
 
@@ -54,7 +54,7 @@ You can find the ACR to which you have been granted access in the <a href="/depl
 
 1. Open to the checkout directory by running the following command:
 
-    `cd Home`
+    ```cd Home```
 
 1. Sign in to Docker. Depending on the registry to which you have been granted access, do one of the following:
 
@@ -64,13 +64,13 @@ You can find the ACR to which you have been granted access in the <a href="/depl
 
     - For **Early Access**, run the following command:
 
-        `docker login cluedindev.azurecr.io`
+        ```docker login cluedindev.azurecr.io```
 
 1. Enter the username and password that you received in the <a href="/deployment/local/step-1#get-access-to-CluedIn-container-registry">email from CluedIn</a>.
 
 1. To verify your access, pull images from the ACR by running the following command:
 
-    `pwsh .\cluedin.ps1 pull`
+    ```pwsh .\cluedin.ps1 pull```
 
     This process takes some time.
 
@@ -82,7 +82,7 @@ You can find the ACR to which you have been granted access in the <a href="/depl
 
 1. Create an environment. In the following command, we use `202304` as the name of the environment. To create an environment, run the following command:
 
-    `pwsh .\cluedin.ps1 env 202304 -tag 2023.04`
+    ```pwsh .\cluedin.ps1 env 202304 -tag 2023.04```
 
     You will get an output similar to the following.
 
@@ -98,7 +98,7 @@ As Docker is not an orchestration tool like Kubernetes, starting up Docker conta
 
 1. Run the following command:
 
-    `pwsh .\cluedin.ps1 up 202304 -disable server`
+    ```pwsh .\cluedin.ps1 up 202304 -disable server```
 
     Where `202304` is the name of the environment that you created in the previous procedure.
 
@@ -112,7 +112,7 @@ As Docker is not an orchestration tool like Kubernetes, starting up Docker conta
 
 1. Run the following command:
 
-   `pwsh .\cluedin.ps1 up 202304`
+   ```pwsh .\cluedin.ps1 up 202304```
 
     Where `202304` is the name of the environment.
 
@@ -138,7 +138,7 @@ Make sure the server has started correctly. To do that, in Docker Desktop, selec
 
 1. Run the following command:
 
-    `pwsh .\cluedin.ps1 createorg 202304 -Name example -Pass Example123!`
+    ```pwsh .\cluedin.ps1 createorg 202304 -Name example -Pass Example123!```
 
     You'll get the credentials for signing in to CluedIn.
 
@@ -146,7 +146,7 @@ Make sure the server has started correctly. To do that, in Docker Desktop, selec
 
 1. Open the CluedIn sign-in page by running the following command:
 
-    `pwsh .\cluedin.ps1 open 202304 -Org example`
+    ```pwsh .\cluedin.ps1 open 202304 -Org example```
 
     ![open-cluedin.png](../../assets/images/local-install/open-cluedin.png)
 
