@@ -71,4 +71,4 @@ In addition, make sure that you have access to [CluedIn container registry](#get
 
 # Next steps
 
-Start the local installation of CluedIn as described in our [Local installation guide](/deployment/docker-compose/step-2).
+Start the local installation of CluedIn as described in our [Local installation guide](/deployment/local/step-2).

@@ -39,7 +39,7 @@ In the procedure, we'll use following input variables:
 
 1. Add a reference for the package by running the following command:
 
-    `pwsh .\cluedin.ps1 packages 202304 -Add CluedIn.Connector.SqlServer`
+    ```pwsh .\cluedin.ps1 packages 202304 -Add CluedIn.Connector.SqlServer```
 
     You will get an output similar to the following.    
  
@@ -49,7 +49,7 @@ In the procedure, we'll use following input variables:
 
 1. Restore the package by running the following command:
 
-    `pwsh .\cluedin.ps1 packages 202304 -Restore`
+    ```pwsh .\cluedin.ps1 packages 202304 -Restore```
 
     You will get an output similar to the following.
 
@@ -57,7 +57,7 @@ In the procedure, we'll use following input variables:
 
 1. Stop the CluedIn server by running the following command:
 
-    `pwsh .\cluedin.ps1 stop 202304`
+    ```pwsh .\cluedin.ps1 stop 202304```
 
     You will get an output similar to the following.
 
@@ -65,7 +65,7 @@ In the procedure, we'll use following input variables:
 
 1. Start the CluedIn server by running the following command:
 
-    `pwsh .\cluedin.ps1 up 202304`
+    ```pwsh .\cluedin.ps1 up 202304```
 
     You will get an output similar to the following.
 
