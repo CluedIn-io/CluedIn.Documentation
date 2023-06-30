@@ -38,8 +38,9 @@ In the procedure, we'll use following input variables:
 **To add SQL Server Connector to CluedIn**
 
 1. Add a reference for the package by running the following command:
-
-    ```pwsh .\cluedin.ps1 packages 202304 -Add CluedIn.Connector.SqlServer```
+```
+pwsh .\cluedin.ps1 packages 202304 -Add CluedIn.Connector.SqlServer
+```
 
     You will get an output similar to the following.    
  
@@ -48,24 +49,27 @@ In the procedure, we'll use following input variables:
     **Note:** You can also specify a version for your package using `-version`. You can also use floating versions (for example, `1.0.0-*`) for the latest pre-release.
 
 1. Restore the package by running the following command:
-
-    ```pwsh .\cluedin.ps1 packages 202304 -Restore```
+```
+pwsh .\cluedin.ps1 packages 202304 -Restore
+```
 
     You will get an output similar to the following.
 
     ![restore-package.png](../../assets/images/local-install/restore-package.png)
 
 1. Stop the CluedIn server by running the following command:
-
-    ```pwsh .\cluedin.ps1 stop 202304```
+```
+pwsh .\cluedin.ps1 stop 202304
+```
 
     You will get an output similar to the following.
 
     ![stop-cluedin-server.png](../../assets/images/local-install/stop-cluedin-server.png)
 
 1. Start the CluedIn server by running the following command:
-
-    ```pwsh .\cluedin.ps1 up 202304```
+```
+pwsh .\cluedin.ps1 up 202304
+```
 
     You will get an output similar to the following.
 
