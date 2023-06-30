@@ -3,7 +3,8 @@ layout: default
 title: Local
 parent: Installation
 nav_order: 2
-permalink: /deployment/docker-compose
+permalink: /deployment/local
+has_children: true
 tags: ["deployment", "docker", "docker-compose", "local-deployment"]
 last_modified: 2023-06-30
 ---

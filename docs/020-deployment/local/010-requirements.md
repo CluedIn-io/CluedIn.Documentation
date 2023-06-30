@@ -3,7 +3,7 @@ layout: default
 nav_order: 1
 parent: Local
 grand_parent: Installation
-permalink: /deployment/docker-compose/step-1
+permalink: /deployment/local/step-1
 title: Local installation requirements
 tags: ["deployment", "local"]
 last_modified: 2023-06-30

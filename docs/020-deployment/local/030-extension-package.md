@@ -3,7 +3,7 @@ layout: default
 nav_order: 3
 parent: Local
 grand_parent: Installation
-permalink: /deployment/docker-compose/step-3
+permalink: /deployment/local/step-3
 title: Add extension packages
 tags: ["deployment", "local"]
 last_modified: 2023-06-30
