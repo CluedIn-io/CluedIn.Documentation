@@ -38,6 +38,9 @@ The first step for the local installation of CluedIn is to clone the CluedIn pub
 **Prerequisites**
 
 - For Windows environments: Modify the PowerShell execution policy to enable running local scripts. To do that, use the `Set-ExecutionPolicy RemoteSigned` command.
+
+    ![pwsh-policy.png](../../assets/images/local-install/pwsh-policy.png)
+
 - For Windows environments: Run your terminal session as an administrator.
 - For non-Windows environments: Use the `sudo` command.
 
