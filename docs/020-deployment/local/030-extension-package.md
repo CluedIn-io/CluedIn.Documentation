@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 1
+nav_order: 3
 parent: Local
 grand_parent: Installation
 permalink: /deployment/docker-compose/step-3
