@@ -13,7 +13,7 @@ CluedIn is being developed with a cloud-centric approach, which means that runni
 
 - **Cost efficiency**. Running CluedIn in Azure incurs expenses, and for the purpose of simple testing, you may prefer to avoid these costs.
 
-- **Writing CluedIn extensions**. CluedIn is very flexible and can be extended by writing code. If you need to write code to extend CluedIn, you will most likely want to test your extensions locally within CluedIn to avoid complex deployment mechanism for testing your code.
+- **Writing CluedIn extensions**. CluedIn is very flexible and can be extended by writing code. If you want to extend CluedIn by writing code, you can test your extensions locally within CluedIn, making the testing process easier.
 
 - **No need to be Administrator in Azure**. Running CluedIn in Azure requires elevated permissions within the Azure platform, which you might not have. Thus, having the ability to run CluedIn locally provides you with the advantage of evaluating, customizing, and developing with CluedIn without the need to deal with permissions in Azure.
 
