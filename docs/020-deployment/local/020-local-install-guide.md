@@ -164,4 +164,4 @@ You have installed CluedIn locally.
 
 # Next steps
 
-Add more features to CluedIn with the help of extension packages. Learn how to do that in Add extension packages.
+Add more features to CluedIn with the help of extension packages. Learn how to do that in [Add extension packages](/deployment/docker-compose/step-3).

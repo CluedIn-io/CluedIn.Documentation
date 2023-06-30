@@ -85,6 +85,6 @@ You have added the SQL Server Connector extension package. Now you are ready to 
 
 # Next steps
 
-- Learn more about CluedIn functionality in our <a href="https://documentation.cluedin.net/getting-started">Getting started guide</a>.
+- Learn more about CluedIn functionality in our [Getting started guide](/getting-started).
 
-- Learn how to <a href="https://documentation.cluedin.net/deployment/azure-marketplace">install CluedIn from the Azure Marketplace</a>.
+- Learn how to [install CluedIn from the Azure Marketplace](/deployment/azure-marketplace).
