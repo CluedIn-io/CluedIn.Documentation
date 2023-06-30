@@ -19,7 +19,7 @@ In this article, you will learn how to install CluedIn locally.
 
 # Clone CluedIn repository
 
-The first step for the local installation of CluedIn is to clone the CluedIn public repository named **Home** (https://github.com/CluedIn-io/Home).
+The first step for the local installation of CluedIn is to clone the CluedIn public repository named **Home** [https://github.com/CluedIn-io/Home](https://github.com/CluedIn-io/Home).
 
 **To clone CluedIn repository**
 
@@ -48,7 +48,7 @@ CluedIn uses two ACRs:
 - **Production** – the registry name is **cluedinprod**. This registry is used to store all official images from CluedIn.
 - **Early Access** – the registry name is **cluedindev**. This registry is used internally by CluedIn to develop the software. Occasionally, this registry can be used by partners and customers to test new functionality before it is officially released.
 
-You can find the ACR to which you have been granted access in the <a href="/deployment/docker-compose/step-1#get-access-to-CluedIn-container-registry">email from CluedIn</a>.
+You can find the ACR to which you have been granted access in the <a href="/deployment/local/step-1#get-access-to-CluedIn-container-registry">email from CluedIn</a>.
 
 **To authenticate to CluedIn ACR**
 
@@ -66,7 +66,7 @@ You can find the ACR to which you have been granted access in the <a href="/depl
 
         `docker login cluedindev.azurecr.io`
 
-1. Enter the username and password that you received in the <a href="/deployment/docker-compose/step-1#get-access-to-CluedIn-container-registry">email from CluedIn</a>.
+1. Enter the username and password that you received in the <a href="/deployment/local/step-1#get-access-to-CluedIn-container-registry">email from CluedIn</a>.
 
 1. To verify your access, pull images from the ACR by running the following command:
 
@@ -164,4 +164,4 @@ You have installed CluedIn locally.
 
 # Next steps
 
-Add more features to CluedIn with the help of extension packages. Learn how to do that in [Add extension packages](/deployment/docker-compose/step-3).
+Add more features to CluedIn with the help of extension packages. Learn how to do that in [Add extension packages](/deployment/local/step-3).
