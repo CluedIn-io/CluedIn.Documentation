@@ -3,7 +3,7 @@ layout: default
 nav_order: 2
 parent: Local
 grand_parent: Installation
-permalink: /deployment/docker-compose/step-2
+permalink: /deployment/local/step-2
 title: Local installation guide
 tags: ["deployment", "local"]
 last_modified: 2023-06-30
