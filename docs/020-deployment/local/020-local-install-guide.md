@@ -73,7 +73,7 @@ You can find the ACR to which you have been granted access in the <a href="/depl
     docker login cluedindev.azurecr.io
     ```
 
-1. Enter the username and password that you received in the <a href="/deployment/local/step-1#get-access-to-CluedIn-container-registry">email from CluedIn</a>.
+1. Enter the username and password that you received in the email from CluedIn.
 
 1. To verify your access, pull images from the ACR by running the following command:
  ```
@@ -109,7 +109,7 @@ As Docker is not an orchestration tool like Kubernetes, starting up Docker conta
 pwsh .\cluedin.ps1 up 202304 -disable server
 ```
 
-    Where `202304` is the name of the environment that you created in the previous procedure.
+    `202304` is the name of the environment that you created in the previous procedure.
 
     You will get an output similar to the following.
 
@@ -124,7 +124,7 @@ pwsh .\cluedin.ps1 up 202304 -disable server
 pwsh .\cluedin.ps1 up 202304
 ```
 
-    Where `202304` is the name of the environment.
+    `202304` is the name of the environment.
 
     You will get an output similar to the following.
 
