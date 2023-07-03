@@ -17,4 +17,4 @@ CluedIn is being developed with a cloud-centric approach, which means that runni
 
 - **No need to be Administrator in Azure**. Running CluedIn in Azure requires elevated permissions within the Azure platform, which you might not have. Thus, having the ability to run CluedIn locally provides you with the advantage of evaluating, customizing, and developing with CluedIn without the need to deal with permissions in Azure.
 
-This section provides you with instructions on how to **run CluedIn locally with the SQL Server Connector extension**. By following these instructions, you will be able to use CluedIn and stream data to an MS SQL database.
+This section provides you with instructions on how to **run CluedIn locally with the SQL Server Connector extension**. By following these instructions, you will be able to use CluedIn and stream data to Microsoft SQL Server databases.
