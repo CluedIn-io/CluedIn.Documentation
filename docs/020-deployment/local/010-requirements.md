@@ -4,7 +4,7 @@ nav_order: 1
 parent: Local
 grand_parent: Installation
 permalink: /deployment/local/step-1
-title: Local installation requirements
+title: Local installation checklist
 tags: ["deployment", "local"]
 last_modified: 2023-06-30
 ---

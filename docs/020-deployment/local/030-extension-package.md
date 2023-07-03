@@ -89,7 +89,7 @@ pwsh .\cluedin.ps1 up 202304
 
 # Results
 
-You have added the SQL Server Connector extension package. Now you are ready to stream data to a SQL Database.
+You have added the SQL Server Connector extension package. Now you are ready to stream data to Microsoft SQL Server databases.
 
 # Next steps
 
