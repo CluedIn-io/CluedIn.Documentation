@@ -4,7 +4,7 @@ nav_order: 3
 parent: Local
 grand_parent: Installation
 permalink: /deployment/local/step-3
-title: Add extension packages
+title: Extension packages
 tags: ["deployment", "local"]
 last_modified: 2023-06-30
 ---
