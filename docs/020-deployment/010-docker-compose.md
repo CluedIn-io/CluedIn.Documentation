@@ -9,12 +9,11 @@ tags: ["deployment", "docker", "docker-compose", "local-deployment"]
 last_modified: 2023-06-30
 ---
 
-<br/>
+Learn how to run CluedIn locally and stream data to Microsoft SQL Server databases.
 
 <div style='padding:58.42% 0 0 0;position:relative;'>
 <iframe src="https://player.vimeo.com/video/842179773?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="AMA_installation_overview_video_upd"></iframe>
 </div>
-
 
 CluedIn is being developed with a cloud-centric approach, which means that running CluedIn locally can pose some challenges. The local installation of CluedIn does not provide all the features available in cloud environment, such as auto-scaling, auto-restart, logging, monitoring, and more. However, you may still consider installing CluedIn locally for the following reasons:
 
@@ -24,4 +23,4 @@ CluedIn is being developed with a cloud-centric approach, which means that runni
 
 - **No need to be Administrator in Azure**. Running CluedIn in Azure requires elevated permissions within the Azure platform, which you might not have. Thus, having the ability to run CluedIn locally provides you with the advantage of evaluating, customizing, and developing with CluedIn without the need to deal with permissions in Azure.
 
-This section provides you with instructions on how to **run CluedIn locally with the SQL Server Connector extension**. By following these instructions, you will be able to use CluedIn and stream data to Microsoft SQL Server databases.
+This section provides you with instructions on how to **run CluedIn locally with the SQL Server Connector extension**.
