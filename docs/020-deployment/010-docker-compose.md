@@ -6,7 +6,7 @@ nav_order: 2
 permalink: /deployment/local
 has_children: true
 tags: ["deployment", "docker", "docker-compose", "local-deployment"]
-last_modified: 2023-06-30
+last_modified: 2023-07-04
 ---
 
 Learn how to run CluedIn locally and prepare to stream data to Microsoft SQL Server databases.
