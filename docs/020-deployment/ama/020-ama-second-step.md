@@ -4,7 +4,7 @@ nav_order: 2
 parent: Azure Marketplace
 grand_parent: Installation
 permalink: /deployment/azure-marketplace/step-2
-title: 2. Pre-installation checklist
+title: Pre-installation checklist
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---
