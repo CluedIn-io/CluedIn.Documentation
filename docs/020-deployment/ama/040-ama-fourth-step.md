@@ -4,7 +4,7 @@ nav_order: 4
 parent: Azure Marketplace
 grand_parent: Installation
 permalink: /deployment/azure-marketplace/step-4
-title: 4. Post-installation guide
+title: Post-installation guide
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---
