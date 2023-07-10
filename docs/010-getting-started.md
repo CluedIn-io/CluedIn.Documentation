@@ -8,6 +8,16 @@ permalink: /getting-started
 
 {: .fs-6 .fw-300 }
 
+If you are new to CluedIn, it's a great idea to get acquainted with some essential information:
+
+- [Installation of CluedIn from the Azure Marketplace](/deployment/azure-marketplace)
+
+- [Local installation of CluedIn](/deployment/local)
+
+Learn how to do the most common operations in CluedIn:
+
+- [Ingest data](/getting-started/data-ingestion)
+
 ## CluedIn Architecture
 
 CluedIn is made up of various functional layers, all encapsulated into their own [Docker](https://www.docker.com/) containers.
