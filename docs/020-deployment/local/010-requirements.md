@@ -19,7 +19,7 @@ In this article, you will learn about the pre-installation processes that you mu
 
 # Get access to CluedIn container registry
 
-The first to do to be able to run CluedIn locally is to get access to CluedIn Azure Container Registry (ACR).
+The first thing you need to do to run CluedIn locally is to get access to CluedIn Azure Container Registry (ACR).
 
 **Important!** Only our partners and customers can get access to CluedIn ACR. If you are not our partner or customer, consider becoming one. Discover the benefits and advantages of being our partner [here](https://www.cluedin.com/become-a-partner).
 
@@ -60,14 +60,14 @@ Make sure that you have installed the following software:
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Git](https://gitforwindows.org/)
-- [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.3) 7 or higher
+- [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.3) 7 or later
 
 In addition, make sure that you have access to [CluedIn container registry](#get-access-to-cluedin-container-registry).
 
 # Results
 
 - You have access to CluedIn container registry.
-- Your computer meets hardware and software requirements for local installation of CluedIn.
+- Your computer meets hardware and software requirements for the local installation of CluedIn.
 
 # Next steps
 
