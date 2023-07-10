@@ -109,7 +109,7 @@ As Docker is not an orchestration tool like Kubernetes, starting up Docker conta
 pwsh .\cluedin.ps1 up 202304 -disable server
 ```
 
-    `202304` is the name of the environment that you created in the previous procedure.
+    where `202304` is the name of the environment.
 
     You will get an output similar to the following.
 
@@ -124,7 +124,7 @@ pwsh .\cluedin.ps1 up 202304 -disable server
 pwsh .\cluedin.ps1 up 202304
 ```
 
-    `202304` is the name of the environment.
+    where `202304` is the name of the environment.
 
     You will get an output similar to the following.
 
