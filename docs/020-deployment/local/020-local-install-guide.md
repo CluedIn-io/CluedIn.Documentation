@@ -21,9 +21,9 @@ In this article, you will learn how to install CluedIn locally.
 
 The first step for the local installation of CluedIn is to clone the CluedIn public repository named **Home** [https://github.com/CluedIn-io/Home](https://github.com/CluedIn-io/Home).
 
-**To clone CluedIn repository**
+**To clone the CluedIn repository**
 
-- In the command line, run the following command:
+- At the command prompt, run the following command:
 ```
 git clone https://github.com/CluedIn-io/Home
 ```
@@ -96,7 +96,7 @@ You can find the ACR to which you have been granted access in the <a href="/depl
 
     ![create-env.png](../../assets/images/local-install/create-env.png)
 
-    **Note:** Environment is used for having scripts that can start CluedIn using different versions. Docker does not support multiple CluedIn version running in parallel.
+    **Note:** Environment is used for having scripts that can start CluedIn of different versions. Docker does not support multiple CluedIn versions running in parallel.
 
 # Start CluedIn
 
@@ -115,7 +115,7 @@ pwsh .\cluedin.ps1 up 202304 -disable server
 
     ![disable-server.png](../../assets/images/local-install/disable-server.png)
 
-1. In Docker Desktop, check if SQL Server is ready. To do that, select the SQL Server container and look for the similar section in logs.
+1. In Docker Desktop, check if SQL Server is ready. To do that, select the SQL Server container and look for a similar section in logs.
 
     ![sql-server-logs.png](../../assets/images/local-install/sql-server-logs.png)
 
@@ -136,7 +136,7 @@ The last step of the local installation of CluedIn is to create an organization 
 
 **Prerequisites**
 
-Make sure the server has started correctly. To do that, in Docker Desktop, select the server, and look for the similar section in logs.
+Make sure that the server has started correctly. To do that, in Docker Desktop, select the server and look for a similar section in logs.
 
 ![cluedin-server-logs.png](../../assets/images/local-install/cluedin-server-logs.png)
 
