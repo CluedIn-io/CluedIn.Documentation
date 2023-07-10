@@ -21,7 +21,7 @@ To extend CluedIn with additional features—such as enrichers, export targets, 
 
 To facilitate local development, a preconfigured environment includes a specific folder called **packages/local NuGet**. This folder serves as a designated location where you can place locally built NuGet packages that need to be included in the CluedIn environment. The easiest way to integrate your locally built packages into CluedIn is to build your extension packages directly to this folder.
 
-CluedIn has many built-in extension packages. To learn more about these extension packages, reach out your CluedIn contact.
+CluedIn has many built-in extension packages. To learn more, reach out to your CluedIn contact.
 
 # Add SQL Server Connector to CluedIn
 
@@ -29,7 +29,7 @@ The following image presents an overview of the steps involved in adding SQL Ser
 
 ![add-sql-server-connector.png](../../assets/images/local-install/add-sql-server-connector.png)
 
-In the procedure, we'll use following input variables:
+In the procedure, we'll use the following input variables:
 
 - `202304` – name of the environment
 - `2023.04` – version of CluedIn.
@@ -37,7 +37,7 @@ In the procedure, we'll use following input variables:
 
 **To add SQL Server Connector to CluedIn**
 
-1. Add a reference for the package by running the following command:
+1. Add a reference to the package by running the following command:
 ```
 pwsh .\cluedin.ps1 packages 202304 -Add CluedIn.Connector.SqlServer
 ```
@@ -46,7 +46,7 @@ pwsh .\cluedin.ps1 packages 202304 -Add CluedIn.Connector.SqlServer
  
     ![add-package.png](../../assets/images/local-install/add-package.png)
 
-    **Note:** You can also specify a version for your package using `-version`. You can also use floating versions (for example, `1.0.0-*`) for the latest pre-release.
+    **Note:** You can also specify a version for your package (`-version`) and use floating versions (for example, `1.0.0-*`) for the latest pre-release.
 
 1. Restore the package by running the following command:
 ```
@@ -75,7 +75,7 @@ pwsh .\cluedin.ps1 up 202304
 
     ![start-cluedin-server.png](../../assets/images/local-install/start-cluedin-server.png)
 
-    **Note:** Starting the CluedIn server takes some time. When CluedIn starts up, it takes all extension assets from the disk and to copy them into the container.
+    **Note:** Starting the CluedIn server takes some time. When CluedIn starts up, it takes all extension assets from the disk and copies them into the container.
 
 1.  After you start CluedIn, make sure the package was included. In Docker Desktop, select the CluedIn server and look for the similar section in logs.
 
@@ -89,7 +89,7 @@ pwsh .\cluedin.ps1 up 202304
 
 # Results
 
-You have added the SQL Server Connector extension package. Now you are ready to stream data to Microsoft SQL Server databases.
+You have added the SQL Server Connector extension package. Now, you are ready to stream data to Microsoft SQL Server databases.
 
 # Next steps
 
