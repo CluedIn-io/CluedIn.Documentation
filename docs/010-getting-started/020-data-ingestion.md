@@ -27,7 +27,7 @@ The easiest way to add data to CluedIn is to import a file. In the following pro
 
 1. On the navigation pane, select **Integrations**. Then, select **Import From Files**.
 
-    ![add-data-1-upd.png](/.attachments/add-data-1-upd-8765a629-827a-445f-9f89-7562a52a3294.png)
+    ![add-data-1-upd.png](../../assets/images/getting-started/data-ingestion/add-data-1-upd.png)
 
 1. On the **Import From Files** pane, do the following:
 
@@ -41,11 +41,11 @@ The easiest way to add data to CluedIn is to import a file. In the following pro
 
     1. In the lower-right corner, select **Upload**.
 
-        ![add-data-2-upd.png](/.attachments/add-data-2-upd-bd0572cd-5559-42f9-b4b3-926d30a22bfd.png)        
+        ![add-data-2-upd.png](../../assets/images/getting-started/data-ingestion/add-data-2-upd.png)        
 
         After the file is uploaded, you'll receive a notification.
 
-        ![add-data-3-upd.png](/.attachments/add-data-3-upd-356363fb-276d-4cd8-9ec2-8a396443587c.png)
+        ![add-data-3-upd.png](../../assets/images/getting-started/data-ingestion/add-data-3-upd.png)
 
 1. On the navigation pane, select **Data Sources**.
 
@@ -55,19 +55,19 @@ The easiest way to add data to CluedIn is to import a file. In the following pro
 
     The data source consists of a data set, which operates similarly to a table within the database.
 
-    ![add-data-5-upd.png](/.attachments/add-data-5-upd-7b6b3c7c-c6c7-4ad1-866a-51e6d8634bc0.png)
+    ![add-data-5-upd.png](../../assets/images/getting-started/data-ingestion/add-data-5-upd.png)
 
 1. Select the name of the data set.
 
     On the data set details page, you can find the general information about the data set.
 
-    ![add-data-6-upd.png](/.attachments/add-data-6-upd-2fa54168-08cb-4004-8c5a-1498258c3ec2.png)    
+    ![add-data-6-upd.png](../../assets/images/getting-started/data-ingestion/add-data-6-upd.png)    
 
 1. In the table, select the name of the data set.
 
     Here, you can find a preview of the data from the file.
 
-    ![add-data-7-upd.png](/.attachments/add-data-7-upd-6a31f4d5-24ac-4aa5-a84e-63c89001dcd6.png)
+    ![add-data-7-upd.png](../../assets/images/getting-started/data-ingestion/add-data-7-upd.png)
 
     The data has been parsed and stored in CluedIn, but it has not yet been processed. To prepare the data for processing, you need to create a mapping.
 
@@ -89,7 +89,7 @@ Mapping refers to the process of creating a semantic layer for your data. This l
 
     1. In **Mapping Type**, leave the default **Auto Mapping** option selected. Then, in the lower-right corner, select **Next**.
 
-        ![create-mapping-1-upd.png](/.attachments/create-mapping-1-upd-64e5cd43-9a04-4b3f-9927-c91807d821fd.png)
+        ![create-mapping-1-upd.png](../../assets/images/getting-started/data-ingestion/create-mapping-1-upd.png)
 
     1. Enter the name of **Entity Type**.
 
@@ -99,7 +99,7 @@ Mapping refers to the process of creating a semantic layer for your data. This l
 
     1. In **Icon**, select the visual representation of the entity type.
 
-        ![create-mapping-2-upd.png](/.attachments/create-mapping-2-upd-a01e1f1c-3c46-4e01-96b2-252e6ec3cf61.png)
+        ![create-mapping-2-upd.png](../../assets/images/getting-started/data-ingestion/create-mapping-2-upd.png)
 
     1. Enter the name of **Vocabulary**.
 
@@ -109,13 +109,13 @@ Mapping refers to the process of creating a semantic layer for your data. This l
 
         The **Key prefix** field is filled out by default. This prefix is added to each vocabulary key. Vocabulary keys help CluedIn understand what data you imported to CluedIn.
 
-        ![create-mapping-3-upd.png](/.attachments/create-mapping-3-upd-4fd625de-b87e-4ba9-9f87-d5cc8ca2fc71.png)
+        ![create-mapping-3-upd.png](../../assets/images/getting-started/data-ingestion/create-mapping-3-upd.png)
 
     1. In the lower-right corner, select **Create Mapping**.
 
     As a result of the mapping process, you can view how the fields from the original file are linked to the fields in CluedIn.
 
-    ![create-mapping-4-upd.png](/.attachments/create-mapping-4-upd-13402f18-f0fb-47d9-a4e8-c644a067f44f.png)
+    ![create-mapping-4-upd.png](../../assets/images/getting-started/data-ingestion/create-mapping-4-upd.png)
 
     Now that you have created the mapping, you can process the data.
 
@@ -127,15 +127,15 @@ Processing refers to turning the records into clues for governing the data.
 
 1. In the data set, go to the **Process** tab. Then, select the **Process** button.
 
-    ![process-data-1-upd.png](/.attachments/process-data-1-upd-2e2c62f0-c04a-40f4-a10a-1a11a013d6fa.png)
+    ![process-data-1-upd.png](../../assets/images/getting-started/data-ingestion/process-data-1-upd.png)
 
 1. On the confirmation pane, in the lower-right corner, select **Confirm**.
 
-    ![process-data-2-upd.png](/.attachments/process-data-2-upd-2a02ec86-1d37-4e14-9fdd-6021eeacb1cd.png)
+    ![process-data-2-upd.png](../../assets/images/getting-started/data-ingestion/process-data-2-upd.png)
 
     After the data is processed, you will see a row with general information about processing.
 
-    ![process-data-3-upd.png](/.attachments/process-data-3-upd-a1adec09-95f2-4fa2-a45f-10995b409985.png)
+    ![process-data-3-upd.png](../../assets/images/getting-started/data-ingestion/process-data-3-upd.png)
 
     Now, you can search for data in CluedIn.
 
@@ -147,11 +147,11 @@ After the data has been processed, you can search for any property and view all 
 
 1. On the **Preview** tab, open the data set and copy any value. We will copy the email in the first row.
 
-    ![search-for-data-1-upd.png](/.attachments/search-for-data-1-upd-c778bd71-544c-420e-aa88-027fce93ebbe.png)
+    ![search-for-data-1-upd.png](../../assets/images/getting-started/data-ingestion/search-for-data-1-upd.png)
 
 1. Paste the email in the search field, and then select the search icon.
 
-    ![search-for-data-2-upd.png](/.attachments/search-for-data-2-upd-11e634f6-a3fc-4dbc-a0ea-cd36c908016f.png)
+    ![search-for-data-2-upd.png](../../assets/images/getting-started/data-ingestion/search-for-data-2-upd.png)
 
 1. On the search results page, select the name of the record.
 
@@ -159,7 +159,7 @@ After the data has been processed, you can search for any property and view all 
 
 1. To see all the properties of the record, go to the **Properties** tab.
 
-    ![search-for-data-3-upd.png](/.attachments/search-for-data-3-upd-208acf13-3e07-462e-9d67-3c26c3625a27.png)
+    ![search-for-data-3-upd.png](../../assets/images/getting-started/data-ingestion/search-for-data-3-upd.png)
 
 1. To see all values of a certain property, do the following:
 
@@ -171,7 +171,7 @@ After the data has been processed, you can search for any property and view all 
 
         Here, you can view all values that the property has.
 
-        ![search-for-data-4-upd.png](/.attachments/search-for-data-4-upd-a11d5eb6-38e3-4ee7-9f2c-73734cff73a7.png)
+        ![search-for-data-4-upd.png](../../assets/images/getting-started/data-ingestion/search-for-data-4-upd.png)
 
 
 # Results
@@ -180,4 +180,4 @@ You have ingested data into CluedIn.
 
 # Next steps
 
-- Stream data (add link)
+- Stream data.
