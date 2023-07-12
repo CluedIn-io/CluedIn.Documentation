@@ -1,11 +1,13 @@
 ---
 layout: default
-title: Running CluedIn Efficiently for Cost
-parent: Getting Started
-permalink: /getting-started/cost-efficience
-nav_order: 40
-tags: ["getting-started", "cost"]
+title: "Running CluedIn efficiently for cost"
+permalink: /kb/cost-efficience
+nav_exclude: true
+tags: ["cost"]
+last_modified: 2022-05-09
+is_kb: true
 ---
+
 ## On this page
 {: .no_toc .text-delta }
 1. TOC
@@ -53,4 +55,4 @@ Although CluedIn is useful for storing the history of data as it changes, you mi
 
 ### Turn features of CluedIn off
 
-There are many features of CluedIn that you might find are not necessary to solve your use cases. By default, there is a combination of features turned on or off in the release of CluedIn. You can discover these from your settings within the User Interface. Naturally, the more features that are turned on, the more CPU cycles are needed to run per record that enters CluedIn or is reprocessed. You can systematically turn features off in CluedIn to lower the operational cost if these features are not needed. As an example, you might find that calculating quality metrics or running sensitivity detection is not required for your use cases, and hence these can be globally disabled. 
+There are many features of CluedIn that you might find are not necessary to solve your use cases. By default, there is a combination of features turned on or off in the release of CluedIn. You can discover these from your settings within the User Interface. Naturally, the more features that are turned on, the more CPU cycles are needed to run per record that enters CluedIn or is reprocessed. You can systematically turn features off in CluedIn to lower the operational cost if these features are not needed. As an example, you might find that calculating quality metrics or running sensitivity detection is not required for your use cases, and hence these can be globally disabled.
