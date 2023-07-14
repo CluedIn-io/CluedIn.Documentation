@@ -18,6 +18,8 @@ Learn how to do the most common operations in CluedIn:
 
 - [Ingest data](/getting-started/data-ingestion)
 
+- [Stream data](/getting-started/data-streaming)
+
 ## CluedIn Architecture
 
 CluedIn is made up of various functional layers, all encapsulated into their own [Docker](https://www.docker.com/) containers.
