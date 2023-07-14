@@ -180,4 +180,4 @@ You have ingested data into CluedIn.
 
 # Next steps
 
-- Stream data.
+- [Stream data](/getting-started/data-streaming)
