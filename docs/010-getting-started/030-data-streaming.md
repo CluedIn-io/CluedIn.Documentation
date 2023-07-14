@@ -107,11 +107,9 @@ A stream is a trigger that starts the process of sending the data to the export 
 
         ![create-stream-6.png](../../assets/images/getting-started/data-streaming/create-stream-6.png)  
 
-    1. In the search field, enter the name of the vocabulary, and start the search. In the search results, select the needed vocabulary keys that will be added as columns in the database table. Then, select **Add Vocabulary Columns**.
+    1. In the search field, enter the name of the vocabulary and start the search. In the search results, select the needed vocabulary keys that will be added as columns in the database table. Then, select **Add Vocabulary Columns**.
 
-        ![create-stream-7.png](../../assets/images/getting-started/data-streaming/create-stream-7.png)  
-
-    1. In the lower-right corner, select **Add Vocabulary Columns**.
+        ![create-stream-7.png](../../assets/images/getting-started/data-streaming/create-stream-7.png)
 
     1. Select **Save**.
 
