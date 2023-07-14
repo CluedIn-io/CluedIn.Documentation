@@ -95,11 +95,11 @@ A stream is a trigger that starts the process of sending the data to the export 
 
     1. Select the **Streaming mode**.
 
-        Two streaming modes are available:
+        Two streaming modes are available: **Synchronized stream** and **Event log stream**.
 
-        - **Synchronized stream** – the database and CluedIn contain the same data that is synchronized. For example, if you edit the record in CluedIn, the record is also edited in the database. 
+        **Synchronized stream** – the database and CluedIn contain the same data that is synchronized. For example, if you edit the record in CluedIn, the record is also edited in the database. 
 
-        - **Event log stream** – every time you make a change in CluedIn, a new record is added to the database instead of replacing the existing record.
+        **Event log stream** – every time you make a change in CluedIn, a new record is added to the database instead of replacing the existing record.
 
         ![create-stream-5.png](../../assets/images/getting-started/data-streaming/create-stream-5.png)  
   
