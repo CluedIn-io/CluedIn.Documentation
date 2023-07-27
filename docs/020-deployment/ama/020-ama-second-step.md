@@ -38,15 +38,16 @@ There are 3 common VM family types that CluedIn will create as part of the AKS n
 | VM | Quota |
 |--|--|
 | System Pool (1 x Standard_DS2_v2) | At least 2 vCPUs in the Standard DSv2 Family vCPUs quota |
-| General Pool (2 x Standard_D8s_v4) and Data Pool (3 x Standard_D8s_v4) | At least 40 vCPUs in the Standard DSv4 Family vCPUs quota |
+| General Pool (2 x Standard_D8s_v4)  | At least 16 vCPUs in the Standard DSv4 Family vCPUs quota |
+| Data Pool (3 x Standard D8as_v5)  | At least 24 vCPUs in the Standard DASv5 Family vCPUs quota |
 
 In addition, check if you have **enough quota for your plan**.
 
 | Plan | Quota |
 |--|--|
-| Essential | At least 8 vCPUs in the StandardFSv2Family quota |
-| Professional | At least 16 vCPUs in the StandardFSv2Family quota |
-| Elite | At least 32 vCPUs in the StandardFSv2Family quota |
+| Essential | At least 8 vCPUs in the StandardDASv5Family quota |
+| Professional | At least 16 vCPUs in the StandardDASv5Family quota |
+| Elite | At least 32 vCPUs in the StandardDASv5Family quota |
 
 You can check if you have enough quota by running a [verification script](#verification-script).
 
