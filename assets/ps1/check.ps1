@@ -6,10 +6,51 @@ param(
     [string]$WorkingDirectory = $PSScriptRoot,
     [switch]$SkipLogin
 )
-
+​
 $ErrorActionPreference = 'Stop'
-$configuration = Get-Content (Join-Path $WorkingDirectory 'config.json') | ConvertFrom-Json
-
+#$configuration = Get-Content (Join-Path $WorkingDirectory 'config.json') | ConvertFrom-Json
+​
+$config = @"
+{
+    "providers": [
+      "Microsoft.ManagedIdentity",
+      "Microsoft.Authorization",
+      "Microsoft.KeyVault",
+      "Microsoft.Network",
+      "Microsoft.ContainerService",
+      "Microsoft.OperationalInsights",
+      "Microsoft.Insights",
+      "Microsoft.Sql",
+      "Microsoft.EventHub",
+      "Microsoft.Cache",
+      "Microsoft.Compute",
+      "Microsoft.OperationsManagement",
+      "Microsoft.Storage"
+    ],
+    "quotas": {
+      "All": {
+        // Data 2x8, General 2x8, Neo 1x8
+        "standardDv4Family": 16,
+        // Data 2x8, Neo 1x8
+        "standardDASv5Family": 24,
+        // System
+        "standardDv2Family": 2
+      },
+      "Essential": {
+        "standardDASv5Family": 8
+      },
+      "Professional":{
+        "standardDASv5Family": 16
+      },
+      "Elite":{
+        "standardDASv5Family": 32
+      }
+    }
+  }
+"@
+​
+$configuration = ConvertFrom-Json $config
+​
 function GetAz {
     # Test for Az install via winget
     if(!(Get-Command 'az' -ErrorAction Ignore)){
@@ -22,16 +63,16 @@ function GetAz {
         Write-Host "Found Azure CLI"
         return $true
     }
-
+​
     return $false
 }
-
+​
 function Login {
-
+​
     function AzLogin { az login -o none }
-
+​
     $current = az account show --query 'id' -o tsv
-
+​
     if(!!$LASTEXITCODE) {
         Write-Host "Please login with the user account that would conduct the install" -ForegroundColor Yellow
         AzLogin
@@ -49,7 +90,7 @@ function Login {
         }
     }
 }
-
+​
 function ValidateLocation {
     $locations = az account list-locations --query "[].{ Name: name, DisplayName: displayName}" -o json | ConvertFrom-Json
     $foundLocation = $locations.Where({ $_.Name -eq $Location })
@@ -63,24 +104,24 @@ function ValidateLocation {
             Write-Host "- ${_}" -ForegroundColor Yellow
         }
     }
-
+​
     Write-Error "Could not validate location"
 }
-
+​
 function GetRegisteredProviders {
-
+​
     Write-Host "Fetching Providers"
     $requiredProviders = $configuration.providers
-
+​
     az provider list --query '[].{ Name: namespace, Registered: registrationState}' |
         ConvertFrom-Json |
         Where-Object { $requiredProviders -contains $_.Name } |
         Sort-Object Name
 }
-
+​
 function CheckQuotas {
     Write-Host "Checking Quotas"
-
+​
     $collected = @()
     $configuration.quotas.psobject.Properties.name | ForEach-Object {
         $group = $_
@@ -98,21 +139,21 @@ function CheckQuotas {
             }
         }
     }
-
+​
     $collected
 }
-
+​
 if(GetAz){
     Login
     ValidateLocation
     $providers = GetRegisteredProviders
     $quotas = CheckQuotas
-
+​
     $output = @{
         Location = $Location
         Providers = $providers
         Quotas = $quotas
     } | ConvertTo-Json -Depth 100
-
+​
     Set-Content (Join-Path $WorkingDirectory "results_${Location}.json") -Value $output
 }
