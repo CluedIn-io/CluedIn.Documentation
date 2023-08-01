@@ -23,8 +23,6 @@ Please refer to the documentation on [How to build an integration](./build-integ
 
 ### Types of integration
 
-![Diagram](../assets/images/integration/list-of-integrations.png)
-
 #### Cloud integration
 
 Cloud integration are generally integration for existing SaaS product such as HubSpot, Slack, Dropbox.
