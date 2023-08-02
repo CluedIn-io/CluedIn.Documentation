@@ -155,4 +155,4 @@ You have performed data deduplication in CluedIn.
 
 # Next steps
 
-- Create rules using the Rule Builder.
+- [Create rules using the Rule Builder](/getting-started/rule-builder)

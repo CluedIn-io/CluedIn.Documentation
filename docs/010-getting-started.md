@@ -24,6 +24,8 @@ Learn how to do the most common operations in CluedIn:
 
 - [Deduplicate data](/getting-started/data-deduplication)
 
+- [Create rules](/getting-started/rule-builder)
+
 ## CluedIn Architecture
 
 CluedIn is made up of various functional layers, all encapsulated into their own [Docker](https://www.docker.com/) containers.
