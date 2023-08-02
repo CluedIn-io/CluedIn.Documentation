@@ -186,7 +186,6 @@ In the following table, you can learn about the actions that can be performed by
 | Change Entity Type | Changes the entity type. You can select the existing entity type or create a new entity type. |
 | Copy Value | Copies the value from one field (source field) to another (target field). |
 | Delete Value | Deletes the value that you select. |
-| Evaluate Regex |  |
 | Mask Value | Applies a mask to the value. You can use this action to hide sensitive data. |
 | Move Value | Moves the value from one field (source field) to another (target field). |
 | Remove Alias | Removes alias from the entity. You need to specify the alias that you want to remove. |
