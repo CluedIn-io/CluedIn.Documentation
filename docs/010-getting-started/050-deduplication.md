@@ -39,7 +39,7 @@ As a first step, you need to create a deduplication project that allows you to c
 
 1. On the **Actions** dashboard, select **Deduplication**.
 
-    ![dedup-1.png](../../assets/images/getting-started/data-cleaning/dedup-1.png)
+    ![dedup-1.png](../../assets/images/getting-started/deduplication/dedup-1.png)
 
 1. Select **Create Deduplication Project**.
 
@@ -49,13 +49,13 @@ As a first step, you need to create a deduplication project that allows you to c
 
     1. Select the entity type that you want to use as a filter for all records.
 
-        ![dedup-2.png](../../assets/images/getting-started/data-cleaning/dedup-2.png)
+        ![dedup-2.png](../../assets/images/getting-started/deduplication/dedup-2.png)
 
     1. In the lower-right corner, select **Create**.
 
     You created the deduplication project.
 
-    ![dedup-3.png](../../assets/images/getting-started/data-cleaning/dedup-3.png)
+    ![dedup-3.png](../../assets/images/getting-started/deduplication/dedup-3.png)
     
     Now, you can proceed to define the rules for checking duplicates within the selected entity type.
 
@@ -71,7 +71,7 @@ When creating a matching rule, you need to specify certain criteria. CluedIn use
 
 1. On the **Matching Rule Name** tab, enter the name of the matching rule, and then select **Next**.
 
-    ![dedup-4.png](../../assets/images/getting-started/data-cleaning/dedup-4.png)
+    ![dedup-4.png](../../assets/images/getting-started/deduplication/dedup-4.png)
 
 1. On the **Matching Criteria** tab, do the following:
 
@@ -81,13 +81,13 @@ When creating a matching rule, you need to specify certain criteria. CluedIn use
 
     1. In the **Matching Function** dropdown list, select the method for detecting duplicates.
 
-        ![dedup-5.png](../../assets/images/getting-started/data-cleaning/dedup-5.png)
+        ![dedup-5.png](../../assets/images/getting-started/deduplication/dedup-5.png)
     
     1. In the lower-right corner, select **Next**.
 
 1. On the **Preview** tab, review the defined matching criteria.
 
-    ![dedup-6.png](../../assets/images/getting-started/data-cleaning/dedup-6.png)
+    ![dedup-6.png](../../assets/images/getting-started/deduplication/dedup-6.png)
 
     If you want to add more matching criteria to the rule, select **Add Matching Criteria**.
 
@@ -95,7 +95,7 @@ When creating a matching rule, you need to specify certain criteria. CluedIn use
 
     The status of the deduplication project becomes **Ready to generate**.
 
-    ![dedup-7.png](../../assets/images/getting-started/data-cleaning/dedup-7.png)
+    ![dedup-7.png](../../assets/images/getting-started/deduplication/dedup-7.png)
 
 1. In the upper-right corner, select **Generate Results**. Then, confirm that you want to generate the results for the deduplication project.
 
@@ -103,7 +103,7 @@ When creating a matching rule, you need to specify certain criteria. CluedIn use
 
     After the process is completed, you will receive a notification. If duplicates are detected, the results will be displayed on the page. The results are organized into groups containing records that match your criteria. For example, on the following screenshot, the group consists of two duplicates. The name of the group corresponds to the value of the vocabulary key from the matching rule. 
 
-    ![dedup-8.png](../../assets/images/getting-started/data-cleaning/dedup-8.png)
+    ![dedup-8.png](../../assets/images/getting-started/deduplication/dedup-8.png)
 
     Now, you can proceed to fix the duplicates.
 
@@ -119,19 +119,19 @@ The process of fixing duplicates involves reviewing the values from duplicate re
 
 1. In the **Conflicting** section, select the values that you want to merge into the deduplicated record.
 
-    ![dedup-9.png](../../assets/images/getting-started/data-cleaning/dedup-9.png)
+    ![dedup-9.png](../../assets/images/getting-started/deduplication/dedup-9.png)
 
 1. In the upper-right corner of the page, select **Next**.
 
     The **Preview Merge** tab opens. Here, you can view the values that will be merged into the deduplicated record.
 
-    ![dedup-10.png](../../assets/images/getting-started/data-cleaning/dedup-10.png)
+    ![dedup-10.png](../../assets/images/getting-started/deduplication/dedup-10.png)
 
 1. In the upper-right corner of the page, select **Approve**. Then, confirm that you want to approve your selection of values for the group.
 
 1. Select the checkbox next to the group name. Then, select **Merge**.
 
-    ![dedup-11.png](../../assets/images/getting-started/data-cleaning/dedup-11.png)
+    ![dedup-11.png](../../assets/images/getting-started/deduplication/dedup-11.png)
 
 1. Confirm that you want to merge the records from the group:
 
@@ -139,7 +139,7 @@ The process of fixing duplicates involves reviewing the values from duplicate re
 
     1. Select an option to handle the data merging process if more recent data becomes available for the entity. Then, select **Confirm**.
 
-        ![dedup-12.png](../../assets/images/getting-started/data-cleaning/dedup-12.png)
+        ![dedup-12.png](../../assets/images/getting-started/deduplication/dedup-12.png)
 
         **Note:** The process of merging data may take some time.
 
