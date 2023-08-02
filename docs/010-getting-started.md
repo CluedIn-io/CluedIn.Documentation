@@ -20,6 +20,10 @@ Learn how to do the most common operations in CluedIn:
 
 - [Stream data](/getting-started/data-streaming)
 
+- [Clean data](/getting-started/manual-data-cleaning)
+
+- [Deduplicate data](/getting-started/data-deduplication)
+
 ## CluedIn Architecture
 
 CluedIn is made up of various functional layers, all encapsulated into their own [Docker](https://www.docker.com/) containers.
