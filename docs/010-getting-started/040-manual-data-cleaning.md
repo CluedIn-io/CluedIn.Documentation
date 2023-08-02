@@ -3,7 +3,7 @@ layout: default
 title: Clean data
 parent: Getting Started
 permalink: /getting-started/manual-data-cleaning
-nav_order: 30
+nav_order: 40
 tags: ["getting-started"]
 ---
 ## On this page
