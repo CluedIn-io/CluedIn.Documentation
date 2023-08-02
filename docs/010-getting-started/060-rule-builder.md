@@ -41,9 +41,9 @@ Creating a rule involves configuring a filter and defining the rule action.
 
     1. Depending on the type of property that you selected, do one of the following:
 
-        - For **Property**, find and select the needed property.
+        For **Property**, find and select the needed property.
 
-        - For **Vocabulary**, find and select the needed vocabulary key.
+        For **Vocabulary**, find and select the needed vocabulary key.
 
     1. Select the operation.
 
@@ -102,8 +102,6 @@ After you created the rule for the processed data, you need to re-process the en
 1. On the navigation pane, go to **Consume** > **GraphQL**.
 
 1. Enter a query to re-process all entities that belong to a certain entity type. Replace _TrainingContact_ with the needed name of entity type.
-
-
 ```
 {
 	search(query: "entityType:/TrainingContact") {
@@ -115,9 +113,7 @@ After you created the rule for the processed data, you need to re-process the en
 	}
 }
 ```
-
-
-1. In the toolbar, select **Execute Query** (![execute-query-button.png](../../assets/images/getting-started/rule-builder/execute-query-button.png)).
+1. Execute the query.
 
     You re-processed all entities that belong to a certain entity type. Now, the action from the rule is applied to all entities.
 
@@ -137,7 +133,7 @@ After you created the rule for the processed data, you need to re-process the en
 
 # Change rule
 
-After you created the rule, you can edit, [inactivate](#delete-rule), or [delete](#delete-rule) it.
+After you created the rule, you can edit, [inactivate](#inactivate-rule), or [delete](#delete-rule) it.
 
 ## Inactivate rule
 
@@ -165,7 +161,7 @@ If you no longer need the rule, delete it.
 
 1. Open the rule.
 
-1. On the rule details page, select ![delete-icon.png](../../assets/images/getting-started/rule-builder/delete-icon.png), and then confirm that you want to delete the rule.
+1. On the rule details page, select the delete icon, and then confirm that you want to delete the rule.
 
     You deleted the rule, but the items to which the rule was applied still contain the changes made by the rule.
 
