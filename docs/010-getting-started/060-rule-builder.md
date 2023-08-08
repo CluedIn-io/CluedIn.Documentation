@@ -204,4 +204,4 @@ You have created a rule in CluedIn using the Rule Builder tool.
 
 # Next steps
 
-- Create hierarchies.
+- [Create hierarchies](/getting-started/hierarchy-builder)
