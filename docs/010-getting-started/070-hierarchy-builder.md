@@ -126,7 +126,7 @@ After you published the hierarchy, update the stream to ensure that the data in 
 
 1. In the upper-right corner, select **Save**. Then, confirm that you want to save your changes.
 
-    The stream is updated with the relations between records. As a result, new tables are created in the database: **dbo.<xyz>OutgoingEdges** and **dbo.<xyz>IncomingEdges**, where **<xyz>** is the target name.
+    The stream is updated with the relations between records. As a result, new tables are created in the database: **dbo.xyzOutgoingEdges** and **dbo.xyzIncomingEdges**, where _xyz_ is the target name.
 
     ![update-stream-2.png](../../assets/images/getting-started/hierarchy-builder/update-stream-2.png)
 
