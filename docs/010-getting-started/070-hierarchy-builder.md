@@ -138,5 +138,5 @@ You have created a hierarchy in CluedIn.
 
 # Next steps
 
-- Create glossary.
+- [Create glossary](/getting-started/glossary).
 
