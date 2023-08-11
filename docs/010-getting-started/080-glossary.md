@@ -80,9 +80,9 @@ Term refers to the list of records that meet specific conditions. For example, w
 
     1. Depending on the type of property that you selected, do one of the following:
 
-        - For **Property**, find and select the needed property.
+        For **Property**, find and select the needed property.
 
-        - For **Vocabulary**, find and select the needed vocabulary key.
+        For **Vocabulary**, find and select the needed vocabulary key.
 
     1. Select the operation.
 
@@ -104,7 +104,7 @@ Term refers to the list of records that meet specific conditions. For example, w
 
 1. Go to the **Matches** tab to view the records that meet the condition that you set up.
 
-    By default, all records are displayed in the following columns: **Name**, **Entity Type**, and **Description**. To add more columns to the table, see step 3 of [Find data](/Documentation/Getting-started/Clean-data#find-data).
+    By default, all records are displayed in the following columns: **Name**, **Entity Type**, and **Description**. To add more columns to the table, see step 3 of [Find data](/getting-started/manual-data-cleaning#find-data).
 
 1. Activate the term by turning on the toggle next to the term status.
 
@@ -112,7 +112,7 @@ Term refers to the list of records that meet specific conditions. For example, w
 
     You created the term and defined the records that are included in this term.
 
-Now, you can clean the glossary term and stream it to a Microsoft SQL Server database. As an example, [update the configuration of the stream](#update-stream-configuratrion) that you created in the [Stream data](/getting-started/data-streaming) guide.
+Now, you can clean the glossary term and stream it to a Microsoft SQL Server database. As an example, [update the configuration of the stream](#update-stream-configuration) that you created in the [Stream data](/getting-started/data-streaming) guide.
 
 # Manage glossary
 

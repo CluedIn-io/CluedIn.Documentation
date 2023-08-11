@@ -139,4 +139,4 @@ You have streamed your records from CluedIn to a Microsoft SQL Server database.
 
 # Next steps
 
-- Clean data.
+- [Clean data](/getting-started/manual-data-cleaning)

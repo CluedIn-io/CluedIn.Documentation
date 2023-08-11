@@ -185,4 +185,4 @@ You have performed manual data cleaning in CluedIn.
 
 # Next steps
 
-- [Deduplicate data](/getting-started/data-deduplication).
+- [Deduplicate data](/getting-started/data-deduplication)
