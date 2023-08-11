@@ -22,6 +22,13 @@ In this article, you will learn how to work with the glossary in CluedIn. Glossa
 
 Working with the glossary in CluedIn includes creating categories and creating terms within those categories. You can have multiple terms under one category.
 
+**Prerequisites**
+
+Before proceeding with the glossary, ensure that you have completed the following tasks:
+
+1. Ingested some data into CluedIn. For more information, see [Ingest data](/getting-started/data-ingestion).
+
+1. Created a stream that keeps the data synchronized between CluedIn and the Microsoft SQL Server database. For more information, see [Stream data](/getting-started/data-streaming).
 
 # Create category
 
@@ -39,7 +46,7 @@ Category refers to a logical grouping of terms. For example, you can have a cate
 
 1. Enter the category name. Then, in the lower-right corner, select **Create**.
 
-    ![create-category-1.png](/.attachments/create-category-1-9078910b-fb0b-43e1-b7d1-e793bbc56b52.png)
+    ![create-category-1.png](../../assets/images/getting-started/glossary/create-category-1.png)
 
     You created the category. Now, you can create a term in the category.
 
@@ -59,7 +66,7 @@ Term refers to the list of records that meet specific conditions. For example, w
 
     1. Select the category that you created.
 
-        ![create-term-1.png](/.attachments/create-term-1-daaf0383-f7c4-4f43-8076-0c313c7b0b75.png)
+        ![create-term-1.png](../../assets/images/getting-started/glossary/create-term-1.png)
 
     1. In the lower-left corner, select **Create**.
 
@@ -81,7 +88,7 @@ Term refers to the list of records that meet specific conditions. For example, w
 
     1. Select the value of the property.
 
-        ![create-term-2.png](/.attachments/create-term-2-0ecdd8cf-8dfd-4cbc-bd67-e6a0bac90c35.png)
+        ![create-term-2.png](../../assets/images/getting-started/glossary/create-term-2.png)
 
         **Note:** The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
 
@@ -91,7 +98,7 @@ Term refers to the list of records that meet specific conditions. For example, w
 
     1. Enter the **Short Description** and **Long Description** of the term.
 
-        ![create-term-3.png](/.attachments/create-term-3-96b6d141-fb90-42b4-9b2a-7cff326ed05e.png)
+        ![create-term-3.png](../../assets/images/getting-started/glossary/create-term-3.png)
 
 1. In the upper-right corner of the term details page, select **Save**.
 
@@ -101,11 +108,11 @@ Term refers to the list of records that meet specific conditions. For example, w
 
 1. Activate the term by turning on the toggle next to the term status.
 
-    ![create-term-4.png](/.attachments/create-term-4-dde8e0a5-6c24-48fe-9ac4-547522d33616.png)
+    ![create-term-4.png](../../assets/images/getting-started/glossary/create-term-4.png)
 
     You created the term and defined the records that are included in this term.
 
-Now, you can clean the glossary term and stream it to a Microsoft SQL Server database. As an example, [update the configuration of the stream](#update-stream-configuratrion) that you created in the [Stream data](/Documentation/Getting-started/Stream-data) guide.
+Now, you can clean the glossary term and stream it to a Microsoft SQL Server database. As an example, [update the configuration of the stream](#update-stream-configuratrion) that you created in the [Stream data](/getting-started/data-streaming) guide.
 
 # Manage glossary
 
@@ -113,11 +120,11 @@ You can do the following actions with the terms in the glossary:
 
 - Endorse the term when you are confident that the records are of good quality, signaling to other users that the term is reliable for their use. To do that, in the upper-right corner of the term page, select **Endorse**.
 
-    ![manage-glossary-1.png](/.attachments/manage-glossary-1-b57a04f3-0e79-4d8d-b93f-22e6f8a38d94.png)
+    ![manage-glossary-1.png](../../assets/images/getting-started/glossary/manage-glossary-1.png)
 
 - Rate the term, enabling other users to view that it is reliable for their use.
 
-    ![manage-glossary-2.png](/.attachments/manage-glossary-2-2771503f-f73e-4fc9-8a42-dd9b0389fc6f.png)
+    ![manage-glossary-2.png](../../assets/images/getting-started/glossary/manage-glossary-2.png)
 
 # Update stream configuration
 
@@ -139,12 +146,10 @@ Streaming the glossary terms to the database is more convenient than streaming s
 
     1. In the **Choose Operation** dropdown list, select **Is True**.
 
-        ![update-stream-configuration-1.png](/.attachments/update-stream-configuration-1-93a86313-9006-4ee7-8400-900139a7502c.png)
+        ![update-stream-configuration-1.png](../../assets/images/getting-started/glossary/update-stream-configuration-1.png)
 
 1. In the upper-right corner select **Save**. Then, confirm that you want to save your changes.
 
     The stream is updated with the new filter. As a result, the database table now contains the records from the glossary  term.
-
-    [Screenshot to be added]
 
     If you update the glossary term, the records will be automatically updated in the database.
