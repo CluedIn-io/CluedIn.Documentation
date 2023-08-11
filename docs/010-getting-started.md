@@ -14,18 +14,4 @@ If you are new to CluedIn, it's a great idea to get acquainted with some essenti
 
 - [Local installation of CluedIn](/deployment/local)
 
-Learn how to do the most common operations in CluedIn:
-
-- [Ingest data](/getting-started/data-ingestion)
-
-- [Stream data](/getting-started/data-streaming)
-
-- [Clean data](/getting-started/manual-data-cleaning)
-
-- [Deduplicate data](/getting-started/data-deduplication)
-
-- [Create rules](/getting-started/rule-builder)
-
-- [Create hierarchies](/getting-started/hierarchy-builder)
-
 
