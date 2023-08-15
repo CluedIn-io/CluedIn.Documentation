@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Work with glossary
-parent: Add relations between records
+title: Add relations between records
+parent: Getting Started
 permalink: /getting-started/relations
 nav_order: 90
 tags: ["getting-started"]
@@ -106,7 +106,7 @@ After you processed the data and streamed the records, you can view the relation
 
     ![view-relations-2.png](../../assets/images/getting-started/relations/view-relations-2.png)
 
-- In the database: in the tables named **dbo.<xyz>OutgoingEdges** and **dbo.<xyz>IncomingEdges**, where _<xyz>_ is the target name.
+- In the database: in the tables named **dbo.xyzOutgoingEdges** and **dbo.xyzIncomingEdges**, where _xyz_ is the target name.
 
     ![view-relations-3.png](../../assets/images/getting-started/relations/view-relations-3.png)
 
