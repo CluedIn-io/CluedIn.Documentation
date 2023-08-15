@@ -3,7 +3,7 @@ layout: default
 title: Work with glossary
 parent: Getting Started
 permalink: /getting-started/glossary
-nav_order: 70
+nav_order: 80
 tags: ["getting-started"]
 ---
 ## On this page
@@ -153,3 +153,11 @@ Streaming the glossary terms to the database is more convenient than streaming s
     The stream is updated with the new filter. As a result, the database table now contains the records from the glossary  term.
 
     If you update the glossary term, the records will be automatically updated in the database.
+
+# Results
+
+You created a glossary term in CluedIn.
+
+# Next steps
+
+- [Add relations between golden records](/getting-started/relations)
