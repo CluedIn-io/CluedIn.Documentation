@@ -4,7 +4,7 @@ nav_order: 10
 parent: PowerApps Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/powerapps/setup-credentials
-title: Setup Credentials
+title: Setup Credentials and Application Setup
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17
 ---
@@ -14,7 +14,7 @@ Enter your [Microsoft 365](https://www.microsoft365.com/) Credentials in CluedIn
 1. Visit the CluedIn web application
 2. Navigate to Administration => Settings
 3. Scroll down to the Organization Settings section, where you will find the settings for PowerApps.
-![Input Microsoft Purview credentials](./images/cluedin-setting.png)
+![Input Microsoft Purview credentials](./images/cluedin-setting-new.png)
     - Base Url
     - Tenant Id
     - Client Id
@@ -32,9 +32,10 @@ Enter your [Microsoft 365](https://www.microsoft365.com/) Credentials in CluedIn
 
 ## Setup Security Roles
 The following table lists the minimum role assignment we need to be able to successfully run the PowerApps Connector. Please refer to this [link](https://learn.microsoft.com/en-us/power-platform/admin/security-roles-privileges) for a detailed explanation of Security roles and privileges.
+
 | Table | Create | Read | Write | Delete |
 |:----------|:--|:--------|:---|:---|
-| _Customization_ |
+| _Customization_ | | | | |
 | Solution | Organization| Organization | Organization | Organization |
 | Publisher | Organization| Organization | Organization | Organization |
 
