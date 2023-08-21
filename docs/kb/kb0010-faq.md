@@ -1,11 +1,12 @@
 ---
 layout: default
 title: Frequently Asked Questions
-parent: Getting Started
-permalink: /getting-started/faq
-nav_order: 50
+permalink: /kb/faq
+nav_exclude: true
 tags: ["getting-started", "faq"]
+is_kb: true
 ---
+
 ## On this page
 {: .no_toc .text-delta }
 1. TOC

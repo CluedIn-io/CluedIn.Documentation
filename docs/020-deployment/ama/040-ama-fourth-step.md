@@ -4,7 +4,7 @@ nav_order: 4
 parent: Azure Marketplace
 grand_parent: Installation
 permalink: /deployment/azure-marketplace/step-4
-title: 4. Post-installation guide
+title: Post-installation guide
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---
@@ -31,7 +31,7 @@ By default, CluedIn installation is secured by using TLS. CluedIn uses the Autom
 
 # Configure alerts
 
-By default, CluedIn contains built-in alerts that are sent to our support team. You can configure your own alerts in the Azure portal.
+By default, CluedIn contains built-in alerts that are sent to our support team. You can configure your own alerts in the Azure portal. For more information about alerts, see [Configure alerts](/deployment/infra-how-tos/configure-alerts).
 
 # Configure logging
 

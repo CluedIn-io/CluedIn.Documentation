@@ -4,7 +4,7 @@ nav_order: 1
 parent: Azure Marketplace
 grand_parent: Installation
 permalink: /deployment/azure-marketplace/step-1
-title: 1. Business decisions
+title: Business decisions
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---
@@ -12,8 +12,6 @@ last_modified: 2023-06-20
 {: .no_toc .text-delta }
 1. TOC
 {:toc}
-
-CluedIn is an Azure Managed Application (AMA) that is deployed within your company's Azure infrastructure. As a managed application, CluedIn is easy to deploy and operate. In addition, our support team can help you with the installation processes.
 
 In this article, you will learn about the decisions you need to make before starting the CluedIn installation process.
 
@@ -40,7 +38,14 @@ If you choose the **pay-as-you go license**, you can install CluedIn directly fr
 
 If you choose the **committed-deal license**, contact your Account Executive or our <a href="https://www.cluedin.com/get-in-touch" target="_blank">sales team</a> to discuss the contract. We’ll make sure you get the best deal to get started with CluedIn. After you sign the contract, we’ll send you the **license key by email**.
 
-The committed-deal license comes with such benefits as a **welcome package**, which includes real-time training where we explain how to run a CluedIn project, and a **fixed price** for the license. In addition, you will automatically get 2 free CluedIn licenses for **development and test environments**.
+The committed-deal license comes with such benefits as:
+
+- **Welcome package** that includes real-time training where we explain how to run a CluedIn project.
+- **Fixed price** for the license.
+- **Enterprise 24/7 support** in accordance with our enterprise support agreement and service level agreements (SLAs).
+- **Managed service from CluedIn** for the client's CluedIn application infrastructure.
+
+In addition, you will automatically get 2 free CluedIn licenses for **development and test environments**.
 
 We recommend using three different environments:
 
