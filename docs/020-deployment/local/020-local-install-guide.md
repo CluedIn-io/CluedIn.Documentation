@@ -87,11 +87,13 @@ You can find the ACR to which you have been granted access in the <a href="/depl
 
     ![pull-images-result.png](../../assets/images/local-install/pull-images-result.png)
 
-1. Create an environment. In the following command, we use `202304` as the name of the environment. To create an environment, run the following command:
+1. Create an environment. In the following command, we use `202304` as the name of the environment and `2023.04` as the release number. To create an environment, run the following command:
 ```
  pwsh .\cluedin.ps1 env 202304 -tag 2023.04
  ```
 
+    **Important!** You should use the most recent release number. Find the list of releases [here](https://cluedin-io.github.io/Releases/).
+    
     You will get an output similar to the following.
 
     ![create-env.png](../../assets/images/local-install/create-env.png)
