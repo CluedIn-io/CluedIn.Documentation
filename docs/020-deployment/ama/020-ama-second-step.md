@@ -190,7 +190,7 @@ Your Azure Firewall should cover the following:
 
 For the list of firewall rules that should be added to your Azure Firewall, see [Configure firewall](/deployment/infra-how-tos/configure-firewall).
 
-**Important!** If the rules have not been added, then the installation will fail.
+**Important!** If the rules have not been added, the installation will fail.
 
 # Configure network settings
 

@@ -20,4 +20,4 @@ Before installing CluedIn, you need to set up the firewall policy. To do that, a
 | `*.grafana.com` | 443 | Grafana chart content |
 | `mcr.microsoft.com` | 443 | Microsoft container registry |
 
-**Important!** If the rules have not been added, then the installation will fail.
+**Important!** If the rules have not been added, the installation will fail.
