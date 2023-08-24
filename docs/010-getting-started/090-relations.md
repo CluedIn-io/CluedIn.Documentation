@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Add relations between records
-parent: Getting Started
+parent: Getting started
 permalink: /getting-started/relations
 nav_order: 90
 tags: ["getting-started"]
