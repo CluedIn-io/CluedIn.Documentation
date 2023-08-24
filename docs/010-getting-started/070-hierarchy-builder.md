@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Create hierarchies
-parent: Getting Started
+parent: Getting started
 permalink: /getting-started/hierarchy-builder
 nav_order: 70
 tags: ["getting-started"]
