@@ -10,6 +10,11 @@ permalink: /getting-started
 
 In this section, we'll walk you through the fundamental steps to get started with CluedIn.
 
+<div style="padding:56.25% 0 0 0;position:relative;">
+<iframe src="https://player.vimeo.com/video/857414924?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+title="Getting started with CluedIn"></iframe>
+</div>
+
 Before proceeding with the getting started guides, make sure that you have CluedIn up and running. This step is essential to ensure that you can follow along seamlessly and fully experience the basic features. If you don't have CluedIn installed, check the following guides:
 
 - [Installation of CluedIn from the Azure Marketplace](/deployment/azure-marketplace)
