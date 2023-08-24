@@ -4,7 +4,7 @@ nav_order: 1
 parent: How tos
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-firewall
-title: Configure alerts
+title: Configure firewall
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-23
 ---

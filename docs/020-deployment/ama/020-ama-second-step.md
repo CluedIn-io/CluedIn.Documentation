@@ -188,16 +188,7 @@ Your Azure Firewall should cover the following:
 - **Default AKS functionality** – logs and pods should be able to see Kubernetes API Server (as recommended in <a href="https://learn.microsoft.com/en-us/azure/aks/outbound-rules-control-egress">Azure AKS documentation</a>).
 - **CluedIn resource access** – resources needed for the CluedIn installation.
 
-Add the following rules to your Azure Firewall as described in the table.
-
-| Rule address | Port | Description |
-|--|--|--|
-| `cluedinprod.azurecr.io` | 443 | CluedIn container registry |
-| `api.nuget.org` | 443 | NuGet packages |
-| `github.com` | 433 | GitHub artifacts |
-| `billing.cluedin.com` | 443 | CluedIn licensing server |
-| `*.grafana.com` | 443 | Grafana chart content |
-| `mcr.microsoft.com` | 443 | Microsoft container registry |
+For the list of firewall rules that should be added to your Azure Firewall, see [Configure firewall](/deployment/infra-how-tos/configure-firewall).
 
 **Important!** If the rules have not been added, then the installation will fail.
 
