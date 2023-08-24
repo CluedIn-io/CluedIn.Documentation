@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Getting Started
+title: Getting started
 nav_order: 10
 has_children: true
 permalink: /getting-started

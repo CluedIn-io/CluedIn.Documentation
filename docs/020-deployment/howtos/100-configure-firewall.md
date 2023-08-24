@@ -9,7 +9,11 @@ tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-23
 ---
 
-Before installing CluedIn, you need to set up the firewall policy. To do that, add the following rules to your Azure Firewall as described in the table.
+Your Azure Firewall should cover the following:
+- **Default AKS functionality** – logs and pods should be able to see Kubernetes API Server (as recommended in <a href="https://learn.microsoft.com/en-us/azure/aks/outbound-rules-control-egress">Outbound network and FQDN rules for AKS clusters</a>).
+- **CluedIn resource access** – resources needed for the CluedIn installation.
+
+To do that, add the following rules to your Azure Firewall as described in the table.
 
 | Rule address | Port | Description |
 |--|--|--|
