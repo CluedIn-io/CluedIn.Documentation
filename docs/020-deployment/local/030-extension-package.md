@@ -32,7 +32,6 @@ The following image presents an overview of the steps involved in adding SQL Ser
 In the procedure, we'll use the following input variables:
 
 - `202304` – name of the environment
-- `2023.04` – version of CluedIn.
 - `CluedIn.Connector.SqlServer` – name of the extension package.
 
 **To add SQL Server Connector to CluedIn**

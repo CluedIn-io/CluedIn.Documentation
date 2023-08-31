@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Ingest data
-parent: Getting Started
+parent: Getting started
 permalink: /getting-started/data-ingestion
 nav_order: 20
 tags: ["getting-started"]

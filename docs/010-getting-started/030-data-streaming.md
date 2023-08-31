@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Stream data
-parent: Getting Started
+parent: Getting started
 permalink: /getting-started/data-streaming
 nav_order: 30
 tags: ["getting-started"]

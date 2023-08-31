@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Create rules
-parent: Getting Started
+parent: Getting started
 permalink: /getting-started/rule-builder
 nav_order: 60
 tags: ["getting-started"]

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Deduplicate data
-parent: Getting Started
+parent: Getting started
 permalink: /getting-started/data-deduplication
 nav_order: 50
 tags: ["getting-started"]

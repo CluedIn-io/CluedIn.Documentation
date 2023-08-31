@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Work with glossary
-parent: Getting Started
+parent: Getting started
 permalink: /getting-started/glossary
 nav_order: 80
 tags: ["getting-started"]
