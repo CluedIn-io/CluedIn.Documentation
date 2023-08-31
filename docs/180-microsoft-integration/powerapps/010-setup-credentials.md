@@ -38,6 +38,10 @@ The following table lists the minimum role assignment we need to be able to succ
 | _Customization_ | | | | |
 | Solution | Organization| Organization | Organization | Organization |
 | Publisher | Organization| Organization | Organization | Organization |
+| Entity | Organization| Organization | Organization | Organization |
+| System Form | Organization| Organization | Organization | Organization |
+| View | Organization| Organization | Organization | Organization |
+| Custom Control Default Config | Organization| | Organization | Organization |
 
 ## Setup Application Users
 Upon setting up your App Registration and Security Roles, we need to register it under the Application User. Please refer to this [link](https://learn.microsoft.com/en-us/power-platform/admin/security-roles-privileges) for more information.
