@@ -4,7 +4,7 @@ title: User management
 parent: Administration
 permalink: /administration/user-management
 nav_order: 10
-tags: ["administration"]
+tags: ["administration", "users"]
 ---
 ## On this page
 {: .no_toc .text-delta }

@@ -4,7 +4,7 @@ title: Roles
 parent: Administration
 permalink: /administration/roles
 nav_order: 20
-tags: ["administration"]
+tags: ["administration", "roles"]
 ---
 
 In this article, you will learn about claims and access levels, which are the main concepts that define roles.

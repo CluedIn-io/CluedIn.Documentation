@@ -4,8 +4,8 @@ title: Assign roles
 parent: Roles
 grand_parent: Administration
 permalink: /administration/roles/assign-roles
-nav_order: 20
-tags: ["administration"]
+nav_order: 30
+tags: ["administration", "roles"]
 ---
 ## On this page
 {: .no_toc .text-delta }
