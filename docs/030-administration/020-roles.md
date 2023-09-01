@@ -6,10 +6,6 @@ permalink: /administration/roles
 nav_order: 20
 tags: ["administration"]
 ---
-## On this page
-{: .no_toc .text-delta }
-1. TOC
-{:toc}
 
 In this article, you will learn about claims and access levels, which are the main concepts that define roles.
 
