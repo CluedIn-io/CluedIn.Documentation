@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Assign roles
+nav_order: 1
 parent: Roles
 grand_parent: Administration
 permalink: /administration/roles/assign-roles
-nav_order: 30
+title: Assign roles
 tags: ["administration", "roles"]
 ---
 ## On this page
@@ -34,9 +34,9 @@ After you [add the user to CluedIn](/administration/user-management), you can gi
 
 You can assign roles to the users in two places within the platform:
 
-- [Administration > User Management > Users](#assign-roles-to-user-in-users) – this option is useful when you want to assign multiple roles to a user.
+- [Administration > User Management > Users](#assign-roles-in-users) – this option is useful when you want to assign multiple roles to a user.
 
-- [Administration > Roles](#assign-roles-to-user-in-roles) – this option is useful when you want to assign a role to multiple users.
+- [Administration > Roles](#assign-roles-in-roles) – this option is useful when you want to assign a role to multiple users.
 
 The following diagram shows the flow of assigning roles to the user.
 
@@ -98,7 +98,7 @@ The following diagram shows the flow of processing role requests.
 
 **To process a role request**
 
-1. On the ribbon, select ![vertical-ellipsis.png](../../assets/images/administration/roles/vertical-ellipsis.png) > **My Tasks**.
+1. In the upper-right corner, select the ellipsis button, and then select **My Tasks**.
 
 1. Select **Role Requests**, and then find the needed request.
 

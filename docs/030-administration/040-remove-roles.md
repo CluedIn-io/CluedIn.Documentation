@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Remove roles
+nav_order: 1
 parent: Roles
 grand_parent: Administration
 permalink: /administration/roles/remove-roles
-nav_order: 40
+title: Remove roles
 tags: ["administration", "roles"]
 ---
 

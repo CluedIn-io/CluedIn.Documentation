@@ -19,7 +19,7 @@ A user is someone who can sign in to CluedIn. The user's access to CluedIn modul
 
 You can do the following actions to manage users:
 
-- [Add user](#add-user)
+- [Add user](#add-user-by-email-address)
 
 - [Deactivate user](#deactivate-user)
 
@@ -27,9 +27,9 @@ You can do the following actions to manage users:
 
 You can add users to CluedIn in one of the following ways:
 
-- [By the user's email address](###add-user-by-email-address)
+- [By the user's email address](#add-user-by-email-address)
 
-- [Via Azure Active Directory single sign-on (SSO)](###add-user-via-sso)
+- [Via Azure Active Directory single sign-on (SSO)](#add-user-via-sso)
 
 ### Add user by email address
 
