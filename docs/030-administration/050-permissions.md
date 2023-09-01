@@ -39,7 +39,7 @@ A global security filter is used for managing the overall access to data within 
 
     If the global security filter is enabled, you will see a list of users who have access to data when you check permissions for data sources, manual data entry projects, configured integrations, and enrichers.
 
-    ![global-security-filter-enabled.png](../../assets/images/administration/permissions/global-security-filter-disabled.png)
+    ![global-security-filter-enabled.png](../../assets/images/administration/permissions/global-security-filter-enabled.png)
 
 **To enable a global security filter**
 
@@ -51,7 +51,7 @@ A global security filter is used for managing the overall access to data within 
 
     The global security filter is enabled. The users need to sign out and sign in again for the changes to take the effect.
 
-After you enable the global security filter, the users will not be able to view any data in CluedIn. To give users access to the data required for their data-related tasks, [add permissions for users in data resources](#add-users-to-data-sources).
+After you enable the global security filter, the users will not be able to view any data in CluedIn. To give users access to the data required for their data-related tasks, [add permissions for users in data resources](#add-permission-for-users-in-data-resource).
 
 **Exception in global security filter**
 

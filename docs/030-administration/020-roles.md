@@ -4,6 +4,7 @@ title: Roles
 parent: Administration
 permalink: /administration/roles
 nav_order: 20
+has_children: true
 tags: ["administration", "roles"]
 ---
 

@@ -6,7 +6,10 @@ has_children: false
 permalink: /getting-access
 ---
 
-{: .fs-6 .fw-300 }
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 In this article, you will find instructions for CluedIn administrators and business users on how to get access to CluedIn. Depending on your role, read one of the following sections:
 
@@ -32,7 +35,7 @@ There are two methods to sign in to your CluedIn account:
 
     ![getting-access-diagram.png](../../assets/images/getting-access/getting-access-diagram.png)
 
-- **Sign in using Single Sign-On (SSO)** – SSO is not enabled by default. If your administrator has set up single sign-on, you’ll be able to sign in to your CluedIn account by authenticating through your company’s identity provider.
+- **Sign in using Single Sign-On (SSO)** – SSO is not enabled by default. If your administrator has set up SSO, you’ll be able to sign in to your CluedIn account by authenticating through your company’s identity provider.
 
     If the SSO method is enabled for your organization, you can select the corresponding button on the CluedIn sign-in page.
 
