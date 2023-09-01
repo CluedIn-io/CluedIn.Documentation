@@ -11,7 +11,7 @@ In this article, you will learn about claims and access levels, which are the ma
 
 _**This article is intended for CluedIn administrators.**_
 
-The roles are used for granting permissions to users. These permissions are only granted to the modules within the platform, not to the data. For information on how to restrict access to data, see Permissions.
+The roles are used for granting permissions to users. These permissions are only granted to the modules within the platform, not to the data. For information on how to restrict access to data, see [Permissions](/administration/permissions).
 
 All roles are listed in **Administration** > **Roles**.
 

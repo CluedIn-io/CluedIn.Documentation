@@ -15,7 +15,7 @@ In this article, you will learn how to add and deactivate users in your CluedIn 
 
 **_This article is intended for CluedIn administrators._**
 
-A user is someone who can sign in to CluedIn. The user's access to CluedIn modules and features is defined by the user's roles. For more information, see Roles.
+A user is someone who can sign in to CluedIn. The user's access to CluedIn modules and features is defined by the user's roles. For more information, see [Roles](/administration/roles).
 
 You can do the following actions to manage users:
 
@@ -53,7 +53,7 @@ The following diagram shows the flow of adding a user to CluedIn.
 
     ![invite-user-email-2.png](../../assets/images/administration/user-management/invite-user-email-2.png)
 
-    By default, the user role is OrganizationUser. It means that the user can view all sections and modules in a read-only mode. To give the user access to more features within the platform, add another role to the user.
+    By default, the user role is OrganizationUser. It means that the user can view all sections and modules in a read-only mode. To give the user access to more features within the platform, [add another role to the user](/administration/roles/assign-roles).
 
 ### Add user via SSO
 
