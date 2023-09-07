@@ -44,10 +44,11 @@ The following table lists the minimum role assignment we need to be able to succ
 | System Form | Organization| Organization | Organization | Organization |
 | View | Organization| Organization | Organization | Organization |
 | Custom Control Default Config | Organization| | Organization | Organization |
+| Process | Organization | Organization | Organization | Organization |
+| _Custom Tables_ | | | | |
 | Connection Reference | Organization | Organization | Organization | Organization |
 | Connector | Organization | Organization | Organization | Organization |
 | Dataflow | Organization | Organization | Organization | Organization |
-| Process | Organization | Organization | Organization | Organization |
 
 ## Setup Application Users
-Upon setting up your App Registration and Security Roles, we need to register it under the Application User. Please refer to this [link](https://learn.microsoft.com/en-us/power-platform/admin/security-roles-privileges) for more information.
+Upon setting up your App Registration and Security Roles, we need to register it under the Application User. Please refer to this [link](https://learn.microsoft.com/en-us/power-platform/admin/manage-application-users) for more information.
