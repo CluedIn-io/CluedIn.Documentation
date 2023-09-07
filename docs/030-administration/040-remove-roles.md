@@ -10,7 +10,12 @@ tags: ["administration", "roles"]
 
 In this article, you will learn how to remove roles from users so that they are restricted from performing operations in CluedIn.
 
-_**This article is intended for CluedIn administrators.**_
+**_This article is intended for users with the OrganizationAdmin role or users with the following claim access levels._**
+
+| Section | Claim | Access level |
+|--|--|--|
+| Admin | Users | at least Consulted |
+| Admin | Roles | at least Consulted |
 
 The following diagram shows the flow of removing roles from the user.
 

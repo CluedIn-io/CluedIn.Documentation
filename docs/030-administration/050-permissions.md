@@ -13,7 +13,12 @@ tags: ["administration", "permissions"]
 
 In this article, you will learn how to restrict access to data using a global security filter and how to add permissions for users to specific data.
 
-**_This article is intended for CluedIn administrators._**
+**_This article is intended for users with the OrganizationAdmin role or users with the following claim access levels._**
+
+| Section | Claim | Access level |
+|--|--|--|
+| Admin | Users | at least Consulted |
+| Admin | Roles | at least Consulted |
 
 To make sure that the right users have access to the right data, perform the following steps:
 
