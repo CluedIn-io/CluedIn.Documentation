@@ -10,17 +10,40 @@ tags: ["administration", "roles"]
 
 In this article, you will learn about claims and access levels, which are the main concepts that define roles.
 
-_**This article is intended for CluedIn administrators.**_
+_**This article is intended for users with the following claim access level.**_
 
-The roles are used for granting permissions to users. These permissions are only granted to the modules within the platform, not to the data. For information on how to restrict access to data, see [Permissions](/administration/permissions).
+| Section | Claim | Access level |
+|--|--|--|
+| Admin | Roles | at least Consulted |
 
-All roles are listed in **Administration** > **Roles**.
+Roles are used to grant permissions to users to perform specific actions in CluedIn. These permissions are only granted to the modules within the platform, not to the data. For information on how to restrict access to data, see [Permissions](/administration/permissions).
 
-A role is a set of claims and access levels. A claim is the name of a specific feature or operation that can be performed in CluedIn. Most of the time, the name of the claim is the same as the name of the module in CluedIn. An access level indicates the type of activity that can be performed with the claim. 
+All roles are listed in **Administration** > **Roles**. The following table provides a list of the CluedIn application roles.
+
+| Role name | Description |
+|--|--|
+| DataArchitect | Responsible for designing an organization's enterprise data strategy. |
+| DataCompliance | Responsible for daily operations around data compliance. |
+| DataComplianceAdministrator | Responsible for approving changes made by users with the DataCompliance role. |
+| DataGovernance | Responsible for monitoring and maintaining data quality. |
+| DataGovernanceAdministrator | Responsible for approving changes made by users with the DataGovernance role. |
+| DataSteward | Responsible for cleaning data using the Clean and Prepare modules. |
+| DataStewardAdministrator | Responsible for approving changes made by users with the DataSteward role. |
+| DeduplicationAdministrator | Responsible for creating and maintaining deduplication projects and merging the results back into the system. |
+| DeduplicationReviewer | Responsible for reviewing deduplication project results and approving groupings. |
+| Guest | User with minimal, read-only permissions. |
+| OrganizationAdmin | Administrator within the organization. |
+| OrganizationUser | User within the organization who can view all modules as read-only. |
+| ReportManager | User who can generate reports for compliance matters such as breach, subject request, and retention. |
+| User | User who can view all modules as read-only. |
+
+A role is a container for claims and access levels. A claim is the name of a specific feature or operation that can be performed in CluedIn. Most of the time, the name of the claim is the same as the name of the module in CluedIn. An access level indicates the type of activity that can be performed with the claim. 
 
 To view the role's claims and access levels, select the role. In the first column, you can find the name of the section in CluedIn (a) and claims within that section (b). In the second column, you can find access levels (c) to each claim.
 
 ![roles-1.png](../../assets/images/administration/roles/roles-1.png)
+
+Each role contains the same list of claims, but different access levels. We recommend that you familiarize yourself with the default CluedIn roles, so that you know which role to assign to users in your organization. If default configuration is not suitable for you, you can change access levels in default roles or create your own roles.
 
 In CluedIn, there are the following access levels:
 
@@ -34,4 +57,8 @@ In CluedIn, there are the following access levels:
 
 - **Accountable** – administrator access to the claim.
 
-**Note:** We are working on making the access levels consistent within the platform. Currently, for some modules, the activity represented by the **Responsible** and **Accountable** access levels is the same.
+Each subsequent access level includes all permissions from the previous access level.
+
+**Note:** In CluedIn, the most commonly used access levels are Informed and Consulted. We are working on making the access levels consistent within the platform. Currently, for some modules, the activity represented by the Responsible and Accountable access levels is the same.
+
+All authorized users have a list of claims and access levels applied to them. If a user has multiple roles with different claim access levels, then the higher access level will be applied to the user. For example, if a user is assigned both the DataArchitect and DeduplicationAdministrator roles, the user will have the Consulted access level to the Clean claim, even though this access level is set to None for the DataArchitect.
