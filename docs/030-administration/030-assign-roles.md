@@ -14,7 +14,12 @@ tags: ["administration", "roles"]
 
 In this article, you will learn how to assign roles to users so that they are authorized to perform operations in CluedIn.
 
-_**This article is intended for CluedIn administrators.**_
+**_This article is intended for users with the OrganizationAdmin role or users with the following claim access levels._**
+
+| Section | Claim | Access level |
+|--|--|--|
+| Admin | Users | at least Consulted |
+| Admin | Roles | at least Consulted |
 
 You can assign roles to users in the following cases:
 
@@ -89,6 +94,8 @@ If you want to review the users who have been already added to the role and add 
 ## Process role requests
 
 When the user requests access to a specific section or module, you'll receive a new role request notification.
+
+**Note:** You will receive a role request notification from the user only if you added that user to CluedIn. If someone else added the user, then that person will receive the role request notification.
 
 ![role-request-2.png](../../assets/images/administration/roles/role-request-2.png)
 

@@ -10,7 +10,7 @@ tags: ["administration", "roles"]
 
 In this article, you will learn about claims and access levels, which are the main concepts that define roles.
 
-_**This article is intended for users with the following claim access level.**_
+**_This article is intended for users with the OrganizationAdmin role or users with the following claim access level._**
 
 | Section | Claim | Access level |
 |--|--|--|
