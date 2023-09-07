@@ -3,7 +3,7 @@ layout: default
 title: Permissions
 parent: Administration
 permalink: /administration/permissions
-nav_order: 50
+nav_order: 60
 tags: ["administration", "permissions"]
 ---
 ## On this page
