@@ -13,7 +13,11 @@ tags: ["administration", "users"]
 
 In this article, you will learn how to add and deactivate users in your CluedIn organization.
 
-**_This article is intended for CluedIn administrators._**
+**_This article is intended for users with the OrganizationAdmin role or users with the following claim access level._**
+
+| Section | Claim | Access level |
+|--|--|--|
+| Admin | Users | at least Consulted |
 
 A user is someone who can sign in to CluedIn. The user's access to CluedIn modules and features is defined by the user's roles. For more information, see [Roles](/administration/roles).
 
@@ -25,7 +29,7 @@ You can do the following actions to manage users:
 
 ## Add user
 
-You can add users to CluedIn in one of the following ways:
+Users can be added to CluedIn in one of the following ways:
 
 - [By the user's email address](#add-user-by-email-address)
 

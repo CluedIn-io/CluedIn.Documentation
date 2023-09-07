@@ -43,7 +43,7 @@ To view the role's claims and access levels, select the role. In the first colum
 
 ![roles-1.png](../../assets/images/administration/roles/roles-1.png)
 
-Each role contains the same list of claims, but different access levels. We recommend that you familiarize yourself with the default CluedIn roles, so that you know which role to assign to users in your organization. If default configuration is not suitable for you, you can change access levels in default roles or create your own roles.
+Each role contains the same list of claims, but different access levels. We recommend that you familiarize yourself with the default CluedIn roles, so that you know which role to assign to users in your organization. If the default configuration is not suitable for you, you can change the access levels in the default roles or create your own roles.
 
 In CluedIn, there are the following access levels:
 
@@ -53,12 +53,12 @@ In CluedIn, there are the following access levels:
 
 - **Consulted** – read and write access to the claim. The user will be able to add, edit, or delete items within the claim.
 
-- **Responsible** – this is a placeholder claim level and it gives permission to approve changes within the claim.
+- **Responsible** – read, write, and submit approval requests. This access level is not commonly used in CluedIn.
 
-- **Accountable** – administrator access to the claim.
+- **Accountable** – read, write, submit approval requests, and approve requests. This access level is not commonly used in CluedIn.
 
 Each subsequent access level includes all permissions from the previous access level.
 
 **Note:** In CluedIn, the most commonly used access levels are Informed and Consulted. We are working on making the access levels consistent within the platform. Currently, for some modules, the activity represented by the Responsible and Accountable access levels is the same.
 
-All authorized users have a list of claims and access levels applied to them. If a user has multiple roles with different claim access levels, then the higher access level will be applied to the user. For example, if a user is assigned both the DataArchitect and DeduplicationAdministrator roles, the user will have the Consulted access level to the Clean claim, even though this access level is set to None for the DataArchitect.
+All authorized users have a list of claims and access levels applied to them. If a user has multiple roles with different claim access levels, then the higher access level will be applied to the user.
