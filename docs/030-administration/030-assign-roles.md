@@ -95,8 +95,6 @@ If you want to review the users who have been already added to the role and add 
 
 When the user requests access to a specific section or module, you'll receive a new role request notification.
 
-**Note:** You'll receive a role request notification from the user only if you added that user to CluedIn. If someone else added the user, then that person will receive the role request notification.
-
 ![role-request-2.png](../../assets/images/administration/roles/role-request-2.png)
 
 The following diagram shows the flow of processing role requests.
