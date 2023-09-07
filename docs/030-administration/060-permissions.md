@@ -3,7 +3,7 @@ layout: default
 title: Permissions
 parent: Administration
 permalink: /administration/permissions
-nav_order: 50
+nav_order: 60
 tags: ["administration", "permissions"]
 ---
 ## On this page
@@ -13,7 +13,18 @@ tags: ["administration", "permissions"]
 
 In this article, you will learn how to restrict access to data using a global security filter and how to add permissions for users to specific data.
 
-**_This article is intended for CluedIn administrators._**
+**_This article is intended for users with the OrganizationAdmin role or users with the following claim access levels._**
+
+| Section | Claim | Access level |
+|--|--|--|
+| Management | Data Catalog | at least Consulted |
+| Management | Annotation | at least Consulted |
+| Admin | Tenant Management | at least Consulted |
+| Integration | Enrichment | at least Consulted |
+| Integration | Configured Integrations | at least Consulted |
+| Integration | Manual Data Entry Project Management | at least Consulted |
+| Integration | Data Source Groups | at least Consulted |
+| Consume | Export Targets | at least Consulted |
 
 To make sure that the right users have access to the right data, perform the following steps:
 
@@ -81,7 +92,7 @@ With the global security filter enabled, you need to add permissions for users i
 
 1. Go to the **Permissions** tab and select **Add Users**.
 
-1. Select the checkbox next to the users to whom you want to grant access to data. Then, select **Grant access**.
+1. Select the checkbox next to the users you want to grant access to data. Then, select **Grant access**.
 
     ![grant-access-1.png](../../assets/images/administration/permissions/grant-access-1.png)
 
