@@ -21,20 +21,6 @@ In this article, you will learn how to assign roles to users so that they are au
 | Admin | Users | at least Consulted |
 | Admin | Roles | at least Consulted |
 
-You can assign roles to users in the following cases:
-
-- If you know which role is needed for the user.
-
-    By default, when you add a user to CluedIn, that user is assigned the OrganizationUser role. This means that the user can view all sections and modules in a read-only mode. To give the user access to more features within the platform, [assign another role to the user](#assign-roles-to-user).
-
-- If the user contacts you and asks for a specific permission.
-
-- If you receive role requests from the users.
-
-    When users are browsing CluedIn and find that they do not have access to certain sections or modules, they can send a request to get access. You need to [process the role request](#process-role-requests) to grant the needed access.
-
-## Assign roles to user
-
 After you [add the user to CluedIn](/administration/user-management), you can give the user access to more features within the platform by adding another roles to the user.
 
 You can assign roles to the users in two places within the platform:
@@ -47,7 +33,7 @@ The following diagram shows the flow of assigning roles to the user.
 
 ![add-role-diagram.png](../../assets/images/administration/roles/add-role-diagram.png)
 
-### Assign roles in Users
+## Assign roles in Users
 
 If you want to review the roles that are already assigned to the user and assign another roles, perform the following procedure.
 
@@ -69,7 +55,7 @@ If you want to review the roles that are already assigned to the user and assign
 
     The user will receive an email about the role changes. For the changes to take the effect, the user has to sign out and sign in again.
 
-### Assign roles in Roles
+## Assign roles in Roles
 
 If you want to review the users who have been already added to the role and add another users, perform the following procedure.
 
@@ -90,37 +76,3 @@ If you want to review the users who have been already added to the role and add 
     ![add-role-4.png](../../assets/images/administration/roles/add-role-4.png)
 
     The users will receive an email about the role changes. For the changes to take the effect, the users have to sign out and sign in again.
-
-## Process role requests
-
-When the user requests access to a specific section or module, you'll receive a new role request notification.
-
-![role-request-2.png](../../assets/images/administration/roles/role-request-2.png)
-
-The following diagram shows the flow of processing role requests.
-
-![role-request-diagram.png](../../assets/images/administration/roles/role-request-diagram.png)
-
-**To process a role request**
-
-1. In the upper-right corner, select the ellipsis button, and then select **My Tasks**.
-
-1. Select **Role Requests**, and then find the needed request.
-
-1. In the **Actions** column, select **Grant Access**.
-
-    The dialog box opens where you can view the details of the access request.
-
-1. In the **Granting Access To** dialog box, do the following:
-
-    1. Review the access level and select another level if necessary.
-
-        The information message below helps you understand the permissions that will be granted to the user.
-
-    1. Select a role to assign to the user.
-
-        ![role-request-1.png](../../assets/images/administration/roles/role-request-1.png)
-
-    1. In the lower-right corner, select **Grant Access**.
-
-    The user will receive a notification about the role changes. For the changes to take the effect, the user has to sign out and sign in again.
