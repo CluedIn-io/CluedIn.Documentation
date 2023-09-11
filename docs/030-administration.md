@@ -8,9 +8,7 @@ permalink: /administration
 
 {: .fs-6 .fw-300 }
 
-In this article, you will learn about the main actions that you can perform within the platform as a CluedIn administrator.
-
-**_This article is intended for users with the OrganizationAdmin role._**
+In this article, you will learn about the main administrative tasks in CluedIn.
 
 Select one of the following items to get started:
 
