@@ -29,7 +29,7 @@ You can assign roles to the users in two places within the platform:
 
 - [Administration > Roles](#assign-roles-in-roles) – this option is useful when you want to assign a role to multiple users.
 
-The following diagram shows the flow of assigning roles to the user.
+The following diagram shows the flow of assigning roles to users.
 
 ![add-role-diagram.png](../../assets/images/administration/roles/add-role-diagram.png)
 

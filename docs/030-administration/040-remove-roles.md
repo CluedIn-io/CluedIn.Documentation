@@ -17,7 +17,7 @@ In this article, you will learn how to remove roles from users so that they are 
 | Admin | Users | at least Consulted |
 | Admin | Roles | at least Consulted |
 
-The following diagram shows the flow of removing roles from the user.
+The following diagram shows the flow of removing roles from users.
 
 ![remove-role-diagram.png](../../assets/images/administration/roles/remove-role-diagram.png)
 
