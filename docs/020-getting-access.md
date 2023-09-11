@@ -11,7 +11,7 @@ permalink: /getting-access
 1. TOC
 {:toc}
 
-In this article, you will find instructions for CluedIn administrators and business users on how to get access to CluedIn. Depending on your role, read one of the following sections:
+In this article, you will find instructions on how to get access to CluedIn. Depending on your role, read one of the following sections:
 
 - [Getting access for administrators](#getting-access-for-administrators)
 
@@ -19,15 +19,15 @@ In this article, you will find instructions for CluedIn administrators and busin
 
 ## Getting access for administrators
 
-Depending on the type of CluedIn installation, do one of the following:
+Depending on the type of CluedIn installation that you performed, do one of the following:
 
-- **Installation of CluedIn from Azure Marketplace** – sign in to CluedIn using the email address and password that you specified on the **Initial Setup** tab of CluedIn installation. For more information, see [Installation guide](/deployment/azure-marketplace/step-3).
+- **Installation of CluedIn from the Azure Marketplace** – sign in to CluedIn using the email address and password you specified on the **Initial Setup** tab of CluedIn installation. For more information, see [Installation guide](/deployment/azure-marketplace/step-3).
 
-- **Local installation of CluedIn** – sign in to CluedIn using the email address and password that you created on the last step of local CluedIn installation. For more information, see [Local installation guide](/deployment/local/step-2).
+- **Local installation of CluedIn** – sign in to CluedIn using the email address and password you created on the last step of local CluedIn installation. For more information, see [Local installation guide](/deployment/local/step-2).
 
 ## Getting access for business users
 
-There are two methods to sign in to your CluedIn account:
+You can sign in to your CluedIn account in one of the following ways:
 
 - **Sign in with your email address and password** - if your administrator invites you to CluedIn, you will receive an email with a link to sign up for your CluedIn account.
 
@@ -41,11 +41,11 @@ There are two methods to sign in to your CluedIn account:
 
     ![sign-in-sso.png](../../assets/images/getting-access/sign-in-sso.png)
 
-### Sign in
+### Sign in by email
 
-After you created password for your account, you can sign in to CluedIn.
+After you created password for your account, you can sign in and start using CluedIn.
 
-**To sign in to CluedIn with email address and password**
+**To sign in to CluedIn by email**
 
 - On the CluedIn sign-in page, enter your email and password and then select **Sign In**.
 
@@ -55,11 +55,11 @@ After you created password for your account, you can sign in to CluedIn.
 
     ![request-access-1.png](../../assets/images/getting-access/request-access-1.png)
 
-    To get more permissions to specific modules and functions, see [Request access](#request-access).
+    To get permissions to specific modules and functions, [request access](#request-access).
 
 ### Request access
 
-To get access to more functions within the platform, contact your CluedIn Administrator or request access to the needed modules directly in CluedIn.
+To get access to more functions within the platform, contact your CluedIn administrator or request access to the needed modules directly in CluedIn.
 
 The following diagram shows the flow of requesting access directly in CluedIn.
 
@@ -69,7 +69,9 @@ The following diagram shows the flow of requesting access directly in CluedIn.
 
 1. Sign in to CluedIn.
 
-1. Find the module that you want to get access to. For example, if you want to view deduplication projects, go to **Management** > **Deduplication**.
+1. Find the module that you want to get access to.
+
+    For example, if you want to view deduplication projects, go to **Management** > **Deduplication**.
 
     You will see a message similar to the following.
 
