@@ -26,11 +26,13 @@ In this article, you will learn how to upgrade your local instance of CluedIn to
 1. Retrieve the SQL Init image by running the following command:
 ```docker pull {acr url}/cluedin/sqlserver-init:[VERSION]
 ```
-You should use the version to which you want to upgrade (e.g., 3.7.4).
+
+    You should use the version to which you want to upgrade (e.g., 3.7.4).
 
 1. Perform the database update by running the following command:
 ```docker run --rm -it -e MSSQL_HOST=host.docker.internal {acr url}/cluedin/sqlserver-init:[VERSION]
 ```
+
     You should use the version to which you want to upgrade (e.g., 3.7.4).
 
     **Note:** Your environment's SQL Server Docker image should be running for this image to run correctly.
@@ -42,9 +44,10 @@ You should use the version to which you want to upgrade (e.g., 3.7.4).
 1. Using a diff tool, compare the **.env** file for your environment with the **default/.env** file. If some values are missing in the **.env** file for your environment, copy them from the **default/.env** file.
 
 1. Run the following command to get container images:
-```pwsh ./cluedin pull -env [NAME OF ENV]
-```
-
+ ```
+    pwsh ./cluedin pull -env [NAME OF ENV]
+ ```
 1. Run the following command to start your instance of CluedIn:
-```pwsh ./cluedin up -env [NAME OF ENV]
-```
+ ```
+     pwsh ./cluedin up -env [NAME OF ENV]
+ ```
