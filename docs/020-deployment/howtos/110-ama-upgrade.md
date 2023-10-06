@@ -43,7 +43,8 @@ export KUBECONFIG=~/.kube/mycluster.config
 ```
 
 1. Check if you can connect to the cluster you are upgrading by running the following command:
-```kubectl get no
+```
+kubectl get no
 ```
 
     You will get an output similar to the following:
@@ -87,7 +88,8 @@ helm ls -a -n cluedin
     **Note:** You will need the `chart version` and `app version` for running the upgrade in the following [procedure](#run-upgrade).
 
 1. If you do not have the previous values, get them by running the following command:
-```helm get values cluedin-platform -n cluedin -o yaml > default-values.yaml
+```
+helm get values cluedin-platform -n cluedin -o yaml > default-values.yaml
 ``` 
 
     **Note:** If you are pulling the values using Lens, make sure that the **User-Supplied values only** checkbox is selected. Otherwise, you will get more values than you need and may encounter issues when upgrading.
