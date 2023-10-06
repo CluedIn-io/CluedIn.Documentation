@@ -34,12 +34,13 @@ After you upgraded the package versions, check your current environment configur
 **To check environment configuration**
 
 1. Make sure that your KUBECONFIG file is set in your current path by running the following command:
-
-    `export KUBECONFIG=~/.kube/mycluster.config`
+```
+export KUBECONFIG=~/.kube/mycluster.config
+```
 
 1. Check if you can connect to the cluster you are upgrading by running the following command:
-
-    `kubectl get no`
+```kubectl get no
+```
 
     You will get an output similar to the following:
     
@@ -55,8 +56,9 @@ After you upgraded the package versions, check your current environment configur
     Then, compare the node names with the names in the Azure portal or Lens.
 
 1. Make sure that you can see the current installation by running the following Helm command:
-
-    `helm ls -a -n cluedin`
+```
+helm ls -a -n cluedin
+```
 
     You will get an output similar to the following:
     
