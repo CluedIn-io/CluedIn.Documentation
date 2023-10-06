@@ -8,6 +8,10 @@ title: AMA upgrade
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-10-06
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 In this article, you will learn how to upgrade CluedIn AMA to the new version. You can find the latest chart version [here](https://github.com/CluedIn-io/Charts/releases) and the latest app version [here](https://cluedin-io.github.io/Releases/).
 
@@ -31,7 +35,7 @@ CluedIn is shipped with predefined connectors. They are listed in the **Packages
 
 After you upgraded the package versions, check your current environment configuration and get the latest app version.
 
-**To check environment configuration**
+**To check the environment configuration**
 
 1. Make sure that your KUBECONFIG file is set in your current path by running the following command:
 ```
@@ -39,14 +43,14 @@ export KUBECONFIG=~/.kube/mycluster.config
 ```
 
 1. Check if you can connect to the cluster you are upgrading by running the following command:
-```kubectl get no
+```
+kubectl get no
 ```
 
     You will get an output similar to the following:
     
     ```
     kubectl get no
-
     NAME                              STATUS   ROLES   AGE   VERSION
     aks-default-18391074-vmss000000   Ready    agent   79d   v1.23.8
     aks-user-96238571-vmss000009      Ready    agent   29d   v1.23.8
@@ -84,8 +88,9 @@ helm ls -a -n cluedin
     **Note:** You will need the `chart version` and `app version` for running the upgrade in the following [procedure](#run-upgrade).
 
 1. If you do not have the previous values, get them by running the following command:
-
-    `helm get values cluedin-platform -n cluedin -o yaml > default-values.yaml` 
+```
+helm get values cluedin-platform -n cluedin -o yaml > default-values.yaml
+``` 
 
     **Note:** If you are pulling the values using Lens, make sure that the **User-Supplied values only** checkbox is selected. Otherwise, you will get more values than you need and may encounter issues when upgrading.
     
@@ -108,7 +113,7 @@ Now that you have checked the environment configuration and received the latest 
     ```
     Normally, this should be the only tag you need to update unless there have been custom image tag overrides in the past. Check your **default-values.yaml** file for any tag customizations.
 
-    **Note:** Depending on the tag you use, you can enable auto-upgrade for CluedIn. If you use the major and minor versions only (e.g., 2023.07), you will get the latest available patch by default, thus enabling the auto-upgrade. If you specify a particular patch (e.g., 2023.07.02), you will get that specific patch, whether it is the latest or not. For the production environment, we recommend that you specify a patch. For the development environment, we recommended that you use the major and minor versions, and thus get the latest patch.
+    **Note:** Depending on the tag you use, you can enable auto-upgrade for CluedIn. If you use the major and minor versions only (e.g., `2023.07`), you will get the latest available patch by default, thus enabling the auto-upgrade. If you specify a particular patch (e.g., `2023.07.02`), you will get that specific patch, whether it is the latest or not. For the production environment, we recommend that you specify a patch. For the development environment, we recommended that you use the major and minor versions, and thus get the latest patch.
 
 1. Run the `helm upgrade` command as follows:
     
@@ -123,15 +128,16 @@ Now that you have checked the environment configuration and received the latest 
 
     This command runs the database jobs as part of the upgrade (normally these are skipped because they can take a long time to run.)
 
-    **Note:** The order of the --values files matters as the last file will win any override priority so we need the **upgrade-values.yaml** file to follow the **default-values.yaml** file.
+    **Note:** The order of the values files matters as the last file will win any override priority so we need the **upgrade-values.yaml** file to follow the **default-values.yaml** file.
 
     You can find the `version` number in step 4 of [Check environment configuration](#check-environment-configuration) (look for the chart version number).
 
 ## Validate upgrade
 
 To validate the upgrade, check the `init-sqlserver` job. This will be running the database upgrades needed for the new version. Then, get the logs of the completed job by running the following command:
-
-`kubectl logs --tail=1000 --selector=job-name=init-sqlserver-job -n cluedin`
+```
+kubectl logs --tail=1000 --selector=job-name=init-sqlserver-job -n cluedin
+```
 
 This will produce an output similar to the following.
 
