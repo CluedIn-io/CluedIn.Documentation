@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 1
-parent: How tos
+parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/advanced-network
 title: Advanced network configuration
