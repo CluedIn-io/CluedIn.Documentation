@@ -104,7 +104,7 @@ platform:
 global:
   ingress:
     tls:
-      hasClusterCA: true # Only set to true if the CA Certificate is not publicly trusted. 
+      hasClusterCA: true # Only set to 'true' if the CA certificate is not publicly trusted. 
       secretName: cluedin-frontend-crt # Must match name of secret in platform.extraCertificateSecrets
 ```
 
