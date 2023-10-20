@@ -76,7 +76,7 @@ platform:
     cluedin-frontend-crt:
       tlsKey: LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3=
       tlsCrt: S0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ=
-      caCrt:  LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3= # Optional. Used for self-signed, or missing CA certs. Needs global.ingress.tls.hasClusterCA set to 'true' to be used.
+      caCrt:  LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3= # Optional. Used for self-signed or missing CA certificates. Needs global.ingress.tls.hasClusterCA set to 'true' to be used.
 ```
 
 4. Remove the following section of configuration.
