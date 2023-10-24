@@ -42,7 +42,7 @@ If you want to use a Subject Alternative Name (SAN) or wildcard certificate for 
 
 2. After you obtain the required files, convert the content of each file to base64 string using the `output.txt` command. For example: `bas64 /path/to/file > output.txt`
 3. Add the strings to your **values.yaml** file under the **Platform** section as shown in the example below. 
-```
+```yaml
 platform:
   extraCertificateSecrets:
     cluedin-frontend-crt:
@@ -70,17 +70,17 @@ nano Cluster-Current-values.yaml
 ```
 
 3. Add the section with base64 encoded values for the keys and secrets.
-```
+```yaml
 platform:
   extraCertificateSecrets:
     cluedin-frontend-crt:
       tlsKey: LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3=
       tlsCrt: S0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ=
-      caCrt:  LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3=
+      caCrt:  LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3= # Optional. Used for self-signed or missing CA certificates. Needs global.ingress.tls.hasClusterCA set to 'true' to be used.
 ```
 
 4. Remove the following section of configuration.
-```
+```yaml
   issuer:
     configuration:
       acme:
@@ -99,9 +99,18 @@ platform:
 ```
 **Note:** We recommend that you remove Let's Encrypt issuer because you are configuring the system to use your own certificates and keys.
 
-5. Save the file.
+5. Update the ingress controller to use the new certificate:
+```yaml
+global:
+  ingress:
+    tls:
+      hasClusterCA: true # Only set to 'true' if the CA certificate is not publicly trusted. 
+      secretName: cluedin-frontend-crt # Must match name of secret in platform.extraCertificateSecrets
+```
 
-6. Post the new configuration to your cluster by running the following command:
+6. Save the file.
+
+7. Post the new configuration to your cluster by running the following command:
 ```
 helm upgrade -i cluedin-platform cluedin/cluedin-platform  -n cluedin --create-namespace  --values Cluster-Current-values.yaml --set application.system.runDatabaseJobsOnUpgrade=false
 ```
