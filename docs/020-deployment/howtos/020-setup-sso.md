@@ -38,7 +38,9 @@ Alternatively, you can use Azure Cloud Shell.
 
 Script Download: [Setup-CluedInSSO.ps1](../../../assets/ps1/Setup-CluedInSSO.ps1)
 
-You will need to specify the AKS Cluster name as it will interact with this during script runtime to gather information to popular the app registration. You can also override the Application Name.
+You will need to specify the AKS Cluster name as it will interact with this during script runtime to gather information required to populate the app registration.
+
+The AAD Application Name can be override at runtime using the parameter.
 
 ## Manual Setup
 
