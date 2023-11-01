@@ -30,7 +30,19 @@ Configuring SSO for CluedIn using Azure AD involves three main steps:
 
 **Important!** Before configuring SSO, make sure that you have configured [DNS](/deployment/infra-how-tos/configure-dns) and [TLS](/deployment/infra-how-tos/configure-certificates).
 
-## Register an application in the Azure portal
+## Automated Setup (Script)
+
+We have provided a script that will automate all steps in the manual method below in a controlled way.
+To use this script, you will need Az CLI installed locally along with powershell core.
+Alternatively, you can use Azure Cloud Shell.
+
+Script Download: [Setup-CluedInSSO.ps1](../../../assets/ps1/Setup-CluedInSSO.ps1)
+
+You will need to specify the AKS Cluster name as it will interact with this during script runtime to gather information to popular the app registration. You can also override the Application Name.
+
+## Manual Setup
+
+### Register an application in the Azure portal (Manual)
 
 Registering your application establishes a trust relationship between your application and the Microsoft identity platform. The trust is unidirectional: your application trusts the Microsoft identity platform, and not the other way around. After you create the application, it cannot be moved between different tenants.
 
@@ -144,7 +156,7 @@ In the CluedIn application, you can find all CluedIn roles by navigating to **Ad
 
 Any changes made in the application registration will be saved in your Azure subscription. We do not impose strict requirements on how app roles are set up, so you can follow your organization’s internal requirements.
 
-### CluedIn roles 
+### CluedIn roles
 
 The following table provides a list of the CluedIn application roles and recommended values to use when creating your Azure app roles with your application registration.
 
