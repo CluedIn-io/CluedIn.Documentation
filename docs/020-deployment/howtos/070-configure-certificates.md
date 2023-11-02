@@ -13,7 +13,7 @@ last_modified: 2023-06-20
 1. TOC
 {:toc}
 
-The CluedIn front-end application uses **Transport Layer Security (TLS)** to encrypt access to the application over the network using HTTPS. CluedIn uses the Automated Certificate Management Environment (ACME) protocol and the public  Let's Encrypt certificate authority to issue certificates. 
+The CluedIn front-end application uses **Transport Layer Security (TLS)** to encrypt access to the application over the network using HTTPS. CluedIn uses the Automated Certificate Management Environment (ACME) protocol and the public  Let's Encrypt certificate authority to issue certificates.
 
 While there are no specific requirements regarding the issuer and source of your certificates and keys, it is recommended that all TLS certificates and keys meet your organization's requirements and comply with any security and compliance policies and regional laws.
 
@@ -36,12 +36,12 @@ If you want to use a Subject Alternative Name (SAN) or wildcard certificate for 
 
 **To create certificates and keys**
 
-1. From a suitable provider, obtain the following files: **TLS certificate**, **TLS private key (without password)**, and **Certificate authority's public certificate**. 
-    
+1. From a suitable provider, obtain the following files: **TLS certificate**, **TLS private key (without password)**, and **Certificate authority's public certificate**.
+
     The TLS certificates and keys must contain the DNS names for the CluedIn services as described in [Configure DNS](/deployment/infra-how-tos/configure-dns).
 
 2. After you obtain the required files, convert the content of each file to base64 string using the `output.txt` command. For example: `bas64 /path/to/file > output.txt`
-3. Add the strings to your **values.yaml** file under the **Platform** section as shown in the example below. 
+3. Add the strings to your **values.yaml** file under the **Platform** section as shown in the example below.
 ```yaml
 platform:
   extraCertificateSecrets:
@@ -104,19 +104,31 @@ platform:
 global:
   ingress:
     tls:
-      hasClusterCA: true # Only set to 'true' if the CA certificate is not publicly trusted. 
+      hasClusterCA: true # Only set to 'true' if the CA certificate is not publicly trusted.
       secretName: cluedin-frontend-crt # Must match name of secret in platform.extraCertificateSecrets
 ```
 
-6. Save the file.
+6. Finally, update the hostname field to match the DNS for ingress.
+```yaml
+global:
+  dns:
+    hostname: mydomain.com # By default will be sslip.io
+    subdomains:
+      application: app-env
+      openrefine: clean-env
+      # It's good to append what type of environment (ie. prod) to the end of app and clean.
+      # This is due to having multiple cluedin environments. Often the base domain is shared between all 3, but sub-domains shouldn't clash.
+```
 
-7. Post the new configuration to your cluster by running the following command:
+7. Save the file.
+
+8. Post the new configuration to your cluster by running the following command:
 ```
 helm upgrade -i cluedin-platform cluedin/cluedin-platform  -n cluedin --create-namespace  --values Cluster-Current-values.yaml --set application.system.runDatabaseJobsOnUpgrade=false
 ```
 After a short time, you'll see the confirmation of your update in the console. CluedIn is now configured to use your new TLS certificate and keys.
 
-# Alternative certificate providers 
+# Alternative certificate providers
 
 If you can't obtain a certificate from a commercial certificate authority or from your internal public key infrastructure (PKI) service, you can use other methods to generate certificates. For example, you can generate certificates via [Let's Encrypt](#lets-encrypt) or you can generate [self-signed certificates](#self-signed-certificates).
 
