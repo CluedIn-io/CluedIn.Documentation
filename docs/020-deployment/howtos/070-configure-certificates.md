@@ -113,6 +113,11 @@ global:
 global:
   dns:
     hostname: mydomain.com # By default will be sslip.io
+    subdomains:
+      application: app-env
+      openrefine: clean-env
+      # It's good to append what type of environment (ie. prod) to the end of app and clean.
+      # This is due to having multiple cluedin environments. Often the base domain is shared between all 3, but sub-domains shouldn't clash.
 ```
 
 7. Save the file.
