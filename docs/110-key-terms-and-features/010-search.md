@@ -14,6 +14,8 @@ tags: ["search"]
 
 CluedIn allows you to search over all data in the platform. You can enter a keyword in the search box, and CluedIn will return all relevant records. You can also use [filters](/key-terms-and-features/filters) to precisely define the data you're looking for based on various criteria.
 
+In this article, you will learn how to use the search capabilities and customize the search results page to better suit your specific needs.
+
 ## Search results page
 
 By default, the search results page displays records in the tabular view in the following columns: Name, Entity Type, and Description. You can customize the search results page to focus on the information that is important to you.
