@@ -80,13 +80,9 @@ Creating a clean project from the Preparation module requires more effort than u
 
     1. Select **Add Property**, and then choose what type of property—record property or vocabulary property—you want to load to the clean project.
 
-    1. Depending on the type of property that you chose, do one of the following:
+    1. Depending on the type of property that you chose, select the record properties or find and select the vocabulary keys that you want to load to the clean project.
 
-        * If you chose the record property, select the record properties that you want to load to the clean project.
-        
-        * If you chose the vocabulary property, find and select the vocabulary keys that you want to load to the clean project.
-
-            ![clean-project-5.png](../../assets/images/preparation/clean/clean-project-5.png)
+        ![clean-project-5.png](../../assets/images/preparation/clean/clean-project-5.png)
 
     1. In the lower-right corner, select **Save Selection**.
 
@@ -118,13 +114,9 @@ You can create a glossary term to collect a group of records that meet certain c
     
     1. Select **Add Property**, and then choose what type of property—record property or vocabulary property—you want to load to the clean project.
 
-    1. Depending on the type of property that you chose, do one of the following:
+    1. Depending on the type of property that you chose, select the record properties or find and select the vocabulary keys that you want to load to the clean project.
 
-        * If you chose the record property, select the record properties that you want to load to the clean project.
-        
-        * If you chose the vocabulary property, find and select the vocabulary keys that you want to load to the clean project.
-
-            ![clean-project-5.png](../../assets/images/preparation/clean/clean-project-5.png)
+        ![clean-project-5.png](../../assets/images/preparation/clean/clean-project-5.png)
 
     1. In the lower-right corner, select **Save Selection**.
 
