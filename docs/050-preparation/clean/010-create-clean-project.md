@@ -36,9 +36,9 @@ If you want to regularly clean your data, we recommend setting up and saving sea
 
         ![clean-project-1.png](../../assets/images/preparation/clean/clean-project-1.png)
 
-        Make sure that the vocabulary keys to be cleaned are displayed on the search results page. This way, you don't have to specify the vocabulary keys in the clean project configuration. To learn how to add vocabulary keys to the search results page, see [Add columns](/Documentation/Key-terms-and-features/Search#add-columns).
+        Make sure that the vocabulary keys to be cleaned are displayed on the search results page. This way, you don't have to specify the vocabulary keys in the clean project configuration. To learn how to add vocabulary keys to the search results page, see [Add columns](/key-terms-and-features/search#add-columns).
 
-    - If you don't have the saved search, define the data that you want to clean using [filters](/Documentation/Key-terms-and-features/Filters). Then, add the vocabulary keys to be cleaned to the search results page following the [Add columns](/key-terms-and-features/search#add-columns) procedure. If you need to clean the same set of data in future, save the current filter configuration.
+    - If you don't have the saved search, define the data that you want to clean using [filters](/key-terms-and-features/filters). Then, add the vocabulary keys to be cleaned to the search results page following the [Add columns](/key-terms-and-features/search#add-columns) procedure. If you need to clean the same set of data in future, save the current filter configuration.
 
 1. In the upper-right corner of the page, select the vertical ellipsis button, and then select **Clean**.
 
@@ -82,9 +82,9 @@ Creating a clean project from the Preparation module requires more effort than u
 
     1. Depending on the type of property that you chose, do one of the following:
 
-        - If you chose the record property, select the record properties that you want to load to the clean project.
+        * If you chose the record property, select the record properties that you want to load to the clean project.
         
-        - If you chose the vocabulary property, find and select the vocabulary keys that you want to load to the clean project.
+        * If you chose the vocabulary property, find and select the vocabulary keys that you want to load to the clean project.
 
             ![clean-project-5.png](../../assets/images/preparation/clean/clean-project-5.png)
 
@@ -120,9 +120,9 @@ You can create a glossary term to collect a group of records that meet certain c
 
     1. Depending on the type of property that you chose, do one of the following:
 
-        - If you chose the record property, select the record properties that you want to load to the clean project.
+        * If you chose the record property, select the record properties that you want to load to the clean project.
         
-        - If you chose the vocabulary property, find and select the vocabulary keys that you want to load to the clean project.
+        * If you chose the vocabulary property, find and select the vocabulary keys that you want to load to the clean project.
 
             ![clean-project-5.png](../../assets/images/preparation/clean/clean-project-5.png)
 

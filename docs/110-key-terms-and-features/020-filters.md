@@ -40,7 +40,7 @@ Creating a filter is a step-by-step process in which parameters are defined one 
 
 - Glossary – a group of records that meet specific criteria. A glossary is essentially a predefined subquery or a rule that can be combined into another rule to reduce complexity and promote reuse and consistency.
 
-**Object** is a parameter that defines a specific element you are filtering on. **Operation** defines the relationship between filter parameters. The available operations change based on the type of object (DateTime, Text, Integer, and so on). For more information, see [Operations](#operations). **Value** is a criteria that you use to define the filter results.
+**Object** is a parameter that defines a specific element you are filtering on. **Operation** defines the relationship between filter parameters. The available operations change based on the object's data type (DateTime, Text, Integer, and so on). For more information, see [Operations](#operations). **Value** is a criteria that you use to define the filter results.
 
 For example, the following filter will return all records where such Property (object type) as Tag (object) Contains (operation) the value Invalid (criteria).
 

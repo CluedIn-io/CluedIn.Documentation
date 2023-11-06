@@ -18,8 +18,8 @@ The following diagram shows the basic steps of cleaning the data in CluedIn.
 
 This section covers the following areas:
 
-- [Creating a clean project](/preparation/clean/create-clean-project) – here you will discover different options that you can use to create a clean project.
+- [Creating a clean project](/preparation/clean/create-clean-project) – discover different options that you can use to create a clean project.
 
-- [Managing a clean project](/preparation/clean/manage-clean-project) – here you will learn how to work with a clean project, fix data issues, and prevent the same issues from happening again.
+- [Managing a clean project](/preparation/clean/manage-clean-project) – learn how to work with a clean project, fix data issues, and prevent the same issues from happening again.
 
-- [Reference information about clean projects](/preparation/clean/clean-reference) – here you will find information about clean project statuses and get an understanding of the clean project workflow.
+- [Reference information about clean projects](/preparation/clean/clean-reference) – find information about clean project statuses and get an understanding of the clean project workflow.

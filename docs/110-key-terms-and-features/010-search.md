@@ -12,7 +12,7 @@ tags: ["search"]
 1. TOC
 {:toc}
 
-CluedIn allows you to search over all data in the platform. You can enter a keyword in the search box, and CluedIn will return all relevant records. You can also use [filters](/Documentation/Key-terms-and-features/Filters) to precisely define the data you're looking for based on various criteria.
+CluedIn allows you to search over all data in the platform. You can enter a keyword in the search box, and CluedIn will return all relevant records. You can also use [filters](/key-terms-and-features/filters) to precisely define the data you're looking for based on various criteria.
 
 ## Search results page
 
