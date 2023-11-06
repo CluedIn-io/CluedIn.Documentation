@@ -12,13 +12,15 @@ tags: ["search"]
 1. TOC
 {:toc}
 
-CluedIn allows you to search over all data in the platform. You can enter a keyword in the search box, and CluedIn will return all relevant records. You can also use [filters](/key-terms-and-features/filters) to precisely define the data you're looking for based on various criteria.
+CluedIn allows you to search over all your golden records. You can enter a keyword in the search box, and CluedIn will return all relevant records. You can also use [filters](/key-terms-and-features/filters) to precisely define the data you're looking for based on various criteria.
 
 In this article, you will learn how to use the search capabilities and customize the search results page to better suit your specific needs.
 
 ## Search results page
 
 By default, the search results page displays records in the tabular view in the following columns: Name, Entity Type, and Description. You can customize the search results page to focus on the information that is important to you.
+
+![search-5.png](../../assets/images/key-terms-and-features/search-5.png)
 
 ### Add columns
 
@@ -41,6 +43,8 @@ If you want to see other record properties or vocabulary keys, you can add the n
 1. After you chose the needed vocabulary keys, select **Add Vocabulary Columns**.
 
     The columns are added to the search results page.
+
+    ![search-6.gif](../../assets/images/key-terms-and-features/search-6.gif)
 
 ### Reorder columns
 
