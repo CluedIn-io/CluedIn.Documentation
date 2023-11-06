@@ -7,6 +7,10 @@ nav_order: 1
 has_children: false
 tags: ["search"]
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 CluedIn allows you to search over all data in the platform. You can enter a keyword in the search box, and CluedIn will return all relevant records. You can also use [filters](/Documentation/Key-terms-and-features/Filters) to precisely define the data you're looking for based on various criteria.
 
@@ -100,7 +104,7 @@ Saved searches help you quickly retrieve a set of records that meet specific fil
 
     ![search-3.png](../../assets/images/key-terms-and-features/search-3.png)
 
-    The search is saved in CluedIn. Now, you can use it when you need to quickly find a specific set of records or when you want to [clean](/Documentation/Preparation/Clean) those records.
+    The search is saved in CluedIn. Now, you can use it when you need to quickly find a specific set of records or when you want to [clean](/preparation/clean) those records.
 
 **To retrieve a saved search**
 

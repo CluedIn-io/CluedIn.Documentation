@@ -7,6 +7,10 @@ nav_order: 1
 has_children: false
 tags: ["filters"]
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 Filters play a significant role in various parts of CluedIn. Filters are used in advanced search, clean projects, streams, rules, and glossary. The purpose of a filter is to define a specific set of records for further activities in the system.
 
@@ -60,9 +64,9 @@ Filters in search help you narrow down the exact records you want to see or use 
 
     ![filters-6.png](../../assets/images/key-terms-and-features/filters-6.png)
 
-After you set up your search filters, you can save them for future use. This eliminates the need to specify filter criteria each time you want to find the same set of records. You can also share saved searches within your organization, making them available to others who need to work with the same set of records. For more information, see [Saved searches](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/1615/Search?anchor=saved-searches).
+After you set up your search filters, you can save them for future use. This eliminates the need to specify filter criteria each time you want to find the same set of records. You can also share saved searches within your organization, making them available to others who need to work with the same set of records. For more information, see [Saved searches](/key-terms-and-features/search#saved-searches).
 
-**Note:** Saved searches are particularly useful in [clean projects](/Documentation/Preparation/Clean), especially if you need to clean your records on a regular basis. You can set up and save a search filter to detect specific data issues, and when the saved search returns results, you can run the clean project to fix those issues.
+**Note:** Saved searches are particularly useful in [clean projects](/preparation/clean), especially if you need to clean your records on a regular basis. You can set up and save a search filter to detect specific data issues, and when the saved search returns results, you can run the clean project to fix those issues.
 
 ## Reference information
 

@@ -38,7 +38,7 @@ If you want to regularly clean your data, we recommend setting up and saving sea
 
         Make sure that the vocabulary keys to be cleaned are displayed on the search results page. This way, you don't have to specify the vocabulary keys in the clean project configuration. To learn how to add vocabulary keys to the search results page, see [Add columns](/Documentation/Key-terms-and-features/Search#add-columns).
 
-    - If you don't have the saved search, define the data that you want to clean using [filters](/Documentation/Key-terms-and-features/Filters). Then, add the vocabulary keys to be cleaned to the search results page following the [Add columns](/Documentation/Key-terms-and-features/Search#add-columns) procedure. If you need to clean the same set of data in future, save the current filter configuration.
+    - If you don't have the saved search, define the data that you want to clean using [filters](/Documentation/Key-terms-and-features/Filters). Then, add the vocabulary keys to be cleaned to the search results page following the [Add columns](/key-terms-and-features/search#add-columns) procedure. If you need to clean the same set of data in future, save the current filter configuration.
 
 1. In the upper-right corner of the page, select the vertical ellipsis button, and then select **Clean**.
 
@@ -56,7 +56,7 @@ If you want to regularly clean your data, we recommend setting up and saving sea
 
 1. In the lower-right corner, select **Create**.
 
-    You created the clean project from the search results page. The next step is to [generate results](/Documentation/Preparation/Clean/Manage-a-clean-project#generate-results) of the clean project.
+    You created the clean project from the search results page. The next step is to [generate results](/preparation/clean/manage-clean-project#generate-results) of the clean project.
 
 ## From the Preparation module
 
@@ -92,7 +92,7 @@ Creating a clean project from the Preparation module requires more effort than u
 
 1. In the lower-right corner, select **Create**.
 
-    You created the clean project from the Preparation module. The next step is to [generate results](/Documentation/Preparation/Clean/Manage-a-clean-project#generate-results) of the clean project.
+    You created the clean project from the Preparation module. The next step is to [generate results](/preparation/clean/manage-clean-project#generate-results) of the clean project.
 
 ## From the glossary term
 
@@ -130,4 +130,4 @@ You can create a glossary term to collect a group of records that meet certain c
 
 1. In the lower-right corner, select **Create**.
 
-    You created the clean project from the glossary. The next step is to [generate results](/Documentation/Preparation/Clean/Manage-a-clean-project#generate-results) of the clean project.
+    You created the clean project from the glossary. The next step is to [generate results](/preparation/clean/manage-clean-project#generate-results) of the clean project.
