@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 1
+nav_order: 010
 parent: Integration
 permalink: /integration/define-data-to-ingest
 title: Define data to ingest

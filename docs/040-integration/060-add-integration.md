@@ -2,7 +2,7 @@
 layout: default
 title: How to add an Integration
 parent: Integration
-nav_order: 060
+nav_order: 120
 has_children: false
 permalink: /integration/add-integration
 tags: ["integration"]

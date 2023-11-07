@@ -2,7 +2,7 @@
 layout: default
 title: Delta Crawls
 parent: Integration
-nav_order: 090
+nav_order: 150
 has_children: false
 permalink: /integration/delts-crawls
 tags: ["integration","delta-crawls"]

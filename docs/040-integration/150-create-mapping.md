@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 3
+nav_order: 030
 parent: Integration
 permalink: /integration/create-mapping
 title: Create mapping

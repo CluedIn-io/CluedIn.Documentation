@@ -2,7 +2,7 @@
 layout: default
 title: Push Data to CluedIn
 parent: Integration
-nav_order: 050
+nav_order: 110
 has_children: false
 permalink: /integration/push-data
 tags: ["integration"]

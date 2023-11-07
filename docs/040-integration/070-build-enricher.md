@@ -2,7 +2,7 @@
 layout: default
 title: Build Enricher
 parent: Integration
-nav_order: 070
+nav_order: 130
 has_children: false
 permalink: /integration/build-enricher
 tags: ["integration","enricher"]
