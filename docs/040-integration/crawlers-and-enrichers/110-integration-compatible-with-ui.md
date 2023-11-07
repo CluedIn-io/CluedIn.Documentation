@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Integration and the CluedIn UI
-parent: Integration
-nav_order: 170
+parent: Crawlers and enrichers
+grand_parent: Integration
+nav_order: 110
 has_children: false
 permalink: /integration/integration-compatible-with-ui
 tags: ["integration","ui"]

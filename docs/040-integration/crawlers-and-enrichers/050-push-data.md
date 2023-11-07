@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Push Data to CluedIn
-parent: Integration
-nav_order: 110
+parent: Crawlers and enrichers
+grand_parent: Integration
+nav_order: 050
 has_children: false
 permalink: /integration/push-data
 tags: ["integration"]

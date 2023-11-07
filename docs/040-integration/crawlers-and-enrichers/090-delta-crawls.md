@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Delta Crawls
-parent: Integration
-nav_order: 150
+parent: Crawlers and enrichers
+grand_parent: Integration
+nav_order: 090
 has_children: false
 permalink: /integration/delts-crawls
 tags: ["integration","delta-crawls"]

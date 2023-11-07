@@ -1,7 +1,8 @@
 ---
 layout: default
 nav_order: 030
-parent: Integration
+parent: Data sources
+grand_parent: Integration
 permalink: /integration/create-mapping
 title: Create mapping
 tags: ["integration", "mapping"]

@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Home Screen
-parent: Integration
-nav_order: 100
+parent: Crawlers and enrichers
+grand_parent: Integration
+nav_order: 040
 has_children: false
 permalink: /integration/home-screen
 tags: ["integration","home-screen"]
