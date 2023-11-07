@@ -2,7 +2,7 @@
 layout: default
 nav_order: 1
 parent: Additional operations on records
-grand_parent: Integration
+grand_parent: Integrations
 permalink: /integration/additional-operations-on-records/property-rules
 title: Property rules
 tags: ["integration", "property rules"]
