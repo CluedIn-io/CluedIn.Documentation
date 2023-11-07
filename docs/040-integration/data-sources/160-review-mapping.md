@@ -45,7 +45,7 @@ On the **Map entity** tab, review the general mapping details and check the iden
 
 - Entity type
 
-- Vocabulary – semantic model for the fields. You cannot change the vocabulary here. If you need to use another vocabulary, [reset](/integration/create-mapping#reset-mapping) the mapping and create it from scratch using the needed vocabulary.
+- Vocabulary – semantic model for the fields.
 
 - Entity name – name of the records that is displayed on the search results page and on the record details page.
 
