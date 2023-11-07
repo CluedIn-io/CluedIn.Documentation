@@ -95,7 +95,7 @@ To be accepted by CluedIn, your HTTP POST request should meet the following prer
  
 **To send data to CluedIn**
 
-1. In CluedIn, open the data set that was created in the [previous procedure](#add-an-ingestion-point), and then select **View instructions**.
+1. In CluedIn, open the data set that was created in the [previous procedure](#add-ingestion-point), and then select **View instructions**.
 
     On the **Ingestion point instructions** pane, find and copy the POST URL that you can use to send data to CluedIn.
 
@@ -111,7 +111,7 @@ You can ingest the database tables to CluedIn if you have the **read permission*
 
 1. [Adding connection to the database](#add-connection-to-database)
 
-2. [Ingesting the database tables](#import-database-tables)
+2. [Ingesting the database tables](#ingest-database-tables)
 
 **Prerequisites**
 
