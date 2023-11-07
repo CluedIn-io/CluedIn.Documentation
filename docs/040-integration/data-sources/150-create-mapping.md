@@ -19,7 +19,7 @@ Mapping is a semantic layer that allows CluedIn to understand the nature of data
 
 The process of creating a mapping consists of two parts:
 
-1. [Choosing the mapping type](###choose-mapping-type)
+1. [Choosing the mapping type](#choose mapping type)
 
 1. [Configuring the mapping details](#configure-mapping-details) 
 
@@ -113,9 +113,7 @@ Auto mapping tries to detect unique codes and map original columns to the most a
 
 1. Choose the existing vocabulary or create a new one.
 
-1. In the **Origin** section, review the property that was automatically selected to produce the primary unique identifier for the records (also known as entity origin code). If you don't want to use the selected property, turn off the **Use suggestion** toggle, and then choose the needed property when [reviewing the mapping details](/integration/review-mapping).
-
-1. In the **Mapping Preview** section, review how the original fields will be mapped to the vocabulary keys in CluedIn. For more information, see [Mapping preview](#mapping-preview).
+1. In the **Mapping Preview** section, review how the original fields will be mapped to the vocabulary keys in CluedIn.
 
 1. In the lower-right corner, select **Create Mapping**.
 
