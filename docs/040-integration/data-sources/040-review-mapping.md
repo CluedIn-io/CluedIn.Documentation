@@ -34,7 +34,7 @@ On the **Map columns to vocabulary key** tab, check how the original fields will
 
 - Map the original field to a different vocabulary key.
 
-- Add [property rules](/Documentation/Integrations/Additional-operations-on-records/Property-rules) to improve the quality of mapped records by normalizing and transforming property values. 
+- Add [property rules](/integration/additional-operations-on-records/property-rules) to improve the quality of mapped records by normalizing and transforming property values. 
 
 ### Codes
 
@@ -44,7 +44,7 @@ On the **Map entity** tab, review the general mapping details and check the iden
 
 - Entity type
 
-- Vocabulary – semantic model for the fields. You cannot change the vocabulary here. If you need to use another vocabulary, [reset](/Documentation/Integrations/Create-mapping#reset-mapping) the mapping and create it from scratch using the needed vocabulary.
+- Vocabulary – semantic model for the fields. You cannot change the vocabulary here. If you need to use another vocabulary, [reset](/integration/create-mapping#reset-mapping) the mapping and create it from scratch using the needed vocabulary.
 
 - Preview image – image that is displayed on the record details page. If your data set contains a column with base64 image string or image URL, you can select this column to be the preview of the record. Make sure that the image size is less than 1 MB for an optimal processing of your data.
 
@@ -98,7 +98,7 @@ The following diagram will help you in determining if you need to add entity cod
 
 A relationship is a connection or association between two or more golden records that indicates how the records are related or interact with each other.
 
-If you want to connect the records from the current data set to other records in CluedIn, you can add relationships between such records. The procedure for adding relationships between records is described in our "Getting started" guide. For more information, see [Add relationships between records](https://documentation.cluedin.net/getting-started/relations).
+If you want to connect the records from the current data set to other records in CluedIn, you can add relationships between such records. The procedure for adding relationships between records is described in our "Getting started" guide. For more information, see [Add relationships between records](/getting-started/relations).
 
 You can add a relationship before or after you process the records. If you add a relationship after processing, you need to process the records again.
 

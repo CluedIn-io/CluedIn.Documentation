@@ -9,7 +9,7 @@ tags: ["integration", "pre-process rules"]
 last_modified: 2023-11-07
 ---
 
-Pre-process rules are applied to the records that are already mapped. You can create pre-process rules when you want to tag records, add alias to the records, or send the records to quarantine. The difference between [property rules](/Documentation/Integrations/Additional-operations-on-records/Property-rules) and pre-process rules is that property rules are applied only to property values of the record while pre-process rules are applied to the whole record. So, if you want to apply some changes to multiple records, create a pre-process rule.
+Pre-process rules are applied to the records that are already mapped. You can create pre-process rules when you want to tag records, add alias to the records, or send the records to quarantine. The difference between [property rules](/integration/additional-operations-on-records/property-rules) and pre-process rules is that property rules are applied only to property values of the record while pre-process rules are applied to the whole record. So, if you want to apply some changes to multiple records, create a pre-process rule.
 
 Pre-process rules are applied to the records during processing after the property rules have been already applied.
 

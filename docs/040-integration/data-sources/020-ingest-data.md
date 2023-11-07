@@ -28,7 +28,7 @@ You can ingest data from CSV, JSON, XLS, and XLSX files.
 
 1. In the lower-right corner, select **Upload**.
 
-    The data has been sent to CluedIn. You can now view it on the [Preview](#preview) tab of the data set. The next steps involve [creating a mapping](/Documentation/Integrations/Create-mapping) and [processing the data](/Documentation/Integrations/Process-data).
+    The data has been sent to CluedIn. You can now view it on the [Preview](#preview) tab of the data set. The next steps involve [creating a mapping](/integration/create-mapping) and [processing the data](/integration/process-data).
 
 ## Ingestion point
 
@@ -102,7 +102,7 @@ To be accepted by CluedIn, your HTTP POST request should meet the following prer
 
 1. In Postman, paste the URL that you copied to the URL input field of your request. Then, send the request.
 
-    The data has been sent to CluedIn. You can now view it on the [Preview](#preview) tab of the data set. The next steps involve [creating a mapping](/Documentation/Integrations/Create-mapping) and [processing the data](/Documentation/Integrations/Process-data).
+    The data has been sent to CluedIn. You can now view it on the [Preview](#preview) tab of the data set. The next steps involve [creating a mapping](/integration/create-mapping) and [processing the data](/integration/process-data).
 
 ## Database
 
@@ -160,7 +160,7 @@ With an established connection to the database, you can choose which database ta
 
 1. Select the checkboxes next to the tables you want to ingest into CluedIn. Then, in the lower-right corner, select **Add**.
 
-    The tables are added to CluedIn. Each table is added as a separate data set. Next, [create mapping](/Documentation/Integrations/Create-mapping) and [process data](/Documentation/Integrations/Process-data).
+    The tables are added to CluedIn. Each table is added as a separate data set. Next, [create mapping](/integration/create-mapping) and [process data](/integration/process-data).
 
 ## Preview
 

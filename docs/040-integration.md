@@ -22,7 +22,7 @@ Each step is explained in detail in a separate article in this section:
 
 1. [Process data](/integration/process-data) - turn your data into golden records, making it searchable and ready to be cleaned, deduplicated, and streamed.
 
-In addition to these fundamental steps, we encourage you to explore [additional operations on records](/Documentation/Integrations/Additional-operations-on-records) to discover tools for normalizing and improving the quality of data.
+In addition to these fundamental steps, we encourage you to explore [additional operations on records](/integration/additional-operations-on-records) to discover tools for normalizing and improving the quality of data.
 
 To ingest, map, and process the data, you need to have access to different modules in CluedIn. The following table contains a list of claims required to work with the **Data Sources** module.
 

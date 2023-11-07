@@ -13,7 +13,7 @@ last_modified: 2023-11-07
 1. TOC
 {:toc}
 
-Property rules help you improve the quality of mapped records by normalizing and transforming property values. The difference between property rules and [pre-process rules](/Documentation/Integrations/Additional-operations-on-records/Pre%2Dprocess-rules) is that property rules are applied only to property values of the record while pre-process rules are applied to the whole record. So, if you want to apply some changes to the property values, create a property rule.
+Property rules help you improve the quality of mapped records by normalizing and transforming property values. The difference between property rules and [pre-process rules](/integration/additional-operations-on-records/preprocess-rules) is that property rules are applied only to property values of the record while pre-process rules are applied to the whole record. So, if you want to apply some changes to the property values, create a property rule.
 
 Property rules are applied to the records during processing.
 
@@ -35,7 +35,7 @@ You can apply the rule to all values of the property or define specific values. 
 
 - Normalization – transform data into a consistent form.
 
-- Quarantine – send records to the [quarantine](/Documentation/Integrations/Additional-operations-on-records/Quarantine) where you can modify them and decide what to do with them afterwards.
+- Quarantine – send records to the [quarantine](/integration/additional-operations-on-records/quarantine) where you can modify them and decide what to do with them afterwards.
 
 You can add multiple rules for one property.
 

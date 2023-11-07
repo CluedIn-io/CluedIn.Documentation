@@ -86,7 +86,7 @@ Manual mapping gives you full control over how each field for your data set will
 
 1. In the lower-right corner, select **Add Property to Annotation**.
 
-    The mapping is created. Next, [review the mapping details](/Documentation/Integrations/Review-mapping).
+    The mapping is created. Next, [review the mapping details](/integration/review-mapping).
 
 **To map fields one by one**
 
@@ -106,7 +106,7 @@ Manual mapping gives you full control over how each field for your data set will
 
 1. Repeat step 2 for each field.
 
-    The mapping is created. Next, [review the mapping details](/Documentation/Integrations/Review-mapping).
+    The mapping is created. Next, [review the mapping details](/integration/review-mapping).
 
 ### Auto mapping
 
@@ -118,13 +118,13 @@ Auto mapping tries to detect unique codes and map original columns to the most a
 
 1. Choose the existing vocabulary or create a new one.
 
-1. In the **Origin** section, review the property that was automatically selected to produce the primary unique identifier for the records (also known as entity origin code). If you don't want to use the selected property, turn off the **Use suggestion** toggle, and then choose the needed property when [reviewing the mapping details](/Documentation/Integrations/Review-mapping).
+1. In the **Origin** section, review the property that was automatically selected to produce the primary unique identifier for the records (also known as entity origin code). If you don't want to use the selected property, turn off the **Use suggestion** toggle, and then choose the needed property when [reviewing the mapping details](/integration/review-mapping).
 
 1. In the **Mapping Preview** section, review how the original fields will be mapped to the vocabulary keys in CluedIn. For more information, see [Mapping preview](#mapping-preview).
 
 1. In the lower-right corner, select **Create Mapping**.
 
-    The mapping is created. Next, [review the mapping details](/Documentation/Integrations/Review-mapping).
+    The mapping is created. Next, [review the mapping details](/integration/review-mapping).
 
 ### Existing mapping
 
@@ -138,7 +138,7 @@ If you've already created a mapping for a data set and you have another data set
 
 1. In the lower-right corner, select **Create Mapping**.
 
-    The mapping is created. Next, [review the mapping details](/Documentation/Integrations/Review-mapping).
+    The mapping is created. Next, [review the mapping details](/integration/review-mapping).
 
 ### AI mapping
 
