@@ -1,8 +1,9 @@
 ---
 layout: default
 title: How to add an Integration
-parent: Integration
-nav_order: 120
+parent: Crawlers and enrichers
+grand_parent: Integration
+nav_order: 060
 has_children: false
 permalink: /integration/add-integration
 tags: ["integration"]

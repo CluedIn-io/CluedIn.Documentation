@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Additional operations on records
-parent: Integration
+parent: Data sources
+grand_parent: Integration
 nav_order: 060
 has_children: true
 permalink: /integration/additional-operations-on-records

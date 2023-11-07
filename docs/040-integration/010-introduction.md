@@ -1,8 +1,9 @@
 ---
 layout: default
 title: What are Integrations
-parent: Integration
-nav_order: 070
+parent: Crawlers and enrichers
+grand_parent: Integration
+nav_order: 010
 has_children: false
 permalink: /integration/introduction
 tags: ["integration"]

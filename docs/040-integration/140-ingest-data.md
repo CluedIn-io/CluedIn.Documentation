@@ -1,7 +1,8 @@
 ---
 layout: default
 nav_order: 020
-parent: Integration
+parent: Data sources
+grand_parent: Integration
 permalink: /integration/ingest-data
 title: Ingest data
 tags: ["integration"]

@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Crawling
-parent: Integration
-nav_order: 080
+parent: Crawlers and enrichers
+grand_parent: Integration
+nav_order: 020
 has_children: false
 permalink: /integration/crawling
 tags: ["integration","crawling"]

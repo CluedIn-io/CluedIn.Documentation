@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Help with building robust integrations
-parent: Integration
-nav_order: 090
+parent: Crawlers and enrichers
+grand_parent: Integration
+nav_order: 030
 has_children: false
 permalink: /integration/robust-ntegrations
 tags: ["integration"]

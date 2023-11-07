@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Install Integrations
-parent: Integration
-nav_order: 160
+parent: Crawlers and enrichers
+grand_parent: Integration
+nav_order: 100
 has_children: false
 permalink: /integration/install-integrations
 tags: ["integration"]

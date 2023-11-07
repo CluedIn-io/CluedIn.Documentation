@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Build Integration
-parent: Integration
-nav_order: 140
+parent: Crawlers and enrichers
+grand_parent: Integration
+nav_order: 080
 has_children: false
 permalink: /integration/build-integration
 tags: ["integration"]

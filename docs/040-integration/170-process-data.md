@@ -1,7 +1,8 @@
 ---
 layout: default
 nav_order: 050
-parent: Integration
+parent: Data sources
+grand_parent: Integration
 permalink: /integration/process-data
 title: Process data
 tags: ["integration", "processing"]

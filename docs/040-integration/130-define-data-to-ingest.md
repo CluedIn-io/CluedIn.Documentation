@@ -1,7 +1,8 @@
 ---
 layout: default
 nav_order: 010
-parent: Integration
+parent: Data sources
+grand_parent: Integration
 permalink: /integration/define-data-to-ingest
 title: Define data to ingest
 tags: ["integration"]
