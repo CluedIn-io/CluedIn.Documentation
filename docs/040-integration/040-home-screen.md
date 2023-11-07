@@ -2,7 +2,7 @@
 layout: default
 title: Home Screen
 parent: Integration
-nav_order: 040
+nav_order: 100
 has_children: false
 permalink: /integration/home-screen
 tags: ["integration","home-screen"]

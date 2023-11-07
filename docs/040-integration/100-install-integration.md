@@ -2,7 +2,7 @@
 layout: default
 title: Install Integrations
 parent: Integration
-nav_order: 100
+nav_order: 160
 has_children: false
 permalink: /integration/install-integrations
 tags: ["integration"]

@@ -2,7 +2,7 @@
 layout: default
 title: Modify an Integration
 parent: Integration
-nav_order: 120
+nav_order: 180
 has_children: false
 permalink: /integration/modify-integrations
 tags: ["integration"]

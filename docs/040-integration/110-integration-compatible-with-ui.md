@@ -2,7 +2,7 @@
 layout: default
 title: Integration and the CluedIn UI
 parent: Integration
-nav_order: 110
+nav_order: 170
 has_children: false
 permalink: /integration/integration-compatible-with-ui
 tags: ["integration","ui"]
