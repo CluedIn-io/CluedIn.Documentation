@@ -2,7 +2,7 @@
 layout: default
 title: Additional operations on records
 parent: Integration
-nav_order: 010
+nav_order: 6
 has_children: true
 permalink: /integration/additional-operations-on-records
 tags: ["integration"]
