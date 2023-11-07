@@ -32,8 +32,6 @@ Mapping type defines how you want to configure the mapping of original fields fr
 
  - **Existing Mapping** – CluedIn uses the existing mapping configuration. This option is useful if you want to create mapping for the data set that has the exact same structure as the existing data sets.
 
-- **AI Mapping** – CluedIn uses AI capabilities to interpret your data and create mapping. You can check the results of AI mapping and make changes if needed.
-
 **To choose the mapping type**
 
 1. On the navigation pane, go to **Integrations** > **Data Sources**. Then, find and open the data set for which you need to create mapping.
@@ -55,10 +53,6 @@ Depending on the selected mapping type, the actions required from you on the **C
 - [Auto mapping](#auto-mapping)
 
 - [Existing mapping](#existing-mapping)
-
-- [AI mapping](#ai-mapping)
-
-If you have doubts about the correctness of your mapping configuration, you have the option to [reset](#reset-mapping) it and start from scratch. 
 
 ### Manual mapping
 
@@ -139,51 +133,3 @@ If you've already created a mapping for a data set and you have another data set
 1. In the lower-right corner, select **Create Mapping**.
 
     The mapping is created. Next, [review the mapping details](/integration/review-mapping).
-
-### AI mapping
-
-To use AI capabilities to create mapping, make sure that the following prerequisites are met:
-
-- Go to **Administration** > **Feature Flags** and make sure that the **AI Mapping** feature is enabled.
-
-- Go to **Administration** > **Settings**. Scroll down to the **Open AI** section and complete all fields in this section.
-
-AI mapping analyzes your data set and suggests the following details for your mapping:
-
-- Entity type.
-
-- Vocabulary.
-
-- Origin – field used to produce the primary unique identifier.
-
-- Codes – fields used to produce additional unique identifiers.
-
-- Mapping of original fields to the vocabulary keys. For more details, see [Mapping preview](#mapping-preview).
-
-You need to review AI suggestions and make changes if needed.
-
-## Mapping preview
-
-The **Mapping Preview** section is available when creating mapping with the following types: auto mapping and AI mapping. This section contains a table showing how the original fields will be mapped to the vocabulary keys in CluedIn. The table consists of the following columns:
-
-- The checkboxes column that represents the fields that will be sent to CluedIn during processing. If you do not want to send a specific field, clear the checkbox. The status of such field will be changed to **Ignored**.
-
-- **Original Field** – contains the names of the columns from the data set.
-
-- **Will Map To** – contains the vocabulary keys to which the original fields will be mapped. If needed, you can edit the names of both new and existing vocabulary keys directly in the table. If you edited the name of the existing vocabulary key, its status becomes **New**.
-
-- **Data Type** – contains the data type of each vocabulary key for strong typing. If needed, you can change the data type of both new and existing vocabulary keys directly in the table. If you edited the data type of the existing vocabulary key, its status becomes **New**.
-
-- **Status** – contains the status of each vocabulary key (New, Existing, or Ignored).
-
-- **Preview** – allows you to view the values in the column.
-
-## Reset mapping
-
-If you've created mapping and have concerns about the accuracy or correctness of your mapping configuration, you can reset the mapping and starting over from scratch.
-
-**To reset the mapping**
-
-- On the **Map** tab, select **Reset**, and then confirm that you want to reset the mapping configuration.
-
-   Now, you can create the mapping from scratch.

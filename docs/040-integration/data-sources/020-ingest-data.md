@@ -167,17 +167,3 @@ With an established connection to the database, you can choose which database ta
 After you ingest the data, it is displayed on the **Preview** tab as a table.
 
 If you want to focus on specific columns and hide the others, select **Column Options**, and then clear the checkboxes next to the columns that you want to hide from the table.
-
-After you create the mapping for the data set, each column header will contain the vocabulary key to which the original field is mapped. You can view the number of duplicates in each field.
-
-**To view duplicates**
-
-- In the column header, select the vertical ellipsis button, and then select **View duplicates**.
-
-    The **Duplicates Preview** pane opens, where you can view the following information:
-
-    - Number of duplicates in the data set.
-
-    - Which values are duplicates.
-
-    - Occurrences of duplicates – for each duplicate value, the pane displays how many times it occurs within the data set.

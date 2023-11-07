@@ -46,11 +46,9 @@ On the **Map entity** tab, review the general mapping details and check the iden
 
 - Vocabulary – semantic model for the fields. You cannot change the vocabulary here. If you need to use another vocabulary, [reset](/integration/create-mapping#reset-mapping) the mapping and create it from scratch using the needed vocabulary.
 
-- Preview image – image that is displayed on the record details page. If your data set contains a column with base64 image string or image URL, you can select this column to be the preview of the record. Make sure that the image size is less than 1 MB for an optimal processing of your data.
-
 - Entity name – name of the records that is displayed on the search results page and on the record details page.
 
-- More settings – description, date created, and date modified. These are record properties that you can find on the search results page and on the record details page. You can select which column should be used for each of these settings.
+- Description, date created, and date modified – record properties that you can find on the search results page and on the record details page. You can select which column should be used for each of these settings.
 
 **What is an entity origin code?**
 
