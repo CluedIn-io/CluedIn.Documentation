@@ -1,8 +1,8 @@
 ---
 layout: default
 nav_order: 3
-parent: Integration
-grand_parent: Additional operations on records
+parent: Additional operations on records
+grand_parent: Integration
 permalink: /integration/additional-operations-on-records/quarantine
 title: Quarantine
 tags: ["integration", "quarantine"]

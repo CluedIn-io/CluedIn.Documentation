@@ -1,8 +1,8 @@
 ---
 layout: default
 nav_order: 2
-parent: Integration
-grand_parent: Additional operations on records
+parent: Additional operations on records
+grand_parent: Integration
 permalink: /integration/additional-operations-on-records/preprocess-rules
 title: Pre-process rules
 tags: ["integration", "pre-process rules"]
