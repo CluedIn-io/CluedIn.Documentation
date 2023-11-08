@@ -19,11 +19,11 @@ The backup configuration process involves two main parts:
 
 1. [Template deployment](#template-deployment)
 
-1. [Backup extension configuration script](#backupe-xtension-configuration-script)
+1. [Backup extension configuration script](#backup-extension-configuration-script)
 
 **Prerequisite:** Make sure you have the Owner access at the subscription level because some role assignments are performed when running the template and the extension script.
 
-After you complete the backup configuration, you can [restore any backup instance](#restore-backup). 
+After you complete the backup configuration, you can [restore any backup instance](#restore-a-backup-instance). 
 
 By default, backup occurs every 4 hours and typically lasts about 15 minutes. It does not cause service interruption to ensure that the data volumes are backed up. However, relying on the default schedule could lead to data inconsistency if there is any in-transit data processing in memory. That's why you can configure the cron job backup schedule to your preferred time frame. This custom schedule may temporarily pause system operations during backup processes to prevent data inconsistency.
 
