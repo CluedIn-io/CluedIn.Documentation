@@ -26,7 +26,6 @@ After you [add the user to CluedIn](/administration/user-management), you can gi
 You can assign roles to the users in two places within the platform:
 
 - [Administration > User Management > Users](#assign-roles-in-users) – this option is useful when you want to assign multiple roles to a user.
-
 - [Administration > Roles](#assign-roles-in-roles) – this option is useful when you want to assign a role to multiple users.
 
 The following diagram shows the flow of assigning roles to users.
