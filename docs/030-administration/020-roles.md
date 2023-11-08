@@ -53,9 +53,9 @@ In CluedIn, there are the following access levels:
 
 - **Consulted** – read and write access to the claim. The user will be able to add, edit, or delete items within the claim.
 
-- **Responsible** – read, write, and submit approval requests. This access level is not commonly used in CluedIn.
+- **Responsible** – read, write, and submit approval requests.
 
-- **Accountable** – read, write, submit approval requests, and approve requests. This access level is not commonly used in CluedIn.
+- **Accountable** – read, write, submit approval requests, and approve requests.
 
 Each subsequent access level includes all permissions from the previous access level.
 
