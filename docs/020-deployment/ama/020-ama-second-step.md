@@ -17,7 +17,7 @@ In this article, you will learn about the pre-installation processes that you mu
 
 ![Pre-installation checklist](../../assets/images/ama/install-guide/overview-second-step.png)
 
-# Check qualification
+## Check qualification
 
 As a Microsoft Azure Administrator, you should have expertise in implementing, managing, and monitoring your organization’s Microsoft Azure environment.
 
@@ -29,7 +29,7 @@ In addition, you should have **permission to purchase paid applications** from t
 
 To learn how to allow purchases, see <a href="https://learn.microsoft.com/en-us/marketplace/azure-purchasing-invoicing">Azure Marketplace purchasing</a>.
 
-# Check quota
+## Check quota
 
 You should perform a quota check to make sure that your subscription has enough quotas for creating VMs required for CluedIn clusters.
 
@@ -53,7 +53,7 @@ You can check if you have enough quota by running a [verification script](#verif
 
 **Important!** If the quota is not available, then the installation will fail.
 
-# Register resource providers
+## Register resource providers
 
 Before using a resource provider, register your Azure subscription for that specific resource provider.
 
@@ -77,7 +77,7 @@ You can register the resource providers in two ways: [manually in the Azure port
 
 After you register the resource providers, run the [verification script](#verification-script) to make sure that all resource providers are registered.
 
-## Manual registration of resource providers
+### Manual registration of resource providers
 
 This section contains the step-by-step procedure for manual registration of resource providers in the Azure portal.
 
@@ -97,7 +97,7 @@ Wait until the status of the resource provider is changed from **Registering** t
 
 For more information about registering resource providers, see <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types">Azure documentation</a>.
 
-## Automatic registration of resource providers
+### Automatic registration of resource providers
 If you want a faster way to register the needed resource providers, run the script for automatic registration of resource providers.
 
 **Prerequisites**
@@ -125,7 +125,7 @@ If you want a faster way to register the needed resource providers, run the scri
 You will get an autput similar to the following.
 ![output-automatic_registration.png](../../assets/images/ama/install-guide/output-automatic-registration.png)
 
-## Verification script
+### Verification script
 The verification script checks if you have enough quota and if all required resource providers are registered.
 
 **Prerequisites**
@@ -182,7 +182,7 @@ As a result, you will get a file named <b>results_<i>location</i>.json</b> that 
     }
 ```
 
-# Configure firewall settings
+## Configure firewall settings
 
 Your Azure Firewall should cover the following:
 - **Default AKS functionality** – logs and pods should be able to see Kubernetes API Server (as recommended in <a href="https://learn.microsoft.com/en-us/azure/aks/outbound-rules-control-egress">Outbound network and FQDN rules for AKS clusters</a>).
@@ -192,16 +192,16 @@ For the list of firewall rules that should be added to your Azure Firewall, see 
 
 **Important!** If the rules have not been added, the installation will fail.
 
-# Configure network settings
+## Configure network settings
 
 CluedIn is very flexible in terms of network configuration. If you have any network-related questions, contact one of our infrastructure experts.
 
-## Define VNet
+### Define VNet
 During the installation process, CluedIn will install a newly created Azure VNet using an address space 10.0.0.0/8 and a subnet 10.0.0.0/16 for the Azure Kubernetes Service.
 
 If you have an existing VNet and you want to reuse it for CluedIn installation, contact one of our infrastructure experts for assistance. You can specify the existing VNet in the <a href="/deployment/azure-marketplace/step-3#review-the-advanced-configuration-tab">Advanced configuration</a> step of CluedIn installation.
 
-## Analyze CluedIn network configuration
+### Analyze CluedIn network configuration
 
 CluedIn comes with a default network configuration. Changing network settings after installation is a very tedious task. Therefore, make sure that you have analyzed how you want to set up the CluedIn instance at the network level before starting the installation process.
 
@@ -211,13 +211,13 @@ The following diagram shows default CluedIn network configuration after installa
 
 As part of the AKS managed cluster, AMA or AKS (public cluster) is deployed as a single standard Public Azure Load Balancer for both egress and ingress traffic.
 
-## Configuration changes and support
+### Configuration changes and support
 
 If you need to change some network configurations, you can do that after you install CluedIn. For details about network customization, see <a href="/deployment/infra-how-tos/advanced-network"> Advanced network configuration</a>.
 
 CluedIn provides support of Azure Load Balancer and Application Gateway. Other network configurations are not supported out of the box in any of our plans, so you might need the CluedIn infrastructure package hours.
 
-# Results
+## Results
 
 1. You are qualified to perform the CluedIn installation process, and you have all the required permissions.
 1. Your Azure subscription can sustain the required quota.
@@ -225,6 +225,6 @@ CluedIn provides support of Azure Load Balancer and Application Gateway. Other n
 1. Your firewall is ready and configured to support the installation of CluedIn.
 1. You are comfortable with the default network architecture.
 
-# Next steps
+## Next steps
 
 Start the CluedIn installation process as described in our <a href="/deployment/azure-marketplace/step-3">Installation guide</a>.

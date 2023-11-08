@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 1
+nav_order: 7
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-dns
@@ -18,7 +18,7 @@ As part of the CluedIn configuration, a base URL is used to make the application
 
 **Important!** Changing your DNS settings could have an impact on your TLS/SSL configuration. If you are also using specific TLS ingress hosts, they will also need to be changed to reflect your new DNS.
 
-# DNS entries
+## DNS entries
 
 In this article, we'll use `deparmentX` as an example of the organization name that was entered during the [installation of CluedIn](/deployment/azure-marketplace/step-3#complete-the-initial-setup-tab) and `mycompany.com` as an example of the main domain.
 
@@ -67,7 +67,7 @@ prometheus.prod.mycompany.com
 ```
 
 
-# Update DNS configuration for CluedIn
+## Update DNS configuration for CluedIn
 
 After you add the needed DNS entries, update your DNS configuration for CluedIn.
 

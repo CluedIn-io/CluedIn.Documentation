@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 1
+nav_order: 3
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/advanced-network
@@ -15,13 +15,13 @@ last_modified: 2023-06-20
 
 In this article, you will learn about advanced network configuration options that are available to you during CluedIn installation.
 
-# Default network configuration example
+## Default network configuration example
 
 The following diagram shows the default network configuration of CluedIn after installation.
 
 ![ama-network-1.jpeg](../../assets/images/ama/install-guide/ama-network-1.jpeg)
 
-# Advanced network configuration example
+## Advanced network configuration example
 
 The following diagram shows the advanced network configuration of CluedIn.
 
@@ -40,7 +40,7 @@ During the CluedIn installation, you will be asked for the **Kubernetes service 
 
 CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, this is an absolute minimum configuration, and it does not include any additional services and associated overhead.
 
-## Advanced network configuration options
+### Advanced network configuration options
 
 **Important!** If you do not plan to make any changes to the default out-of-the-box network configuration, you can skip this section and check other configuration-related topics:
 - [Configure SSO](/deployment/infra-how-tos/configure-sso)
@@ -57,7 +57,7 @@ When installing CluedIn from the Azure Marketplace, you can set up advanced netw
     
 The following section focuses on the IP address configuration because it is universal to both the **Modify IP ranges** and the **Use Existing vNet** options.
 
-## IP address configuration
+### IP address configuration
 
 The following example is based on the CluedIn essential configuration using the default node pool configuration with the existing Azure vNet.
 
@@ -70,7 +70,7 @@ When configuring vNet integration, only the following values need to be changed,
 - Kubernetes DNS service IP address 
 - Kubernetes service address range
  
-### AKS subnet
+#### AKS subnet
 
 In the example above, the existing vNet was used to configure the AKS subnet. This is a non-overlapping subnet in the target network space, so it can communicate with other Azure vNets and Azure resources.
 
@@ -80,15 +80,15 @@ Under a normal operation, the cluster and CluedIn use around 350 addresses, leav
 
 **Warning!** CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, this is an absolute minimum configuration, and it may not provide sufficient headroom in the future or for some scaling scenarios. If CIDR /22 with 1022 IP addresses is available, you will have a little more headroom. 
 
-### Kubernetes service address range
+#### Kubernetes service address range
 
 The Kubernetes service address range shouldn't be used by any network element on or connected to the ABA-DEV-IMPL-VNET-03 virtual network. The service address CIDR must be less than /12. You can reuse this range across different AKS clusters. In the example, we used 10.241.0.0/23, which is sufficient for the current services and any future growth.  
 
-### Kubernetes DNS service IP address
+#### Kubernetes DNS service IP address
 
 The Kubernetes DNS service IP address is the IP address within the Kubernetes service address range that will be used by cluster service discovery. Don't use the first IP address in your address range. The first address in your address range is used for the kubernetes.default.svc.cluster.local address. In the example above, we have selected 10.241.0.10, which is inside the service CIDR range. 
  
-# Azure Load Balancer
+## Azure Load Balancer
 
 If you are using Azure Load Balancer as part of your CluedIn deployment, you need to consider the following security aspects:
 
@@ -101,7 +101,7 @@ If you are using Azure Load Balancer as part of your CluedIn deployment, you nee
 
 For details on creating custom roles, see [Azure custom roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles).
 
-# Internal load balancer
+## Internal load balancer
 
 This section contains a procedure for configuring CluedIn to use your internal load balancer and IP address.
 

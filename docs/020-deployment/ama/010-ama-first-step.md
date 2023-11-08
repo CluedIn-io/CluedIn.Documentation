@@ -17,7 +17,7 @@ In this article, you will learn about the decisions you need to make before star
 
 ![Business decisions before installation](../../assets/images/ama/install-guide/overview-first-step.png)
 
-# Choose a license
+## Choose a license
 
 We offer two types of licenses: [pay-as-you-go](#pay-as-you-go-license) and [committed-deal](#committed-deal-license).
 
@@ -30,11 +30,11 @@ We offer two types of licenses: [pay-as-you-go](#pay-as-you-go-license) and [com
 | CluedIn support | No | Yes |
 | Welcome package | No | Yes |
 
-## Pay-as-you-go license
+### Pay-as-you-go license
 
 If you choose the **pay-as-you go license**, you can install CluedIn directly from the Azure Marketplace and start using it without the need to contact anyone at CluedIn. Check out our <a href="https://vimeo.com/showcase/10332033" target="_blank">training materials</a> to get started. With this type of license, you do not get a fixed price for using CluedIn and you will be charged per hour of use.
 
-## Committed-deal license
+### Committed-deal license
 
 If you choose the **committed-deal license**, contact your Account Executive or our <a href="https://www.cluedin.com/get-in-touch" target="_blank">sales team</a> to discuss the contract. We’ll make sure you get the best deal to get started with CluedIn. After you sign the contract, we’ll send you the **license key by email**.
 
@@ -55,7 +55,7 @@ We recommend using three different environments:
 
 The license type is required during the installation of CluedIn from the Azure Marketplace, so be sure to tell your Azure Administrator which license type you want.
 
-# Choose a plan
+## Choose a plan
 
 We offer three types of plans: Essential, Professional, and Elite.
 
@@ -82,7 +82,7 @@ The plan is required during the installation of CluedIn from the Azure Marketpla
 
 If you exceed the maximum number of records allowed for your plan, you will be charged an additional fee (as mentioned in the **Overcharge fees** row in the table). We encourage you to contact us directly to check if there is a more efficient plan for you.
 
-# Get familiar with billing
+## Get familiar with billing
 
 The invoice for using CluedIn will be based on the following:
 
@@ -100,19 +100,19 @@ We send the billing information to the Azure Marketplace. Every month, you’ll 
 
 To pay an invoice, contact your procurement team.
 
-# Review terms and conditions
+## Review terms and conditions
 
 For CluedIn, we use the <a href="https://www.cluedin.com/hubfs/microsoft-standard-contract-march-2019.pdf" target="_blank">Standard Contract from Microsoft</a>. Please note that if you are a Microsoft user, your legal department has probably already approved this Standard Contract.
 
 To make sure that the terms and conditions are appropriate for you, contact your legal team.
 
-# Choose Azure Administrator
+## Choose Azure Administrator
 
 Now that you have decided on your license and plan and reviewed our billing and legal information, you are ready to start the CluedIn installation process.
 
 The CluedIn installation process must be performed by an IT professional who is skilled in managing your organization’s Microsoft Azure environment. So, make sure that you choose a dedicated **Azure Administrator** from your organization who will be responsible for the installation. 
 
-# Results
+## Results
 
 1. You have decided which license you need. If you have chosen the committed-deal license, then you should have a license key issued to you by CluedIn.
 1. You have chosen a plan based on the number of records that you want to process.
@@ -121,7 +121,7 @@ The CluedIn installation process must be performed by an IT professional who is 
 1. You have chosen an Azure Administrator who will be responsible for carrying out the CluedIn installation process.
 
 
-# Next steps
+## Next steps
 
 Provide your Azure Administrator with the following information:
 

@@ -17,7 +17,7 @@ In this article, you will learn about the pre-installation processes that you mu
 
 ![local-installation-checklist.png](../../assets/images/local-install/local-installation-checklist.png)
 
-# Get access to CluedIn container registry
+## Get access to CluedIn container registry
 
 The first thing you need to do to run CluedIn locally is to get access to CluedIn Azure Container Registry (ACR).
 
@@ -45,7 +45,7 @@ The first thing you need to do to run CluedIn locally is to get access to CluedI
 
     ![email-access.png](../../assets/images/local-install/email-access.png)
 
-# Check hardware requirements
+## Check hardware requirements
 
 Running clusters locally requires a substantial amount of computational power in terms of both CPU and memory resources.
 
@@ -54,7 +54,7 @@ Make sure that your computer meets the following hardware requirements:
 - **Modern CPU** (Intel or AMD). We do not support ARM CPU.
 - **16 GB** of free memory. We recommend having 32 GB of free memory.
 
-# Check software requirements
+## Check software requirements
 
 Make sure that you have installed the following software:
 
@@ -64,11 +64,11 @@ Make sure that you have installed the following software:
 
 In addition, make sure that you have access to [CluedIn container registry](#get-access-to-cluedin-container-registry).
 
-# Results
+## Results
 
 - You have access to CluedIn container registry.
 - Your computer meets hardware and software requirements for the local installation of CluedIn.
 
-# Next steps
+## Next steps
 
 Start the local installation of CluedIn as described in our [Local installation guide](/deployment/local/step-2).

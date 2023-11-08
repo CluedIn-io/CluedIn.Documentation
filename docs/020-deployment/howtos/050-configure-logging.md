@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 1
+nav_order: 4
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-logging
@@ -15,7 +15,7 @@ last_modified: 2023-06-20
 
 In this article, you will get an overview of the logging options and learn how to configure the logging level that you need.
 
-# Overview of logging
+## Overview of logging
 
 CluedIn uses structured logging. You can configure any sink, but only 3 sinks have been tested with the application: console, Seq, and Azure Application Insights.
 
@@ -53,7 +53,7 @@ yaml
 
 By default, Azure Application Insights sends full telemetry of the front-end application. All the logs from the CluedIn server are sent as trace information.
 
-## Log levels
+### Log levels
 By default, your CluedIn server containers are configured to log at the production level. The production-level log provides high-level information about the server and the tasks it is performing.
 
 The production-level log can include log message types as described in the following table.
@@ -76,7 +76,7 @@ If you change the value of ASPNETCORE_ENVIRONMENT to **development** or **debug*
 
 If you need a more granular level of detail, set the value of ASPNETCORE_ENVIRONMENT to **verbose** or **trace**. As a result, the VRB type will be added in addition to DBG and the four default types.
 
-## Log format and examples
+### Log format and examples
 
 By default, CluedIn provides logs to the console in the following format:
 
@@ -91,7 +91,7 @@ Examples of log messages are provided in the following table.
 | Development/debug log message | `[#001 10:36:35 DBG] [ComponentHost] : Starting Metrics` |
 | Verbose/trace log message | `[#015 10:42:11 VRB][CluedIn.Core.ExecutionContext] Operation GetByEntityCode (/Organization#CluedIn xxxxx-XXXX-xxxx-xxxx) : 5475` |
 
-# Apply your log level
+## Apply your log level
    
 The following procedure shows how to get the current cluedin-server config map, edit the configuration, and apply the configuration to your Kubernetes cluster.
 
@@ -120,7 +120,7 @@ kubectl apply -f cluedin-server.yaml --namespace cluedin
 ```
 After you apply the values, they won’t become active until the pod is restarted. This is because the values are applied during the pod startup process. After the required pod is restarted, you should see additional log types in your logging target or in the pod logs. 
 
-# Admin UIs
+## Admin UIs
 
 For debugging purposes, it is helpful to be able to log in to some of the tools/dependencies used by CluedIn. The easiest way to do this is to set up a proxy using a machine that has ```kubectl``` configured to access the cluster. You can use the following tools:
 
@@ -134,7 +134,7 @@ In the following statements, ```<name-of-release>``` is how you named your Helm 
 
 If you want to use several tools simultaneously, you can proxy several ports at the same time. The ```port-forward``` command used to set up the proxy will remain running. The proxy will be available until you stop the ```port-forward``` command.
 
-## Neo4j
+### Neo4j
 Neo4J is a graph database used to store the relationships between entities.
 
 **To connect to Neo4j via port forwarding**
@@ -145,7 +145,7 @@ kubectl port-forward $(kubectl get pod -o name -l 'release=<name-of-release>,app
  ```
 2. Point your browser to ```localhost:7474```
 
-## RabbitMQ
+### RabbitMQ
 RabbitMQ is a messaging bus.
 
 **To connect to RabbitMQ via port forwarding**
@@ -156,7 +156,7 @@ RabbitMQ is a messaging bus.
  ```
 2. Point your browser to ```localhost:15672```
 
-## Redis
+### Redis
 Redis is a storage of cache and key-value pairs.
 
 **To connect to Redis via port forwarding**
@@ -171,7 +171,7 @@ Redis is a storage of cache and key-value pairs.
 ```
 3. Point your browser to ```localhost:8081```
 
-## ElasticSearch
+### ElasticSearch
 ElasticSearch is a search index.
 
 **To connect to ElasticSearch via port forwarding**
@@ -182,7 +182,7 @@ ElasticSearch is a search index.
  ```
 2. Ppoint your browser to ```localhost:9200/_plugin/inquisitor/#/```
 
-## SQL Server
+### SQL Server
 
 SQL Server is relational database.
 

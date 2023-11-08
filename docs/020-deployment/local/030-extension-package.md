@@ -15,7 +15,7 @@ last_modified: 2023-06-30
 
 In this article, you will learn how to add the **SQL Server Connector** extension package to CluedIn. This is our most commonly used package, and it allows you to stream data towards database instances.
 
-# Overview of extension packages
+## Overview of extension packages
 
 To extend CluedIn with additional features—such as enrichers, export targets, and vocabularies—you can restore extension packages for the environment. Packages are made available through NuGet feeds. NuGet feeds are a convenient way to distribute and manage packages for your local development environment. These feeds can be hosted publicly, privately, or even on your local machine.
 
@@ -23,7 +23,7 @@ To facilitate local development, a preconfigured environment includes a specific
 
 CluedIn has many built-in extension packages. To learn more, reach out to your CluedIn contact.
 
-# Add SQL Server Connector to CluedIn
+## Add SQL Server Connector to CluedIn
 
 The following image presents an overview of the steps involved in adding SQL Server Connector to CluedIn.
 
@@ -86,11 +86,11 @@ pwsh .\cluedin.ps1 up 202304
 
     **Note:** The SQL Server Connector may take a few minutes to appear in the application.
 
-# Results
+## Results
 
 You have added the SQL Server Connector extension package. Now, you are ready to stream data to Microsoft SQL Server databases.
 
-# Next steps
+## Next steps
 
 - Learn more about CluedIn functionality in our [Getting started guide](/getting-started).
 
