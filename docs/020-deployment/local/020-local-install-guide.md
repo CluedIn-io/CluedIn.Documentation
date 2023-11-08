@@ -17,7 +17,7 @@ In this article, you will learn how to install CluedIn locally.
 
 ![local-installation.png](../../assets/images/local-install/local-installation.png)
 
-# Clone CluedIn repository
+## Clone CluedIn repository
 
 The first step for the local installation of CluedIn is to clone the CluedIn public repository named **Home** [https://github.com/CluedIn-io/Home](https://github.com/CluedIn-io/Home).
 
@@ -34,7 +34,7 @@ git clone https://github.com/CluedIn-io/Home
 
     **Note:** Alternatively, you can clone the repository using your preferred Git client.
 
-# Authenticate to CluedIn ACR
+## Authenticate to CluedIn ACR
 
 **Prerequisites**
 
@@ -100,7 +100,7 @@ You can find the ACR to which you have been granted access in the <a href="/depl
 
     **Note:** Environment is used for having scripts that can start CluedIn of different versions. Docker does not support multiple CluedIn versions running in parallel.
 
-# Start CluedIn
+## Start CluedIn
 
 As Docker is not an orchestration tool like Kubernetes, starting up Docker containers may require some manual configuration steps to ensure proper initialization.
 
@@ -132,7 +132,7 @@ pwsh .\cluedin.ps1 up 202304
 
     ![start-cluedin.png](../../assets/images/local-install/start-cluedin.png)
 
-# Create your sign-in credentials
+## Create your sign-in credentials
 
 The last step of the local installation of CluedIn is to create an organization and credentials for signing in to CluedIn.
 
@@ -172,10 +172,10 @@ pwsh .\cluedin.ps1 open 202304 -Org example
 
     ![sign-in-page.png](../../assets/images/local-install/sign-in-page.png)
 
-# Results
+## Results
 
 You have installed CluedIn locally.
 
-# Next steps
+## Next steps
 
 Add more features to CluedIn with the help of extension packages. Learn how to do that in [Extension packages](/deployment/local/step-3).

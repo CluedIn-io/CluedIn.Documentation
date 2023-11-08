@@ -17,7 +17,7 @@ At this point, you have a working, secure CluedIn environment. However, the defa
 
 ![overview-fourth-step.png](../../assets/images/ama/install-guide/overview-fourth-step.png)
 
-# Configure custom DNS
+## Configure custom DNS
 
 To avoid interruption in the adoption of CluedIn, external DNS names are provided by the <a href="https://sslip.io/">sslip.io</a> service by default without any upfront configuration. The sslip.io service is a DNS service that returns the IP address when queried with a host name that contains an embedded IP address.
 
@@ -25,15 +25,15 @@ The default DNS configuration ensures security by using the Automated Certificat
 
 If you want to set up custom DNS entries, see [Configure DNS](/deployment/infra-how-tos/configure-dns).
 
-# Configure custom SSL certificates
+## Configure custom SSL certificates
 
 By default, CluedIn installation is secured by using TLS. CluedIn uses the Automated Certificate Management Environment (ACME) protocol and the public Let's Encrypt certificate authority to issue certificates. However, this default configuration might not comply with your organization's security policy. If you want to use a Subject Alternative Name (SAN) or wildcard certificate for you domain, see [Configure certificates](/deployment/infra-how-tos/configure-certificates).
 
-# Configure alerts
+## Configure alerts
 
 By default, CluedIn contains built-in alerts that are sent to our support team. You can configure your own alerts in the Azure portal. For more information about alerts, see [Configure alerts](/deployment/infra-how-tos/configure-alerts).
 
-# Configure logging
+## Configure logging
 
 CluedIn uses structured logging, and only the console sink is enabled by default. If you want to use another sink, see [Configure logging](/deployment/infra-how-tos/configure-logging).
 
@@ -44,15 +44,19 @@ By default, your CluedIn containers are configured to log at the production leve
 - ERR – system errors
 - FTL – fatal system logs
 
-# Set up SSO
+## Set up SSO
 
 CluedIn does not set up SSO directly out of the box. If you want to use SSO, see [Configure SSO](/deployment/infra-how-tos/configure-sso).
 
-# Results
+## Set up a backup solution
+
+CluedIn does not set up a backup solution directly out of the box. To configure backup, see [AMA backup and restore](/deployment/infra-how-tos/ama-backup).
+
+## Results
 
 At this point, your CluedIn instance is up and running and configured according to your organization's needs.
 
-# Next steps
+## Next steps
 
 Review procedures for basic maintenance operations:
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 1
+nav_order: 6
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-certificates
@@ -30,7 +30,7 @@ In this article, you will learn how to create your own certificates and keys and
 
 If you have any questions, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> (or reach out to your delivery manager if you have a committed deal).
 
-# Create your own certificates and keys
+## Create your own certificates and keys
 
 If you want to use a Subject Alternative Name (SAN) or wildcard certificate for you domain, create your own certificates and keys.
 
@@ -52,7 +52,7 @@ platform:
 ```
 4. Save the file.
 
-# Update your server configuration via Helm
+## Update your server configuration via Helm
 
 After you added the certificates and keys to your **values.yaml** file, you need to update the server configuration with your new TLS certificates and keys.
 
@@ -128,7 +128,7 @@ helm upgrade -i cluedin-platform cluedin/cluedin-platform  -n cluedin --create-n
 ```
 After a short time, you'll see the confirmation of your update in the console. CluedIn is now configured to use your new TLS certificate and keys.
 
-# Alternative certificate providers
+## Alternative certificate providers
 
 If you can't obtain a certificate from a commercial certificate authority or from your internal public key infrastructure (PKI) service, you can use other methods to generate certificates. For example, you can generate certificates via [Let's Encrypt](#lets-encrypt) or you can generate [self-signed certificates](#self-signed-certificates).
 
@@ -136,13 +136,13 @@ While these methods provide the same level of encryption as the commercial and P
 
 Make sure that any certificates and keys that you use meet your organization's security policies.
 
-## Let's Encrypt
+### Let's Encrypt
 
 Let's Encrypt provides the ability to generate the required certificates and keys to be used for free. These certificates are issued by a widely accepted certificate authority managed by  [Internet Security Research Group](https://www.abetterinternet.org/). Certificates from Let's Encrypt provide a low-cost, low-maintenance alternative to commercial or internal PKI providers.
 
 For more information about Let's Encrypt, visit [their website](https://letsencrypt.org/).
 
-## Self-signed certificates
+### Self-signed certificates
 
 Self-signed certificates should only be used in non-production environments where organizational policies approve this approach.
 

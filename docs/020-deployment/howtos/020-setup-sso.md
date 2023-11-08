@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 1
+nav_order: 2
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-sso
@@ -15,7 +15,7 @@ last_modified: 2023-06-20
 
 In this article, you will learn how to configure single sign-on (SSO) for CluedIn using Azure Active Directory (AD) group-managed role membership.
 
-# Overview of SSO for CluedIn
+## Overview of SSO for CluedIn
 
 SSO for CluedIn can be enabled in one of the following modes:
 - **SSO with local CluedIn role membership management** – all users from the directory can sign in to the CluedIn application. After the user signs in for the first time, CluedIn roles can be assigned in the usual way in the CluedIn UI.
@@ -30,7 +30,7 @@ Configuring SSO for CluedIn using Azure AD involves three main steps:
 
 **Important!** Before configuring SSO, make sure that you have configured [DNS](/deployment/infra-how-tos/configure-dns) and [TLS](/deployment/infra-how-tos/configure-certificates).
 
-# Register an application in the Azure portal
+## Register an application in the Azure portal
 
 Registering your application establishes a trust relationship between your application and the Microsoft identity platform. The trust is unidirectional: your application trusts the Microsoft identity platform, and not the other way around. After you create the application, it cannot be moved between different tenants.
 
@@ -55,7 +55,7 @@ After you register the application, complete the following steps:
 1. [Map Azure AD application roles to CluedIn roles](#map-azure-ad-application-roles-to-cluedin-roles)
  
 
-## Create a client secret
+### Create a client secret
 
 A client secret is used to configure CluedIn to communicate with your Azure AD.
 
@@ -69,7 +69,7 @@ A client secret is used to configure CluedIn to communicate with your Azure AD.
 
 For more information about the client secret, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-client-secret).
 
-## Add redirect URIs
+### Add redirect URIs
 
 Redirect URI is the location to which the Microsoft identity platform redirects the user's client and sends security tokens after authentication.
 
@@ -92,7 +92,7 @@ Redirect URI is the location to which the Microsoft identity platform redirects 
 
 For more information about redirect URIs, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri).
 
-## Add API permissions for Microsoft Graph
+### Add API permissions for Microsoft Graph
 
 When you register an application in the Azure portal, the Microsoft Graph API with the **User.Read** permission is added automatically. You need to add additional permissions for Microsoft Graph.
 
@@ -108,7 +108,7 @@ The API permissions for Microsoft Graph are updated.
 
 For more information about API permissions, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis).
 
-## Expose an API
+### Expose an API
 
 You need to register a web API with the Microsoft identity platform and expose it to the client app by adding a scope. By registering your web API and exposing it through scope, you can provide permissions-based access to authorized users that access your API.
 
@@ -125,7 +125,7 @@ You need to register a web API with the Microsoft identity platform and expose i
 
 For detailed instructions on how to configure an app to expose web API, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
  
-## Map Azure AD application roles to CluedIn roles
+### Map Azure AD application roles to CluedIn roles
 
 After you have created your application registration and attached it to your CluedIn instance, you can create the application roles on the Azure AD side. These roles will be translated into the CluedIn platform roles and assigned to the users after they sign in to the application for the first time.
 
@@ -144,7 +144,7 @@ In the CluedIn application, you can find all CluedIn roles by navigating to **Ad
 
 Any changes made in the application registration will be saved in your Azure subscription. We do not impose strict requirements on how app roles are set up, so you can follow your organization’s internal requirements.
 
-## CluedIn roles 
+### CluedIn roles 
 
 The following table provides a list of the CluedIn application roles and recommended values to use when creating your Azure app roles with your application registration.
 
@@ -166,7 +166,7 @@ The following table provides a list of the CluedIn application roles and recomme
 | Deduplication Administrator | DeduplicationAdministrator | Role responsible for creating and maintaining Deduplication Projects and merging the results back into the system |
 | Data Steward Administrator | DataStewardAdministrator | Role responsible for approving changes made by Data Stewards |
 
-# Create Kubernetes secret and enable SSO via Helm
+## Create Kubernetes secret and enable SSO via Helm
 
 After you complete the Azure application registration and app roles configuration, you need to enable the SSO feature on the CluedIn platform. Thus, SSO will become available to users when signing in to CluedIn.
 
@@ -232,7 +232,7 @@ If your SSO feature has been successfully applied, you should see something simi
 
 If the **Phase** is not in the **Active** state, wait for 5 minutes and run the command again. If nothing changes, reach out to CluedIn support at support@cluedin.com for help in enabling your SSO.
 
-# (Optional) Create custom role mapping
+## (Optional) Create custom role mapping
 
 After the app roles have been created, gain access to CluedIn’s internal SQL Authentication database and begin mapping CluedIn roles to app roles.
 

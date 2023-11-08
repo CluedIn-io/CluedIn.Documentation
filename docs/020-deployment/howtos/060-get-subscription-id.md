@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 1
+nav_order: 5
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/get-subscription-id

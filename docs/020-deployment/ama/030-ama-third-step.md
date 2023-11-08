@@ -19,7 +19,7 @@ In this article, you will learn how to install CluedIn from the Azure Marketplac
 
 ![How_to_install_CluedIn.png](../../assets/images/ama/install-guide/overview-third-step.png)
 
-# Find CluedIn
+## Find CluedIn
 
 Start the installation process by finding CluedIn in the Azure Marketplace.
 
@@ -33,7 +33,7 @@ Start the installation process by finding CluedIn in the Azure Marketplace.
 ![ama-cluedin-platform.png](../../assets/images/ama/install-guide/ama-cluedin-platform.png)
 1. Review your contact information, and then select **Continue**.
 
-# Complete the Basics tab
+## Complete the Basics tab
 On the **Basics** tab, you can select the Azure resource group where CluedIn will be installed and provide license details.
 
 **To complete the Basics tab**
@@ -53,7 +53,7 @@ You can select the existing resource group, but it must be empty. If the resourc
 ![Basics_tab_Instance_details.png](../../assets/images/ama/install-guide/ama-install-basic-tab-2.png)
 1. Make sure that the **Managed Application Details** section is filled out correctly. This section is usually filled out by default, but you can make changes if needed.
 
-# Complete the Initial Setup tab
+## Complete the Initial Setup tab
 
 On the **CluedIn - Initial Setup** tab, you can create the organization and the administrator account for your CluedIn instance, specify SMTP details, and enable SSO.
 
@@ -74,7 +74,7 @@ On the **CluedIn - Initial Setup** tab, you can create the organization and the 
 ![Initial_setup_tab_SSO.png](../../assets/images/ama/install-guide/ama-install-basic-tab-5.png)
 **Important!** You can enable SSO access for CluedIn after installation. This is often the preferable option because some mapping of Azure AD groups to product groups is required. For more information, see [Configure SSO](/deployment/infra-how-tos/configure-sso).
 
-# Review the AKS Setup tab
+## Review the AKS Setup tab
 On the **CluedIn - AKS Setup** tab, you can customize the number of nodes that you want to use in your CluedIn instance, and you can also define autoscaling parameters.
 
 **Important!** In most cases, you do not need to adjust anything on this tab unless advised to do so by CluedIn support.
@@ -94,7 +94,7 @@ You can enable **auto-scaling** for the processing node pool. It means that when
 
 **Important!** You can enable auto-scaling after installation. 
 
-# Review the Service Setup tab
+## Review the Service Setup tab
 On the **CluedIn - Service Setup** tab, you can review major services that make up CluedIn’s data layer. By default, CluedIn uses the resources provisioned inside the cluster and the Azure managed (encrypted) disks to store any data created.
 
 **Important!** The default configuration is sufficient, so you don't need to adjust anything on this tab. You can change service details after installation by submitting a ticket to CluedIn support.
@@ -135,7 +135,7 @@ By default, CluedIn doesn't create an Event Hub instance.
 The installer can provide a new Azure Event Hub instance that will be created inside the managed resource group.
 
 
-# Review the Advanced Configuration tab
+## Review the Advanced Configuration tab
 
 On the **CluedIn - Advanced Configuration** tab, you can find technical and debugging switches that are used by CluedIn support. Most of the options on this tab should not be adjusted. Any misconfiguration or changes to these options can cause the installation to fail.
 
@@ -156,14 +156,14 @@ You can enable the **Advanced Networking** section to make changes to the vNet d
 
 **Important!** The installer cannot verify these IP ranges and their validity before the installation starts, so double-check all settings before proceeding.
 
-# Complete the Review + Create tab
+## Complete the Review + Create tab
 
 On the **Review + Create** tab, review and accept the terms and conditions. To start the deployment process in your own cloud environment, select **Create**.
 
-# Results
+## Results
 
 You have CluedIn running in your own cloud environment.
 
-# Next steps
+## Next steps
 
 Customize CluedIn to meet your organization's needs as described in our [Post-installation guide](/deployment/azure-marketplace/step-4).
