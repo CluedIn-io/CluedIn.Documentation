@@ -48,13 +48,9 @@ Each role contains the same list of claims, but different access levels. We reco
 In CluedIn, there are the following access levels:
 
 - **None** – no access to the claim.
-
 - **Informed** – read-only access to the claim. The user will be able to view all information within the claim, but will not be able to add, edit, or delete items within the claim.
-
 - **Consulted** – read and write access to the claim. The user will be able to add, edit, or delete items within the claim.
-
 - **Responsible** – read, write, and submit approval requests.
-
 - **Accountable** – read, write, submit approval requests, and approve requests.
 
 Each subsequent access level includes all permissions from the previous access level.
