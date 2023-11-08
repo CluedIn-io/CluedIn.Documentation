@@ -44,7 +44,7 @@ az aks get-credentials `
 
 Recommended nodepool sizing for an AKS cluster can be found below:
 
-| Node Pool         | VM SKU Type         | Amount        | Purpose  | 
+| Node Pool         | VM SKU Type         | Amount        | Purpose  |
 |-------------------|:-------------       |:-------------:| :----    |
 | Core Pool         | `Standard_DS2_v2`   | 1             | Kubernetes agent internal processes |
 | Data Pool         | `Standard_A8_v2`    | 2             | Memory Optimized pool for Databases |
@@ -88,7 +88,7 @@ CluedIn Platform can be installed as a whole with the help of Helm.
 
 ### Preparation
 
-* The helm chart repository containing the CluedIn chart must be registered. 
+* The helm chart repository containing the CluedIn chart must be registered.
 ```powershell
 helm repo add cluedin https://cluedin-io.github.io/Charts/
 helm repo update
@@ -113,11 +113,11 @@ helm inspect values cluedin/cluedin > values.yml
 
 Fill out the values.yaml file, specifically the following objects:
 ```yaml
-bootstrap: 
-  organization: 
+bootstrap:
+  organization:
     name: # Organization Account Name
     email: # Admin account's Email
-    username: # Admin account's username (should be the same as above) 
+    username: # Admin account's username (should be the same as above)
     prefix: # Organization prefix used to access the platform (also use in DNS configuration step above)
     password: # Admin account's password
     emailDomain: # Admin account's Email domain
@@ -126,7 +126,7 @@ bootstrap:
 *Be aware that you cannot use an organization prefix with a hyphen or period in it.
 
 ```yaml
-tls: 
+tls:
   ingressCertSecret: # Name of the secret created in SSL certificate step
 ```
 
@@ -140,19 +140,19 @@ helm upgrade <release-name (i.e. cluedin-dev, cluedin-prod)> cluedin/cluedin `
   --values <path-to-values.yml>
 ```
 
-Upon running the `helm upgrade` command, Helm will begin installation of CluedIn platform into your Kubernetes cluster. At the end of the installation process, you will be prompted with configuration of your install, URLs you can use to access your freshly installed platform. 
+Upon running the `helm upgrade` command, Helm will begin installation of CluedIn platform into your Kubernetes cluster. At the end of the installation process, you will be prompted with configuration of your install, URLs you can use to access your freshly installed platform.
 
 All the workloads may take up to 10 minutes to spin up. You can check your status by running `kubectl get pods -n cluedin`, in a healthy installation scenario all the pods should be in a `Ready` state.
 
 Additionally, you can check the health of the platform by going to `https://app.<hostname>/api/status` healthcheck API.
 
-You will be able to login to the platform by going to `https://app.<hostname>/` (or `http://app.<hostname>/` if not using SSL). 
+You will be able to login to the platform by going to `https://app.<hostname>/` (or `http://app.<hostname>/` if not using SSL).
 
 #### Next Steps
 
-After logging in to the platform, you can proceed with enabling single sign on for your users to access the platform, as well as start loading data in via Data Sources or installing some crawlers. 
+After logging in to the platform, you can proceed with enabling single sign on for your users to access the platform, as well as start loading data in via Data Sources or installing some crawlers.
 Below you will find some useful links on achieving the above:
-- [Enabling Single Sign On](../../administration/authentication)
+- [Enabling Single Sign On](../../deployment/infra-how-tos/configure-sso)
 - [Restricting access to CluedIn Clean via Basic Authentication](../../kb/basic-auth-cluedin-clean)
 - [Install a crawler/custom component](../../integration/install-integrations)
 
