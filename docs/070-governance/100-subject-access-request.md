@@ -6,6 +6,7 @@ nav_order: 100
 has_children: false
 permalink: /governance/subject-access-request
 tags: ["governance","access-control"]
+published: false
 ---
 
 CluedIn allows a user to generate a subject access request to fulfil data privacy acts around the world. 

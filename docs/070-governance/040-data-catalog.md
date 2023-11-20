@@ -6,6 +6,7 @@ nav_order: 040
 has_children: false
 permalink: /governance/data-catalog
 tags: ["governance","data-catalog"]
+published: false
 ---
 
 Using the Vocabularies in your integrations, CluedIn will automatically build you up a Data Catalog of all the properties that are available across all integrations that have been enabled in the platform. 

@@ -4,6 +4,7 @@ title: Governance
 nav_order: 70
 has_children: true
 permalink: /governance
+published: false
 ---
 
 ## Introduction
