@@ -3,7 +3,7 @@ layout: default
 title: Rules
 parent: Management
 nav_order: 010
-has_children: false
+has_children: true
 permalink: /management/rules
 tags: ["management","rules"]
 ---
