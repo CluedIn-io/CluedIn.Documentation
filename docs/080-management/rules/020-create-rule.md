@@ -49,7 +49,7 @@ The procedure for creating a rule is the same for all types of rules. However, t
 
 1. Activate the rule by turning on the toggle next to the rule status.
 
-    You created the rule. The rule will be applied to the records that match the rule's filter when they are processed or reprocessed. Next, explore the available methods to reprocess the records, along with the various options for [managing the rule](/Documentation/Management/Rules/Manage-rules).
+    You created the rule. The rule will be applied to the records that match the rule's filter when they are processed or reprocessed. Next, explore the available methods to reprocess the records, along with the various options for [managing the rule](/management/rules/manage-rules).
 
 ## Re-process records
 
