@@ -2,7 +2,7 @@
 layout: default
 title: Rules
 parent: Management
-nav_order: 030
+nav_order: 010
 has_children: false
 permalink: /management/rules
 tags: ["management","rules"]
