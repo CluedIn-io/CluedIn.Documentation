@@ -17,7 +17,7 @@ The purpose of **data parts rules** is to modify the values in records that come
 
 The purpose of **survivorship rules** is to determine which value contributes to the golden record among many potential values. By default, the latest value coming to CluedIn is the value used in the golden record. If you want to use another value for your golden record, you can set up a survivorship rule with the needed [action](/Documentation/Management/Rules/Rules-reference).
 
-The purpose of **golden record rules** is to facilitate the easy identification and retrieval of golden records within the system. You can use a golden record rule to tag records containing invalid data that should be addressed by a Data Stewart. In this case, a responsible person can quickly find tagged records and create a clean project.
+The purpose of **golden record rules** is to facilitate the easy identification and retrieval of golden records within the system. You can use a golden record rule to tag records containing invalid data that should be addressed by a Data Steward. In this case, a responsible person can quickly find tagged records and create a clean project.
 
 **Example**
 
