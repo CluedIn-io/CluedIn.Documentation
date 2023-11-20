@@ -2,59 +2,22 @@
 layout: default
 title: Rules
 parent: Management
-nav_order: 030
+nav_order: 010
 has_children: false
 permalink: /management/rules
 tags: ["management","rules"]
 ---
 
-Rules are your way to setup business logic within the CluedIn user interface. Rules are made up of a tree of conditions and a single action. Conditions can be used to build a predicate based of the values of Entity properties, including using the Vocabularies from CluedIn. 
+Rules enable you to establish business logic for managing your records within CluedIn. In this section, you will learn how to automate data transformation, capture data quality issues, and determine operational values with the help of different types of rules.
 
-![Diagram](../assets/images/management/rule.png)
+A rule consists of a filter and one or more associated actions. Filter tells CluedIn what records should be affected by the rule's action. The following diagram shows the basic steps of creating a rule in CluedIn.
 
-## Automate Rules with CluedIn Clean
+![rules-1.png](../../assets/images/management/rules/rules-1.png)
 
-Rules can manually be created, but they can also be automated by cleaning data through CluedIn Clean. You will need to make sure this feature is enabled with the Feature.Clean.AutoCreateRules. All mass edit operations within CluedIn Clean will now automatically create rules however it will mark them as deactived by default. It will require you to enabled the rules in the user interface. 
+This section covers the following areas:
 
-![Diagram](../assets/images/management/automated-rules.png)
+- [Rule types](/management/rules/rule-types) – explore different types of rules to learn which one would be best for your specific needs.
+- [Creating a rule](/management/rules/create-rule) – learn how to create a rule and apply it to the records.
+- [Managing rules](/management/rules/manage-rules) – learn how to edit, deactivate, and delete a rule, as well how these actions affect your records.
+- [Reference information about rule's actions](/management/rules/rules-reference) – find information about the actions associated with each type of rule.
 
-## Build new Actions
-
-New rule actions can be added in the platform by implementing the IRuleAction interface. Here is an example of how you could add an action of adding an Alias to an entity. 
-
-```csharp
-using System.Collections.Generic;
-using CluedIn.Core.Data.Parts;
-using CluedIn.Core.Processing;
-using CluedIn.Core.Rules;
-using CluedIn.Core.Rules.Models;
-
-namespace CluedIn.CustomRules.Actions
-{
-    public class AddAlias : IRuleAction
-    {
-        public string Name => "Add Alias";
-
-        public bool SupportsPreview => false;
-
-        [RuleProperty]
-        public string Value { get; set; }
-
-        public RuleActionResult Run(ProcessingContext context, IEntityMetadataPart entityMetadataPart, bool isPreview)
-        {
-            entityMetadataPart.Aliases.Add(Value);
-
-            return new RuleActionResult { IsSuccess = true, Messages = new string[] { $"Added alias {Value}" } };
-        }
-    }
-}
-
-
-```
-
-
-## Clean Data with History
-
-Because CluedIn stores all the history of a record and how that record was composed, by default Cleaning projects will only clean the Golden Records. Although this is a valid use case, there are times when we would want to clean historical data that was not in the Golden Record. Cleaning the history will also play a major role in raising the data quality scores as well as being able to create all types of automated rules based off what data has been exposed to the CluedIn platform. 
-
-To clean data with history, make sure you select the "Clean with History" checkbox as you create your cleaning projects. 

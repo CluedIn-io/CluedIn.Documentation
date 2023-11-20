@@ -2,7 +2,7 @@
 layout: default
 title: Duplicate List
 parent: Management
-nav_order: 010
+nav_order: 020
 has_children: false
 permalink: /management/duplicate-list
 tags: ["management"]
