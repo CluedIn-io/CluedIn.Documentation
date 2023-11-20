@@ -6,6 +6,7 @@ nav_order: 010
 has_children: false
 permalink: /governance/access-control
 tags: ["governance","access-control"]
+published: false
 ---
 
 CluedIn can enable or disable Read access at a datasource level. If you require more granular level security control, please talk to your CluedIn Account Manager to discuss the options. 

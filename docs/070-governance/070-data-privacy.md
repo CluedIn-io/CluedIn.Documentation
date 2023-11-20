@@ -6,6 +6,7 @@ nav_order: 070
 has_children: false
 permalink: /governance/data-privacy
 tags: ["governance","data-privacy"]
+published: false
 ---
 
 CluedIn detects PII data by default. Here is a description of how it is implemented.

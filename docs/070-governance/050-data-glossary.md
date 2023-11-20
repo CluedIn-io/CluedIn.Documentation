@@ -6,6 +6,7 @@ nav_order: 050
 has_children: false
 permalink: /governance/data-glossary
 tags: ["governance","data-glossary"]
+published: false
 ---
 
 The Data Glossary allows Data Governance teams to map a proper semantic model over data that typically will come from many different sources. 

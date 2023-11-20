@@ -7,6 +7,7 @@ has_children: false
 permalink: /governance/mesh-api
 tags: ["governance","mesh-api"]
 last_modified: 2022-01-28
+published: false
 ---
 
 The Mesh API allows a developer to implement the ability for CluedIn to write back values from CluedIn to source systems. This comes in the form of the following operation types: 
