@@ -44,7 +44,7 @@ The AAD Application Name can be override at runtime using the parameter.
 
 ## Manual Setup
 
-### Register an application in the Azure portal (Manual)
+### Register an application in the Azure portal
 
 Registering your application establishes a trust relationship between your application and the Microsoft identity platform. The trust is unidirectional: your application trusts the Microsoft identity platform, and not the other way around. After you create the application, it cannot be moved between different tenants.
 
