@@ -4,8 +4,8 @@ nav_order: 6
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-certificates
-title: Configure certificates
-tags: ["deployment", "ama", "marketplace", "azure"]
+title: Configure TLS certificates
+tags: ["deployment", "ama", "marketplace", "azure", "tls", "ssl", "certificates"]
 last_modified: 2023-06-20
 ---
 ## On this page
