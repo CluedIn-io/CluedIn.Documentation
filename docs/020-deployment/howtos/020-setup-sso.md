@@ -19,7 +19,7 @@ In this article, you will learn how to configure single sign-on (SSO) for CluedI
 
 SSO for CluedIn can be enabled in one of the following modes:
 - **SSO with local CluedIn role membership management** – all users from the directory can sign in to the CluedIn application. After the user signs in for the first time, CluedIn roles can be assigned in the usual way in the CluedIn UI.
-- **SSO with Microsoft Entra group-managed role membership** – Microsoft Entra application roles are created within your Azure application registration and they can be mapped to your AD groups or users. This mode requires **Automatic Role Synchronization** to be enabled in the **Administration Settings** page in CluedIn.
+- **SSO with Microsoft Entra group-managed role membership** – Microsoft Entra application roles are created within your Azure application registration and they can be mapped to your Microsoft Entra groups or users. This mode requires **Automatic Role Synchronization** to be enabled in the **Administration Settings** page in CluedIn.
 ![Automatic_role_synchronization.png](../../assets/images/ama/howtos/configure-sso-1.png)
 
 Configuring SSO for CluedIn using Microsoft Entra involves three main steps:
@@ -255,6 +255,6 @@ VALUES ('<single sign on id>', '<cluedin role id>', '<app role value field>')
    - **cluedin role id** – corresponds to the Id column in the AspNetRoles table.
    - **app role value field** – corresponds to the Value assigned in your app role in App Registration.
 
-The following example shows the mapping of OrganizationAdmin CluedIn role to CluedIn App Admin AD app role.
+The following example shows the mapping of OrganizationAdmin CluedIn role to CluedIn App Admin Microsoft Entra app role.
 
 ![SSO_custom_roles.png](../../assets/images/ama/howtos/configure-sso-success-terminal-2.png)
