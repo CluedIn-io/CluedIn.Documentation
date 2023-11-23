@@ -52,7 +52,7 @@ After you register the application, complete the following steps:
 1. [Add redirect URIs](#add-redirect-uris)
 1. [Add API permissions](#add-api-permissions-for-microsoft-graph)
 1. [Expose an API](#expose-an-api)
-1. [Map Microsoft Entra application roles to CluedIn roles](#map-azure-ad-application-roles-to-cluedin-roles)
+1. [Map Microsoft Entra application roles to CluedIn roles](#map-microsoft-entra-application-roles-to-CluedIn-roles)
  
 
 ### Create a client secret
@@ -255,6 +255,6 @@ VALUES ('<single sign on id>', '<cluedin role id>', '<app role value field>')
    - **cluedin role id** – corresponds to the Id column in the AspNetRoles table.
    - **app role value field** – corresponds to the Value assigned in your app role in App Registration.
 
-The following example shows the mapping of OrganizationAdmin CluedIn role to CluedIn App Admin Microsoft Entra app role.
+The following example shows the mapping of OrganizationAdmin CluedIn role to SSO role.
 
 ![SSO_custom_roles.png](../../assets/images/ama/howtos/configure-sso-success-terminal-2.png)
