@@ -72,7 +72,7 @@ On the **CluedIn - Initial Setup** tab, you can create the organization and the 
 **Important!** You can change SMTP details after installation by submitting a ticket to CluedIn support.
 1. If needed, enable SSO access for CluedIn, and then specify SSO details.
 ![Initial_setup_tab_SSO.png](../../assets/images/ama/install-guide/ama-install-basic-tab-5.png)
-**Important!** You can enable SSO access for CluedIn after installation. This is often the preferable option because some mapping of Azure AD groups to product groups is required. For more information, see [Configure SSO](/deployment/infra-how-tos/configure-sso).
+**Important!** You can enable SSO access for CluedIn after installation. This is often the preferable option because some mapping of Microsoft Entra groups to product groups is required. For more information, see [Configure SSO](/deployment/infra-how-tos/configure-sso).
 
 ## Review the AKS Setup tab
 On the **CluedIn - AKS Setup** tab, you can customize the number of nodes that you want to use in your CluedIn instance, and you can also define autoscaling parameters.
