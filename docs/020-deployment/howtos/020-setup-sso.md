@@ -13,16 +13,16 @@ last_modified: 2023-06-20
 1. TOC
 {:toc}
 
-In this article, you will learn how to configure single sign-on (SSO) for CluedIn using Azure Active Directory (AD) group-managed role membership.
+In this article, you will learn how to configure single sign-on (SSO) for CluedIn using Microsoft Entra group-managed role membership.
 
 ## Overview of SSO for CluedIn
 
 SSO for CluedIn can be enabled in one of the following modes:
 - **SSO with local CluedIn role membership management** – all users from the directory can sign in to the CluedIn application. After the user signs in for the first time, CluedIn roles can be assigned in the usual way in the CluedIn UI.
-- **SSO with Azure AD group-managed role membership** – Azure AD application roles are created within your Azure application registration and they can be mapped to your AD groups or users. This mode requires **Automatic Role Synchronization** to be enabled in the **Administration Settings** page in CluedIn.
+- **SSO with Microsoft Entra group-managed role membership** – Microsoft Entra application roles are created within your Azure application registration and they can be mapped to your AD groups or users. This mode requires **Automatic Role Synchronization** to be enabled in the **Administration Settings** page in CluedIn.
 ![Automatic_role_synchronization.png](../../assets/images/ama/howtos/configure-sso-1.png)
 
-Configuring SSO for CluedIn using Azure AD involves three main steps:
+Configuring SSO for CluedIn using Microsoft Entra involves three main steps:
 
 1. [Register an application in the Azure portal](#register-an-application-in-the-azure-portal)
 1. [Create Kubernetes secret and enable SSO via Helm](#create-kubernetes-secret-and-enable-sso-via-helm)
@@ -37,7 +37,7 @@ Registering your application establishes a trust relationship between your appli
 **To register an application in the Azure portal**
 
 1. In the Azure portal, go to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
+1. Search for and select **Microsoft Entra ID**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a display **Name** for your application.
 ![Register_application_Name.png](../../assets/images/ama/howtos/configure-sso-2.png)
@@ -52,12 +52,12 @@ After you register the application, complete the following steps:
 1. [Add redirect URIs](#add-redirect-uris)
 1. [Add API permissions](#add-api-permissions-for-microsoft-graph)
 1. [Expose an API](#expose-an-api)
-1. [Map Azure AD application roles to CluedIn roles](#map-azure-ad-application-roles-to-cluedin-roles)
+1. [Map Microsoft Entra application roles to CluedIn roles](#map-azure-ad-application-roles-to-cluedin-roles)
  
 
 ### Create a client secret
 
-A client secret is used to configure CluedIn to communicate with your Azure AD.
+A client secret is used to configure CluedIn to communicate with Microsoft Entra.
 
 **To create client secret**
 1. In the Azure portal, in **App registrations**, select your application.
@@ -125,11 +125,11 @@ You need to register a web API with the Microsoft identity platform and expose i
 
 For detailed instructions on how to configure an app to expose web API, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
  
-### Map Azure AD application roles to CluedIn roles
+### Map Microsoft Entra application roles to CluedIn roles
 
-After you have created your application registration and attached it to your CluedIn instance, you can create the application roles on the Azure AD side. These roles will be translated into the CluedIn platform roles and assigned to the users after they sign in to the application for the first time.
+After you have created your application registration and attached it to your CluedIn instance, you can create the application roles on the Microsoft Entra side. These roles will be translated into the CluedIn platform roles and assigned to the users after they sign in to the application for the first time.
 
-**To map Azure AD application roles to CluedIn roles**
+**To map Microsoft Entra application roles to CluedIn roles**
 
 1. In the Azure portal, in **App registrations**, select your application.
 1. Select **App roles**.
@@ -146,7 +146,7 @@ Any changes made in the application registration will be saved in your Azure sub
 
 ### CluedIn roles 
 
-The following table provides a list of the CluedIn application roles and recommended values to use when creating your Azure app roles with your application registration.
+The following table provides a list of the CluedIn application roles and recommended values to use when creating your Microsoft Entra application roles with your application registration.
 
 | Display name | Value | Description |
 |--|--|--|
