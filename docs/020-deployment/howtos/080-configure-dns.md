@@ -107,7 +107,7 @@ global:
       - '*.mycompany.com'
 ```
 
-7. If you are using multiple environments (development, test, and production), update the TLS hosts section for each environments `values.yaml` file:
+7. If you are using multiple environments (development, test, and production), update the TLS hosts section for each environment in the `values.yaml` file:
    - Development – replace all instances of `20.0.189.11.sslip.io` to `dev.mycompany.com`
    - Test – replace all instances of `20.0.189.12.sslip.io` to `test.mycompany.com`
    - Production – replace all instances of `20.0.189.13.sslip.io` to `prod.mycompany.com`
