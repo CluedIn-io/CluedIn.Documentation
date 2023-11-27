@@ -111,7 +111,7 @@ global:
    - Development – replace all instances of `20.0.189.11.sslip.io` to `dev.mycompany.com`
    - Test – replace all instances of `20.0.189.12.sslip.io` to `test.mycompany.com`
    - Production – replace all instances of `20.0.189.13.sslip.io` to `prod.mycompany.com`
-8. Save the file
+8. Save the file.
 9. Apply changes from the local file to the CluedIn cluster by running the following command:
 ```
 helm upgrade -i cluedin-platform cluedin/cluedin-platform  -n cluedin --create-namespace  --values Cluster-Current-values.yaml
