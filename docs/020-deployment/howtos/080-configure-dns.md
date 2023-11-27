@@ -95,7 +95,7 @@ global:
       - clean.20.0.189.11.sslip.io
       - '*.20.0.189.11.sslip.io'
 ```
-6. Replace the hosts section with the below. The example of the updated section is shown below.
+6. Replace the hosts section as shown below.
 ```yaml
 global:
   ingress:
