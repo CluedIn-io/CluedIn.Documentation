@@ -34,11 +34,27 @@ If you have any questions, you can request CluedIn support by sending an email t
 
 If you want to use a Subject Alternative Name (SAN) or wildcard certificate for you domain, create your own certificates and keys.
 
+**CSR requirements**
+The following FQDN are a requirement in order for the application to function correctly. In the example below, we use a dev environment. Your subdomains (app-dev, clean-dev) may differ and should match what is set in the DNS section of your values file. If you are unsure, please view the [`Configure DNS`](/deployment/infra-how-tos/configure-dns) page.
+
+**SAN**
+```
+cluedin-dev.company.com
+app-dev.company.com
+clean-dev.company.com
+```
+
+**Wildcard**
+```
+cluedin-dev.company.com
+*.cluedin-dev.company.com
+```
+
 **To create certificates and keys**
 
 1. From a suitable provider, obtain the following files: **TLS certificate**, **TLS private key (without password)**, and **Certificate authority's public certificate**.
 
-    The TLS certificates and keys must contain the DNS names for the CluedIn services as described in [Configure DNS](/deployment/infra-how-tos/configure-dns).
+    The TLS certificates and keys must contain the DNS names for the CluedIn services as described above.
 
 2. After you obtain the required files, convert the content of each file to base64 string using the `output.txt` command. For example: `bas64 /path/to/file > output.txt`
 3. Add the strings to your **values.yaml** file under the **Platform** section as shown in the example below.
