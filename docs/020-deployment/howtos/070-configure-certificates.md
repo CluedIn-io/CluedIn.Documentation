@@ -57,14 +57,16 @@ cluedin-dev.company.com
 2. After you obtain the required files, convert the content of each file to base64 string using the `output.txt` command. For example: `bas64 /path/to/file > output.txt`
 
 3. Add the strings to your **values.yaml** file under the **Platform** section as shown in the example below.
-```yaml
-platform:
-       extraCertificateSecrets:
-       cluedin-frontend-crt:
-           tlsKey: LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3=
-           tlsCrt: S0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ=
-           caCrt: LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3=
-```
+
+    ```yaml
+    platform:
+      extraCertificateSecrets:
+        cluedin-frontend-crt:
+          tlsKey: LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3=
+          tlsCrt: S0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ=
+          caCrt:  LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3=
+    ```
+
 4. Save the file.
 
 ## Update your server configuration via Helm
