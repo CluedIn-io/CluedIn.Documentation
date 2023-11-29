@@ -76,74 +76,84 @@ After you added the certificates and keys to your **values.yaml** file, you need
 **To update the server configuration via Helm**
 
 1. Get the current TLS values by running the following command:
-```
-helm get values cluedin-platform -n cluedin -o yaml > Cluster-Current-values.yaml
-```
-This command downloads the current cluster configuration that you can use to update your server configuration.
+
+    ```
+    helm get values cluedin-platform -n cluedin -o yaml > Cluster-Current-values.yaml
+    ```
+
+    This command downloads the current cluster configuration that you can use to update your server configuration.
 
 2. Open the file in the text editor of your choice (for example, nano).
-```
-nano Cluster-Current-values.yaml
-```
+
+    ```
+    nano Cluster-Current-values.yaml
+    ```
 
 3. Add the section with base64 encoded values for the keys and secrets.
-```yaml
-platform:
-  extraCertificateSecrets:
-    cluedin-frontend-crt:
-      tlsKey: LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3=
-      tlsCrt: S0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ=
-      caCrt:  LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3= # Optional. Used for self-signed or missing CA certificates. Needs global.ingress.tls.hasClusterCA set to 'true' to be used.
-```
+
+    ```yaml
+    platform:
+      extraCertificateSecrets:
+        cluedin-frontend-crt:
+          tlsKey: LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3=
+          tlsCrt: S0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ=
+          caCrt:  LS0tLS1CRUdJTiB0tLS0tCk1JSUZuekNDQTRlZ0F3SUJBZ0lVTjU1RW95TkVPK3= # Optional. Used for self-signed or missing CA certificates. Needs global.ingress.tls.hasClusterCA set to 'true' to be used.
+    ```
 
 4. Remove the following section of configuration.
-```yaml
-  issuer:
-    configuration:
-      acme:
-        email: aba@cluedin.com
-        privateKeySecretRef:
-          name: letsencrypt-production
-        server: https://acme-v02.api.letsencrypt.org/directory
-        solvers:
-        - http01:
-            ingress:
-              ingressTemplate:
-                metadata:
-                  annotations:
-                    kubernetes.io/ingress.class: haproxy
-    isWildcard: false
-```
-**Note:** We recommend that you remove Let's Encrypt issuer because you are configuring the system to use your own certificates and keys.
+
+    ```yaml
+      issuer:
+        configuration:
+          acme:
+            email: aba@cluedin.com
+            privateKeySecretRef:
+              name: letsencrypt-production
+            server: https://acme-v02.api.letsencrypt.org/directory
+            solvers:
+            - http01:
+                ingress:
+                  ingressTemplate:
+                    metadata:
+                      annotations:
+                        kubernetes.io/ingress.class: haproxy
+        isWildcard: false
+    ```
+
+    **Note:** We recommend that you remove Let's Encrypt issuer because you are configuring the system to use your own certificates and keys.
 
 5. Update the ingress controller to use the new certificate:
-```yaml
-global:
-  ingress:
-    tls:
-      hasClusterCA: true # Only set to 'true' if the CA certificate is not publicly trusted.
-      secretName: cluedin-frontend-crt # Must match name of secret in platform.extraCertificateSecrets
-```
+
+    ```yaml
+    global:
+      ingress:
+        tls:
+          hasClusterCA: true # Only set to 'true' if the CA certificate is not publicly trusted.
+          secretName: cluedin-frontend-crt # Must match name of secret in platform.extraCertificateSecrets
+    ```
 
 6. Finally, update the hostname field to match the DNS for ingress.
-```yaml
-global:
-  dns:
-    hostname: mydomain.com # By default will be sslip.io
-    subdomains:
-      application: app-env
-      openrefine: clean-env
-      # It's good to append what type of environment (ie. prod) to the end of app and clean.
-      # This is due to having multiple cluedin environments. Often the base domain is shared between all 3, but sub-domains shouldn't clash.
-```
+
+    ```yaml
+    global:
+      dns:
+        hostname: mydomain.com # By default will be sslip.io
+        subdomains:
+          application: app-env
+          openrefine: clean-env
+          # It's good to append what type of environment (ie. prod) to the end of app and clean.
+          # This is due to having multiple cluedin environments. Often the base domain is shared between all 3, but sub-domains shouldn't clash.
+    ```
 
 7. Save the file.
 
 8. Post the new configuration to your cluster by running the following command:
-```
-helm upgrade -i cluedin-platform cluedin/cluedin-platform  -n cluedin --create-namespace  --values Cluster-Current-values.yaml --set application.system.runDatabaseJobsOnUpgrade=false
-```
-After a short time, you'll see the confirmation of your update in the console. CluedIn is now configured to use your new TLS certificate and keys.
+
+    ```
+    helm upgrade -i cluedin-platform cluedin/cluedin-platform  -n cluedin --create-namespace  --values Cluster-Current-values.yaml --set application.system.runDatabaseJobsOnUpgrade=false
+    ```
+
+    After a short time, you'll see the confirmation of your update in the console. CluedIn is now configured to use your new TLS certificate and keys.
 
 ## Alternative certificate providers
 
@@ -168,17 +178,19 @@ The following procedure shows how to create a self-signed certificate using Open
 **To create self-signed certificate**
 
 1. Generate the certificate:
-```
-openssl req -x509 -newkey rsa:4096 -keyout domain.key -out domain.crt -sha256 -days 3650 -nodes -subj "/CN=mycompany.com"
-```
+
+    ```
+    openssl req -x509 -newkey rsa:4096 -keyout domain.key -out domain.crt -sha256 -days 3650 -nodes -subj "/CN=mycompany.com"
+    ```
 
 1. Verify the certificate:
-```
-openssl x509 -text -noout -in domain.crt
-```
+
+    ```
+    openssl x509 -text -noout -in domain.crt
+    ```
 
 1. Convert the certificate into the .pfx format:
-```
-openssl pkcs12 -inkey domain.key -in domain.crt -export -out domain.pfx
-```
 
+    ```
+    openssl pkcs12 -inkey domain.key -in domain.crt -export -out domain.pfx
+    ```
