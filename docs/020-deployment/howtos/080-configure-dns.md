@@ -75,7 +75,7 @@ If you have any questions about DNS configuration, you can request CluedIn suppo
 
 1. Download the current cluster configuration file by running the following command:  
     `helm get values cluedin-platform -n cluedin -o yaml > Cluster-Current-values.yaml`
-1. Open the file in a text editor by running the following command
+1. Open the file in a text editor of your choice
 1. In the file, find the block of code similar to what is shown below. Look for the entry named **dns**. It is the configuration that controls the DNS address used by CluedIn.  
     ```yaml
     global:
