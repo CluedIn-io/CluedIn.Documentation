@@ -4,7 +4,7 @@ nav_order: 5
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/get-subscription-id
-title: Subscription ID
+title: Obtain subscription ID
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 ---
