@@ -151,10 +151,9 @@ If you have any questions, you can request CluedIn support by sending an email t
 
     The IP address can be any IP from the range that is not in use by the nodes, pods, or other resources. To verify that the IP address is not in use, look at connected devices in the vNet resource page in the Azure portal.
 
-1. Save the file and post the new configuration to the cluster by running the following command:
-    ```
-    helm upgrade -i cluedin-platform cluedin/cluedin-platform  -n cluedin --create-namespace --values Cluster-Current-values.yaml
-    ```
+1. Save the file and post the new configuration to the cluster by running the following command:  
+    `helm upgrade -i cluedin-platform cluedin/cluedin-platform -n cluedin --values Cluster-Current-values.yaml`
+    
     After a short time, a confirmation appears in the console. It means that CluedIn is now configured to use your new load balancer and internal IP address.
 
     In azure, you should then see a new Load Balancer resource called `kubernetes-internal` which will be used for ingress. The original `kubernetes` then simply becomes egress only.
