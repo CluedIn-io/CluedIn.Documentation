@@ -80,13 +80,13 @@ Redirect URI is the location to which the Microsoft identity platform redirects 
 1. In the right pane, select **Web**.
 ![Add_redirect_URIs_Configure_platforms.png](../../assets/images/ama/howtos/configure-sso-5.png)
 1. In the **Configure Web** pane, specify the following:
-   1. In **Redirect URIs**, add a redirect URI for your application (for example, ```https://app.yourdomain.com```).
+   1. In **Redirect URIs**, add a redirect URI for your application (for example, `https://app.yourdomain.com`).
 ![Add_redirect_URIs_Redirect_URIs.png](../../assets/images/ama/howtos/configure-sso-6.png)
-   1. In **Front channel logout URI**, add a logout URL for your application (for example, ```https://app.yourdomain.com/logout```).
+   1. In **Front channel logout URI**, add a logout URL for your application (for example, `https://app.yourdomain.com/logout`).
 ![Add_redirect_URIs_Logout_URL.png](../../assets/images/ama/howtos/configure-sso-7.png)
    1. In the **Implicit grant and hybrid flows** section, select the **ID tokens** checkbox, and then select **Configure**.
 ![Add_redirect_URIs_ID_tokens.png](../../assets/images/ama/howtos/configure-sso-8.png)
-5. In the **Platform configurations** section, in **Web**, add additional URIs (for example, ```https://departmentX.yourdomain.com```, ```https://app.yourdomain.com/auth/signin-oidc```).
+5. In the **Platform configurations** section, in **Web**, add additional URIs (for example, `https://departmentX.yourdomain.com`, `https://app.yourdomain.com/auth/signin-oidc`).
 ![Add_redirect_URIs_additional.png](../../assets/images/ama/howtos/configure-sso-9.png)
 6. At the bottom of the page, select **Save**.
 
@@ -134,9 +134,9 @@ After you have created your application registration and attached it to your Clu
 1. In the Azure portal, in **App registrations**, select your application.
 1. Select **App roles**.
 1. On the menu, select **Create app role**.
-1. Enter the details of the role. See [CluedIn roles](#cluedin-roles) for recommended values.
+1. Enter the details of the role. See [CluedIn roles](#cluedin-roles) for recommended values.  
     ![Create_app_role.png](../../assets/images/ama/howtos/configure-sso-create-app-role-1.png)
-1. Select **Apply** to save your changes. The role is added to the **App roles** list.
+1. Select **Apply** to save your changes. The role is added to the **App roles** list.  
     ![App_role_added.png](../../assets/images/ama/howtos/configure-sso-create-app-role-2.png)
 1. Repeat steps 3-5 to add all roles listed below.
 
@@ -185,46 +185,37 @@ Once you have connected to your cluster and you are able to issue commands using
 
 **To create Kubernetes secret and enable SSO via Helm**
 
-1. Create a new Kubernetes secret with your Azure app registration secret by running the following command:
-```
-kubectl create secret generic "myorg-sso-cs" -n cluedin --from-literal=clientSecret="1234-5678-9ABC"
-```
-In the command, replace _1234-5678-9ABC_ with your Azure app registration secret.
+1. Create a new Kubernetes secret with your Azure app registration secret by running the following command:  
+    `kubectl create secret generic "myorg-sso-cs" -n cluedin --from-literal=clientSecret="1234-5678-9ABC"`
 
-2. In Azure Cloud Shell, run the following command to create a new empty file:
-```
-nano Cluedin-SSO-Config.yaml
-```
+    In the command, replace _1234-5678-9ABC_ with your Azure app registration secret.
 
-3. In the file, paste the following configuration:
-```
-apiVersion: api.cluedin.com/v1
-kind: Feature
-metadata:
-  name: myorg-sso
-spec:
-  enableSso:
-    clientId: "0cXXXX-XXXX-XXXX-XXX-XXXXXX575"
-    organizationName: "myorg"
-    clientSecretName: "myorg-sso-cs"
-    clientSecretKey: "clientSecret"
-```
+1. In Azure Cloud Shell, run the following command to create a new empty file:  
+    `nano Cluedin-SSO-Config.yaml`
 
-4. Change the **name** and **organizationName** values to match your CluedIn organization/tenant name.
+1. In the file, paste the following configuration:
+    ```yaml
+    apiVersion: api.cluedin.com/v1
+    kind: Feature
+    metadata:
+      name: myorg-sso
+    spec:
+      enableSso:
+        clientId: "0cXXXX-XXXX-XXXX-XXX-XXXXXX575"
+        organizationName: "myorg"
+        clientSecretName: "myorg-sso-cs"
+        clientSecretKey: "clientSecret"
+    ```
 
-5. Change the **clientId** value to the client ID from your Azure app registration.
+1. Change the **name** and **organizationName** values to match your CluedIn organization/tenant name.
 
-6. Save the file.
+1. Change the **clientId** value to the client ID from your Azure app registration.
 
-7. Apply your SSO configuration by running the following command in Azure Cloud Shell:
-```
-kubectl apply -n cluedin -f Cluedin-SSO-Config.yaml
-```
+1. Save the file and apply your SSO configuration by running the following command in Azure Cloud Shell:  
+    `kubectl apply -n cluedin -f Cluedin-SSO-Config.yaml`
 
-8. Verify that the SSO feature has been enabled successfully by running the following command in Azure Cloud Shell:
-```
-kubectl get features -n cluedin
-```
+1. Verify that the SSO feature has been enabled successfully by running the following command in Azure Cloud Shell:  
+    `kubectl get features -n cluedin`
 
 If your SSO feature has been successfully applied, you should see something similar to the screenshot below.
 
