@@ -118,16 +118,16 @@ You need to register a web API with the Microsoft identity platform and expose i
 2. Select **Expose an API**.
 3. In the **Scopes defined by this API** section, select **Add a scope**.
 4. Specify the following scope attributes:
-- **Scope name** – ```https://www.cluedin.net/sso/user_impersonation```
+- **Scope name** – `https://www.cluedin.net/sso/user_impersonation`
 - **Who can consent** – **Admins and Users**
-- **Authorized client applications** – ```https://www.cluedin.net/sso/user_impersonation```
+- **Authorized client applications** – `https://www.cluedin.net/sso/user_impersonation`
 ![expose_api.png](../../assets/images/ama/howtos/expose_api.png)
 
 For detailed instructions on how to configure an app to expose web API, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
  
 ### Map Microsoft Entra application roles to CluedIn roles
 
-After you have created your application registration and attached it to your CluedIn instance, you can create the application roles on the Microsoft Entra side. These roles will be translated into the CluedIn platform roles and assigned to the users after they sign in to the application for the first time.
+After you have created your application registration and attached it to your CluedIn instance, you can create the application roles on the Microsoft Entra side. These roles will be translated into the CluedIn platform roles and assigned to the users after they sign in to the application for the first time when the [`Automatic Role Synchronization`](#overview-of-sso-for-cluedin) option is enabled in the CluedIn settings.
 
 **To map Microsoft Entra application roles to CluedIn roles**
 
@@ -135,16 +135,16 @@ After you have created your application registration and attached it to your Clu
 1. Select **App roles**.
 1. On the menu, select **Create app role**.
 1. Enter the details of the role. See [CluedIn roles](#cluedin-roles) for recommended values.
-![Create_app_role.png](../../assets/images/ama/howtos/configure-sso-create-app-role-1.png)
+    ![Create_app_role.png](../../assets/images/ama/howtos/configure-sso-create-app-role-1.png)
 1. Select **Apply** to save your changes. The role is added to the **App roles** list.
-![App_role_added.png](../../assets/images/ama/howtos/configure-sso-create-app-role-2.png)
-1. Repeat steps 3-5 to add all roles.
+    ![App_role_added.png](../../assets/images/ama/howtos/configure-sso-create-app-role-2.png)
+1. Repeat steps 3-5 to add all roles listed below.
 
 In the CluedIn application, you can find all CluedIn roles by navigating to **Administration** > **Roles**.
 
 Any changes made in the application registration will be saved in your Azure subscription. We do not impose strict requirements on how app roles are set up, so you can follow your organization’s internal requirements.
 
-### CluedIn roles 
+### CluedIn roles
 
 The following table provides a list of the CluedIn application roles and recommended values to use when creating your Microsoft Entra application roles with your application registration.
 
@@ -231,30 +231,3 @@ If your SSO feature has been successfully applied, you should see something simi
 ![SSO_enabled.png](../../assets/images/ama/howtos/configure-sso-success-terminal.png)
 
 If the **Phase** is not in the **Active** state, wait for 5 minutes and run the command again. If nothing changes, reach out to CluedIn support at support@cluedin.com for help in enabling your SSO.
-
-## (Optional) Create custom role mapping
-
-After the app roles have been created, gain access to CluedIn’s internal SQL Authentication database and begin mapping CluedIn roles to app roles.
-
-**To create custom role mapping**
-
-1. Gain access to the internal database using Kubernetes port forwarding capability. You need to complete this process on a PC/server where you have access to a SQL client application. You will need it to query and execute SQL commands.
-
-2. Use the following server address in your SQL client application: `127.0.0.1\mcr.microsoft.com/mssql/server,1433`.
-
-    Alternatively, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> or reach out to your delivery manager.
-
-3. Use the following SQL insert statement (or populate the values manually by editing the table).
-```
-USE [DataStore.Db.Authentication]
-INSERT INTO [dbo].[SingleSignOnRoleMappings] (Id, SingleSignOnId, RoleId, MappedTo)
-VALUES ('<single sign on id>', '<cluedin role id>', '<app role value field>')
-```
-4. Replace the following values:
-   - **single sign on id** – corresponds to the Id column in the SingleSignOn table.
-   - **cluedin role id** – corresponds to the Id column in the AspNetRoles table.
-   - **app role value field** – corresponds to the Value assigned in your app role in App Registration.
-
-The following example shows the mapping of OrganizationAdmin CluedIn role to SSO role.
-
-![SSO_custom_roles.png](../../assets/images/ama/howtos/configure-sso-success-terminal-2.png)
