@@ -156,4 +156,4 @@ If you have any questions, you can request CluedIn support by sending an email t
 
     After a short time, a confirmation appears in the console. It means that CluedIn is now configured to use your new load balancer and internal IP address.
 
-    In azure, you should then see a new Load Balancer resource called `kubernetes-internal` which will be used for ingress. The original `kubernetes` then simply becomes egress only.
+    In Azure, you should then see a new Load Balancer resource called `kubernetes-internal`, which will be used for ingress. The original `kubernetes` then simply becomes egress only.
