@@ -140,11 +140,11 @@ If you have any questions, you can request CluedIn support by sending an email t
     ```yaml
     infrastructure:
       haproxy-ingress:
-          controller:
-            service:
-              annotations:
-                service.beta.kubernetes.io/azure-load-balancer-internal: "true"
-              loadBalancerIP: {PrivateIP} # This must be valid in the vNet subnet range
+        controller:
+          service:
+            annotations:
+              service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+            loadBalancerIP: {PrivateIP} # This must be valid in the vNet subnet range
     ```
 
 1. Reconfigure a new load balancer to use your internal IP address. To do this, replace `{PrivateIP}` with a valid IP address from your AKS subnet range.
@@ -153,7 +153,7 @@ If you have any questions, you can request CluedIn support by sending an email t
 
 1. Save the file and post the new configuration to the cluster by running the following command:  
     `helm upgrade -i cluedin-platform cluedin/cluedin-platform -n cluedin --values Cluster-Current-values.yaml`
-    
+
     After a short time, a confirmation appears in the console. It means that CluedIn is now configured to use your new load balancer and internal IP address.
 
     In azure, you should then see a new Load Balancer resource called `kubernetes-internal` which will be used for ingress. The original `kubernetes` then simply becomes egress only.
