@@ -11,20 +11,20 @@ tags: ["administration", "permissions"]
 1. TOC
 {:toc}
 
-In this article, you will learn how to restrict access to data using a global security filter and how to add permissions for users to specific data.
+In this article, you will learn how to restrict access to data using a global security filter and how to add permissions to specific data.
 
 **_This article is intended for users with the OrganizationAdmin role or users with the following claim access levels._**
 
 | Section | Claim | Access level |
 |--|--|--|
-| Management | Data Catalog | at least Consulted |
-| Management | Annotation | at least Consulted |
-| Admin | Tenant Management | at least Consulted |
-| Integration | Enrichment | at least Consulted |
-| Integration | Configured Integrations | at least Consulted |
-| Integration | Manual Data Entry Project Management | at least Consulted |
-| Integration | Data Source Groups | at least Consulted |
-| Consume | Export Targets | at least Consulted |
+| Management | Data Catalog | At least Consulted |
+| Management | Annotation | At least Consulted |
+| Admin | Tenant Management | At least Consulted |
+| Integration | Enrichment | At least Consulted |
+| Integration | Configured Integrations | At least Consulted |
+| Integration | Manual Data Entry Project Management | At least Consulted |
+| Integration | Data Source Groups | At least Consulted |
+| Consume | Export Targets | At least Consulted |
 
 To make sure that the right users have access to the right data, perform the following steps:
 
@@ -38,7 +38,7 @@ The following diagram shows the flow of restricting access to data.
 
 ## Enable a global security filter
 
-A global security filter is used for managing the overall access to data within the platform. It can be in one of the following statuses:
+Global security filter is used for managing the overall access to data within the platform. It can be in one of the following statuses:
 
 - **Disabled** – the users can view all data in CluedIn.
 
@@ -60,13 +60,13 @@ A global security filter is used for managing the overall access to data within 
 
      ![restrict-access-1.png](../../assets/images/administration/permissions/restrict-access-1.png)
 
-    The global security filter is enabled. The users need to sign out and sign in again for the changes to take the effect.
+    The global security filter is enabled. The users need to sign out and sign in again for the changes to take effect.
 
-After you enable the global security filter, the users will not be able to view any data in CluedIn. To give users access to the data required for performing their data-related tasks, [add permissions for users in data resources](#add-permission-for-users-in-data-resource).
+After you turn on the global security filter, the users will not be able to view any data in CluedIn. To give users access to the data required for performing their data-related tasks, [add permissions for users in data resources](#add-permission-for-users-in-data-resource).
 
 **Exception in global security filter**
 
-The table below contains the combination of section-claim-access level that grants users a permission to view the data regardless of whether the global security filter is enabled or not.
+The table below contains the combination of section-claim-access level that grants users a permission to view the data regardless of whether the global security filter is turned on or not.
 
 | Section | Claim | Access level |
 |--|--|--|
@@ -76,7 +76,7 @@ The table below contains the combination of section-claim-access level that gran
 
 ## Add permission for users in data resource
 
-With the global security filter enabled, you need to add permissions for users in the data resources so that they can work with the required data.
+With the global security filter turned on, you need to add permissions for users in the data resources so that they can work with the required data.
 
 **To add permission in data resource**
 
@@ -96,6 +96,6 @@ With the global security filter enabled, you need to add permissions for users i
 
     ![grant-access-1.png](../../assets/images/administration/permissions/grant-access-1.png)
 
-    For the changes to take the effect, the users have to sign out and sign in again. Now, the users can view data and they are listed on the **Permissions** tab of the data resource.
+    For the changes to take effect, the users have to sign out and sign in again. Now, the users can view data, and they are listed on the **Permissions** tab of the data resource.
 
 **Note:** The operations that users can perform with data depend on the roles assigned to the users. For more information, see [Roles](/administration/roles).
