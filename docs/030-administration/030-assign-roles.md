@@ -18,15 +18,15 @@ In this article, you will learn how to assign roles to users so that they are au
 
 | Section | Claim | Access level |
 |--|--|--|
-| Admin | Users | at least Consulted |
-| Admin | Roles | at least Consulted |
+| Admin | Users | At least Consulted |
+| Admin | Roles | At least Consulted |
 
-After you [add the user to CluedIn](/administration/user-management), you can give the user access to more features within the platform by adding another roles to the user.
+After you [add a user to CluedIn](/administration/user-management), you can give the user access to more features within the platform by adding other roles to the user.
 
 You can assign roles to the users in two places within the platform:
 
-- [Administration > User Management > Users](#assign-roles-in-users) – this option is useful when you want to assign multiple roles to a user.
-- [Administration > Roles](#assign-roles-in-roles) – this option is useful when you want to assign a role to multiple users.
+- [Administration > User Management > Users](#assign-roles-in-users) – this option is useful when you want to assign multiple roles to one user.
+- [Administration > Roles](#assign-roles-in-roles) – this option is useful when you want to assign one role to multiple users.
 
 The following diagram shows the flow of assigning roles to users.
 
@@ -34,9 +34,9 @@ The following diagram shows the flow of assigning roles to users.
 
 ## Assign roles in Users
 
-If you want to review the roles that are already assigned to the user and assign another roles, perform the following procedure.
+You can review the roles that are already assigned to the user and assign other roles in the **Users** section.
 
-**To assign roles to the user in the Users section**
+**To assign roles to a user in the Users section**
 
 1. On the navigation pane, go to **Administration** > **User Management**. Then, select **Users**.
 
@@ -52,13 +52,13 @@ If you want to review the roles that are already assigned to the user and assign
 
     ![add-role-2.png](../../assets/images/administration/roles/add-role-2.png)
 
-    The user will receive an email about the role changes. For the changes to take the effect, the user has to sign out and sign in again.
+    The user will receive an email about the role changes. For the changes to take effect, the user has to sign out and sign in again.
 
 ## Assign roles in Roles
 
-If you want to review the users who have been already added to the role and add another users, perform the following procedure.
+You can review the users who have been already added to the role and add other users in the **Roles** section.
 
-**To assign roles to the user in the Roles section**
+**To assign roles to a user in the Roles section**
 
 1. On the navigation pane, go to **Administration** > **Roles**.
 
@@ -74,4 +74,4 @@ If you want to review the users who have been already added to the role and add 
 
     ![add-role-4.png](../../assets/images/administration/roles/add-role-4.png)
 
-    The users will receive an email about the role changes. For the changes to take the effect, the users have to sign out and sign in again.
+    The users will receive an email about the role changes. For the changes to take effect, the users have to sign out and sign in again.

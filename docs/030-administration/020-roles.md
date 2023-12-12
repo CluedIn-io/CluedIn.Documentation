@@ -14,7 +14,7 @@ In this article, you will learn about claims and access levels, which are the ma
 
 | Section | Claim | Access level |
 |--|--|--|
-| Admin | Roles | at least Consulted |
+| Admin | Roles | At least Consulted |
 
 Roles are used to grant permissions to users to perform specific actions in CluedIn. These permissions are only granted to the modules within the platform, not to the data. For information on how to restrict access to data, see [Permissions](/administration/permissions).
 
@@ -26,9 +26,9 @@ All roles are listed in **Administration** > **Roles**. The following table prov
 | DataCompliance | Responsible for daily operations around data compliance. |
 | DataComplianceAdministrator | Responsible for approving changes made by users with the DataCompliance role. |
 | DataGovernance | Responsible for monitoring and maintaining data quality. |
-| DataGovernanceAdministrator | Responsible for approving changes made by users with the DataGovernance role. |
+| DataGovernanceAdministrator | Responsible for approving changes made by the users with the DataGovernance role. |
 | DataSteward | Responsible for cleaning data using the Clean and Prepare modules. |
-| DataStewardAdministrator | Responsible for approving changes made by users with the DataSteward role. |
+| DataStewardAdministrator | Responsible for approving changes made by the users with the DataSteward role. |
 | DeduplicationAdministrator | Responsible for creating and maintaining deduplication projects and merging the results back into the system. |
 | DeduplicationReviewer | Responsible for reviewing deduplication project results and approving groupings. |
 | Guest | User with minimal, read-only permissions. |
@@ -45,7 +45,7 @@ To view the role's claims and access levels, select the role. In the first colum
 
 Each role contains the same list of claims, but different access levels. We recommend that you familiarize yourself with the default CluedIn roles, so that you know which role to assign to users in your organization. If the default configuration is not suitable for you, you can change the access levels in the default roles or create your own roles.
 
-In CluedIn, there are the following access levels:
+In CluedIn, the following access levels are used:
 
 - **None** – no access to the claim.
 - **Informed** – read-only access to the claim. The user will be able to view all information within the claim, but will not be able to add, edit, or delete items within the claim.

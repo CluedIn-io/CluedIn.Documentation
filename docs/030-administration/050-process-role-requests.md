@@ -34,13 +34,13 @@ The following diagram shows the flow of processing role requests.
 
 1. In the **Actions** column, select **Grant Access**.
 
-    The dialog box opens where you can view the details of the access request.
+    The dialog opens where you can view the details of the access request.
 
 1. In the **Granting Access To** dialog box, do the following:
 
     1. Review the access level and select another level if necessary.
 
-        The information message below helps you understand the permissions that will be granted to the user.
+        The information message below the selected access level helps you understand the permissions that will be granted to the user.
 
     1. Select a role to assign to the user.
 
@@ -48,4 +48,4 @@ The following diagram shows the flow of processing role requests.
 
     1. In the lower-right corner, select **Grant Access**.
 
-    The user will receive a notification about the role changes. For the changes to take the effect, the user has to sign out and sign in again.
+    The user will receive a notification about the role changes. For the changes to take effect, the user has to sign out and sign in again.

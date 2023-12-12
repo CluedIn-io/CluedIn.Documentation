@@ -17,11 +17,11 @@ In this article, you will learn how to add and deactivate users in your CluedIn 
 
 | Section | Claim | Access level |
 |--|--|--|
-| Admin | Users | at least Consulted |
+| Admin | Users | At least Consulted |
 
 A user is someone who can sign in to CluedIn. The user's access to CluedIn modules and features is defined by the user's roles. For more information, see [Roles](/administration/roles).
 
-You can do the following actions to manage users:
+You can perform the following actions to manage users:
 
 - [Add user](#add-user-by-email-address)
 - [Deactivate user](#deactivate-user)
@@ -35,21 +35,19 @@ Users can be added to CluedIn in one of the following ways:
 
 ### Add user by email address
 
-If you don't have Azure Active Directory SSO enabled for CluedIn, you can add the users to the platform by their email address.
+If you don't have Azure Active Directory SSO enabled for CluedIn, you can add users to the platform by their email addresses.
 
 The following diagram shows the flow of adding users to CluedIn.
 
 ![add-user-diagram.png](../../assets/images/administration/user-management/add-user-diagram.png)
 
-**To add the user by email address**
+**To add a user by email address**
 
 1. On the navigation pane, go to **Administration** > **User Management**.
 
-1. On the actions pane, select **Users**. Then select **Invite User**.
+1. On the actions pane, select **Users**. Then, select **Invite User**.
 
 1. On the **Invite User** pane, enter the user's email address. Then, in the lower-right corner, select **Invite**.
-
-    ![invite-user-email-1.png](../../assets/images/administration/user-management/invite-user-email-1.png)
 
     The user will receive an email with a link to activate their account. After the user follows the link and creates a password, you will see the user on the **All users** page.
 
@@ -71,7 +69,7 @@ The following diagram shows the flow of deactivating a user in CluedIn.
 
 ![deactivate-user-diagram.png](../../assets/images/administration/user-management/deactivate-user-diagram.png)
 
-**To deactivate the user in CluedIn**
+**To deactivate a user in CluedIn**
 
 1. On the navigation pane, go to **Administration** > **User Management**.
 

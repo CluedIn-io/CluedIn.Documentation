@@ -8,24 +8,24 @@ title: Remove roles
 tags: ["administration", "roles"]
 ---
 
-In this article, you will learn how to remove roles from users so that they are restricted from performing operations in CluedIn.
+In this article, you will learn how to remove roles from users so that they are restricted from performing certain operations in CluedIn.
 
 **_This article is intended for users with the OrganizationAdmin role or users with the following claim access levels._**
 
 | Section | Claim | Access level |
 |--|--|--|
-| Admin | Users | at least Consulted |
-| Admin | Roles | at least Consulted |
+| Admin | Users | At least Consulted |
+| Admin | Roles | At least Consulted |
 
 The following diagram shows the flow of removing roles from users.
 
 ![remove-role-diagram.png](../../assets/images/administration/roles/remove-role-diagram.png)
 
-**To remove roles from the user**
+**To remove roles from a user**
 
 1. On the navigation pane, go to **Administration** > **Roles**. Then, select the needed role.
 
-    Alternatively, you can go to **Administration** > **User Management** > **Users**. Select the user, go to the **Roles** tab, and then select the role that you want to remove from the user.
+    Alternatively, you can go to **Administration** > **User Management** > **Users**. Select a user, go to the **Roles** tab, and then select the role that you want to remove from the user.
 
 1. Go to the **Users** tab.
 
