@@ -54,7 +54,6 @@ After you register the application, complete the following steps:
 1. [Expose an API](#expose-an-api)
 1. [Map Microsoft Entra application roles to CluedIn roles](#map-microsoft-entra-application-roles-to-CluedIn-roles)
  
-
 ### Create a client secret
 
 A client secret is used to configure CluedIn to communicate with Microsoft Entra.
@@ -173,10 +172,7 @@ After you complete the Azure application registration and app roles configuratio
 **Prerequisites**
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
-- You should be connected to your AKS cluster.
-
-    See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
-
+- You should be connected to your AKS cluster. See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
 - Your Helm repository is set up.
 
 If you have any questions, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> (or reach out to your delivery manager if you have a committed deal).
@@ -221,4 +217,4 @@ If your SSO feature has been successfully applied, you should see something simi
 
 ![SSO_enabled.png](../../assets/images/ama/howtos/configure-sso-success-terminal.png)
 
-If the **Phase** is not in the **Active** state, wait for 5 minutes and run the command again. If nothing changes, reach out to CluedIn support at support@cluedin.com for help in enabling your SSO.
+If the **Phase** is not in the **Active** state, wait for 5 minutes and run the command again. If nothing changes, reach out to CluedIn support at <a href="mailto:support@cluedin.com">support@cluedin.com</a> for help in enabling your SSO.

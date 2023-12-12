@@ -50,9 +50,7 @@ CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, th
 When installing CluedIn from the Azure Marketplace, you can set up advanced network configuration on the **CluedIn - Advanced Configuration** tab. You can choose from the three networking options:
 
 - **Default** – a new vNet will be created using default values that may not allow you to integrate with the existing networks.
-
 - **Modify IP ranges** – a new vNet will be created with IP address ranges that you specify.
-
 - **Use Existing vNet** – an existing vNet will be used and you need to specify both the vNet and the IP address ranges.
 
 The following section focuses on the IP address configuration because it is universal to both the **Modify IP ranges** and the **Use Existing vNet** options.
@@ -108,10 +106,7 @@ This section contains a procedure for configuring CluedIn to use your internal l
 **Prerequisites**
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
-- You should be connected to your AKS cluster.
-
-    See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
-
+- You should be connected to your AKS cluster. See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
 - Your Helm repository is set up.
 
 If you have any questions, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> (or reach out to your delivery manager if you have a committed deal).
