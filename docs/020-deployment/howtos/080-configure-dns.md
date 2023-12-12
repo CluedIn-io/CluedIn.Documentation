@@ -81,8 +81,15 @@ If you have any questions about DNS configuration, you can request CluedIn suppo
     global:
       dns:
         hostname: 1.2.3.4.sslip.io
+        # subdomains:
+          # openrefine: cluedin-clean-dev
+          # application: cluedin-app-dev
+        
+        # If you want to deviate away from the standard 'app' and 'clean' subdomains, you need to add the
+        # `subdomains` block of code and ensure that they match in the global.ingress.tls.hosts section as well.
     ```
-1. Edit the value of the host name to reflect your main domain. If you have 3 environments (development, test, and production), update the value of the host name for each environment (`dev.mycompany.com`, `test.mycompany.com`, `prod.mycompany.com.`).
+    **Note**: For environments sharing a second-level domain such as `customer.com`, it's important to plan the domains in advance to avoid issues during the onboarding process. 
+1. Edit the value of `hostname` to reflect your desired domain for the given environment.
 1. Find the **TLS hosts** section. The example of the section is shown below.
 
     ```yaml
@@ -108,14 +115,10 @@ If you have any questions about DNS configuration, you can request CluedIn suppo
           - '*.mycompany.com'
     ```
 
-1. If you are using multiple environments (development, test, and production), update the TLS hosts section for each environment in the `values.yaml` file:
-   - Development – replace all instances of `20.0.189.11.sslip.io` to `dev.mycompany.com`
-   - Test – replace all instances of `20.0.189.12.sslip.io` to `test.mycompany.com`
-   - Production – replace all instances of `20.0.189.13.sslip.io` to `prod.mycompany.com`
 1. Save the file and apply changes from the local file to the CluedIn cluster by running the following command:  
-    `helm upgrade -i cluedin-platform cluedin/cluedin-platform  -n cluedin --create-namespace  --values Cluster-Current-values.yaml`
+    `helm upgrade -i cluedin-platform cluedin/cluedin-platform -n cluedin --values Cluster-Current-values.yaml`
 
 After a short time, you'll see the confirmation of your update in the console. CluedIn is now configured to use your new DNS address.  
 ![configure-dns-2.png](../../assets/images/ama/howtos/configure-dns-2.png)
 
-**Note:** This will use the LetsEncrypt service in the cluster to do an HTTP request to validate the certificate. If you would like to use a self-provided certificate, please review the Configure [`TLS Certificates`](/deployment/infra-how-tos/configure-certificates) page
+**Note:** This will use the LetsEncrypt service in the cluster to do an HTTP request to validate the certificate. If you would like to use a self-provided certificate, please review the [Configure TLS Certificates](/deployment/infra-how-tos/configure-certificates) page.
