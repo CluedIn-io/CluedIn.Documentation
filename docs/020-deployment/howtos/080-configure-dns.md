@@ -88,7 +88,7 @@ If you have any questions about DNS configuration, you can request CluedIn suppo
         # If you want to deviate away from the standard 'app' and 'clean' subdomains, you need to add the
         # `subdomains` block of code and ensure that they match in the global.ingress.tls.hosts section as well.
     ```
-    **Note**: For environments sharing a SLD such as `customer.com`, it's important to plan the domains in advance to avoid issues during the onboarding process. 
+    **Note**: For environments sharing a second-level domain such as `customer.com`, it's important to plan the domains in advance to avoid issues during the onboarding process. 
 1. Edit the value of `hostname` to reflect your desired domain for the given environment.
 1. Find the **TLS hosts** section. The example of the section is shown below.
 
