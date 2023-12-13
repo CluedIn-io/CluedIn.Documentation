@@ -88,13 +88,15 @@ And **app** references the backend application. By default, it is just app, but 
 1. In the **Configure Web** pane, specify the following:
     1. In **Redirect URIs**, add a redirect URI for your application.
 
-        ![Add_redirect_URIs_Redirect_URIs.png](../../assets/images/ama/howtos/configure-sso-6.png)  
         `https://app.yourdomain.com`
+        
+        ![Add_redirect_URIs_Redirect_URIs.png](../../assets/images/ama/howtos/configure-sso-6.png)
 
     1. In **Front channel logout URI**, add a logout URL for your application.
 
-        ![Add_redirect_URIs_Logout_URL.png](../../assets/images/ama/howtos/configure-sso-7.png)  
         `https://app.yourdomain.com/logout`
+        
+        ![Add_redirect_URIs_Logout_URL.png](../../assets/images/ama/howtos/configure-sso-7.png)  
 
     1. In the **Implicit grant and hybrid flows** section, select the **ID tokens** checkbox, and then select **Configure**.
 
