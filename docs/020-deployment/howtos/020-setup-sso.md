@@ -53,7 +53,7 @@ After you register the application, complete the following steps:
 1. [Add API permissions](#add-api-permissions-for-microsoft-graph)
 1. [Expose an API](#expose-an-api)
 1. [Map Microsoft Entra application roles to CluedIn roles](#map-microsoft-entra-application-roles-to-CluedIn-roles)
- 
+
 ### Create a client secret
 
 A client secret is used to configure CluedIn to communicate with Microsoft Entra.
@@ -72,22 +72,41 @@ For more information about the client secret, see [Microsoft documentation](http
 
 Redirect URI is the location to which the Microsoft identity platform redirects the user's client and sends security tokens after authentication.
 
+In the setup below, we will be working with fictitious domain 'yourdomain.com' and the two subdomains 'app' and 'departmentX'. 
+
+**departmentX** references the main CluedIn UI you would access.  
+And **app** references the backend application. By default, it is just app, but can be changed in the values file.
+
 **To add redirect URIs**
 
 1. In the Azure portal, in **App registrations**, select your application.
 1. Select **Authentication** > **Add a platform**.
 1. In the right pane, select **Web**.
-![Add_redirect_URIs_Configure_platforms.png](../../assets/images/ama/howtos/configure-sso-5.png)
+
+    ![Add_redirect_URIs_Configure_platforms.png](../../assets/images/ama/howtos/configure-sso-5.png)
+
 1. In the **Configure Web** pane, specify the following:
-   1. In **Redirect URIs**, add a redirect URI for your application (for example, `https://app.yourdomain.com`).
-![Add_redirect_URIs_Redirect_URIs.png](../../assets/images/ama/howtos/configure-sso-6.png)
-   1. In **Front channel logout URI**, add a logout URL for your application (for example, `https://app.yourdomain.com/logout`).
-![Add_redirect_URIs_Logout_URL.png](../../assets/images/ama/howtos/configure-sso-7.png)
-   1. In the **Implicit grant and hybrid flows** section, select the **ID tokens** checkbox, and then select **Configure**.
-![Add_redirect_URIs_ID_tokens.png](../../assets/images/ama/howtos/configure-sso-8.png)
-5. In the **Platform configurations** section, in **Web**, add additional URIs (for example, `https://departmentX.yourdomain.com`, `https://app.yourdomain.com/auth/signin-oidc`).
-![Add_redirect_URIs_additional.png](../../assets/images/ama/howtos/configure-sso-9.png)
-6. At the bottom of the page, select **Save**.
+    1. In **Redirect URIs**, add a redirect URI for your application.
+
+        ![Add_redirect_URIs_Redirect_URIs.png](../../assets/images/ama/howtos/configure-sso-6.png)  
+        `https://app.yourdomain.com`
+
+    1. In **Front channel logout URI**, add a logout URL for your application.
+
+        ![Add_redirect_URIs_Logout_URL.png](../../assets/images/ama/howtos/configure-sso-7.png)  
+        `https://app.yourdomain.com/logout`
+
+    1. In the **Implicit grant and hybrid flows** section, select the **ID tokens** checkbox, and then select **Configure**.
+
+        ![Add_redirect_URIs_ID_tokens.png](../../assets/images/ama/howtos/configure-sso-8.png)
+
+1. In the **Platform configurations** section, in **Web**, add additional URIs to the existing one:
+
+    ![Add_redirect_URIs_additional.png](../../assets/images/ama/howtos/configure-sso-9.png)  
+    `https://departmentX.yourdomain.com`  
+    `https://app.yourdomain.com/auth/signin-oidc`
+
+1. At the bottom of the page, select **Save**.
 
 For more information about redirect URIs, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri).
 
