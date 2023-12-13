@@ -102,9 +102,11 @@ And **app** references the backend application. By default, it is just app, but 
 
 1. In the **Platform configurations** section, in **Web**, add additional URIs to the existing one:
 
-    ![Add_redirect_URIs_additional.png](../../assets/images/ama/howtos/configure-sso-9.png)  
-    `https://departmentX.yourdomain.com`  
+    `https://departmentX.yourdomain.com`
+     
     `https://app.yourdomain.com/auth/signin-oidc`
+
+    ![Add_redirect_URIs_additional.png](../../assets/images/ama/howtos/configure-sso-9.png)  
 
 1. At the bottom of the page, select **Save**.
 
