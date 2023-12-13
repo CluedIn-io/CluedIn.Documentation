@@ -72,10 +72,10 @@ For more information about the client secret, see [Microsoft documentation](http
 
 Redirect URI is the location to which the Microsoft identity platform redirects the user's client and sends security tokens after authentication.
 
-In the setup below, we will be working with fictitious domain 'yourdomain.com' and the two subdomains 'app' and 'departmentX'. 
+In the setup below, we will be working with fictitious domain 'yourdomain.com' and the two subdomains:
 
-**departmentX** references the main CluedIn UI you would access.  
-And **app** references the backend application. By default, it is just app, but can be changed in the values file.
+- 'app' – references the main CluedIn UI you would access.
+- 'departmentX' – references the back-end application. By default, it is just app, but can be changed in the values file.
 
 **To add redirect URIs**
 
