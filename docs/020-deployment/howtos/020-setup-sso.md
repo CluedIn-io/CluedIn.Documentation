@@ -74,8 +74,8 @@ Redirect URI is the location to which the Microsoft identity platform redirects 
 
 In the setup below, we will be working with fictitious domain 'yourdomain.com' and the two subdomains:
 
-- 'app' – references the main CluedIn UI you would access.
-- 'departmentX' – references the back-end application. By default, it is just app, but can be changed in the values file.
+- 'app' – references the back-end application. By default, it is just app, but can be changed in the values file.
+- 'departmentX' – references the main CluedIn UI you would access.
 
 **To add redirect URIs**
 
