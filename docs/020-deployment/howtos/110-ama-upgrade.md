@@ -1,10 +1,10 @@
 ---
 layout: default
-nav_order: 10
+nav_order: 12
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/ama-upgrade
-title: AMA upgrade
+title: Marketplace upgrade
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-10-06
 ---
@@ -37,15 +37,11 @@ After you upgraded the package versions, check your current environment configur
 
 **To check the environment configuration**
 
-1. Make sure that your KUBECONFIG file is set in your current path by running the following command:
-```
-export KUBECONFIG=~/.kube/mycluster.config
-```
+1. Make sure that your KUBECONFIG file is set in your current path by running the following command:  
+`export KUBECONFIG=~/.kube/mycluster.config`
 
-1. Check if you can connect to the cluster you are upgrading by running the following command:
-```
-kubectl get no
-```
+1. Check if you can connect to the cluster you are upgrading by running the following command:  
+`kubectl get no`
 
     You will get an output similar to the following:
     
@@ -59,10 +55,8 @@ kubectl get no
 
     Then, compare the node names with the names in the Azure portal or Lens.
 
-1. Make sure that you can see the current installation by running the following Helm command:
-```
-helm ls -a -n cluedin
-```
+1. Make sure that you can see the current installation by running the following Helm command:  
+`helm ls -a -n cluedin`
 
     You will get an output similar to the following:
     
@@ -87,10 +81,8 @@ helm ls -a -n cluedin
 
     **Note:** You will need the `chart version` and `app version` for running the upgrade in the following [procedure](#run-upgrade).
 
-1. If you do not have the previous values, get them by running the following command:
-```
-helm get values cluedin-platform -n cluedin -o yaml > default-values.yaml
-``` 
+1. If you do not have the previous values, get them by running the following command:  
+`helm get values cluedin-platform -n cluedin -o yaml > default-values.yaml`
 
     **Note:** If you are pulling the values using Lens, make sure that the **User-Supplied values only** checkbox is selected. Otherwise, you will get more values than you need and may encounter issues when upgrading.
     
