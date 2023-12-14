@@ -1,10 +1,10 @@
 ---
 layout: default
 nav_order: 5
-parent: Kubernetes
+parent: How-to guides
 grand_parent: Installation
-permalink: /deployment/kubernetes/email
-title: Email
+permalink: /deployment/infra-how-tos/configure-email
+title: Configure Email
 tags: ["deployment", "kubernetes", "email"]
 ---
 ## On this page
@@ -12,12 +12,15 @@ tags: ["deployment", "kubernetes", "email"]
 1. TOC
 {:toc}
 
+Emails within CluedIn application are primarily used for inviting a user to the platform for management.
+When Single-Sign On becomes enabled, the use of emails is not really required anymore.
+
 In order to send emails, CluedIn must be configured with an SMTP server.
 This can be a company owned one for your organization or a temporary one using a service such as MailTrap or Sendgrid, for example, which are useful for simple testing.
 
-## Email Configuration - Docker/Local Machine
+## Email Configuration - Local Installation (Home)
 
-Email configuration is simplified when running locally by using the `cluedin.ps1` helper script.
+Email configuration is simplified when running locally by using the `cluedin.ps1` helper script that comes part of the CluedIn Home repository.
 
 You can configure any email settings as environment variables that will be passed into the application at runtime.
 
@@ -39,19 +42,21 @@ CLUEDIN_EMAIL_USER             (default: <blank>)
 
 ## Email Configuration - Kubernetes
 
-WHen using Kubernetes the SMTP setting can be configured in the `values.yaml`. This can be done by setting the following properties:
+When using Kubernetes the SMTP setting can be configured in the `values.yaml`. This can be done by setting the following properties:
 
 ```yaml
-email:
-  host:
-  port:
-  user:
-  password:
-  senderName:
-  senderDisplayName:
+boostrap:
+  email:
+    host:
+    port:
+    user:
+    password:
+    senderName:
+    senderDisplayName:
 ```
 
-This will create a secret storing the user and password information. Should you want to pass a secret already containing those details, you can create a secret with the keys:
+This will create a secret, storing the user and password information.  
+Should you want to pass a secret already containing those details, you can create a secret with the keys:
 
 ```yaml
 apiVersion: v1
@@ -68,7 +73,7 @@ And pass the name of the secret in the property
 
 ```yaml
 email:
-    secretRef: <my-email-secret>
+  secretRef: <my-email-secret>
 ```
 
 Passing a secret in this way will override the use of explicit user/password properties.
