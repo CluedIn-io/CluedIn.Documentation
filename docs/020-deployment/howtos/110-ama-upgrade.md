@@ -104,12 +104,12 @@ Now that you have checked the environment configuration and received the latest 
 
 1. Create a patch file (**upgrade-values.yaml**) to update the global image tag to the latest one and set the strategy type to **Recreate**.
 
-    ```
+    ```yaml
     global:
-    image:
-    tag: "[XXXX.XX]"
-    strategy:
-    type: Recreate
+      image:
+        tag: "[XXXX.XX.XX]"
+      strategy:
+        type: Recreate
     ```
     Normally, this should be the only tag you need to update unless there have been custom image tag overrides in the past. Check your **default-values.yaml** file for any tag customizations.
 
@@ -117,12 +117,12 @@ Now that you have checked the environment configuration and received the latest 
 
 1. Run the `helm upgrade` command as follows:
     
-    ```
-    helm upgrade -i cluedin-platform -n cluedin cluedin/cluedin-platform 
-        --set application.system.runDatabaseJobsOnUpgrade=true
-        --version [X.X.X]
-        --values default-values.yaml 
-        --values upgrade-values.yaml
+    ```bash
+    helm upgrade -i cluedin-platform -n cluedin cluedin/cluedin-platform \
+        --set application.system.runDatabaseJobsOnUpgrade=true \
+        --version [X.X.X] \
+        --values default-values.yaml \
+        --values upgrade-values.yaml \
         --values production-resources.yaml
     ```
 
@@ -134,10 +134,8 @@ Now that you have checked the environment configuration and received the latest 
 
 ## Validate upgrade
 
-To validate the upgrade, check the `init-sqlserver` job. This will be running the database upgrades needed for the new version. Then, get the logs of the completed job by running the following command:
-```
-kubectl logs --tail=1000 --selector=job-name=init-sqlserver-job -n cluedin
-```
+To validate the upgrade, check the `init-sqlserver` job. This will be running the database upgrades needed for the new version. Then, get the logs of the completed job by running the following command:  
+`kubectl logs --tail=1000 --selector=job-name=init-sqlserver-job -n cluedin`
 
 This will produce an output similar to the following.
 
