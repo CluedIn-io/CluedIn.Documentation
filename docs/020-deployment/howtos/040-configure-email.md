@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 5
+nav_order: 4
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-email

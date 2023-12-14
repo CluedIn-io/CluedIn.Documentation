@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 6
+nav_order: 7
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-certificates

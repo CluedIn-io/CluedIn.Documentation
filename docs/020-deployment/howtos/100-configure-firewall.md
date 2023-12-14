@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 9
+nav_order: 11
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-firewall
