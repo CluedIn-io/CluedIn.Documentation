@@ -13,7 +13,7 @@ tags: ["deployment", "kubernetes", "email"]
 {:toc}
 
 Emails within CluedIn application are primarily used for inviting a user to the platform for management.
-When Single-Sign On becomes enabled, the use of emails is not really required anymore.
+When single-sign on becomes enabled, the use of emails is not really required anymore.
 
 In order to send emails, CluedIn must be configured with an SMTP server.
 This can be a company owned one for your organization or a temporary one using a service such as MailTrap or Sendgrid, for example, which are useful for simple testing.
