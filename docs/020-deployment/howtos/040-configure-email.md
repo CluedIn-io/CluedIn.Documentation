@@ -18,7 +18,7 @@ When single-sign on becomes enabled, the use of emails is not really required an
 In order to send emails, CluedIn must be configured with an SMTP server.
 This can be a company owned one for your organization or a temporary one using a service such as MailTrap or Sendgrid, for example, which are useful for simple testing.
 
-## Email Configuration - Local Installation (Home)
+## Email configuration - local installation (Home)
 
 Email configuration is simplified when running locally by using the `cluedin.ps1` helper script that comes part of the CluedIn Home repository.
 
