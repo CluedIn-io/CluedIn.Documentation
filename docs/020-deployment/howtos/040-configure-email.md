@@ -40,7 +40,7 @@ CLUEDIN_EMAIL_SENDER           (default: noreply@cluedin.com)
 CLUEDIN_EMAIL_USER             (default: <blank>)   
 ```
 
-## Email Configuration - Kubernetes
+## Email configuration - Kubernetes
 
 When using Kubernetes the SMTP setting can be configured in the `values.yaml`. This can be done by setting the following properties:
 
