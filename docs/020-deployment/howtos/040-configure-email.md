@@ -4,7 +4,7 @@ nav_order: 4
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-email
-title: Configure Email
+title: Configure email
 tags: ["deployment", "kubernetes", "email"]
 ---
 ## On this page
