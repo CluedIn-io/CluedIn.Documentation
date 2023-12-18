@@ -1,18 +1,37 @@
 ---
+grand_parent: Deployment
 layout: default
-nav_order: 10
-parent: Helm
+nav_order: 9
+parent: How-to guides
 grand_parent: Installation
-permalink: /deployment/helm/pvc
-title: Persistent Volume Claims
-tags: ["deployment", "kubernetes", "azure", "aks"]
-last_modified: 2022-07-07
+permalink: /deployment/kubernetes/persistence
+title: Configure PVC
+tags: ["deployment", "kubernetes", "persistence"]
 ---
-
 ## On this page
 {: .no_toc .text-delta }
 1. TOC
 {:toc}
+
+## Resizing
+
+By default, all deployments that store state (sqlserver, elasticsearch, rabbitmq, redis, openrefine) are defined with some storage in order to persist the state. We deploy with a recommended size by default, but there may be times where you want to adjust the size of the storage.
+
+You can do this by setting the following property (for each deployment) in the values file:
+
+```yaml
+infrastructure:
+  neo4j: #name of the deployment
+    core:
+      persistentVolume:
+        size: 1G
+```
+
+Using persistence in this manner, a volume can only be linked to a single pod; so you won't be able to scale the number of pods. In addition, the strategy for updating the pods is set to `Recreate` for exactly the same reason (as setting it to `Rollout` would require to have two pods accessing the volume simultaneously).
+
+The deployment to Azure will automatically handle the sizing. However, you cannot size down easily due to the way infrastructure disks work on Azure. Therefore, it is recommended to only size up.
+
+When working locally, you have more freedom as this is controlled by the user.
 
 ## Use existing volume claims
 

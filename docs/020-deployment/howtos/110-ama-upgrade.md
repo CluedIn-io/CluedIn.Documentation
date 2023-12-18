@@ -1,10 +1,10 @@
 ---
 layout: default
-nav_order: 10
+nav_order: 12
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/ama-upgrade
-title: AMA upgrade
+title: Marketplace upgrade
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-10-06
 ---
@@ -37,15 +37,11 @@ After you upgraded the package versions, check your current environment configur
 
 **To check the environment configuration**
 
-1. Make sure that your KUBECONFIG file is set in your current path by running the following command:
-```
-export KUBECONFIG=~/.kube/mycluster.config
-```
+1. Make sure that your KUBECONFIG file is set in your current path by running the following command:  
+`export KUBECONFIG=~/.kube/mycluster.config`
 
-1. Check if you can connect to the cluster you are upgrading by running the following command:
-```
-kubectl get no
-```
+1. Check if you can connect to the cluster you are upgrading by running the following command:  
+`kubectl get no`
 
     You will get an output similar to the following:
     
@@ -59,10 +55,8 @@ kubectl get no
 
     Then, compare the node names with the names in the Azure portal or Lens.
 
-1. Make sure that you can see the current installation by running the following Helm command:
-```
-helm ls -a -n cluedin
-```
+1. Make sure that you can see the current installation by running the following Helm command:  
+`helm ls -a -n cluedin`
 
     You will get an output similar to the following:
     
@@ -87,10 +81,8 @@ helm ls -a -n cluedin
 
     **Note:** You will need the `chart version` and `app version` for running the upgrade in the following [procedure](#run-upgrade).
 
-1. If you do not have the previous values, get them by running the following command:
-```
-helm get values cluedin-platform -n cluedin -o yaml > default-values.yaml
-``` 
+1. If you do not have the previous values, get them by running the following command:  
+`helm get values cluedin-platform -n cluedin -o yaml > default-values.yaml`
 
     **Note:** If you are pulling the values using Lens, make sure that the **User-Supplied values only** checkbox is selected. Otherwise, you will get more values than you need and may encounter issues when upgrading.
     
@@ -104,12 +96,12 @@ Now that you have checked the environment configuration and received the latest 
 
 1. Create a patch file (**upgrade-values.yaml**) to update the global image tag to the latest one and set the strategy type to **Recreate**.
 
-    ```
+    ```yaml
     global:
-    image:
-    tag: "[XXXX.XX]"
-    strategy:
-    type: Recreate
+      image:
+        tag: "[XXXX.XX.XX]"
+      strategy:
+        type: Recreate
     ```
     Normally, this should be the only tag you need to update unless there have been custom image tag overrides in the past. Check your **default-values.yaml** file for any tag customizations.
 
@@ -117,12 +109,12 @@ Now that you have checked the environment configuration and received the latest 
 
 1. Run the `helm upgrade` command as follows:
     
-    ```
-    helm upgrade -i cluedin-platform -n cluedin cluedin/cluedin-platform 
-        --set application.system.runDatabaseJobsOnUpgrade=true
-        --version [X.X.X]
-        --values default-values.yaml 
-        --values upgrade-values.yaml
+    ```bash
+    helm upgrade -i cluedin-platform -n cluedin cluedin/cluedin-platform \
+        --set application.system.runDatabaseJobsOnUpgrade=true \
+        --version [X.X.X] \
+        --values default-values.yaml \
+        --values upgrade-values.yaml \
         --values production-resources.yaml
     ```
 
@@ -134,10 +126,8 @@ Now that you have checked the environment configuration and received the latest 
 
 ## Validate upgrade
 
-To validate the upgrade, check the `init-sqlserver` job. This will be running the database upgrades needed for the new version. Then, get the logs of the completed job by running the following command:
-```
-kubectl logs --tail=1000 --selector=job-name=init-sqlserver-job -n cluedin
-```
+To validate the upgrade, check the `init-sqlserver` job. This will be running the database upgrades needed for the new version. Then, get the logs of the completed job by running the following command:  
+`kubectl logs --tail=1000 --selector=job-name=init-sqlserver-job -n cluedin`
 
 This will produce an output similar to the following.
 

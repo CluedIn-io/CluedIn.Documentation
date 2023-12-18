@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 12
+nav_order: 15
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/ama-backup

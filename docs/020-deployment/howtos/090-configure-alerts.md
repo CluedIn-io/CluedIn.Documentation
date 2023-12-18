@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 8
+nav_order: 10
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-alerts
