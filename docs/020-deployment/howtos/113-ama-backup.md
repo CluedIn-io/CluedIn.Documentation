@@ -4,7 +4,7 @@ nav_order: 15
 parent: How-to guides
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/ama-backup
-title: AMA backup and restore
+title: Marketplace backup and restore
 tags: ["deployment", "ama", "marketplace", "azure", "backup"]
 last_modified: 2023-11-08
 ---
