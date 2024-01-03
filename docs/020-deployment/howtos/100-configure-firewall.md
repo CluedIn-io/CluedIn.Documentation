@@ -23,6 +23,6 @@ To do that, add the following rules to your Azure Firewall as described in the t
 | `billing.cluedin.com` | 443 | CluedIn licensing server |
 | `*.grafana.com` | 443 | Grafana chart content |
 | `mcr.microsoft.com` | 443 | Microsoft container registry |
-| `acme-v02.api.letsencrypt.org` | 443 | (*optional*) LetsEncrypt service. Only required if not supplying own certificate |
+| `acme-v02.api.letsencrypt.org` | 443 | (Optional) Let's Encrypt service. Only required if not supplying own certificate |
 
 **Important!** If the rules have not been added, the installation will fail.
