@@ -40,9 +40,8 @@ It is a good idea to check the clues before processing to make sure they contain
 
 - Check if the code written in advanced mapping has been applied as intended.
 
-<details>
-    <summary>Click here to view the clue sample</summary>
-    
+## Clue sample
+
 ```json
 {
   "clue": {
@@ -91,7 +90,6 @@ It is a good idea to check the clues before processing to make sure they contain
   }
 }
 ```
-</details>
 
 ## Clue properties
 
