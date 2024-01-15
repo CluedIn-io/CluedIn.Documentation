@@ -4,7 +4,7 @@ nav_order: 1
 parent: Golden records
 grand_parent: Key terms and features
 permalink: /key-terms-and-features/golden-records/history
-title: Hisory
+title: History
 tags: ["golden record history"]
 last_modified: 2024-01-15
 ---
