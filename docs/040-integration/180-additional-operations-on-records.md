@@ -4,7 +4,7 @@ title: Additional operations
 parent: Integration
 nav_order: 020
 has_children: true
-permalink: /integration/additional-operations-on-records
+permalink: /integration/additional-operations
 tags: ["integration"]
 last_modified: 2024-01-15
 ---
