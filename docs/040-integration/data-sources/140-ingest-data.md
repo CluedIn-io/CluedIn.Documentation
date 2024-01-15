@@ -13,11 +13,25 @@ last_modified: 2023-11-07
 1. TOC
 {:toc}
 
-In this article, you will learn how to ingest the data into CluedIn from files, from an ingestion point, and from a database.
+This article will walk you through the process of data ingestion in CluedIn, explaining the steps your data undergoes to enter the system.
 
 ## Files
 
-You can ingest data from CSV, JSON, XLS, and XLSX files. 
+<div style="padding:56.25% 0 0 0;position:relative;">
+<iframe src="https://player.vimeo.com/video/896471681?h=297bcecaf9&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Using files for data ingestion"></iframe>
+</div>
+
+When you need to upload a large set of records to CluedIn, we recommend that you start by uploading a small, representative subset of your data in CSV or JSON format. This approach allows you to verify the accuracy of mapping and relations before dealing with a large set of records. Once the golden records generated from this subset align with your expectations, you can safely remove those records from the system, while keeping the mapping configuration intact. After that you can upload a large set of records and use the existing mapping to generate golden records in an efficient way.
+
+CluedIn **file uploader** accommodates structured data, so you can upload the files in CSV, JSON, or basic Excel formats. After you upload a JSON or XLS/XLSX file, we recommend that you download an example file provided by the system. This example serves as a reference to confirm the expected data format. If your file deviates from this format, adjust it according to the example to ensure a smooth data ingestion process.
+
+The **data ingestion process for files** consists of three stages: uploading, parsing, and loading. When your file adheres to the required data format and each stage executes without interruption, the entire process runs seamlessly. However, to efficiently address issues that might arise during the data ingestion process, get acquainted with the potential reasons for failure at each stage:
+
+- If the upload fails, the recovery of the file is not possible. Such a situation may arise if the file upload was initiated but the browser tab was closed while the upload was in progress. To resolve this, remove the data source and upload the file again.
+
+- If the parsing fails—for example, due to the file being corrupted or having invalid data format—you will see a corresponding error message from the parser. To resolve this, remove the data source, fix the file and make sure it conforms to the required data format, and upload the file again.
+
+- If the loading fails, you will see an error message with the number of chunks that could not be loaded. To resolve this, retry to load the data or remove the data source altogether and upload the file again.
 
 **To ingest data from files**
 
@@ -29,9 +43,31 @@ You can ingest data from CSV, JSON, XLS, and XLSX files.
 
 1. In the lower-right corner, select **Upload**.
 
-    The data has been sent to CluedIn. You can now view it on the [Preview](#preview) tab of the data set. The next steps involve [creating a mapping](/integration/create-mapping) and [processing the data](/integration/process-data).
+    The data has been ingested to CluedIn, and you can view it on the **Preview** tab of the data set. Next, check the [logs](/integration/additional-operations-on-records/logs) to make sure all your records are valid. To turn your data into golden records, [create a mapping](/integration/create-mapping) and [process the data](/integration/process-data).
 
 ## Ingestion point
+
+Data ingestion using an endpoint is a default solution to push your data easily into CluedIn, especially if you are using tools like Azure Data Factory, Databricks, or Apache NiFi.
+
+<div style="padding:56.25% 0 0 0;position:relative;">
+<iframe src="https://player.vimeo.com/video/896475765?h=8f20829bc2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Using an endpoint for data ingestion"></iframe>
+</div>
+
+When you need to push a large set of records into CluedIn, we recommend that you start by pushing a small, representative subset of your data. As with files, this approach allows you to verify the accuracy of mapping and relations before pushing a large set of records. Once the golden records generated from this subset align with your expectations, you can safely remove those records from the system, while keeping the mapping configuration intact. After that you can push a large set of records and use the existing mapping to generate golden records in an efficient way.
+
+The **data ingestion process for endpoints** consists of two stages: parsing and loading. Due to performance and scalability considerations, CluedIn defers parsing tasks to data source processing rather than executing them in real time. As a result, while CluedIn promptly receives your request, it cannot ensure the validity of the sent data. Once CluedIn receives the data, it initially stores it in a temporary storage, accessible through the **Preview** tab. To turn the received data into golden records, you need to map it to the semantic model and then process it.
+
+(For advanced users) To ensure the creation of the expected golden records, you can generate a sample clue and verify its accuracy before processing. This step helps confirm that the resulting golden record aligns with your expectations. For more information, see [Clue](/key-terms-and-features/clue-reference).
+
+CluedIn provides the following **processing options** for turning your data into golden records:
+
+- **Manual processing** - when CluedIn receives the data from the endpoint, you are required to process the data manually. You can view the received data in the temporary storage at any time, and you can process the data set as many times as you need. In CluedIn, once a record has been processed, it won't undergo processing again. When you trigger processing, CluedIn will check for identical records. If identical records are found, they won't be processed again. However, if you change the origin code for the previously processed records, CluedIn will treat these record as new and process them.
+
+- **Automatic processing** - when CluedIn receives the data from the endpoint, this data is processed automatically. You can view the received data in the temporary storage at any time.
+
+- **Bridge mode** – all your JSON records will be transformed into golden records directly, without being stored in the temporary storage. However, you can rely on rely on data set logs for debugging purposes.
+
+    Bridge mode allows you to use less storage and memory, resulting in increased performance. Use this mode when your mapping will not change over time and you want to use the ingestion endpoint only as a mapper.
 
 You can ingest a JSON array to an HTTP endpoint created by CluedIn. The process of ingesting data from an ingestion point involves two steps:
 
@@ -168,3 +204,17 @@ With an established connection to the database, you can choose which database ta
 After you ingest the data, it is displayed on the **Preview** tab as a table.
 
 If you want to focus on specific columns and hide the others, select **Column Options**, and then clear the checkboxes next to the columns that you want to hide from the table.
+
+After you create the mapping for the data set, each column header will contain the vocabulary key to which the original field is mapped. You can view the number of duplicates in each field.
+
+**To view duplicates**
+
+- In the column header, select the vertical ellipsis button, and then select **View duplicates**.
+
+    The **Duplicates Preview** pane opens, where you can view the following information:
+
+    - Number of duplicates in the data set.
+
+    - Which values are duplicates.
+
+    - Occurrences of duplicates – for each duplicate value, the pane displays how many times it occurs within the data set.
