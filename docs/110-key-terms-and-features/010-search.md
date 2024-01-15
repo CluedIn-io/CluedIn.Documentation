@@ -3,7 +3,7 @@ layout: default
 title: Search
 parent: Key terms and features
 permalink: /key-terms-and-features/search
-nav_order: 1
+nav_order: 3
 has_children: false
 tags: ["search"]
 ---

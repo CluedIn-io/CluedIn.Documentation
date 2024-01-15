@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 5
+nav_order: 6
 parent: Additional operations on records
 grand_parent: Integration
 permalink: /integration/additional-operations-on-records/monitoring
