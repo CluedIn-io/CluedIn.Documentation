@@ -5,7 +5,7 @@ parent: Key terms and features
 permalink: /key-terms-and-features/clue-reference
 nav_order: 2
 has_children: false
-tags: ["record", "clue", "golden record"]
+tags: ["clue"]
 ---
 ## On this page
 {: .no_toc .text-delta }
