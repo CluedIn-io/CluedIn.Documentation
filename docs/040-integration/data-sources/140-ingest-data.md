@@ -6,7 +6,7 @@ grand_parent: Integration
 permalink: /integration/ingest-data
 title: Ingest data
 tags: ["integration"]
-last_modified: 2023-11-07
+last_modified: 2024-01-15
 ---
 ## On this page
 {: .no_toc .text-delta }
