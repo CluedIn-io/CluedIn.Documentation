@@ -3,7 +3,7 @@ layout: default
 title: Filters
 parent: Key terms and features
 permalink: /key-terms-and-features/filters
-nav_order: 1
+nav_order: 4
 has_children: false
 tags: ["filters"]
 ---

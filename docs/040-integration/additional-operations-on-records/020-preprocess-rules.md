@@ -6,12 +6,14 @@ grand_parent: Integration
 permalink: /integration/additional-operations-on-records/preprocess-rules
 title: Pre-process rules
 tags: ["integration", "pre-process rules"]
-last_modified: 2023-11-07
+last_modified: 2024-01-15
 ---
 
-Pre-process rules are applied to the records that are already mapped. You can create pre-process rules when you want to tag records, add alias to the records, or send the records to quarantine. The difference between [property rules](/integration/additional-operations-on-records/property-rules) and pre-process rules is that property rules are applied only to property values of the record while pre-process rules are applied to the whole record. So, if you want to apply some changes to multiple records, create a pre-process rule.
+Pre-process rules are applied to the records that are already mapped ([clues](/key-terms-and-features/clue-reference)). You can create pre-process rules when you want to add tags or aliases to the records or send the records to quarantine. The difference between [property rules](/integration/additional-operations-on-records/property-rules) and pre-process rules is that property rules are applied only to property values of the record while pre-process rules are applied to the whole record. So, if you want to apply some changes to multiple records, create a pre-process rule.
 
-Pre-process rules are applied to the records during processing after the property rules have been already applied.
+Pre-process rules are applied to the clues after the property rules have been already applied.
+
+![pre-process-rules-diagram.png](../../assets/images/integration/additional-operations/pre-process-rules-diagram.png)
 
 All pre-process rules are listed on the **Pre-process rules** tab of the data set.
 

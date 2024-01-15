@@ -15,11 +15,15 @@ last_modified: 2023-11-07
 
 Mapping is a semantic layer that allows CluedIn to understand the nature of data and process it to produce golden records.
 
+<div style="padding:56.25% 0 0 0;position:relative;">
+<iframe src="https://player.vimeo.com/video/896479907?h=0bd85bd043&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Create mapping and verify mapping details"></iframe>
+</div>
+
 **Note:** Mapping encompasses complex tasks, and CluedIn is committed to consistently enhancing the user experience associated with it. Nevertheless, it is crucial to grasp certain mapping concepts to leverage its full potential.
 
 The process of creating a mapping consists of two parts:
 
-1. [Choosing the mapping type](#choose mapping type)
+1. [Choosing the mapping type](#choose-mapping-type)
 
 1. [Configuring the mapping details](#configure-mapping-details) 
 
@@ -32,6 +36,28 @@ Mapping type defines how you want to configure the mapping of original fields fr
 - **Manual Mapping** – CluedIn creates empty mapping configuration that you can modify as you want. This option is challenging and time-consuming because you have to create the configuration from scratch.
 
  - **Existing Mapping** – CluedIn uses the existing mapping configuration. This option is useful if you want to create mapping for the data set that has the exact same structure as the existing data sets.
+
+ - **AI Mapping** – CluedIn uses AI capabilities to interpret your data and create mapping. You can check the results of AI mapping and make changes if needed.
+
+ The AI mapping feature is is not available by default. To use it, you need to fulfill several prerequisites:
+
+1. Go to **Administration** > **Feature Flags** and enable the **AI Mapping** feature.
+
+    ![openai-1.png](../../assets/images/integration/data-sources/openai-1.png)
+
+1. Go to **Administration** > **Settings**. Scroll down to the **Open AI** section and complete the following fields:
+
+    - **API Key** – check the following [link](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key) to learn where to find your API Key.
+
+    - **Base Url** – you can find this value in your Azure OpenAI resource, in **Resource Management** > **Keys and Endpoint**, in the **Endpoint** field.
+
+    - **Resource Key** – you can find this value in your Azure OpenAI resource, in **Resource Management** > **Keys and Endpoint**. You can use either **KEY 1** or **KEY 2**.
+
+    - **Deployment Name** – you can find this value in your Azure OpenAI resource, in **Resource Management** > **Model deployments**.
+
+        ![openai-2.png](../../assets/images/integration/data-sources/openai-2.png)
+
+        For more information about the required variables, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython&pivots=programming-language-python#retrieve-key-and-endpoint).
 
 **To choose the mapping type**
 
@@ -54,6 +80,8 @@ Depending on the selected mapping type, the actions required from you on the **C
 - [Auto mapping](#auto-mapping)
 
 - [Existing mapping](#existing-mapping)
+
+- [AI mapping](#ai-mapping)
 
 ### Manual mapping
 
@@ -132,3 +160,43 @@ If you've already created a mapping for a data set and you have another data set
 1. In the lower-right corner, select **Create Mapping**.
 
     The mapping is created. Next, [review the mapping details](/integration/review-mapping).
+
+### AI mapping
+
+AI mapping analyzes your data set and suggests the following details for your mapping:
+
+- Entity type and vocabulary.
+
+- Origin – field used to produce the primary unique identifier.
+
+- Codes – fields used to produce additional unique identifiers.
+
+- Mapping of original fields to the vocabulary keys. For more details, see [Mapping preview](#mapping-preview).
+
+You need to review AI suggestions and make changes if needed.
+
+## Mapping preview
+
+The **Mapping Preview** section is available when creating mapping with the following types: auto mapping and AI mapping. This section contains a table showing how the original fields will be mapped to the vocabulary keys in CluedIn. The table consists of the following columns:
+
+- The checkboxes column that represents the fields that will be sent to CluedIn during processing. If you do not want to send a specific field, clear the checkbox. The status of such field will be changed to **Ignored**.
+
+- **Original Field** – contains the names of the columns from the data set.
+
+- **Will Map To** – contains the vocabulary keys to which the original fields will be mapped. If needed, you can edit the names of both new and existing vocabulary keys directly in the table. If you edited the name of the existing vocabulary key, its status becomes **New**.
+
+- **Data Type** – contains the data type of each vocabulary key for strong typing. If needed, you can change the data type of both new and existing vocabulary keys directly in the table. If you edited the data type of the existing vocabulary key, its status becomes **New**.
+
+- **Status** – contains the status of each vocabulary key (New, Existing, or Ignored).
+
+- **Preview** – allows you to view the values in the column.
+
+## Reset mapping
+
+If you've created mapping and have concerns about the accuracy or correctness of your mapping configuration, you can reset the mapping and starting over from scratch.
+
+**To reset the mapping**
+
+- On the **Map** tab, select **Reset**, and then confirm that you want to reset the mapping configuration.
+
+   Now, you can create the mapping from scratch.    

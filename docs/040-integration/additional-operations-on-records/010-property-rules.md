@@ -6,12 +6,16 @@ grand_parent: Integration
 permalink: /integration/additional-operations-on-records/property-rules
 title: Property rules
 tags: ["integration", "property rules"]
-last_modified: 2023-11-07
+last_modified: 2024-01-15
 ---
 
-Property rules help you improve the quality of mapped records by normalizing and transforming property values. The difference between property rules and [pre-process rules](/integration/additional-operations-on-records/preprocess-rules) is that property rules are applied only to property values of the record while pre-process rules are applied to the whole record. So, if you want to apply some changes to the property values, create a property rule.
+Property rules help you improve the quality of mapped records ([clues](/key-terms-and-features/clue-reference)) by normalizing and transforming property values. The difference between property rules and [pre-process rules](/integration/additional-operations-on-records/preprocess-rules) is that property rules are applied only to property values of the record while pre-process rules are applied to the whole record. So, if you want to apply some changes to the property values, create a property rule.
 
-Property rules are applied to the records during processing.
+Property rules are applied to the clues before pre-process rules and advanced mapping code.
+
+![property-rules-diagram.png](../../assets/images/integration/additional-operations/property-rules-diagram.png)
+
+You can [create property rules on you own](#create-property-rules) or [use the CluedIn AI recommendation engine](#create-property-rules-using-AI) to generate property rules.
 
 **Prerequisites**
 
@@ -20,6 +24,8 @@ To access property rules, go to **Administration** > **Feature Flags** and make 
 - **Mapping Property Rules**
 
 - **Data Set Quarantine**
+
+### Create property rules on your own
 
 You can apply the rule to all values of the property or define specific values. The available actions for the rule depend on the type of the property and are divided into several categories:
 
@@ -56,3 +62,29 @@ You can add multiple rules for one property.
 1. In the lower-right corner, select **Add rule**.
 
      The rule is added next to the property. The rule will be applied when you process the records.
+
+### Create property rules using AI
+
+To use AI capabilities to create property rules, go to **Administration** > **Feature Flags**, and then turn on the **AI Mapping** feature.
+
+CluedIn AI recommendation engine helps you create property rules in a quick and efficient manner. The engine analyzes properties and runs data type checks to come up with suggested actions.
+
+**To create property rules using AI**
+
+1. On the navigation pane, go to **Integrations** > **Data Sources**. Then, find and open the data set.
+
+1. Go to the **Map** tab, and then select **Edit mapping**.
+
+1. On the **Map columns to vocabulary key** tab, select **Generate rules**.
+
+1. In the pane that opens, expand each property to review suggested validations and actions.
+
+    ![property-rules-2.png](../../assets/images/integration/additional-operations/property-rules-2.png)
+
+1. In the lower-right corner, select **Create rules**.
+
+    The rules are added next to the properties.
+
+    ![property-rules-3.png](../../assets/images/integration/additional-operations/property-rules-3.png)
+
+    By selecting these rules, you can view, create, or remove rules from the property. The rules will be applied when you process the records.

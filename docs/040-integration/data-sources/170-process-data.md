@@ -19,7 +19,15 @@ The processing of data is the same regardless of the source of data (file, inges
 
 1. Go to the **Process** tab, and then select **Process**.
 
-    The confirmation pane opens, where you can view the number of records that will be processed.
+    The confirmation pane opens, where you can do the following:
+
+    - View the number of records that will be processed.
+
+    - Delete the records that are currently in quarantine. This option is relevant if you have already processed the data set before and there are some records in quarantine.
+
+    - View the result of the origin entity code status check along with the field that was selected for producing the entity origin code.
+
+    - View the result of the code status check along with the field that was selected for producing the entity code.
 
     **Note:** The records containing duplicates will be merged to maintain data integrity and consistency. To learn more about unique identifiers, see [Codes](/integration/review-mapping#codes).
 

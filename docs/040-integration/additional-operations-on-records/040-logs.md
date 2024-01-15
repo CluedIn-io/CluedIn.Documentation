@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 4
+nav_order: 5
 parent: Additional operations on records
 grand_parent: Integration
 permalink: /integration/additional-operations-on-records/logs

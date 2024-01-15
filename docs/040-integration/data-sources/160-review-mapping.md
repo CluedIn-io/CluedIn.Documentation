@@ -43,13 +43,11 @@ On the **Map entity** tab, review the general mapping details and check the iden
 
 **What are general details?**
 
-- Entity type
-
-- Vocabulary – semantic model for the fields.
+- Entity type and vocabulary.
 
 - Entity name – name of the records that is displayed on the search results page and on the record details page.
 
-- Description, date created, and date modified – record properties that you can find on the search results page and on the record details page. You can select which column should be used for each of these settings.
+- Preview image, description, date created, and date modified – record properties that you can find on the search results page and on the record details page. You can select which column should be used for each of these settings.
 
 **What is an entity origin code?**
 
