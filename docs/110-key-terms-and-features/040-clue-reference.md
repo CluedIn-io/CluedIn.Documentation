@@ -43,53 +43,53 @@ It is a good idea to check the clues before processing to make sure they contain
 <details>
     <summary>Click here to view the clue sample</summary>
     
-```
+```json
 {
-"clue": {
-      "attribute-organization": "cafab9fd-7185-4f37-a753-20ec9ed71a2c",
-      "attribute-origin": "/Customer#customers_smallcopycsv:1",
-      "attribute-appVersion": "2.17.0.0",
-      "clueDetails": {
-        "data": {
-          "attribute-originProviderDefinitionId": "03B88B70-D11F-4572-8F3D-AB6260610498",
+  "clue": {
+    "attribute-organization": "cafab9fd-7185-4f37-a753-20ec9ed71a2c",
+    "attribute-origin": "/Customer#customers_smallcopycsv:1",
+    "attribute-appVersion": "2.17.0.0",
+    "clueDetails": {
+      "data": {
+        "attribute-originProviderDefinitionId": "03B88B70-D11F-4572-8F3D-AB6260610498",
+        "attribute-origin": "/Customer#customers_smallcopycsv:1",
+        "attribute-appVersion": "2.17.0.0",
+        "attribute-inputSource": "cluedin-annotation",
+        "entityData": {
+          "name": "Grace Acton",
+          "description": "",
+          "entityType": "/Customer",
           "attribute-origin": "/Customer#customers_smallcopycsv:1",
           "attribute-appVersion": "2.17.0.0",
-          "attribute-inputSource": "cluedin-annotation",
-          "entityData": {
-            "name": "Grace Acton",
-            "description": "",
-            "entityType": "/Customer",
-            "attribute-origin": "/Customer#customers_smallcopycsv:1",
-            "attribute-appVersion": "2.17.0.0",
-            "attribute-source": "cafab9fd-7185-4f37-a753-20ec9ed71a2c",
-            "codes": [
-              "/Customer#File Data Source:CluedIn(hash-sha1):f333b1b1269a730fcf756ddbdf776d52edfb9f24",
-              "/Customer#cluedin(email):gactony@bravesites.com"
-            ],
-            "edges": {
-              "outgoing": [
-                {
-                  "attribute-from": "C:/Customer#customers_smallcopycsv:1",
-                  "attribute-type": "/WorksFor",
-                  "attribute-to": "C:/Company#companiescsv:2"
-                }
-              ]
-            },
-            "properties": {
-              "attribute-type": "/Metadata/KeyValue",
-              "property-customer.id": "1",
-              "property-customer.firstName": "Grace",
-              "property-customer.lastName": "Acton",
-              "property-customer.fullName": "Grace Acton",
-              "property-customer.email": "gactony@bravesites.com",
-              "property-customer.country": "CN",
-              "property-customer.companyId": "2"
-            }
+          "attribute-source": "cafab9fd-7185-4f37-a753-20ec9ed71a2c",
+          "codes": [
+            "/Customer#File Data Source:CluedIn(hash-sha1):f333b1b1269a730fcf756ddbdf776d52edfb9f24",
+            "/Customer#cluedin(email):gactony@bravesites.com"
+          ],
+          "edges": {
+            "outgoing": [
+              {
+                "attribute-from": "C:/Customer#customers_smallcopycsv:1",
+                "attribute-type": "/WorksFor",
+                "attribute-to": "C:/Company#companiescsv:2"
+              }
+            ]
+          },
+          "properties": {
+            "attribute-type": "/Metadata/KeyValue",
+            "property-customer.id": "1",
+            "property-customer.firstName": "Grace",
+            "property-customer.lastName": "Acton",
+            "property-customer.fullName": "Grace Acton",
+            "property-customer.email": "gactony@bravesites.com",
+            "property-customer.country": "CN",
+            "property-customer.companyId": "2"
           }
         }
       }
     }
   }
+}
 ```
 </details>
 

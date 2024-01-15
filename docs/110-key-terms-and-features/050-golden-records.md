@@ -20,7 +20,7 @@ You can find a golden record using [search](/key-terms-and-features/search). The
 - Properties
 - Relations
 - Pending changes
-- [History](/Documentation/Key-terms-and-features/Golden-records/History) – here you can view all data parts that make up a golden record.
+- [History](/key-terms-and-features/golden-records/historyy) – here you can view all data parts that make up a golden record.
 - Explain log
 - Topology
 - Hierarchy

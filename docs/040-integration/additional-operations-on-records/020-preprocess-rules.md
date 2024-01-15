@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 2
-parent: Additional operations on records
+parent: Additional operations
 grand_parent: Integration
 permalink: /integration/additional-operations-on-records/preprocess-rules
 title: Pre-process rules

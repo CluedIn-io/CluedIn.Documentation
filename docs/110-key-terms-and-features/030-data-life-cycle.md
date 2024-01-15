@@ -22,7 +22,7 @@ In this article, you will learn about the stages your data goes through to becom
 
 When you [ingest](/integration/ingest-data) the data into CluedIn—either from a file, a database, an endpoint, or an integration—it enters the first stage of the life cycle. A **record** represents the data in its basic, raw format as it was in the source system.
 
-When you create the [mapping](/integration/create-mapping), the record becomes a **clue**. It is an object model that CluedIn generates for your records. Essentially, mapping provides a semantic layer that allows CluedIn to understand the nature of your data. For more information, see the [Clue](/key-terms-and-features/clue-reference) reference article.
+When you create the [mapping](/integration/create-mapping), the record becomes a **clue**. It is an object model that CluedIn generates for your records. Essentially, mapping provides a semantic layer that allows CluedIn to understand the nature of your data. For more information, see the [Clue reference](/key-terms-and-features/clue-reference) article.
 
 When you [process](/integration/process-data) the data set, the clue becomes a **golden record**. It is a consolidated representation of a data subject, derived from multiple sources.
 
@@ -36,7 +36,7 @@ The goal of mapping is to create the clues in the format that you set up. After 
 
 - [Property rules](/integration/additional-operations-on-records/property-rules) – to improve the quality of mapped records by normalizing and transforming property values.
 
-- [Pre-processing rules](/integration/additional-operations-on-records/preprocess-rules) – to apply changes to mapped records. For example, add tags or aliases to the records or send the records to quarantine.
+- [Pre-process rules](/integration/additional-operations-on-records/preprocess-rules) – to apply changes to mapped records. For example, add tags or aliases to the records or send the records to quarantine.
 
 - [Advanced mapping code](/integration/additional-operations-on-records/advanced-mapping-code) – to introduce changes to the clues programmatically. You can perform similar actions as with property and pre-process rules but you gain greater flexibility to apply complex conditions.
 

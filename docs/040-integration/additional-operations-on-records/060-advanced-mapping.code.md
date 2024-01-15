@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 3
-parent: Additional operations on records
+parent: Additional operations
 grand_parent: Integration
 permalink: /integration/additional-operations-on-records/advanced-mapping-code
 title: Advanced mapping code
