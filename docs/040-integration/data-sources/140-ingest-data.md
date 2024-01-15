@@ -57,19 +57,17 @@ When you need to push a large set of records into CluedIn, we recommend that you
 
 The **data ingestion process for endpoints** consists of two stages: parsing and loading. Due to performance and scalability considerations, CluedIn defers parsing tasks to data source processing rather than executing them in real time. As a result, while CluedIn promptly receives your request, it cannot ensure the validity of the sent data. Once CluedIn receives the data, it initially stores it in a temporary storage, accessible through the **Preview** tab. To turn the received data into golden records, you need to map it to the semantic model and then process it.
 
-(For advanced users) To ensure the creation of the expected golden records, you can generate a sample clue and verify its accuracy before processing. This step helps confirm that the resulting golden record aligns with your expectations. For more information, see [Clue](/key-terms-and-features/clue-reference).
-
 CluedIn provides the following **processing options** for turning your data into golden records:
 
-- **Manual processing** - when CluedIn receives the data from the endpoint, you are required to process the data manually. You can view the received data in the temporary storage at any time, and you can process the data set as many times as you need. In CluedIn, once a record has been processed, it won't undergo processing again. When you trigger processing, CluedIn will check for identical records. If identical records are found, they won't be processed again. However, if you change the origin code for the previously processed records, CluedIn will treat these record as new and process them.
+- **Manual processing** - when CluedIn receives the data from the endpoint, you are required to process the data manually. You can view the received data in the temporary storage at any time, and you can process the data set as many times as you need. In CluedIn, once a record has been processed, it won't undergo processing again. When you trigger processing, CluedIn will check for identical records. If identical records are found, they won't be processed again. However, if you change the origin code for the previously processed records, CluedIn will treat these records as new and process them.
 
 - **Automatic processing** - when CluedIn receives the data from the endpoint, this data is processed automatically. You can view the received data in the temporary storage at any time.
 
-- **Bridge mode** – all your JSON records will be transformed into golden records directly, without being stored in the temporary storage. However, you can rely on rely on data set logs for debugging purposes.
+- **Bridge mode** – all your JSON records will be transformed into golden records directly, without being stored in the temporary storage. However, you can rely on data set logs for debugging purposes.
 
     Bridge mode allows you to use less storage and memory, resulting in increased performance. Use this mode when your mapping will not change over time and you want to use the ingestion endpoint only as a mapper.
 
-You can ingest a JSON array to an HTTP endpoint created by CluedIn. The process of ingesting data from an ingestion point involves two steps:
+The process of ingesting data from an ingestion point involves two steps:
 
 1. [Adding an ingestion point](#add-ingestion-point)
 

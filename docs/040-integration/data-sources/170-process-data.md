@@ -9,7 +9,7 @@ tags: ["integration", "processing"]
 last_modified: 2023-11-07
 ---
 
-In this article, you will learn about the processing of data that you ingested into CluedIn. The goal of processing is to turn your data into records that can be searchable, cleaned, deduplicated, and streamed. These records can be merged or used to enhance the existing golden records.
+In this article, you will learn about the processing of data that you ingested into CluedIn. The goal of processing is to turn your data into golden records that can be cleaned, deduplicated, and streamed.
 
 The processing of data is the same regardless of the source of data (file, ingestion point, or database.)
 
