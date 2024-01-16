@@ -1,11 +1,10 @@
 ---
 layout: default
 title: Engine Room
-parent: Preparation
-nav_order: 70
+nav_order: 60
 has_children: false
-permalink: /preparation/engine-room
-tags: ["preparation","engine-room"]
+permalink: /engine-room
+tags: ["engine-room"]
 ---
 
 The processing pipeline in CluedIn can be described as a tree of different processing steps. Each processing step has dependencies on previous steps being run and hence you can conceptualise it as a dependency tree of processing steps. 
