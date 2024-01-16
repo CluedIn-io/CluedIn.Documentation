@@ -1,10 +1,11 @@
 ---
 layout: default
 title: Data Quality Metric Explanations
-parent: Preparation
-nav_order: 60
+parent: Data Quality Metrics
+grand_parent: Preparation
+nav_order: 3
 has_children: false
-permalink: /preparation/data-quality-metric-explanations
+permalink: /preparation/data-quality-metrics/data-quality-metric-explanations
 tags: ["preparation","quality-metrics"]
 ---
 

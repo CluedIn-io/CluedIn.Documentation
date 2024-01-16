@@ -1,11 +1,22 @@
 ---
 layout: default
 title: Most Used Data Quality Metrics
-parent: Preparation
-nav_order: 40
+parent: Data Quality Metrics
+grand_parent: Preparation
+nav_order: 1
 has_children: false
-permalink: /preparation/most-used-data-quality-metrics
+permalink: /preparation/data-quality-metrics/most-used-data-quality-metrics
 tags: ["preparation","quality-metrics"]
+---
+
+---
+layout: default
+nav_order: 1
+parent: Clean
+grand_parent: Preparation
+permalink: /preparation/clean/create-clean-project
+title: Create a clean project
+tags: ["preparation", "clean"]
 ---
 
 
