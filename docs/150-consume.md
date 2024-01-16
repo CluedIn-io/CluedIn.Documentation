@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Consume
-nav_order: 150
+nav_order: 90
 has_children: true
 permalink: /consume
 ---

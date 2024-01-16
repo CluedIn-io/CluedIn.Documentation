@@ -2,7 +2,7 @@
 layout: default
 title: Streams
 parent: Consume
-nav_order: 020
+nav_order: 2
 has_children: true
 permalink: /consume/streams
 tags: ["consume", "streams"]

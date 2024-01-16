@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Export Targets
+title: Export targets
 parent: Consume
-nav_order: 10
+nav_order: 1
 permalink: /consume/export-targets
 tags: ["consume","streams"]
 ---

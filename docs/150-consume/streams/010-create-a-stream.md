@@ -81,5 +81,5 @@ You can configure the export target for the stream on the **Export Target Config
 
 1. Near the upper-right corner, select **Save**.
 
-    You configured the export target for the stream and defined what properties will be sent to the export target. Now, you're ready to [start](/consume/streams/manage-streams#) streaming records to the external system.
+    You configured the export target for the stream and defined what properties will be sent to the export target. Now, you're ready to [start](/consume/streams/manage-streams) streaming records to the external system.
 
