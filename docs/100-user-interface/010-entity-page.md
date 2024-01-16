@@ -5,6 +5,7 @@ parent: User Interface
 nav_order: 10
 permalink: /user-interface/entity-page
 tags: ["ui"]
+published: false
 ---
 
 The entity page will show you a single view of the record, all metadata associated to this record and all records that have a connection to this record. 

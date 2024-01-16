@@ -5,6 +5,7 @@ parent: User Interface
 nav_order: 30
 permalink: /user-interface/followed-entitie
 tags: ["ui","entities"]
+published: false
 ---
 
 There are some records that might be regularly accessed and hence, the followed entities allows you to save links to these records so you can easliy recall them. 
