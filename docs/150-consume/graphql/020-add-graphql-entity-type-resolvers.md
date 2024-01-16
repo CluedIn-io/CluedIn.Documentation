@@ -1,9 +1,10 @@
 ---
 layout: default
-title: Add GraphQL Entity Type Resolvers
-parent: Consume
-nav_order: 20
-permalink: /consume/add-graphql-entity-type-resolvers
+nav_order: 1
+parent: GraphQL
+grand_parent: Consume
+permalink: /consume/graphql/add-graphql-entity-type-resolvers
+title: Add GraphQL entity type resolvers
 tags: ["consume","graphql"]
 ---
 
