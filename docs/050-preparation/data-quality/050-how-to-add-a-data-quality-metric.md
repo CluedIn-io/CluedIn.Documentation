@@ -1,10 +1,11 @@
 ---
 layout: default
 title: How to add a new Data Quality Metric
-parent: Preparation
-nav_order: 50
+parent: Data Quality Metrics
+grand_parent: Preparation
+nav_order: 2
 has_children: false
-permalink: /preparation/how-to-add-a-data-quality-metric
+permalink: /preparation/data-quality-metrics/how-to-add-a-data-quality-metric
 tags: ["preparation","quality-metrics"]
 ---
 
