@@ -5,6 +5,7 @@ parent: Consume
 nav_order: 30
 permalink: /consume/data-marts
 tags: ["consume"]
+published: false
 ---
 
 Data Marts allow you to prepare certain data sets for future consumption. Unlike a Stream, a Data Mart is not necessarily yet data that is being made available to any consumers, but at the same time you might find that a Data Mart is consumed multiple times. 

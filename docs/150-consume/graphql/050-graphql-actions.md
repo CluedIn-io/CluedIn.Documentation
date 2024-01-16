@@ -1,9 +1,10 @@
 ---
 layout: default
-title: GraphQL Actions
-parent: Consume
-nav_order: 50
-permalink: /consume/graphql-actions
+nav_order: 2
+parent: GraphQL
+grand_parent: Consume
+permalink: /consume/graphql/graphql-actions
+title: GraphQL actions
 tags: ["consume","graphql"]
 ---
 

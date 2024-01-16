@@ -2,7 +2,7 @@
 layout: default
 title: GraphQL
 parent: Consume
-nav_order: 10
+nav_order: 30
 permalink: /consume/graphql
 tags: ["consume","graphql"]
 last_modified: 2021-10-08
