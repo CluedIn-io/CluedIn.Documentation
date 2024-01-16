@@ -103,18 +103,18 @@ setVocabularyKeyValue('customer.industry', getVocabularyKeyValue('customer.indus
 [value]
 ```
  
-**getEntiyProperty**
+**getEntityProperty**
 
 Retrieves the clues that have a specific entity property in order to apply further actions on the values or clues. In the following example, the code takes the `'name'` property from the clue, converts it to uppercase using `toUpperCase()`, and then sets the result as the value of the `'description'` property for the clue.
 
 ```
-const name = getEntiyProperty('name');
-setEntiyProperty('description', name.toUpperCase());
+const name = getEntityProperty('name');
+setEntityProperty('description', name.toUpperCase());
 
 [value]
 ```
 
-**setEntiyProperty**
+**setEntityProperty**
 
 Adds or changes the value of the entity property, such as name, description, entityType, date created, and so on. In the following example, the code checks if the `'customer.industry'` vocabulary key is set to `'Precious Metals'`, and if it is, the code sets the `'description'` property of the clue to the specified string.
 
