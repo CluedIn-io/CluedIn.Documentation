@@ -58,7 +58,7 @@ The main approach to reprocess the records is through the rule details page.
 
 **To reprocess records through the rule details page**
 
-1. Near the upper-right corner, select ![reprocess-icon.png](../../assets/images/management/rules/preprocess-icon.png).
+1. Near the upper-right corner, select ![reprocess-icon.png](../../assets/images/management/rules/reprocess-icon.png).
 
 1. Confirm that you want to reprocess records matching the rule's filter.
 
