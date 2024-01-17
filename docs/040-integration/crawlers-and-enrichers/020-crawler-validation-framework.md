@@ -1,10 +1,12 @@
 ---
 layout: default
 title: Crawler Validation Framework
-parent: Crawling
-nav_order: 20
+parent: Crawlers and enrichers
+grand_parent: Integration
+nav_order: 010
+has_children: false
 permalink: /crawling/crawler-validation-framework
-tags: ["crawling"]
+tags: ["crawling","agents"]
 ---
 
 While building new integrations for CluedIn, you will want to make sure that you are building your integrations in the recommended way. The crawler validation framework will help guide a developer to produce a Clue that is of the highest readiness for processing. The validation framework will only run during Debug / Developer mode and will not run once deployed to production. 

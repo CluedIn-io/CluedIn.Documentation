@@ -1,8 +1,10 @@
 ---
 layout: default
 title: Using Agents
-parent: Crawling
-nav_order: 10
+parent: Crawlers and enrichers
+grand_parent: Integration
+nav_order: 010
+has_children: false
 permalink: /crawling/using-agents
 tags: ["crawling","agents"]
 ---
