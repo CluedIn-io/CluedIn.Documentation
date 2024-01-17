@@ -17,7 +17,10 @@ A rule consists of a filter and one or more associated actions. Filter tells Clu
 This section covers the following areas:
 
 - [Rule types](/management/rules/rule-types) – explore different types of rules to learn which one would be best for your specific needs.
+
 - [Creating a rule](/management/rules/create-rule) – learn how to create a rule and apply it to the records.
+
 - [Managing rules](/management/rules/manage-rules) – learn how to edit, deactivate, and delete a rule, as well how these actions affect your records.
+
 - [Reference information about rule's actions](/management/rules/rules-reference) – find information about the actions associated with each type of rule.
 

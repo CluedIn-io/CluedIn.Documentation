@@ -9,7 +9,7 @@ tags: ["clue"]
 ---
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 In this article, you will learn about a clue—an integral part of the data life cycle in CluedIn. Understanding how to interpret clues is important to ensure that they contain all the necessary details for successful processing and creation of golden records.

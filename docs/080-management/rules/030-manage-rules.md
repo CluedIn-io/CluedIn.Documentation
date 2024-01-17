@@ -10,7 +10,7 @@ last_modified: 2023-11-16
 ---
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 In this article, you will learn how to manage rules to keep them organized, efficient, and aligned with your data management goals.
@@ -25,6 +25,10 @@ You can edit a rule to make necessary changes in rule name, description, filters
 
 1. If you are the owner of the rule, near the upper-right corner of the rule details page, select **Save**.
 
+    If you modified filters or actions, select the checkbox to reprocess the records affected by the previous and current rule configuration. Selecting the checkbox will revert the records affected by the previous rule configuration to their initial state before the rule was applied. Simultaneously, the records affected by the current rule configuration will be adjusted according to the rule's action. If you don't select the checkbox, the rule will be updated but the records won't be reprocessed.
+    
+    ![manage-rules-1.png](../../assets/images/management/rules/manage-rules-1.png)
+    
     After you confirm that you want to update the rule, your changes will be applied immediately.
 
 1. If you are not the owner of the rule, near the upper-right corner of the rule details page, select **Submit for approval**.

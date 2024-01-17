@@ -9,7 +9,7 @@ tags: ["search"]
 ---
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 CluedIn allows you to search over all your golden records. You can enter a keyword in the search box, and CluedIn will return all relevant records. You can also use [filters](/key-terms-and-features/filters) to precisely define the data you're looking for based on various criteria.
