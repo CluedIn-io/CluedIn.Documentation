@@ -33,11 +33,11 @@ The first step to send the records from CluedIn to an export target is to create
 
     **Note:** If you want to view the records matching the filter, select **Preview Condition**.
 
+    ![stream-1.gif](../../assets/images/consume/streams/stream-1.gif)
+
 1. If you want to modify the records before sending them to the export target—for example, mask certain values—you can do it in the **Actions** section. Select **Add Action**, and then configure the action that will be performed on the records matching the stream's filter. For more information about the available actions, see [Actions in data part rules](/management/rules/rules-reference#actions-in-data-part-rules). You can add multiple actions.
 
     **Important:** The changes applied by the actions do not affect the records stored in CluedIn, only the records that will be sent to the export target.
-
-    ![streams-2.png](../../assets/images/consume/streams/streams-2.png)
 
 1. (Optional) In the **Description** section, enter the details about the stream.
 
@@ -77,9 +77,9 @@ You can configure the export target for the stream on the **Export Target Config
 
     If you want to send all vocabulary keys associated with the records matching the stream's filters, select **Auto-select**. All vocabulary keys will be displayed in the table. If you don't want to send a particular vocabulary key, select the checkbox next to it, and then select **Remove Property**.
 
-    ![streams-4.png](../../assets/images/consume/streams/streams-4.png)
-
 1. Near the upper-right corner, select **Save**.
+
+    ![stream-2.gif](../../assets/images/consume/streams/stream-2.gif)
 
     You configured the export target for the stream and defined what properties will be sent to the export target. Now, you're ready to [start](/consume/streams/manage-streams) streaming records to the external system.
 
