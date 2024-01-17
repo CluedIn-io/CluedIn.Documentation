@@ -1,13 +1,16 @@
 ---
 layout: default
-title: Build Enricher
-parent: Crawlers and enrichers
-grand_parent: Integration
-nav_order: 070
+title: Enricher
+parent: Preparation
+nav_order: 2
 has_children: false
 permalink: /integration/build-enricher
-tags: ["integration","enricher"]
+tags: ["preparation","enricher"]
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 ### Introduction
 
@@ -22,7 +25,6 @@ CluedIn is a .NET platform. So you will need:
 - .NET installed
 - Visual Studio installed
 - Docker
-
 
 ### Creating initial template
 

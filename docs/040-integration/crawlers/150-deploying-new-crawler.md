@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Deploying a new Crawler
-parent: Crawlers and enrichers
+parent: Crawler
 grand_parent: Integration
 nav_order: 150
 has_children: false

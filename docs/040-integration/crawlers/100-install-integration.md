@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Install Integrations
-parent: Crawlers and enrichers
+parent: Crawler
 grand_parent: Integration
 nav_order: 100
 has_children: false

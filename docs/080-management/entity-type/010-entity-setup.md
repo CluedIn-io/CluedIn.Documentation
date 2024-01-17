@@ -1,11 +1,12 @@
 ---
 layout: default
-title: Entity Type and UI
-parent: Preparation
-nav_order: 100
+title: Entity type and UI
+parent: Entity type
+grand_parent: Management
+nav_order: 1
 has_children: false
 permalink: /preparation/entity-setup
-tags: ["preparation"]
+tags: ["management", "entity type"]
 ---
 
 ### Introduction

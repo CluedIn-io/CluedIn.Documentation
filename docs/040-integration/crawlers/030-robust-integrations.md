@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Help with building robust integrations
-parent: Crawlers and enrichers
+parent: Crawler
 grand_parent: Integration
 nav_order: 030
 has_children: false

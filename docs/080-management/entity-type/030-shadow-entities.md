@@ -1,11 +1,12 @@
 ---
 layout: default
-title: Shadow Entities
-parent: Preparation
-nav_order: 90
+title: Shadow entities
+parent: Entity type
+grand_parent: Management
+nav_order: 3
 has_children: false
 permalink: /preparation/shadow-entities
-tags: ["preparation","shadow-entities"]
+tags: ["management","shadow-entities"]
 ---
 
 In an effort to remove "noise" from your CluedIn data, we have the idea of "Shadow Entities". A Shadow entity is a record that exists in the datastores but has been flagged as a record that will be hidden from the results in your data access layers of CluedIn. This is based off the "Eventual Connectivity" pattern in that this Shadow Entity may turn into a real Entity when it is exposed to new and more data. 

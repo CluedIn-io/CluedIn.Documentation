@@ -3,8 +3,8 @@ layout: default
 nav_order: 030
 parent: Integration
 permalink: /integration/crawlers-and-enrichers
-title: Crawlers and enrichers
+title: Crawler
 has_children: true
-tags: ["integration", "crawlers", "enrichers"]
+tags: ["integration", "crawler"]
 last_modified: 2023-11-07
 ---
