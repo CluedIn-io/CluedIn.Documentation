@@ -2,7 +2,7 @@
 layout: default
 title: How to add a new Data Quality Metric
 parent: Data Quality Metrics
-grand_parent: Preparation
+grand_parent: Governance
 nav_order: 2
 has_children: false
 permalink: /preparation/data-quality-metrics/how-to-add-a-data-quality-metric

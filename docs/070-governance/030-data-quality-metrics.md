@@ -1,11 +1,11 @@
 ---
 layout: default
 title: Data Quality Metrics
-parent: Preparation
-nav_order: 2
+parent: Governance
+nav_order: 1
 has_children: true
 permalink: /preparation/data-quality-metrics
-tags: ["preparation","quality-metrics"]
+tags: ["governance","quality-metrics"]
 ---
 
 

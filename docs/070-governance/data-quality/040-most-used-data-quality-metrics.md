@@ -2,7 +2,7 @@
 layout: default
 title: Most Used Data Quality Metrics
 parent: Data Quality Metrics
-grand_parent: Preparation
+grand_parent: Governance
 nav_order: 1
 has_children: false
 permalink: /preparation/data-quality-metrics/most-used-data-quality-metrics

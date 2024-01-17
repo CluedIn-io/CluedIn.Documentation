@@ -2,7 +2,7 @@
 layout: default
 title: Data Quality Metric Explanations
 parent: Data Quality Metrics
-grand_parent: Preparation
+grand_parent: Governance
 nav_order: 3
 has_children: false
 permalink: /preparation/data-quality-metrics/data-quality-metric-explanations
