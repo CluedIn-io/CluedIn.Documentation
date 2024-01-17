@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Crawling
-parent: Crawler
+parent: Crawlers
 grand_parent: Integration
 nav_order: 020
 has_children: false
