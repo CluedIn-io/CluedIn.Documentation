@@ -1,11 +1,12 @@
 ---
 layout: default
-title: Entity Type Translation
-parent: Preparation
-nav_order: 80
+title: Entity type translation
+parent: Entity type
+grand_parent: Management
+nav_order: 2
 has_children: false
 permalink: /preparation/entity-type-translation
-tags: ["preparation"]
+tags: ["management", "entity type"]
 ---
 
 
