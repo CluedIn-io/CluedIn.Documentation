@@ -6,7 +6,7 @@ grand_parent: Governance
 nav_order: 3
 has_children: false
 permalink: /preparation/data-quality-metrics/data-quality-metric-explanations
-tags: ["preparation","quality-metrics"]
+tags: ["governance","quality-metrics"]
 ---
 
 

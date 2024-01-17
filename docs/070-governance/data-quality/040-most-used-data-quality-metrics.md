@@ -6,7 +6,7 @@ grand_parent: Governance
 nav_order: 1
 has_children: false
 permalink: /preparation/data-quality-metrics/most-used-data-quality-metrics
-tags: ["preparation","quality-metrics"]
+tags: ["governance","quality-metrics"]
 ---
 
 ---
