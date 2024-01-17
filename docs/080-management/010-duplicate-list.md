@@ -6,6 +6,8 @@ nav_order: 020
 has_children: false
 permalink: /management/duplicate-list
 tags: ["management"]
+published: false
+
 ---
 
 Your duplicates menu will give you a list of different types of possible duplicate records. 
