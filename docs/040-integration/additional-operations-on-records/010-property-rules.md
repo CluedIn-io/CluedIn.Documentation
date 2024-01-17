@@ -15,7 +15,7 @@ Property rules are applied to the clues before pre-process rules and advanced ma
 
 ![property-rules-diagram.png](../../assets/images/integration/additional-operations/property-rules-diagram.png)
 
-You can [create property rules on you own](#create-property-rules) or [use the CluedIn AI recommendation engine](#create-property-rules-using-AI) to generate property rules.
+You can [create property rules on you own](#create-property-rules-on-your-own) or [use the CluedIn AI recommendation engine](#create-property-rules-using-ai) to generate property rules.
 
 **Prerequisites**
 
