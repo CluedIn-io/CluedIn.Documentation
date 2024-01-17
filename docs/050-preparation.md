@@ -6,6 +6,4 @@ has_children: true
 permalink: /Preparation
 ---
 
-# Preparation
-
 {: .fs-6 .fw-300 }
