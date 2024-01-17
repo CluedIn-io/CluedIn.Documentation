@@ -8,6 +8,10 @@ title: Property rules
 tags: ["integration", "property rules"]
 last_modified: 2024-01-15
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 Property rules help you improve the quality of mapped records ([clues](/key-terms-and-features/clue-reference)) by normalizing and transforming property values. The difference between property rules and [pre-process rules](/integration/additional-operations-on-records/preprocess-rules) is that property rules are applied only to property values of the record while pre-process rules are applied to the whole record. So, if you want to apply some changes to the property values, create a property rule.
 
