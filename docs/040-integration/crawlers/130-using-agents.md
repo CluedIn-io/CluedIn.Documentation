@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Using Agents
-parent: Crawler
+parent: Crawlers
 grand_parent: Integration
 nav_order: 130
 has_children: false

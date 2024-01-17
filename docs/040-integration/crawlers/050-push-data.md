@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Push Data to CluedIn
-parent: Crawler
+parent: Crawlers
 grand_parent: Integration
 nav_order: 050
 has_children: false

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Integration and the CluedIn UI
-parent: Crawler
+parent: Crawlers
 grand_parent: Integration
 nav_order: 110
 has_children: false
