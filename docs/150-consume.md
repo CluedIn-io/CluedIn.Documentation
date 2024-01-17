@@ -4,6 +4,7 @@ title: Consume
 nav_order: 80
 has_children: true
 permalink: /consume
+tags: ["consume", "data export", "streams", "export-targets"]
 ---
 
 {: .fs-6 .fw-300 }

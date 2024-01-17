@@ -5,7 +5,7 @@ parent: Key terms and features
 permalink: /key-terms-and-features/golden-records
 nav_order: 5
 has_children: true
-tags: ["search"]
+tags: ["golden record"]
 ---
 
 A golden record is an accurate and consolidated representation of a data subject, such as an organization or an employee, derived from multiple sources. A golden record provides a 360-degree view of a data subject, facilitating a deeper understanding of its current state and the reasons behind it.
