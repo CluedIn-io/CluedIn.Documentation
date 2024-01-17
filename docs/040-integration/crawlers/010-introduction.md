@@ -1,7 +1,7 @@
 ---
 layout: default
 title: What are Integrations
-parent: Crawlers and enrichers
+parent: Crawler
 grand_parent: Integration
 nav_order: 010
 has_children: false

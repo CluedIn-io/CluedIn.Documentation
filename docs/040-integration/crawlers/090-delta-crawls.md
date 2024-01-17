@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Delta Crawls
-parent: Crawlers and enrichers
+parent: Crawler
 grand_parent: Integration
 nav_order: 090
 has_children: false

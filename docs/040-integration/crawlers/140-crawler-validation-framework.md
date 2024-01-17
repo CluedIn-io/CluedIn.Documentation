@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Crawler Validation Framework
-parent: Crawlers and enrichers
+parent: Crawler
 grand_parent: Integration
 nav_order: 140
 has_children: false

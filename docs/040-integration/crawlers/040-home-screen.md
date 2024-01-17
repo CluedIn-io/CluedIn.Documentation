@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Home Screen
-parent: Crawlers and enrichers
+parent: Crawler
 grand_parent: Integration
 nav_order: 040
 has_children: false

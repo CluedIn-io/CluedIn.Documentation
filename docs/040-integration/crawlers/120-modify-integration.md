@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Modify an Integration
-parent: Crawlers and enrichers
+parent: Crawler
 grand_parent: Integration
 nav_order: 120
 has_children: false

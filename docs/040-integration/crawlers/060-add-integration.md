@@ -1,7 +1,7 @@
 ---
 layout: default
 title: How to add an Integration
-parent: Crawlers and enrichers
+parent: Crawler
 grand_parent: Integration
 nav_order: 060
 has_children: false
