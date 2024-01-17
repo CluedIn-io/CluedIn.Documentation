@@ -1,8 +1,10 @@
 ---
 layout: default
 title: Deploying a new Crawler
-parent: Crawling
-nav_order: 30
+parent: Crawlers and enrichers
+grand_parent: Integration
+nav_order: 150
+has_children: false
 permalink: /crawling/deploying-new-crawler
 tags: ["crawling"]
 ---

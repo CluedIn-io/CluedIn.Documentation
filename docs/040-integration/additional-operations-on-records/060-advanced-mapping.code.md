@@ -8,6 +8,10 @@ title: Advanced mapping code
 tags: ["integration", "property rules"]
 last_modified: 2024-01-15
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 In this article, you will learn about the possibility of introducing changes to your [clues](/key-terms-and-features/clue-reference) using JavaScript glue code. You can perform similar actions as with [property](/integration/additional-operations-on-records/property-rules) and [pre-process](/integration/additional-operations-on-records/preprocess-rules) rules but you gain greater flexibility to set up complex conditions.
 
