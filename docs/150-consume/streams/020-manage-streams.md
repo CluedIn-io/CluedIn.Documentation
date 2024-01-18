@@ -29,7 +29,7 @@ Stream controls allows you to manage the process of sending records to the expor
 
 - **Stop** – the stream will stop sending records to the export target and accumulating records in the queue.
 
-    ![manage-streams-3.png](../../assets/images/consume/streams/manage-streams-3.png)
+    ![stop-stream.gif](../../assets/images/consume/streams/stop-stream.gif)
 
 Think of these stream controls as similar to the controls on a video player. When you select **Pause**, the stream halts temporarily, remembering your playback position and storing records in the queue. This way, when you resume the stream, it continues from where you left off, maintaining your progress. On the other hand, **Stop** leads to a complete termination of the streaming process and clearing of the queue. If you start the stream after it had been stopped, it will start sending records to the export target from the beginning, not from the point at which you stopped the stream.
 
