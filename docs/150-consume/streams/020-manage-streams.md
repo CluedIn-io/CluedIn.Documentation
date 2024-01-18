@@ -21,7 +21,7 @@ Stream controls allows you to manage the process of sending records to the expor
 
 - **Start** – the stream will start accumulating records in the queue and sending them to the export target.
 
-    ![manage-streams-1.png](../../assets/images/consume/streams/manage-streams-1.png)
+    ![start-stream.gif](../../assets/images/consume/streams/start-stream.gif)
 
 - **Pause** – the stream will stop sending records to the export target, but it will still continue accumulating records in the queue.
 
