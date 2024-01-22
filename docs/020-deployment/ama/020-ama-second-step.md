@@ -217,7 +217,7 @@ If you need to change some network configurations, you can do that after you ins
 
 CluedIn provides support of Azure Load Balancer and Application Gateway. Other network configurations are not supported out of the box in any of our plans, so you might need the CluedIn infrastructure package hours.
 
-## Azure Policies and Tagging
+## Analyze Azure policies and tagging
 
 The installation wizard supplies consumers to add resource tags during runtime. Please be aware of how tagging works before going through the installation as additional steps may be required.
 
