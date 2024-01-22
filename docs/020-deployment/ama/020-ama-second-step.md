@@ -225,7 +225,7 @@ Tags supplied at runtime will apply to the deployed CluedIn resources. This incl
 
 It does not apply to the managed resource group, the AKS node resource group, or the managed application resource itself. This is a limitation of how the Marketplace Applications works.
 
-If your tenant has comprehensive tagging, it is recommended to add a temporary exemption for the Subscription at install time, and then add tags post-deployment.
+If your tenant has comprehensive tagging, it is recommended to add a temporary exemption for the subscription at install time, and then add tags post-deployment.
 
 ## Results
 
