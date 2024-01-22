@@ -217,6 +217,16 @@ If you need to change some network configurations, you can do that after you ins
 
 CluedIn provides support of Azure Load Balancer and Application Gateway. Other network configurations are not supported out of the box in any of our plans, so you might need the CluedIn infrastructure package hours.
 
+## Azure Policies and Tagging
+
+The installation wizard supplies consumers to add some tags during runtime. Please be aware of how tagging works before going through the installation as additional steps may be required.
+
+Tags supplied at runtime will apply to the deployed CluedIn resources. This includes the AKS Cluster, key vault, virtual network, log analytics, and a few other resources.
+
+It does not apply to the Managed Resource Group, the AKS Node Resource Group, or the Managed Application resource itself. This is a limitation of how the Marketplace Applications works.
+
+If your tenant has comprehensive tagging, it is recommended to add a temporary exemption for the Subscription at install time, and then add tags post-deployment.
+
 ## Results
 
 1. You are qualified to perform the CluedIn installation process, and you have all the required permissions.
