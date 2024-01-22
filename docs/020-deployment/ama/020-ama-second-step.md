@@ -221,7 +221,7 @@ CluedIn provides support of Azure Load Balancer and Application Gateway. Other n
 
 The installation wizard supplies consumers to add resource tags during runtime. Please be aware of how tagging works before going through the installation as additional steps may be required.
 
-Tags supplied at runtime will apply to the deployed CluedIn resources. This includes the AKS Cluster, key vault, virtual network, log analytics, and a few other resources.
+Tags supplied at runtime will apply to the deployed CluedIn resources. This includes the AKS cluster, key vault, virtual network, log analytics, and a few other resources.
 
 It does not apply to the Managed Resource Group, the AKS Node Resource Group, or the Managed Application resource itself. This is a limitation of how the Marketplace Applications works.
 
