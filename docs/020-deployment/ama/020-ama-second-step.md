@@ -223,7 +223,7 @@ The installation wizard supplies consumers to add resource tags during runtime. 
 
 Tags supplied at runtime will apply to the deployed CluedIn resources. This includes the AKS cluster, key vault, virtual network, log analytics, and a few other resources.
 
-It does not apply to the Managed Resource Group, the AKS Node Resource Group, or the Managed Application resource itself. This is a limitation of how the Marketplace Applications works.
+It does not apply to the managed resource group, the AKS node resource group, or the managed application resource itself. This is a limitation of how the Marketplace Applications works.
 
 If your tenant has comprehensive tagging, it is recommended to add a temporary exemption for the Subscription at install time, and then add tags post-deployment.
 
