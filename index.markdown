@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Welcome to CluedIn
 nav_order: 0
 description: ""
