@@ -73,8 +73,8 @@ A stream is a trigger that starts the process of sending the data to the export 
 
     1. Select the value of the entity type.
 
-        {: .note }
-            The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
+        {:.important}
+        The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
 
         ![create-stream-2.png](../../assets/images/getting-started/data-streaming/create-stream-2.png)  
 
