@@ -6,20 +6,22 @@ description: ""
 permalink: /
 ---
 
-<iframe width="640" height="360" frameborder="0" allowfullscreen src="https://player.vimeo.com/video/312062542?controls=1"></iframe>
+Discover how you can harness the power of master data management for effective data governance, improved decision-making, and streamlined operations
 
-## What is CluedIn
-
-CluedIn is a Master Data Management platform that helps companies integrate, clean, govern and manage their most important company data.
-
-The following diagram depicts the main components of the CluedIn application with a reference architecture on Microsoft Azure. You can also see a reference architecture directly on the [Microsoft](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/cluedin) website. 
-
-![Diagram](./assets/images/getting-started/cluedin-architecture.png)
-
-To learn how to use CluedIn, check the following guides:
-
-- [Getting started with CluedIn](/getting-started)
-
-- [Installation of CluedIn from the Azure Marketplace](/deployment/azure-marketplace)
-
-- [Local installation of CluedIn](/deployment/local)
+<div class="card-line">
+  <div class="card" href="/getting-started">
+    <div class="icon"><img src="/assets/icons/getting-started.svg" alt="getting started"/></div>
+    <div class="title">Getting Started</div>
+    <div class="content">Explore our step-by-step guides for a seamless introduction to CluedIn</div>
+  </div>
+   <div class="card" href="/deployment">
+    <div class="icon"><img src="/assets/icons/installation.svg" alt="getting started"/></div>
+    <div class="title">Installation</div>
+    <div class="content">Follow our straightforward instructions to get CluedIn up and running</div>
+  </div>
+   <div class="card" href="/release-notes">
+    <div class="icon"><img src="/assets/icons/release-note.svg" alt="getting started"/></div>
+    <div class="title">Release notes</div>
+    <div class="content">Stay updated on the latest enhancements and features in CluedIn</div>
+  </div>
+</div>
