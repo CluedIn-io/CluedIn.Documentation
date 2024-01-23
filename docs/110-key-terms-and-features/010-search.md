@@ -100,7 +100,7 @@ Saved searches help you quickly retrieve a set of records that meet specific fil
 
 **To save a search**
 
-1. In the upper-right corner of the search results page, select the search icon.
+1. In the upper-right corner of the search results page, select the **Save current search** icon.
 
 1. Enter the name of the search.
 
