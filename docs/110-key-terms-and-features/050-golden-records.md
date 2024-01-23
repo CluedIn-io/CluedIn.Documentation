@@ -3,7 +3,7 @@ layout: default
 title: Golden records
 parent: Key terms and features
 permalink: /key-terms-and-features/golden-records
-nav_order: 5
+nav_order: 6
 has_children: true
 tags: ["golden record"]
 ---
