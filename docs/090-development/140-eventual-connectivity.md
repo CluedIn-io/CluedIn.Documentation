@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Eventual Connectivity
 parent: Development
 nav_order: 140

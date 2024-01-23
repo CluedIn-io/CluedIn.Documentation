@@ -1,7 +1,7 @@
 ---
-layout: default
+layout: cluedin
 title: Administration
-nav_order: 90
+nav_order: 30
 has_children: true
 permalink: /administration
 ---

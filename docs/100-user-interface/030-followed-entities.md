@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Followed Entities
 parent: User Interface
 nav_order: 30

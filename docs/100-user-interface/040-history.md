@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: History
 parent: User Interface
 nav_order: 40

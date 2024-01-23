@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Setting a Preview Image for a Clue
 parent: Development
 nav_order: 540

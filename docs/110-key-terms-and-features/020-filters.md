@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Filters
 parent: Key terms and features
 permalink: /key-terms-and-features/filters
@@ -9,7 +9,7 @@ tags: ["filters"]
 ---
 ## On this page
 {: .no_toc .text-delta }
-- TOC
+1. TOC
 {:toc}
 
 Filters play a significant role in various parts of CluedIn. Filters are used in advanced search, clean projects, streams, rules, and glossary. The purpose of a filter is to define a specific set of records for further activities in the system.

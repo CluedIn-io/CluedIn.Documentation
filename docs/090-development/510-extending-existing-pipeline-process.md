@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Extending the Existing Pipeline Process
 parent: Development
 nav_order: 510

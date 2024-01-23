@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Sync certificates and secrets from Azure Key Vault to Azure Kubetnetes Service
 permalink: /kb/sync-aks-to-akv
 nav_exclude: true

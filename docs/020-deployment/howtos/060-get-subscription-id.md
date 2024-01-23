@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 6
 parent: How-to guides
 grand_parent: Installation

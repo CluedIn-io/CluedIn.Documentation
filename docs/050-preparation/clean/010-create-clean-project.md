@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 1
 parent: Clean
 grand_parent: Preparation
@@ -9,7 +9,7 @@ tags: ["preparation", "clean"]
 ---
 ## On this page
 {: .no_toc .text-delta }
-- TOC
+1. TOC
 {:toc}
 
 A clean project is where you specify the data to be cleaned, retrieve it from CluedIn, perform the cleaning process, and then send the cleaned values back to golden records.

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Search
 parent: Key terms and features
 permalink: /key-terms-and-features/search
@@ -9,7 +9,7 @@ tags: ["search"]
 ---
 ## On this page
 {: .no_toc .text-delta }
-- TOC
+1. TOC
 {:toc}
 
 CluedIn allows you to search over all your golden records. You can enter a keyword in the search box, and CluedIn will return all relevant records. You can also use [filters](/key-terms-and-features/filters) to precisely define the data you're looking for based on various criteria.
@@ -100,7 +100,7 @@ Saved searches help you quickly retrieve a set of records that meet specific fil
 
 **To save a search**
 
-1. In the upper-right corner of the search results page, select the **Save current search** icon.
+1. In the upper-right corner of the search results page, select the search icon.
 
 1. Enter the name of the search.
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Agent Jobs
 parent: Development
 nav_order: 480

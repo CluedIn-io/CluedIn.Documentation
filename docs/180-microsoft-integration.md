@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Microsoft Integration
 nav_order: 180
 has_children: true

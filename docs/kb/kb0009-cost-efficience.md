@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: "Running CluedIn efficiently for cost"
 permalink: /kb/cost-efficience
 nav_exclude: true

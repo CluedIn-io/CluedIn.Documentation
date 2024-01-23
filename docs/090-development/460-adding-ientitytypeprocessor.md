@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Adding a new IEntityTypeProcessor
 parent: Development
 nav_order: 460

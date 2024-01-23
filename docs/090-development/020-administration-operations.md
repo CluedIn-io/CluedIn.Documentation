@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Administration Operations
 parent: Development
 nav_order: 020

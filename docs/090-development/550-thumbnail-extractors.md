@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Thumbnail Extractors
 parent: Development
 nav_order: 550

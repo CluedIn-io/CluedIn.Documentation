@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Additional operations
 parent: Integration
 nav_order: 020
@@ -11,8 +11,8 @@ last_modified: 2024-01-15
 
 In this section, you will learn how to improve the quality of your data in the **Data Sources** module in CluedIn.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/896923320?h=e1e5c408c7&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Additional operations — rules, quarantine, and monitoring"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/896923320?h=e1e5c408c7&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Additional operations — rules, quarantine, and monitoring"></iframe>
 </div>
 
 Although normalizing, transforming, and improving the quality of records before processing is optional, we recommend that you do it for several reasons:

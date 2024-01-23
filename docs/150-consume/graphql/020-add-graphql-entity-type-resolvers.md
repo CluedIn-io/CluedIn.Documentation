@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 1
 parent: GraphQL
 grand_parent: Consume

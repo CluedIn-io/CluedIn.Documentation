@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Permissions
 parent: Administration
 permalink: /administration/permissions

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Add relations between records
 parent: Getting started
 permalink: /getting-started/relations
@@ -13,9 +13,8 @@ tags: ["getting-started"]
 
 Relations are built between source ("to") and target ("from") records by using edges of a certain type (for example, /WorksFor). You can create relations either before or after processing the data.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/854717569?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-title="Getting started with relations in CluedIn"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/854717569?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Getting started with relations in CluedIn"></iframe>
 </div>
 
 In this article, you will learn how to add and view relations between golden records.

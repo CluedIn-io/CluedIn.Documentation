@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Ignoring Insignificant Changes
 parent: Development
 nav_order: 520

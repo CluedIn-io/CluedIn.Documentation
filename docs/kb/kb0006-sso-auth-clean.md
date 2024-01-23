@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Restricting access to CluedIn Clean via SSO Authentication
 permalink: /kb/sso-auth-cluedin-clean
 nav_exclude: true

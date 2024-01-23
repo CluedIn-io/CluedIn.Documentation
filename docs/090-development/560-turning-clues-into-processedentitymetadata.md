@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Turning Clues into ProcessedEntityMetadata
 parent: Development
 nav_order: 560

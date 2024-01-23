@@ -1,7 +1,7 @@
 ---
-layout: default
+layout: cluedin
 title: Engine Room
-nav_order: 70
+nav_order: 60
 has_children: false
 permalink: /engine-room
 tags: ["engine-room"]

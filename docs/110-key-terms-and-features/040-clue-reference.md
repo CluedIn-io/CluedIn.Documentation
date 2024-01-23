@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Clue reference
 parent: Key terms and features
 permalink: /key-terms-and-features/clue-reference
@@ -9,13 +9,13 @@ tags: ["clue"]
 ---
 ## On this page
 {: .no_toc .text-delta }
-- TOC
+1. TOC
 {:toc}
 
 In this article, you will learn about a clue—an integral part of the data life cycle in CluedIn. Understanding how to interpret clues is important to ensure that they contain all the necessary details for successful processing and creation of golden records.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/901142502?h=12b6e293b7&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Clue reference"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/901142502?h=12b6e293b7&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Clue reference"></iframe>
 </div>
 
 ## Clue overview

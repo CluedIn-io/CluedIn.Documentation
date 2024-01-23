@@ -1,8 +1,8 @@
 ---
-layout: default
+layout: cluedin
 title: Modelling
 parent: Management
-nav_order: 020
+nav_order: 030
 has_children: false
 permalink: /management/modelling
 tags: ["management","modelling"]

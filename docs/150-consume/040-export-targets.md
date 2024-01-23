@@ -1,10 +1,10 @@
 ---
-layout: default
+layout: cluedin
 title: Export targets
 parent: Consume
 nav_order: 1
 permalink: /consume/export-targets
-tags: ["consume","export-targets"]
+tags: ["consume","streams"]
 ---
 ## On this page
 {: .no_toc .text-delta }

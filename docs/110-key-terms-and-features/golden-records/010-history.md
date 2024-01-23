@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 1
 parent: Golden records
 grand_parent: Key terms and features
@@ -10,7 +10,7 @@ last_modified: 2024-01-15
 ---
 ## On this page
 {: .no_toc .text-delta }
-- TOC
+1. TOC
 {:toc}
 
 History is an important aspect of a golden record because it shows which data parts make up a golden record, what values each data part has, and what changes were made to those data parts. For more information about data parts, see [Data life cycle](/key-terms-and-features/data-life-cycle). In this article, you will learn how the history of a golden record works and how to interpret changes made to golden records.

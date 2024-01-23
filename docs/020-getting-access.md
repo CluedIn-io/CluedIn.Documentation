@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Getting access
 nav_order: 30
 has_children: false

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Rest API
 parent: Consume
 nav_order: 80

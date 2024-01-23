@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Frequently Asked Questions
 permalink: /kb/faq
 nav_exclude: true

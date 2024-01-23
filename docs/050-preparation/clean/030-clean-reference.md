@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 3
 parent: Clean
 grand_parent: Preparation
@@ -9,7 +9,7 @@ tags: ["preparation", "clean"]
 ---
 ## On this page
 {: .no_toc .text-delta }
-- TOC
+1. TOC
 {:toc}
 
 In this article, you will find reference information to help you understand the statuses of clean projects and the process of working with them.

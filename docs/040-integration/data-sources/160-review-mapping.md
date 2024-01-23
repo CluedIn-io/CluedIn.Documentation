@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 040
 parent: Data sources
 grand_parent: Integration

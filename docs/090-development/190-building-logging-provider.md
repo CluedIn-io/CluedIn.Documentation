@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Building a new Logging Provider
 parent: Development
 nav_order: 190

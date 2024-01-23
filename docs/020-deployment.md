@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Installation
 nav_order: 20
 has_children: true

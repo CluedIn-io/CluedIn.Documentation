@@ -1,9 +1,8 @@
 ---
-layout: default
+layout: cluedin
 title: Preparation
-nav_order: 60
+nav_order: 50
 has_children: true
 permalink: /Preparation
 ---
 
-{: .fs-6 .fw-300 }

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Scheduled Time Jobs
 parent: Development
 nav_order: 180

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Restricting access to CluedIn Clean via Basic Authentication
 permalink: /kb/basic-auth-cluedin-clean
 nav_exclude: true

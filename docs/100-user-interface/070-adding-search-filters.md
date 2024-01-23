@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Adding Search Filters
 parent: User Interface
 nav_order: 070

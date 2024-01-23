@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Common Design Decisions
 parent: Development
 nav_order: 390

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: "Disabling colors in CluedIn log output"
 description: "Disabling colors in CluedIn log output"
 permalink: /kb/themed-log-output

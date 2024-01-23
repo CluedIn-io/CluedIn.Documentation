@@ -1,6 +1,6 @@
 ---
 grand_parent: Deployment
-layout: default
+layout: cluedin
 nav_order: 9
 parent: How-to guides
 grand_parent: Installation

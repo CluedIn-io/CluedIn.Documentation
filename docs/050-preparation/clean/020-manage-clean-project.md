@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 2
 parent: Clean
 grand_parent: Preparation
@@ -9,7 +9,7 @@ tags: ["preparation", "clean"]
 ---
 ## On this page
 {: .no_toc .text-delta }
-- TOC
+1. TOC
 {:toc}
 
 After creating a clean project, you can begin the cleaning process to get a more ready-to-use set of data. In this article, you will learn how to load data for cleaning, perform data cleaning operations, and publish the cleaned data back to CluedIn. 

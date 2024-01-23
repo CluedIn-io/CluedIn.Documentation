@@ -1,7 +1,7 @@
 ---
-layout: default
+layout: cluedin
 title: Development
-nav_order: 100
+nav_order: 90
 has_children: true
 permalink: /development
 ---

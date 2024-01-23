@@ -1,11 +1,11 @@
 ---
-layout: default
+layout: cluedin
 title: Streams
 parent: Consume
 nav_order: 2
 has_children: true
 permalink: /consume/streams
-tags: ["consume", "data export", "streams"]
+tags: ["consume", "streams"]
 last_modified: 2024-01-15
 ---
 

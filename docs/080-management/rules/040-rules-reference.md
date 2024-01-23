@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 4
 parent: Rules
 grand_parent: Management
@@ -10,7 +10,7 @@ last_modified: 2023-11-16
 ---
 ## On this page
 {: .no_toc .text-delta }
-- TOC
+1. TOC
 {:toc}
 
 In this article, you will find reference information to help you understand the actions associated with each type of rule.

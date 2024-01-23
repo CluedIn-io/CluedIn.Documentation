@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Pending Changes
 parent: User Interface
 nav_order: 060

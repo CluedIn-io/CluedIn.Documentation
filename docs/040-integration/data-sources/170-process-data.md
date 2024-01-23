@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 050
 parent: Data sources
 grand_parent: Integration
@@ -33,8 +33,6 @@ The processing of data is the same regardless of the source of data (file, inges
 
 1. In the lower-right corner, select **Confirm**.
 
-    ![process-data.gif](../../assets/images/integration/data-sources/process-data.gif)
-    
     After the processing is completed, review the statistics. Any records that fail to meet specific conditions outlined in [property](/integration/additional-operations-on-records/property-rules) or [pre-process](/integration/additional-operations-on-records/preprocess-rules) rules will be sent to quarantine. To learn more about managing these records, see [Quarantine](/integration/additional-operations-on-records/quarantine).
 
 If the processing takes a long time, go to the **Monitoring** tab and check the number of messages in the queues. Depending on the type of message queue with a high message count, you can perform specific troubleshooting actions. For further details, see [Monitoring](/integration/additional-operations-on-records/monitoring).

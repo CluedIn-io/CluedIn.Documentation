@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 5
 parent: Additional operations
 grand_parent: Integration

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Organization Vocabulary
 parent: Development
 nav_order: 320

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Deduplicate data
 parent: Getting started
 permalink: /getting-started/data-deduplication
@@ -13,8 +13,8 @@ tags: ["getting-started"]
 
 Deduplication process helps you find and merge duplicate records based on a set of rules that you define. CluedIn will automatically identify the changes and update the stream with deduplicated records.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/850839188?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Getting started with data deduplication in CluedIn"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/850839188?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Getting started with data deduplication in CluedIn"></iframe>
 </div>
 
 In this article, you will learn how to deduplicate the data that you have ingested into CluedIn and streamed to a Microsoft SQL Server database.

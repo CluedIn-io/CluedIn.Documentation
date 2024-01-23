@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Clean data
 parent: Getting started
 permalink: /getting-started/manual-data-cleaning
@@ -13,8 +13,8 @@ tags: ["getting-started"]
 
 Cleaning the data in CluedIn involves finding the data that needs to be cleaned, creating a clean project, and making the necessary changes to the data.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/850826311?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Getting_started_with_manual_data_cleaning"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/850826311?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Getting_started_with_manual_data_cleaning"></iframe>
 </div>
 
 In this article, you will learn how to manually clean the data that you have ingested into CluedIn and streamed to a Microsoft SQL Server database.

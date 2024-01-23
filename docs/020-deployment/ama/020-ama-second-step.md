@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 2
 parent: Azure Marketplace
 grand_parent: Installation
@@ -216,16 +216,6 @@ As part of the AKS managed cluster, AMA or AKS (public cluster) is deployed as a
 If you need to change some network configurations, you can do that after you install CluedIn. For details about network customization, see <a href="/deployment/infra-how-tos/advanced-network"> Advanced network configuration</a>.
 
 CluedIn provides support of Azure Load Balancer and Application Gateway. Other network configurations are not supported out of the box in any of our plans, so you might need the CluedIn infrastructure package hours.
-
-## Analyze Azure policies and tagging
-
-The installation wizard supplies consumers to add resource tags during runtime. Please be aware of how tagging works before going through the installation as additional steps may be required.
-
-Tags supplied at runtime will apply to the deployed CluedIn resources. This includes the AKS cluster, key vault, virtual network, log analytics, and a few other resources.
-
-It does not apply to the managed resource group, the AKS node resource group, or the managed application resource itself. This is a limitation of how the Marketplace Applications works.
-
-If your tenant has comprehensive tagging, it is recommended to add a temporary exemption for the subscription at install time, and then add tags post-deployment.
 
 ## Results
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: CluedIn Connect
 parent: Preparation
 nav_order: 20
