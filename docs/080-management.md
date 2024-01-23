@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: Management
-nav_order: 70
+nav_order: 80
 has_children: true
 permalink: /management
 ---

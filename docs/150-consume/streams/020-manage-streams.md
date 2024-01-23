@@ -5,7 +5,7 @@ parent: Streams
 grand_parent: Consume
 permalink: /consume/streams/manage-streams
 title: Manage streams
-tags: ["consume", "streams"]
+tags: ["consume", "data export", "streams"]
 last_modified: 2024-01-16
 ---
 ## On this page
@@ -21,15 +21,15 @@ Stream controls allows you to manage the process of sending records to the expor
 
 - **Start** – the stream will start accumulating records in the queue and sending them to the export target.
 
-    ![manage-streams-1.png](../../assets/images/consume/streams/manage-streams-1.png)
+    ![start-stream.gif](../../assets/images/consume/streams/start-stream.gif)
 
 - **Pause** – the stream will stop sending records to the export target, but it will still continue accumulating records in the queue.
 
-    ![manage-streams-2.png](../../assets/images/consume/streams/manage-streams-2.png)
+    ![pause-stream.gif](../../assets/images/consume/streams/pause-stream.gif)
 
 - **Stop** – the stream will stop sending records to the export target and accumulating records in the queue.
 
-    ![manage-streams-3.png](../../assets/images/consume/streams/manage-streams-3.png)
+    ![stop-stream.png](../../assets/images/consume/streams/stop-stream.png)
 
 Think of these stream controls as similar to the controls on a video player. When you select **Pause**, the stream halts temporarily, remembering your playback position and storing records in the queue. This way, when you resume the stream, it continues from where you left off, maintaining your progress. On the other hand, **Stop** leads to a complete termination of the streaming process and clearing of the queue. If you start the stream after it had been stopped, it will start sending records to the export target from the beginning, not from the point at which you stopped the stream.
 

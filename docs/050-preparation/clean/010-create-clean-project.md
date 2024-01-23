@@ -9,7 +9,7 @@ tags: ["preparation", "clean"]
 ---
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 A clean project is where you specify the data to be cleaned, retrieve it from CluedIn, perform the cleaning process, and then send the cleaned values back to golden records.

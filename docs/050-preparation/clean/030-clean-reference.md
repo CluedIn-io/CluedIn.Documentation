@@ -9,7 +9,7 @@ tags: ["preparation", "clean"]
 ---
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 In this article, you will find reference information to help you understand the statuses of clean projects and the process of working with them.

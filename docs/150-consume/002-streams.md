@@ -5,7 +5,7 @@ parent: Consume
 nav_order: 2
 has_children: true
 permalink: /consume/streams
-tags: ["consume", "streams"]
+tags: ["consume", "data export", "streams"]
 last_modified: 2024-01-15
 ---
 

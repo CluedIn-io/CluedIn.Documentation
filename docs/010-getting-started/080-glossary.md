@@ -14,8 +14,7 @@ tags: ["getting-started"]
 Glossary can help you in documenting groups of records that meet specific criteria, simplifying the process of cleaning and streaming these groups of records.
 
 <div class="videoFrame">
-<iframe src="https://player.vimeo.com/video/853694351?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
-title="Getting started with Glossary in CluedIn"></iframe>
+<iframe src="https://player.vimeo.com/video/853694351?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Getting started with Glossary in CluedIn"></iframe>
 </div>
 
 In this article, you will learn how to work with the glossary in CluedIn. Glossary consists of terms that are grouped into categories. Each term contains a list of records that correspond to your conditions.

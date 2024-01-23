@@ -5,7 +5,7 @@ parent: Streams
 grand_parent: Consume
 permalink: /consume/streams/stream-reference
 title: Stream reference
-tags: ["consume", "streams"]
+tags: ["consume", "data export", "streams"]
 last_modified: 2024-01-16
 ---
 ## On this page
