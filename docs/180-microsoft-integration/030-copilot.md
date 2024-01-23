@@ -1,9 +1,9 @@
 ---
 layout: default
-title: CluedIn Copilot
-parent: Key terms and features
-permalink: /key-terms-and-features/cluedin-copilot
-nav_order: 5
+title: Copilot Integration
+parent: Microsoft Integration
+permalink: /microsoft-integration/copilot-integration
+nav_order: 030
 has_children: false
 tags: ["copilot"]
 ---
