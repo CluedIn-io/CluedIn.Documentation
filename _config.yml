@@ -121,4 +121,5 @@ favicon_ico: "/assets/images/favicon.png"
 kramdown:
   syntax_highlighter_opts:
     block:
-      line_numbers: true
+      line_numbers: false
+      
