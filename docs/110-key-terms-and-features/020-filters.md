@@ -66,7 +66,8 @@ Filters in search help you narrow down the exact records you want to see or use 
 
 After you set up your search filters, you can save them for future use. This eliminates the need to specify filter criteria each time you want to find the same set of records. You can also share saved searches within your organization, making them available to others who need to work with the same set of records. For more information, see [Saved searches](/key-terms-and-features/search#saved-searches).
 
-**Note:** Saved searches are particularly useful in [clean projects](/preparation/clean), especially if you need to clean your records on a regular basis. You can set up and save a search filter to detect specific data issues, and when the saved search returns results, you can run the clean project to fix those issues.
+{:.important}
+Saved searches are particularly useful in [clean projects](/preparation/clean), especially if you need to clean your records on a regular basis. You can set up and save a search filter to detect specific data issues, and when the saved search returns results, you can run the clean project to fix those issues.
 
 ## Reference information
 

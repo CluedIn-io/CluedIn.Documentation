@@ -36,7 +36,9 @@ When using Azure App registrations you can do this under the `Authentication` se
 Open PowerShell, then connect to your Azure tenant using the following command (replace values of variables were needed):
 First, connect to Azure [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli):
 
-**Note:** For directions on how to get Azure Tenant Id, visit [How to find Azure AD tenant ID](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-to-find-tenant).
+{:.important}
+For directions on how to get Azure Tenant Id, visit [How to find Azure AD tenant ID](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-to-find-tenant).
+
 ```powershell
 $tenant_id = 'replace with your tenant Id' # your tenant ID
 az login --tenant $tenant_id # this line will open the Azure Login page in your browser

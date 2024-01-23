@@ -79,7 +79,8 @@ If we select a column that contains duplicate values (for example, country), the
 
 However, if you are confident that the selected property can uniquely represent the record, you can proceed with processing the data. Records with identical entity origin codes will be automatically merged, eliminating the need for a separate deduplication project.
 
-**Note:** If the entity origin code contains an empty value, it is replaced with a hash. If your data set contains a record that is nearly identical to the one with the hash value, they will not be merged because the hash is a unique value. In such cases, you can initiate a deduplication project as a solution.
+{:.important}
+If the entity origin code contains an empty value, it is replaced with a hash. If your data set contains a record that is nearly identical to the one with the hash value, they will not be merged because the hash is a unique value. In such cases, you can initiate a deduplication project as a solution.
 
 **What is an entity code?**
 

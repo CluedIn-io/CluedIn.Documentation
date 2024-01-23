@@ -121,4 +121,5 @@ If you have any questions about DNS configuration, you can request CluedIn suppo
 After a short time, you'll see the confirmation of your update in the console. CluedIn is now configured to use your new DNS address.  
 ![configure-dns-2.png](../../assets/images/ama/howtos/configure-dns-2.png)
 
-**Note:** This will use the LetsEncrypt service in the cluster to do an HTTP request to validate the certificate. If you would like to use a self-provided certificate, please review the [Configure TLS Certificates](/deployment/infra-how-tos/configure-certificates) page.
+{:.important}
+This will use the LetsEncrypt service in the cluster to do an HTTP request to validate the certificate. If you would like to use a self-provided certificate, please review the [Configure TLS Certificates](/deployment/infra-how-tos/configure-certificates) page.

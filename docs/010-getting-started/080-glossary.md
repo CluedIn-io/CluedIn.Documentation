@@ -89,7 +89,8 @@ Term refers to the list of records that meet specific conditions. For example, w
 
         ![create-term-2.png](../../assets/images/getting-started/glossary/create-term-2.png)
 
-        **Note:** The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
+        {:.important}
+        The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
 
 1. (Optional) Specify additional details about the term:
 

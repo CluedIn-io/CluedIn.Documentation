@@ -42,11 +42,13 @@ Template deployment creates a storage account, backup vault, policies, instances
     ```bash
     az aks update -g <managed-resource-group> -n <cluster-name> --enable-managed-identity
     ```
-    **Note:** After updating your cluster, the control plane and pods will use the managed identity. The kubelet will continue using a service principal until you upgrade your agent pool.
+    {:.important}
+    After updating your cluster, the control plane and pods will use the managed identity. The kubelet will continue using a service principal until you upgrade your agent pool.
 
 1. Restart the AKS cluster to update the managed identity across all the node pools.
 
-    **Note:** This will cause downtime as the nodes are cordoned, drained, and reimaged.
+    {:.important}
+    This will cause downtime as the nodes are cordoned, drained, and reimaged.
 
 1. Initiate the deployment by selecting the following button:
 
@@ -62,7 +64,8 @@ Template deployment creates a storage account, backup vault, policies, instances
 
         ![backup-restore-1.png](../../assets/images/ama/howtos/backup-restore-1.png)
 
-        **Note:** The backup instances cannot be deployed within the same resource group as your existing AMA instance. To ensure proper configuration, the backup-related components must be deployed to a separate resource group.
+        {:.important}
+        The backup instances cannot be deployed within the same resource group as your existing AMA instance. To ensure proper configuration, the backup-related components must be deployed to a separate resource group.
 
     1. Select **Review + create**.
 

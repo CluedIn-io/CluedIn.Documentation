@@ -33,7 +33,8 @@ In this article, you will learn how to upgrade your local instance of CluedIn to
 
     You should use the version to which you want to upgrade (e.g., 3.7.4).
 
-    **Note:** Your environment's SQL Server Docker image should be running for this image to run correctly.
+    {:.important}
+    Your environment's SQL Server Docker image should be running for this image to run correctly.
 
 1. In the **.env** file for your environment, change the tags to reference the version of CluedIn that you are upgrading to.
 

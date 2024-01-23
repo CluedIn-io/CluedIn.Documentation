@@ -126,7 +126,8 @@ A stream is a trigger that starts the process of sending the data to the export 
 
     ![create-stream-9.png](../../assets/images/getting-started/data-streaming/create-stream-9.png)  
 
-    **Note:** On the **Monitoring** tab, you can view different data performance metrics.
+    {:.important}
+    On the **Monitoring** tab, you can view different data performance metrics.
 
 1. Go to the database and open the table.
 

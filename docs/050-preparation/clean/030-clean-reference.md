@@ -38,4 +38,5 @@ The following diagram shows the clean project workflow along with its statuses a
 
 ![clean-reference-1.png](../../assets/images/preparation/clean/clean-reference-1.png)
 
-**Note:** The **Archived** status is not shown in the diagram, but you can archive the clean project when it is in any status except **Generation aborting**, **Processing aborting**, and **Revert aborting**.
+{:.important}
+The **Archived** status is not shown in the diagram, but you can archive the clean project when it is in any status except **Generation aborting**, **Processing aborting**, and **Revert aborting**.

@@ -53,7 +53,8 @@ Creating a rule involves configuring a filter and defining the rule action.
 
         ![rule-builder-2.png](../../assets/images/getting-started/rule-builder/rule-builder-2.png)
 
-        **Note:** The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
+        {:.important}
+        The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
 
 1. In the **Actions** section, select **Add Action**, and then configure the action that CluedIn can perform on the filtered items:
 
@@ -71,7 +72,8 @@ Creating a rule involves configuring a filter and defining the rule action.
 
     1. In the lower-right corner, select **Add Action**.
 
-    **Note:** You can add multiple actions to the rule.
+    {:.important}
+    You can add multiple actions to the rule.
 
 1. In the upper-right corner of the rule details page, select **Save**.
 

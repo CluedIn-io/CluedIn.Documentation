@@ -47,7 +47,8 @@ To access pre-process rules, go to **Administration** > **Feature Flags** and ma
 
         ![pre-process-rules-1.png](../../assets/images/integration/additional-operations/pre-process-rules-1.png)
 
-        **Note:** You can add only one filter to the rule. For example, if you want to quarantine all records that, in addition to the job title, do not contain the email address and the phone number, you need to create separate rules for each vocabulary key.
+        {:.important}
+        You can add only one filter to the rule. For example, if you want to quarantine all records that, in addition to the job title, do not contain the email address and the phone number, you need to create separate rules for each vocabulary key.
 
     1. Select the **Action** that will be applied to the records.
 

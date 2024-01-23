@@ -90,7 +90,8 @@ Examples of log messages are provided in the following table.
    
 The following procedure shows how to get the current cluedin-server config map, edit the configuration, and apply the configuration to your Kubernetes cluster.
 
-**Note:** The example below uses a target namespace called **cluedin**. You may need to change the namespace to fit your implementation.
+{:.important}
+The example below uses a target namespace called **cluedin**. You may need to change the namespace to fit your implementation.
 
 **To apply your log level**
 

@@ -41,7 +41,10 @@ cln_user2::zefgyizjehgfaje8U6T
 Open PowerShell, then connect to your Azure tenant using the following command (replace values of variables were needed):
 First, connect to Azure [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli):
 
-**Note:** For directions on how to get Azure Tenant Id, visit [How to find Azure AD tenant ID](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-to-find-tenant).
+{:.important}
+
+For directions on how to get Azure Tenant Id, visit [How to find Azure AD tenant ID](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-to-find-tenant).
+
 ```powershell
 $tenant_id = 'replace with your tenant Id' # your tenant ID
 az login --tenant $tenant_id # this line will open the Azure Login page in your browser
@@ -51,7 +54,8 @@ az login --tenant $tenant_id # this line will open the Azure Login page in your 
 
 In PowerShell, run the following command:
 
-**Note:** If you use a specific namespace for the CluedIn cluster, you need to add it to the command. In the following example, we use **cluedin**. If you are in the default namespace, you don't need to add the **-n $namesapce** to the command.
+{:.important}
+If you use a specific namespace for the CluedIn cluster, you need to add it to the command. In the following example, we use **cluedin**. If you are in the default namespace, you don't need to add the **-n $namesapce** to the command.
 
 ```powershell
 $secret_name = 'cluedin-clean-credentials' # a name of your choice for the secret
