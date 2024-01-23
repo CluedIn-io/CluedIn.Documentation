@@ -139,19 +139,37 @@ html {
   }
 }
 
+@media (min-width: 50rem) {
+  div.card-line {
+    flex-direction: row !important;
+  }
+  .card:first-child {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+  .card {
+    margin-left: 32px !important;
+    margin-top: 0 !important;
+    width: 278px !important;
+  }
+}
+
 div.card-line {
   display: flex;
   margin: 32px 0;
+  flex-direction: column;
   .card:first-child {
     margin-left: 0;
   }
   .card {
-    margin-left: 32px;
+    margin-left: 0;
+    margin-top: 32px;
+    width: 100%;
   }
 }
 
 div.card {
-  width: 278px;
+  width: 100%;
   height: 278px;
   border: 1px solid #ffffff;
   background: #ffffff 0% 0% no-repeat padding-box;
