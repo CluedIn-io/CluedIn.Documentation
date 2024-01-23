@@ -139,8 +139,15 @@ html {
   }
 }
 
+@media (min-width: 50rem) {
+  div.card {
+    flex-direction: column;
+  }
+}
+
 div.card-line {
   display: flex;
+  flex-direction: row;
   margin: 32px 0;
   .card:first-child {
     margin-left: 0;
