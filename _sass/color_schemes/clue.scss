@@ -205,3 +205,14 @@ div.card {
     color: #000000;
   }
 }
+
+html {
+  min-height: 100% !important;
+}
+body {
+  min-height: 100% !important;
+  background-color: #fff !important;
+  background-image: url("/assets/icons/logo-mask.svg");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
