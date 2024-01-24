@@ -23,7 +23,7 @@ document.body.addEventListener(
     const findClosestSmaller = evt.target.closest(".card-smaller");
 
     if (findClosestSmaller) {
-      var hrefValue = findClosest.getAttribute("href");
+      var hrefValue = findClosestSmaller.getAttribute("href");
       if (hrefValue) {
         window.location = hrefValue;
         return;
