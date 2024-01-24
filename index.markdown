@@ -53,12 +53,12 @@ Transform raw data into a unified and organized master data with the help of our
   </div>
 </div>
 <div class="card-line">
-   <div class="card-smaller" href="/deployment">
+   <div class="card-smaller" href="/consume">
     <div class="icon"><img src="/assets/icons/preparation.svg" alt="getting started"/></div>
     <div class="title">Consume</div>
     <div class="content">Send data from CluedIn to any external destination</div>
   </div>
-   <div class="card-smaller" href="/release-notes">
+   <div class="card-smaller" href="administration">
     <div class="icon"><img src="/assets/icons/governance.svg" alt="getting started"/></div>
     <div class="title">Administration</div>
     <div class="content">Manage users, roles, permissions, and system settings</div>
