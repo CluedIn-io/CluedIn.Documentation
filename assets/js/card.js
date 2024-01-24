@@ -1,7 +1,10 @@
 document.body.addEventListener(
   "click",
   function (evt) {
-    if (evt.target.className === "card") {
+    if (
+      evt.target.className === "card" ||
+      evt.target.className === "card-smaller"
+    ) {
       var hrefValue = evt.target.getAttribute("href");
       if (hrefValue) {
         window.location = hrefValue;
@@ -13,6 +16,17 @@ document.body.addEventListener(
       var hrefValue = findClosest.getAttribute("href");
       if (hrefValue) {
         window.location = hrefValue;
+        return;
+      }
+    }
+
+    const findClosestSmaller = evt.target.closest(".card-smaller");
+
+    if (findClosestSmaller) {
+      var hrefValue = findClosest.getAttribute("href");
+      if (hrefValue) {
+        window.location = hrefValue;
+        return;
       }
     }
   },
