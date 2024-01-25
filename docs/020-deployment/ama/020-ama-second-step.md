@@ -90,14 +90,19 @@ This section contains the step-by-step procedure for manual registration of reso
 1. On the left menu, under **Settings**, select **Resource providers**.
 
 1. One by one, find and select the resource providers that you want to register, and then select **Register**.
-![Manual_Registration_1](../../assets/images/ama/install-guide/register-resource-provider-1.png)
-Wait until the status of the resource provider is changed from **Registering** to **Registered**.
-![Manual_Registration_2](../../assets/images/ama/install-guide/register-resource-provider-2.png)
+
+    ![Manual_Registration_1](../../assets/images/ama/install-guide/register-resource-provider-1.png)
+
+    Wait until the status of the resource provider is changed from **Registering** to **Registered**.
+
+    ![Manual_Registration_2](../../assets/images/ama/install-guide/register-resource-provider-2.png)
+
 1. Run the [verification script](#verification-script) to make sure that all resource providers are registered.
 
 For more information about registering resource providers, see <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types">Azure documentation</a>.
 
 ### Automatic registration of resource providers
+
 If you want a faster way to register the needed resource providers, run the script for automatic registration of resource providers.
 
 **Prerequisites**
@@ -117,15 +122,19 @@ If you want a faster way to register the needed resource providers, run the scri
 **To run the script for registering resource providers**
 
 1. Download this <a href="../../../assets/ps1/pre-checks.ps1" download>script</a>.
+
 1. Open your PowerShell terminal and run the following:
 ```
 .\pre-checks.ps1 <subscrioptionId> -Register
 # e.g. .\pre-checks.ps1 abc68d12-8e99-4890-b3a0-ca25816b1c26 -Register
 ```
-You will get an autput similar to the following.
-![output-automatic_registration.png](../../assets/images/ama/install-guide/output-automatic-registration.png)
+
+    You will get an autput similar to the following.
+    
+    ![output-automatic_registration.png](../../assets/images/ama/install-guide/output-automatic-registration.png)
 
 ### Verification script
+
 The verification script checks if you have enough quota and if all required resource providers are registered.
 
 **Prerequisites**
@@ -197,6 +206,7 @@ For the list of firewall rules that should be added to your Azure Firewall, see 
 CluedIn is very flexible in terms of network configuration. If you have any network-related questions, contact one of our infrastructure experts.
 
 ### Define VNet
+
 During the installation process, CluedIn will install a newly created Azure VNet using an address space 10.0.0.0/8 and a subnet 10.0.0.0/16 for the Azure Kubernetes Service.
 
 If you have an existing VNet and you want to reuse it for CluedIn installation, contact one of our infrastructure experts for assistance. You can specify the existing VNet in the <a href="/deployment/azure-marketplace/step-3#review-the-advanced-configuration-tab">Advanced configuration</a> step of CluedIn installation.
