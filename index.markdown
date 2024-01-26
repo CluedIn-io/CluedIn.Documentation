@@ -8,8 +8,6 @@ permalink: /
 
 <img style="width:60%;margin-top: 0;" src="/assets/images/documention-header.png" alt="Welcome to CluedIn">
 
-Discover how you can harness the power of master data management for effective data governance, improved decision-making, and streamlined operations
-
 <div class="card-line">
   <div class="card" href="/getting-started">
     <div class="icon"><img src="/assets/icons/getting-started.svg" alt="getting started"/></div>
