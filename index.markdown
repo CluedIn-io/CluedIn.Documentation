@@ -1,6 +1,6 @@
 ---
-layout: page
-title: Welcome to CluedIn
+layout: cluedin
+title: 
 nav_order: 0
 description: ""
 permalink: /
