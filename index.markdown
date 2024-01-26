@@ -6,7 +6,7 @@ description: ""
 permalink: /
 ---
 
-<img style="width:60%;margin-bottom:32px;" src="/assets/images/documention-header.png" alt="Welcome to CluedIn">
+<img style="width:60%;" src="/assets/images/documention-header.png" alt="Welcome to CluedIn">
 
 Discover how you can harness the power of master data management for effective data governance, improved decision-making, and streamlined operations
 
