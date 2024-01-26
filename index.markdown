@@ -1,5 +1,5 @@
 ---
-layout: cluedin
+layout: page
 title: Welcome to CluedIn
 nav_order: 0
 description: ""
