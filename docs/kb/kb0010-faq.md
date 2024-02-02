@@ -86,4 +86,24 @@ There are many use-cases where CluedIn could be considered overkill or not fit f
 
 1: Processing Signal/IoT data that doesn't have data quality issues or doesn't need cataloging, governance - but instead needs to be made available in a Dashboard as fast as humanly possible. 
 2: If you have a limited number of systems to integrate and there are no problems determining how the records are connected between the different systems. A good example would be if you just wanted to integrate your Dropbox account with your CRM. 
-3: Where you do not want to move data. CluedIn copies data from sources to target. It won't necessarily take all the data, but it is an ingestion engine. You have to be very careful with this use case as many problems cannot be properly solved without copying the data. 
+3: Where you do not want to move data. CluedIn copies data from sources to target. It won't necessarily take all the data, but it is an ingestion engine. You have to be very careful with this use case as many problems cannot be properly solved without copying the data.
+
+# What happens if I change the default configuration installed using the Azure Marketplace offering?
+
+Any modifications made to the default configuration, except those explicitly documented as post-install adjustments on the Documentation portal, will result in the termination of support. This includes Premium Support, Azure Managed Application, and any other customer support service. The reason for this is the high probability that the cluster may not operate correctly. Changes outside the documented scope are considered out of support, and CluedIn will not provide assistance or troubleshooting for configurations that deviate from the originally installed setup.
+
+Here is a list of allowed changes:
+
+- Adjusting requests and limits on CluedIn operating pods for both CPU and Memory
+- Setting up and receiving assistance with the CluedIn Backup Solution
+- Configuring Single Sign-On
+- Setting up SMTP details for Welcome Emails
+- Configuring Extended alerts via CluedIn (Note: CluedIn-specific alerts only, not customer-specific alerts)
+- Troubleshooting ad-hoc cluster failures, if determined not to be caused by the customer
+- Upgrading environments
+- Installing the product using our default configuration
+- Usage of Azure Key Vault to provide secrets to the cluster
+- General AKS maintenance on the default configuration
+
+Any deviation from this list will be considered out of support, and assistance for the issue is not guaranteed and may incur charges.
+
