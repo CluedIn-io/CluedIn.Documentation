@@ -4,257 +4,156 @@ title: Sync certificates and secrets from Azure Key Vault to Azure Kubetnetes Se
 permalink: /kb/sync-aks-to-akv
 nav_exclude: true
 tags: ["kubernetes","azure","aks", "akv", "key-vault", "azure"]
-last_modified: 2021-11-02
+last_modified: 2024-02-05
 is_kb: true
 ---
+# Introduction
 
-In this walkthrough, we will create a new Azure Key Vault, and then create a new Azure Kubernetes Service, and then we will synchronize the certificates and secrets from the Azure Key Vault to the Azure Kubernetes Service.
+**NOTE**: This is not currently supported as of Q1 2024. However, beta versions are available that allow users
+
+In this walkthrough, we will guide you through connecting your CluedIn Instance to utilise the existing Azure Key Vault to synchronise Secrets and Certificates to your Kubernetes cluster.
+
+This method utilises the Azure Key Vault (**AKV**) provider for secrets store CSI driver to facilitate this feature.
 
 Useful links:
 * [Azure Key Vault Provider for Secrets Store CSI Driver](https://azure.github.io/secrets-store-csi-driver-provider-azure/)
 * [Use the Secrets Store CSI Driver for Kubernetes in an Azure Kubernetes Service (AKS) cluster (preview)](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver)
 
+# Prerequisites
 
-We will use Powershell 7 and assume that all commands run in the same session. So we can start with defining the necessary variables:
+- Powershell Core
+- Azure CLI
 
-```powershell
-$SUBSCRIPTION_ID = '...'
-$LOCATION = '...'
-$RG_NAME = '...'
-$AKS_NAME = '...'
-$AKV_NAME = '...' # must be globally unique
-```
+# Guide
 
-Ensure that we run the commands under the right Subscription:
+1. We will first need to login to your tenant to enable the Azure key vault addon against the AKS
 
-```powershell
-az login
-az account set --subscription $SUBSCRIPTION_ID
-```
+1. Open up `pwsh` and login to your tenant with: `az login`
 
-Enable the Secrets Store CSI Driver feature:
+1. Set up your variables which will be used below:
+    ```pwsh
+    $aks = az aks show --name $aksName --resource-group $aksResourceGroup
+    $subscription = '00000000-0000-0000-0000-000000000000' # This will be different guid on your end.
+    $tenantId = '00000000-0000-0000-0000-000000000000' # This will be different guid on your end.
 
-```powershell
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-AzureKeyVaultSecretsProvider"
-```
+    $keyVaultName = 'kv-012345' # Please use your desired key vault name
+    $keyVaultRG = 'rg-kv' # Please use the resource group the above key vault resides in
+    ```
 
-It will take a while for the feature to be enabled. We can check the status of the feature by running this command:
+1. Once logged in, next you'll need to enable the addon on the existing AKS Cluster
+    ```pwsh
+    $params = @(
+        '--addons', 'azure-keyvault-secrets-provider'
+        '--name', $aks.name
+        '--resource-group', $aks.resourceGroup
+    )
+    az aks enable-addons --addons @params
+    ```
+    **NOTE**: Please note that this will deploy some additional pods to each available node.
 
-```powershell
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-AzureKeyVaultSecretsProvider')].{Name:name,State:properties.state}"
+1. Once the addon has been deployed, it will create a key vault managed identity which is used to  communicate back to the Azure key vault from the kubernetes cluster.
 
-# Eventually, it must return "Registered":
+1. To get the managed identity, you can run the following:
+    ```pwsh
+    $params = @(
+        '--name', $aks.name
+        '--resource-group', $aks.resourceGroup
+        '--subscription', $subscription
+        '--query', 'addonProfiles.azureKeyvaultSecretsProvider.identity.objectId'
+        '--output', 'tsv'
+    )
+    $kvManagedIdentity = az aks show @params
+    ```
 
-# Name                                                         State
-# -----------------------------------------------------------  ----------
-# Microsoft.ContainerService/AKS-AzureKeyVaultSecretsProvider  Registered
-```
+    **NOTE**: Depending on if you're using RBAC or Policy for Key Vault access, you will need to update the appropriate area so the key vault managed identity can GET and LIST secrets and certificates.
 
-Now, re-register the Container Service extension and ensure it is up-to-date:
+1. We will now obtain the key vault details:
+    ```pwsh
+    $kv = az keyvault show --name $keyVaultName --resource-group $keyVaultRG | ConvertFrom-Json
+    ```
 
-```powershell
-az provider register --namespace Microsoft.ContainerService
-az extension add --name aks-preview
-az extension update --name aks-preview
-```
+    **NOTE**: This guide assumes you'll use the pre-existing key vault deployed at install time. You may use an alternative key vault if prefered, so please update the values above to match your desired key vault.
 
-Create a resource group:
+1. Update access to your key vault:
+    - RBAC:
+    ```pwsh
+    $params = @(
+        '--assignee', $kvManagedIdentity
+        '--role', 'Key Vault Secret User'
+        '--role', 'Key Vault Certificate User'
+        '--scope', $kv.id
+    )
+    az role assignment create @params
+    ```
 
-```powershell
-az group create --name $RG_NAME --location $LOCATION
-```
+    - Policy: 
+    ```pwsh
+    $params = @(
+        '--name', $kv.name
+        '--resource-group', $kv.resourceGroup
+        '--certificate-permissions', 'get'
+        '--secret-permissions', 'get'
+        '--spn', $kvManagedIdentity
+    )
+    az keyvault set-policy @params
+    ```
 
-Create an Azure Key Vault with one secret and one certificate:
+1. With the above now set, it's time to start uploading your secrets and certificates.
 
-```powershell
+1. Navigate to the Key Vault in the Azure Portal instance and begin adding secrets and certificates.  
+    Depending on what you are uploading, select either Certificates or Secrets.
 
-az keyvault create --name $AKV_NAME --resource-group $RG_NAME --location $LOCATION
+    For Certificates:
+    Upload a PFX of your choice along with a password
 
-az keyvault certificate get-default-policy > policy.json # get the default policy
+    For Secrets:
+    Create a secret key:value pair. These will be used for synchronisation from Azure key vault to Kubernetes secrets.  
+    As Kubernetes secrets are an oject that contain multiple key:value pairs, please ensure that your naming convention in AKV makes sense.
 
-az keyvault certificate create --name cert-demo --vault-name $AKV_NAME -p "@policy.json"
-az keyvault secret set --vault-name $AKV_NAME --name "foo" --value "bar"
-```
+    **EXAMPLE**: In Kubernetes we may have a secret `cluedin-login-details` which contains 2 key:value pairs. `Username`, and `Password`.
 
-Next, let's create an Azure Kubernetes Service:
+    In AKV, it would be best to have these two secrets as `cluedin-login-username` and `cluedin-login-password`. 
 
-```powershell
-az aks create `
-  --resource-group $RG_NAME `
-  --name $AKS_NAME `
-  --node-vm-size Standard_B8ms `
-  --node-count 1 ` # AKS creates 3 nodes by default, but for the demo we need only one
-  --generate-ssh-keys `
-  --network-plugin azure `
-  --enable-addons azure-keyvault-secrets-provider ` # enable the Secrets Store CSI Driver
-  --enable-managed-identity ;
+    When we get later into the guide, we'll explain how to pair these back up into a single object.
 
-  # Expected output:
+1. With all your desired secrets and certificates now uploaded, it's time to configure the `Values.yaml` to begin synchronising.
 
-  # {
-  #   "aadProfile": null,
-  #   "addonProfiles": {
-  #     "azureKeyvaultSecretsProvider": {
-  #       "config": {
-  #         "enableSecretRotation": "false",
-  #         "rotationPollInterval": "2m"
-  #       },
-  #       "enabled": true,
-  #       "identity": {
-  #         "clientId": "...",
-  #         "objectId": "...",
-  #         "resourceId": "/subscriptions/.../resourcegroups/MC_resourse-group-name_region/providers/Microsoft.ManagedIdentity/userAssignedIdentities/azurekeyvaultsecretsprovider-aks-name"
-  #       }
-  #     }
-  #   },
-```
+    In your values file, we'll need to add the following block of code into the global values:
 
-Pay attention to the `addonProfiles.identity` - a managed identity automatically created in the `MC_` resource group. We will use this identity to connect to the Azure Key Vault.
+    ```yaml
+    global:
+      keyvault:
+        enabled: true # When enabled, it will deploy the secret store manifest to Kubernetes
+        #frontendCrt: cluedin-sample-pfx # This must match the certificate name on the AKV end. When mounted, it will appear as `cluedin-frontend-crt`
+        userAssignedIdentityID: $kvManagedIdentity # This is the guid for the kv managed identity
+        keyvaultName: $kv.name # This is your key vault name
+        tenantId: $tenantId # This is the guid of your tenant
+        secretRanges:
+        - secretName: cluedin-login-details # This is how the secret will appear within Kubernetes Secrets once synchronised
+          secretType: Opaque # For most secrets, leave as Opaque
+          secretKeys:
+            password: cluedin-login-password # The left side (Key) is the name in the Kubernetes secret object. The right side (Value) is the AKV reference which will grab its value.
+            username: cluedin-login-username
 
-Let's save the `addonProfiles.identity.cliendId` into a variable:
+    infrastructure:
+      cert-manager:
+        #enabled: false # Only set to false if using an uploaded frontend certificate.
+    ```
+    **NOTE**: If you are using the certificate upload as part of your setup, you **must** disable cert-manager by setting `enabled: false`. You also must set `frontendCrt` to a value. It will be mounted as `cluedin-frontend-crt`. This secret name cannot change.
 
-```powershell
-$SERVICE_PRINCIPAL_CLIENT_ID = 'a819baaa-4aeb-43fc-92ce-b367176d5b88'
-```
+1. With all the secrets and certificates now done, the last step is to update and `secretRef`'s in your `Values.yaml` or chart to reference the new synchronised secrets.
 
-If you update the existing AKS cluster, you will need to run this command in this way:
+# Technical Notes
+This section will explain some of the more technical bits.
 
-```powershell
-az aks enable-addons --addons azure-keyvault-secrets-provider --name $AKS_NAME --resource-group $RG_NAME
-```
+- The secret csi driver is deployed at the Kubernetes level. This deploys some additional pods to each node to facilitate this. However, if your max pods limit is the default `30`, you may run into an issue after deploying as the CluedIn application is on the borderline of this value.  
 
-While we are here, let's connect to the AKS cluster and enable the secrets auto-rotation:
+    Please ensure this is checked before proceeding as it may cause the cluster to not function correctly. 
 
-```powershell
-az aks get-credentials --resource-group $RG_NAME --name $AKS_NAME
-# check the CSI driver and the store provider statuses
-kubectl get pods -n kube-system -l 'app in (secrets-store-csi-driver, secrets-store-provider-azure)'
+- The way the secrets are synchronised is by the `cluedin-server` pod mounting the secret store and the secrets referenced above under `secretRanges`. It's important to note that the secrets synchronise only when the pod is active. It doesn't need to be in a running state, but it must at least be pending.  
 
-# Expected output:
-# NAME                                     READY   STATUS    RESTARTS   AGE
-# aks-secrets-store-csi-driver-h52sr       3/3     Running   0          0h17m
-# aks-secrets-store-provider-azure-7qlgd   1/1     Running   0          0h30m
+    This is a limitation of the csi driver itself rather than the solution provided by CluedIn.
 
-az aks update -g $RG_NAME -n $AKS_NAME --enable-secret-rotation
-```
+- The Secrets synchronised do not override existing secrets that are created by the CluedIn Installer. If your secret matches the same name (frontend certificate is mandatory here), you must remove the existing secret for the synchronised secret to appear
 
-Now, let's allow our managed identity to access the Azure Key Vault:
-
-```powershell
-az keyvault set-policy -n $AKV_NAME --secret-permissions get --spn $SERVICE_PRINCIPAL_CLIENT_ID
-az keyvault set-policy -n $AKV_NAME --certificate-permissions get --spn $SERVICE_PRINCIPAL_CLIENT_ID
-```
-
-These commands let the managed identity read secrets and certificates from the Azure Key Vault.
-
-
-Our next step is to create a SecretProviderClass - a custom Kubernetes resource that will be used to connect to the Azure Key Vault:
-
-```yaml
-# secretproviderclass.yml
-apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
-kind: SecretProviderClass
-metadata:
-  name: azure-keyvault-name # use the name of your Azure Key Vault
-spec:
-  provider: azure
-  secretObjects:
-  # The following section describes how AKV secret is mapped to the Kubernetes secret:
-  - secretName: foo
-    type: Opaque
-    data:
-    - objectName: foo
-      key: foo
-  # If we store a certificate as a Kubernetes secret, the secret type must be kubernetes.io/tls
-  - secretName: cert-demo
-    type: "kubernetes.io/tls"
-    data:
-    - objectName: cert-demo
-      key: tls.key
-    - objectName: cert-demo
-      key: tls.crt
-  parameters:
-    keyvaultName: "azure-keyvault-name" # The name of the Azure Key Vault
-    useVMManagedIdentity: "true"         
-    userAssignedIdentityID: "..." # The clientId of the addon-created managed identity
-    # this section describes the objects pulled from Azure Key Vault
-    objects:  |
-      array:
-        - |
-          objectName: foo
-          objectType: secret
-        - |
-          objectName: cert-demo
-          objectType: secret
-    # the tenant ID containing the Azure Key Vault instance, you can find it in Azure Portal
-    tenantId: "..." 
-```
-
-Apply the SecretProviderClass:
-
-```powershell
-kubectl apply -f ./secretproviderclass.yml
-```
-
-Finally, let's test it:
-
-Create a `test-pod.yml` with the following content:
-
-```yaml
-kind: Pod
-apiVersion: v1
-metadata:
-  name: busybox-secrets-store-inline
-spec:
-  containers:
-  - name: busybox
-    image: k8s.gcr.io/e2e-test-images/busybox:1.29
-    command:
-      - "/bin/sleep"
-      - "10000"
-    volumeMounts:
-    - name: secrets-store-inline
-      mountPath: "/mnt/secrets-store"
-      readOnly: true
-  volumes:
-    - name: secrets-store-inline
-      csi:
-        driver: secrets-store.csi.k8s.io
-        readOnly: true
-        volumeAttributes:
-          secretProviderClass: "azure-key-vault-name" # the name of your key vault
-```
-
-```powershell
-kubectl apply -f ./test-pod.yml
-
-kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
-# Expected output:
-# cert-demo
-# foo
-
-kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/foo
-# Expected output:
-# bar
-
-kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/cert-demo
-# Expected output:
------BEGIN PRIVATE KEY-----
-MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDVYhtyud6rbRJT
-...
-3fic6VM3cQR9FJxBxAq4vro=
------END PRIVATE KEY-----
------BEGIN CERTIFICATE-----
-MIIDQjCCAiqgAwIBAgIQSRZYP7ncTSGCw6IEOxTIhjANBgkqhkiG9w0BAQsFADAe
-...
-5STNJyO/kEBkBMjlzZKlDkhuf4Tr1g==
------END CERTIFICATE-----
-```
-
-```powershell
-kubectl get secrets
-# Expected output:
-# NAME                                    TYPE                                  DATA   AGE
-# cert-demo                               kubernetes.io/tls                     2      9h
-# foo                                     Opaque                                1      9h
-```
+- Please ensure there is enough resources as well. For example, by default the neo4j and elasticsearch pods consume a majority of the nodes they have been assigned. Having the additional Key Vault pods on these nodes may potentially prevent these from starting up.
