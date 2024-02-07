@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 2
+nav_order: 3
 parent: Deduplication
 grand_parent: Management
 permalink: /management/deduplication/create-a-deduplication-project
@@ -12,34 +12,6 @@ title: Create a deduplication project
 {:toc}
 
 In this article, you will learn how to create a deduplication project in an efficient manner, providing you with the capability to easily revert merges when needed.
-
-## Deduplication guidelines
-
-To enhance the efficiency of your deduplication project and to be able to smoothly revert merges, we recommend that you follow these guidelines.
-
-![dedup-checklist.gif](../../assets/images/management/deduplication/dedup-checklist.gif)
-
-When you need to run a deduplication project on a large set of data, we recommend that you **start small** and limit the size of data. This approach allows you to to verify the accuracy and efficiency of your matching rules before applying them to the entire data set. If the deduplication result doesn't meet your expectations, you can easily and quickly revert changes and start again.
-
-When it comes to matching rules, our recommendation is to create **separate projects for strict and fuzzy matching functions, grouped by domain**. There are two reasons for this recommendation:
-
-- Quick and efficient merging and unmerging. If all rules are consolidated within a single project and you decide to revert changes, all rules will be reverted, even those that were executed correctly. To prevent this, create separate projects for individual sets of rules. This way, you can selectively revert only those projects where rules didn't work as intended.
-
-- Streamlined management of projects on a day-to-day basis. If you have projects targeting a specific domain, and the data for that domain has been updated, then you can easily re-evaluate those specific projects. For example, suppose you have one project that merges duplicates based on first and last names and another project that merges duplicates based on addresses. Now, you add the libpostal library to enrich addresses. In this scenario, you can easily re-evaluate only the address-based project, knowing that first and last names have remained unchanged.
-
-To increase the efficiency of your deduplication projects, start by running projects with **strict equality matching functions** to eliminate obvious duplicates.
-
-Once you've reached a state with no duplicates based on equality matching, proceed to execute projects with **fuzzy matching functions** for a more nuanced deduplication process. Since you've already merged some records based on equality matching functions, this means that you now have fewer duplicates in the system, so fuzzy matching would run much faster.
-
-Finally, when you achieve the desired outcome on a small data set, **grow big** and proceed to run the deduplication project on the entire data set.
-
-To demonstrate the practical application of these guidelines, let's delve into a real-life scenario with the following **example**. Suppose you have 1 million records that need to be checked for duplicates. Due to merging by codes, the number is reduced to 600 thousand records. Then, you can subsequently run the following deduplication projects:
-
-- One project that addresses strict duplicates, resulting in 400 thousand merged records.
-
-- Another project that deals with approximate duplicates using fuzzy matching. This time, the project needs to analyze only 400 thousand records, saving you the time and resources of not having to run fuzzy matching on the entire data set of 1 million records.
-
-For additional examples showcasing the application of deduplication guidelines, see [Deduplication in practice](/management/deduplication/deduplication-in-practice).
 
 ## Create a deduplication project
 
