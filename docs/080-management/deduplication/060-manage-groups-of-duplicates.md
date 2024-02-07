@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 4
+nav_order: 6
 parent: Deduplication
 grand_parent: Management
 permalink: /management/deduplication/manage-groups-of-duplicates

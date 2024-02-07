@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 6
+nav_order: 2
 parent: Deduplication
 grand_parent: Management
 permalink: /management/deduplication/deduplication-in-practice
