@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 6
+nav_order: 5
 parent: Deduplication
 grand_parent: Management
 permalink: /management/deduplication/manage-groups-of-duplicates
@@ -11,9 +11,9 @@ title: Manage groups of duplicates
 - TOC
 {:toc}
 
-When you generate results and CluedIn detects duplicates, they are organized into groups. These groups contain golden records identified as potential duplicates based on your matching rules.
+In this article, you will learn how to process and merge groups of duplicates, as well as how to undo a merge if it did not go as expected.
 
-The following diagram illustrates basic group workflow. For more information about group statuses, see [Deduplication reference](/management/deduplication/deduplication-reference).
+When you generate results and CluedIn detects duplicates, they are organized into groups. These groups contain golden records identified as potential duplicates based on your matching rules. The following diagram illustrates basic group workflow. For more information about group statuses, see [Deduplication reference](/management/deduplication/deduplication-reference).
 
 ![manage-group-flow.gif](../../assets/images/management/deduplication/manage-group-flow.gif)
 

@@ -11,7 +11,9 @@ title: Manage a deduplication project
 - TOC
 {:toc}
 
-After creating and configuring your deduplication project, you can begin the deduplication process to eliminate duplicates and produce a unified and accurate representation of a golden record.
+After you create and configure your deduplication project, you can begin the deduplication process to eliminate duplicates and produce a unified and accurate representation of a golden record.
+
+In this article, you will learn how to generate and discard the results of the deduplication project, as well as how to keep it organized and aligned with your deduplication goals.
 
 The primary action on the deduplication project level is the generation of results. Its purpose is to analyze a specific set of records and detect potential duplicates based on your matching rules. If such duplicates are detected, they are organized into groups. The following diagram illustrates basic project workflow. For more information about project statuses, see [Deduplication reference](/management/deduplication/deduplication-reference).
 
