@@ -18,7 +18,7 @@ The primary action on the deduplication project level is the generation of resul
 ![manage-dedup-project-flow.gif](../../assets/images/management/deduplication/manage-dedup-project-flow.gif)
 
 {:.important}
-Instructions on how to process groups of duplicates, including merging and unmerging, are provided in the [Manage groups of duplicates](/management/deduplication//manage-groups-of-duplicates) article.
+Instructions on how to process groups of duplicates, including merging and unmerging, are provided in the [Manage groups of duplicates](/management/deduplication/manage-groups-of-duplicates) article.
 
 ## Generate results
 
