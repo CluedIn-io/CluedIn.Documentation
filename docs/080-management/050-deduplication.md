@@ -13,16 +13,16 @@ The goal of deduplication is to eliminate duplicate records by merging them toge
  
 The following diagram shows the basic steps for merging duplicates in CluedIn.
 
-![dedup-main.gif](/.attachments/dedup-main-66f61ed2-5235-491d-b4d9-a8c1c5a04e48.gif)
+![dedup-main.gif](../../assets/images/management/deduplication/dedup-main.gif)
 
 This section covers the following areas:
 
-- [Concept of deduplication](/Documentation/Management/Deduplication/Concept-of-deduplication) – explore how deduplication works through a simple yet detailed example.
+- [Concept of deduplication](/management/deduplication/concept-of-deduplication) – explore how deduplication works through a simple yet detailed example.
 
-- [Creating a deduplication project](/Documentation/Management/Deduplication/Create-a-deduplication-project) – learn how to create a deduplication project and configure matching rules according to our deduplication guidelines.
+- [Creating a deduplication project](/management/deduplication/create-a-deduplication-project) – learn how to create a deduplication project and configure matching rules according to our deduplication guidelines.
 
-- [Managing a deduplication project](/Documentation/Management/Deduplication/Manage-a-deduplication-project) – learn how to effectively manage a deduplication project, including generating and discarding results, editing project configuration, and more.
+- [Managing a deduplication project](/management/deduplication/manage-a-deduplication-project) – learn how to effectively manage a deduplication project, including generating and discarding results, editing project configuration, and more.
 
-- [Managing groups of duplicates](/Documentation/Management/Deduplication/Manage-groups-of-duplicates) – learn how to process groups of duplicates, including merging duplicates, verifying merged records, and reverting merges.
+- [Managing groups of duplicates](/management/deduplication/manage-groups-of-duplicates) – learn how to process groups of duplicates, including merging duplicates, verifying merged records, and reverting merges.
 
-- [Reference information about deduplication projects](/Documentation/Management/Deduplication/Deduplication-reference) – find information about matching functions, rule conditions, deduplication project statuses, and group statuses.
+- [Reference information about deduplication projects](/management/deduplication/deduplication-reference) – find information about matching functions, rule conditions, deduplication project statuses, and group statuses.
