@@ -18,7 +18,7 @@ The primary action on the deduplication project level is the generation of resul
 ![manage-dedup-project-flow.gif](../../assets/images/management/deduplication/manage-dedup-project-flow.gif)
 
 {:.important}
-Instructions on how to process groups of duplicates, including merging and unmerging, are provided in the [Manage groups of duplicates](/management/deduplication//manage-groups-of-duplicates) article.
+Instructions on how to process groups of duplicates, including merging and unmerging, are provided in the [Manage groups of duplicates](/management/deduplication/manage-groups-of-duplicates) article.
 
 ## Generate results
 
@@ -32,7 +32,7 @@ The process of generating results involves analyzing a specified set of golden r
 
     If duplicates are detected, the results will be displayed on the page. These results are organized into groups that contain records matching your specified criteria. One group contains duplicate records that can be potentially merged into one golden record.
 
-    Next, [process the groups of duplicates](/management/deduplication//manage-groups-of-duplicates)—open each group one by one to review duplicates and fix conflicting values.
+    Next, [process the groups of duplicates](/management/deduplication/manage-groups-of-duplicates)—open each group one by one to review duplicates and fix conflicting values.
 
 ## Discard results
 
