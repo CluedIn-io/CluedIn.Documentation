@@ -6,14 +6,14 @@ grand_parent: Management
 permalink: /management/deduplication/deduplication-in-practice
 title: Deduplication in practice
 ---
-## On this page
-{: .no_toc .text-delta }
-- TOC
-{:toc}
 
 In this article, you'll discover various strategies on how to efficiently deduplicate large data sets in CluedIn.
 
-## Deduplication guidelines
+Let's start with the video, which shows a real-life scenario for deduplicating 100 thousand records.
+
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/910767689?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Deduplication in practice"></iframe>
+</div>
 
 To enhance the efficiency of your deduplication project and to be able to smoothly revert merges, we recommend that you follow these guidelines.
 
@@ -32,11 +32,3 @@ To increase the efficiency of your deduplication projects, start by running proj
 Once you've reached a state with no duplicates based on equality matching, proceed to execute projects with **fuzzy matching functions** for a more nuanced deduplication process. Since you've already merged some records based on equality matching functions, this means that you now have fewer duplicates in the system, so fuzzy matching would run much faster.
 
 Finally, when you achieve the desired outcome on a small data set, **grow big** and proceed to run the deduplication project on the entire data set.
-
-## Practical application of deduplication guidelines
-
-To showcase the application of deduplication guidelines, let's look at a real-life scenario for deduplicating 100 thousand records.
-
-<div class="videoFrame">
-<iframe src="https://player.vimeo.com/video/910767689?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Deduplication in practice"></iframe>
-</div>
