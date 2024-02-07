@@ -8,7 +8,7 @@ title: Create a deduplication project
 ---
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 In this article, you will learn how to create a deduplication project in an efficient manner, providing you with the capability to easily revert merges when needed.
