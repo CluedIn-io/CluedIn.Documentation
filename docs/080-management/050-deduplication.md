@@ -27,3 +27,5 @@ This section covers the following areas:
 - [Managing groups of duplicates](/management/deduplication/manage-groups-of-duplicates) – learn how to process groups of duplicates, including merging duplicates, verifying merged records, and reverting merges.
 
 - [Reference information about deduplication projects](/management/deduplication/deduplication-reference) – find information about matching functions, rule conditions, deduplication project statuses, and group statuses.
+
+- [Deduplication in practice](/management/deduplication/deduplication-in-practice) – discover the practical application of deduplication guidelines through an example.

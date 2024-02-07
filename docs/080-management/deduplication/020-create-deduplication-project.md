@@ -39,6 +39,8 @@ To demonstrate the practical application of these guidelines, let's delve into a
 
 - Another project that deals with approximate duplicates using fuzzy matching. This time, the project needs to analyze only 400 thousand records, saving you the time and resources of not having to run fuzzy matching on the entire data set of 1 million records.
 
+For additional examples showcasing the application of deduplication guidelines, see [Deduplication in practice](/management/deduplication/deduplication-in-practice).
+
 ## Create a deduplication project
 
 Before creating a deduplication project, take the following aspects into account:
