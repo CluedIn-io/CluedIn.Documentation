@@ -188,7 +188,7 @@ If you no longer need the rule, delete it.
 
 # Results
 
-You have created a rule in CluedIn using the Rule Builder tool.
+You learned the basic steps for creating rules to manage your records in CluedIn. You also learned how to apply the actions of the rule to the records associated with the rule.
 
 # Next steps
 
