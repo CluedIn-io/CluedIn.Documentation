@@ -29,9 +29,9 @@ Creating a rule involves configuring a filter and defining the rule action.
 
 1. On the navigation pane, go to **Management** > **Rule Builder**.
 
-1. Select **Create Rule**.
+1. Choose the [type of rule](/management/rules/rule-types) that you want to create. Then, select **Create Rule**.
 
-1. Enter the name of the rule. Then, in the lower-right corner, select **Create**.
+1. Enter the name of the rule. Then, select **Create**.
 
     The rule details page opens.
 
@@ -39,22 +39,18 @@ Creating a rule involves configuring a filter and defining the rule action.
 
     1. Select the type of property (**Property** or **Vocabulary**).
 
-    1. Depending on the type of property that you selected, do one of the following:
-
-        For **Property**, find and select the needed property.
-
-        For **Vocabulary**, find and select the needed vocabulary key.
+    1. Depending on the type of property that you selected before, find and select the needed property or vocabulary key.
 
     1. Select the operation.
 
-    1. Select the value of the property.
+    1. Select the value of the property or vocabulary key.
 
         If you want to create a rule for a value that does not yet exist in CluedIn, then enter a new value. 
 
         ![rule-builder-2.png](../../assets/images/getting-started/rule-builder/rule-builder-2.png)
 
         {:.important}
-        The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
+        The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears. For more information, see [Filters](/key-terms-and-features/filters).
 
 1. In the **Actions** section, select **Add Action**, and then configure the action that CluedIn can perform on the filtered items:
 
@@ -62,7 +58,7 @@ Creating a rule involves configuring a filter and defining the rule action.
 
     1. (Optional) If you want to narrow down your filter query, specify additional conditions for the rule. To do this, in the **Conditions** section, select **Add first rule**, and then configure the condition according to the instructions from step 4.
 
-    1. In the **Action** section, select the action to be performed be the rule. To learn more about what each action does, see [Actions](#actions).
+    1. In the **Action** section, select the action to be performed by the rule. To learn more about what each action does, see [Rules reference](/management/rules/rules-reference).
 
     1. Depending on the action that you selected, provide the required information.
 
@@ -75,9 +71,9 @@ Creating a rule involves configuring a filter and defining the rule action.
     {:.important}
     You can add multiple actions to the rule.
 
-1. In the upper-right corner of the rule details page, select **Save**.
+1. Activate the rule by turning on the toggle next to the rule status.    
 
-1. Activate the rule by turning on the toggle next to the rule status.
+1. In the upper-right corner of the rule details page, select **Save**.
 
     Now, the rule is active.
 
