@@ -75,6 +75,8 @@ Creating a rule involves configuring a filter and defining the rule action.
 
 1. Activate the rule by turning on the toggle next to the rule status.
 
+    ![rule-builder-5.png](../../assets/images/getting-started/rule-builder/rule-builder-5.png)
+
 1. Depending on whether the rule applies to the processed or unprocessed data, do one of the following:
 
     - If the rule applies to the processed data, [re-process the records](#re-process-records).
@@ -151,11 +153,13 @@ If you want to change the rule—name, description, filters, or actions—edit t
 
 1. In the confirmation dialog, do one of the following:
 
-    - If you want to reprocess the records associated with the rule, select the checkbox, and then confirm your choice.
+    - If you want to reprocess the records affected both by the previous and current rule configuration, select the checkbox, and then confirm your choice.
 
         ![manage-rules-1.png](../../assets/images/management/rules/manage-rules-1.png)
 
-    - If you don't want to reprocess the records associated with the rule, leave the checkbox unselected, and then confirm your choice.
+        For example, in the previous configuration, the rule added the tag _Prospect_ to all records of the _TrainingContact_ entity type. If you edit the rule filter and change the entity type to _Contact_, then selecting the checkbox will remove the tag from the records of the _TrainingContact_ entity type and add it to the records of the _Contact_ entity type.
+
+    - If you don't want to reprocess the records affected both by the previous and current rule configuration, leave the checkbox unselected, and then confirm your choice. You can reprocess such records later. However, note that reprocessing via the rule details page applies only to the records matching the current rule configuration. To revert rule actions on records matching the previous rule configuration, you'll need to reprocess such records via GraphQL or manually.
 
 ## Inactivate rule
 
@@ -169,11 +173,9 @@ If you currently do not need the rule, but might need it in future, inactivate t
 
     ![rule-builder-6.png](../../assets/images/getting-started/rule-builder/rule-builder-6.png)
 
-    You inactivated the rule, but the items to which the rule was applied still contain the changes made by the rule.
+    You inactivated the rule, but the records to which the rule was applied still contain the changes made by the rule.
 
-1. To return the items to which the rule was applied to their original state, [re-process the entity](#re-process-entity).
-
-    You inactivated the rule and returned the items to which the rule was applied to their original state.
+1. To return the records to which the rule was applied to their original state, [reprocess the records](#reprocess-records).
 
 ## Delete rule
 
@@ -185,11 +187,9 @@ If you no longer need the rule, delete it.
 
 1. On the rule details page, select the delete icon, and then confirm that you want to delete the rule.
 
-    You deleted the rule, but the items to which the rule was applied still contain the changes made by the rule.
+    You deleted the rule, but the records to which the rule was applied still contain the changes made by the rule.
 
-1. To return the items to which the rule was applied to their original state, [re-process the entity](#re-process-entity).
-
-    You deleted the rule and returned the items to which the rule was applied to their original state.
+1. To return the records to which the rule was applied to their original state, [reprocess the records](#reprocess-records).
 
 # Results
 
