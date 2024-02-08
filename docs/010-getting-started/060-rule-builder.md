@@ -79,17 +79,17 @@ Creating a rule involves configuring a filter and defining the rule action.
 
 1. Depending on whether the rule applies to the processed or unprocessed data, do one of the following:
 
-    - If the rule applies to the processed data, [re-process the records](#re-process-records).
+    - If the rule applies to the processed data, [reprocess the records](#reprocess-records).
 
-    - If the rule applies to the unprocessed data, process the data as described in the [Ingest data guide](/getting-started/data-ingestion).
+    - If the rule applies to the unprocessed data, process the data as described in the [Ingest data guide](/getting-started/data-ingestion). In this case, the rule will be applied to the records automatically during processing.
 
 # Reprocess records
 
-After you created the rule for the processed data, you need to reprocess the records to apply the rule. You can reprocess the records in the following ways:
+After you created the rule for the processed data, you need to reprocess the records to apply the rule. You can reprocess the records in one of the following ways:
 
-- Reprocess via the rule details page.
+- Reprocess records via the rule details page.
 
-- Reprocess using the GraphQL tool.
+- Reprocess records using the GraphQL tool.
 
 - Reprocess each record manually.
 
@@ -125,7 +125,7 @@ After you created the rule for the processed data, you need to reprocess the rec
 
 **To reprocess a record manually**
 
-1.  Find and open the needed record.
+1. Find and open the needed record.
 
 1. In the upper-right corner of the record details page, select **More** > **Re-process entity**.
 
