@@ -73,17 +73,13 @@ Creating a rule involves configuring a filter and defining the rule action.
 
 1. Activate the rule by turning on the toggle next to the rule status.    
 
-1. In the upper-right corner of the rule details page, select **Save**.
+1. In the upper-right corner of the rule details page, select **Save**. In the confirmation dialog, do one of the following:
 
-    Now, the rule is active.
+    - If the rule applies to the processed data, select the checkbox to re-process the records automatically, and then select **Confirm**. The record's matching the rule's filter will be re-processed and updated in accordance with the rule’s actions.
 
-    ![rule-builder-5.png](../../assets/images/getting-started/rule-builder/rule-builder-5.png)
+        ![manage-rules-1.png](../../assets/images/management/rules/manage-rules-1.png)
 
-1. Depending on whether the rule applies to the processed or unprocessed data, do one of the following:
-
-    1. If the rule is applied to the processed data, [re-process the entity](#re-process-entity).
-
-    1. If the rule applies to the unprocessed data, process the data as described in the [Ingest data guide](/getting-started/data-ingestion).
+    - If the rule applies to the unprocessed data, leave the checkbox unselected, and then select **Confirm**. The rule will be applied to the data automatically during processing. For information on how to process the data, see [Ingest data guide](/getting-started/data-ingestion).
 
     You created the rule.
 
