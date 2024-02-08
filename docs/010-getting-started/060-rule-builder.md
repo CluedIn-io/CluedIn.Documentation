@@ -71,7 +71,15 @@ Creating a rule involves configuring a filter and defining the rule action.
     {:.important}
     You can add multiple actions to the rule.
 
-1. Activate the rule by turning on the toggle next to the rule status.    
+1. In the upper-right corner of the rule details page, select **Save**, and then confirm your choice.
+
+1. Activate the rule by turning on the toggle next to the rule status.
+
+1. Depending on whether the rule applies to the processed or unprocessed data, do one of the following:
+
+    - If the rule is applied to the processed data, [re-process the records](#re-process-records).
+
+    - If the rule applies to the unprocessed data, process the data as described in the [Ingest data guide](/getting-started/data-ingestion).
 
 1. In the upper-right corner of the rule details page, select **Save**. In the confirmation dialog, do one of the following:
 
@@ -83,19 +91,31 @@ Creating a rule involves configuring a filter and defining the rule action.
 
     You created the rule.
 
-# Re-process entity
+# Reprocess records
 
-After you created the rule for the processed data, you need to re-process the entity to apply the rule. Depending on the number of entities that you need to re-process, you can choose one of the following actions:
+After you created the rule for the processed data, you need to reprocess the records to apply the rule. You can reprocess the records in the following ways:
 
-- If you need to re-process many entities, use the GraphQL tool.
+- Reprocess via the rule details page.
 
-- If you need to re-process few entities, re-process each entity manually.
+- Reprocess using the GraphQL tool.
 
-**To re-process the entity using the GraphQL tool**
+- Reprocess each record manually.
+
+**To reprocess records via the rule details page**
+
+1. Near the upper-right corner of the rule details page, select the reprocess icon.
+
+    ![rule-builder-9.png](../../assets/images/getting-started/rule-builder/rule-builder-9.png)
+
+1. Confirm that you want to reprocess the records associated with the rule.
+
+    After the reprocessing is completed, the records associated with the rule are updated in accordance with the rule’s actions.
+
+**To reprocess records using the GraphQL tool**
 
 1. On the navigation pane, go to **Consume** > **GraphQL**.
 
-1. Enter a query to re-process all entities that belong to a certain entity type. Replace _TrainingContact_ with the needed name of entity type.
+1. Enter a query to reprocess all records that belong to a certain entity type. Replace _TrainingContact_ with the needed name of entity type.
 ```
 {
 	search(query: "entityType:/TrainingContact") {
@@ -109,21 +129,21 @@ After you created the rule for the processed data, you need to re-process the en
 ```
 1. Execute the query.
 
-    You re-processed all entities that belong to a certain entity type. Now, the action from the rule is applied to all entities.
+    You reprocessed all records that belong to a certain entity type. Now, the action from the rule is applied to those records.
 
-**To re-process the entity manually**
+**To reprocess a record manually**
 
-1.  Find and open the needed entity.
+1.  Find and open the needed record.
 
-1. In the upper-right corner of the entity details page, select **More** > **Re-process entity**.
+1. In the upper-right corner of the record details page, select **More** > **Re-process entity**.
 
     ![rule-builder-8.png](../../assets/images/getting-started/rule-builder/rule-builder-8.png)
 
-    You re-processed the entity. Now, you can view the result of an action performed by the rule.
+    You re-processed the record. Now, you can view the result of an action performed by the rule.
 
     ![rule-builder-7.png](../../assets/images/getting-started/rule-builder/rule-builder-7.png)
 
-1. To re-process other entities, repeat steps 1–2.
+1. To re-process other records, repeat steps 1–2.
 
 # Change rule
 
