@@ -14,12 +14,10 @@ tags: ["getting-started"]
 Rule Builder allows you to create rules for cleaning, transforming, normalizing, and modifying the data.
 
 <div class="videoFrame">
-<iframe src="https://player.vimeo.com/video/850936950?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Getting started with Rule Builder in CluedIn"></iframe>
+<<iframe src="https://player.vimeo.com/video/911293821?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Getting started with Rule Builder in CluedIn"></iframe>
 </div>
 
-In this article, you will learn how to create rules in CluedIn using the Rule Builder tool.
-
-You can create a rule either before or after processing the data.
+In this article, you will learn how to create rules in CluedIn using the Rule Builder tool. You can create a rule either before or after processing the data.
 
 # Create rule
 
@@ -66,10 +64,7 @@ Creating a rule involves configuring a filter and defining the rule action.
 
         ![rule-builder-3.png](../../assets/images/getting-started/rule-builder/rule-builder-3.png)
 
-    1. In the lower-right corner, select **Add Action**.
-
-    {:.important}
-    You can add multiple actions to the rule.
+    1. In the lower-right corner, select **Add Action**. You can add multiple actions to the rule.
 
 1. In the upper-right corner of the rule details page, select **Save**, and then confirm your choice.
 
@@ -127,15 +122,15 @@ After you created the rule for the processed data, you need to reprocess the rec
 
 1. Find and open the needed record.
 
-1. In the upper-right corner of the record details page, select **More** > **Re-process entity**.
+1. In the upper-right corner of the record details page, select **More** > **Reprocess entity**.
 
     ![rule-builder-8.png](../../assets/images/getting-started/rule-builder/rule-builder-8.png)
 
-    You re-processed the record. Now, you can view the result of an action performed by the rule.
+    You reprocessed the record. Now, you can view the result of an action performed by the rule.
 
     ![rule-builder-7.png](../../assets/images/getting-started/rule-builder/rule-builder-7.png)
 
-1. To re-process other records, repeat steps 1–2.
+1. To reprocess other records, repeat steps 1–2.
 
 # Change rule
 
@@ -193,7 +188,7 @@ If you no longer need the rule, delete it.
 
 # Results
 
-You have created a rule in CluedIn using the Rule Builder tool.
+You learned the basic steps for creating rules to manage your records in CluedIn. You also learned how to apply the actions of the rule to the records associated with the rule.
 
 # Next steps
 
