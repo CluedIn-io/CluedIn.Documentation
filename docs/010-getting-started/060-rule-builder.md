@@ -77,19 +77,9 @@ Creating a rule involves configuring a filter and defining the rule action.
 
 1. Depending on whether the rule applies to the processed or unprocessed data, do one of the following:
 
-    - If the rule is applied to the processed data, [re-process the records](#re-process-records).
+    - If the rule applies to the processed data, [re-process the records](#re-process-records).
 
     - If the rule applies to the unprocessed data, process the data as described in the [Ingest data guide](/getting-started/data-ingestion).
-
-1. In the upper-right corner of the rule details page, select **Save**. In the confirmation dialog, do one of the following:
-
-    - If the rule applies to the processed data, select the checkbox to re-process the records automatically, and then select **Confirm**. The record's matching the rule's filter will be re-processed and updated in accordance with the rule’s actions.
-
-        ![manage-rules-1.png](../../assets/images/management/rules/manage-rules-1.png)
-
-    - If the rule applies to the unprocessed data, leave the checkbox unselected, and then select **Confirm**. The rule will be applied to the data automatically during processing. For information on how to process the data, see [Ingest data guide](/getting-started/data-ingestion).
-
-    You created the rule.
 
 # Reprocess records
 
@@ -147,7 +137,25 @@ After you created the rule for the processed data, you need to reprocess the rec
 
 # Change rule
 
-After you created the rule, you can edit, [inactivate](#inactivate-rule), or [delete](#delete-rule) it.
+After you created the rule, you can [edit](#edit-rule), [inactivate](#inactivate-rule), or [delete](#delete-rule) it.
+
+## Edit rule
+
+If you want to change the rule—name, description, filters, or actions—edit the rule.
+
+**To edit the rule**
+
+1. In the rule details page, make the needed changes.
+
+1. Near the upper-right corner of the rule details page, select **Save**. If you edited filters or actions, the confirmation dialog appears where you have to decide what to do with the records associated with the rule.
+
+1. In the confirmation dialog, do one of the following:
+
+    - If you want to reprocess the records associated with the rule, select the checkbox, and then confirm your choice.
+
+        ![manage-rules-1.png](../../assets/images/management/rules/manage-rules-1.png)
+
+    - If you don't want to reprocess the records associated with the rule, leave the checkbox unselected, and then confirm your choice.
 
 ## Inactivate rule
 
@@ -182,35 +190,6 @@ If you no longer need the rule, delete it.
 1. To return the items to which the rule was applied to their original state, [re-process the entity](#re-process-entity).
 
     You deleted the rule and returned the items to which the rule was applied to their original state.
-
-# Actions
-
-In the following table, you can learn about the actions that can be performed by the rule.
-
-| Action | Description |
-|--|--|
-| Add Alias | Adds an alias to the entity. You need to specify the alias that you want to add. |
-| Add Tag | Adds a tag to the entity. You need to specify the tag that you want to add. |
-| Add Value | Adds a value to the vocabulary key. You can select the existing value or create a new value. Use this action when the vocabulary key doesn't contain any value. |
-| Add Value with CluedIn AI | Adds a value to the property or vocabulary key according to your prompt. For example, you can check if the email address in the entity is a personal address or business address. |
-| Change Entity Type | Changes the entity type. You can select the existing entity type or create a new entity type. |
-| Copy Value | Copies the value from one field (source field) to another (target field). |
-| Delete Value | Deletes the value that you select. |
-| Mask Value | Applies a mask to the value. You can use this action to hide sensitive data. |
-| Move Value | Moves the value from one field (source field) to another (target field). |
-| Remove Alias | Removes alias from the entity. You need to specify the alias that you want to remove. |
-| Remove All Tags | Removes all tags from the entity. |
-| Remove line breaks | Removes line breaks from the value. By default, line breaks are replaced with spaces, but you can specify other replacement options. |
-| Remove Tag | Removes a tag from the entity. You need to specify the tag that you want to remove.|
-| Replace | Replaces one value with another. You need to provide both the value you want to replace and its corresponding replacement value. |
-| Set Value | Changes the value of the vocabulary key. You can select the existing value or create a new value. Use this action when the vocabulary key contains a value and you want to change this value to another one. |
-| Set Value with CluedIn AI | Changes the value of the property or vocabulary key according to your prompt. |
-| To CamelCase | Changes the value to camel case and removes all spaces. |
-| To LowerCase | Changes the value to lower case. |
-| To TitleCase | Changes the value to title case. |
-| To UpperCase | Changes the value to upper case. |
-| Trim WhiteSpace | Removes white space from the value. |
-| Unmask Value | Removes the mask from the value. |
 
 # Results
 
