@@ -14,7 +14,7 @@ has_children: false
 
 In this article, you will learn how to load the data from Microsoft Fabric to CluedIn. As an example, we'll use a table named `imdb_titles` in Microsoft Fabric with 601_222 rows.
 
-![output-4.png](../../assets/images/microsoft-integration/output-4.png)
+![output-4.png](../../assets/images/microsoft-integration/fabric/output-4.png)
 
 **Prerequisites**
 
@@ -22,11 +22,11 @@ To connect Microsoft Fabric to CluedIn, you need to have the following:
 
 - An active API token. You can create an API token in CluedIn in **Administration** > **API tokens**.
 
-    ![api-token.jpg](../../assets/images/microsoft-integration/api-token.jpg)
+    ![api-token.jpg](../../assets/images/microsoft-integration/fabric/api-token.jpg)
 
 - An endpoint in CluedIn. You can find instructions on how to create an endpoint [here](https://documentation.cluedin.net/integration/ingest-data#ingestion-point). After you create an endpoint, you'll find the POST URL.
 
-    ![endpoint.jpg](../../assets/images/microsoft-integration/endpoint.jpg)
+    ![endpoint.jpg](../../assets/images/microsoft-integration/fabric/endpoint.jpg)
 
 ## Set up Microsoft Fabric
 
@@ -161,7 +161,7 @@ After you set up Microsoft Fabric, send the data to CluedIn. This process involv
 
 1. In CluedIn, got to the **Process** tab of the data set, turn on the **Auto submission** toggle, and then select **Switch to Bridge Mode**.
 
-    ![bridge-mode.jpg](../../assets/images/microsoft-integration/bridge-mode.jpg)
+    ![bridge-mode.jpg](../../assets/images/microsoft-integration/fabric/bridge-mode.jpg)
 
 1. Remove or comment on the following lines in the notebook and rerun it.
 
