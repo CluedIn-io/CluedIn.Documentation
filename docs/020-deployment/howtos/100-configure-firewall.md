@@ -25,4 +25,5 @@ To do that, add the following rules to your Azure Firewall as described in the t
 | `mcr.microsoft.com` | 443 | Microsoft container registry |
 | `acme-v02.api.letsencrypt.org` | 443 | (Optional) Let's Encrypt service. Only required if not supplying own certificate |
 
-**Important!** If the rules have not been added, the installation will fail.
+{: .important }
+If the rules have not been added, the installation will fail.
