@@ -32,7 +32,7 @@ In the following procedure, we'll use a CluedIn instance that has 601_222 entiti
 
 1. Import the following libraries.
    
-    ```
+    ```python
     import pandas as pd
     import matplotlib.pyplot as plt
     
@@ -41,7 +41,7 @@ In the following procedure, we'll use a CluedIn instance that has 601_222 entiti
 
 1. Provide the URL of your CluedIn instance and the API token.
     
-    ```
+    ```python
     # CluedIn URL: https://foobar.mycluedin.com/:
     #   - foobar is the organization's name
     #   - mycluedin.com is the domain name
@@ -55,8 +55,7 @@ In the following procedure, we'll use a CluedIn instance that has 601_222 entiti
 
 1. Pull one row from CluedIn to see what data you have.
 
-
-    ```
+    ```python
     # Create a CluedIn context object.
     ctx = cluedin.Context.from_dict(cluedin_context)
     
@@ -88,8 +87,7 @@ In the following procedure, we'll use a CluedIn instance that has 601_222 entiti
 
     You will get an output similar to the following.
 
-
-    ```
+    ```json
     {'id': '00001e32-9bae-53b9-a30f-cf30ed66c360',
      'name': 'Murder, Money and a Dog',
      'entityType': '/IMDb/Title',
@@ -114,8 +112,7 @@ In the following procedure, we'll use a CluedIn instance that has 601_222 entiti
 
 1. Pull the whole data set in a pandas DataFrame. To make it compatible with the Spark schema, flatten the properties, remove unnecessary property name prefixes, and replace dots with underscores.
 
-
-    ```
+    ```python
     ctx = cluedin.Context.from_dict(cluedin_context)
     
     query = """
@@ -167,7 +164,7 @@ In the following procedure, we'll use a CluedIn instance that has 601_222 entiti
 
 1. Set the DataFrame's index to Entity ID.
 
-    ```
+    ```python
     df_titles.set_index('id', inplace=True)
     df_titles.head()
     ```
@@ -180,7 +177,7 @@ In the following procedure, we'll use a CluedIn instance that has 601_222 entiti
 
 You can display some summaries and visualizations of the data in a Microsoft Fabric notebook. In the following example, you can see the visualization of movies by genre.
 
-```
+```python
 df_titles['imdb_title_genres'].str.split(',', expand=True).stack().value_counts().plot(kind='bar')
 plt.title('Distribution of genres')
 plt.xlabel('Genres')
@@ -193,8 +190,7 @@ plt.show()
 
 To view the data in the Catalog, you need to create a schema. Mind that in the following example, `imdb_title_genres` is a string, not an array, so we need to split it.
 
-
-```
+```python
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType,StructField, StringType, ArrayType, IntegerType
 from pyspark.sql.functions import split

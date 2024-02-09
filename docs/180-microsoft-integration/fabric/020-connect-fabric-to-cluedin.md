@@ -41,7 +41,7 @@ Prepare Microsoft Fabric for sending data to CluedIn.
 1. Import the `cluedin` library and create a CluedIn context object.
 
 
-    ```
+    ```python
     import requests
     import cluedin
     
@@ -68,7 +68,7 @@ After you set up Microsoft Fabric, send the data to CluedIn. This process involv
 
 1. Select all rows from a table and yield them one by one using the following method.
 
-    ```
+    ```python
     from pyspark.sql import SparkSession
     
     def get_rows():
@@ -82,7 +82,7 @@ After you set up Microsoft Fabric, send the data to CluedIn. This process involv
 
 1. Create a method that posts a batch of rows to CluedIn.
 
-    ```
+    ```python
     import time
     from datetime import timedelta
     
@@ -110,14 +110,14 @@ After you set up Microsoft Fabric, send the data to CluedIn. This process involv
 
 1. Post a small batch of rows first to set up mapping on the CluedIn side. We will post ten rows. To do that, add the following lines in the code below.
     
-    ```
+    ```python
     if i >= 10:
             break
     ```
 
     Code that posts the rows to CluedIn.
 
-    ```
+    ```python
     batch = []
     batch_count = 0
     
@@ -165,7 +165,7 @@ After you set up Microsoft Fabric, send the data to CluedIn. This process involv
 
 1. Remove or comment on the following lines in the notebook and rerun it.
 
-    ```
+    ```python
     if i >= 10:
             break
     ```
