@@ -36,7 +36,9 @@ Prepare Microsoft Fabric for sending data to CluedIn.
 
 1. In Microsoft Fabric, create a Jupyter notebook and install the `cluedin` library.
 
-    `%pip install cluedin`
+    ```
+    %pip install cluedin
+    ```
 
 1. Import the `cluedin` library and create a CluedIn context object.
 
@@ -58,7 +60,7 @@ Prepare Microsoft Fabric for sending data to CluedIn.
     BATCH_SIZE = 100_000
     ```
 
-    In this example, the URL of the CluedIn instance is `https://foobar.51.132.187.83.sslip.io/`, so the domain is `51.132.187.83.sslip.io`, and the organization name is [foobar](). The `access token` is the one we created earlier.
+    In this example, the URL of the CluedIn instance is `https://foobar.51.132.187.83.sslip.io/`, so the domain is `51.132.187.83.sslip.io`, and the organization name is `foobar`. The `access token` is the one specified in prerequisites.
 
 ## Send data to CluedIn
 
