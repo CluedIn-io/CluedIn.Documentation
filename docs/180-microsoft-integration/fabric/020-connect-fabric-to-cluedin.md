@@ -155,7 +155,7 @@ After you set up Microsoft Fabric, send the data to CluedIn. This process involv
 
     After you run the code, ten rows appear in CluedIn.
 
-    ![preview.jpg](../../assets/images/microsoft-integration/preview.jpg)
+    ![preview.jpg](../../assets/images/microsoft-integration/fabric/preview.jpg)
 
 1. In CluedIn, create auto-mapping for the data set following the instructions [here](/integration/create-mapping).
 
