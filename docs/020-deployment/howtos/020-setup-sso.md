@@ -19,8 +19,10 @@ In this article, you will learn how to configure single sign-on (SSO) for CluedI
 
 SSO for CluedIn can be enabled in one of the following modes:
 - **SSO with local CluedIn role membership management** – all users from the directory can sign in to the CluedIn application. After the user signs in for the first time, CluedIn roles can be assigned in the usual way in the CluedIn UI.
+
 - **SSO with Microsoft Entra group-managed role membership** – Microsoft Entra application roles are created within your Azure application registration and they can be mapped to your Microsoft Entra groups or users. This mode requires **Automatic Role Synchronization** to be enabled in the **Administration Settings** page in CluedIn.
-![Automatic_role_synchronization.png](../../assets/images/ama/howtos/configure-sso-1.png)
+
+    ![Automatic_role_synchronization.png](../../assets/images/ama/howtos/configure-sso-1.png)
 
 Configuring SSO for CluedIn using Microsoft Entra involves three main steps:
 
@@ -37,14 +39,21 @@ Registering your application establishes a trust relationship between your appli
 **To register an application in the Azure portal**
 
 1. In the Azure portal, go to the tenant in which you want to register the application.
+
 1. Search for and select **Microsoft Entra ID**.
+
 1. Under **Manage**, select **App registrations** > **New registration**.
+
 1. Enter a display **Name** for your application.
-![Register_application_Name.png](../../assets/images/ama/howtos/configure-sso-2.png)
+
+    ![Register_application_Name.png](../../assets/images/ama/howtos/configure-sso-2.png)
+
 1. Select the account types that can use the application.
+
 1. Select **Register**.
 
     When the registration finishes, the Azure portal displays the **Overview** pane of the application registration. Here you can see the **Application (client) ID**. This value uniquely identifies your application. You'll need it to [enable SSO via Helm](#create-kubernetes-secret-and-enable-sso-via-helm).
+
     ![Register_application_Application_ID.png](../../assets/images/ama/howtos/configure-sso-3.png)
 
 After you register the application, complete the following steps:
@@ -60,11 +69,16 @@ A client secret is used to configure CluedIn to communicate with Microsoft Entra
 
 **To create client secret**
 1. In the Azure portal, in **App registrations**, select your application.
+
 1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
+
 1. Add a description for your client secret and an expiration date.
+
 1. Select **Add**.
+
 1. Copy and save **Value** and the **Secret ID** because they will be used later in your CluedIn Helm configuration.
-![Create_client_secret_Value_ID.png](../../assets/images/ama/howtos/configure-sso-4.png)
+
+    ![Create_client_secret_Value_ID.png](../../assets/images/ama/howtos/configure-sso-4.png)
 
 For more information about the client secret, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-client-secret).
 
@@ -80,12 +94,15 @@ In the setup below, we will be working with fictitious domain 'yourdomain.com' a
 **To add redirect URIs**
 
 1. In the Azure portal, in **App registrations**, select your application.
+
 1. Select **Authentication** > **Add a platform**.
+
 1. In the right pane, select **Web**.
 
     ![Add_redirect_URIs_Configure_platforms.png](../../assets/images/ama/howtos/configure-sso-5.png)
 
 1. In the **Configure Web** pane, specify the following:
+
     1. In **Redirect URIs**, add a redirect URI for your application.
 
         `https://app.yourdomain.com`
@@ -121,12 +138,18 @@ When you register an application in the Azure portal, the Microsoft Graph API wi
 **To add API permissions for Microsoft Graph**
 
 1. In the Azure portal, in **App registrations**, select your application.
+
 2. Select **API permissions**.
+
 3. In the **Configured permissions** section, select **Microsoft Graph**.
-![Add_API_permissions_MS_Graph.png](../../assets/images/ama/howtos/configure-sso-10.png)
+
+    ![Add_API_permissions_MS_Graph.png](../../assets/images/ama/howtos/configure-sso-10.png)
+
 4. In the right pane, select the following permissions: **email**, **offline_access**, **openid**, and **profile**. At the bottom of the pane, select **Update permissions**.
-The API permissions for Microsoft Graph are updated.
-![Add_API_permissions_Updated.png](../../assets/images/ama/howtos/configure-sso-11.png)
+
+    The API permissions for Microsoft Graph are updated.
+
+    ![Add_API_permissions_Updated.png](../../assets/images/ama/howtos/configure-sso-11.png)
 
 For more information about API permissions, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis).
 
@@ -137,13 +160,20 @@ You need to register a web API with the Microsoft identity platform and expose i
 **To expose the API**
 
 1. In the Azure portal, in **App registrations**, select your application.
+
 2. Select **Expose an API**.
+
 3. In the **Scopes defined by this API** section, select **Add a scope**.
+
 4. Specify the following scope attributes:
-- **Scope name** – `https://www.cluedin.net/sso/user_impersonation`
-- **Who can consent** – **Admins and Users**
-- **Authorized client applications** – `https://www.cluedin.net/sso/user_impersonation`
-![expose_api.png](../../assets/images/ama/howtos/expose_api.png)
+
+    - **Scope name** – `https://www.cluedin.net/sso/user_impersonation`
+
+    - **Who can consent** – **Admins and Users**
+
+    - **Authorized client applications** – `https://www.cluedin.net/sso/user_impersonation`
+
+    ![expose_api.png](../../assets/images/ama/howtos/expose_api.png)
 
 For detailed instructions on how to configure an app to expose web API, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
  
@@ -154,12 +184,19 @@ After you have created your application registration and attached it to your Clu
 **To map Microsoft Entra application roles to CluedIn roles**
 
 1. In the Azure portal, in **App registrations**, select your application.
+
 1. Select **App roles**.
+
 1. On the menu, select **Create app role**.
-1. Enter the details of the role. See [CluedIn roles](#cluedin-roles) for recommended values.  
+
+1. Enter the details of the role. See [CluedIn roles](#cluedin-roles) for recommended values. 
+
     ![Create_app_role.png](../../assets/images/ama/howtos/configure-sso-create-app-role-1.png)
+
 1. Select **Apply** to save your changes. The role is added to the **App roles** list.  
+
     ![App_role_added.png](../../assets/images/ama/howtos/configure-sso-create-app-role-2.png)
+
 1. Repeat steps 3-5 to add all roles listed below.
 
 In the CluedIn application, you can find all CluedIn roles by navigating to **Administration** > **Roles**.
@@ -205,14 +242,19 @@ Once you have connected to your cluster and you are able to issue commands using
 **To create Kubernetes secret and enable SSO via Helm**
 
 1. Create a new Kubernetes secret with your Azure app registration secret by running the following command:  
-    `kubectl create secret generic "myorg-sso-cs" -n cluedin --from-literal=clientSecret="1234-5678-9ABC"`
+    ```
+    kubectl create secret generic "myorg-sso-cs" -n cluedin --from-literal=clientSecret="1234-5678-9ABC"
+    ```
 
     In the command, replace _1234-5678-9ABC_ with your Azure app registration secret.
 
 1. In Azure Cloud Shell, run the following command to create a new empty file:  
-    `nano Cluedin-SSO-Config.yaml`
+    ```
+    nano Cluedin-SSO-Config.yaml
+    ```
 
 1. In the file, paste the following configuration:
+
     ```yaml
     apiVersion: api.cluedin.com/v1
     kind: Feature
@@ -231,10 +273,15 @@ Once you have connected to your cluster and you are able to issue commands using
 1. Change the **clientId** value to the client ID from your Azure app registration.
 
 1. Save the file and apply your SSO configuration by running the following command in Azure Cloud Shell:  
-    `kubectl apply -n cluedin -f Cluedin-SSO-Config.yaml`
+    ```
+    kubectl apply -n cluedin -f Cluedin-SSO-Config.yaml
+    ```
 
-1. Verify that the SSO feature has been enabled successfully by running the following command in Azure Cloud Shell:  
-    `kubectl get features -n cluedin`
+1. Verify that the SSO feature has been enabled successfully by running the following command in Azure Cloud Shell:
+
+    ```
+    kubectl get features -n cluedin
+    ```
 
 If your SSO feature has been successfully applied, you should see something similar to the screenshot below.
 
