@@ -41,10 +41,11 @@ Registering your application establishes a trust relationship between your appli
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a display **Name** for your application.
 ![Register_application_Name.png](../../assets/images/ama/howtos/configure-sso-2.png)
-1. Select the account types that can use the application.
+1. Select the **Supported account types** that can use the application.
+1. Leave Redirect URI empty for the time being.
 1. Select **Register**.
 
-    When the registration finishes, the Azure portal displays the **Overview** pane of the application registration. Here you can see the **Application (client) ID**. This value uniquely identifies your application. You'll need it to [enable SSO via Helm](#create-kubernetes-secret-and-enable-sso-via-helm).
+    When the registration finishes, the Azure portal displays the **Overview** pane of the application registration. Here you can see the **Application (client) ID**. This value uniquely identifies your application. Make note of this Id as you'll need it to [enable SSO via Helm](#create-kubernetes-secret-and-enable-sso-via-helm).
     ![Register_application_Application_ID.png](../../assets/images/ama/howtos/configure-sso-3.png)
 
 After you register the application, complete the following steps:
@@ -75,7 +76,7 @@ Redirect URI is the location to which the Microsoft identity platform redirects 
 In the setup below, we will be working with fictitious domain 'yourdomain.com' and the two subdomains:
 
 - 'app' – references the back-end application. By default, it is just app, but can be changed in the values file.
-- 'departmentX' – references the main CluedIn UI you would access.
+- 'cluedin' – references the main CluedIn URL you would access on a daily basis.
 
 **To add redirect URIs**
 
@@ -86,10 +87,9 @@ In the setup below, we will be working with fictitious domain 'yourdomain.com' a
     ![Add_redirect_URIs_Configure_platforms.png](../../assets/images/ama/howtos/configure-sso-5.png)
 
 1. In the **Configure Web** pane, specify the following:
-    1. In **Redirect URIs**, add a redirect URI for your application.
-
+    1. In **Redirect URIs**, add a redirect URI for your application.  
         `https://app.yourdomain.com`
-        
+
         ![Add_redirect_URIs_Redirect_URIs.png](../../assets/images/ama/howtos/configure-sso-6.png)
 
     1. In **Front channel logout URI**, add a logout URL for your application.
@@ -102,11 +102,9 @@ In the setup below, we will be working with fictitious domain 'yourdomain.com' a
 
         ![Add_redirect_URIs_ID_tokens.png](../../assets/images/ama/howtos/configure-sso-8.png)
 
-1. In the **Platform configurations** section, in **Web**, add additional URIs to the existing one:
-
-    `https://departmentX.yourdomain.com`
-     
-    `https://app.yourdomain.com/auth/signin-oidc`
+1. Back on the main page with the **Platform configurations** section, in **Web**, add additional URIs to the existing one:
+- `https://cluedin.yourdomain.com`
+- `https://app.yourdomain.com/auth/signin-oidc`
 
     ![Add_redirect_URIs_additional.png](../../assets/images/ama/howtos/configure-sso-9.png)  
 
@@ -122,8 +120,8 @@ When you register an application in the Azure portal, the Microsoft Graph API wi
 
 1. In the Azure portal, in **App registrations**, select your application.
 2. Select **API permissions**.
-3. In the **Configured permissions** section, select **Microsoft Graph**.
-![Add_API_permissions_MS_Graph.png](../../assets/images/ama/howtos/configure-sso-10.png)
+3. In the **Configured permissions** section, click on the existing **Microsoft Graph** entry.
+    ![Add_API_permissions_MS_Graph.png](../../assets/images/ama/howtos/configure-sso-10.png)
 4. In the right pane, select the following permissions: **email**, **offline_access**, **openid**, and **profile**. At the bottom of the pane, select **Update permissions**.
 The API permissions for Microsoft Graph are updated.
 ![Add_API_permissions_Updated.png](../../assets/images/ama/howtos/configure-sso-11.png)
@@ -137,13 +135,16 @@ You need to register a web API with the Microsoft identity platform and expose i
 **To expose the API**
 
 1. In the Azure portal, in **App registrations**, select your application.
-2. Select **Expose an API**.
-3. In the **Scopes defined by this API** section, select **Add a scope**.
-4. Specify the following scope attributes:
-- **Scope name** – `https://www.cluedin.net/sso/user_impersonation`
-- **Who can consent** – **Admins and Users**
-- **Authorized client applications** – `https://www.cluedin.net/sso/user_impersonation`
-![expose_api.png](../../assets/images/ama/howtos/expose_api.png)
+1. Select **Expose an API**.
+1. In the **Scopes defined by this API** section, select **Add a scope**.
+1. For the first time setup, you will need to specify the `Application ID URI`. For this, use your frontend url with `/sso` appended. (ie. `https://cluedin.yourdomain.com/sso`)
+    ![configure-sso-scopename.png](../../assets/images/ama/howtos/configure-sso-scopename.png)
+1. Specify the following scope attributes and then click `Add scope`:
+    - **Scope name**: `user_impersonation`
+    - **Who can consent**: `Admins and Users`
+    - **Admin consent display name**: `CluedIn SSO`
+    - **Admin consent description**: `CluedIn SSO`
+    ![expose_api.png](../../assets/images/ama/howtos/expose_api.png)
 
 For detailed instructions on how to configure an app to expose web API, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
  
@@ -190,7 +191,7 @@ The following table provides a list of the CluedIn application roles and recomme
 
 ## Create Kubernetes secret and enable SSO via Helm
 
-After you complete the Azure application registration and app roles configuration, you need to enable the SSO feature on the CluedIn platform. Thus, SSO will become available to users when signing in to CluedIn.
+After you complete the Azure application registration and app roles configuration, this will then need to be enabled on the CluedIn platform. As this touches the inner workings of Kubernetes, if you prefer, a member of CluedIn will be able to facilitate these steps for you.
 
 **Prerequisites**
 
