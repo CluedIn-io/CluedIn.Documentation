@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Person Vocabulary
 parent: Development
 nav_order: 310

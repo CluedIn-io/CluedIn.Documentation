@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Parent Aggregation
 parent: Development
 nav_order: 530

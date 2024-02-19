@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Deploying a new Crawler
 parent: Crawlers
 grand_parent: Integration

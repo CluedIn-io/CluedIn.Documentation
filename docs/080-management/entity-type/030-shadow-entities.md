@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Shadow entities
 parent: Entity type
 grand_parent: Management

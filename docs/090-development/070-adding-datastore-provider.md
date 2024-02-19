@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Adding a new Datastore Provider
 parent: Development
 nav_order: 070

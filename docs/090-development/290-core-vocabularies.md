@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Core Vocabularies
 parent: Development
 nav_order: 290

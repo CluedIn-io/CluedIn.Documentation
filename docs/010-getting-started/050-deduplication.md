@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Deduplicate data
 parent: Getting started
 permalink: /getting-started/data-deduplication
@@ -13,8 +13,8 @@ tags: ["getting-started"]
 
 Deduplication process helps you find and merge duplicate records based on a set of rules that you define. CluedIn will automatically identify the changes and update the stream with deduplicated records.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/850839188?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Getting started with data deduplication in CluedIn"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/850839188?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Getting started with data deduplication in CluedIn"></iframe>
 </div>
 
 In this article, you will learn how to deduplicate the data that you have ingested into CluedIn and streamed to a Microsoft SQL Server database.
@@ -99,7 +99,8 @@ When creating a matching rule, you need to specify certain criteria. CluedIn use
 
 1. In the upper-right corner, select **Generate Results**. Then, confirm that you want to generate the results for the deduplication project.
 
-    **Note:** The process of generating results may take some time.
+    {:.important}
+    The process of generating results may take some time.
 
     After the process is completed, you will receive a notification. If duplicates are detected, the results will be displayed on the page. The results are organized into groups containing records that match your criteria. For example, on the following screenshot, the group consists of two duplicates. The name of the group corresponds to the value of the vocabulary key from the matching rule. 
 
@@ -141,13 +142,15 @@ The process of fixing duplicates involves reviewing the values from duplicate re
 
         ![dedup-12.png](../../assets/images/getting-started/deduplication/dedup-12.png)
 
-        **Note:** The process of merging data may take some time.
+        {:.important}
+        The process of merging data may take some time.
 
         After the process is completed, you will receive a notification. As a result, the duplicate records have been merged into one record.
 
     You fixed the duplicate records.
 
-**Note:** All changes to the data records in CluedIn are tracked. You can search for the needed data record and on the **Topology** pane, you can view the visual representation of the records that were merged through the deduplication process.
+{:.important}
+All changes to the data records in CluedIn are tracked. You can search for the needed data record and on the **Topology** pane, you can view the visual representation of the records that were merged through the deduplication process.
 
 # Results
 

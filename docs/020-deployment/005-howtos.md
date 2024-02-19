@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: How-to guides
 parent: Installation
 permalink: /deployment/infra-how-tos

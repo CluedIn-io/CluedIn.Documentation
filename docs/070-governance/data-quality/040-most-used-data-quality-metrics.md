@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Most Used Data Quality Metrics
 parent: Data Quality Metrics
 grand_parent: Governance
@@ -10,7 +10,7 @@ tags: ["governance","quality-metrics"]
 ---
 
 ---
-layout: default
+layout: cluedin
 nav_order: 1
 parent: Clean
 grand_parent: Preparation

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Roles
 parent: Administration
 permalink: /administration/roles
@@ -55,6 +55,7 @@ In CluedIn, the following access levels are used:
 
 Each subsequent access level includes all permissions from the previous access level.
 
-**Note:** In CluedIn, the most commonly used access levels are Informed and Consulted. We are working on making the access levels consistent within the platform. Currently, for some modules, the activity represented by the Responsible and Accountable access levels is the same.
+{:.important}
+In CluedIn, the most commonly used access levels are Informed and Consulted. We are working on making the access levels consistent within the platform. Currently, for some modules, the activity represented by the Responsible and Accountable access levels is the same.
 
 All authorized users have a list of claims and access levels applied to them. If a user has multiple roles with different claim access levels, then the higher access level will be applied to the user.

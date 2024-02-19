@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Ingest data
 parent: Getting started
 permalink: /getting-started/data-ingestion
@@ -13,8 +13,8 @@ tags: ["getting-started"]
 
 Ingesting data to CluedIn involves three basic steps: importing, mapping, and processing data. As a result, your records will become searchable and ready to be cleaned, deduplicated, and streamed.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/843840937?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Getting started with data ingestion in CluedIn"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/843840937?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Getting started with data ingestion in CluedIn"></iframe>
 </div>
 
 In this article, you will learn how to import a file into CluedIn, create a mapping, process the data, and search for data.

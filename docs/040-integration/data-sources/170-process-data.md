@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 050
 parent: Data sources
 grand_parent: Integration
@@ -29,7 +29,8 @@ The processing of data is the same regardless of the source of data (file, inges
 
     - View the result of the code status check along with the field that was selected for producing the entity code.
 
-    **Note:** The records containing duplicates will be merged to maintain data integrity and consistency. To learn more about unique identifiers, see [Codes](/integration/review-mapping#codes).
+    {:.important}
+    The records containing duplicates will be merged to maintain data integrity and consistency. To learn more about unique identifiers, see [Codes](/integration/review-mapping#codes).
 
 1. In the lower-right corner, select **Confirm**.
 

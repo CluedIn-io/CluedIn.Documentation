@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Delta Crawls
 parent: Crawlers
 grand_parent: Integration

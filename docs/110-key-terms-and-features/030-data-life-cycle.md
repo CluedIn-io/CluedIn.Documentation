@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Data life cycle
 parent: Key terms and features
 permalink: /key-terms-and-features/data-life-cycle
@@ -14,8 +14,8 @@ tags: ["record", "clue", "golden record"]
 
 In this article, you will learn about the stages your data goes through to become a golden record. Understanding this process helps you assess the accuracy, reliability, and overall quality of your data, enabling better decision-making and more efficient usage of resources within the system.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/901195235?h=c9d9e0acf6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Data life cycle"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/901195235?h=c9d9e0acf6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Data life cycle"></iframe>
 </div>
 
 ## Data life cycle overview

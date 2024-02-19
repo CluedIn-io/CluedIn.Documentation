@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: What are Integrations
 parent: Crawlers
 grand_parent: Integration

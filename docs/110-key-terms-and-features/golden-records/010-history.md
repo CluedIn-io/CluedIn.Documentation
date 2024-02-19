@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 1
 parent: Golden records
 grand_parent: Key terms and features
@@ -15,7 +15,8 @@ last_modified: 2024-01-15
 
 History is an important aspect of a golden record because it shows which data parts make up a golden record, what values each data part has, and what changes were made to those data parts. For more information about data parts, see [Data life cycle](/key-terms-and-features/data-life-cycle). In this article, you will learn how the history of a golden record works and how to interpret changes made to golden records.
 
-**Note:** Changes made via golden record rules, data part rules, and survivorship rules are not included in the golden record history.
+{:.important}
+Changes made via golden record rules, data part rules, and survivorship rules are not included in the golden record history.
 
 ## History overview
 
@@ -67,7 +68,8 @@ The golden record view appears when you select any metadata properties or vocabu
 
 ![history-3.png](../../assets/images/key-terms-and-features/history-3.png)
 
-**Note:** **Part ID** from the golden record view and **Record ID** from the data part view are the same.
+{:.important}
+**Part ID** from the golden record view and **Record ID** from the data part view are the same.
 
 ## Filters
 

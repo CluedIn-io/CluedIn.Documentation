@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Consent Management
 parent: Governance
 nav_order: 020

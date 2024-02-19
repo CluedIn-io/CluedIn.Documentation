@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: All Properties
 parent: User Interface
 nav_order: 20

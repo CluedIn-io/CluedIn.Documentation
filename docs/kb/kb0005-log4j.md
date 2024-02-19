@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: CluedIn Security - Log4j2 CVE-2021-44228
 permalink: /kb/log4j
 nav_exclude: true

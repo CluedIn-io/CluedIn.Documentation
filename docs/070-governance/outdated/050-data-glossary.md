@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Data Glossary
 parent: Governance
 nav_order: 050

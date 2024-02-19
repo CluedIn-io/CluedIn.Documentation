@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Data Marts
 parent: Consume
 nav_order: 30

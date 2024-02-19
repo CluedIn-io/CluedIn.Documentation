@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Export targets
 parent: Consume
 nav_order: 1

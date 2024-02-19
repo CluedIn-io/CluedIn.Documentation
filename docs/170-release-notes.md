@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Release Notes
 nav_order: 170
 has_children: false

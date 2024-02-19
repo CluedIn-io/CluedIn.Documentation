@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Rebuilding Elasticsearch Index
 permalink: /kb/elastic-index-rebuild
 nav_exclude: true

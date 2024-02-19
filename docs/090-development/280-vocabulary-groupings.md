@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Vocabulary Groupings
 parent: Development
 nav_order: 280

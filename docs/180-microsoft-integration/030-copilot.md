@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Copilot Integration
 parent: Microsoft Integration
 permalink: /microsoft-integration/copilot-integration

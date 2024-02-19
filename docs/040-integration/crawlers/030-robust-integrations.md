@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Help with building robust integrations
 parent: Crawlers
 grand_parent: Integration

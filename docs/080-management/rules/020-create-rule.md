@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 2
 parent: Rules
 grand_parent: Management
@@ -43,7 +43,8 @@ The procedure for creating a rule is the same for all types of rules. However, t
 
     1. In the lower-right corner, select **Add Action**.
 
-        **Note:** You can add multiple actions to the rule.
+        {:.important}
+        You can add multiple actions to the rule.
 
 1. In the upper-right corner of the rule details page, select **Save**.
 
@@ -64,7 +65,8 @@ The main approach to reprocess the records is through the rule details page.
 
     You can track the reprocessing of records in the status bar. If, during the reprocessing, you decide to add another action to the rule or modify a filter, you can cancel the current reprocessing operation and make the needed changes. After the reprocessing is completed, the records associated with the rule are updated in accordance with the rule's actions.
 
-    **Note:** The reprocessing option available on the rule details page is applicable only to the records that match the current rule's filter.
+    {:.important}
+    The reprocessing option available on the rule details page is applicable only to the records that match the current rule's filter.
 
 The other approaches to reprocessing the records include the following:
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 5
 parent: How-to guides
 grand_parent: Installation
@@ -90,14 +90,18 @@ Examples of log messages are provided in the following table.
    
 The following procedure shows how to get the current cluedin-server config map, edit the configuration, and apply the configuration to your Kubernetes cluster.
 
-**Note:** The example below uses a target namespace called **cluedin**. You may need to change the namespace to fit your implementation.
+{:.important}
+The example below uses a target namespace called **cluedin**. You may need to change the namespace to fit your implementation.
 
 **To apply your log level**
 
-1. Get the current configuration by running the following command:  
-`kubectl get configmap cluedin-server -o yaml > cluedin-server.yaml --namespace cluedin`
+1. Get the current configuration by running the following command:
 
-This command downloads the current cluedin-server config map into a local **cluedin-server.yaml** file.
+    ```
+    kubectl get configmap cluedin-server -o yaml > cluedin-server.yaml --namespace cluedin
+    ```
+
+    This command downloads the current cluedin-server config map into a local **cluedin-server.yaml** file.
 
 2. Open the downloaded file in the text editor of your choice.
 
@@ -108,8 +112,11 @@ apiVersion: v1
     ASPNETCORE_ENVIRONMENT: debug
 ```
 
-4. Apply the changed values from the local **cluedin-server.yaml** file to your Kubernetes cluedin-server config map by running the following command:  
-`kubectl apply -f cluedin-server.yaml --namespace cluedin`
+4. Apply the changed values from the local **cluedin-server.yaml** file to your Kubernetes cluedin-server config map by running the following command:
+
+    ```
+    kubectl apply -f cluedin-server.yaml --namespace cluedin
+    ```
 
 After you apply the values, they won’t become active until the pod is restarted. This is because the values are applied during the pod startup process. After the required pod is restarted, you should see additional log types in your logging target or in the pod logs. 
 

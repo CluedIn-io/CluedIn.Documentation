@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Entity Type
 parent: Development
 nav_order: 210

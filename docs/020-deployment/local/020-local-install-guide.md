@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 2
 parent: Local
 grand_parent: Installation
@@ -32,7 +32,8 @@ git clone https://github.com/CluedIn-io/Home
 
     ![git-clone.png](../../assets/images/local-install/git-clone.png)
 
-    **Note:** Alternatively, you can clone the repository using your preferred Git client.
+    {:.important}
+    Alternatively, you can clone the repository using your preferred Git client.
 
 ## Authenticate to CluedIn ACR
 
@@ -98,7 +99,8 @@ You can find the ACR to which you have been granted access in the <a href="/depl
 
     ![create-env.png](../../assets/images/local-install/create-env.png)
 
-    **Note:** Environment is used for having scripts that can start CluedIn of different versions. Docker does not support multiple CluedIn versions running in parallel.
+    {:.important}
+    Environment is used for having scripts that can start CluedIn of different versions. Docker does not support multiple CluedIn versions running in parallel.
 
 ## Start CluedIn
 

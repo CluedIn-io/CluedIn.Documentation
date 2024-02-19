@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: "Versioning and Release Schedule"
 description: "Information on how CluedIn is versioning"
 permalink: /kb/platform-versioning

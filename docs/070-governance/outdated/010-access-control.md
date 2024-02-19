@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Access Control
 parent: Governance
 nav_order: 010

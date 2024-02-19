@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Edge Types
 parent: Development
 nav_order: 380

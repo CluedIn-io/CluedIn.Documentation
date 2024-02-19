@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Data Quality Metrics
 parent: Governance
 nav_order: 1

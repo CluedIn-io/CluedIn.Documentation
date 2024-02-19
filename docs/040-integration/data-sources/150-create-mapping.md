@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 030
 parent: Data sources
 grand_parent: Integration
@@ -15,11 +15,12 @@ last_modified: 2023-11-07
 
 Mapping is a semantic layer that allows CluedIn to understand the nature of data and process it to produce golden records.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/896479907?h=0bd85bd043&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Create mapping and verify mapping details"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/896479907?h=0bd85bd043&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Create mapping and verify mapping details"></iframe>
 </div>
 
-**Note:** Mapping encompasses complex tasks, and CluedIn is committed to consistently enhancing the user experience associated with it. Nevertheless, it is crucial to grasp certain mapping concepts to leverage its full potential.
+{:.important}
+Mapping encompasses complex tasks, and CluedIn is committed to consistently enhancing the user experience associated with it. Nevertheless, it is crucial to grasp certain mapping concepts to leverage its full potential.
 
 The process of creating a mapping consists of two parts:
 

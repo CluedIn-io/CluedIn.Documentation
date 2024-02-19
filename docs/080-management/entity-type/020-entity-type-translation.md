@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Entity type translation
 parent: Entity type
 grand_parent: Management

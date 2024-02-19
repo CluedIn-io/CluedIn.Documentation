@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Introduction
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
