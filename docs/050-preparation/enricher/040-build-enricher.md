@@ -1,24 +1,21 @@
 ---
 layout: cluedin
-title: Enricher
-parent: Preparation
-nav_order: 2
-has_children: false
-permalink: /integration/build-enricher
-tags: ["preparation","enricher"]
+nav_order: 4
+parent: Enricher
+grand_parent: Preparation
+permalink: /preparation/enricher/build-custom-enricher
+title: Build custom enricher
 ---
 ## On this page
 {: .no_toc .text-delta }
 - TOC
 {:toc}
 
-### Introduction
+In CluedIn, an enricher allows you to take input from data flowing through the processing pipeline and then lookup services (typically external APIs) as to enrich just a single particular entity.
 
-In CluedIn, an Enricher allows you to take input from data flowing through the processing pipeline and then lookup services (typically external API’s) as to enrich just a single particular entity.
+In our [HelloWorld example](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld), we will obtain `Person` data from an external source called [JSON Placeholder](https://jsonplaceholder.typicode.com).
 
-In our HelloWorld example (see [CluedIn.Enricher.HelloWorld](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld)) we will obtain `Person` data from an external source called [JSON Placeholder](https://jsonplaceholder.typicode.com)
-
-### Pre-requesite
+**Prerequesites**
 
 CluedIn is a .NET platform. So you will need:
 
@@ -26,34 +23,34 @@ CluedIn is a .NET platform. So you will need:
 - Visual Studio installed
 - Docker
 
-### Creating initial template
+## Create initial template
 
-To avoid cumbersome boilerplating, CluedIn provides you a script to generate a working Visual studio solution.
+To avoid cumbersome boilerplating, CluedIn provides you a script to generate a working Visual Studio solution.
 
-### Install the generation tool
+## Install the generation tool
 
-You will need to install node, npm, yeoman and the generator itself.
+You will need to install node, npm, yeoman, and the generator itself.
 
-First, install Yeoman and generator-cluedin-externalsearch using npm (we assume you have pre-installed node.js).
+1. Install Yeoman and `generator-cluedin-externalsearch` using npm (we assume you have pre-installed node.js).
 
-1.  Create a new folder to store the new project, and from the command prompt, run the following to install the generator
+1.  Create a new folder to store the new project. From the command prompt, run the following code to install the generator.
 
-```shell
-npm install -g yo
-npm install -g generator-cluedin-externalsearch
-```
+    ```shell
+    npm install -g yo
+    npm install -g generator-cluedin-externalsearch
+    ```
 
-then run the generator, providing a `Name` and `Entity Type` (ie Person, Company etc), with the following:
+1. Run the generator, providing `Name` and `Entity Type` (for example, Person or Company).
 
-```shell
-yo cluedin-externalsearch
-```
+    ```shell
+    yo cluedin-externalsearch
+    ```
 
-See the `Naming Integrations` in the [Build Integration](./build-integration) documentation for more information on how the CluedIn Server finds and loads type from Integration assemblies.
+    For more information on how the CluedIn Server finds and loads type from integration assemblies, see `Naming Integrations` in the [Build Integration](./build-integration) documentation.
 
-### Adding models
+## Add models
 
-First we will setup a `User` class to receive the data. See [User.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/Models/User.cs):
+First, we will setup a `User` class to receive the data. See [User.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/Models/User.cs).
 
 ```csharp
     public class User
@@ -65,11 +62,11 @@ First we will setup a `User` class to receive the data. See [User.cs](https://gi
 	}
 ```
 
-### Adding client
+### Add client
 
-Next we will add a client class, and associated interface, to fetch data from the external source. See [HelloWorldClient.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/Client/HelloWorldClient.cs) and [IHelloWorldClient.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/Client/IHelloWorldClient.cs)
+Next, we will add a client class and associated interface to fetch data from the external source. See [HelloWorldClient.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/Client/HelloWorldClient.cs) and [IHelloWorldClient.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/Client/IHelloWorldClient.cs).
 
-```chasrp
+```csharp
 	public class HelloWorldClient : IHelloWorldClient
 	{
 		private const string BaseUri = "https://jsonplaceholder.typicode.com";
@@ -111,11 +108,11 @@ Next we will add a client class, and associated interface, to fetch data from th
 	}
 ```
 
-### Adding Vocabulary
+## Add vocabulary
 
-Then we will define our vocabulary classes. See [HelloWorldVocabulary.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/Vocabularies/HelloWorldVocabulary.cs) and [HelloWorldVocabularies.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/Vocabularies/HelloWorldVocabularies.cs)
+Then we will define our vocabulary classes. See [HelloWorldVocabulary.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/Vocabularies/HelloWorldVocabulary.cs) and [HelloWorldVocabularies.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/Vocabularies/HelloWorldVocabularies.cs).
 
-```charp
+```csharp
 
 	public class HelloWorldVocabulary : SimpleVocabulary
 	{
@@ -149,11 +146,11 @@ Then we will define our vocabulary classes. See [HelloWorldVocabulary.cs](https:
 
 ```
 
-### Adding the Provider
+### Add provider
 
-Lastly we will add the provider class (see [HelloWorldExternalSearchProvider.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/HelloWorldExternalSearchProvider.cs))
+Lastly, we will add the provider class. See [HelloWorldExternalSearchProvider.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/HelloWorldExternalSearchProvider.cs).
 
-```charp
+```csharp
 	public class HelloWorldExternalSearchProvider : ExternalSearchProviderBase
     {
 	    private static readonly Guid ProviderId = Guid.Parse("2261b8f8-00b7-45bb-8112-5cc897fb16d8"); // TODO replace with new guid
