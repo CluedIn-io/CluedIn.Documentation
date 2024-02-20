@@ -47,7 +47,7 @@ On the enricher details page, you can manage the enricher:
 - Inactivate the enricher if you no longer need it.
 
 - Manage users who have access to the data coming through the enricher. For more details, see [Permissions](/administration/permissions).
- 
+
 ## Trigger enrichment 
 
 If you process the data and then add an enricher, the enrichment won't start automatically. In general, enrichers run every 4 hours. However, if you want to enrich existing golden records immediately, you can trigger enrichment in one of the following ways:

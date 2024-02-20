@@ -62,7 +62,7 @@ First, we will setup a `User` class to receive the data. See [User.cs](https://g
 	}
 ```
 
-### Add client
+## Add client
 
 Next, we will add a client class and associated interface to fetch data from the external source. See [HelloWorldClient.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/Client/HelloWorldClient.cs) and [IHelloWorldClient.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/Client/IHelloWorldClient.cs).
 
@@ -146,7 +146,7 @@ Then we will define our vocabulary classes. See [HelloWorldVocabulary.cs](https:
 
 ```
 
-### Add provider
+## Add provider
 
 Lastly, we will add the provider class. See [HelloWorldExternalSearchProvider.cs](https://github.com/CluedIn-io/CluedIn.Enricher.HelloWorld/blob/master/src/HelloWorldExternalSearchProvider.cs).
 
