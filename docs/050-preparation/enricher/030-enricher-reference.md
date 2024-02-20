@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 3
 parent: Enricher
-grand_parent: Prepare
+grand_parent: Preparation
 permalink: /preparation/enricher/enricher-reference
 title: Enricher reference
 ---
@@ -18,7 +18,7 @@ In this article, you will find reference information about built-in enrichers in
 | Duck Duck Go | Allows you to get information from the Duck Duck Go search engine. Returns website and general information about the organization. |
 | Gleif | Allows you to get information using the Legal Entity Identifier (LEI) of an organization. |
 | Google Maps | Cleans, standardizes, and enriches international postal addresses with geocoding information. Returns correct information about company address. |
-| Knowldge Graph | Allows you to find entities using the Google Knowledge Graph API. |
+| Knowledge Graph | Allows you to find entities using the Google Knowledge Graph API. |
 | Libpostal | Allows you to parse/normalize street addresses around the world using statistical NLP and open data. Returns international street address. |
 | Open Corporates | Allows you to get information on all companies worldwide. Returns VAT/TAX number. |
 | PermId | Creates a unique reference for any data item. |

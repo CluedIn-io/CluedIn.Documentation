@@ -20,3 +20,5 @@ This section covers the following areas:
 - [Adding an enricher](/preparation/enricher/add-enricher) – learn how to configure and manage an enricher.
 
 - [Reference information about enrichers](/preparation/enricher/enricher-reference) – find information about built-in enrichers available in CluedIn.
+
+- [Building custom enricher](/preparation/enricher/build-custom-enricher) – learn how to create custom enricher tailored to your specific needs.
