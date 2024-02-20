@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 7
 parent: How-to guides
 grand_parent: Installation
@@ -120,7 +120,8 @@ After you added the certificates and keys to your **values.yaml** file, you need
         isWildcard: false
     ```
 
-    **Note:** We recommend that you remove Let's Encrypt issuer because you are configuring the system to use your own certificates and keys.
+    {:.important}
+    We recommend that you remove Let's Encrypt issuer because you are configuring the system to use your own certificates and keys.
 
 5. Update the ingress controller to use the new certificate:
 

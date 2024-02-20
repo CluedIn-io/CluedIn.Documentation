@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Search
 parent: Key terms and features
 permalink: /key-terms-and-features/search
@@ -38,7 +38,8 @@ If you want to see other record properties or vocabulary keys, you can add the n
 
 1. In the search field, enter the name of the vocabulary and start the search. Then, select the needed vocabulary keys.
 
-    **Note:** To limit the search results, use filters (![filter-icon.png](../../assets/images/key-terms-and-features/filter-icon.png)). You can choose to view the vocabulary keys of a specific data type or classification, or vocabulary keys from specific integrations.
+    {:.important}
+    To limit the search results, use filters (![filter-icon.png](../../assets/images/key-terms-and-features/filter-icon.png)). You can choose to view the vocabulary keys of a specific data type or classification, or vocabulary from specific integrations.
 
 1. After you chose the needed vocabulary keys, select **Add Vocabulary Columns**.
 

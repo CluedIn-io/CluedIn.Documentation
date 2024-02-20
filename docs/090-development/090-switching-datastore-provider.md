@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Switching a Datastore Provider
 parent: Development
 nav_order: 090

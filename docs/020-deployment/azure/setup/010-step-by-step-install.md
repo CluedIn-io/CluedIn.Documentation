@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 10
 parent: CluedIn Setup
 grand_parent: Azure

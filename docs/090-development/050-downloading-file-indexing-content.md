@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Downloading a File and Indexing the Content
 parent: Development
 nav_order: 050

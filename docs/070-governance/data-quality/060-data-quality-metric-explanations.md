@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Data Quality Metric Explanations
 parent: Data Quality Metrics
 grand_parent: Governance

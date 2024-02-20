@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Configuration Search Relevance
 parent: Consume
 nav_order: 60

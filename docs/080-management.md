@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Management
 nav_order: 80
 has_children: true

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Golden records
 parent: Key terms and features
 permalink: /key-terms-and-features/golden-records

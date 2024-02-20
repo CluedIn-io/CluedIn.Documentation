@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Azure Customer Usage Attribution
 permalink: /kb/azure-customer-usage-attribution
 nav_exclude: true

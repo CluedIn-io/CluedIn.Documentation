@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Data Retention
 parent: Governance
 nav_order: 080

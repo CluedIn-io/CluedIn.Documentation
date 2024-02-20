@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Dynamic Vocabularies
 parent: Development
 nav_order: 300

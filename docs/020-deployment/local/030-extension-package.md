@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 3
 parent: Local
 grand_parent: Installation
@@ -45,7 +45,8 @@ pwsh .\cluedin.ps1 packages 202304 -Add CluedIn.Connector.SqlServer
  
     ![add-package.png](../../assets/images/local-install/add-package.png)
 
-    **Note:** You can also specify a version for your package (`-version`) and use floating versions (for example, `1.0.0-*`) for the latest pre-release.
+    {:.important}
+    You can also specify a version for your package (`-version`) and use floating versions (for example, `1.0.0-*`) for the latest pre-release.
 
 1. Restore the package by running the following command:
 ```
@@ -74,7 +75,8 @@ pwsh .\cluedin.ps1 up 202304
 
     ![start-cluedin-server.png](../../assets/images/local-install/start-cluedin-server.png)
 
-    **Note:** Starting the CluedIn server takes some time. When CluedIn starts up, it takes all extension assets from the disk and copies them into the container.
+    {:.important}
+    Starting the CluedIn server takes some time. When CluedIn starts up, it takes all extension assets from the disk and copies them into the container.
 
 1.  After you start CluedIn, make sure the package was included. In Docker Desktop, select the CluedIn server and look for the similar section in logs.
 
@@ -84,7 +86,8 @@ pwsh .\cluedin.ps1 up 202304
 
     ![sql-connector-app.png](../../assets/images/local-install/sql-connector-app.png)
 
-    **Note:** The SQL Server Connector may take a few minutes to appear in the application.
+    {:.important}
+    The SQL Server Connector may take a few minutes to appear in the application.
 
 ## Results
 

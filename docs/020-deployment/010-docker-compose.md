@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Local
 parent: Installation
 nav_order: 2
@@ -11,8 +11,8 @@ last_modified: 2023-07-04
 
 Learn how to run CluedIn locally and prepare to stream data to Microsoft SQL Server databases.
 
-<div style='padding:58.42% 0 0 0;position:relative;'>
-<iframe src="https://player.vimeo.com/video/842179773?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="AMA_installation_overview_video_upd"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/842179773?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="AMA_installation_overview_video_upd"></iframe>
 </div>
 
 CluedIn is being developed with a cloud-centric approach, which means that running CluedIn locally can pose some challenges. The local installation of CluedIn does not provide all the features available in cloud environment, such as auto-scaling, auto-restart, logging, monitoring, and more. However, you may still consider installing CluedIn locally for the following reasons:

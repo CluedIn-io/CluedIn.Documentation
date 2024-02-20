@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Enricher
 parent: Preparation
 nav_order: 2

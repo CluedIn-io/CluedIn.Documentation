@@ -1,17 +1,29 @@
 ---
-layout: default
+layout: cluedin
 title: Administration
 nav_order: 90
 has_children: true
 permalink: /administration
 ---
 
-{: .fs-6 .fw-300 }
-
 In this article, you will learn about the main administrative tasks in CluedIn.
 
 Select one of the following items to get started:
 
-- [User management](/administration/user-management) – add and deactivate users.
-- [Roles](/administration/roles) - understand claims and access levels, assign roles to users, remove roles from users, and process role requests.
-- [Permissions](/administration/permissions) - restrict access to data and manage permissions for users in data resources, ensuring that the right users have access to the right data.
+<div class="card-line">
+  <div class="card" href="/administration/user-management">
+    <div class="icon"><img src="/assets/icons/user-management.svg" alt="Azure Market place"/></div>
+    <div class="title">User management</div>
+    <div class="content">Add and deactivate users in your CluedIn organization</div>
+  </div>
+   <div class="card" href="/administration/roles">
+    <div class="icon"><img src="/assets/icons/installation.svg" alt="Installation"/></div>
+    <div class="title">Roles</div>
+    <div class="content">Learn about claims and access levels, manage user roles</div>
+  </div>
+   <div class="card" href="/administration/permissions">
+    <div class="icon"><img src="/assets/icons/permissions.svg" alt="How to"/></div>
+    <div class="title">Permissions</div>
+    <div class="content">Manage overall access to data using a global security filter</div>
+  </div>
+</div>

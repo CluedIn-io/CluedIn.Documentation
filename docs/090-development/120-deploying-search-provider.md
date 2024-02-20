@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Deploying a New External Search Provider
 parent: Development
 nav_order: 120

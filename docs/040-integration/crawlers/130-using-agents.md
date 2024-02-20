@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Using Agents
 parent: Crawlers
 grand_parent: Integration

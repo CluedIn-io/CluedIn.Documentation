@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Permissions
 parent: Administration
 permalink: /administration/permissions
@@ -98,4 +98,5 @@ With the global security filter turned on, you need to add permissions for users
 
     For the changes to take effect, the users have to sign out and sign in again. Now, the users can view data, and they are listed on the **Permissions** tab of the data resource.
 
-**Note:** The operations that users can perform with data depend on the roles assigned to the users. For more information, see [Roles](/administration/roles).
+{:.important}
+The operations that users can perform with data depend on the roles assigned to the users. For more information, see [Roles](/administration/roles).

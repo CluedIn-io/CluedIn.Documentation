@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Governance
 nav_order: 50
 has_children: true

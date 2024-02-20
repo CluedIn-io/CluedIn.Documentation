@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: User management
 parent: Administration
 permalink: /administration/user-management

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Origin
 parent: Development
 nav_order: 360

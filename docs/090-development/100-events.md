@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Events
 parent: Development
 nav_order: 100

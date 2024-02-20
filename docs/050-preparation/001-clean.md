@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Clean
 parent: Preparation
 permalink: /preparation/clean

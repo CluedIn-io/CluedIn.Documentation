@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Keep in the Loop
 parent: User Interface
 nav_order: 050

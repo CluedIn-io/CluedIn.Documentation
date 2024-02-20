@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Kubernetes
 parent: Installation
 permalink: /deployment/kubernetes

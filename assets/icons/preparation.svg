@@ -1,0 +1,14 @@
+<svg id="Group_4226" data-name="Group 4226" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23.415" height="24" viewBox="0 0 23.415 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_798" data-name="Rectangle 798" width="23.415" height="24" fill="#006bbd"/>
+    </clipPath>
+  </defs>
+  <g id="Group_4225" data-name="Group 4225" transform="translate(0 0)" clip-path="url(#clip-path)">
+    <path id="Path_1740" data-name="Path 1740" d="M5.253,7.379a2.3,2.3,0,1,0-2.3-2.3,2.3,2.3,0,0,0,2.3,2.3" transform="translate(1.579 1.484)" fill="#006bbd"/>
+    <path id="Path_1741" data-name="Path 1741" d="M8.44,4.606a2.3,2.3,0,1,0-2.3-2.3,2.3,2.3,0,0,0,2.3,2.3" transform="translate(3.285 0)" fill="#006bbd"/>
+    <path id="Path_1742" data-name="Path 1742" d="M11.629,7.379a2.3,2.3,0,1,0-2.3-2.3,2.3,2.3,0,0,0,2.3,2.3" transform="translate(4.991 1.484)" fill="#006bbd"/>
+    <path id="Path_1743" data-name="Path 1743" d="M23.415,6.683H0V8.3H6.023v6.228h1.62V8.3h8.169v6.228h1.62V8.3h5.984Z" transform="translate(0 3.577)" fill="#006bbd"/>
+    <rect id="Rectangle_797" data-name="Rectangle 797" width="1.62" height="9.907" transform="translate(10.914 14.093)" fill="#006bbd"/>
+  </g>
+</svg>

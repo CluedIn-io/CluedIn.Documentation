@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 020
 parent: Data sources
 grand_parent: Integration
@@ -17,8 +17,8 @@ This article will walk you through the process of data ingestion in CluedIn, exp
 
 ## Files
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/896471681?h=297bcecaf9&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Using files for data ingestion"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/896471681?h=297bcecaf9&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Using files for data ingestion"></iframe>
 </div>
 
 When you need to upload a large set of records to CluedIn, we recommend that you start by uploading a small, representative subset of your data in CSV or JSON format. This approach allows you to verify the accuracy of mapping and relations before dealing with a large set of records. Once the golden records generated from this subset align with your expectations, you can safely remove those records from the system, while keeping the mapping configuration intact. After that you can upload a large set of records and use the existing mapping to generate golden records in an efficient way.
@@ -49,8 +49,8 @@ The **data ingestion process for files** consists of three stages: uploading, pa
 
 Data ingestion using an endpoint is a default solution to push your data easily into CluedIn, especially if you are using tools like Azure Data Factory, Databricks, or Apache NiFi.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/896475765?h=8f20829bc2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Using an endpoint for data ingestion"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/896475765?h=8f20829bc2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Using an endpoint for data ingestion"></iframe>
 </div>
 
 When you need to push a large set of records into CluedIn, we recommend that you start by pushing a small, representative subset of your data. As with files, this approach allows you to verify the accuracy of mapping and relations before pushing a large set of records. Once the golden records generated from this subset align with your expectations, you can safely remove those records from the system, while keeping the mapping configuration intact. After that you can push a large set of records and use the existing mapping to generate golden records in an efficient way.

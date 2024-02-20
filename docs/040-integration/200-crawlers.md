@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 030
 parent: Integration
 permalink: /integration/crawlers-and-enrichers

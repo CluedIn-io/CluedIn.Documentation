@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Rules in CluedIn
 parent: Development
 nav_order: 410

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Datastores
 parent: Development
 nav_order: 080

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Data Catalog
 parent: Governance
 nav_order: 040

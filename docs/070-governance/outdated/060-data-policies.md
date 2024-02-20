@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Data Policies
 parent: Governance
 nav_order: 060

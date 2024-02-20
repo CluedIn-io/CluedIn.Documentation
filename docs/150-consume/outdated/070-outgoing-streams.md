@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Outgoing Streams
 parent: Consume
 nav_order: 70

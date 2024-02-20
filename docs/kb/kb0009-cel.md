@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: "CluedIn Expression Language (C.E.L.)"
 description: "CluedIn Expression Language manual"
 permalink: /kb/cel

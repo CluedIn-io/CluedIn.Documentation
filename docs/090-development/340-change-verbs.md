@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Change Verbs
 parent: Development
 nav_order: 340

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: How to add an Integration
 parent: Crawlers
 grand_parent: Integration

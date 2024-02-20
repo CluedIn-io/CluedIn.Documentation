@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Home Screen
 parent: Crawlers
 grand_parent: Integration

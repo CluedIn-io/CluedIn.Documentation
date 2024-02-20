@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: PowerApps Integration
 parent: Microsoft Integration
 permalink: /microsoft-integration/powerapps

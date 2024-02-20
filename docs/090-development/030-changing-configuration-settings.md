@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Changing Configuration Settings
 parent: Development
 nav_order: 030

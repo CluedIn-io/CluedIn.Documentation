@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 010
 parent: Integration
 permalink: /integration/data sources
