@@ -137,7 +137,7 @@ You need to register a web API with the Microsoft identity platform and expose i
 1. In the Azure portal, in **App registrations**, select your application.
 1. Select **Expose an API**.
 1. In the **Scopes defined by this API** section, select **Add a scope**.
-1. For the first time setup, you will need to specify the `Application ID URI`. For this, use your frontend url with `/sso` appended. (ie. `https://cluedin.yourdomain.com/sso`)
+1. For the first-time setup, you will need to specify the `Application ID URI`. For this, use your front-end URL with `/sso` appended. (i.e. `https://cluedin.yourdomain.com/sso`)
     ![configure-sso-scopename.png](../../assets/images/ama/howtos/configure-sso-scopename.png)
 1. Specify the following scope attributes and then click `Add scope`:
     - **Scope name**: `user_impersonation`
