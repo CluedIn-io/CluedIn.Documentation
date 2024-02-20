@@ -42,7 +42,7 @@ Registering your application establishes a trust relationship between your appli
 1. Enter a display **Name** for your application.
 ![Register_application_Name.png](../../assets/images/ama/howtos/configure-sso-2.png)
 1. Select the **Supported account types** that can use the application.
-1. Leave Redirect URI empty for the time being.
+1. Leave **Redirect URI** empty for the time being.
 1. Select **Register**.
 
     When the registration finishes, the Azure portal displays the **Overview** pane of the application registration. Here you can see the **Application (client) ID**. This value uniquely identifies your application. Make note of this ID as you'll need it to [enable SSO via Helm](#create-kubernetes-secret-and-enable-sso-via-helm).
