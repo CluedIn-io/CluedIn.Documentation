@@ -27,7 +27,7 @@ Useful links:
 
 # Guide
 
-1. We will first need to login to your tenant to enable the Azure key vault addon against the AKS
+1. Sign in to your tenant to enable the Azure Key Vault add-on against the AKS.
 
 1. Open up `pwsh` and sign in to your tenant with `az login`.
 
