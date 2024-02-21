@@ -14,7 +14,7 @@ This is not currently supported as of Q1 2024. However, beta versions are availa
 
 In this walkthrough, we will guide you through connecting your CluedIn instance to use the existing Azure Key Vault to synchronize secrets and certificates to your Kubernetes cluster.
 
-This method utilises the Azure Key Vault (**AKV**) provider for secrets store CSI driver to facilitate this feature.
+This method uses the Azure Key Vault (**AKV**) provider for secrets store CSI driver to facilitate this feature.
 
 Useful links:
 * [Azure Key Vault Provider for Secrets Store CSI Driver](https://azure.github.io/secrets-store-csi-driver-provider-azure/)
