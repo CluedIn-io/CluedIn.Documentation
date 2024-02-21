@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Sync certificates and secrets from AKV to AKS
 permalink: /kb/sync-aks-to-akv
 nav_exclude: true
