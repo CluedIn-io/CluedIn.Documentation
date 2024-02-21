@@ -157,4 +157,4 @@ This section will explain some of the more technical bits.
 
 - The secrets synchronized do not override existing secrets that are created by the CluedIn Installer. If your secret matches the same name (front-end certificate is mandatory here), you must remove the existing secret for the synchronized secret to appear.
 
-- Please ensure there is enough resources as well. For example, by default the neo4j and elasticsearch pods consume a majority of the nodes they have been assigned. Having the additional Key Vault pods on these nodes may potentially prevent these from starting up.
+- Please ensure that you have enough resources. For example, by default the Neo4j and Elasticsearch pods consume a majority of the nodes they have been assigned. Having the additional Key Vault pods on these nodes may potentially prevent these from starting up.
