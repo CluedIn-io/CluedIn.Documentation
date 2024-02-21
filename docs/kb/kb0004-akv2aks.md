@@ -41,7 +41,7 @@ Useful links:
     $keyVaultRG = 'rg-kv' # Please use the resource group the above key vault resides in
     ```
 
-1. Once logged in, next you'll need to enable the addon on the existing AKS Cluster
+1. Enable the add-on on the existing AKS Cluster.
     ```pwsh
     $params = @(
         '--addons', 'azure-keyvault-secrets-provider'
