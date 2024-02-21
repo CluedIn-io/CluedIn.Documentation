@@ -50,7 +50,8 @@ Useful links:
     )
     az aks enable-addons --addons @params
     ```
-    **NOTE**: Please note that this will deploy some additional pods to each available node.
+    {:.important}
+    Please note that this will deploy some additional pods to each available node.
 
 1. Once the addon has been deployed, it will create a key vault managed identity which is used to  communicate back to the Azure key vault from the kubernetes cluster.
 
