@@ -27,7 +27,9 @@ The first thing you need to do to run CluedIn locally is to get access to CluedI
 
 1. Fill in and submit the [form](https://forms.office.com/pages/responsepage.aspx?id=YSiu9fyznUSp50nBTQEawIEsLHex0dtAnRBIgXFdeu5UQ0ZFWU0wUFI4N1lDMkRRSFpPSUg2QjdSWCQlQCN0PWcu).
 
-    In the form, you need to specify the type of access that you need: **Production** (access to release, support, and occasional beta builds) and/or **Early Access** (access to early release builds that are not supported for production).
+    In the form, you need to specify the type of usage that you need: **Production** (deploying CluedIn in a live environment) and/or **Early Access** (exploring CluedIn or creating extensions for the product).
+
+    You must have a valid production license to request production access.
 
     After you submit the form, you'll receive an email with instructions to verify your email address.
     
