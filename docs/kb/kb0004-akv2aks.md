@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Sync certificates and secrets from Azure Key Vault to Azure Kubetnetes Service
+title: Sync certificates and secrets from AKV to AKS
 permalink: /kb/sync-aks-to-akv
 nav_exclude: true
 tags: ["kubernetes","azure","aks", "akv", "key-vault", "azure"]
