@@ -10,7 +10,7 @@ is_kb: true
 # Introduction
 
 {:.important}
-This is not currently supported as of Q1 2024. However, beta versions are available that allow users
+This is not currently supported as of Q1 2024. However, beta versions are available that allow users to set this up and test it before GA release.
 
 In this walkthrough, we will guide you through connecting your CluedIn instance to use the existing Azure Key Vault to synchronize secrets and certificates to your Kubernetes cluster.
 
