@@ -75,7 +75,8 @@ Useful links:
     $kv = az keyvault show --name $keyVaultName --resource-group $keyVaultRG | ConvertFrom-Json
     ```
 
-    **NOTE**: This guide assumes you'll use the pre-existing key vault deployed at install time. You may use an alternative key vault if prefered, so please update the values above to match your desired key vault.
+    {:.important}
+    This guide assumes you'll use the pre-existing key vault deployed at install time. You may use an alternative key vault if preferred. In this case, update the values above to match your desired key vault.
 
 1. Update access to your key vault:
     - RBAC:
