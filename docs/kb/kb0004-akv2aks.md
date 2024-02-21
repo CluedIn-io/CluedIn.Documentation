@@ -29,7 +29,7 @@ Useful links:
 
 1. We will first need to login to your tenant to enable the Azure key vault addon against the AKS
 
-1. Open up `pwsh` and login to your tenant with: `az login`
+1. Open up `pwsh` and sign in to your tenant with `az login`.
 
 1. Set up your variables which will be used below:
     ```pwsh
