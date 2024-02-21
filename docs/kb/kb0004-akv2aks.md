@@ -55,7 +55,7 @@ Useful links:
 
     Once the add-on has been deployed, it will create a key vault managed identity that is used to communicate back to the Azure Key Vault from the Kubernetes cluster.
 
-1. To get the managed identity, you can run the following:
+1. To get the managed identity, run the following:
     ```pwsh
     $params = @(
         '--name', $aks.name
