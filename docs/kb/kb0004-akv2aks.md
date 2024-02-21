@@ -67,7 +67,8 @@ Useful links:
     $kvManagedIdentity = az aks show @params
     ```
 
-    **NOTE**: Depending on if you're using RBAC or Policy for Key Vault access, you will need to update the appropriate area so the key vault managed identity can GET and LIST secrets and certificates.
+    {:.important}
+    Depending on if you're using RBAC or Key Vault access policy, you will need to update the appropriate area so the key vault managed identity can GET and LIST secrets and certificates.
 
 1. Obtain the key vault details:
     ```pwsh
