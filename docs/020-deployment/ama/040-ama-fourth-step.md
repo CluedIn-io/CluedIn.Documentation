@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 4
 parent: Azure Marketplace
 grand_parent: Installation

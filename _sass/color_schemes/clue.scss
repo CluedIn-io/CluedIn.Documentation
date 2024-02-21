@@ -1,0 +1,264 @@
+$link-color: $blue-000;
+$content-width: 100rem;
+
+@media (min-width: 50rem) {
+  .site-header {
+    border-bottom: 0 !important;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  .side-bar {
+    width: 16.5rem !important;
+    background: #eef5fc !important;
+  }
+  .site-nav {
+    padding-top: 1rem !important;
+  }
+  p {
+    img {
+      height: auto;
+      max-width: 60%;
+      margin: 1rem 0 1rem 0;
+    }
+  }
+}
+
+.videoFrame {
+  position: relative;
+  width: 920px;
+  height: 518px;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+p.important {
+  background: rgba(44, 132, 250, 0.2);
+  border-left: 4px solid #183385;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 0.8rem;
+  max-width: 60%;
+}
+p.important::before,
+blockquote.note::before {
+  color: #183385;
+  content: "Important";
+  display: block;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  padding-bottom: 0.125rem;
+}
+p.warning {
+  background: rgba(247, 126, 126, 0.2);
+  border-left: 4px solid #dd2e2e;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 0.8rem;
+  max-width: 60%;
+}
+p.warning::before,
+blockquote.warning::before {
+  color: #dd2e2e;
+  content: "Warning";
+  display: block;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  padding-bottom: 0.125rem;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: local("Segoe UI Light"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff2)
+      format("woff2"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff)
+      format("woff"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.ttf)
+      format("truetype");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: local("Segoe UI Semilight"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.woff2)
+      format("woff2"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.woff)
+      format("woff"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.ttf)
+      format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: local("Segoe UI"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2)
+      format("woff2"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff)
+      format("woff"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.ttf)
+      format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: local("Segoe UI Semibold"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff2)
+      format("woff2"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff)
+      format("woff"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.ttf)
+      format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: local("Segoe UI Bold"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff2)
+      format("woff2"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff)
+      format("woff"),
+    url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.ttf)
+      format("truetype");
+  font-weight: 700;
+}
+
+html {
+  body {
+    font-family: "Segoe UI", serif, "Segoe UI Emoji" !important;
+  }
+}
+
+@media (min-width: 50rem) {
+  div.card-line {
+    flex-direction: row !important;
+    .card:first-child {
+      margin-left: 0 !important;
+      margin-top: 0 !important;
+    }
+    .card-smaller:first-child {
+      margin-left: 0 !important;
+      margin-top: 0 !important;
+    }
+    .card {
+      margin-left: 32px !important;
+      margin-top: 0 !important;
+      width: 278px !important;
+    }
+    .card-smaller {
+      margin-left: 32px !important;
+      margin-top: 0 !important;
+      width: 278px !important;
+    }
+  }
+}
+
+div.card-line {
+  display: flex;
+  margin: 32px 0;
+  flex-direction: column;
+  .card:first-child {
+    margin-left: 0;
+  }
+  .card {
+    margin-left: 0;
+    margin-top: 32px;
+    width: 100%;
+  }
+}
+
+div.card {
+  width: 100%;
+  height: 278px;
+  border: 1px solid #ffffff;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 15px #0000001a;
+  border-radius: 4px;
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.4;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid #0082e6;
+  }
+  .icon {
+    flex: 1;
+    display: flex;
+    align-items: end;
+    padding-bottom: 16px;
+    img {
+      width: 48px;
+      max-width: 48px;
+      height: 48px;
+    }
+  }
+  .title {
+    color: #006bbd;
+    font-size: 24px;
+  }
+  .content {
+    padding-top: 16px;
+    font-size: 18px;
+    color: #000000;
+  }
+}
+
+div.card-smaller {
+  width: 100%;
+  border: 1px solid #ffffff;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 15px #0000001a;
+  border-radius: 4px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.4;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid #0082e6;
+  }
+  .icon {
+    flex: 1;
+    display: flex;
+    align-items: end;
+    padding-bottom: 16px;
+    img {
+      width: 24px;
+      max-width: 24px;
+      height: 24px;
+    }
+  }
+  .title {
+    color: #006bbd;
+    font-size: 16px;
+  }
+  .content {
+    padding-top: 16px;
+    font-size: 14px;
+    color: #000000;
+  }
+}
+
+html {
+  min-height: 100% !important;
+}
+body {
+  min-height: 100% !important;
+  background-color: #fff !important;
+  background-image: url("/assets/icons/logo-mask.svg");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}

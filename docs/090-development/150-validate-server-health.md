@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Validate Server Health
 parent: Development
 nav_order: 150

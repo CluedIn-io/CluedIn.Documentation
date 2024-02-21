@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 3
 parent: How-to guides
 grand_parent: Installation
@@ -90,9 +90,10 @@ The Kubernetes DNS service IP address is the IP address within the Kubernetes se
 
 If you are using Azure Load Balancer as part of your CluedIn deployment, you need to consider the following security aspects:
 
-- The cluster identity used by the AKS cluster must have at least **Network Contributor** permissions on the subnet within your virtual network.
+- The cluster identity used by the AKS cluster must have at least **Network Contributor** permissions on the subnet within your virtual network. 
+    **Note**: On a standard CluedIn instance, this will be the User Assigned Identity rather than Machine Assigned. This is located in the Managed Resource Group.
 
-- If you want to define a **custom role** instead of using the built-in Network Contributor role, the following permissions are required:
+- If you want to define a **custom role** instead of using the built-in `Network Contributor` role, the following permissions are required:
   - Microsoft.Network/virtualNetworks/subnets/join/action
   - Microsoft.Network/virtualNetworks/subnets/read
   - Microsoft.Authorization/roleAssignments/write

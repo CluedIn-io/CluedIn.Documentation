@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Integration and the CluedIn UI
 parent: Crawlers
 grand_parent: Integration

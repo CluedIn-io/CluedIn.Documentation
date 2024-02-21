@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Rules
 parent: Management
 nav_order: 010

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Aggregation
 parent: Preparation
 nav_order: 10

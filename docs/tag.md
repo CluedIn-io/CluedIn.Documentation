@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title:
 has_children: false
 permalink: /tag

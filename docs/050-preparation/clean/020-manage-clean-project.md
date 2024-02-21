@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 2
 parent: Clean
 grand_parent: Preparation
@@ -122,7 +122,8 @@ You can undo changes made to values in your golden records after processing the 
 
     As a result, the changed values are removed, returning the values to their pre-cleaning state. The status of the clean project becomes **Ready to process**, which means that your previous changes are saved in the clean application.
 
-    **Note:** Reverting is not tracked anywhere.
+    {:.important}
+    Reverting is not tracked anywhere.
 
 Consider the following actions that you can do after reverting changes in the clean project:
 
@@ -134,7 +135,8 @@ Consider the following actions that you can do after reverting changes in the cl
 
 Generating results for the clean project creates a snapshot of the data. If new data is loaded into CluedIn, it won't be automatically added to the clean project. To add the latest data to the clean project, you should regenerate the results.
 
-**Note:** Regenerating the results will cause you to lose all previous progress in the clean project. So, if you have already cleaned the data and want to publish your changes, process the cleaned data first, and then regenerate the results.
+{:.important}
+Regenerating the results will cause you to lose all previous progress in the clean project. So, if you have already cleaned the data and want to publish your changes, process the cleaned data first, and then regenerate the results.
 
 **To regenerate the results**
 
@@ -146,7 +148,8 @@ Generating results for the clean project creates a snapshot of the data. If new 
 
 You can edit a clean project to make necessary changes in project name, description, filters, and properties that you need to clean.
 
-**Note:** If you change filters or properties, all previous cleaning progress will be lost and the project will be regenerated.
+{:.important}
+If you change filters or properties, all previous cleaning progress will be lost and the project will be regenerated.
 
 **To edit a clean project**
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Crawler Validation Framework
 parent: Crawlers
 grand_parent: Integration

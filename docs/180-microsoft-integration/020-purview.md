@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Microsoft Purview Integration
 parent: Microsoft Integration
 permalink: /microsoft-integration/purview

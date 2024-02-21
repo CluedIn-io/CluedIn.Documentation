@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Workflow Event Handlers
 parent: Development
 nav_order: 570

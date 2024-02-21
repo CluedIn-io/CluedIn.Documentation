@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Subject Access Request
 parent: Governance
 nav_order: 100

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Suggested Searches
 parent: User Interface
 nav_order: 090

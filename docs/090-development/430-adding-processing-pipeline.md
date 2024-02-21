@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Adding a new Processing Pipeline
 parent: Development
 nav_order: 430

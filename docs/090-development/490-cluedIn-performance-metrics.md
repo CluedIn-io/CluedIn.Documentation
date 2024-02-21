@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: CluedIn Performance Metrics
 parent: Development
 nav_order: 490

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Create rules
 parent: Getting started
 permalink: /getting-started/rule-builder
@@ -13,13 +13,11 @@ tags: ["getting-started"]
 
 Rule Builder allows you to create rules for cleaning, transforming, normalizing, and modifying the data.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/850936950?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Getting started with Rule Builder in CluedIn"></iframe>
+<div class="videoFrame">
+<<iframe src="https://player.vimeo.com/video/911293821?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Getting started with Rule Builder in CluedIn"></iframe>
 </div>
 
-In this article, you will learn how to create rules in CluedIn using the Rule Builder tool.
-
-You can create a rule either before or after processing the data.
+In this article, you will learn how to create rules in CluedIn using the Rule Builder tool. You can create a rule either before or after processing the data.
 
 # Create rule
 
@@ -29,9 +27,9 @@ Creating a rule involves configuring a filter and defining the rule action.
 
 1. On the navigation pane, go to **Management** > **Rule Builder**.
 
-1. Select **Create Rule**.
+1. Choose the [type of rule](/management/rules/rule-types) that you want to create. Then, select **Create Rule**.
 
-1. Enter the name of the rule. Then, in the lower-right corner, select **Create**.
+1. Enter the name of the rule. Then, select **Create**.
 
     The rule details page opens.
 
@@ -39,21 +37,18 @@ Creating a rule involves configuring a filter and defining the rule action.
 
     1. Select the type of property (**Property** or **Vocabulary**).
 
-    1. Depending on the type of property that you selected, do one of the following:
-
-        For **Property**, find and select the needed property.
-
-        For **Vocabulary**, find and select the needed vocabulary key.
+    1. Depending on the type of property that you selected before, find and select the needed property or vocabulary key.
 
     1. Select the operation.
 
-    1. Select the value of the property.
+    1. Select the value of the property or vocabulary key.
 
         If you want to create a rule for a value that does not yet exist in CluedIn, then enter a new value. 
 
         ![rule-builder-2.png](../../assets/images/getting-started/rule-builder/rule-builder-2.png)
 
-        **Note:** The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
+        {:.important}
+        The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears. For more information, see [Filters](/key-terms-and-features/filters).
 
 1. In the **Actions** section, select **Add Action**, and then configure the action that CluedIn can perform on the filtered items:
 
@@ -61,7 +56,7 @@ Creating a rule involves configuring a filter and defining the rule action.
 
     1. (Optional) If you want to narrow down your filter query, specify additional conditions for the rule. To do this, in the **Conditions** section, select **Add first rule**, and then configure the condition according to the instructions from step 4.
 
-    1. In the **Action** section, select the action to be performed be the rule. To learn more about what each action does, see [Actions](#actions).
+    1. In the **Action** section, select the action to be performed by the rule. To learn more about what each action does, see [Rules reference](/management/rules/rules-reference).
 
     1. Depending on the action that you selected, provide the required information.
 
@@ -69,39 +64,45 @@ Creating a rule involves configuring a filter and defining the rule action.
 
         ![rule-builder-3.png](../../assets/images/getting-started/rule-builder/rule-builder-3.png)
 
-    1. In the lower-right corner, select **Add Action**.
+    1. In the lower-right corner, select **Add Action**. You can add multiple actions to the rule.
 
-    **Note:** You can add multiple actions to the rule.
-
-1. In the upper-right corner of the rule details page, select **Save**.
+1. In the upper-right corner of the rule details page, select **Save**, and then confirm your choice.
 
 1. Activate the rule by turning on the toggle next to the rule status.
-
-    Now, the rule is active.
 
     ![rule-builder-5.png](../../assets/images/getting-started/rule-builder/rule-builder-5.png)
 
 1. Depending on whether the rule applies to the processed or unprocessed data, do one of the following:
 
-    1. If the rule is applied to the processed data, [re-process the entity](#re-process-entity).
+    - If the rule applies to the processed data, [reprocess the records](#reprocess-records).
 
-    1. If the rule applies to the unprocessed data, process the data as described in the [Ingest data guide](/getting-started/data-ingestion).
+    - If the rule applies to the unprocessed data, process the data as described in the [Ingest data guide](/getting-started/data-ingestion). In this case, the rule will be applied to the records automatically during processing.
 
-    You created the rule.
+# Reprocess records
 
-# Re-process entity
+After you created the rule for the processed data, you need to reprocess the records to apply the rule. You can reprocess the records in one of the following ways:
 
-After you created the rule for the processed data, you need to re-process the entity to apply the rule. Depending on the number of entities that you need to re-process, you can choose one of the following actions:
+- Reprocess records via the rule details page.
 
-- If you need to re-process many entities, use the GraphQL tool.
+- Reprocess records using the GraphQL tool.
 
-- If you need to re-process few entities, re-process each entity manually.
+- Reprocess each record manually.
 
-**To re-process the entity using the GraphQL tool**
+**To reprocess records via the rule details page**
+
+1. Near the upper-right corner of the rule details page, select the reprocess icon.
+
+    ![rule-builder-9.png](../../assets/images/getting-started/rule-builder/rule-builder-9.png)
+
+1. Confirm that you want to reprocess the records associated with the rule.
+
+    After the reprocessing is completed, the records associated with the rule are updated in accordance with the rule’s actions.
+
+**To reprocess records using the GraphQL tool**
 
 1. On the navigation pane, go to **Consume** > **GraphQL**.
 
-1. Enter a query to re-process all entities that belong to a certain entity type. Replace _TrainingContact_ with the needed name of entity type.
+1. Enter a query to reprocess all records that belong to a certain entity type. Replace _TrainingContact_ with the needed name of entity type.
 ```
 {
 	search(query: "entityType:/TrainingContact") {
@@ -115,25 +116,45 @@ After you created the rule for the processed data, you need to re-process the en
 ```
 1. Execute the query.
 
-    You re-processed all entities that belong to a certain entity type. Now, the action from the rule is applied to all entities.
+    You reprocessed all records that belong to a certain entity type. Now, the action from the rule is applied to those records.
 
-**To re-process the entity manually**
+**To reprocess a record manually**
 
-1.  Find and open the needed entity.
+1. Find and open the needed record.
 
-1. In the upper-right corner of the entity details page, select **More** > **Re-process entity**.
+1. In the upper-right corner of the record details page, select **More** > **Reprocess entity**.
 
     ![rule-builder-8.png](../../assets/images/getting-started/rule-builder/rule-builder-8.png)
 
-    You re-processed the entity. Now, you can view the result of an action performed by the rule.
+    You reprocessed the record. Now, you can view the result of an action performed by the rule.
 
     ![rule-builder-7.png](../../assets/images/getting-started/rule-builder/rule-builder-7.png)
 
-1. To re-process other entities, repeat steps 1–2.
+1. To reprocess other records, repeat steps 1–2.
 
 # Change rule
 
-After you created the rule, you can edit, [inactivate](#inactivate-rule), or [delete](#delete-rule) it.
+After you created the rule, you can [edit](#edit-rule), [inactivate](#inactivate-rule), or [delete](#delete-rule) it.
+
+## Edit rule
+
+If you want to change the rule—name, description, filters, or actions—edit the rule.
+
+**To edit the rule**
+
+1. In the rule details page, make the needed changes.
+
+1. Near the upper-right corner of the rule details page, select **Save**. If you edited filters or actions, the confirmation dialog appears where you have to decide what to do with the records associated with the rule.
+
+1. In the confirmation dialog, do one of the following:
+
+    - If you want to reprocess the records affected both by the previous and current rule configuration, select the checkbox, and then confirm your choice.
+
+        ![manage-rules-1.png](../../assets/images/management/rules/manage-rules-1.png)
+
+        For example, in the previous configuration, the rule added the tag _Prospect_ to all records of the _TrainingContact_ entity type. If you edit the rule filter and change the entity type to _Contact_, then selecting the checkbox will remove the tag from the records of the _TrainingContact_ entity type and add it to the records of the _Contact_ entity type.
+
+    - If you don't want to reprocess the records affected both by the previous and current rule configuration, leave the checkbox unselected, and then confirm your choice. You can reprocess such records later. However, note that reprocessing via the rule details page applies only to the records matching the current rule configuration. To revert rule actions on records matching the previous rule configuration, you'll need to reprocess such records via GraphQL or manually.
 
 ## Inactivate rule
 
@@ -147,11 +168,9 @@ If you currently do not need the rule, but might need it in future, inactivate t
 
     ![rule-builder-6.png](../../assets/images/getting-started/rule-builder/rule-builder-6.png)
 
-    You inactivated the rule, but the items to which the rule was applied still contain the changes made by the rule.
+    You inactivated the rule, but the records to which the rule was applied still contain the changes made by the rule.
 
-1. To return the items to which the rule was applied to their original state, [re-process the entity](#re-process-entity).
-
-    You inactivated the rule and returned the items to which the rule was applied to their original state.
+1. To return the records to which the rule was applied to their original state, [reprocess the records](#reprocess-records).
 
 ## Delete rule
 
@@ -163,44 +182,13 @@ If you no longer need the rule, delete it.
 
 1. On the rule details page, select the delete icon, and then confirm that you want to delete the rule.
 
-    You deleted the rule, but the items to which the rule was applied still contain the changes made by the rule.
+    You deleted the rule, but the records to which the rule was applied still contain the changes made by the rule.
 
-1. To return the items to which the rule was applied to their original state, [re-process the entity](#re-process-entity).
-
-    You deleted the rule and returned the items to which the rule was applied to their original state.
-
-# Actions
-
-In the following table, you can learn about the actions that can be performed by the rule.
-
-| Action | Description |
-|--|--|
-| Add Alias | Adds an alias to the entity. You need to specify the alias that you want to add. |
-| Add Tag | Adds a tag to the entity. You need to specify the tag that you want to add. |
-| Add Value | Adds a value to the vocabulary key. You can select the existing value or create a new value. Use this action when the vocabulary key doesn't contain any value. |
-| Add Value with CluedIn AI | Adds a value to the property or vocabulary key according to your prompt. For example, you can check if the email address in the entity is a personal address or business address. |
-| Change Entity Type | Changes the entity type. You can select the existing entity type or create a new entity type. |
-| Copy Value | Copies the value from one field (source field) to another (target field). |
-| Delete Value | Deletes the value that you select. |
-| Mask Value | Applies a mask to the value. You can use this action to hide sensitive data. |
-| Move Value | Moves the value from one field (source field) to another (target field). |
-| Remove Alias | Removes alias from the entity. You need to specify the alias that you want to remove. |
-| Remove All Tags | Removes all tags from the entity. |
-| Remove line breaks | Removes line breaks from the value. By default, line breaks are replaced with spaces, but you can specify other replacement options. |
-| Remove Tag | Removes a tag from the entity. You need to specify the tag that you want to remove.|
-| Replace | Replaces one value with another. You need to provide both the value you want to replace and its corresponding replacement value. |
-| Set Value | Changes the value of the vocabulary key. You can select the existing value or create a new value. Use this action when the vocabulary key contains a value and you want to change this value to another one. |
-| Set Value with CluedIn AI | Changes the value of the property or vocabulary key according to your prompt. |
-| To CamelCase | Changes the value to camel case and removes all spaces. |
-| To LowerCase | Changes the value to lower case. |
-| To TitleCase | Changes the value to title case. |
-| To UpperCase | Changes the value to upper case. |
-| Trim WhiteSpace | Removes white space from the value. |
-| Unmask Value | Removes the mask from the value. |
+1. To return the records to which the rule was applied to their original state, [reprocess the records](#reprocess-records).
 
 # Results
 
-You have created a rule in CluedIn using the Rule Builder tool.
+You learned the basic steps for creating rules to manage your records in CluedIn. You also learned how to apply the actions of the rule to the records associated with the rule.
 
 # Next steps
 

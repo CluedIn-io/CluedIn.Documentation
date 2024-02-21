@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 5
 parent: Additional operations
 grand_parent: Integration
@@ -39,6 +39,7 @@ The following table contains examples of **validation messages** explaining what
 | Endpoint/File/SQL | Warning | Property in the record had spaces and they were removed. |
 | Endpoint/File/SQL | Warning | Property in the record had dots and they were removed. |
 
-**Note:** The reason for strict rules for property names is that property names are translated to vocabulary keys using the same pattern as the [Microsoft Common Data Model](https://learn.microsoft.com/en-us/common-data-model/).
+{:.important}
+The reason for strict rules for property names is that property names are translated to vocabulary keys using the same pattern as the [Microsoft Common Data Model](https://learn.microsoft.com/en-us/common-data-model/).
 
 You can delete the logs by selecting **Purge Logs**. This action does not affect the data set, it only deletes all logs for the data set.

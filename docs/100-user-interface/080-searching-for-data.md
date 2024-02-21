@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Searching for Data
 parent: User Interface
 nav_order: 080

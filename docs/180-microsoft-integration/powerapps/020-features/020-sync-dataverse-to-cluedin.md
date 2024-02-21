@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 20
 parent: Features
 grand_parent: PowerApps Integration

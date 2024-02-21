@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Vocabulary Values
 parent: Development
 nav_order: 270

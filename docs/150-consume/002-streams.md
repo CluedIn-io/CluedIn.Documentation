@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Streams
 parent: Consume
 nav_order: 2

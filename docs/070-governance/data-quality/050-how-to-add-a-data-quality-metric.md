@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: How to add a new Data Quality Metric
 parent: Data Quality Metrics
 grand_parent: Governance

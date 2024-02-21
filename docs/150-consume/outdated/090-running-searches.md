@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Running Searches
 parent: Consume
 nav_order: 90

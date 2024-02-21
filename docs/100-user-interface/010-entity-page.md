@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Entity Page
 parent: User Interface
 nav_order: 10

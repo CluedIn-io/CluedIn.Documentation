@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Work with glossary
 parent: Getting started
 permalink: /getting-started/glossary
@@ -13,9 +13,8 @@ tags: ["getting-started"]
 
 Glossary can help you in documenting groups of records that meet specific criteria, simplifying the process of cleaning and streaming these groups of records.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/853694351?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-title="Getting started with Glossary in CluedIn"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/853694351?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Getting started with Glossary in CluedIn"></iframe>
 </div>
 
 In this article, you will learn how to work with the glossary in CluedIn. Glossary consists of terms that are grouped into categories. Each term contains a list of records that correspond to your conditions.
@@ -90,7 +89,8 @@ Term refers to the list of records that meet specific conditions. For example, w
 
         ![create-term-2.png](../../assets/images/getting-started/glossary/create-term-2.png)
 
-        **Note:** The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
+        {:.important}
+        The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
 
 1. (Optional) Specify additional details about the term:
 

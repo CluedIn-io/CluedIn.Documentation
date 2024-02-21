@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 3
 parent: Additional operations
 grand_parent: Integration
@@ -54,7 +54,8 @@ if (getVocabularyKeyValue('customer.revenue') >= 1000000) {
 [value]
 ```
 
-**Note:** `[value]` is an important element that indicates that the code is executed for each clue.
+{:.important}
+`[value]` is an important element that indicates that the code is executed for each clue.
 
 **To modify clues by writing the advanced mapping code**
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Clean data
 parent: Getting started
 permalink: /getting-started/manual-data-cleaning
@@ -13,8 +13,8 @@ tags: ["getting-started"]
 
 Cleaning the data in CluedIn involves finding the data that needs to be cleaned, creating a clean project, and making the necessary changes to the data.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/850826311?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Getting_started_with_manual_data_cleaning"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/850826311?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Getting_started_with_manual_data_cleaning"></iframe>
 </div>
 
 In this article, you will learn how to manually clean the data that you have ingested into CluedIn and streamed to a Microsoft SQL Server database.
@@ -83,7 +83,8 @@ As a first step, you need to find the data in CluedIn that needs to be cleaned.
 
         ![find-data-6-new.png](../../assets/images/getting-started/data-cleaning/find-data-6-new.png)       
 
-        **Note:** The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.        
+        {:.important}
+        The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.        
 
         The records that match the filter criteria are displayed in the search results.
 
@@ -175,7 +176,8 @@ After you have generated the results of the clean project, make the needed chang
 
     You have cleaned your data.
 
-**Note:** All changes to the data records in CluedIn are tracked. You can search for the needed data record and on the **History** pane, you can view all actions associated with the record.
+{:.important}
+All changes to the data records in CluedIn are tracked. You can search for the needed data record and on the **History** pane, you can view all actions associated with the record.
 
 ![history-1.png](../../assets/images/getting-started/data-cleaning/history-1.png)
 

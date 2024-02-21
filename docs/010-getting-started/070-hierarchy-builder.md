@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Create hierarchies
 parent: Getting started
 permalink: /getting-started/hierarchy-builder
@@ -13,9 +13,8 @@ tags: ["getting-started"]
 
 Hierarchy Builder allows you to visualize relations between golden records. For example, you can create a corporate structure hierarchy within a company, or a hierarchy representing relations between companies (parent, subsidiary, branch).
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/852717264?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-title="Getting started with Hierarchy Builder"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/852717264?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Getting started with Hierarchy Builder"></iframe>
 </div>
 
 In this article, you will learn how to create hierarchies in CluedIn using the Hierarchy Builder tool.

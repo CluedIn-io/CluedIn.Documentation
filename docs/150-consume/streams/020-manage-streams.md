@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 2
 parent: Streams
 grand_parent: Consume
@@ -37,7 +37,8 @@ Think of these stream controls as similar to the controls on a video player. Whe
 
 You can edit the stream configuration and the export target configuration regardless of the [stream status](/consume/streams/stream-reference#stream-statuses).
 
-**Important:** If you change filters or actions in the stream configuration or if you make any changes in the export target configuration, saving these changes will trigger stream reprocessing. It means that all records existing in the export target will be deleted, and the stream will start sending records to the export target again.
+{:.important}
+If you change filters or actions in the stream configuration or if you make any changes in the export target configuration, saving these changes will trigger stream reprocessing. It means that all records existing in the export target will be deleted, and the stream will start sending records to the export target again.
 
 **To edit the stream configuration**
 

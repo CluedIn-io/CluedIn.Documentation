@@ -1,8 +1,8 @@
 ---
-layout: default
+layout: cluedin
 title: Entity type
 parent: Management
-nav_order: 030
+nav_order: 040
 has_children: true
 permalink: /management/entity-type
 tags: ["management","entity type"]

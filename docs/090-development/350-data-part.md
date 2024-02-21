@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Data Part
 parent: Development
 nav_order: 350

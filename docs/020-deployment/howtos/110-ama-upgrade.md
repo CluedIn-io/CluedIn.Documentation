@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 12
 parent: How-to guides
 grand_parent: Installation
@@ -79,12 +79,14 @@ After you upgraded the package versions, check your current environment configur
     cluedin/cluedin-platform                1.6.0           2023.07       Deploys all parts of the CluedIn platform 
     ```
 
-    **Note:** You will need the `chart version` and `app version` for running the upgrade in the following [procedure](#run-upgrade).
+    {:.important}
+    You will need the `chart version` and `app version` for running the upgrade in the following [procedure](#run-upgrade).
 
 1. If you do not have the previous values, get them by running the following command:  
 `helm get values cluedin-platform -n cluedin -o yaml > default-values.yaml`
 
-    **Note:** If you are pulling the values using Lens, make sure that the **User-Supplied values only** checkbox is selected. Otherwise, you will get more values than you need and may encounter issues when upgrading.
+    {:.important}
+    If you are pulling the values using Lens, make sure that the **User-Supplied values only** checkbox is selected. Otherwise, you will get more values than you need and may encounter issues when upgrading.
     
 ## Run upgrade
 
@@ -105,7 +107,8 @@ Now that you have checked the environment configuration and received the latest 
     ```
     Normally, this should be the only tag you need to update unless there have been custom image tag overrides in the past. Check your **default-values.yaml** file for any tag customizations.
 
-    **Note:** Depending on the tag you use, you can enable auto-upgrade for CluedIn. If you use the major and minor versions only (e.g., `2023.07`), you will get the latest available patch by default, thus enabling the auto-upgrade. If you specify a particular patch (e.g., `2023.07.02`), you will get that specific patch, whether it is the latest or not. For the production environment, we recommend that you specify a patch. For the development environment, we recommended that you use the major and minor versions, and thus get the latest patch.
+    {:.important}
+    Depending on the tag you use, you can enable auto-upgrade for CluedIn. If you use the major and minor versions only (e.g., `2023.07`), you will get the latest available patch by default, thus enabling the auto-upgrade. If you specify a particular patch (e.g., `2023.07.02`), you will get that specific patch, whether it is the latest or not. For the production environment, we recommend that you specify a patch. For the development environment, we recommended that you use the major and minor versions, and thus get the latest patch.
 
 1. Run the `helm upgrade` command as follows:
     
@@ -120,7 +123,8 @@ Now that you have checked the environment configuration and received the latest 
 
     This command runs the database jobs as part of the upgrade (normally these are skipped because they can take a long time to run.)
 
-    **Note:** The order of the values files matters as the last file will win any override priority so we need the **upgrade-values.yaml** file to follow the **default-values.yaml** file.
+    {:.important}
+    The order of the values files matters as the last file will win any override priority so we need the **upgrade-values.yaml** file to follow the **default-values.yaml** file.
 
     You can find the `version` number in step 4 of [Check environment configuration](#check-environment-configuration) (look for the chart version number).
 

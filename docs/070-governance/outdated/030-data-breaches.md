@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Data Breaches
 parent: Governance
 nav_order: 030

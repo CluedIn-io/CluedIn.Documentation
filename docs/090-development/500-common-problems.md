@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Common Problems
 parent: Development
 nav_order: 500

@@ -1,6 +1,6 @@
 ---
 grand_parent: Deployment
-layout: default
+layout: cluedin
 nav_order: 9
 parent: How-to guides
 grand_parent: Installation
@@ -38,6 +38,7 @@ When working locally, you have more freedom as this is controlled by the user.
 If you don't want a service to create the PVC disks for you, you can:
 
 1. Create the PVCs ahead of time (if possible - see examples in this directory for each service)
+
 2. Update `values.yaml` with the names of the PVCs (see example `values.yaml` in this article - as different charts work differently the syntax is not consistent.).
 
 For certain services (ElasticSearch, Neo4J) you have to use specific names for the PVC in order to get them to work. These are listed in the example `values.yaml`. 

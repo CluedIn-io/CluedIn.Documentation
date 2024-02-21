@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: cluedin
 title: Stream data
 parent: Getting started
 permalink: /getting-started/data-streaming
@@ -13,8 +13,8 @@ tags: ["getting-started"]
 
 Streaming data from CluedIn involves setting up an export target and creating a stream.
 
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://player.vimeo.com/video/845327605?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Getting started with data streaming in CluedIn"></iframe>
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/845327605?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Getting started with data streaming in CluedIn"></iframe>
 </div>
 
 In this article, you will learn how to stream your records from CluedIn to a Microsoft SQL Server database.
@@ -73,7 +73,8 @@ A stream is a trigger that starts the process of sending the data to the export 
 
     1. Select the value of the entity type.
 
-        **Note:** The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
+        {:.important}
+        The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
 
         ![create-stream-2.png](../../assets/images/getting-started/data-streaming/create-stream-2.png)  
 
@@ -125,7 +126,8 @@ A stream is a trigger that starts the process of sending the data to the export 
 
     ![create-stream-9.png](../../assets/images/getting-started/data-streaming/create-stream-9.png)  
 
-    **Note:** On the **Monitoring** tab, you can view different data performance metrics.
+    {:.important}
+    On the **Monitoring** tab, you can view different data performance metrics.
 
 1. Go to the database and open the table.
 
