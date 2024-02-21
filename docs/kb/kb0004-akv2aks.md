@@ -69,7 +69,7 @@ Useful links:
 
     **NOTE**: Depending on if you're using RBAC or Policy for Key Vault access, you will need to update the appropriate area so the key vault managed identity can GET and LIST secrets and certificates.
 
-1. We will now obtain the key vault details:
+1. Obtain the key vault details:
     ```pwsh
     $kv = az keyvault show --name $keyVaultName --resource-group $keyVaultRG | ConvertFrom-Json
     ```
