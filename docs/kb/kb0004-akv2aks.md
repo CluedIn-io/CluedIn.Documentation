@@ -53,7 +53,7 @@ Useful links:
     {:.important}
     Please note that this will deploy some additional pods to each available node.
 
-1. Once the addon has been deployed, it will create a key vault managed identity which is used to  communicate back to the Azure key vault from the kubernetes cluster.
+    Once the add-on has been deployed, it will create a key vault managed identity that is used to communicate back to the Azure Key Vault from the Kubernetes cluster.
 
 1. To get the managed identity, you can run the following:
     ```pwsh
