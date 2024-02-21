@@ -122,7 +122,7 @@ Useful links:
 
 1. With all your desired secrets and certificates now uploaded, it's time to configure the `Values.yaml` to begin synchronising.
 
-    In your values file, we'll need to add the following block of code into the global values:
+    In your values file, add the following block of code into the global values:
 
     ```yaml
     global:
