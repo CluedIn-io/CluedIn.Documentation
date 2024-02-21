@@ -9,7 +9,8 @@ is_kb: true
 ---
 # Introduction
 
-**NOTE**: This is not currently supported as of Q1 2024. However, beta versions are available that allow users
+{:.important}
+This is not currently supported as of Q1 2024. However, beta versions are available that allow users
 
 In this walkthrough, we will guide you through connecting your CluedIn Instance to utilise the existing Azure Key Vault to synchronise Secrets and Certificates to your Kubernetes cluster.
 
