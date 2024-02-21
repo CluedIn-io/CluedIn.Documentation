@@ -145,7 +145,7 @@ Useful links:
     ```
     **NOTE**: If you are using the certificate upload as part of your setup, you **must** disable cert-manager by setting `enabled: false`. You also must set `frontendCrt` to a value. It will be mounted as `cluedin-frontend-crt`. This secret name cannot change.
 
-1. With all the secrets and certificates now done, the last step is to update and `secretRef`'s in your `Values.yaml` or chart to reference the new synchronised secrets.
+1. With all the secrets and certificates now done, the last step is to update and `secretRef`'s in your `Values.yaml` or chart to reference the new synchronized secrets.
 
 # Technical Notes
 This section will explain some of the more technical bits.
