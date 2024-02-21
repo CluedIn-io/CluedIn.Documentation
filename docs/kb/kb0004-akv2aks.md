@@ -153,7 +153,7 @@ This section will explain some of the more technical bits.
 
 - The way the secrets are synchronized is by the `cluedin-server` pod mounting the secret store and the secrets referenced above under `secretRanges`. It's important to note that the secrets synchronize only when the pod is active. It doesn't need to be in a running state, but it must at least be pending.  
 
-    This is a limitation of the csi driver itself rather than the solution provided by CluedIn.
+    This is a limitation of the CSI driver itself rather than the solution provided by CluedIn.
 
 - The Secrets synchronised do not override existing secrets that are created by the CluedIn Installer. If your secret matches the same name (frontend certificate is mandatory here), you must remove the existing secret for the synchronised secret to appear
 
