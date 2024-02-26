@@ -4,11 +4,11 @@ title: Get access to CluedIn Copilot
 parent: Copilot Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/copilot-integration/get-access-to-copilot
-nav_order: 030
+nav_order: 010
 has_children: false
 ---
 
-In this article, you will learn how to get access to Copilot in your CluedIn instance.
+In this article, you will learn what you need to do to make the AI assistant available in CluedIn.
 
 **For Azure Administrators and CluedIn Organization Administrators**
 

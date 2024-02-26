@@ -14,8 +14,6 @@ has_children: false
 
 In this article, you will learn about Copilot skills that are available in CluedIn and find examples of prompts for each skill.
 
-**Important!** CluedIn Copilot is not enabled by default. For steps on how to get access to Copilot, see the [Copilot integration guide](/microsoft-integration/copilot-integration/get-access-to-copilot).
-
 ## Copilot overview
 
 CluedIn Copilot is an AI assistant designed to help you with day-to-day data management tasks through conversational prompts in any language.
