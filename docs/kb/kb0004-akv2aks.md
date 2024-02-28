@@ -173,7 +173,7 @@ Useful links:
     | cluedin-rabbitmq | cluedin-rabbitmq | `infrastructure.rabbitmq.auth.existingPasswordSecret` | `infrastructure.rabbitmq.extraVolumes`<br/>`infrastructure.rabbitmq.extraVolumeMounts` | 
     | | cluedin-rabbitmq-load-definition | `!! shared from above !!` | |
 
-Please also find a sample yaml file <a href="../../assets/other/akv-sync-sample.yaml" download>here</a> which can be used as a reference for a complete setup
+Please find a sample yaml file <a href="../../assets/other/akv-sync-sample.yaml" download>here</a>, which can be used as a reference for a complete setup.
 
 # Technical Notes
 This section will explain some of the more technical bits.
