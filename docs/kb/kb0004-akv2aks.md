@@ -120,7 +120,7 @@ Useful links:
 
     When we get later into the guide, we'll explain how to pair these back up into a single object.
 
-1. With all your desired secrets and certificates now uploaded to AKV, it's time to configure the `Values.yaml` to begin synchronising.
+1. With all your desired secrets and certificates now uploaded to AKV, it's time to configure the `Values.yaml` to begin synchronizing.
 
     In your values file, add the following block of code into the global values:
 
