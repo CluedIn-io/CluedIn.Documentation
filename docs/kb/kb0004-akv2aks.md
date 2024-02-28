@@ -190,7 +190,8 @@ This section will explain some of the more technical bits.
 
 - Please ensure that you have enough resources. For example, by default the Neo4j and Elasticsearch pods consume a majority of the nodes they have been assigned. Having the additional Key Vault pods on these nodes may potentially prevent these from starting up even though the Key Vault pods request very little resource.
 
-# Known Issues
+# Known issues
+
 This section will explain some of the known issues.
 
 - **Problem**: When doing a migration of RabbitMQ from local kubernetes password to a synced password, you must do a sequence of steps due to the RabbitMQ charts logic.
