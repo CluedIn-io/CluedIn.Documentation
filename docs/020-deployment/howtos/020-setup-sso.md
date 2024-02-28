@@ -32,7 +32,21 @@ Configuring SSO for CluedIn using Microsoft Entra involves three main steps:
 
 **Important!** Before configuring SSO, make sure that you have configured [DNS](/deployment/infra-how-tos/configure-dns) and [TLS](/deployment/infra-how-tos/configure-certificates).
 
-## Register an application in the Azure portal
+## Automated Setup (Script)
+
+We have provided a script that will automate all steps in the manual method below in a controlled way.
+To use this script, you will need Az CLI installed locally along with powershell core.
+Alternatively, you can use Azure Cloud Shell.
+
+Script Download: [Setup-CluedInSSO.ps1](../../../assets/ps1/Setup-CluedInSSO.ps1)
+
+You will need to specify the AKS Cluster name as it will interact with this during script runtime to gather information required to populate the app registration.
+
+The AAD Application Name can be override at runtime using the parameter.
+
+## Manual Setup
+
+### Register an application in the Azure portal
 
 Registering your application establishes a trust relationship between your application and the Microsoft identity platform. The trust is unidirectional: your application trusts the Microsoft identity platform, and not the other way around. After you create the application, it cannot be moved between different tenants.
 
