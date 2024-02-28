@@ -181,13 +181,13 @@ This section will explain some of the more technical bits.
 
     Please ensure this is checked before proceeding as it may cause the cluster to not function correctly. 
 
-- The way the secrets are synchronized is by the `cluedin-server` pod mounting the secret store and the secrets referenced above under `secretRanges`. It's important to note that the secrets synchronize only when the pod is active. It doesn't need to be in a running state, but it must at least be pending.  
+- The way the secrets are synchronized is by using the `cluedin-server` pod mounting the secret store or mapping and mounting on other pods. The sample file and table above explain how to achieve this. It's important to note that the secrets synchronize only when the pod is active. It doesn't need to be in a running state, but it must at least be pending.  
 
     This is a limitation of the CSI driver itself rather than the solution provided by CluedIn.
 
-- The secrets synchronized do not override existing secrets that are created by the CluedIn Installer. If your secret matches the same name (front-end certificate is mandatory here), you must remove the existing secret for the synchronized secret to appear.
+- The secrets synchronized do not overwrite existing secrets that are created by the CluedIn Installer. If your secret matches the same name (front-end certificate is mandatory here), you must remove the existing secret for the synchronized secret to take over. 
 
-- Please ensure that you have enough resources. For example, by default the Neo4j and Elasticsearch pods consume a majority of the nodes they have been assigned. Having the additional Key Vault pods on these nodes may potentially prevent these from starting up.
+- Please ensure that you have enough resources. For example, by default the Neo4j and Elasticsearch pods consume a majority of the nodes they have been assigned. Having the additional Key Vault pods on these nodes may potentially prevent these from starting up even though the Key Vault pods request very little resource.
 
 # Known Issues
 This section will explain some of the known issues.
