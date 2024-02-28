@@ -207,6 +207,6 @@ This section will explain some of the known issues.
 
 - **Problem**: Not all secrets work from a synced source.
 
-  **Solution**: Unfortunately not all secrets will work from AKV. An example of this is the `acr-registry-credentials` secret. For a secret to be synchronised, it must first be mounted to a pod. However, you cannot pull the image for the pod if the secret does not exist.
+  **Solution**: Unfortunately, not all secrets will work from AKV. An example of this is the `acr-registry-credentials` secret. For a secret to be synchronized, it must first be mounted to a pod. However, you cannot pull the image for the pod if the secret does not exist.
 
   There are ways around this such as having a generic pod that is deployed pre-helm install, but this is not a scenario we support.
