@@ -133,7 +133,7 @@ Useful links:
         keyvaultName: $kv.name # This is your key vault name
         tenantId: $tenantId # This is the guid of your tenant
         secretProviderClasses:
-          cluedin-server: # For every key under `secretProviderClasses` a new secret provider class will be created with the same name an `-sync` appended.
+          cluedin-server: # For every key under `secretProviderClasses`, a new secret provider class will be created with the same name and `-sync` appended.
           - secretName: cluedin-login-details # This is how the secret will appear within Kubernetes Secrets once synchronized.
             secretType: # [OPTIONAL] Defaults to Opaque. But you can specify any supported secretType
             secretKeys:
