@@ -188,3 +188,23 @@ This section will explain some of the more technical bits.
 - The secrets synchronized do not override existing secrets that are created by the CluedIn Installer. If your secret matches the same name (front-end certificate is mandatory here), you must remove the existing secret for the synchronized secret to appear.
 
 - Please ensure that you have enough resources. For example, by default the Neo4j and Elasticsearch pods consume a majority of the nodes they have been assigned. Having the additional Key Vault pods on these nodes may potentially prevent these from starting up.
+
+# Known Issues
+This section will explain some of the known issues.
+
+- **Problem**: When doing a migration of RabbitMQ from local kubernetes password to a synced password, you must do a sequence of steps due to the RabbitMQ charts logic.
+
+  **Solution**:
+  1. Do an initial deployment where the secret is mounted and mapped to RabbitMQ pod as well as the initial password being supplied in the User Supply Values for RabbitMQ. 
+
+  1. Once deployed and you can see the secretProviderClass, delete the existing rabbitMQ secrets and then kill the RabbitMQ pod. A new pod should spawn and the secrets should then be mapped to the secretProviderClass.
+
+  1. When this has happened, update User Supply Values to remove the password and update it to use an existing one. Redeploy the config, and this time it should succeed as the sychronised secret will exist at deployment time.
+
+  **Note**: This is only an issue with migration. Fresh installs do not have this issue.
+
+- **Problem**: Not all secrets work from a synced source.
+
+  **Solution**: Unfortunately not all secrets will work from AKV. An example of this is the `acr-registry-credentials` secret. For a secret to be synchronised, it must first be mounted to a pod. However, you cannot pull the image for the pod if the secret does not exist.
+
+  There are ways around this such as having a generic pod that is deployed pre-helm install, but this is not a scenario we support.
