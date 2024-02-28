@@ -149,7 +149,7 @@ Useful links:
 1. With all the secrets and certificates now done, the last step is to mount, map, and synchronize the secrets to Kubernetes.
 
     For every key under `secretProviderClass`, a new secret provider will be created with the same name with `-sync` appended. 
-    This gives you the flexability to have secrets to share the same lifecycle as an application, or to use a singular pod to synchronise the secrets.
+    This gives you the flexibility to have secrets to share the same life cycle as an application, or to use a singular pod to synchronize the secrets.
 
     `cluedin-server` is the only server that will automount if keys are specified under the `cluedin-server` secretProviderClasses section.
     For everything else, a specific mount point will be required along with preventing local password creation by using the appropriate key.
