@@ -1,0 +1,167 @@
+application:
+  bootstrap:
+    organization:
+      existingSecret: cluedin-admin-secret
+
+  email:
+    secretRef: cluedin-email
+
+  sqlserver:
+    users:
+      clientUser:
+        existingSecret: 'cluedin-sqlserver-clientuser-secret' # clientuser password
+
+global:
+  keyvault:
+    enabled: true
+    userAssignedIdentityID: e0c8fefc-933c-427c-8096-67977fbd3bc1
+    keyvaultName: keyvault-akvsample
+    tenantId: bdbefdab-c7b8-4102-ae46-92643d2cce0c
+    secretProviderClasses:
+      cluedin-server:
+      - secretName: cluedin-admin-secret
+        secretKeys:
+          password: cluedin-organization-password
+          username: cluedin-organization-username
+      - secretName: cluedin-email
+        secretKeys:
+          EmailEnableSsl: cluedin-email-ssl
+          EmailHost: cluedin-email-host
+          EmailHostPort: cluedin-email-hostport
+          EmailPassword: cluedin-email-password
+          EmailUserName: cluedin-email-username
+      cluedin-sqlserver:
+      - secretName: cluedin-sqlserver-secret
+        secretKeys:
+          sapassword: cluedin-mssql-sa-password
+      - secretName: cluedin-sqlserver-clientuser-secret
+        secretKeys:
+          password: cluedin-mssql-clientuser-password
+      cluedin-elasticsearch:
+      - secretName: elasticsearch-credentials
+        secretKeys:
+          username: cluedin-elasticsearch-username
+          password: cluedin-elasticsearch-password
+      cluedin-redis:
+      - secretName: cluedin-redis
+        secretKeys:
+          redis-password: cluedin-redis-password
+      cluedin-neo4j:
+      - secretName: cluedin-neo4j-secrets
+        secretKeys:
+          neo4j-password: cluedin-neo4j-password
+          neo4j-password-encoded: cluedin-neo4j-enc-password
+      - secretName: cluedin-neo4j-auth
+        secretKeys:
+          NEO4J_AUTH: cluedin-neo4j-auth-password
+      cluedin-grafana:
+      - secretName: cluedin-grafana
+        secretKeys:
+          admin-password: cluedin-grafana-password
+          admin-user: cluedin-grafana-username
+      cluedin-rabbitmq:
+      - secretName: cluedin-rabbitmq
+        secretKeys:
+          rabbitmq-erlang-cookie: cluedin-rabbitmq-erlangcookie
+          rabbitmq-password: cluedin-rabbitmq-password
+      - secretName: cluedin-rabbitmq-load-definition
+        secretKeys:
+          load_definition.json: cluedin-rabbitmq-loaddefinition
+
+infrastructure:
+  elasticsearch:
+    extraVolumeMounts:
+    - name: azure-keyvault-secrets
+      mountPath: /mnt/secrets-sync
+      readOnly: true
+    extraVolumes:
+    - name: azure-keyvault-secrets
+      csi:
+        driver: secrets-store.csi.k8s.io
+        readOnly: true
+        volumeAttributes:
+          secretProviderClass: cluedin-elasticsearch-sync
+    auth:
+      existingSecret: 'elasticsearch-credentials'
+
+  monitoring:
+    grafana:
+      admin:
+        existingSecret: cluedin-grafana
+      extraContainerVolumes:
+      - name: azure-keyvault-secrets
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: cluedin-grafana-sync
+      sidecar:
+        dashboards:
+          extraMounts:
+          - name: azure-keyvault-secrets
+            mountPath: /mnt/secrets-sync
+            readOnly: true
+
+  mssql:
+    existingSecret: cluedin-sqlserver-secret # sapassword
+    extraVolumeMounts:
+    - name: azure-keyvault-secrets
+      mountPath: /mnt/secrets-sync
+      readOnly: true
+    extraVolumes:
+    - name: azure-keyvault-secrets
+      csi:
+        driver: secrets-store.csi.k8s.io
+        readOnly: true
+        volumeAttributes:
+          secretProviderClass: cluedin-sqlserver-sync
+  neo4j:
+    neo4j:
+      passwordFromSecret: 'cluedin-neo4j-auth'
+    additionalVolumes:
+    - emptyDir: {} # required when overwriting existing neo4j default values
+      name: plugins
+    - name: azure-keyvault-secrets
+      csi:
+        driver: secrets-store.csi.k8s.io
+        readOnly: true
+        volumeAttributes:
+          secretProviderClass: cluedin-neo4j-sync
+    additionalVolumeMounts:
+    - mountPath: /plugins
+      name: plugins
+    - name: azure-keyvault-secrets
+      mountPath: /mnt/secrets-sync
+      readOnly: true
+
+  rabbitmq:
+    auth:
+      existingErlangSecret: cluedin-rabbitmq
+      existingPasswordSecret: cluedin-rabbitmq
+    extraVolumeMounts:
+    - name: azure-keyvault-secrets
+      mountPath: /mnt/secrets-sync
+      readOnly: true
+    extraVolumes:
+    - name: azure-keyvault-secrets
+      csi:
+        driver: secrets-store.csi.k8s.io
+        readOnly: true
+        volumeAttributes:
+          secretProviderClass: cluedin-rabbitmq-sync
+
+  redis:
+    auth:
+      existingSecret: cluedin-redis
+    master:
+      extraVolumeMounts:
+      - name: azure-keyvault-secrets
+        mountPath: /mnt/secrets-sync
+        readOnly: true
+      extraVolumes:
+      - name: azure-keyvault-secrets
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: cluedin-redis-sync
