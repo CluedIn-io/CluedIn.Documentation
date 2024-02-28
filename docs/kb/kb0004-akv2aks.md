@@ -135,7 +135,7 @@ Useful links:
         secretProviderClasses:
           cluedin-server: # For every key under `secretProviderClasses`, a new secret provider class will be created with the same name and `-sync` appended.
           - secretName: cluedin-login-details # This is how the secret will appear within Kubernetes Secrets once synchronized.
-            secretType: # [OPTIONAL] Defaults to Opaque. But you can specify any supported secretType
+            secretType: # [OPTIONAL] Defaults to Opaque. But you can specify any supported secretType.
             secretKeys:
               password: cluedin-login-password # The left side (Key) is the name in the Kubernetes secret object. The right side (Value) is the AKV reference which will grab its value.
               username: cluedin-login-username
