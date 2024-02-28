@@ -158,7 +158,7 @@ Useful links:
     We **highly recommend** having secrets share life cycles with the application. We will cover only this scenario below.
 
 1. Please see the mapping table below:
-    | **Application** | **Secret** | **Helm Path** | Mount Point |
+    | Application | Secret | Helm Path | Mount Point |
     | --- | --- | --- | --- |
     | cluedin-server | cluedin-admin-secret | `application.bootstrap.organization.existingSecret` | auto-mounts |
     | | cluedin-email | `application.email.secretRef` | |
