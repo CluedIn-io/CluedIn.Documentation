@@ -12,7 +12,7 @@ last_modified: 2022-01-12
 
 ## Introduction
 
-The first thing you need to do when CluedIn is running, is to feed it with data. You need to choose which data you want to add to CluedIn. Data is pushed into CluedIn via integrations. You have two options
+The first thing you need to do when CluedIn is running, is to feed it with data. You need to choose which data you want to add to CluedIn. Data is pushed into CluedIn via integrations. You have two options:
 
 - [Installing an existing integration](./install-integrations)
 - Building a custom integration
@@ -36,4 +36,4 @@ Some of the most common *providers* are the following:
 
 Their mission is to add extra information to improve data that is already in CluedIn. Data in CluedIn is structured in entities; these are similar to records. They can contain information about a person, a company, a task, etc. An enricher will use the existing information CluedIn to then query other external systems to try to find out more information about that entity, i.e. *enrich* it.
 
-We have a list of available *enrichers* in our [GitHub](https://github.com/CluedIn-io?q=enricher&type=public), but you can also [build your own](./build-enricher), as long as you have some C# coding experience. 
+We have a list of available *enrichers* in our [GitHub](https://github.com/CluedIn-io?q=enricher&type=public), but you can also [build your own](/preparation/enricher/build-custom-enricher), as long as you have some C# coding experience. 
