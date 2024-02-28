@@ -195,6 +195,7 @@ This section will explain some of the known issues.
 - **Problem**: When doing a migration of RabbitMQ from local kubernetes password to a synced password, you must do a sequence of steps due to the RabbitMQ charts logic.
 
   **Solution**:
+  
   1. Do an initial deployment where the secret is mounted and mapped to RabbitMQ pod as well as the initial password being supplied in the User Supply Values for RabbitMQ. 
 
   1. Once deployed and you can see the secretProviderClass, delete the existing rabbitMQ secrets and then kill the RabbitMQ pod. A new pod should spawn and the secrets should then be mapped to the secretProviderClass.
