@@ -10,17 +10,17 @@ tags: ["integration"]
 last_modified: 2022-01-12
 ---
 
-
 ## Introduction
 
-The first thing you need to do when CluedIn is running, is to feed it with Data. You need to choose which data you want to add to CluedIn. Data is pushed into CluedIn via integrations. You have two options
+The first thing you need to do when CluedIn is running, is to feed it with data. You need to choose which data you want to add to CluedIn. Data is pushed into CluedIn via integrations. You have two options
 
 - [Installing an existing integration](./install-integrations)
 - Building a custom integration
 
-![Diagram](../assets/images/integration/intro-integrate.png)
+{:.important}
+When you install CluedIn, you gain access to out-of-the-box integrations. Feel free to contact us for assistance with configuring and enabling these integrations. Additionally, we can implement custom integrations upon request.
 
-There are two main types of integrations:
+There are two main types of integrations: providers and enrichers.
 
 ### Providers
 
