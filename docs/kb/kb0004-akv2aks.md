@@ -32,7 +32,7 @@ Useful links:
 1. Open up `pwsh` and sign in to your tenant with `az login`.
 
 1. Set up your variables which will be used below:
-    ```pwsh
+    ```powershell
     $aks = az aks show --name $aksName --resource-group $aksResourceGroup
     $subscription = '00000000-0000-0000-0000-000000000000' # This will be different guid on your end.
     $tenantId = '00000000-0000-0000-0000-000000000000' # This will be different guid on your end.
@@ -42,7 +42,7 @@ Useful links:
     ```
 
 1. Enable the add-on on the existing AKS Cluster.
-    ```pwsh
+    ```powershell
     $params = @(
         '--addons', 'azure-keyvault-secrets-provider'
         '--name', $aks.name
@@ -56,7 +56,7 @@ Useful links:
     Once the add-on has been deployed, it will create a key vault managed identity that is used to communicate back to the Azure Key Vault from the Kubernetes cluster.
 
 1. To get the managed identity, run the following:
-    ```pwsh
+    ```powershell
     $params = @(
         '--name', $aks.name
         '--resource-group', $aks.resourceGroup
@@ -71,7 +71,7 @@ Useful links:
     Depending on if you're using RBAC or Key Vault access policy, you will need to update the appropriate area so the key vault managed identity can GET and LIST secrets and certificates.
 
 1. Obtain the key vault details:
-    ```pwsh
+    ```powershell
     $kv = az keyvault show --name $keyVaultName --resource-group $keyVaultRG | ConvertFrom-Json
     ```
 
@@ -80,7 +80,7 @@ Useful links:
 
 1. Update access to your key vault:
     - RBAC:
-    ```pwsh
+    ```powershell
     $params = @(
         '--assignee', $kvManagedIdentity
         '--role', 'Key Vault Secret User'
@@ -91,7 +91,7 @@ Useful links:
     ```
 
     - Policy: 
-    ```pwsh
+    ```powershell
     $params = @(
         '--name', $kv.name
         '--resource-group', $kv.resourceGroup
@@ -120,7 +120,7 @@ Useful links:
 
     When we get later into the guide, we'll explain how to pair these back up into a single object.
 
-1. With all your desired secrets and certificates now uploaded, it's time to configure the `Values.yaml` to begin synchronising.
+1. With all your desired secrets and certificates now uploaded to AKV, it's time to configure the `Values.yaml` to begin synchronising.
 
     In your values file, add the following block of code into the global values:
 
@@ -132,12 +132,13 @@ Useful links:
         userAssignedIdentityID: $kvManagedIdentity # This is the guid for the kv managed identity
         keyvaultName: $kv.name # This is your key vault name
         tenantId: $tenantId # This is the guid of your tenant
-        secretRanges:
-        - secretName: cluedin-login-details # This is how the secret will appear within Kubernetes Secrets once synchronised
-          secretType: Opaque # For most secrets, leave as Opaque
-          secretKeys:
-            password: cluedin-login-password # The left side (Key) is the name in the Kubernetes secret object. The right side (Value) is the AKV reference which will grab its value.
-            username: cluedin-login-username
+        secretProviderClasses:
+          cluedin-server: # For every key under `secretProviderClasses` a new secret provider class will be created with the same name an `-sync` appended.
+          - secretName: cluedin-login-details # This is how the secret will appear within Kubernetes Secrets once synchronised
+            secretType: # [OPTIONAL] Defaults to Opaque. But you can specify any supported secretType
+            secretKeys:
+              password: cluedin-login-password # The left side (Key) is the name in the Kubernetes secret object. The right side (Value) is the AKV reference which will grab its value.
+              username: cluedin-login-username
 
     infrastructure:
       cert-manager:
@@ -145,7 +146,33 @@ Useful links:
     ```
     **NOTE**: If you are using the certificate upload as part of your setup, you **must** disable cert-manager by setting `enabled: false`. You also must set `frontendCrt` to a value. It will be mounted as `cluedin-frontend-crt`. This secret name cannot change.
 
-1. With all the secrets and certificates now done, the last step is to update and `secretRef`'s in your `Values.yaml` or chart to reference the new synchronized secrets.
+1. With all the secrets and certificates now done, the last step is to mount, map, and synchronise the secrets to kubernetes.
+
+    For every key under `secretProviderClass`, a new secret provider will be created with the same name with `-sync` appended. 
+    This gives you the flexability to have secrets to share the same lifecycle as an application, or to use a singular pod to synchronise the secrets.
+
+    `cluedin-server` is the only server that will automount if keys are specified under the `cluedin-server` secretProviderClasses section.
+    For everything else, a specific mount point will be required along with preventing local password creation by using the appropriate key.
+
+    We **highly recommend** having secrets share life cycles with the application. We will cover only this scenario below.
+
+1. Please see the mapping table below:
+    | **Application** | **Secret** | **Helm Path** | Mount Point |
+    | --- | --- | --- | --- |
+    | cluedin-server | cluedin-admin-secret | `application.bootstrap.organization.existingSecret` | auto-mounts |
+    | | cluedin-email | `application.email.secretRef` | |
+    | | cluedin-frontend-crt | `global.keyvault.frontendCrt` | |
+    | cluedin-sqlserver | cluedin-sqlserver-secret | `infrastructure.mssql.existingSecret` | `infrastructure.mssql.extraVolumes`<br/>`infrastructure.mssql.extraVolumeMounts` |
+    | | cluedin-sqlserver-clientuser-secret | `application.sqlserver.users.clientUser.existingSecret` | |
+    | cluedin-elasticsearch | elasticsearch-credentials | `infrastructure.elasticsearch.auth.existingSecret` | `infrastructure.elasticsearch.extraVolumes`<br/>`infrastructure.elasticsearch.extraVolumeMounts` |
+    | cluedin-redis | cluedin-redis | `infrastructure.redis.auth.existingSecret` | `infrastructure.redis.master.extraVolumes`<br/>`infrastructure.redis.master.extraVolumeMounts` |
+    | cluedin-neo4j | cluedin-neo4j-secrets | `infrastructure.neo4j.neo4j.passwordFromSecret` | `infrastructure.neo4j.additionalVolumes`<br/>`infrastructure.neo4j.additionalVolumeMounts` |
+    | | cluedin-neo4j-auth | `!! shared from above !!` | |
+    | cluedin-grafana | cluedin-grafana | `infrastructure.monitoring.grafana.admin.existingSecret` | `infrastructure.monitoring.grafana.extraContainerVolumes`<br/>`infrastructure.monitoring.grafana.sidecar.dashboards.extraMounts` |
+    | cluedin-rabbitmq | cluedin-rabbitmq | `infrastructure.rabbitmq.auth.existingPasswordSecret` | `infrastructure.rabbitmq.extraVolumes`<br/>`infrastructure.rabbitmq.extraVolumeMounts` | 
+    | | cluedin-rabbitmq-load-definition | `!! shared from above !!` | |
+
+Please also find a sample yaml file <a href="../../assets/other/akv-sync-sample.yaml" download>here</a> which can be used as a reference for a complete setup
 
 # Technical Notes
 This section will explain some of the more technical bits.
