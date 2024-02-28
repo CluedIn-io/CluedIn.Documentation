@@ -146,7 +146,7 @@ Useful links:
     ```
     **NOTE**: If you are using the certificate upload as part of your setup, you **must** disable cert-manager by setting `enabled: false`. You also must set `frontendCrt` to a value. It will be mounted as `cluedin-frontend-crt` on `cluedin-server`. This secret name cannot change.
 
-1. With all the secrets and certificates now done, the last step is to mount, map, and synchronise the secrets to kubernetes.
+1. With all the secrets and certificates now done, the last step is to mount, map, and synchronize the secrets to Kubernetes.
 
     For every key under `secretProviderClass`, a new secret provider will be created with the same name with `-sync` appended. 
     This gives you the flexability to have secrets to share the same lifecycle as an application, or to use a singular pod to synchronise the secrets.
