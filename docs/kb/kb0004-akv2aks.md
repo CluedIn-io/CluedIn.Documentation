@@ -200,7 +200,7 @@ This section will explain some of the known issues.
 
   1. Once deployed and you can see the secretProviderClass, delete the existing rabbitMQ secrets and then kill the RabbitMQ pod. A new pod should spawn and the secrets should then be mapped to the secretProviderClass.
 
-  1. When this has happened, update User Supply Values to remove the password and update it to use an existing one. Redeploy the config, and this time it should succeed as the sychronised secret will exist at deployment time.
+  1. Update User Supply Values to remove the password and update it to use an existing one. Redeploy the config, and this time it should succeed as the sychronised secret will exist at deployment time.
 
   **Note**: This is only an issue with migration. Fresh installs do not have this issue.
 
