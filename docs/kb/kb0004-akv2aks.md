@@ -144,7 +144,7 @@ Useful links:
       cert-manager:
         #enabled: false # Only set to false if using an uploaded frontend certificate.
     ```
-    **NOTE**: If you are using the certificate upload as part of your setup, you **must** disable cert-manager by setting `enabled: false`. You also must set `frontendCrt` to a value. It will be mounted as `cluedin-frontend-crt`. This secret name cannot change.
+    **NOTE**: If you are using the certificate upload as part of your setup, you **must** disable cert-manager by setting `enabled: false`. You also must set `frontendCrt` to a value. It will be mounted as `cluedin-frontend-crt` on `cluedin-server`. This secret name cannot change.
 
 1. With all the secrets and certificates now done, the last step is to mount, map, and synchronise the secrets to kubernetes.
 
