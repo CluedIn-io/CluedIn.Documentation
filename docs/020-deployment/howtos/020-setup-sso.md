@@ -201,7 +201,7 @@ When enabling single sign-on to your CluedIn application, it is possible to also
 
 1. Select **Authentication**.
 
-1. Scroll down to Supported account types and change the mode to `Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)`.
+1. Scroll down to **Supported account types** and change the mode to `Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)`.
 
 1. Click on [Save] when done.
 
