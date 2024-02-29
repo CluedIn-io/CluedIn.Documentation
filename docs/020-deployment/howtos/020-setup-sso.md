@@ -194,9 +194,24 @@ You need to register a web API with the Microsoft identity platform and expose i
 
 For detailed instructions on how to configure an app to expose web API, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
  
+### Granting external users access via single sign-on 
+When enabling single sign-on to your CluedIn application, it is possible to also allow external guests (domains) to sign in and be granted access to the application. This will also be dependant on your network setup.
+
+1. In the Azure portal, in **App registration**, select your application
+
+1. Select **Authentication**.
+
+1. Scroll down to Supported account types and change the mode to `Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)`.
+
+1. Click on [Save] when done.
+
+This will allow guests invited to your Microsoft Entra ID to be able to use this application for single sign-on. The process remains the same whereby the user signs in like you normally would. 
+
 ### Map Microsoft Entra application roles to CluedIn roles
 
-After you have created your application registration and attached it to your CluedIn instance, you can create the application roles on the Microsoft Entra side. These roles will be translated into the CluedIn platform roles and assigned to the users after they sign in to the application for the first time when the [`Automatic Role Synchronization`](#overview-of-sso-for-cluedin) option is enabled in the CluedIn settings.
+After you have created your application registration and attached it to your CluedIn instance, you can create the application roles on the Microsoft Entra side. These roles will be translated into the CluedIn platform roles and assigned to the users as they sign in to the application when the [`Automatic Role Synchronization`](#overview-of-sso-for-cluedin) option is enabled in the CluedIn settings. 
+
+If you change the role of the user after they sign in, they will need to sign out and sign back in for the new role to take affect.
 
 **To map Microsoft Entra application roles to CluedIn roles**
 
@@ -220,6 +235,10 @@ In the CluedIn application, you can find all CluedIn roles by navigating to **Ad
 
 Any changes made in the application registration will be saved in your Azure subscription. We do not impose strict requirements on how app roles are set up, so you can follow your organization’s internal requirements.
 
+By default, any user will be able to sign into CluedIn but won't have a role assigned. If you would prefer to reject the user from signing in, you can set this under the Enterprise application of the same name of the app registration. Within properties is a toggle switch called `Assignment required?` which can be used for this purpose.
+
+You can then add groups and role assignments on the left hand blade labelled `Users and groups`.
+
 ### CluedIn roles
 
 The following table provides a list of the CluedIn application roles and recommended values to use when creating your Microsoft Entra application roles with your application registration.
@@ -230,10 +249,9 @@ The following table provides a list of the CluedIn application roles and recomme
 | Data Compliance | DataCompliance | Role responsible for daily operations around data compliance |
 | Data Steward | DataSteward | Role dedicated to cleaning data using Clean and Prepare modules |
 | Data Compliance Administrator | DataComplianceAdministrator | Role responsible for approving changes made by Data Compliance users |
-| Admin | Admin | Administrator for the whole system |
 | Guest | Guest | Guest User with minimal, read-only permissions |
 | User | User | User who can view all modules as read-only |
-| Data Architect | DataArchitect	| Role responsible for designing an Organizations enterprise data strategy |
+| Data Architect | DataArchitect | Role responsible for designing an Organizations enterprise data strategy |
 | Deduplication Reviewer | DeduplicationReviewer | Role responsible for reviewing Deduplication Project results and approving the groupings |
 | Organization User | OrganizationUser | User within an Organization who can view all modules as read-only |
 | Data Governance | DataGovernance | Role responsible for monitoring and maintaining data quality |
@@ -310,13 +328,3 @@ If your SSO feature has been successfully applied, you should see something simi
 ![SSO_enabled.png](../../assets/images/ama/howtos/configure-sso-success-terminal.png)
 
 If the **Phase** is not in the **Active** state, wait for 5 minutes and run the command again. If nothing changes, reach out to CluedIn support at <a href="mailto:support@cluedin.com">support@cluedin.com</a> for help in enabling your SSO.
-
-
-# MultiTenant
-Update the application itself to allow multi-tenancy
-In app is fine, no further refinement there
-
-# Disable access (Enterprise app - setting)
-
-# Update role sync. Remove admin and match correct values now.
-# Updates on account login.
