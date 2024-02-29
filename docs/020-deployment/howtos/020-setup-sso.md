@@ -197,7 +197,7 @@ For detailed instructions on how to configure an app to expose web API, see [Mic
 ### Granting external users access via single sign-on 
 When enabling single sign-on to your CluedIn application, it is possible to also allow external guests (domains) to sign in and be granted access to the application. This will also be dependant on your network setup.
 
-1. In the Azure portal, in **App registration**, select your application
+1. In the Azure portal, in **App registration**, select your application.
 
 1. Select **Authentication**.
 
