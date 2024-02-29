@@ -8,18 +8,18 @@ has_children: true
 tags: ["deployment", "kubernetes", "azure", "aks", "microsoft", "marketplace", "azure-marketplace"]
 ---
 
-# Supporting Documents & References 
+## Supporting documents and references 
 
-## CluedIn
+**CluedIn**
 
-https://documentation.cluedin.net/
-https://www.cluedin.com/cluedin-azure-costs
+- [CluedIn Azure costs](https://www.cluedin.com/cluedin-azure-costs)
 
-## Kubernetes
+**Kubernetes**
 
-https://kubernetes.io/docs/tasks/tools/
-https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes
+- [Kubernetes tools](https://kubernetes.io/docs/tasks/tools/)
 
-## Microsoft AKS
+- [Introduction to Kubernetes](https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes)
 
-https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster
+**Microsoft AKS**
+
+- [Configure Azure CNI networking in Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster)

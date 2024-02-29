@@ -18,6 +18,7 @@ In this article, you will learn how to configure single sign-on (SSO) for CluedI
 ## Overview of SSO for CluedIn
 
 SSO for CluedIn can be enabled in one of the following modes:
+
 - **SSO with local CluedIn role membership management** – all users from the directory can sign in to the CluedIn application. After the user signs in for the first time, CluedIn roles can be assigned in the usual way in the CluedIn UI.
 
 - **SSO with Microsoft Entra group-managed role membership** – Microsoft Entra application roles are created within your Azure application registration and they can be mapped to your Microsoft Entra groups or users. This mode requires **Automatic Role Synchronization** to be enabled in the **Administration Settings** page in CluedIn.
@@ -27,7 +28,9 @@ SSO for CluedIn can be enabled in one of the following modes:
 Configuring SSO for CluedIn using Microsoft Entra involves three main steps:
 
 1. [Register an application in the Azure portal](#register-an-application-in-the-azure-portal)
+
 1. [Create Kubernetes secret and enable SSO via Helm](#create-kubernetes-secret-and-enable-sso-via-helm)
+
 1. [(Optional) Create custom role mappings](#optional-create-custom-role-mapping)
 
 **Important!** Before configuring SSO, make sure that you have configured [DNS](/deployment/infra-how-tos/configure-dns) and [TLS](/deployment/infra-how-tos/configure-certificates).
@@ -45,19 +48,28 @@ Registering your application establishes a trust relationship between your appli
 1. Under **Manage**, select **App registrations** > **New registration**.
 
 1. Enter a display **Name** for your application.
-![Register_application_Name.png](../../assets/images/ama/howtos/configure-sso-2.png)
+
+    ![Register_application_Name.png](../../assets/images/ama/howtos/configure-sso-2.png)
+
 1. Select the **Supported account types** that can use the application.
+
 1. Leave **Redirect URI** empty for the time being.
+
 1. Select **Register**.
 
     When the registration finishes, the Azure portal displays the **Overview** pane of the application registration. Here you can see the **Application (client) ID**. This value uniquely identifies your application. Make note of this ID as you'll need it to [enable SSO via Helm](#create-kubernetes-secret-and-enable-sso-via-helm).
+    
     ![Register_application_Application_ID.png](../../assets/images/ama/howtos/configure-sso-3.png)
 
 After you register the application, complete the following steps:
 1. [Create a client secret](#create-a-client-secret)
+
 1. [Add redirect URIs](#add-redirect-uris)
+
 1. [Add API permissions](#add-api-permissions-for-microsoft-graph)
+
 1. [Expose an API](#expose-an-api)
+
 1. [Map Microsoft Entra application roles to CluedIn roles](#map-microsoft-entra-application-roles-to-CluedIn-roles)
 
 ### Create a client secret
@@ -65,6 +77,7 @@ After you register the application, complete the following steps:
 A client secret is used to configure CluedIn to communicate with Microsoft Entra.
 
 **To create client secret**
+
 1. In the Azure portal, in **App registrations**, select your application.
 
 1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
@@ -85,8 +98,9 @@ Redirect URI is the location to which the Microsoft identity platform redirects 
 
 In the setup below, we will be working with fictitious domain 'yourdomain.com' and the two subdomains:
 
-- 'app' – references the back-end application. By default, it is just app, but can be changed in the values file.
-- 'cluedin' – references the main CluedIn URL you would access on a daily basis.
+- `app` – references the back-end application. By default, it is just app, but can be changed in the values file.
+
+- `cluedin` – references the main CluedIn URL you would access on a daily basis.
 
 **To add redirect URIs**
 
@@ -99,7 +113,9 @@ In the setup below, we will be working with fictitious domain 'yourdomain.com' a
     ![Add_redirect_URIs_Configure_platforms.png](../../assets/images/ama/howtos/configure-sso-5.png)
 
 1. In the **Configure Web** pane, specify the following:
-    1. In **Redirect URIs**, add a redirect URI for your application.  
+
+    1. In **Redirect URIs**, add a redirect URI for your application.
+
         `https://app.yourdomain.com`
 
         ![Add_redirect_URIs_Redirect_URIs.png](../../assets/images/ama/howtos/configure-sso-6.png)
@@ -107,18 +123,20 @@ In the setup below, we will be working with fictitious domain 'yourdomain.com' a
     1. In **Front channel logout URI**, add a logout URL for your application.
 
         `https://app.yourdomain.com/logout`
-        
-        ![Add_redirect_URIs_Logout_URL.png](../../assets/images/ama/howtos/configure-sso-7.png)  
+
+        ![Add_redirect_URIs_Logout_URL.png](../../assets/images/ama/howtos/configure-sso-7.png)
 
     1. In the **Implicit grant and hybrid flows** section, select the **ID tokens** checkbox, and then select **Configure**.
 
         ![Add_redirect_URIs_ID_tokens.png](../../assets/images/ama/howtos/configure-sso-8.png)
 
 1. Back on the main page with the **Platform configurations** section, in **Web**, add additional URIs to the existing one:
-- `https://cluedin.yourdomain.com`
-- `https://app.yourdomain.com/auth/signin-oidc`
 
-    ![Add_redirect_URIs_additional.png](../../assets/images/ama/howtos/configure-sso-9.png)  
+    - `https://cluedin.yourdomain.com`
+
+    - `https://app.yourdomain.com/auth/signin-oidc`
+
+    ![Add_redirect_URIs_additional.png](../../assets/images/ama/howtos/configure-sso-9.png)
 
 1. At the bottom of the page, select **Save**.
 
@@ -133,8 +151,11 @@ When you register an application in the Azure portal, the Microsoft Graph API wi
 1. In the Azure portal, in **App registrations**, select your application.
 
 2. Select **API permissions**.
+
 3. In the **Configured permissions** section, click on the existing **Microsoft Graph** entry.
+
     ![Add_API_permissions_MS_Graph.png](../../assets/images/ama/howtos/configure-sso-10.png)
+
 4. In the right pane, select the following permissions: **email**, **offline_access**, **openid**, and **profile**. At the bottom of the pane, select **Update permissions**.
 
     The API permissions for Microsoft Graph are updated.
@@ -150,15 +171,25 @@ You need to register a web API with the Microsoft identity platform and expose i
 **To expose the API**
 
 1. In the Azure portal, in **App registrations**, select your application.
+
 1. Select **Expose an API**.
+
 1. In the **Scopes defined by this API** section, select **Add a scope**.
+
 1. For the first-time setup, you will need to specify the `Application ID URI`. For this, use your front-end URL with `/sso` appended. (i.e. `https://cluedin.yourdomain.com/sso`)
+
     ![configure-sso-scopename.png](../../assets/images/ama/howtos/configure-sso-scopename.png)
+
 1. Specify the following scope attributes and then select `Add scope`:
+
     - **Scope name**: `user_impersonation`
+
     - **Who can consent**: `Admins and Users`
+
     - **Admin consent display name**: `CluedIn SSO`
+
     - **Admin consent description**: `CluedIn SSO`
+
     ![expose_api.png](../../assets/images/ama/howtos/expose_api.png)
 
 For detailed instructions on how to configure an app to expose web API, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
@@ -175,11 +206,11 @@ After you have created your application registration and attached it to your Clu
 
 1. On the menu, select **Create app role**.
 
-1. Enter the details of the role. See [CluedIn roles](#cluedin-roles) for recommended values. 
+1. Enter the details of the role. See [CluedIn roles](#cluedin-roles) for recommended values.
 
     ![Create_app_role.png](../../assets/images/ama/howtos/configure-sso-create-app-role-1.png)
 
-1. Select **Apply** to save your changes. The role is added to the **App roles** list.  
+1. Select **Apply** to save your changes. The role is added to the **App roles** list.
 
     ![App_role_added.png](../../assets/images/ama/howtos/configure-sso-create-app-role-2.png)
 
@@ -218,7 +249,9 @@ After you complete the Azure application registration and app roles configuratio
 **Prerequisites**
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
+
 - You should be connected to your AKS cluster. See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
+
 - Your Helm repository is set up.
 
 If you have any questions, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> (or reach out to your delivery manager if you have a committed deal).
@@ -227,14 +260,16 @@ Once you have connected to your cluster and you are able to issue commands using
 
 **To create Kubernetes secret and enable SSO via Helm**
 
-1. Create a new Kubernetes secret with your Azure app registration secret by running the following command:  
+1. Create a new Kubernetes secret with your Azure app registration secret by running the following command:
+
     ```
     kubectl create secret generic "myorg-sso-cs" -n cluedin --from-literal=clientSecret="1234-5678-9ABC"
     ```
 
     In the command, replace _1234-5678-9ABC_ with your Azure app registration secret.
 
-1. In Azure Cloud Shell, run the following command to create a new empty file:  
+1. In Azure Cloud Shell, run the following command to create a new empty file:
+
     ```
     nano Cluedin-SSO-Config.yaml
     ```
@@ -258,7 +293,8 @@ Once you have connected to your cluster and you are able to issue commands using
 
 1. Change the **clientId** value to the client ID from your Azure app registration.
 
-1. Save the file and apply your SSO configuration by running the following command in Azure Cloud Shell:  
+1. Save the file and apply your SSO configuration by running the following command in Azure Cloud Shell:
+
     ```
     kubectl apply -n cluedin -f Cluedin-SSO-Config.yaml
     ```
