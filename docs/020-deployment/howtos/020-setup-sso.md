@@ -21,7 +21,7 @@ SSO for CluedIn can be enabled in one of the following modes:
 
 - **SSO with local CluedIn role membership management** – all users from the directory can sign in to the CluedIn application. After the user signs in for the first time, CluedIn roles can be assigned in the usual way in the CluedIn UI.
 
-- **SSO with Microsoft Entra group-managed role membership** – Microsoft Entra application roles are created within your Azure application registration and they can be mapped to your Microsoft Entra groups or users. This mode requires **Automatic Role Synchronization** to be enabled in the **Administration Settings** page in CluedIn.
+- **SSO with Microsoft Entra group-managed role membership** – Microsoft Entra application roles will need to be created within your Azure application registration so they can be mapped to your Microsoft Entra groups or users. This mode requires **Automatic Role Synchronization** to be enabled in the **Administration Settings** page in CluedIn.
 
     ![Automatic_role_synchronization.png](../../assets/images/ama/howtos/configure-sso-1.png)
 
