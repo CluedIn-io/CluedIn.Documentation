@@ -70,7 +70,6 @@ Review the details of each plan to choose the one that is right for you.
 | CluedIn features | All | All | All |
 | CPU cores | 8 | 16 | 32 |
 | Records | Up to 500,000 | Up to 2,000,000 | Up to 5,000,000 |
-| Overcharge fees for exceeding the maximum number of records | $6 per hour per license | $7 per hour per license | $5 per hour per license |
 | Maintenance (for AMA installation) | Yes | Yes | Yes |
 | Maintenance (for Vanilla installation) | No | No | No |
 | **Committed-deal license** |  |  |  |
@@ -80,7 +79,7 @@ The plan is required during the installation of CluedIn from the Azure Marketpla
 
 **Exceeding the maximum number of records?**
 
-If you exceed the maximum number of records allowed for your plan, you will be charged an additional fee (as mentioned in the **Overcharge fees** row in the table). We encourage you to contact us directly to check if there is a more efficient plan for you.
+If you exceed the maximum number of records allowed for your plan, you will be charged an additional fee. We encourage you to contact us directly to check if there is a more efficient plan for you.
 
 ## Get familiar with billing
 
