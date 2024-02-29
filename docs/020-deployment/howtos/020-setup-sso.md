@@ -239,7 +239,7 @@ Any changes made in the application registration will be saved in your Azure sub
 
 By default, any user will be able to sign into CluedIn but won't have a role assigned. If you would prefer to reject the user from signing in, you can set this under the Enterprise application of the same name of the app registration. Within properties is a toggle switch called `Assignment required?` which can be used for this purpose.
 
-You can then add groups and role assignments on the left hand blade labelled `Users and groups`.
+You can then add groups and role assignments on the left-hand blade labelled **Users and groups**.
 
 ### CluedIn roles
 
