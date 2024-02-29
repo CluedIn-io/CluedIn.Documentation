@@ -6,7 +6,7 @@ grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-sso
 title: Configure SSO
 tags: ["deployment", "ama", "marketplace", "azure"]
-last_modified: 2023-06-20
+last_modified: 2024-02-29
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -274,3 +274,13 @@ If your SSO feature has been successfully applied, you should see something simi
 ![SSO_enabled.png](../../assets/images/ama/howtos/configure-sso-success-terminal.png)
 
 If the **Phase** is not in the **Active** state, wait for 5 minutes and run the command again. If nothing changes, reach out to CluedIn support at <a href="mailto:support@cluedin.com">support@cluedin.com</a> for help in enabling your SSO.
+
+
+# MultiTenant
+Update the application itself to allow multi-tenancy
+In app is fine, no further refinement there
+
+# Disable access (Enterprise app - setting)
+
+# Update role sync. Remove admin and match correct values now.
+# Updates on account login.
