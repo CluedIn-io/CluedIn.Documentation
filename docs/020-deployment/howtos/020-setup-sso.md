@@ -211,7 +211,7 @@ This will allow guests invited to your Microsoft Entra ID to be able to use this
 
 ### Map Microsoft Entra application roles to CluedIn roles
 
-After you have created your application registration and attached it to your CluedIn instance, you can create the application roles on the Microsoft Entra side. These roles will be translated into the CluedIn platform roles and assigned to the users as they sign in to the application when the [`Automatic Role Synchronization`](#overview-of-sso-for-cluedin) option is enabled in the CluedIn settings. 
+After you have created your application registration and attached it to your CluedIn instance, you can create the application roles on the Microsoft Entra side. These roles will be translated into the CluedIn platform roles and assigned to the users as they sign in to the application when the [Automatic Role Synchronization](#overview-of-sso-for-cluedin) option is enabled in the CluedIn settings. 
 
 If you change the role of the user after they sign in, they will need to sign out and sign back in for the new role to take affect.
 
