@@ -209,7 +209,7 @@ If you prefer to use an existing vnet or would like to do some advanced configur
 
 ### Define VNet
 
-During the installation process, you will have the option to update the vnet from the default address space of 10.0.0.0/8 and a subnet 10.0.0.0/16 for the Azure Kubernetes Service. 
+During the installation process, you will have the option to update the vnet from the default address space of `10.0.0.0/8` and a subnet `10.0.0.0/16` for the Azure Kubernetes Service. 
 
 If you have an existing VNet and you want to reuse it for CluedIn installation, contact one of our infrastructure experts for assistance. You can specify the existing VNet in the <a href="/deployment/azure-marketplace/step-3#review-the-advanced-configuration-tab">Advanced configuration</a> step of CluedIn installation.
 
