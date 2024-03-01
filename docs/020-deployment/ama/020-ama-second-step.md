@@ -250,7 +250,7 @@ For more information, refer to [Publisher and customer permissions](https://lear
 1. Your Azure subscription can sustain the required quota.
 1. You have registered the required resource providers.
 1. Your firewall is ready and configured to support the installation of CluedIn.
-1. You have planned in your network architecture.
+1. You have planned your network architecture.
 1. Your security team are comfortable with CluedIn having co-ownership of the deployed resources.
 
 ## Next steps
