@@ -5,8 +5,8 @@ parent: Azure Marketplace
 grand_parent: Installation
 permalink: /deployment/azure-marketplace/step-2
 title: Pre-installation checklist
-tags: ["deployment", "ama", "marketplace", "azure"]
-last_modified: 2023-06-20
+tags: ["deployment", "ama", "marketplace", "azure", "prerequisites"]
+last_modified: 2024-03-01
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -203,29 +203,27 @@ For the list of firewall rules that should be added to your Azure Firewall, see 
 
 ## Configure network settings
 
-CluedIn is very flexible in terms of network configuration. If you have any network-related questions, contact one of our infrastructure experts.
+CluedIn is very flexible in terms of network configuration and comes out of the box with a new vnet with a predefined address space and subnet. CluedIn is isolated out of the box, and this should work for most setups, but we do allow granular control over the network to support zero-trust and integrations.
+
+If you prefer to use an existing vnet, or would like to do some advanced configuration please contact one of our infrastructure experts before installation to ensure it's properly implemented as it can be challenging to change post-deployment.
 
 ### Define VNet
 
-During the installation process, CluedIn will install a newly created Azure VNet using an address space 10.0.0.0/8 and a subnet 10.0.0.0/16 for the Azure Kubernetes Service.
+During the installation process, you will have the option to update the vnet from the default address space of 10.0.0.0/8 and a subnet 10.0.0.0/16 for the Azure Kubernetes Service. 
 
 If you have an existing VNet and you want to reuse it for CluedIn installation, contact one of our infrastructure experts for assistance. You can specify the existing VNet in the <a href="/deployment/azure-marketplace/step-3#review-the-advanced-configuration-tab">Advanced configuration</a> step of CluedIn installation.
 
 ### Analyze CluedIn network configuration
 
-CluedIn comes with a default network configuration. Changing network settings after installation is a very tedious task. Therefore, make sure that you have analyzed how you want to set up the CluedIn instance at the network level before starting the installation process.
-
 The following diagram shows default CluedIn network configuration after installation.
 
 ![ama-network-1.jpeg](../../assets/images/ama/install-guide/ama-network-1.jpeg)
 
-As part of the AKS managed cluster, AMA or AKS (public cluster) is deployed as a single standard Public Azure Load Balancer for both egress and ingress traffic.
+The deployed Azure Kubernetes Service is deployed with a single Azure load balancer that is used for both ingress and egress traffic. It is possible to update this post-deployment so that access is only possible via internal vnet integration, but does require a number of steps.
 
-### Configuration changes and support
+If you would like support on this, please reach out to one of CluedIn's infrastructure engineers to assist you with this change.
 
-If you need to change some network configurations, you can do that after you install CluedIn. For details about network customization, see <a href="/deployment/infra-how-tos/advanced-network"> Advanced network configuration</a>.
-
-CluedIn provides support of Azure Load Balancer and Application Gateway. Other network configurations are not supported out of the box in any of our plans, so you might need the CluedIn infrastructure package hours.
+More information regarding networking can be found here: <a href="/deployment/infra-how-tos/advanced-network"> Advanced network configuration</a>.
 
 ## Analyze Azure policies and tagging
 
@@ -237,13 +235,23 @@ It does not apply to the managed resource group, the AKS node resource group, or
 
 If your tenant has comprehensive tagging, it is recommended to add a temporary exemption for the subscription at install time, and then add tags post-deployment.
 
+## CluedIn are a co-owner of the deployed Resource Groups
+As part of the onboarding via Azure marketplace installation, the CluedIn support team get co-ownership of the **Managed Resource Group** (MRG) where the application resources are deployed, along with the Node resource group that the Azure Kubernetes Service (AKS) deploys.
+
+The accounts that have access to customer resources are protected by a number of security measures such as multi-factor authentication and the level of permissions is `Publisher and customer access`.
+
+Please ensure this complies with your internal security teams policy before proceeding with installation.
+
+For more information surrounding this, please refer to: https://learn.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/overview#publisher-and-customer-permissions 
+
 ## Results
 
 1. You are qualified to perform the CluedIn installation process, and you have all the required permissions.
 1. Your Azure subscription can sustain the required quota.
 1. You have registered the required resource providers.
 1. Your firewall is ready and configured to support the installation of CluedIn.
-1. You are comfortable with the default network architecture.
+1. You have planned in your network architecture.
+1. Your security team are comfortable with CluedIn having co-ownership of the deployed resources.
 
 ## Next steps
 
