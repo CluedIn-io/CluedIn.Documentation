@@ -242,7 +242,7 @@ The accounts that have access to customer resources are protected by a number of
 
 Please ensure this complies with your internal security teams policy before proceeding with installation.
 
-For more information surrounding this, please refer to: https://learn.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/overview#publisher-and-customer-permissions 
+For more information, refer to [Publisher and customer permissions](https://learn.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/overview#publisher-and-customer-permissions)
 
 ## Results
 
