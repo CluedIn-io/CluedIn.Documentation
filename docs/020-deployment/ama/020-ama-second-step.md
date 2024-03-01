@@ -235,7 +235,7 @@ It does not apply to the managed resource group, the AKS node resource group, or
 
 If your tenant has comprehensive tagging, it is recommended to add a temporary exemption for the subscription at install time, and then add tags post-deployment.
 
-## CluedIn are a co-owner of the deployed Resource Groups
+## CluedIn is a co-owner of the deployed resource groups
 As part of the onboarding via Azure Marketplace installation, the CluedIn support team gets co-ownership of the **Managed Resource Group** (MRG) where the application resources are deployed, along with the **Node Resource Group** that the Azure Kubernetes Service (AKS) deploys.
 
 The accounts that have access to customer resources are protected by a number of security measures such as multi-factor authentication and the level of permissions is `Publisher and customer access`.
