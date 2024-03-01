@@ -219,7 +219,7 @@ The following diagram shows default CluedIn network configuration after installa
 
 ![ama-network-1.jpeg](../../assets/images/ama/install-guide/ama-network-1.jpeg)
 
-The deployed Azure Kubernetes Service is deployed with a single Azure load balancer that is used for both ingress and egress traffic. It is possible to update this post-deployment so that access is only possible via internal vnet integration, but does require a number of steps.
+The deployed Azure Kubernetes Service is deployed with a single Azure Load Balancer that is used for both ingress and egress traffic. It is possible to update this post-deployment so that access is only possible via internal vnet integration, but it does require a number of steps.
 
 If you would like support on this, please reach out to one of CluedIn's infrastructure engineers to assist you with this change.
 
