@@ -205,7 +205,7 @@ For the list of firewall rules that should be added to your Azure Firewall, see 
 
 CluedIn is very flexible in terms of network configuration and comes out of the box with a new vnet with a predefined address space and subnet. CluedIn is isolated out of the box, and this should work for most setups, but we do allow granular control over the network to support zero-trust and integrations.
 
-If you prefer to use an existing vnet, or would like to do some advanced configuration please contact one of our infrastructure experts before installation to ensure it's properly implemented as it can be challenging to change post-deployment.
+If you prefer to use an existing vnet or would like to do some advanced configuration, please contact one of our infrastructure experts before installation to ensure it's properly implemented as it can be challenging to change post-deployment.
 
 ### Define VNet
 
