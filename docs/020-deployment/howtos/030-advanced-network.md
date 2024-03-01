@@ -168,4 +168,4 @@ application:
       ip: {privateIP}
 ```
 
-If you need assistance with this, please reach out to one of CluedIn's infrastructure engineers for assistance.
+If you need assistance with this, please reach out to one of CluedIn's infrastructure engineers.
