@@ -6,7 +6,7 @@ grand_parent: Installation
 permalink: /deployment/infra-how-tos/advanced-network
 title: Advanced network configuration
 tags: ["deployment", "ama", "marketplace", "azure"]
-last_modified: 2023-06-20
+last_modified: 2024-03-01
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -153,3 +153,19 @@ If you have any questions, you can request CluedIn support by sending an email t
     After a short time, a confirmation appears in the console. It means that CluedIn is now configured to use your new load balancer and internal IP address.
 
     In Azure, you should then see a new Load Balancer resource called `kubernetes-internal`, which will be used for ingress. The original `kubernetes` then simply becomes egress only.
+
+## Host name resolution
+When an internal load balancer is used, it may no longer be possible for the cluedin-server pod to resolve the hostname. This will prevent the application from functioning correctly unless some additional steps are taken to allow resolution.
+
+One way to achieve this is to use an Azure Private DNS zone linked to the kubernetes vnet. The other is to add the hostAlias section to your CluedIn values file which will get passed down to the servers host file.
+
+```yaml
+application:
+  cluedin:
+    hostAliases:
+    - hostnames:
+      - app.cluedin.com
+      ip: {privateIP}
+```
+
+If you need assistance with this, please reach out to one of CluedIn's infrastructure engineers.
