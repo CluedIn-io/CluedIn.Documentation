@@ -15,6 +15,9 @@ last_modified: 2024-01-15
 
 This article will walk you through the process of data ingestion in CluedIn, explaining the steps your data undergoes to enter the system.
 
+{:.important}
+Before loading data into CluedIn, ensure that it does not contain unsupported characters. Refer to our knowledge base [article](/kb/supported-characters) for information about supported and unsupported characters.
+
 ## Files
 
 <div class="videoFrame">
