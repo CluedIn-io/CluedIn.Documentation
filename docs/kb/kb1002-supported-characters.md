@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Supported characters
+title: Supported and unsupported characters
 permalink: /kb/supported-characters
 nav_exclude: true
 is_kb: true
@@ -12,15 +12,6 @@ is_kb: true
 {:toc}
 
 In this article, you'll find reference infromation about supported and unsupported characters in clues and entities.
-
-## Unsupported characters
-
-ASCI control characters are not supported. Exceptions include `0x9`, `0xA`, and `0xD`, which are valid characters.
-
-- Character range `0x-0x1F` is not supported.
-- Character `0x7F` is technically supported but should not be used.
-- Unicode surrogate blocks are not supported.
-- `0xFFFE` and `0xFFFF` are not supported.
 
 {:.important}
 If your data contains unsupported characters, remove them before submitting data to CluedIn.
@@ -59,3 +50,12 @@ Unicode control characters or undefined Unicode characters should not be used bu
  0xFFFFE-0xFFFFF
  0x10FFFE-0x10FFFF
 ```
+
+## Unsupported characters
+
+ASCI control characters are not supported. Exceptions include `0x9`, `0xA`, and `0xD`, which are valid characters.
+
+- Character range `0x-0x1F` is not supported.
+- Character `0x7F` is technically supported but should not be used.
+- Unicode surrogate blocks are not supported.
+- `0xFFFE` and `0xFFFF` are not supported.
