@@ -19,4 +19,4 @@ This section covers the following areas:
 
 - [Vocabularies](/management/data-catalog/vocabulary) – learn how to create and manage vocabularies for storing and organizing groups of vocabulary keys.
 
-- [Vocabulary keys](/management/data-catalog/vocabulary) – learn how to create and manage vocabulary keys for defining characteristics of golden records.
+- [Vocabulary keys](/management/data-catalog/vocabulary-keys) – learn how to create and manage vocabulary keys for defining characteristics of golden records.
