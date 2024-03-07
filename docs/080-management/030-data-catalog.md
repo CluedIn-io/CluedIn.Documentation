@@ -11,7 +11,7 @@ A data catalog is a collection of metadata that encompasses essential informatio
 
 The following diagram shows the basic steps of defining a data model in CluedIn.
 
-![data-catalog.gif](../../assets/images/management/deduplication/data-catalog.gif)
+![data-catalog.gif](../../assets/images/management/data-catalog/data-catalog.gif)
 
 This section covers the following areas:
 
