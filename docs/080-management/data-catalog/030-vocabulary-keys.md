@@ -157,6 +157,10 @@ Suppose you have contact records coming into CluedIn from various sources—Sale
 
 1. Find and select a vocabulary key to which you want to map the current vocabulary key. Then, select **Add Key**.
 
+    ![map-vocabulary-key.gif](../../assets/images/management/data-catalog/map-vocabulary-key.gif)
+
+1. Select **Save**, and then confirm your choice.    
+
 The vocabulary key mapping is executed on the clue level, so the **History** of the golden record does not show source and target properties. However, you can view the source and target properties in the **Explain Log** of the golden record (**Records** > data source > **Translate properties** > **Summaries**).
 
 If two vocabulary keys from different sources have conflicting values, you need to create a survivorship rule to define which value wins for the golden records belonging to the same entity type. For the practical application of vocabulary key mapping and survivorship rules, check the video in [Modeling approaches](/management/data-catalog/modeling-approaches).
