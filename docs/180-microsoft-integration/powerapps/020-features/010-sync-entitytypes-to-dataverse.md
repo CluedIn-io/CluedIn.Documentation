@@ -4,7 +4,7 @@ nav_order: 10
 parent: Features
 grand_parent: PowerApps Integration
 permalink: /microsoft-integration/powerapps/features/sync-entitytypes
-title: Sync Entity Types to Dataverse Tables
+title: Sync entity types to Dataverse tables
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17
 ---
@@ -19,7 +19,7 @@ This feature allows you to sync CluedIn entity types, vocabularies, and vocabula
 
     ![Sync Entity Types to Dataverse Tables](../images/sync-cluedin-entitytypes-setting.png)
 
-    All the vocabulary keys below will be created as columns in Dataverse table.
+    All the vocabulary keys below will be created as columns in the Dataverse table.
 
     ![Sync Entity Types to Dataverse Tables](../images/entity-type-dog-details.png)
 
