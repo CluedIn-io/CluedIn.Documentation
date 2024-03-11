@@ -45,7 +45,7 @@ As part of workflow automation, the ingestion endpoint will be created as well. 
     
 ![Power Automate Workflow Ingestion Endpoint](../images/power-automate-workflow-ingestion-endpoint.png)
 
-**Workflows**
+**Workflow**
 
 The creation of workflow will depend on the values of **Sync Entity Types** and **Sync Dataverse Tables**. Once the execution of the job is done, from the sample values above, you can expect two workflows to be created, one for each of the **cluedin_dog** and **crc12_customer** tables.
 
