@@ -15,9 +15,7 @@ This feature allows you to sync CluedIn entity types, vocabularies, and vocabula
 
 1. On the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
 
-1. In the **Sync CluedIn Entity Types to Dataverse Table** field, turn on the toggle to enable the feature.
-
-1. In the **Sync CluedIn Entity Types to Dataverse** field, enter the entity type that you want to sync. If you want to sync multiple entity types, separate them with a comma (for example, _/_Type1,/Type2,/Type3_).
+1. In **Sync CluedIn Entity Types to Dataverse Table**, turn on the toggle, and then enter the entity type that you want to sync. If you want to sync multiple entity types, separate them with a comma (for example, _/_Type1,/Type2,/Type3_).
 
     ![Sync Entity Types to Dataverse Tables](../images/sync-cluedin-entitytypes-setting.png)
 
