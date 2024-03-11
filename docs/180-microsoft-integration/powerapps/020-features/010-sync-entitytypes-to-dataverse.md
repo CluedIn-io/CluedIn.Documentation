@@ -9,12 +9,26 @@ tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17
 ---
 
-This feature will allow you to Synchronize the CluedIn Entity Types, Vocabs, and Vocabulary Keys into the Dataverse table and column.
-![Sync Entity Types to Dataverse Tables](../images/sync-cluedin-entitytypes-setting.png)
-In the textbox above, you must specify which EntityTypes to sync. For multiple values, it should be separated by a comma _(/_Type1,/Type2,..)_ 
-- All the Vocabulary keys below will be created as columns in Dataverse
-![Sync Entity Types to Dataverse Tables](../images/entity-type-dog-details.png)
-- Once the synchronization has been successfully executed, two success notifications will be displayed to the user. Creation of the table and Create/Update of the Columns.
-![Sync Entity Types to Dataverse Tables Notification](../images/sync-cluedin-entitytypes-notification.png)
-- Verifying the table and columns created in Dataverse
-![Sync Entity Types to Dataverse Tables](../images/dataverse-dog-table-details.png)
+This feature allows you to sync CluedIn entity types, vocabularies, and vocabulary keys with Dataverse table and columns.
+
+**To sync CluedIn entity types with Dataverse table**
+
+1. On the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
+
+1. In the **Sync CluedIn Entity Types to Dataverse Table** field, turn on the toggle to enable the feature.
+
+1. In the **Sync CluedIn Entity Types to Dataverse** field, enter the entity type that you want to sync. If you want to sync multiple entity types, separate them with a comma (for example, _/_Type1,/Type2,/Type3_).
+
+    ![Sync Entity Types to Dataverse Tables](../images/sync-cluedin-entitytypes-setting.png)
+
+    All the vocabulary keys below will be created as columns in Dataverse table.
+
+    ![Sync Entity Types to Dataverse Tables](../images/entity-type-dog-details.png)
+
+    Once the synchronization has been successfully completed, you'll receive two notifications: **Dataverse Table Created** and **Dataverse Column Created/Updated**.
+
+    ![Sync Entity Types to Dataverse Tables Notification](../images/sync-cluedin-entitytypes-notification.png)
+
+1. Verify the table and columns created in Dataverse.
+
+    ![Sync Entity Types to Dataverse Tables](../images/dataverse-dog-table-details.png)
