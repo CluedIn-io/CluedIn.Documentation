@@ -7,6 +7,10 @@ nav_order: 010
 has_children: true
 tags: ["integration", "microsoft", "powerapps", "dataverse", "powerautomate"]
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 We are offering you an in-app experience for Power Apps and Power Automate. Now, you can build your workflows directly in CluedIn or manage your master data directly in Power Apps.
 
@@ -48,7 +52,7 @@ Using our Power Automate integrations, CluedIn can generate a customizable appro
 
 The following diagram illustrates how CluedIn interacts with Microsoft Power Platform.
 
-![Microsoft-CluedIn](./powerapps/images/cluedin-powerapps-diagram.jpg)
+![Microsoft-CluedIn](./powerapps/images/power-platform-diagram.gif)
 
 - 2-way synchronization of Dataverse metadata to CluedIn entity types/vocabularies and vice versa.
 
