@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 20
 parent: Features
-grand_parent: PowerApps Integration
+grand_parent: Power Apps Integration
 permalink: /microsoft-integration/powerapps/features/sync-dataverse
 title: Sync Dataverse table to Cluedin entity types/vocabularies
 tags: ["integration", "microsoft", "powerapps", "dataverse"]

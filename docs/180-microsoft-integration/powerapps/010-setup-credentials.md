@@ -1,46 +1,47 @@
 ---
 layout: cluedin
 nav_order: 10
-parent: PowerApps Integration
+parent: Power Apps Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/powerapps/setup-credentials
-title: Setup Credentials and Application Setup
+title: Credentials and application setup
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 ## Credentials
 
-Enter your [Microsoft 365](https://www.microsoft365.com/) Credentials in CluedIn Settings.
+To connect to Power Apps, you need to provide your [Microsoft 365](https://www.microsoft365.com/) credentials in CluedIn settings.
 
-1. Visit the CluedIn web application.
+1. In CluedIn, on the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
 
-2. Navigate to **Administration** => **Settings**.
-
-3. Scroll down to the **Organization Settings** section, where you will find the settings for PowerApps.
-
-    ![Input Microsoft Purview credentials](./images/cluedin-setting-new.png)
+1. Complete the following fields with the settings for PowerApps:
 
     - Base Url
+
     - Tenant Id
+
     - Client Id
+
     - Client Secret
+
     - Environment Id
 
-4. You can find the values for this by navigating to either the PowerApps page or the Power Automate page and checking the **Developer Resources** information.
+    ![Input Microsoft Purview credentials](./images/cluedin-setting-new.png)
+    
+    You can find the values for this by navigating to either the PowerApps page or the Power Automate page and checking the **Developer Resources** information.
 
     ![Developer Resources 1](./images/developer-resources1.png)
 
     ![Developer Resources 2](./images/developer-resources2.png)
 
-    - **Base Url** is the _Web API endpoint_ base URL
-    - Environment Id
+    **Base Url** is the _Web API endpoint_ base URL.
 
-5. For Tenant Id, Client Id, and Client Secret, you can generate this by navigating to your Azure Active Directory => App registration. Please refer to this [link](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/walkthrough-register-app-azure-active-directory).
-
-    - Tenant Id
-    - Client Id
-    - Client Secret
+5. For Tenant Id, Client Id, and Client Secret, you can generate this by navigating to your Azure Active Directory > App registration. Please refer to this [link](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/walkthrough-register-app-azure-active-directory).
 
 ## Setup security roles
 
