@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 40
 parent: Features
-grand_parent: PowerApps Integration
+grand_parent: Power Apps Integration
 permalink: /microsoft-integration/powerapps/features/create-workflow-approval
 title: Create a workflow approval process
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
@@ -15,7 +15,7 @@ This feature enables you to approve a specific action before sending the data to
 
 You'll need to provide the Approval connection ID. To generate the the Approval connection ID:
 
-1. In PowerApps, on the left navigation pane, select **Connections**.
+1. In Power Apps, on the left navigation pane, select **Connections**.
 
 1. Select **New connection**.
 

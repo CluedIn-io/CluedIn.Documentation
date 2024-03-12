@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 10
 parent: Features
-grand_parent: PowerApps Integration
+grand_parent: Power Apps Integration
 permalink: /microsoft-integration/powerapps/features/sync-entitytypes
 title: Sync entity types to Dataverse tables
 tags: ["integration", "microsoft", "powerapps", "dataverse"]

@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 50
 parent: Features
-grand_parent: PowerApps Integration
+grand_parent: Power Apps Integration
 permalink: /microsoft-integration/powerapps/features/create-streams
 title: Create streams
 tags: ["integration", "microsoft", "powerapps", "dataverse"]

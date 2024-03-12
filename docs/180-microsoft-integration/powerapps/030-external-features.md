@@ -4,7 +4,7 @@ nav_order: 30
 parent: Power Apps Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/powerapps/external-features
-title: External reatures
+title: External features
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17
 ---

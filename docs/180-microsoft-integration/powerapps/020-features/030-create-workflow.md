@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 30
 parent: Features
-grand_parent: PowerApps Integration
+grand_parent: Power Apps Integration
 permalink: /microsoft-integration/powerapps/features/create-workflow
 title: Create Power Automate workflow
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
@@ -15,7 +15,7 @@ This feature allows you to automate the creation of Power Automate workflow that
 
 You'll need to provide the Dataverse connection ID. To generate the the Dataverse connection ID:
 
-1. In PowerApps, on the left navigation pane, select **Connections**.
+1. In Power Apps, on the left navigation pane, select **Connections**.
 
 1. Select **New connection**.
 
@@ -35,7 +35,7 @@ You'll need to provide the Dataverse connection ID. To generate the the Datavers
 
 1. In **Create workflow to Ingest Data to CluedIn**, turn on the toggle.
 
-1. In **Dataverse Connection Id**, enter the Dataverse connection ID. This connection ID will allow you to access the PowerApps table in the Power Automate workflow.
+1. In **Dataverse Connection Id**, enter the Dataverse connection ID. This connection ID will allow you to access the Power Apps table in the Power Automate workflow.
 
     ![Create Power Automate Workflow](../images/power-automate-workflow-setting.png)
 
