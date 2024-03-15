@@ -8,14 +8,30 @@ title: Rule types
 tags: ["management", "rules"]
 last_modified: 2023-11-16
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 There are three types of rules: data part rules, survivorship rules, and golden record rules. Each rule serves a distinct purpose in managing and optimizing your golden records. The following diagram shows the order in which the rules should be applied to the records in CluedIn.
 
 ![rule-types-1.png](../../assets/images/management/rules/rule-types-1.png)
 
-The purpose of **data parts rules** is to modify the values in records that come from different sources. Data part rules are mostly used for normalization and transformation of values on the vocabulary key level. While you have the option to create data part rules manually, they can also be generated automatically from a [clean project](/preparation/clean). 
+## Data parts rules
+
+The purpose of **data parts rules** is to modify the values in records that come from different sources. Data part rules are mostly used for normalization and transformation of values on the vocabulary key level. While you have the option to create data part rules manually, they can also be generated automatically from a [clean project](/preparation/clean).
+
+## Survivorship rules
 
 The purpose of **survivorship rules** is to determine which value contributes to the golden record among many potential values. By default, the latest value coming to CluedIn is the value used in the golden record. If you want to use another value for your golden record, you can set up a survivorship rule with the needed [action](/management/rules/rules-reference).
+
+The following video explains each action available in the survivorship rules.
+
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/923699241?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Survivorship rules"></iframe>
+</div>
+
+## Golden record rules
 
 The purpose of **golden record rules** is to facilitate the easy identification and retrieval of golden records within the system. You can use a golden record rule to tag records containing invalid data that should be addressed by a Data Steward. In this case, a responsible person can quickly find tagged records and create a clean project.
 
