@@ -11,7 +11,7 @@ title: Search the data catalog
 - TOC
 {:toc}
 
-Searching the data catalog is a valuable tool for streamlining data discovery. This article provides information on how to make the process of finding data faster and more efficient by using filters.
+Searching the data catalog is a valuable tool for streamlining data discovery. This article provides information on how to make the process of finding metadata faster and more efficient by using filters.
 
 **Vocabularies**
 
