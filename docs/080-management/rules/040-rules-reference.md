@@ -51,6 +51,7 @@ The following table contains a list of actions that you can use within survivors
 
 | Action | Description |
 |--|--|
+| Best Quality | The value from the source with the highest quality wins. |
 | Latest Manual | The value from the record that was the last to be modified in CluedIn wins. |
 | Latest Modified Date | The value from the record that was the last to be modified in the external system wins. |
 | Most Frequent Value | The value that occurs most often in the records. |
