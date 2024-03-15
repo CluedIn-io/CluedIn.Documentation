@@ -35,7 +35,7 @@ This tab contains general information about the vocabulary key, including:
 
 - Visibility settings – a configuration that determines if the vocabulary key is visible in the system. When the toggle is turned off, it means that the vocabulary key is not available in filters, column options in search results page, or golden record properties. While all vocabulary key values are retained in the system, they can only be viewed on the vocabulary key details page.
 
-- Data type – a type of data that the vocabulary key can hold.
+- Data type – a type of data that the vocabulary key can hold. For more information, see [Data types](/management/data-catalog/data-types).
 
     {:.important}
     The data type is closely connected with the list of available operators in filters. Depending on the data type assigned to the vocabulary key, the list of operators may differ. For example, the list of operators for a vocabulary key with the Number data type is different from that for a vocabulary key with the Text data type.
@@ -104,7 +104,7 @@ Depending on the selected [data modeling approach](/management/data-catalog/mode
 
 1. (Optional) If you don't want to the vocabulary key to be displayed anywhere else in the system, turn off the corresponding toggle.
 
-1. Select the data type of the vocabulary key.
+1. Select the data type of the vocabulary key. For more information, see [Data types](/management/data-catalog/data-types).
 
 1. Review the storage for the vocabulary key. This is the type of field—keyword, typed, untyped—where the vocabulary key value is stored. The storage is selected by default according to the data type. The keyword storage option cannot be changed. 
 

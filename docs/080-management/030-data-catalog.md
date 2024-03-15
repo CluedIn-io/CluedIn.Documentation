@@ -20,3 +20,7 @@ This section covers the following areas:
 - [Vocabularies](/management/data-catalog/vocabulary) – learn how to create and manage vocabularies for storing and organizing groups of vocabulary keys.
 
 - [Vocabulary keys](/management/data-catalog/vocabulary-keys) – learn how to create and manage vocabulary keys for defining characteristics of golden records.
+
+- [Search the data catalog](/management/data-catalog/search-data-catalog) – learn how to make the process of finding metadata faster and more efficient by using filters.
+
+- [Data types](/management/data-catalog/data-types) – find reference information about data types that can be used in vocabulary keys.
