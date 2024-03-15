@@ -53,7 +53,7 @@ This tab contains a list of users who can manage the vocabulary (Vocabulary Owne
 
 **Vocabulary keys**
 
-This tab contains groups of vocabulary keys associated with the vocabulary. You can search for specific keys or use data type and classification filters to explore the available metadata within the vocabulary.
+This tab contains groups of vocabulary keys associated with the vocabulary. You can search for specific keys or use [data type](/management/data-catalog/data-types) and classification filters to explore the available metadata within the vocabulary.
 
 ![vocabulary-keys.gif](../../assets/images/management/data-catalog/vocabulary-keys.gif)
 
