@@ -56,7 +56,7 @@ CluedIn uses two ACRs:
 You can find the ACR to which you have been granted access in the <a href="/deployment/local/step-1#get-access-to-CluedIn-container-registry">email from CluedIn</a>.
 
 {:.important}
-In the following instructions, we use `2024.01` as the release number for demonstration purposes. You should always use the latest release number. You can find the list of releases [here](https://cluedin-io.github.io/Releases/).
+In the following instructions, we use `2024.01` as the release number. You should always use the latest release number. You can find the list of releases [here](https://cluedin-io.github.io/Releases/).
 
 **To authenticate to CluedIn ACR**
 
@@ -70,15 +70,15 @@ In the following instructions, we use `2024.01` as the release number for demons
 
     - For **Production**, run the following command:
 
-    ```
-    docker login cluedinprod.azurecr.io
-    ```
+        ```
+        docker login cluedinprod.azurecr.io
+        ```
 
     - For **Early Access**, run the following command:
 
-    ```
-    docker login cluedindev.azurecr.io
-    ```
+        ```
+        docker login cluedindev.azurecr.io
+        ```
 
 1. Enter the username and password that you received in the email from CluedIn.
 
@@ -103,7 +103,7 @@ In the following instructions, we use `2024.01` as the release number for demons
     ```
 
     {:.important}
-    You should use the most recent release number. Find the list of releases [here](https://cluedin-io.github.io/Releases/).
+    You should always use the latest release number. You can find the list of releases [here](https://cluedin-io.github.io/Releases/).
     
     You will get an output similar to the following.
 
@@ -157,14 +157,14 @@ Make sure that the server has started correctly. To do that, in Docker Desktop, 
 ![cluedin-server-logs.png](../../assets/images/local-install/cluedin-server-logs.png)
 
 {:.important}
-In the following procedure, we’ll use `202304` as an environment, `example` as an organization name, and `Example123!` as a password for signing in to CluedIn.
+In the following procedure, we’ll use `202401` as an environment, `example` as an organization name, and `Example123!` as a password for signing in to CluedIn.
 
 **To create organization and sign-in credentials**
 
 1. Run the following command:
 
     ```
-    pwsh .\cluedin.ps1 createorg 202304 -Name example -Pass Example123!
+    pwsh .\cluedin.ps1 createorg 202401 -Name example -Pass Example123!
     ```
 
     You'll get the credentials for signing in to CluedIn.
@@ -174,7 +174,7 @@ In the following procedure, we’ll use `202304` as an environment, `example` as
 1. Open the CluedIn sign-in page by running the following command:
 
     ```
-    pwsh .\cluedin.ps1 open 202304 -Org example
+    pwsh .\cluedin.ps1 open 202401 -Org example
     ```
 
     ![open-cluedin.png](../../assets/images/local-install/open-cluedin.png)
