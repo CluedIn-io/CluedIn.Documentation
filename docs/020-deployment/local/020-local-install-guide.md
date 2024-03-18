@@ -99,7 +99,7 @@ In the following instructions, we use `2024.01` as the release number. You shoul
 1. Create an environment. In the following command, we use `202401` as the name of the environment and `2024.01` as the release number. To create an environment, run the following command:
 
     ```
-    pwsh .\cluedin.ps1 env 202304 -tag 2024.01
+    pwsh .\cluedin.ps1 env 202401 -tag 2024.01
     ```
 
     {:.important}
@@ -121,10 +121,10 @@ As Docker is not an orchestration tool like Kubernetes, starting up Docker conta
 1. Run the following command:
 
     ```
-    pwsh .\cluedin.ps1 up 202304 -disable server
+    pwsh .\cluedin.ps1 up 202401 -disable server
     ```
 
-    where `202304` is the name of the environment.
+    where `202401` is the name of the environment.
 
     You will get an output similar to the following.
 
@@ -137,10 +137,10 @@ As Docker is not an orchestration tool like Kubernetes, starting up Docker conta
 1. Run the following command:
 
     ```
-    pwsh .\cluedin.ps1 up 202304
+    pwsh .\cluedin.ps1 up 202401
     ```
 
-    where `202304` is the name of the environment.
+    where `202401` is the name of the environment.
 
     You will get an output similar to the following.
 
