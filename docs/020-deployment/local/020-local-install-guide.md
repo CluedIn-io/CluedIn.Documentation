@@ -17,22 +17,25 @@ In this article, you will learn how to install CluedIn locally.
 
 ![local-installation.png](../../assets/images/local-install/local-installation.png)
 
+{:.important}
+In the instructions, we use `2023.04` as the release number for demonstration purposes. You should always use the latest release number. You can find the list of releases [here](https://cluedin-io.github.io/Releases/).
+
 ## Clone CluedIn repository
 
 The first step for the local installation of CluedIn is to clone the CluedIn public repository named **Home** [https://github.com/CluedIn-io/Home](https://github.com/CluedIn-io/Home).
 
 **To clone the CluedIn repository**
 
-- At the command prompt, run the following command:
-```
-git clone https://github.com/CluedIn-io/Home
-```
+- At the command prompt, run the following command.
+
+    ```
+    git clone https://github.com/CluedIn-io/Home
+    ```
 
     You will get an output similar to the following.
 
     ![git-clone.png](../../assets/images/local-install/git-clone.png)
 
-    {:.important}
     Alternatively, you can clone the repository using your preferred Git client.
 
 ## Authenticate to CluedIn ACR
@@ -44,13 +47,13 @@ git clone https://github.com/CluedIn-io/Home
     ![pwsh-policy.png](../../assets/images/local-install/pwsh-policy.png)
 
 - For Windows environments: Run your terminal session as an administrator.
-- For non-Windows environments: Use the `sudo` command.
 
-<hr>
+- For non-Windows environments: Use the `sudo` command.
 
 CluedIn uses two ACRs:
 
 - **Production** – the registry name is **cluedinprod**. This registry is used to store all official images from CluedIn.
+
 - **Early Access** – the registry name is **cluedindev**. This registry is used internally by CluedIn to develop the software. Occasionally, this registry can be used by partners and customers to test new functionality before it is officially released.
 
 You can find the ACR to which you have been granted access in the <a href="/deployment/local/step-1#get-access-to-CluedIn-container-registry">email from CluedIn</a>.
@@ -93,7 +96,8 @@ You can find the ACR to which you have been granted access in the <a href="/depl
  pwsh .\cluedin.ps1 env 202304 -tag 2023.04
  ```
 
-    **Important!** You should use the most recent release number. Find the list of releases [here](https://cluedin-io.github.io/Releases/).
+    {:.important}
+    You should use the most recent release number. Find the list of releases [here](https://cluedin-io.github.io/Releases/).
     
     You will get an output similar to the following.
 
@@ -144,9 +148,8 @@ Make sure that the server has started correctly. To do that, in Docker Desktop, 
 
 ![cluedin-server-logs.png](../../assets/images/local-install/cluedin-server-logs.png)
 
-<hr>
-
-**Important!** In the following procedure, we’ll use `202304` as an environment, `example` as an organization name, and `Example123!` as a password for signing in to CluedIn.
+{:.important}
+In the following procedure, we’ll use `202304` as an environment, `example` as an organization name, and `Example123!` as a password for signing in to CluedIn.
 
 **To create organization and sign-in credentials**
 
