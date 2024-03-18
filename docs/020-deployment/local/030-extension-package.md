@@ -31,15 +31,17 @@ The following image presents an overview of the steps involved in adding SQL Ser
 
 In the procedure, we'll use the following input variables:
 
-- `202304` – name of the environment
+- `202401` – name of the environment
+
 - `CluedIn.Connector.SqlServer` – name of the extension package.
 
 **To add SQL Server Connector to CluedIn**
 
 1. Add a reference to the package by running the following command:
-```
-pwsh .\cluedin.ps1 packages 202304 -Add CluedIn.Connector.SqlServer
-```
+
+    ```
+    pwsh .\cluedin.ps1 packages 202401 -Add CluedIn.Connector.SqlServer
+    ```
 
     You will get an output similar to the following.    
  
@@ -49,27 +51,30 @@ pwsh .\cluedin.ps1 packages 202304 -Add CluedIn.Connector.SqlServer
     You can also specify a version for your package (`-version`) and use floating versions (for example, `1.0.0-*`) for the latest pre-release.
 
 1. Restore the package by running the following command:
-```
-pwsh .\cluedin.ps1 packages 202304 -Restore
-```
+
+    ```
+    pwsh .\cluedin.ps1 packages 202401 -Restore
+    ```
 
     You will get an output similar to the following.
 
     ![restore-package.png](../../assets/images/local-install/restore-package.png)
 
 1. Stop the CluedIn server by running the following command:
-```
-pwsh .\cluedin.ps1 stop 202304
-```
+
+    ```
+    pwsh .\cluedin.ps1 stop 202401
+    ```
 
     You will get an output similar to the following.
 
     ![stop-cluedin-server.png](../../assets/images/local-install/stop-cluedin-server.png)
 
 1. Start the CluedIn server by running the following command:
-```
-pwsh .\cluedin.ps1 up 202304
-```
+
+    ```
+    pwsh .\cluedin.ps1 up 202401
+    ```
 
     You will get an output similar to the following.
 
