@@ -18,7 +18,7 @@ The following table provides a list of integration features.
 
 | Integration feature | Description
 | ---- | ------ |
-| Polling Data Source | Update properties and metrics on existing "Cluedin Dataset" Purview entities.
+| Poll CluedIn Data Sources | Update properties and metrics on the existing "Cluedin Dataset" Purview entities.
 | Synchronize CluedIn Vocabularies to Purview Glossary Terms | Create Purview Glossary Terms from CluedIn Vocabularies.
 | Synchronize Data Sources | Create and update "Cluedin Ingest Process", "Cluedin Dataset", "Cluedin Map Process", and "Cluedin Entity" entities on Purview lineages that link Purview assets to CluedIn data sets and their matching CluedIn Entity Types.
 | Synchronize Purview Glossaries Terms To CluedIn Glossary Terms | Create CluedIn glossary terms from Purview glossary terms.
@@ -26,7 +26,7 @@ The following table provides a list of integration features.
 | Synchronize Streams | Create and update "Cluedin Entity", "Cluedin Stream Process", and "Cluedin Organization Provider" entities on Purview lineages that link CluedIn streams and connectors.
 | Synchronize Crawlers And Enrichers | Create and update "Cluedin Organization Provider", "Cluedin Crawl Process", "Cluedin Enrich Process", "Cluedin Ingest Process", "Cluedin Dataset", "Cluedin Map Process", and "Cluedin Entity" entities on Purview lineages that link Purview assets to CluedIn data sets and matching CluedIn Entity Types. |
 
-**Assumptions** about the customers' Microsoft Azure setup:
+We have the following **assumptions** about the customers' Microsoft Azure setup:
 
 - Customers own only one Purview resource.
 

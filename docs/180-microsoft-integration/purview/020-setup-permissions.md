@@ -4,7 +4,7 @@ title: Setup credentials and permissions
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/purview/setup
-nav_order: 020
+nav_order: 010
 has_children: false
 tags: ["integration", "microsoft", "azure", "purview"]
 ---
@@ -23,11 +23,11 @@ Microsoft Purview integration is enabled on the **Settings** page in CluedIn. Wh
 
 1. Enter [Microsoft Purview credentials](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal#open-the-microsoft-purview-governance-portal): **Base URL**, **Client ID**, **Client Secret**, and **Tenant ID**.
 
-    ![Input Microsoft Purview credentials](./media/settings.png)
-
 2. In **Collection Name**, enter the target collection path of your Purview instance. For example, root_collection/collection1/targetcollection.
+
+    ![Input Microsoft Purview credentials](./media/settings.png)
      
-3. Enable the needed synchronization features:
+3. Enable the needed synchronization [features](/microsoft-integration/purview/introduction):
 
     - Sync CluedIn Data Sources
     - Sync CluedIn Crawlers and Enrichers
@@ -71,13 +71,11 @@ Azure Data Factory integration is enabled on the **Settings** page in CluedIn. W
 
 1. Enter [Microsoft Azure Data Factory Credentials](https://learn.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory): **Base URL**, **Client ID**, **Client Secret**, and **Tenant ID**.
 
-    ![Input Microsoft Azure Data Factory credentials](./media/adf_settings.png)
-
 1. Enable the **Azure Data Factory Pipeline Automation** feature.
 
-    ![Input Microsoft Azure Data Factory credentials](./media/adf_settings2.png)
-
 1. Enter the **ADF Pipeline Automation Term Pattern** to filter the asset that you want to automate.
+
+    ![Input Microsoft Azure Data Factory credentials](./media/adf_settings2.png)
 
 ## Azure Data Factory automation coverage
 
