@@ -4,75 +4,83 @@ title: Setup credentials and permissions
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/purview/setup
-nav_order: 020
+nav_order: 010
 has_children: false
 tags: ["integration", "microsoft", "azure", "purview"]
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
-# Setup Microsoft Purview
-Purview integration is enabled via CluedIn's settings page. When the fields are left empty or blank, no synchronization is performed with Microsoft Purview.
+## Microsoft Purview setup
 
-## Credentials
-1. Enter [Microsoft Purview credentials](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal#open-the-microsoft-purview-governance-portal) in CluedIn's Settings
-   i. Visit CluedIn web application
-   ii. Navigate to Administration > Settings
-   iii. Scroll down to Organization Settings section and enter Purview credentials into the respective textboxes for the following details :
-      ![Input Microsoft Purview credentials](./media/settings.png)
-      - Base URL
-      - Client ID
-      - Client Secret
-      - Tenant ID
+Microsoft Purview integration is enabled on the **Settings** page in CluedIn. When the fields are left empty, no synchronization is performed with Microsoft Purview.
 
-2. On the same Organization Settings page, navigate to "Purview: Collection Name" setting and enter the target collection path of your Purview instance. Ex. root_collection/collection1/targetcollection
+**To connect CluedIn to Microsoft Purview**
+
+1. In CluedIn, go to **Administration** > **Settings**, and then scroll down to find the **Purview** section.
+
+1. Enter [Microsoft Purview credentials](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal#open-the-microsoft-purview-governance-portal): **Base URL**, **Client ID**, **Client Secret**, and **Tenant ID**.
+
+2. In **Collection Name**, enter the target collection path of your Purview instance. For example, root_collection/collection1/targetcollection.
+
+    ![Input Microsoft Purview credentials](./media/settings.png)
      
-3. Select one or more synchronization features
-   ![Optional settings](./media/settings_optional.png)
-   - Synchronize Data Sources
-   - Synchronize Crawlers And Enrichers
-   - Synchronize Streams
-   - Synchronize Purview Glossary Terms To CluedIn Vocabularies
-   - Synchronize CluedIn Vocabularies to Purview Glossary Terms
-   - Synchronize Purview Glossaries Terms To CluedIn Glossary Terms
-   - Polling Data Sources
+3. Enable the needed synchronization [features](/microsoft-integration/purview/introduction):
 
-## Minimum Permission Requirements
+    - Sync CluedIn Data Sources
+    - Sync CluedIn Crawlers and Enrichers
+    - Sync CluedIn Streams
+    - Sync Purview glossaries to CluedIn vocabularies
+    - Sync CluedIn vocabularies to Purview glossaries
+    - Sync CluedIn vocabularies to Purview glossaries Root Glossary Term
+    - Sync Purview glossaries to CluedIn glossaries
+    - Sync Data Products DataSources
+    - Poll CluedIn Data Sources
 
-The following table lists the Purview roles[^permissions] CluedIn requires per integration feature. Roles assignments can be found under the "Role assignments" tab of each collection in purview.
+## Minimum permission requirements
 
-| Integration Feature | Role | Collection Level |
+The following table lists the Purview roles ([permissions](https://learn.microsoft.com/en-us/azure/purview/catalog-permissions)) that CluedIn requires per integration feature. Roles assignments can be found under the **Role assignments** tab of each collection in Purview.
+
+| Integration feature | Role | Collection Level |
 | ---- | ------ | ------- |
-| Polling Data Sources | Data Curator | Target Collection[^target-collection] |
-| Synchronize CluedIn Vocabularies to Purview Glossary Terms | Data Curator | Target Collection[^target-collection] |
-| Synchronize Data Sources | Data Curator | Target Collection[^target-collection] |
-| Synchronize Data Sources | Data Reader | Root Collection[^root-collection] |
-| Synchronize Purview Glossaries Terms To CluedIn Glossary Terms | Data Reader | Root Collection[^root-collection] |
-| Synchronize Purview Glossary Terms To CluedIn Vocabularies | Data Reader | Root Collection[^root-collection] |
-| Synchronize Streams | Data Curator | Target Collection[^target-collection] |
-| Synchronize Streams | Data Reader | Root Collection[^root-collection] |
-| Synchronize Crawlers And Enrichers | Data Curator | Target Collection[^target-collection] |
+| Polling Data Sources | Data Curator | Target Collection |
+| Synchronize CluedIn Vocabularies to Purview Glossary Terms | Data Curator | Target Collection |
+| Synchronize Data Sources | Data Curator | Target Collection |
+| Synchronize Data Sources | Data Reader | Root Collection |
+| Synchronize Purview Glossaries Terms To CluedIn Glossary Terms | Data Reader | Root Collection |
+| Synchronize Purview Glossary Terms To CluedIn Vocabularies | Data Reader | Root Collection |
+| Synchronize Streams | Data Curator | Target Collection |
+| Synchronize Streams | Data Reader | Root Collection |
+| Synchronize Crawlers And Enrichers | Data Curator | Target Collection |
 
-# Setup Azure Data Factory
-## Credentials
+Collection levels:
 
-1. Enter [Microsoft ADF Credentials](https://learn.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory) in CluedIn's Settings
-   i. Visit CluedIn web application
-   ii. Navigate to Administration > Settings
-   iii. Scroll down to Organization Settings section and enter ADF credentials into the respective textboxes for the following details :
-      ![Input Microsoft Azure Data Factory credentials](./media/adf_settings.png)
-      - Base URL (format: https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.DataFactory/factories/{factoryName}/)
-      - Client ID
-      - Client Secret
-      - Tenant ID
+- **Root-collection** – refers to the top most collection of your Microsoft Purview instance.
 
-2. Enabled the Automation button.
-![Input Microsoft Azure Data Factory credentials](./media/adf_settings2.png)
-- Provide Term Name pattern to filter the asset that you want to automate.
+- **Target-collection** – refers to the **Collection Name** specified in CluedIn's organization settings.
 
-## ADF Automation Coverage
+## Azure Data Factory setup
+
+Azure Data Factory integration is enabled on the **Settings** page in CluedIn. When the fields are left empty, no synchronization is performed with Azure Data Factory.
+
+**To connect CluedIn to Azure Data Factory**
+
+1. In CluedIn, go to **Administration** > **Settings**, and then scroll down to find the **Purview** section.
+
+1. Enter [Microsoft Azure Data Factory Credentials](https://learn.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory): **Base URL**, **Client ID**, **Client Secret**, and **Tenant ID**.
+
+1. Enable the **Azure Data Factory Pipeline Automation** feature.
+
+1. Enter the **ADF Pipeline Automation Term Pattern** to filter the asset that you want to automate.
+
+    ![Input Microsoft Azure Data Factory credentials](./media/adf_settings2.png)
+
+## Azure Data Factory automation coverage
+
 - Azure SQL Server
-- Azure Data Lake gen 2
-- Azure File (in progress)
 
-[^permissions]: [Microsoft Purview Catalog Permissions](https://learn.microsoft.com/en-us/azure/purview/catalog-permissions)
-[^root-collection]: "Root Collection" refers to the top most collection of your Microsoft Purview instance.
-[^target-collection]: "Target Collection" refers to the "Collection Name" specified in CluedIn's organization settings.
+- Azure Data Lake gen 2
+
+- Azure File (in progress)
