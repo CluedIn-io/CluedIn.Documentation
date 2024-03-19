@@ -47,12 +47,13 @@ A background processing in CluedIn synchronizes streams and their respective exp
 
 ## Monitor Events
 
-CluedIn updates Microsoft Purview entities when specific actions are carried out by a user in CluedIn.
-The supported actions are as follows:
+CluedIn updates Microsoft Purview entities when specific actions are carried out by a user in CluedIn. The supported actions are as follows:
 
-- Adding or removing a CluedIn Data Source or Enrichers
-- Adding, updating, reprocessing or removing a CluedIn Stream
-- Adding, updating or removing a CluedIn Export Target
+- Adding or removing a CluedIn data source or enrichers.
+
+- Adding, updating, reprocessing or removing a CluedIn stream.
+
+- Adding, updating or removing a CluedIn export target.
 
 ## Sync Purview glossaries to CluedIn vocabularies
 
@@ -61,13 +62,12 @@ This synchronization feature allows the import of Microsoft Purview glossaries a
 ## Sync CluedIn Vocabularies to Purview Glossary Terms
 
 ![Purview glossary terms created under the root glossary term "CluedIn" + [Your machine name], ex. "CluedIn-Dell"](./media/vocab_to_glossary.png)
-Purview glossary terms created under the root glossary term "CluedIn" + [Your machine name], ex. "CluedIn-Dell"
 
-- By default, a "CluedIn" root glossary term is created in Purview glossaries.
-- New glossary terms are created under the root glossary term.
-- If a glossary term is deleted but the vocabulary or vocabulary key still exists, the sync re-creates the glossary term.
-- If a vocabulary or vocabulary key is deleted, the linked glossary term is removed, except for glossary terms with assigned entities.
-- If a newly created vocabulary or vocabulary key matches an existing glossary term, the name of the new glossary term is appended with numbers.
+Purview glossary terms are created under the root glossary term "CluedIn" + [Your machine name] (e,g. "CluedIn-Dell").
+
+By default, a CluedIn root glossary term is created in Purview glossaries. New glossary terms are created under the root glossary term.
+
+If a glossary term is deleted but the vocabulary or vocabulary key still exists, the sync re-creates the glossary term. If a vocabulary or vocabulary key is deleted, the linked glossary term is removed, except for glossary terms with assigned entities. If a newly created vocabulary or vocabulary key matches an existing glossary term, the name of the new glossary term is appended with numbers.
 
 ## Sync Purview Glossary Terms to CluedIn Glossary Terms
 
