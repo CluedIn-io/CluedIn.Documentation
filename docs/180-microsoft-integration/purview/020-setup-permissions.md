@@ -21,13 +21,23 @@ Microsoft Purview integration is enabled on the **Settings** page in CluedIn. Wh
 
 1. In CluedIn, go to **Administration** > **Settings**, and then scroll down to find the **Purview** section.
 
-1. Enter [Microsoft Purview credentials](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal#open-the-microsoft-purview-governance-portal): **Base URL**, **Client ID**, **Client Secret**, and **Tenant ID**.
+1. Enter Microsoft Purview credentials:
+
+    - **Base URL** – `https://{accountName}.purview.azure.com` where `accountName` is your Purview subscription name. For example, if your Purview subscription name is ContosoPurview, then base URL would be `https://contosopurview.purview.azure.com`. For more details about Purview subscription, see [Microsoft documentation](https://docs.microsoft.com/en-us/azure/purview/create-catalog-portal#open-the-microsoft-purview-governance-portal).
+    
+    - **Client ID** – can be obtained from **Application (client) ID** on the **Overview** tab of the app registration that the organization has dedicated to access Purview account on behalf of CluedIn.
+    
+    - **Client Secret** – can be obtained from the **Certificates & secrets** of the app registration that the organization has dedicated to access Purview account on behalf of CluedIn.
+    
+    - **Tenant ID** – can be obtained from **Directory (tenant) ID** on the **Overview** tab of the app registration that the organization has dedicated to access Purview account on behalf of CluedIn.
+
+        For more information on where to find the values for client ID and tenant ID, see [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app#register-an-application).
 
 2. In **Collection Name**, enter the target collection path of your Purview instance. For example, root_collection/collection1/targetcollection.
 
     ![Input Microsoft Purview credentials](./media/settings.png)
      
-3. Enable the needed synchronization [features](/microsoft-integration/purview/introduction):
+3. Choose to enable one or more [features](/microsoft-integration/purview/introduction) for your use cases:
 
     - Sync CluedIn Data Sources
     - Sync CluedIn Crawlers and Enrichers
@@ -69,7 +79,13 @@ Azure Data Factory integration is enabled on the **Settings** page in CluedIn. W
 
 1. In CluedIn, go to **Administration** > **Settings**, and then scroll down to find the **Purview** section.
 
-1. Enter [Microsoft Azure Data Factory Credentials](https://learn.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory): **Base URL**, **Client ID**, **Client Secret**, and **Tenant ID**.
+1. Enter [Microsoft Azure Data Factory Credentials](https://learn.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory):
+
+    - **Base URL** – `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.DataFactory/factories/{factoryName}/`. You can get the resource ID value by navigating to your Azure Data Factory resource and checking the value through JSON View.
+
+        ![json-view](./media/json-view.png)
+    
+    - **Client ID**, **Client Secret**, **Tenant ID** – you can get these values by navigating to your Azure Active Directory > App registration. For more information, see [Microsoft documentation](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/walkthrough-register-app-azure-active-directory).
 
 1. Enable the **Azure Data Factory Pipeline Automation** feature.
 
