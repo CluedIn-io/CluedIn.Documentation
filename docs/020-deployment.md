@@ -19,17 +19,11 @@ When it comes to production, [Kubernetes](https://kubernetes.io/) runs CluedIn s
 While all modern cloud providers support Kubernetes, we recommend running CluedIn on Microsoft Azure with the help of [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/). Read more about it in the [Azure](/deployment/azure-marketplace) section of our documentation.
 
 <div class="card-line">
-  <div class="card" href="/deployment/azure-marketplace">
+   <div class="card" href="/deployment/azure-marketplace">
     <div class="icon"><img src="/assets/icons/azure-marketplace.svg" alt="Azure Market place"/></div>
     <div class="title">Azure Marketplace</div>
     <div class="content">Install CluedIn within your company’s Azure infrastructure</div>
-  </div>
-  </div>
-   <div class="card" href="/deployment/saas">
-    <div class="icon"><img src="/assets/icons/azure-marketplace.svg" alt="Azure Market place"/></div>
-    <div class="title">CluedIn SaaS</div>
-    <div class="content">Get step-by-step instructions on how to install CluedIn SaaS</div>
-  </div>  
+  </div> 
    <div class="card" href="/deployment/local">
     <div class="icon"><img src="/assets/icons/installation.svg" alt="Installation"/></div>
     <div class="title">Local</div>
