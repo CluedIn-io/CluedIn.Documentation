@@ -2,7 +2,7 @@
 grand_parent: Deployment
 layout: cluedin
 nav_order: 9
-parent: How-to guides
+parent: How-to guides for PaaS
 grand_parent: Installation
 permalink: /deployment/kubernetes/persistence
 title: Configure PVC

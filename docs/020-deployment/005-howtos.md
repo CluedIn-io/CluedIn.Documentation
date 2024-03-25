@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: How-to guides
+title: How-to guides for PaaS
 parent: Installation
 permalink: /deployment/infra-how-tos
 nav_order: 5
