@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Azure Marketplace
+title: CluedIn PaaS
 parent: Installation
 permalink: /deployment/azure-marketplace
 nav_order: 1
