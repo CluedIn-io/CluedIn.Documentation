@@ -3,7 +3,7 @@ layout: cluedin
 title: CluedIn SaaS
 parent: Installation
 permalink: /deployment/saas
-nav_order: 2
+nav_order: 1
 ---
 ## On this page
 {: .no_toc .text-delta }

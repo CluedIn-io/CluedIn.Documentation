@@ -1,9 +1,9 @@
 ---
 layout: cluedin
-title: Azure Marketplace
+title: CluedIn PaaS
 parent: Installation
 permalink: /deployment/azure-marketplace
-nav_order: 1
+nav_order: 2
 has_children: true
 tags: ["deployment", "kubernetes", "azure", "aks", "microsoft", "marketplace", "azure-marketplace"]
 ---
