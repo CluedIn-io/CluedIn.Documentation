@@ -29,6 +29,8 @@ Start the installation process by finding CluedIn PaaS in the Azure Marketplace.
 
 1. On the **CluedIn Master Data Management** page, select **Get It Now**.
 
+    ![ama-cluedin-page.png](../../assets/images/ama/install-guide/ama-cluedin-page.png)
+
 1. In the dialog box that appears, in **Software plan**, select **CluedIn Platform**.
 
     ![ama-cluedin-platform.png](../../assets/images/ama/install-guide/ama-cluedin-platform.png)
