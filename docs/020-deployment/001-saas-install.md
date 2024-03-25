@@ -103,8 +103,8 @@ To configure an account with CluedIn, you need a valid license key. You can find
 
     Our automatic installer will start preparing your isolated environment. Once it is ready, you will receive an email with instructions on how to get started. It can take up to 30 minutes to receive an email. You may close this page while waiting for an email.
 
-In the email, you'll find a link to your CluedIn account. To sign in, enter the email and password that you provided to configure your CluedIn account.
+In the email, you'll find a link to your CluedIn account. To sign in, enter the email and password that you provided to configure your CluedIn account. For more information about signing in, see [Getting access](/getting-access#sign-in-by-email).
 
 ![saas-5.png](../../assets/images/deployment/saas-install/saas-5.png)
 
-For more information about signing in, see [Getting access](/getting-access#sign-in-by-email).
+To learn about our pricing options for CluedIn SaaS, see [Pricing](/deployment/pricing).
