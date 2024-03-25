@@ -5,6 +5,10 @@ parent: Installation
 permalink: /deployment/saas
 nav_order: 2
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 In this article, you will learn how to subscribe to CluedIn SaaS in the Azure portal and how to configure your CluedIn account.
 
