@@ -8,7 +8,7 @@ has_children: true
 tags: ["deployment", "kubernetes", "azure", "aks", "microsoft", "marketplace", "azure-marketplace"]
 ---
 
-<a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cluedin.azure_cluedin?tab=Overview">CluedIn Master Data Management</a> is an Azure Managed Application (AMA) that is deployed within your company’s Azure infrastructure.
+CluedIn Master Data Management is an Azure Managed Application (AMA) that is deployed within your company’s Azure infrastructure.
 
 <div class="videoFrame">
 <iframe src="https://player.vimeo.com/video/927156991?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="CluedIn Paas installation">
