@@ -11,7 +11,7 @@ tags: ["deployment", "kubernetes", "azure", "aks", "microsoft", "marketplace", "
 The Azure Marketplace is the best place to get started with a new installation of CluedIn.
 
 <div class="videoFrame">
-<iframe src="https://player.vimeo.com/video/840132673?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="AMA_installation_overview_video_upd"></iframe>
+<iframe src="https://player.vimeo.com/video/927156991?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="CluedIn Paas installation">
 </div>
 
 <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cluedin.azure_cluedin?tab=Overview">CluedIn Master Data Management</a> is an Azure Managed Application (AMA) that is deployed within your company’s Azure infrastructure. As a managed application, CluedIn is easy to deploy and operate. In addition, our support team can help you with the installation processes.
