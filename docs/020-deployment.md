@@ -21,10 +21,15 @@ While all modern cloud providers support Kubernetes, we recommend running CluedI
 <div class="card-line">
    <div class="card" href="/deployment/azure-marketplace">
     <div class="icon"><img src="/assets/icons/azure-marketplace.svg" alt="Azure Market place"/></div>
-    <div class="title">Azure Marketplace</div>
+    <div class="title">CluedIn PaaS</div>
     <div class="content">Install CluedIn within your company’s Azure infrastructure</div>
   </div> 
-   <div class="card" href="/deployment/local">
+    <div class="card" href="/deployment/azure-marketplace">
+    <div class="icon"><img src="/assets/icons/azure-marketplace.svg" alt="Azure Market place"/></div>
+    <div class="title">CluedIn SaaS</div>
+    <div class="content">Cloud-hosted platform</div>
+  </div> 
+   <div class="card" href="/deployment/saas">
     <div class="icon"><img src="/assets/icons/installation.svg" alt="Installation"/></div>
     <div class="title">Local</div>
     <div class="content">Install CluedIn locally to test its main features and write custom code</div>
