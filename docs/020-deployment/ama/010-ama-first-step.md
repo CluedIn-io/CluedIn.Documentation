@@ -32,7 +32,7 @@ We offer two types of licenses: [pay-as-you-go](#pay-as-you-go-license) and [com
 
 ### Pay-as-you-go license
 
-If you choose the **pay-as-you go license**, you can install CluedIn directly from the Azure Marketplace and start using it without the need to contact anyone at CluedIn. Check out our <a href="https://vimeo.com/showcase/10332033" target="_blank">training materials</a> to get started. With this type of license, you do not get a fixed price for using CluedIn and you will be charged per hour of use.
+If you choose the **pay-as-you go license**, you can install CluedIn directly from the Azure Marketplace and start using it without the need to contact anyone at CluedIn. Check out our <a href="https://vimeo.com/showcase/10332033" target="_blank">training materials</a> to get started. With this type of license, you do not get a fixed price for using CluedIn and you will be charged per hour of use. Learn more about the pay-as-you-go pricing model [here](/deployment/pricing).
 
 ### Committed-deal license
 
@@ -56,6 +56,9 @@ We recommend using three different environments:
 The license type is required during the installation of CluedIn from the Azure Marketplace, so be sure to tell your Azure Administrator which license type you want.
 
 ## Choose a plan
+
+{:.important}
+This section applies only to the committed deal license.
 
 We offer three types of plans: Essential, Professional, and Elite.
 

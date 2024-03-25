@@ -36,11 +36,7 @@ Before you start the CluedIn SaaS installation process, make sure you have an **
 
 **To subscribe to CluedIn SaaS**
 
-1. In the Azure Marketplace, search for CluedIn.
-
-1. From the results, select **CluedIn Master Data Management – MDM (SaaS)**.
-
-    ![saas-1.png](../../assets/images/deployment/saas-install/saas-1.png)
+1. In the Azure Marketplace, find [CluedIn Master Data Management – MDM (SaaS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cluedin.cluedin-saas?tab=Overview).
 
 1. On the **CluedIn Master Data Management SaaS** page, select **Get It Now**.
 
