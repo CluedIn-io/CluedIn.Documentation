@@ -4,7 +4,6 @@ title: CluedIn SaaS
 parent: Installation
 permalink: /deployment/saas
 nav_order: 2
-has_children: true
 ---
 
 In this article, you will learn how to subscribe to CluedIn SaaS in the Azure portal and how to configure your CluedIn account.
