@@ -13,7 +13,7 @@ last_modified: 2023-06-20
 1. TOC
 {:toc}
 
-In this article, you will learn about the decisions you need to make before starting the CluedIn installation process.
+In this article, you will learn about the decisions you need to make before starting the CluedIn PaaS installation process.
 
 ![Business decisions before installation](../../assets/images/ama/install-guide/overview-first-step.png)
 
@@ -32,7 +32,7 @@ We offer two types of licenses: [pay-as-you-go](#pay-as-you-go-license) and [com
 
 ### Pay-as-you-go license
 
-If you choose the **pay-as-you go license**, you can install CluedIn directly from the Azure Marketplace and start using it without the need to contact anyone at CluedIn. Check out our <a href="https://vimeo.com/showcase/10332033" target="_blank">training materials</a> to get started. With this type of license, you do not get a fixed price for using CluedIn and you will be charged per hour of use. Learn more about the pay-as-you-go pricing model [here](/deployment/pricing).
+If you choose the **pay-as-you go license**, you can install CluedIn PaaS directly from the Azure Marketplace and start using it without the need to contact anyone at CluedIn. Check out our <a href="https://vimeo.com/showcase/10332033" target="_blank">training materials</a> to get started. With this type of license, you do not get a fixed price for using CluedIn and you will be charged per hour of use. Learn more about the pay-as-you-go pricing model [here](/deployment/pricing).
 
 ### Committed-deal license
 
@@ -49,11 +49,11 @@ In addition, you will automatically get 2 free CluedIn licenses for **developmen
 
 We recommend using three different environments:
 
-- **Development** – for your development team or partner customizing your CluedIn application.  
+- **Development** – for your development team or partner customizing your CluedIn PaaS application.  
 - **Test** – for your business users to validate the changes made by the development team.
 - **Production** – for real data and daily operations.
 
-The license type is required during the installation of CluedIn from the Azure Marketplace, so be sure to tell your Azure Administrator which license type you want.
+The license type is required during the installation of CluedIn PaaS, so be sure to tell your Azure Administrator which license type you want.
 
 ## Choose a plan
 
@@ -78,7 +78,7 @@ Review the details of each plan to choose the one that is right for you.
 | **Committed-deal license** |  |  |  |
 | CluedIn support | Yes | Yes | Yes |
 
-The plan is required during the installation of CluedIn from the Azure Marketplace, so be sure to tell your Azure Administrator which plan you want.
+The plan is required during the installation of CluedIn PaaS, so be sure to tell your Azure Administrator which plan you want.
 
 **Exceeding the maximum number of records?**
 
@@ -86,7 +86,7 @@ If you exceed the maximum number of records allowed for your plan, you will be c
 
 ## Get familiar with billing
 
-The invoice for using CluedIn will be based on the following:
+The invoice for using CluedIn PaaS will be based on the following:
 
 - Type of license
 - Number of licenses
@@ -110,14 +110,14 @@ To make sure that the terms and conditions are appropriate for you, contact your
 
 ## Choose Azure Administrator
 
-Now that you have decided on your license and plan and reviewed our billing and legal information, you are ready to start the CluedIn installation process.
+Now that you have decided on your license and plan and reviewed our billing and legal information, you are ready to start the CluedIn PaaS installation process.
 
-The CluedIn installation process must be performed by an IT professional who is skilled in managing your organization’s Microsoft Azure environment. So, make sure that you choose a dedicated **Azure Administrator** from your organization who will be responsible for the installation. 
+The CluedIn PaaS installation process must be performed by an IT professional who is skilled in managing your organization’s Microsoft Azure environment. So, make sure that you choose a dedicated **Azure Administrator** from your organization who will be responsible for the installation. 
 
 ## Results
 
 1. You have decided which license you need. If you have chosen the committed-deal license, then you should have a license key issued to you by CluedIn.
-1. You have chosen a plan based on the number of records that you want to process.
+1. (For committed deal only) You have chosen a plan based on the number of records that you want to process.
 1. You understand how CluedIn will issue invoices.
 1. You are comfortable with our Standard Contract from Microsoft.
 1. You have chosen an Azure Administrator who will be responsible for carrying out the CluedIn installation process.
@@ -132,6 +132,5 @@ Provide your Azure Administrator with the following information:
   - Link to our [Pre-installation checklist](/deployment/azure-marketplace/step-2).
 
 - If you have decided to use the pay-as-you-go approach:
-  - Plan that you have chosen.
   - Link to our [Pre-installation checklist](/deployment/azure-marketplace/step-2).
 

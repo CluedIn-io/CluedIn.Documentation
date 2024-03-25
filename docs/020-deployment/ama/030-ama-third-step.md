@@ -13,7 +13,7 @@ last_modified: 2023-06-20
 1. TOC
 {:toc}
 
-In this article, you will learn how to install CluedIn from the Azure Marketplace.
+In this article, you will learn how to install CluedIn PaaS from the Azure Marketplace.
 
 **Important!** Make sure that you have completed all of the actions described in [Pre-installation checklist](/deployment/azure-marketplace/step-2).
 
@@ -21,15 +21,11 @@ In this article, you will learn how to install CluedIn from the Azure Marketplac
 
 ## Find CluedIn
 
-Start the installation process by finding CluedIn in the Azure Marketplace.
+Start the installation process by finding CluedIn PaaS in the Azure Marketplace.
 
 **To find CluedIn**
 
-1. In the Azure Marketplace, search for CluedIn.
-
-1. From the results, select **CluedIn Master Data Management**.
-
-    ![/ama-cluedin-tile.png](../../assets/images/ama/install-guide/ama-cluedin-tile.png)
+1. In the Azure Marketplace, find [CluedIn Master Data Management](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cluedin.azure_cluedin?tab=Overview).
 
 1. On the **CluedIn Master Data Management** page, select **Get It Now**.
 
