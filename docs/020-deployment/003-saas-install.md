@@ -9,7 +9,9 @@ has_children: true
 
 In this article, you will learn how to subscribe to CluedIn SaaS in the Azure portal and how to configure your CluedIn account.
 
-[Video]
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/927057390?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="CluedIn SaaS installation"></iframe>
+</div>
 
 CluedIn SaaS is currently available by invitation only. You can request an invitation [here](https://www.cluedin.com/saas-invitation-application).
 
