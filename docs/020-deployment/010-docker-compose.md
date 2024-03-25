@@ -2,7 +2,7 @@
 layout: cluedin
 title: Local
 parent: Installation
-nav_order: 2
+nav_order: 3
 permalink: /deployment/local
 has_children: true
 tags: ["deployment", "docker", "docker-compose", "local-deployment"]
