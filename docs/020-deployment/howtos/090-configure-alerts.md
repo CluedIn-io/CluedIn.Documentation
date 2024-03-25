@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 nav_order: 10
-parent: How-to guides
+parent: How-to guides for PaaS
 grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-alerts
 title: Configure alerts

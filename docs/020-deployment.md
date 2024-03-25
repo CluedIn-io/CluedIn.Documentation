@@ -37,6 +37,6 @@ While all modern cloud providers support Kubernetes, we recommend running CluedI
    <div class="card" href="/deployment/infra-how-tos">
     <div class="icon"><img src="/assets/icons/local-install.svg" alt="How to"/></div>
     <div class="title">How-to guides</div>
-    <div class="content">Get detailed instructions for essential maintenance and troubleshooting operations</div>
+    <div class="content">Get maintenance and troubleshooting instructions for CluedIn PaaS</div>
   </div>
 </div>
