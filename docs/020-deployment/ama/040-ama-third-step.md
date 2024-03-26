@@ -15,7 +15,8 @@ last_modified: 2023-06-20
 
 In this article, you will learn how to install CluedIn PaaS from the Azure Marketplace.
 
-**Important!** Make sure that you have completed all of the actions described in [Pre-installation checklist](/deployment/azure-marketplace/step-2).
+{:.important}
+Make sure that you have completed all of the actions described in [Pre-installation checklist](/deployment/azure-marketplace/step-2).
 
 ![How_to_install_CluedIn.png](../../assets/images/ama/install-guide/overview-third-step.png)
 
@@ -25,21 +26,27 @@ Start the installation process by finding CluedIn PaaS in the Azure Marketplace.
 
 **To find CluedIn**
 
-1. In the Azure Marketplace, find [CluedIn Master Data Management](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cluedin.azure_cluedin?tab=Overview).
+1. In the Azure Marketplace, go to our PaaS offering: [CluedIn Master Data Management](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cluedin.azure_cluedin?tab=Overview).
 
 1. On the **CluedIn Master Data Management** page, select **Get It Now**.
 
     ![ama-cluedin-page.png](../../assets/images/ama/install-guide/ama-cluedin-page.png)
 
-1. In the dialog box that appears, in **Software plan**, select **CluedIn Platform**.
+1. In **Software plan**, select the plan of your choice:
 
-    ![ama-cluedin-platform.png](../../assets/images/ama/install-guide/ama-cluedin-platform.png)
+    - **CluedIn MDM PaaS - Existing License** – select this option if you have previously requested a CluedIn PaaS license for the first 10,000 records for free. For more information, refer to [this guide](/deployment/azure-marketplace/license).
+
+    - **CluedIn MDM PaaS - Pay As You Go** – select this option if you want to use CluedIn on a pay-as-you-go basis. For more information, see [Pricing](/deployment/pricing).
+
+    - **CluedIn Licensing Agent** – TBD
+
+    ![paas-software-plan.png](../../assets/images/deployment/paas-installation-guide/paas-software-plan.png)
 
 1. Review your contact information, and then select **Continue**.
 
 ## Complete the Basics tab
 
-On the **Basics** tab, you can select the Azure resource group where CluedIn will be installed and provide license details.
+On the **Basics** tab, you can select the Azure resource group where CluedIn will be installed and provide license or company details depending on the chosen software plan.
 
 **To complete the Basics tab**
 
@@ -57,23 +64,27 @@ On the **Basics** tab, you can select the Azure resource group where CluedIn wil
 
     1. In **Region**, specify the Azure region where different resources will be created. The region will probably match your resource group location.
 
-    1. Depending on whether you have the license key, do one of the following:
+    1. Depending on the selected software plan, do one of the following:
 
-        - If you have the license key, in **CluedIn License Version**, select **Existing License Key**. Then, in **CluedIn License Key**, paste the license key.
+        - If you selected **CluedIn MDM PaaS - Existing License**, enter the license key that you should have received in an email from CluedIn.
 
-        - If you don't have the license key, in **CluedIn License Version**, select a plan that was chosen by your company (Essential, Professional, or Elite).
+            ![instance-details-license.png](../../assets/images/deployment/paas-installation-guide/instance-details-license.png)
 
-    1. Make sure that the **Installation Name** field is filled out correctly. This field is usually filled out by default, but you can make changes if needed.
+        - If you selected **CluedIn MDM PaaS - Pay As You Go**, enter the **Company name** and **Contact Email Address**.
 
-    ![Basics_tab_Instance_details.png](../../assets/images/ama/install-guide/ama-install-basic-tab-2.png)
+            ![instance-details-payg.png](../../assets/images/deployment/paas-installation-guide/instance-details-payg.png)
 
 1. Make sure that the **Managed Application Details** section is filled out correctly. This section is usually filled out by default, but you can make changes if needed.
 
-## Complete the Initial Setup tab
+    ![managed-app-details.png](../../assets/images/deployment/paas-installation-guide/managed-app-details.png)
 
-On the **CluedIn - Initial Setup** tab, you can create the organization and the administrator account for your CluedIn instance, specify SMTP details, and enable SSO.
+## Complete the Instance Setup tab
 
-**To complete the Initial Setup tab**
+On the **Instance Setup** tab, you can create the organization used within the CluedIn application along with an administrator account for your CluedIn instance as well as optionally specifying SMTP details.
+
+**To complete the Instance Setup tab**
+
+1. Make sure that the **Installation Name** field is filled out correctly. This field is usually filled out by default, but you can make changes if needed. This is the name of the Managed Application resource that gets created within the resource group specified on the **Basics** tab.
 
 1. Specify organization details:
 
@@ -95,19 +106,21 @@ On the **CluedIn - Initial Setup** tab, you can create the organization and the 
 
     ![Initial_setup_tab_SMTP.png](../../assets/images/ama/install-guide/ama-install-basic-tab-4.png)
 
-    **Important!** You can change SMTP details after installation by submitting a ticket to CluedIn support.
+    {:.important}
+    You can change SMTP details after installation by submitting a ticket to CluedIn support.
 
-1. If needed, enable SSO access for CluedIn, and then specify SSO details.
+## Review the Network and Monitoring tab
 
-    ![Initial_setup_tab_SSO.png](../../assets/images/ama/install-guide/ama-install-basic-tab-5.png)
+On the **Network and Monitoring** tab, you can review vNet default configuration settings and make changes if needed.
 
-    **Important!** You can enable SSO access for CluedIn after installation. This is often the preferable option because some mapping of Microsoft Entra groups to product groups is required. For more information, see [Configure SSO](/deployment/infra-how-tos/configure-sso).
+![network-and-monitoring.png](../../assets/images/deployment/paas-installation-guide/network-and-monitoring.png)
 
-## Review the AKS Setup tab
+## Review the Azure Kubernetes tab
 
-On the **CluedIn - AKS Setup** tab, you can customize the number of nodes that you want to use in your CluedIn instance, and you can also define autoscaling parameters.
+On the **Azure Kubernetes** tab, you can customize the number of nodes that you want to use in your CluedIn instance, and you can also define autoscaling parameters.
 
-**Important!** In most cases, you do not need to adjust anything on this tab unless advised to do so by CluedIn support.
+{:.important}
+In most cases, you do not need to adjust anything on this tab unless advised to do so by CluedIn support.
 
 The **AKS Setup** tab contains the following settings:
 
