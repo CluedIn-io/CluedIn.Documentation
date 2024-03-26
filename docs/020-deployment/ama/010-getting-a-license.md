@@ -24,7 +24,7 @@ In this article, you will learn how to request and activate a CluedIn PaaS licen
 
     ![paas-offer.png](../../assets/images/deployment/paas-license/paas-offer.png)
 
-1. Under **Software plan**, select **CluedIn PaaS - Existing License**, and then select **Continue**.
+1. Under **Software plan**, select **CluedIn MDM PaaS - Existing License**, and then select **Continue**.
 
     ![software-plan.png](../../assets/images/deployment/paas-license/paas-software-plan.png)
 
