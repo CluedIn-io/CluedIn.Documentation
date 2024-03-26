@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: CluedIn PaaS
 grand_parent: Installation
-permalink: /deployment/azure-marketplace/activate-license
+permalink: /deployment/azure-marketplace/license
 title: Getting a license
 last_modified: 2024-03-26
 ---
