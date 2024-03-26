@@ -18,7 +18,7 @@ In this article, you will learn how to install CluedIn PaaS from the Azure Marke
 {:.important}
 Make sure that you have completed all of the actions described in [Pre-installation checklist](/deployment/azure-marketplace/step-2).
 
-![How_to_install_CluedIn.png](../../assets/images/ama/install-guide/overview-third-step.png)
+![paas-installation-diagram.gif](../../assets/images/ama/install-guide/paas-installation-diagram.gif)
 
 ## Find CluedIn
 
@@ -37,6 +37,8 @@ Start the installation process by finding CluedIn PaaS in the Azure Marketplace.
     - **CluedIn MDM PaaS - Existing License** – select this option if you have previously requested a CluedIn PaaS license for the first 10,000 records for free. For more information, refer to [this guide](/deployment/azure-marketplace/license).
 
     - **CluedIn MDM PaaS - Pay As You Go** – select this option if you want to use CluedIn on a pay-as-you-go basis. For more information, see [Pricing](/deployment/pricing).
+
+    - **CluedIn Licensing Agent**
 
     ![paas-software-plan.png](../../assets/images/deployment/paas-installation-guide/paas-software-plan.png)
 
