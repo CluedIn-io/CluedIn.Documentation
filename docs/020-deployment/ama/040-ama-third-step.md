@@ -18,7 +18,7 @@ In this article, you will learn how to install CluedIn PaaS from the Azure Marke
 {:.important}
 Make sure that you have completed all of the actions described in [Pre-installation checklist](/deployment/azure-marketplace/step-2).
 
-![post-install.gif](../../assets/images/deployment/post-install.gif)
+![paas-installation-diagram.gif](../../assets/images/deployment/paas-installation-guide/paas-installation-diagram.gif)
 
 ## Find CluedIn
 
