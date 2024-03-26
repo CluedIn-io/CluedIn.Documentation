@@ -32,15 +32,7 @@ In this article, you will learn how to request and activate a CluedIn PaaS licen
 
     ![paas-create-plan.png](../../assets/images/deployment/paas-license/paas-create-plan.png)
 
-1. On the **Basics** tab, find the **Instance details** section, and then do the following:
-
-    1. In **CluedIn License Version**, select **Existing License Key**.
-
-        ![existing-license-key.png](../../assets/images/deployment/paas-license/existing-license-key.png)
-
-    1. In **CluedIn License Key**, enter the license key that you received in an email from CluedIn.
-
-    1. In **Confirm CluedIn License Key**, enter the same license key to confirm it.
+1. On the **Basics** tab, find the **Instance details** section. Then, in **License Key**, enter the license key that you received in an email from CluedIn.
 
         ![instance-details.png](../../assets/images/deployment/paas-license/instance-details.png)
 
