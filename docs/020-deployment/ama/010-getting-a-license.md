@@ -4,7 +4,7 @@ nav_order: 1
 parent: CluedIn PaaS
 grand_parent: Installation
 permalink: /deployment/azure-marketplace/license
-title: Getting a license
+title: Activate your license
 last_modified: 2024-03-26
 ---
 
