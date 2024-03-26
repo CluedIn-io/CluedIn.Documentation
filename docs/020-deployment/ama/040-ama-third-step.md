@@ -20,6 +20,8 @@ Make sure that you have completed all of the actions described in [Pre-installat
 
 ![paas-installation-diagram.gif](../../assets/images/deployment/paas-installation-guide/paas-installation-diagram.gif)
 
+![post-install.gif](../../assets/images/deployment/post-install.gif)
+
 ## Find CluedIn
 
 Start the installation process by finding CluedIn PaaS in the Azure Marketplace.

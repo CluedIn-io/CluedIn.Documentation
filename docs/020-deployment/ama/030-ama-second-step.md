@@ -15,7 +15,7 @@ last_modified: 2024-03-01
 
 In this article, you will learn about the pre-installation processes that you must perform to ensure successful installation of CluedIn PaaS.
 
-![Pre-installation checklist](../../assets/images/ama/install-guide/overview-second-step.png)
+![pre-install.gif](../../assets/images/deployment/pre-install.gif)
 
 ## Check qualification
 
