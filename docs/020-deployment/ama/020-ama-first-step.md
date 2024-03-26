@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 1
+nav_order: 2
 parent: CluedIn PaaS
 grand_parent: Installation
 permalink: /deployment/azure-marketplace/step-1
@@ -15,7 +15,7 @@ last_modified: 2023-06-20
 
 In this article, you will learn about the decisions you need to make before starting the CluedIn PaaS installation process.
 
-![Business decisions before installation](../../assets/images/ama/install-guide/overview-first-step.png)
+![business-decisions.gif](../../assets/images/ama/install-guide/business-decisions.gif)
 
 ## Choose a license
 
