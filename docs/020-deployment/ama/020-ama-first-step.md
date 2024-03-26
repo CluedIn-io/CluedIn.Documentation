@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 1
+nav_order: 2
 parent: CluedIn PaaS
 grand_parent: Installation
 permalink: /deployment/azure-marketplace/step-1
