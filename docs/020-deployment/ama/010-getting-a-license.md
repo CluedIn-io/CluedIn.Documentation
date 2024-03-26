@@ -34,6 +34,6 @@ In this article, you will learn how to request and activate a CluedIn PaaS licen
 
 1. On the **Basics** tab, find the **Instance details** section. Then, in **License Key**, enter the license key that you received in an email from CluedIn.
 
-        ![instance-details.png](../../assets/images/deployment/paas-license/instance-details.png)
+    ![instance-details.png](../../assets/images/deployment/paas-license/instance-details.png)
 
 1. Complete the CluedIn PaaS installation process following the steps from our [installation guide](/deployment/azure-marketplace/step-3).
