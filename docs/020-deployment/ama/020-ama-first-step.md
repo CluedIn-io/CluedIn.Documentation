@@ -15,7 +15,7 @@ last_modified: 2023-06-20
 
 In this article, you will learn about the decisions you need to make before starting the CluedIn PaaS installation process.
 
-![Business decisions before installation](../../assets/images/ama/install-guide/overview-first-step.png)
+![business-decisions.gif](../../assets/images/ama/install-guide/business-decisions.gif)
 
 ## Choose a license
 
