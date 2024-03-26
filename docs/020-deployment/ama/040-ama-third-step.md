@@ -34,7 +34,7 @@ Start the installation process by finding CluedIn PaaS in the Azure Marketplace.
 
 1. In **Software plan**, select the plan of your choice:
 
-    - **CluedIn MDM PaaS - Existing License** – select this option if you have previously requested a CluedIn PaaS license for the first 10,000 records for free. For more information, refer to [this guide](/deployment/azure-marketplace/license).
+    - **CluedIn MDM PaaS - Existing License** – select this option if you possess a CluedIn PaaS license key acquired through a committed deal.
 
     - **CluedIn MDM PaaS - Pay As You Go** – select this option if you want to use CluedIn on a pay-as-you-go basis. For more information, see [Pricing](/deployment/pricing).
 
