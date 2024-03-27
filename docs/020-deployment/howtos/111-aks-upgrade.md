@@ -14,9 +14,10 @@ last_modified: 2024-03-27
 {:toc}
 
 In this article, you will learn how to upgrade your Azure Kubernetes Service (AKS) to a supported version.
-This is included as part of the AMA agreement with us, however, there may be times where CluedIn are unable to facilitate this upgrade for you due to missing levels of permission. This is more common when vnet integration is setup. 
+This is included as part of the AMA agreement with us and we'll normally facilitate these upgrades on your behalf, however, there may be times where CluedIn are unable to do this upgrade due to missing levels of permission or other factors. 
 
-**Important!** Before starting the AKS upgrade, make sure that you have followed all pre-requisites.
+{:.important}
+Before starting the AKS upgrade, make sure that you have read the pre-requisites section.
 
 ## Pre-requisites
 
@@ -92,6 +93,7 @@ With the above steps completed, it's time to upgrade. Depending if you pass or f
 
 Because everything checks out from the Azure side, you should be able to upgrade the Kubernetes cluster without any issues. Please note that Kubernetes follows an upgrade path and it's not always possible to upgrade from a lower version to a much higher version. You may need to perform this operation a number of times.
 
+### Upgrade Cluster
 1. Determine what version of Kubernetes you will need to get to, and then perform the below steps until you are successfully running that version.
 1. Open up `pwsh`
 1. Run the following commands:
@@ -114,10 +116,79 @@ If you are unsure about any of the steps above, please reach out to CluedIn supp
 
 When you do not have the correct setup to perform a smooth upgrade, additional steps are going to be required to get your environment upgraded to the desired supported version. If at any point in this section you are not comfortable with the steps. Please reach out to CluedIn support.
 
-1. Make notes of the current node pools as these will be deleted
+{:.important}
+Make notes of the current node pools as these will be deleted as part of the process. This includes taints, labels, and any other potential configurations.
 
-- Delete any node pools that cannot be surged
-- Perform upgrade
+1. Open up `pwsh`
+1. Run the following commands:
+
+    ```powershell
+    $aksClusterParams = @(
+        '--name', ${aksClusterName}
+        '--resource-group', ${resourceGroup}
+        '--subscription', ${subscription}
+    )
+    $aksCluster = az aks show @aksClusterParams | ConvertFrom-Json
+
+    $aksNodePools = $aksCluster.agentPoolProfiles
+    ```
+
+1. The above will return back an object that contains the agent pool configuration. This can be queried by running `$aksNodePools` in your shell and making notes of the configuration. It is unlikely you need to touch the `System` node pool, so chances are you only need to make notes of the `User` node pools which is what CluedIn runs on.
+
+    Make notes of the following configuration for each node you need to delete:
+
+    - name
+    - nodeCount
+    - nodeVmSize
+    - maxPods
+    - vnetSubnetId
+    - labels
+    - taints
+
+    **Note**: As long as the `PowerShell` session doesn't get closed. This object will always exist to reference.
+
+1. In `PowerShell`, run the following commands:
+
+    ```powershell
+    $params = @(
+        '--nodepool-name', ${nodeName} # This is the name of the node pool you are attempting to delete
+        '--cluster-name', ${aksClusterName}
+        '--resource-group', ${resourceGroup}
+        '--subscription', ${subscription}
+    )
+    az aks nodepool delete @params
+    ```
+
+    **Note**: You need to repeat this for all node pools that are affected by either the IP address allocation or quota (based on the VM SKU it is using)
+
+1. Because all affected node pools have now been deleted, you should perform the upgrade steps next until your desired version. Follow the steps above [here](#upgrade-cluster) and return back here once you have hit your version.
+
+1. With Kubernetes control plane now updated, it's time to recreate the node pools before scaling the application back up.
+
+1. In `pwsh` run the following commands:
+
+    ```powershell
+    $params = @(
+        '--cluster-name', ${aksClusterName}
+        '--resource-group', ${resourceGroup}
+        '--subscription', ${subscription}
+        '--name', ${nodeName}
+        '--mode', 'User'
+        '--node-count', ${nodeCount}
+        '--node-vm-size', ${nodeVmSku}
+        '--max-pods', ${nodeMaxPods}
+        '--vnet-subnet-id', ${nodeVnetSubnetId}
+        # Optionals
+        #   '--node-taints', ${nodeTaints} key=value format
+        #   '--labels', ${nodeLabels} # key=value format
+        #   '--enable-cluster-autoscaler'
+    )
+    az aks nodepool add @params
+    ```
+
+    **Note**: You need to repeat this for all node pools that were affected by either the IP address allocation or quota (based on the VM SKU it is using)
+
+1. All nodepools should now be added back. You can validate in the Azure portal by navigating to the AKS cluster resource and selecting `Node Pools` on the left hand blade. If everything has the status `Succeeded` you can resume down below and scale the application back up.
 
 ### Post-upgrade
 
