@@ -51,7 +51,7 @@ CluedIn uses two ACRs:
 
 - **Production** – the registry name is **cluedinprod**. This registry is used to store all official images from CluedIn.
 
-- **Early Access** – the registry name is **cluedindev**. This registry is used internally by CluedIn to develop the software. Occasionally, this registry can be used by partners and customers to test new functionality before it is officially released.
+- **Testing & development** – the registry name is **cluedindev**. This registry is used internally by CluedIn to develop the software. Occasionally, this registry can be used by partners and customers to test new functionality before it is officially released.
 
 You can find the ACR to which you have been granted access in the <a href="/deployment/local/step-1#get-access-to-CluedIn-container-registry">email from CluedIn</a>.
 

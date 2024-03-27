@@ -13,7 +13,7 @@ last_modified: 2023-06-30
 1. TOC
 {:toc}
 
-In this article, you will learn about the pre-installation processes that you must perform to ensure successful local installation of CluedIn.
+In this article, you will learn about the pre-installation processes that you must perform to ensure successful local installation of CluedIn. Local installation of CluedIn is available to any technical person upon acceptance of our terms and conditions.
 
 ![local-installation-checklist.png](../../assets/images/local-install/local-installation-checklist.png)
 
@@ -21,13 +21,11 @@ In this article, you will learn about the pre-installation processes that you mu
 
 The first thing you need to do to run CluedIn locally is to get access to CluedIn Azure Container Registry (ACR).
 
-**Important!** Only our partners and customers can get access to CluedIn ACR. If you are not our partner or customer, consider becoming one. Discover the benefits and advantages of being our partner [here](https://www.cluedin.com/become-a-partner).
-
 **To get access to CluedIn ACR**
 
 1. Fill in and submit the [form](https://forms.office.com/pages/responsepage.aspx?id=YSiu9fyznUSp50nBTQEawIEsLHex0dtAnRBIgXFdeu5UQ0ZFWU0wUFI4N1lDMkRRSFpPSUg2QjdSWCQlQCN0PWcu).
 
-    In the form, you need to specify the type of usage that you need: **Production** (deploying CluedIn in a live environment) and/or **Early Access** (exploring CluedIn or creating extensions for the product).
+    In the form, you need to specify the purposes for which you would like to use CluedIn: **Production** (deploying CluedIn in a live environment) and/or **Testing & development** (exploring CluedIn or creating extensions for the product).
 
     You must have a valid production license to request production access.
 
