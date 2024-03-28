@@ -110,7 +110,7 @@ If you are unsure about any of the steps above, please reach out to CluedIn supp
 
 ### I have **not** passed the Azure Checks above
 
-When you do not have the correct setup to perform a smooth upgrade, additional steps are going to be required to get your environment upgraded to the desired supported version. If at any point in this section you are not comfortable with the steps. Please reach out to CluedIn support.
+When you do not have the correct setup to perform a smooth upgrade, additional steps are going to be required to get your environment upgraded to the desired supported version. If at any point in this section you are not comfortable with the steps, please reach out to CluedIn support.
 
 {:.important}
 Make notes of the current node pools as these will be deleted as part of the process. This includes taints, labels, and any other potential configurations.
