@@ -104,7 +104,7 @@ Because everything checks out from the Azure side, you should be able to upgrade
     )
     az aks upgrade @params
     ```
-1. It will take between 5-15 minutes to complete each upgrade. Once you have completed the upgrade path to the necessary version, skip down to the bottom to scale up your environment again. [Post-upgrade](#post-upgrade)
+1. It will take between 5-15 minutes to complete each upgrade. Once you have completed the upgrade path to the necessary version, scale up your environment again following the steps [here](#post-upgrade).
 
 If you are unsure about any of the steps above, please reach out to CluedIn support.
 
