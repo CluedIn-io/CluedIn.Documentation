@@ -31,7 +31,7 @@ You can sign in to your CluedIn account in one of the following ways:
 
     The following diagram shows the steps involved in getting access to your CluedIn account by email.
 
-    ![getting-access-diagram.png](../../assets/images/getting-access/getting-access-diagram.png)
+    ![getting-access-diagram.gif](../../assets/images/getting-access/getting-access-diagram.gif)
 
 - **Sign in using Single Sign-On (SSO)** – SSO is not enabled by default. If your administrator has set up SSO, you’ll be able to sign in to your CluedIn account by authenticating through your company’s identity provider.
 
@@ -53,7 +53,7 @@ After you created password for your account, you can sign in and start using Clu
 
     ![request-access-1.png](../../assets/images/getting-access/request-access-1.png)
 
-    To get permissions to specific modules and functions, [request access](#request-access).
+    To get permissions to specific modules and functions, you need to request access.
 
 ### Request access
 
@@ -61,7 +61,7 @@ To get access to more functions within the platform, contact your CluedIn admini
 
 The following diagram shows the flow of requesting access directly in CluedIn.
 
-![request-access-diagram.png](../../assets/images/getting-access/request-access-diagram.png)
+![request-access-diagram.gif](../../assets/images/getting-access/request-access-diagram.gif)
 
 **To request access to CluedIn modules**
 
