@@ -188,7 +188,7 @@ Make notes of the current node pools as these will be deleted as part of the pro
 
 ### Post-upgrade
 
-With the upgrade now successfully completed. It's time to bring the application back up into a running state and validate access.
+With the upgrade successfully completed, it's time to bring the application back up into a running state and validate access.
 
 1. Open up `pwsh`
 1. Run the following commands:
