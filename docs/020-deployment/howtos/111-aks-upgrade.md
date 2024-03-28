@@ -19,7 +19,7 @@ This is included as part of the AMA agreement with us and we'll normally facilit
 {:.important}
 Before starting the AKS upgrade, make sure that you have read the pre-requisites section.
 
-## Pre-requisites
+## Prerequisites
 
 ### Tools used
 - `az cli` and a shell
