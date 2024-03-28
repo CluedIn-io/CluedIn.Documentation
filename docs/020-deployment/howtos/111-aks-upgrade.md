@@ -13,8 +13,7 @@ last_modified: 2024-03-27
 1. TOC
 {:toc}
 
-In this article, you will learn how to upgrade your Azure Kubernetes Service (AKS) to a supported version.
-This is included as part of the AMA agreement with us and we'll normally facilitate these upgrades on your behalf, however, there may be times where CluedIn are unable to do this upgrade due to missing levels of permission or other factors. 
+In this article, you will learn how to upgrade your Azure Kubernetes Service (AKS) to a supported version. This is included as part of the AMA agreement with us, and we'll normally facilitate these upgrades on your behalf. However, there may be times where we are unable to do this upgrade due to missing levels of permission or other factors. 
 
 {:.important}
 Before starting the AKS upgrade, make sure that you have read the pre-requisites section.
