@@ -192,7 +192,7 @@ With the upgrade successfully completed, it's time to bring the application back
 1. Open up `pwsh`
 1. Run the following commands:
 
-    ```
+    ```powershell
     $aksParams = @(
         '--name', ${aksClusterName}
         '--resource-group', ${resourceGroup}
