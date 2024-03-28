@@ -21,7 +21,7 @@ Before starting the AKS upgrade, make sure that you have read the pre-requisites
 
 ## Prerequisites
 
-### Tools used
+### Tools
 - `az cli` and a shell
 
     This guide will primarily use `az cli` along with `PowerShell` to manage the AKS cluster. It is recommended to follow along, but not necessarily required.
