@@ -82,7 +82,7 @@ With the above steps completed, it's time to upgrade. Depending on if you pass o
 - [Passed](#upgrade-with-azure-checks-passed)   
 - [Failed](#upgrade-with-azure-checks-not-passed)
 
-### I have passed the Azure Checks above
+### Upgrade with Azure checks passed
 
 Because everything checks out from the Azure side, you should be able to upgrade the Kubernetes cluster without any issues. Please note that Kubernetes follows an upgrade path and it's not always possible to upgrade from a lower version to a much higher version. You may need to perform this operation a number of times.
 
