@@ -35,7 +35,7 @@ When doing a Kubernetes upgrade, nodes will `surge` to try minimise downtime of 
 
     Please see if there's enough space before going ahead.
 
-If you do not meet the pre-requisites, please scroll down to the [here]() to follow the steps to get around this.
+If you do not meet the prerequisites, please scroll down to the [here]((#upgrade-with-azure-checks-not-passed)) to follow the steps to get around this.
 
 Reference material: https://learn.microsoft.com/en-us/azure/aks/upgrade-aks-cluster
 
