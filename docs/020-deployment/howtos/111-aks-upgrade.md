@@ -80,10 +80,10 @@ To disable this API check, run the following command:
 
     This will take a few minutes to complete and should return back successfully.
 
-With the above steps completed, it's time to upgrade. Depending if you pass or fail the pre-requisites, please follow the appropriate path below.
+With the above steps completed, it's time to upgrade. Depending on if you pass or fail the prerequisites, please follow the appropriate path below:
 
-[Passed](#i-have-passed-the-azure-checks-above)   
-[Failed](#i-have-not-passed-the-azure-checks-above)
+- [Passed](#upgrade-with-azure-checks-passed)   
+- [Failed](#upgrade-with-azure-checks-not-passed)
 
 ### I have passed the Azure Checks above
 
