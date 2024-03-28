@@ -42,6 +42,8 @@ Before proceeding, please check the prerequisites as it will determine which upg
 
 Before any Kubernetes upgrades take place, we **highly recommend** you scale down your instance to avoid any potential data loss. Whilst upgrading without scaling down is possible, it's best to be safe here.
 
+**To scale down your instance**
+
 1. Open up `pwsh` 
 1. Run the following commands:
 
