@@ -41,7 +41,7 @@ For reference information, see [Microsoft documentation](https://learn.microsoft
 
 ## Upgrade setup
 
-Before proceeding, please check the pre-requisites as it will determine which upgrade path to take.
+Before proceeding, please check the prerequisites as it will determine which upgrade path to take.
 
 Before any Kubernetes upgrades take place, we **highly recommend** you scale down your instance to avoid any potential data loss. Whilst upgrading without scaling down is possible, it's best to be safe here.
 
