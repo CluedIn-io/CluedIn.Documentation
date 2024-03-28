@@ -105,7 +105,7 @@ Because everything checks out from the Azure side, you should be able to upgrade
 
 If you are unsure about any of the steps above, please reach out to CluedIn support.
 
-### I have **not** passed the Azure Checks above
+### Upgrade with Azure checks NOT passed
 
 When you do not have the correct setup to perform a smooth upgrade, additional steps are going to be required to get your environment upgraded to the desired supported version. If at any point in this section you are not comfortable with the steps, please reach out to CluedIn support.
 
