@@ -35,11 +35,23 @@ Microsoft Purview integration is enabled on the **Settings** page in CluedIn. Wh
 
         For more information on where to find the values for client ID and tenant ID, see [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app#register-an-application).
 
-2. In **Collection Name**, enter the ID of the collection in Purview for storing CluedIn entities. You can find this ID in the URL of the collection in Purview.
+2. In **Collection Name**, enter one of the following:
 
-    ![collection-id.png](./media/collection-id.png)
+    - The ID of the collection in Purview. You can find this ID in the Purview collection's URL.
+
+        ![collection-id.png](./media/collection-id.png)
+
+        Based on the screenshot above, the collection name would be "hkkib1".
+
+        ![settings-collection-name.png](./media/settings-collection-name.png)
+
+    - The path from the topmost collection to the intended collection in Purview. The example pattern is as follows: root_collection_name/sub_collection_1/sub_collection_2/target_collection_name.
+
+        ![collection-id.png](./media/settings-collection-name-purview.png)
     
-    ![settings-collection-name.png](./media/settings-collection-name.png)
+        Based on the screenshot above, the collection name would be "Presalesdemo/Demo".
+
+        ![settings-collection-name-path.png](./media/settings-collection-name-path.png)
      
 3. Choose to enable one or more [features](/microsoft-integration/purview/introduction) for your use cases:
 
