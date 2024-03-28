@@ -27,7 +27,7 @@ Before starting the AKS upgrade, make sure that you have read the pre-requisites
     This guide will primarily use `az cli` along with `PowerShell` to manage the AKS cluster. It is recommended to follow along, but not necessarily required.
 
 ### Azure checks
-When doing a Kubernetes upgrade, nodes will `surge` to try minimise downtime of the application. This means that additional Nodes in the `Node Pool` will be spun up at upgrade time and may cause issues if preparation isn't done beforehand.
+When doing a Kubernetes upgrade, nodes will `surge` to try minimise downtime of the application. This means that additional nodes in the `Node Pool` will be spun up at upgrade time and may cause issues if preparation isn't done beforehand.
 
 - Quota
 
