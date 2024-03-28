@@ -11,17 +11,15 @@ permalink: /getting-access
 1. TOC
 {:toc}
 
-In this article, you will find instructions on how to get access to CluedIn. Depending on your role, read one of the following sections:
-
-- [Getting access for administrators](#getting-access-for-administrators)
-
-- [Getting access for business users](#getting-access-for-business-users)
+In this article, you will find instructions on how to get access to CluedIn.
 
 ## Getting access for administrators
 
 Depending on the type of CluedIn installation that you performed, do one of the following:
 
-- **Installation of CluedIn from the Azure Marketplace** – sign in to CluedIn using the email address and password you specified on the **Initial Setup** tab of CluedIn installation. For more information, see [Installation guide](/deployment/azure-marketplace/step-3).
+- **Installation of CluedIn SaaS** – sign in to CluedIn using the email address and password that you specified when configuring your CluedIn account. For more information, see [CluedIn SaaS installation guide](/deployment/saas#configure-an-account-with-cluedin).
+
+- **Installation of CluedIn PaaS** – sign in to CluedIn using the email address and password that you specified on the **Instance Setup** tab of CluedIn installation. For more information, see [CluedIn PaaS installation guide](/deployment/azure-marketplace/step-3#complete-the-instance-setup-tab).
 
 - **Local installation of CluedIn** – sign in to CluedIn using the email address and password you created on the last step of local CluedIn installation. For more information, see [Local installation guide](/deployment/local/step-2).
 
@@ -33,7 +31,7 @@ You can sign in to your CluedIn account in one of the following ways:
 
     The following diagram shows the steps involved in getting access to your CluedIn account by email.
 
-    ![getting-access-diagram.png](../../assets/images/getting-access/getting-access-diagram.png)
+    ![getting-access-diagram.gif](../../assets/images/getting-access/getting-access-diagram.gif)
 
 - **Sign in using Single Sign-On (SSO)** – SSO is not enabled by default. If your administrator has set up SSO, you’ll be able to sign in to your CluedIn account by authenticating through your company’s identity provider.
 
@@ -55,7 +53,7 @@ After you created password for your account, you can sign in and start using Clu
 
     ![request-access-1.png](../../assets/images/getting-access/request-access-1.png)
 
-    To get permissions to specific modules and functions, [request access](#request-access).
+    To get permissions to specific modules and functions, you need to request access.
 
 ### Request access
 
@@ -63,7 +61,7 @@ To get access to more functions within the platform, contact your CluedIn admini
 
 The following diagram shows the flow of requesting access directly in CluedIn.
 
-![request-access-diagram.png](../../assets/images/getting-access/request-access-diagram.png)
+![request-access-diagram.gif](../../assets/images/getting-access/request-access-diagram.gif)
 
 **To request access to CluedIn modules**
 
