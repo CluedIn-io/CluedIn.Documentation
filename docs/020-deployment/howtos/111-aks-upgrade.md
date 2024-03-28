@@ -155,7 +155,7 @@ Make notes of the current node pools as these will be deleted as part of the pro
     az aks nodepool delete @params
     ```
 
-    **Note**: You need to repeat this for all node pools that are affected by either the IP address allocation or quota (based on the VM SKU it is using)
+    **Note**: You need to repeat this for all node pools that are affected by either the IP address allocation or quota (based on the VM SKU it is using).
 
 1. Because all affected node pools have now been deleted, you should perform the upgrade steps next until your desired version. Follow the steps above [here](#upgrade-cluster) and return back here once you have hit your version.
 
