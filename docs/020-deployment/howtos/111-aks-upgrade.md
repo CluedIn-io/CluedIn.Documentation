@@ -185,14 +185,14 @@ Make notes of the current node pools as these will be deleted as part of the pro
 
 1. All nodepools should now be added back. You can validate in the Azure portal by navigating to the AKS cluster resource and selecting `Node Pools` on the left hand blade. If everything has the status `Succeeded` you can resume down below and scale the application back up.
 
-### Post-upgrade
+## Post-upgrade
 
 With the upgrade successfully completed, it's time to bring the application back up into a running state and validate access.
 
 1. Open up `pwsh`
 1. Run the following commands:
 
-    ```powershell
+    ```
     $aksParams = @(
         '--name', ${aksClusterName}
         '--resource-group', ${resourceGroup}
