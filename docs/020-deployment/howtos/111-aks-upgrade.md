@@ -39,7 +39,7 @@ If you do not meet the prerequisites, please scroll down to the [here]((#upgrade
 
 For reference information, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/aks/upgrade-aks-cluster).
 
-## Upgrade Setup
+## Upgrade setup
 
 Before proceeding, please check the pre-requisites as it will determine which upgrade path to take.
 
