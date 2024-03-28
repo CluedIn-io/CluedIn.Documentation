@@ -182,7 +182,7 @@ Make notes of the current node pools as these will be deleted as part of the pro
     az aks nodepool add @params
     ```
 
-    **Note**: You need to repeat this for all node pools that were affected by either the IP address allocation or quota (based on the VM SKU it is using)
+    **Note**: You need to repeat this for all node pools that were affected by either the IP address allocation or quota (based on the VM SKU it is using).
 
 1. All nodepools should now be added back. You can validate in the Azure portal by navigating to the AKS cluster resource and selecting `Node Pools` on the left hand blade. If everything has the status `Succeeded` you can resume down below and scale the application back up.
 
