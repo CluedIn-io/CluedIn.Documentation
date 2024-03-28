@@ -207,6 +207,6 @@ With the upgrade successfully completed, it's time to bring the application back
     az aks command invoke @aksParams --command $command
     ```
 
-1. The commands will complete before the application is technically ready. So please wait an additional 5-15 minutes after running the above and validating access to the environment.
+1. The commands will complete before the application is technically ready. Please wait another 5-15 minutes after running the above and validating access to the environment.
 
 With CluedIn now back up and running, please navigate to the frontend you would normally use and ensure you can login. If successful, you can now conclude that the AKS has been upgraded to the correct version.
