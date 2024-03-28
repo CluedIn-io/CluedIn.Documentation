@@ -78,7 +78,7 @@ To disable this API check, run the following command:
     az aks update @params
     ```
 
-    This will take a few minutes to complete and should return back successfully
+    This will take a few minutes to complete and should return back successfully.
 
 With the above steps completed, it's time to upgrade. Depending if you pass or fail the pre-requisites, please follow the appropriate path below.
 
