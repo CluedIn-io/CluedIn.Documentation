@@ -51,7 +51,8 @@ In addition, check if you have **enough quota for your plan**.
 
 You can check if you have enough quota by running a [verification script](#verification-script).
 
-**Important!** If the quota is not available, then the installation will fail.
+{:.important}
+If the quota is not available, then the installation will fail.
 
 ## Register resource providers
 
@@ -107,17 +108,11 @@ If you want a faster way to register the needed resource providers, run the scri
 
 **Prerequisites**
 
-* PowerShell 7.
+* PowerShell 7. We recommend installing PowerShell via Winget: `winget search Microsoft.PowerShell`. For more details, see <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows">Installing PowerShell on Windows</a>.
 
-    We recommend installing PowerShell via Winget: `winget search Microsoft.PowerShell`. For more details, see <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows">Installing PowerShell on Windows</a>.
+* Azure CLI. We recommend installing Azure CLI via Winget: `winget install -e --id Microsoft.AzureCLI`. For more details, see <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli">Install Azure CLI on Windows</a>.
 
-* Azure CLI.
-    
-    We recommend installing Azure CLI via Winget: `winget install -e --id Microsoft.AzureCLI`. For more details, see <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli">Install Azure CLI on Windows</a>.
-
-* Your Azure subscription ID.
-    
-    For more details, see [Get your Azure subscription ID](/deployment/infra-how-tos/get-subscription-id).
+* Your Azure subscription ID. For more details, see [Find your Azure subscription](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id#find-your-azure-subscription).
 
 **To run the script for registering resource providers**
 
@@ -139,17 +134,11 @@ The verification script checks if you have enough quota and if all required reso
 
 **Prerequisites**
 
-* PowerShell 7.
-    
-    We recommend installing PowerShell via Winget: `winget search Microsoft.PowerShell`. For more details, see <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows">Installing PowerShell on Windows</a>.
+* PowerShell 7. We recommend installing PowerShell via Winget: `winget search Microsoft.PowerShell`. For more details, see <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows">Installing PowerShell on Windows</a>.
 
-* Azure CLI.
-    
-    We recommend installing Azure CLI via Winget: `winget install -e --id Microsoft.AzureCLI`. For more details, see <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli">Install Azure CLI on Windows</a>.
+* Azure CLI. We recommend installing Azure CLI via Winget: `winget install -e --id Microsoft.AzureCLI`. For more details, see <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli">Install Azure CLI on Windows</a>.
 
-* Your Azure subscription ID.
-    
-    For more details, see [Get your Azure subscription ID](/deployment/infra-how-tos/get-subscription-id).
+* Your Azure subscription ID. For more details, see [Find your Azure subscription](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id#find-your-azure-subscription).
 
 * Azure region that you will select during installation.
 
@@ -199,7 +188,8 @@ Your Azure Firewall should cover the following:
 
 For the list of firewall rules that should be added to your Azure Firewall, see [Configure firewall](/deployment/infra-how-tos/configure-firewall).
 
-**Important!** If the rules have not been added, the installation will fail.
+{:.important}
+If the rules have not been added, the installation will fail.
 
 ## Configure network settings
 
