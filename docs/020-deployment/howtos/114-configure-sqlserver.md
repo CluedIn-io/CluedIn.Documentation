@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 13
+nav_order: 16
 parent: How-to guides for PaaS
 grand_parent: Installation
 permalink: /deployment/kubernetes/sql
