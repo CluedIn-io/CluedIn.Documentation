@@ -29,9 +29,7 @@ Before starting the AKS upgrade, make sure that you have read the pre-requisites
 ### Azure checks
 When doing a Kubernetes upgrade, nodes will `surge` to try minimise downtime of the application. This means that additional nodes in the `Node Pool` will be spun up at upgrade time and may cause issues if preparation isn't done beforehand.
 
-- Quota
-
-    Each node will eventually spin up a new replica of the same SKU. It's important to make sure you have additional allocated quota so that these nodes can be spun up without any problems
+- **Quota** – each node will eventually spin up a new replica of the same SKU. It's important to make sure you have additional allocated quota so that these nodes can be spun up without any problems.
 
 - IP address allocation
 
