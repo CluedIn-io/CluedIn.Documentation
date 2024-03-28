@@ -31,9 +31,7 @@ When doing a Kubernetes upgrade, nodes will `surge` to try minimise downtime of 
 
 - **Quota** – each node will eventually spin up a new replica of the same SKU. It's important to make sure you have additional allocated quota so that these nodes can be spun up without any problems.
 
-- IP address allocation
-
-    If your environment is using `Azure CNI without Dynamic Allocation` your nodes will reserve IP addresses for each potential pod. By default, this is between 30-50 pods per node. As a result, this will mean that each node will use the same amount of IP addresses and may mean when additional nodes are spun up during surge, there's not enough available space to allocate.
+- **IP address allocation** – if your environment is using `Azure CNI without Dynamic Allocation`, your nodes will reserve IP addresses for each potential pod. By default, this is between 30-50 pods per node. As a result, each node will use the same amount of IP addresses. This can mean that when additional nodes are spun up during surge, there's not enough available space to allocate.
 
     Please see if there's enough space before going ahead.
 
