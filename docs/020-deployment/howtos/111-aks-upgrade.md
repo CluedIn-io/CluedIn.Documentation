@@ -141,7 +141,7 @@ Make notes of the current node pools as these will be deleted as part of the pro
     - labels
     - taints
 
-    **Note**: As long as the `PowerShell` session doesn't get closed. This object will always exist to reference.
+    **Note**: As long as the `PowerShell` session doesn't get closed, this object will always exist to reference.
 
 1. In `PowerShell`, run the following commands:
 
