@@ -11,17 +11,15 @@ permalink: /getting-access
 1. TOC
 {:toc}
 
-In this article, you will find instructions on how to get access to CluedIn. Depending on your role, read one of the following sections:
-
-- [Getting access for administrators](#getting-access-for-administrators)
-
-- [Getting access for business users](#getting-access-for-business-users)
+In this article, you will find instructions on how to get access to CluedIn.
 
 ## Getting access for administrators
 
 Depending on the type of CluedIn installation that you performed, do one of the following:
 
-- **Installation of CluedIn from the Azure Marketplace** – sign in to CluedIn using the email address and password you specified on the **Initial Setup** tab of CluedIn installation. For more information, see [Installation guide](/deployment/azure-marketplace/step-3).
+- **Installation of CluedIn SaaS** – sign in to CluedIn using the email address and password that you specified when configuring your CluedIn account. For more information, see [CluedIn SaaS installation guide](/deployment/saas#configure-an-account-with-cluedin).
+
+- **Installation of CluedIn PaaS** – sign in to CluedIn using the email address and password that you specified on the **Instance Setup** tab of CluedIn installation. For more information, see [CluedIn PaaS installation guide](/deployment/azure-marketplace/step-3#complete-the-instance-setup-tab).
 
 - **Local installation of CluedIn** – sign in to CluedIn using the email address and password you created on the last step of local CluedIn installation. For more information, see [Local installation guide](/deployment/local/step-2).
 
