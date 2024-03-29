@@ -20,6 +20,8 @@ Our pay-as-you-go pricing model operates on a monthly invoicing system, where th
 <iframe src="https://player.vimeo.com/video/927077274?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Pay-as-you-go pricing model for CluedIn SaaS and PaaS"></iframe>
 </div>
 
+For more information, see [Billable records](/key-terms-and-features/billable-records). Additionally, you can download our billable record overview <a href="../../../assets/other/record-count-scenarios.pdf" download>here</a>.
+
 ## Committed deal
 
 To find out about our committed deal pricing model, reach out to our sales team [here](https://www.cluedin.com/discovery-call).
