@@ -19,6 +19,9 @@ At this point, you have a working, secure CluedIn environment. However, the defa
 
 ## Configure custom DNS
 
+{:.important}
+If you did not set up CluedIn PaaS with a custom DNS, you may experience issues accessing CluedIn with sslip.io when using public Wi-fi (e.g. hotel, conferences,...). In such situations, if possible, use your mobile internet (3G/4G/5G).
+
 To avoid interruption in the adoption of CluedIn, external DNS names are provided by the <a href="https://sslip.io/">sslip.io</a> service by default without any upfront configuration. The sslip.io service is a DNS service that returns the IP address when queried with a host name that contains an embedded IP address.
 
 The default DNS configuration ensures security by using the Automated Certificate Management Environment (ACME) protocol to issue SSL Certificates via the HTTP challenge method. For more information about certificates, see [Configure certificates](/deployment/infra-how-tos/configure-certificates).
