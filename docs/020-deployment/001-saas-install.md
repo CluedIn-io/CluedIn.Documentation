@@ -84,6 +84,10 @@ You must have administrative access to a subscription where you want to store th
 
 1. In the SaaS offer in the online store, select **Configure account now** or in the email, select **Configure now**. You'll be redirected to the CluedIn account configuration page.
 
+After you configure an account with CluedIn, you'll be able to view your SaaS subscription in the Azure portal.
+
+![saas-7.png](../../assets/images/deployment/saas-install/saas-7.png)
+
 ## Configure an account with CluedIn
 
 To configure an account with CluedIn, you need a valid license key. You can find a license key in an email from CluedIn if you have previously requested SaaS application. If you don't have a license key, request it [here](https://www.cluedin.com/saas-invitation-application).
