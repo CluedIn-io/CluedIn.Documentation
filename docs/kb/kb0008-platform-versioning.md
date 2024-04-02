@@ -67,7 +67,7 @@ In the months following a release, issues that may arise from bugs or security p
 Occasionally we may make available releases that are in a stage of testing, or early access. This may
 be to better support a high priority request from a customer, or for a customer to help us confirm an issue.
 
-Platform Historic Versioning
+Platform historic versioning
 ----------------------------
 
 Prior to date based versioning, the CluedIn Platform utilised a [semantic version] based scheme. This is an industry standard approach to versioning that we will keep for each of the services and tools that the platform
