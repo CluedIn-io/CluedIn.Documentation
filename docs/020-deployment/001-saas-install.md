@@ -59,7 +59,7 @@ You must have administrative access to a subscription where you want to store th
         
         Contact your IT team to get the required permissions. For more information, see [Purchase in Azure Marketplace](https://learn.microsoft.com/en-us/marketplace/azure-purchasing-invoicing).
 
-    1. Select or create a **Resource group** to hold the SaaS application.
+    1. Select or create a **Resource group** to hold the SaaS application. Note that the location of the resource group does not affect where the actual instance is deployed.
 
 1. In the **SaaS details** section, enter a **Name** for the SaaS application.
 
