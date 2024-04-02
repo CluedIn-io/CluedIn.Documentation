@@ -47,6 +47,8 @@ You must have administrative access to a subscription where you want to store th
 
 1. On the page that opens, review basic information about CluedIn SaaS. Then, select **Subscribe**.
 
+    ![saas-3-subscribe.png](../../assets/images/deployment/saas-install/saas-3-subscribe.png)
+
 1. On the **Basics** tab, in the **Project details** section, do the following:
 
     1. Select a **Subscription** where you want to store CluedIn SaaS application in your Azure account.
