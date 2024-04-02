@@ -34,6 +34,9 @@ The CluedIn SaaS installation process consists of 2 parts:
 
 Before you start the CluedIn SaaS installation process, make sure you have an **Azure account**. If you don't have it, all you need is a valid credit card to create a [pay-as-you-go](https://azure.microsoft.com/en-us/pricing/purchase-options/pay-as-you-go/search/?ef_id=_k_EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE_k_&OCID=AIDcmmbnk3rt9z_SEM__k_EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE_k_&gad_source=1&gclid=EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE) account.
 
+{:.important}
+You must have administrative access to a subscription where you want to store the CluedIn SaaS application in your Azure account.
+
 **To subscribe to CluedIn SaaS**
 
 1. In the Azure Marketplace, find [CluedIn Master Data Management – MDM (SaaS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cluedin.cluedin-saas?tab=Overview).
@@ -42,11 +45,13 @@ Before you start the CluedIn SaaS installation process, make sure you have an **
 
     ![saas-1-additional.png](../../assets/images/deployment/saas-install/saas-1-additional.png)
 
-    On the page that opens, you can review basic information about CluedIn SaaS. Then, select **Subscribe**.
+1. On the page that opens, review basic information about CluedIn SaaS. Then, select **Subscribe**.
 
 1. On the **Basics** tab, in the **Project details** section, do the following:
 
     1. Select a **Subscription** where you want to store CluedIn SaaS application in your Azure account.
+
+        If you encounter an error stating that the subscription requires permission to make purchases, try refreshing the page or choosing a different subscription. For more information, see [Purchase in Azure Marketplace](https://learn.microsoft.com/en-us/marketplace/azure-purchasing-invoicing).
 
     1. Select or create a **Resource group** to hold the SaaS application.
 
