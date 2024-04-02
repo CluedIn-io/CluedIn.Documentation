@@ -20,6 +20,7 @@ To do that, add the following rules to your Azure Firewall as described in the t
 | `cluedinprod.azurecr.io` | 443 | CluedIn container registry |
 | `api.nuget.org` | 443 | NuGet packages |
 | `github.com` | 443 | GitHub artifacts |
+| `objects.githubusercontent.com` | 443 | GitHub artifacts |
 | `billing.cluedin.com` | 443 | CluedIn licensing server |
 | `*.grafana.com` | 443 | Grafana chart content |
 | `mcr.microsoft.com` | 443 | Microsoft container registry |
