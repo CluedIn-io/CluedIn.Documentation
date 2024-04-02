@@ -35,7 +35,7 @@ The CluedIn SaaS installation process consists of 2 parts:
 Before you start the CluedIn SaaS installation process, make sure you have an **Azure account**. If you don't have it, all you need is a valid credit card to create a [pay-as-you-go](https://azure.microsoft.com/en-us/pricing/purchase-options/pay-as-you-go/search/?ef_id=_k_EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE_k_&OCID=AIDcmmbnk3rt9z_SEM__k_EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE_k_&gad_source=1&gclid=EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE) account.
 
 {:.important}
-You must have administrative access to a subscription where you want to store the CluedIn SaaS application in your Azure account. Also, you must have permission to purchase from Azure Marketplace.
+You must have the **Contributor** role in the subscription where you want to store the CluedIn SaaS application. Also, you must have permission to purchase from Azure Marketplace.
 
 **To subscribe to CluedIn SaaS**
 
