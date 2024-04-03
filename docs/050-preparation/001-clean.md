@@ -14,7 +14,7 @@ In this section, you will learn how to fix data quality issues through the use o
 
 The following diagram shows the basic steps of cleaning the data in CluedIn.
 
-![clean-1.png](../../assets/images/preparation/clean/clean-1.png)
+![clean-1.gif](../../assets/images/preparation/clean/clean-1.gif)
 
 This section covers the following areas:
 
