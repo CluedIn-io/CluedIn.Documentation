@@ -37,6 +37,8 @@ Before you start the CluedIn SaaS installation process, make sure you have an **
 {:.important}
 You must have the **Contributor** role in the subscription where you want to store the CluedIn SaaS application.
 
+During the process of subscribing to CluedIn SaaS, you'll receive several emails from Microsoft.
+
 **To subscribe to CluedIn SaaS**
 
 1. In the Azure Marketplace, find [CluedIn Master Data Management – MDM (SaaS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cluedin.cluedin-saas?tab=Overview).
