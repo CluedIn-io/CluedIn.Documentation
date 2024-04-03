@@ -35,7 +35,7 @@ The CluedIn SaaS installation process consists of 2 parts:
 Before you start the CluedIn SaaS installation process, make sure you have an **Azure account**. If you don't have it, all you need is a valid credit card to create a [pay-as-you-go](https://azure.microsoft.com/en-us/pricing/purchase-options/pay-as-you-go/search/?ef_id=_k_EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE_k_&OCID=AIDcmmbnk3rt9z_SEM__k_EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE_k_&gad_source=1&gclid=EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE) account.
 
 {:.important}
-You must have the **Contributor** role in the subscription where you want to store the CluedIn SaaS application. Also, you must have permission to purchase from Azure Marketplace.
+You must have the **Contributor** role in the subscription where you want to store the CluedIn SaaS application.
 
 **To subscribe to CluedIn SaaS**
 
@@ -57,7 +57,7 @@ You must have the **Contributor** role in the subscription where you want to sto
         
         ![saas-4-error.png](../../assets/images/deployment/saas-install/saas-4-error.png)
         
-        Contact your IT team to get the required permissions. For more information, see [Purchase in Azure Marketplace](https://learn.microsoft.com/en-us/marketplace/azure-purchasing-invoicing).
+        Contact your IT team to get the required permissions. For more information, see [Enable marketplace purchases in Azure](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/enable-marketplace-purchases).
 
     1. Select or create a **Resource group** to hold the SaaS application. Note that the location of the resource group does not affect where the actual instance is deployed.
 
