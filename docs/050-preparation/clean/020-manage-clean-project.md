@@ -82,11 +82,19 @@ When you have cleaned the data, send it back to CluedIn. Processing cleaned data
 
 **To process cleaned data**
 
-1. In the upper-right corner of the clean project in CluedIn, select **Process**.
+1. In the upper-right corner of the clean project, select **Process**.
+
+1. In the **Stale data strategy** section, choose an option for dealing with stale data if it is identified during processing:
+
+    - **Skip stale data** – if the records from the clean project contain more recent data in CluedIn, then such records won't be processed.
+
+    - **Write stale data** – if the records from the clean project contain more recent data in CluedIn, they will be processed.
 
 1. If you want to automatically fix the same data issues that might appear in future, leave the **Enable rules auto generation** checkbox selected.
 
 1. Confirm that you want to process the data.
+
+    ![process-cleaned-data.png](../../assets/images/preparation/clean/process-cleaned-data.png)
 
     You can track the processing status in the progress bar. When the cleaned data is processed, the status of the clean project becomes **Processed**. It means that the corrected values have been submitted to the golden records in CluedIn.
 
