@@ -88,10 +88,6 @@ During the process of subscribing to CluedIn SaaS, you'll receive several emails
 
 1. In the SaaS offer in the online store, select **Configure account now** or in the email, select **Configure account**. You'll be redirected to the CluedIn account configuration page.
 
-After you configure an account with CluedIn, you'll be able to view your SaaS subscription in the Azure portal.
-
-![saas-7.png](../../assets/images/deployment/saas-install/saas-7.png)
-
 ## Configure an account with CluedIn
 
 To configure an account with CluedIn, you need a valid license key. You can find a license key in an email from CluedIn if you have previously requested SaaS application. If you don't have a license key, request it [here](https://www.cluedin.com/saas-invitation-application).
@@ -116,9 +112,15 @@ To configure an account with CluedIn, you need a valid license key. You can find
 
         ![saas-4.png](../../assets/images/deployment/saas-install/saas-4.png)
 
-    Our automatic installer will start preparing your isolated environment. Once it is ready, you will receive an email with instructions on how to get started. It can take up to 30 minutes to receive an email. You may close this page while waiting for an email.
+    After the configuration is completed, you'll receive an email from Microsoft notifying you that the configuration was successful.
 
-In the email, you'll find a link to your CluedIn account. To sign in, enter the email and password that you provided to configure your CluedIn account. For more information about signing in, see [Getting access](/getting-access#sign-in-by-email).
+    ![saas-email-2.png](../../assets/images/deployment/saas-install/saas-email-2.png)
+
+    Also, you can view your SaaS subscription in the Azure portal.
+
+    ![saas-7.png](../../assets/images/deployment/saas-install/saas-7.png)
+    
+Our automatic installer will start preparing your isolated environment. Once it is ready, you'll receive an email from CluedIn with instructions on how to get started. It can take up to 30 minutes to receive an email. In the email, you'll find a link to your CluedIn account. To sign in, enter the email and password that you provided to configure your CluedIn account. For more information about signing in, see [Getting access](/getting-access#sign-in-by-email).
 
 ![saas-5.png](../../assets/images/deployment/saas-install/saas-5.png)
 
