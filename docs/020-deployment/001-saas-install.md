@@ -82,9 +82,11 @@ During the process of subscribing to CluedIn SaaS, you'll receive several emails
 
     ![saas-3.png](../../assets/images/deployment/saas-install/saas-3.png)
 
-    After the subscription is completed, the **Configure account now** button becomes active, and you'll receive an email requesting you to activate the new subscription. 
+    After the subscription is completed, the **Configure account now** button becomes active, and you'll receive an email from Microsoft requesting you to activate the new subscription.
 
-1. In the SaaS offer in the online store, select **Configure account now** or in the email, select **Configure now**. You'll be redirected to the CluedIn account configuration page.
+    ![saas-email-1.png](../../assets/images/deployment/saas-install/saas-email-1.png)
+
+1. In the SaaS offer in the online store, select **Configure account now** or in the email, select **Configure account**. You'll be redirected to the CluedIn account configuration page.
 
 After you configure an account with CluedIn, you'll be able to view your SaaS subscription in the Azure portal.
 
