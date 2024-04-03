@@ -84,7 +84,9 @@ Make sure that you have enabled marketplace purchases and configured the require
 
     ![saas-email-1.png](../../assets/images/deployment/saas-install/saas-email-1.png)
 
-1. In the SaaS offer in the online store, select **Configure account now** or in the email, select **Configure account**. You'll be redirected to the CluedIn account configuration page.
+1. Either in the email or in the Azure Marketplace, select the corresponding button to configure the account. If you selected the button in the Azure Marketplace, you can ignore the email.
+
+    You'll be redirected to the CluedIn account configuration page.
 
 ## Configure an account with CluedIn
 
