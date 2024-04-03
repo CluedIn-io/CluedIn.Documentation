@@ -55,7 +55,7 @@ During the process of subscribing to CluedIn SaaS, you'll receive several emails
 
     1. Select a **Subscription** where you want to store CluedIn SaaS application in your Azure account.
 
-        If you encounter an error stating that the subscription requires permission to make purchases, it means that you don't have the required permission for a subscription. 
+        If you encounter an error stating that the subscription requires permission to make purchases, it means that you don't have the required permission for the subscription. 
         
         ![saas-4-error.png](../../assets/images/deployment/saas-install/saas-4-error.png)
         
