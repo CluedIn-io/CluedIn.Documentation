@@ -44,7 +44,7 @@ After generating the results, you can open the clean application to start fixing
 
 - In the upper-right corner of the clean project, select **Clean**.
 
-    The clean application containing records that need to be cleaned opens in a new tab of your browser.
+    The clean application containing records that need to be cleaned opens in the same page.
 
     ![manage-clean-project-3.png](../../assets/images/preparation/clean/manage-clean-project-3.png)
 
