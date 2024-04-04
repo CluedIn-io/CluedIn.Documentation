@@ -59,7 +59,10 @@ Make sure that you have enabled marketplace purchases and configured the require
         
         Contact your IT team to get the required permissions. For more information, see [Enable marketplace purchases in Azure](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/enable-marketplace-purchases).
 
-    1. Select or create a **Resource group** where the SaaS subscription will be stored. If you create a new resource group, you need to choose the location for that resource group. Please note that the location of the resource group is not the same as the Azure region where CluedIn will be installed.
+    1. Select or create a **Resource group** where the SaaS subscription will be stored. If you create a new resource group, you need to choose the location for that resource group.
+    
+        {:.important}
+        The location of the resource group is not the same as the Azure region where CluedIn will be installed. You'll select the Azure region when configuring your CluedIn account as described in the next section.
 
 1. In the **SaaS details** section, enter a **Name** for the SaaS application.
 
