@@ -59,7 +59,7 @@ Make sure that you have enabled marketplace purchases and configured the require
         
         Contact your IT team to get the required permissions. For more information, see [Enable marketplace purchases in Azure](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/enable-marketplace-purchases).
 
-    1. Select or create a **Resource group** to hold the SaaS application. Note that the location of the resource group does not affect where the actual instance is deployed.
+    1. Select or create a **Resource group** where the SaaS subscription will be stored. If you create a new resource group, you need to choose the location for that resource group. Please note that the location of the resource group is not the same as the Azure region where CluedIn will be installed.
 
 1. In the **SaaS details** section, enter a **Name** for the SaaS application.
 
@@ -118,7 +118,7 @@ To configure an account with CluedIn, you need a valid license key. You can find
 
     Also, you can view your SaaS subscription in the Azure portal.
 
-    ![saas-7.png](../../assets/images/deployment/saas-install/saas-7.png)
+    ![subscription-active.png](../../assets/images/deployment/saas-install/subscription-active.png)
     
 Our automatic installer will start preparing your isolated environment. Once it is ready, you'll receive an email from CluedIn with instructions on how to get started. It can take up to 30 minutes to receive an email. In the email, you'll find a link to your CluedIn account. To sign in, enter the email and password that you provided to configure your CluedIn account. For more information about signing in, see [Getting access](/getting-access#sign-in-by-email).
 
