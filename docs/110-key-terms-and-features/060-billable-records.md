@@ -23,4 +23,4 @@ The following video illustrates the difference between billable records and gold
 - Any updates to the source record
 
 {:.important}
-Every time a golden record is processed, the count of billable records is recalculated. If you remove records from CluedIn, the count of billable records would go down when it is recalculated.
+Every time a golden record is processed, the count of billable records is recalculated. If you remove records from CluedIn, the count of billable records would go down as it is recalculated.
