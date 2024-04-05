@@ -18,8 +18,7 @@ This document covers the process for migrating CluedIn configuration from one en
 
 ### Prerequisites
 - PowerShell Core
-- PowerShell 'CluedIn Product Toolkit' Module
-    Please reach out to CluedIn support if you would like this toolkit.
+- PowerShell 'CluedIn Product Toolkit' Module. Please reach out to CluedIn support to get this toolkit.
 - Service or Admin account to do the export and import
 - Access to the frontend whether it's public facing or private facing
 
