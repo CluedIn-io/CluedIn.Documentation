@@ -23,7 +23,7 @@ This document covers the process for migrating CluedIn configuration from one en
 - Access to the front end, whether it's public facing or private facing
 
 ### Guide
-The product toolkit supports a number of methods of transferring configuration from one environment to another. The main two methods are running locally on your desktop, or alternatively using a pipeline platform such as Azure DevOps
+The product toolkit supports a number of methods of transferring configuration from one environment to another. The main two methods are running locally on your desktop or using a pipeline platform such as Azure DevOps.
 
 Below will guide you through both local and Azure DevOps, but you can technically use other methods.
 
