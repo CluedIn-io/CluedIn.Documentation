@@ -14,7 +14,7 @@ is_kb: true
 
 This document covers the process for migrating CluedIn configuration from one environment to another environment. This is especially useful when developing your foundation on one environment and want to promote it to production.
 
-## Configuration Migration
+## Configuration migration
 
 ### Prerequisites
 - PowerShell Core
