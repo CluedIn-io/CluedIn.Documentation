@@ -33,7 +33,7 @@ CluedIn is designed with the [Microservices Architecture](https://microservices.
 
 While CluedIn is a [cloud-native](https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/definition) application, you can also run it on your local machine. [Docker Compose](https://docs.docker.com/compose/) is the technology that allows us to run a group of containers on our local computer easily. You just run a few commands, and a new CluedIn instance is up and running on your laptop or desktop computer. You can use it for testing and development. Please, follow the [Local installation guide](/deployment/local/step-2) for more details.
 
-When it comes to production, [Kubernetes](https://kubernetes.io/) runs CluedIn services in the cloud and ensures that the containers are healthy and scale as they should. While all modern cloud providers support Kubernetes, we recommend running CluedIn on Microsoft Azure with the help of [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/). Read more about it in the [Azure](/deployment/azure-marketplace) section of our documentation.
+When it comes to production, [Kubernetes](https://kubernetes.io/) runs CluedIn services in the cloud and ensures that the containers are healthy and scale as they should. While all modern cloud providers support Kubernetes, we recommend running CluedIn on Microsoft Azure with the help of [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/). Read more about it in the [PaaS installation](/deployment/azure-marketplace) section of our documentation.
 
 The following video explores the features and differences between the SaaS, PaaS, and local options for deploying CluedIn.
 
