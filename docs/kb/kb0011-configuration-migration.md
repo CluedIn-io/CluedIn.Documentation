@@ -104,7 +104,7 @@ To get the IDs of specific parameters, you will need to use the front end and na
 
     Depending on how much configuration there is to import, this may take up to 15 minutes to complete.
 
-This concludes the general process of how to export and import configuration from one environment to another.
+This concludes the general process of how to export and import configuration locally from one environment to another.
 
 #### Azure DevOps (Pipeline)
 
