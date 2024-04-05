@@ -20,7 +20,7 @@ This document covers the process for migrating CluedIn configuration from one en
 - PowerShell Core
 - PowerShell 'CluedIn Product Toolkit' Module. Please reach out to CluedIn support to get this toolkit.
 - Service or Admin account to do the export and import
-- Access to the frontend whether it's public facing or private facing
+- Access to the front end, whether it's public facing or private facing
 
 ### Guide
 The product toolkit supports a number of methods of transferring configuration from one environment to another. The main two methods are running locally on your desktop, or alternatively using a pipeline platform such as Azure DevOps
