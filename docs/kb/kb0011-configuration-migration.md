@@ -27,7 +27,7 @@ The product toolkit supports a number of methods of transferring configuration f
 
 Below will guide you through both local and Azure DevOps, but you can technically use other methods.
 
-#### Locally
+#### Local configuration migration
 
 This guide will be using the `import` and `export` scripts only. The toolkit also supports running the functions on their own, but this will not be covered as part of this documentation.
 
