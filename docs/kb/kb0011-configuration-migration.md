@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Configuration Migration
+title: Configuration migration
 permalink: /kb/config-migrate
 nav_exclude: true
 tags: ["configuration", "migration"]
