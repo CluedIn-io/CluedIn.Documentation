@@ -32,9 +32,9 @@ Below will guide you through both local and Azure DevOps, but you can technicall
 This guide will be using the `import` and `export` scripts only. The toolkit also supports running the functions on their own, but this will not be covered as part of this documentation.
 
 To successfully run this, you will need the following information before proceeding:
-- Full url of your frontend
-- A backup path locally to store the json files exported
-- Id's of the data you want to backup
+- Full URL of your front end.
+- A backup path locally to store the JSON files exported.
+- IDs of the data you want to back up.
 
 {:.important}
 To get the Ids of specific parameters, you will need to use the frontend and navigate to the desired resource. In the url, you will then notice the id of a given object. This may be a guid or integer depending on what is viewed.
