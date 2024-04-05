@@ -106,7 +106,7 @@ To get the IDs of specific parameters, you will need to use the front end and na
 
 This concludes the general process of how to export and import configuration locally from one environment to another.
 
-#### Azure DevOps (Pipeline)
+#### Configuration migration using Azure DevOps (pipeline)
 
 This guide will be using the `import` and `export` scripts only. The toolkit also supports running the functions on their own, but this will not be covered as part of this documentation.
 
