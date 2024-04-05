@@ -37,7 +37,7 @@ To successfully run this, you will need the following information before proceed
 - IDs of the data you want to back up.
 
 {:.important}
-To get the Ids of specific parameters, you will need to use the frontend and navigate to the desired resource. In the url, you will then notice the id of a given object. This may be a guid or integer depending on what is viewed.
+To get the IDs of specific parameters, you will need to use the front end and navigate to the desired resource. In the URL, you will then notice the ID of a given object. This may be a GUID or integer depending on what is viewed.
 
 ##### Exporting configuration (Source system)
 
