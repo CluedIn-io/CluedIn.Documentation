@@ -70,7 +70,7 @@ To get the IDs of specific parameters, you will need to use the front end and na
 
     **Note**: `/path/to/` will differ on your local system. Please update this to be the local respective path.
 
-1. The script will launch and prepare to connect. You will be prompted for a username and password which will obtain a JWToken if successful. Once connect, it will attempt to export all the desired configuration specified above.
+1. The script will launch and prepare to connect. You will be prompted for a username and password which will obtain a JWToken if successful. Once connected, it will attempt to export all the desired configuration specified above.
 
     Depending on how much configuration there is to export, this may take up to 15 minutes to complete. Once export has completed, move onto the import phase.
 
