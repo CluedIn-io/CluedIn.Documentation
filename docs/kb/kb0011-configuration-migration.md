@@ -111,9 +111,9 @@ This concludes the general process of how to export and import configuration loc
 This guide will be using the `import` and `export` scripts only. The toolkit also supports running the functions on their own, but this will not be covered as part of this documentation.
 
 To successfully run this, you will need the following information before proceeding:
-- Full url of your frontend
-- Access to Azure DevOps with the pipelines setup (Please refer to the README within the `CluedIn Product Toolkit`). Failing to setup the pipelines correctly will result in failed configuration backups and restores.
-- Id's of the data you want to backup
+- Full URL of your front end.
+- Access to Azure DevOps with the pipelines setup. Please refer to the README within the `CluedIn Product Toolkit`. Failing to set up the pipelines correctly will result in failed configuration backups and restores.
+- IDs of the data you want to back up.
 
 {:.important}
 To get the Ids of specific parameters, you will need to use the frontend and navigate to the desired resource. In the url, you will then notice the id of a given object. This may be a guid or integer depending on what is viewed.
