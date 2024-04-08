@@ -17,6 +17,8 @@ Your Azure Firewall should cover the following:
 To do that, add the following rules to your Azure Firewall as described in the table.
 
 ### AKS and CluedIn resources
+Below are the required endpoints for CluedIn to be functional out of the box.
+
 | Rule address | Port | Description |
 |--|--|--|
 | `cluedinprod.azurecr.io` | 443 | CluedIn container registry |
@@ -29,6 +31,8 @@ To do that, add the following rules to your Azure Firewall as described in the t
 | `acme-v02.api.letsencrypt.org` | 443 | (Optional) Let's Encrypt service. Only required if not supplying own certificate |
 
 ### Enricher Examples
+Below are optional additions to the above and are only required if you use enrichers listed below.
+
 | Enricher name | Port | Description |
 |--|--|--|
 | `CompanyHouse` | 443 | Our companies house enricher will call the endpoint `https://api.companieshouse.gov.uk` to validate UK based businesses |
