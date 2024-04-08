@@ -13,7 +13,7 @@ permalink: /deployment
     <div class="content">Get access to cloud-hosted platform, the easiest way to start with CluedIn</div>
   </div>
    <div class="card" href="/deployment/azure-marketplace">
-    <div class="icon"><img src="/assets/icons/Paas-blue-with-title.svg" alt="Azure Market place"/></div>
+    <div class="icon"><img src="/assets/icons/PaaS-blue-icon.svg" alt="Azure Market place"/></div>
     <div class="title">CluedIn PaaS</div>
     <div class="content">Install CluedIn within your company’s Azure infrastructure</div>
   </div> 
