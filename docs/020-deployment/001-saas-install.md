@@ -12,7 +12,7 @@ CluedIn SaaS is the easiest and quickest way to start with CluedIn. You do not n
 <iframe src="https://player.vimeo.com/video/927057390?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="CluedIn SaaS installation"></iframe>
 </div>
 
-Useful lins:
+Useful links:
 
 - [Installation](/deployment) – learn about the difference between CluedIn SaaS and PaaS.
 

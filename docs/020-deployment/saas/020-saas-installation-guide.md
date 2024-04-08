@@ -14,9 +14,9 @@ last_modified: 2024-04-08
 
 In this article, you will learn how to subscribe to CluedIn SaaS in the Azure portal and how to configure your CluedIn account.
 
-<div class="videoFrame">
-<iframe src="https://player.vimeo.com/video/927057390?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="CluedIn SaaS installation"></iframe>
-</div>
+![saas-installation-diagram.gif](../../assets/images/deployment/saas-install/saas-installation-diagram.gif)
+
+## Submit a request and receive a license key
 
 CluedIn SaaS is currently available by invitation only. You can request an invitation [here](https://www.cluedin.com/saas-invitation-application).
 
@@ -34,7 +34,7 @@ The CluedIn SaaS installation process consists of 2 parts:
 
 ## Subscribe to CluedIn SaaS in Azure Marketplace
 
-Before you start the CluedIn SaaS installation process, make sure you have an **Azure account**. If you don't have it, all you need is a valid credit card to create a [pay-as-you-go](https://azure.microsoft.com/en-us/pricing/purchase-options/pay-as-you-go/search/?ef_id=_k_EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE_k_&OCID=AIDcmmbnk3rt9z_SEM__k_EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE_k_&gad_source=1&gclid=EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE) account.
+Before you start the CluedIn SaaS installation process, make sure you meet all [Azure requirements](/deployment/saas/requirements).
 
 {:.important}
 Make sure that you have enabled marketplace purchases and configured the required user permissions (at least **Contributor**) for the subscription where you want to store the CluedIn SaaS application. For more information, see [Enable marketplace purchases in Azure](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/enable-marketplace-purchases).
@@ -125,8 +125,18 @@ To configure an account with CluedIn, you need a valid license key. You can find
 
     ![subscription-active.png](../../assets/images/deployment/saas-install/subscription-active.png)
     
-Our automatic installer will start preparing your isolated environment. Once it is ready, you'll receive an email from CluedIn with instructions on how to get started. It can take up to 30 minutes to receive an email. In the email, you'll find a link to your CluedIn account. To sign in, enter the email and password that you provided to configure your CluedIn account. For more information about signing in, see [Getting access](/getting-access#sign-in-by-email).
+Our automatic installer will start preparing your isolated environment. Once it is ready, you'll receive an email from CluedIn with instructions on how to get started. It can take up to 30 minutes to receive an email.
 
-![saas-5.png](../../assets/images/deployment/saas-install/saas-5.png)
+## Next steps
 
-To learn about our pricing options for CluedIn SaaS, see [Pricing](/deployment/pricing).
+After configuring an account, you will receive an email with a link to your CluedIn instance. To sign in, enter the email and password that you provided when configuring your CluedIn account.
+
+![saas-5.png](/.attachments/saas-5-4aa30f0a-ee7c-4d97-9399-25537798fbca.png)
+
+Useful links:
+
+- [Getting access](https://documentation.cluedin.net/getting-access#sign-in-by-email) – learn how to sign in to CluedIn.
+
+- [Geeting started](https://documentation.cluedin.net/getting-started) – get acquainted with the main CluedIn features.
+
+- [Pricing](/deployment/pricing) – learn about our pricing options (pay-as-you-go and committed deal).
