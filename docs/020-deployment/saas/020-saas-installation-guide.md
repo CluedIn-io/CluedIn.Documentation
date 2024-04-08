@@ -131,7 +131,7 @@ Our automatic installer will start preparing your isolated environment. Once it 
 
 After configuring an account, you will receive an email with a link to your CluedIn instance. To sign in, enter the email and password that you provided when configuring your CluedIn account.
 
-![saas-5.png](/.attachments/saas-5-4aa30f0a-ee7c-4d97-9399-25537798fbca.png)
+![saas-5.png](../../assets/images/deployment/saas-install/saas-5.png)
 
 Useful links:
 
