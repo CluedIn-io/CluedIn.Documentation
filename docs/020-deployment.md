@@ -8,12 +8,12 @@ permalink: /deployment
 
 <div class="card-line">
   <div class="card" href="/deployment/saas">
-    <div class="icon"><img src="/assets/icons/azure-marketplace.svg" alt="CluedIn SaaS"/></div>
+    <div class="icon"><img src="/assets/icons/Saas-purple-icon.svg" alt="CluedIn SaaS"/></div>
     <div class="title">CluedIn SaaS</div>
     <div class="content">Get access to cloud-hosted platform, the easiest way to start with CluedIn</div>
   </div>
    <div class="card" href="/deployment/azure-marketplace">
-    <div class="icon"><img src="/assets/icons/azure-marketplace.svg" alt="Azure Market place"/></div>
+    <div class="icon"><img src="/assets/icons/Paas-blue-with-title.svg" alt="Azure Market place"/></div>
     <div class="title">CluedIn PaaS</div>
     <div class="content">Install CluedIn within your company’s Azure infrastructure</div>
   </div> 
