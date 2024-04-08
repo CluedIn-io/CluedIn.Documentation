@@ -39,7 +39,7 @@ Below are optional additions to the above and are only required if you use enric
 | `CompanyHouse` | 443 | Our companies house enricher will call the endpoint `https://api.companieshouse.gov.uk` to validate UK based businesses |
 | `GoogleMaps` | 443 | The endpoint `https://maps.googleapis.com/maps/api` is called to query an address for correct address formatting and other metadata |
 
-Because both call external addresses, this traffic will leave the kubernetes cluster and will need to be whitelisted if using CluedIn enrichers or developing your own enrichers that require external endpoints 
+Because both enrichers call external addresses, this traffic will leave the Kubernetes cluster and will need to be whitelisted if using CluedIn enrichers or developing your own enrichers that require external endpoints.
 
 {: .important }
 If the rules have not been added, the installation may fail.
