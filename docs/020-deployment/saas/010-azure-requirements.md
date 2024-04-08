@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 2
+nav_order: 1
 parent: CluedIn SaaS
 grand_parent: Installation
 permalink: /deployment/saas/requirements
