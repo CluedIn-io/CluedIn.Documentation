@@ -32,7 +32,7 @@ To do that, add the following rules to your Azure Firewall as described in the t
 | Enricher name | Port | Description |
 |--|--|--|
 | `CompanyHouse` | 443 | Our companies house enricher will call the endpoint `https://api.companieshouse.gov.uk` to validate UK based businesses |
-| `GoogleMaps` | 443 | The endpoint `https://maps.googleapis.com/maps/api` is called to query an address for correct address formatting |
+| `GoogleMaps` | 443 | The endpoint `https://maps.googleapis.com/maps/api` is called to query an address for correct address formatting and other metadata |
 
 Because both call external addresses, this traffic will leave the kubernetes cluster and will need to be whitelisted if using CluedIn enrichers or developing your own enrichers that require external endpoints 
 
