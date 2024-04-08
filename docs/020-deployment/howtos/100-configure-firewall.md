@@ -31,7 +31,8 @@ Below are the required endpoints for CluedIn to be functional out of the box.
 | `acme-v02.api.letsencrypt.org` | 443 | (Optional) Let's Encrypt service. Only required if not supplying own certificate |
 
 ### Enricher Examples
-Below are optional additions to the above and are only required if you use enrichers listed below.
+Below are optional additions to the above and are only required if you enrichers. Below are two of our common enrichers, but each enricher will have their own endpoints configured. If you require assistance with what endpoint is used for each CluedIn enricher, please reach out to CluedIn support who will be happy to assist.
+
 
 | Enricher name | Port | Description |
 |--|--|--|
