@@ -6,6 +6,7 @@ grand_parent: Installation
 permalink: /deployment/saas/installation-guide
 title: SaaS installation guide
 last_modified: 2024-04-08
+headerIcon: "saas"
 ---
 ## On this page
 {: .no_toc .text-delta }

@@ -7,6 +7,7 @@ permalink: /deployment/azure/setup/walkthrough
 title: "Walkthrough: Install CluedIn on Azure"
 tags: ["deployment", "cluedin", "installation", "setup"]
 # last_modified: 2021-11-21
+headerIcon: "paas"
 ---
 
 {: .no_toc }

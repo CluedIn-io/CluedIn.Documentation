@@ -7,6 +7,7 @@ permalink: /deployment/azure-marketplace/step-2
 title: Pre-installation checklist
 tags: ["deployment", "ama", "marketplace", "azure", "prerequisites"]
 last_modified: 2024-03-01
+headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }

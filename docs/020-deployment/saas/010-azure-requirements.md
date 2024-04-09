@@ -6,6 +6,7 @@ grand_parent: Installation
 permalink: /deployment/saas/requirements
 title: Azure requirements
 last_modified: 2024-04-08
+headerIcon: "saas"
 ---
 
 In this article, you will learn about the Azure requirements you need to meet to ensure successful installation of CluedIn SaaS.

@@ -9,6 +9,7 @@ description: "CluedIn Documentation: Install CluedIn on Azure"
 has_children: true
 tags: ["deployment", "installation", "setup", "azure"]
 last_modified: 2022-01-07
+headerIcon: "paas"
 ---
 
 ## On this page

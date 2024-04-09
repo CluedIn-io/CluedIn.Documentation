@@ -7,6 +7,7 @@ permalink: /deployment/local/step-3
 title: Extension packages
 tags: ["deployment", "local"]
 last_modified: 2023-06-30
+headerIcon: "local"
 ---
 ## On this page
 {: .no_toc .text-delta }

@@ -7,6 +7,7 @@ permalink: /deployment/local/step-2
 title: Local installation guide
 tags: ["deployment", "local"]
 last_modified: 2023-06-30
+headerIcon: "local"
 ---
 ## On this page
 {: .no_toc .text-delta }

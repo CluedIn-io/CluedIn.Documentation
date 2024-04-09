@@ -7,6 +7,7 @@ permalink: /deployment/azure/helm
 title: Helm
 tags: ["deployment", "kubernetes", "azure", "aks", "helm", "cluedin"]
 last_modified: 2021-11-15
+headerIcon: "paas"
 ---
 
 ## On this page

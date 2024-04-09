@@ -7,6 +7,7 @@ permalink: /deployment/azure-marketplace/step-3
 title: Installation guide
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
+headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }

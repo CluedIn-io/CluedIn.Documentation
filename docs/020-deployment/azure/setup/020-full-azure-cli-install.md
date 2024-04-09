@@ -7,6 +7,7 @@ permalink: /deployment/azure/setup/powershell
 title: "Install CluedIn using PowerShell"
 tags: ["deployment", "cluedin", "installation", "setup", "cli", "powershell"]
 # last_modified: 2021-12-07
+headerIcon: "paas"
 ---
 
 {: .no_toc }
