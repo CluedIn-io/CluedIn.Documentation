@@ -18,7 +18,7 @@ permalink: /deployment
     <div class="content">Install CluedIn within your company’s Azure infrastructure</div>
   </div> 
   <div class="card" href="deployment/local">
-    <div class="icon"><img src="/assets/icons/installation.svg" alt="Installation"/></div>
+    <div class="icon"><img src="/assets/icons/Local-icon-orange.svg" alt="Installation"/></div>
     <div class="title">Local</div>
     <div class="content">Install CluedIn locally to test its main features and write custom code</div>
   </div>
@@ -44,4 +44,3 @@ The following video explores the features and differences between the SaaS, PaaS
 The following diagram illustrates the difference between SaaS and PaaS in terms of who is responsible for managing what.
 
 ![saas-paas.png](../../assets/images/deployment/saas-paas.png)
-
