@@ -16,7 +16,7 @@ headerIcon: "local"
 
 In this article, you will learn how to install CluedIn locally.
 
-![local-installation.png](../../assets/images/local-install/local-installation.png)
+![local-installation-guide.gif](../../assets/images/deployment/local-installation-guide.gif)
 
 ## Clone CluedIn repository
 

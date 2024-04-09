@@ -28,7 +28,7 @@ CluedIn has many built-in extension packages. To learn more, reach out to your C
 
 The following image presents an overview of the steps involved in adding SQL Server Connector to CluedIn.
 
-![add-sql-server-connector.png](../../assets/images/local-install/add-sql-server-connector.png)
+![local-sql-server-connector.gif](../../assets/images/deployment/local-sql-server-connector.gif)
 
 In the procedure, we'll use the following input variables:
 
