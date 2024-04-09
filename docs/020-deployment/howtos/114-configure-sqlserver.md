@@ -6,6 +6,7 @@ grand_parent: Installation
 permalink: /deployment/kubernetes/sql
 title: Configure SQL Server
 tags: ["deployment", "kubernetes", "sqlserver"]
+headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }

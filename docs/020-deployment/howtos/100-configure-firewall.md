@@ -7,6 +7,7 @@ permalink: /deployment/infra-how-tos/configure-firewall
 title: Configure firewall
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-23
+headerIcon: "paas"
 ---
 
 Your Azure Firewall should cover the following:

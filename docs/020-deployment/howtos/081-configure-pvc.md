@@ -7,6 +7,7 @@ grand_parent: Installation
 permalink: /deployment/kubernetes/persistence
 title: Configure PVC
 tags: ["deployment", "kubernetes", "persistence"]
+headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }

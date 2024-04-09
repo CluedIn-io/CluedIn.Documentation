@@ -7,6 +7,7 @@ permalink: /deployment/infra-how-tos/ama-upgrade
 title: Marketplace upgrade
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-10-06
+headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }

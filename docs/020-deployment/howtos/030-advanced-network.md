@@ -7,6 +7,7 @@ permalink: /deployment/infra-how-tos/advanced-network
 title: Advanced network configuration
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2024-03-01
+headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }

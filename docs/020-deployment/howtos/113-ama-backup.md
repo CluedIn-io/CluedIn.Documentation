@@ -7,6 +7,7 @@ permalink: /deployment/infra-how-tos/ama-backup
 title: Marketplace backup and restore
 tags: ["deployment", "ama", "marketplace", "azure", "backup"]
 last_modified: 2023-11-08
+headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }

@@ -7,6 +7,7 @@ permalink: /deployment/infra-how-tos/configure-certificates
 title: Configure TLS certificates
 tags: ["deployment", "ama", "marketplace", "azure", "tls", "ssl", "certificates"]
 last_modified: 2023-06-20
+headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }

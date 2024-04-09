@@ -7,6 +7,7 @@ permalink: /deployment/infra-how-tos/aks-upgrade
 title: AKS upgrade
 tags: ["deployment", "ama", "marketplace", "azure", "aks", "kubernetes", "upgrade"]
 last_modified: 2024-03-27
+headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }

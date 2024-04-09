@@ -6,6 +6,7 @@ grand_parent: Installation
 permalink: /deployment/infra-how-tos/configure-email
 title: Configure email
 tags: ["deployment", "kubernetes", "email"]
+headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }

@@ -7,6 +7,7 @@ permalink: /deployment/infra-how-tos/local-upgrade
 title: Local upgrade
 tags: ["deployment", "local"]
 last_modified: 2023-10-06
+headerIcon: "paas"
 ---
 
 In this article, you will learn how to upgrade your local instance of CluedIn to the new version.

@@ -7,6 +7,7 @@ permalink: /deployment/infra-how-tos/configure-dns
 title: Configure DNS
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
+headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }

@@ -7,6 +7,7 @@ permalink: /deployment/infra-how-tos/configure-sso
 title: Configure SSO
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2024-02-29
+headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }
