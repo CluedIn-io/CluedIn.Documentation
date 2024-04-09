@@ -16,7 +16,7 @@ headerIcon: "local"
 
 In this article, you will learn about the pre-installation processes that you must perform to ensure successful local installation of CluedIn. Local installation of CluedIn is available to any technical person upon acceptance of our terms and conditions.
 
-![local-installation-checklist.png](../../assets/images/local-install/local-installation-checklist.png)
+![local-installation-checklist.gif](../../assets/images/deployment/local-installation-checklist.gif)
 
 ## Get access to CluedIn container registry
 

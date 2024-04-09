@@ -16,7 +16,7 @@ headerIcon: "paas"
 
 In this article, you will learn about the pre-installation processes that you must perform to ensure successful installation of CluedIn PaaS.
 
-![pre-install.gif](../../assets/images/deployment/pre-install.gif)
+![paas-pre-installation-checklist.gif](../../assets/images/deployment/paas-pre-installation-checklist.gif)
 
 ## Check qualification
 
