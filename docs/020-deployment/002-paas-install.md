@@ -6,6 +6,7 @@ permalink: /deployment/azure-marketplace
 nav_order: 2
 has_children: true
 tags: ["deployment", "kubernetes", "azure", "aks", "microsoft", "marketplace", "azure-marketplace"]
+headerIcon: "paas"
 ---
 
 CluedIn Master Data Management is an Azure Managed Application (AMA) that is deployed within your company’s Azure infrastructure.
