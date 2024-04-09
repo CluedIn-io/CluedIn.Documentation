@@ -5,6 +5,7 @@ parent: Installation
 permalink: /deployment/saas
 nav_order: 1
 has_children: true
+headerIcon: "saas"
 ---
 
 CluedIn SaaS is the easiest and quickest way to start with CluedIn. You do not need an IT team to install and start using CluedIn. Check out the following video for an overview of CluedIn SaaS installation process.

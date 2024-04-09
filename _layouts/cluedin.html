@@ -11,6 +11,18 @@ layout: page
     <img src="/assets/icons/PaaS-round.svg" alt="CluedIn PaaS" />
   </div>
   {% endif %}
+  {% if page.headerIcon == "saas" %}
+  <!-- Display something if the page ID is "home" -->
+  <div class="feature-icon">
+    <img src="/assets/icons/SaaS-round.svg" alt="CluedIn SaaS" />
+  </div>
+  {% endif %}
+  {% if page.headerIcon == "local" %}
+  <!-- Display something if the page ID is "home" -->
+  <div class="feature-icon">
+    <img src="/assets/icons/Local-round.svg" alt="CluedIn Local" />
+  </div>
+  {% endif %}
   <h1 class="h1">{{ page.title }}</h1>
 </div>
 {{ content }}
