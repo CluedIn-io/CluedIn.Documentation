@@ -185,7 +185,7 @@ Adds a code to the clue. The code usually consists of an entity type, an origin,
 In the following example, the first parameter is the origin and the second parameter is the value. The resulting code would be `"/Customer#myOrigin:myCode"`.
 
 ```
-addCode("myOrigin","myCode")
+addCode("myCode","myOrigin")
 
 [value]
 ``` 
