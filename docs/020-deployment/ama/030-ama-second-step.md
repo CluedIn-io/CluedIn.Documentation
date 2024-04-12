@@ -50,8 +50,8 @@ In addition, check if you have **enough quota for your plan**.
 | Professional | At least 16 vCPUs in the StandardDASv5Family quota |
 | Elite | At least 32 vCPUs in the StandardDASv5Family quota |
 
-And finally, ensure that the region you're deploying too also has enough quota.
-This is called 'Total Regional vCPUs' in azure and must be equal or greater to the sum of all vCPUs being deployed.
+And finally, ensure that the region you're deploying to also has enough quota.
+This is called 'Total Regional vCPUs' in Azure and must be equal to or greater than the sum of all vCPUs being deployed.
 
 You can check if you have enough quota by running a [verification script](#verification-script).
 
