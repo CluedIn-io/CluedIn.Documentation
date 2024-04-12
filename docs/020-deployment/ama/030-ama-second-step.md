@@ -32,7 +32,7 @@ To learn how to allow purchases, see <a href="https://learn.microsoft.com/en-us/
 
 ## Check quota
 
-You should perform a quota check to make sure that your subscription has enough quotas for creating VMs required for CluedIn clusters.
+You should perform a quota check to make sure that your subscription has enough quotas for creating VMs required for CluedIn clusters. Each cluster will contain multiple nodes which are made up of virtual machines (VM).
 
 There are 3 common VM family types that CluedIn will create as part of the AKS node pools. Your subscription must have **enough spare vCPU quota** to provision different nodes. For details on the quota for each VM, see the table below.
 
@@ -46,9 +46,12 @@ In addition, check if you have **enough quota for your plan**.
 
 | Plan | Quota |
 |--|--|
-| Essential | At least 8 vCPUs in the StandardDASv5Family quota |
+| Essential & PAYG | At least 8 vCPUs in the StandardDASv5Family quota |
 | Professional | At least 16 vCPUs in the StandardDASv5Family quota |
 | Elite | At least 32 vCPUs in the StandardDASv5Family quota |
+
+And finally, ensure that the region you're deploying to also has enough quota.
+This is called 'Total Regional vCPUs' in Azure and must be equal to or greater than the sum of all vCPUs being deployed.
 
 You can check if you have enough quota by running a [verification script](#verification-script).
 

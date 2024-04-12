@@ -22,11 +22,11 @@ $Configuration = @{
     )
     quotas = @{
         All = @{ # All will be combined with the licenses below during runtime
-            standardDv4Family = 16 # Data 2x8, General 2x8, Neo 1x8
+            standardDSv4Family = 16 # Data 2x8, General 2x8, Neo 1x8
             standardDASv5Family = 24 # Data 2x8, Neo 1x8
-            standardDv2Family = 2 # System
+            standardDSv2Family = 2 # System
         }
-        Essential = @{ standardDASv5Family = 8 }
+        'PAYG / Essential' = @{ standardDASv5Family = 8 }
         Professional = @{ standardDASv5Family = 16 }
         Elite = @{ standardDASv5Family = 32 }
     }
@@ -40,7 +40,7 @@ function Get-Az {
         }
         switch ($confirm) {
             'y' { Install-Az }
-            'n' { 
+            'n' {
                 Write-Host "The Azure CLI must be installed to run this script" -ForegroundColor Red
                 Write-Host "Please install using one of the following options" -ForegroundColor Yellow
                 Write-Host " - Running ``winget install -e --id Microsoft.AzureCLI`` " -ForegroundColor Yellow
@@ -67,7 +67,7 @@ function Install-Az {
 function Connect-Az {
     $current = az account show --query '{Id: id, LoginUser: user.name}' | ConvertFrom-Json
     Write-Host "INFO - You are currently logged in as: $($current.LoginUser) [$($current.Id)]"
-    
+
     if ($current.Id -ne $SubscriptionId) {
         Write-Warning "Setting subscription to: $SubscriptionId"
         az account set --subscription $SubscriptionId
@@ -97,10 +97,12 @@ function Get-Quotas {
     $query = "[].{Name: name.value, Current: currentValue, Limit: limit}"
     $regionQuotas = az vm list-usage --location $Location --query $query | ConvertFrom-Json
     if ($regionQuotas.count -eq 0) { throw "No quotas were returned for the region '$location'" }
+    $total = $regionQuotas | Where-Object { $_.Name -eq 'cores' }
+    $totalRemainingCurrent = $total.limit - $total.current
 
     Write-Verbose "Filtering results"
     $uniqueFamilies = $Configuration.quotas.values.keys | Select-Object -Unique
-    $filtered = $regionQuotas | Where-Object {$uniqueFamilies -contains $_.Name}
+    $filtered = $regionQuotas | Where-Object { $uniqueFamilies -contains $_.Name }
 
     Write-Verbose "Processing Remaining Cores"
     $remainingCores = @{}
@@ -126,22 +128,28 @@ function Get-Quotas {
 
     Write-Host "INFO - Checking CPU Family Quotas for All licenses"
     foreach ($key in $licenseTable.keys) {
+        $summedQuotas = 0
         Write-Debug "key: $key"
         Write-Host "[$key]:"
         $licenseTable[$key].keys.ForEach({
             $requiredQuotas = $licenseTable[$key][$_]
+            $summedQuotas += $requiredQuotas
             $result = $remainingCores[$_] - $requiredQuotas
             if ($result -lt 0) { $cpuFamilyFail = $true }
 
             $colour = ($result -gt 0) ? "Green" : "Red"
             Write-Host "  ${_}: $result vCPU remaining" -ForegroundColor $colour
         })
+
+        $totalRegionalRemaining = $totalRemainingCurrent - $summedQuotas
+        $licenseTable[$key]['RegionTotal'] = $totalRemainingCurrent - $summedQuotas
+        $colour = ($totalRegionalRemaining -gt 0) ? "Green" : "Red"
+        Write-Host "  Regional vCPU remaining: $($licenseTable[$key]['RegionTotal'])" -ForegroundColor $colour
     }
 
-    if ($cpuFamilyFail) { 
-        Write-Warning "At least one vCPU family has insufficient quota for the license family it falls under. If this is the license you require, please request additional quota." 
+    if ($cpuFamilyFail) {
+        Write-Warning "At least one vCPU family has insufficient quota for the license family it falls under. If this is the license you require, please request additional quota."
     }
-    # TODO: Check Region Total vCPU
 }
 
 Write-Host "INFO - Checking Pre-Requisites"
