@@ -17,9 +17,6 @@ In this article, you will learn how to add and configure an enricher. While Clue
 
 You can add an enricher both before and after processing the data.
 
-{:.important}
-Enrichers run every 4 hours. If you want the data to be enriched immediately, you can trigger the enrichment manually.
-
 **To add and configure an enricher**
 
 1. On the navigation pane, go to **Preparation** > **Enrich**.
@@ -50,7 +47,7 @@ On the enricher details page, you can manage the enricher:
 
 ## Trigger enrichment 
 
-If you process the data and then add an enricher, the enrichment won't start automatically. In general, enrichers run every 4 hours. However, if you want to enrich existing golden records immediately, you can trigger enrichment in one of the following ways:
+If you process the data and then add an enricher, the enrichment won't start automatically. To enrich the existing golden records, you can trigger enrichment in one of the following ways:
 
 - Using the GraphQL tool.
 
