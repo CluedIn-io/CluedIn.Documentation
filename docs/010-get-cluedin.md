@@ -55,9 +55,9 @@ Depending on whether you have the authority to create a pay-as-you-go Azure acco
 
 **What are the steps of CluedIn SaaS pay-as-you-go onboarding?**
 
-1. Make sure you meet all of the prerequisites for SaaS installation.
+1. Make sure you meet all of the prerequisites for SaaS installation. See our [Azure requirements guide](/deployment/saas/requirements).
 
-1. Complete the subscription process.
+1. Complete the subscription process. See our [SaaS installation guide](/deployment/saas/installation-guide).
 
 1. Receive an email with the link to your CluedIn instance and get started.
 
@@ -83,9 +83,9 @@ We are fast on getting the committed deal through, so the timeline for completin
 
 1. Sign the contract.
 
-1. Make sure you meet all of the prerequisites for SaaS installation.
+1. Make sure you meet all of the prerequisites for SaaS installation. See our [Azure requirements guide](/deployment/saas/requirements).
 
-1. Complete the subscription process using the license key that you receive from us.
+1. Complete the subscription process using the license key that you receive from us. See our [SaaS installation guide](/deployment/saas/installation-guide).
 
 1. Receive an email with the link to your CluedIn instance and get started.
 
