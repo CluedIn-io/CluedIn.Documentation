@@ -29,11 +29,11 @@ For more details about the difference between CluedIn installation options, see 
 
 **Can I change my pricing model?**
 
-Yes, you can change your pricing model from pay-as-you-go to committed deal and vice versa. However, a change from committed deal to pay-as-you-go is governed by the terms of the contract. If you decide to change the pricing model, contact our support team by email <a href="mailto:support@cluedin.com">support-ama@cluedin.com</a>.
+Yes, you can change your pricing model from pay-as-you-go to committed deal and vice versa. However, a change from committed deal to pay-as-you-go is governed by the terms of the contract. If you decide to change the pricing model, contact our support team by email <a href="mailto:support@cluedin.com">support@cluedin.com</a>.
 
 **Can I move from SaaS to PaaS or vice versa?**
 
-Yes, but there is a migration fee for this process. If you decide to change the cloud service model, contact our support team by email <a href="mailto:support@cluedin.com">support-ama@cluedin.com</a>.
+Yes, but there is a migration fee for this process. If you decide to change the cloud service model, contact our support team by email <a href="mailto:support@cluedin.com">support@cluedin.com</a>.
 
 ## Onboarding path for CluedIn SaaS
 
