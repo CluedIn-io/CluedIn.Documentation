@@ -10,7 +10,7 @@ last_modified: 2023-06-23
 headerIcon: "paas"
 ---
 
-By default, CluedIn contains built-in alerts that are sent to our support team via email (<a href="mailto:support@cluedin.com">support-ama@cluedin.com</a>) .
+By default, CluedIn contains built-in alerts that are sent to our support team.
 
 ![Alerts.png](../../assets/images/ama/howtos/configure-alerts-1.png)
 
