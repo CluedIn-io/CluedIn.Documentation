@@ -23,27 +23,27 @@ For more details about the difference between CluedIn installation options, see 
 
 **Where can I find information about pricing models?**
 
-- To learn about our pay-as-you pricing model, see [Pricing](https://documentation.cluedin.net/deployment/pricing).
+- To learn about our pay-as-you pricing model, see [Pricing](/deployment/pricing).
 
 - To learn about our committed deal pricing model, book a meeting with our sales team representative [here](https://www.cluedin.com/discovery-call).
 
 **Can I change my pricing model?**
 
-Yes, you can change your pricing model from pay-as-you-go to committed deal and vice versa. However, a change from committed deal to pay-as-you-go is governed by the terms of the contract. If you decide to change the pricing model, contact [TBD]
+Yes, you can change your pricing model from pay-as-you-go to committed deal and vice versa. However, a change from committed deal to pay-as-you-go is governed by the terms of the contract. If you decide to change the pricing model, contact our support team by email <a href="mailto:support@cluedin.com">support-ama@cluedin.com</a>.
 
 **Can I move from SaaS to PaaS or vice versa?**
 
-Yes, but there is a migration fee for this process. If you decide to change the cloud service model, contact [TBD]
+Yes, but there is a migration fee for this process. If you decide to change the cloud service model, contact our support team by email <a href="mailto:support@cluedin.com">support-ama@cluedin.com</a>.
 
 ## Onboarding path for CluedIn SaaS
 
-By onboarding path, we mean the process of purchasing and installing CluedIn. After completing onboarding steps, you'll get a link to your CluedIn instance and you can start using the system.
+By onboarding path, we mean the process of purchasing and installing CluedIn. After completing the onboarding steps, you'll get a link to your CluedIn instance and you can start using the system.
 
 ### CluedIn SaaS pay-as-you-go
 
-This is the easiest and quickest way to start with CluedIn. You do not need an IT team to install and start using CluedIn.
+This is the easiest and quickest way to start with CluedIn. You don't need an IT team to install and start using CluedIn.
 
-![saas-payg.gif](/.attachments/saas-payg-7b9ba09b-51eb-41f4-a5d8-c9bb1716875d.gif)
+![saas-payg.gif](../../assets/images/get-cluedin/saas-payg.gif)
 
 **Who can start CluedIn SaaS pay-as-you-go onboarding?**
 
@@ -65,7 +65,7 @@ Depending on whether you have the authority to create a pay-as-you-go Azure acco
 
 This option gives you access to our experts and a lower price than pay-as-you-go. You do not need an IT team to install and start using CluedIn.
 
-![saas-committed-deal.gif](/.attachments/saas-committed-deal-0df50a9f-f7e4-421d-880a-fb1ee1feb6ad.gif)
+![saas-committed-deal.gif](../../assets/images/get-cluedin/saas-committed-deal.gif)
 
 **Who can start CluedIn SaaS committed deal onboarding?**
 
@@ -97,23 +97,23 @@ By onboarding path, we mean the process of purchasing and installing CluedIn. Af
 
 This model gives you the possibility to test CluedIn in your infrastructure with 10K records for free. You'll get full control of CluedIn as you'll be running the platform in your own environment.
 
-![paas-payg.gif](/.attachments/paas-payg-3d30c376-5761-47ca-831d-aa8e2945115c.gif)
+![paas-payg.gif](../../assets/images/get-cluedin/paas-payg.gif)
 
 **What are the steps of CluedIn PaaS pay-as-you-go onboarding?**
 
-1. Make business decisions: get acquainted with billing, review terms and conditions, choose Azure Administrator on your side to perform the installation. See our [Business decisions](https://documentation.cluedin.net/deployment/azure-marketplace/step-1) guide.
+1. Make business decisions: get acquainted with billing, review terms and conditions, choose Azure Administrator on your side to perform the installation. See our [Business decisions guide](/deployment/azure-marketplace/step-1).
 
-1. Perform pre-installation checks. See our [Pre-installation guide](https://documentation.cluedin.net/deployment/azure-marketplace/step-2).
+1. Perform pre-installation checks. See our [Pre-installation guide](/deployment/azure-marketplace/step-2).
 
-1. Perform the installation process. See our [Installation guide](https://documentation.cluedin.net/deployment/azure-marketplace/step-3).
+1. Perform the installation process. See our [Installation guide](/deployment/azure-marketplace/step-3).
 
-1. Customize CluedIn according to your company's needs. See our [Post-installation guide](https://documentation.cluedin.net/deployment/azure-marketplace/step-4).
+1. Customize CluedIn according to your company's needs. See our [Post-installation guide](/deployment/azure-marketplace/step-4).
 
 ### CluedIn PaaS committed deal
 
 This option gives you full control of CluedIn as you'll be running the platform in your own environment. Also, it has a lower price than pay-as-you-go.
 
-![paas-committed-deal.gif](/.attachments/paas-committed-deal-01412cb0-3016-44c8-b547-3fa89e02c604.gif)
+![paas-committed-deal.gif](../../assets/images/get-cluedin/paas-committed-deal.gif)
 
 **What are the steps of CluedIn PaaS committed deal onboarding?**
 
@@ -123,17 +123,17 @@ This option gives you full control of CluedIn as you'll be running the platform 
 
 1. Sign the contract.
 
-1. Make business decisions: choose Azure Administrator on your side to perform the installation. See our [Business decisions](https://documentation.cluedin.net/deployment/azure-marketplace/step-1) guide.
+1. Make business decisions: choose Azure Administrator on your side to perform the installation. See our [Business decisions](/deployment/azure-marketplace/step-1) guide.
 
-1. Perform pre-installation checks. See our [Pre-installation guide](https://documentation.cluedin.net/deployment/azure-marketplace/step-2).
+1. Perform pre-installation checks. See our [Pre-installation guide](/deployment/azure-marketplace/step-2).
 
-1. Perform the installation process. See our [Installation guide](https://documentation.cluedin.net/deployment/azure-marketplace/step-3).
+1. Perform the installation process. See our [Installation guide](/deployment/azure-marketplace/step-3).
 
-1. Customize CluedIn according to your company's needs. See our [Post-installation guide](https://documentation.cluedin.net/deployment/azure-marketplace/step-4).
+1. Customize CluedIn according to your company's needs. See our [Post-installation guide](/deployment/azure-marketplace/step-4).
 
 ## Next steps
 
-Now that you are familiar with our onboarding process, you can choose the pricing and service model that are suitable for you. Click the link in the table to start with the option of your choice.
+Now that you are familiar with our onboarding process, you can choose the pricing and cloud service model that are suitable for you. Click the link in the table to start with the option of your choice.
 
 |  | Pay-as-you-go | Committed deal |
 |--|--|--|
