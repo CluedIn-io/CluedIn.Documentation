@@ -13,6 +13,10 @@ tags: ["administration", "users"]
 
 In this article, you will learn how to add and deactivate users in your CluedIn organization.
 
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/936290630?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture;" title="How to add a user"></iframe>
+</div>
+
 **_This article is intended for users with the OrganizationAdmin role or users with the following claim access level._**
 
 | Section | Claim | Access level |
