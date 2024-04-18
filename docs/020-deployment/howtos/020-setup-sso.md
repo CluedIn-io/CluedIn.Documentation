@@ -26,13 +26,11 @@ SSO for CluedIn can be enabled in one of the following modes:
 
     ![Automatic_role_synchronization.png](../../assets/images/ama/howtos/configure-sso-1.png)
 
-Configuring SSO for CluedIn using Microsoft Entra involves three main steps:
+Configuring SSO for CluedIn using Microsoft Entra involves two main steps:
 
 1. [Register an application in the Azure portal](#register-an-application-in-the-azure-portal)
 
 1. [Create Kubernetes secret and enable SSO via Helm](#create-kubernetes-secret-and-enable-sso-via-helm)
-
-1. [(Optional) Create custom role mappings](#optional-create-custom-role-mapping)
 
 **Important!** Before configuring SSO, make sure that you have configured [DNS](/deployment/infra-how-tos/configure-dns) and [TLS](/deployment/infra-how-tos/configure-certificates).
 
@@ -63,6 +61,7 @@ Registering your application establishes a trust relationship between your appli
     ![Register_application_Application_ID.png](../../assets/images/ama/howtos/configure-sso-3.png)
 
 After you register the application, complete the following steps:
+
 1. [Create a client secret](#create-a-client-secret)
 
 1. [Add redirect URIs](#add-redirect-uris)
@@ -71,7 +70,9 @@ After you register the application, complete the following steps:
 
 1. [Expose an API](#expose-an-api)
 
-1. [Map Microsoft Entra application roles to CluedIn roles](#map-microsoft-entra-application-roles-to-CluedIn-roles)
+1. [Grant external users access via single sign-on](#granting-external-users-access-via-single-sign-on)
+
+1. [Map Microsoft Entra application roles to CluedIn roles](#map-microsoft-entra-application-roles-to-cluedin-roles)
 
 ### Create a client secret
 
