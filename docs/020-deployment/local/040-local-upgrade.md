@@ -1,18 +1,18 @@
 ---
 layout: cluedin
-nav_order: 14
-parent: How-to guides for PaaS
+nav_order: 4
+parent: Local
 grand_parent: Installation
-permalink: /deployment/infra-how-tos/local-upgrade
+permalink: /deployment/local/local-upgrade
 title: Local upgrade
-tags: ["deployment", "local"]
-last_modified: 2023-10-06
-headerIcon: "paas"
+last_modified: 2023-06-30
+headerIcon: "local"
 ---
 
 In this article, you will learn how to upgrade your local instance of CluedIn to the new version.
 
-**Important!** Before upgrading your local instance of CluedIn, consider whether it would be more convenient to create a new environment. Typically, you shouldn't store many records in your local instance, so re-ingesting the records should be fast.
+{:.important}
+Before upgrading your local instance of CluedIn, consider whether it would be more convenient to create a new environment. Typically, you shouldn't store many records in your local instance, so re-ingesting the records should be fast.
 
 **To upgrade the local instance of CluedIn**
 
