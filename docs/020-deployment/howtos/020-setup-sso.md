@@ -182,7 +182,9 @@ You need to register a web API with the Microsoft identity platform and expose i
 
     ![configure-sso-scopename.png](../../assets/images/ama/howtos/configure-sso-scopename.png)
 
-1. Specify the following scope attributes and then select `Add scope`:
+1. Click on **Save and continue**
+
+1. Specify the following scope attributes:
 
     - **Scope name**: `user_impersonation`
 
@@ -195,6 +197,8 @@ You need to register a web API with the Microsoft identity platform and expose i
     ![expose_api.png](../../assets/images/ama/howtos/expose_api.png)
 
 For detailed instructions on how to configure an app to expose web API, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
+
+1. Click on **Add scope** when done.
  
 ### Granting external users access via single sign-on 
 When enabling single sign-on to your CluedIn application, it is possible to also allow external guests (domains) to sign in and be granted access to the application. This will also be dependant on your network setup.
