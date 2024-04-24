@@ -178,7 +178,7 @@ You need to register a web API with the Microsoft identity platform and expose i
 
 1. In the **Scopes defined by this API** section, select **Add a scope**.
 
-1. For the first-time setup, you will need to specify the `Application ID URI`. For this, leave it as the default selection which will be a randomly generated guid.
+1. For the first-time setup, you will need to specify the `Application ID URI`. For this, leave it as the default selection which will be a randomly generated GUID.
 
     ![configure-sso-scopename.png](../../assets/images/ama/howtos/configure-sso-scopename.png)
 
