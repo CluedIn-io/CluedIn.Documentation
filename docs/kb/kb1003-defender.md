@@ -29,4 +29,5 @@ The CluedIn installation installs an Azure Kubernetes Service (AKS) cluster whic
 To resolve this issue, please amend the recommendation under remediation steps and add a regex string that can accomodate the CluedIn registry.
 An example is: `^cluedinprod\.azurecr\.io.*$`. 
 
-**NOTE**: This will affect all AKS clusters. If you have additional AKS clusters which are for internal services or other products, you may want to use a more loosely defined regex string that can accomodate both CluedIn and other third-party registries. 
+{:.important}
+This will affect all AKS clusters. If you have additional AKS clusters which are for internal services or other products, you may want to use a more loosely defined regex string that can accommodate both CluedIn and other third-party registries. 
