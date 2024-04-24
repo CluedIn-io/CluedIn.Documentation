@@ -24,7 +24,7 @@ The default security policies that are set on `Microsoft Defender for Cloud` can
 
 The CluedIn installation installs an Azure Kubernetes Service (AKS) cluster which pulls images from `cluedinprod.azurecr.io` with an authorization token. Because `cluedinprod.azurecr.io` is external to your environment, it gets flagged by this recommendation when using default baseline advisories.
 
-**Solution**:
+**Solution**
 
 To resolve this issue, please amend the recommendation under remediation steps and add a regex string that can accomodate the CluedIn registry.
 An example is: `^cluedinprod\.azurecr\.io.*$`. 
