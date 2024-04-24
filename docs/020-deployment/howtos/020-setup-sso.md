@@ -198,7 +198,7 @@ You need to register a web API with the Microsoft identity platform and expose i
 
 For detailed instructions on how to configure an app to expose web API, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
 
-1. Click on **Add scope** when done.
+1. Select **Add scope** when done.
  
 ### Granting external users access via single sign-on 
 When enabling single sign-on to your CluedIn application, it is possible to also allow external guests (domains) to sign in and be granted access to the application. This will also be dependant on your network setup.
