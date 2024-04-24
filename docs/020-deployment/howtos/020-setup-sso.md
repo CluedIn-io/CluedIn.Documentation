@@ -182,7 +182,7 @@ You need to register a web API with the Microsoft identity platform and expose i
 
     ![configure-sso-scopename.png](../../assets/images/ama/howtos/configure-sso-scopename.png)
 
-1. Click on **Save and continue**
+1. Select **Save and continue**.
 
 1. Specify the following scope attributes:
 
