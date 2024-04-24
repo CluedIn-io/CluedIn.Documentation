@@ -20,7 +20,7 @@ If the advisory is not listed below, please do reach out to support@cluedin.com 
 
 ### Container images should be deployed from trusted registries only
 
-The default security policies that are set on `Microsoft Defender for Cloud` can be quite bare when it comes out of the box. As a result, this particular recommendation gets flagged frequently as a High risk. 
+The default security policies that are set on `Microsoft Defender for Cloud` can be quite bare when it comes out of the box. As a result, this particular recommendation gets flagged frequently as a high risk. 
 
 The CluedIn installation installs an Azure Kubernetes Service (AKS) cluster which pulls images from `cluedinprod.azurecr.io` with an authorization token. Because `cluedinprod.azurecr.io` is external to your environment, it does get flagged by this recommendation when using default baseline advisories.
 
