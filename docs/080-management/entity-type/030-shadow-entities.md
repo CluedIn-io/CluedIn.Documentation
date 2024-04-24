@@ -6,6 +6,7 @@ grand_parent: Management
 nav_order: 3
 has_children: false
 permalink: /preparation/shadow-entities
+published: false
 tags: ["management","shadow-entities"]
 ---
 
