@@ -81,6 +81,6 @@ In the project, matching rules are combined using the **OR** logical operator, w
 
     - If you are satisfied with the matching rule configuration, select **Add Rule**.
 
-        ![add-rule.gif](../../assets/images/management/deduplication/сreate-project.gif)
+        ![add-rule.gif](../../assets/images/management/deduplication/add-rule.gif)
 
     After you add matching rules, [generate results](/management/deduplication/manage-a-deduplication-project#generate-results) of the project to see if CluedIn finds any duplicates.
