@@ -6,7 +6,31 @@ permalink: /microsoft-integration/event-hub-integration
 nav_order: 050
 ---
 
-Event Hub integration enables the transmission of workflow events from CluedIn to your event hub. These events encompass various actions such as creating an entity type, publishing a hierarchy, creating a clean project, creating a deduplication project, splitting entities, processing clues, undoing deduplication, and many more. Essentially, any task featuring a progress bar in CluedIn is classified as a workflow event because it allows us to track the workflow's start and completion times.
+Azure Event Hub integration enables the transmission of workflow events from CluedIn to your event hub. These events include various actions, among which are the following:
+
+- Adding a data source, updating a data source
+
+- Adding an entity type
+
+- Adding a role
+
+- Adding a stream, updating a stream, changing stream state
+
+- Adding a vocabulary, updating a vocabulary key
+
+- Creating a clean project, generating the results of the clean project, committing the results of the clean project
+
+- Adding a glossary category, adding a glossary term, updating a glossary term
+
+- Registering an export target
+
+- Creating a rule, changing the rule state
+
+- Publishing a hierarchy
+
+- Creating a deduplication project
+
+Essentially, any task featuring a progress bar in CluedIn is classified as a workflow event because it allows us to track the workflow's start and completion times.
 
 **To connect CluedIn to Event Hub**
 
