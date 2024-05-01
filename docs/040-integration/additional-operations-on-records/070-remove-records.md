@@ -8,9 +8,9 @@ title: Remove records
 last_modified: 2024-05-01
 ---
 
-In this article, you will learn how to remove records that were created from a specific data source.
+In this article, you will learn how to remove records (also referred to as data parts) that were created from a specific data source. For more information about records, data parts, and golden records, see [Data life cycle](/key-terms-and-features/data-life-cycle).
 
-If you no longer need specific records, you can easily remove them. Keep in mind that when you remove records from CluedIn, the count of [billable records](/key-terms-and-features/billable-records) will decrease when it is recalculated.
+If you no longer need specific records, you can easily remove them. If a record is not merged during processing, it becomes a golden record. Removing such a record also removes the golden record. However, if a record is merged into the golden record, removing it doesn't remove the entire golden record; only the specific part represented by that record is removed. Keep in mind that when you remove records from CluedIn, the count of [billable records](/key-terms-and-features/billable-records) will decrease when it is recalculated.
 
 After removing records, you'll notice that the **Data** tab disappears from the data set. Additionally, the **Process** tab won't contain any information about previous processing. However, the incoming records on the **Preview** tab remain intact; and the mapping configuration on the **Map** tab is preserved, so you can edit, reset, or reuse it for other data sets.
 
