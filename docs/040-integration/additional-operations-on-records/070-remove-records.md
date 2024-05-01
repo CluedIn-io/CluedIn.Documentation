@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 7
 parent: Additional operations
 grand_parent: Integration
-permalink: /integration/additional-operations-on-records/remove-golden-records
+permalink: /integration/additional-operations-on-records/remove-records
 title: Remove records
 last_modified: 2024-05-01
 ---
