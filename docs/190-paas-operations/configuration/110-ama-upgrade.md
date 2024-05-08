@@ -1,13 +1,14 @@
 ---
 layout: cluedin
 nav_order: 12
-parent: How-to guides for PaaS
-grand_parent: Installation
+parent: Configuration
+grand_parent: PaaS operations
 permalink: /deployment/infra-how-tos/ama-upgrade
 title: Marketplace upgrade
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-10-06
 headerIcon: "paas"
+published: false
 ---
 ## On this page
 {: .no_toc .text-delta }

@@ -7,7 +7,7 @@ permalink: /paas-operations
 headerIcon: "paas"
 ---
 
-This section is designed for IT specialists responsible for managing CluedIn PaaS within their organizations.
+This section is dedicated to IT specialists responsible for managing CluedIn PaaS within their organizations.
 
 Supporting documents and references:
 
