@@ -127,7 +127,7 @@ When enabling single sign-on to your CluedIn application, it is possible to also
 
 1. Scroll down to **Supported account types** and change the mode to `Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)`.
 
-1. Select **Save** when done.
+1. Select **Save**.
 
 This will allow guests invited to your Microsoft Entra ID to be able to use this application for single sign-on. The process remains the same whereby the user signs in like you normally would. 
 
