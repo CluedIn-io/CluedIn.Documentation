@@ -1,10 +1,10 @@
 ---
 layout: cluedin
 nav_order: 5
-parent: How-to guides for PaaS
-grand_parent: Installation
+parent: Configuration
+grand_parent: PaaS operations
 permalink: /deployment/infra-how-tos/configure-logging
-title: Configure logging
+title: Logging
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 headerIcon: "paas"

@@ -1,10 +1,10 @@
 ---
 layout: cluedin
 nav_order: 2
-parent: How-to guides for PaaS
-grand_parent: Installation
-permalink: /deployment/infra-how-tos/configure-sso
-title: Configure SSO
+parent: Configuration
+grand_parent: PaaS operations
+permalink: /paas-operations/configuration/configure-sso
+title: SSO
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2024-02-29
 headerIcon: "paas"
@@ -242,7 +242,7 @@ After you complete the Azure application registration and app roles configuratio
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
 
-- You should be connected to your AKS cluster. See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
+- You should be connected to your AKS cluster. See [Connect to CluedIn cluster](/paas-operations/configuration/connect-to-cluedin) for detailed instructions.
 
 - Your Helm repository is set up.
 

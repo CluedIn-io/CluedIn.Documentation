@@ -50,7 +50,7 @@ By default, your CluedIn containers are configured to log at the production leve
 
 ## Set up SSO
 
-CluedIn does not set up SSO directly out of the box. If you want to use SSO, see [Configure SSO](/deployment/infra-how-tos/configure-sso).
+CluedIn does not set up SSO directly out of the box. If you want to use SSO, see [Configure SSO](/paas-operations/configuration/configure-sso).
 
 ## Set up a backup solution
 
@@ -64,4 +64,4 @@ At this point, your CluedIn instance is up and running and configured according 
 
 Review procedures for basic maintenance operations:
 
-- [Connect to CluedIn cluster using Azure Cloud Shell](/deployment/infra-how-tos/connect-to-cluedin)
+- [Connect to CluedIn cluster using Azure Cloud Shell](/paas-operations/configuration/connect-to-cluedin)

@@ -1,10 +1,9 @@
 ---
 layout: cluedin
-nav_order: 15
-parent: How-to guides for PaaS
-grand_parent: Installation
+nav_order: 3
+parent: PaaS operations
 permalink: /deployment/infra-how-tos/ama-backup
-title: Marketplace backup and restore
+title: Backup and restore
 tags: ["deployment", "ama", "marketplace", "azure", "backup"]
 last_modified: 2023-11-08
 headerIcon: "paas"

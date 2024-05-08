@@ -1,10 +1,10 @@
 ---
 layout: cluedin
 nav_order: 7
-parent: How-to guides for PaaS
-grand_parent: Installation
+parent: Configuration
+grand_parent: PaaS operations
 permalink: /deployment/infra-how-tos/configure-certificates
-title: Configure TLS certificates
+title: TLS certificates
 tags: ["deployment", "ama", "marketplace", "azure", "tls", "ssl", "certificates"]
 last_modified: 2023-06-20
 headerIcon: "paas"
@@ -23,7 +23,7 @@ In this article, you will learn how to create your own certificates and keys and
 **Prerequisites**
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
-- You should be connected to your AKS cluster. See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
+- You should be connected to your AKS cluster. See [Connect to CluedIn cluster](/paas-operations/configuration/connect-to-cluedin) for detailed instructions.
 - Your Helm repository is set up.
 
 If you have any questions, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> (or reach out to your delivery manager if you have a committed deal).
