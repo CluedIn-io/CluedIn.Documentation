@@ -57,7 +57,7 @@ Throughout the documentation, we'll be working with ficticious domain `yourdomai
 
 1. Select the **Supported account types** that can use the application.
 
-1. Update **Redirect URI** to be **Web** and set the url to the app subdomain of your instance with path of `/auth/signin-oidc`.  
+1. Update **Redirect URI** to **Web** and set the URL to the app subdomain of your instance with the path of `/auth/signin-oidc`.  
    e.g. https://app.domain.com/auth/signin-oidc
 
 1. Select **Register**.
