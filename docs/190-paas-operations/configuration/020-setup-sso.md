@@ -242,7 +242,7 @@ After you complete the Azure application registration and app roles configuratio
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
 
-- You should be connected to your AKS cluster. See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
+- You should be connected to your AKS cluster. See [Connect to CluedIn cluster](/paas-operations/configuration/connect-to-cluedin) for detailed instructions.
 
 - Your Helm repository is set up.
 

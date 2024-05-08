@@ -1,9 +1,9 @@
 ---
 layout: cluedin
 nav_order: 1
-parent: How-to guides for PaaS
-grand_parent: Installation
-permalink: /deployment/infra-how-tos/connect-to-cluedin
+parent: Configuration
+grand_parent: PaaS operations
+permalink: /paas-operations/configuration/connect-to-cluedin
 title: Connect to CluedIn cluster
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20

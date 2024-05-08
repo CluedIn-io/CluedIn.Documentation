@@ -64,4 +64,4 @@ At this point, your CluedIn instance is up and running and configured according 
 
 Review procedures for basic maintenance operations:
 
-- [Connect to CluedIn cluster using Azure Cloud Shell](/deployment/infra-how-tos/connect-to-cluedin)
+- [Connect to CluedIn cluster using Azure Cloud Shell](/paas-operations/configuration/connect-to-cluedin)
