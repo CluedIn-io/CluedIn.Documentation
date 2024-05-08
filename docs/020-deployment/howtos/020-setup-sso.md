@@ -38,6 +38,11 @@ Configuring SSO for CluedIn using Microsoft Entra involves two main steps:
 
 Registering your application establishes a trust relationship between your application and the Microsoft identity platform. The trust is unidirectional: your application trusts the Microsoft identity platform, and not the other way around. After you create the application, it cannot be moved between different tenants.
 
+Throughout the documentation, we'll be working with ficticious domain `yourdomain.com` and the two subdomains:
+
+- `app` – references the back-end application. By default, it is just app, but can be changed in the values file.
+- `cluedin` – references the main CluedIn URL you would access on a daily basis.
+
 **To register an application in the Azure portal**
 
 1. In the Azure portal, go to the tenant in which you want to register the application.
@@ -52,7 +57,8 @@ Registering your application establishes a trust relationship between your appli
 
 1. Select the **Supported account types** that can use the application.
 
-1. Leave **Redirect URI** empty for the time being.
+1. Update **Redirect URI** to be **Web** and set the url to the app subdomain of your instance with path of `/auth/signin-oidc`.  
+   e.g. https://app.domain.com/auth/signin-oidc
 
 1. Select **Register**.
 
@@ -64,7 +70,7 @@ After you register the application, complete the following steps:
 
 1. [Create a client secret](#create-a-client-secret)
 
-1. [Add redirect URIs](#add-redirect-uris)
+1. [Update authentication](#update-authentication)
 
 1. [Add API permissions](#add-api-permissions-for-microsoft-graph)
 
@@ -88,61 +94,42 @@ A client secret is used to configure CluedIn to communicate with Microsoft Entra
 
 1. Select **Add**.
 
-1. Copy and save **Value** and the **Secret ID** because they will be used later in your CluedIn Helm configuration.
+1. Copy and save the **secret value** because this will be used later in your CluedIn Helm configuration.
 
     ![Create_client_secret_Value_ID.png](../../assets/images/ama/howtos/configure-sso-4.png)
 
 For more information about the client secret, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-client-secret).
 
-### Add redirect URIs
+### Update authentication
 
-Redirect URI is the location to which the Microsoft identity platform redirects the user's client and sends security tokens after authentication.
+1. Under **Manage** select **Authentication**
 
-In the setup below, we will be working with fictitious domain 'yourdomain.com' and the two subdomains:
+1. Under **Front-channel logout URL**, add a logout URL for your application.
 
-- `app` – references the back-end application. By default, it is just app, but can be changed in the values file.
+    e.g. `https://app.yourdomain.com/logout`
 
-- `cluedin` – references the main CluedIn URL you would access on a daily basis.
+    ![Add_redirect_URIs_Logout_URL.png](../../assets/images/ama/howtos/configure-sso-7.png)
 
-**To add redirect URIs**
+1. In the **Implicit grant and hybrid flows** section, select the **ID tokens** checkbox.
 
-1. In the Azure portal, in **App registrations**, select your application.
-
-1. Select **Authentication** > **Add a platform**.
-
-1. In the right pane, select **Web**.
-
-    ![Add_redirect_URIs_Configure_platforms.png](../../assets/images/ama/howtos/configure-sso-5.png)
-
-1. In the **Configure Web** pane, specify the following:
-
-    1. In **Redirect URIs**, add a redirect URI for your application.
-
-        `https://app.yourdomain.com`
-
-        ![Add_redirect_URIs_Redirect_URIs.png](../../assets/images/ama/howtos/configure-sso-6.png)
-
-    1. In **Front channel logout URI**, add a logout URL for your application.
-
-        `https://app.yourdomain.com/logout`
-
-        ![Add_redirect_URIs_Logout_URL.png](../../assets/images/ama/howtos/configure-sso-7.png)
-
-    1. In the **Implicit grant and hybrid flows** section, select the **ID tokens** checkbox, and then select **Configure**.
-
-        ![Add_redirect_URIs_ID_tokens.png](../../assets/images/ama/howtos/configure-sso-8.png)
-
-1. Back on the main page with the **Platform configurations** section, in **Web**, add additional URIs to the existing one:
-
-    - `https://cluedin.yourdomain.com`
-
-    - `https://app.yourdomain.com/auth/signin-oidc`
-
-    ![Add_redirect_URIs_additional.png](../../assets/images/ama/howtos/configure-sso-9.png)
+    ![Add_redirect_URIs_ID_tokens.png](../../assets/images/ama/howtos/configure-sso-8.png)
 
 1. At the bottom of the page, select **Save**.
 
 For more information about redirect URIs, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri).
+
+### Granting external users access via single sign-on
+When enabling single sign-on to your CluedIn application, it is possible to also allow external guests (domains) to sign in and be granted access to the application. This will also be dependant on your network setup.
+
+**To grant SSO access to external users**
+
+1. Select **Authentication**.
+
+1. Scroll down to **Supported account types** and change the mode to `Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)`.
+
+1. Select **Save** when done.
+
+This will allow guests invited to your Microsoft Entra ID to be able to use this application for single sign-on. The process remains the same whereby the user signs in like you normally would. 
 
 ### Add API permissions for Microsoft Graph
 
@@ -150,15 +137,13 @@ When you register an application in the Azure portal, the Microsoft Graph API wi
 
 **To add API permissions for Microsoft Graph**
 
-1. In the Azure portal, in **App registrations**, select your application.
+1. Select **API permissions**.
 
-2. Select **API permissions**.
-
-3. In the **Configured permissions** section, click on the existing **Microsoft Graph** entry.
+1. In the **Configured permissions** section, click on the existing **Microsoft Graph** entry.
 
     ![Add_API_permissions_MS_Graph.png](../../assets/images/ama/howtos/configure-sso-10.png)
 
-4. In the right pane, select the following permissions: **email**, **offline_access**, **openid**, and **profile**. At the bottom of the pane, select **Update permissions**.
+1. In the right pane, select the following permissions: **email**, **offline_access**, **openid**, and **profile**. At the bottom of the pane, select **Update permissions**.
 
     The API permissions for Microsoft Graph are updated.
 
@@ -172,8 +157,6 @@ You need to register a web API with the Microsoft identity platform and expose i
 
 **To expose the API**
 
-1. In the Azure portal, in **App registrations**, select your application.
-
 1. Select **Expose an API**.
 
 1. In the **Scopes defined by this API** section, select **Add a scope**.
@@ -186,34 +169,19 @@ You need to register a web API with the Microsoft identity platform and expose i
 
 1. Specify the following scope attributes:
 
-    - **Scope name**: `user_impersonation`
+   - **Scope name**: `user_impersonation`
 
-    - **Who can consent**: `Admins and Users`
+   - **Who can consent**: `Admins and Users`
 
-    - **Admin consent display name**: `CluedIn SSO`
+   - **Admin consent display name**: `CluedIn SSO`
 
-    - **Admin consent description**: `CluedIn SSO`
+   - **Admin consent description**: `CluedIn SSO`
 
-    ![expose_api.png](../../assets/images/ama/howtos/expose_api.png)
+   ![expose_api.png](../../assets/images/ama/howtos/expose_api.png)
 
-For detailed instructions on how to configure an app to expose web API, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
+   For detailed instructions on how to configure an app to expose web API, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
 
 1. Select **Add scope** when done.
- 
-### Granting external users access via single sign-on 
-When enabling single sign-on to your CluedIn application, it is possible to also allow external guests (domains) to sign in and be granted access to the application. This will also be dependant on your network setup.
-
-**To grant SSO access to external users**
-
-1. In the Azure portal, in **App registration**, select your application.
-
-1. Select **Authentication**.
-
-1. Scroll down to **Supported account types** and change the mode to `Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)`.
-
-1. Select **Save** when done.
-
-This will allow guests invited to your Microsoft Entra ID to be able to use this application for single sign-on. The process remains the same whereby the user signs in like you normally would. 
 
 ### Map Microsoft Entra application roles to CluedIn roles
 
@@ -222,8 +190,6 @@ After you have created your application registration and attached it to your Clu
 If you change the role of the user after they sign in, they will need to sign out and sign back in for the new role to take affect.
 
 **To map Microsoft Entra application roles to CluedIn roles**
-
-1. In the Azure portal, in **App registrations**, select your application.
 
 1. Select **App roles**.
 
