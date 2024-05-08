@@ -7,6 +7,7 @@ nav_order: 5
 has_children: true
 tags: ["deployment", "kubernetes", "azure", "aks", "microsoft", "marketplace", "azure-marketplace"]
 headerIcon: "paas"
+published: false
 ---
 
 ## Supporting documents and references 
