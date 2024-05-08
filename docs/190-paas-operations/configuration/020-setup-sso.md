@@ -1,10 +1,10 @@
 ---
 layout: cluedin
 nav_order: 2
-parent: How-to guides for PaaS
-grand_parent: Installation
-permalink: /deployment/infra-how-tos/configure-sso
-title: Configure SSO
+parent: Configuration
+grand_parent: PaaS operations
+permalink: /paas-operations/configuration/configure-sso
+title: SSO
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2024-02-29
 headerIcon: "paas"

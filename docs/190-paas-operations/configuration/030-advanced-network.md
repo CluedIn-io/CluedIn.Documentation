@@ -1,8 +1,8 @@
 ---
 layout: cluedin
 nav_order: 3
-parent: How-to guides for PaaS
-grand_parent: Installation
+parent: Configuration
+grand_parent: PaaS operations
 permalink: /deployment/infra-how-tos/advanced-network
 title: Advanced network configuration
 tags: ["deployment", "ama", "marketplace", "azure"]
@@ -44,7 +44,7 @@ CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, th
 ### Advanced network configuration options
 
 **Important!** If you do not plan to make any changes to the default out-of-the-box network configuration, you can skip this section and check other configuration-related topics:
-- [Configure SSO](/deployment/infra-how-tos/configure-sso)
+- [Configure SSO](/paas-operations/configuration/configure-sso)
 - [Configure DNS](/deployment/infra-how-tos/configure-dns)
 - [Configure certificates](/deployment/infra-how-tos/configure-certificates)
 

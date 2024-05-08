@@ -1,10 +1,10 @@
 ---
 layout: cluedin
 nav_order: 4
-parent: How-to guides for PaaS
-grand_parent: Installation
+parent: Configuration
+grand_parent: PaaS operations
 permalink: /deployment/infra-how-tos/configure-email
-title: Configure email
+title: Email
 tags: ["deployment", "kubernetes", "email"]
 headerIcon: "paas"
 ---

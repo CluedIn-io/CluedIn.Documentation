@@ -1,10 +1,10 @@
 ---
 layout: cluedin
 nav_order: 7
-parent: How-to guides for PaaS
-grand_parent: Installation
+parent: Configuration
+grand_parent: PaaS operations
 permalink: /deployment/infra-how-tos/configure-certificates
-title: Configure TLS certificates
+title: TLS certificates
 tags: ["deployment", "ama", "marketplace", "azure", "tls", "ssl", "certificates"]
 last_modified: 2023-06-20
 headerIcon: "paas"

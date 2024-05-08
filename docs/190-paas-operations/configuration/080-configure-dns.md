@@ -1,10 +1,10 @@
 ---
 layout: cluedin
 nav_order: 8
-parent: How-to guides for PaaS
-grand_parent: Installation
+parent: Configuration
+grand_parent: PaaS operations
 permalink: /deployment/infra-how-tos/configure-dns
-title: Configure DNS
+title: DNS
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
 headerIcon: "paas"

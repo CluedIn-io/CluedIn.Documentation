@@ -1,8 +1,8 @@
 ---
 layout: cluedin
-nav_order: 13
-parent: How-to guides for PaaS
-grand_parent: Installation
+nav_order: 1
+parent: Upgrade
+grand_parent: PaaS operations
 permalink: /deployment/infra-how-tos/aks-upgrade
 title: AKS upgrade
 tags: ["deployment", "ama", "marketplace", "azure", "aks", "kubernetes", "upgrade"]

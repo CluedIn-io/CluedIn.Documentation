@@ -50,7 +50,7 @@ By default, your CluedIn containers are configured to log at the production leve
 
 ## Set up SSO
 
-CluedIn does not set up SSO directly out of the box. If you want to use SSO, see [Configure SSO](/deployment/infra-how-tos/configure-sso).
+CluedIn does not set up SSO directly out of the box. If you want to use SSO, see [Configure SSO](/paas-operations/configuration/configure-sso).
 
 ## Set up a backup solution
 

@@ -1,11 +1,10 @@
 ---
-grand_parent: Deployment
 layout: cluedin
 nav_order: 9
-parent: How-to guides for PaaS
-grand_parent: Installation
+parent: Configuration
+grand_parent: PaaS operations
 permalink: /deployment/kubernetes/persistence
-title: Configure PVC
+title: PVC
 tags: ["deployment", "kubernetes", "persistence"]
 headerIcon: "paas"
 ---
