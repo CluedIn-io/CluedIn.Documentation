@@ -28,7 +28,7 @@ The following diagram shows the advanced network configuration of CluedIn.
 
 ![ama-network-2.jpeg](../../assets/images/ama/howtos/advanced-network-2.jpeg)
 
-Advanced network configuration requires that you have set up the firewall policy. For more information, see [Configure firewall](/deployment/infra-how-tos/configure-firewall).
+Advanced network configuration requires that you have set up the firewall policy. For more information, see [Configure firewall](/paas-operations/configuration/configure-firewall).
 
 Advanced network configuration (ingress vNet integration) allows you to specify the vNet and/or subnet address spaces that will be used to deploy your CluedIn platform. If you are deploying into your own network, see the following Microsoft guidelines for planning your Kubernetes networking model:
 

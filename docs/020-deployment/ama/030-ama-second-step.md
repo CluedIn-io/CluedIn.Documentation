@@ -190,7 +190,7 @@ Your Azure Firewall should cover the following:
 - **Default AKS functionality** – logs and pods should be able to see Kubernetes API Server (as recommended in <a href="https://learn.microsoft.com/en-us/azure/aks/outbound-rules-control-egress">Outbound network and FQDN rules for AKS clusters</a>).
 - **CluedIn resource access** – resources needed for the CluedIn installation.
 
-For the list of firewall rules that should be added to your Azure Firewall, see [Configure firewall](/deployment/infra-how-tos/configure-firewall).
+For the list of firewall rules that should be added to your Azure Firewall, see [Configure firewall](/paas-operations/configuration/configure-firewall).
 
 {:.important}
 If the rules have not been added, the installation will fail.
