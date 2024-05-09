@@ -14,4 +14,4 @@ When signing up with CluedIn and taking on the Managed Services agreement, Produ
 For some customers, a more tailored agreement exists whereby the management of the cluster and resources are managed by you, including upgrades. Below is documentation on how to self-service upgrading of CluedIn.
 
 ## Release Notes
-For release note specifics, please visit [Release Notes](../170-release-notes.md)
+For release note specifics, please visit [Release Notes](/release-notes)
