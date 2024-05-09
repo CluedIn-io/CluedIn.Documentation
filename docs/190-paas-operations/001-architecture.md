@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 4
+nav_order: 1
 parent: PaaS operations
 permalink: /deployment/architecture
 title: Architecture overview
