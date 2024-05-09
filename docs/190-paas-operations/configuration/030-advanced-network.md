@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: Configuration
 grand_parent: PaaS operations
-permalink: /deployment/infra-how-tos/advanced-network
+permalink: /paas-operations/configuration/advanced-network
 title: Advanced network configuration
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2024-03-01
@@ -28,7 +28,7 @@ The following diagram shows the advanced network configuration of CluedIn.
 
 ![ama-network-2.jpeg](../../assets/images/ama/howtos/advanced-network-2.jpeg)
 
-Advanced network configuration requires that you have set up the firewall policy. For more information, see [Configure firewall](/deployment/infra-how-tos/configure-firewall).
+Advanced network configuration requires that you have set up the firewall policy. For more information, see [Configure firewall](/paas-operations/configuration/configure-firewall).
 
 Advanced network configuration (ingress vNet integration) allows you to specify the vNet and/or subnet address spaces that will be used to deploy your CluedIn platform. If you are deploying into your own network, see the following Microsoft guidelines for planning your Kubernetes networking model:
 
@@ -45,8 +45,8 @@ CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, th
 
 **Important!** If you do not plan to make any changes to the default out-of-the-box network configuration, you can skip this section and check other configuration-related topics:
 - [Configure SSO](/paas-operations/configuration/configure-sso)
-- [Configure DNS](/deployment/infra-how-tos/configure-dns)
-- [Configure certificates](/deployment/infra-how-tos/configure-certificates)
+- [Configure DNS](/paas-operations/configuration/configure-dns)
+- [Configure certificates](/paas-operations/configuration/configure-certificates)
 
 When installing CluedIn from the Azure Marketplace, you can set up advanced network configuration on the **CluedIn - Advanced Configuration** tab. You can choose from the three networking options:
 

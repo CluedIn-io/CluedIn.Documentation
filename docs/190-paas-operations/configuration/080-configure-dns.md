@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 8
 parent: Configuration
 grand_parent: PaaS operations
-permalink: /deployment/infra-how-tos/configure-dns
+permalink: /paas-operations/configuration/configure-dns
 title: DNS
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
@@ -123,4 +123,4 @@ After a short time, you'll see the confirmation of your update in the console. C
 ![configure-dns-2.png](../../assets/images/ama/howtos/configure-dns-2.png)
 
 {:.important}
-This will use the LetsEncrypt service in the cluster to do an HTTP request to validate the certificate. If you would like to use a self-provided certificate, please review the [Configure TLS Certificates](/deployment/infra-how-tos/configure-certificates) page.
+This will use the LetsEncrypt service in the cluster to do an HTTP request to validate the certificate. If you would like to use a self-provided certificate, please review the [Configure TLS Certificates](/paas-operations/configuration/configure-certificates) page.

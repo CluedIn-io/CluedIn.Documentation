@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 16
 parent: Configuration
 grand_parent: PaaS operations
-permalink: /deployment/infra-how-tos/sql
+permalink: /paas-operations/configuration/sql
 title: SQL Server
 tags: ["deployment", "kubernetes", "sqlserver"]
 headerIcon: "paas"
