@@ -39,7 +39,7 @@ By default, CluedIn contains built-in alerts that are sent to our support team. 
 
 ## Configure logging
 
-CluedIn uses structured logging, and only the console sink is enabled by default. If you want to use another sink, see [Configure logging](/deployment/infra-how-tos/configure-logging).
+CluedIn uses structured logging, and only the console sink is enabled by default. If you want to use another sink, see [Configure logging](/paas-operations/configuration/configure-logging).
 
 By default, your CluedIn containers are configured to log at the production level. The production log level allows you to view high-level information about the server and the tasks it is performing. The production log level provides an output with the following log entry types:
 
