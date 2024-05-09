@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-05-09T12:19:57.758Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="yux7YbOhH2AzkVwI5IWl" version="24.3.1" type="device">
+<mxfile host="app.diagrams.net" modified="2024-05-09T13:08:49.002Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="KEMIt9sxrfNzpHytBlyz" version="24.3.1" type="device">
   <diagram name="Page-1" id="7a6c530e-6e37-e111-ec74-82921da8cc10">
-    <mxGraphModel dx="2053" dy="1828" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="827" background="#e9f2f9" math="0" shadow="0">
+    <mxGraphModel dx="1232" dy="1097" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="827" background="#e9f2f9" math="0" shadow="0">
       <root>
         <mxCell id="0" style=";html=1;" />
         <mxCell id="1" style=";html=1;" parent="0" />
@@ -153,7 +153,7 @@
             <mxPoint x="939.62" y="704" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CSqyFBJtQjhdxoWEijOT-57" value="&amp;nbsp; &amp;nbsp; &amp;nbsp;AMA Managed Resource" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=default;fillColor=#FFFFFF;strokeColor=#2777bf;strokeWidth=2;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+        <mxCell id="CSqyFBJtQjhdxoWEijOT-57" value="&amp;nbsp; &amp;nbsp; &amp;nbsp;AMA Managed Resource Group" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=default;fillColor=#FFFFFF;strokeColor=#2777bf;strokeWidth=2;fontSize=11;fontStyle=1;" parent="1" vertex="1">
           <mxGeometry x="603" y="195" width="215" height="30" as="geometry" />
         </mxCell>
         <mxCell id="CSqyFBJtQjhdxoWEijOT-58" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/ResourceGroup.svg;" parent="1" vertex="1">
@@ -165,10 +165,10 @@
         <mxCell id="CSqyFBJtQjhdxoWEijOT-61" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/ResourceGroup.svg;" parent="1" vertex="1">
           <mxGeometry x="615" y="613" width="17.5" height="14" as="geometry" />
         </mxCell>
-        <mxCell id="7vZT43EtHT4Y9WS1z5zM-1" value="&amp;nbsp; &amp;nbsp; &amp;nbsp;AMA Resource Group" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=default;fillColor=#FFFFFF;strokeColor=#2777bf;strokeWidth=2;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="7vZT43EtHT4Y9WS1z5zM-1" value="&amp;nbsp; &amp;nbsp; &amp;nbsp;AMA Resource Group" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=default;fillColor=#FFFFFF;strokeColor=#2777bf;strokeWidth=2;fontSize=14;fontStyle=1;" parent="1" vertex="1">
           <mxGeometry x="604" y="51" width="215" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="7vZT43EtHT4Y9WS1z5zM-2" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/ResourceGroup.svg;" vertex="1" parent="1">
+        <mxCell id="7vZT43EtHT4Y9WS1z5zM-2" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/ResourceGroup.svg;" parent="1" vertex="1">
           <mxGeometry x="612.87" y="59" width="17.5" height="14" as="geometry" />
         </mxCell>
       </root>
