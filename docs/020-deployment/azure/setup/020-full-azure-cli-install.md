@@ -47,5 +47,5 @@ Below you will find some useful links on achieving the above:
 
 Optionally, you can also adjust other settings to cater for more complex scenarios:
 - [Persistence/Using Managed Disks](/paas-operations/configuration/pvc)
-- [Azure SQL Server](/deployment/kubernetes/sql)
+- [Azure SQL Server](/paas-operations/configuration/sql)
 - [Scaling](/deployment/kubernetes/scaling)
