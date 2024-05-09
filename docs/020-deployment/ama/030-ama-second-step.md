@@ -217,7 +217,7 @@ The deployed Azure Kubernetes Service is deployed with a single Azure Load Balan
 
 If you would like support on this, please reach out to one of CluedIn's infrastructure engineers to assist you with this change.
 
-More information regarding networking can be found in<a href="/deployment/infra-how-tos/advanced-network"> Advanced network configuration</a>.
+More information regarding networking can be found in<a href="/paas-operations/configuration/advanced-network"> Advanced network configuration</a>.
 
 ## Analyze Azure policies and tagging
 
