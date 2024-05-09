@@ -54,7 +54,7 @@ CluedIn does not set up SSO directly out of the box. If you want to use SSO, see
 
 ## Set up a backup solution
 
-Currently, a backup solution is a post-install step because Microsoft does not support the ability to deploy backup policies within AMA. To set up a backup solution, see [AMA backup and restore](/deployment/ama-backup).
+Currently, a backup solution is a post-install step because Microsoft does not support the ability to deploy backup policies within AMA. To set up a backup solution, see [AMA backup and restore](/paas-operations/ama-backup).
 
 ## Results
 
