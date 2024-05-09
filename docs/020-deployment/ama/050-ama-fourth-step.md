@@ -25,13 +25,13 @@ If you did not set up CluedIn PaaS with a custom DNS, you may experience issues 
 
 To avoid interruption in the adoption of CluedIn, external DNS names are provided by the <a href="https://sslip.io/">sslip.io</a> service by default without any upfront configuration. The sslip.io service is a DNS service that returns the IP address when queried with a host name that contains an embedded IP address.
 
-The default DNS configuration ensures security by using the Automated Certificate Management Environment (ACME) protocol to issue SSL Certificates via the HTTP challenge method. For more information about certificates, see [Configure certificates](/deployment/infra-how-tos/configure-certificates).
+The default DNS configuration ensures security by using the Automated Certificate Management Environment (ACME) protocol to issue SSL Certificates via the HTTP challenge method. For more information about certificates, see [Configure certificates](/paas-operations/configuration/configure-certificates).
 
 If you want to set up custom DNS entries, see [Configure DNS](/deployment/infra-how-tos/configure-dns).
 
 ## Configure custom SSL certificates
 
-By default, CluedIn installation is secured by using TLS. CluedIn uses the Automated Certificate Management Environment (ACME) protocol and the public Let's Encrypt certificate authority to issue certificates. However, this default configuration might not comply with your organization's security policy. If you want to use a Subject Alternative Name (SAN) or wildcard certificate for you domain, see [Configure certificates](/deployment/infra-how-tos/configure-certificates).
+By default, CluedIn installation is secured by using TLS. CluedIn uses the Automated Certificate Management Environment (ACME) protocol and the public Let's Encrypt certificate authority to issue certificates. However, this default configuration might not comply with your organization's security policy. If you want to use a Subject Alternative Name (SAN) or wildcard certificate for you domain, see [Configure certificates](/paas-operations/configuration/configure-certificates).
 
 ## Configure alerts
 

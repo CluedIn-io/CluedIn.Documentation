@@ -46,7 +46,7 @@ CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, th
 **Important!** If you do not plan to make any changes to the default out-of-the-box network configuration, you can skip this section and check other configuration-related topics:
 - [Configure SSO](/paas-operations/configuration/configure-sso)
 - [Configure DNS](/deployment/infra-how-tos/configure-dns)
-- [Configure certificates](/deployment/infra-how-tos/configure-certificates)
+- [Configure certificates](/paas-operations/configuration/configure-certificates)
 
 When installing CluedIn from the Azure Marketplace, you can set up advanced network configuration on the **CluedIn - Advanced Configuration** tab. You can choose from the three networking options:
 
