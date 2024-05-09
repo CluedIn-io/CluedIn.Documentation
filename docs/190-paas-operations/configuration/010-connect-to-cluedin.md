@@ -23,3 +23,5 @@ headerIcon: "paas"
     In the right pane, you'll see the connection details and instructions that you can use to connect to your CluedIn cluster.
 
     ![connect-to-cluedin-2.png](../../assets/images/ama/howtos/connect-to-cluedin-2.png)
+
+For additional details, please refer to [Microsoft Documentation](https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli#connect-to-the-cluster).
