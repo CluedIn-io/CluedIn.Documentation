@@ -32,7 +32,7 @@ Configuring SSO for CluedIn using Microsoft Entra involves two main steps:
 
 1. [Create Kubernetes secret and enable SSO via Helm](#create-kubernetes-secret-and-enable-sso-via-helm)
 
-**Important!** Before configuring SSO, make sure that you have configured [DNS](/deployment/infra-how-tos/configure-dns) and [TLS](/paas-operations/configuration/configure-certificates).
+**Important!** Before configuring SSO, make sure that you have configured [DNS](/paas-operations/configuration/configure-dns) and [TLS](/paas-operations/configuration/configure-certificates).
 
 ## Register an application in the Azure portal
 

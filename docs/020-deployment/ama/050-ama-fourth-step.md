@@ -27,7 +27,7 @@ To avoid interruption in the adoption of CluedIn, external DNS names are provide
 
 The default DNS configuration ensures security by using the Automated Certificate Management Environment (ACME) protocol to issue SSL Certificates via the HTTP challenge method. For more information about certificates, see [Configure certificates](/paas-operations/configuration/configure-certificates).
 
-If you want to set up custom DNS entries, see [Configure DNS](/deployment/infra-how-tos/configure-dns).
+If you want to set up custom DNS entries, see [Configure DNS](/paas-operations/configuration/configure-dns).
 
 ## Configure custom SSL certificates
 

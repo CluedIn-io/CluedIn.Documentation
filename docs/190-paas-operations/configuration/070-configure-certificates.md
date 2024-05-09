@@ -34,7 +34,7 @@ If you want to use a Subject Alternative Name (SAN) or wildcard certificate for 
 
 **CSR requirements**
 
-The following FQDN are a requirement in order for the application to function correctly. In the example below, we use a dev environment. Your subdomains (app-dev, clean-dev) may differ and should match what is set in the DNS section of your values file. If you are unsure, please view the [`Configure DNS`](/deployment/infra-how-tos/configure-dns) page.
+The following FQDN are a requirement in order for the application to function correctly. In the example below, we use a dev environment. Your subdomains (app-dev, clean-dev) may differ and should match what is set in the DNS section of your values file. If you are unsure, please view the [`Configure DNS`](/paas-operations/configuration/configure-dns) page.
 
 **SAN**
 ```
