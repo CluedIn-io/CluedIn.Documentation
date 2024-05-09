@@ -13,8 +13,6 @@ headerIcon: "paas"
 1. TOC
 {:toc}
 
-# High Level Design
-
 Below is a high level design of what gets deployed from the Azure Marketplace Application (AMA) wizard and what you can expect after installing the product. 
 
 ![cluedin-architecture-hlsd.png](../../assets/diagrams/cluedin-architecture-hlsd.png)
