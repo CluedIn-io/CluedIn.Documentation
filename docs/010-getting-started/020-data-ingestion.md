@@ -159,6 +159,6 @@ After the data has been processed, you can search for any property and view all 
 
 ## Results & next steps
 
-In this guide, you learned how to import data into CluedIn using a file, create auto-mapping, process the data, and perform data searches. After completing all procedures outlined here with our practice file, you now have 500 golden records in the system. With these golden records, you can perform various data management tasks.
+In this guide, you learned how to import data into CluedIn using a file, create auto-mapping, process the data, and perform data searches. After completing all steps outlined here with our practice file, you now have 500 golden records in the system. With these golden records, you can perform various data management tasks.
 
 In the following guides, you'll find detailed instructions about common data management tasks. If you find errors in your golden records, such as misspelled job titles or emails, you can fix them using the clean functionality. To learn how to do it, go to the next guide, [Clean data](/getting-started/manual-data-cleaning).
