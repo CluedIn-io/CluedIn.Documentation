@@ -1,1 +1,0 @@
-This document explains how you can reduce cost of a CluedIn environment without impacting the agreement
