@@ -19,7 +19,7 @@ Cleaning the data in CluedIn involves finding the data that needs to be cleaned,
 
 In this guide, you will learn how to manually clean the data that you have ingested into CluedIn.
 
-**Before you start:** Make sure you have completed all steps in the [Ingest data](/getting-started/data-ingestiona) guide.
+**Before you start:** Make sure you have completed all steps in the [Ingest data guide](/getting-started/data-ingestion).
 
 **Context:** This guide focuses on resolving a specific issue—a misspelled job title (Acountant). Here, you'll find step-by-step instructions on how to correct this error.
 
