@@ -114,4 +114,4 @@ All changes to the records in CluedIn are tracked. You can search for the needed
 
 After you manually cleaned the data, the misspelled values were corrected. By following the steps outlined in this guide, you can address various errors and inconsistencies in your data.
 
-The next item on the list of common data management tasks is deduplication. Learn how to identify and merge duplicates in the [Deduplicate data](/Documentation/Getting-started/Deduplicate-data) guide.
+The next item on the list of common data management tasks is deduplication. Learn how to identify and merge duplicates in the [Deduplicate data guide](/Documentation/Getting-started/Deduplicate-data).

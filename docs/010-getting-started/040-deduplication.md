@@ -19,7 +19,7 @@ Deduplication process helps you find and merge duplicate records based on a set 
 
 In this guide, you will learn how to deduplicate the data that you have ingested into CluedIn.
 
-**Before you start:** Make sure you have completed all steps in the [Ingest data guide](/getting-started/data-ingestion) and [Clean data guide](/getting-started/manual-data-cleaning).
+**Before you start:** Make sure you have completed all steps in the [Ingest data guide](/getting-started/data-ingestion).
 
 **Context:** This guide focuses on identifying duplicates based on the same first name and last name.
 
@@ -146,8 +146,6 @@ All changes to the data records in CluedIn are tracked. You can search for the n
 
 # Results
 
-You have performed data deduplication in CluedIn.
+After you identified and merged duplicates, the count of golden records decreased. By following the steps outlined in this guide, you can conduct additional checks for duplicates in your data using various matching functions.
 
-# Next steps
-
-- [Create rules using the Rule Builder](/getting-started/rule-builder)
+The next item on the list of common data management tasks is data streaming. Now that your data has been cleaned and deduplicated, you can send it to a Microsoft SQL Server database. Learn how to send data from CluedIn to external systems in the [Stream data guide](/getting-started/data-streaming).
