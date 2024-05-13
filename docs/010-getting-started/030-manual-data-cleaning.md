@@ -23,7 +23,7 @@ In this guide, you will learn how to manually clean the data that you have inges
 
 **Context:** This guide focuses on resolving a specific issue—a misspelled job title (Acountant). Here, you'll find step-by-step instructions on how to correct this error.
 
-If you come across errors in the vocabulary key values or discover records with missing data, you can perform manual data cleaning in CluedIn. This process allows you to ensure the accuracy and completeness of your data set. CluedIn will automatically identify the changes and update the stream with the cleaned records.
+If you come across errors in the record properties or discover records with missing data, you can perform manual data cleaning in CluedIn. This process allows you to ensure the accuracy and completeness of your data set. CluedIn will automatically identify the changes and update the stream with the cleaned records.
 
 **Useful links:** [Search](/key-terms-and-features/search), [Filters](/key-terms-and-features/filters)
 
