@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 9
 parent: Configuration
 grand_parent: PaaS operations
-permalink: /paas-operations/configuration/pvc
+permalink: /deployment/kubernetes/persistence
 title: PVC
 tags: ["deployment", "kubernetes", "persistence"]
 headerIcon: "paas"

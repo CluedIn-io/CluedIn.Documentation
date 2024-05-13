@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 2
 parent: PaaS operations
-permalink: /paas-operations/ama-backup
+permalink: /deployment/infra-how-tos/ama-backup
 title: Backup and restore
 tags: ["deployment", "ama", "marketplace", "azure", "backup"]
 last_modified: 2024-05-09

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: Configuration
 grand_parent: PaaS operations
-permalink: /paas-operations/configuration/advanced-network
+permalink: /deployment/infra-how-tos/advanced-network
 title: Advanced network configuration
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2024-03-01
@@ -28,7 +28,7 @@ The following diagram shows the advanced network configuration of CluedIn.
 
 ![ama-network-2.jpeg](../../assets/images/ama/howtos/advanced-network-2.jpeg)
 
-Advanced network configuration requires that you have set up the firewall policy. For more information, see [Configure firewall](/paas-operations/configuration/configure-firewall).
+Advanced network configuration requires that you have set up the firewall policy. For more information, see [Configure firewall](/deployment/infra-how-tos/configure-firewall).
 
 Advanced network configuration (ingress vNet integration) allows you to specify the vNet and/or subnet address spaces that will be used to deploy your CluedIn platform. If you are deploying into your own network, see the following Microsoft guidelines for planning your Kubernetes networking model:
 
@@ -44,9 +44,9 @@ CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, th
 ### Advanced network configuration options
 
 **Important!** If you do not plan to make any changes to the default out-of-the-box network configuration, you can skip this section and check other configuration-related topics:
-- [Configure SSO](/paas-operations/configuration/configure-sso)
-- [Configure DNS](/paas-operations/configuration/configure-dns)
-- [Configure certificates](/paas-operations/configuration/configure-certificates)
+- [Configure SSO](/deployment/infra-how-tos/configure-sso)
+- [Configure DNS](/deployment/infra-how-tos/configure-dns)
+- [Configure certificates](/deployment/infra-how-tos/configure-certificates)
 
 When installing CluedIn from the Azure Marketplace, you can set up advanced network configuration on the **CluedIn - Advanced Configuration** tab. You can choose from the three networking options:
 
@@ -108,7 +108,7 @@ This section contains a procedure for configuring CluedIn to use your internal l
 **Prerequisites**
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
-- You should be connected to your AKS cluster. See [Connect to CluedIn cluster](/paas-operations/configuration/connect-to-cluedin) for detailed instructions.
+- You should be connected to your AKS cluster. See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
 - Your Helm repository is set up.
 
 If you have any questions, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> (or reach out to your delivery manager if you have a committed deal).

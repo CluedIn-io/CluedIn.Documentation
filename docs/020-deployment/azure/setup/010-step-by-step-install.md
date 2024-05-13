@@ -282,6 +282,6 @@ Below you will find some useful links on achieving the above:
 - [Install a crawler/custom component](/integration/install-integrations)
 
 Optionally, you can also adjust other settings to cater for more complex scenarios:
-- [Persistence/Using Managed Disks](/paas-operations/configuration/pvc)
-- [Azure SQL Server](/paas-operations/configuration/sql)
+- [Persistence/Using Managed Disks](/deployment/kubernetes/persistence)
+- [Azure SQL Server](/deployment/kubernetes/sql)
 - [Scaling](/deployment/kubernetes/scaling)

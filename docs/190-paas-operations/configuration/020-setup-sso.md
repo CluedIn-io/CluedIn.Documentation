@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: Configuration
 grand_parent: PaaS operations
-permalink: /paas-operations/configuration/configure-sso
+permalink: /deployment/infra-how-tos/configure-sso
 title: SSO
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2024-02-29
@@ -32,7 +32,7 @@ Configuring SSO for CluedIn using Microsoft Entra involves two main steps:
 
 1. [Create Kubernetes secret and enable SSO via Helm](#create-kubernetes-secret-and-enable-sso-via-helm)
 
-**Important!** Before configuring SSO, make sure that you have configured [DNS](/paas-operations/configuration/configure-dns) and [TLS](/paas-operations/configuration/configure-certificates).
+**Important!** Before configuring SSO, make sure that you have configured [DNS](/deployment/infra-how-tos/configure-dns) and [TLS](/deployment/infra-how-tos/configure-certificates).
 
 ## Register an application in the Azure portal
 
@@ -242,7 +242,7 @@ After you complete the Azure application registration and app roles configuratio
 
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
 
-- You should be connected to your AKS cluster. See [Connect to CluedIn cluster](/paas-operations/configuration/connect-to-cluedin) for detailed instructions.
+- You should be connected to your AKS cluster. See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
 
 - Your Helm repository is set up.
 

@@ -17,4 +17,4 @@ Below is a high-level design of what gets deployed from the Azure Marketplace Ap
 
 ![cluedin-architecture-hlsd.png](../../assets/diagrams/cluedin-architecture-hlsd.png)
 
-For a detailed design surrounding the networking, please visit [Advanced network configuration](/paas-operations/configuration/advanced-network)
+For a detailed design surrounding the networking, please visit [Advanced network configuration](/deployment/infra-how-tos/advanced-network)
