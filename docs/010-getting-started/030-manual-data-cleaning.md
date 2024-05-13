@@ -110,7 +110,7 @@ After you have found the data that needs to be cleaned, create a clean project.
 {:.important}
 All changes to the records in CluedIn are tracked. You can search for the needed record and on the **History** pane, you can view all actions associated with the record. For more information, see [History](/key-terms-and-features/golden-records/history).
 
-# Results & next steps
+## Results & next steps
 
 After you manually cleaned the data, the misspelled values were corrected. By following the steps outlined in this guide, you can address various errors and inconsistencies in your data.
 

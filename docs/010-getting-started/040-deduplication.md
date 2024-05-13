@@ -51,7 +51,7 @@ As a first step, you need to create a deduplication project that allows you to c
     
     Now, you can proceed to define the rules for checking duplicates within the selected entity type.
 
-# Configure matching rule
+## Configure matching rule
 
 When creating a matching rule, you need to specify certain criteria. CluedIn uses these criteria to check for matching values among records belonging to the selected entity type.
 
@@ -100,7 +100,7 @@ When creating a matching rule, you need to specify certain criteria. CluedIn use
 
     Now, you can proceed to fix the duplicates.
 
-# Fix duplicates
+## Fix duplicates
 
 The process of fixing duplicates involves reviewing the values from duplicate records and selecting which values you want to merge into the deduplicated record.
 
@@ -144,7 +144,7 @@ The process of fixing duplicates involves reviewing the values from duplicate re
 {:.important}
 All changes to the data records in CluedIn are tracked. You can search for the needed data record and on the **Topology** pane, you can view the visual representation of the records that were merged through the deduplication process.
 
-# Results
+## Results & next steps
 
 After you identified and merged duplicates, the count of golden records decreased. By following the steps outlined in this guide, you can conduct additional checks for duplicates in your data using various matching functions.
 

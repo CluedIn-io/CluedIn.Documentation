@@ -21,7 +21,7 @@ In this guide, you will learn how to stream your records from CluedIn to a Micro
 
 **Before you start:** Make sure you have completed all steps in the [Ingest data guide](/getting-started/data-ingestion).
 
-## Set up export target
+## Set up an export target
 
 An export target is a place where you can send the data out of CluedIn after it has been processed. In the following procedure, we are going to establish a connection with a Microsoft SQL Server database to use it as an export target.
 
@@ -47,7 +47,7 @@ An export target is a place where you can send the data out of CluedIn after it 
 
     Now, you can create a stream.
 
-# Create stream
+## Create a stream
 
 A stream is a trigger that starts the process of sending the data to the export target. In the following procedure, we are going to configure the stream and define the records that will be streamed to a Microsoft SQL Server database.
 
@@ -107,7 +107,7 @@ A stream is a trigger that starts the process of sending the data to the export 
 
     The records have been sent to the database.
 
-# Results & next steps
+## Results & next steps
 
 After completing all steps outlined in this guide, you learned how to configure the connection to a Microsoft SQL Server database and how to send data from CluedIn to the database. If you make any changes to the records in CluedIn, they will be automatically updated in the database. For example, if you fix the job title values in CluedIn, they will be automatically corrected in the database.
 
