@@ -3,7 +3,7 @@ layout: cluedin
 title: Deduplicate data
 parent: Getting started
 permalink: /getting-started/data-deduplication
-nav_order: 50
+nav_order: 40
 tags: ["getting-started"]
 ---
 ## On this page

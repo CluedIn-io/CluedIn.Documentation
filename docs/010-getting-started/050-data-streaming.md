@@ -3,7 +3,7 @@ layout: cluedin
 title: Stream data
 parent: Getting started
 permalink: /getting-started/data-streaming
-nav_order: 30
+nav_order: 50
 tags: ["getting-started"]
 ---
 ## On this page
