@@ -17,167 +17,148 @@ Ingesting data to CluedIn involves three basic steps: importing, mapping, and pr
 <iframe src="https://player.vimeo.com/video/843840937?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Getting started with data ingestion in CluedIn"></iframe>
 </div>
 
-In this article, you will learn how to import a file into CluedIn, create a mapping, process the data, and search for data.
+In this guide, you will learn how to import a file into CluedIn, create a mapping, process the data, and perform data searches.
 
-# Import file
+**File for practice:** <a href="../../../assets/other/training-data.csv" download>training-data.csv</a>
+
+## Import file
 
 The easiest way to add data to CluedIn is to import a file. In the following procedure, we will import a CSV file containing 500 records.
 
+A CSV (comma-separated values) file format allows data to be saved in a tabular format, making it compatible with most spreadsheet programs such as Excel. So, if you are using Excel for your data analysis or management tasks, importing a CSV file is a convenient option.
+
 **To import a file**
 
-1. On the navigation pane, select **Integrations**. Then, select **Import From Files**.
+1. On the home page, in the **Integrations** section, select **Import From Files**.
 
-    ![add-data-1-upd.png](../../assets/images/getting-started/data-ingestion/add-data-1-upd.png)
+    ![import-a-file-1.png](../../assets/images/getting-started/data-ingestion/import-a-file-1.png)
 
-1. On the **Import From Files** pane, do the following:
+1. In the **Add Files** section, add the file. You may drag the file or select the file from the computer.
 
-    1. In the **Add Files** section, add the file.
+1. In the **Group** section, leave the default **Create new group** option selected, and then enter the name of the group.
 
-        You may drag the file or select the file from the computer.
+    A group indicates a department or domain within your company that is associated with the data. Think of a group as a folder where you can store files related to similar types of data.
 
-    1. In the **Group** section, leave the default **Create new group** option selected, and then enter the name of the group.
+    ![import-a-file-2.png](../../assets/images/getting-started/data-ingestion/import-a-file-2.png)
 
-        Group indicates a department or domain within your company that is associated with the data. Think of a group as a folder where you can store files related to similar types of data.
+1. Select **Upload**.
 
-    1. In the lower-right corner, select **Upload**.
+## View imported data
 
-        ![add-data-2-upd.png](../../assets/images/getting-started/data-ingestion/add-data-2-upd.png)        
+After you uploaded the file, you can view the data from the file as a table with columns and rows.
 
-        After the file is uploaded, you'll receive a notification.
+**To view imported data**
 
-        ![add-data-3-upd.png](../../assets/images/getting-started/data-ingestion/add-data-3-upd.png)
+1. On the home page, in the **Integrations** section, select **View All Data Sources**.
 
-1. On the navigation pane, select **Data Sources**.
+    Alternatively, on the navigation pane, go to **Integrations** > **Data Sources**.
 
-    The data from the file is transformed into a data source, which operates similarly to a database.
+1. Find and expand the group that you created in the previous procedure.
 
-1. Expand the data source.
+1. Expand the element contained in the group. This element is called a data source; think of a data source as a database.
 
-    The data source consists of a data set, which operates similarly to a table within the database.
+1. Select the element contained in the data source. This element is called a data set; think of a data set as a table in the database.
 
-    ![add-data-5-upd.png](../../assets/images/getting-started/data-ingestion/add-data-5-upd.png)
+    ![view-imported-data-1.png](../../assets/images/getting-started/data-ingestion/view-imported-data-1.png)
 
-1. Select the name of the data set.
+    The data set details page opens, where you can view imported data.
 
-    On the data set details page, you can find the general information about the data set.
-
-    ![add-data-6-upd.png](../../assets/images/getting-started/data-ingestion/add-data-6-upd.png)    
-
-1. In the table, select the name of the data set.
-
-    Here, you can find a preview of the data from the file.
-
-    ![add-data-7-upd.png](../../assets/images/getting-started/data-ingestion/add-data-7-upd.png)
-
-    The data has been parsed and stored in CluedIn, but it has not yet been processed. To prepare the data for processing, you need to create a mapping.
+The data is parsed and stored in CluedIn, but it is not yet been processed.
 
 **What does it mean if the data is not processed?**
 
-If you search for the unprocessed data, the search results will not include it.
+Unprocessed data is not available for any data management tasks. What is more, if you try to search for data, the results won't return any records. This is because the data is not yet visible for CluedIn. To make the data available for use within CluedIn, you need to create a mapping and process the data.
 
-# Create mapping
+## Create mapping
 
-Mapping refers to the process of creating a semantic layer for your data. This layer allows CluedIn to understand the nature of the data you are working with. 
+Mapping is the process of creating a semantic layer for your data so that CluedIn understands it. This process involves the mapping of original fields to standard fields as well as assigning appropriate data types.
 
 **To create a mapping**
 
-1. Under the name of the data source, select the **Missing Mapping** label.
+1. On the data set details page, select the **Missing Mapping** label.
+
+    ![create-mapping-1.png](../../assets/images/getting-started/data-ingestion/create-mapping-1.png)
+
+    Alternatively, go to the **Map** tab.
 
 1. In the middle of the page, select **Map Data**.
 
-1. On the **Create Mapping** pane, do the following:
+1. In **Mapping Type**, leave the default **Auto Mapping** option selected.
 
-    1. In **Mapping Type**, leave the default **Auto Mapping** option selected. Then, in the lower-right corner, select **Next**.
+    ![create-mapping-2.png](../../assets/images/getting-started/data-ingestion/create-mapping-2.png)
 
-        ![create-mapping-1-upd.png](../../assets/images/getting-started/data-ingestion/create-mapping-1-upd.png)
+1. Select **Next**.
 
-    1. Enter the name of **Entity Type**.
+1. In **Entity Type**, enter the name of a new entity type and select **Create**. An entity type is a specific business object within the organization. A well-named entity type is global and should not be changed (for example, Person, Organization, Car) across sources.
 
-        An entity type is a required common attribute shared among all the records in CluedIn. A well-named entity type is global and should not be changed (for example, Person, Organization, Car) across sources.
+    The **Entity Type Code** is created automatically; it is a string that represents the entity type in code (for example, in clues).
 
-    1. In **Entity Type Code**, leave the default value.
+1. In **Icon**, select the visual representation of the entity type.
 
-    1. In **Icon**, select the visual representation of the entity type.
+    ![create-mapping-3.png](../../assets/images/getting-started/data-ingestion/create-mapping-3.png)
 
-        ![create-mapping-2-upd.png](../../assets/images/getting-started/data-ingestion/create-mapping-2-upd.png)
+1. In **Vocabulary**, enter the name of a new vocabulary and select **Create**. A vocabulary is a structured framework for creating a unified view of your data. The purpose of vocabulary is to translate your original fields to the language CluedIn understands.
 
-    1. Enter the name of **Vocabulary**.
+    The **Key prefix** is created automatically; it is added before the original field names to establish consistent and well-organized standard fields.
 
-        A vocabulary helps you define a better semantic model for the original fields in your data set. A vocabulary is more specific than an entity type.
+    ![create-mapping-4.png](../../assets/images/getting-started/data-ingestion/create-mapping-4.png)
 
-        For example, when ingesting data from two different sources, such as a file and a CRM system, the set of properties available in each source may differ. However, the entity type will always remain the same.
+1. In **Origin**, make sure that the selected field is appropriate for generating a unique identifier (Entity Origin Code) for each record.
 
-        The **Key prefix** field is filled out by default. This prefix is added to each vocabulary key. Vocabulary keys help CluedIn understand what data you imported to CluedIn.
+    ![create-mapping-5.png](../../assets/images/getting-started/data-ingestion/create-mapping-5.png)
 
-        ![create-mapping-3-upd.png](../../assets/images/getting-started/data-ingestion/create-mapping-3-upd.png)
+1. In **Preview**, review the mapping of original fields to standard fields. You can edit the names of standard fields that come after the key prefix, and you can change the data type if needed.
 
-    1. In the lower-right corner, select **Create Mapping**.
+    ![create-mapping-6.png](../../assets/images/getting-started/data-ingestion/create-mapping-6.png)
 
-    As a result of the mapping process, you can view how the fields from the original file are linked to the fields in CluedIn.
+ 1. Select **Create Mapping**.
 
-    ![create-mapping-4-upd.png](../../assets/images/getting-started/data-ingestion/create-mapping-4-upd.png)
+    As a result of the mapping process, you can view how the fields from the file are linked to the standard fields in CluedIn.
 
-    Now that you have created the mapping, you can process the data.
+    ![create-mapping-7.png](../../assets/images/getting-started/data-ingestion/create-mapping-7.png)
 
-# Process data
+## Process data
 
-Processing refers to turning the records into clues for governing the data.
+Processing turns your data into golden records that can be cleaned, deduplicated, and streamed.
 
 **To process data**
 
-1. In the data set, go to the **Process** tab. Then, select the **Process** button.
+1. On the data set details page, select the **Not Processed** label.
 
-    ![process-data-1-upd.png](../../assets/images/getting-started/data-ingestion/process-data-1-upd.png)
+    ![process-data-1.png](../../assets/images/getting-started/data-ingestion/process-data-1.png)
 
-1. On the confirmation pane, in the lower-right corner, select **Confirm**.
+    Alternatively, go to the **Process** tab.
 
-    ![process-data-2-upd.png](../../assets/images/getting-started/data-ingestion/process-data-2-upd.png)
+1. Select **Process**.
 
-    After the data is processed, you will see a row with general information about processing.
+1. Review information about records that will be processed. Pay attention to the **Origin Entity Code Status** and **Code Status** sections. If there are duplicates, they will be merged during processing.
 
-    ![process-data-3-upd.png](../../assets/images/getting-started/data-ingestion/process-data-3-upd.png)
+    ![process-data-2.png](../../assets/images/getting-started/data-ingestion/process-data-2.png)
 
-    Now, you can search for data in CluedIn.
+1. Select **Confirm**.
 
-# Search for data
+    After the records are processed, you can view the resulting golden records on the **Data** tab.
 
-After the data has been processed, you can search for any property and view all the values associated with that property. In the following procedure, we will use the email address as an input to search for data.
+## Search for data
+
+After the data has been processed, you can search for any property and view all golden records where it is used. In the following procedure, we will use the email address as an input to search for data.
 
 **To search for data**
 
-1. On the **Preview** tab, open the data set and copy any value. We will copy the email in the first row.
+1. On the **Preview** tab of the data set, copy any email address.
 
-    ![search-for-data-1-upd.png](../../assets/images/getting-started/data-ingestion/search-for-data-1-upd.png)
+1. Paste the email address in the search field, and then select the search icon.
 
-1. Paste the email in the search field, and then select the search icon.
-
-    ![search-for-data-2-upd.png](../../assets/images/getting-started/data-ingestion/search-for-data-2-upd.png)
+    ![search-for-data-1.png](../../assets/images/getting-started/data-ingestion/search-for-data-1.png)
 
 1. On the search results page, select the name of the record.
 
-    The record details page opens.
+1. On the golden record details page, go to the **Properties** tab. Here, you can view all the properties of the golden record.
 
-1. To see all the properties of the record, go to the **Properties** tab.
+    ![search-for-data-2.png](../../assets/images/getting-started/data-ingestion/search-for-data-2.png)
 
-    ![search-for-data-3-upd.png](../../assets/images/getting-started/data-ingestion/search-for-data-3-upd.png)
+## Results & next steps
 
-1. To see all values of a certain property, do the following:
+In this guide, you learned how to import data into CluedIn using a file, create auto-mapping, process the data, and perform data searches. After completing all procedures outlined here with our practice file, you now have 500 golden records in the system. With these golden records, you can perform various data management tasks.
 
-    1. Select the property.
-
-        The property details page opens in a new tab.
-
-    1. Go to the **All Values** tab.
-
-        Here, you can view all values that the property has.
-
-        ![search-for-data-4-upd.png](../../assets/images/getting-started/data-ingestion/search-for-data-4-upd.png)
-
-
-# Results
-
-You have ingested data into CluedIn. 
-
-# Next steps
-
-- [Stream data](/getting-started/data-streaming)
+In the following guides, you'll find detailed instructions about common data management tasks. If you find errors in your golden records, such as misspelled job titles or emails, you can fix them using the clean functionality. To learn how to do it, go to the next guide, [Clean data](/getting-started/manual-data-cleaning).
