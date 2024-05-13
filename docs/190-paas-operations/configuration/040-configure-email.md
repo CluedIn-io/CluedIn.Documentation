@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: Configuration
 grand_parent: PaaS operations
-permalink: /paas-operations/configuration/configure-email
+permalink: /deployment/infra-how-tos/configure-email
 title: Email
 tags: ["deployment", "kubernetes", "email"]
 headerIcon: "paas"

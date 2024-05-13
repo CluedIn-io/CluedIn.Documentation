@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 8
 parent: Configuration
 grand_parent: PaaS operations
-permalink: /paas-operations/configuration/configure-dns
+permalink: /deployment/infra-how-tos/configure-dns
 title: DNS
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20
@@ -64,7 +64,7 @@ After you add the needed DNS entries, update your DNS configuration for CluedIn.
 - You should be comfortable working in either PowerShell or bash terminal via Azure Cloud Shell.
 - You should be connected to your AKS cluster.
 
-    See [Connect to CluedIn cluster](/paas-operations/configuration/connect-to-cluedin) for detailed instructions.
+    See [Connect to CluedIn cluster](/deployment/infra-how-tos/connect-to-cluedin) for detailed instructions.
 
 - Your Helm repository is set up.
 
@@ -123,4 +123,4 @@ After a short time, you'll see the confirmation of your update in the console. C
 ![configure-dns-2.png](../../assets/images/ama/howtos/configure-dns-2.png)
 
 {:.important}
-This will use the LetsEncrypt service in the cluster to do an HTTP request to validate the certificate. If you would like to use a self-provided certificate, please review the [Configure TLS Certificates](/paas-operations/configuration/configure-certificates) page.
+This will use the LetsEncrypt service in the cluster to do an HTTP request to validate the certificate. If you would like to use a self-provided certificate, please review the [Configure TLS Certificates](/deployment/infra-how-tos/configure-certificates) page.

@@ -8,13 +8,9 @@ tags: ["deployment", "ama", "marketplace", "azure", "architecture"]
 last_modified: 2023-11-08
 headerIcon: "paas"
 ---
-## On this page
-{: .no_toc .text-delta }
-1. TOC
-{:toc}
 
 Below is a high-level design of what gets deployed from the Azure Marketplace Application (AMA) wizard and what you can expect after installing the product. 
 
 ![cluedin-architecture-hlsd.png](../../assets/diagrams/cluedin-architecture-hlsd.png)
 
-For a detailed design surrounding the networking, please visit [Advanced network configuration](/paas-operations/configuration/advanced-network)
+For a detailed design surrounding the networking, please visit [Advanced network configuration](/deployment/infra-how-tos/advanced-network)
