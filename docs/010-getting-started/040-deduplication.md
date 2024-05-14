@@ -3,7 +3,7 @@ layout: cluedin
 title: Deduplicate data
 parent: Getting started
 permalink: /getting-started/data-deduplication
-nav_order: 50
+nav_order: 40
 tags: ["getting-started"]
 ---
 ## On this page
@@ -11,35 +11,27 @@ tags: ["getting-started"]
 1. TOC
 {:toc}
 
-Deduplication process helps you find and merge duplicate records based on a set of rules that you define. CluedIn will automatically identify the changes and update the stream with deduplicated records.
+Deduplication process helps you find and merge duplicate records based on a set of rules that you define. This process involves [creating a deduplication project](#create-deduplication-project), [configuring the matching rules](#configure-matching-rule) for identifying duplicates, and [fixing duplicates](#fix-duplicates).
 
 <div class="videoFrame">
 <iframe src="https://player.vimeo.com/video/850839188?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Getting started with data deduplication in CluedIn"></iframe>
 </div>
 
-In this article, you will learn how to deduplicate the data that you have ingested into CluedIn and streamed to a Microsoft SQL Server database.
+In this guide, you will learn how to deduplicate the data that you have ingested into CluedIn.
 
-Deduplicating the data in CluedIn involves [creating a deduplication project](#create-deduplication-project), [configuring the matching rules](#configure-matching-rule) for identifying duplicates, and [fixing duplicates](#fix-duplicates).
+**Before you start:** Make sure you have completed all steps in the [Ingest data guide](/getting-started/data-ingestion).
 
-**Prerequisites**
+**Context:** This guide focuses on identifying duplicates based on the same first name and last name.
 
-Before proceeding with the data deduplication process, ensure that you have completed the following tasks:
-
-1. Ingested some data into CluedIn. For more information, see [Ingest data](/getting-started/data-ingestion).
-
-1. Created a stream that keeps the data synchronized between CluedIn and the Microsoft SQL Server database. For more information, see [Stream data](/getting-started/data-streaming).
-
-# Create deduplication project
+## Create deduplication project
 
 As a first step, you need to create a deduplication project that allows you to check for duplicates that belong to a certain entity type.
 
 **To create a deduplication project**
 
-1. On the navigation pane, select **Management**. Then, select **Deduplication**.
+1. On the navigation pane, go to **Management**. Then, select **Deduplication**.
 
-1. On the **Actions** dashboard, select **Deduplication**.
-
-    ![dedup-1.png](../../assets/images/getting-started/deduplication/dedup-1.png)
+    ![create-dedup-project-1.png](../../assets/images/getting-started/deduplication/create-dedup-project-1.png)
 
 1. Select **Create Deduplication Project**.
 
@@ -59,7 +51,7 @@ As a first step, you need to create a deduplication project that allows you to c
     
     Now, you can proceed to define the rules for checking duplicates within the selected entity type.
 
-# Configure matching rule
+## Configure matching rule
 
 When creating a matching rule, you need to specify certain criteria. CluedIn uses these criteria to check for matching values among records belonging to the selected entity type.
 
@@ -108,7 +100,7 @@ When creating a matching rule, you need to specify certain criteria. CluedIn use
 
     Now, you can proceed to fix the duplicates.
 
-# Fix duplicates
+## Fix duplicates
 
 The process of fixing duplicates involves reviewing the values from duplicate records and selecting which values you want to merge into the deduplicated record.
 
@@ -152,10 +144,8 @@ The process of fixing duplicates involves reviewing the values from duplicate re
 {:.important}
 All changes to the data records in CluedIn are tracked. You can search for the needed data record and on the **Topology** pane, you can view the visual representation of the records that were merged through the deduplication process.
 
-# Results
+## Results & next steps
 
-You have performed data deduplication in CluedIn.
+After you identified and merged duplicates, the count of golden records decreased. By following the steps outlined in this guide, you can conduct additional checks for duplicates in your data using various matching functions.
 
-# Next steps
-
-- [Create rules using the Rule Builder](/getting-started/rule-builder)
+The next item on the list of common data management tasks is data streaming. Now that your data has been cleaned and deduplicated, you can send it to a Microsoft SQL Server database. Learn how to send data from CluedIn to external systems in the [Stream data guide](/getting-started/data-streaming).

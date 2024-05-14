@@ -26,17 +26,17 @@ The guides in this section provide quick, hands-on instructions for the basic op
 
 - Ingesting the data into CluedIn.
 
-- Streaming the records to a Microsoft SQL database.
-
 - Cleaning and deduplicating the records.
+
+- Streaming the records to a Microsoft SQL database.
 
 - Creating rules, hierarchies, glossary terms, and relations between golden records.
 
 While CluedIn contains a multitude of features, we'll focus on these fundamental operations that are key to comprehending and using the platform. 
 
-The primary objective of CluedIn is to empower you to customize the data flow according to your preferences, without imposing any strict rules and structures. That is why the sequence in which you choose to explore the guides within this section is flexible. However, we recommend starting by ingesting a file into CluedIn, as this will make it easier to view the outcomes from other record management operations, such as streaming, cleaning, and deduplication.
+The primary objective of CluedIn is to empower you to customize the data flow according to your preferences, without imposing any strict rules and structures. That is why the sequence in which you choose to explore the guides within this section is flexible. However, we recommend starting by ingesting a file into CluedIn, as this will make it easier to view the outcomes from other record management operations, such as cleaning, deduplication, and streaming.
 
-CluedIn serves as a zero-modelling master data management platform, enabling you to immediately improve the quality of your data even before defining the approach for producing your golden records and streaming them.
+CluedIn serves as a zero-modelling master data management platform, enabling you to immediately improve the quality of your data even before defining the approach for producing and sharing your golden records.
 
 After ingesting the data, you are free to perform other operations in any order you want. For instance, you may want to stream the records to a Microsoft SQL database. By doing so, you can promptly observe CluedIn's ability to keep the stream synchronized with any actions performed on the records within the platform.
 
