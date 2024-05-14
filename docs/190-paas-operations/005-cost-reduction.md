@@ -4,7 +4,6 @@ title: Operating cost reduction
 parent: PaaS operations
 permalink: /paas-operations/cost-reduction
 nav_order: 5
-has_children: true
 tags: ["kubernetes", "azure", "aks", "microsoft", "marketplace", "azure-marketplace", "cost", "reduction", "reducing"]
 headerIcon: "paas"
 ---
