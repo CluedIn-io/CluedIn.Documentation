@@ -15,7 +15,7 @@ The purpose of this guide is to explain what you can do to reduce the cost of Cl
 
 # Shutdown environments in times of low or no usage
 
-CluedIn is a product that is intended to run as part of your MDM pipeline. As a business, this may be during certain hours of the day (e.g. 0900-1700) which means that outside of these hours, the environments will be running and not being used.
+CluedIn is a product that is intended to run as part of your MDM pipeline. As a business, this may be during certain hours of the day (e.g. 0900-1700), which means that outside of these hours, the environments will be running and not being used.
 
 One easy way to reduce cost is to shut down your AKS during this hours, and starting the environment back up when it's needed. We only recommend these for your **dev** and **test** environments, and not production.
 
