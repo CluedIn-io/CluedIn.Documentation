@@ -28,4 +28,4 @@ We support [local installation](/deployment/local), which eliminates the need fo
 
 This is only recommended for experienced IT professionals due to the complexity of setting up a local running instance.
 
-For more information, please refer to the documentation above or reach out to CluedIn support who will be happy to answer any questions.
+For more information, refer to the local installation [documentation](/deployment/local) or reach out to CluedIn support who will be happy to answer any questions.
