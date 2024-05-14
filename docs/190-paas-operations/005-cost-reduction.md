@@ -8,6 +8,11 @@ has_children: true
 tags: ["kubernetes", "azure", "aks", "microsoft", "marketplace", "azure-marketplace", "cost", "reduction", "reducing"]
 headerIcon: "paas"
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
 
 CluedIn runs on Azure Kubernetes Service (AKS), which uses node pools as the underlying resources. As part of the deployment, many Azure resources will be created in your environment, each with its own costs associated with it.
 
