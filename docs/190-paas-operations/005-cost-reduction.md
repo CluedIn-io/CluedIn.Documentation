@@ -24,7 +24,7 @@ The CluedIn team can help set this up in your environment by deploying an Automa
 # Run a local environment
 
 CluedIn is container-based and therefore can run on almost any kind of setup that can run containers.
-We support [Local installation](/deployment/local) which eliminates the need for a full cluster setup for development purposes. It will still require quite a powerful machine, but will mean there is no running costs as a result.
+We support [local installation](/deployment/local), which eliminates the need for a full cluster setup for development purposes. It still requires quite a powerful machine but there are no running costs as a result.
 
 This is only recommended for experienced IT professionals due to the complexity of setting up a local running instance.
 
