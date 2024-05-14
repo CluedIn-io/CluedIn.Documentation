@@ -13,7 +13,7 @@ CluedIn runs on Azure Kubernetes Service (AKS), which uses node pools as the und
 
 The purpose of this guide is to explain what you can do to reduce the cost of CluedIn in your environment whilst maintaining a supported setup.
 
-# Shutdown environments in times of low or no usage
+# Shut down environments in times of low or no usage
 
 CluedIn is a product that is intended to run as part of your MDM pipeline. As a business, this may be during certain hours of the day (e.g. 0900-1700), which means that outside of these hours, the environments will be running and not being used.
 
