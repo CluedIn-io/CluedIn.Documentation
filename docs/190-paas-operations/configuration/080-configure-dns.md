@@ -21,7 +21,7 @@ Changing your DNS settings could have an impact on your TLS/SSL configuration. I
 
 ## DNS entries
 
-In this article, we'll use `cluedin` as the example organization name that was entered during the [installation of CluedIn](/deployment/azure-marketplace/step-3#complete-the-initial-setup-tab) and `yourdomain.com` as the example main domain.
+In this article, we'll use `cluedin` as the example organization name that was entered during the [installation of CluedIn](/deployment/azure-marketplace/step-3#complete-the-instance-setup-tab) and `yourdomain.com` as the example main domain.
 
 CluedIn requires the following 3 DNS entries which can be **A-records**:
 
