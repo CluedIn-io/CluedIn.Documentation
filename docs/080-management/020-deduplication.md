@@ -14,7 +14,7 @@ You can reduce the number of duplicates in the system proactively even before cr
  
 The following diagram shows the basic steps for merging duplicates in CluedIn.
 
-![dedup-main.gif](../../assets/images/management/deduplication/dedup-main.gif)
+![deduplication-steps.gif](../../assets/images/management/deduplication/deduplication-steps.gif)
 
 This section covers the following areas:
 
