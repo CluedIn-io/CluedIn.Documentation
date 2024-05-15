@@ -4,7 +4,7 @@ nav_order: 3
 parent: Clean
 grand_parent: Preparation
 permalink: /preparation/clean/clean-reference
-title: Clean reference
+title: Clean project reference
 tags: ["preparation", "clean"]
 ---
 ## On this page
