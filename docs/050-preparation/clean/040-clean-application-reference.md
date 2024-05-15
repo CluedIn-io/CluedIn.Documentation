@@ -21,7 +21,7 @@ The following table provides the description of common transformation functions.
 | Trim leading and trailing whitespace | Removes extra spaces and line breaks before or after visible text characters. |
 | Collapse consecutive whitespace | Removes tabs and multiple spaces in a row and replaces them with a single space. |
 | Unescape HTML entities | Replaces HTML character references with Unicode characters. For example, `&nbsp;` will be replaced with a space. |
-| Replace smart quotes with ASCII | Replaces curly quotation marks (“ ”) with double quotation marks (" "). |
+| Replace smart quotes with ASCII | Replaces curly quotation marks with straight double quote character ("). |
 | To titlecase | Transforms text in the column into Title Case. |
 | To uppercase | Transforms text in the column into UPPER CASE. |
 | To lowercase | Transforms text in the column into lower case. |
