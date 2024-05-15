@@ -52,7 +52,7 @@ After generating the results, you can open the clean application to start fixing
 
 - Transform the contents of the cells in a column:
 
-    - In the column heading, expand the menu, and then select **Edit cells** > **Common transforms**. Then, choose the transformation option (for example, collapse consecutive whitespace or transform the text to title case).
+    - In the column heading, expand the menu, and then select **Edit cells** > **Common transforms**. Then, choose the transformation option (for example, collapse consecutive whitespace or transform the text to title case). For more information, see [Clean application reference](/preparation/clean/clean-application-reference).
 
 - Edit the contents of a column using a text facet:
 
