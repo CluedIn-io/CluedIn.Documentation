@@ -55,7 +55,7 @@ app.prod.yourdomain.com
 clean.prod.yourdomain.com
 ```
 
-**Distinct Subdomains**
+**Distinct subdomains**
 ```
 cluedin.yourdomain.com
 app.yourdomain.com
