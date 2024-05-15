@@ -72,7 +72,7 @@ clean-test.yourdomain.com
 
 ## Update DNS configuration for CluedIn
 
-After you have decided what kind of DNS setup works for your business, the next steps are to add the needed DNS entries, and update your DNS configuration for CluedIn.
+After you have decided what kind of DNS setup works for your business, the next steps are to add the needed DNS entries and update your DNS configuration for CluedIn.
 
 **Prerequisites**
 
