@@ -6,7 +6,7 @@ grand_parent: Integration
 permalink: /integration/additional-operations-on-records/quarantine
 title: Quarantine
 tags: ["integration", "quarantine"]
-last_modified: 2023-11-07
+last_modified: 2024-16-05
 ---
 
 Quarantine is an area in CluedIn where records that do not meet certain conditions are sent during processing. These conditions are usually set in [pre-process rules](/integration/additional-operations-on-records/preprocess-rules) or [property rules](/integration/additional-operations-on-records/property-rules). In this article, you will learn how to fix quarantined records and send them to CluedIn.
@@ -15,15 +15,19 @@ Quarantine is an area in CluedIn where records that do not meet certain conditio
 
 To access the quarantine area, go to **Administration** > **Feature Flags** and make sure that the **Data Set Quarantine** feature is enabled.
 
-**Why is the record in quarantine?** To find out why the record is in quarantine, select the details icon (![details.png](../../assets/images/integration/additional-operations/details.png)). The **Reason** pane will display the rule that led to the record's quarantine.
+![quarantine-feature-flag.png](../../assets/images/integration/additional-operations/quarantine-feature-flag.png)
+
+**Why is the record in quarantine?** To find out why the record is in quarantine, select the **View details** icon in the **Details** column. The **Reason** pane will display the rule that led to the record's quarantine.
 
 ![quarantine-1.png](../../assets/images/integration/additional-operations/quarantine-1.png)
 
-The value that led to the record's quarantine is marked with the information icon (![information.png](../../assets/images/integration/additional-operations/information.png)).
+The value that led to the record's quarantine is marked with the information icon.
 
-**What happens to the record after it has been fixed and processed?** The record disappears from the quarantine table. On the **Process** tab of the dataset, you will find a new entry including the number of records and the processing status. However, keep in mind that the record remains in its original state on the **Preview** tab of the data set.
+![quarantine-2.png](../../assets/images/integration/additional-operations/quarantine-2.png)
 
-**What happens to the record if you delete it?** The record disappears from the quarantine table. However, the record is not lost, it remains in its original state on the **Preview** tab of the data set. If you re-process the data set without changing the previous rules, the record will appear in the quarantine table again.
+**What happens to the record after it has been fixed and processed?** The record disappears from the quarantine table. On the **Process** tab of the data set, you will find a new entry including the number of records and the processing status. However, keep in mind that the record remains in its original state on the **Preview** tab of the data set.
+
+**What happens to the record if you reject it?** The record disappears from the quarantine table. However, the record is not lost, it remains in its original state on the **Preview** tab of the data set. If you re-process the data set without changing the previous rules, the record will appear in the quarantine table again.
 
 **To manage quarantined records**
 
@@ -39,6 +43,8 @@ The value that led to the record's quarantine is marked with the information ico
 
     - To process the records one by one, select the check mark in the **Actions** column.
 
-    - To process specific records, select checkboxes in the first column for the needed records. You can also process all records by selecting the checkbox in the first column header. Then, at the upper right corner of the table, select ![vertical-ellipsis.png](../../assets/images/integration/additional-operations/vertical-ellipsis.png) > **Process**.
+    - To process specific records, select checkboxes in the first column for the needed records. You can also process all records by selecting the checkbox in the first column header. Then, at the upper right corner of the table, open the menu and select **Process**.
 
-1. If you do not want to change values and submit records to CluedIn, delete such records by selecting the corresponding icon in the **Actions** column.
+        ![quarantine-3.gif](../../assets/images/integration/additional-operations/quarantine-3.gif)
+
+    If you do not want to change values and submit records to CluedIn, reject such records by selecting the cross mark in the **Actions** column. You can also reject all records; to do that, at the upper right corner of the table, open the menu and select **Reject all**.
