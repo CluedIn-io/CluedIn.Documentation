@@ -5,4 +5,3 @@ permalink: /kb
 nav_order: 165
 ---
 
-{% include kb.html %}
