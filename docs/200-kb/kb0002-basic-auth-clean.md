@@ -1,22 +1,20 @@
 ---
 layout: cluedin
-title: Restricting access to CluedIn Clean via Basic Authentication
+title: Restricting access to CluedIn Clean Basic Authentication
+parent: Knowledge base
 permalink: /kb/basic-auth-cluedin-clean
-nav_exclude: true
 tags: ["security","cluedin-clean","authentication","kubernetes"]
 last_modified: 2022-08-29
-is_kb: true
+nav_order: 2
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 This article describes how to enable [HAProxy Basic Authentication](https://github.com/jcmoraisjr/haproxy-ingress/tree/master/examples/auth/basic) to restrict access to CluedIn Clean page.
 
 Please note that the setup of CluedIn on AKS is not in the scope of this article.
-
-<hr>
-
-<h2 class="text-delta">Table of contents</h2>
-1. TOC
-{:toc}
 
 ## Prerequisites
 

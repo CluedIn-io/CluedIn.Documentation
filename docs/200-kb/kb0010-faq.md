@@ -1,15 +1,14 @@
 ---
 layout: cluedin
 title: Frequently Asked Questions
+parent: Knowledge base
 permalink: /kb/faq
-nav_exclude: true
 tags: ["getting-started", "faq"]
-is_kb: true
+nav_order: 11
 ---
-
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 # What happens if I change the default configuration installed using the Azure Marketplace offering?

@@ -2,20 +2,19 @@
 layout: cluedin
 title: Restricting access to CluedIn Clean via SSO Authentication
 permalink: /kb/sso-auth-cluedin-clean
-nav_exclude: true
+parent: Knowledge base
 tags: ["security","cluedin-clean","authentication","kubernetes", "sso"]
 last_modified: 2022-03-23
-is_kb: true
+nav_order: 6
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
 This article describes how to enable your selected SSO provider to restrict access to the CluedIn Clean page.
 
 Please note that the setup of CluedIn on AKS is not in the scope of this article.
-
-<hr>
-
-<h2 class="text-delta">Table of contents</h2>
-1. TOC
-{:toc}
 
 ## Prerequisites
 
