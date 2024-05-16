@@ -5,3 +5,6 @@ permalink: /kb
 nav_order: 165
 ---
 
+{: .no_toc .text-delta }
+- TOC
+{:toc}
