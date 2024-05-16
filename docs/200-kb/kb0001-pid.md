@@ -1,23 +1,21 @@
 ---
 layout: cluedin
-title: Azure Customer Usage Attribution
+title: Azure customer usage attribution
+parent: Knowledge base
 permalink: /kb/azure-customer-usage-attribution
-nav_exclude: true
 tags: ["microsoft","azure","kubernetes","aks"]
 last_modified: 2021-09-20
-is_kb: true
+nav_order: 1
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 This article describes how to create customers Azure resources associated with CluedIn as a Microsoft partner.
 
 We will create a basic AKS cluster with the help of an ARM template.
 The sizing and setup of the Kubernetes cluster are not in the scope of this article.
-
-<hr>
-
-<h2 class="text-delta">Table of contents</h2>
-1. TOC
-{:toc}
 
 ## Before you start
 

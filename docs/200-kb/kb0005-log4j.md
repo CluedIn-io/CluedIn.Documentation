@@ -2,11 +2,15 @@
 layout: cluedin
 title: CluedIn Security - Log4j2 CVE-2021-44228
 permalink: /kb/log4j
-nav_exclude: true
+parent: Knowledge base
 tags: ["security"]
 last_modified: 2022-01-31
-is_kb: true
+nav_order: 5
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 On December 9th 2021 a high severity vulnerability was disclosed in the Apache Log4j2 library for all 
 versions between 2.0-beta9 and 2.14.1. This library is used by a significant amount of Java based 

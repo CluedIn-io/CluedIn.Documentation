@@ -1,13 +1,17 @@
 ---
 layout: cluedin
 title: "CluedIn Expression Language (C.E.L.)"
+parent: Knowledge base
 description: "CluedIn Expression Language manual"
 permalink: /kb/cel
-nav_exclude: true
 tags: ["cel", "advanced mapping", "prepare"]
 last_modified: 2023-10-24
-is_kb: true
+nav_order: 9
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 # C.E.L.
 

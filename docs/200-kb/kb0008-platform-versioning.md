@@ -1,12 +1,12 @@
 ---
 layout: cluedin
 title: "Versioning and release schedule"
+parent: Knowledge base
 description: "Information on how CluedIn is versioning"
 permalink: /kb/platform-versioning
-nav_exclude: true
 tags: ["versioning", "platform"]
 last_modified: 2022-05-09
-is_kb: true
+nav_order: 8
 ---
 ## On this page
 {: .no_toc .text-delta }

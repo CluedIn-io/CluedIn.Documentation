@@ -1,17 +1,17 @@
 ---
 layout: cluedin
 title: "Running CluedIn efficiently for cost"
+parent: Knowledge base
 permalink: /kb/cost-efficience
-nav_exclude: true
 tags: ["cost"]
 last_modified: 2022-05-09
-is_kb: true
+nav_order: 10
 ---
-
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
+
 ### Introduction
 
 When running big data platforms in the cloud, it is essential to remember that things cost money to run. There are mainly two main expenses in running CluedIn, and they are processing of data and storage. In perspective, the processing is usually 90% of the cost, storage being the other. Hence, CluedIn can run to optimize for cost and run in a way that does not. 

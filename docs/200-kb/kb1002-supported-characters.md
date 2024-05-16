@@ -1,14 +1,13 @@
 ---
 layout: cluedin
 title: Supported and unsupported characters
+parent: Knowledge base
 permalink: /kb/supported-characters
-nav_exclude: true
-is_kb: true
+nav_order: 13
 ---
-
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 In this article, you'll find reference infromation about supported and unsupported characters in clues and entities.
