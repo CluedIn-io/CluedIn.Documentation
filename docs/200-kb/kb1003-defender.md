@@ -2,14 +2,13 @@
 layout: cluedin
 title: 'Microsoft Defender for Cloud recommendations'
 permalink: /kb/defender-for-cloud-recommendations
-nav_exclude: true
+parent: Knowledge base
 tags: ["recommendations", "Defender", "Cloud"]
-is_kb: true
+nav_order: 14
 ---
-
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 This document covers Microsoft Defender for Cloud advisories that you may face when installing the CluedIn MDM PaaS variant of the product into your environemnt. It will explain what each advisory means and how to potentially resolve the issue.

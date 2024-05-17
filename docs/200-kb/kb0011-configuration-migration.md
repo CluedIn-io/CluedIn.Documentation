@@ -1,15 +1,14 @@
 ---
 layout: cluedin
 title: Configuration migration
+parent: Knowledge base
 permalink: /kb/config-migrate
-nav_exclude: true
 tags: ["configuration", "migration"]
-is_kb: true
+nav_order: 12
 ---
-
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 This document covers the process for migrating CluedIn configuration from one environment to another environment. This is especially useful when developing your foundation on one environment and want to promote it to production.

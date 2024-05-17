@@ -5,8 +5,8 @@ parent: Configuration
 grand_parent: PaaS operations
 permalink: /deployment/infra-how-tos/configure-dns
 title: DNS
-tags: ["deployment", "ama", "marketplace", "azure"]
-last_modified: 2023-06-20
+tags: ["deployment", "ama", "marketplace", "azure", "dns", "domain name system"]
+last_modified: 2024-05-09
 headerIcon: "paas"
 ---
 ## On this page
@@ -14,50 +14,65 @@ headerIcon: "paas"
 1. TOC
 {:toc}
 
-
 As part of the CluedIn configuration, a base URL is used to make the application easily accessible by your browser. For proper configuration of CluedIn, you need to update the DNS settings. Specifically, you need to ensure that the A-records are configured to point either to your public IP address or a private IP address.
 
-**Important!** Changing your DNS settings could have an impact on your TLS/SSL configuration. If you are also using specific TLS ingress hosts, they will also need to be changed to reflect your new DNS.
+{:.important}
+Changing your DNS settings could have an impact on your TLS/SSL configuration. If you are also using specific TLS ingress hosts, they will also need to be changed to reflect your new DNS.
 
 ## DNS entries
 
-In this article, we'll use `deparmentX` as an example of the organization name that was entered during the [installation of CluedIn](/deployment/azure-marketplace/step-3#complete-the-initial-setup-tab) and `mycompany.com` as an example of the main domain.
+In this article, we'll use `cluedin` as the example organization name that was entered during the [installation of CluedIn](/deployment/azure-marketplace/step-3#complete-the-instance-setup-tab) and `yourdomain.com` as the example main domain.
 
-You need to have the **A-records** for the following DNS entries:
-
-```
-deparmentX.mycompany.com
-app.mycompany.com
-clean.mycompany.com
-```
-
-At CluedIn, we use the following environments:
-
-- **Development environment** – for partners and developers to customize CluedIn.
-- **Test environment** – for business users to validate the work implemented by development teams (with non-production data).
-- **Production environment** – for business users to operate CluedIn using real-world data.
-
-We recommend that you set up those environments (development, test, and production) using the name convention of your choice.
-
-**Example of DNS entries for the CluedIn environments**
+CluedIn requires the following 3 DNS entries which can be **A-records**:
 
 ```
-deparmentX.dev.mycompany.com
-app.dev.mycompany.com
-clean.dev.mycompany.com
+cluedin.yourdomain.com
+app.yourdomain.com
+clean.yourdomain.com
+```
 
-deparmentX.test.mycompany.com
-app.test.mycompany.com
-clean.test.mycompany.com
+At CluedIn, we recommend the following environments:
 
-deparmentX.prod.mycompany.com
-app.prod.mycompany.com
-clean.prod.mycompany.com
+- **Development** – for partners and developers to customize CluedIn.
+- **Test** – for business users to validate the work implemented by development teams (with non-production data).
+- **Production** – for business users to operate CluedIn using real-world data.
+
+We recommend that you set up these environments (development, test, and production) using one the following naming conventions:
+
+**Split by subdomain**
+
+```
+cluedin.dev.yourdomain.com
+app.dev.yourdomain.com
+clean.dev.yourdomain.com
+
+cluedin.test.yourdomain.com
+app.test.yourdomain.com
+clean.test.yourdomain.com
+
+cluedin.prod.yourdomain.com
+app.prod.yourdomain.com
+clean.prod.yourdomain.com
+```
+
+**Distinct subdomains**
+```
+cluedin.yourdomain.com
+app.yourdomain.com
+clean.yourdomain.com
+
+cluedin-dev.yourdomain.com
+app-dev.yourdomain.com
+clean-dev.yourdomain.com
+
+cluedin-test.yourdomain.com
+app-test.yourdomain.com
+clean-test.yourdomain.com
 ```
 
 ## Update DNS configuration for CluedIn
 
-After you add the needed DNS entries, update your DNS configuration for CluedIn.
+After you have decided what kind of DNS setup works for your business, the next steps are to add the needed DNS entries and update your DNS configuration for CluedIn.
 
 **Prerequisites**
 
@@ -83,13 +98,14 @@ If you have any questions about DNS configuration, you can request CluedIn suppo
       dns:
         hostname: 1.2.3.4.sslip.io
         # subdomains:
-          # openrefine: cluedin-clean-dev
-          # application: cluedin-app-dev
+          # openrefine: clean
+          # application: app
         
         # If you want to deviate away from the standard 'app' and 'clean' subdomains, you need to add the
         # `subdomains` block of code and ensure that they match in the global.ingress.tls.hosts section as well.
     ```
-    **Note**: For environments sharing a second-level domain such as `customer.com`, it's important to plan the domains in advance to avoid issues during the onboarding process. 
+    {:.important}
+    For environments sharing a second-level domain such as `yourdomain.com`, it's important to plan the domains in advance to avoid issues during the onboarding process. 
 1. Edit the value of `hostname` to reflect your desired domain for the given environment.
 1. Find the **TLS hosts** section. The example of the section is shown below.
 
@@ -98,10 +114,10 @@ If you have any questions about DNS configuration, you can request CluedIn suppo
       ingress:
         tls:
           hosts:
-          - departmentX.20.0.189.11.sslip.io
-          - app.20.0.189.11.sslip.io
-          - clean.20.0.189.11.sslip.io
-          - '*.20.0.189.11.sslip.io'
+          - cluedin.1.2.3.4.sslip.io
+          - app.1.2.3.4.sslip.io
+          - clean.1.2.3.4.sslip.io
+          - '*.1.2.3.4.sslip.io'
     ```
 1. Replace the hosts section as shown below.
 
@@ -110,17 +126,16 @@ If you have any questions about DNS configuration, you can request CluedIn suppo
       ingress:
         tls:
           hosts:
-          - departmentX.mycompany.com
-          - app.mycompany.com
-          - clean.mycompany.com
-          - '*.mycompany.com'
+          - cluedin.yourdomain.com
+          - app.yourdomain.com
+          - clean.yourdomain.com
+          - '*.yourdomain.com'
     ```
 
 1. Save the file and apply changes from the local file to the CluedIn cluster by running the following command:  
     `helm upgrade -i cluedin-platform cluedin/cluedin-platform -n cluedin --values Cluster-Current-values.yaml`
 
-After a short time, you'll see the confirmation of your update in the console. CluedIn is now configured to use your new DNS address.  
-![configure-dns-2.png](../../assets/images/ama/howtos/configure-dns-2.png)
+After a short time, you'll see the confirmation of your update in the console. CluedIn is now configured to use your new DNS address.
 
 {:.important}
 This will use the LetsEncrypt service in the cluster to do an HTTP request to validate the certificate. If you would like to use a self-provided certificate, please review the [Configure TLS Certificates](/deployment/infra-how-tos/configure-certificates) page.

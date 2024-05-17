@@ -1,16 +1,15 @@
 ---
 layout: cluedin
-title: Rebuilding Elasticsearch Index
+title: Rebuilding Elasticsearch index
+parent: Knowledge base
 permalink: /kb/elastic-index-rebuild
-nav_exclude: true
 tags: ["search","elasticsearch","index","rebuild","reprocess","reindex"]
 last_modified: 2021-10-20
-is_kb: true
+nav_order: 3
 ---
-
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 ### Problem

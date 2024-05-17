@@ -1,12 +1,12 @@
 ---
 layout: cluedin
 title: "Disabling colors in CluedIn log output"
+parent: Knowledge base
 description: "Disabling colors in CluedIn log output"
 permalink: /kb/themed-log-output
-nav_exclude: true
 tags: ["logging", "configuration"]
 last_modified: 2022-05-05
-is_kb: true
+nav_order: 7
 ---
 
 CluedIn uses Serilog for logging. By default, logs are formatted with an ANSI color theme.
