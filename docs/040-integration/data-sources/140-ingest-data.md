@@ -46,7 +46,7 @@ The **data ingestion process for files** consists of three stages: uploading, pa
 
 1. In the lower-right corner, select **Upload**.
 
-    The data has been ingested to CluedIn, and you can view it on the **Preview** tab of the data set. Next, check the [logs](/integration/additional-operations-on-records/logs) to make sure all your records are valid. To turn your data into golden records, [create a mapping](/integration/create-mapping) and [process the data](/integration/process-data).
+    The data has been ingested to CluedIn, and you can view it on the [Preview](/integration/additional-operations-on-records/preview) tab of the data set. Next, check the [logs](/integration/additional-operations-on-records/logs) to make sure all your records are valid. To turn your data into golden records, [create a mapping](/integration/create-mapping) and [process the data](/integration/process-data).
 
 ## Ingestion point
 
@@ -140,7 +140,7 @@ To be accepted by CluedIn, your HTTP POST request should meet the following prer
 
 1. In Postman, paste the URL that you copied to the URL input field of your request. Then, send the request.
 
-    The data has been sent to CluedIn. You can now view it on the [Preview](#preview) tab of the data set. The next steps involve [creating a mapping](/integration/create-mapping) and [processing the data](/integration/process-data).
+    The data has been sent to CluedIn. You can now view it on the [Preview](/integration/additional-operations-on-records/preview) tab of the data set. The next steps involve [creating a mapping](/integration/create-mapping) and [processing the data](/integration/process-data).
 
 ## Database
 
@@ -199,23 +199,3 @@ With an established connection to the database, you can choose which database ta
 1. Select the checkboxes next to the tables you want to ingest into CluedIn. Then, in the lower-right corner, select **Add**.
 
     The tables are added to CluedIn. Each table is added as a separate data set. Next, [create mapping](/integration/create-mapping) and [process data](/integration/process-data).
-
-## Preview
-
-After you ingest the data, it is displayed on the **Preview** tab as a table.
-
-If you want to focus on specific columns and hide the others, select **Column Options**, and then clear the checkboxes next to the columns that you want to hide from the table.
-
-After you create the mapping for the data set, each column header will contain the vocabulary key to which the original field is mapped. You can view the number of duplicates in each field.
-
-**To view duplicates**
-
-- In the column header, select the vertical ellipsis button, and then select **View duplicates**.
-
-    The **Duplicates Preview** pane opens, where you can view the following information:
-
-    - Number of duplicates in the data set.
-
-    - Which values are duplicates.
-
-    - Occurrences of duplicates – for each duplicate value, the pane displays how many times it occurs within the data set.
