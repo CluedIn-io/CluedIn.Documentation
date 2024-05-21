@@ -85,7 +85,7 @@ Exiting the edit mode reverts all changes made to the data set in the edit mode 
 
 1. Select **Save**. The bold formatting of the changed value disappears.
 
-    ![edit-mode-1.gif](/.attachments/edit-mode-1-4d7aa9eb-5ad7-4535-8744-454acc7d84c1.gif =650x)
+    ![preview-edit-mode-1.gif](../../assets/images/integration/additional-operations/preview-edit-mode-1.gif)
 
     The history of your manual changes is displayed in the **Operations** tab. If you no longer need the change or you made it by mistake, you can revert the change. To do it, select the **Undo the last operation** icon or the delete icon. Note that changes can only be reverted consecutively, one by one, and not selectively.
 
@@ -113,7 +113,7 @@ Exiting the edit mode reverts all changes made to the data set in the edit mode 
 
 1. Select **Save**.
 
-    ![edit-mode-2.gif](/.attachments/edit-mode-2-d3710d60-7ed1-4d64-9d48-8f5f77ffcb95.gif =650x)
+    ![preview-edit-mode-2.gif](../../assets/images/integration/additional-operations/preview-edit-mode-2.gif)
 
 **To exit the edit mode**
 
@@ -129,6 +129,6 @@ This feature allows you to check if the column contains duplicate values. Viewin
 
 1. Open the menu in the column heading, and then select **View duplicates**.
 
-    ![view-duplicates.gif](/.attachments/view-duplicates-161e8549-c34e-400e-bc42-f5b9ae9b5e60.gif =650x)
+    ![preview-duplicates-1.gif](../../assets/images/integration/additional-operations/preview-duplicates-1.gif)
 
     You can view the total number of duplicate values in the column, identify which values are duplicates, and see how many times each duplicate value occurs.
