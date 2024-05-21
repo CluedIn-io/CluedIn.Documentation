@@ -74,6 +74,48 @@ This tab shows the transformations of the vocabulary key.
 
 - Streams – streams where the vocabulary key is used.
 
+**Profiling**
+
+This tab contains a breakdown and distribution of all vocabulary key values in a graphic format. It can help you identify issues and anomalies in data quality.
+
+To access profiling, go to **Administration** > **Feature Flags**, and enable the **Profiling dashboards** feature.
+
+![preview-profiling-1.png](../../assets/images/integration/additional-operations/preview-profiling-1.png)
+
+Profiling is type-specific, so the dashboards for text and number vocabulary keys are different. The following image shows an example of profiling for a text vocabulary key.
+
+![vocab-key-profiling-1.png](../../assets/images/management/data-catalog/vocab-key-profiling-1.png)
+
+The profiling for a text vocabulary key contains the following dashboards:
+
+- Total values – the total number of values that the vocabulary key has.
+
+- Values over time – a time-series visualization displaying the count of values that appeared in CluedIn over time. The x axis represents the time, and the y axis represents the count of values.  For a more granular view, you can select a specific time period using the mouse.
+
+- Distribution of values (bar gauge) – a visualization that displays the distribution of vocabulary key values based on the number of records where each value is used. Each bar represents a distinct value, with the color gradient indicating the frequency of that value's occurrence in the records: green indicates a lower number of records, while red indicates a higher number of records. This gradient provides a quick visual cue for identifying the most and least common values.
+
+- Distribution of values (pie chart) – a visualization that displays the distribution of vocabulary key values based on the number of records where each value is used. Each slice of the pie represents a distinct key value, with the area of the slice indicating the frequency of that value's occurrence in the records. The larger the slice, the higher the number of records that contain the value. This type of visualization helps to quickly understand the relative proportions of different vocabulary key values.
+
+The following image shows an example of profiling for a number vocabulary key.
+
+![vocab-key-profiling-2.png](../../assets/images/management/data-catalog/vocab-key-profiling-2.png)
+
+The profiling for a number vocabulary key contains the following dashboards:
+
+- Minimum value – a visualization that displays the minimum value among all values of a vocabulary key.
+
+- Standard deviation – a visualization that displays the amount of variation or dispersion in a set of values. It indicates how much individual values deviate from the average value. A low standard deviation indicates that the values tend to be close to the average, while a high standard deviation indicates that the values are spread out over a wider range of values.
+
+- Maximum value – a visualization that displays the maximum value among all values of a vocabulary key.
+
+- Average value – a visualization that displays the average value, calculated by dividing the sum of all values by the number of values. This visualization helps to quickly understand the central tendency among the vocabulary key values.
+
+- Number of values – a visualization that displays the total number of values that the vocabulary key has.
+
+- Sum value – a visualization that displays the sum of all vocabulary key values.
+
+- Values over time – a time-series visualization displaying the count of values that appeared in CluedIn over time. The x axis represents the time, and the y axis represents the count of values.
+
 **Pending changes**
 
 This tab contains tasks for reviewing changes to the vocabulary key submitted by users who are not Vocabulary Owners.
