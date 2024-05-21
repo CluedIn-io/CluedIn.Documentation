@@ -78,7 +78,7 @@ This tab shows the transformations of the vocabulary key.
 
 This tab contains a breakdown and distribution of all vocabulary key values in a graphic format. It can help you identify issues and anomalies in data quality.
 
-To access profiling, go to **Administration** > **Feature Flags**, and enable the **Profiling dashboards** feature.
+Profiling is a beta feature. To access profiling, go to **Administration** > **Feature Flags**, and enable the **Profiling dashboards** feature.
 
 ![preview-profiling-1.png](../../assets/images/integration/additional-operations/preview-profiling-1.png)
 

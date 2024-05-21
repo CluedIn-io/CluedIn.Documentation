@@ -18,7 +18,7 @@ In this article, you will learn about the various operations available on the **
 
 Profiling provides a breakdown and distribution of all vocabulary key values in a graphic format. It can help you identify issues and anomalies in data quality. Profiling is not limited to a data set, meaning that it displays information about vocabulary key values coming from different data sources.
 
-To access profiling, go to **Administration** > **Feature Flags**, and enable the **Profiling dashboards** feature.
+Profiling is a beta feature. To access profiling, go to **Administration** > **Feature Flags**, and enable the **Profiling dashboards** feature.
 
 ![preview-profiling-1.png](../../assets/images/integration/additional-operations/preview-profiling-1.png)
 
