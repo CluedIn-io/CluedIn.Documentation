@@ -23,7 +23,7 @@ In CluedIn, you can browse all vocabulary keys by going to **Management** > **Da
 
 On the vocabulary key details page, you can view relevant information about a vocabulary key and take other actions to [manage a vocabulary key](#manage-a-vocabulary-key).
 
-**Configuration**
+### Configuration
 
 This tab contains general information about the vocabulary key, including:
 
@@ -50,19 +50,19 @@ This tab contains general information about the vocabulary key, including:
 
 - [Mapping](#map-one-vocabulary-key-to-another) to another vocabulary key – a section that shows if the current vocabulary key is mapped to another vocabulary key. The purpose of such mapping is to avoid having duplicate values in the system.
 
-**Usage**
+### Usage
 
 This tab contains the global view of vocabulary key usage in the system: number of golden records, streams, glossary terms, rules, data set mappings, clean projects, deduplication projects, and saved searches where the vocabulary key is used. You can select the **View all** button to view more details and find links to the corresponding elements in the system.
 
 ![vocabulary-key-usage.gif](../../assets/images/management/data-catalog/vocabulary-key-usage.gif)
 
-**All values**
+### All values
 
 This tab displays all values associated with the key, along with the total number of golden records in which each value is used. When you select a specific value, a new tab containing the search results will open. This tab lists golden records where the selected vocabulary key value is used. Note that the vocabulary key column is not displayed by default, so you may need to [add columns](/key-terms-and-features/search#add-columns) to the search results page.
 
 ![vocabulary-key-all-values.gif](../../assets/images/management/data-catalog/vocabulary-key-all-values.gif)
 
-**Lineage**
+### Lineage
 
 This tab shows the transformations of the vocabulary key.
 
@@ -74,7 +74,7 @@ This tab shows the transformations of the vocabulary key.
 
 - Streams – streams where the vocabulary key is used.
 
-**Profiling**
+### Profiling
 
 This tab contains a breakdown and distribution of all vocabulary key values in a graphic format. It can help you identify issues and anomalies in data quality.
 
@@ -116,13 +116,9 @@ The profiling for a number vocabulary key contains the following dashboards:
 
 - Values over time – a time-series visualization displaying the count of values that appeared in CluedIn over time. The x axis represents the time, and the y axis represents the count of values.
 
-**Pending changes**
+### Pending changes and Audit log
 
-This tab contains tasks for reviewing changes to the vocabulary key submitted by users who are not Vocabulary Owners.
-
-**Audit log**
-
-This tab contains a detailed history of changes to the vocabulary key.
+The **Pending changes** tab contains tasks for reviewing changes to the vocabulary key submitted by users who are not Vocabulary Owners. The **Audit log** tab contains a detailed history of changes to the vocabulary key.
 
 ## Create a vocabulary key
 
