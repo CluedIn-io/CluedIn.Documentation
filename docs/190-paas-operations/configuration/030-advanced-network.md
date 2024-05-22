@@ -28,68 +28,31 @@ The following diagram shows the advanced network configuration of CluedIn.
 
 ![ama-network-2.jpeg](../../assets/images/ama/howtos/advanced-network-2.jpeg)
 
-Advanced network configuration requires that you have set up the firewall policy. For more information, see [Configure firewall](/deployment/infra-how-tos/configure-firewall).
+Advanced network configuration requires that you have read and configured your firewall as per the firewall policy. For more information, see [Configure firewall](/deployment/infra-how-tos/configure-firewall).
 
-Advanced network configuration (ingress vNet integration) allows you to specify the vNet and/or subnet address spaces that will be used to deploy your CluedIn platform. If you are deploying into your own network, see the following Microsoft guidelines for planning your Kubernetes networking model:
+During the installation, you will have the option to use the recommended CluedIn defaults, or to use your own vNet and subnet to comply with internal policies.
 
-- [Plan IP addressing for your cluster](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster)
-- [Configure Azure CNI networking in Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni)
+CluedIn support two main options which are detailed below:
 
-The CluedIn platform requires using **Azure CNI networking plug-in**. This plug-in is configured using routable vNet-based IP address at a per pod and node level. You need to plan the IP addressing for your cluster according to your current network topology.
+| Supported CNI Modes | Description | Recommended class | Reference |
+| --- | --- | --- | --- |
+| Azure CNI Overlay | \***Default**\*<br>CluedIn recommends this option as it only requires 1 IP per node from your subnet.<br>This means if you have 5 nodes, a total of 5 IP addresses will need to be used up front. | `/27`<br>30 available IP addresses | [Azure CNI Overlay planning](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay?tabs=kubectl#ip-address-planning) |
+| Azure CNI | Assigns 1 IP per pod, per node based on the `maxPods` property which defaults to `50` during installation.<br>This means that if you have 5 nodes, each with a max of 50 pods, a total of 250 IP addresses will need to be used up front. | `/23`<br>510 available IP addresses | [CNI network planning](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overview#plan-ip-addressing-for-your-cluster) |
 
-During the CluedIn installation, you will be asked for the **Kubernetes service address range**. Microsoft default values will work fine with CluedIn. However, these values can be customized, and it is important that your network is planned in accordance with the Microsoft guidance.
+{:.important}
+It is best to always accomodate for expansion of your cluster, especially during AKS upgrades as additional nodes will be spun up at upgrade time. The above is CluedIn's recommendation.
 
-CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, this is an absolute minimum configuration, and it does not include any additional services and associated overhead.
+## Advanced network configuration options
 
-### Advanced network configuration options
+During the installation of CluedIn from the Azure Marketplace, you can set up advanced network configuration on the **Networking and Monitoring** tab. The default option is to create a new vNet and subnet with recommended defaults, but this can be changed to use an existing vNet.
 
-**Important!** If you do not plan to make any changes to the default out-of-the-box network configuration, you can skip this section and check other configuration-related topics:
-- [Configure SSO](/deployment/infra-how-tos/configure-sso)
-- [Configure DNS](/deployment/infra-how-tos/configure-dns)
-- [Configure certificates](/deployment/infra-how-tos/configure-certificates)
+{:.important}
+If you're using an existing vNet as part of the deployment, you will need to ensure that the the AKS cluster identity has appropriate permissions to manage the subnet. This is because AKS nodes will join and leave the subnet at times.
 
-When installing CluedIn from the Azure Marketplace, you can set up advanced network configuration on the **CluedIn - Advanced Configuration** tab. You can choose from the three networking options:
+Out of the box, CluedIn will use a public ingress and egress load balancer to serve traffic initially regardless of vNet choice. In advanced networking setups, we recommend changing this so ingress is only accessible via a private vNet. The below will cover how to do this and as part of the CluedIn managed service, we will work with you to ensure it's done in a supported way.
 
-- **Default** – a new vNet will be created using default values that may not allow you to integrate with the existing networks.
-- **Modify IP ranges** – a new vNet will be created with IP address ranges that you specify.
-- **Use Existing vNet** – an existing vNet will be used and you need to specify both the vNet and the IP address ranges.
-
-The following section focuses on the IP address configuration because it is universal to both the **Modify IP ranges** and the **Use Existing vNet** options.
-
-### IP address configuration
-
-The following example is based on the CluedIn essential configuration using the default node pool configuration with the existing Azure vNet.
-
-![advanced-network-ama-tab.png](../../assets/images/ama/howtos/advanced-network-ama-tab.png)
-
-
-When configuring vNet integration, only the following values need to be changed, unless you have a very specific use case:
-
-- AKS subnet
-- Kubernetes DNS service IP address
-- Kubernetes service address range
-
-#### AKS subnet
-
-In the example above, the existing vNet was used to configure the AKS subnet. This is a non-overlapping subnet in the target network space, so it can communicate with other Azure vNets and Azure resources.
-
-_10.240.0.0/23_ has a range of 10.240.0.0–10.240.1.255, which is 512 IP addresses in total. The AKS subnet is used to allocate IP address to pods, nodes, and the load balancer IP.
-
-Under a normal operation, the cluster and CluedIn use around 350 addresses, leaving around 162 addresses for scaling, upgrading, and additional services.
-
-**Warning!** CluedIn can operate inside CIDR /23 with 510 available IP addresses. However, this is an absolute minimum configuration, and it may not provide sufficient headroom in the future or for some scaling scenarios. If CIDR /22 with 1022 IP addresses is available, you will have a little more headroom.
-
-#### Kubernetes service address range
-
-The Kubernetes service address range shouldn't be used by any network element on or connected to the ABA-DEV-IMPL-VNET-03 virtual network. The service address CIDR must be less than /12. You can reuse this range across different AKS clusters. In the example, we used 10.241.0.0/23, which is sufficient for the current services and any future growth.
-
-#### Kubernetes DNS service IP address
-
-The Kubernetes DNS service IP address is the IP address within the Kubernetes service address range that will be used by cluster service discovery. Don't use the first IP address in your address range. The first address in your address range is used for the kubernetes.default.svc.cluster.local address. In the example above, we have selected 10.241.0.10, which is inside the service CIDR range.
- 
-## Azure Load Balancer
-
-If you are using Azure Load Balancer as part of your CluedIn deployment, you need to consider the following security aspects:
+### Using an existing vNet
+If you are using an existing virtual network as part of your CluedIn deployment, you need to consider the following security aspects:
 
 - The cluster identity used by the AKS cluster must have at least **Network Contributor** permissions on the subnet within your virtual network. 
     **Note**: On a standard CluedIn instance, this will be the User Assigned Identity rather than Machine Assigned. This is located in the Managed Resource Group.
@@ -155,6 +118,42 @@ If you have any questions, you can request CluedIn support by sending an email t
 
     In Azure, you should then see a new Load Balancer resource called `kubernetes-internal`, which will be used for ingress. The original `kubernetes` then simply becomes egress only.
 
+## Integration options
+With Kubernetes now configured to use the internal load balancer for ingress, you will need to decide how you want to access this front end load balancer from your internal network. The two options supported are `Virtual network peering` and `Private link service with private endpoint`.
+
+**Note**: If your subnets overlap in any way, the only option will be `Private link service with private endpoint`.
+
+### Virtual network peering
+To configure virtual network peering, Microsoft have a [document](https://learn.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal) explaining how to achieve this easily.
+
+As all resources have already been created, you only need to follow the `Create virtual network peer` step in the above document.
+
+### Private link service with private endpoint
+In the event there is overlapping of subnets, this is not a problem as `private endpoints` also work here. This is slightly more complicated than virtual network peering and we'll offer a bit of guidance here.
+
+Microsoft have a [document](https://learn.microsoft.com/en-us/azure/private-link/create-private-link-service-portal) explaining how to achieve this. 
+
+As AKS maintains the load balancers, and the vnet is created at deployment time (or an existing one is used), you only need to follow the steps `Create a private link service` and `Create a private endpoint` in the above document. 
+
+For the `Private Link Service`, ensure that the `Load balancer` is set to `kubernetes-internal` and uses the frontend IP address from the private range. The Source NAT vnet and subnet should default correctly.
+Ensure that Source NAT subnet is set to No and it is best to assign a Static Private IP address.
+
+![adv-network-pls-01.png](../../assets/images/ama/howtos/adv-network-pls-01.png)
+
+For the `Private endpoint`, ensure you select the virtual network that will be used to access CluedIn along with the subnet. It is recommended to statically allocate an IP address here as this will be used as the entry point for CluedIn and will be required as part of your DNS at a later stage.
+
+![adv-network-pe-01.png](../../assets/images/ama/howtos/adv-network-pe-01.png)
+
+### Next steps
+The next step is to test access from the private network to CluedIn to ensure that traffic can reach the endpoint as expected.
+By default ICMP packets do not respond, but HTTPS (443/TCP) will. It may error due to certificate, but this can be corrected.
+
+When you've confirmed that traffic is flowing, the final steps are to setup host name / DNS and TLS.
+
+The below documents will help configure DNS and TLS:
+- [Configure DNS](/deployment/infra-how-tos/configure-dns)
+- [Configure certificates](/deployment/infra-how-tos/configure-certificates)
+
 ## Host name resolution
 When an internal load balancer is used, it may no longer be possible for the cluedin-server pod to resolve the hostname. This will prevent the application from functioning correctly unless some additional steps are taken to allow resolution.
 
@@ -169,4 +168,4 @@ application:
       ip: {privateIP}
 ```
 
-If you need assistance with this, please reach out to one of CluedIn's infrastructure engineers.
+If you need assistance with this, please reach out to CluedIn support.
