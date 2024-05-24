@@ -87,6 +87,18 @@ Collection levels:
 
 - **Target-collection** – refers to the **Collection Name** specified in CluedIn's organization settings.
 
+## Microsoft Purview (Preview) - Roles and permissions
+
+The integration feature listed below at least needs the permission/roles assigned to your application user 
+
+### Append Asset to Data Product
+
+- Navigate to the **Business Domain** > **Roles**
+
+- Add your **Application User** as **Data Product Owners**
+  
+  ![Role - Data Product Owner](./media/role-data-product-owner.png)
+
 ## Azure Data Factory setup
 
 Azure Data Factory integration is enabled on the **Settings** page in CluedIn. When the fields are left empty, no synchronization is performed with Azure Data Factory.
@@ -113,6 +125,10 @@ Azure Data Factory integration is enabled on the **Settings** page in CluedIn. W
 
 - Azure SQL Server
 
-- Azure Data Lake gen 2
+- Azure Data Lake gen 2 (Avro, DelimitedText, Excel, JSON, ORC, Parquet, XML)
 
-- Azure File (in progress)
+- Azure File (Avro, DelimitedText, Excel, JSON, ORC, Parquet, XML)
+
+- Snowflakes
+
+- SQL Server

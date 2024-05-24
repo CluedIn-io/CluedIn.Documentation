@@ -25,6 +25,7 @@ The following table provides a list of integration features.
 | Synchronize Purview Glossary Terms To CluedIn Vocabularies | Create Purview glossary terms from CluedIn vocabulary.
 | Synchronize Streams | Create and update "Cluedin Entity", "Cluedin Stream Process", and "Cluedin Organization Provider" entities on Purview lineages that link CluedIn streams and connectors.
 | Synchronize Crawlers And Enrichers | Create and update "Cluedin Organization Provider", "Cluedin Crawl Process", "Cluedin Enrich Process", "Cluedin Ingest Process", "Cluedin Dataset", "Cluedin Map Process", and "Cluedin Entity" entities on Purview lineages that link Purview assets to CluedIn data sets and matching CluedIn Entity Types. |
+| Synchronize Data Products | Create CluedIn DataSources from Purview Data Products and Data Assets. |
 
 We have the following **assumptions** about the customers' Microsoft Azure setup:
 
