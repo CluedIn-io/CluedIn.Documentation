@@ -39,4 +39,4 @@ In order to modify the headers, we'll recommend updating the configMap of HAProx
 
    You should notice that the added responses are now part of the overall response.
 
-For any further assistance, or an edge case you may require assistance with, please reach out to CluedIn Support.
+For any further assistance or an edge case, reach out to CluedIn support.
