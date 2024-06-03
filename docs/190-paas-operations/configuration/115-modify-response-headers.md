@@ -21,8 +21,6 @@ This guide explains how you can modify these headers to comply with your organiz
 - Access to your Kubernetes cluster
 - Helm installed
 
-# Documentation
-
 In order to amend the headers, we'll recommend updating the configMap of haproxy ingress controller by amending your values.yaml file to add the supported key:value pairs.
 
 1. Export your current values file from a given environment
