@@ -18,6 +18,7 @@ This guide explains how you can modify these headers to comply with your organiz
 - Helm installed
 
 **To modify web response headers**
+
 In order to modify the headers, we'll recommend updating the configMap of HAProxy Ingress Controller by amending your values.yaml file to add the supported key:value pairs.
 
 1. Export your current values file from a given environment.
