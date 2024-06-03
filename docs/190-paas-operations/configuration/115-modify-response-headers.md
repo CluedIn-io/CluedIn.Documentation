@@ -17,7 +17,7 @@ By default, CluedIn is configured with web security in mind and out of the box i
 
 This guide explains how you can modify these headers to comply with your organization.
 
-# Pre-requisites
+**Prerequisites**
 - Access to your Kubernetes cluster
 - Helm installed
 
