@@ -8,10 +8,6 @@ title: Modify web response headers
 tags: ["deployment", "kubernetes", "web", "frontend"]
 headerIcon: "paas"
 ---
-## On this page
-{: .no_toc .text-delta }
-1. TOC
-{:toc}
 
 By default, CluedIn is configured with web security in mind and out of the box is quite secure. In certain cases, security teams may require additional configuration on the response headers to comply with policies.
 
