@@ -13,7 +13,7 @@ headerIcon: "paas"
 1. TOC
 {:toc}
 
-By default, CluedIn is configured with web security in mind and out of the box is quite secure. In certain cases, security teams may require additional configuration (normally in the form of response headers) on the response headers to comply with policies.
+By default, CluedIn is configured with web security in mind and out of the box is quite secure. In certain cases, security teams may require additional configuration on the response headers to comply with policies.
 
 This document explains how you can amend these headers to comply with your organisation.
 
