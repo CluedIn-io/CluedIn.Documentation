@@ -15,7 +15,7 @@ headerIcon: "paas"
 
 By default, CluedIn is configured with web security in mind and out of the box is quite secure. In certain cases, security teams may require additional configuration on the response headers to comply with policies.
 
-This document explains how you can amend these headers to comply with your organisation.
+This guide explains how you can modify these headers to comply with your organization.
 
 # Pre-requisites
 - Access to your Kubernetes cluster
