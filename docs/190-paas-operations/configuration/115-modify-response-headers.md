@@ -39,7 +39,7 @@ In order to modify the headers, we'll recommend updating the configMap of HAProx
    ```
 
 1. Run helm update with the new values. After a few minutes, the config map `cluedin-haproxy-ingress` should now have a new entry for `config-backend`
-1. You can validate that the headers are being passed by going to your frontend in the browser, open up the developer tools (In Chrome, this is F12) and checking the response headers from the front end.
+1. To validate that the headers are being passed, go to your front end in the browser, open up the developer tools (In Chrome, this is F12), and check the response headers from the front end.
 
    You should notice that the added responses are now part of the overall response.
 
