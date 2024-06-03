@@ -25,7 +25,7 @@ The following table provides the description of data types along with the type o
 | DateTime | A date with a time, in the time zone of your computer. If no time zone is specified, then UTC is assumed when we try to normalize the date. | Typed |
 | Time | A time without a date, in the time zone of your computer | Typed |
 | Duration | A span of time. It is used to store and manipulate time intervals, which could be measured in seconds, minutes, hours, days, or other units of time. | Typed |
-| Boolean | A _true_ or _false_ value. Data will only be strong-typed if it is stored as the values "true" or "false". For all other values such as "yes", "no", "1", "0" etc, the dtaa must be normalized using a Rule or a Clean Project | Typed |
+| Boolean | A _true_ or _false_ value. Data will only be strong-typed if it is stored as the values "true" or "false". For all other values such as "yes", "no", "1", "0" and so on, the data must be normalized using a [rule](/management/rules) or a clean [project](/preparation/clean). | Typed |
 | Integer | A whole number without any fractional or decimal part. | Typed |
 | Number | Any numeric value, including integers and numbers with decimal parts. | Typed |
 | Uri | A Universal Resource Identifier (URI) text string to an image. | Keyword |
