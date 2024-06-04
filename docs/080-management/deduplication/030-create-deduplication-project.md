@@ -85,4 +85,4 @@ In the project, matching rules are combined using the **OR** logical operator, w
 
         ![add-rule.gif](../../assets/images/management/deduplication/add-rule.gif)
 
-    After you add matching rules, [generate matches](/management/deduplication/manage-a-deduplication-project#generate-results) to detect duplicates among golden records that correspond to the selected entity type or filter criteria.
+    After you add matching rules, [generate matches](/management/deduplication/manage-a-deduplication-project#generate-matches) to detect duplicates among golden records that correspond to the selected entity type or filter criteria.
