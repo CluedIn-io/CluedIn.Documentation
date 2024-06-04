@@ -11,7 +11,7 @@ title: Deduplication reference
 - TOC
 {:toc}
 
-In this article, you will find reference information to help you understand matching rules and functions, deduplication project statuses, and group statuses.
+In this article, you will find reference information to help you understand matching rules and functions, normalization rules, deduplication project statuses, and group statuses.
 
 ## Matching rules
 
@@ -28,13 +28,38 @@ The following table provides the description of methods used for detecting dupli
 | Function | Description |
 |--|--|
 | Equals | Identifies records as duplicates if two values are the same. |
-| Fuzzy match - Sift4 | Detects approximate duplicates using a string similarity algorithm. This algorithm takes into account the number of matching characters and the transpositions (swaps) needed to make the strings identical. For example, 'algorithm' and 'algorrithm' would be identified as fuzzy matches.<br> In this method, you have to specify the threshold— a parameter that sets the maximum number of characters by which two strings can differ and still be considered a match.   |
-| Fuzzy match - phonetic, DoubleMetaphone | Detects approximate duplicates using a phonetic matching algorithm. This algorithm encodes words into a phonetic representation, allowing for matching based on pronunciation rather than spelling. For example, 'night' and 'knight' would be identified as fuzzy matches.  |
+| Fuzzy match - Sift4 | Detects approximate duplicates using a string similarity algorithm. This algorithm takes into account the number of matching characters and the transpositions (swaps) needed to make the strings identical. For example, `algorithm` and `algorrithm` would be identified as fuzzy matches.<br> In this method, you have to specify the threshold— a parameter that sets the maximum number of characters by which two strings can differ and still be considered a match.   |
+| Fuzzy match - phonetic, DoubleMetaphone | Detects approximate duplicates using a phonetic matching algorithm. This algorithm encodes words into a phonetic representation, allowing for matching based on pronunciation rather than spelling. For example, `night` and `knight` would be identified as fuzzy matches.  |
 | Contains | Matches two values if one contains the other. |
 | Starts with | Matches two values if one starts with the other. |
 | Ends with | Matches two values if one ends with the other. |
 | First token equals | Extracts the first word from both values and compares for exact match ignoring casing. |
-| Email | Matches two email address values if the are semantically equal. |
+| Email | Matches two email address values if they are semantically equal. |
+
+## Normalization rules
+
+Normalization rules allow you to clean up values before comparing them to identify duplicates. The following table provides the description of normalization rules.
+
+| Normalization rule | Description |
+|--|--|
+| To lowercase | Converts values to lover case. |
+| Trim whitespace | Removes whitespace characters from values. |
+| Remove punctuation | Removes punctuation marks from the values. For example, `CluedIn.!?,` will be converted to `CluedIn`. |
+| Remove special characters | Removes special characters from the values. For example, `CluedIn”#€%&(/)€` will be converted to `CluedIn`. |
+| Remove diacritic marks | Removes diacritic marks from the values. For example, `spăn'ĭsh` will be converted to `spanish`. |
+| Person name variations | Generates person name variations. For example, `Timothy Daniel Ward` will be converted to `Tim D. Ward`, `Tim Ward`. |
+| First name nickname variants | Generates nickname variations for the person's first name. For example, `Timothy` will be converted to `Tim`, `Timmy`. |
+| Organization name | Normalizes organization name. For example, `CluedIn ApS` will be converted to `CluedIn`. |
+| Phone number | Removes well-known phone number formatting characters. For example, `+45-123 456 789 (001)` will be converted to `45123456789001`. |
+| Email mask| Normalizes email address to match other variants. |
+| Street address | Normalizes common street name tokens. |
+| Geography country | Converts country to ISO code. For example, `Australia` will be converted to `AU`. |
+| Replace text | Replaces text using configured pattern. You need to enter both the value to be replaced and the replacement value. |
+| Regex replace text | Replaces text using configured regex pattern. |
+| Split text | Splits text using configured separator. |
+| Regex split text | Splits text using configured regex separator pattern. |
+| Split text by whitespace | Splits text by whitespace into tokens. |
+| Transliterate | Transliterates text value to an ASCII string. For example, `Ελληνική Δημοκρατία` will be converted to `Ellēnikē Dēmokratia`. |
 
 ## Deduplication project
 
@@ -47,12 +72,12 @@ The following table provides descriptions of deduplication project statuses.
 | Status | Description |
 |--|--|
 | Requires configuration | The deduplication project has been created, no matching rules have been added yet. |
-| Ready to generate | The deduplication project has been configured, no results have been generated yet. This status also appears when you discard the results at any further stage of the project.|
+| Ready to generate | The deduplication project has been configured, no matches have been generated yet. This status also appears when you discard matches at any further stage of the project. |
 | Generating | CluedIn is analyzing the specified set of golden records with the aim to detect duplicates based on your matching rules. |
-| Aborting generation | The process of generating the results of the deduplication project is being cancelled. The status will shortly change to **Ready to generate**. |
-| Ready for review | CluedIn has generated the results of the deduplication project, you can start [processing groups of duplicates](/management/deduplication/manage-groups-of-duplicates). |
+| Aborting generation | The process of generating matches of the deduplication project is being cancelled. The status will shortly change to **Ready to generate**. |
+| Ready for review | CluedIn has generated matches of the deduplication project, you can start [processing groups of duplicates](/management/deduplication/manage-groups-of-duplicates). |
 | Committing | CluedIn is merging records from selected groups. This status is applicable whether you are merging a single group, multiple groups, or all groups in the project. |
-| Merged | CluedIn has merged records from all groups in the project. If the project contains groups that were not selected for merge, the project status remain **Ready for review**. |
+| Merged | CluedIn has merged records from all groups in the project. If the project contains groups that were not selected for merge, the project status remains **Ready for review**. |
 | Unmerging | CluedIn is reverting the results of merge. When records are unmerged, the project status becomes **Ready for review**. |
 | Abort unmerging | The process of reverting changes is being cancelled. The status will shortly change to **Ready to generate**. |
 

@@ -71,7 +71,7 @@ In the project, matching rules are combined using the **OR** logical operator, w
 
     1. Choose the [matching function](/management/deduplication/deduplication-reference#matching-functions) for detecting duplicates.
 
-    1. (Optional) Select the normalization rules to apply during duplicate detection. These rules are temporarily applied solely for the purpose of identifying duplicates. For example, selecting **To lower-case** means that the system will convert values to lower case before comparing them to identify duplicates.
+    1. (Optional) Select the [normalization rules](/management/deduplication/deduplication-reference#normalization-rules) to apply during duplicate detection. These rules are temporarily applied solely for the purpose of identifying duplicates. For example, selecting **To lower-case** means that the system will convert values to lower case before comparing them to identify duplicates.
 
     1. Select **Next**.
 
