@@ -23,7 +23,7 @@ For example, in the following configuration, either records with the same email 
 
 ## Matching functions
 
-The following table provides the description of methods used for detecting duplicates.
+Matching functions specify how values of a vocabulary key or property should be compared. The following table provides the description of matching functions.
 
 | Function | Description |
 |--|--|
@@ -38,7 +38,7 @@ The following table provides the description of methods used for detecting dupli
 
 ## Normalization rules
 
-Normalization rules allow you to clean up values before comparing them to identify duplicates. The following table provides the description of normalization rules.
+Normalization rules clean up values before comparing them to identify duplicates. The following table provides the description of normalization rules.
 
 | Normalization rule | Description |
 |--|--|
