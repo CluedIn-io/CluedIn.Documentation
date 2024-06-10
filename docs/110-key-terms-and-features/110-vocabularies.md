@@ -1,10 +1,10 @@
 ---
 layout: cluedin
 title: Vocabularies
-parent: Development
-nav_order: 260
+parent: Key terms and features
+nav_order: 11
 has_children: false
-permalink: /development/vocabularies
+permalink: /key-terms-and-features/vocabularies
 tags: ["development","vocabularies"]
 ---
 

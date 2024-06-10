@@ -2,7 +2,7 @@
 layout: cluedin
 title: Entity codes
 parent: Key terms and features
-nav_order: 250
+nav_order: 10
 has_children: false
 permalink: /key-terms-and-features/entity-codes
 tags: ["development","entities","entity-codes"]
