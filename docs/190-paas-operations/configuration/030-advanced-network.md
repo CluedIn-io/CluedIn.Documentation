@@ -124,9 +124,7 @@ With Kubernetes now configured to use the internal load balancer for ingress, yo
 **Note**: If your subnets overlap in any way, the only option will be `Private link service with private endpoint`.
 
 ### Virtual network peering
-To configure virtual network peering, Microsoft have a [document](https://learn.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal) explaining how to achieve this easily.
-
-As all resources have already been created, you only need to follow the `Create virtual network peer` step in the above document.
+To configure virtual network peering, refer to [Microsoft documentation](https://learn.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal). As all resources have already been created, you only need to follow the **Create virtual network peer** step in the tutorial.
 
 ### Private link service with private endpoint
 In the event there is overlapping of subnets, this is not a problem as `private endpoints` also work here. This is slightly more complicated than virtual network peering and we'll offer a bit of guidance here.
