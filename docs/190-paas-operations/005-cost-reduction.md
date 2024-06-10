@@ -25,6 +25,11 @@ One easy way to reduce cost is to shut down your AKS during these hours and star
 
 The CluedIn team can help set this up in your environment by deploying an Automation Account along with a runbook and setting the schedule at your desired times of inoperation.
 
+# Reserve Azure instances
+Azure, like many cloud services, offers the ability to reserve virtual machines and other Azure resources upfront by committing to a year or more. This is one of the ways to save up to 72% on the virtual machine resources and is something we recommend when you're serious about CluedIn.
+
+For more information, see [Microsoft documentation](https://azure.microsoft.com/en-gb/pricing/reserved-vm-instances).
+
 # Run a local environment
 
 CluedIn is container-based and therefore can run on almost any kind of setup that can run containers.
