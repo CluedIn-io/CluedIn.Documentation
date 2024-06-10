@@ -1,10 +1,10 @@
 ---
 layout: cluedin
-title: Entity Codes
-parent: Development
+title: Entity codes
+parent: Key terms and features
 nav_order: 250
 has_children: false
-permalink: /development/entity-codes
+permalink: /key-terms-and-features/entity-codes
 tags: ["development","entities","entity-codes"]
 ---
 
