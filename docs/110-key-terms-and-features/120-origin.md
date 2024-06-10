@@ -1,10 +1,10 @@
 ---
 layout: cluedin
 title: Origin
-parent: Development
-nav_order: 360
+parent: Key terms and features
+nav_order: 12
 has_children: false
-permalink: /development/origin
+permalink: /key-terms-and-features/origin
 tags: ["development","clues"]
 ---
 
