@@ -47,7 +47,7 @@ It is best to always accomodate for expansion of your cluster, especially during
 During the installation of CluedIn from the Azure Marketplace, you can set up advanced network configuration on the **Networking and Monitoring** tab. The default option is to create a new vNet and subnet with recommended defaults, but this can be changed to use an existing vNet.
 
 {:.important}
-If you're using an existing vNet as part of the deployment, you will need to ensure that the the AKS cluster identity has appropriate permissions to manage the subnet. This is because AKS nodes will join and leave the subnet at times.
+If you're using an existing vNet as part of the deployment, you will need to ensure that the AKS cluster identity has appropriate permissions to manage the subnet. This is because AKS nodes will join and leave the subnet at times.
 
 Out of the box, CluedIn will use a public ingress and egress load balancer to serve traffic initially regardless of vNet choice. In advanced networking setups, we recommend changing this so ingress is only accessible via a private vNet. The below will cover how to do this and as part of the CluedIn managed service, we will work with you to ensure it's done in a supported way.
 
