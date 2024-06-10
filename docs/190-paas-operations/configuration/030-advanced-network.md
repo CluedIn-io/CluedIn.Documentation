@@ -146,7 +146,7 @@ For the `Private endpoint`, ensure you select the virtual network that will be u
 The next step is to test access from the private network to CluedIn to ensure that traffic can reach the endpoint as expected.
 By default, ICMP packets do not respond, but HTTPS (443/TCP) will. It may cause an error due to certificate, but this can be corrected.
 
-When you've confirmed that traffic is flowing, the final steps are to setup host name / DNS and TLS.
+When you've confirmed that traffic is flowing, the final steps are to set up host name/DNS and TLS.
 
 The below documents will help configure DNS and TLS:
 - [Configure DNS](/deployment/infra-how-tos/configure-dns)
