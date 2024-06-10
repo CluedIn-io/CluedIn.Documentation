@@ -6,6 +6,7 @@ nav_order: 020
 has_children: false
 permalink: /development/administration-operations
 tags: ["development","administration"]
+published: false
 ---
 
 You will need to have a role of "Admin" to be able to run these operations. There is only one way to become an Admin and that is by manually adding a mapping in the Relational Store of CluedIn in the AspnetUserRoles table. 

@@ -6,6 +6,7 @@ nav_order: 060
 has_children: false
 permalink: /development/commands
 tags: ["development","commands"]
+published: false
 ---
 
 Commands are the messages in CluedIn that move through the processing pipeline. You can think of Commands like "events", in that they represent an action or a desire for an action to do a certain type of process in CluedIn.

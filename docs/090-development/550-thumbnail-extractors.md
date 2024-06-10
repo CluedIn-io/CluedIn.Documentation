@@ -5,6 +5,7 @@ parent: Development
 nav_order: 550
 permalink: /developer/thumbnail-extractors
 tags: ["development"]
+published: false
 ---
 
 Thumbnail Extractors allow you to extract images from Data. The most common use case would be to set a Preview Image of a Clue. This is common for files such as Presentations, Spreadsheets and Videos to have a sample picture to preview what the file looks like. 

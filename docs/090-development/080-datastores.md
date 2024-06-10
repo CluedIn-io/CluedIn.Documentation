@@ -6,6 +6,7 @@ nav_order: 080
 has_children: false
 permalink: /development/datastores
 tags: ["development","data-stores"]
+published: false
 ---
 
 The concept of a Datastore in CluedIn is a place to persist a permutation of the data that is crawled into a purpose-fit format. CluedIn has 5 different datastores that it uses by default to persist any data that flows through the processing engine. A developer doesn’t have a choice over which datastores data will persist to, CluedIn will decide this based off that it deems most suitable. One can add new datastores and even new datastore types, but by default CluedIn ships with support for a:

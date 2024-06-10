@@ -1,10 +1,11 @@
 ---
 layout: cluedin
 title: Ignoring Insignificant Changes
-parent: Development
+parent: Development 
 nav_order: 520
 permalink: /developer/ignoring-changes
 tags: ["development"]
+published: false
 ---
 
 When CluedIn processes Clues, it will generate a Hash value that will take certain values on the Clue and create a unique value that represents a hash of those values. 

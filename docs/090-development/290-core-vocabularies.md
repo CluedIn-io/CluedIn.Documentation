@@ -6,6 +6,7 @@ nav_order: 290
 has_children: false
 permalink: /development/core-vocabularies
 tags: ["development","vocabularies"]
+published: false
 ---
 
 Core Vocabularies are where a lot of the “smarts” in CluedIn exist. If you map your custom integration sources' keys into Core Vocabulary keys, there is a high likelihood that something will be done on the data to your advantage. For example, if you map a phone number into a Core Vocabulary Phone Number Key then CluedIn will, amongst other things: 

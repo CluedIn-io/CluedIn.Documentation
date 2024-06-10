@@ -6,6 +6,7 @@ nav_order: 120
 has_children: false
 permalink: /development/deploying-search-provider
 tags: ["development","search-providers"]
+published: false
 ---
 
 An External Search Provider will generate new binaries that will need to be hosted in CluedIn in run. This means that we need to be able to move *.dll files into the ServerComponentHost of CluedIn. It is simply a matter of copying the *.dll files from your External Search Provider into CluedIn. 

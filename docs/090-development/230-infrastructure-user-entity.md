@@ -6,6 +6,7 @@ nav_order: 230
 has_children: false
 permalink: /development/infrastructure-user-entity
 tags: ["development","entities","entity-types"]
+published: false
 ---
 
 The Infrastructure User Entity Type is for a Clue where it is ambiguous what the Entity Type of a record is. It is mainly reserved for the following types of Entity Types where you cannot statically set a type:

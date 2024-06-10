@@ -6,6 +6,7 @@ nav_order: 340
 has_children: false
 permalink: /development/change-verbs
 tags: ["development","clues"]
+published: false
 ---
 
 On each Clue, the Change Verb can be used to flag to CluedIn what type of "event" this Clue is referring to. This is typically only necessary when data is being pushed to CluedIn and can be used as a way to indicate to CluedIn on how to process this data. 

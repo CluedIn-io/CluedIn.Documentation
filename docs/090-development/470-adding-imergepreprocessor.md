@@ -5,6 +5,7 @@ parent: Development
 nav_order: 470
 permalink: /developer/imergepreprocessor
 tags: ["development","processors"]
+published: false
 ---
 
 The IMergePreProcessor is your ability to provide custom input before records will Merge. This is useful if you want to inject your own custom logic to either cancel a merge or to modify the record or add logging before a Merge happens. 

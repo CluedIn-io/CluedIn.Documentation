@@ -6,6 +6,7 @@ nav_order: 160
 has_children: false
 permalink: /development/one-time-jobs
 tags: ["development","jobs"]
+published: false
 ---
 
 CluedIn has a generic Job system that allows you to run simple background jobs. Here is an example of how you could add your own custom jobs that run once and only once. 

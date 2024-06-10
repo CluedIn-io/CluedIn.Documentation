@@ -6,6 +6,7 @@ nav_order: 050
 has_children: false
 permalink: /development/downloading-file-indexing-content
 tags: ["development","indexing"]
+published: false
 ---
 
 As you may be talking to datasources where the data requires you to download files, CluedIn provides a framework to download and index the content of the files. The good news is that CluedIn provides Content Extractors for the most popular of file types such as PPTX, PDF and more. This will allow you to search within the content of files. 

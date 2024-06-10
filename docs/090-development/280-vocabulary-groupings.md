@@ -6,6 +6,7 @@ nav_order: 280
 has_children: false
 permalink: /development/vocabulary-groupings
 tags: ["development","vocabularies"]
+published: false
 ---
 
 For aesthetic and organisation reasons, Vocabulary Groupings allow developers to group Vocabulary keys by logical groupings. There is no performance or processing benefit for this, it is only for aesthetics. 

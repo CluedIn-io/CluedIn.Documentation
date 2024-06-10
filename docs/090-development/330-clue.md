@@ -6,6 +6,7 @@ nav_order: 330
 has_children: false
 permalink: /development/clue
 tags: ["development","clues"]
+published: false
 ---
 
 A Clue is the object model that CluedIn expects from third party systems in the form of data. It is the language that CluedIn speaks. It is the role of the developer that is implementing the CluedIn solution to map custom data formats into this universal data model. The Clue can take two main formats, JSON or XML. Despite what programming language is used to send this data to CluedIn, CluedIn only requires that you send it in either of these two formats. 
