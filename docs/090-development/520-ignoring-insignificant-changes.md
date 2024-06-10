@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: Ignoring Insignificant Changes
-parent: Development
+parent: Development 
 nav_order: 520
 permalink: /developer/ignoring-changes
 tags: ["development"]
