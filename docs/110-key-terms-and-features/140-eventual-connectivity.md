@@ -1,10 +1,10 @@
 ---
 layout: cluedin
-title: Eventual Connectivity
-parent: Development
-nav_order: 140
+title: Eventual сonnectivity
+parent: Key terms and features
+nav_order: 8
 has_children: false
-permalink: /development/eventual-connectivity
+permalink: /key-terms-and-features/eventual-connectivity
 tags: ["development","eventual-connectivity"]
 ---
 
