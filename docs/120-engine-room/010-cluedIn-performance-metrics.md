@@ -1,9 +1,9 @@
 ---
 layout: cluedin
-title: CluedIn Performance Metrics
-parent: Development
-nav_order: 490
-permalink: /developer/performance-metrics
+title: CluedIn performance metrics
+parent: Engine Room
+nav_order: 1
+permalink: /engine-room/performance-metrics
 tags: ["development","performance"]
 ---
 
