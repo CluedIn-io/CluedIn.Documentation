@@ -6,6 +6,7 @@ nav_order: 270
 has_children: false
 permalink: /development/vocabulary-values
 tags: ["development","vocabularies"]
+published: false
 ---
 
 A user can set an allowed and not allowed list of terms for Vocabulary Keys. Anything that is not in the allowed list will by default be processed as normal. Any record that has a term that is in the not allowed list will be placed into the quarantine section as to resolve manually, using rules or in CluedIn Clean.

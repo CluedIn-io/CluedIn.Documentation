@@ -5,6 +5,7 @@ parent: Development
 nav_order: 480
 permalink: /developer/agent-jobs
 tags: ["development","agents","jobs"]
+published: false
 ---
 
 Your user interface will show you a list of the jobs that are running, have run and are scheduled to run within the platform. You can drill into the information on an individual job to see more details. 

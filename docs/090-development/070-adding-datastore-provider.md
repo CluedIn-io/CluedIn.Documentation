@@ -6,6 +6,7 @@ nav_order: 070
 has_children: false
 permalink: /development/adding-datastore-provider
 tags: ["development","data-stores"]
+published: false
 ---
 
 There are many types of database families today. Leveraging these different datastores provides flexiblity when it comes to using this data. 

@@ -6,6 +6,7 @@ nav_order: 220
 has_children: false
 permalink: /development/person-entity-type
 tags: ["development","entity-types","entities"]
+published: false
 ---
 
 The Person Entity Type is a special Entity Type that if you are to set your Clue objects with this Entity Type, then many "smarts" will kick in on the CluedIn processing server. 

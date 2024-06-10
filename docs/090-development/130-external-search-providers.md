@@ -6,6 +6,7 @@ nav_order: 130
 has_children: false
 permalink: /development/external-search-providers
 tags: ["development","search-providers"]
+published: false
 ---
 
 In CluedIn, an External Search Provider allows you to take input from data flowing through the processing pipeline and then lookup services (typically external API’s) as to enrich just a single particular entity. 

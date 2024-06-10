@@ -6,6 +6,7 @@ nav_order: 350
 has_children: false
 permalink: /development/data-part
 tags: ["development","data-parts","clues"]
+published: false
 ---
 
 When a Clue becomes or is merged with an Entity, it becomes a "Data Part" of that Entity. This is a more smaller representation of a Clue that holds only the necessary parts for the Entity. 

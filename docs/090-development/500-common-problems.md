@@ -5,6 +5,7 @@ parent: Development
 nav_order: 500
 permalink: /developer/common-problems
 tags: ["development"]
+published: false
 ---
 
 # Floating Edges

@@ -6,6 +6,7 @@ nav_order: 440
 permalink: /developer/preprocessor
 tags: ["development","processors"]
 last_modified: 2021-11-29
+published: false
 ---
 
 If you look at the processing pipeline flow diagram below, you can see that you have the ability very early on to inject custom logic to change a Clue before the processing starts. There are many good use cases this e.g. removing bad Entity Codes before data is processed.

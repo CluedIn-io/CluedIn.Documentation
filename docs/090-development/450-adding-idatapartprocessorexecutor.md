@@ -5,6 +5,7 @@ parent: Development
 nav_order: 450
 permalink: /developer/idatapartprocessor
 tags: ["development","processors"]
+published: false
 ---
 
 This is the first part in the processing stage where you get to inject custom logic into the middle of the CluedIn Processing Pipeline. It runs after some of the critical parts of the inbuilt data processing has run from CluedIn.

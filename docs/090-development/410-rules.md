@@ -5,6 +5,7 @@ parent: Development
 nav_order: 410
 permalink: /developer/rules
 tags: ["development","rules"]
+published: false
 ---
 
 Using the rules engine, CluedIn users can configure areas of the application to operate on specific entities.

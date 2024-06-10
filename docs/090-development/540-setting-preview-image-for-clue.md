@@ -5,6 +5,7 @@ parent: Development
 nav_order: 540
 permalink: /developer/clue-preview-image
 tags: ["development", "clues"]
+published: false
 ---
 
 Your data will often contain much more than metadata in the form of textual values. You will find that binary data is often associated as metadata such as pictures, files, videos, audio and more. When it comes to data discovery, you will find that certain visual hints will make it easier to discover the data you are looking for. As a simple example, the Logo of an organization. 

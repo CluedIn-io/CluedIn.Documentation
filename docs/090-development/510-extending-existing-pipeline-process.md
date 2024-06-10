@@ -5,6 +5,7 @@ parent: Development
 nav_order: 510
 permalink: /developer/extending-pipelines
 tags: ["development","processors"]
+published: false
 ---
 
 Knowing that there are many processing pipelines that ship with the CluedIn product, you might find that you will want to only override small parts of CluedIn, rather than introducing your own custom pipeline processing steps. 

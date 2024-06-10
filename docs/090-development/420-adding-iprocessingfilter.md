@@ -5,6 +5,7 @@ parent: Development
 nav_order: 420
 permalink: /developer/iprocessingfilter
 tags: ["development","processors"]
+published: false
 ---
 
 The main use of the IProcessingFiltering interface is to introduce your ability to define logic to Ignore a Clue completely. Imagine that you only want to accept Clues where they are of a particular Entity Type. This is your ability to inject this logic very early in the processing of data.

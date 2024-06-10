@@ -6,6 +6,7 @@ nav_order: 150
 has_children: false
 permalink: /development/validate-server-health
 tags: ["development","health-check"]
+published: false
 ---
 
 There might be times when you would like to Validate that CluedIn can operate propely once it has been booted. An example of this would be to validate that all Vocabularies are created properly. 

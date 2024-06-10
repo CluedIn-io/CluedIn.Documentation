@@ -6,6 +6,7 @@ nav_order: 200
 has_children: false
 permalink: /development/entity
 tags: ["development","entities"]
+published: false
 ---
 
 An Entity is the object model that CluedIn builds based off one or many Clue objects. An Entity will contain a history of every single Clue that was merged into, connected to or enriched a particular Entity. An Entity will store an object, referred to as the ProcessedMetaData, which is a collection of data that CluedIn has decided is the “instance” or “version” of this record that it deemed to be the highest fidelity, most accurate and most statically confident permutation of the data for this record. Hence in the many different datastores for CluedIn, some of the database providers will only store a single permutation of an Entity, where others will store the full history. 

@@ -5,6 +5,7 @@ parent: Development
 nav_order: 430
 permalink: /developer/processing-pipeline
 tags: ["development","processors"]
+published: false
 ---
 
 There are many reasons to add a new processing pipeline. The concept behind a processing pipeline is that it allows you to process input data and produce an output. 

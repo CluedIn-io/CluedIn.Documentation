@@ -5,6 +5,7 @@ parent: Development
 nav_order: 460
 permalink: /developer/ientitypypeprocessor
 tags: ["development","processors"]
+published: false
 ---
 
 This is your ability to interact with the data just before it is about to finish the processing pipeline and before it will write the data to the databases.

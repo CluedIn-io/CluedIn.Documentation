@@ -6,6 +6,7 @@ nav_order: 240
 has_children: false
 permalink: /development/organization-user-entity
 tags: ["development","entities","entity-types"]
+published: false
 ---
 
 The Organization Entity Type is a very special Entity type, where by marking one of your Clues as an Organization, then many "smarts" of the CluedIn processing engine will kick in. 
