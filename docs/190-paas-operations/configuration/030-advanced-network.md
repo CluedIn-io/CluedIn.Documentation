@@ -131,7 +131,7 @@ In the event there is overlapping of subnets, this is not a problem as `private 
 
 Microsoft have a [document](https://learn.microsoft.com/en-us/azure/private-link/create-private-link-service-portal) explaining how to achieve this. 
 
-As AKS maintains the load balancers, and the vnet is created at deployment time (or an existing one is used), you only need to follow the steps `Create a private link service` and `Create a private endpoint` in the above document. 
+As AKS maintains the load balancers, and the vnet is created at deployment time (or an existing one is used), you only need to follow the steps **Create a private link service** and **Create a private endpoint** in the above document. 
 
 For the `Private Link Service`, ensure that the `Load balancer` is set to `kubernetes-internal` and uses the frontend IP address from the private range. The Source NAT vnet and subnet should default correctly.
 Ensure that Source NAT subnet is set to No and it is best to assign a Static Private IP address.
