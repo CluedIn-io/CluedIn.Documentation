@@ -119,7 +119,7 @@ If you have any questions, you can request CluedIn support by sending an email t
     In Azure, you should then see a new Load Balancer resource called `kubernetes-internal`, which will be used for ingress. The original `kubernetes` then simply becomes egress only.
 
 ## Integration options
-With Kubernetes now configured to use the internal load balancer for ingress, you will need to decide how you want to access this front end load balancer from your internal network. The two options supported are `Virtual network peering` and `Private link service with private endpoint`.
+With Kubernetes now configured to use the internal load balancer for ingress, you will need to decide how you want to access this front-end load balancer from your internal network. The two options supported are `Virtual network peering` and `Private link service with private endpoint`.
 
 **Note**: If your subnets overlap in any way, the only option will be `Private link service with private endpoint`.
 
