@@ -1,9 +1,9 @@
 ---
 layout: cluedin
-title: CluedIn performance metrics
+title: Processing pipeline
 parent: Engine Room
 nav_order: 1
-permalink: /engine-room/performance-metrics
+permalink: /engine-room/processing-pipeline
 tags: ["development","performance"]
 ---
 
