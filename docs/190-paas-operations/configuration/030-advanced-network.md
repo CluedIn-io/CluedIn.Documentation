@@ -148,7 +148,7 @@ By default, ICMP packets do not respond, but HTTPS (443/TCP) will. It may cause 
 
 When you've confirmed that traffic is flowing, the final steps are to set up host name/DNS and TLS.
 
-The below documents will help configure DNS and TLS:
+The following documents will help configure DNS and TLS:
 - [Configure DNS](/deployment/infra-how-tos/configure-dns)
 - [Configure certificates](/deployment/infra-how-tos/configure-certificates)
 
