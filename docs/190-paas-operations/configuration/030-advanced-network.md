@@ -32,7 +32,7 @@ Advanced network configuration requires that you have read and configured your f
 
 During the installation, you will have the option to use the recommended CluedIn defaults, or to use your own vNet and subnet to comply with internal policies.
 
-CluedIn support two main options which are detailed below:
+CluedIn supports two main options, which are detailed in the following table.
 
 | Supported CNI Modes | Description | Recommended class | Reference |
 | --- | --- | --- | --- |
