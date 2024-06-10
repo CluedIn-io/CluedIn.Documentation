@@ -49,7 +49,7 @@ During the installation of CluedIn from the Azure Marketplace, you can set up ad
 {:.important}
 If you're using an existing vNet as part of the deployment, you will need to ensure that the AKS cluster identity has appropriate permissions to manage the subnet. This is because AKS nodes will join and leave the subnet at times.
 
-Out of the box, CluedIn will use a public ingress and egress load balancer to serve traffic initially regardless of vNet choice. In advanced networking setups, we recommend changing this so ingress is only accessible via a private vNet. The below will cover how to do this and as part of the CluedIn managed service, we will work with you to ensure it's done in a supported way.
+Out of the box, CluedIn will use a public ingress and egress load balancer to serve traffic initially regardless of vNet choice. In advanced networking setups, we recommend changing this so ingress is only accessible via a private vNet. The following sections will cover how to do this, and as part of the CluedIn managed service, we will work with you to ensure it's done in a supported way.
 
 ### Using an existing vNet
 If you are using an existing virtual network as part of your CluedIn deployment, you need to consider the following security aspects:
