@@ -13,48 +13,56 @@ title: Manage a deduplication project
 
 After you create and configure your deduplication project, you can begin the deduplication process to eliminate duplicates and produce a unified and accurate representation of a golden record.
 
-In this article, you will learn how to generate and discard the results of the deduplication project, as well as how to keep it organized and aligned with your deduplication goals.
+In this article, you will learn how to generate and discard matches in the deduplication project, as well as how to keep your project organized and aligned with your deduplication goals.
 
-The primary action on the deduplication project level is the generation of results. Its purpose is to analyze a specific set of records and detect potential duplicates based on your matching rules. If such duplicates are detected, they are organized into groups. The following diagram illustrates basic project workflow. For more information about project statuses, see [Deduplication reference](/management/deduplication/deduplication-reference).
+The primary action on the deduplication project level is the generation of matches. Its purpose is to analyze a specific set of golden records and detect potential duplicates based on your matching rules. If such duplicates are detected, they are organized into groups. The following diagram illustrates basic project workflow. For more information about project statuses, see [Deduplication reference](/management/deduplication/deduplication-reference).
 
 ![manage-dedup-project-flow.gif](../../assets/images/management/deduplication/manage-dedup-project-flow.gif)
 
 {:.important}
 Instructions on how to process groups of duplicates, including merging and unmerging, are provided in the [Manage groups of duplicates](/management/deduplication/manage-groups-of-duplicates) article.
 
-## Generate results
+## Generate matches
 
-The process of generating results involves analyzing a specified set of golden records with the goal of finding duplicates among them based on your matching rules.
+The process of generating matches involves analyzing a specified set of golden records with the goal of finding duplicates among them based on your matching rules.
 
-**To generate results**
+**To generate matches**
 
-- In the deduplication project, select **Generate Results** and then confirm your choice.
+- In the deduplication project, select **Generate matches**, and then confirm your choice.
 
     ![generate-results.gif](../../assets/images/management/deduplication/generate-results.gif)
 
-    If duplicates are detected, the results will be displayed on the page. These results are organized into groups that contain records matching your specified criteria. One group contains duplicate records that can be potentially merged into one golden record.
+    During the process of generating matches, you can view the number of groups found as well as the percentage of golden records that have been checked for duplicates. When the process is complete, the groups of duplicates are displayed on the page. A group contains duplicate records that can be potentially merged into one golden record.
 
     Next, [process the groups of duplicates](/management/deduplication/manage-groups-of-duplicates)—open each group one by one to review duplicates and fix conflicting values.
 
-## Discard results
+**Sorting and filtering of groups**
 
-If you want to change matching criteria, remove the limit of records, or regenerate the results of the deduplication project, you can discard the results. This action does not affect merged golden records.
+You can sort the groups of duplicates using column headers—**Name** and **Number of matches**. These column headers contain small arrows pointing up and down. A green arrow pointing up means that column is sorted in ascending order. A green arrow pointing down means that column is sorted in descending order. To change the order, click on the grey arrow in the needed column header.
 
-**To discard results**
+You can filter the groups of duplicates using the **Min matches – Max matches** slider. This allows you to focus on groups that contain a specific number of matches. For example, if you have a lot of groups of duplicates, you might want to start with small groups first. To do this, set the desired number of matches using the slider. Once you've processed the small groups, you can move on to larger groups by adjusting the slider accordingly.
 
-- In the upper-right corner of the deduplication project, select **Discard Results**, and then confirm your choice.
+![sorting-and-filtering.gif](../../assets/images/management/deduplication/sorting-and-filtering.gif)
+
+## Discard matches
+
+If you want to change matching rules, modify project filters, or regenerate matches in the deduplication project, you can discard matches. This action does not affect merged golden records.
+
+**To discard matches**
+
+- In the upper-right corner of the deduplication project, select **Discard matches**, and then confirm your choice.
 
     ![discard-results.gif](../../assets/images/management/deduplication/discard-results.gif)
 
-    The project status is changed to **Ready to generate**. Now, you can edit the project as needed and generate results again.
+    The project status is changed to **Ready to generate**. Now, you can edit the project as needed and generate matches again.
 
 ## Edit a deduplication project
 
-You can edit a deduplication project only when its [status](/management/deduplication/deduplication-reference#deduplication-project-statuses) is **Requires configuration** or **Ready to generate**. In other statuses, you need to discard the results before editing the project.
+You can edit a deduplication project only when its [status](/management/deduplication/deduplication-reference#deduplication-project-statuses) is **Requires configuration** or **Ready to generate**. In other statuses, you need to discard matches before editing the project.
 
 Editing a deduplication project involves two aspects:
 
-- Editing the project configuration: project name, entity type, number of records, and description. For example, if you started your project with a limited set of records and you have reached the desired matching rules configuration, you can now remove the limit and run the project on the entire set of data.
+- Editing the project configuration: project name, entity type or advanced filters, and description. For example, if you used advanced filters to narrow down the number of golden records for the project and you have reached the desired matching rules configuration, you can now modify the filters and run the project on the entire set of data.
 
 - Editing the matching rules configuration: change rule name; [add rule](/management/deduplication/create-a-deduplication-project#add-a-matching-rule); deactivate or delete the rule; modify matching criteria (edit, delete, add).
 
@@ -70,27 +78,21 @@ Editing a deduplication project involves two aspects:
 
     - To change the rule name, select the vertical ellipsis button, and then select **Edit name**. Enter the new name and save your changes.
 
-    - To deactivate the rule, turn off the toggle. Deactivated rules are not executed during duplicates detection.
+    - To deactivate the rule, turn off the toggle. Deactivated rules are not executed during the process of generating matches.
 
     - To delete the rule, select the vertical ellipsis button, and then select **Delete** and confirm your choice. If you delete the rule, it cannot be reverted.
 
-    - To modify the matching criteria, select the vertical ellipsis button, and then select the needed action: **Edit** or **Delete**.
+    - To modify the matching criteria, expand the rule and select the vertical ellipsis button in the needed row. Then select the needed action: **Edit** or **Delete**.
 
         ![edit-project.gif](../../assets/images/management/deduplication/edit-project.gif)
 
-You can also add new matching criteria to the rule. To do that, select **Add Matching Criteria**, and fill in the required fields.
-
-When you are satisfied with the project and matching rules configuration, proceed to generate results.
+You can also add new matching criteria to the rule. To do that, expand the rule, and then select **Add Matching Criteria**. When you are satisfied with the project and matching rules configuration, proceed to generate matches.
 
 ## Archive a deduplication project
 
-You can archive a deduplication project if you no longer need it or if you created it by mistake. You can also consider archiving a deduplication project if you’re confident that you won’t need to run it again in the future.
+You can archive a deduplication project if you no longer need it or if you created it by mistake. You can also consider archiving a deduplication project if you’re confident that you won’t need to run it again in the future. Archiving does not affect merges that have been submitted to CluedIn.
 
-Archiving does not affect merged that have been submitted to CluedIn. After a deduplication project is archived, it cannot be unarchived.
-
-Archived deduplication projects remain on the Deduplication projects page and they are available for viewing.
-
-You can archive a deduplication project only when its status is **Requires configuration** or **Ready to generate**. In other statuses, you need to discard the results before archiving the project.
+After a deduplication project is archived, it cannot be unarchived. Archived deduplication projects remain on the **Deduplication** page and they are available for viewing. You can archive a deduplication project only when its status is **Requires configuration** or **Ready to generate**. In other statuses, you need to discard matches before archiving the project.
 
 **To archive a deduplication project**
 
