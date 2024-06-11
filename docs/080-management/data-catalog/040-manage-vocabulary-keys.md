@@ -94,7 +94,11 @@ To demonstrate the importance and efficiency of vocabulary key mapping, let's lo
 
 The vocabulary key mapping is executed on the clue level, so the **History** of the golden record does not show source and target properties. However, you can view the source and target properties in the **Explain Log** of the golden record (**Records** > data source > **Translate properties** > **Summaries**).
 
-When you try to use a vocabulary key that is mapped to another vocabulary key, a prompt will inform you of the mapping. Throughout the system, the following guidelines are applied to mapped vocabulary keys:
+When you try to use a vocabulary key that is mapped to another vocabulary key, a prompt will inform you of the mapping.
+
+![map-vocabulary-key0-2.png](../../assets/images/management/data-catalog/map-vocabulary-key-2.png)
+
+Throughout the system, the following guidelines are applied to mapped vocabulary keys:
 
 - When you use a vocabulary key in rules, streams, glossary terms, or anywhere else in the system, and it is mapped to another vocabulary key, the values from the mapped vocabulary key will be used. Essentially, the system takes the left-most vocabulary key and returns the values from the right-most vocabulary key. For example, if vocabulary key A is mapped to vocabulary key B, and vocabulary key B is mapped to vocabulary key C, then when you use vocabulary key A in the filter rule, the values from the vocabulary key C will be returned.
 
