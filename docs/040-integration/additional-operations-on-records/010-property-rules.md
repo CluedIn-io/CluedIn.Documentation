@@ -69,9 +69,10 @@ You can add multiple rules for one property.
 
 ### Create property rules using AI
 
-To use AI capabilities to create property rules, go to **Administration** > **Feature Flags**, and then turn on the **AI Mapping** feature.
-
 CluedIn AI recommendation engine helps you create property rules in a quick and efficient manner. The engine analyzes properties and runs data type checks to come up with suggested actions.
+
+{:.important}
+To use AI capabilities to create property rules, first complete all the steps described in [Azure Open AI Integration](/microsoft-integration/open-ai-integration).
 
 **To create property rules using AI**
 
