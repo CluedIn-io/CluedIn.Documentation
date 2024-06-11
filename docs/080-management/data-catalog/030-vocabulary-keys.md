@@ -11,7 +11,7 @@ title: Vocabulary keys
 - TOC
 {:toc}
 
-In this article, you will learn how to efficiently create and manage vocabulary keys, enabling you to structure and organize metadata within the system. You will also discover the importance of specifying the correct data type for a vocabulary key to unlock the full potential of filters.
+In this article, you will learn about vocabulary keys and the importance of specifying the correct data type for a vocabulary key to unlock the full potential of filters.
 
 ## Vocabulary key overview
 

@@ -49,13 +49,9 @@ Depending on the selected [data modeling approach](/management/data-catalog/mode
 
     The vocabulary key page opens, where you can view and manage vocabulary key details.
 
-## Manage a vocabulary key
+## Edit a vocabulary key
 
-Once the vocabulary key is created, you can edit its configuration based on your requirements or establish mapping to other vocabulary key, ensuring the maintenance of organized and consistent metadata.
-
-### Edit a vocabulary key
-
-You can edit a vocabulary key to make necessary changes in its configuration.
+You can edit a vocabulary key to make necessary changes to its configuration, ensuring that metadata is organized and consistent.
 
 {:.important}
 Changing the data type, storage, classification, and [mapping](#map-one-vocabulary-key-to-another) will trigger the reprocessing of a vocabulary key. Additionally, if you change the name of the vocabulary key, a new key will be generated, with the existing key automatically mapped to the new one and marked as obsolete.
@@ -68,15 +64,15 @@ Changing the data type, storage, classification, and [mapping](#map-one-vocabula
 
 1. Make the needed change and then save them.
 
-    Depending on the section that you want to edit, you may have to follow different steps. For example, direct editing is not possible for the **Name** and **Data Type** sections; instead, you must select the corresponding buttons to open the panes for editing.
+    Depending on the section that you want to edit, you may have to follow different steps. For example, direct editing is not possible for the **Name** and **Data Type** sections; instead, you must select the corresponding button to open the pane for editing.
 
     ![edit-vocabulary-key.gif](../../assets/images/management/data-catalog/edit-vocabulary-key.gif)
 
 ### Map one vocabulary key to another
 
-The purpose of mapping one vocabulary key to another is to ensure organized and consistent data, preventing duplicate values within the system. To demonstrate the importance and efficiency of vocabulary key mapping, let's look at an example.
+The purpose of vocabulary key mapping is to keep data organized and consistent by preventing duplicate values in the system. For the practical application of vocabulary key mapping, check the video in [Modeling approaches](/management/data-catalog/modeling-approaches).
 
-Suppose you have contact records coming into CluedIn from various sources—Salesforce, SAP, and MS SQL Server—and each source has its unique vocabulary. Some properties in data coming from these sources are the same, and some are different. For example, the _gender_ property exists in data from all three sources. It means that _gender_ values would be stored in three separate vocabulary keys. To keep all _gender_ values under one vocabulary key instead of keeping them in each separate vocabulary key, you can map these three vocabulary keys to one, thus improving the organization and getting better visibility of your data.
+To demonstrate the importance and efficiency of vocabulary key mapping, let's look at an example. Suppose you have contact records coming into CluedIn from various sources—Salesforce, SAP, and MS SQL Server—and each source has its unique vocabulary. Some properties in data coming from these sources are the same, and some are different. For example, the _gender_ property exists in data from all three sources. It means that _gender_ values would be stored in three separate vocabulary keys. To keep all _gender_ values under one vocabulary key instead of keeping them in each separate vocabulary key, you can map these three vocabulary keys to one, thus improving the organization and getting better visibility of your data.
 
 **To map one vocabulary key to another**
 
@@ -88,10 +84,42 @@ Suppose you have contact records coming into CluedIn from various sources—Sale
 
 1. Find and select a vocabulary key to which you want to map the current vocabulary key. Then, select **Add Key**.
 
+1. Select **Confirm**.
+
     ![map-vocabulary-key.gif](../../assets/images/management/data-catalog/map-vocabulary-key.gif)
 
 1. Select **Save**, and then confirm your choice.    
 
+    The **Mapped** label appears under the vocabulary key name. Hover over the label to find the vocabulary key to which the current vocabulary key is mapped.
+
 The vocabulary key mapping is executed on the clue level, so the **History** of the golden record does not show source and target properties. However, you can view the source and target properties in the **Explain Log** of the golden record (**Records** > data source > **Translate properties** > **Summaries**).
 
-If two vocabulary keys from different sources have conflicting values, you need to create a survivorship rule to define which value wins for the golden records belonging to the same entity type. For the practical application of vocabulary key mapping and survivorship rules, check the video in [Modeling approaches](/management/data-catalog/modeling-approaches).
+When you try to use a vocabulary key that is mapped to another vocabulary key, a prompt will inform you of the mapping. Throughout the system, the following guidelines are applied to mapped vocabulary keys:
+
+- When you use a vocabulary key in rules, streams, glossary terms, or anywhere else in the system, and it is mapped to another vocabulary key, the values from the mapped vocabulary key will be used. Essentially, the system takes the left-most vocabulary key and returns the values from the right-most vocabulary key. For example, if vocabulary key A is mapped to vocabulary key B, and vocabulary key B is mapped to vocabulary key C, then when you use vocabulary key A in the filter rule, the values from the vocabulary key C will be returned.
+
+- When you request a specific vocabulary key for display purposes and it is mapped to another vocabulary key, the values from the source vocabulary key will be used. However, because the source vocabulary key is mapped, all its values are stored in the mapped vocabulary key, meaning you won't see any values for the source vocabulary key. For example, if you add a vocabulary key column to the search results page, it will be empty because all values are stored in the mapped vocabulary key.
+
+- When you make changes to the current vocabulary key mapping or to the vocabulary key it is mapped to, the system will evaluate whether these changes are compatible with the vocabulary key configuration.
+
+## Delete a vocabulary key
+
+If you no longer need a vocabulary key, you can delete it. The process of deleting a vocabulary key is different depending on whether the vocabulary key is used anywhere in the system. If a vocabulary key is used somewhere in the system (for example, in a data set mapping, in a golden record, in a rule, and so on), you need to remap the vocabulary key first, and only then you can delete it.
+
+**To delete a vocabulary key**
+
+1. Open the vocabulary key that you want to delete.
+
+1. In the upper-right corner of the vocabulary key details page, select **Edit** > **Remove**.
+
+1. On the **Map to existing** tab, choose whether you want to map the current vocabulary key to another vocabulary key:
+
+    - If the current vocabulary key is used somewhere in the system, the only available option is to map it to another vocabulary key.
+
+    - If the current vocabulary key is not used anywhere in the system, you can delete it right away or you can map it to another vocabulary key.
+
+    After you made your choice, select **Next**.
+
+1. On the **Select vocabulary key** tab, use the search box to find the existing vocabulary key to which you want to map the current vocabulary key. Then, select the checkbox next to the needed key. Finally, select **Next**.
+
+1. On the **Confirm** tab, review the details about the vocabulary key, and select **Confirm**.
