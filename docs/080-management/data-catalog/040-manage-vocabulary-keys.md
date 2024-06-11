@@ -68,7 +68,7 @@ Changing the data type, storage, classification, and [mapping](#map-one-vocabula
 
     ![edit-vocabulary-key.gif](../../assets/images/management/data-catalog/edit-vocabulary-key.gif)
 
-### Map one vocabulary key to another
+## Map one vocabulary key to another
 
 The purpose of vocabulary key mapping is to keep data organized and consistent by preventing duplicate values in the system. For the practical application of vocabulary key mapping, check the video in [Modeling approaches](/management/data-catalog/modeling-approaches).
 
