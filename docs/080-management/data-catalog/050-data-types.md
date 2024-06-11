@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 5
+nav_order: 6
 parent: Data catalog
 grand_parent: Management
 permalink: /management/data-catalog/data-types
