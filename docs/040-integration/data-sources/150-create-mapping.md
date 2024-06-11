@@ -164,6 +164,11 @@ If you've already created a mapping for a data set and you have another data set
 
 ### AI mapping
 
+CluedIn AI recommendation engine helps you create mapping in a quick and efficient manner.
+
+{:.important}
+To use AI capabilities to create mapping, first complete all the steps described in [Azure Open AI Integration](/microsoft-integration/open-ai-integration).
+
 AI mapping analyzes your data set and suggests the following details for your mapping:
 
 - Entity type and vocabulary.
