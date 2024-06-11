@@ -125,3 +125,5 @@ If you no longer need a vocabulary key, you can delete it. The process of deleti
 1. On the **Confirm** tab, review the details about the vocabulary key, and select **Confirm**.
 
     ![delete-vocabulary-key.gif](../../assets/images/management/data-catalog/delete-vocabulary-key.gif)
+
+    If a deleted vocabulary key has been used somewhere in the system, it will be marked as obsolete and will remain in the list of vocabulary keys. Hover over its label to find the vocabulary key it is mapped to. If the deleted vocabulary key is not used anywhere in the system and was not mapped to another vocabulary key, it will be removed from the list of vocabulary keys.
