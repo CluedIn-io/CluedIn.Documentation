@@ -123,3 +123,5 @@ If you no longer need a vocabulary key, you can delete it. The process of deleti
 1. On the **Select vocabulary key** tab, use the search box to find the existing vocabulary key to which you want to map the current vocabulary key. Then, select the checkbox next to the needed key. Finally, select **Next**.
 
 1. On the **Confirm** tab, review the details about the vocabulary key, and select **Confirm**.
+
+    ![delete-vocabulary-key.gif](../../assets/images/management/data-catalog/delete-vocabulary-key.gif)
