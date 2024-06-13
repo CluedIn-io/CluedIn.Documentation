@@ -4,8 +4,8 @@ nav_order: 2
 parent: PaaS operations
 permalink: /deployment/infra-how-tos/ama-backup
 title: Backup and restore
-tags: ["deployment", "ama", "marketplace", "azure", "backup"]
-last_modified: 2024-05-09
+tags: ["deployment", "ama", "marketplace", "azure", "backup", "disaster recovery", "DR"]
+last_modified: 2024-06-13
 headerIcon: "paas"
 ---
 
@@ -14,138 +14,48 @@ headerIcon: "paas"
 1. TOC
 {:toc}
 
-To prevent data loss and to ensure the safety and availability of your containerized applications, set up a backup solution for your Azure Kubernetes Service (AKS) clusters. Note that the backup configuration is not included with AMA and requires a separate setup. This guide applies to setting up a backup solution for both newly installed CluedIn AMA and older installations.
+# Backup
+To prevent data loss and to ensure the safety and availability of your containerized applications, set up a backup solution for your Azure Kubernetes Service (AKS) clusters. The backup solution is deployed post-installation and can be done by CluedIn on your behalf. If you do not have the backup solution in place, please reach out to CluedIn support who will assist.
 
-The backup configuration process involves two main parts:
+The backup configuration focuses on two core elements for the CluedIn product. This is the `helm values` and the persistent `databases` that run inside of your cluster on disk.
 
-1. [Template deployment](#template-deployment)
+The process works by leveraging the automation account deployed to your managed resource group to run two main runbooks. One runbook will backup helm, and the other will backup the databases.
 
-1. [Backup extension configuration script](#backup-extension-configuration-script)
+During the backup run, it will temporarily shut down the instance by scaling down all the pods running in Kubernetes to prevent any potential data loss. It will then take snapshots of each persistent disk and place these inside the managed resource group by default.
 
-**Prerequisite:** Make sure you have the Owner access at the subscription level because some role assignments are performed when running the template and the extension script.
+Once a backup has happened, it will reduce total snapshots to the supplied retention count (default is 7), starting with the oldest existing snapshot before scaling CluedIn up.
 
-After you complete the backup configuration, you can [restore any backup instance](#restore-a-backup-instance). 
+This process takes roughly 20 minutes to complete and is highly recommended to run out of hours.
 
-By default, backup occurs every 4 hours and typically lasts about 15 minutes. It does not cause service interruption to ensure that the data volumes are backed up. However, relying on the default schedule could lead to data inconsistency if there is any in-transit data processing in memory. That's why you can configure the cron job backup schedule to your preferred time frame. This custom schedule may temporarily pause system operations during backup processes to prevent data inconsistency.
+## Setup the schedules
+1. Navigate to the automation account located in the managed resource group of the environment you want to take backups. 
+1. On the left hand side, click on **Schedules**
+1. Click on **Add a schedule** and create it with the appropriate time, time zone, and days to run the backup and then click **Create**.
 
-The following diagram illustrates AKS backup configuration and the restoration of backup instances.
+   ![backup-schedule](../../assets/images/ama/howtos/backup-schedule.png)
 
-![aks-backup-diagram.jpg](../../assets/images/ama/howtos/aks-backup-diagram.jpg)
+1. On the left hand side, click on **Runbooks**
+1. Click on `backup-helm-values` and then schedules on the left side.
+1. Click on **Add a schedule** and select the one just created and fill in the parameters.
+1. Repeat the process for `backup-cluedin`
 
-## Template deployment
+Once this has been set, the automation account should proceed to backup as per your configuration.
 
-Template deployment creates a storage account, backup vault, policies, instances, and sets up the required roles and permissions between AKS and the backup vault.
+For any further information on this, please reach out to CluedIn support.
 
-**To deploy a template**
+# Restore
+If you're ever in a situation where you need to restore an environment, below will only cover an in-place restore, and not a disaster recovery to another region. It is highly recommended to reach out to CluedIn support in the first instance. 
 
-1. Run the following Azure CLI command to enable the managed identity for the AKS cluster:
+## Restore flow
+1. Scale down the pods on your AKS so no CluedIn pods are running.
+1. Restore the disks located in the snapshot location over top of the existing PVCs.
 
-    ```bash
-    az aks update -g <managed-resource-group> -n <cluster-name> --enable-managed-identity
-    ```
-    {:.important}
-    After updating your cluster, the control plane and pods will use the managed identity. The kubelet will continue using a service principal until you upgrade your agent pool.
+   {:.important}
+   The disk name and tags must match during a restore, otherwise you may run into problems during operation.
+   All restored disks must be from the same time. There may be a few minutes between each disk as it runs sequentially.
 
-1. Restart the AKS cluster to update the managed identity across all the node pools.
+1. Once all disks have been restored from the same time , it is then safe to scale the cluster back up.
+1. After 5 minutes, the instance should then be rolled back.
 
-    {:.important}
-    This will cause downtime as the nodes are cordoned, drained, and reimaged.
-
-1. Initiate the deployment by selecting the following button:
-
-    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FCluedIn-io%2FAzure%2Fmaster%2Fbackup%2Fazuredeploy.json)
-
-    The **Custom deployment** page for your subscription opens in browser.
-
-1. Fill out the resource details: 
-
-    1. In the **Project details** section, choose or create a new resource group.
-
-    1. In the **Instance details** section, enter the **Account Name** and **Aksrg** (AKS resource group).
-
-        ![backup-restore-1.png](../../assets/images/ama/howtos/backup-restore-1.png)
-
-        {:.important}
-        The backup instances cannot be deployed within the same resource group as your existing AMA instance. To ensure proper configuration, the backup-related components must be deployed to a separate resource group.
-
-    1. Select **Review + create**.
-
-    Two resources are created within the resource group: storage account and backup vault.
-
-    ![backup-restore-2.png](../../assets/images/ama/howtos/backup-restore-2.png)
-
-## Backup extension configuration script
-
-After you have completed the template deployment, run the backup extension script.  This script registers the necessary preview providers and installs the backup extension within the AKS cluster.
-
-**To run the backup extension script**
-
-1. Download and run the <a href="../../../assets/ps1/aks-backup-extn.ps1" download>aks-backup-extn.ps1</a> script.
-
-   You'll be asked to provide the following parameters one by one:
-
-    - AKS Cluster Name
-    - AKS Cluster Resource Group
-    - Storage Account Name
-    - Blob Container Name
-    - Storage Resource Group
-
-    The following image shows an example of the parameters.
-
-    ![backup-restore-5.png](../../assets/images/ama/howtos/backup-restore-5.png)
-
-After you executed the backup extension configuration, make sure that the resources were deployed successfully using the following steps:
-
-1. Go to the respective AKS cluster and then do the following: 
-
-    1. In the left pane, under **Settings**, select **Extensions + applications**. You should see the following extension: **azure-aks-backup**
-
-        ![backup-restore-3.png](../../assets/images/ama/howtos/backup-restore-3.png)
-
-    1. In the left pane, under **Settings**, select **Backup (preview)**. You should the following extension: **cluedin-backup-instance**.
-
-        ![backup-restore-4.png](../../assets/images/ama/howtos/backup-restore-4.png)
-
-1. Go to the resource group, and then open the backup vault. Set the **Datasource type** filter to **Kubernetes Services (Preview)**. You should see your backup jobs and instances.
-
-    ![backup-restore-7.png](../../assets/images/ama/howtos/backup-restore-7.png)
-
-## Restore a backup instance
-
-After you configured the backup solution, you can restore any backup instance when needed. The restoration process takes 3–5 minutes.
-
-**To restore a backup instance**
-
-1. Go to the resource group, and then open the backup vault.
-
-1. In the left pane, select **Backup instances**. Then, at the top of the page, select **Restore**.
-
-    The **Restore** dialog opens for you to provide the details.
-
-1. Select the **Backup instance**. Then, in the lower-left corner, select **Next: Restore point**.
-
-    ![backup-restore-8.png](../../assets/images/ama/howtos/backup-restore-8.png)
-
-1. Select the **Restore point** from the list of available backups. Then, in the lower-left corner, select **Next: Restore parameters**.
-
-    ![backup-restore-9.png](../../assets/images/ama/howtos/backup-restore-9.png)
-
-1. On the **Restore parameters** tab, do the following:
-
-    1. Select the target **Kubernetes service** from the list of available services for your subscription.
-
-    1. Select the **Resources to restore**. You can choose to restore the state, the data, or both (complete backup).
-
-        ![backup-restore-11.png](../../assets/images/ama/howtos/backup-restore-11.png)
-
-    1. Validate the restore parameters.
-
-        ![backup-restore-12.png](../../assets/images/ama/howtos/backup-restore-12.png)
-
-    1. In the lower-left corner, select **Next: Review + restore**.
-
-1. Review the restore details, and then select **Restore**.
-
-    ![backup-restore-13.png](../../assets/images/ama/howtos/backup-restore-13.png)
-
-    You'll receive a notification when the restore is completed.
+# Further information
+If you require further information at any point regarding the above, please reach out to CluedIn support who will assist.
