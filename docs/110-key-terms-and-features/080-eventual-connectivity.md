@@ -8,25 +8,32 @@ permalink: /key-terms-and-features/eventual-connectivity
 tags: ["development","eventual-connectivity"]
 ---
 
-The CluedIn `Eventual Connectivity` pattern is at the heart of CluedIn. This pattern of integration makes it simple to blend data from many different systems into a unified and connected dataset. 
+The eventual connectivity pattern is at the heart of CluedIn. This pattern of integration makes it simple to blend data from many different systems into a unified and connected data set.
 
-You will need to understand some of the core concepts behind the pattern:
+**Example**
 
- - Entity Codes
- - Aliases
- - Vocabularies
- - Edges
- - GraphStore
- - Shadow Entities
+Let’s explore the concept of eventual connectivity in CluedIn through an example. We have a golden record that mentions an email address. This email address indicates that there might be another data set where the email is also used. So, CluedIn creates a shadow entity, which acts as a placeholder, with the email address. This shadow entity may have several codes, one of which is built using the email address.
 
- The aim of CluedIn is to build a unified and connected dataset where the model of that data is generated from the data itself. This means that you don't have control over the modelling within CluedIn up-front (but you will have control later in the process). As you work more with CluedIn, you will realise that if we would like to do purpose fit modelling, then we will stream data out of CluedIn and make it available in other systems where purpose-fit modelling can be applied. 
+At this point, the document golden record is related to the shadow entity. When a new record containing the same email address appears in the system, CluedIn recognizes matching emails, and replaces the shadow entity with a new golden record. In the end, the document record is now related to another golden record, and not to the shadow entity.
 
- The `Eventual Connectivity` pattern is here to simplify the integration of data and to forgoe long and tedious architecture meetings to discuss how different systems will connect with each other. The Eventual Connectivity pattern will do the blending of data for you, as long as you can instruct it and guide it using the concepts mentioned above. 
+![eventual-connectivity-1.gif](../../assets/images/key-terms-and-features/eventual-connectivity-1.gif)
 
- The major project advantage of this pattern is that we can take one system, actually you can even take one object in a system at a time, mark up that object and let the pattern take care of finding how it will blend. 
+**Goal of eventual connectivity**
 
- With this in mind, we start by taking one system, going through an object at a time and determining what (if any) Entity Codes, Aliases and Edges exist on that object type. 
+The goal of eventual connectivity is not to model your data into a final form but to provide a flexible model inferred from the source systems. This means that you don't have control over the modelling within CluedIn up-front, but you will have control later in the process. You won't have to conduct long and tedious architecture meetings to discuss how different systems will connect with each other. The eventual connectivity pattern will do the blending of data for you, as long as you can instruct it and guide it using its underlying concepts.
 
- It is also important to remember that with Edges, we do not want, or expect, you to know where this reference is pointing to - rather we would ask you to instruct us that a particular field or column should point to an Entity Code of another record. This record could be in the current system, or it could be in another system all together. 
+**Underlying concepts**
 
- This becomes slightly more complex when you start working with systems that have custom business rules that dictate Entity Codes. The good thing, is that because you take this process one object or system at a time - you can talk with the product owner and domain expert of their system and ask them to help describe that the different properties entail. For example, imagine you had an identifier which wsa actually a concatenated value of two different identifers from different systems. The question needs to be asked if the concatenated version of that identifier is the Entity Code or if there are 3 Entity Codes e.g. One for each piece of the Identifier and then one to act as a unique reference in the current system. If in doubt of uniqueness, you can always mark these records as Aliases or that you can apply Entity Codes in a post processor. 
+- Codes – universally unique identifiers of a record. Read more about codes [here](/Documentation/Key-terms-and-features/Codes).
+
+- Edges – a way to instruct CluedIn that there is a reference from one object to another. Edges are the key behind the eventual connectivity pattern. Read more about edge [here](/Documentation/Key-terms-and-features/Edges).
+
+- Shadow entities (also known as floating edges) – records that are constructed from edges, with the expectation that the system will eventually find a link between these records.
+
+- Aliases – a way to instruct CluedIn that there is a property that can fuzzily lead to a linkage between golden records.
+
+- Vocabularies – a way to map properties from the source system to a common vocabulary that CluedIn understands. The vocabularies are key to bridge data across systems. For more information, see a video about vocabulary key mapping [here](/management/data-catalog/modeling-approaches).
+
+**Main advantage**
+
+The main advantage of the eventual connectivity pattern is that you can take one system or even one object within a system at a time, determine the codes, aliases, and edges for an object, and then let the pattern manage how everything will blend together. It is also important to remember that with edges, we do not expect you to know where the reference is pointing to. Rather we would ask you to instruct us that a particular field or column should point to another record. This record could be in the current system, or it could be in another system all together.
