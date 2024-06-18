@@ -58,6 +58,3 @@ If you're ever in a situation where you need to restore an environment, this sec
 1. Once all disks have been restored from the same time, proceed to scale the cluster back up.
  
      After 5 minutes, the instance should then be rolled back.
-
-# Further information
-If you require further information at any point regarding the above, please reach out to CluedIn support who will assist.
