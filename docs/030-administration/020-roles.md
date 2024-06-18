@@ -50,12 +50,8 @@ In CluedIn, the following access levels are used:
 - **None** – no access to the claim.
 - **Informed** – read-only access to the claim. The user will be able to view all information within the claim, but will not be able to add, edit, or delete items within the claim.
 - **Consulted** – read and write access to the claim. The user will be able to add, edit, or delete items within the claim.
-- **Responsible** – read, write, and submit approval requests.
-- **Accountable** – read, write, submit approval requests, and approve requests.
-
-Each subsequent access level includes all permissions from the previous access level.
 
 {:.important}
-In CluedIn, the most commonly used access levels are Informed and Consulted. We are working on making the access levels consistent within the platform. Currently, for some modules, the activity represented by the Responsible and Accountable access levels is the same.
+The Responsible and Accountable access levels are reserved for upcoming versions. Currently, the activities represented by these access levels are the same as in the Consulted access level.
 
 All authorized users have a list of claims and access levels applied to them. If a user has multiple roles with different claim access levels, then the higher access level will be applied to the user.
