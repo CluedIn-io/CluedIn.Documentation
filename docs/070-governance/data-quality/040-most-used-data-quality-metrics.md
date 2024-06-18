@@ -105,10 +105,7 @@ Map more properties to the core vocabularies.
 
 ## Data Noise
 #### Description:
-This is calculated by External Data (from Enrichment Services) that are also Shadow Entities. This means that you are doing a lot of fuzzy lookups on records that have no Entity Codes to map back to your records, or your fuzzy merging is not doing a good enough job, or the data merging is not obvious. 
-
-#### How to improve this metric:
-To fix this, open the Shadow Entity Studio and start to map records together manually.
+This is calculated by External Data (from Enrichment Services) that are also Shadow Entities. This means that you are doing a lot of fuzzy lookups on records that have no Entity Codes to map back to your records, or your fuzzy merging is not doing a good enough job, or the data merging is not obvious.
 
 
 ## Data Orderliness
