@@ -18,7 +18,7 @@ headerIcon: "paas"
 
 To prevent data loss and to ensure the safety and availability of your containerized applications, set up a backup solution for your Azure Kubernetes Service (AKS) clusters. The backup solution is deployed post-installation and can be done by CluedIn on your behalf. If you do not have the backup solution in place, reach out to CluedIn support for assistance.
 
-The backup configuration focuses on two core elements for the CluedIn product. This is the `helm values` and the persistent `databases` that run inside of your cluster on disk.
+The backup configuration focuses on two core elements for the CluedIn product. These are the `helm values` and the persistent `databases` that run inside of your cluster on disk.
 
 The process works by leveraging the automation account deployed to your managed resource group to run two main runbooks. One runbook will backup helm, and the other will backup the databases.
 
