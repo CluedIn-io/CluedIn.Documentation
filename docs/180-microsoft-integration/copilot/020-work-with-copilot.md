@@ -44,6 +44,9 @@ Note that CluedIn Copilot does not offer a preview feature for its actions; it d
 
 This section contains all CluedIn Copilot skills grouped by categories or modules. Each skill contains one or several prompt examples to give you an understanding of how to use its functionality effectively.
 
+{:.important}
+Sometimes you may encounter issues with CluedIn Copilot where it does not understand your requests as expected. In such cases, as with any generative AI solution, please start over and create a new chat.
+
 ### Data set skills
 
 CluedIn Copilot can analyze a data set to provide general overview, suggest possible mapping options, and create a mapping for the data set.
