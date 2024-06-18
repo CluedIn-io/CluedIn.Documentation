@@ -35,10 +35,10 @@ This process takes roughly 20 minutes to complete and is highly recommended to r
 
    ![backup-schedule](../../assets/images/ama/howtos/backup-schedule.png)
 
-1. On the left hand side, click on **Runbooks**
-1. Click on `backup-helm-values` and then schedules on the left side.
-1. Click on **Add a schedule** and select the one just created and fill in the parameters.
-1. Repeat the process for `backup-cluedin`
+1. On the left side, select **Runbooks**
+1. Select `backup-helm-values`. Then, on the left side, select **Schedules**.
+1. Select **Add a schedule**, and then select the schedule that you've just created. Fill in the parameters.
+1. Repeat the process for `backup-cluedin`.
 
 Once this has been set, the automation account should proceed to backup as per your configuration.
 
