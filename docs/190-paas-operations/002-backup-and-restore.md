@@ -44,8 +44,8 @@ Once this has been set, the automation account should proceed to backup as per y
 
 For any further information about backup, reach out to CluedIn support.
 
-# Restore
-If you're ever in a situation where you need to restore an environment, below will only cover an in-place restore, and not a disaster recovery to another region. It is highly recommended to reach out to CluedIn support in the first instance. 
+## Restore an environment
+If you're ever in a situation where you need to restore an environment, this section will only cover an in-place restore, and not a disaster recovery to another region. It is highly recommended to reach out to CluedIn support in the first instance. 
 
 ## Restore flow
 1. Scale down the pods on your AKS so no CluedIn pods are running.
