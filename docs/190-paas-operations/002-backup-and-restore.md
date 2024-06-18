@@ -42,7 +42,7 @@ This process takes roughly 20 minutes to complete and is highly recommended to r
 
 Once this has been set, the automation account should proceed to backup as per your configuration.
 
-For any further information on this, please reach out to CluedIn support.
+For any further information about backup, reach out to CluedIn support.
 
 # Restore
 If you're ever in a situation where you need to restore an environment, below will only cover an in-place restore, and not a disaster recovery to another region. It is highly recommended to reach out to CluedIn support in the first instance. 
