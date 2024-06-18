@@ -55,8 +55,9 @@ If you're ever in a situation where you need to restore an environment, this sec
    The disk name and tags must match during a restore, otherwise you may run into problems during operation.
    All restored disks must be from the same time. There may be a few minutes between each disk as it runs sequentially.
 
-1. Once all disks have been restored from the same time , it is then safe to scale the cluster back up.
-1. After 5 minutes, the instance should then be rolled back.
+1. Once all disks have been restored from the same time, proceed to scale the cluster back up.
+ 
+     After 5 minutes, the instance should then be rolled back.
 
 # Further information
 If you require further information at any point regarding the above, please reach out to CluedIn support who will assist.
