@@ -20,7 +20,7 @@ To prevent data loss and to ensure the safety and availability of your container
 
 The backup configuration focuses on two core elements for the CluedIn product. These are the `helm values` and the persistent `databases` that run inside of your cluster on disk.
 
-The process works by leveraging the automation account deployed to your managed resource group to run two main runbooks. One runbook will backup helm, and the other will backup the databases.
+The process works by leveraging the automation account deployed to your managed resource group to run two main runbooks. One runbook will back up helm, and the other will back up the databases.
 
 During the backup run, it will temporarily shut down the instance by scaling down all the pods running in Kubernetes to prevent any potential data loss. It will then take snapshots of each persistent disk and place these inside the managed resource group by default.
 
