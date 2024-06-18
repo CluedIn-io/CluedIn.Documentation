@@ -14,8 +14,9 @@ headerIcon: "paas"
 1. TOC
 {:toc}
 
-# Backup
-To prevent data loss and to ensure the safety and availability of your containerized applications, set up a backup solution for your Azure Kubernetes Service (AKS) clusters. The backup solution is deployed post-installation and can be done by CluedIn on your behalf. If you do not have the backup solution in place, please reach out to CluedIn support who will assist.
+## Set up a backup solution
+
+To prevent data loss and to ensure the safety and availability of your containerized applications, set up a backup solution for your Azure Kubernetes Service (AKS) clusters. The backup solution is deployed post-installation and can be done by CluedIn on your behalf. If you do not have the backup solution in place, reach out to CluedIn support for assistance.
 
 The backup configuration focuses on two core elements for the CluedIn product. This is the `helm values` and the persistent `databases` that run inside of your cluster on disk.
 
