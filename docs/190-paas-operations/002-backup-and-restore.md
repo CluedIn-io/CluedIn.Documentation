@@ -40,7 +40,7 @@ This process takes roughly 20 minutes to complete and is highly recommended to r
 1. Select **Add a schedule**, and then select the schedule that you've just created. Fill in the parameters.
 1. Repeat the process for `backup-cluedin`.
 
-Once this has been set, the automation account should proceed to backup as per your configuration.
+Once the schedules are set up, the automation account should proceed to run backup as per your configuration.
 
 For any further information about backup, reach out to CluedIn support.
 
