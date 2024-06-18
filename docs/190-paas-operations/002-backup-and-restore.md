@@ -28,10 +28,10 @@ Once a backup has happened, it will reduce total snapshots to the supplied reten
 
 This process takes roughly 20 minutes to complete and is highly recommended to run out of hours.
 
-## Setup the schedules
-1. Navigate to the automation account located in the managed resource group of the environment you want to take backups. 
-1. On the left hand side, click on **Schedules**
-1. Click on **Add a schedule** and create it with the appropriate time, time zone, and days to run the backup and then click **Create**.
+**To set up the schedules**
+1. Navigate to the automation account located in the managed resource group of the environment that you want to back up. 
+1. On the left side, select **Schedules**
+1. Select **Add a schedule**, and then specify the appropriate time, time zone, and days to run the backup. Then, select **Create**.
 
    ![backup-schedule](../../assets/images/ama/howtos/backup-schedule.png)
 
