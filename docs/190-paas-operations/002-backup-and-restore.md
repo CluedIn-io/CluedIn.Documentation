@@ -47,9 +47,9 @@ For any further information about backup, reach out to CluedIn support.
 ## Restore an environment
 If you're ever in a situation where you need to restore an environment, this section will only cover an in-place restore, and not a disaster recovery to another region. It is highly recommended to reach out to CluedIn support in the first instance. 
 
-## Restore flow
+**To restore an environment**
 1. Scale down the pods on your AKS so no CluedIn pods are running.
-1. Restore the disks located in the snapshot location over top of the existing PVCs.
+1. Restore the disks in the snapshot location over top of the existing PVCs.
 
    {:.important}
    The disk name and tags must match during a restore, otherwise you may run into problems during operation.
