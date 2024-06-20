@@ -93,6 +93,26 @@ The following image shows an example of an enricher lineage.
 
 When an enricher enriches an entity, this feature creates a lineage from the enricher provider to the entity types of the CluedIn entities via the **Enrich** process.
 
+## Sync Data Products to CluedIn DataSources
+
+This feature will enable you to sync the Purview Data Products and Data Assets into CluedIn DataSources. The data source groups can be viewed in **Integrations** > **Data Sources**.
+
+![Data Product DataSources](./media/data-product-datasources.png)
+
+Requirements to Sync
+- Data Product Status must be **_Published_**
+- Data Product Type must be **_Master data and Reference data_**
+- Data Product must be in a valid Glossary Term _(see next section below)_
+
+## Sync Data Products by Glossary Term
+There are 2 ways to select the Glossary Term that you want to sync.
+
+![Glossary Term Setup](./media/data-product-glossary-term-setup.png)
+
+1. By providing the Glossary Term ID, which can be found in the Url path.
+
+1. By providing the Glossary Term Name. In case you implemented a multiple glossary term with the same name.
+
 ## Azure Data Factory pipeline Automation
 
 This job will automatically create your ADF pipeline and execution to ingest data from Purview asset source to CluedIn ingestion endpoint (CluedIn ADF Copy Data Automation).
