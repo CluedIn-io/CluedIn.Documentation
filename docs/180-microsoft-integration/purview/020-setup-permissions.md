@@ -103,6 +103,10 @@ The integration feature listed below at least needs the permission/roles assigne
 
 Azure Data Factory integration is enabled on the **Settings** page in CluedIn. When the fields are left empty, no synchronization is performed with Azure Data Factory.
 
+### Role Assignment
+
+To enable the automation of ADF Pipeline, we need to assign a _**Reader**_ Role for the Service Principal. Please refer to this [link](https://learn.microsoft.com/en-us/purview/troubleshoot-connections) for more details.
+
 **To connect CluedIn to Azure Data Factory**
 
 1. In CluedIn, go to **Administration** > **Settings**, and then scroll down to find the **Purview** section.
