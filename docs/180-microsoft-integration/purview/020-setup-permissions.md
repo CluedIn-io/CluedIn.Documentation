@@ -50,6 +50,7 @@ The following table lists the Purview roles ([permissions](https://learn.microso
 | Synchronize Streams | Data Curator | Target Collection |
 | Synchronize Streams | Data Reader | Root Collection |
 | Synchronize Crawlers And Enrichers | Data Curator | Target Collection |
+| Azure Data Factory Pipeline Automation | Data source admins | Root Collection |
 
 Collection levels:
 
