@@ -7,6 +7,7 @@ nav_order: 2
 has_children: false
 permalink: /preparation/entity-type-translation
 tags: ["management", "entity type"]
+published: false
 ---
 
 

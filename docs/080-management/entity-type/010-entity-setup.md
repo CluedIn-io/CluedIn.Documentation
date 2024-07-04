@@ -7,6 +7,7 @@ nav_order: 1
 has_children: false
 permalink: /preparation/entity-setup
 tags: ["management", "entity type"]
+published: false
 ---
 
 ### Introduction
