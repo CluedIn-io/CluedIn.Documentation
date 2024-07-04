@@ -13,74 +13,106 @@ last_modified: 2023-11-16
 1. TOC
 {:toc}
 
-In this article, you will learn how to create a business rule to streamline the modification and management of your records.
+In this article, you will learn how to create a rule, validate it on one golden record to ensure it works as expected, and then apply the rule to all records.
 
 ## Create a rule
 
-The procedure for creating a rule is the same for all types of rules. However, the actions associated with each type of rule are different.
+Creating a rule involves defining the golden records to which the rule will be applied and specifying the actions to modify these records. The procedure of creating a rule is the same for all types of rules. However, the actions associated with each type of rule are different.
 
 **To create a rule**
 
-1. On the navigation pane, go to **Management** > **Rule Builder**.
+1. On the navigation pane, go to **Management** > **Rule builder**.
 
-1. Choose the type of rule that you want to create. Then, select **Create Rule**.
+1. Choose the type of rule that you want to create. Then, select **Create rule**.
 
-1. Enter the name of the rule, and then select **Create**.
+1. Enter the name of the rule, and then select **Create**. The rule details page opens.
 
-    The rule details page opens.
+1. In the **Filters** section, select **Add first filter**, and then specify the golden records to which the rule will be applied. For more information on how to set up a filer, see [Filters](/key-terms-and-features/filters).
 
-1. In the **Filters** section, select **Add First Filter**, and then specify to which properties or vocabulary keys the rule will be applied. For more information on how to set up a filer, see [Filters](/key-terms-and-features/filters).
-
-1. In the **Actions** section, select **Add Action**, and then configure the action that will be performed on the records matching the filter:
+1. In the **Actions** section, select **Add action**, and then configure the action that will be applied to the golden records matching the filters:
 
     1. Enter the name of the action.
 
-    1. In the **Action** section, choose the action to be performed by the rule. The information about the available actions for each rule is provided in [Rules reference](/management/rules/rules-reference).
+    1. In the **Action** section, choose the action to be performed by the rule. For more information about the available actions for each rule type, see [Rules reference](/management/rules/rules-reference). Depending on the chosen action, you might need to provide additional details.
 
-        Depending on the chosen action, you might need to provide additional details.
+    1. In the lower-right corner, select **Add action**.
 
-        ![create-rule-1.png](../../assets/images/management/rules/create-rule-1.png)
+1. If you want to add more actions to the rule, repeat step 5.
 
-    1. In the lower-right corner, select **Add Action**.
-
-        {:.important}
-        You can add multiple actions to the rule.
-
-1. In the upper-right corner of the rule details page, select **Save**.
+1. Near upper-right corner, select **Save**, and then confirm that you want to save the rule.
 
 1. Activate the rule by turning on the toggle next to the rule status.
 
-    You created the rule. The rule will be applied to the records that match the rule's filter when they are processed or reprocessed. Next, explore the available methods to reprocess the records, along with the various options for [managing the rule](/management/rules/manage-rules).
+    ![create-a-rule.gif](../../assets/images/management/rules/create-a-rule.gif)
 
+    At this point, the rule has not yet been applied to the golden records. To ensure the rule is configured correctly, we recommend applying it to one golden record to verify the results.
 
-## Re-process records
+## Test a rule on one record
 
-The main approach to reprocess the records is through the rule details page.
+After creating a rule, it is a good idea to test it on one golden record to verify that the configuration is correct. This way, you can reprocess just the one golden record instead of all affected golden records. If you find that the rule's actions have not been applied as intended, you can edit the rule and test it on one golden record again until you achieve the desired configuration.
 
-**To reprocess records through the rule details page**
+**To test a rule on one golden record**
 
-1. Near the upper-right corner, select ![reprocess-icon.png](../../assets/images/management/rules/reprocess-icon.png).
+1. Go to search and add the same filters that you set up in the rule (step 4 in [Create a rule](#create-a-rule)). Then, start the search.
 
-1. Confirm that you want to reprocess records matching the rule's filter.
+1. Open one golden record from the search results.
 
-    You can track the reprocessing of records in the status bar. If, during the reprocessing, you decide to add another action to the rule or modify a filter, you can cancel the current reprocessing operation and make the needed changes. After the reprocessing is completed, the records associated with the rule are updated in accordance with the rule's actions.
+1. Near upper-right corner, select **More** > **Re-process entity**.
+
+1. After you see a notification that the request for reprocessing has been sent, reload the page.
+
+1. Check if the golden record has been modified according to the rule.
+
+1. Check what rule has been applied to the golden record:
+
+    1. Go to the **Explain log** tab.
+
+    1. Expand the **Golden record** entry.
+
+    1. Expand **Evaluate rules** > **Summaries**.
+
+        In the tables, you can view the rules and actions that have been applied to the golden record.
+
+    ![test-a-rule.gif](../../assets/images/management/rules/test-a-rule.gif)
+
+1. Depending on the results of your review, do one of the following:
+
+    - If the rule has been applied to the golden record as you intended, proceed to apply the rule to all golden records.
+
+    - If the rule has not been applied to the golden record as intended, edit the rule, and then repeat steps 1–7 until you achieve the desired result.
+
+## Apply a rule to all records
+
+After testing a rule on one golden record and verifying that it is applied as intended, you can proceed to apply the rule to all golden records.
+
+**To apply a rule to all golden records**
+
+1. On the navigation pane, go to **Management** > **Rule builder**.
+
+1. Choose the needed type of rule, and then open the rule that you created.
+
+1. Near upper-right corner, select the reprocessing button.
+
+1. Confirm that you want to reprocess all golden records that match the rule's filter.
+
+    ![reprocess-a-rule.gif](../../assets/images/management/rules/reprocess-a-rule.gif)
 
     {:.important}
-    The reprocessing option available on the rule details page is applicable only to the records that match the current rule's filter.
+    The reprocessing option available on the rule details page is applicable only to the records that match the rule's filter.
 
-The other approaches to reprocessing the records include the following:
+    You can track the reprocessing of records in the status bar. If, during the reprocessing, you decide to add another action to the rule or modify a filter, you can cancel the current reprocessing operation and make the needed changes.
 
-- Reprocessing using the GraphQL tool – use this approach if you need to re-process many records.
+    After the reprocessing is completed, the records associated with the rule are modified in accordance with the rule's actions.
 
-- Reprocessing each record manually – use this approach if you need to re-process few records.
+There is an alternative approach to reprocess the records associated with the rule. It involves the GraphQL tool.
 
 **To reprocess records using GraphQL**
 
 1. On the navigation pane, go to **Consume** > **GraphQL**.
 
-1. Enter a query to re-process the records that should be affected by the rule.
+1. Enter a query to reprocess the records that should be affected by the rule.
 
-    For example, the following query will re-process all records that contain the "customer.location" vocabulary key set to "New York".
+    For example, the following query will reprocess all records that contain the "customer.location" vocabulary key set to "New York".
     ```
     {
      search(query: "customer.location:New York") {
@@ -96,13 +128,3 @@ The other approaches to reprocessing the records include the following:
 1. Execute the query.
 
     After the query is executed, the rule's action will be applied to the records matching the rule's filter.
-
-**To reprocess records manually**
-
-1. Find and open the needed record.
-
-1. In the upper-right corner of the record details page, select **More** > **Re-process entity**.
-
-    ![create-rule-2.png](../../assets/images/management/rules/create-rule-2.png)
-
-    After the record is re-processed, the rule's action will be applied to it.

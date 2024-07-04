@@ -69,7 +69,7 @@ if (getVocabularyKeyValue('customer.revenue') >= 1000000) {
 
     The clues appear on the right side of the page. If you have created property or pre-processed rules, note that they have already been applied to the clues.
 
-1. On the right side of the page, write the code to modify the clues as needed. You can write any JavaScript code.
+1. On the left side of the page, write the code to modify the clues as needed. You can write any JavaScript code.
 
     To check if the code is applied as intended, select **Run**.
 

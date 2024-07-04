@@ -21,6 +21,10 @@ You can edit a rule to make necessary changes in rule name, description, filters
 
 **To edit a rule**
 
+1. On the navigation pane, go to **Management** > **Rule builder**.
+
+1. Choose the needed type of rule, and then open the rule that you want to edit.
+
 1. In the rule details page, make the needed changes.
 
 1. If you are the owner of the rule, near the upper-right corner of the rule details page, select **Save**.
@@ -39,6 +43,8 @@ You can edit a rule to make necessary changes in rule name, description, filters
 
 You can delete a rule in any status if you no longer need it. You can delete a rule only if you are the owner of the rule; you cannot delete rules created by other users.
 
+After the rule is deleted, the records affected by the rule will still contain changes according to the rule's action. However, when you reprocess such records, they will return to their initial state before the rule was applied.
+
 There are two ways to delete a rule:
 
 - From the list of rules – this option allows you to delete multiple rules at once.
@@ -55,11 +61,11 @@ There are two ways to delete a rule:
 
 - Select the delete icon. Then, confirm your choice.
 
-After the rule is deleted, the records affected by the rule will still contain changes according to the rule's action. However, when you [reprocess](/management/rules/create-rule#re-process-records) such records, they will return to their initial state before the rule was applied.
-
 ## Activate and deactivate a rule
 
-When active, the rule is applied to records that match its filter during processing or reprocessing. If you no longer want to apply the rule, you can deactivate it. Yet, if you change your mind, you can easily activate the rule.
+When active, the rule is applied to records that match its filter during processing or reprocessing. If you no longer want to apply the rule, you can deactivate it. If you change your mind, you can easily activate the rule.
+
+After the rule is deactivated, the records affected by the rule will still contain changes according to the rule's action. However, when you reprocess such records, they will return to their initial state before the rule was applied.
 
 There are two ways to activate and deactivate a rule:
 
@@ -77,15 +83,13 @@ There are two ways to activate and deactivate a rule:
 
 - Near the upper-right corner, turn on or off the status toggle.
 
-After the rule is deactivated, the records affected by the rule will still contain changes according to the rule's action. However, when you reprocess such records, they will return to their initial state before the rule was applied.
-
 ## Edit rule processing order
 
 The default rule processing order is the order in which the rules were created. However, you have the flexibility to adjust the rule processing sequence. This allows you to prioritize the execution of specific rules over others. For example, if you have two rules with the same filters but different actions, you can determine which rule should be applied to the records first.
 
 **To edit the rule processing order**
 
-1. In the list of rules, near the upper-right corner, select **Edit Rule Processing Order**.
+1. In the list of rules, near the upper-right corner, select **Edit rule processing order**.
 
 1. Change the rule processing order by doing one of the following:
 
@@ -99,11 +103,11 @@ The default rule processing order is the order in which the rules were created. 
 
 ## Process pending changes
 
-If you are the owner of the rule and somebody else makes changes to the rule, you'll receive a notification about a request for approval. All requests are listed on the **Pending Changes** tab of the rule.
+If you are the owner of the rule and somebody else makes changes to the rule, you'll receive a notification about a request for approval. All requests are listed on the **Pending changes** tab of the rule.
 
 **To process pending changes**
 
-1. Review the details of the change request by selecting **View Changes**.
+1. Review the details of the change request by selecting **View changes**.
 
     A new pane opens, where you can view the changes to the rule.
 
