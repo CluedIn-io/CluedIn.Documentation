@@ -7,6 +7,10 @@ has_children: false
 permalink: /management/entity-type
 tags: ["management","entity type"]
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 An entity type is a well-known business object that describes the semantic meaning of golden records. Entity types can represent physical objects, locations, interactions, individuals, and more.
 
