@@ -49,7 +49,7 @@ Creating a rule involves defining the golden records to which the rule will be a
 
 ## Test a rule on one record
 
-After creating a rule, it is a good idea to test it on one golden record to verify that the configuration is correct. This way, you can re-process just the one golden record instead of all affected golden records. If you find that the rule's actions have not been applied as intended, you can edit the rule and test it on one golden record again until you achieve the desired configuration.
+After creating a rule, it is a good idea to test it on one golden record to verify that the configuration is correct. This way, you can reprocess just the one golden record instead of all affected golden records. If you find that the rule's actions have not been applied as intended, you can edit the rule and test it on one golden record again until you achieve the desired configuration.
 
 **To test a rule on one golden record**
 
