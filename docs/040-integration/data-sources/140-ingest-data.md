@@ -76,6 +76,9 @@ The process of ingesting data from an ingestion point involves two steps:
 
 1. [Sending data in HTTP POST request](#send-data)
 
+{:.important}
+When you send the data to CluedIn via ingestion point, a separate data set is created. If you want to send more data, add a new ingestion point instead of reusing the existing one.
+
 ### Add ingestion point
 
 An ingestion point is a channel through which CluedIn can receive data from external sources.
