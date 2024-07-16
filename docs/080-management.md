@@ -14,16 +14,16 @@ The **Management** module allows you to efficiently handle your data, eliminate 
   <div class="card" href="/management/rules">
     <div class="icon"><img src="/assets/icons/rules.svg" alt="rules"/></div>
     <div class="title">Rules</div>
-    <div class="content">Set up rules to automate data transformation, determine operational values, and more</div>
+    <div class="content">Set up rules to automate data transformation</div>
   </div>
    <div class="card" href="/management/deduplication">
     <div class="icon"><img src="/assets/icons/deduplication.svg" alt="deduplication"/></div>
     <div class="title">Deduplication</div>
-    <div class="content">Identify and remove duplicate records by merging them into a single golden record</div>
+    <div class="content">Identify and merge duplicate records</div>
   </div>
    <div class="card" href="/management/data-catalog">
     <div class="icon"><img src="/assets/icons/data-catalog.svg" alt="data catalog"/></div>
     <div class="title">Data catalog</div>
-    <div class="content">Manage vocabularies and vocabulary keys to maintain a comprehensive data model</div>
+    <div class="content">Manage vocabularies and vocabulary keys</div>
   </div>
 </div>
