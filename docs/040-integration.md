@@ -18,7 +18,7 @@ The **Integration** module allows you to upload your data into CluedIn, map it t
   </div>
    <div class="card" href="/integration/additional-operations-on-records">
     <div class="icon"><img src="/assets/icons/additional-operations.svg" alt="additional operations"/></div>
-    <div class="title">Additional operations</div>
+    <div class="title">Operations</div>
     <div class="content">Improve the quality of incoming data</div>
   </div>
    <div class="card" href="/integration/crawlers-and-enrichers">
