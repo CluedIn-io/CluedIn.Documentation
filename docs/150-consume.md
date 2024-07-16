@@ -23,7 +23,7 @@ The **Consume** module allows you to set up a connection between CluedIn and ext
     <div class="content">Configure a sequence of actions and transformations for your data before it reaches the destination</div>
   </div>
    <div class="card" href="/consume/graphql">
-    <div class="icon"><img src="/assets/icons/export-target.svg" alt="getting started"/></div>
+    <div class="icon"><img src="/assets/icons/graphQL.svg" alt="getting started"/></div>
     <div class="title">GraphQL</div>
     <div class="content">Query your data using the GraphQL endpoint: retrieve entities by ID, vocabulary keys, and more</div>
   </div>
