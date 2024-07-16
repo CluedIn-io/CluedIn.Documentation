@@ -34,9 +34,9 @@ When you create a new entity type while creating mapping, the default layout is 
 
 The layouts consist of the following elements:
 
-- Nav – a container for the following information about a golden record: entity properties, core vocabularies, source vocabularies, information sources, sources, and relations.
+- **Nav** – a container for the following information about a golden record: entity properties, core vocabularies, source vocabularies, information sources, sources, and relations.
 
-- Main – a container for the following information about a golden record: quality metrics and suggested searches.
+- **Main** – a container for the following information about a golden record: quality metrics and suggested searches.
 
 The following screenshot displays the arrangement of nav (a) and main (b) containers on the golden record overview page.
 
@@ -92,17 +92,17 @@ You can change the layout configuration and choose the elements that should be d
 
     The layout template opens in edit mode and contains the following sections:
 
-    - Display name – you can change the layout name.
+    - **Display name** – you can change the layout name.
 
-    - Select layout template – you can choose another layout template.
+    - **Select layout template** – you can choose another layout template.
 
-    - Configure layout – you can choose what elements you want to be displayed on the golden records details page. By default, all core vocabulary keys and non-core vocabulary keys that the golden record contains are displayed on the golden record details page, together with quality metrics and suggested searches. You can select custom core and non-core vocabulary keys or disable the quality metrics and suggested searches.
+    - **Configure layout** – you can choose what elements you want to be displayed on the golden record overview page. By default, all core vocabulary keys and non-core vocabulary keys that the golden record contains are displayed on the golden record overview page, together with quality metrics and suggested searches. You can select custom core and non-core vocabulary keys or disable the quality metrics and suggested searches.
 
 1. To add custom core or non-core vocabulary keys, in the corresponding section, choose the **Custom** option, and then do the following:
 
     1. Select **Add vocabulary keys**.
 
-    1. Find and select the vocabulary keys to be displayed on the golden record details page.
+    1. Find and select the vocabulary keys to be displayed on the golden record overview page.
 
     1. Select **Add**.
 
