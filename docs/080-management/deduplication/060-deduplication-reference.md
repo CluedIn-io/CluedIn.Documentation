@@ -36,6 +36,12 @@ The following table provides the description of methods used for detecting dupli
 | First token equals | Extracts the first word from both values and compares for exact match ignoring casing. |
 | Email | Matches two email address values if the are semantically equal. |
 
+Watch the following video where we provide an explanation of matching functions along with practical examples.
+
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/990163626?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Matching functions in a deduplication project"></iframe>
+</div>
+
 ## Deduplication project
 
 This section contains reference information about deduplication project statuses.
