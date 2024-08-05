@@ -41,7 +41,13 @@ The following video explains each action available in the survivorship rules.
 
 The purpose of **golden record rules** is to facilitate the easy identification and retrieval of golden records within the system. You can use a golden record rule to tag records containing invalid data that should be addressed by a Data Steward. In this case, a responsible person can quickly find tagged records and create a clean project.
 
-**Example**
+The following video explains each action available in the golden record rules.
+
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/995011124?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Golden record rules"></iframe>
+</div>
+
+## Example of using rules
 
 Let's take a look at the example of using different rule types in the lifecycle of a golden record in CluedIn. Suppose you are receiving data about a company from various systems such as Salesforce, SAP, and MS SQL Server. Among other properties, the records from these systems include the countryCode property, which is used in the company golden record. However, the countryCode property contains inconsistent values—some country codes are in lower case and others in title case. To normalize these values, you can create a data part rule.
 
