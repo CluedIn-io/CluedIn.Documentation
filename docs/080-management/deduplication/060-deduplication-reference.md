@@ -36,6 +36,12 @@ Matching functions specify how values of a vocabulary key or property should be 
 | First token equals | Extracts the first word from both values and compares for exact match ignoring casing. |
 | Email | Matches two email address values if they are semantically equal. |
 
+Watch the following video where we provide an explanation of matching functions along with practical examples.
+
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/990163626?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Matching functions in a deduplication project"></iframe>
+</div>
+
 ## Normalization rules
 
 Normalization rules clean up values before comparing them to identify duplicates. The following table provides the description of normalization rules.
@@ -61,10 +67,10 @@ Normalization rules clean up values before comparing them to identify duplicates
 | Split text by whitespace | Splits text by whitespace into tokens. |
 | Transliterate | Transliterates text value to an ASCII string. For example, `Ελληνική Δημοκρατία` will be converted to `Ellēnikē Dēmokratia`. |
 
-Watch the following video where we provide an explanation of matching functions along with practical examples.
+Watch the following video where we provide an explanation of normalization rules along with practical examples.
 
 <div class="videoFrame">
-<iframe src="https://player.vimeo.com/video/990163626?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Matching functions in a deduplication project"></iframe>
+<iframe src="https://player.vimeo.com/video/994932994?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Normalization rules in a deduplication project"></iframe>
 </div>
 
 ## Deduplication project
