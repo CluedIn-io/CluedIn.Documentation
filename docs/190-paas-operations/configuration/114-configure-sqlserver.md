@@ -10,16 +10,19 @@ headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
-### Inside the cluster
+{:.important}
+To run SQL Server in production environment, you should have a valid Microsoft SQL Server license. Learn more about licensing [here](https://www.microsoft.com/en-us/sql-server/sql-server-2022-pricing).
+
+## Inside the cluster
 
 By default, SQL Server is deployed within the cluster. This is currently the recommended approach. However, it is possible to deploy to Azure SQL instead. When deployed inside the cluster, two secrets will get created. One will contain the password for the SQL Server (which will be a randomly generated password), the other will contain the connection strings that will be consumed by various deployments.
 
-### Custom SQL server (Azure SQL)
+## Custom SQL server (Azure SQL)
 
-If you are using your own SQL installation, like Azure SQL, you will need to:
+If you are using your own SQL installation, like Azure SQL, you will need to do the following:
 
 1. Install the database definitions (DACPACs) to your SQL instance. This can be done from the command line using [`SqlPackage.exe`](https://docs.microsoft.com/en-us/sql/tools/sqlpackage?view=sql-server-2017#publish-parameters-properties-and-sqlcmd-variables). 
 
@@ -42,7 +45,7 @@ If you are using your own SQL installation, like Azure SQL, you will need to:
       Metrics: <connection-string>
     ```
 
-1. You should then pass the name of the secret in the `values.yaml` override file:
+1. Pass the name of the secret in the `values.yaml` override file:
     ```yaml
     application:
       sqlserver:
