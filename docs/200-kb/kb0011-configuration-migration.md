@@ -41,7 +41,7 @@ To get the IDs of specific parameters, you will need to use the front end and na
 ##### Exporting configuration (Source system)
 
 1. Open up a `PowerShell`.
-1. In the `PowerShell` window, run the following: 
+1. In the `PowerShell` window, run the following:
 
     **Note**: We will be using the ficticious front end `https://cluedin-source.customer.com` in the example below.
 
@@ -50,18 +50,21 @@ To get the IDs of specific parameters, you will need to use the front end and na
     $Organization = 'cluedin-source'
     $BackupPath = '/path/to/export-20240403'
 
-    /path/to/CluedIn.Product.Toolkit/Scripts/Export-CluedInConfig.ps1 \
-        -BaseURL ${BaseURL} \
-        -Organization ${Organization} \
-        -BackupPath ${$BackupPath}
+    $params = @{
+        BaseURL = ${BaseURL}
+        Organization = ${Organization}
+        BackupPath = ${$BackupPath}
+    }
+
+    /path/to/CluedIn.Product.Toolkit/Scripts/Export-CluedInConfig.ps1 @params
         # The below are all optional. Please see what values are accepted below. If running without any of the below.
         # It will not export anything as everything defaults to export nothing.
-        # 
+        #
         # -BackupAdminSettings      [switch] true | false (Default)
         # -SelectVocabularies       [string] csv guids | None (Default)
         # -SelectDataSets           [string] csv ints | All | None (Default)
         # -SelectRules              [string] csv guids | All | None (Default)
-        # -SelectExportTargets      [string] csv guids | All | None (Default) 
+        # -SelectExportTargets      [string] csv guids | All | None (Default)
         # -SelectStreams            [string] csv guids | All | None (Default)
         # -SelectGlossaries         [string] csv guids | All | None (Default)
         # -SelectCleanProjects      [string] csv guids | All | None (Default)
@@ -85,15 +88,18 @@ To get the IDs of specific parameters, you will need to use the front end and na
     $Organization = 'cluedin-destination'
     $RestorePath = '/path/to/export-20240403'
 
-    /path/to/CluedIn.Product.Toolkit/Scripts/Import-CluedInConfig.ps1 \
-        -BaseURL ${BaseURL} \
-        -Organization ${Organization} \
-        -RestorePath ${$RestorePath}
+    $params = @{
+        BaseURL = ${BaseURL}
+        Organization = ${Organization}
+        RestorePath = ${$RestorePath}
+    }
+
+    /path/to/CluedIn.Product.Toolkit/Scripts/Import-CluedInConfig.ps1 @params
     ```
 
     **Note**: `/path/to/` will differ on your local system. Please update this to be the local respective path.
 
-1. The script will launch and prepare to connect. When successful, it will iterate through the RestorePath and begin importing and/or correcting any configuration drift between the environments. 
+1. The script will launch and prepare to connect. When successful, it will iterate through the RestorePath and begin importing and/or correcting any configuration drift between the environments.
 
     The console will output any relevant changes that may have occurred during the import phase so that you can keep track of what has happened.
 
@@ -124,13 +130,13 @@ To get the IDs of specific parameters, you will need to use the front end and na
 
     **Note**: We will be using the ficticious front end `https://cluedin-source.customer.com` and `https://cluedin-destination.customer.com` in the example below.
 
-    - **CluedIn Base URL (Source)**: This is in the format of customer.com without http(s)://.  
+    - **CluedIn Base URL (Source)**: This is in the format of customer.com without http(s)://.
     e.g. `customer.com`
-    - **CluedIn Organization (Source)**: This is the first part of your cluedin environment.  
+    - **CluedIn Organization (Source)**: This is the first part of your cluedin environment.
     e.g. `cluedin-source`
-    - **CluedIn Base URL (Destination)**: This is in the format of customer.com without http(s)://  
+    - **CluedIn Base URL (Destination)**: This is in the format of customer.com without http(s)://
     e.g. `customer.com`
-    - **CluedIn Organization (Destination)**: This is the first part of your cluedin environment.  
+    - **CluedIn Organization (Destination)**: This is the first part of your cluedin environment.
     e.g. `cluedin-destination`
     - **Admin Settings**: Checkbox determines 'True' or 'False'
     - **Vocabularies (guid, csv)**: Accepted values are 'None', or the guids seperated by a comma (,). All will not work for this one.
