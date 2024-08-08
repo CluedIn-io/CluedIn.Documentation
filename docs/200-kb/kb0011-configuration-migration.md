@@ -46,14 +46,10 @@ To get the IDs of specific parameters, you will need to use the front end and na
     **Note**: We will be using the ficticious front end `https://cluedin-source.customer.com` in the example below.
 
     ```powershell
-    $BaseURL = 'customer.com'
-    $Organization = 'cluedin-source'
-    $BackupPath = '/path/to/export-20240403'
-
     $params = @{
-        BaseURL = ${BaseURL}
-        Organization = ${Organization}
-        BackupPath = ${$BackupPath}
+        BaseURL = 'customer.com'
+        Organization = 'cluedin-source'
+        BackupPath = '/path/to/export-20240403'
     }
 
     /path/to/CluedIn.Product.Toolkit/Scripts/Export-CluedInConfig.ps1 @params
@@ -84,14 +80,10 @@ To get the IDs of specific parameters, you will need to use the front end and na
     **Note**: We will be using the ficticious front end `https://cluedin-destination.customer.com` in the example below.
 
     ```powershell
-    $BaseURL = 'customer.com'
-    $Organization = 'cluedin-destination'
-    $RestorePath = '/path/to/export-20240403'
-
     $params = @{
-        BaseURL = ${BaseURL}
-        Organization = ${Organization}
-        RestorePath = ${$RestorePath}
+        BaseURL = 'customer.com'
+        Organization = 'cluedin-destination'
+        RestorePath = '/path/to/export-20240403'
     }
 
     /path/to/CluedIn.Product.Toolkit/Scripts/Import-CluedInConfig.ps1 @params
