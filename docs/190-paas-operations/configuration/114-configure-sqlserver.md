@@ -24,7 +24,7 @@ By default, SQL Server is deployed within the cluster. This is currently the rec
 
 If you are using your own SQL installation, like Azure SQL, you will need to do the following:
 
-1. Install the database definitions (DACPACs) to your SQL instance. This can be done from the command line using [`SqlPackage.exe`](https://docs.microsoft.com/en-us/sql/tools/sqlpackage?view=sql-server-2017#publish-parameters-properties-and-sqlcmd-variables). 
+1. Install the database definitions (DACPACs) to your SQL instance. This can be done from the command line using [`SqlPackage.exe`](https://docs.microsoft.com/en-us/sql/tools/sqlpackage?view=sql-server-2017#publish-parameters-properties-and-sqlcmd-variables).
 
 1. Create a secret with the **connection strings** for each database. The secret should have the following keys:
     ```yaml
@@ -51,3 +51,16 @@ If you are using your own SQL installation, like Azure SQL, you will need to do 
       sqlserver:
         connectionsSecretName: my-connection-string-secret
     ```
+
+## Setup
+1. Deploy a managed Azure SQL Database Server in the same region as your AKS cluster
+    Recommended specs are:
+    - vCPU: 4
+    - Memory: 16GB
+  Ensure azure services can access the database server
+1. Go to the SQL resource and do the following:
+  1. Disable public network access
+  1. Create a private endpoint
+  1. Connect to the AKS subnet on the AKS vNet
+  1. Leave private DNS integration on
+  1. Reconfigure helm to use the new connection
