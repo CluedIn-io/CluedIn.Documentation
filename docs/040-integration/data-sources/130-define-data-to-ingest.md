@@ -23,4 +23,5 @@ You can ingest the data into CluedIn using the following methods:
 
 - **Out-of-the-box integration** – CluedIn supports out-of-the-box integration, but it is not covered in this section.
 
-**Important!** Regardless of the data ingestion method you choose, the processing is the same across all sources.
+{:.important}
+Regardless of the data ingestion method you choose, the processing is the same across all sources.

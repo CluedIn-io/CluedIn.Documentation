@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 030
+nav_order: 050
 parent: Data sources
 grand_parent: Integration
 permalink: /integration/create-mapping
