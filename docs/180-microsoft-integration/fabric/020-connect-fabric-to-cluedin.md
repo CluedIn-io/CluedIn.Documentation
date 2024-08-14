@@ -24,7 +24,7 @@ To connect Microsoft Fabric to CluedIn, you need to have the following:
 
     ![api-token.jpg](../../assets/images/microsoft-integration/fabric/api-token.jpg)
 
-- An endpoint in CluedIn. You can find instructions on how to create an endpoint [here](https://documentation.cluedin.net/integration/ingest-data#ingestion-point). After you create an endpoint, you'll find the POST URL.
+- An endpoint in CluedIn. You can find instructions on how to create an endpoint [here](/integration/endpoint). After you create an endpoint, you'll find the POST URL.
 
     ![endpoint.jpg](../../assets/images/microsoft-integration/fabric/endpoint.jpg)
 
