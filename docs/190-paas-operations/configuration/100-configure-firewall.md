@@ -30,7 +30,7 @@ Below are the required endpoints for CluedIn to be functional out of the box.
 | `*.grafana.com` | 443 | Grafana chart content |
 | `mcr.microsoft.com` | 443 | Microsoft container registry |
 | `acme-v02.api.letsencrypt.org` | 443 | (Optional) Let's Encrypt service. Only required if not supplying own certificate |
-| `quay.io/jetstack` | 443 | (Optional) The cert-manager Lets Encrypt ACME service uses images. Not required if using own certificate |
+| `quay.io/jetstack` | 443 | (Optional) The cert-manager Let's Encrypt ACME service uses images. Not required if using own certificate |
 | `AKS Control Plane` | 443 | (For public clusters only) FQDN can be found under the AKS resource next to the **API server address** property (for example, `aks-cluedin.hcp.westeurope.azmk8s.io`) |
 | `*.file.core.windows.net` | 445 | The Azure File CSI driver mounts some shares via NFS/SMB using this port |
 
