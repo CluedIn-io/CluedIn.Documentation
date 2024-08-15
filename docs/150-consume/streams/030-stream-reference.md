@@ -10,7 +10,7 @@ last_modified: 2024-01-16
 ---
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 In this article, you will find reference information to help you understand stream statuses and other stream indicators.
