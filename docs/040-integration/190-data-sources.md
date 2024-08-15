@@ -19,7 +19,7 @@ Each step is explained in detail in a separate article in this section:
 
 1. [Define data to ingest](/integration/define-data-to-ingest) – explore all the ways you can ingest data into CluedIn and choose the one that works best for your needs.
 
-1. [Ingest data from [a file](/integration/file), [an endpoint](/integration/endpoint), or [a database](/integration/database) - find step-by-step instructions for ingesting data into CluedIn.
+1. Ingest data from [a file](/integration/file), [an endpoint](/integration/endpoint), or [a database](/integration/database) - find step-by-step instructions for ingesting data into CluedIn.
 
 1. [Create mapping](/integration/create-mapping) - create a semantic layer for your data and [review the mapping details](/integration/review-mapping) to ensure that your records are produced and merged in the most effective way.
 

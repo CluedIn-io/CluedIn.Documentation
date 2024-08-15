@@ -19,9 +19,11 @@ Monitoring provides an overview of your records and helps you quickly identify i
 
 ![monitoring-1.png](../../assets/images/integration/additional-operations/monitoring-1.png)
 
-To get better visibility into what is happening with your records, in addition to monitoring, use **system healthchecks**. You can find them by selecting ![monitoring-2.png](../../assets/images/integration/additional-operations/monitoring-2.png) in the upper-right corner of CluedIn. If the status of any item is red or orange, it means that something is wrong and some services probably need to be restarted. To fix the problem, contact the person responsible for maintaining CluedIn for your organization (for example, system administrator) who can restart the needed service.
+To get better visibility into what is happening with your records, in addition to monitoring, use **system healthchecks**. You can find them in the upper-right corner of CluedIn.
 
 ![monitoring-3.png](../../assets/images/integration/additional-operations/monitoring-3.png)
+
+If the status of any item is red or orange, it means that something is wrong and some services probably need to be restarted. To fix the problem, contact the person responsible for maintaining CluedIn for your organization (for example, system administrator) who can restart the needed service.
 
 The following table provides descriptions of each message queue and corresponding troubleshooting guidelines. If the number of messages doesn't return to 0 or if the number of consumers remains 0, refer to the **Troubleshooting** column for recommended actions.
 

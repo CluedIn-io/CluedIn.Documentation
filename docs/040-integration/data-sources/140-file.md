@@ -19,7 +19,7 @@ In this article, you will learn how to ingest data from files into CluedIn.
 <iframe src="https://player.vimeo.com/video/896471681?h=297bcecaf9&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Using files for data ingestion"></iframe>
 </div>
 
-You can upload files in CSV, JSON, XLS, XLSX, Parquet formats. You can upload up to 5 files at once, and the total file size should not exceed 1 GB. Note that uploading Parquet files is a beta feature. To be able to upload Parquet files, go to **Administration** > **Feature Flags**, and enable the **Parquet file support** feature.
+You can upload files in CSV, JSON, XLS, XLSX, and Parquet formats. You can upload up to 5 files at once, and the total file size should not exceed 1 GB. Note that uploading Parquet files is a beta feature. To be able to upload Parquet files, go to **Administration** > **Feature Flags**, and enable the **Parquet file support** feature.
 
 {:.important}
 Before loading data into CluedIn, ensure that it does not contain unsupported characters. Refer to our knowledge base [article](/kb/supported-characters) for information about supported and unsupported characters.

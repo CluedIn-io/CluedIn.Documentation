@@ -10,12 +10,11 @@ last_modified: 2024-01-16
 ---
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 In this section, you will learn how to set up a live stream of golden records from CluedIn to a specific external target (for example, a Microsoft SQL Server database).
 
-{: .highlight }
 **Prerequisite:** Make sure you have added and configured the connection to the export target where you want to send the records from CluedIn. For more information, see [Export targets](/consume/export-targets).
 
 ## Create a stream
@@ -31,8 +30,7 @@ The first step to send the records from CluedIn to an export target is to create
     The stream details page opens, where you can configure the stream and the export target for the stream, as well as view all stream-related data.
 
 1. In the **Filters** section, select **Add First Filter**, and then specify which records you want to send to the export target. For more information on how to set up a filer, see [Filters](/key-terms-and-features/filters).
-
-    {:.important}
+    
     If you want to view the records matching the filter, select **Preview Condition**.
 
     ![stream-1.gif](../../assets/images/consume/streams/stream-1.gif)

@@ -13,7 +13,7 @@ In this article, you will explore various methods available for ingesting the da
 
 You can ingest the data into CluedIn using the following methods:
 
-- **File** – you can upload files in CSV, JSON, XLS, and XLSX formats. You can upload up to 5 files at once, and the total file size should not exceed 1 GB.
+- **File** – you can upload files in CSV, JSON, XLS, XLSX, and Parquet formats. You can upload up to 5 files at once, and the total file size should not exceed 1 GB.
 
 - **Ingestion point** – you can push a JSON array to an HTTP endpoint created by CluedIn.
 
@@ -24,4 +24,4 @@ You can ingest the data into CluedIn using the following methods:
 - **Out-of-the-box integration** – CluedIn supports out-of-the-box integration, but it is not covered in this section.
 
 {:.important}
-Regardless of the data ingestion method you choose, the processing is the same across all sources.
+Regardless of the data ingestion method you choose, the [processing](/integration/process-data) of data is the same across all sources.
