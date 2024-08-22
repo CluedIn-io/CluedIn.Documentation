@@ -14,7 +14,7 @@ headerIcon: "paas"
 1. TOC
 {:toc}
 
-In this article, you will learn how to configure single sign-on (SSO) for CluedIn using Microsoft Entra group-managed role membership.
+In this article, you will learn how to configure single sign-on (SSO) for CluedIn using Microsoft Entra group-managed role membership. The steps described here apply to both PaaS and SaaS. However, for SaaS users, the final step must be completed by our support team.
 
 ## Overview of SSO for CluedIn
 
@@ -235,6 +235,9 @@ The following table provides a list of the CluedIn application roles and recomme
 | Data Steward Administrator | DataStewardAdministrator | Role responsible for approving changes made by Data Stewards |
 
 ## Create Kubernetes secret and enable SSO via Helm
+
+{:.important}
+(For SaaS users) Once you have completed all the previous steps, please reach out to CluedIn support to complete the final step.
 
 After you complete the Azure application registration and app roles configuration, this will then need to be enabled on the CluedIn platform. As this touches the inner workings of Kubernetes, if you prefer, a member of CluedIn will be able to facilitate these steps for you.
 
