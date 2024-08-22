@@ -237,7 +237,7 @@ The following table provides a list of the CluedIn application roles and recomme
 ## Create Kubernetes secret and enable SSO via Helm
 
 {:.important}
-(For SaaS users) Once you have completed all the previous steps, please reach out to CluedIn support to complete the last step.
+(For SaaS users) Once you have completed all the previous steps, please reach out to CluedIn support to complete the final step.
 
 After you complete the Azure application registration and app roles configuration, this will then need to be enabled on the CluedIn platform. As this touches the inner workings of Kubernetes, if you prefer, a member of CluedIn will be able to facilitate these steps for you.
 
