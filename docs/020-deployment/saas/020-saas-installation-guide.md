@@ -133,7 +133,7 @@ After configuring an account, you will receive an email with a link to your Clue
 ![saas-5.png](../../assets/images/deployment/saas-install/saas-5.png)
 
 {:.important}
-If you want to add users and enable access via SSO (Entra ID), please contact CluedIn for assistance.
+If you want to add users and enable access for them via SSO (Entra ID), please contact CluedIn for assistance.
 
 Useful links:
 
