@@ -56,11 +56,9 @@ Make sure that you have enabled marketplace purchases and configured the require
 
     1. Select a **Subscription** where you want to store CluedIn SaaS application in your Azure account.
 
-        If you encounter an error stating that the subscription requires permission to make purchases, it means that you don't have the required permission for the subscription. 
+        If you encounter an error stating that the subscription requires permission to make purchases, it means that you don't have the required permission for the subscription. Contact your IT team to get the required permissions. For more information, see [Enable marketplace purchases in Azure](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/enable-marketplace-purchases).
         
         ![saas-4-error.png](../../assets/images/deployment/saas-install/saas-4-error.png)
-        
-        Contact your IT team to get the required permissions. For more information, see [Enable marketplace purchases in Azure](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/enable-marketplace-purchases).
 
     1. Select or create a **Resource group** where the SaaS subscription will be stored. If you create a new resource group, you need to choose the location for that resource group.
     
@@ -133,6 +131,9 @@ Our automatic installer will start preparing your isolated environment. Once it 
 After configuring an account, you will receive an email with a link to your CluedIn instance. To sign in, enter the email and password that you provided when configuring your CluedIn account.
 
 ![saas-5.png](../../assets/images/deployment/saas-install/saas-5.png)
+
+{:.important}
+If you want to add users and enable access via SSO (Entra ID), please contact CluedIn for assistance.
 
 Useful links:
 
