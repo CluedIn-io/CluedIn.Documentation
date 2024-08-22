@@ -9,17 +9,6 @@ permalink: /preparation/data-quality-metrics/most-used-data-quality-metrics
 tags: ["governance","quality-metrics"]
 ---
 
----
-layout: cluedin
-nav_order: 1
-parent: Clean
-grand_parent: Preparation
-permalink: /preparation/clean/create-clean-project
-title: Create a clean project
-tags: ["preparation", "clean"]
----
-
-
 In this article, we describe the most used data quality metrics. You can pick the ones that you want to see on your data or implement your metrics.
 
 - [Accountability](#data-accountability)
