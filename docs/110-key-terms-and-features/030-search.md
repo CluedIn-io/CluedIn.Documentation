@@ -12,19 +12,21 @@ tags: ["search"]
 - TOC
 {:toc}
 
-CluedIn allows you to search over all your golden records. You can enter a keyword in the search box, and CluedIn will return all relevant records. You can also use [filters](/key-terms-and-features/filters) to precisely define the data you're looking for based on various criteria.
+CluedIn allows you to search over all golden records in the platform. You can enter a keyword in the search box, and CluedIn will return all relevant results. You can also use [filters](/key-terms-and-features/filters) to precisely define the golden records you're looking for based on various criteria. In this article, you will learn how to use the search capabilities and customize the search results page to better suit your specific needs.
 
-In this article, you will learn how to use the search capabilities and customize the search results page to better suit your specific needs.
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/1001999733?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Search capabilities in CluedIn"></iframe>
+</div>
 
 ## Search results page
 
-By default, the search results page displays records in the tabular view in the following columns: Name, Entity Type, and Description. You can customize the search results page to focus on the information that is important to you.
+By default, the search results page displays golden records in the tabular view in the following columns: Name, Entity Type, and Description. You can customize the search results page to focus on the information that is important to you.
 
 ![search-5.png](../../assets/images/key-terms-and-features/search-5.png)
 
 ### Add columns
 
-If you want to see other record properties or vocabulary keys, you can add the needed columns to the search results page.
+If you want to see other properties or vocabulary keys, you can add the needed columns to the search results page.
 
 **To add columns to the search results page**
 
@@ -32,14 +34,13 @@ If you want to see other record properties or vocabulary keys, you can add the n
 
 1. Select **Add columns**, and then choose the type of column that you want to add to the search results page:
 
-    - **Entity Property** – this option allows you to select the following record properties: Date Created, Discovery Date, or Date Modified. After you choose the needed properties, select **Save Selection**.
+    - **Entity Property** – this option allows you to select the following properties: Date Created, Discovery Date, or Date Modified. After you choose the needed properties, select **Save Selection**.
 
     - **Vocabulary** – this option allows you to find and select any vocabulary keys. The following steps will guide you through the procedure of adding vocabulary keys to the search results page.
 
 1. In the search field, enter the name of the vocabulary and start the search. Then, select the needed vocabulary keys.
 
-    {:.important}
-    To limit the search results, use filters (![filter-icon.png](../../assets/images/key-terms-and-features/filter-icon.png)). You can choose to view the vocabulary keys of a specific data type or classification, or vocabulary from specific integrations.
+    To limit the search results, use filters. You can choose to view the vocabulary keys of a specific data type or classification, or vocabulary from specific integrations.
 
 1. After you chose the needed vocabulary keys, select **Add Vocabulary Columns**.
 
@@ -61,47 +62,41 @@ If you want to improve the organization of information on the search results pag
 
 ### Sort records
 
-By default, the records on the search results page are sorted by relevance. This means that CluedIn prioritizes records that are most likely to match your search query closely. Sorting by relevance ensures that the most pertinent results are displayed at the top of the page, facilitating efficient data retrieval.
+By default, the golden records on the search results page are sorted by relevance. This means that CluedIn prioritizes golden records that are most likely to match your search query closely. Sorting by relevance ensures that the most pertinent results are displayed at the top of the page, facilitating efficient data retrieval.
 
 In addition to sorting by relevance, CluedIn provides two alternative sorting options:
 
-- Sorting by new – choosing this option arranges records in descending order of their creation or modification date, with the most recently added or updated records appearing at the top.
+- Sorting by new – choosing this option arranges golden records in descending order of their creation or modification date, with the most recently added or updated records appearing at the top.
 
-- Sorting by old – choosing this option arranges records in ascending order of their creation or modification date, with the oldest records appearing at the top.
+- Sorting by old – choosing this option arranges golden records in ascending order of their creation or modification date, with the oldest records appearing at the top.
 
 **To sort records**
 
-1. On the search results page, select **Filter**.
-
-1. In the upper-right corner of the **Filters** pane, expand the sorting dropdown menu, and then select the needed sorting option.
+- In the upper-right corner of the search results page, expand the sorting dropdown menu, and then select the needed sorting option.
 
     ![search-1.png](../../assets/images/key-terms-and-features/search-1.png)
 
-    The new sorting is applied to the records. You can hide the **Filters** pane by selecting ![hide-icon.png](../../assets/images/key-terms-and-features/hide-icon.png).
+    The new sorting is applied to the search results.
 
 ### Change page view
 
 CluedIn provides two page view options:
 
-- ![tabular-view-icon.png](../../assets/images/key-terms-and-features/tabular-view-icon.png) – tabular view that presents records in a structured table format. In this view, records are arranged in rows and columns, resembling a spreadsheet or database table.
+- **Tile view** (a) – presents records in a visual grid-like format. In this view, records are arranged in rectangular tiles, each representing a specific record.
 
-- ![tile-view-icon.png](../../assets/images/key-terms-and-features/tile-view-icon.png) – tile view that presents records in a visual grid-like format. In this view, records are arranged in rectangular tiles, each representing a specific record.
+- **Tabular view** (b) – presents records in a structured table format. In this view, records are arranged in rows and columns, resembling a spreadsheet or database table.
 
-**To change the page view**
+![search-2.png](../../assets/images/key-terms-and-features/search-2.png)
 
-- In the upper-right corner of the search results page, select the needed page view option.
-
-    ![search-2.png](../../assets/images/key-terms-and-features/search-2.png)
-
-    The new view is applied to the search results page.
+To change the page view, simply select the needed page view option.
 
 ## Saved searches
 
-Saved searches help you quickly retrieve a set of records that meet specific filter criteria. You can share the search with everybody else in the organization or just keep it to yourself.
+Saved searches help you quickly retrieve a set of golden records that meet specific filter criteria. You can share the search with everybody else in the organization or just keep it to yourself.
 
 **To save a search**
 
-1. In the upper-right corner of the search results page, select the **Save current search** icon.
+1. In the upper-right corner of the search results page, select the save icon.
 
 1. Enter the name of the search.
 
@@ -115,7 +110,7 @@ Saved searches help you quickly retrieve a set of records that meet specific fil
 
 **To retrieve a saved search**
 
-1. In the upper-right corner of the search results page, select the vertical ellipsis button > **Saved Searches**.
+1. In the upper-right corner of the search results page, open the three-dot menu, and then select  **Saved Searches**.
 
     ![search-4.png](../../assets/images/key-terms-and-features/search-4.png)
 
@@ -123,4 +118,4 @@ Saved searches help you quickly retrieve a set of records that meet specific fil
 
 1. Find and select the needed saved search.
 
-    The records matching the saved search filters are displayed on the page.
+    The golden records matching the saved search filters are displayed on the page.
