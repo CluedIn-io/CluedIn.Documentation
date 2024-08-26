@@ -5,7 +5,7 @@ parent: Additional operations
 grand_parent: Integration
 permalink: /integration/additional-operations-on-records/remove-records
 title: Remove records
-last_modified: 2024-00-25
+last_modified: 2024-08-26
 ---
 
 In this article, you will learn how to remove records (also referred to as data parts) that were created from a specific data source. For more information about records, data parts, and golden records, see [Data life cycle](/key-terms-and-features/data-life-cycle).
