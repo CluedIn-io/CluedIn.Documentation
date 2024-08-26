@@ -26,7 +26,7 @@ Consider a scenario where a golden record is composed of data parts from three s
 
 **What is the difference between removing records and deleting golden records using the GraphQL tool?**
 
-Removing records from a specific data source is designed to remove the corresponding data parts from all relevant golden records. If these golden records contain other data parts, they will continue to exist. However, deleting a golden record using the [GraphQL tool](/consume/graphql/graphql-actions) will result in the complete deletion of the entire golden record.
+Removing records from a specific data source is designed to remove the corresponding data parts from all relevant golden records. If these golden records contain other data parts, they will continue to exist. On the other hand, deleting a golden record using the [GraphQL tool](/consume/graphql/graphql-actions) will result in the complete deletion of the entire golden record.
 
 **Prerequisites**
 
