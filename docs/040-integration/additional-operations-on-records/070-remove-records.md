@@ -20,7 +20,7 @@ Removing records can be useful in the following cases:
 
 - If you processed a subset of data to test the mapping configuration and you don't need the test data anymore. Since the mapping configuration is preserved, you can reuse it for other data sets.
 
-**What happens if you remove records from a data source that forms a golden record?**
+**What happens if you remove records from one of the data sources that form a golden record?**
 
 Consider a scenario where a golden record is composed of data parts from three sources. If you remove records from one of these sources, the corresponding data part will be removed from the golden record. This means that all properties originating from the data part are removed from the golden record, and the data part itself is deleted from the [history](/key-terms-and-features/golden-records/history) of the golden record. Since the records from the other sources remain intact, the golden record still exists. However, if you remove records from all sources that form a golden record, then the golden record will be deleted.
 
