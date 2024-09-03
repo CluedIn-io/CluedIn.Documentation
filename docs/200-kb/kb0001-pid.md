@@ -6,6 +6,7 @@ permalink: /kb/azure-customer-usage-attribution
 tags: ["microsoft","azure","kubernetes","aks"]
 last_modified: 2021-09-20
 nav_order: 1
+published: false
 ---
 ## On this page
 {: .no_toc .text-delta }

@@ -21,9 +21,19 @@ The purpose of this guide is to explain what you can do to reduce the cost of Cl
 
 CluedIn is a product that is intended to run as part of your MDM pipeline. As a business, this may be during certain hours of the day (e.g. 0900-1700), which means that outside of these hours, the environments will be running and not being used.
 
-One easy way to reduce cost is to shut down your AKS during these hours and start the environment back up when it's needed. We only recommend these for your **dev** and **test** environments, and not production.
+One easy way to reduce cost is to shut down your AKS during these hours and start the environment back up when it's needed. We only recommend these for your **dev** and **test** environments, and not production. Stopping the AKS cluster reduces costs, but you will still pay for other resources such as storage, networking, and so on. However, the overall cost will be significantly reduced.
 
-The CluedIn team can help set this up in your environment by deploying an Automation Account along with a runbook and setting the schedule at your desired times of inoperation.
+**To stop AKS cluster**
+
+1. Navigate to https://portal.azure.
+
+1. Search for the Managed Resource Group (MRG) that houses your CluedIn instance.
+
+1. Select the Kubernetes service resource. It usually starts with `aks-` followed by a unique string.
+
+1. At the top, select **Stop**, which should then begin to power down your instance.
+
+If you require any further assistance, reach out to CluedIn support. The CluedIn team can help set this up in your environment by deploying an Automation Account along with a runbook and setting the schedule at your desired times of inoperation.
 
 # Reserve Azure instances
 Azure, like many cloud services, offers the ability to reserve virtual machines and other Azure resources upfront by committing to a year or more. This is one of the ways to save up to 72% on the virtual machine resources and is something we recommend when you're serious about CluedIn.

@@ -5,6 +5,7 @@ parent: Knowledge base
 permalink: /kb/stop-cluster
 tags: ["AKS", "cost saving"]
 nav_order: 13
+published: false
 ---
 
 Stopping the AKS cluster reduces costs, but you will still pay for other resources such as storage, networking, and so on. However, the overall cost will be significantly reduced.
