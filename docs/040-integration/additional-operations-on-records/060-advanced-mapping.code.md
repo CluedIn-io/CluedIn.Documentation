@@ -79,7 +79,7 @@ if (getVocabularyKeyValue('customer.revenue') >= 1000000) {
 
 ## Available methods
 
-This is a reference section that lists all available methods that you can use to write the advanced mapping code. Please refer to [CluedIn Expression Language (C.E.L.)](/kb/cel) for all string and math methods. This section is focused on built-in CluedIn-specific methods.
+This is a reference section that lists all available methods that you can use to write the advanced mapping code. Please refer to [CluedIn Expression Language (C.E.L.)](#cluedin-expression-language-cel) for all string and math methods. This section is focused on built-in CluedIn-specific methods.
 
 **getVocabularyKeyValue**
 
