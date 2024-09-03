@@ -7,6 +7,7 @@ permalink: /kb/cel
 tags: ["cel", "advanced mapping", "prepare"]
 last_modified: 2023-10-24
 nav_order: 9
+published: false
 ---
 ## On this page
 {: .no_toc .text-delta }
