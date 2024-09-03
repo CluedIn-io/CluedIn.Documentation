@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Synchronize configuration between environments
+title: Sync configuration between environments
 parent: PaaS operations
 permalink: /kb/config-migrate
 tags: ["configuration", "migration"]
