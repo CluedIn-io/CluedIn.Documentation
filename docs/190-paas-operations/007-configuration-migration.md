@@ -5,6 +5,7 @@ parent: PaaS operations
 permalink: /kb/config-migrate
 tags: ["configuration", "migration"]
 nav_order: 7
+headerIcon: "paas"
 ---
 ## On this page
 {: .no_toc .text-delta }
