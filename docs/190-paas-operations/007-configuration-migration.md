@@ -1,10 +1,10 @@
 ---
 layout: cluedin
-title: Configuration migration
-parent: Knowledge base
+title: Sync configuration between environments
+parent: PaaS operations
 permalink: /kb/config-migrate
 tags: ["configuration", "migration"]
-nav_order: 12
+nav_order: 7
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -13,23 +13,23 @@ nav_order: 12
 
 This document covers the process for migrating CluedIn configuration from one environment to another environment. This is especially useful when developing your foundation on one environment and want to promote it to production.
 
-## Configuration migration
+## Prerequisites
 
-### Prerequisites
-- [PowerShell Core / 7+](https://github.com/PowerShell/PowerShell)
+- [PowerShell Core / 7+](https://github.com/PowerShell/PowerShell).
 - PowerShell 'CluedIn Product Toolkit' Module. Please reach out to CluedIn support to get this toolkit.
-- Service account to do the export and import (Script is provided in above toolkit)
-- Access to the front end, whether it's public facing or private facing
+- Service account to do the export and import (Script is provided in above toolkit).
+- Access to the front end, whether it's public facing or private facing.
 
 {:.important}
 PowerShell Core does not work with PowerShell ISE. To replicate the ISE experience, please use Visual Studio Code.
 
-### Guide
+## Guide
+
 The product toolkit supports a number of methods of transferring configuration from one environment to another. The main two methods are running locally on your desktop or using a pipeline platform such as Azure DevOps.
 
 Below will guide you through both local and Azure DevOps, but you can technically use other methods.
 
-#### Local configuration migration
+### Local configuration migration
 
 This guide will be using the `import` and `export` scripts only. The toolkit also supports running the functions on their own, but this will not be covered as part of this documentation.
 
@@ -41,7 +41,7 @@ To successfully run this, you will need the following information before proceed
 {:.important}
 To get the IDs of specific parameters, you will need to use the front end and navigate to the desired resource. In the URL, you will then notice the ID of a given object. This may be a GUID or integer depending on what is viewed.
 
-##### Exporting configuration (Source system)
+#### Exporting configuration (Source system)
 
 1. Open up a `PowerShell`.
 1. In the `PowerShell` window, run the following:
@@ -75,9 +75,9 @@ To get the IDs of specific parameters, you will need to use the front end and na
 
     Depending on how much configuration there is to export, this may take up to 15 minutes to complete. Once export has completed, move onto the import phase.
 
-##### Importing configuration (Destination system)
+#### Importing configuration (Destination system)
 
-1. Open up a new `PowerShell` session to avoid any conflict with environmental variables
+1. Open up a new `PowerShell` session to avoid any conflict with environmental variables.
 1. In the `PowerShell` window, run the following:
 
     **Note**: We will be using the ficticious front end `https://cluedin-destination.customer.com` in the example below.
@@ -106,21 +106,24 @@ To get the IDs of specific parameters, you will need to use the front end and na
 
 This concludes the general process of how to export and import configuration locally from one environment to another.
 
-#### Configuration migration using Azure DevOps (pipeline)
+### Configuration migration using Azure DevOps (pipeline)
 
 This guide will be using the `import` and `export` scripts only. The toolkit also supports running the functions on their own, but this will not be covered as part of this documentation.
 
 To successfully run this, you will need the following information before proceeding:
+
 - Full URL of your front end.
+
 - Access to Azure DevOps with the pipelines setup. Please refer to the README within the `CluedIn Product Toolkit`. Failing to set up the pipelines correctly will result in failed configuration backups and restores.
+
 - IDs of the data you want to back up.
 
 {:.important}
 To get the IDs of specific parameters, you will need to use the front end and navigate to the desired resource. In the URL, you will then notice the ID of a given object. This may be a GUID or integer depending on what is viewed.
 
-##### Transfer configuration
+#### Transfer configuration
 
-1. Navigate to the backup pipeline and click on [Run Pipeline]
+1. Navigate to the backup pipeline and click on [Run Pipeline].
 1. Fill in parameters:
 
     **Note**: We will be using the ficticious front end `https://cluedin-source.customer.com` and `https://cluedin-destination.customer.com` in the example below.
@@ -142,9 +145,9 @@ To get the IDs of specific parameters, you will need to use the front end and na
     - **Glossaries (guid, csv)**: Accepted values are 'All', 'None', or guids seperated by a comma (,).
     - **Clean Projects (guid, csv)**: Accepted values are 'All', 'None', or guids seperated by a comma (,).
     - **Push to repo**: If set to true, it will push your configuration json files to the specified git  repository in the pipeline.
-1. When ready, click on [**Run**]
+1. When ready, click on [**Run**].
 
-### Final Notes
+## Final notes
 
 This guide only covers how to run the toolkit to migrate configuration from one environment to another. The steps to setup the Azure DevOps pipeline specifically must be followed from the document within the toolkit.
 

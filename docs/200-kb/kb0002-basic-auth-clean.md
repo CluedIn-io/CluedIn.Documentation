@@ -6,6 +6,7 @@ permalink: /kb/basic-auth-cluedin-clean
 tags: ["security","cluedin-clean","authentication","kubernetes"]
 last_modified: 2022-08-29
 nav_order: 2
+published: false
 ---
 ## On this page
 {: .no_toc .text-delta }
