@@ -5,6 +5,7 @@ parent: Knowledge base
 permalink: /kb/faq
 tags: ["getting-started", "faq"]
 nav_order: 11
+published: false
 ---
 ## On this page
 {: .no_toc .text-delta }
