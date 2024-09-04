@@ -10,6 +10,20 @@ permalink: /release-notes
 1. TOC
 {:toc}
 
+In this article, you will find links to release notes and learn about our release process and product versioning.
+
+## Release notes
+
+This section includes links to release notes for the CluedIn platform as well as links to the releases of additional resources.
+
+- [CluedIn release notes](https://cluedin-io.github.io/Releases/) – release notes for the CluedIn platform.
+
+- [Home repo release notes](https://github.com/CluedIn-io/Home/releases) – resources for the local installation of CluedIn.
+
+- [Charts repo releases](https://github.com/CluedIn-io/Charts/releases) – installation scripts to install CluedIn in Kubernetes.
+
+- [Integrations releases](https://cluedin-io.github.io/Releases/integrations) – releases of installation packages for enrichers and connectors.
+
 ## Release process
 
 In this section, you will learn about our release process and the versioning of product releases. You'll gain an understanding of the stages that CluedIn features go through before becoming generally available, as well as get to know the versioning scheme that we use to deliver changes.
@@ -49,15 +63,3 @@ The parts of the version are then separated by `.` to supply the final version:
 
 {:.important}
 Prior to date-based versioning, the CluedIn platform used a [semantic versioning](https://semver.org/) scheme. This is an industry standard approach to versioning that we will keep for each of the services and tools that the platform is built on (e.g., Home, Helm, Crawlers, and so on). Each tool or service is its own product and will release changes and updates as they become available.
-
-## Release notes
-
-This section includes links to release notes for the CluedIn platform as well as links to the releases of additional resources.
-
-- [CluedIn release notes](https://cluedin-io.github.io/Releases/) – release notes for the CluedIn platform.
-
-- [Home repo release notes](https://github.com/CluedIn-io/Home/releases) – resources for the local installation of CluedIn.
-
-- [Charts repo releases](https://github.com/CluedIn-io/Charts/releases) – installation scripts to install CluedIn in Kubernetes.
-
-- [Integrations releases](https://cluedin-io.github.io/Releases/integrations) – releases of installation packages for enrichers and connectors.
