@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Release
+title: Release overview
 nav_order: 170
 has_children: false
 permalink: /release-notes
