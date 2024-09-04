@@ -7,7 +7,7 @@ permalink: /release-notes
 ---
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 In this article, you will find links to release notes and learn about our release process and product versioning.
