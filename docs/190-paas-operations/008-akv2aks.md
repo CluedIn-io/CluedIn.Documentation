@@ -7,6 +7,7 @@ tags: ["kubernetes","azure","aks", "akv", "key-vault", "azure"]
 last_modified: 2024-02-05
 nav_order: 8
 headerIcon: "paas"
+nav_exclude: true
 ---
 ## On this page
 {: .no_toc .text-delta }
