@@ -28,4 +28,4 @@ Each feature has a status to indicate the state of the feature's readiness for p
 | Release Candidate | The feature has been validated and thoroughly tested, but it still might have some outstanding minor issues. You can turn on such feature only in the test environment.  |
 | Production | The feature has passed all validations and tests and can be used in the production environment. If the feature has this status and is still listed on the **Feature Flags** page, it means that this feature might not be suitable for all business use cases. So, you can turn it on if you need it for your specific use case.   |
 
-If you want to use a feature in the production environment, but the feature status is other than Production, reach out to CluedIn support at support@cluedin.com and we'll help you do it.
+If you want to use a feature in the production environment, but the feature status is other than Production, reach out to CluedIn support at <a href="mailto:support@cluedin.com">support@cluedin.com</a> and we'll help you do it.
