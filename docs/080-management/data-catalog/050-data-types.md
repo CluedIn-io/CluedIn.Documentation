@@ -22,7 +22,7 @@ The following table provides the description of data types along with the type o
 | Data type | Description | Storage |
 |--|--|--|
 | Text | A Unicode text string. | Keyword |
-| DateTime | A date with a time, in the time zone of your computer. If no time zone is specified, then UTC is assumed when we try to normalize the date. | Typed |
+| DateTime | A date with a time, in the time zone of your computer. If no time zone is specified, then UTC is assumed when we try to normalize* the date. | Typed |
 | Time | A time without a date, in the time zone of your computer | Typed |
 | Duration | A span of time. It is used to store and manipulate time intervals, which could be measured in seconds, minutes, hours, days, or other units of time. | Typed |
 | Boolean | A _true_ or _false_ value. Data will only be strong-typed if it is stored as the values "true" or "false". For all other values such as "yes", "no", "1", "0" and so on, the data must be normalized using a [rule](/management/rules) or a clean [project](/preparation/clean). | Typed |
@@ -49,3 +49,5 @@ The following table provides the description of data types along with the type o
 | OrganizationName | A name of an organization. | Keyword |
 | Identifier | An identifier representing the key of a record, normally as a GUID or Integer. | Keyword |
 | Lookup | A custom list of possible values, which is defined with a glossary. | Keyword |
+
+_*Date normalization occurs when the **Date Time** option is enabled in **Administration** > **Settings** > **Processing Property Data Type Normalization**. In this case, CluedIn analyzes the incoming date format and converts it to ISO 8601 format (YYYY-MM-DDT00:00:00+00:00). If you want to instruct CluedIn how to interpret dates before converting them to ISO 8601 format, [create](/management/rules/create-rule) a rule with the **Normalize Date** [action](/management/rules/rules-reference)._
