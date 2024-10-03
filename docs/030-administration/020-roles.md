@@ -10,12 +10,6 @@ tags: ["administration", "roles"]
 
 In this article, you will learn about claims and access levels, which are the main concepts that define roles.
 
-**_This article is intended for users with the OrganizationAdmin role or users with the following claim access level._**
-
-| Section | Claim | Access level |
-|--|--|--|
-| Admin | Roles | At least Consulted |
-
 Roles are used to grant permissions to users to perform specific actions in CluedIn. These permissions are only granted to the modules within the platform, not to the data. For information on how to restrict access to data, see [Permissions](/administration/permissions).
 
 All roles are listed in **Administration** > **Roles**. The following table provides a list of the CluedIn application roles.
@@ -37,7 +31,10 @@ All roles are listed in **Administration** > **Roles**. The following table prov
 | ReportManager | User who can generate reports for compliance matters such as breach, subject request, and retention. |
 | User | User who can view all modules as read-only. |
 
-A role is a container for claims and access levels. A claim is the name of a specific feature or operation that can be performed in CluedIn. Most of the time, the name of the claim is the same as the name of the module in CluedIn. An access level indicates the type of activity that can be performed with the claim. 
+A role is a container for claims and access levels. A claim is the name of a specific feature or operation that can be performed in CluedIn. Most of the time, the name of the claim is the same as the name of the module in CluedIn. An access level indicates the type of activity that can be performed with the claim.
+
+{:.important}
+To get acquainted with the required claims and access levels for all actions in CluedIn, download this <a href="../../../assets/other/Claims-V1.xlsx" download>file</a>.
 
 To view the role's claims and access levels, select the role. In the first column, you can find the name of the section in CluedIn (a) and claims within that section (b). In the second column, you can find access levels (c) to each claim.
 
