@@ -31,7 +31,7 @@ All roles are listed in **Administration** > **Roles**. The following table prov
 | ReportManager | User who can generate reports for compliance matters such as breach, subject request, and retention. |
 | User | User who can view all modules as read-only. |
 
-A role is a container for claims and access levels. A claim is the name of a specific feature or operation that can be performed in CluedIn. Most of the time, the name of the claim is the same as the name of the module in CluedIn. An access level indicates the type of activity that can be performed with the claim.
+A role is a container for claims and access levels. A claim is the name of a specific feature or operation that can be performed in CluedIn. Most of the time, the name of the claim is the same as the name of the module in CluedIn. Learn more about claims in a dedicated [article](/administration/roles/claims). An access level indicates the type of activity that can be performed with the claim.
 
 {:.important}
 To get acquainted with the required claims and access levels for all actions in CluedIn, download this <a href="../../../assets/other/Claims-V1.xlsx" download>file</a>.
