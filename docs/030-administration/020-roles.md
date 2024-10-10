@@ -14,22 +14,22 @@ Roles are used to grant permissions to users to perform specific actions in Clue
 
 All roles are listed in **Administration** > **Roles**. The following table provides a list of the CluedIn application roles.
 
-| Role name | Description |
-|--|--|
-| DataArchitect | Responsible for designing an organization's enterprise data strategy. |
-| DataCompliance | Responsible for daily operations around data compliance. |
-| DataComplianceAdministrator | Responsible for approving changes made by users with the DataCompliance role. |
-| DataGovernance | Responsible for monitoring and maintaining data quality. |
-| DataGovernanceAdministrator | Responsible for approving changes made by the users with the DataGovernance role. |
-| DataSteward | Responsible for cleaning data using the Clean and Prepare modules. |
-| DataStewardAdministrator | Responsible for approving changes made by the users with the DataSteward role. |
-| DeduplicationAdministrator | Responsible for creating and maintaining deduplication projects and merging the results back into the system. |
-| DeduplicationReviewer | Responsible for reviewing deduplication project results and approving groupings. |
-| Guest | User with minimal, read-only permissions. |
-| OrganizationAdmin | Administrator within the organization. |
-| OrganizationUser | User within the organization who can view all modules as read-only. |
-| ReportManager | User who can generate reports for compliance matters such as breach, subject request, and retention. |
-| User | User who can view all modules as read-only. |
+| Role name | Description | Access status |
+|--|--|--|
+| DataArchitect | Responsible for designing an organization's enterprise data strategy. | <a href="/assets/other/claims/DataArchitect.xlsx" download>Download</a> |
+| DataCompliance | Responsible for daily operations around data compliance. | <a href="/assets/other/claims/DataCompliance.xlsx" download>Download</a> |
+| DataComplianceAdministrator | Responsible for approving changes made by users with the DataCompliance role. | <a href="/assets/other/claims/DataComplianceAdministrator.xlsx" download>Download</a> |
+| DataGovernance | Responsible for monitoring and maintaining data quality. | <a href="/assets/other/claims/DataGovernance.xlsx" download>Download</a> |
+| DataGovernanceAdministrator | Responsible for approving changes made by the users with the DataGovernance role. | <a href="/assets/other/claims/DataGovernanceAdministrator.xlsx" download>Download</a> |
+| DataSteward | Responsible for cleaning data using the Clean and Prepare modules. | <a href="/assets/other/claims/DataSteward.xlsx" download>Download</a> |
+| DataStewardAdministrator | Responsible for approving changes made by the users with the DataSteward role. | <a href="/assets/other/claims/DataStewardAdministrator.xlsx" download>Download</a> |
+| DeduplicationAdministrator | Responsible for creating and maintaining deduplication projects and merging the results back into the system. | <a href="/assets/other/claims/DeduplicationAdministrator.xlsx" download>Download</a> |
+| DeduplicationReviewer | Responsible for reviewing deduplication project results and approving groupings. | <a href="/assets/other/claims/DeduplicationReviewer.xlsx" download>Download</a> |
+| Guest | User with minimal, read-only permissions. | <a href="/assets/other/claims/Guest.xlsx" download>Download</a> |
+| OrganizationAdmin | Administrator within the organization. | <a href="/assets/other/claims/OrganizationAdmin.xlsx" download>Download</a> |
+| OrganizationUser | User within the organization who can view all modules as read-only. | <a href="/assets/other/claims/OrganizationUser.xlsx" download>Download</a> |
+| ReportManager | User who can generate reports for compliance matters such as breach, subject request, and retention. | <a href="/assets/other/claims/ReportManager.xlsx" download>Download</a> |
+| User | User who can view all modules as read-only. | <a href="/assets/other/claims/User.xlsx" download>Download</a> |
 
 A role is a container for claims and access levels. A claim is the name of a specific feature or operation that can be performed in CluedIn. Most of the time, the name of the claim is the same as the name of the module in CluedIn. Learn more about claims in a dedicated [article](/administration/roles/claims). An access level indicates the type of activity that can be performed with the claim.
 
