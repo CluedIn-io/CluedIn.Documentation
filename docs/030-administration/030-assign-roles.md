@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 1
+nav_order: 2
 parent: Roles
 grand_parent: Administration
 permalink: /administration/roles/assign-roles
@@ -13,13 +13,6 @@ tags: ["administration", "roles"]
 {:toc}
 
 In this article, you will learn how to assign and remove roles for users to manage their access to features within CluedIn.
-
-**_This article is intended for users with the OrganizationAdmin role or users with the following claim access levels._**
-
-| Section | Claim | Access level |
-|--|--|--|
-| Admin | Users | At least Consulted |
-| Admin | Roles | At least Consulted |
 
 ## Assign roles
 
