@@ -16,9 +16,9 @@ For some customers, a more tailored agreement exists whereby the management of t
 {:.important}
 For release note specifics, please visit [Release Notes](/release-notes).
 
-## Upgrade Process
+## Managed Upgrade Process
 
-When upgrading CluedIn, the following steps should be followed to ensure a smooth and secure process:
+If you use our Managed Services agreement, the following steps will be followed to ensure a smooth and secure process:
 
 {:.important}
 If a cluster has large amounts of data, times may vary during the upgrade process.
@@ -30,10 +30,10 @@ If a cluster has large amounts of data, times may vary during the upgrade proces
    - Before the upgrade begins, take a snapshot of all data disks. This step ensures that the data is safeguarded and can be restored if needed.
 
 3. **Backup Current Helm Values**  
-   - Backup the current Helm values configuration. This allows you to revert to the previous state if the upgrade encounters any issues.
+   - Backup the current Helm values configuration. This allows us to revert to the previous state if the upgrade encounters any issues.
 
 4. **Initiate Helm Upgrade**  
-   - Start the Helm upgrade process. The expected downtime during this process is around **20 minutes**. Ensure that all systems are monitored during this step to catch any potential issues early.
+   - Start the Helm upgrade process. The expected downtime during this process is around **20 minutes**. We ensure that all systems are monitored during this step to catch any potential issues early.
 
 5. **Cluster Ready for Use**  
    - Once the upgrade completes and the cluster is back online, send a notification to all relevant teams and stakeholders to inform them that the cluster is ready for use.
