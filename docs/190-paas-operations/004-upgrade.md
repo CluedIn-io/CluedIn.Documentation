@@ -38,4 +38,4 @@ If a cluster has large amounts of data, times may vary during the upgrade proces
 5. **Cluster Ready for Use**  
    - Once the upgrade completes and the cluster is back online, send a notification to all relevant teams and stakeholders to inform them that the cluster is ready for use.
 
-  
+  ![Diagram](../assets/images/upgrade/upgrade-process-diagram.png)
