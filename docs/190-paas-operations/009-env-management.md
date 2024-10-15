@@ -47,7 +47,7 @@ Test environment is a place where you carry out the **preparation** for producti
 For data in the test environment, we recommend using **obfuscated data** or data samples similar to production data, but not the production data itself. The reason for this is the same as in the development environment—to ensure flexibility and learning possibilities for all users.
 
 {:.important}
-If you want to use sensitive data while preparing the configuration for the production environment, you might need a dedicated pre-production environment. If this is your case, reach out to CluedIn support at support@cluedin.com.
+If you want to use sensitive data while preparing the configuration for the production environment, you might need a dedicated pre-production environment. If this is your case, reach out to CluedIn support at <a href="mailto:support@cluedin.com">support@cluedin.com</a>.
 
 After you configure all the elements you need for your data management tasks, you can move the configuration from the test environment to the production environment. You can sync test and production environments using CluedIn Production Toolkit available [here](/kb/config-migrate).
 
