@@ -4,7 +4,7 @@ title: Sync configuration between environments
 parent: PaaS operations
 permalink: /kb/config-migrate
 tags: ["configuration", "migration"]
-nav_order: 7
+nav_order: 9
 headerIcon: "paas"
 ---
 ## On this page
