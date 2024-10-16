@@ -20,14 +20,14 @@ The following diagram explains the purpose, data, users, and access privileges f
 
 ## Types of users
 
-Before dwelling into the details of each environment, it is important to mention the main types of users in CluedIn and understand their areas of responsibility. Generally, there are 4 main types of users:
+Before dwelling into the details of each environment, it is important to mention the main types of users and CluedIn roles that should be assigned to them. These roles reflect the areas of users' responsibility. Generally, there are 4 main roles:
 
-- Admin – this user is responsible for overall platform configuration as well as user and access management.
-- Data architect – this user is responsible for setting up the overall data strategy, creating mapping, and configuring various data management elements (rules, glossary, streams, enrichers).
-- Data steward – this user is responsible for conducting data cleaning and data management activities.
-- View-only user – this user can view the elements in CluedIn, but cannot make any changes.
+- Administrator – this user is responsible for overall platform configuration as well as user and access management.
+- Data Architect – this user is responsible for setting up the overall data strategy, creating mapping, and configuring various data management elements (rules, glossary, streams, enrichers).
+- Data Steward – this user is responsible for conducting data cleaning and data management activities.
+- User – this user has view-only permissions and can view the elements in CluedIn, but cannot make any changes.
 
-You can implement these types of users with the help of [roles](/administration/roles). The reason why we mention these types of users is that they have different privileges in each environment.
+To learn more about roles, check out our dedicated [article](/administration/roles). The reason we mention these roles is because they should have different privileges in each environment.
 
 ## Development environment
 
@@ -49,12 +49,12 @@ For data in the test environment, we recommend using **obfuscated data** or data
 {:.important}
 If you want to use sensitive data while preparing the configuration for the production environment, you might need a dedicated pre-production environment. If this is your case, reach out to CluedIn support at <a href="mailto:support@cluedin.com">support@cluedin.com</a>.
 
-After you configure all the elements you need for your data management tasks, you can move the configuration from the test environment to the production environment. You can sync test and production environments using CluedIn Production Toolkit available [here](/kb/config-migrate).
+After you configure all the elements you need for your data management tasks, you can move the configuration from the test environment to the production environment. You can sync test and production environments using CluedIn Production Toolkit available [here](/kb/config-migrate). However, it is important to mention that the data cannot be moved from the test to production environment during synchronization.  
 
 ![env-sync-1.png](../../assets/images/kb/env-sync-1.png)
 
 ## Production environment
 
-After you sync test and production environments, make sure you **assign the appropriate permissions** to the users entrusted with daily data management tasks. Since you have configured all of the needed elements in the test environment, very often there is no need to modify them in the production environment. This means that you can limit privileges for all users, except admin.
+After you sync test and production environments, make sure you **assign the appropriate permissions** to the users entrusted with daily data management tasks. Since you have configured all of the needed elements in the test environment, very often there is no need to modify them in the production environment. This means that you can limit privileges for all users, except Administrator.
 
 Essentially, as you move through the environments, you start with high privileges in development and move to very limited privileges in production.
