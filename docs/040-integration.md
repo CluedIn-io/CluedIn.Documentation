@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: Integration
-nav_order: 40
+nav_order: 60
 has_children: true
 permalink: /integration
 ---

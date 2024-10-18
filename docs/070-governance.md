@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: Governance
-nav_order: 50
+nav_order: 70
 has_children: true
 permalink: /governance
 ---

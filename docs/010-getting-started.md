@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: Getting started
-nav_order: 10
+nav_order: 40
 has_children: true
 permalink: /getting-started
 ---
