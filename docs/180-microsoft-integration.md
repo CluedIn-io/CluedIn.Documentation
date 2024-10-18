@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: Microsoft Integration
-nav_order: 180
+nav_order: 140
 has_children: true
 permalink: /microsoft-integration
 ---
