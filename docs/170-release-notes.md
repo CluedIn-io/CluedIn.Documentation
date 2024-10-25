@@ -1,8 +1,8 @@
 ---
 layout: cluedin
 title: Release overview
-nav_order: 170
 has_children: true
+nav_order: 130
 permalink: /release-notes
 ---
 ## On this page
@@ -16,13 +16,33 @@ In this article, you will find links to release notes and learn about our releas
 
 This section includes links to release notes for the CluedIn platform as well as links to the releases of additional resources.
 
-- [CluedIn release notes](https://cluedin-io.github.io/Releases/) – release notes for the CluedIn platform.
+### Latest release
 
-- [Home repo release notes](https://github.com/CluedIn-io/Home/releases) – resources for the local installation of CluedIn.
+| Version | Technical version | Release notes |
+|--|--|--|
+| 2024.07 | 4.3 | [View release notes](https://cluedin-io.github.io/Releases/2024.07/2024.07.00) |
 
-- [Charts repo releases](https://github.com/CluedIn-io/Charts/releases) – installation scripts to install CluedIn in Kubernetes.
+### Previous releases
 
-- [Integrations releases](https://cluedin-io.github.io/Releases/integrations) – releases of installation packages for enrichers and connectors.
+| Version | Technical version | Release notes |
+|--|--|--|
+| 2024.04 | 4.3.0 | [View release notes](https://cluedin-io.github.io/Releases/2024.04/2024.04.00) |
+| 2024.03 | 4.1.0 | [View release notes](https://cluedin-io.github.io/Releases/2024.03/2024.03.00) |
+| 2024.01 | 4.0.0 | [View release notes](https://cluedin-io.github.io/Releases/2024.01/2024.01.00) |
+| 2023.07 |  | [View release notes](https://cluedin-io.github.io/Releases/2023.07/2023.07.02) |
+| 2023.04 |  | [View release notes](https://cluedin-io.github.io/Releases/2023.04/2023.04.01) |
+| 2022.10 |  | [View release notes](https://cluedin-io.github.io/Releases/2022.10/2022.10.00) |
+| 2022.06 |  | [View release notes](https://cluedin-io.github.io/Releases/2022.06/2022.06.00) |
+| 3.3 |  | [View release notes](https://cluedin-io.github.io/Releases/3.3/3.3.2) |
+| 3.2 |  | [View release notes](https://cluedin-io.github.io/Releases/3.2/3.2.5) |
+
+### Releases of additional resources
+
+| Resource | Description | Release |
+|--|--|--|
+| Home repo | Contains resources for the local installation of CluedIn. | [View releases](https://github.com/CluedIn-io/Home/releases) |
+| Charts repo | Contains installation scripts to install CluedIn in Kubernetes. | [View releases](https://github.com/CluedIn-io/Charts/releases) |
+| Integrations releases | Contains releases of installation packages for enrichers and connectors. | [View releases](https://cluedin-io.github.io/Releases/integrations) |
 
 ## Release process
 

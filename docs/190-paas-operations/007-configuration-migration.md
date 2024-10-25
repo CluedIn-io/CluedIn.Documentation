@@ -4,7 +4,7 @@ title: Sync configuration between environments
 parent: PaaS operations
 permalink: /kb/config-migrate
 tags: ["configuration", "migration"]
-nav_order: 7
+nav_order: 9
 headerIcon: "paas"
 ---
 ## On this page
@@ -18,7 +18,7 @@ This document covers the process for migrating CluedIn configuration from one en
 
 - [PowerShell Core / 7+](https://github.com/PowerShell/PowerShell).
 
-- PowerShell 'CluedIn Product Toolkit' Module. Please reach out to CluedIn support to get this toolkit.
+- PowerShell 'CluedIn Product Toolkit' Module. You can download it in the following section.
 
 - Service account to do the export and import (Script is provided in above toolkit).
 
@@ -26,6 +26,12 @@ This document covers the process for migrating CluedIn configuration from one en
 
 {:.important}
 PowerShell Core does not work with PowerShell ISE. To replicate the ISE experience, please use Visual Studio Code.
+
+## CluedIn product toolkit
+
+|Version| Technical Version | Link|
+|--|--|--|
+|2024.07 | 4.3.0 | <a href="/assets/other/CluedIn.Product.Toolkit_0.9.32.zip" download>Download</a> |
 
 The product toolkit supports a number of methods of transferring configuration from one environment to another. The main two methods are running locally on your desktop or using a pipeline platform such as Azure DevOps. Below will guide you through both local and Azure DevOps, but you can technically use other methods.
 

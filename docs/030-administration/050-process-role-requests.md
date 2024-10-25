@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 1
+nav_order: 3
 parent: Roles
 grand_parent: Administration
 permalink: /administration/roles/process-role-requests
@@ -9,14 +9,6 @@ tags: ["administration", "roles"]
 ---
 
 In this article, you will learn how to process the role requests you receive from users to grant them the access they need.
-
-**_This article is intended for users with the OrganizationAdmin role or users with the following claim access levels._**
-
-| Section | Claim | Access level |
-|--|--|--|
-| Admin | Tenant Management | Accountable |
-| Admin | Users | Accountable |
-| Admin | Roles | Accountable |
 
 When users are browsing CluedIn and find that they do not have access to certain sections or modules, they can send a request to get access. When this happens, you'll receive a new role request notification.
 

@@ -9,15 +9,15 @@ permalink: /
 <img style="width:60%;margin-top: 0;" src="/assets/images/documention-header.png" alt="Welcome to CluedIn">
 
 <div class="card-line">
-  <div class="card" href="/getting-started">
-    <div class="icon"><img src="/assets/icons/getting-started.svg" alt="getting started"/></div>
-    <div class="title">Getting Started</div>
-    <div class="content">Explore our step-by-step guides for a seamless introduction to CluedIn</div>
-  </div>
    <div class="card" href="/deployment">
     <div class="icon"><img src="/assets/icons/installation.svg" alt="getting started"/></div>
     <div class="title">Installation</div>
     <div class="content">Follow our straightforward instructions to get CluedIn up and running</div>
+  </div>
+  <div class="card" href="/getting-started">
+    <div class="icon"><img src="/assets/icons/getting-started.svg" alt="getting started"/></div>
+    <div class="title">Getting Started</div>
+    <div class="content">Explore our step-by-step guides for a seamless introduction to CluedIn</div>
   </div>
    <div class="card" href="/release-notes">
     <div class="icon"><img src="/assets/icons/release-note.svg" alt="getting started"/></div>
