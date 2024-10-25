@@ -2,7 +2,7 @@
 layout: cluedin
 title: Release overview
 nav_order: 170
-has_children: false
+has_children: true
 permalink: /release-notes
 ---
 ## On this page
