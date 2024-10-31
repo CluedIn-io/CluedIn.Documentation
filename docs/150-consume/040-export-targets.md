@@ -73,6 +73,6 @@ On the export target details page, you can do the following:
 
 - Review the export target health checks.
 
-    CluedIn periodically checks the connection to the export target. If, for example, somebody has changed the password for the user connecting to the export target, the status health check would change to **Unhealthy**, letting you know that you need to check on the export target. After the issue is fixed, the status will go back to **Healthy** again. The **Partially Healthy** status indicates that some pods are reporting healthy and others are reporting unhealthy (for example, if there is a network issue where one pod is struggling to connect but the other pods can still connect).
+    Health checks for the export target run every 60 seconds. If, for example, somebody has changed the password for the user connecting to the export target, the health check status would change to **Unhealthy**, letting you know that you need to check on the export target. After the issue is fixed, the status will go back to **Healthy** again. The **Partially Healthy** status indicates that some pods are reporting healthy and others are reporting unhealthy (for example, if there is a network issue where one pod is struggling to connect but the other pods can still connect).
 
 - Edit the connection details.
