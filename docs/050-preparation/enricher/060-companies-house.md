@@ -61,7 +61,13 @@ After the Companies House enricher is added, you can modify its details:
 
 ## Properties from Companies House enricher
 
-You can find the properties added to golden records from the Companies House enricher on the **Properties** page. For a more detailed information about the changes made to a golden record by the Companies House enricher, check the corresponding data part on the **History** page.
+You can find the properties added to golden records from the Companies House enricher on the **Properties** page.
+
+![comapnies-house-enricher-4.png](../../assets/images/preparation/enricher/comapnies-house-enricher-4.png)
+
+For a more detailed information about the changes made to a golden record by the Companies House enricher, check the corresponding data part on the **History** page.
+
+![comapnies-house-enricher-5.png](../../assets/images/preparation/enricher/comapnies-house-enricher-5.png)
 
 The following table lists the properties that can be added to golden records by the Companies House enricher.
 
