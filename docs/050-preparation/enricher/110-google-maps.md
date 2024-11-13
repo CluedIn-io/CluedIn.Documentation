@@ -95,7 +95,7 @@ After the Google Maps enricher is added, you can modify its details:
 
     ![google-maps-enricher-3.png](../../assets/images/preparation/enricher/google-maps-enricher-3.png)
 
-- **Authentication** – modify the details you provided while configuring the enricher: **Accepted Entity Type**, **Organization Name Vocab Key**, **Organization Name Normalization**, **CVR Vocab Key**, **Country Vocab Key**, **Website Vocab Key**.
+- **Authentication** – modify the details you provided while configuring the enricher.
 
 ## Properties from Google Maps enricher
 

@@ -31,7 +31,7 @@ The enricher uses the organization name and/or the website to search for informa
 
     - **Organization Name Vocab Key** – enter the vocabulary key that contains the names of companies that will be used for searching the DuckDuckGo engine.
 
-    - **Organization Name Vocab Key** – enter the vocabulary key that contains the websites of companies that will be used for searching the DuckDuckGo engine.
+    - **Website Vocab Key** – enter the vocabulary key that contains the websites of companies that will be used for searching the DuckDuckGo engine.
 
         ![duck-duck-go-enricher-2.png](../../assets/images/preparation/enricher/duck-duck-go-enricher-2.png)
 

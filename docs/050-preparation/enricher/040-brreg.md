@@ -11,7 +11,7 @@ title: Brreg
 - TOC
 {:toc}
 
-This article explains how to add the [Brreg](https://www.brreg.no/) enricher. The purpose of this enricher is to provide a wide range of information about Norwegian and foreign businesses operating in Norway (for example, address, registration date, employee count, and so on). More details can be found in [Properties from Brreg enricher](#poperties-from-brreg-enricher).
+This article explains how to add the [Brreg](https://www.brreg.no/) enricher. The purpose of this enricher is to provide a wide range of information about Norwegian and foreign businesses operating in Norway (for example, address, registration date, employee count, and so on). More details can be found in [Properties from Brreg enricher](#properties-from-brreg-enricher).
 
 ## Add Brreg enricher
 
@@ -63,7 +63,7 @@ After the Brreg enricher is added, you can modify its details:
 
     ![brreg-enricher-2.png](../../assets/images/preparation/enricher/brreg-enricher-2.png)
 
-- - **Authentication** – modify the details you provided while configuring the enricher.    
+- **Authentication** – modify the details you provided while configuring the enricher.    
 
 ## Properties from Brreg enricher
 
