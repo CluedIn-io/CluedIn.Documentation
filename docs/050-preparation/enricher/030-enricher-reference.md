@@ -12,7 +12,7 @@ In this article, you will find reference information about built-in enrichers in
 | Enricher | Description | Package name | Package version |
 |--|--|--|--|
 | [Brreg](/preparation/enricher/brreg) | Finds information about Norwegian companies. | CluedIn.Provider.ExternalSearch.Bregg | 4.0.1 |
-| [Clearbit](/preparation/enricher/clearbit) | Finds company logo and domain information | CluedIn.Provider.ExternalSearch.ClearBit | 4.1.1 |
+| [Clearbit](/preparation/enricher/clearbit) | Finds company logo and domain information. | CluedIn.Provider.ExternalSearch.ClearBit | 4.1.1 |
 | [Companies House](/preparation/enricher/companies-house) | Finds information about UK companies. Uses the company name to return public information including registered office address, filing history, and so on. | CluedIn.Provider.ExternalSearch.CompanyHouse | 4.0.1 |
 | [CVR](/preparation/enricher/cvr) | Retrieves information from the Danish state's register of information about businesses. | CluedIn.Provider.ExternalSearch.CVR | 4.1.1 |
 | [Duck Duck Go](/preparation/enricher/duckduckgo) | Retrieves information from the DuckDuckGo search engine. Returns website and general information about the organization. | CluedIn.ExternalSearch.Providers.DuckDuckGo.Provider | 4.3.0 |
