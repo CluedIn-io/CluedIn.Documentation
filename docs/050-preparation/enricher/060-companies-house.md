@@ -11,7 +11,7 @@ title: Companies House
 - TOC
 {:toc}
 
-This article outlines how to configure the [Companies House](https://www.gov.uk/government/organisations/companies-house#:~:text=Companies%20House%20is%20the%20%EE%80%80official%20agency%EE%80%81) enricher. The purpose of this enricher is to get information about companies registered in the UK.
+This article outlines how to configure the [Companies House](https://www.gov.uk/government/organisations/companies-house#:~:text=Companies%20House%20is%20the%20%EE%80%80official%20agency%EE%80%81) enricher. The purpose of this enricher is to get information about companies registered in the UK (for example, address, date of creation, company status, and so on). More details can be found in [Properties from Companies House enricher](#properties-from-companies-house-enricher).
 
 ## Add Companies House enricher
 
@@ -37,13 +37,13 @@ You can add input parameters for the enricher (organization name, country, and C
 
     - **API Key** – enter the API key for retrieving information from the Companies House website.
 
-    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched using the Companies House enricher.
+    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched.
 
-    - **Companies House Number Vocab Key** – enter the vocabulary key that contains the Companies House number of companies that you want to enrich.
+    - **Companies House Number Vocab Key** – enter the vocabulary key that contains the Companies House number that will be used for searching the Companies House website.
 
-    - **Country Vocab Key** – enter the vocabulary key that contains the countries of companies that you want to enrich.
+    - **Country Vocab Key** – enter the vocabulary key that contains the countries of companies that will be used for searching the Companies House website.
 
-    - **Organization Name Vocab Key** – enter the vocabulary key that contains the names of companies that you want to enrich.
+    - **Organization Name Vocab Key** – enter the vocabulary key that contains the names of companies that will be used for searching the Companies House website.
 
     - **Skip Entity Code Creation (Company House Number)** – turn on the toggle if you don't want to add new entity codes that come from the source system to the enriched golden records. Otherwise, new entity codes containing Companies House number will be added to the enriched golden records.
 

@@ -31,9 +31,9 @@ To use the Knowledge Graph enricher, you must provide the API key. To get the AP
 
     - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched using the Knowledge Graph enricher.
 
-    - **Organization Name Vocab Key** – enter the vocabulary key that contains the names of organizations that you want to enrich.
+    - **Organization Name Vocab Key** – enter the vocabulary key that contains the names of organizations that will be used for searching the Knowledge Graph database.
 
-    - **Website Vocab Key** – enter the vocabulary key that contains the websites of organizations that you want to enrich.
+    - **Website Vocab Key** – enter the vocabulary key that contains the websites of organizations that will be used for searching the Knowledge Graph database.
 
         ![knowledge-graph-enricher-2.png](../../assets/images/preparation/enricher/knowledge-graph-enricher-2.png)
 

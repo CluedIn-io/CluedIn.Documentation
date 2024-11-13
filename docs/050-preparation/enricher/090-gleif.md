@@ -11,7 +11,7 @@ title: Gleif
 - TOC
 {:toc}
 
-This article explains how to add the [Gleif](https://www.gleif.org/en) enricher. The purpose of this enricher is to provide a wide range of information about an organization (for example, legal name, address, entity status, and so on). More details are provided in [Properties from Gleif](#properties-from-gleif-enricher) enricher.
+This article explains how to add the [Gleif](https://www.gleif.org/en) enricher. The purpose of this enricher is to provide a wide range of information about an organization (for example, legal name, address, entity status, and so on). More details are provided in [Properties from Gleif enricher](#properties-from-gleif-enricher).
 
 ## Add Gleif enricher
 

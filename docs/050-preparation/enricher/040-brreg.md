@@ -41,13 +41,13 @@ The enricher requires at least one of the following attributes for searching the
 
     1. **Accepted Entity Type** – enter the entity type to define which golden records will be enriched.
 
-    1. **Name Vocabulary Key** – enter the vocabulary key that contains the names of companies that you want to enrich.
+    1. **Name Vocabulary Key** – enter the vocabulary key that contains the names of companies that will be used for searching the Brreg register.
 
-    1. **Country Code Vocabulary Key** – enter the vocabulary key that contains the country codes of companies that you want to enrich.
+    1. **Country Code Vocabulary Key** – enter the vocabulary key that contains the country codes of companies that will be used for searching the Brreg register.
 
-    1. **Website Vocabulary Key** – enter the vocabulary key that contains the websites of companies that you want to enrich.
+    1. **Website Vocabulary Key** – enter the vocabulary key that contains the websites of companies that will be used for searching the Brreg register.
 
-    1. **Brreg Code Vocabulary Key** – enter the vocabulary key that contains the Brreg codes of companies that you want to enrich.
+    1. **Brreg Code Vocabulary Key** – enter the vocabulary key that contains the Brreg codes of companies that will be used for searching the Brreg register.
 
     1. **Skip entity Code Creation (Brreg Code)** – turn on the toggle if you don't want to add new entity codes that come from the source system to the enriched golden records. Otherwise, new entity codes containing Brregs codes will be added to the enriched golden records.
 

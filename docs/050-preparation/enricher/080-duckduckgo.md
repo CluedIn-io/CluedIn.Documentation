@@ -27,11 +27,11 @@ The enricher uses the organization name and/or the website to search for informa
 
 1. On the **Configure** tab, provide the following details:
 
-    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched using the DuckDuckGo enricher.
+    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched.
 
-    - **Organization Name Vocab Key** – enter the vocabulary key that contains the names of companies that you want to enrich.
+    - **Organization Name Vocab Key** – enter the vocabulary key that contains the names of companies that will be used for searching the DuckDuckGo engine.
 
-    - **Organization Name Vocab Key** – enter the vocabulary key that contains the websites of companies that you want to enrich.
+    - **Organization Name Vocab Key** – enter the vocabulary key that contains the websites of companies that will be used for searching the DuckDuckGo engine.
 
         ![duck-duck-go-enricher-2.png](../../assets/images/preparation/enricher/duck-duck-go-enricher-2.png)
 
