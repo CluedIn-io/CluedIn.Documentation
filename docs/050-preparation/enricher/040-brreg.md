@@ -15,11 +15,19 @@ This article explains how to add the [Brreg](https://www.brreg.no/) enricher. Th
 
 ## Add Brreg enricher
 
-The Brreg enricher doesn't require specific configuration. However, it only affects golden records that meet the following criteria:
+The enricher requires at least one of the following attributes for searching the Brreg register:
 
-- Golden records belong to the **Organization** entity type.
+- **Brreg Code** – if your golden records have Brreg codes, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the Brreg code to search the Brreg register.
 
-- Golden records contain the **organization.codes.brreg** vocabulary key. This is the most important requirement because the enricher uses the code to extract additional information.
+- **Name**, **Country Code**, and **Website** – if your golden records do not have Brreg codes, you can enter these three attributes to configure the enricher. As a result, the enricher will use the combination of name, country, and website to search the Brreg register. For this method to work, the name must be a valid name—not empty, not numbers, not GUID, not equal to "Microsoft Office User", not email. Additionally, at least one of the following conditions must be met:
+
+    - The name postfix contains one of the following values: **"A/S"**, **"AS"**, **"ASA"**, **"I/S"**, **"IS"**, **"K/S"**, **"KS"**, **"ENK"**, **"ANS"**, **"NUF"**, **"P/S"**, **"PS"**, **"Enkeltpersonforetak"**, **"Ansvarlig Selskap"**, **"Aksjeselskap"**, **"Norskregistrert utenlandsk foretak"**.
+
+    - The name contains at least one of the following values: **" no"**, **"no "**, **"norway"**, **"norge"**, **"norsk"**, **"æ"**, **"ø"**, **"å"**.
+
+    - The country is one of the following: **"no"**, **"NOR"**, **"Norway"**, **"Norge"**.
+
+    - The website is valid and ends with **".no"** (for example: google.no).
 
 **To add the Brreg enricher**
 
@@ -29,13 +37,33 @@ The Brreg enricher doesn't require specific configuration. However, it only affe
 
     ![brreg-enricher-1.png](../../assets/images/preparation/enricher/brreg-enricher-1.png)
 
-1. On the **Configure** tab, select **Add**.
+1. On the **Configure** tab, provide the following details:
+
+    1. **Accepted Entity Type** – enter the entity type to define which golden records will be enriched.
+
+    1. **Name Vocabulary Key** – enter the vocabulary key that contains the names of companies that you want to enrich.
+
+    1. **Country Code Vocabulary Key** – enter the vocabulary key that contains the country codes of companies that you want to enrich.
+
+    1. **Website Vocabulary Key** – enter the vocabulary key that contains the websites of companies that you want to enrich.
+
+    1. **Brreg Code Vocabulary Key** – enter the vocabulary key that contains the Brreg codes of companies that you want to enrich.
+
+    1. **Skip entity Code Creation (Brreg Code)** – turn on the toggle if you don't want to add new entity codes that come from the source system to the enriched golden records. Otherwise, new entity codes containing Brregs codes will be added to the enriched golden records.
+
+        ![brreg-enricher-4.png](../../assets/images/preparation/enricher/brreg-enricher-4.png)
+
+1. Select **Add**.
 
     The Brreg enricher is added and has an active status. This means that it will enrich relevant golden records during processing or when you trigger external enrichment.
 
-After the Brreg enricher is added, you can modify its settings—add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
+After the Brreg enricher is added, you can modify its details:
 
-![brreg-enricher-2.png](../../assets/images/preparation/enricher/brreg-enricher-2.png)
+- **Settings** – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
+
+    ![brreg-enricher-2.png](../../assets/images/preparation/enricher/brreg-enricher-2.png)
+
+- - **Authentication** – modify the details you provided while configuring the enricher.    
 
 ## Properties from Brreg enricher
 
@@ -44,6 +72,8 @@ To quickly find the properties added to golden records from the Brreg enricher, 
 ![brreg-enricher-3.png](../../assets/images/preparation/enricher/brreg-enricher-3.png)
 
 For a more detailed information about the changes made to a golden record by the Brreg enricher, check the corresponding data part on the **History** page.
+
+![brreg-enricher-5.png](../../assets/images/preparation/enricher/brreg-enricher-3.png)
 
 The following table lists the properties that can be added to golden records by the Brreg enricher.
 
