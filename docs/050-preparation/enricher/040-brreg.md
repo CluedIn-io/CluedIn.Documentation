@@ -73,7 +73,7 @@ To quickly find the properties added to golden records from the Brreg enricher, 
 
 For a more detailed information about the changes made to a golden record by the Brreg enricher, check the corresponding data part on the **History** page.
 
-![brreg-enricher-5.png](../../assets/images/preparation/enricher/brreg-enricher-3.png)
+![brreg-enricher-5.png](../../assets/images/preparation/enricher/brreg-enricher-5.png)
 
 The following table lists the properties that can be added to golden records by the Brreg enricher.
 
