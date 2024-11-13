@@ -9,6 +9,9 @@ title: Enricher reference
 
 In this article, you will find reference information about built-in enrichers in CluedIn.
 
+{:.important}
+Please note that the enrichers are not included in the CluedIn license. Each enricher is an open-source package provided by the CluedIn team for free to help you enrich your golden records with information from external sources.
+
 | Enricher | Description | Package name | Source Code Link | Package version |
 |--|--|--|--|
 | [Brreg](/preparation/enricher/brreg) | Finds information about Norwegian companies. | CluedIn.Provider.ExternalSearch.Bregg | [Source Code](https://github.com/CluedIn-io/CluedIn.Enricher.Brreg) | 4.0.1 |
