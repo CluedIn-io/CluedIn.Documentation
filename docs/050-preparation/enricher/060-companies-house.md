@@ -45,6 +45,10 @@ You can add input parameters for the enricher (organization name, country, and C
 
     - **Organization Name Vocab Key** – enter the vocabulary key that contains the names of companies that you want to enrich.
 
+    - **Skip Entity Code Creation (Company House Number)** – turn on the toggle if you don't want to add new entity codes that come from the source system to the enriched golden records. Otherwise, new entity codes containing Companies House number will be added to the enriched golden records.
+
+    - **Skip Entity Code Creation (Company Name)** – turn on the toggle if you don't want to add new entity codes that come from the source system to the enriched golden records. Otherwise, new entity codes containing company names will be added to the enriched golden records.
+
         ![comapnies-house-enricher-2.png](../../assets/images/preparation/enricher/comapnies-house-enricher-2.png)
 
 1. Select **Add**.
@@ -57,7 +61,7 @@ After the Companies House enricher is added, you can modify its details:
 
     ![comapnies-house-enricher-3.png](../../assets/images/preparation/enricher/comapnies-house-enricher-3.png)
 
-- **Authentication** – modify the details you provided while configuring the enricher: **API Key**, **Accepted Entity Type**, **Companies House Number Vocab Key**, **Country Vocab Key**, **Organization Name Vocab Key**.
+- **Authentication** – modify the details you provided while configuring the enricher.
 
 ## Properties from Companies House enricher
 
