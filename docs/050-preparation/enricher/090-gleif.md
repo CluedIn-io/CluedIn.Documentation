@@ -11,11 +11,11 @@ title: Gleif
 - TOC
 {:toc}
 
-This article explains how to add the Gleif enricher. The purpose of this enricher is to find information about the company using its Legal Entity Identifier (LEI).
+This article explains how to add the [Gleif](https://www.gleif.org/en) enricher. The purpose of this enricher is to provide a wide range of information about an organization (for example, legal name, address, entity status, and so on). More details are provided in [Properties from Gleif](#properties-from-gleif-enricher) enricher.
 
 ## Add Gleif enricher
 
-The Gleif enricher doesn't require specific configuration.
+The enricher uses the Legal Entity Identifier (LEI) code to search for information about companies.
 
 **To add the Gleif enricher**
 
@@ -25,13 +25,27 @@ The Gleif enricher doesn't require specific configuration.
 
     ![gleif-enricher-1.png](../../assets/images/preparation/enricher/gleif-enricher-1.png)
 
-1. On the **Configure** tab, select **Add**.
+1. On the **Configure** tab, provide the following details:
+
+    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched.
+
+    - **Lei Code Vocabulary Key** – enter the vocabulary key that contains LEI codes of companies that you want to enrich.
+
+    - **Skip Entity Code Creation (Lei Code)** – turn on the toggle if you don't want to add new entity codes that come from the source system to the enriched golden records. Otherwise, new entity codes containing LEI codes will be added to the enriched golden records.
+
+        ![gleif-enricher-5.png](../../assets/images/preparation/enricher/gleif-enricher-5.png)
+
+1. Select **Add**.
 
     The Gleif enricher is added and has an active status. This means that it will enrich relevant golden records during processing or when you trigger external enrichment.
 
-After the Gleif enricher is added, you can modify its settings—add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
+After the Gleif enricher is added, you can modify its details:
 
-![gleif-enricher-2.png](../../assets/images/preparation/enricher/gleif-enricher-2.png)
+- **Settings** – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
+
+    ![gleif-enricher-2.png](../../assets/images/preparation/enricher/gleif-enricher-2.png)
+
+- **Authentication** – modify the details you provided while configuring the enricher.    
 
 ## Properties from Gleif enricher
 
@@ -47,18 +61,34 @@ The following table lists the properties that can be added to golden records by 
 
 | Display name | Vocabulary key |
 |--|--|
-| Entity Category | gleif.organization.entityCategory |
-| Entity Status | gleif.organization.entityStatus |
-| gleif.organization.legalAddress+address | gleif.organization.legalAddress+address |
+| Lei Code | gleif.organization.leiCode |
+| Legal Name | gleif.organization.legalName |
+| Address | gleif.organization.legalAddress+address |
+| Number | gleif.organization.legalAddress+number |
+| Number Within Building | gleif.organization.legalAddress+numberWithinBuilding |
+| Mail Routing | gleif.organization.legalAddress+mailRouting |
+| Additional Address | gleif.organization.legalAddress+additionalAddress |
+| Region | gleif.organization.legalAddress+region |
+| City | gleif.organization.legalAddress+city |
+| Postal Code | gleif.organization.legalAddress+postalCode |
+| Country Code | gleif.organization.legalAddress+countryCode |
+| Legal Jurisdiction | gleif.organization.legalJurisdiction |
+| Legal Form Code | gleif.organization.legalFormCode |
+| Legal Form Type | gleif.organization.legalFormType |
 | Address | gleif.organization.headquartersAddress+address |
+| Number | gleif.organization.headquartersAddress+number |
+| Number Within Building | gleif.organization.headquartersAddress+numberWithinBuilding |
+| Mail Routing | gleif.organization.headquartersAddress+mailRouting |
+| Additional Address | gleif.organization.headquartersAddress+additionalAddress |
+| Region | gleif.organization.headquartersAddress+region |
 | City | gleif.organization.headquartersAddress+city |
-| Country Code | gleif.organization.headquartersAddress+countryCode |
 | Postal Code | gleif.organization.headquartersAddress+postalCode |
+| Country Code | gleif.organization.headquartersAddress+countryCode |
+| Other Entity Names | gleif.organization.otherEntityNames |
+| Entity Status | gleif.organization.entityStatus |
 | Initial Registration Date| gleif.organization.initialRegistrationDate |
 | Last Update Date | gleif.organization.lastUpdateDate |
-| Legal Form Code | gleif.organization.legalFormCode |
-| Legal Jurisdiction | gleif.organization.legalJurisdiction |
-| Managing LOU | gleif.organization.managingLOU |
-| Next Renewal Date | gleif.organization.nextRenewalDate |
-| Other Entity Names | gleif.organization.otherEntityNames |
 | Registration Status | gleif.organization.registrationStatus |
+| Next Renewal Date | gleif.organization.nextRenewalDate |
+| Managing LOU | gleif.organization.managingLOU |
+| Entity Category | gleif.organization.entityCategory |
