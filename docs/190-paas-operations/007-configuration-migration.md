@@ -35,6 +35,9 @@ PowerShell Core does not work with PowerShell ISE. To replicate the ISE experien
 
 The product toolkit supports a number of methods of transferring configuration from one environment to another. The main two methods are running locally on your desktop or using a pipeline platform such as Azure DevOps. Below will guide you through both local and Azure DevOps, but you can technically use other methods.
 
+{:.important}
+Please note that the product toolkit is not included in the CluedIn license. It is an open-source toolkit provided by CluedIn team to help you migrate configuration between environments if you have such need.
+
 ## Local configuration migration
 
 This guide will be using the `import` and `export` scripts only. The toolkit also supports running the functions on their own, but this will not be covered as part of this documentation.
