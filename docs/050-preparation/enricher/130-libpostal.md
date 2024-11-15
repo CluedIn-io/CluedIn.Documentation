@@ -15,7 +15,15 @@ This article outlines how to configure the Libpostal enricher. The purpose of th
 
 ## Add Libpostal enricher
 
-The Libpostal enricher uses the address as input to parse and normalize the street address used in a golden record. You can use this enricher to parse and normalize street addresses for organizations, users, persons, and locations. Depending on the entity type you specify in the enricher configuration, you will need to provide the appropriate vocabulary key that contains the address.
+The Libpostal enricher uses the address as input to parse and normalize the street address used in a golden record. You can use this enricher to parse and normalize street addresses for organizations, users, persons, and locations. Depending on the entity type you specify in the enricher configuration, you will need to provide the appropriate vocabulary key that contains the address. If you don't provide the vocabulary key, CluedIn will use the following vocabulary keys by default:
+
+- **Person Address Vocab Key** - person.home.address
+
+- **Organization Address Vocab Key** - organization.address
+
+- **User Address Vocab Key** - user.home.address
+
+- **Location Address Vocab Key** - location.fullAddress
 
 **To add the Libpostal enricher**
 
