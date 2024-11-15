@@ -140,7 +140,8 @@ Additionally, your Azure administrator might be required to perform the followin
 
    - Virtual network link enabled for [privatelink.vaultcore.azure.net](http://privatelink.vaultcore.azure.net/)
 
-**Important!** The tasks listed above are provided as an example. They may or may not fit your IT infrastructure and policies. You can discuss your requirements and plan the IT journey with a CluedIn expert.
+{:.important}
+The tasks listed above are provided as an example. They may or may not fit your IT infrastructure and policies. You can discuss your requirements and plan the IT journey with a CluedIn expert.
 
 Useful links to learn more about CluedIn PaaS:
 
