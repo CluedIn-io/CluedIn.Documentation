@@ -10,6 +10,10 @@ title: Start your IT journey
 - TOC
 {:toc}
 
+| Audience | Time to read |
+|--|--|
+| Administrator | 7 min |
+
 This article outlines the key stages of your IT journey, from installing CluedIn and integrating it with necessary external systems and sources, to ensuring that user access aligns with your organization policies.
 
 ## Main aspects of IT journey
@@ -38,7 +42,7 @@ Here are some scenarios that explain the actions to take for different levels of
 
 - Full API access – discuss next steps with your CluedIn expert.  
 
-- File export access – if full access is not possible, but you can get an export file, use that. 
+- File export access – if full access is not possible, but you can get an export file, use that file. 
 
 - No access – if you can't get access, ask for the shape of the data and fake it. If you can't even get this, escalate. Data is the fuel of your data transformation journey. CluedIn has encountered these situations many times, so let us know if you need help.
 
@@ -92,11 +96,13 @@ The CluedIn PaaS **IT journey timeline** depends on two aspects:
 
 Based on your privileges and access to the resource group, there can be 3 IT journey scenarios:
 
-1. **Quick IT journey** – with high privilege and access to the resource group, the installation and IT journey might take days.
+1. **CluedIn PaaS managed service** – with high privilege and access to the resource group, the installation and IT journey might take days.
 
-2. **Moderate IT journey** – with high privilege but limited access to the resource group, the installation and IT journey might take weeks.
+2. **CluedIn PaaS managed instance** – with high privilege but limited access to the resource group, the installation and IT journey might take weeks.
 
-3. **Prolonged IT journey** – with no privilege and no access to the resource group, the installation and IT journey might take months.
+3. **CluedIn PaaS self-hosted** – with no privilege and no access to the resource group, the installation and IT journey might take months.
+
+### Installation in a restrictive environment
 
 The entire IT journey can be smooth and easy, but it will **depend on your IT infrastructure and the policies** in place. Since CluedIn requires connections to various [external systems and sources](#main-aspects-of-it-journey), you may need to take additional steps during IT journey. If your infrastructure is restrictive, you might face problems related to network restrictions, private and service endpoints, custom DNS settings, firewall policies, token expiration, and so on. If this is your case, we might have to work with you on the following tasks to **set up the foundational infrastructure**:
 

@@ -10,6 +10,10 @@ title: Prepare for your CluedIn project
 - TOC
 {:toc}
 
+| Audience | Time to read |
+|--|--|
+| Business User, Data Project Lead, Data Steward, Data Analyst, Data Architect, Data Engineer | 5 min |
+
 This article outlines four key steps to prepare for the implementation of you project in CluedIn. Following these steps will ensure that you and your team are ready to proceed with confidence.
 
 ![prepare-for-your-cluedin-project.gif](../../assets/images/playbooks/prepare-for-your-cluedin-project.gif)

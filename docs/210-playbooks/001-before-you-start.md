@@ -10,6 +10,10 @@ title: Before you start
 - TOC
 {:toc}
 
+| Audience | Time to read |
+|--|--|
+| Business User, Data Project Lead | 3 min |
+
 Before you start implementing your CluedIn project, take a moment to read this page and get to know us better. We believe that understanding our guiding principles and our approach to modern MDM will help you achieve outstanding results.
 
 ## Guiding principles
