@@ -39,4 +39,4 @@ If you have the opportunity, **focus on the critical data you have access to and
 
 3.  **Full cycle of data journey** – by delivering a fairly simple use case into production, you’ve completed one full cycle of your MDM project, which you’ll need to repeat every time.
 
-**Where to start with data ingestion?** The first step of data ingestion is the data impact workshop. It is a collaborative session designed to help you identify your business domains, determine the data sources to ingest, and assess their criticality to your operations. Learn more in [Data impact workshop](/Documentation/Playbooks/Data-ingestion-playbook/Data-impact-workshop).
+**Where to start with data ingestion?** The first step of data ingestion is the data impact workshop. It is a collaborative session designed to help you identify your business domains, determine the data sources to ingest, and assess their criticality to your operations. Learn more in [Data impact workshop](/playbooks/data-ingestion-playbook/data-impact-workshop).
