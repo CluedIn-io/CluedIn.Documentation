@@ -38,7 +38,7 @@ Here are some scenarios that explain the actions to take for different levels of
 
 - Full API access – discuss next steps with your CluedIn expert.  
 
-- File export access – if full access is not possible, but you can get an export file, use that. 
+- File export access – if full access is not possible, but you can get an export file, use that file. 
 
 - No access – if you can't get access, ask for the shape of the data and fake it. If you can't even get this, escalate. Data is the fuel of your data transformation journey. CluedIn has encountered these situations many times, so let us know if you need help.
 

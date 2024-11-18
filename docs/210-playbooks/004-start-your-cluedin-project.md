@@ -30,7 +30,9 @@ For more details about PaaS installation and IT journey, see [Start your IT jour
 
 ## SaaS CluedIn journey
 
-With CluedIn SaaS (software as a service), you can use CluedIn on a subscription basis. Instead of installing CluedIn in your own Azure IT infrastructure, you can access it in an isolated environment through a web browser. We'll work as **part of your team** throughout the whole SaaS CluedIn journey to ensure customer success.
+With CluedIn SaaS (software as a service), you can use CluedIn on a subscription basis. Instead of installing CluedIn on your own Azure IT infrastructure, you can access it in an isolated environment through a web browser.
+
+To help you achieve your goals more efficiently with guidance from our experts, consider obtaining a committed deal license and signing the Statement of Work (SOW). By doing so, we’ll work as **part of your team** throughout the entire SaaS journey, ensuring customer success.
 
 ![saas-journey.png](../../assets/images/playbooks/saas-journey.png)
 
