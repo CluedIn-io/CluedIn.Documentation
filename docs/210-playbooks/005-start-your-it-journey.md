@@ -10,6 +10,10 @@ title: Start your IT journey
 - TOC
 {:toc}
 
+| Audience | Time to read |
+|--|--|
+| Administrator | 7 min |
+
 This article outlines the key stages of your IT journey, from installing CluedIn and integrating it with necessary external systems and sources, to ensuring that user access aligns with your organization policies.
 
 ## Main aspects of IT journey

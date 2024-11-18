@@ -10,6 +10,10 @@ title: Start your CluedIn project
 - TOC
 {:toc}
 
+| Audience | Time to read |
+|--|--|
+| Business User, Data Project Lead, Data Steward, Data Analyst, Data Architect, Data Engineer | 3 min |
+
 This article outlines the main steps for starting your CluedIn project. Adopting the approach that we describe here will help you implement your project in an efficient manner.
 
 To streamline the process of starting your CluedIn project and provide a clear framework, we suggest dividing the project into 2 aspects:

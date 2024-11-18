@@ -10,6 +10,10 @@ title: How to approach your CluedIn project
 - TOC
 {:toc}
 
+| Audience | Time to read |
+|--|--|
+| Business User, Data Project Lead, Data Steward, Data Analyst, Data Architect, Data Engineer | 5 min |
+
 This article outlines two fundamental steps for approaching any data project in CluedIn. Following these steps will help you achieve attainable value right from the start.
 
 ![how-to-approach-your-cluedin-project.png](../../assets/images/playbooks/how-to-approach-your-cluedin-project.png)
