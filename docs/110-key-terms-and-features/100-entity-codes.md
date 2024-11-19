@@ -176,6 +176,18 @@ This could lead to uniqueness, if you go the `MDM Code`, please make sure the `n
 The normalization of the MDM Code is important because it would avoid the above scenario where editing values changes the origin entity code, and therefore can lead to un-desired effect.
 
 
+### I have no way to define uniqueness, what to do?
+
+Use a generated guid using advanced mapping or a pre-process rule.
+
+However, **each time your process**, it will create **duplicates**, so use for **one-time only** ingestion.
+
+### I do not have uniqueness and need multiple-process
+
+If you come into this case, the only way is to modify the source of data to setup "some kind" of uniqueness. If a SQL table, you can add a unique identifier for each row.
+
+Because if they are no properties that define uniqueness, that composite codes is not good enough due to the having too many blanks and you want to process multiple time the source. You only way is to fix the issue on the source level.
+
 ## Entity codes (Identifiers)
 
 An entity code is an additional identifier that uniquely represents a record in CluedIn. The required details for producing the entity codes are established when the mapping for a data set is created. To find these details, go to the **Map** tab of the data set and select **Edit mapping**. On the **Map entity** tab, you'll find the **Codes** section, which contains the required details for producing the entity codes.
