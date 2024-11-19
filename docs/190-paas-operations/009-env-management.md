@@ -49,7 +49,7 @@ For data in the test environment, we recommend using **obfuscated data** or data
 {:.important}
 If you want to use sensitive data while preparing the configuration for the production environment, you might need a dedicated pre-production environment. If this is your case, reach out to CluedIn support at <a href="mailto:support@cluedin.com">support@cluedin.com</a>.
 
-After you configure all the elements you need for your data management tasks, you can move the configuration from the test environment to the production environment. You can sync test and production environments using CluedIn Production Toolkit available [here](/kb/config-migrate). However, it is important to mention that the data cannot be moved from the test to production environment during synchronization.  
+After you configure all the elements you need for your data management tasks, you can move the configuration from the test environment to the production environment. You can sync test and production environments using CluedIn Production Toolkit available [here](/kb/config-migrate). However, it is important to mention that the data as well as users and roles cannot be moved from the test to production environment during synchronization.  
 
 ![env-sync-1.png](../../assets/images/kb/env-sync-1.png)
 
