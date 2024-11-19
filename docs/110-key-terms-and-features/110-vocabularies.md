@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Vocabularies
+title: Vocabularies (Schema)
 parent: Key terms and features
 nav_order: 11
 has_children: false
@@ -14,7 +14,55 @@ tags: ["development","vocabularies"]
 
 A vocabulary is a framework that defines how metadata is stored and organized within the system. A well-defined vocabulary is essential for maintaining data consistency, accuracy, and usability across an organization. By providing a standardized framework, a vocabulary contributes to effective data integration, improved decision making, and streamlined operations. It ensures that all stakeholders are working with consistent and reliable master data definitions and structures. For more information, see [Vocabulary](/management/data-catalog/vocabulary).
 
-The primary purpose of vocabulary is to hold vocabulary keys. Vocabulary keys are your way to be able to describe properties that are coming in from data sources. To maintain proper data lineage, it is recommended that the Key Name is set to the exact same value of the property name coming in from the source system. For example, if you are integrating data from a CRM system and one of the properties is named "Column_12", then even though it is tempting to change the Key Name, we would recommend that you maintain that as the Key Name and that you can set the Display Name as something different for aesthetic reasons. For more information, see [Vocabulary keys](/management/data-catalog/vocabulary-keys).
+The **primary purpose** of vocabulary is to **hold vocabulary keys**. Vocabulary keys are your way to be able to describe properties that are coming in from data sources.
+
+A vocabulary is composted by multiple vocabulary groups and multiple vocabulary keys.
+
+### Why is the prefix of vocabulary so important?
+
+The prefix of a vocabulary will be part of what we call the **full vocabulary key**, this will be name of the attribute being stored in our databases and will be given automatically when adding a vocabulary key to a given vocabulary.
+
+Changing the _prefix_ of an existing vocabulary could influence many of the records and would re-require a `re-processing` of the golden records (automatically when changing the name of the UI).
+
+Let's take the prefix `contact_person` and a vocabulary key called `firstName` and `lastName`.
+
+If you want to rename `contact_person` to `contactPerson`, it means that now, in _all the golden records_ using `contact_person.firstName` and `contact_person.lastName` will need to be changed. Please, be mindful that applying those changing on millions of golden records may require a bit of time.
+
+### What is the different between Entity Type and Vocabulary?
+
+When you map your data in CluedIn, you can have a one to one. However, vocabulary can be share among different entity type or may only represent a partial aspect of the golden record.
+
+For example:
+
+- There can be only 1 entity Type assigned to a golden record.
+- You can have multiple vocabularies being used for a given golden record.
+
+By dividing the notion of Entity Type and Vocabulary, we are de-coupling the "value" aspect of the records from its "modeling" aspect, opening for better flexibility when it comes to modeling and be to evolve with your use-cases.
+
+## Vocabulary Groups
+
+A vocabulary group is an optional group of vocabulary keys. It helps re-group some of the vocabulary keys in logical grouping.
+
+For example having a "Social" groups for the Vocabulary "Contact".
+
+The social group would have:
+
+- LinkedIn Profile
+- X.com username
+- Website
+- Blog
+
+It is aestetic and has no influences on your record.
+
+If you do not provide any grouping for you vocabulary keys, they will be located under a group called `Ungrouped Keys`.
+
+## Vocabulary Keys (Attribute)
+
+To maintain proper data lineage, it is recommended that the Key Name is set to the exact same value of the property name coming in from the source system.
+
+For example, if you are integrating data from a CRM system and one of the properties is named "Column_12", then even though it is tempting to change the Key Name, we would recommend that you maintain that as the Key Name and that you can set the Display Name as something different for aesthetic reasons. For more information, see [Vocabulary keys](/management/data-catalog/vocabulary-keys).
+
+
 
 **Core vocabularies**
 
