@@ -28,7 +28,7 @@ Let's take the prefix `contact_person` and a vocabulary key called `firstName` a
 
 If you want to rename `contact_person` to `contactPerson`, it means that now, in _all the golden records_ using `contact_person.firstName` and `contact_person.lastName` will need to be changed. Please, be mindful that applying those changing on millions of golden records may require a bit of time.
 
-### What is the different between Entity Type and Vocabulary?
+### What is the difference between Entity Type and Vocabulary?
 
 When you map your data in CluedIn, you can have a one to one. However, vocabulary can be share among different entity type or may only represent a partial aspect of the golden record.
 
