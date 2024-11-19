@@ -190,6 +190,16 @@ In the **Entity Codes** section, you can instruct CluedIn to produce additional 
 
 - **Strict edge codes** – codes that are built from the entity type, data source group ID/data source ID/data set ID, and the value from the column that was selected for producing the entity origin code.
 
+### What happens if the value of a code is empty?
+
+The **value** will be **ignored** and no code will be added. A code is not a required element and using a hashcode as "code" would be un-necessary as you have already defined what means "uniqueness" with the origin entity code.
+
+### I have no codes defined, is it bad?
+
+No, it can happen regularly, generally when the source records cannot be trusted or unknown.
+
+In case of doubt, it is better not to add an extra code, and rely on Deduplication Projects to find duplicates.
+
 ## FAQ
 
 **How to make sure that the codes will blend across different data sources?**
