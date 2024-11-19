@@ -207,3 +207,7 @@ Often you will find that you need to merge or link records across systems that d
 **What if an identifier is not ready for producing a code?**
 
 Sometimes identifiers for codes are not ready to be made into a unique entity origin code. For example, your data might include default or fallback values when a real value is not present. Imagine you have an EmployeeId column, and when a value is missing, placeholders like "NONE", "", or "N/A" are used. These are not valid identifiers for the EmployeeId. However, the important aspect is that you cannot handle all permutations of these placeholders upfront. Therefore, you should create codes with the intention that these values are unique. You can fix and clean up such values later.
+
+## Related Article(s)
+
+[Origin](/key-terms-and-features/origin)
