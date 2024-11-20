@@ -90,7 +90,7 @@ Core vocabularies do not include the namespace for a source system. It will typi
 
  Vocabularies are allowed (and designed) to be hierarchical in nature. This means that you can have many (max 10) levels of hierarchy in your vocabularies. This is to allow you to be able to map source systems into a Company, Department, Team, or other levels. Here is a simple example of how a vocabulary key could map from source to core.
 
-```yaml
+```
  hubspot.contact.contactName - Provider Level
  	lego.sales.contact.fullName - Department Level
  	lego.marketing.contact.leadName - Department Level
