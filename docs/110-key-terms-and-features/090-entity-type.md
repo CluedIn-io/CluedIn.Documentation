@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Entity type
+title: Entity type (Business domain)
 parent: Key terms and features
 nav_order: 9
 has_children: false
