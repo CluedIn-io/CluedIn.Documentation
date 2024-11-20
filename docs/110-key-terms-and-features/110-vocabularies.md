@@ -18,6 +18,7 @@ The **primary purpose** of vocabulary is to **hold vocabulary keys**. Vocabulary
 
 A vocabulary is composted by multiple vocabulary groups and multiple vocabulary keys.
 
+
 ### Why is the prefix of vocabulary so important?
 
 The prefix of a vocabulary will be part of what we call the **full vocabulary key**, this will be name of the attribute being stored in our databases and will be given automatically when adding a vocabulary key to a given vocabulary.
@@ -27,6 +28,37 @@ Changing the _prefix_ of an existing vocabulary could influence many of the reco
 Let's take the prefix `contact_person` and a vocabulary key called `firstName` and `lastName`.
 
 If you want to rename `contact_person` to `contactPerson`, it means that now, in _all the golden records_ using `contact_person.firstName` and `contact_person.lastName` will need to be changed. Please, be mindful that applying those changing on millions of golden records may require a bit of time.
+
+### One vocabulary per source to keep the lineage
+
+Even if it is tempting to re-use vocabulary across the multiple sources, you should keep the Vocabulary **close to your sources**.
+
+This gives you better flexibility as you can target your clean-project and/or rules and/or deduplication project to know where this vocabulary key is coming from.
+
+To start using what we called "Shared Vocabulary", you needs to use the feature of "Mapping" a key to another Vocabulary Key.
+
+For example, let's take a field called "Email", from a source "CRM".
+
+You should use a vocabulary key called: "CRM.contact.email".
+
+The `CRM.contact` would be the prefix of a Vocabulary, probably called "CRM Contact" and `email` would be a child vocabulary key of "CRM Contact". Producing a full key of `CRM.contact.email`.
+
+If you add now a source ERP, you would use a prefix such as `ERP.contact` which would be the prefix of a Vocabulary, probably called "ERP Contact" and `email` would be a child vocabulary key of "ERP Contact". Producing a full key of `ERP.contact.email`.
+
+Obviously, those 2 keys called (`CRM.contact.email` and `ERP.contact.email`) represent the **same meaning**, so you would want in your golden record to have a single **shared vocabulary key** called `contact.email`.
+
+This is possible by mapping those 2 keys to the shared vocabulary key called `contact.email`.
+
+Bear in mind, it means the data will be **flowing towards the shared vocabulary key** and the values of `CRM.contact.email` and `ERP.contact.email` will now all be located in `contact.email`.
+
+Such as:
+
+| Source Type | Vocabulary | Vocabulary Key | Maps to |
+|--|--|--|
+| CRM | CRM.contact | email | contact.email |
+| ERP | ERP.contact | email | contact.email |
+
+By applying this principle, you can keep your lineage but as well it gives you better flexibility and better agility. As you can "map to" the shared vocabulary key only when you feel it is "ready". Maybe you want to clean it before, maybe you do want to keep it separate...
 
 ### What is the difference between Entity Type and Vocabulary?
 
@@ -56,12 +88,9 @@ It is aestetic and has no influences on your record.
 
 If you do not provide any grouping for you vocabulary keys, they will be located under a group called `Ungrouped Keys`.
 
-## Vocabulary Keys (Attribute)
+## Vocabulary Keys (attribute)
 
 To maintain proper data lineage, it is recommended that the Key Name is set to the exact same value of the property name coming in from the source system.
-
-For example, if you are integrating data from a CRM system and one of the properties is named "Column_12", then even though it is tempting to change the Key Name, we would recommend that you maintain that as the Key Name and that you can set the Display Name as something different for aesthetic reasons. For more information, see [Vocabulary keys](/management/data-catalog/vocabulary-keys).
-
 
 
 **Core vocabularies**
