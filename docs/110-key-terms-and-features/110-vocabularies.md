@@ -65,7 +65,6 @@ By applying this principle, you can keep your lineage and have better flexibilit
 When you map your data in CluedIn, you can map it to one entity type and one vocabulary. However, a vocabulary can be shared among different entity types and can represent only a partial aspect of the golden record. So, the following statements are true when describing a golden record:
 
 - You can assign only **one entity type** to a golden record.
-
 - You can use **multiple vocabularies** for a golden record.
 
 By distinguishing between entity type and vocabulary, we decouple the value aspect of records from their modeling aspect. This approach provides greater flexibility in modeling and allows for evolution with changing use cases.
