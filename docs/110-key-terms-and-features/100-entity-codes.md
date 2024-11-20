@@ -172,7 +172,7 @@ If you have no way to define uniqueness for your records, generate a GUID using 
 
 If this is your case, the only way is to fix the issue on the source level. You can modify the source of data to set up some kind of uniqueness. For example, if you have a SQL table, you can add a unique identifier for each row.
 
-## Entity codes
+## Entity codes (Identifiers)
 
 An entity code is an additional identifier that uniquely represents a record in CluedIn. The required details for producing the entity codes are established when the mapping for a data set is created. To find these details, go to the **Map** tab of the data set and select **Edit mapping**. On the **Map entity** tab, you'll find the **Codes** section, which contains the required details for producing the entity codes.
 
@@ -186,13 +186,21 @@ In the **Entity Codes** section, you can instruct CluedIn to produce additional 
 
 - **Strict edge codes** – codes that are built from the entity type, data source group ID/data source ID/data set ID, and the value from the column that was selected for producing the entity origin code.
 
+### What happens if the value of a code is empty?
+
+The **value** will be **ignored** and no code will be added. A code is not a required element and using a hash code would be unnecessary as you have already defined uniqueness with the entity origin code.
+
+### Is it bad if I have no codes defined?
+
+No, it can happen regularly, generally when the source records cannot be trusted or unknown. In case of doubt, it is better not to add an extra code, and rely on deduplication projects to find duplicates.
+
 ## FAQ
 
 **How to make sure that the codes will blend across different data sources?**
 
 Since a code will only merge with another code if they are identical, how can you merge records across different systems if the origin is different? One of the ways to achieve it is through the GUID.
 
-If a record has an adentifier that is a GUID/UUID, you can set the origin as CluedIn because no matter the system, the identifier should be unique. However, this is not applicable if you are using deterministic GUIDS. If you're wondering whether you use deterministic GUIDs, conducting preliminary analysis on the data can help. Check if many GUIDs overlap in a certain sequence, such as the first chunk of the GUID being replicated many times. This is a strong indicator that you are using deterministic GUIDs. Random GUIDs are so unique that the chance of them being the same is close to impossible.
+If a record has an identifier that is a GUID/UUID, you can set the origin as CluedIn because no matter the system, the identifier should be unique. However, this is not applicable if you are using deterministic GUIDS. If you're wondering whether you use deterministic GUIDs, conducting preliminary analysis on the data can help. Check if many GUIDs overlap in a certain sequence, such as the first chunk of the GUID being replicated many times. This is a strong indicator that you are using deterministic GUIDs. Random GUIDs are so unique that the chance of them being the same is close to impossible.
 
 You could even determine that the entity type can be generic as well. You will have to craft these special entity codes in your clues (for example, something like `/Generic#CluedIn:<GUID>`). You will need to make sure your edges support the same mechanism. In doing this, you are instructing CluedIn that no matter the entity type, no matter the origin of the data, this record can be uniquely identified by just the GUID.
 
@@ -203,3 +211,7 @@ Often you will find that you need to merge or link records across systems that d
 **What if an identifier is not ready for producing a code?**
 
 Sometimes identifiers for codes are not ready to be made into a unique entity origin code. For example, your data might include default or fallback values when a real value is not present. Imagine you have an EmployeeId column, and when a value is missing, placeholders like "NONE", "", or "N/A" are used. These are not valid identifiers for the EmployeeId. However, the important aspect is that you cannot handle all permutations of these placeholders upfront. Therefore, you should create codes with the intention that these values are unique. You can fix and clean up such values later.
+
+## Useful resources
+
+- Origin(/key-terms-and-features/origin)
