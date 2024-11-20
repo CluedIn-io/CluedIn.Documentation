@@ -16,7 +16,7 @@ A **code (identifier)** is a mechanism that CluedIn uses to define the **uniquen
 
 **Example**
 
-Let’s explore the concept of codes in CluedIn through an example. We have a golden record—John Smith—that originates from the HR system. One of the codes for this golden record is created using the ID. Now, a new record from the CRM system appears in CluedIn, and one of its codes matches the code of the golden record from the HR system. As a result, the new CRM record is merged with the existing HR record, integrating any new properties from the CRM record into the existing golden record.
+Let’s explore the concept of codes (identifiers) in CluedIn through an example. We have a golden record—John Smith—that originates from the HR system. One of the codes for this golden record is created using the ID. Now, a new record from the CRM system appears in CluedIn, and one of its codes matches the code of the golden record from the HR system. As a result, the new CRM record is merged with the existing HR record, integrating any new properties from the CRM record into the existing golden record.
 
 ![codes-merge-1.gif](../../assets/images/key-terms-and-features/codes-merge-1.gif)
 
@@ -34,23 +34,21 @@ For more information, see the **Codes** section in our [Review mapping](/integra
 
 ## Entity origin code (primary identifier)
 
-An entity origin code is a primary unique identifier of a record in CluedIn. The required details for producing the entity origin code are established when the mapping for a data set is created. To find these details, go to the **Map** tab of the data set and select **Edit mapping**. On the **Map entity** tab, you'll find the **Entity Origin** section, which contains the required details for producing the entity origin code.
+An entity origin code is a **primary unique identifier** of a record in CluedIn. The required details for producing the entity origin code are established when the mapping for a data set is created. To find these details, go to the **Map** tab of the data set and select **Edit mapping**. On the **Map entity** tab, you'll find the **Entity Origin** section, which contains the required details for producing the entity origin code.
 
 ![codes-2.png](../../assets/images/key-terms-and-features/codes-2.png)
 
-The entity origin code is made up from the entity type (1), [origin](/key-terms-and-features/origin) (2), and the value of the property that was selected for producing the entity origin code (3). This combination allows achieving absolute uniqueness across any data source that you interact with. 
+The entity origin code is made up from the [entity type](/key-terms-and-features/entity-type) (1), the [origin](/key-terms-and-features/origin) (2), and the value of the property that was selected for producing the entity origin code (3). This combination allows achieving absolute uniqueness across any data source that you interact with. 
 
 ![codes-3.png](../../assets/images/key-terms-and-features/codes-3.png)
 
-There might be cases when the property for producing the entity origin code is empty or you don't have any property suitable for defining uniqueness. In the following sections, we'll explore different ways for dealing with such cases.
+There might be cases when the property for producing the entity origin code is empty or you don't have any property suitable for defining uniqueness. In the following sections, we'll explore different ways for defining uniqueness.
 
-### Empty value in origin code
+### Empty value in primary identifier
 
-If the property that you selected in your mapping for producing the primary identifier has an empty value, then this empty value will be converted to a **HASH CODE** that will try to represent uniqueness.
+If the property that you selected in your mapping for producing the primary identifier has an empty value, then this empty value will be converted to a **hash code** that will try to represent uniqueness. Please note that even if the hash code is a good fallback option, you need to consider if it is viable for your source of data. For data sets that have many empty values or are incomplete, it can lead to unwanted merges.
 
-Please note that even if the hash code is a good fallback option, you need to consider if it is viable for your source of data. For data sets that have many empty values or are very incomplete, it can lead to unwanted merges.
-
-Consider the following example that will append the hash code `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`. 
+Consider the following example, where the hash code will be `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`. 
 
 ```
 {
@@ -59,7 +57,7 @@ Consider the following example that will append the hash code `e7c4d00573302d3b1
 }
 ```
 
-Bear in mind that hash codes are case sensitive. With the same properties as in the example above, but all values in lower case, it will append the hash code `479b8ebe1612297996532b9abeeb9feee4ed4569`.
+Hash codes are case sensitive. So, with the same properties as in the example above, but all values in lower case, the hash code will be `479b8ebe1612297996532b9abeeb9feee4ed4569`.
 
 ```
 {
@@ -68,7 +66,7 @@ Bear in mind that hash codes are case sensitive. With the same properties as in 
 }
 ```
 
-### Auto-generated key in origin code
+### Auto-generated key in primary identifier
 
 If your records do not have a property suitable for defining uniqueness, you can select the auto-generated option for producing the primary identifier in mapping. As a result, CluedIn will generate unique entity origin codes for the records using hash codes as documented above.
 
@@ -76,9 +74,9 @@ If your records do not have a property suitable for defining uniqueness, you can
 
 If you are using hash codes, remember that when the **record is changed**, the **value of the code will change** as well. It means that you should **avoid using auto-generated keys when you edit a data set**.
 
-In CluedIn, we offer you the possibility to manipulate the source data. This is a great option as it can lead to much faster and better results in your golden records. However, if you use the **auto-generated key** to identify the golden record, each time you change the value, it will generate a different code.
+In CluedIn, we offer you the possibility to edit the source data. This is a great option as it can lead to much faster and better results in your golden records. However, if you use the **auto-generated key** to produce the entity origin code, each time you change the value, it will generate a different code.
 
-For example, let's say you have some rules to capitalize firstName and lastName. Let's assume we had 2 records.
+For example, let's say you have some rules to capitalize firstName and lastName. Let's assume we have 2 records.
 
 ```
 [{
@@ -89,7 +87,7 @@ For example, let's say you have some rules to capitalize firstName and lastName.
   lastName: "smith"
 }]
 ```
-If we add a rule to capitalize firstName and lastName, it means the records will be changed as in the example below.
+If we add a rule to capitalize firstName and lastName, the records will be changed as in the example below.
 
 ```
 [{
@@ -101,7 +99,7 @@ If we add a rule to capitalize firstName and lastName, it means the records will
 }]
 ```
 
-If you use the auto-generated key for producing the origin code, these two records will use the same hash code `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`, so they will **merge**. However, **if you have already processed this data, it can lead to duplication**. Let's trace this process step-by-step.
+If you use the auto-generated key to produce the entity origin code, these two records will use the same hash code `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`, so they will **merge**. However, **if you have already processed the data, it can lead to duplication**. Let's trace this process step-by-step.
 
 1. Upload the following JSON:
 
@@ -116,38 +114,38 @@ If you use the auto-generated key for producing the origin code, these two recor
     }]
     ```
 
-2. Map the data with **Auto-generated** key for producing the entity origin code.
+2. Map the data with **Auto-generated** key to produce the entity origin code.
 
 3. Process the data.
 
 4. Switch to edit mode for the data set.
 
-5. Apply changes to the data set: capitalize firstName and lastName.
+5. Apply changes to the data set, such as capitalize firstName and lastName.
 
 6. Re-process the data.
 
-As a result, you will have 3 golden records because you have changed the origin code of the golden record that has lower case as value.
+As a result, you will have 2 golden records because you have changed the origin code of the golden record that had lowercase values.
 
 When you process the records for the first time in step 3, you send 2 different codes:
 
-1. `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`, the hash code with value capitalized.
+1. `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`, the hash code with values capitalized.
 
-2. `479b8ebe1612297996532b9abeeb9feee4ed4569`, the hash code with the value lower case.
+2. `479b8ebe1612297996532b9abeeb9feee4ed4569`, the hash code with values in lowercase.
 
 When you process the records for the second time in step 6, you send the same code 2 times:
 
 3. `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`, the hash code with value capitalized.
 
-4. `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`, identical hash code for the record that initially was in lower case but has been capitalized in edit mode.
+4. `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`, identical hash code for the record that initially was in lowercase but has been capitalized in edit mode.
 
 The records with codes 1, 3, and 4 will merge together. And the record with code 2 will remain as a separate golden record.
 
 {:.important}
-If you want to edit your records in the source, make sure not to leverage **auto-generated** key for producing entity origin code.
+If you want to edit your records in the source, do not use auto-generated key for producing entity origin code.
 
-### Compound key (MDM code)
+### Compound key (MDM code) in primary identifier
 
-If you do not want to use an auto-generated key for creating an entity origin code, you can use a compound key. A compound key is built by concatenating different attributes to ensure uniqueness. It is commonly referred to as the MMDM code.
+If you do not want to use an auto-generated key to produce the entity origin code, you can use a compound key. A compound key is built by concatenating different attributes to ensure uniqueness. It is commonly referred to as the MMDM code.
 
 For example, an MDM code can combine multiple attributes for a customer.
 
@@ -160,15 +158,15 @@ For example, an MDM code can combine multiple attributes for a customer.
 - date of birth
 ```
 
-If you go the MDM code, make sure you **normalize the values** by either creating a computed column for your data set or by adding a bit of glue code in using advanced mapping. Our CluedIn experts can assist you. Normalizing the MDM code is important because it will prevent scenarios where editing values changes the origin entity code, leading to undesired effects.
+If you go with the MDM code, make sure you **normalize the values** by either creating a computed column for your data set or by adding a bit of glue code in using [advanced mapping](/integration/additional-operations-on-records/advanced-mapping-code). Our CluedIn experts can assist you with this task. Normalizing the MDM code is important because it will prevent scenarios where editing values changes the origin entity code, leading to undesired effects.
 
 ### Lack of options to define uniqueness
 
 **What to do if there is no way to define uniqueness?**
 
-If you have no way to define uniqueness for your records, generate a GUID using advanced mapping or a preprocess rule. However, **each time you process** the records, **duplicates** will be created. So, use this option for **one-time only** ingestion.
+If you have no way to define uniqueness for your records, generate a GUID using [advanced mapping](/integration/additional-operations-on-records/advanced-mapping-code) or a pre-process rule. However, **each time you process** the records, **duplicates** will be created. So, use this option for **one-time only** ingestion.
 
-**What to if there is no way to define uniqueness and you need to re-process multiple times?**
+**What to if there is no way to define uniqueness and you need to re-process data multiple times?**
 
 If this is your case, the only way is to fix the issue on the source level. You can modify the source of data to set up some kind of uniqueness. For example, if you have a SQL table, you can add a unique identifier for each row.
 
@@ -186,13 +184,13 @@ In the **Entity Codes** section, you can instruct CluedIn to produce additional 
 
 - **Strict edge codes** – codes that are built from the entity type, data source group ID/data source ID/data set ID, and the value from the column that was selected for producing the entity origin code.
 
-### What happens if the value of a code is empty?
+**What happens if the value of a code is empty?**
 
-The **value** will be **ignored** and no code will be added. A code is not a required element and using a hash code would be unnecessary as you have already defined uniqueness with the entity origin code.
+The value will be ignored and no code will be added. A code is not a required element and using a hash code would be unnecessary as you have already defined uniqueness with the entity origin code.
 
-### Is it bad if I have no codes defined?
+**Is it bad if I have no codes defined?**
 
-No, it can happen regularly, generally when the source records cannot be trusted or unknown. In case of doubt, it is better not to add an extra code, and rely on deduplication projects to find duplicates.
+No, it can happen regularly, generally when the source records cannot be trusted or are unknown. When in doubt, it is better not to add extra code and rely on deduplication projects to find duplicates.
 
 ## FAQ
 
