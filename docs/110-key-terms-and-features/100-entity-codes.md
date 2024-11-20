@@ -128,15 +128,15 @@ As a result, you will have 2 golden records because you have changed the origin 
 
 When you process the records for the first time in step 3, you send 2 different codes:
 
-1. `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`, the hash code with values capitalized.
+1\. `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`, the hash code with values capitalized.
 
-2. `479b8ebe1612297996532b9abeeb9feee4ed4569`, the hash code with values in lowercase.
+2\. `479b8ebe1612297996532b9abeeb9feee4ed4569`, the hash code with values in lowercase.
 
 When you process the records for the second time in step 6, you send the same code 2 times:
 
-3. `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`, the hash code with value capitalized.
+3\. `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`, the hash code with values capitalized.
 
-4. `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`, identical hash code for the record that initially was in lowercase but has been capitalized in edit mode.
+4\. `e7c4d00573302d3b1432fd14d89e5dd0dc68a0ea`, identical hash code for the record that initially was in lowercase but has been capitalized in edit mode.
 
 The records with codes 1, 3, and 4 will merge together. And the record with code 2 will remain as a separate golden record.
 
@@ -212,4 +212,4 @@ Sometimes identifiers for codes are not ready to be made into a unique entity or
 
 ## Useful resources
 
-- Origin(/key-terms-and-features/origin)
+- [Origin](/key-terms-and-features/origin)
