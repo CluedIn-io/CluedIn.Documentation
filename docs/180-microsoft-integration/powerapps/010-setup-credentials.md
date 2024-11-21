@@ -63,6 +63,7 @@ The following table lists the minimum role assignment we need to be able to succ
 | Connection Reference | Organization | Organization | Organization | Organization |
 | Connector | Organization | Organization | Organization | Organization |
 | Dataflow | Organization | Organization | Organization | Organization |
+| OptionSet | Organization | Organization | Organization | Organization |
 
 ## Setup application users
 

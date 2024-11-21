@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 30
+nav_order: 40
 parent: Power Apps Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/powerapps/external-features
