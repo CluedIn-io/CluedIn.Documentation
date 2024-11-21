@@ -7,7 +7,73 @@ has_children: false
 permalink: /key-terms-and-features/origin
 tags: ["development","clues"]
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
-The origin of a clue determines the lineage of source. An origin can be any value, but typically it will be the name of the source system where you are pulling data from. For example, HubSpot, Microsoft Dynamics, Oracle, Workday.
+Generally, the origin determines the **source of a golden record**. So, when you map your data, the origin will be automatically set to the name of the data source, for example, `MicrosoftDynamics`, `Oracle`, `Hubspot`, or `MsSQLDatabase5651651`. However, you can change the origin during mapping if needed.
 
-Depending on the use case, you might find that sometimes your origin will differ based on different fields. For example, imagine you are pulling data in from Microsoft Dynamics, but you are aware that one of the fields on a Lead object in Microsoft Dynamics actually comes from a particular Oracle database. It is fine to be able to set the origin of this clue to a hybrid of Oracle and Microsoft Dynamics. This will also help CluedIn reconstruct the full data lineage path of where data comes from and where it flows. You can solve this in two ways, but there is a preferred way. We would rather receive two clues: one that contains all the Dynamic sourced data and the Oracle data, the other that only contains the Oracle data. In this way, we can show that the data has come from both systems and exists in both systems.
+As mentioned in our [Entity codes](/key-terms-and-features/entity-codes) reference article, the origin is used in the entity origin code (primary identifier) and the codes (identifiers).
+
+![entity-origin-code.png](../../assets/images/key-terms-and-features/entity-origin-code.png)
+
+In this article, we'll explain the usage of the origin in two important processes in CluedIn:
+
+- [Merging records by codes](#merging-records-by-codes)
+
+- [Linking golden records](#linking-golden-records)
+
+## Merging records by codes
+
+Since the origin is used in the entity origin code (primary identifier) and the codes (identifiers), it plays a role in merging—when 2 codes are identical, the records will merge together.
+
+To understand the role of origin in merging, suppose you have an attribute that you can _safely rely on to merge records across source systems_. Let's say this attribute is a `SerialNumber` that is used in your CRM, ERP, and Support systems. As the serial number is unique and cross-system, you can use it to merge together _all golden records that have the same serial number_. Of course, you can achieve this using our UI; however, there is a faster way to do this via merging by codes.
+
+Let's consider the example of three records, each coming from a different source system—CRM, ERP, and Support. For each data source, we select the `Serial Number` to produce the entity origin code. The following table shows the codes that will be produced by default.
+
+| Source | Entity Type | Origin | Entity origin code |
+|--|--|--|--|
+| CRM | Product | crm | `/Product#crm:[SERIAL NUMBER VALUE]` |
+| ERP | Product | erp | `/Product#erp:[SERIAL NUMBER VALUE]` |
+| Support System | Product | support | `/Product#support:[SERIAL NUMBER VALUE]` |
+
+Even if the serial number is the same, the records will not merge together as the origin of each record is different.
+
+![merging-by-codes-1.png](../../assets/images/key-terms-and-features/merging-by-codes-1.png)
+
+So, how would you use the serial number to merge records together? The answer is by producing a **code that shares the same origin**, for example, `PRODUCT-SERIALNUMBER`. As a result, the code for each record will share the same entity type, origin, and the value of serial number as shown in the following table.
+
+| Source | Entity type | Origin | Entity origin code |
+|--|--|--|--|
+| CRM | Product | PRODUCT-SERIALNUMBER | `/Product#PRODUCT-SERIALNUMBER:[SERIAL NUMBER VALUE]` |
+| ERP | Product | PRODUCT-SERIALNUMBER | `/Product#PRODUCT-SERIALNUMBER:[SERIAL NUMBER VALUE]` |
+| Support System | Product | PRODUCT-SERIALNUMBER | `/Product#PRODUCT-SERIALNUMBER:[SERIAL NUMBER VALUE]` |
+
+Since the origin is shared among different sources, each time the same serial number for a product is sent to CluedIn, it will be merged.
+
+![merging-by-codes-2.png](../../assets/images/key-terms-and-features/merging-by-codes-2.png)
+
+## Linking golden records
+
+Origin can be used to link golden records together to **create relationship**. You can link golden records using codes, rules, or manually in the UI. To create a relationship using codes, you need to know the **origin of target golden records**. These are the golden records to which you want to link current records.
+
+Suppose you have Contact records that contain the `companyID` property, and you know that you have Company records with this `ID`. To establish a link between Contact and Company, you need to define the "to" relationship by setting up the following:
+
+- Entity Type: `/Company`
+- Origin: `[ORIGIN-OF-COMPANY-RECORDS]`
+- Value: `Company ID`
+
+The **combination of those 3 values** needs to **match one of the codes of target records**.
+
+![linking-golden-records.png](../../assets/images/key-terms-and-features/linking-golden-records.png)
+
+To make the process of linking golden records easier, you can use the recommendation for defining the origin that we provided in [Merging by codes](#merging-records-by-codes). Essentially, the method of **shared origin** that you use for merging by codes can also be used to facilitate the process of linking golden records. This way you do not have to rely on the source system and instead use the origin that you defined for related data.
+
+## Useful resources
+
+- [Entity type](/key-terms-and-features/entity-type)
+
+- [Entity codes (Identifiers)](/key-terms-and-features/entity-codes)
+
+- [Review mapping](/integration/review-mapping)
