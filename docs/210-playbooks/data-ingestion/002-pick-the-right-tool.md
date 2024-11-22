@@ -113,4 +113,4 @@ This section provides brief descriptions of the usage for each data ingestion op
 
 ## Next step
 
-After defining the tools you’ll use for ingesting your sources, you can start the actual ingestion process.
+After defining the tools you’ll use for ingesting your sources, you can start the actual ingestion process as described in [Ingest data](/playbooks/data-ingestion-playbook/ingest-data).
