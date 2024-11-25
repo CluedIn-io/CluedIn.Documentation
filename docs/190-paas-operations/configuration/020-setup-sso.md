@@ -262,7 +262,7 @@ Once you have connected to your cluster and you are able to issue commands using
     kubectl create secret generic "myorg-sso-cs" -n cluedin --from-literal=clientSecret="Xcy8Q~....."
     ```
 
-    In the command, replace _Xcy8Q~....._ with your Azure app registration secret.
+    In the command, replace _Xcy8Q~....._ with your Azure app registration secret value.
 
 1. In Azure Cloud Shell, run the following command to create a new empty file:
 
