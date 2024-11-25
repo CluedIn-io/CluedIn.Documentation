@@ -57,13 +57,14 @@ Throughout the documentation, we'll be working with ficticious domain `yourdomai
 
 1. Select the **Supported account types** that can use the application.
 
-1. Update **Redirect URI** to **Web** and set the URL to the app subdomain of your instance with the path of `/auth/signin-oidc`.  
+1. Update **Redirect URI** to **Web** and set the URL to the app subdomain of your instance with the path of `/auth/signin-oidc`.
+
    e.g. https://app.domain.com/auth/signin-oidc
 
 1. Select **Register**.
 
     When the registration finishes, the Azure portal displays the **Overview** pane of the application registration. Here you can see the **Application (client) ID**. This value uniquely identifies your application. Make note of this ID as you'll need it to [enable SSO via Helm](#create-kubernetes-secret-and-enable-sso-via-helm).
-    
+
     ![Register_application_Application_ID.png](../../assets/images/ama/howtos/configure-sso-3.png)
 
 After you register the application, complete the following steps:
@@ -129,7 +130,7 @@ When enabling single sign-on to your CluedIn application, it is possible to also
 
 1. Select **Save**.
 
-This will allow guests invited to your Microsoft Entra ID to be able to use this application for single sign-on. The process remains the same whereby the user signs in like you normally would. 
+This will allow guests invited to your Microsoft Entra ID to be able to use this application for single sign-on. The process remains the same whereby the user signs in like you normally would.
 
 ### Add API permissions for Microsoft Graph
 
@@ -185,7 +186,7 @@ You need to register a web API with the Microsoft identity platform and expose i
 
 ### Map Microsoft Entra application roles to CluedIn roles
 
-After you have created your application registration and attached it to your CluedIn instance, you can create the application roles on the Microsoft Entra side. These roles will be translated into the CluedIn platform roles and assigned to the users as they sign in to the application when the [Automatic Role Synchronization](#overview-of-sso-for-cluedin) option is enabled in the CluedIn settings. 
+After you have created your application registration and attached it to your CluedIn instance, you can create the application roles on the Microsoft Entra side. These roles will be translated into the CluedIn platform roles and assigned to the users as they sign in to the application when the [Automatic Role Synchronization](#overview-of-sso-for-cluedin) option is enabled in the CluedIn settings.
 
 If you change the role of the user after they sign in, they will need to sign out and sign back in for the new role to take affect.
 
@@ -258,10 +259,10 @@ Once you have connected to your cluster and you are able to issue commands using
 1. Create a new Kubernetes secret with your Azure app registration secret by running the following command:
 
     ```
-    kubectl create secret generic "myorg-sso-cs" -n cluedin --from-literal=clientSecret="1234-5678-9ABC"
+    kubectl create secret generic "myorg-sso-cs" -n cluedin --from-literal=clientSecret="Xcy8Q~....."
     ```
 
-    In the command, replace _1234-5678-9ABC_ with your Azure app registration secret.
+    In the command, replace _Xcy8Q~....._ with your Azure app registration secret value.
 
 1. In Azure Cloud Shell, run the following command to create a new empty file:
 
