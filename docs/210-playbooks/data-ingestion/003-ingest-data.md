@@ -79,4 +79,4 @@ The main goal of data ingestion is to have some records on the **Preview** tab
 
 ## Next step
 
-Ensure that the required records are available on the **Preview** tab of the data set. Once the necessary data is ingested, you can start the mapping process. 
+Ensure that the required records are available on the **Preview** tab of the data set. Once the necessary data is ingested, you can start the [mapping process](/playbooks/data-ingestion-playbook/concept-of-mapping). 
