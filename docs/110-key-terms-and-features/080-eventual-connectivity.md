@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Eventual сonnectivity
+title: Eventual connectivity
 parent: Key terms and features
 nav_order: 8
 has_children: false
