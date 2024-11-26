@@ -17,6 +17,8 @@ title: Data impact workshop
 
 This article outlines the importance of the data impact workshop as the first step of your data ingestion process.
 
+![data-impact-workshop-intro.png](../../assets/images/playbooks/data-impact-workshop-intro)
+
 The data impact workshop is a collaborative session designed to help you identify your business domains, determine the data sources to ingest, and assess their criticality to your operations.
 
 {:.important}

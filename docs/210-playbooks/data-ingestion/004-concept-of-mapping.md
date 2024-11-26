@@ -15,7 +15,11 @@ title: Concept of mapping
 |--|--|
 | Data Engineer, Data Analyst | 5 min |
 
-**Before you start:**
+**You are here in the data journey**
+
+![data-ingestion-you-are-here.png](../../assets/images/playbooks/data-ingestion-you-are-here.png)
+
+**Before you start**
 
 - Make sure you have conducted the [data impact workshop](/playbooks/data-ingestion-playbook/data-impact-workshop) to understand what sources you want to use first.
 - Make sure you are familiar with the available tools for data ingestion and have [picked the right tool](/playbooks/data-ingestion-playbook/pick-the-right-tool) for your use case.

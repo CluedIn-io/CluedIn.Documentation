@@ -15,11 +15,17 @@ title: Pick the right tool
 |--|--|
 | Data Engineer, Data Analyst | 7 min |
 
+**You are here in the data journey**
+
+![data-ingestion-you-are-here.png](../../assets/images/playbooks/data-ingestion-you-are-here.png)
+
+**Before you start**
+
+- Make sure you have conducted the [data impact workshop](/playbooks/data-ingestion-playbook/data-impact-workshop) to understand what sources you want to use first.
+
 This article outlines all the possible tools that can be used to ingest data into CluedIn. By understanding the specifics of each tool, you can decide which one will be the most suitable for your use case.
 
 ![pick-the-right-tool-intro.png](../../assets/images/playbooks/pick-the-right-tool-intro.png)
-
-**Before you start:** Make sure you have conducted the [data impact workshop](/playbooks/data-ingestion-playbook/data-impact-workshop) to understand what sources you want to use first.
 
 Now that you have a list of sources that you want to use, you can prepare a data ingestion plan. The first decision to make is how to ingest the data. CluedIn provides multiple **out-of-the-box options** for data ingestion (as shown in the diagram below). However, the best way to get the data from the source depends on your infrastructure.
 
