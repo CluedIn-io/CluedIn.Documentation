@@ -15,6 +15,10 @@ title: Data impact workshop
 |--|--|
 | Business User, Data Project Lead, Data Steward, Data Analyst, Data Architect, Data Engineer | 8 min |
 
+**You are here in the data journey**
+
+![data-ingestion-you-are-here.png](../../assets/images/playbooks/data-ingestion-you-are-here.png)
+
 This article outlines the importance of the data impact workshop as the first step of your data ingestion process.
 
 ![data-impact-workshop-intro.png](../../assets/images/playbooks/data-impact-workshop-intro)
