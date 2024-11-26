@@ -59,11 +59,11 @@ If you do not want to send specific records from the data set to the processing 
 
 **Modify records before processing**
 
-- Advanced mapping – you can write a glue code in your data set to modify the records before they are processed. This is useful for complex and conditional mapping. Learn more about advanced mapping code [here](/integration/additional-operations-on-records/advanced-mapping-code).
+- **Advanced mapping** – you can write a glue code in your data set to modify the records before they are processed. This is useful for complex and conditional mapping. Learn more about advanced mapping code [here](/integration/additional-operations-on-records/advanced-mapping-code).
 
-- Property rules – improve the quality of records by normalizing, transforming, or changing property values before the records are processed. Learn more about property rules [here](/integration/additional-operations-on-records/property-rules).
+- **Property rules** – improve the quality of records by normalizing, transforming, or changing property values before the records are processed. Learn more about property rules [here](/integration/additional-operations-on-records/property-rules).
 
-- Pre-process rules – execute some basic operations on the records before they are processed. Learn more about pre-process rules [here](/additional-operations-on-records/preprocess-rules).
+- **Pre-process rules** – execute some basic operations on the records before they are processed. Learn more about pre-process rules [here](/integration/additional-operations-on-records/preprocess-rules).
 
 Generally, you should use the above-mentioned options to normalize or denormalize values in the records before they become golden records. Even though CluedIn is a tool to fix data quality issues, it can be useful to **do some preparation before processing**. This ensures that the advanced mapping code and rules remain close to the source and **run only on the source records**. If the records were already processed, the same activity would run on a large set of golden records. Therefore, if an issue appears only in a specific source, then it is a good idea to fix it with pre-processing rules, as the manipulation would be specific to that source. However, if the fix could benefit multiple sources, then do not add pre-processing rules, and add a classic rule instead.
 
@@ -80,7 +80,7 @@ In CluedIn, there are two types of processing—**manual** and **automated**. Ch
 | Incremental batch of records | Automated* |
 | ADF pipeline | Automated* |
 
-_&ast; Switch to automated processing after you verify that the mapping and pre-processing actions work fine on a data sample._
+_* Switch to automated processing after you verify that the mapping and pre-processing actions work fine on a data sample._
 
 It is always a good idea to start with manual processing, especially at the initial stages of data ingestion. Since mapping has a significant influence on golden records, we recommend that you **start with small data set and manual processing**. This way you can **verify that the golden records are accurate** and then switch to automated processing.
 
