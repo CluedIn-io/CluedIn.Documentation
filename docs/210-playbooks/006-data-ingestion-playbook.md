@@ -11,6 +11,10 @@ title: Data ingestion playbook
 |--|--|
 | Business User, Data Project Lead, Data Steward, Data Analyst, Data Architect, Data Engineer | 2 min |
 
+**You are here in the data journey**
+
+![data-ingestion-you-are-here.png](../../assets/images/playbooks/data-ingestion-you-are-here.png)
+
 Data ingestion is the first step of your MDM project. In this playbook, you will learn how to organize your MDM project and communicate its complexities and associated risks to your managers and business stakeholders. By understanding these elements, you’ll be better equipped to:
 
 - **Deliver value** by improving critical data and **demonstrate project progress** to stakeholders. Delivering value does not mean using all CluedIn features; it means having **one end-to-end data flow** running in CluedIn that has improved value.
