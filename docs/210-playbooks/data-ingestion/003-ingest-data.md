@@ -22,6 +22,7 @@ title: Ingest data
 **Before you start**
 
 - Make sure you have conducted the [data impact workshop](/playbooks/data-ingestion-playbook/data-impact-workshop) to understand what sources you want to use first.
+
 - Make sure you are familiar with the available tools for data ingestion and have [picked the right tool](/playbooks/data-ingestion-playbook/pick-the-right-tool) for your use case.
 
 Now that you have prepared a list of sources and selected a tool for data ingestion, you can start the actual data ingestion process. This process consists of three steps—ingest, map, and process. In this article, we'll focus on the first step to get your data into CluedIn.
@@ -55,7 +56,9 @@ When the data is ingested into CluedIn, it will be represented in the following 
 ![structure-of-ingested-data.png](../../assets/images/playbooks/structure-of-ingested-data.png)
 
 - **Group** – this is a folder to organize your sources in a logical form.
+
 - **Data source** – this is an object that contains the necessary information on how to connect to the source (if applicable), as well as the users and roles that have permissions to the source. Think of it like a database in SQL Server.
+
 - **Data set** – this is the actual data obtained from the source. The data set contains unprocessed records, mapping information, quarantine capabilities, and rules applied to your raw records. Think of it like a table in a SQL Server database.
 
 ## Data ingestion results

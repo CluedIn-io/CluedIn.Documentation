@@ -22,7 +22,9 @@ title: Concept of mapping
 **Before you start**
 
 - Make sure you have conducted the [data impact workshop](/playbooks/data-ingestion-playbook/data-impact-workshop) to understand what sources you want to use first.
+
 - Make sure you are familiar with the available tools for data ingestion and have [picked the right tool](/playbooks/data-ingestion-playbook/pick-the-right-tool) for your use case.
+
 - Make sure you have [ingested the data](/playbooks/data-ingestion-playbook/ingest-data), and the records are available on the **Preview** tab of the data set.
 
 Now that you have ingested the data using the tool of your choice, the next step is to create mapping. However, before doing so, we recommend that you get acquainted with the overall concept of mapping. After all, starting the mapping process without understanding the core concepts can lead to issues later. Mapping is one of the most important steps in CluedIn, and we know it can be tricky initially. We understand that the learning curve is a bit steep, but hopefully with these playbooks you will be able to navigate it successfully.
@@ -67,9 +69,13 @@ Poorly defined codes can cause system slowdowns. While **reverting is possible, 
 Sometimes, the key you consider unique is not in fact unique. For example, a SKU code—unique internal product code—can have the following issues:
 
 - `-` as a value.
+
 - `NULL` as a _text_ value.
+
 - `N/A`, `N-A`, or any other combinations.
+
 - Records sharing the same code, even if it is supposed to be unique.
+
 - Wrong value (for example, email in place of the actual value).
 
 Of course, CluedIn has ways to fix such data quality issues. However, if you blindly choose a key to produce an identifier, it may lead to issues. To avoid this, CluedIn tells you the potential duplicates you have in your records before processing.
@@ -81,6 +87,7 @@ Of course, CluedIn has ways to fix such data quality issues. However, if you bli
 This is an introductory article on the topic of mapping. We'll add more detailed articles soon, as mapping is a significant part of the processes in CluedIn. As an outcome of this article, you know about 2 important decisions you have to make while creating mapping:
 
 - Choose the **right entity type** (business domain).
+
 - Choose the **right vocabulary** that is close to the source.
 
 Additionally, you now know about the importance of choosing the **unique key** for producing the codes (identifiers). If you are unsure whether the selected key is unique, you can use a deduplication project to detect and merge duplicates.
