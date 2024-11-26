@@ -15,15 +15,15 @@ title: Ingest data
 |--|--|
 | Data Engineer, Data Analyst | 3 min |
 
-**Before you start:**
+**You are here in the data journey**
+
+![data-ingestion-you-are-here.png](../../assets/images/playbooks/data-ingestion-you-are-here.png)
+
+**Before you start**
 
 - Make sure you have conducted the [data impact workshop](/playbooks/data-ingestion-playbook/data-impact-workshop) to understand what sources you want to use first.
 
 - Make sure you are familiar with the available tools for data ingestion and have [picked the right tool](/playbooks/data-ingestion-playbook/pick-the-right-tool) for your use case.
-
-**CluedIn terms you'll see here:**
-
-- [Entity type](/key-terms-and-features/entity-type)
 
 Now that you have prepared a list of sources and selected a tool for data ingestion, you can start the actual data ingestion process. This process consists of three steps—ingest, map, and process. In this article, we'll focus on the first step to get your data into CluedIn.
 
@@ -79,4 +79,4 @@ The main goal of data ingestion is to have some records on the **Preview** tab
 
 ## Next step
 
-Ensure that the required records are available on the **Preview** tab of the data set. Once the necessary data is ingested, you can start the mapping process. 
+Ensure that the required records are available on the **Preview** tab of the data set. Once the necessary data is ingested, you can start the [mapping process](/playbooks/data-ingestion-playbook/concept-of-mapping). 

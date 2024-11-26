@@ -15,7 +15,13 @@ title: Data impact workshop
 |--|--|
 | Business User, Data Project Lead, Data Steward, Data Analyst, Data Architect, Data Engineer | 8 min |
 
+**You are here in the data journey**
+
+![data-ingestion-you-are-here.png](../../assets/images/playbooks/data-ingestion-you-are-here.png)
+
 This article outlines the importance of the data impact workshop as the first step of your data ingestion process.
+
+![data-impact-workshop-intro.png](../../assets/images/playbooks/data-impact-workshop-intro)
 
 The data impact workshop is a collaborative session designed to help you identify your business domains, determine the data sources to ingest, and assess their criticality to your operations.
 
