@@ -94,4 +94,4 @@ Additionally, you now know about the importance of choosing the **unique key** f
 
 ## Next step
 
-After creating the mapping, you can process your records to produce golden records.
+After creating the mapping, you can [process your records](/playbooks/data-ingestion-playbook/process-data) to produce golden records.
