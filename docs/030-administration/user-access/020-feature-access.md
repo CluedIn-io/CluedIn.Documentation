@@ -77,6 +77,4 @@ The Consulted claim access level gives you access to modify elements with a feat
 
 **Informed claim access level with ownership**
 
-The Informed claim access level gives you access to view all elements within a feature. With the ownership permission, you can only receive and process change requests submitted by other, non-owner users.
-
-![informed-owner.gif](../../assets/images/administration/user-access/informed-owner.gif)
+The Informed claim access level gives you access to view all elements within a feature. However, even if you have the ownership permission, you cannot approve or reject change requests submitted by other, non-owner users.
