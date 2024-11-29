@@ -83,9 +83,9 @@ During the mapping process, the source records can go through multiple steps:
 
 - Changes to the values of mapped records via [property rules](/integration/additional-operations-on-records/property-rules).
 
-- Changes to the mapped records via [pre-process rules](/integration//additional-operations-on-records/preprocess-rules).
+- Changes to the mapped records via [pre-process rules](/integration/additional-operations-on-records/preprocess-rules).
 
-- Changes to mapped records via [advanced mapping code](/integration//additional-operations-on-records/advanced-mapping-code).
+- Changes to mapped records via [advanced mapping code](/integration/additional-operations-on-records/advanced-mapping-code).
 
 - If the mapped record gets into the [quarantine](/integration/additional-operations-on-records/quarantine), it should be approved to get to the next stage.
 
