@@ -7,6 +7,10 @@ nav_order: 5
 has_children: true
 tags: ["golden record"]
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 A golden record is an **accurate and consolidated representation of a data subject**, such as an organization or an employee, derived from multiple sources. It provides a 360-degree view of a data subject, facilitating a deeper understanding of its current state and the reasons behind it.
 
@@ -71,7 +75,7 @@ A source record is a raw record that has been ingested into CluedIn from a sourc
 
 ### Data part (silver)
 
-When records appear in CluedIn, you need to add a semantic layer to transform them into a format that CluedIn can understand. This process is called [mapping](https://documentation.cluedin.net/playbooks/data-ingestion-playbook/concept-of-mapping). Once all the steps of the mapping process have been performed, you get what we call a **data part**. Essentially, a data part is an aggregation of all changes to the record coming from a single source after it has been mapped.
+When records appear in CluedIn, you need to add a semantic layer to transform them into a format that CluedIn can understand. This process is called [mapping](/playbooks/data-ingestion-playbook/concept-of-mapping). Once all the steps of the mapping process have been performed, you get what we call a **data part**. Essentially, a data part is an aggregation of all changes to the record coming from a single source after it has been mapped.
 
 ![golden-record-6.png](../../assets/images/key-terms-and-features/golden-record-6.png)
 
