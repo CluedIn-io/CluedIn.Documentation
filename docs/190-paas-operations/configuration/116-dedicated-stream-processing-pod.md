@@ -8,7 +8,12 @@ title: Dedicated stream processing pod
 tags: ["deployment", "kubernetes", "web", "frontend"]
 headerIcon: "paas"
 ---
-Provides a dedicated pod which only processes streams.
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
+In this article, you'll find instructions for creating a dedicated pod that only processes streams.
 
 **Prerequisites**
 - Access to your Kubernetes cluster
