@@ -10,7 +10,7 @@ nav_order: 13
 - TOC
 {:toc}
 
-In this article, you'll find reference infromation about supported and unsupported characters in clues and entities.
+In this article, you'll find reference information about supported and unsupported characters in clues and entities.
 
 {:.important}
 If your data contains unsupported characters, remove them before submitting data to CluedIn.
