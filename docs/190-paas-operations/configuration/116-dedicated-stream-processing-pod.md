@@ -65,9 +65,9 @@ metadata:
 ## Deployment
 Take the current deployment for `cluedin-server-processing` as shown below.
 
-1. Change name to `cluedin-server-processing-streams`
-2. Replace configmap reference `cluedin-server-processing` with `cluedin-server-processing-streams`
-3. Then deploy
+1. Change name to `cluedin-server-processing-streams`.
+2. Replace the config map reference `cluedin-server-processing` with `cluedin-server-processing-streams`
+3. Deploy.
 
 ```yaml
 apiVersion: apps/v1
