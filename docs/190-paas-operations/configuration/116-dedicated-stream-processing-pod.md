@@ -62,6 +62,27 @@ metadata:
   namespace: cluedin
 ```
 
+## Update Existing Config map
+Update the following config map `cluedin-server-processing`. Note the important environment variable `CLUEDIN_appSettings__Streams_Processing_Enabled: 'false'`.
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluedin-server-processing
+  namespace: cluedin
+  labels:
+    app: cluedin
+    release: cluedin-platform
+data:
+  CLUEDIN_APPSETTINGS__AGENT_ENABLED: 'false'
+  CLUEDIN_APPSETTINGS__CLUEPROCESSING_SUBSCRIBE_SENDMAIL: 'true'
+  CLUEDIN_APPSETTINGS__JOBSERVER_DASHBOARDVISIBLE: localOnly
+  CLUEDIN_APPSETTINGS__JOBSERVER_ENABLED: 'true'
+  CLUEDIN_APPSETTINGS__METEREDBILLING_ENABLED: 'false'
+  CLUEDIN_appSettings__Streams_Processing_Enabled: 'false'
+```
+
 ## Deployment
 Take the current deployment for `cluedin-server-processing` as shown below.
 
