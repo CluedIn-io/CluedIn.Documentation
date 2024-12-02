@@ -19,8 +19,8 @@ In this article, you'll find instructions for creating a dedicated pod that only
 - Access to your Kubernetes cluster
 - Helm installed
 
-## Config Map
-Create the following config map, note the important environment variable `CLUEDIN_appSettings__Streams_Processing_Enabled: "true"`.
+## Config map
+Create the following config map. Note the important environment variable `CLUEDIN_appSettings__Streams_Processing_Enabled: "true"`.
 
 ```yaml
 apiVersion: v1
