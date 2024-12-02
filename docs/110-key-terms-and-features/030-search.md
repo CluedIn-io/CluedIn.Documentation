@@ -119,3 +119,35 @@ Saved searches help you quickly retrieve a set of golden records that meet speci
 1. Find and select the needed saved search.
 
     The golden records matching the saved search filters are displayed on the page.
+
+## Export search results
+
+After performing a search, you can export your results in one of the following formats: JSON, CSV, XLSX, or Parquet.
+
+**Prerequisites**
+
+- Go to **Administration** > **Feature flags**, and then enable the **Exporting golden records** feature.
+
+![export-golden-records-feature-flag.png](../../assets/images/key-terms-and-features/export-golden-records-feature-flag.png)
+
+**To export search results**
+
+1. In the upper-right corner of the search results page, open the three-dot menu, and then select **Export**.
+
+1. In **Export name**, enter the name of the export file.
+
+1. In **Exporting format**, select the file format you want to use for exporting search results.
+
+1. In **Filters**, review the search filters that define which golden records will be exported.
+
+1. In **Columns**, review the columns that will be exported. These columns are currently displayed on the search results page. If you want to change the columns, you can add, remove, or reorder the columns. 
+
+1. Select **Export**. After the file for export is prepared, you'll receive a notification.
+
+1. In the notification, select **View**. The **Task** > **Exported files** page opens, where you can find the files available for download.
+
+    ![export-golden-records.gif](../../assets/images/key-terms-and-features/export-golden-records.gif)
+
+    You can view the search filters that define golden records in a file by hovering over the value in the **Filter type** column.
+
+1. To download the file, select the download button or the file name.
