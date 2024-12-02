@@ -62,7 +62,7 @@ metadata:
   namespace: cluedin
 ```
 
-## Update Existing Config map
+## Update existing config map
 Update the following config map `cluedin-server-processing`. Note the important environment variable `CLUEDIN_appSettings__Streams_Processing_Enabled: 'false'`.
 
 ```yaml
