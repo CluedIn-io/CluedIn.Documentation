@@ -143,9 +143,17 @@ In our example, each data part has a different value for the same property—Job
 
 ![golden-record-12.png](../../assets/images/key-terms-and-features/golden-record-12.png)
 
+The following gif animates the previous diagram, illustrating how the golden record is changed according to default survivorship rule.
+
+![golden-record-14.gif](../../assets/images/key-terms-and-features/golden-record-14.gif)
+
 If the default survivorship rule is not suitable for you, you can **set up your own strategy** for defining the winning value using [survivorship rules](/management/rules/rule-types#survivorship-rules). For example, you can create a **custom survivorship rule** to prioritize a specific source for determining the value for a specific property. Suppose you want CRM to be the source of truth for the Job Title property. In this case, even though the value from ERP is the most recent one, the golden record uses the value from CRM as defined by the custom survivorship rule.
 
-![golden-record-18.png](../../assets/images/key-terms-and-features/golden-record-13.png)
+![golden-record-13.png](../../assets/images/key-terms-and-features/golden-record-13.png)
+
+The following gif animates the previous diagram, illustrating how the golden record is changed according to custom survivorship rule.
+
+![golden-record-15.gif](../../assets/images/key-terms-and-features/golden-record-15.gif)
 
 ## Golden record page
 
