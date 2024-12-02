@@ -4,7 +4,7 @@ nav_order: 16
 parent: Configuration
 grand_parent: PaaS operations
 permalink: /paas-operations/config/dedicated-stream-processing-pod
-title: Dedicated Stream Processing Pod
+title: Dedicated stream processing pod
 tags: ["deployment", "kubernetes", "web", "frontend"]
 headerIcon: "paas"
 ---
