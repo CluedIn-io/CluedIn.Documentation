@@ -12,6 +12,12 @@ tags: ["golden record"]
 - TOC
 {:toc}
 
+In this article, you will learn what a golden record is, how it is generated, and how you can control the sources contributing to a golden record.
+
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/1036777568?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="What is a golden record in CluedIn"></iframe>
+</div>
+
 A golden record is an **accurate and consolidated representation of a data subject**, such as an organization or an employee, derived from multiple sources. It provides a 360-degree view of a data subject, facilitating a deeper understanding of its current state and the reasons behind it.
 
 A golden record is created through a process of data integration, enrichment, cleaning, deduplication, and manual data entry. Each step in the process is registered as a separate element called a _data part_. A golden record is usually **made up of multiple data parts**. The purpose of creating a golden record is to provide a single source of truth, ensuring data consistency, improving data quality, and enabling better decision-making. A golden record serves as a reliable reference point that can be used by different systems, departments, or stakeholders within the organization.
