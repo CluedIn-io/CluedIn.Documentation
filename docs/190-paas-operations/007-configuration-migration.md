@@ -31,7 +31,7 @@ PowerShell Core does not work with PowerShell ISE. To replicate the ISE experien
 
 |Version| Technical Version | Source Code  | Link |
 |--|--|--|
-|2024.07 | 4.3.0 | [Source Code](https://github.com/CluedIn-io/CluedIn.Product.Toolkit) | <a href="/assets/other/CluedIn.Product.Toolkit_0.9.33.zip" download>Download</a> |
+|2024.07 | 4.3.0 | [Source Code](https://github.com/CluedIn-io/CluedIn.Product.Toolkit) | <a href="/assets/other/CluedIn.Product.Toolkit_0.9.35.zip" download>Download</a> |
 
 The product toolkit supports a number of methods of transferring configuration from one environment to another. The main two methods are running locally on your desktop or using a pipeline platform such as Azure DevOps. Below will guide you through both local and Azure DevOps, but you can technically use other methods.
 
