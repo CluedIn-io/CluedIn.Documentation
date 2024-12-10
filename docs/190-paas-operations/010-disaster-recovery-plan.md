@@ -4,7 +4,7 @@ title: Disaster recovery plan
 parent: PaaS operations
 permalink: /kb/disaster-recovery-plan
 tags: ["configuration", "migration"]
-nav_order: 8
+nav_order: 10
 headerIcon: "paas"
 ---
 ## On this page
@@ -39,7 +39,9 @@ In the default backup scenario, we take **incremental snapshots** of your CluedI
 - No geo-redundancy – you won't be able to use CluedIn or access the backup during a regional outage or other disaster.
 - No live switch-over – you won't be able to use CluedIn or access the backup during a regional outage or other disaster.
 
-**Recovery time:** approximately **4 hours**, depending on Azure quotas in the region of your CluedIn installation. This is the estimated time to have a fully operational CluedIn instance with the latest backup.
+**Recovery time:**
+
+- Approximately **4 hours**, depending on Azure quotas in the region of your CluedIn installation. This is the estimated time to have a fully operational CluedIn instance with the latest backup.
 
 ## Geo-redundant backup
 
@@ -58,7 +60,9 @@ In this scenario, you get access to the backup vault in the secondary Azure regi
 
 - No live failover – you will need to set up a new CluedIn instance in a different Azure region.
 
-**Recovery time:** approximately **4 hours**, depending on Azure quotas in the region of your CluedIn installation. This is the estimated time to have a fully operational CluedIn instance with the latest backup. However, generally, AKS is back online even before the backup is restored.
+**Recovery time:**
+
+- Approximately **4 hours**, depending on Azure quotas in the region of your CluedIn installation. This is the estimated time to have a fully operational CluedIn instance with the latest backup. However, generally, AKS is back online even before the backup is restored.
 
 ## Geo-redundant backup with cold switch-over
 
@@ -78,7 +82,9 @@ In this scenario, your CluedIn instance in the secondary Azure region is configu
 - No live failover – switching to the CluedIn instance in the secondary Azure region might take some time. 
 - Increased cost – you will incur more expenses due to the need for an additional cluster.
 
-**Recovery time:** approximately **1 hour**. This is the estimated time to have a fully operational CluedIn instance with the latest backup. You don't need to worry about Azure quotas since you already have the reserved machines, ready to take over as soon as something happens. However, generally, by the time the secondary CluedIn instance takes over, the primary CluedIn instance has already recovered.
+**Recovery time:**
+
+- Approximately **1 hour**. This is the estimated time to have a fully operational CluedIn instance with the latest backup. You don't need to worry about Azure quotas since you already have the reserved machines, ready to take over as soon as something happens. However, generally, by the time the secondary CluedIn instance takes over, the primary CluedIn instance has already recovered.
 
 ## Geo-redundant backup with live switch-over
 
@@ -97,4 +103,6 @@ In this scenario, if your CluedIn instance in the primary Azure region fails, th
 
 - Increased cost and complexity – the price of infrastructure might be three times higher than in the default backup scenario due to some requirements on the database level.
 
-**Recovery time:** approximately **5 minutes**. The instance with the latest backup becomes available immediately once activated. This is the estimated time to have a fully operational CluedIn instance with the latest backup. However, generally, by the time the secondary CluedIn instance takes over, the primary CluedIn instance has already recovered.
+**Recovery time:**
+
+- Approximately **5 minutes**. The instance with the latest backup becomes available immediately once activated. This is the estimated time to have a fully operational CluedIn instance with the latest backup. However, generally, by the time the secondary CluedIn instance takes over, the primary CluedIn instance has already recovered.
