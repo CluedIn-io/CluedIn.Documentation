@@ -12,17 +12,15 @@ headerIcon: "paas"
 - TOC
 {:toc}
 
-This document covers the process for migrating CluedIn configuration from one environment to another environment. This is especially useful when developing your foundation on one environment and want to promote it to production.
+This document covers the process for migrating CluedIn configuration from one environment to another environment. This is especially useful when you are developing your foundation on one environment and want to promote it to production.
 
 **Prerequisites**
 
 - [PowerShell Core / 7+](https://github.com/PowerShell/PowerShell).
-
-- PowerShell 'CluedIn Product Toolkit' Module. You can download it in the following section.
-
-- Service account to do the export and import (Script is provided in above toolkit).
-
+- PowerShell `CluedIn product toolkit` module, which you can download it in the following section.
+- Service account to do the export and import (the script is provided in above toolkit).
 - Access to the front end, whether it's public facing or private facing.
+- The user running the script must have full admin permissions with **Accountable** access level for every claim in CluedIn.
 
 {:.important}
 PowerShell Core does not work with PowerShell ISE. To replicate the ISE experience, please use Visual Studio Code.
