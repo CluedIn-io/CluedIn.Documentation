@@ -13,11 +13,11 @@ In this article, you will learn about the processing of data that you ingested i
 
 Depending on the type of data source, there are three processing options:
 
-- For file, endpoint, and database: Manual processing
+- For file, ingestion endpoint, and database: Manual processing
 
-- For endpoint only: Auto-submission
+- For ingestion endpoint only: Auto-submission
 
-- For endpoint only: Bridge mode
+- For ingestion endpoint only: Bridge mode
 
 You can process the data set as many times as you want. In CluedIn, once a record has been processed, it won’t undergo processing again. When the processing is started, CluedIn checks for identical records. If identical records are found, they won’t be processed again. However, if you change the origin code for the previously processed records, CluedIn will treat these records as new and process them.
 
@@ -27,7 +27,7 @@ If the processing takes a long time, go to the **Monitoring** tab and check the 
 
 ## Manual processing
 
-Manual processing is available for the data coming from a file, an endpoint, or a database. With manual processing, the original data that was initially sent to CluedIn remains in the temporary storage on the **Preview** tab. After the data has been processed, the resulting golden records appear on the **Data** tab.
+Manual processing is available for the data coming from a file, an ingestion endpoint, or a database. With manual processing, the original data that was initially sent to CluedIn remains in the temporary storage on the **Preview** tab. After the data has been processed, the resulting golden records appear on the **Data** tab.
 
 **To process the data**
 
@@ -54,7 +54,7 @@ Manual processing is available for the data coming from a file, an endpoint, or 
 
 ## Auto-submission
 
-Auto-submission is available for the data coming from an endpoint. When auto-submission is enabled, data received from the endpoint is processed automatically. With auto-submission, the original data that was initially sent to CluedIn remains in the temporary storage on the **Preview** tab. After the data has been processed, the resulting golden records appear on the **Data** tab.
+Auto-submission is available for the data coming from an ingestion endpoint. When auto-submission is enabled, data received from the ingestion endpoint is processed automatically. With auto-submission, the original data that was initially sent to CluedIn remains in the temporary storage on the **Preview** tab. After the data has been processed, the resulting golden records appear on the **Data** tab.
 
 **To enable auto-submission**
 
@@ -70,7 +70,7 @@ If you no longer want the records to be processed automatically, turn off the to
 
 ## Bridge mode
 
-Bridge mode is available for the data coming from an endpoint. When bridge-mode is enabled, all your JSON records will be transformed into golden records directly, without being stored in the temporary storage on the **Preview** tab. However, you can rely on data set logs and ingestion receipts for debugging purposes.
+Bridge mode is available for the data coming from an ingestion endpoint. When bridge-mode is enabled, all your JSON records will be transformed into golden records directly, without being stored in the temporary storage on the **Preview** tab. However, you can rely on data set logs and ingestion receipts for debugging purposes.
 
 Bridge mode allows you to use less storage and memory, resulting in increased performance. Use this mode when your mapping will not change over time, and you want to use the ingestion endpoint only as a mapper.
 
@@ -84,7 +84,7 @@ Bridge mode allows you to use less storage and memory, resulting in increased pe
 
     ![bridge-mode-1.gif](../../assets/images/integration/data-sources/bridge-mode-1.gif)
 
-If you no longer want your endpoint to operate in bridge mode, you can switch it back to the default mode. After switching back to the default mode, the **Preview** tab will appear. However, it will not contain records received while bridge mode was enabled.
+If you no longer want your ingestion endpoint to operate in bridge mode, you can switch it back to the default mode. After switching back to the default mode, the **Preview** tab will appear. However, it will not contain records received while bridge mode was enabled.
 
 **To switch back to default mode**
 

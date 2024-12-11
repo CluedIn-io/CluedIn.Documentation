@@ -171,7 +171,7 @@ This feature allows you to check if the column contains duplicate values. Viewin
 
 ## Clear content
 
-This feature is available only for data sets created using an endpoint. It allows you to delete records from the **Preview** tab. This is useful when you send many requests to the same endpoint and want to avoid processing each record every time. When processing records, CluedIn checks if they have been processed before. If they have, they won't be processed again. To reduce processing time, you can remove already processed records from the **Preview** tab.
+This feature is available only for data sets created using an ingestion endpoint. It allows you to delete records from the **Preview** tab. This is useful when you send many requests to the same ingestion endpoint and want to avoid processing each record every time. When processing records, CluedIn checks if they have been processed before. If they have, they won't be processed again. To reduce processing time, you can remove already processed records from the **Preview** tab.
 
 You can clear the content regardless of whether the records have been processed or not, but if you haven't processed the records, they will be permanently deleted.
 
@@ -183,4 +183,4 @@ You can clear the content regardless of whether the records have been processed 
 
     ![clear-content.gif](../../assets/images/integration/additional-operations/clear-content.gif)
 
-     After records are deleted, you can send more data to the endpoint.
+     After records are deleted, you can send more data to the ingestion endpoint.

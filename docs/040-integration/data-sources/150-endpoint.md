@@ -21,7 +21,7 @@ In this article, you will learn how to ingest data into CluedIn using an endpoin
 
 The process of ingesting data using an endpoint involves two steps:
 
-1. [Adding an ingestion point](#add-ingestion-point)
+1. [Adding an ingestion endpoint](#add-ingestion-endpoint)
 
 1. [Sending data in HTTP POST request](#send-data)
 
@@ -57,17 +57,17 @@ CluedIn provides the following processing options for turning your data into gol
     Bridge mode allows you to use less storage and memory, resulting in increased performance. Use this mode when your mapping will not change over time and you want to use the ingestion endpoint only as a mapper.
 
 {:.important}
-When you send the data to CluedIn via ingestion point, a separate data set is created. If you want to send more data, add a new ingestion point instead of reusing the existing one.
+When you send the data to CluedIn via ingestion endpoint, a separate data set is created. If you want to send more data, add a new ingestion endpoint instead of reusing the existing one.
 
-## Add ingestion point
+## Add ingestion endpoint
 
-An ingestion point is a channel through which CluedIn can receive data from external sources.
+An ingestion endpoint is a channel through which CluedIn can receive data from external sources.
 
-**To add an ingestion point**
+**To add an ingestion endpoint**
 
-1. On CluedIn home page, in the **Integrations** section, select **Import from ingestion point**.
+1. On CluedIn home page, in the **Integrations** section, select **Import from ingestion endpoint**.
 
-    The **Import from ingestion point** pane opens, where you can choose the group for storing the data source and define preliminary mapping configuration.
+    The **Import from ingestion endpoint** pane opens, where you can choose the group for storing the data source and define preliminary mapping configuration.
 
 1. On the **Configure** tab,  do the following:
 
@@ -77,7 +77,7 @@ An ingestion point is a channel through which CluedIn can receive data from exte
 
     1. In the lower-right corner, select **Next**.
 
-1. On **Add ingestion point** tab, do the following:
+1. On **Add ingestion endpoint** tab, do the following:
 
     1. Enter the **Endpoint name** that will be used as the name of the data set.
 
@@ -89,7 +89,7 @@ An ingestion point is a channel through which CluedIn can receive data from exte
 
     1. In the lower-right corner, select **Add**.
 
-    The ingestion point is added to CluedIn. It has a label **No data sent**, which indicates that CluedIn has not received data for this ingestion point.
+    The ingestion endpoint is added to CluedIn. It has a label **No data sent**, which indicates that CluedIn has not received data for this ingestion endpoint.
 
     ![ingest-data-1.png](../../assets/images/integration/data-sources/ingest-data-1.png)
 
@@ -119,7 +119,7 @@ To be accepted by CluedIn, your HTTP POST request should meet the following prer
 
 1. In CluedIn, open the data set that was created in the [previous procedure](#add-ingestion-point), and then select **View instructions**.
 
-    On the **Ingestion point instructions** pane, find and copy the POST URL that you can use to send data to CluedIn.
+    On the **Ingestion endpoint instructions** pane, find and copy the POST URL that you can use to send data to CluedIn.
 
     ![ingest-data-4.png](../../assets/images/integration/data-sources/ingest-data-4.png)
 
