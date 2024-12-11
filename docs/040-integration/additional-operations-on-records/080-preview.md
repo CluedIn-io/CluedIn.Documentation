@@ -169,15 +169,15 @@ This feature allows you to check if the column contains duplicate values. Viewin
 
     You can view the total number of duplicate values in the column, identify which values are duplicates, and see how many times each duplicate value occurs.
 
-## Clear content
+## Clear records
 
-This feature is available only for data sets created using an ingestion endpoint. It allows you to delete records from the **Preview** tab. This is useful when you send many requests to the same ingestion endpoint and want to avoid processing each record every time. When processing records, CluedIn checks if they have been processed before. If they have, they won't be processed again. To reduce processing time, you can remove already processed records from the **Preview** tab.
+This feature is available only for data sets created using an ingestion endpoint. It allows you to delete records from the **Preview** tab. This is useful when you send many requests to the same ingestion endpoint and want to avoid processing each record every time. When processing records, CluedIn checks if they have been processed before. If they have, they won't be processed again. To reduce processing time, you can delete already processed records from the **Preview** tab.
 
-You can clear the content regardless of whether the records have been processed or not, but if you haven't processed the records, they will be permanently deleted.
+You can clear the records regardless of whether the records have been processed or not, but if you haven't processed the records, they will be permanently deleted.
 
 **To clear the content**
 
-1. Near the upper-right corner of the table, select the vertical ellipsis button, and then select **Clear content**.
+1. Near the upper-right corner of the table, select the vertical ellipsis button, and then select **Clear records**.
 
 1. Confirm that you want to delete the records by entering _DELETE_. Then, select **Confirm**.
 
