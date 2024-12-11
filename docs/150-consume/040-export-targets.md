@@ -76,4 +76,6 @@ On the export target details page, you can do the following:
 
     CluedIn periodically checks the connection to the export target. If, for example, somebody has changed the password for the user connecting to the export target, the status health check would change to **Unhealthy**, letting you know that you need to check on the export target. After the issue is fixed, the status will go back to **Healthy** again. The **Partially Healthy** status indicates that some pods are reporting healthy and others are reporting unhealthy (for example, if there is a network issue where one pod is struggling to connect but the other pods can still connect).
 
+    If the export target is **Unhealthy**, you cannot select it in the export target configuration for a stream. Additionally, if you have already configured the stream and the export target becomes **Unhealthy**, you cannot start such stream.
+
 - Edit the connection details.
