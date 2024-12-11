@@ -42,7 +42,10 @@ To access data set filters and operations, go to **Administration** > **Feature 
 
 ### Switch to edit mode
 
-Switching to the edit mode allows you to use filters, modify the data set, and perform various operations. When you switch to the edit mode, the original data set is cloned, so you can revert back to it at any time. Reverting to the original data set means losing all changes made in the edit mode.
+Switching to the edit mode allows you to use filters, modify the data set, and perform various operations.
+
+{:.important}
+When you switch to the edit mode, the original data set is cloned, so you can revert back to it at any time. However, reverting to the original data set means losing all changes made in the edit mode.
 
 **To switch to the edit mode**
 
@@ -155,7 +158,7 @@ When the data set is in the edit mode, you can add new columns to the data set.
 
     ![add-column.gif](../../assets/images/integration/additional-operations/add-column.gif)
 
-    The new column is added to the data set and is marked with the information icons. If you no longer need the column, you can delete it. To do it, in the column header, open the three-dot menu, select **Delete computed field**, and then confirm your choice.
+    The new column is added to the data set and is marked with the information icon. If you no longer need the column, you can delete it. To do it, in the column header, open the three-dot menu, select **Delete computed field**, and then confirm your choice.
 
 ## View duplicates
 
