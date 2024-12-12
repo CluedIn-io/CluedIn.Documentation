@@ -6,6 +6,10 @@ permalink: /microsoft-integration/mds-integration
 nav_order: 080
 has_children: false
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 
 In this article, you will learn how to expose on-premises MDS to CluedIn in Azure by using Azure Relay.
@@ -124,14 +128,16 @@ In this article, you will learn how to expose on-premises MDS to CluedIn in Azur
 >     type="Microsoft.ServiceBus.Configuration.BasicHttpRelayBindingCollectionElement, Microsoft.ServiceBus"/>
 >```
 
-4. Verify the configuration by loading the service endpoint. To load the service endpoint, perform the sequence of steps as displayed on the following screenshot.
+## Verify configuration
+
+1. Verify the configuration by loading the service endpoint. For this, perform the sequence of steps as displayed on the following screenshot.
 
     ![browse_service.png](../../assets/images/microsoft-integration/mds/browse_service.png) 
 
-    As a result, you might see the screenshot similar to the following.
+    As a result, you will see the screenshot similar to the following.
 
     ![service_loaded.png](../../assets/images/microsoft-integration/mds/service_loaded.png) 
 
-5. Verify that the on-premises MDS service has registered successfully with the Relay.
+2. Verify that the on-premises MDS service has registered successfully with the Relay.
 
     ![registered.png](../../assets/images/microsoft-integration/mds/registered.png) 
