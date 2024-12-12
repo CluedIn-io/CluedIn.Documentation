@@ -20,6 +20,7 @@ This section contains a procedure for configuring private link from ADF to priva
 
 **Prerequisites**
 - CluedIn endpoint is configured to be private. For detailed instruction, see [Internal load balancer](/deployment/infra-how-tos/advanced-network#internal-load-balancer).
+
 - Host name resolution is configured with private IP. For detailed instruction, see [Host name resolution](/deployment/infra-how-tos/advanced-network#host-name-resolution).
 
 If you have any questions, you can request CluedIn support by sending an email to <a href="mailto:support@cluedin.com">support@cluedin.com</a> (or reach out to your delivery manager if you have a committed deal).
@@ -47,7 +48,9 @@ If you have any questions, you can request CluedIn support by sending an email t
     - **FQDN names** – enter your company CluedIn host name. The following names are provided as an example:
             
         - app.company.com
+
         - clean.company.com
+
         - cluedin.company.com
 
 1. Select **Create**.
@@ -73,16 +76,22 @@ If you have any questions, you can request CluedIn support by sending an email t
 This section contains an example on how to configure ADF pipeline to copy data from Azure Data Lake to CluedIn private endpoint via REST API call. You can use the information in this section as a guideline for your use cases.
 
 **Prerequisites**
+
 - Private link service between ADF and CluedIn is configured as described in the previous section.
+
 - Make sure you have Azure Data Lake with some CSV data.
+
 - Create an ingestion endpoint and authorization token in CluedIn. For more information, see [Add ingestion endpoint](/integration/endpoint#add-ingestion-point).
 
 Configuring ADF pipeline to copy Azure Data Lake file to CluedIn private endpoint consists of 4 steps:
 
-1. [Creating a new pipeline](#ceate-pipeline).
-1. [Configuring the source](#configure-source).
-1. [Configuring the sink](#configure-sink).
-1. [Debugging the pipeline](#debug-and-validate-pipeline).
+1. [Creating a new pipeline](#ceate-pipeline)
+
+1. [Configuring the source](#configure-source)
+
+1. [Configuring the sink](#configure-sink)
+
+1. [Debugging the pipeline](#debug-and-validate-pipeline)
 
 ### Create a pipeline
 
@@ -160,15 +169,15 @@ Configuring ADF pipeline to copy Azure Data Lake file to CluedIn private endpoin
 
 Once the source and sink are configured, you can debug the pipeline to ensure it is working.
 
-The following image illustrates the ingestion endpoint in CluedIn before debugging the pipeline.
-
-![before-debug.png](../../assets/images/microsoft-integration/azure-data-factory/before-debug.png)
-
 **To debug the pipeline**
 
 1. On the toolbar, select **Debug**. You can see the status of the pipeline run in the **Output** tab at the bottom of the window.
 
     ![debug-pipeline.png](../../assets/images/microsoft-integration/azure-data-factory/debug-pipeline.png)
+
+The following image illustrates the ingestion endpoint in CluedIn before debugging the pipeline.
+
+![before-debug.png](../../assets/images/microsoft-integration/azure-data-factory/before-debug.png)
 
 The following image the ingestion endpoint in CluedIn after debugging the pipeline.
 
