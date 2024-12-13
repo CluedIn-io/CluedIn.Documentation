@@ -4,6 +4,7 @@ title: Export targets
 parent: Consume
 nav_order: 1
 permalink: /consume/export-targets
+has_children: true
 tags: ["consume","export-targets"]
 ---
 ## On this page
@@ -43,15 +44,15 @@ You can configure a predefined export target provided with CluedIn (such as SQL 
 
     The **Add Export Target** pane opens, where you can select and configure the needed export target.
 
-1. On the **Choose target** tab, select the external system you want to establish a connection with. Then, select **Next**.
+1. On the **Choose Target** tab, select the external system you want to establish a connection with. Then, select **Next**.
 
-1. On the **Configure** tab, enter the connection details. The list of fields that you need to complete depends on the selected export target. For example, for the Microsoft SQL Server export target, you need to provide the Host, Database Name, Username, and Password.
+1. On the **Configure** tab, enter the connection details. The list of fields that you need to complete depends on the selected export target. For example, for the Microsoft SQL Server export target, you need to provide the **Name**, **Host**, **Database Name**, **Username**, and **Password**.
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-1. On the export target details page, turn on the status toggle to activate the export target so that it can receive the records sent from CluedIn.
+    ![export-target-configuration.gif](../../assets/images/consume/export-targets/export-target-configuration.gif)
 
-    You configured the export target. Now, it can be attached to the stream.
+    You configured the export target. Now, it can be attached to the stream. The user who added the export target is the owner of the export target.
 
 ## Manage an export target
 
@@ -74,5 +75,7 @@ On the export target details page, you can do the following:
 - Review the export target health checks.
 
     Health checks for the export target run every 60 seconds. If, for example, somebody has changed the password for the user connecting to the export target, the health check status would change to **Unhealthy**, letting you know that you need to check on the export target. After the issue is fixed, the status will go back to **Healthy** again. The **Partially Healthy** status indicates that some pods are reporting healthy and others are reporting unhealthy (for example, if there is a network issue where one pod is struggling to connect but the other pods can still connect).
+
+    If the export target is **Unhealthy**, you cannot select it in the export target configuration for a stream. Additionally, if you have already configured the stream and the export target becomes **Unhealthy**, you cannot start such stream.
 
 - Edit the connection details.

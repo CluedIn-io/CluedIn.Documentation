@@ -100,7 +100,7 @@ The following table contains the properties that you can find in the clue.
 | `attribute-organization` | GUID of the organization. |
 | `attribute-origin` | Entity origin code of the clue as defined in the mapping details. It is the primary identifier that uniquely represents the clue. This property appears in several places in the clue structure. |
 | `attribute-appVersion` | Version of the clue schema. This property appears in several places in the clue structure. |
-| `attribute-originProviderDefinitionId` | GUID of the source that sent the data to CluedIn. The source can be a file, a database, an endpoint, a manual data entry project, and so on. Each source in CluedIn has a provider definition ID. The provider definition ID is used to restrict or grant user access to a specific data source.  |
+| `attribute-originProviderDefinitionId` | GUID of the source that sent the data to CluedIn. The source can be a file, a database, an ingestion endpoint, a manual data entry project, and so on. Each source in CluedIn has a provider definition ID. The provider definition ID is used to restrict or grant user access to a specific data source.  |
 | `attribute-inputSource` | System that pushed the clue. Usually, the clue is created as a result of the mapping process, which is represented by the `cluedin-annotation` service.  |
 | `name` | Name of the clue. The name is shown on the search results page and on the golden record details page. |
 | `description` | Description of the clue. The description is shown in the default search results view and on the golden record details page. |

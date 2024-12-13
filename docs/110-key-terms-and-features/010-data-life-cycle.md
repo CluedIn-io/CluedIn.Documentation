@@ -20,7 +20,7 @@ In this article, you will learn about the stages your data goes through to becom
 
 ## Data life cycle overview
 
-When you ingest the data into CluedIn—either from [a file](), [an endpoint](/integration/endpoint), [a database](/integration/database), or an integration—it enters the first stage of the life cycle. A **record** represents the data in its basic, raw format as it was in the source system.
+When you ingest the data into CluedIn—either from [a file](), [an ingestion endpoint](/integration/endpoint), [a database](/integration/database), or an integration—it enters the first stage of the life cycle. A **record** represents the data in its basic, raw format as it was in the source system.
 
 When you create the [mapping](/integration/create-mapping), the record becomes a **clue**. It is an object model that CluedIn generates for your records. Essentially, mapping provides a semantic layer that allows CluedIn to understand the nature of your data. For more information, see the [Clue reference](/key-terms-and-features/clue-reference) article.
 

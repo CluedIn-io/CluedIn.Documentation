@@ -6,7 +6,7 @@ grand_parent: Integration
 permalink: /integration/endpoint
 title: Endpoint
 tags: ["integration"]
-last_modified: 2024-01-15
+last_modified: 2024-10-31
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -21,7 +21,7 @@ In this article, you will learn how to ingest data into CluedIn using an endpoin
 
 The process of ingesting data using an endpoint involves two steps:
 
-1. [Adding an ingestion point](#add-ingestion-point)
+1. [Adding an ingestion endpoint](#add-ingestion-endpoint)
 
 1. [Sending data in HTTP POST request](#send-data)
 
@@ -32,30 +32,42 @@ The maximum number of columns accepted for data ingestion is 490.<br>Before load
 
 When you need to push a large set of records into CluedIn, we recommend that you start by pushing a small, representative subset of your data. As with files, this approach allows you to verify the accuracy of mapping and relations before pushing a large set of records. Once the golden records generated from this subset align with your expectations, you can safely remove those records from the system, while keeping the mapping configuration intact. After that you can push a large set of records and use the existing mapping to generate golden records in an efficient way.
 
-The **data ingestion process for endpoints** consists of two stages: parsing and loading. Due to performance and scalability considerations, CluedIn defers parsing tasks to data source processing rather than executing them in real time. As a result, while CluedIn promptly receives your request, it cannot ensure the validity of the sent data. Once CluedIn receives the data, it initially stores it in a temporary storage, accessible through the **Preview** tab. To turn the received data into golden records, you need to map it to the semantic model and then process it.
+After you send an HTTP POST request, CluedIn checks if it is correct based on the built-in logic and limitations. If your JSON is completely invalid, CluedIn won't start ingesting the data, and you'll receive a response with the status "400 Bad Request". The response body will include an array of errors that provide context for fixing them. Once you correct the request, you can try sending it again.
 
-CluedIn provides the following **processing options** for turning your data into golden records:
+![endpoint-error.png](../../assets/images/integration/data-sources/endpoint-error.png)
 
-- **Manual processing** - when CluedIn receives the data from the endpoint, you are required to process the data manually. You can view the received data in the temporary storage at any time, and you can process the data set as many times as you need. In CluedIn, once a record has been processed, it won't undergo processing again. When you trigger processing, CluedIn will check for identical records. If identical records are found, they won't be processed again. However, if you change the origin code for the previously processed records, CluedIn will treat these records as new and process them.
+If your JSON contains issues, such as spaces or dots in property names, CluedIn tries to fix them and store the data. These issues are treated as warnings and they are recorded on the **Logs** tab of the data set. You'll receive a response with the status "200 OK", which means that the data has been successfully sent to CluedIn. However, the response body will include an array of warnings explaining how the issues were fixed. 
+
+![endpoint-warning.png](../../assets/images/integration/data-sources/endpoint-warning.png)
+
+Once CluedIn receives the data, it initially stores it in a temporary storage, accessible through the **Preview** tab. To turn the received data into golden records, you need to map it to the semantic model and then process it.
+
+(For advanced users) To ensure the creation of the expected golden records, you can generate a sample clue and verify its accuracy before processing. This step helps confirm that the resulting golden record aligns with your expectations. For more information, see [Clue](/key-terms-and-features/clue-reference).
+
+## Processing options for data received via an endpoint
+
+CluedIn provides the following processing options for turning your data into golden records:
+
+- **Manual processing** - when CluedIn receives the data from the endpoint, you are required to process the data manually. You can view the received data in the temporary storage at any time, and you can process the data set as many times as you need. In CluedIn, once a record has been processed, it won't undergo processing again. When you trigger processing, CluedIn will check for identical records. If identical records are found, they won't be processed again. However, if you change the origin code for the previously processed records, CluedIn will treat these record as new and process them.
 
 - **Automatic processing** - when CluedIn receives the data from the endpoint, this data is processed automatically. You can view the received data in the temporary storage at any time.
 
-- **Bridge mode** – all your JSON records will be transformed into golden records directly, without being stored in the temporary storage. However, you can rely on data set logs for debugging purposes.
+- **Bridge mode** – all your JSON records will be transformed into golden records directly, without being stored in the temporary storage. However, you can rely on rely on data set logs for debugging purposes.
 
     Bridge mode allows you to use less storage and memory, resulting in increased performance. Use this mode when your mapping will not change over time and you want to use the ingestion endpoint only as a mapper.
 
 {:.important}
-When you send the data to CluedIn via ingestion point, a separate data set is created. If you want to send more data, add a new ingestion point instead of reusing the existing one.
+When you send the data to CluedIn via ingestion endpoint, a separate data set is created. If you want to send more data, add a new ingestion endpoint instead of reusing the existing one.
 
-## Add ingestion point
+## Add ingestion endpoint
 
-An ingestion point is a channel through which CluedIn can receive data from external sources.
+An ingestion endpoint is a channel through which CluedIn can receive data from external sources.
 
-**To add an ingestion point**
+**To add an ingestion endpoint**
 
-1. On CluedIn home page, in the **Integrations** section, select **Import from ingestion point**.
+1. On CluedIn home page, in the **Integrations** section, select **Import from ingestion endpoint**.
 
-    The **Import from ingestion point** pane opens, where you can choose the group for storing the data source and define preliminary mapping configuration.
+    The **Import from ingestion endpoint** pane opens, where you can choose the group for storing the data source and define preliminary mapping configuration.
 
 1. On the **Configure** tab,  do the following:
 
@@ -65,7 +77,7 @@ An ingestion point is a channel through which CluedIn can receive data from exte
 
     1. In the lower-right corner, select **Next**.
 
-1. On **Add ingestion point** tab, do the following:
+1. On **Add ingestion endpoint** tab, do the following:
 
     1. Enter the **Endpoint name** that will be used as the name of the data set.
 
@@ -77,7 +89,7 @@ An ingestion point is a channel through which CluedIn can receive data from exte
 
     1. In the lower-right corner, select **Add**.
 
-    The ingestion point is added to CluedIn. It has a label **No data sent**, which indicates that CluedIn has not received data for this ingestion point.
+    The ingestion endpoint is added to CluedIn. It has a label **No data sent**, which indicates that CluedIn has not received data for this ingestion endpoint.
 
     ![ingest-data-1.png](../../assets/images/integration/data-sources/ingest-data-1.png)
 
@@ -91,7 +103,9 @@ In this section, Postman is used as a tool to demonstrate how to send an HTTP PO
 
 To be accepted by CluedIn, your HTTP POST request should meet the following prerequisites:
 
-- The request's authorization type should be set to **Bearer Token** and the value should be a valid API token from CluedIn. You can find the API token in CluedIn in **Administration** > **API Tokens**.
+- The request's header must contain Authorization key with the value set to _Bearer <API token>_. It is very important to include the word _Bearer_ followed by a space before pasting the API token. You can find the API token in CluedIn in **Administration** > **API Tokens**.
+
+    ![ingest-data-6.png](../../assets/images/integration/data-sources/ingest-data-6.png)
 
 - The request's body should contain **raw data in JSON format**.
 
@@ -105,7 +119,7 @@ To be accepted by CluedIn, your HTTP POST request should meet the following prer
 
 1. In CluedIn, open the data set that was created in the [previous procedure](#add-ingestion-point), and then select **View instructions**.
 
-    On the **Ingestion point instructions** pane, find and copy the POST URL that you can use to send data to CluedIn.
+    On the **Ingestion endpoint instructions** pane, find and copy the POST URL that you can use to send data to CluedIn.
 
     ![ingest-data-4.png](../../assets/images/integration/data-sources/ingest-data-4.png)
 
