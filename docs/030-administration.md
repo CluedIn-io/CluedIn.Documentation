@@ -24,6 +24,6 @@ Select one of the following items to get started:
    <div class="card" href="/administration/user-access">
     <div class="icon"><img src="/assets/icons/permissions.svg" alt="How to"/></div>
     <div class="title">User access</div>
-    <div class="content">Manage overall access to features and data</div>
+    <div class="content">Learn about main aspects that define user access in CluedIn</div>
   </div>
 </div>

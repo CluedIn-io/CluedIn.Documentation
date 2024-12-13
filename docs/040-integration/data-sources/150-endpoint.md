@@ -103,7 +103,7 @@ In this section, Postman is used as a tool to demonstrate how to send an HTTP PO
 
 To be accepted by CluedIn, your HTTP POST request should meet the following prerequisites:
 
-- The request's header must contain Authorization key with the value set to _Bearer <API token>_. It is very important to include the word _Bearer_ followed by a space before pasting the API token. You can find the API token in CluedIn in **Administration** > **API Tokens**.
+- The request's header must contain Authorization key with the value set to _Bearer_ <_API token_>. It is very important to include the word _Bearer_ followed by a space before pasting the API token. You can find the API token in CluedIn in **Administration** > **API Tokens**.
 
     ![ingest-data-6.png](../../assets/images/integration/data-sources/ingest-data-6.png)
 
