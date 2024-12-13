@@ -2,8 +2,8 @@
 layout: cluedin
 nav_order: 1
 parent: Export targets
-grand_parent: Export targets
-permalink: /consume/streams/adl-connector
+grand_parent: Consume
+permalink: /consume/export-targets/adl-connector
 title: Azure Data Lake connector
 last_modified: 2024-10-28
 ---

@@ -2,8 +2,8 @@
 layout: cluedin
 nav_order: 3
 parent: Export targets
-grand_parent: Export targets
-permalink: /consume/streams/onelake-connector
+grand_parent: Consume
+permalink: /consume/export-targets/onelake-connector
 title: OneLake connector
 last_modified: 2024-10-28
 ---
