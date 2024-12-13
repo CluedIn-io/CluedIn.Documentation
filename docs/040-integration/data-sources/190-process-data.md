@@ -8,16 +8,20 @@ title: Process data
 tags: ["integration", "processing"]
 last_modified: 2024-10-31
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 In this article, you will learn about the processing of data that you ingested into CluedIn. The goal of processing is to turn your records into standalone golden records or to use them to enhance existing golden records.
 
 Depending on the type of data source, there are three processing options:
 
-- For file, ingestion endpoint, and database: Manual processing
+- For file, ingestion endpoint, and database: [Manual processing](#manual-processing)
 
-- For ingestion endpoint only: Auto-submission
+- For ingestion endpoint only: [Auto-submission](#auto-submission)
 
-- For ingestion endpoint only: Bridge mode
+- For ingestion endpoint only: [Bridge mode](#bridge-mode)
 
 You can process the data set as many times as you want. In CluedIn, once a record has been processed, it won’t undergo processing again. When the processing is started, CluedIn checks for identical records. If identical records are found, they won’t be processed again. However, if you change the origin code for the previously processed records, CluedIn will treat these records as new and process them.
 

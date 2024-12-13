@@ -33,8 +33,6 @@ The table below contains the combination of section-claim-access level that gran
 | Admin | Data Management | Informed |
 | Management | Deduplication Project Management | Informed |
 | Management | Deduplication Review | Informed |
-| Preparation | Clean | Informed |
-| Management | Hierarchy Builder | Informed |
 
 The reason for this exception is to allow users working on deduplication, clean, or hierarchy projects to view all data in order to properly perform their tasks. Imagine processing a group of duplicates where you don’t have access to some of the conflicting properties; in this case, you won’t be able to fix conflicts at all.
 
