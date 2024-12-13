@@ -13,7 +13,9 @@ title: Data access
 
 In this article, you will learn about the main settings for configuring secure and reliable access to the data in CluedIn—source control and access control.
 
-[VIDEO]
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/1009114269?h=7736f41bbb&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Source and access control"></iframe>
+</div>
 
 {:.important}
 The operations that users can perform with data depend on the roles assigned to the users. For more information, see [Roles](/administration/roles).

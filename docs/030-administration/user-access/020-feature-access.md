@@ -13,7 +13,9 @@ title: Feature access
 
 In this article, you will learn about the main settings that define access to CluedIn features: roles and ownership.
 
-[VIDEO]
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/1009084345?h=9c95eebafe&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Roles and ownership"></iframe>
+</div>
 
 {:.important}
 Feature access does not affect access to data in CluedIn. For example, if you have access to the glossary, you still won't be able to view golden records from a glossary term without specific data access. For more information, see [Data access](/administration/user-access/data-access).

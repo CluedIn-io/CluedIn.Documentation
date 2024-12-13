@@ -10,7 +10,9 @@ permalink: /workflow
 
 The **Workflow** module is designed to help you streamline and track approvals and notifications for specific activities in CluedIn.
 
-[VIDEO]
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/1012496200?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Workflows in CluedIn"></iframe>
+</div>
 
 {:.important}
 The approvals and notifications that are sent outside of CluedIn are intended only for SSO users.
