@@ -4,6 +4,7 @@ title: Release overview
 has_children: true
 nav_order: 130
 permalink: /release-notes
+has_children: true
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -20,7 +21,7 @@ This section includes links to release notes for the CluedIn platform as well as
 
 | Version | Technical version | Release notes |
 |--|--|--|
-| 2024.12 |  | [View release notes](https://cluedin-io.github.io/Releases/2024.12/2024.12.00) |
+| 2024.12 | 4.4.0 | [View release notes](https://cluedin-io.github.io/Releases/2024.12/2024.12.00) |
 
 ### Previous releases
 

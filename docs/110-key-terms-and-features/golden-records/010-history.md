@@ -13,12 +13,19 @@ last_modified: 2024-01-15
 - TOC
 {:toc}
 
-History is an important aspect of a golden record because it shows which data parts make up a golden record, what values each data part has, and what changes were made to those data parts. For more information about data parts, see [Data life cycle](/key-terms-and-features/data-life-cycle). In this article, you will learn how the history of a golden record works and how to interpret changes made to golden records.
+History is an important aspect of a golden record because it shows which [data parts](/key-terms-and-features/data-life-cycle) make up a golden record, what values each data part has, and what changes were made to those data parts. In this article, you will learn how the history of a golden record works and how to interpret changes made to golden records.
 
-{:.important}
-Changes made via golden record rules, data part rules, and survivorship rules are not included in the golden record history.
+**Note:** Changes made by golden record rules, data part rules, and survivorship rules are not included in the golden record history.
 
-## History overview
+Depending on which aspect of the history you want to look at, you can switch between the two:
+
+- [Golden record history](#golden-record-history) – here, you can view detailed information about all data parts that make up a golden record.
+
+- [Relations history](#relations-history) – here, you can view detailed information about all outgoing relations (also referred to as _edges_) of a golden record.
+
+    ![history_switch.png](../../assets/images/golden-records/history_switch.png)
+
+## Golden record history
 
 A golden record is made up of many data parts. These data parts can appear from clean projects, deduplication projects, files, crawlers, or manual modifications. For example, if you create a clean project and it affects a golden record property, then a new data part is added to the golden record history, showing the affected property along with other metadata properties. Similarly, if you manually edit a golden record property, then a new data part is added to the golden record history, showing the new property value.
 
@@ -27,8 +34,6 @@ Every time a data part appears in the history, a _branch_ is created. Branches h
 Each branch has a _head_ that contains values from the data parts belonging to that branch. The same golden record property can have different values in each head. By default, the latest value coming to CluedIn or the latest manually modified value is used in the golden record. If you want to determine which value should be used in a golden record property, create a [survivorship rule](/management/rules). The following diagram illustrates the process of establishing a golden record.
 
 ![history-diagram.png](../../assets/images/key-terms-and-features/history-diagram.png)
-
-## History views
 
 By default, the **History** page displays the data parts arranged by the sort date (this is the date when CluedIn received the data part). You can explore the data parts using the following views:
 
@@ -71,31 +76,33 @@ The golden record view appears when you select any metadata properties or vocabu
 {:.important}
 **Part ID** from the golden record view and **Record ID** from the data part view are the same.
 
-## Filters
+### Filters
 
 The **History** page contains various filters to help you navigate through the data parts:
 
-- Data source filter – you can filter the data parts by the data source that indicates a place where a data part was produced. By default, the data parts from all data sources are displayed on the **History** page.
+- **Data source filter** – you can filter the data parts by the data source that indicates a place where a data part was produced. By default, the data parts from all data sources are displayed on the **History** page.
 
-    ![history-4.png](../../assets/images/key-terms-and-features/history-4.png)
+    ![data-source-filter.png](../../assets/images/golden-records/data-source-filter.png)
 
-- Date filter – you can filter the data parts by one of the following dates:
+- **Date filter** – you can filter the data parts by one of the following dates:
 
-    - Sort date – this date is determined by selecting the first available date among modified, created, and discovery dates. In most cases, this is the date when CluedIn received the data.
+    - **Sort date** – this date is determined by selecting the first available date among modified, created, and discovery dates. In most cases, this is the date when CluedIn received the data.
 
-    - Modified date – the date when the data part was last modified in the source system.
+    - **Modified date** – the date when the data part was last modified in the source system.
 
-    - Created date – the date when the data part was originally created in the source system.
+    - **Created date** – the date when the data part was originally created in the source system.
 
-    - Discovery date – the date when the data part was created in CluedIn.
+    - **Discovery date** – the date when the data part was created in CluedIn.
 
-        ![history-5.png](../../assets/images/key-terms-and-features/history-5.png)
+        ![date-filter.png](../../assets/images/golden-records/date-filter.png)
 
-- Metadata filter – you can select any metadata property and see the data parts where it is used.
+- **Metadata filter** – you can select any metadata property and see the data parts where it is used.
 
-- Vocabulary key filter – you can select any vocabulary key and see the data parts where it is used, as well as the value chosen for the golden record.
+    ![metadata-filter.png](../../assets/images/golden-records/metadata-filter.png)
 
-    The icon ![history-6.png](../../assets/images/key-terms-and-features/history-6.png) next to the vocabulary key signifies that this vocabulary key is used in the golden record.
+- **Vocabulary key filter** – you can select any vocabulary key and see the data parts where it is used, as well as the value chosen for the golden record. The medal icon next to the vocabulary key signifies that this vocabulary key is used in the golden record.
+
+    ![vocab-key-filter.png](../../assets/images/golden-records/vocab-key-filter.png)
 
 ## Data part statuses
 
@@ -106,3 +113,19 @@ You can view the data part statuses when you're on the data part view of the **H
 | Discovered | A data part has been added for the first time in CluedIn. Such data parts do not have the **Created Date** value. The **Previous Value** column in such data part is always empty because this is the first data part in the history.|
 | Added | A new data part has been added, creating a new branch. Such data part has the **Created Date** value. The **Previous Value** column is always empty because this is the first data part in a branch. |
 | Changed | A new data part has been added within the existing branch. The **Previous Value** column contains the value from the previous data part in the branch. |
+
+## Relations history
+
+The relations history page contains detailed information about all outgoing relations (edges) of a golden record. While outgoing edges are included in the golden record history page, viewing them on the relations history page is more convenient.
+
+Each relation is presented as a separate table entry that contains the source, ID, type, and properties. To view the relation properties, simply expand the dropdown in the **Properties** column.
+
+![history_relations_properties.png](../../assets/images/golden-records/history_relations_properties.png)
+
+You can filter relations by two criteria:
+
+- **Edge Type** – the type of outgoing relation that a golden record has.
+
+- **Properties** – the properties that an outgoing relation of a golden record has.
+
+If you added an outgoing relation by mistake or if you no longer need an outgoing relation, you can delete it. To do this, select the part ID in the table, and then select **Delete**.
