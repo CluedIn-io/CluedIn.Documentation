@@ -5,6 +5,7 @@ parent: Administration
 permalink: /administration/permissions
 nav_order: 60
 tags: ["administration", "permissions"]
+published: false
 ---
 ## On this page
 {: .no_toc .text-delta }
