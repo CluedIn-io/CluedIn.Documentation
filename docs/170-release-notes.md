@@ -1,10 +1,9 @@
 ---
 layout: cluedin
 title: Release overview
-has_children: true
 nav_order: 130
-permalink: /release-notes
 has_children: true
+permalink: /release-notes
 ---
 ## On this page
 {: .no_toc .text-delta }
