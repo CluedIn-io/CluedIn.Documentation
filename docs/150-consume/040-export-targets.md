@@ -44,15 +44,15 @@ You can configure a predefined export target provided with CluedIn (such as SQL 
 
     The **Add Export Target** pane opens, where you can select and configure the needed export target.
 
-1. On the **Choose target** tab, select the external system you want to establish a connection with. Then, select **Next**.
+1. On the **Choose Target** tab, select the external system you want to establish a connection with. Then, select **Next**.
 
-1. On the **Configure** tab, enter the connection details. The list of fields that you need to complete depends on the selected export target. For example, for the Microsoft SQL Server export target, you need to provide the Host, Database Name, Username, and Password.
+1. On the **Configure** tab, enter the connection details. The list of fields that you need to complete depends on the selected export target. For example, for the Microsoft SQL Server export target, you need to provide the **Name**, **Host**, **Database Name**, **Username**, and **Password**.
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-1. On the export target details page, turn on the status toggle to activate the export target so that it can receive the records sent from CluedIn.
+    ![export-target-configuration.gif](../../assets/images/consume/export-targets/export-target-configuration.gif)
 
-    You configured the export target. Now, it can be attached to the stream.
+    You configured the export target. Now, it can be attached to the stream. The user who added the export target is the owner of the export target.
 
 ## Manage an export target
 

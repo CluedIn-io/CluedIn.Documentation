@@ -44,7 +44,7 @@ The first step to send the records from CluedIn to an export target is to create
 
 1. In the upper-right corner of the stream details page, select **Save**.
 
-    You created the stream. Next, configure the export target for the stream and select which properties from the golden records will be shared.
+    You created the stream. Now, you are the owner of the stream. For more information, see [Ownership](/administration/user-access/feature-access#ownership). Next, configure the export target for the stream and select which properties from the golden records will be shared.
 
 ## Configure an export target
 
@@ -53,8 +53,6 @@ You can configure the export target for the stream on the **Export Target Config
 **To configure the export target for the stream:**
 
 1. On the **Choose connector** tab, select the export target where the records will be sent.
-
-    ![streams-3.png](../../assets/images/consume/streams/streams-3.png)
 
     If the export target is **Unhealthy**, you cannot select it in the export target configuration for a stream.
 
