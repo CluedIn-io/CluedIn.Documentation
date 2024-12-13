@@ -10,7 +10,7 @@ tags: ["administration", "roles"]
 
 In this article, you will learn about claims and access levels, which are the main concepts that define roles.
 
-Roles are used to grant permissions to users to perform specific actions in CluedIn. These permissions are only granted to the modules within the platform, not to the data. For information on how to restrict access to data, see [Permissions](/administration/permissions).
+Roles are used to grant permissions to users to perform specific actions in CluedIn. These permissions are only granted to the modules within the platform, not to the data. For information on how to restrict access to data, see [Data access](/administration/user-access/data-access).
 
 All roles are listed in **Administration** > **Roles**. The following table provides a list of default CluedIn roles. In the **Access status** column, you can download a file with details of the default role's access to the features in CluedIn. However, you can change the configuration of the role and extend its access to features according to your needs.
 
