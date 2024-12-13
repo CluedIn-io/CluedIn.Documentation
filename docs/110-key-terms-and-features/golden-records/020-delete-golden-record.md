@@ -2,6 +2,7 @@
 layout: cluedin
 title: Delete golden records
 parent: Golden records
+grand_parent: Key terms and features
 permalink: /golden-records/delete-golden-records
 nav_order: 2
 has_children: false
