@@ -21,9 +21,9 @@ Select one of the following items to get started:
     <div class="title">Roles</div>
     <div class="content">Learn about claims and access levels, manage user roles</div>
   </div>
-   <div class="card" href="/administration/permissions">
+   <div class="card" href="/administration/user-access">
     <div class="icon"><img src="/assets/icons/permissions.svg" alt="How to"/></div>
-    <div class="title">Permissions</div>
-    <div class="content">Manage overall access to data using a global security filter</div>
+    <div class="title">User access</div>
+    <div class="content">Manage overall access to features and data</div>
   </div>
 </div>

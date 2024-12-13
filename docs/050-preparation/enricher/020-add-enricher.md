@@ -43,7 +43,7 @@ On the enricher details page, you can manage the enricher:
 
 - Inactivate the enricher if you no longer need it.
 
-- Manage users who have access to the data coming through the enricher. For more details, see [Permissions](/administration/permissions).
+- Manage users who have access to the data coming through the enricher. For more details, see [Data access](/administration/user-access/data-access).
 
 ## Trigger enrichment 
 

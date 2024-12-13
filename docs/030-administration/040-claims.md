@@ -27,7 +27,7 @@ This claim governs access to the actions for configuring an integration to push 
 
 - Adding and editing an integration.
 - Inviting a user to add an integration.
-- Managing [permissions](/administration/permissions) to the data from an integration: adding or removing users or roles.
+- Managing [permissions](/administration/user-access/data-access) to the data from an integration: adding or removing users or roles.
 - Undoing a merge on the Topology tab of a golden record.
 
 **Data Source Groups**
