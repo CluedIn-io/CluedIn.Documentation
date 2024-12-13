@@ -22,7 +22,7 @@ In this article, you will learn how to ingest data from files into CluedIn.
 You can upload files in CSV, JSON, XLS, XLSX, and Parquet formats. You can upload up to 5 files at once, and the total file size should not exceed 1 GB. Note that uploading Parquet files is a beta feature. To be able to upload Parquet files, go to **Administration** > **Feature Flags**, and enable the **Parquet file support** feature.
 
 {:.important}
-Before loading data into CluedIn, ensure that it does not contain unsupported characters. Refer to our knowledge base [article](/kb/supported-characters) for information about supported and unsupported characters.
+The maximum number of columns accepted for data ingestion is 490.<br>Before loading data into CluedIn, ensure that it does not contain unsupported characters. Refer to our knowledge base [article](/kb/supported-characters) for information about supported and unsupported characters.
 
 ## Overview of the data ingestion process for files
 

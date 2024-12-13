@@ -26,7 +26,7 @@ The process of ingesting data using an endpoint involves two steps:
 1. [Sending data in HTTP POST request](#send-data)
 
 {:.important}
-Before loading data into CluedIn, ensure that it does not contain unsupported characters. Refer to our knowledge base [article](/kb/supported-characters) for information about supported and unsupported characters.
+The maximum number of columns accepted for data ingestion is 490.<br>Before loading data into CluedIn, ensure that it does not contain unsupported characters. Refer to our knowledge base [article](/kb/supported-characters) for information about supported and unsupported characters.
 
 ## Overview of data ingestion using an endpoint
 
