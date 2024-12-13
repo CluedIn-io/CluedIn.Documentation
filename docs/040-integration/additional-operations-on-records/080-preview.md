@@ -34,11 +34,13 @@ You can view profiling at any stage of the data ingestion process: immediately a
 
 ## Data set filters and operations
 
-Data set filters and operations allow you to view, search, analyze, and modify uploaded data. These actions are only available when you switch to the edit mode of the data set.
+Data set filters and operations allow you to view, search, analyze, and modify the data from files. These actions are only available when you switch to the edit mode of the data set.
 
-To access data set filters and operations, go to **Administration** > **Feature Flags**, and enable the **Data Set Filters & Operations** feature.
+Data set filters and operations is a beta feature. To access data set filters and operations, go to **Administration** > **Feature Flags**, and enable the **Data Set Filters & Operations** feature.
 
 ![preview-filters-and-operations-1.png](../../assets/images/integration/additional-operations/preview-filters-and-operations-1.png)
+
+Data set filters and operations are available only in data sets created from files. They are not available in data sets created from endpoints or databases.
 
 ### Switch to edit mode
 
