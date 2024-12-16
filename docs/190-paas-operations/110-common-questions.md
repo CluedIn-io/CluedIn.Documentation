@@ -70,6 +70,4 @@ We have a non-public ACR registry that you will have access to, and we use Black
 
 **Are network policies in place to control pod-to-pod communication?**
 
-By default, pod-to-pod communication within the clusters is done using HTTP. Since the cluster operates within its own network, we do not see the benefit of re-encrypting the records and adding overhead for service-to-service communication.
-
-We can use HTTPS if required by the IT policy. We have implemented this for some customers; however, please be aware that it adds a maintenance burden and can limit performance.
+CluedIn does not provide any policy for pod-to-pod communication out of the box. However, we have applied HTTPS communications between services for some customers. We do not advise setting this up, as the cluster should run within its own network, meaning that traffic from one pod to another would not be accessible outside the cluster.
