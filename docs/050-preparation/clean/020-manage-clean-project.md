@@ -182,3 +182,31 @@ Archived projects remain on the **Clean projects** page and they are available f
 - In the upper-right corner of the clean project, select **Edit** > **Archive**. Then, confirm that you want to archive the project.
 
     The status of the clean project becomes **Archived**, and you can no longer work with the project.
+
+## Duplicate a clean project
+
+Duplicating a clean project means creating a new clean project with the configuration of the existing project. This configuration includes filters and properties for cleaning but does not include the cleaning activities performed in the project and data part rules generated from cleaning activities.
+
+You can duplicate a clean project if you want to perform different cleaning activities on the same set of golden records.
+
+Duplication is a beta feature. To access it, go to **Administration** > **Feature Flags**, and enable the **Duplicate Actions** feature.
+
+![duplicate-actions-feature-flag.png](../../assets/images/shared/duplicate-actions-feature-flag.png)
+
+**To duplicate a clean project**
+
+1. In the list of clean projects, find a project that you want to duplicate. Then, open the three-dot menu for the project, and select **Duplicate**.
+
+    ![duplicate-clean-1.png](../../assets/images/preparation/clean/duplicate-clean-1.png)
+
+1. In **Project Name**, review the default name of the new clean project and modify it if needed. The default name is created by adding __duplicate_ to the name of the project that you're duplicating.
+
+1. In **Filters**, review the filters that will be duplicated for the new clean project.
+
+1. In **Selected Properties**, review the information about the properties that will be duplicated for the new clean project. To view the list of properties, select **View All Properties**.
+
+    ![duplicate-clean-2.png](../../assets/images/preparation/clean/duplicate-clean-2.png)
+
+1. Select **Duplicate**.
+
+    The new clean project is created, and it has the **New** [status](/preparation/clean/clean-reference#clean-project-statuses). Now, you can modify the clean project configuration if needed. When you reach the desired configuration, save your changes, [generate results](/preparation/clean/manage-clean-project#generate-results), and then start the [cleaning activities](/preparation/clean/manage-clean-project#clean-data).

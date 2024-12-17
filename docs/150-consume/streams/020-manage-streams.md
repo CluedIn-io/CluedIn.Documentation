@@ -59,3 +59,31 @@ On the stream details page, there are several tabs where you can view stream-rel
 - **Data** – you can view the records that will be sent to the export target. These records match the filters from the **Configuration** tab and contain the properties you selected on the **Export Target Configuration** tab.
 
 - **Monitoring** – you can view real-time data on ingestion, processing, and publishing of records, as well as any exceptions.
+
+## Duplicate a stream
+
+Duplicating a stream means creating a new stream with the configuration of the existing stream. This configuration includes filters and actions but does not include the export target configuration. This means that you need to select and configure the export target and choose the properties for export from scratch for the duplicated stream.
+
+You can duplicate a stream if you want to send the same selection of golden records to another export target.
+
+Duplication is a beta feature. To access it, go to **Administration** > **Feature Flags**, and enable the **Duplicate Actions** feature.
+
+![duplicate-actions-feature-flag.png](../../assets/images/shared/duplicate-actions-feature-flag.png)
+
+**To duplicate a stream**
+
+1. In the list of streams, find a stream that you want to duplicate. Then, open the three-dot menu for the stream, and select **Duplicate**.
+
+    ![duplicate-stream-1.png](../../assets/images/consume/streams/duplicate-stream-1.png)
+
+1. In **Name**, review the default name of the new stream and modify it if needed. The default name is created by adding __duplicate_ to the name of the stream that you're duplicating.
+
+1. In **Conditions**, review the filters that will be duplicated for the new stream.
+
+1. In **Actions**, review the list of actions that will be duplicated for the new stream. To view the details of a specific action, select **View Action Details**.
+
+    ![duplicate-stream-2.png](../../assets/images/consume/streams/duplicate-stream-2.png)
+
+1. Select **Duplicate**.
+
+    The new stream is created. By default, the export target for the stream is not configured. Now, you can modify the stream configuration if needed and [configure](/consume/streams/create-a-stream#configure-an-export-target) the export target. When you reach the desired configuration, [start](/consume/streams/manage-streams#start-pause-and-stop-a-stream) the stream.
