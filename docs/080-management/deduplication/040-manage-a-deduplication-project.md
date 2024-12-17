@@ -101,3 +101,34 @@ After a deduplication project is archived, it cannot be unarchived. Archived ded
     ![archive-project.gif](../../assets/images/management/deduplication/archive-project.gif)
 
     The status of a deduplication project becomes **Archived**, and you can no longer work with the project.
+
+## Duplicate a deduplication project
+
+Duplicating a deduplication project means creating a new deduplication project with the configuration of the existing project. This configuration includes filters and matching rules but does not include the deduplication activities performed in the project. By activities, we mean generated matches and merges.
+
+You can duplicate a deduplication project if you want to:
+
+- Use the same matching rules for a different set of golden records. In this case, you only need to modify the filters in the duplicated project.
+- Use different matching rules for the same set of golden records. In this case, you only need to modify the matching rules in the duplicated project.
+
+Duplication is a beta feature. To access it, go to **Administration** > **Feature Flags**, and enable the **Duplicate Actions** feature.
+
+![duplicate-actions-feature-flag.png](../../assets/images/shared/duplicate-actions-feature-flag.png)
+
+**To duplicate a deduplication project**
+
+1. In the list of deduplication projects, find a project that you want to duplicate. Then, open the three-dot menu for the project, and select **Duplicate**.
+
+    ![duplicate-deduplication-1.png](../../assets/images/management/deduplication/duplicate-deduplication-1.png)
+
+1. In **Display Name**, review the default name of the new project and modify it if needed. The default name is created by adding __duplicate_ to the name of the project that you're duplicating.
+
+1. In **Filters**, review the filters that will be duplicated for the new project.
+
+1. In **Matching Rules**, review the list of matching rules that will be duplicated for the new project. To view the details of a specific matching rule, select the angle bracket (>) next to the name of the matching rule.
+
+    ![duplicate-deduplication-2.png](../../assets/images/management/deduplication/duplicate-deduplication-2.png)
+
+1. Select **Duplicate**.
+
+    The new deduplication project is created, and it has the **Ready to generate** [status](/management/deduplication/deduplication-reference#project-statuses). Now, you can modify the deduplication project configuration as needed. When you reach the desired configuration, [generate matches](/management/deduplication/manage-a-deduplication-project#generate-matches), and then start working with the [groups of duplicates](/management/deduplication/manage-groups-of-duplicates).    

@@ -115,3 +115,33 @@ If you are the owner of the rule and somebody else makes changes to the rule, yo
 
     If you approved the change request, the rule is updated accordingly. If you rejected the change request, no changes are made to the rule.
 
+## Duplicate a rule
+
+Duplicating a rule means creating a new rule with the configuration of the existing rule. This configuration includes filters and rule actions but does not include the activities performed by the rule. By activities, we mean the changes applied to data parts or golden records according to the rule’s actions. For example, if you duplicate a golden record rule with the action to add tags to all golden records, the new rule will not automatically add the same tags to golden records.
+
+You can duplicate a rule if you want to:
+
+- Use the same actions for a different set of golden records. In this case, you only need to modify the filters in the duplicated rule.
+- Use different rule actions for the same set of golden records. In this case, you only need to modify the actions in the duplicated rule.
+
+Duplication is a beta feature. To access it, go to **Administration** > **Feature Flags**, and enable the **Duplicate Actions** feature.
+
+![duplicate-actions-feature-flag.png](../../assets/images/shared/duplicate-actions-feature-flag.png)
+
+**To duplicate a rule**
+
+1. In the list of rules, find a rule that you want to duplicate. Then, open the three-dot menu for the rule, and select **Duplicate**.
+
+    ![duplicate-rule-1.png](../../assets/images/management/rules/duplicate-rule-1.png)
+
+1. In **Name**, review the default name of the new rule and modify it if needed. The default name is created by adding __duplicate_ to the name of the rule that you're duplicating.
+
+1. In **Conditions**, review the filters that will be duplicated for the new rule.
+
+1. In **Actions**, review the list of rule actions that will be duplicated for the new rule. To view the details of a specific rule action, select **View Action Details**.
+
+    ![duplicate-rule-2.png](../../assets/images/management/rules/duplicate-rule-2.png)
+
+1. Select **Duplicate**.
+
+    The new rule is created. By default, it is inactive. Now, you can modify the rule configuration as needed. When you reach the desired configuration, save your changes, [activate](/management/rules/manage-rules#activate-and-deactivate-a-rule) the rule, and then [reprocess](/management/rules/create-rule#apply-a-rule-to-all-records) the affected records.
