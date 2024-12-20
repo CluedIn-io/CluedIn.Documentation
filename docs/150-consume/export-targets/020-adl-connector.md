@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 1
+nav_order: 2
 parent: Export targets
 grand_parent: Consume
 permalink: /consume/export-targets/adl-connector
