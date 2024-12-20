@@ -97,9 +97,13 @@ The [Google Maps](/preparation/enricher/google-maps) enricher cleans, standardiz
 
 | Package name | Package version | Source code |
 |--|--|--|
-| CluedIn.Provider.ExternalSearch.Gleif | 4.4.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.Gleif/releases/tag/4.4.0) |
-| CluedIn.Provider.ExternalSearch.Gleif | 4.0.1 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.Gleif/releases/tag/4.0.1) |
-| CluedIn.Provider.ExternalSearch.Gleif | 4.0.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.Gleif/releases/tag/4.0.0) |
+| CluedIn.Provider.ExternalSearch.GoogleMaps | 4.4.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.GoogleMaps/releases/tag/4.4.0) |
+| CluedIn.Provider.ExternalSearch.GoogleMaps | 4.1.1 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.GoogleMaps/releases/tag/4.1.1) |
+| CluedIn.Provider.ExternalSearch.GoogleMaps | 4.1.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.GoogleMaps/releases/tag/4.1.0) |
+| CluedIn.Provider.ExternalSearch.GoogleMaps | 4.0.5 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.GoogleMaps/releases/tag/4.0.5) |
+| CluedIn.Provider.ExternalSearch.GoogleMaps | 4.0.4 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.GoogleMaps/releases/tag/4.0.4) |
+| CluedIn.Provider.ExternalSearch.GoogleMaps | 4.0.3 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.GoogleMaps/releases/tag/4.0.3) |
+| CluedIn.Provider.ExternalSearch.GoogleMaps | 4.0.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.GoogleMaps/releases/tag/4.0.0) |
 
 ## Knowledge Graph
 
