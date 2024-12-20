@@ -58,7 +58,7 @@ Normalization rules clean up values before comparing them to identify duplicates
 | Organization name | Normalizes organization name. For example, `CluedIn ApS` will be converted to `CluedIn`. |
 | Phone number | Removes well-known phone number formatting characters. For example, `+45-123 456 789 (001)` will be converted to `45123456789001`. |
 | Email mask| Normalizes email address to match other variants. |
-| Street address | Normalizes common street name tokens. |
+| [Street address](#street-address-normalization) | Normalizes common street name tokens. |
 | Geography country | Converts country to ISO code. For example, `Australia` will be converted to `AU`. |
 | Replace text | Replaces text using configured pattern. You need to enter both the value to be replaced and the replacement value. |
 | Regex replace text | Replaces text using configured regex pattern. |
@@ -72,6 +72,49 @@ Watch the following video where we provide an explanation of normalization rules
 <div class="videoFrame">
 <iframe src="https://player.vimeo.com/video/994932994?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Normalization rules in a deduplication project"></iframe>
 </div>
+
+### Street address normalization
+
+Street address normalization converts input addresses into standardized versions before comparing them to identify duplicates.
+
+For example, let's consider two addresses: _123 Fantasy strabe_ and _123 Fantasy street_. When street address normalization is selected, any time CluedIn sees `strabe`, `strasse`, `street`, or `str`, it turns it into `[STR]`. If the only thing that differs in an address is the way street is spelled, then the addresses will match.
+
+| Input | Normalized version |
+|--|--|
+| `strabe`, `strasse`, `street`, `str\.?`, `st` | `[STR]` |
+| `Allee`, `aly` | `[ALY]` |
+| `Boulevard`, `BLVD` | `[BLVD]` |
+| `Lane`, `Ln` | `[LANE]` |
+| `Drive`, `Dr` | `[DRIVE]` |
+| `avenue`, `ave` | `[AVE]` |
+| `University`, `univ` | `[UNIVERSITY]` |
+| `West`, `w` | `[WEST]` |
+| `North`, `n` | `[NORTH]` |
+| `East`, `e` | `[EAST]` |
+| `South`, `s` | `[SOUTH]` |
+| `Floor`, `flr` | `[FLOOR]` |
+| `First`, `1st` | `[1ST]` |
+| `Second`, `2nd`, `2rd` | `[2ND]` |
+| `Third`, `3rd` | `[3RD]` |
+| `Fourth`, `4th` | `[4TH]` |
+| `Fifth`, `5th` | `[5TH]` |
+| `p\.?\s*o\.?\s+box`, `post\s*box`, `post\s*boks`, `GPO\s*Box` | `[POBOX]` |
+| `Private\sbag`, `Locked\sBag`, `Private\sMail\sBag`, `Locked\sBag`, `PMB` | `[PMB]` |
+| `Plaza`, `PLAZ`, `PLZ` | `[PLZ]` |
+| `Suite`, `STE` | `[STE]` |
+| `Trailer`, `TRLR` | `[TRLR]` |
+| `Apartment`, `APT` | `[APT]` |
+| `Basement`, `BSMT` | `[BSMT]` |
+| `Building`, `BLDG` | `[BLDG]` |
+| `Department`, `DEPT` | `[DEPT]` |
+| `Hanger`, `HNGR` | `[HNGR]` |
+| `Lobby`, `LBBY` | `[LBBY]` |
+| `Lower`, `LOWR` | `[LOWR]` |
+| `Office`, `OFC` | `[OFC]` |
+| `Penthouse`, `PH` | `[PH]` |
+| `Space`, `SPC` | `[SPC]` |
+| `Level`, `LVL` | `[LEVEL]` |
+| `Highway`, `Highwy`, `Hiway`, `Hiwy`, `Hway`, `Hwy` | `[HWY]` |
 
 ## Deduplication project
 
