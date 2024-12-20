@@ -6,6 +6,10 @@ grand_parent: Preparation
 permalink: /preparation/enricher/enricher-reference
 title: Enricher reference
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 In this article, you will find reference information about built-in enrichers in CluedIn.
 
