@@ -149,9 +149,9 @@ The [PermId](/preparation/enricher/perm-id) enricher retrieves information about
 | CluedIn.ExternalSearch.Providers.PermId.Provider | 4.0.1 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.Permid/releases/tag/4.0.1) |
 | CluedIn.ExternalSearch.Providers.PermId.Provider | 4.0.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.Permid/releases/tag/4.0.0) |
 
-## Vat Layer
+## Vatlayer
 
-The [Vat Layer](/preparation/enricher/vatlayer) enricher validates and cleans EU VAT numbers.
+The [Vatlayer](/preparation/enricher/vatlayer) enricher validates and cleans EU VAT numbers.
 
 | Package name | Package version | Source code |
 |--|--|--|
