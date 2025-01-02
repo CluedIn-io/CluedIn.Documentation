@@ -64,6 +64,9 @@ If you are using an existing virtual network as part of your CluedIn deployment,
 
 For details on creating custom roles, see [Azure custom roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles).
 
+### Enable Virtual Network Link
+When deploying Managed Applications onto a private cluster, you must enable the virtual network link for the private storage account. To do this, grant **Network Contributor** access to the **Appliance Resource Provider** service principal for the virtual network scope. This identity is used by the Managed Applications service to perform necessary operations.
+
 ## Internal load balancer
 
 This section contains a procedure for configuring CluedIn to use your internal load balancer and IP address.
