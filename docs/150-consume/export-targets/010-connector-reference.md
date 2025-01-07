@@ -65,7 +65,7 @@ The Dataverse connector allows you to publish data to Microsoft Dataverse.
 
 ## HTTP
 
-The HTTP connector allows you to publish data to your own API endpoint.
+The [HTTP](/consume/export-targets/http-connector) connector allows you to publish data to your own API endpoint.
 
 | Package name | Package version | Link to source code |
 |--|--|--|
