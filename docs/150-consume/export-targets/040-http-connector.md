@@ -1,0 +1,37 @@
+---
+layout: cluedin
+nav_order: 4
+parent: Export targets
+grand_parent: Consume
+permalink: /consume/export-targets/http-connector
+title: HTTP connector
+last_modified: 2024-10-28
+---
+
+This article outlines how to configure the HTTP connector to publish data from CluedIn to an external HTTP endpoint. We'll use the Webhooks website as an example of external endpoint, but you should use your own API endpoint that can be called from CluedIn.
+
+**Prerequisites:** Make sure you generate a unique URL for your external HTTP endpoint.
+
+**To configure HTTP connector**
+
+1. On the navigation pane, go to **Consume** > **Export Targets**. Then, select **Add Export Target**.
+
+1. On the **Choose Target** tab, select **Http Connector**. Then, select **Next**.
+
+    ![http-connector-choose-target.png](../../assets/images/consume/export-targets/http-connector-choose-target.png)
+
+1. On the **Configure** tab, enter the connection details:
+
+    1. **Name** – user-friendly name of the export target that will be displayed on the **Export Target** page in CluedIn.
+
+    1. **Url** – unique URL of the external HTTP endpoint. The following screenshot shows the unique URL from the Webhooks website, which you can use for testing HTTP POST requests. You should provide the URL of your own endpoint.
+
+        ![unique-url.png](../../assets/images/consume/export-targets/unique-url.png)
+
+    1. **Authorization** – authorization header value. You should provide this value if your endpoint requires it.
+
+1. Test the connection to make sure it works, and then select **Add**.
+
+    ![http-connector-configure.png](../../assets/images/consume/export-targets/http-connector-configure.png)
+
+    Now, you can select the HTTP connector in a stream and start exporting golden records.
