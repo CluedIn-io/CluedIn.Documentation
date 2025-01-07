@@ -10,7 +10,7 @@ last_modified: 2024-10-28
 
 This article outlines how to configure the OneLake connector to push data from CluedIn to Microsoft’s OneLake.
 
-**Prerequisites:** Make sure you use a service principal to authenticate and access OneLake.
+**Prerequisites:** Make sure you use a [service principal](/consume/export-targets/create-service-principal) to authenticate and access OneLake.
 
 **To configure OneLake connector**
 
