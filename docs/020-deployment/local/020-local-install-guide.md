@@ -97,14 +97,16 @@ In the following instructions, we use `2024.01` as the release number. You shoul
 
     ![pull-images-result.png](../../assets/images/local-install/pull-images-result.png)
 
-1. Create an environment. In the following command, we use `202401` as the name of the environment and `2024.01` as the release number. To create an environment, run the following command:
+1. Create an environment. In the following command, we use `202401` as the name of the environment and `2024.01` as the release number. Keep in mind that the environment name is the same as the release number, but without the dot (.). Defining the environment does not support the dot (.), but you can use the dot for the release number in the `tag`.
+
+    To create an environment, run the following command:
 
     ```
     pwsh .\cluedin.ps1 env 202401 -tag 2024.01
     ```
 
     {:.important}
-    You should always use the latest release number. You can find the list of releases [here](https://cluedin-io.github.io/Releases/).
+    You should always use the latest release number. You can find the list of releases [here](https://cluedin-io.github.io/Releases/).<br>
     
     You will get an output similar to the following.
 
@@ -115,37 +117,17 @@ In the following instructions, we use `2024.01` as the release number. You shoul
 
 ## Start CluedIn
 
-As Docker is not an orchestration tool like Kubernetes, starting up Docker containers may require some manual configuration steps to ensure proper initialization.
+To start CluedIn, run the following command:
 
-**To start CluedIn**
+```
+pwsh .\cluedin.ps1 up 202401
+```
 
-1. Run the following command:
+where `202401` is the name of the environment.
 
-    ```
-    pwsh .\cluedin.ps1 up 202401 -disable server
-    ```
+You will get an output similar to the following.
 
-    where `202401` is the name of the environment.
-
-    You will get an output similar to the following.
-
-    ![disable-server.png](../../assets/images/local-install/disable-server.png)
-
-1. In Docker Desktop, check if SQL Server is ready. To do that, select the SQL Server container and look for a similar section in logs.
-
-    ![sql-server-logs.png](../../assets/images/local-install/sql-server-logs.png)
-
-1. Run the following command:
-
-    ```
-    pwsh .\cluedin.ps1 up 202401
-    ```
-
-    where `202401` is the name of the environment.
-
-    You will get an output similar to the following.
-
-    ![start-cluedin.png](../../assets/images/local-install/start-cluedin.png)
+![start-cluedin.png](../../assets/images/local-install/start-cluedin.png)
 
 ## Create your sign-in credentials
 
