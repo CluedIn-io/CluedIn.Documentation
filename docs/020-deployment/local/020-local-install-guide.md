@@ -106,7 +106,7 @@ In the following instructions, we use `2024.01` as the release number. You shoul
     ```
 
     {:.important}
-    For the environment name, you can use any string of characters. For the tag, always use the latest version as stated on the [release page](https://cluedin-io.github.io/Releases/).<br>You can use the version number in one of the following formats: `year.month` - for example, `2024.07`; `year.month.update` - for example, `2024.07.04`; or `major.minor` - for example, `4.3` (this it the technical version).
+    For the environment name, you can use any string of characters. For the tag, always use the latest version as stated on the [release page](https://cluedin-io.github.io/Releases/).<br>You can use the version number in one of the following formats: `year.month` (for example, `2024.07`); `year.month.update` (for example, `2024.07.04`); or `major.minor` (for example, `4.3` (this it the technical version)).
     
     You will get an output similar to the following.
 
