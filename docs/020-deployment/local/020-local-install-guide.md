@@ -106,7 +106,7 @@ In the following instructions, we use `2024.01` as the release number. You shoul
     ```
 
     {:.important}
-    You should always use the latest release number. You can find the list of releases [here](https://cluedin-io.github.io/Releases/).<br>
+    You should always use the latest release number. You can find the list of releases [here](https://cluedin-io.github.io/Releases/).
     
     You will get an output similar to the following.
 
