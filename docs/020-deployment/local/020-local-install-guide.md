@@ -57,7 +57,7 @@ CluedIn uses two ACRs:
 You can find the ACR to which you have been granted access in the <a href="/deployment/local/step-1#get-access-to-CluedIn-container-registry">email from CluedIn</a>.
 
 {:.important}
-In the following instructions, we use `2024.01` as the release number. You should always use the latest release number. You can find the list of releases [here](https://cluedin-io.github.io/Releases/).
+In the following instructions, we use `2024.01` as the version number. You should always use the latest version number. You can find the list of releases [here](https://cluedin-io.github.io/Releases/).
 
 **To authenticate to CluedIn ACR**
 
