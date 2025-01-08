@@ -182,11 +182,35 @@ In the following procedure, we’ll use `202401` as an environment, `example` as
 
     As a result, CluedIn opens in your default browser.   
 
-    By default, CluedIn uses the following address: `http://app.127.0.0.1.nip.io:9080`
+    By default, CluedIn uses the following address: `http://app.127.0.0.1.nip.io:9080`. If the nip.io domain does not work, refer to the [Troubleshooting](#troubleshooting) section.
 
 1. Sign in to CluedIn using the credentials that you received in step 1.
 
     ![sign-in-page.png](../../assets/images/local-install/sign-in-page.png)
+
+## Troubleshooting
+
+When the nip.io domain does not work, do the following:
+
+1. In the **hosts** file (`C:\Windows\System32\drivers\etc\hosts`), add the following lines:
+
+    ```
+    127.0.0.1 cluedin.local
+    127.0.0.1 app.cluedin.local
+    127.0.0.1 foobar.cluedin.local
+    ```
+
+1. In the **.env** file, find the following line:
+
+    ```
+    CLUEDIN_DOMAIN=127.0.0.1.nip.io
+    ```
+
+1. Replace the line that you found in step 2 with the following line:
+
+    ```
+    CLUEDIN_DOMAIN=clueidn.local
+    ```
 
 ## Results
 
