@@ -38,7 +38,7 @@ The Azure Dedicated SQL Pool connector allows you to publish data to Microsoftâ€
 
 ## Azure Event Hub
 
-The Azure Event Hub connector allows you to publish data to Azure Event Hubs.
+The [Azure Event Hub](/consume/export-targets/azure-event-hub-connector) connector allows you to publish data to Azure Event Hubs.
 
 | Package name | Package version | Link to source code |
 |--|--|--|
