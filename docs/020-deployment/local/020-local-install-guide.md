@@ -97,7 +97,7 @@ In the following instructions, we use `2024.01` as the release number. You shoul
 
     ![pull-images-result.png](../../assets/images/local-install/pull-images-result.png)
 
-1. Create an environment. In the following command, we use `202401` as the name of the environment and `2024.01` as the release number. Keep in mind that the environment name is the same as the release number, but without the dot (.). Defining the environment does not support the dot (.), but you can use the dot for the release number in the `tag`.
+1. Create an environment. In the following command, we use `202401` as the name of the environment and `2024.01` as the version number.
 
     To create an environment, run the following command:
 
@@ -106,7 +106,7 @@ In the following instructions, we use `2024.01` as the release number. You shoul
     ```
 
     {:.important}
-    You should always use the latest release number. You can find the list of releases [here](https://cluedin-io.github.io/Releases/).
+    For the environment name, you can use any string of characters. For the tag, always use the latest version as stated on the [release page](https://cluedin-io.github.io/Releases/).<br>You can use the version number in one of the following formats: `year.month` - for example, `2024.07`; `year.month.update` - for example, `2024.07.04`; or `major.minor` - for example, `4.3` (this it the technical version).
     
     You will get an output similar to the following.
 
