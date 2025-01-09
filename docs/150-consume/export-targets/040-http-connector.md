@@ -26,7 +26,7 @@ Note that as a free user of the Webhook.site, your URL will stop accepting new r
 
     1. **Name** – user-friendly name of the export target that will be displayed on the **Export Target** page in CluedIn.
 
-    1. **Url** – unique URL of the external HTTP endpoint. The following screenshot shows the unique URL from the Webhooks website, which you can use for testing HTTP POST requests. You should provide the URL of your own endpoint.
+    1. **Url** – unique URL of the external HTTP endpoint. The following screenshot shows the unique URL from the Webhook.site, which you can use for testing HTTP POST requests. You should provide the URL of your own endpoint.
 
         ![unique-url.png](../../assets/images/consume/export-targets/unique-url.png)
 
