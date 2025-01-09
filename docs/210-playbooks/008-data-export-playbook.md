@@ -6,6 +6,10 @@ permalink: /playbooks/data-export-playbook
 has_children: false
 title: Data export playbook
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 | Audience | Time to read |
 |--|--|
@@ -42,8 +46,8 @@ The following table outlines the pros and cons of each data export model.
 
 | Data export model | Pros | Cons |
 |--|--|--|
-| Pull model | <ul><li>You have greater control over the load on source and target systems by deciding when to pull data (lazy loading).</li><li>You can manipulate records using tools like Microsoft Fabric.</li><li>You can export all golden record properties, as opposed to streams, where the set of properties is hardcoded.</li></ul> | <ul><li>You need to maintain the code and handle timeouts, retries, and any errors that may occur in your script.</li></ul> |
-| Push model | <ul><li>You can work in the CluedIn UI without the need for code or scripts.</li><li>CluedIn manages retries, timeouts, and issues, and reports them to you.</li></ul> | <ul><li>This model is more specific about the export format (golden record properties and vocabulary keys, with or without edges).</li></ul> |
+| Pull model | - You have greater control over the load on source and target systems by deciding when to pull data (lazy loading).<br>- You can manipulate records using tools like Microsoft Fabric.<br>- You can export all golden record properties, as opposed to streams, where the set of properties is hardcoded. | You need to maintain the code and handle timeouts, retries, and any errors that may occur in your script. |
+| Push model | - You can work in the CluedIn UI without the need for code or scripts.<br>- CluedIn manages retries, timeouts, and issues, and reports them to you. | This model is more specific about the export format (golden record properties and vocabulary keys, with or without edges). |
 
 **When to use the pull model (CluedIn's GraphQL API)**
 
@@ -53,7 +57,7 @@ The following table outlines the pros and cons of each data export model.
 
 - When you have complex queries involving different business domains related to each other.
 
-The pull model is a good choice for use cases involving on-demand data queries, ad-hoc reporting, and integration with systems requiring real-time data access. This model allows for on-demand import from CluedIn using data pipelines, notebooks, or similar tools ([GraphQL](https://documentation.cluedin.net/consume/graphql), [Python SDK](https://pypi.org/search/?q=cluedin)).
+The pull model is a good choice for use cases involving on-demand data queries, ad-hoc reporting, and integration with systems requiring real-time data access. This model allows for on-demand import from CluedIn using data pipelines, notebooks, or similar tools ([GraphQL](/consume/graphql), [Python SDK](https://pypi.org/search/?q=cluedin)).
 
 **When to use the push model (CluedIn stream)**
 
