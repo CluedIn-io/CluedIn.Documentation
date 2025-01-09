@@ -8,6 +8,11 @@ title: Azure Dedicated SQL Pool connector
 last_modified: 2025-01-09
 ---
 
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
 This article outlines how to configure the Azure Dedicated SQL Pool connector to push data from CluedIn to Microsoft’s Dedicated SQL Pool, which is a part of Azure Synapse Analytics platform.
 
 ## Configure Azure Dedicated SQL Pool connector

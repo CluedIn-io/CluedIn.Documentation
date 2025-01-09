@@ -30,7 +30,7 @@ The [Azure Data Lake](/consume/export-targets/adl-connector) connector allows yo
 
 ## Azure Dedicated SQL Pool
 
-The Azure Dedicated SQL Pool connector allows you to publish data to Microsoft’s Dedicated SQL Pool, which is a part of Azure Synapse Analytics platform.
+The [Azure Dedicated SQL Pool](/consume/export-targets/azure-dedicated-sql-pool-connector) connector allows you to publish data to Microsoft’s Dedicated SQL Pool, which is a part of Azure Synapse Analytics platform.
 
 | Package name | Package version | Link to source code |
 |--|--|--|
@@ -47,7 +47,7 @@ The [Azure Event Hub](/consume/export-targets/azure-event-hub-connector) connect
 
 ## Azure Service Bus
 
-The Azure Service Bus connector allows you to publish data to Azure Service Bus.
+The [Azure Service Bus](/consume/export-targets/azure-service-bus-connector) connector allows you to publish data to Azure Service Bus.
 
 | Package name | Package version | Link to source code |
 |--|--|--|
