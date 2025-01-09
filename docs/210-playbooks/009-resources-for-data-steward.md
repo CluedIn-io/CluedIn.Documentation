@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 7
+nav_order: 9
 parent: Playbooks
 permalink: /playbooks/resources-for-data-steward
 title: Resources for Data Steward
