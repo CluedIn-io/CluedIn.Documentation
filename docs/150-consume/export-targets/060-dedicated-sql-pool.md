@@ -38,7 +38,7 @@ This article outlines how to configure the Azure Dedicated SQL Pool connector to
 
         ![dedicated-sql-pool-username.png](../../assets/images/consume/export-targets/dedicated-sql-pool-username.png)
 
-    1. **Password** – SQL admin password, which was provided at the creation of a workspace. If you forgot the password, you can reset it by selecting **Reset SQL admin password** as displayed on the screenshot.
+    1. **Password** – SQL admin password, which was provided at the creation of a workspace. If you forget the password, you can reset it by selecting **Reset SQL admin password** as displayed on the screenshot.
 
         ![dedicated-sql-pool-reset-password.png](../../assets/images/consume/export-targets/dedicated-sql-pool-reset-password.png)
 
