@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 3
+nav_order: 4
 parent: Streams
 grand_parent: Consume
 permalink: /consume/streams/stream-reference

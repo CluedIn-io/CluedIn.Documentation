@@ -17,10 +17,11 @@ title: Data export playbook
 
 **Before you start**
 
-- Get acquainted with the overall [concept of a stream](/Documentation/Consume/Streams/Concept-of-a-stream) in CluedIn.
+- Get acquainted with the overall [concept of a stream](/consume/streams/concept-of-a-stream) in CluedIn.
+
 - Watch a [video](/consume) for a step-by-step explanation of how to export golden records in CluedIn.
 
-Now that you have completed the [data transformation](https://documentation.cluedin.net/playbooks/data-transformation-playbook) process and reached the desired quality of your [golden records](https://documentation.cluedin.net/key-terms-and-features/golden-records), it is time to **push golden records to the target systems** in your organization.
+Now that you have completed the [data transformation](/playbooks/data-transformation-playbook) process and reached the desired quality of your [golden records](/key-terms-and-features/golden-records), it is time to **push golden records to the target systems** in your organization.
 
 {:.important}
 To establish correlations between exported golden records in your target systems, use the [entity origin code (primary identifier)](/key-terms-and-features/entity-codes#entity-origin-code-primary-identifier) and [codes (identifiers)](/key-terms-and-features/entity-codes#entity-codes-identifiers) instead of the entity ID. This is because the entity ID does not guarantee uniqueness, as records with different IDs could be merged.
