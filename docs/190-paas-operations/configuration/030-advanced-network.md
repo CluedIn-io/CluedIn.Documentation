@@ -64,8 +64,10 @@ If you are using an existing virtual network as part of your CluedIn deployment,
 
 For details on creating custom roles, see [Azure custom roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles).
 
-### Enable Virtual Network Link
-When deploying Managed Applications onto a private cluster, you must enable the virtual network link for the private storage account. To do this, grant **Network Contributor** access to the **Appliance Resource Provider** service principal for the virtual network scope. This identity is used by the Managed Applications service to perform necessary operations.
+### Private cluster - BYO vNet
+When using your own network (BYON) for private cluster installation, the **Network Contributor** permissions are required for the vNet created outside the managed resource group. To meet this requirement, you can create a **user-managed identity** and assign it the **Network Contributor** role on the specified vNet. During installation, ensure this user-assigned managed identity is specified in the **Network and Monitoring** section.
+
+![adv-network-pc-byov.png](../../assets/images/ama/howtos/adv-network-pc-byov.png)
 
 ## Internal load balancer
 
