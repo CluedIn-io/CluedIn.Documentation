@@ -65,7 +65,7 @@ If you are using an existing virtual network as part of your CluedIn deployment,
 For details on creating custom roles, see [Azure custom roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles).
 
 ### Private Cluster - BYO vNet
-When using your own network (BYON) for private cluster installation, **Network Contributor** permissions are required for the VNET created outside the managed resource group. To meet this requirement, you can create a **user-managed identity** and assign it the **Network Contributor** role on the specified VNET. This user-managed identity must then be included during installation in the advanced networking section.
+When using your own network (BYON) for private cluster installation, **Network Contributor** permissions are required for the VNET created outside the managed resource group. To meet this requirement, you can create a **user-managed identity** and assign it the **Network Contributor** role on the specified VNET. During installation, ensure this user-assigned managed identity is specified in the advanced networking section.
 
 ![adv-network-pc-byov.png](../../assets/images/ama/howtos/adv-network-pc-byov.png)
 
