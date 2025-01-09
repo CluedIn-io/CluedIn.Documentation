@@ -2,8 +2,8 @@
 layout: cluedin
 nav_order: 7
 parent: Playbooks
-permalink: /playbooks/data-ingestion-playbook
-has_children: true
+permalink: /playbooks/data-transformation-playbook
+has_children: false
 title: Data transformation playbook
 ---
 
