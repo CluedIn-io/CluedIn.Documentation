@@ -81,7 +81,7 @@ The [OneLake](/consume/export-targets/onelake-connector) connector allows you to
 
 ##  Sql Server
 
-The SQL Server connector allows you to publish data to a Microsoft SQL Server database.
+The [SQL Server](/consume/export-targets/sql-server-connector) connector allows you to publish data to a Microsoft SQL Server database.
 
 | Package name | Package version | Link to source code |
 |--|--|--|
