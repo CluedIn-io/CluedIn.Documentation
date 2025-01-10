@@ -21,8 +21,8 @@
 title: CluedIn Documentation
 email: support@cluedin.com
 description: CluedIn Documentation, Knowledge Base, and Tutorials
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://romaklimenko.github.io/CluedIn.Documentation" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/CluedIn.Documentation" # the subpath of your site, e.g. /blog
+url: "https://romaklimenko.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: pretty
 exclude:
