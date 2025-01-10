@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 7
+nav_order: 5
 parent: Export targets
 grand_parent: Consume
 permalink: /consume/export-targets/azure-service-bus-connector

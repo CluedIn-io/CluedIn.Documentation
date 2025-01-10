@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 8
+nav_order: 9
 parent: Export targets
 grand_parent: Consume
 permalink: /consume/export-targets/sql-server-connector

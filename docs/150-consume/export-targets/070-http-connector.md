@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 4
+nav_order: 7
 parent: Export targets
 grand_parent: Consume
 permalink: /consume/export-targets/http-connector
