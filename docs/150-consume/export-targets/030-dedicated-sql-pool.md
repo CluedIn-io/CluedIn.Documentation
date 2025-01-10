@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 6
+nav_order: 3
 parent: Export targets
 grand_parent: Consume
 permalink: /consume/export-targets/azure-dedicated-sql-pool-connector

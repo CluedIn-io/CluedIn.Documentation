@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 9
+nav_order: 10
 parent: Export targets
 grand_parent: Consume
 permalink: /consume/export-targets/create-service-principal
