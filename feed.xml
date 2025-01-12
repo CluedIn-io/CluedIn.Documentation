@@ -17,7 +17,17 @@ layout: null
         <link href="{{site.url}}{{page.permalink}}" />
         <id>{{site.url}}/{{page.permalink}}</id>
         <updated>{{page.last_modified | date_to_xmlschema}}</updated>
-        <summary>{{page.title | xml_escape}}. Tags: {{ page.tags | join: ", " }}.</summary>
+        <summary>
+        {% if page.title %}
+        {{page.title | xml_escape}}.
+        {% endif %}
+        {% if page.summary %}
+        {{page.summary | xml_escape}}
+        {% endif %}
+        {% if page.tags %}
+        Tags: {{ page.tags | join: ", " }}.
+        {% endif %}
+        </summary>
     </entry>
     {% endfor %}
 </feed>
