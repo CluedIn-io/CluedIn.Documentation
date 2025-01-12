@@ -1,2 +1,2 @@
 serve:
-	bundle exec jekyll serve --livereload
+	export JEKYLL_ENV=development ; bundle exec jekyll serve --livereload
