@@ -31,3 +31,4 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 gem "http_parser.rb", "~> 0.6.0"
 gem "just-the-docs", "~> 0.7.0"
 gem "jekyll-remote-theme", "~> 0.4.3"
+gem "sass-embedded", "~> 1.78.0" # https://github.com/just-the-docs/just-the-docs/issues/1541#issuecomment-2401649789

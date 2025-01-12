@@ -122,3 +122,6 @@ kramdown:
     block:
       line_numbers: false
 enable_copy_code_button: true
+
+sass:
+  quiet_deps: true # https://github.com/just-the-docs/just-the-docs/issues/1541#issuecomment-2401649789
