@@ -4,6 +4,9 @@ title: Python SDK
 nav_order: 145
 has_children: true
 permalink: /python-sdk
+tags: ["python"]
+last_modified: 2025-01-12
+summary: "CluedIn Python SDK provides powerful REST and GraphQL APIs to interact with your CluedIn instance programmatically."
 ---
 
 CluedIn provides powerful REST and GraphQL APIs. To simplify programmatic interaction, we offer the [CluedIn Python SDK](https://pypi.org/project/cluedin/) — a Python package that handles authentication, automation, data import and export, data transformation, and data exploration.
