@@ -48,6 +48,7 @@ exclude:
 remote_theme: just-the-docs/just-the-docs@v0.7.0
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -108,8 +109,6 @@ nav_sort: case_sensitive # Capital letters sorted before lowercase
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "Copyright &copy; 2024 CluedIn."
-
 # Footer last edited timestamp
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
 last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
@@ -123,3 +122,6 @@ kramdown:
     block:
       line_numbers: false
 enable_copy_code_button: true
+
+sass:
+  quiet_deps: true # https://github.com/just-the-docs/just-the-docs/issues/1541#issuecomment-2401649789
