@@ -10,3 +10,4 @@ node_modules
 /.vs
 .idea
 /.jekyll-metadata
+*.todo
