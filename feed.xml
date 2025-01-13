@@ -15,7 +15,7 @@ layout: null
     <entry>
         <title>{{page.title | xml_escape}}</title>
         <link href="{{site.url}}{{page.permalink}}" />
-        <id>{{site.url}}/{{page.permalink}}</id>
+        <id>{{site.url}}{{page.permalink}}</id>
         <updated>{{page.last_modified | date_to_xmlschema}}</updated>
         <summary>
         {% if page.title %}
