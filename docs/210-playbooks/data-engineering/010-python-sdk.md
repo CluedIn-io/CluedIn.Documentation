@@ -5,7 +5,7 @@ parent: Data engineering playbook
 grand_parent: Playbooks
 permalink: /playbooks/data-engineering-playbook/python-sdk
 tags: ["python"]
-last_modified: "2025-01-14T19:55:00+00:00"
+last_modified: 2025-01-14T19:55:00
 title: CluedIn Python SDK
 summary: "CluedIn Python SDK provides powerful REST and GraphQL APIs to interact with your CluedIn instance programmatically."
 ---
