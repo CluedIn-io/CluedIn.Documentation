@@ -57,7 +57,7 @@ The [Azure Service Bus](/consume/export-targets/azure-service-bus-connector) con
 
 ## Dataverse
 
-The Dataverse connector allows you to publish data to Microsoft Dataverse.
+The [Dataverse](/consume/export-targets/dataverse-connector) connector allows you to publish data to Microsoft Dataverse.
 
 | Package name | Package version | Link to source code |
 |--|--|--|

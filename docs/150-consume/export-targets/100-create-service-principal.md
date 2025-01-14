@@ -8,7 +8,9 @@ title: Create a service principal
 last_modified: 2025-01-07
 ---
 
-This article outlines how to register an application and create a service principal. Following the steps in this article will provide you with the **Client ID**, **Tenant ID**, and **Client Secret** required to configure integration with CluedIn.
+This article outlines how to register an application and create a service principal.
+
+When you register a new application in Microsoft Entra ID, a service principal is automatically created for the app registration. Following the steps in this article will provide you with the **Client ID**, **Tenant ID**, and **Client Secret** required to configure integration with CluedIn.
 
 **Prerequisites:** Make sure you have access to Microsoft Azure and Microsoft Entra ID.
 
