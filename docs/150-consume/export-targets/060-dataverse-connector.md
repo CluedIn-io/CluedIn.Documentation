@@ -18,9 +18,9 @@ This article outlines how to configure the Dataverse connector to publish data f
 
 - Make sure you have a Power Apps account. For more information on how to sign up for Power Apps, see [Microsoft documentation](https://learn.microsoft.com/en-us/power-apps/maker/signup-for-powerapps).
 
-- Create a **security role** in Power Platform Admin Center following the instruction in [this article](/Documentation/Consume/Export-targets/Connectors/Dataverse-Connector/Create-security-roles-\(Powerapps%2Ddataverse-connector\)).
+- Create a **security role** in Power Platform Admin Center following the instruction in [this article](/consume/export-targets/create-security-role).
 
-- Create an **application user** and tag it with 2 security roles—the role you created in the previous requirement and the System Administrator role—following the instruction in [this article](/Documentation/Consume/Export-targets/Connectors/Dataverse-Connector/Create-application-user).
+- Create an **application user** and tag it with 2 security roles—the role you created in the previous requirement and the System Administrator role—following the instruction in [this article](/consume/export-targets/create-application-user).
 
 **To configure Dataverse connector**
 
