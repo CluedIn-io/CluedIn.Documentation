@@ -68,7 +68,7 @@ Microsoft Fabric can read data from data storages with the help of notebooks and
 
 Databricks can read data from data storages with the help of notebooks and send that data into CluedIn. Also, Databricks can read data from CluedIn and send it to data storages.
 
-![databricks-use-case.png](../../assets/images/playbooks/databricks-use-case.pngg)
+![databricks-use-case.png](../../assets/images/playbooks/databricks-use-case.png)
 
 ## Azure Data Factory use case
 
