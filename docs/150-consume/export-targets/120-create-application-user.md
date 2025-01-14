@@ -8,7 +8,7 @@ title: Create application user for Dataverse connector
 last_modified: 2025-01-14
 ---
 
-This article outlines how to create the application user in Power Apps in order to use it for Dataverse connector.
+This article outlines how to create an application user in Power Apps in order to use it for Dataverse connector.
 
 **Prerequisites:** Make sure you have an existing Power Apps account.
 
@@ -38,7 +38,7 @@ This article outlines how to create the application user in Power Apps in order 
 
 1. In the **Create a new app user** pane, do the following:
 
-    1. Select **Add an app**, and then select the [app registration (service principal)](/consume/export-targets/create-service-principal) created earlier. This must be the app registration that you use to get Client ID, Tenant ID, and Client Secret.
+    1. Select **Add an app**, and then select the [app registration (service principal)](/consume/export-targets/create-service-principal) created earlier. This must be the app registration that you use to get Client ID, Tenant ID, and Client Secret for Dataverse connector configuration.
 
     1. Enter the **Business unit**.
 

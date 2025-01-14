@@ -34,7 +34,7 @@ This article outlines how to configure the Dataverse connector to publish data f
 
     1. **Name** – user-friendly name of the export target that will be displayed on the **Export Target** page in CluedIn.
 
-    1. **URL** – you can find this value in [PowerApps](https://make.powerapps.com/), in the environment that contains your Dataverse instance. In the upper-right corner of the Power Apps page, select the settings icon, and then select **Developer Resources**. Copy the value in **Web API endpoint** and paste it to the **URL** field in CluedIn. You do not need to copy the version of the API (`/api/data/v9.2`).
+    1. **URL** – you can find this value in [Power Apps](https://make.powerapps.com/), in the environment that contains your Dataverse instance. In the upper-right corner of the Power Apps page, select the settings icon, and then select **Developer Resources**. Copy the value in **Web API endpoint** and paste it to the **URL** field in CluedIn. You do not need to copy the version of the API (`/api/data/v9.2`).
 
         ![web-api-endpoint.png](../../assets/images/consume/export-targets/web-api-endpoint.png)
 
