@@ -11,7 +11,7 @@ title: CluedIn in your data architecture
 - TOC
 {:toc}
 
-In this article, we'll explain the global way CluedIn fits in your organization's data architecture.
+In this article, we'll explain the global way CluedIn fits into your organization's data architecture.
 
 ## High-level data architecture
 
