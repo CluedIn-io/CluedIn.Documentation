@@ -6,7 +6,7 @@ grand_parent: Playbooks
 permalink: /playbooks/data-engineering-playbook/search
 nav_order: 020
 tags: ["python"]
-last_modified: 2025-01-14T19:55:00
+last_modified: 2025-01-14
 summary: "How to query data using GraphQL and the CluedIn Python SDK."
 ---
 

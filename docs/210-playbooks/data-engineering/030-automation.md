@@ -7,7 +7,7 @@ permalink: /playbooks/data-engineering-playbook/automation
 nav_order: 030
 has_children: false
 tags: ["python"]
-last_modified: 2025-01-14T19:55:00
+last_modified: 2025-01-14
 summary: "How to automate tasks using the CluedIn Python SDK."
 ---
 
