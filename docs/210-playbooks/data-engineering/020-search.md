@@ -1,14 +1,16 @@
 ---
 layout: cluedin
-title: Search
-parent: Python SDK
-permalink: /python-sdk/search
-nav_order: 030
-has_children: false
+title: Query data using GraphQL and Python SDK
+parent: Data engineering playbook
+grand_parent: Playbooks
+permalink: /playbooks/data-engineering-playbook/search
+nav_order: 020
 tags: ["python"]
-last_modified: 2025-01-13
+last_modified: "2025-01-14T19:55:00+00:00"
 summary: "How to query data using GraphQL and the CluedIn Python SDK."
 ---
+
+
 ## On this page
 {: .no_toc .text-delta }
 1. TOC
@@ -330,3 +332,39 @@ Or simply:
 ```python
 pd.DataFrame(itertools.islice(cluedin.gql.search(ctx, '+entityType:/Duck', 3), 3))
 ```
+
+## GraphQL Actions
+
+You can add GraphQL [Actions](/consume/graphql/graphql-actions) when running GraphQL queries in the Python SDK. Actions are a way to run commands in bulk, such as processing, enriching, or deleting entities.
+
+For example, if you take the previous GraphQL query and add an `actions` field to it, you can delete, enrich or process entities entities in bulk. Here is an example of bulk enrichment:
+
+```graphql
+query searchEntities($cursor: PagingCursor, $query: String, $pageSize: Int) {
+  search(
+    query: $query
+    cursor: $cursor
+    pageSize: $pageSize
+    sort: FIELDS,
+    sortFields: {field: "id", direction: ASCENDING}
+  ) {
+    cursor
+    entries {
+      id
+      name
+      entityType
+      actions {
+        enrich
+      }
+    }
+  }
+}
+```
+
+And here is another example of how to use Actions in the Python SDK to delete entities (please note that this is a destructive operation and should be used with caution): [delete_entities.py](https://gist.github.com/romaklimenko/8092c9161a2bde7d981dd34a5c58888b).
+
+Here is a list of available actions you can use:
+
+- `deleteEntity` - deletes an entity.
+- `postProcess` - reprocesses an entity.
+- `enrichEntity` - enriches an entity.

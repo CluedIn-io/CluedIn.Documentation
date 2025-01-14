@@ -1,14 +1,16 @@
 ---
 layout: cluedin
-title: Automation
-parent: Python SDK
-permalink: /python-sdk/automation
-nav_order: 060
+title: Using Python SDK for Automation
+parent: Data engineering playbook
+grand_parent: Playbooks
+permalink: /playbooks/data-engineering-playbook/automation
+nav_order: 030
 has_children: false
 tags: ["python"]
-last_modified: 2025-01-12
+last_modified: "2025-01-14T19:55:00+00:00"
 summary: "How to automate tasks using the CluedIn Python SDK."
 ---
+
 ## On this page
 {: .no_toc .text-delta }
 1. TOC
@@ -239,5 +241,5 @@ Check the UI:
 
 Here are a couple more of examples used on real projects:
 
-- Create missing Vocabularies and keys for a given Entity: [https://gist.github.com/romaklimenko/a203c3ef63b4106304e62f6f816d7e25](https://gist.github.com/romaklimenko/a203c3ef63b4106304e62f6f816d7e25)
-- Explore a CluedIn Entity's Data Parts to troubleshoot overmerging: [https://gist.github.com/romaklimenko/d5a07dde12e8f215d69131de47976d7d](https://gist.github.com/romaklimenko/d5a07dde12e8f215d69131de47976d7d)
+- Create missing Vocabularies and keys for a given Entity: [ensure_vocab_keys.py](https://gist.github.com/romaklimenko/a203c3ef63b4106304e62f6f816d7e25)
+- Explore a CluedIn Entity's Data Parts to troubleshoot overmerging: [scrutinize_entity.py](https://gist.github.com/romaklimenko/d5a07dde12e8f215d69131de47976d7d)
