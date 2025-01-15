@@ -123,3 +123,78 @@ When CluedIn processes clues, it will generate a Hash value that will take certa
 By default, all changes and properties in a clue are treated as something that will play a role in the hashing process. Developers can instruct Vocabularies to "Ignore Hashing", which means that even if these values change on subsequent crawls, it won't play a role in telling CluedIn that the data has changed. Only properties that have changed or been added that are not marked with "Ignore Hashing" will instruct CluedIn that things have changed. 
 
 For example, many tools will change a timestamp value when the record has been viewed - not modified, but simply opened or viewed. You might find that this is important to change the clue, but in many occasions you will find that this change is insignificant and you will want to use your Vocabulary mappings to instruct CluedIn to ignore this change and throw away the clue from processing. This is typically to help increase the performance and lack of load placed onto the CluedIn processing servers. 
+
+## Advanced operations with clues
+
+This section contains information about posting clues via REST POST requests. It is intended for experienced technical users.
+
+To post clues to CluedIn, use the following post URL: `{{baseurl}}/public/api/v2/clue?save=true`, where `baseurl` is the address of your CluedIn instance. In the request's header, add the **Authorization** key with the value `Bearer {{apitoken}}`, where `apitoken` is your API token that you can find in **Administration** > **API Tokens**.
+
+### Delta data actions in clues
+
+You can post clues that remove outgoing or incoming edges from golden records. Following is the example of the clue that removes an outgoing edge from a golden record.
+
+
+```
+{
+  "clue": {
+    "attribute-organization": "{{org_id}}",
+    "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}",
+    "clueDetails": {
+      "deltaData": {
+        "attribute-persistHash": "hwcrydlp+4jrs1dqu2io9w==",
+        "attribute-appVersion": "2.17.0.0",
+        "processingFlags": {},
+        "deltaDataActions": {
+          "action": {
+            "attribute-type": "/DataAction/Edit",
+            "modifications": {
+              "remove": {
+                "attribute-target": "OutgoingEdges",
+                "attribute-referenceKey": "/EdgeType, Entity {{DeltaClues_EntityB_Id}}§C:/Person#Newman:{{DeltaClues_EntityB_Id}}"
+              }
+            }
+          }
+        },
+        "entityData": {
+          "entityType": "/Person",
+          "codes": [
+            "/Person#Newman:{{DeltaClues_EntityA_Id}}"
+          ],
+          "modifiedDate": "{{timestamp}}",
+          "edges": {},
+          "edgesSummary": {},
+          "properties": {
+            "attribute-type": "/Metadata/KeyValue",
+            "property-hierarchy.lastUpdated": "{{timestamp}}"
+          },
+          "attribute-id": "6",
+          "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}"
+        },
+        "dataActions": {},
+        "processedData": {
+          "edges": {},
+          "edgesSummary": {},
+          "properties": {
+            "attribute-type": "/Metadata/KeyValue"
+          },
+          "attribute-ref": "6",
+          "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}",
+          "sortDate": "{{timestamp}}",
+          "timeToLive": "0",
+          "isShadowEntity": "False"
+        }
+      },
+      "references": {}
+    }
+  }
+}
+```
+
+The `deltaDataActions` section contains an action that removes an edge. It consists of the following properties.
+
+| Property | Description |
+|--|--|
+| `attribute-type` | Type of action that will be executed on a golden record when posting the clue. Use the value as in the sample clue (`/DataAction/Edit`). |
+| `attribute-target` | Type of edge that will be removed: `OutgoingEdges` or `IncomingEdges`. Specify the type of edge that you want to remove. |
+| `attribute-referenceKey` | A specific edge that will be removed. You need to provide the name of the edge and the ID of the target record (to).   |
