@@ -30,6 +30,8 @@ The following diagram illustrates the transition from an ingested record to a go
 
 ![data-life-cycle.png](../../assets/images/key-terms-and-features/data-life-cycle.png)
 
+For more information about the concept of data life cycle in CluedIn, download <a href="../../../assets/other/data-life-cycle-concept.pdf" download>this file</a>.
+
 ## From record to clue
 
 The goal of mapping is to create the clues in the format that you set up. After you create the mapping, you can modify or improve the records by using the following options:
