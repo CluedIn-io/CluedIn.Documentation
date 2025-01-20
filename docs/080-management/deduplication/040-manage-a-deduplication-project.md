@@ -90,9 +90,11 @@ You can also add new matching criteria to the rule. To do that, expand the rule,
 
 ## Archive a deduplication project
 
-You can archive a deduplication project if you no longer need it or if you created it by mistake. You can also consider archiving a deduplication project if you’re confident that you won’t need to run it again in the future. Archiving does not affect merges that have been submitted to CluedIn.
+You can archive a deduplication project if you no longer need it or if you created it by mistake. You can also archive a deduplication project if you’re confident that you won’t need to run it again in the future. Archiving does not affect merges that have been submitted to CluedIn.
 
-After a deduplication project is archived, it cannot be unarchived. Archived deduplication projects remain on the **Deduplication** page and they are available for viewing. You can archive a deduplication project only when its status is **Requires configuration** or **Ready to generate**. In other statuses, you need to discard matches before archiving the project.
+After a deduplication project is archived, it cannot be unarchived. Archived projects are available only for viewing.
+
+You can archive a deduplication project only when its status is **Requires configuration** or **Ready to generate**. In other statuses, you need to discard matches before archiving the project.
 
 **To archive a deduplication project**
 
@@ -101,6 +103,14 @@ After a deduplication project is archived, it cannot be unarchived. Archived ded
     ![archive-project.gif](../../assets/images/management/deduplication/archive-project.gif)
 
     The status of a deduplication project becomes **Archived**, and you can no longer work with the project.
+
+**To view an archived deduplication project**
+
+1. In the upper-right corner of the **Deduplication** page, select **View Archived**.
+
+    ![manage-dedup-project-view-archived.png](../../assets/images/management/deduplication/manage-dedup-project-view-archived.png)
+
+1. From the list of archived deduplication projects, select the one that you want to view.    
 
 ## Duplicate a deduplication project
 

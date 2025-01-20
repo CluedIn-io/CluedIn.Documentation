@@ -171,17 +171,23 @@ If you change filters or properties, all previous cleaning progress will be lost
 
 ## Archive a clean project
 
-You can archive a clean project if you no longer need it or if you created it by mistake. You can also consider archiving a clean project if you're confident that you won't need to run it again in the future or if you've already generated rules to address the same data quality issues.
+You can archive a clean project if you no longer need it or if you created it by mistake. You can also archive a clean project if you're confident that you won't need to run it again in the future or if you've already generated rules to address the same data quality issues.
 
-Archiving does not affect the cleaned data that has been submitted to CluedIn. After the clean project is archived, it cannot be unarchived.
-
-Archived projects remain on the **Clean projects** page and they are available for viewing.
+Archiving does not affect the cleaned data that has been submitted to CluedIn. After the clean project is archived, it cannot be unarchived. Archived projects are available only for viewing.
 
 **To archive a clean project**
 
 - In the upper-right corner of the clean project, select **Edit** > **Archive**. Then, confirm that you want to archive the project.
 
     The status of the clean project becomes **Archived**, and you can no longer work with the project.
+
+**To view an archived clean project**
+
+1. In the upper-right corner of the **Clean Project** page, select **View Archived**.
+
+    ![manage-clean-project-view-archived.png](../../assets/images/preparation/clean/manage-clean-project-view-archived.png)
+
+1. From the list of archived clean projects, select the one that you want to view.    
 
 ## Duplicate a clean project
 
