@@ -45,6 +45,12 @@ This section includes links to release notes for the CluedIn platform as well as
 | Charts repo | Contains installation scripts to install CluedIn in Kubernetes. | [View releases](https://github.com/CluedIn-io/Charts/releases) |
 | Integrations releases | Contains releases of installation packages for enrichers and connectors. | [View releases](https://cluedin-io.github.io/Releases/integrations) |
 
+## Release plan for 2025
+
+The following table outlines the features, updates, and UX improvements we plan to implement in 2025.
+
+![release-plan-for-2025.png](../../assets/images/release/release-plan-for-2025.png)
+
 ## Release process
 
 In this section, you will learn about our release process and the versioning of product releases. You'll gain an understanding of the stages that CluedIn features go through before becoming generally available, as well as get to know the versioning scheme that we use to deliver changes.
