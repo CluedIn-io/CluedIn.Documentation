@@ -130,10 +130,29 @@ This section contains information about posting clues via REST POST requests. It
 
 To post clues to CluedIn, use the following post URL: `{{baseurl}}/public/api/v2/clue?save=true`, where `baseurl` is the address of your CluedIn instance. In the request's header, add the **Authorization** key with the value `Bearer {{apitoken}}`, where `apitoken` is your API token that you can find in **Administration** > **API Tokens**.
 
+### Delta clues and why you may need them
+
+By default, CluedIn works in "Append" mode, where as new data comes in, it will append the data over the top of existing data that has a matching Entity Code or will create new Golden records where there is no matching Entity Code.
+
+There are situations where you actually don't want your new data to be in "Append" mode, but rather you want to change the way that CluedIn will process and treat this data.
+
+The most common examples include:
+
+ - You are sending data to CluedIn with the intention to delete it from CluedIn and/or downstream Export Targets as well.
+
+ - You are sending data to CluedIn with "Blank Values" and your intention is to ask CluedIn to "forget" that this column or columns ever had a value for this. For example, you had a phone number from a company and you would rather now have a blank value for this as the phone number is no longer active. 
+
+ - You are sending data to CluedIn with an updated value for a column and your intention is to ask CluedIn to **REMOVE** the old Entity Code or Edge that could have been built off of this, and **REPLACE** it with the new ones, not just **APPEND** over the top.
+
+ - You are sending blank data to CluedIn and you actually want CluedIn to treat the values as Blank and hence if a Golden Record has a value of "Hello" you actually want to turn that value into "".
+
+
 ### Delta data actions in clues
 
-You can post clues that remove outgoing or incoming edges from golden records. Following is the example of the clue that removes an outgoing edge from a golden record.
+You can post clues that remove outgoing or incoming edges from golden records. Following is an example of a clue that removes an outgoing edge from a golden record.
 
+
+### Remove Edge
 
 ```
 {
@@ -186,6 +205,335 @@ You can post clues that remove outgoing or incoming edges from golden records. F
         }
       },
       "references": {}
+    }
+  }
+}
+```
+
+### Remove Edge and Add Edge in same Clue (equivelant of an Update)
+
+```
+{
+  "clue": {
+    "attribute-organization": "{{org_id}}",
+    "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}",
+    "clueDetails": {
+      "data": {
+        "attribute-persistHash": "b5bvwamo85acabdz5xyb1g==",
+        "attribute-appVersion": "2.17.0.0",
+        "processingFlags": {},
+        "deltaDataActions": {
+          "action": {
+            "attribute-type": "/DataAction/Edit",
+            "modifications": {
+              "remove": {
+                "attribute-target": "OutgoingEdges",
+                "attribute-referenceKey": "/HRCHY_test, Entity {{DeltaClues_EntityB_Id}}§C:/Person#Newman:{{DeltaClues_EntityB_Id}}"
+              }
+            }
+          }
+        },
+        "entityData": {
+          "entityType": "/Person",
+          "codes": [
+            "/Person#Newman:{{DeltaClues_EntityA_Id}}"
+          ],
+          "modifiedDate": "{{timestamp}}",
+          "edges": {
+            "outgoing": [
+              {
+                "attribute-type": "/HRCHY_test",
+                "attribute-creationOptions": "Default",
+                "attribute-from": "C:/Person#Newman:{{DeltaClues_EntityA_Id}}",
+                "attribute-to": "C:/Person#Newman:{{DeltaClues_EntityC_Id}}",
+                "property-CreatedAt": "{{timestamp}}"
+              }
+            ]
+          },
+          "edgesSummary": {},
+          "attribute-id": "6",
+          "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}"
+        },
+        "dataActions": {},
+        "processedData": {
+          "edges": {},
+          "edgesSummary": {},
+          "attribute-ref": "6",
+          "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}",
+          "sortDate": "{{timestamp}}",
+          "timeToLive": "0",
+          "isShadowEntity": "False"
+        }
+      },
+      "references": {}
+    }
+  }
+}
+```
+
+
+### Remove Incoming Edges using Delta Clues
+
+
+```
+{
+  "clue": {
+    "attribute-organization": "{{org_id}}",
+    "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}",
+    "clueDetails": {
+      "deltaData": {
+        "attribute-persistHash": "hwcrydlp+4jrs1dqu2io9w==",
+        "attribute-appVersion": "2.17.0.0",
+        "processingFlags": {},
+        "deltaDataActions": {
+          "action": {
+            "attribute-type": "/DataAction/Edit",
+            "modifications": {
+              "remove": {
+                "attribute-target": "IncomingEdges",
+                "attribute-referenceKey": "/HRCHY_test, Entity {{DeltaClues_EntityB_Id}}§C:/Person#Newman:{{DeltaClues_EntityB_Id}}"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Remove Properties using Delta Clues
+
+
+```
+{
+  "clue": {
+    "attribute-organization": "{{org_id}}",
+    "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}",
+    "clueDetails": {
+      "deltaData": {
+        "attribute-persistHash": "hwcrydlp+4jrs1dqu2io9w==",
+        "attribute-appVersion": "2.17.0.0",
+        "processingFlags": {},
+        "deltaDataActions": {
+          "action": {
+            "attribute-type": "/DataAction/Edit",
+            "modifications": {
+              "remove": {
+                "attribute-target": "Property",
+                "attribute-referenceKey": "user.email"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Remove Entity Code using Delta Clues
+
+
+```
+{
+  "clue": {
+    "attribute-organization": "{{org_id}}",
+    "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}",
+    "clueDetails": {
+      "deltaData": {
+        "attribute-persistHash": "hwcrydlp+4jrs1dqu2io9w==",
+        "attribute-appVersion": "2.17.0.0",
+        "processingFlags": {},
+        "deltaDataActions": {
+          "action": {
+            "attribute-type": "/DataAction/Edit",
+            "modifications": {
+              "remove": {
+                "attribute-target": "EntityCode",
+                "attribute-referenceKey": "/Person#Newman:12345"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Remove Tag using Delta Clues
+
+
+```
+{
+  "clue": {
+    "attribute-organization": "{{org_id}}",
+    "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}",
+    "clueDetails": {
+      "deltaData": {
+        "attribute-persistHash": "hwcrydlp+4jrs1dqu2io9w==",
+        "attribute-appVersion": "2.17.0.0",
+        "processingFlags": {},
+        "deltaDataActions": {
+          "action": {
+            "attribute-type": "/DataAction/Edit",
+            "modifications": {
+              "remove": {
+                "attribute-target": "Tag",
+                "attribute-referenceKey": "Hello"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Remove Alias using Delta Clues
+
+
+```
+{
+  "clue": {
+    "attribute-organization": "{{org_id}}",
+    "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}",
+    "clueDetails": {
+      "deltaData": {
+        "attribute-persistHash": "hwcrydlp+4jrs1dqu2io9w==",
+        "attribute-appVersion": "2.17.0.0",
+        "processingFlags": {},
+        "deltaDataActions": {
+          "action": {
+            "attribute-type": "/DataAction/Edit",
+            "modifications": {
+              "remove": {
+                "attribute-target": "Alias",
+                "attribute-referenceKey": "Hello"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Remove Description using Delta Clues
+
+
+```
+{
+  "clue": {
+    "attribute-organization": "{{org_id}}",
+    "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}",
+    "clueDetails": {
+      "deltaData": {
+        "attribute-persistHash": "hwcrydlp+4jrs1dqu2io9w==",
+        "attribute-appVersion": "2.17.0.0",
+        "processingFlags": {},
+        "deltaDataActions": {
+          "action": {
+            "attribute-type": "/DataAction/Edit",
+            "modifications": {
+              "remove": {
+                "attribute-target": "Description"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Remove Name using Delta Clues
+
+
+```
+{
+  "clue": {
+    "attribute-organization": "{{org_id}}",
+    "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}",
+    "clueDetails": {
+      "deltaData": {
+        "attribute-persistHash": "hwcrydlp+4jrs1dqu2io9w==",
+        "attribute-appVersion": "2.17.0.0",
+        "processingFlags": {},
+        "deltaDataActions": {
+          "action": {
+            "attribute-type": "/DataAction/Edit",
+            "modifications": {
+              "remove": {
+                "attribute-target": "Name"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Remove Display Name using Delta Clues
+
+
+```
+{
+  "clue": {
+    "attribute-organization": "{{org_id}}",
+    "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}",
+    "clueDetails": {
+      "deltaData": {
+        "attribute-persistHash": "hwcrydlp+4jrs1dqu2io9w==",
+        "attribute-appVersion": "2.17.0.0",
+        "processingFlags": {},
+        "deltaDataActions": {
+          "action": {
+            "attribute-type": "/DataAction/Edit",
+            "modifications": {
+              "remove": {
+                "attribute-target": "DisplayName"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Remove Author using Delta Clues
+
+
+```
+{
+  "clue": {
+    "attribute-organization": "{{org_id}}",
+    "attribute-origin": "/Person#Newman:{{DeltaClues_EntityA_Id}}",
+    "clueDetails": {
+      "deltaData": {
+        "attribute-persistHash": "hwcrydlp+4jrs1dqu2io9w==",
+        "attribute-appVersion": "2.17.0.0",
+        "processingFlags": {},
+        "deltaDataActions": {
+          "action": {
+            "attribute-type": "/DataAction/Edit",
+            "modifications": {
+              "remove": {
+                "attribute-target": "DisplayName",
+                "attribute-referenceKey": "/Person#Newman:hello@cluedin.com"
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
