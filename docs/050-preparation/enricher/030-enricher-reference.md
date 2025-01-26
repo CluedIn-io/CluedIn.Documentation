@@ -33,7 +33,7 @@ The [BvD](/preparation/enricher/bvd) enricher retrieves a wide range of informat
 
 | Package name | Package version | Source code |
 |--|--|--|
-| CluedIn.Provider.ExternalSearch.BvD | 4.4.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.BvD/releases/tag/master) |
+| CluedIn.Provider.ExternalSearch.BvD | 4.4.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.BvD) |
 
 ## Clearbit
 
