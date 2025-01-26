@@ -26,6 +26,15 @@ The [Brreg](/preparation/enricher/brreg) enricher retrieves a wide range of info
 | CluedIn.Provider.ExternalSearch.Bregg | 4.0.1 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.Brreg/releases/tag/4.0.1) |
 | CluedIn.Provider.ExternalSearch.Bregg | 4.0.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.Brreg/releases/tag/4.0.0) |
 
+
+## BvD
+
+The [BvD](/preparation/enricher/bvd) enricher retrieves a wide range of information about Companies.
+
+| Package name | Package version | Source code |
+|--|--|--|
+| CluedIn.Provider.ExternalSearch.BvD | 4.4.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.BvD/releases/tag/master) |
+
 ## Clearbit
 
 The [Clearbit](/preparation/enricher/clearbit) enricher retrieves company logo and domain information.
