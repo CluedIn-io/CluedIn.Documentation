@@ -12,7 +12,7 @@ last_modified: 2025-02-03
 - TOC
 {:toc}
 
-In this article, you will learn about custom solutions that can be implemented in CluedIn. While this article focuses on the most common customization options, do not hesitate to reach out to CluedIn support if your use case requires other solutions.
+In this article, you will learn about custom solutions that can be implemented in CluedIn. While this article focuses on the most common customization options, do not hesitate to reach out to CluedIn support at <a href="mailto:support@cluedin.com">support@cluedin.com</a> if your use case requires other solutions.
 
 ## Custom rule actions
 
@@ -34,8 +34,7 @@ CluedIn offers a variety of [actions](/management/rules/rules-reference) for eac
 
 One of the examples of custom rule actions if the **Enrich** action. It provides a flexible way to enrich data in CluedIn with external data sources.
 
-The **Enrich** action requires an API that accepts a list of vocabulary keys and returns a list of properties. The returned properties are saved with a specified vocabulary prefix. The API can be implemented as an Azure Function, a REST API, or any other service that can be accessed via HTTP.
-The API is also responsible for getting the data from the external source, processing it, and returning the properties to CluedIn.
+The **Enrich** action requires an API that accepts a list of vocabulary keys and returns a list of properties. The returned properties are saved with a specified vocabulary prefix. The API can be implemented as an Azure Function, a REST API, or any other service that can be accessed via HTTP. The API is also responsible for getting the data from the external source, processing it, and returning the properties to CluedIn.
 
 The **Enrich** action takes the following parameters:
 
@@ -63,4 +62,4 @@ The Kafka connector requires the following parameters:
 
 - **SASL Password** – the secret or the password.
 
-When you start the stream with the Kafka connector, CluedIn first checks if the connection can be established. Then, CluedIn checks for the streaming mode—event mode or synchronized—that is used in the particular export target configuration. Finally, every time a golden record is modified in CluedIn, the corresponding event is sent to Kafka. If you use Kafka in your operations and would like to send golden records from CluedIn to Kafka topic, reach out to CluedIn support.
+When you start the stream with the Kafka connector, CluedIn first checks if the connection can be established. Then, CluedIn checks for the streaming mode—event mode or synchronized—that is used in the particular export target configuration. Finally, every time a golden record is modified in CluedIn, the corresponding event is sent to Kafka. If you use Kafka in your operations and would like to send golden records from CluedIn to Kafka topic, reach out to CluedIn support at <a href="mailto:support@cluedin.com">support@cluedin.com</a>.
