@@ -20,6 +20,7 @@ This section includes links to release notes for the CluedIn platform as well as
 
 | Version | Technical version | Release notes |
 |--|--|--|
+| 2024.12.01 | 4.4.1 | [View release notes](https://cluedin-io.github.io/Releases/2024.12/2024.12.01) |
 | 2024.12 | 4.4.0 | [View release notes](https://cluedin-io.github.io/Releases/2024.12/2024.12.00) |
 
 ### Previous releases
