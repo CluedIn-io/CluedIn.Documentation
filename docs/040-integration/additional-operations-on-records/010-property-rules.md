@@ -102,7 +102,9 @@ This section contains some examples of CEL expressions in property rules.
 
 The following CEL expression removes the first occurrences of the characters `#` and `$` from property values. You can use this expression if you have a property (for example, postal code) that contains values with one occurrence of `#` and `$`.
 
-`("" + value).replace("#", "").replace("$", "")`
+```
+("" + value).replace("#", "").replace("$", "")
+```
 
 On the screenshot, rows 1 and 3 contain several occurrences of `#` and `$`. The property rule removed only the first occurrences of those characters. To remove all occurrences of specific characters, use the expression from the next section.
 
@@ -112,6 +114,8 @@ On the screenshot, rows 1 and 3 contain several occurrences of `#` and `$`. The 
 
 The following CEL expression removes all occurrences of the characters `#` and `$` from property values. You can use this expression if you have a property (for example, postal code) that contains values with multiples occurrences of `#` and `$`.
 
-`("" + value).replace(/[#\$]/g, "")`
+```
+("" + value).replace(/[#\$]/g, "")
+```
 
 ![removing-all-occurrences.png](../../assets/images/integration/additional-operations/removing-all-occurrences.png)
