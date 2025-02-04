@@ -110,7 +110,7 @@ On the screenshot, rows 1 and 3 contain several occurrences of `#` and `$`. The 
 
 ![removing-first-occurrence.png](../../assets/images/integration/additional-operations/removing-first-occurrence.png)
 
-**Removes all occurrences of characters**
+**Remove all occurrences of characters**
 
 The following CEL expression removes all occurrences of the characters `#` and `$` from property values. You can use this expression if you have a property (for example, postal code) that contains values with multiples occurrences of `#` and `$`.
 
@@ -119,3 +119,19 @@ The following CEL expression removes all occurrences of the characters `#` and `
 ```
 
 ![removing-all-occurrences.png](../../assets/images/integration/additional-operations/removing-all-occurrences.png)
+
+**Turn non-numeric values to blank or null**
+
+The following CEL expressions turn the value to blank or null if the value is not a number. You can use any of these expressions if you have a property (for example, revenue) that should contain only numbers, and you want to remove any non-numeric values.
+
+```
+(+value == value) ? value : ""
+```
+  
+```
+(+value == value) ? value : null
+``` 
+
+If the property contains non-numeric values, applying any of the above expressions will result in golden records without such property. Regardless of the expression you use, the result will be the same.
+
+![property_rule_turn_non-numeric_values_to_blank.png](../../assets/images/integration/additional-operations/property_rule_turn_non-numeric_values_to_blank.png)
