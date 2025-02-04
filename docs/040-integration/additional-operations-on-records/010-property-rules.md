@@ -33,7 +33,7 @@ To access property rules, go to **Administration** > **Feature Flags** and make 
 
 You can apply the rule to all values of the property or define specific values. The available actions for the rule depend on the type of the property and are divided into several categories:
 
-- Basic – set a new value (for example, you can enter a new value or use the value from another property).
+- Basic – set a new value (for example, you can enter a new value or use the value from another property) or write [custom CEL expression](#custom-cel-expression-examples).
 
 - Normalization – transform data into a consistent form.
 
@@ -93,3 +93,25 @@ To use AI capabilities to create property rules, first complete all the steps de
     ![property-rules-3.png](../../assets/images/integration/additional-operations/property-rules-3.png)
 
     By selecting these rules, you can view, create, or remove rules from the property. The rules will be applied when you process the records.
+
+## Custom CEL expression examples
+
+This section contains some examples of CEL expressions in property rules.
+
+**Remove the first occurrence of characters**
+
+The following CEL expression removes the first occurrences of the characters `#` and `$` from property values. You can use this expression if you have a property (for example, postal code) that contains values with one occurrence of `#` and `$`.
+
+`("" + value).replace("#", "").replace("$", "")`
+
+On the screenshot, rows 1 and 3 contain several occurrences of `#` and `$`. The property rule removed only the first occurrences of those characters. To remove all occurrences of specific characters, use the expression from the next section.
+
+![removing-first-occurrence.png](../../assets/images/integration/additional-operations/removing-first-occurrence.png)
+
+**Removes all occurrences of characters**
+
+The following CEL expression removes all occurrences of the characters `#` and `$` from property values. You can use this expression if you have a property (for example, postal code) that contains values with multiples occurrences of `#` and `$`.
+
+`("" + value).replace(/[#\$]/g, "")`
+
+![removing-all-occurrences.png](../../assets/images/integration/additional-operations/removing-all-occurrences.png)
