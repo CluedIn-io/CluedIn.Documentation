@@ -72,7 +72,7 @@ This article outlines how to configure the OneLake connector to push data from C
 
     1. (Optional) **File Name Pattern** – a file name pattern for the export file. For more information, see [File name patterns](/consume/export-targets/file-name-patterns).
 
-        For example, in the `{ContainerName}.{OutputFormat}` pattern, `{ContainerName}` is the **Target Name** in the [stream](/consume/streams/create-a-stream#configure-an-export-target), and `{OutputFormat}` is the output format that you select in step 3g. In this case, every time the scheduled export occurs, it will generate the same file name, replacing the previously exported file.
+        For example, in the `{ContainerName}.{OutputFormat}` pattern, `{ContainerName}` is the **Target Name** in the [stream](/consume/streams/create-a-stream#configure-an-export-target), and `{OutputFormat}` is the output format that you select in step 3j. In this case, every time the scheduled export occurs, it will generate the same file name, replacing the previously exported file.
 
         If you do not specify the file name pattern, CluedIn will use the default file name pattern: `{StreamId:N}_{DataTime:yyyyMMddHHmmss}.{OutputFormat}`.
 
