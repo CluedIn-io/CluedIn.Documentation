@@ -5,7 +5,7 @@ parent: Export targets
 grand_parent: Consume
 permalink: /consume/export-targets/adl-connector
 title: Azure Data Lake connector
-last_modified: 2024-10-28
+last_modified: 2025-02-05
 ---
 
 This article outlines how to configure the Azure Data Lake connector to publish data from CluedIn to Azure Data Lake Storage Gen2.
@@ -40,14 +40,34 @@ This article outlines how to configure the Azure Data Lake connector to publish 
 
         ![adl-directory-name.png](../../assets/images/consume/export-targets/adl-directory-name.png)
 
-    1. **Enable Stream Cache (Sync mode only)** – when stream cache is enabled, CluedIn caches the golden records at intervals, and then writes out accumulated data to one file (JSON, Parquet, or CSV). When stream cache is not enabled, CluedIn streams out golden records one by one, each in a separate file. Stream cache is available only for the synchronized stream mode.
+    1. **Enable Stream Cache (Sync mode only)** – when stream cache is enabled, CluedIn caches the golden records at intervals, and then writes out accumulated data to one file (JSON, Parquet, or CSV). When stream cache is not enabled, CluedIn streams out golden records one by one, each in a separate JSON file. Stream cache is available only for the synchronized stream mode.
 
-    1. **Output Format** – file format for the exported data. You can choose between JSON, Parquet, and CSV. However, Parquet and CSV formats are available only if you enabled stream cache. If stream cache is not enabled, you can only choose JSON.
+        ![adl-connector-configure-1.png](../../assets/images/consume/export-targets/adl-connector-configure-1.png)
 
-    1. **Schedule** – schedule for sending the data from CluedIn to the export target. You can choose between hourly, daily, and weekly intervals.
+    1. **Output Format** – file format for the exported data. You can choose between JSON, Parquet, and CSV. However, Parquet and CSV formats are available only if you enable stream cache. If stream cache is not enabled, JSON is the default format.
+
+    1. **Export Schedule** – schedule for sending the files from CluedIn to the export target. The files will be exported based on Coordinated Universal Time (UTC), which has an offset of 00:00. You can choose between the following options:
+
+        - **Hourly** – files will be exported every hour (for example, at 1:00 AM, at 2:00 AM, and so on).
+
+        - **Daily** – files will be exported every day at 12:00 AM.
+
+        - **Weekly** – files will be exported every Monday at 12:00 AM.
+
+        - **Custom Cron** – you can create a specific schedule for exporting files by entering the cron expression in the **Custom Cron** field. For example, the cron expression `0 18 * * *` means that the files will be exported every day at 6:00 PM.
+
+    1. (Optional) **File Name Pattern** – a file name pattern for the export file. For more information, see [File name patterns](/consume/export-targets/file-name-patterns).
+
+        For example, in the `{ContainerName}.{OutputFormat}` pattern, `{ContainerName}` is the **Target Name** in the [stream](/consume/streams/create-a-stream#configure-an-export-target), and `{OutputFormat}` is the output format that you select in step 3g. In this case, every time the scheduled export occurs, it will generate the same file name, replacing the previously exported file.
+
+        If you do not specify the file name pattern, CluedIn will use the default file name pattern: `{StreamId:D}_{DataTime:yyyyMMddHHmmss}.{OutputFormat}`.
+
+    1. (Optional, for Parquet output format only) **Replace Non-Alphanumeric Characters in Column Names** – enable this option if you plan to access the output file in Microsoft Purview. When this option is enabled, CluedIn replaces non-alphanumeric characters in the column names (those not in a-z, A-Z, 0-9, and underscore) with the underscore character ( _ ).
+
+    1. (Optional, for Parquet output format only) **Write Guid as String** – enable this option if you plan to access the output file in Microsoft Purview.  When this option is enabled, CluedIn writes GUID values as string instead of a byte array. 
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-    ![adl-connector-2.png](../../assets/images/consume/export-targets/adl-connector-2.png)
+    ![adl-connector-configure-2.png](../../assets/images/consume/export-targets/adl-connector-configure-2.png)
 
     Now, you can select the Azure Data Lake connector in a stream and start exporting golden records.
