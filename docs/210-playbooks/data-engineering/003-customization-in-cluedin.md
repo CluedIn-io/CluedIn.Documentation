@@ -22,7 +22,7 @@ CluedIn offers multiple [options](https://documentation.cluedin.net/playbooks/da
 
 ![customization-options-ingestion-without-validation.png](../../assets/images/playbooks/customization-options-ingestion-without-validation.png)
 
-There are three ways to customize data ingestion in CluedIn:
+There are two ways to customize data ingestion in CluedIn:
 
 - **Customization via advanced mapping** – if you want to customize the CluedIn mapping experience, you can write JavaScript code at any time. This can be useful for implementing complex conditional mapping, as the UI mapping may become too complex for such tasks. For more information, see [Advanced mapping code](/integration/additional-operations-on-records/advanced-mapping-code).
 
