@@ -42,7 +42,7 @@ This article outlines how to configure the Azure Data Lake connector to publish 
 
     1. **Enable Stream Cache (Sync mode only)** – when stream cache is enabled, CluedIn caches the golden records at intervals, and then writes out accumulated data to one file (JSON, Parquet, or CSV). When stream cache is not enabled, CluedIn streams out golden records one by one, each in a separate JSON file. Stream cache is available only for the synchronized stream mode.
 
-        ![adl_connector_configure_1.png](../../assets/images/consume/export-targets/adl_connector_configure_1.png)
+        ![adl-connector-configure-1.png](../../assets/images/consume/export-targets/adl-connector-configure-1.png)
 
     1. **Output Format** – file format for the exported data. You can choose between JSON, Parquet, and CSV. However, Parquet and CSV formats are available only if you enable stream cache. If stream cache is not enabled, JSON is the default format.
 
@@ -68,6 +68,6 @@ This article outlines how to configure the Azure Data Lake connector to publish 
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-    ![adl_connector_configure_2.png](../../assets/images/consume/export-targets/adl_connector_configure_2.png)
+    ![adl-connector-configure-2.png](../../assets/images/consume/export-targets/adl-connector-configure-2.png)
 
     Now, you can select the Azure Data Lake connector in a stream and start exporting golden records.
