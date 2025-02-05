@@ -54,14 +54,30 @@ This article outlines how to configure the OneLake connector to push data from C
 
         ![onelake-tenant-id.png](../../assets/images/consume/export-targets/onelake-tenant-id.png)
 
-    1. **Enable Stream Cache (Sync mode only)** – when stream cache is enabled, CluedIn caches the golden records at intervals, and then writes out accumulated data to one file (JSON, Parquet, or CSV). When stream cache is not enabled, CluedIn streams out golden records one by one, each in a separate file. Stream cache is available only for the synchronized stream mode.
+    1. **Enable Stream Cache (Sync mode only)** – when stream cache is enabled, CluedIn caches the golden records at intervals, and then writes out accumulated data to one file (JSON, Parquet, or CSV). When stream cache is not enabled, CluedIn streams out golden records one by one, each in a separate JSON file. Stream cache is available only for the synchronized stream mode.
 
-    1. **Output Format** – file format for the exported data. You can choose between JSON, Parquet, and CSV. However, Parquet and CSV formats are available only if you enabled stream cache. If stream cache is not enabled, you can only choose JSON.
+        ![onelake-connector-configure-1.png](../../assets/images/consume/export-targets/onelake-connector-configure-1.png)
 
-    1. **Schedule** – schedule for sending the data from CluedIn to the export target. You can choose between hourly, daily, and weekly intervals.
+    1. **Output Format** – file format for the exported data. You can choose between JSON, Parquet, and CSV. However, Parquet and CSV formats are available only if you enabled stream cache. If stream cache is not enabled, JSON is the default format.
+
+    1. **Export Schedule** – schedule for sending the files from CluedIn to the export target. The files will be exported based on Coordinated Universal Time (UTC), which has an offset of 00:00. You can choose between the following options:
+
+        - **Hourly** – files will be exported every hour (for example, at 1:00 AM, at 2:00 AM, and so on).
+
+        - **Daily** – files will be exported every day at 12:00 AM.
+
+        - **Weekly** – files will be exported every Monday at 12:00 AM.
+
+        - **Custom Cron** – you can create a specific schedule for exporting files by entering the cron expression in the **Custom Cron** field. For example, the cron expression `0 18 * * *` means that the files will be exported every day at 6:00 PM.
+
+    1. (Optional) **File Name Pattern** – a file name pattern for the export file. For more information, see [File name patterns](/consume/export-targets/file-name-patterns).
+
+        For example, in the `{ContainerName}.{OutputFormat}` pattern, `{ContainerName}` is the **Target Name** in the [stream](/consume/streams/create-a-stream#configure-an-export-target), and `{OutputFormat}` is the output format that you select in step 3g. In this case, every time the scheduled export occurs, it will generate the same file name, replacing the previously exported file.
+
+        If you do not specify the file name pattern, CluedIn will use the default file name pattern: `{StreamId:N}_{DataTime:yyyyMMddHHmmss}.{OutputFormat}`.
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-    ![onelake-connector-2.png](../../assets/images/consume/export-targets/onelake-connector-2.png)
+    ![onelake-connector-configure-2.png](../../assets/images/consume/export-targets/onelake-connector-configure-2.png)
 
     Now, you can select the OneLake connector in a stream and start exporting golden records.
