@@ -48,5 +48,5 @@ CluedIn supports the following file name patterns:
 
 | Connector | Default file name pattern |
 |--|--|
-| [AzureDataLakeConnector](/consume/export-targets/adl-connector) | `{StreamId:D}_{DataTime:yyyyMMddHHmmss}.{OutputFormat}` |
-| [OneLakeConnector](/consume/export-targets/onelake-connector) | `{StreamId:N}_{DataTime:yyyyMMddHHmmss}.{OutputFormat}` |
+| [Azure Data Lake connector](/consume/export-targets/adl-connector) | `{StreamId:D}_{DataTime:yyyyMMddHHmmss}.{OutputFormat}` |
+| [OneLake connector](/consume/export-targets/onelake-connector) | `{StreamId:N}_{DataTime:yyyyMMddHHmmss}.{OutputFormat}` |
