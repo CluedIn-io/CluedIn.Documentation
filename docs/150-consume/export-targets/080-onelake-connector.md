@@ -5,7 +5,7 @@ parent: Export targets
 grand_parent: Consume
 permalink: /consume/export-targets/onelake-connector
 title: OneLake connector
-last_modified: 2024-10-28
+last_modified: 2025-02-05
 ---
 
 This article outlines how to configure the OneLake connector to push data from CluedIn to Microsoft’s OneLake.
