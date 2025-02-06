@@ -35,6 +35,12 @@ You need to prepare the following user accounts:
 
     For more information on how to add a license, see [Microsoft documentation](https://learn.microsoft.com/en-us/entra/fundamentals/license-users-groups).
 
+- The user account used in workflow credentials needs to be added to the Power Apps environment list of users.
+
+    ![power-apps-env-users.png](../../assets/images/workflow/power-apps-env-users.png)
+
+    Additionally, the user account needs to be given the System Administrator role.
+
 - An SSO service principal for authenticating SSO users with permissions to accept requests from the following URIs:
 
     - _https://{cluedin-domain}_/admin/workflow/workflow-builder
@@ -43,9 +49,13 @@ You need to prepare the following user accounts:
 
     ![redirect-uris.png](../../assets/images/workflow/redirect-uris.png)
 
-    Also, in the **Implicit grant and hybrid flows** section, select both **Access tokens** and **ID tokens**.
+    In the **Implicit grant and hybrid flows** section, select both **Access tokens** and **ID tokens**.
 
     ![implicit-grant-and-hybrid-flows.png](../../assets/images/workflow/implicit-grant-and-hybrid-flows.png)
+
+    In the **Advanced settings** section, enable public client flows.
+
+    ![allow-public-client-flows.png](../../assets/images/workflow/allow-public-client-flows.png)
 
 - A Power Automate service principal with permissions for authenticating the Power Automate widget. You need to add the following permissions:
 
