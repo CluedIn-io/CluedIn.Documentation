@@ -35,7 +35,7 @@ You need to prepare the following user accounts:
 
     For more information on how to add a license, see [Microsoft documentation](https://learn.microsoft.com/en-us/entra/fundamentals/license-users-groups).
 
-- The user account used in workflow credentials needs to be added to the Power Apps environment list of users.
+    The user account used in workflow credentials needs to be added to the Power Apps environment list of users.
 
     ![power-apps-env-users.png](../../assets/images/workflow/power-apps-env-users.png)
 
