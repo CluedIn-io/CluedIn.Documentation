@@ -39,7 +39,9 @@ You need to prepare the following user accounts:
 
     ![power-apps-env-users.png](../../assets/images/workflow/power-apps-env-users.png)
 
-    Additionally, the user account needs to be given the System Administrator role.
+    Additionally, the user account needs to be given the System Administrator security role.
+
+    ![system-administrator-role.png](../../assets/images/workflow/system-administrator-role.png)
 
 - An SSO service principal for authenticating SSO users with permissions to accept requests from the following URIs:
 
