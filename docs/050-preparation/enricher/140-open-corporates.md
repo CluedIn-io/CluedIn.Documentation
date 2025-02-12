@@ -13,6 +13,12 @@ title: OpenCorporates
 
 This article outlines how to configure the [OpenCorporates](https://opencorporates.com/) enricher. The purpose of this enricher is to provide a wide range of information about companies from around the world (for example, creation date, status, officers, and so on). More details can be found in [Properties from OpenCorporates enricher](#properties-from-opencorporates-enricher).
 
+The Open Corporates enricher supports the following endpoints:
+
+- `https://api.opencorporates.com/v0.4/companies/search?q={nameLookup}`, where `{nameLookup}` is the name of company – this endpoint is called when no company codes can be found in golden record's organization.codes.cvr, organization.codes.brreg, organization.codes.companyHouse, or organization.codes.cik
+
+- `https://api.opencorporates.com/v0.4companies/{jurisdictionCodeLookup.Jurisdiction}/{jurisdictionCodeLookup.Value}?format=json` – this endpoint is called when there are company codes, so the jurisdiction of golden record will be retrieved and used in the API.
+
 ## Add OpenCorporates enricher
 
 To use the OpenCorporates enricher, you must provide the API token. To get the API token, follow the instructions on the [OpenCorporates website](https://opencorporates.com/plug-in-our-data/). The OpenCorportes enricher uses the company name to retrieve information from the OpenCorporates website.

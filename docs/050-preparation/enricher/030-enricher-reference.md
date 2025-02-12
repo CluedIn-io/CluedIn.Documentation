@@ -18,7 +18,11 @@ Please note that the enrichers are not included in the CluedIn license. Each enr
 
 ## Brreg
 
-The [Brreg](/preparation/enricher/brreg) enricher retrieves a wide range of information about Norwegian and foreign businesses operating in Norway.
+The [Brreg](/preparation/enricher/brreg) enricher retrieves a wide range of information about Norwegian and foreign businesses operating in Norway. It supports the following endpoints:
+
+- `http://data.brreg.no/enhetsregisteret/api/enheter/{id}`, where `{id}` is the Brreg code.
+
+- `http://data.brreg.no/enhetsregisteret/api/enheter?page=0&size=30&navn={name}`, where `{name}` is the company name.
 
 | Package name | Package version | Source code |
 |--|--|--|
@@ -29,7 +33,7 @@ The [Brreg](/preparation/enricher/brreg) enricher retrieves a wide range of info
 
 ## BvD
 
-The [BvD](/preparation/enricher/bvd) enricher retrieves a wide range of information about Companies.
+The [BvD] enricher retrieves a wide range of information about companies.
 
 | Package name | Package version | Source code |
 |--|--|--|
@@ -37,7 +41,9 @@ The [BvD](/preparation/enricher/bvd) enricher retrieves a wide range of informat
 
 ## Clearbit
 
-The [Clearbit](/preparation/enricher/clearbit) enricher retrieves company logo and domain information.
+The [Clearbit](/preparation/enricher/clearbit) enricher retrieves company logo and domain information. It supports the following endpoint:
+
+- `https://autocomplete.clearbit.com/v1/companies/suggest?query=`
 
 | Package name | Package version | Source code |
 |--|--|--|
@@ -50,6 +56,12 @@ The [Clearbit](/preparation/enricher/clearbit) enricher retrieves company logo a
 
 The [Companies House](/preparation/enricher/companies-house) enricher retrieves information about UK companies. This enricher uses the company name to return public information including registered office address, filing history, and so on.
 
+The Companies House enricher supports the following endpoints:
+
+- `https://api.companieshouse.gov.uk/search/companies?q={name}`, where `{name}` is the company name – this endpoint is called when the Companies House number is not provided.
+
+- `https://api.companieshouse.gov.uk/search/company/{companyNumber}`, where `{companyNumber}` is the Companies House number – this endpoint is called when the Companies House number is provided.
+
 | Package name | Package version | Source code |
 |--|--|--|
 | CluedIn.Provider.ExternalSearch.CompanyHouse | 4.4.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.CompanyHouse/releases/tag/4.4.0) |
@@ -58,7 +70,9 @@ The [Companies House](/preparation/enricher/companies-house) enricher retrieves 
 
 ## CVR
 
-The [CVR](/preparation/enricher/cvr) enricher retrieves a wide range of information about companies registered in Denmark.
+The [CVR](/preparation/enricher/cvr) enricher retrieves a wide range of information about companies registered in Denmark. It supports the following endpoint:
+
+- `http://{username}:{password}@distribution.virk.dk/cvr-permanent/_search`, where `{username} and {password}` are the valid credentials for your CVR account.
 
 | Package name | Package version | Source code |
 |--|--|--|
@@ -71,7 +85,9 @@ The [CVR](/preparation/enricher/cvr) enricher retrieves a wide range of informat
 
 ## DuckDuckGo
 
-The [DuckDuckGo](/preparation/enricher/duckduckgo) enricher retrieves general information about organizations from the DuckDuckGo search engine.
+The [DuckDuckGo](/preparation/enricher/duckduckgo) enricher retrieves general information about organizations from the DuckDuckGo search engine. It supports the following endpoint:
+
+- `https://api.duckduckgo.com`
 
 | Package name | Package version | Source code |
 |--|--|--|
@@ -82,7 +98,11 @@ The [DuckDuckGo](/preparation/enricher/duckduckgo) enricher retrieves general in
 
 ## Duns & Bradstreet
 
-The Duns & Bradstreet enricher retrieves information about organizations.
+The Duns & Bradstreet enricher retrieves information about organizations. It supports the following endpoints:
+
+- `{hostUrl}/data/duns/{dunsNumber}` – this endpoint is called when the D&B number is provided.
+
+- `{hostUrl}/v1/match/extendedMatch` – this endpoint is called when the D&B number is not provided.
 
 | Package name | Package version | Source code |
 |--|--|--|
@@ -91,7 +111,9 @@ The Duns & Bradstreet enricher retrieves information about organizations.
 
 ## Gleif
 
-The [Gleif](/preparation/enricher/gleif) enricher retrieves information about organizations using the Legal Entity Identifier (LEI).
+The [Gleif](/preparation/enricher/gleif) enricher retrieves information about organizations using the Legal Entity Identifier (LEI). It supports the following endpoint:
+
+- `https://api.gleif.org/api/v1/lei-records?page[size]=1&page[number]=1&filter[lei]={leicode}`, where `{leicode}` is the LEI code of the company.
 
 | Package name | Package version | Source code |
 |--|--|--|
@@ -116,7 +138,9 @@ The [Google Maps](/preparation/enricher/google-maps) enricher cleans, standardiz
 
 ## Knowledge Graph
 
-The [Knowledge Graph](/preparation/enricher/knowledge-graph) enricher retrieves descriptions of organizations using the Google Knowledge Graph API.
+The [Knowledge Graph](/preparation/enricher/knowledge-graph) enricher retrieves descriptions of organizations using the Google Knowledge Graph API. It supports the following endpoint:
+
+- `https://kgsearch.googleapis.com?query={nameOrUri}&key={apiKey}&limit=10&indent=true`, where `{nameOrUri}` is the name or website of the organization and `{apiKey}` is your API key for accessing Google’s Knowledge Graph database.
 
 | Package name | Package version | Source code |
 |--|--|--|
@@ -127,6 +151,10 @@ The [Knowledge Graph](/preparation/enricher/knowledge-graph) enricher retrieves 
 ## Libpostal
 
 The [Libpostal](/preparation/enricher/libpostal) enricher parses and normalizes street addresses using statistical NLP and open data. This enricher returns international street address.
+
+The Libpostal enricher supports the following endpoint:
+
+- `http://<host>:<port>/parser    body = {query: {address}}`
 
 | Package name | Package version | Source code |
 |--|--|--|
@@ -140,6 +168,12 @@ The [Libpostal](/preparation/enricher/libpostal) enricher parses and normalizes 
 
 The [Open Corporates](/preparation/enricher/open-corporates) enricher retrieves information on all companies worldwide. This enricher returns VAT/TAX number.
 
+The Open Corporates enricher supports the following endpoints:
+
+- `https://api.opencorporates.com/v0.4/companies/search?q={nameLookup}`, where `{nameLookup}` is the name of company – this endpoint is called when no company codes can be found in golden record's organization.codes.cvr, organization.codes.brreg, organization.codes.companyHouse, or organization.codes.cik
+
+- `https://api.opencorporates.com/v0.4companies/{jurisdictionCodeLookup.Jurisdiction}/{jurisdictionCodeLookup.Value}?format=json` – this endpoint is called when there are company codes, so the jurisdiction of golden record will be retrieved and used in the API.
+
 | Package name | Package version | Source code |
 |--|--|--|
 | CluedIn.Provider.ExternalSearch.OpenCorporates | 4.4.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.OpenCorporates/releases/tag/4.4.0) |
@@ -150,7 +184,11 @@ The [Open Corporates](/preparation/enricher/open-corporates) enricher retrieves 
 
 ## PermId
 
-The [PermId](/preparation/enricher/perm-id) enricher retrieves information about organizations from the PermID database.
+The [PermId](/preparation/enricher/perm-id) enricher retrieves information about organizations from the PermID database. It supports the following endpoints:
+
+- `https://api-eit.refinitiv.com/permid` – this API is called first.
+
+- `https://permid.org/api/mdaas/getEntityById/` – this API is called secord to get the social data.
 
 | Package name | Package version | Source code |
 |--|--|--|
@@ -160,7 +198,9 @@ The [PermId](/preparation/enricher/perm-id) enricher retrieves information about
 
 ## Vatlayer
 
-The [Vatlayer](/preparation/enricher/vatlayer) enricher validates and cleans EU VAT numbers.
+The [Vatlayer](/preparation/enricher/vatlayer) enricher validates and cleans EU VAT numbers. It supports the following endpoint:
+
+- `http://www.apilayer.net/api/validate?access_key={apiToken}&vat_number={vat}&format=1`, where `{apiToken}` is your API key for retrieving information from the Vatlayer website and `{vat}` is the VAT number of the company.
 
 | Package name | Package version | Source code |
 |--|--|--|
@@ -170,7 +210,7 @@ The [Vatlayer](/preparation/enricher/vatlayer) enricher validates and cleans EU 
 
 ## Web
 
-The [Web](/preparation/enricher/web) enricher retrieves information about organizations through their websites.
+The [Web](/preparation/enricher/web) enricher retrieves information about organizations through their websites. The Web enricher supports any website provided in the **Website Vocab Key** field of the enricher configuration.
 
 | Package name | Package version | Source code |
 |--|--|--|

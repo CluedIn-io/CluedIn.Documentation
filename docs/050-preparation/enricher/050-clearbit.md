@@ -11,9 +11,11 @@ title: Clearbit
 - TOC
 {:toc}
 
-This article outlines how to configure the Clearbit enricher. [Clearbit](https://clearbit.com/) is a marketing data engine that provides tools for data enrichment, lead generation, marketing intelligence, and more.
+This article outlines how to configure the Clearbit enricher. [Clearbit](https://clearbit.com/) is a marketing data engine that provides tools for data enrichment, lead generation, marketing intelligence, and more. The purpose of Clearbit enricher is to retrieve company logo and domain information.
 
-The purpose of Clearbit enricher is to retrieve company logo and domain information.
+The Clearbit enricher supports the following endpoint:
+
+- `https://autocomplete.clearbit.com/v1/companies/suggest?query=`
 
 ## Add Clearbit enricher
 

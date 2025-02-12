@@ -13,6 +13,10 @@ title: Gleif
 
 This article explains how to add the [Gleif](https://www.gleif.org/en) enricher. The purpose of this enricher is to provide a wide range of information about an organization (for example, legal name, address, entity status, and so on). More details are provided in [Properties from Gleif enricher](#properties-from-gleif-enricher).
 
+The Gleif enricher supports the following endpoint:
+
+- `https://api.gleif.org/api/v1/lei-records?page[size]=1&page[number]=1&filter[lei]={leicode}`, where `{leicode}` is the LEI code of the company.
+
 ## Add Gleif enricher
 
 The enricher uses the Legal Entity Identifier (LEI) code to search for information about companies.

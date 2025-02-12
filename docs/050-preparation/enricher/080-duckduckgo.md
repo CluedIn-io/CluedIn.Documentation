@@ -13,6 +13,10 @@ title: DuckDuckGo
 
 This article outlines how to configure the DuckDuckGo enricher. The purpose of this enricher is to get general information about the organization from the DuckDuckGo search engine. More details can be found in [Properties from DuckDuckGo enricher](#properties-from-duckduckgo-enricher).
 
+The DuckDuckGo enricher supports the following endpoint:
+
+- `https://api.duckduckgo.com`
+
 ## Add DuckDuckGo enricher
 
 The enricher uses the organization name and/or the website to search for information in the DuckDuckGo engine.

@@ -13,6 +13,12 @@ title: PermID
 
 This article outlines how to configure the [PermID](https://permid.org/) enricher. The purpose of this enricher is to provide a wide range of information about an organization (for example, Legal Entity Identifier (LEI), headquarters location, industry classification, and so on). More details are provided in [Properties from PermID enricher](#properties-from-permid-enricher).
 
+The PermID enricher supports the following endpoints:
+
+- `https://api-eit.refinitiv.com/permid` – this API is called first.
+
+- `https://permid.org/api/mdaas/getEntityById/` – this API is called secord to get the social data.
+
 ## Add PermID enricher
 
 To use the PermID enricher, you must provide the API key. To get the API key, register an account with [PermID.org](https://permid.org/). The enricher uses the organization name to retrieve information from the PermID database.
