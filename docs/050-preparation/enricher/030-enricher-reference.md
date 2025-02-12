@@ -58,9 +58,9 @@ The [Companies House](/preparation/enricher/companies-house) enricher retrieves 
 
 The Companies House enricher supports the following endpoints:
 
-- `https://api.companieshouse.gov.uk/search/companies?q={name}`, where `{name}` is the company name – this endpoint is called when the Companies House number is not provided.
-
 - `https://api.companieshouse.gov.uk/search/company/{companyNumber}`, where `{companyNumber}` is the Companies House number – this endpoint is called when the Companies House number is provided.
+
+- `https://api.companieshouse.gov.uk/search/companies?q={name}`, where `{name}` is the company name – this endpoint is called when the Companies House number is not provided.
 
 | Package name | Package version | Source code |
 |--|--|--|
@@ -188,7 +188,7 @@ The [PermId](/preparation/enricher/perm-id) enricher retrieves information about
 
 - `https://api-eit.refinitiv.com/permid` – this API is called first.
 
-- `https://permid.org/api/mdaas/getEntityById/` – this API is called secord to get the social data.
+- `https://permid.org/api/mdaas/getEntityById/` – this API is called second to get the social data.
 
 | Package name | Package version | Source code |
 |--|--|--|

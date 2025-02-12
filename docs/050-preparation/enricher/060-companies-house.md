@@ -15,9 +15,9 @@ This article outlines how to configure the [Companies House](https://www.gov.uk/
 
 The Companies House enricher supports the following endpoints:
 
-- If the Companies House number is not provided – `https://api.companieshouse.gov.uk/search/companies?q={name}`, where `{name}` is the company name.
+- `https://api.companieshouse.gov.uk/search/company/{companyNumber}`, where `{companyNumber}` is the Companies House number – this endpoint is called when the Companies House number is provided.
 
-- If the Companies House number is provided – `https://api.companieshouse.gov.uk/search/company/{companyNumber}`, where `{companyNumber}` is the Companies House number.
+- `https://api.companieshouse.gov.uk/search/companies?q={name}`, where `{name}` is the company name – this endpoint is called when the Companies House number is not provided.
 
 ## Add Companies House enricher
 

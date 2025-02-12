@@ -17,7 +17,7 @@ The PermID enricher supports the following endpoints:
 
 - `https://api-eit.refinitiv.com/permid` – this API is called first.
 
-- `https://permid.org/api/mdaas/getEntityById/` – this API is called secord to get the social data.
+- `https://permid.org/api/mdaas/getEntityById/` – this API is called second to get the social data.
 
 ## Add PermID enricher
 
