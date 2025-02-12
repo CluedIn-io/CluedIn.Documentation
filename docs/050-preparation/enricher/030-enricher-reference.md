@@ -33,7 +33,7 @@ The [Brreg](/preparation/enricher/brreg) enricher retrieves a wide range of info
 
 ## BvD
 
-The [BvD] enricher retrieves a wide range of information about companies.
+The BvD enricher retrieves a wide range of information about companies.
 
 | Package name | Package version | Source code |
 |--|--|--|
