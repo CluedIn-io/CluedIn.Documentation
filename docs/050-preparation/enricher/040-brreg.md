@@ -13,6 +13,12 @@ title: Brreg
 
 This article explains how to add the [Brreg](https://www.brreg.no/) enricher. The purpose of this enricher is to provide a wide range of information about Norwegian and foreign businesses operating in Norway (for example, address, registration date, employee count, and so on). More details can be found in [Properties from Brreg enricher](#properties-from-brreg-enricher).
 
+The Bregg enricher supports the following endpoints:
+
+- `http://data.brreg.no/enhetsregisteret/api/enheter/{id}`, where `{id}` is the Brreg code.
+
+- `http://data.brreg.no/enhetsregisteret/api/enheter?page=0&size=30&navn={name}`, where `{name}` is the company name.
+
 ## Add Brreg enricher
 
 The enricher requires at least one of the following attributes for searching the Brreg register:

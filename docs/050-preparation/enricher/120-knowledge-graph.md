@@ -13,6 +13,10 @@ title: Knowledge Graph
 
 This article outlines how to configure the Knowledge Graph enricher. The purpose of this enricher is to provide a description of an organization. More details can be found in [Properties from Knowledge Graph enricher](#properties-from-knowledge-graph-enricher).
 
+The Knowledge Graph enricher supports the following endpoint:
+
+- `https://kgsearch.googleapis.com?query={nameOrUri}&key={apiKey}&limit=10&indent=true`, where `{nameOrUri}` is the name or website of the organization and `{apiKey}` is your API key for accessing Google’s Knowledge Graph database.
+
 ## Add Knowledge Graph enricher
 
 To use the Knowledge Graph enricher, you must provide the API key. To get the API key, follow the instructions [here](https://cloud.google.com/docs/authentication/api-keys#create). The enricher uses the organization name or website to retrieve information from Google’s Knowledge Graph database.

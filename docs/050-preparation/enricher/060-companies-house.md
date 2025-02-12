@@ -13,6 +13,12 @@ title: Companies House
 
 This article outlines how to configure the [Companies House](https://www.gov.uk/government/organisations/companies-house#:~:text=Companies%20House%20is%20the%20%EE%80%80official%20agency%EE%80%81) enricher. The purpose of this enricher is to get information about companies registered in the UK (for example, address, date of creation, company status, and so on). More details can be found in [Properties from Companies House enricher](#properties-from-companies-house-enricher).
 
+The Companies House enricher supports the following endpoints:
+
+- `https://api.companieshouse.gov.uk/search/company/{companyNumber}`, where `{companyNumber}` is the Companies House number – this endpoint is called when the Companies House number is provided.
+
+- `https://api.companieshouse.gov.uk/search/companies?q={name}`, where `{name}` is the company name – this endpoint is called when the Companies House number is not provided.
+
 ## Add Companies House enricher
 
 To use the Companies House enricher, you must provide the API key. To get it, you need to [register a user account](https://developer.company-information.service.gov.uk/signin) with Companies House.

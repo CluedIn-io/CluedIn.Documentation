@@ -13,6 +13,10 @@ title: Vatlayer
 
 This article outlines how to configure the [Vatlayer](https://vatlayer.com/) enricher. The purpose of this enricher is to validate EU VAT numbers and retrieve company information (for example, address, CVR number, full VAT, and so on). More details can be found in [Properties from Vatlayer enricher](#properties-from-vatlayer-enricher).
 
+The Vatlayer enricher supports the following endpoint:
+
+- `http://www.apilayer.net/api/validate?access_key={apiToken}&vat_number={vat}&format=1`, where `{apiToken}` is your API key for retrieving information from the Vatlayer website and `{vat}` is the VAT number of the company.
+
 ## Add Vatlayer enricher
 
 To use the Vatlayer enricher, you will need to provide the API key. To get it, sign up for an account on the [Vatlayer website](https://vatlayer.com/). The enricher uses the VAT number to retrieve VAT-related information.

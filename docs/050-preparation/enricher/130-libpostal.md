@@ -13,6 +13,10 @@ title: Libpostal
 
 This article outlines how to configure the Libpostal enricher. The purpose of this enricher is to parse and normalize street addresses from around the world using statistical NLP and open data. More details can be found in [Properties from Libpostal enricher](#properties-from-libpostal-enricher).
 
+The Libpostal enricher supports the following endpoint:
+
+- `http://<host>:<port>/parser    body = {query: {address}}`
+
 ## Add Libpostal enricher
 
 The Libpostal enricher uses the address as input to parse and normalize the street address used in a golden record. You can use this enricher to parse and normalize street addresses for organizations, users, persons, and locations. Depending on the entity type you specify in the enricher configuration, you will need to provide the appropriate vocabulary key that contains the address. If you don't provide the vocabulary key, CluedIn will use the following vocabulary keys by default:
