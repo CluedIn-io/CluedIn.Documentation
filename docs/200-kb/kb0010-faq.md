@@ -4,8 +4,7 @@ title: Frequently Asked Questions
 parent: Knowledge base
 permalink: /kb/faq
 tags: ["getting-started", "faq"]
-nav_order: 11
-published: false
+nav_order: 15
 ---
 ## On this page
 {: .no_toc .text-delta }
