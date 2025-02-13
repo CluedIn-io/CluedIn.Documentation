@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Frequently Asked Questions
+title: Frequently asked questions
 parent: Knowledge base
 permalink: /kb/faq
 tags: ["getting-started", "faq"]
