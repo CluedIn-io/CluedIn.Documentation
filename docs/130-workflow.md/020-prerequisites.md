@@ -76,6 +76,22 @@ You need to prepare the following user accounts:
     {:.important}
     Instead of creating a Power Automate service principal, you can add the required API permissions to the SSO service principal.
 
+## Power Automate prerequisites
+
+The environment needs to have Dataverse installed
+
+- If a new environment is yet to be created, ensure the Dataverse option is chosen:
+
+    - https://admin.powerplatform.microsoft.com/environments
+
+    - [Picture here]
+
+- If the environment is already created, Dataverse can be installed from the environment details page
+
+    - https://admin.powerplatform.microsoft.com/environments/environment/{the_environment_id}/hub
+
+    - [Picture here]
+
 ## CluedIn prerequisites
 
 To make the workflows available in CluedIn, you need to fulfill several prerequisites:
