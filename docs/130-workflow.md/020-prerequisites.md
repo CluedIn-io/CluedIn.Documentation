@@ -78,19 +78,15 @@ You need to prepare the following user accounts:
 
 ## Power Automate prerequisites
 
-The environment needs to have Dataverse installed
+To use workflows, Dataverse must be installed in the Power Automate environment.
 
-- If a new environment is yet to be created, ensure the Dataverse option is chosen:
+If a new environment is yet to be [created](https://admin.powerplatform.microsoft.com/environments), make sure the Dataverse option is selected.
 
-    - https://admin.powerplatform.microsoft.com/environments
+[Picture here]
 
-    - [Picture here]
+If the environment is already created, you can install Dataverse from the environment details [page](https://admin.powerplatform.microsoft.com/environments/environment/{the_environment_id}/hub).
 
-- If the environment is already created, Dataverse can be installed from the environment details page
-
-    - https://admin.powerplatform.microsoft.com/environments/environment/{the_environment_id}/hub
-
-    - [Picture here]
+[Picture here]
 
 ## CluedIn prerequisites
 
