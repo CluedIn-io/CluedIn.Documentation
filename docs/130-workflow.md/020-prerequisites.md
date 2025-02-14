@@ -82,7 +82,7 @@ To use workflows, Dataverse must be installed in the Power Automate environment.
 
 If a new environment is yet to be [created](https://admin.powerplatform.microsoft.com/environments), make sure the Dataverse option is selected.
 
-[Picture here]
+![power-automate-create-env.png](../../assets/images/workflow/power-automate-create-env.png)
 
 If the environment is already created, you can install Dataverse from the environment details [page](https://admin.powerplatform.microsoft.com/environments/environment/{the_environment_id}/hub).
 
