@@ -86,7 +86,7 @@ If a new environment is yet to be [created](https://admin.powerplatform.microsof
 
 If the environment is already created, you can install Dataverse from the environment details [page](https://admin.powerplatform.microsoft.com/environments/environment/{the_environment_id}/hub).
 
-[Picture here]
+![power-automate-add-dataverse.png](../../assets/images/workflow/power-automate-add-dataverse.png)
 
 ## CluedIn prerequisites
 
