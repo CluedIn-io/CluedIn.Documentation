@@ -16,7 +16,17 @@ To tag records with such data quality issues, [create](/management/rules/create-
 
 ![validate-email-action.png](../../assets/images/kb/how-to/validate-email-action.png)
 
-Alternatively, you can use [CluedIn Copilot](/microsoft-integration/copilot-integration) to create a data part rule. First, ask Copilot to generate a common regular expression that would check for valid email format. For example, you can use the following prompt: `Write a common regular expression that would check for valid email format and shortly describe it.` Then, instruct Copilot to create a data part rule using the prompt similar to the following: `Create a data part rule named "User email format validation" for the TrainingContact entity type. This rule should use CluedIn AI action on the trainingcontact.email vocabulary key to tag with "Invalid email format" any email with a pattern that doesn't match the above regex.`
+Alternatively, you can use [CluedIn Copilot](/microsoft-integration/copilot-integration) to create a data part rule. First, ask Copilot to generate a common regular expression that would check for valid email format. For example, you can use the following prompt.
+
+```
+Write a common regular expression that would check for valid email format and shortly describe it.
+```
+
+Then, instruct Copilot to create a data part rule using the prompt similar to the following.
+
+```
+Create a data part rule named "User email format validation" for the TrainingContact entity type. This rule should use CluedIn AI action on the trainingcontact.email vocabulary key to tag with "Invalid email format" any email with a pattern that doesn't match the above regex.
+```
 
 ![validate-email-copilot.png](../../assets/images/kb/how-to/validate-email-copilot.png)
 
