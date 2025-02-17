@@ -6,7 +6,7 @@ permalink: /kb/how-to-tag-records-with-data-quality-issues
 nav_order: 2
 ---
 
-In this article, you will learn how to tag records with data quality issues using data part rules. We will use invalid email address as an example of a data quality issue.
+In this article, you will learn how to tag records with data quality issues using data part rules and CluedIn Copilot. We will use invalid email address as an example of a data quality issue.
 
 To begin with, we have ingested, mapped, and processed a file containing contact data. Some records include invalid email addresses. Note that the email addresses in rows 1–3 violate common email address formatting rules.
 
@@ -16,7 +16,11 @@ To tag records with such data quality issues, [create](/management/rules/create-
 
 ![validate-email-action.png](../../assets/images/kb/how-to/validate-email-action.png)
 
-Next, save, activate and re-process the rule. To verify that the rule has been applied, go to search and use the **Tags** filter.
+Alternatively, you can use [CluedIn Copilot](/microsoft-integration/copilot-integration) to create a data part rule. First, ask Copilot to generate a common regular expression that would check for valid email format. For example, you can use the following prompt: `Write a common regular expression that would check for valid email format and shortly describe it.` Then, instruct Copilot to create a data part rule using the prompt similar to the following: `Create a data part rule named "User email format validation" for the TrainingContact entity type. This rule should use CluedIn AI action on the trainingcontact.email vocabulary key to tag with "Invalid email format" any email with a pattern that doesn't match the above regex.`
+
+![validate-email-copilot.png](../../assets/images/kb/how-to/validate-email-copilot.png)
+
+Next, activate and re-process the rule. To verify that the rule has been applied, go to search and use the **Tags** filter.
 
 ![tag-in-search.png](../../assets/images/kb/how-to/tag-in-search.png)
 
