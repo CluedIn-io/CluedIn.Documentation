@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 8
 parent: Playbooks
 permalink: /playbooks/data-export-playbook
-has_children: false
+has_children: true
 title: Data export playbook
 ---
 ## On this page
