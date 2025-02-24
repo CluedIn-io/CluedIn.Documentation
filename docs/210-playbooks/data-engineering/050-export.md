@@ -1,7 +1,7 @@
 ---
 layout: cluedin
-title: Exporting data to from CluedIn with Python
-parent: Data engineering playbook
+title: Exporting data to and from CluedIn with Python
+parent: Data export playbook
 grand_parent: Playbooks
 permalink: /playbooks/data-engineering-playbook/export
 nav_order: 050
