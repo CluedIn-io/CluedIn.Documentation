@@ -30,7 +30,17 @@ You'll find a description of each skill in [Copilot skills](#copilot-skills).
 
 ![functions.gif](../../assets/images/microsoft-integration/copilot/functions.gif)
 
-To enhance your efficiency in interacting with CluedIn Copilot, you can **chain different skills together**. Instead of creating separate prompts for actions like creating, activating, and reprocessing a rule, you can combine these tasks into a single prompt: "Create a rule that tags all records with customer.country set to 'Norway' as 'Nordic', then activate and reprocess the rule".
+To enhance your efficiency in interacting with CluedIn Copilot, you can **chain different skills together**. Instead of creating separate prompts for actions like creating, activating, and reprocessing a rule, you can combine these tasks into a single prompt.
+
+```
+Create a rule that tags all records with customer.country set to 'Norway' as 'Nordic', then activate and reprocess the rule.
+```
+
+Another example of chaining multiple skills together is using the anomaly detection skill followed by creating rules to mitigate it. Instead of entering two separate prompts, you can simply enter one combined prompt.
+
+```
+Find anomalies in training.country vocabulary keys. For each anomaly, create a rule (one per anomaly), which would best mitigate the anomaly. All rules are related only to /TrainingContact entity type.
+```
 
 CluedIn Copilot is **multilingual**, so you can activate all skills in any language you want, it doesn’t have to be English.
 
