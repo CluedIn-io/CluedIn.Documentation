@@ -46,7 +46,11 @@ CluedIn Copilot is **multilingual**, so you can activate all skills in any langu
 
 In most cases, CluedIn Copilot knows your **current location** in the platform. You can write prompts referring to what is currently displayed on the page, such as _this_ data set, _this_ vocabulary key, and so on.
 
-You can combine **general knowledge** with CluedIn skills in one prompt: "Can you create a golden record rule that tags Company records where the company.state is not one of the Australian states".
+You can combine **general knowledge** with CluedIn skills in one prompt.
+
+```
+Can you create a golden record rule that tags Company records where the company.state is not one of the Australian states.
+```
 
 Note that CluedIn Copilot does not offer a preview feature for its actions; it directly executes them.
 
