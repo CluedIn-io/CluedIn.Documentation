@@ -18,7 +18,7 @@ In this article, you will learn about Copilot skills that are available in Clued
 
 CluedIn Copilot is an AI assistant designed to help you with day-to-day data management tasks through conversational prompts in any language.
 
-You can open the Copilot chat from any place in CluedIn by clicking on the message icon in the lower-right corner of the page. The Copilot pane contains all chats marked with color circles. If you want to rename or delete a chat, go to **Preparation** > **Copilot**.
+You can open the Copilot chat from any place in CluedIn by clicking on the message icon in the lower-right corner of the page. The Copilot pane contains all chats marked with color circles. If you want to rename or delete a chat, select **Copilot** next to the search bar.
 
 CluedIn Copilot currently has 40+ specific skills (also called functions). To get a list of all these skills, use prompts similar to the following:
 
