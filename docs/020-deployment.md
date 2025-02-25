@@ -36,6 +36,10 @@ The following video explores the features and differences between the SaaS, PaaS
 <iframe src="https://player.vimeo.com/video/928300363?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture;" title="CluedIn installation options"></iframe>
 </div>
 
+The following diagram illustrates the concept of CluedIn PaaS and SaaS as Azure Managed Application.
+
+![paas-saas-diagram.png](../../assets/images/deployment/paas-saas-diagram.png)
+
 The following diagram illustrates the difference between SaaS and PaaS in terms of who is responsible for managing what.
 
 ![saas-paas.png](../../assets/images/deployment/saas-paas.png)
