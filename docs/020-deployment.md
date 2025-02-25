@@ -42,7 +42,7 @@ CluedIn is available as an Azure Managed Application, making deployment and oper
 
 ![paas-saas-diagram.png](../../assets/images/deployment/paas-saas-diagram.png)
 
-**PaaS vs. SaaS**
+**SaaS vs. PaaS**
 
 The following diagram illustrates the difference between SaaS and PaaS in terms of who is responsible for managing what.
 
