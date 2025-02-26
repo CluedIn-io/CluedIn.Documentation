@@ -69,7 +69,7 @@ The **Ingestion reposts** area contains a table with detailed reports generated 
 
     - **Retry** – the number of records that attempted to reload into CluedIn.
 
-- **Logs** – the number of logs generated for a specific request. You can view the log details by selecting the content of the cell. Keep in mind that for endpoints, we only log warnings. These logs are the same as those found on the **Logs** tab of the dataset. The difference is that the **Logs** tab contains logs for all requests, while the **Ingestion reports** table provides logs for each specific request. For more information on how to read logs, see the [Logs](/Documentation/Data-sources/Additional-operations/Logs) documentation.
+- **Logs** – the number of logs generated for a specific request. You can view the log details by selecting the content of the cell. Keep in mind that for endpoints, we only log warnings. These logs are the same as those found on the **Logs** tab of the dataset. The difference is that the **Logs** tab contains logs for all requests, while the **Ingestion reports** table provides logs for each specific request. For more information on how to read logs, see the [Logs](/integration/additional-operations-on-records/logs) documentation.
 
 - **Processed** – the number of records that were processed in CluedIn.
 
