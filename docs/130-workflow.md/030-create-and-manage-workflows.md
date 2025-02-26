@@ -47,6 +47,10 @@ If you don't create a workflow to automate the approval process for a specific a
 
 If you want to automate the approval process for actions mentioned in the previous section, create a corresponding workflow.
 
+Only SSO users can create workflows in CluedIn. If you see the following message when trying to create a workflow, it means you are not signed in as an SSO user and will not be able to set up a workflow.
+
+![workflow-sso-users.png](../../assets/images/workflow/workflow-sso-users.png)
+
 **To create a workflow**
 
 1. On the navigation pane, go to **Workflow** > **Workflow Builder**.
