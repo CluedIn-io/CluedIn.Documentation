@@ -8,6 +8,10 @@ title: Monitoring
 tags: ["integration", "monitoring"]
 last_modified: 2023-11-07
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 In this article, you will learn about the features on the **Monitoring** tab to gain insight into what is happening with your records and help you quickly identify issues.
 
