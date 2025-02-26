@@ -13,6 +13,22 @@ title: Google Maps
 
 This article outlines how to configure the Google Maps enricher. The purpose of this enricher is to provide address-related information. More details can be found in [Properties from Google Maps enricher](#properties-from-google-maps-enricher).
 
+The Google Maps enricher supports the following endpoints:
+
+- `https://maps.googleapis.com/maps/api/place/textsearch/json?query={organizationName}{organizationAddress}{organizationCity}{organizationZip}{organizationState}{organizationCountry}` – if organization name, address, city, zip, state, and country are provided.
+
+- `https://maps.googleapis.com/maps/api/place/textsearch/json?query={organizationName}` – if organization name is provided.
+
+- `https://maps.googleapis.com/maps/api/place/textsearch/json?query={organizationAddress}` – if organization address is provided.
+
+- `https://maps.googleapis.com/maps/api/place/textsearch/json?query={location}` – if one of the addresses other than organization address is provided.
+
+- `https://maps.googleapis.com/maps/api/place/textsearch/json?query={location}&location={latitude}{longitude}` – if one of the addresses other than organization address and latitude and longitude are provided.
+
+- `https://maps.googleapis.com/maps/api/place/textsearch/json?query=location={latitude}{longitude}` – if latitude and longitude are provided.
+
+- `https://maps.googleapis.com/maps/api/place/details/json?placeid={id}` – the ID is taken from the previous text search API (the result of `https://maps.googleapis.com/maps/api/place/textsearch/json`).
+
 ## Add Google Maps enricher
 
 To use the Google Maps enricher, you must provide the API key. To get the API key, follow the instructions [here](https://cloud.google.com/docs/authentication/api-keys#create).

@@ -126,6 +126,22 @@ The [Gleif](/preparation/enricher/gleif) enricher retrieves information about or
 
 The [Google Maps](/preparation/enricher/google-maps) enricher cleans, standardizes, and enriches international postal addresses with geocoding information. This enricher returns correct information about company address.
 
+The Google Maps enricher supports the following endpoints:
+
+- `https://maps.googleapis.com/maps/api/place/textsearch/json?query={organizationName}{organizationAddress}{organizationCity}{organizationZip}{organizationState}{organizationCountry}` – if organization name, address, city, zip, state, and country are provided.
+
+- `https://maps.googleapis.com/maps/api/place/textsearch/json?query={organizationName}` – if organization name is provided.
+
+- `https://maps.googleapis.com/maps/api/place/textsearch/json?query={organizationAddress}` – if organization address is provided.
+
+- `https://maps.googleapis.com/maps/api/place/textsearch/json?query={location}` – if one of the addresses other than organization address is provided.
+
+- `https://maps.googleapis.com/maps/api/place/textsearch/json?query={location}&location={latitude}{longitude}` – if one of the addresses other than organization address and latitude and longitude are provided.
+
+- `https://maps.googleapis.com/maps/api/place/textsearch/json?query=location={latitude}{longitude}` – if latitude and longitude are provided.
+
+- `https://maps.googleapis.com/maps/api/place/details/json?placeid={id}` – the ID is taken from the previous text search API (the result of `https://maps.googleapis.com/maps/api/place/textsearch/json`).
+
 | Package name | Package version | Source code |
 |--|--|--|
 | CluedIn.Provider.ExternalSearch.GoogleMaps | 4.4.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.GoogleMaps/releases/tag/4.4.0) |
