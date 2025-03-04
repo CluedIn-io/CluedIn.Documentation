@@ -75,6 +75,9 @@ If you have any questions, you can request CluedIn support by sending an email t
 
 This section contains an example on how to configure ADF pipeline to copy data from Azure Data Lake to CluedIn private endpoint via REST API call. You can use the information in this section as a guideline for your use cases.
 
+{:.important}
+If you use the Data flow activity in the ADF pipeline, we recommend enabling compression and adding the number in the batch size.
+
 **Prerequisites**
 
 - Private link service between ADF and CluedIn is configured as described in the previous section.
