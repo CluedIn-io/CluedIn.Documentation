@@ -56,7 +56,7 @@ If the rules have not been added, the installation may fail.
 
 ## Power Automate
 
-If you want to use [workflows](/workflow) in CluedIn (Power Automate integration), you need to add the following list to your Azure Firewall:
+If you want to use [workflows](/workflow) in CluedIn (Power Automate integration), you need to add the following domains to your Azure Firewall:
 
 - `https://api.flow.microsoft.com`
 - `https://<env-name>.api.crm4.dynamics.com` – for example, `https://org7bfc52cb.api.crm4.dynamics.com`
@@ -64,3 +64,4 @@ If you want to use [workflows](/workflow) in CluedIn (Power Automate integration
 - `https://graph.microsoft.com`
 - `https://api.powerapps.com`
 - `https://*.<region>.logic.azure.com` – for example, `https://prod-251.westeurope.logic.azure.com`
+- `https://<name>.consent.azure-apihub.net` – for example, `https://europe002-002.consent.azure-apihub.net`
