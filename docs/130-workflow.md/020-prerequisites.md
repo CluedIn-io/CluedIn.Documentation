@@ -15,6 +15,9 @@ To set up the workflows feature in CluedIn, you need to fulfill several prerequi
 
 ![prerequisites.gif](../../assets/images/workflow/prerequisites.gif)
 
+{:.important}
+Before configuring workflows, ensure that you have added the specific URLs to your Azure Firewall as described [here](/deployment/infra-how-tos/configure-firewall#power-automate).
+
 ## Azure prerequisites
 
 You need to prepare the following user accounts:
