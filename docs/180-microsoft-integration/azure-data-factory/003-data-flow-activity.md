@@ -157,7 +157,7 @@ Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
     - Set the **Http Compression type** to **GZip**.
 
         {:.important}
-        Setting the **Http Compression type** to **GZip** is an important step. Missing this step may cause an error when starting the pipeline.
+        If you do not set the **HTTP Compression type** to **GZip**, you might encounter an error when starting the pipeline.
 
     - Set the **Batch size** to **10,000** to ensure smoother transfer.
 
