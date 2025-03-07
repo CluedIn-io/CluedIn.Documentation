@@ -26,13 +26,15 @@ The Data flow activity in ADF is ideal when data transformations such as aggrega
 
 Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
 
-1.  [Creating a new pipeline](#ceate-pipeline)
+1. [Creating a new pipeline](#ceate-pipeline)
     
-2.  [Configuring the source](#configure-source)
+2. [Configuring the source](#configure-source)
     
-3.  [Configuring the sink](#configure-sink)
+3. [Configuring the sink](#configure-sink)
     
-4.  [Debugging the pipeline](#debug-and-validate-pipeline)
+4. [Debugging the pipeline](#debug-pipeline-in-adf)
+
+5. [Validating the result in CluedIn](#validate-result-in-cluedin)
 
 ## Create a new pipeline
 
