@@ -22,7 +22,7 @@ The Data flow activity in ADF is ideal when data transformations such as aggrega
 
 - Ensure your data is available within Azure, commonly stored in Azure Data Lake or Blob Storage.
 
-- Create an ingestion endpoint and authorization token in CluedIn as described in [Add ingestion endpoint](https://documentation.cluedin.net/integration/endpoint#add-ingestion-point). 
+- Create an ingestion endpoint and authorization token in CluedIn as described in [Add ingestion endpoint](https://documentation.cluedin.net/integration/endpoint#add-ingestion-endpoint). 
 
 Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
 
