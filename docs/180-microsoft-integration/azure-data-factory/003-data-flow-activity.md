@@ -12,13 +12,15 @@ has_children: false
 - TOC
 {:toc}
 
-This guide provides step-by-step instructions on how to configure an Azure Data Factory (ADF) Data flow activity to send data to CluedIn. This integration allows you to seamlessly transfer data from your Azure Data Lake (or other sources) to CluedIn using a private endpoint. 
+This guide provides step-by-step instructions for configuring an Azure Data Factory (ADF) Data flow activity to send data to CluedIn. This integration enables seamless data transfer from your Azure Data Lake (or other sources) to CluedIn using a private endpoint.
+
+The Data flow activity in ADF is ideal when data transformations such as aggregation, filtering, or applying complex business logic are required before sending data to CluedIn. If no transformations are needed, use the [Copy data activity](/microsoft-integration/adf-integration/copy-data) instead.
 
 **Prerequisites** 
 
 - Configure a private link service between ADF and CluedIn as described in [Configure ADF with private link](https://documentation.cluedin.net/microsoft-integration/adf-integration/private-link).
 
-- Make sure you have Azure Data Lake with some CSV data. 
+- Ensure your data is available within Azure, commonly stored in Azure Data Lake or Blob Storage.
 
 - Create an ingestion endpoint and authorization token in CluedIn as described in [Add ingestion endpoint](https://documentation.cluedin.net/integration/endpoint#add-ingestion-point). 
 
@@ -32,13 +34,13 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
     
 4.  [Debugging the pipeline](#debug-and-validate-pipeline)
 
-## Create pipeline
+## Create a new pipeline
 
-1. On the home page of Azure Data Factory, select **New** > **Pipeline**.
+1. On the Azure Data Factory home page, select **New** > **Pipeline**.
 
-1. In the **Activities** pane, expand the **Move and Transform** category, and then drag the **Data flow** activity to the pipeline canvas.
+1. In the **Activities** pane, expand the **Move and transform** category, and then drag the **Data flow** activity to the pipeline canvas.
 
-1. Select the new Data flow activity on the canvas if it is not already selected and then go to the **Settings** tab to edit its details.
+1. Select the new Data flow activity on the canvas, and then go to the **Settings** tab to edit its details.
 
     ![data-flow-settings.png](../../assets/images/microsoft-integration/azure-data-factory/data-flow-settings.png)
 
@@ -54,15 +56,15 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
 1. On the **Source Settings** tab, do the following:
 
-    1. Enter the **Output steam name**.
+    1. Enter the **Output stream name**.
 
-    1. In the **Source** type, select **Dataset**.
+    1. In **Source type**, select **Dataset**.
 
     1. Next to the **Dataset** field, select **New**.
 
         ![data-flow-new-dataset.png](../../assets/images/microsoft-integration/azure-data-factory/data-flow-new-dataset.png)
 
-1. In the **New dataset** pane, find and select **Azure Data Lake Storage Gen2**, and then select **Continue**.
+1. In the **New dataset** pane, select your data stored within an Azure storage account (for example, Azure Data Lake Storage Gen2). Then, select **Continue**.
 
     ![data-flow-new-data-set.png](../../assets/images/microsoft-integration/azure-data-factory/data-flow-new-data-set.png)
 
@@ -80,7 +82,7 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
     - **Account selection method** – select **From Azure subscription**.
 
-    - **Azure Subscriptions** – select the subscription of your Azure Data Lake.
+    - **Azure subscription** – select the subscription of your Azure Data Lake.
 
     - **Storage account name** – select the name of your Azure Data Lake storage account.
 
@@ -88,7 +90,7 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
 1. Test the connection and then create the new linked service.
     
-2. On the **Set properties** pane, in the **File path** section, add the path to the appropriate folder/file of your Azure Data Lake.
+2. On the **Set properties** pane, in the **File path** section, add the path to the appropriate folder/file within your Azure Data Lake.
 
     ![set-properties.png](../../assets/images/microsoft-integration/azure-data-factory/set-properties.png)
     
@@ -102,9 +104,9 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
 1. On the **Sink** tab, do the following:
 
-    1. Enter the **Output steam name**.
+    1. Enter the **Output stream name**.
 
-    1. In the **Incoming stream** type, make sure the data source created in the previous step is selected.
+    1. In **Incoming stream**, make sure the data source created in the previous step is selected.
 
     1. In **Sink type**, select **Dataset**.
 
@@ -144,28 +146,28 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
 1. Test connection, and then select **Create**.
 
-1. After the sink has been configured, go to the **Settings** tab, and then do the following:
+1. After the sink is configured, go to the **Settings** tab, and then do the following:
 
+    - Ensure the **Insert method** is set to **POST**. 
+    
     - Change the **Delete method**, **Upsert method**, and **Update method** to **None**.
 
     - Set the **Http Compression type** to **GZip**.
 
-    - Enter the **Batch size**.
+    - Set the **Batch size** to **10,000** to ensure smoother transfer.
 
         ![sink-settings.png](../../assets/images/microsoft-integration/azure-data-factory/sink-settings.png)
 
 ## Debug and validate pipeline
 
-Once the source and sink are configured, you can debug the pipeline to ensure it is working.
+Once the source and sink are configured, you can debug the pipeline to ensure it works correctly.
 
 **To debug the pipeline**
 
-1.  On the toolbar, select **Debug**. You can see the status of the pipeline run in the **Output** tab at the bottom of the window.
-    
-The following image illustrates the ingestion endpoint in CluedIn before debugging the pipeline.
+1. On the toolbar, select **Debug**.
 
-![before-debug.png](../../assets/images/microsoft-integration/azure-data-factory/before-debug.png)
+1. In the **Output** tab at the bottom of the window, monitor the pipeline run status.
 
-The following image the ingestion endpoint in CluedIn after debugging the pipeline.
+    Once triggered successfully, you should see data flowing into CluedIn.
 
-![after-debug.png](../../assets/images/microsoft-integration/azure-data-factory/after-debug.png)
+    ![after-debug.png](../../assets/images/microsoft-integration/azure-data-factory/after-debug.png)
