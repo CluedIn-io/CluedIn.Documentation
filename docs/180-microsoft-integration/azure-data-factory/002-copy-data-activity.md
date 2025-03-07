@@ -24,7 +24,7 @@ Use the Copy data activity if you do not need to make any data transformations b
 
 - Create an ingestion endpoint and authorization token in CluedIn as described in [Add ingestion endpoint](https://documentation.cluedin.net/integration/endpoint#add-ingestion-point). 
 
-Configuring an ADF pipeline with the Copy flow activity consists of 4 steps:
+Configuring an ADF pipeline with the Copy data activity consists of 4 steps:
 
 1.  [Creating a new pipeline](#ceate-pipeline)
     
@@ -112,7 +112,7 @@ Once the source and sink are configured, you can debug the pipeline to ensure it
 
 **To debug the pipeline**
 
-1. On the toolbar, select **Debug**. You can see the status of the pipeline run in the **Output** tab at the bottom of the window.
+1. On the toolbar, select **Debug**. You can monitor the status of the pipeline run in the **Output** tab at the bottom of the window.
 
     ![debug-pipeline.png](../../assets/images/microsoft-integration/azure-data-factory/debug-pipeline.png)
 
