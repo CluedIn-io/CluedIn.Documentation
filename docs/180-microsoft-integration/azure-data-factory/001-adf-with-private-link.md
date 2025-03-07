@@ -7,10 +7,6 @@ permalink: /microsoft-integration/adf-integration/private-link
 nav_order: 010
 has_children: false
 ---
-## On this page
-{: .no_toc .text-delta }
-- TOC
-{:toc}
 
 In this article, you will learn how to configure a private link service between Azure Data Factory (ADF) and CluedIn.
 

@@ -12,7 +12,9 @@ has_children: false
 - TOC
 {:toc}
 
-This guide provides step-by-step instructions on how to configure an Azure Data Factory (ADF) Copy data activity to send data to CluedIn using a private endpoint. 
+This guide provides step-by-step instructions for configuring an Azure Data Factory (ADF) Copy data activity to send data to CluedIn using a private endpoint.
+
+Use the Copy data activity if you do not need to make any data transformations before sending data to CluedIn. When data transformations such as aggregation, filtering, or applying complex business logic are required before sending data to CluedIn, use the [Data flow activity](/microsoft-integration/adf-integration/data-flow-activity) instead.
 
 **Prerequisites** 
 
@@ -32,11 +34,11 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
     
 4.  [Debugging the pipeline](#debug-and-validate-pipeline)
 
-## Create a pipeline
+## Create a new pipeline
 
-1. On the home page of Azure Data factory, select **New** > **Pipeline**.
+1. On the Azure Data Factory home page, select **New** > **Pipeline**.
 
-1. In the **Activities** pane, expand the **Move and Transform** category, and then drag the **Copy data** activity to the pipeline canvas.
+1. In the **Activities** pane, expand the **Move and transform** category, and then drag the **Copy data** activity to the pipeline canvas.
 
     ![copy-data-activity.png](../../assets/images/microsoft-integration/azure-data-factory/copy-data-activity.png)
 
@@ -48,7 +50,7 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
 1. In the **Select format** pane, select **DelimitedText**, and then select **Continue**.
 
-1. In the **Set properties** pane, enter the name for the dataset. Then, in the **Linked service** field, expand the dropdown and select **+ New**.
+1. In the **Set properties** pane, enter the name for the dataset. Then, expand the **Linked service** dropdown list and select **+ New**.
 
 1. In the **New linked service** pane, provide the following details:
  
@@ -56,7 +58,7 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
     - **Account selection method** – select **From Azure subscription**.
 
-    - **Azure Subscriptions** – select the subscription of your Azure Data Lake.
+    - **Azure Subscription** – select the subscription of your Azure Data Lake.
 
     - **Storage account name** – select the name of your Azure Data Lake storage account.
 
@@ -76,7 +78,7 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
 1. In the **New dataset** pane, find and select **REST**, and then select **Continue**.
 
-1. In the **Set properties** pane, enter the name for the dataset. Then, in the **Linked service** field, expand the dropdown and select **+ New**.
+1. In the **Set properties** pane, enter the name for the dataset. Then, expand the **Linked service** dropdown list and select **+ New**.
 
 1. In the **New linked service** pane, provide the following details:
 
@@ -100,13 +102,13 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
 1. Select **OK**.
 
-1. In the Request method field, select **POST**.
+1. In the **Request method** field, select **POST**.
 
     ![configure-sink-request-method.png](../../assets/images/microsoft-integration/azure-data-factory/configure-sink-request-method.png)
 
 ## Debug and validate pipeline
 
-Once the source and sink are configured, you can debug the pipeline to ensure it is working.
+Once the source and sink are configured, you can debug the pipeline to ensure it is working correctly.
 
 **To debug the pipeline**
 
@@ -118,6 +120,6 @@ The following image illustrates the ingestion endpoint in CluedIn before debuggi
 
 ![before-debug.png](../../assets/images/microsoft-integration/azure-data-factory/before-debug.png)
 
-The following image the ingestion endpoint in CluedIn after debugging the pipeline.
+The following image illustrates the ingestion endpoint in CluedIn after debugging the pipeline.
 
 ![after-debug.png](../../assets/images/microsoft-integration/azure-data-factory/after-debug.png)

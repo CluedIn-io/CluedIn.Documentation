@@ -46,7 +46,7 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
 ## Configure source
 
-1. Next to the **Data flow** field, select **New**.
+1. Next to the **Data flow** field, select **+ New**.
 
     ![data-flow-new.png](../../assets/images/microsoft-integration/azure-data-factory/data-flow-new.png)
 
@@ -60,7 +60,7 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
     1. In **Source type**, select **Dataset**.
 
-    1. Next to the **Dataset** field, select **New**.
+    1. Next to the **Dataset** field, select **+ New**.
 
         ![data-flow-new-dataset.png](../../assets/images/microsoft-integration/azure-data-factory/data-flow-new-dataset.png)
 
@@ -110,7 +110,7 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
     1. In **Sink type**, select **Dataset**.
 
-    1. Next to the **Dataset** field, select **New**.
+    1. Next to the **Dataset** field, select **+ New**.
 
         ![data-flow-sink-configuration.png](../../assets/images/microsoft-integration/azure-data-factory/data-flow-sink-configuration.png)
 
@@ -118,7 +118,7 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
     ![new-dataset-rest.png](../../assets/images/microsoft-integration/azure-data-factory/new-dataset-rest.png)
 
-1.  In the **Set properties** pane, enter the name for the dataset. Then, expand the **Linked service** dropdown and select **+ New**.
+1.  In the **Set properties** pane, enter the name for the dataset. Then, expand the **Linked service** dropdown list and select **+ New**.
 
     ![rest-set-properties.png](../../assets/images/microsoft-integration/azure-data-factory/rest-set-properties.png)
 
