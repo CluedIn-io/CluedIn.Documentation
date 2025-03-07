@@ -161,7 +161,7 @@ Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
 
         ![sink-settings.png](../../assets/images/microsoft-integration/azure-data-factory/sink-settings.png)
 
-## Debug and validate pipeline
+## Debug pipeline in ADF
 
 Once the source and sink are configured, you can debug the pipeline to ensure it works correctly.
 
@@ -169,8 +169,15 @@ Once the source and sink are configured, you can debug the pipeline to ensure it
 
 1. On the toolbar, select **Debug**.
 
+    ![data-flow-debug.png](../../assets/images/microsoft-integration/azure-data-factory/data-flow-debug.png)
+
 1. In the **Output** tab at the bottom of the window, monitor the pipeline run status.
 
-    Once triggered successfully, you should see data flowing into CluedIn.
+    ![data-flow-output.png](../../assets/images/microsoft-integration/azure-data-factory/data-flow-output.png)
 
-    ![after-debug.png](../../assets/images/microsoft-integration/azure-data-factory/after-debug.png)
+## Validate result in CluedIn
+
+Once the ADF pipeline is triggered successfully, you should see the data flowing into CluedIn. You can view the incoming records on the **Preview** tab of the data set.
+
+![after-debug.png](../../assets/images/microsoft-integration/azure-data-factory/after-debug.png)
+
