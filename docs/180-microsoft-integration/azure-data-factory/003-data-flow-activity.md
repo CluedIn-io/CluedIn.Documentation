@@ -24,7 +24,7 @@ The Data flow activity in ADF is ideal when data transformations such as aggrega
 
 - Create an ingestion endpoint and authorization token in CluedIn as described in [Add ingestion endpoint](https://documentation.cluedin.net/integration/endpoint#add-ingestion-point). 
 
-Configuring ADF pipeline with the Data flow activity consists of 4 steps:
+Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
 
 1.  [Creating a new pipeline](#ceate-pipeline)
     
@@ -60,7 +60,7 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
     1. In **Source type**, select **Dataset**.
 
-    1. Next to the **Dataset** field, select **+ New**.
+    1. Next to the **Dataset** dropdown list, select **+ New**.
 
         ![data-flow-new-dataset.png](../../assets/images/microsoft-integration/azure-data-factory/data-flow-new-dataset.png)
 
@@ -106,11 +106,11 @@ Configuring ADF pipeline with the Data flow activity consists of 4 steps:
 
     1. Enter the **Output stream name**.
 
-    1. In **Incoming stream**, make sure the data source created in the previous step is selected.
+    1. In **Incoming stream**, make sure the data source created in the [previous step](#configure-source) is selected.
 
     1. In **Sink type**, select **Dataset**.
 
-    1. Next to the **Dataset** field, select **+ New**.
+    1. Next to the **Dataset** dropdown list, select **+ New**.
 
         ![data-flow-sink-configuration.png](../../assets/images/microsoft-integration/azure-data-factory/data-flow-sink-configuration.png)
 
