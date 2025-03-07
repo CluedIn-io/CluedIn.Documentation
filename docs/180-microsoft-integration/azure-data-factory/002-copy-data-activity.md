@@ -22,7 +22,7 @@ Use the Copy data activity if you do not need to make any data transformations b
 
 - Make sure you have Azure Data Lake with some CSV data. 
 
-- Create an ingestion endpoint and authorization token in CluedIn as described in [Add ingestion endpoint](https://documentation.cluedin.net/integration/endpoint#add-ingestion-point). 
+- Create an ingestion endpoint and authorization token in CluedIn as described in [Add ingestion endpoint](https://documentation.cluedin.net/integration/endpoint#add-ingestion-endpoint). 
 
 Configuring an ADF pipeline with the Copy data activity consists of 4 steps:
 

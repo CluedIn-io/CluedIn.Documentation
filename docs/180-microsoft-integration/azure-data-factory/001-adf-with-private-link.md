@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Configure Azure Data Factory with private link
+title: Configure ADF with private link
 parent: Azure Data Factory Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/adf-integration/private-link
@@ -40,11 +40,11 @@ If you have any questions, you can request CluedIn support by sending an email t
 
     - **FQDN names** – enter your company CluedIn host name. The following names are provided as an example:
             
-        - app.company.com
+        - `app.company.com`
 
-        - clean.company.com
+        - `clean.company.com`
 
-        - cluedin.company.com
+        - `cluedin.company.com`
 
 1. Select **Create**.
 
