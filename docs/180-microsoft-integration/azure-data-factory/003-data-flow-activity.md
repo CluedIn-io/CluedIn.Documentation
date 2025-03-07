@@ -26,13 +26,15 @@ The Data flow activity in ADF is ideal when data transformations such as aggrega
 
 Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
 
-1.  [Creating a new pipeline](#ceate-pipeline)
+1. [Creating a new pipeline](#ceate-pipeline)
     
-2.  [Configuring the source](#configure-source)
+2. [Configuring the source](#configure-source)
     
-3.  [Configuring the sink](#configure-sink)
+3. [Configuring the sink](#configure-sink)
     
-4.  [Debugging the pipeline](#debug-and-validate-pipeline)
+4. [Debugging the pipeline](#debug-pipeline-in-adf)
+
+5. [Validating the result in CluedIn](#validate-result-in-cluedin)
 
 ## Create a new pipeline
 
@@ -154,11 +156,14 @@ Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
 
     - Set the **Http Compression type** to **GZip**.
 
+        {:.important}
+        Setting the **Http Compression type** to **GZip** is an important step. Missing this step may cause an error when starting the pipeline.
+
     - Set the **Batch size** to **10,000** to ensure smoother transfer.
 
         ![sink-settings.png](../../assets/images/microsoft-integration/azure-data-factory/sink-settings.png)
 
-## Debug and validate pipeline
+## Debug pipeline in ADF
 
 Once the source and sink are configured, you can debug the pipeline to ensure it works correctly.
 
@@ -166,8 +171,15 @@ Once the source and sink are configured, you can debug the pipeline to ensure it
 
 1. On the toolbar, select **Debug**.
 
+    ![data-flow-debug.png](../../assets/images/microsoft-integration/azure-data-factory/data-flow-debug.png)
+
 1. In the **Output** tab at the bottom of the window, monitor the pipeline run status.
 
-    Once triggered successfully, you should see data flowing into CluedIn.
+    ![data-flow-output.png](../../assets/images/microsoft-integration/azure-data-factory/data-flow-output.png)
 
-    ![after-debug.png](../../assets/images/microsoft-integration/azure-data-factory/after-debug.png)
+## Validate result in CluedIn
+
+Once the ADF pipeline is triggered successfully, you should see the data flowing into CluedIn. You can view the incoming records on the **Preview** tab of the data set.
+
+![after-debug.png](../../assets/images/microsoft-integration/azure-data-factory/after-debug.png)
+

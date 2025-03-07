@@ -26,13 +26,15 @@ Use the Copy data activity if you do not need to make any data transformations b
 
 Configuring an ADF pipeline with the Copy data activity consists of 4 steps:
 
-1.  [Creating a new pipeline](#ceate-pipeline)
+1. [Creating a new pipeline](#ceate-pipeline)
     
-2.  [Configuring the source](#configure-source)
+2. [Configuring the source](#configure-source)
     
-3.  [Configuring the sink](#configure-sink)
+3. [Configuring the sink](#configure-sink)
     
-4.  [Debugging the pipeline](#debug-and-validate-pipeline)
+4.  [Debugging the pipeline](#debug-pipeline)
+
+5. [Validating the result in CluedIn](#validate-result-in-cluedin)
 
 ## Create a new pipeline
 
@@ -106,20 +108,20 @@ Configuring an ADF pipeline with the Copy data activity consists of 4 steps:
 
     ![configure-sink-request-method.png](../../assets/images/microsoft-integration/azure-data-factory/configure-sink-request-method.png)
 
-## Debug and validate pipeline
+## Debug pipeline
 
 Once the source and sink are configured, you can debug the pipeline to ensure it is working correctly.
 
 **To debug the pipeline**
 
-1. On the toolbar, select **Debug**. You can monitor the status of the pipeline run in the **Output** tab at the bottom of the window.
+1. On the toolbar, select **Debug**.
+
+1. Monitor the status of the pipeline run on the **Output** tab at the bottom of the window.
 
     ![debug-pipeline.png](../../assets/images/microsoft-integration/azure-data-factory/debug-pipeline.png)
 
-The following image illustrates the ingestion endpoint in CluedIn before debugging the pipeline.
+## Validate result in CluedIn
 
-![before-debug.png](../../assets/images/microsoft-integration/azure-data-factory/before-debug.png)
-
-The following image illustrates the ingestion endpoint in CluedIn after debugging the pipeline.
+Once the ADF pipeline is triggered successfully, you should see the data flowing into CluedIn. You can view the incoming records on the **Preview** tab of the data set.
 
 ![after-debug.png](../../assets/images/microsoft-integration/azure-data-factory/after-debug.png)
