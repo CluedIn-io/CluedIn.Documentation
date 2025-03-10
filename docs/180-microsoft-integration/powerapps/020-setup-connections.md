@@ -3,45 +3,58 @@ layout: cluedin
 nav_order: 20
 parent: Power Apps Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/powerapps/setup-credentials
-title: Credentials and application setup
+permalink: /microsoft-integration/powerapps/setup-connections
+title: Connections setup
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
-## Connections Setup
+To be able to automate the workflow creation, you need to manually create some connections and share them with the Application User.
 
-To be able to automate the workflow creation, some **Connection** need to be manually created and shared with the Application User.
+## Create a connection
 
+You need to create two connections: Approvals and Dataverse.
 
-### Create Connection
+**To create a connection**
+
 1. In Power Apps, on the left navigation pane, select **Connections**.
 
 1. Select **New connection**.
 
-1. In the list that appears, find and select Connection you want to create. In this sample, we are selecting the **Approvals**.
+1. In the list that appears, find and select a connection that you want to create. In this example, we are selecting **Approvals**.
 
 1. Select **Create**.
 
     ![Create Approval Connection Id](./images/create-approval-connection-id.png)
 
-### Getting the Connection Id
-- Open the Approvals connection that you've just created, and then copy the connection ID in the URL field.
-
-    ![Create Approval Connection Id](./images/create-approval-connection-id2.png)
-
-### Share Connection with Application User
-- We need to grant access to the Application User too. On the top section of the page, Click the **Share** button. Find and Select the App User, grant **Can use** or **Can edit** permission and click **Save**
-
-    ![Share Approval Connection](./images/share-approval-connection.png)
-
-### Other Connections need to be created
-
-1. Dataverse
+1. Create the Dataverse connection following steps 1–4.
 
     ![Dataverse Connection](./images/create-dataverse-connection-id.png)
 
-### Organization Settings for Connection Id
+## Get the connection ID
+
+Open the Approvals connection that you've just created, and then copy the connection ID in the URL field.
+
+
+![Create Approval Connection Id](./images/create-approval-connection-id2.png)
+
+## Share connection with the application user
+
+1. On the top of the page, select **Share**.
+
+1. Find and select the application user. Then, grant the **Can use** or **Can edit** permission.
+
+ 1. Select **Save**.
+
+    ![Share Approval Connection](./images/share-approval-connection.png)
+
+## Add connection ID to organization settings
+
+1. In CluedIn, on the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
 
 1. In **Approval Connection Id**, enter the Approval connection ID. This connection ID will allow you to create the approval workflow.
 

@@ -9,34 +9,43 @@ tags: ["integration", "microsoft", "powerautomate", "approval", "workflow"]
 last_modified: 2023-05-17
 ---
 
-This feature enables you to automate the creation of the workflow for the batch approval process. If we process the data (regardless of the source) and the system identifies that the EntityType used has been tagged for the Approval Process, the data will be halted and the approval process will start and wait for the User/s approval before we continue the data processing.
+This feature enables you to automate the creation of the workflow for the batch approval process. If you process the data (regardless of the source) and the system identifies that the entity type used has been tagged for the approval process, the data will be halted, and the approval process will start and wait for the user's approval to continue the data processing.
 
 **Prerequisites**
 
-- Dataverse Connection
-- Approval Connection
+- Dataverse connection
+- Approval connection
 
-Please refer to this [Setup Connections](../020-setup-connections.md) link.
+For more information, refer to this [link](/microsoft-integration/powerapps/setup-credentials).
 
-### Settings
+**To enable the batch approval workflow**
 
-- To enable this feature, you have to Navigate to **Management** > **Entity Types**, select the Entity Type you want to sync and turn on the switch for **Enable for Batch Approval Workflow** in the settings.
+1. In CluedIn, on the navigation pane, go to **Management** > **Entity Types**, and then select the entity type that you want to sync.
+
+1. Select **Edit** and then turn on the toggle for **Enable for Batch Approval Workflow**.
+
+1. Select **Save**.
     
     ![Create workflow for Batch Approval](../images/batch-approval-entitytypes-page-setting.png)
 
-### Dataverse - Approval Queue Table
+    After enabling this feature, a new table (Approval Queue Table) will be created in Dataverse.
 
-- A new table will be created in Dataverse upon Enabling this feature. This table will serve as a storage of the Cluedin Data or information on the data waiting for approval.
-- The **CluedIn Approval Queue ID** is the Id of the Data that we are trying to approve in this process. _(A page to show this data in CluedIn is coming soon)_.
-    ![Approval Queue Table](../images/approval-queue-table.png)
+**Approval Queue table in Dataverse**
 
-### Workflow
+This table will serve as a storage of the CluedIn data or information on the data waiting for approval.
 
-- The content of the approval workflow will be composed of events such as condition, Approval, variables and HTTP. A 60-second cycle will occur to check if there is data in **Approval Queue** table. Once we recieve a response in the Approval Process, we send the Approval details together with the CluedIn Approval Queue IDs to the CluedIn API via HTTP event.
+The **CluedIn Approval Queue ID** is the ID of the data that we are trying to approve in this process.
 
-    ![Batch Approval Workflow](../images/batch-approval-workflow.png)
+![Approval Queue Table](../images/approval-queue-table.png)
 
-### Notifications
-- Once the Automation has been done, you can expect a notification for creating the Approval Queue Table/Columns and the creation of the Batch Approval Workflow.
+**Workflow**
+
+The content of the approval workflow will be composed of events such as condition, approval, variables, and HTTP. A 60-second cycle will occur to check if there is data in the **Approval Queue** table. Once we receive a response in the Approval Process, we send the Approval details together with the CluedIn Approval Queue IDs to the CluedIn API via an HTTP event.
+
+![Batch Approval Workflow](../images/batch-approval-workflow.png)
+
+**Notifications**
+
+Once the automation has been done, you can expect a notification for creating the Approval Queue Table/Columns and the creation of the Batch Approval Workflow.
 
 ![Batch Approval Workflow notification](../images/batch-approval-workflow-notification.png)
