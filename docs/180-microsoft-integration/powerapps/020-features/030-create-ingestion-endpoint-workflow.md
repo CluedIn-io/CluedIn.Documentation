@@ -4,30 +4,16 @@ nav_order: 30
 parent: Features
 grand_parent: Power Apps Integration
 permalink: /microsoft-integration/powerapps/features/create-workflow
-title: Create Power Automate workflow
+title: Create ingestion endpoint workflow
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17
 ---
 
-This feature allows you to automate the creation of Power Automate workflow that will send the data from Dataverse to CluedIn via ingestion endpoint.
+This feature allows you to automate the creation of workflow that will send the data from Dataverse to CluedIn via ingestion endpoint.
 
 **Prerequisites**
 
-You'll need to provide the Dataverse connection ID. To generate the the Dataverse connection ID:
-
-1. In Power Apps, on the left navigation pane, select **Connections**.
-
-1. Select **New connection**.
-
-1. In the list that appears, find and select **Microsoft Dataverse**.
-
-1. Select **Create**.
-
-    ![Create Dataverse Connection Id](../images/create-dataverse-connection-id.png)
-
-1. Open the Dataverse connection that you've just created, and then copy the connection ID in the URL field.
-
-    ![Create Dataverse Connection Id](../images/create-dataverse-connection-id2.png)
+- Dataverse connection. For more information, refer to this [link](/microsoft-integration/powerapps/setup-credentials).
 
 **To automate the workflow creation**
 
@@ -35,9 +21,7 @@ You'll need to provide the Dataverse connection ID. To generate the the Datavers
 
 1. In **Create workflow to Ingest Data to CluedIn**, turn on the toggle.
 
-1. In **Dataverse Connection Id**, enter the Dataverse connection ID. This connection ID will allow you to access the Power Apps table in the Power Automate workflow.
-
-    ![Create Power Automate Workflow](../images/power-automate-workflow-setting.png)
+    ![Create workflow to Ingest Data to CluedIn](../images/create-workflow-to-ingest-data-setting.png)
 
 **Ingestion endpoint**
 

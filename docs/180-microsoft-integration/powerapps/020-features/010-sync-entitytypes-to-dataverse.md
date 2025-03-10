@@ -19,11 +19,15 @@ This feature allows you to sync CluedIn entity types, vocabularies, and vocabula
 
     ![Sync Entity Types to Dataverse Tables](../images/sync-cluedin-entitytypes-setting.png)
 
+    Another way to enable this feature is to navigate to **Management** > **Entity Types** and select the entity type you want to sync. Then, select **Edit** and turn on the toggle for **Sync CluedIn Entity Types to Dataverse Table**. Finally, save changes.
+
+    ![Sync Entity Types to Dataverse Tables](../images/sync-cluedin-entitytypes-page-setting.png)
+
     All the vocabulary keys below will be created as columns in the Dataverse table.
 
     ![Sync Entity Types to Dataverse Tables](../images/entity-type-dog-details.png)
 
-    Once the synchronization has been successfully completed, you'll receive two notifications: **Dataverse Table Created** and **Dataverse Column Created/Updated**.
+    Once the synchronization has been completed, you'll receive two notifications: **Dataverse Table Created** and **Dataverse Column Created/Updated**.
 
     ![Sync Entity Types to Dataverse Tables Notification](../images/sync-cluedin-entitytypes-notification.png)
 
