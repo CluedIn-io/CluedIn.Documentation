@@ -20,7 +20,7 @@ Your Azure Firewall should cover the following:
 - **CluedIn resource access** – resources needed for the CluedIn installation.
 - **CluedIn and custom enrichers** - external web endpoints to enrich your data.
 
-Additionally, if you want to use [Power Automate workflows](/workflow) in CluedIn, you need to add specific URLs to your Azure Firewall as described in [Power Automate](#power-automate).
+Additionally, if you want to use Power Automate integration for [workflows](/workflow) in CluedIn and/or [Power Apps integration](/microsoft-integration/powerapps), you need to add specific URLs to your Azure Firewall as described [here](#power-apps-and-power-automate)
 
 ## AKS and CluedIn resources
 
@@ -54,9 +54,9 @@ Because both enrichers call external addresses, this traffic will leave the Kube
 {: .important }
 If the rules have not been added, the installation may fail.
 
-## Power Automate
+## Power Apps and Power Automate
 
-If you want to use [workflows](/workflow) in CluedIn (Power Automate integration), you need to add the following domains to your Azure Firewall:
+If you want to use Power Automate integration for [workflows](/workflow) in CluedIn and/or [Power Apps integration](/microsoft-integration/powerapps), you need to add the following rules to your Azure Firewall:
 
 - `https://api.flow.microsoft.com`
 - `https://<env-name>.api.crm4.dynamics.com` – for example, `https://org7bfc52cb.api.crm4.dynamics.com`
@@ -65,3 +65,4 @@ If you want to use [workflows](/workflow) in CluedIn (Power Automate integration
 - `https://api.powerapps.com`
 - `https://*.<region>.logic.azure.com` – for example, `https://prod-251.westeurope.logic.azure.com`
 - `https://<name>.consent.azure-apihub.net` – for example, `https://europe002-002.consent.azure-apihub.net`
+- `https://*.azure-apihub.net` – for example, `https://europe002-002.consent.azure-apihub.net` and  `https://europe002-002.azure-apihub.net`
