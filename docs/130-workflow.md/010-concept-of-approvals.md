@@ -7,6 +7,9 @@ nav_order: 1
 has_children: false
 ---
 
+{:.important}
+To use the **Workflow** module in CluedIn, you need to configure [Power Automate integration](/microsoft-integration/power-automate).
+
 Let's explore the concept of approvals in CluedIn using an example of rule modification.
 
 ![concept-of-approvals.gif](../../assets/images/workflow/concept-of-approvals.gif)
