@@ -67,7 +67,7 @@ For more information, see [Register an application in Microsoft Entra ID](https:
 
 ## Pre-configuration steps in Power Apps
 
-In order to manage your master data from CluedIn directly in Power Apps Dataverse tables, you need to prepare a Power Apps environment. This involves creating a new security role and a new application user. These will be used to grant access to the Power Apps environment to the application that you created in [Pre-configuration steps in Microsoft Entra ID](#pre-configurationp-steps-in-microsoft-entra-id),
+In order to manage your master data from CluedIn directly in Power Apps Dataverse tables, you need to prepare a Power Apps environment. This involves creating a new security role and a new application user. These will be used to grant access to the Power Apps environment to the application that you created in [Pre-configuration steps in Microsoft Entra ID](#pre-configurationp-steps-in-microsoft-entra-id).
 
 **Prerequisites**
 
@@ -156,7 +156,7 @@ In order to manage your master data from CluedIn directly in Power Apps Datavers
 To enable communication between Dataverse tables and CluedIn and to automate the creation of workflows for ingesting the data from Dataverse to CluedIn, you need to manually create a Dataverse connection and share it with the application user.
 
 {:.important}
-The workflows in Power Apps integration are different in terms of configuration from the **Workflows** module in CluedIn. For more information, see [Power Automate integration](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/3903/Workflows-configuration).
+The workflows in Power Apps integration are different in terms of configuration from the **Workflows** module in CluedIn. For more information, see [Power Automate integration](/microsoft-integration/power-automate).
 
 **To create a new connection**
 

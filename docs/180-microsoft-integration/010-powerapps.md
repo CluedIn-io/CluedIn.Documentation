@@ -24,6 +24,6 @@ Power Apps integration offers the following benefits:
     
 - Auto-mapping of columns, keys, and relationships.
 
-To achieve a **2-way synchronization between Dataverse and CluedIn**, the Power Apps integration also involves **Power Automate workflows**. However, these workflows should not be confused with the approval workflows that are available in the **Workflow** module in CluedIn. We discuss the approval workflows as part of [Power Automate integration](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/3929/Power-Automate-integration).
+To achieve a **2-way synchronization between Dataverse and CluedIn**, the Power Apps integration also involves **Power Automate workflows**. However, these workflows should not be confused with the approval workflows that are available in the **Workflow** module in CluedIn. We discuss the approval workflows as part of [Power Automate integration](/microsoft-integration/power-automate).
 
-To sync master data between CluedIn and the Dataverse platform, start from the [Power Apps pre-configuration guide](/Documentation/Microsoft-integration/Power-Apps-integration/Power-Apps-pre%2Dconfiguration-guide).
+To sync master data between CluedIn and the Dataverse platform, start from the [Power Apps pre-configuration guide](/microsoft-integration/powerapps/pre-configuration-guide).

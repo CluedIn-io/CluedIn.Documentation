@@ -13,7 +13,7 @@ last_modified: 2025-03-13
 1. TOC
 {:toc}
 
-In this guide, you will learn how to configure Power Apps in CluedIn.
+In this guide, you will learn how to configure Power Apps integration in CluedIn.
 
 Make sure that you have completed all of the actions described in [Power Apps pre-configuration guide](/microsoft-integration/powerapps/pre-configuration-guide).
 
@@ -96,3 +96,7 @@ Power Apps integration offers a variety of features for syncing data between Clu
         For more information, see [Create streams](/microsoft-integration/powerapps/features/create-streams).
 
 1. In the upper-right corner, select **Save**.
+
+## Next steps
+
+Explore different [features](/microsoft-integration/powerapps/features) that are available as part of Power Apps integration in CluedIn.
