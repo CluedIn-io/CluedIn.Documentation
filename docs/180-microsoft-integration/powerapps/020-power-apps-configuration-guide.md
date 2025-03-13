@@ -10,7 +10,7 @@ last_modified: 2025-03-13
 ---
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 In this guide, you will learn how to configure Power Apps integration in CluedIn.
@@ -77,7 +77,7 @@ Power Apps integration offers a variety of features for syncing data between Clu
 
     1. If you want to allow specific users to view the workflow in Power Apps, add the email addresses of those users in **Workflow Access Users List**.
 
-    1. Enter the **Dataverse Connection ID**. This is the ID that you found during the pre-configuration stage in [Create a connection](/microsoft-integration/powerapps/pre-configuration-guide#create-a-dataverse-connections).
+    1. Enter the **Dataverse Connection ID**. This is the ID that you found during the pre-configuration stage in [Create a connection](/microsoft-integration/powerapps/pre-configuration-guide#create-a-dataverse-connection).
 
         ![ingestion-workflow.png](../../assets/images/microsoft-integration/power-apps/ingestion-workflow.png)
 
@@ -85,7 +85,7 @@ Power Apps integration offers a variety of features for syncing data between Clu
 
 1. If you want to create a stream to export golden records from CluedIn to a Dataverse table:
 
-    1. Make sure you have the Dataverse export target installed in your CluedIn instance. It should be available in the list of export targets (**Consume** > **Export Targets** > **Add Export Target**). You do not need to configure the Dataverse export target because it will be configured automatically.
+    1. Make sure you have the [Dataverse export target](/consume/export-targets/dataverse-connector) installed in your CluedIn instance. It should be available in the list of export targets (**Consume** > **Export Targets** > **Add Export Target**). You do not need to configure the Dataverse export target because it will be configured automatically.
 
     1. Make sure you have enabled **Sync CluedIn Entity Types to Dataverse Table** for entity types of golden records that you want to export to a Dataverse table. 
 

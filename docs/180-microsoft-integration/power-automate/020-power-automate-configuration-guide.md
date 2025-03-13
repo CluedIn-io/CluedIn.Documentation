@@ -32,7 +32,7 @@ This guide is for public CluedIn instances. If you have a zero-trust corporate e
 
     - **Client Username** – an email of a Microsoft Entra ID user for handling workflows. This is the user that you created during the pre-configuration stage in [Create a user account](/microsoft-integration/power-automate/pre-configuration-guide#create-a-user-account). You can find the needed value in the **User principal name** field.
 
-    - **Client Password** – a password of a Microsoft Entra ID user for handling workflows. This is the user that you created during the pre-configuration stage in [Create a user account](/microsoft-integration/power-automate/pre-configuration-guide#anchor=create-a-user-account).
+    - **Client Password** – a password of a Microsoft Entra ID user for handling workflows. This is the user that you created during the pre-configuration stage in [Create a user account](/microsoft-integration/power-automate/pre-configuration-guide#create-a-user-account).
 
     - **Client ID** – a unique identifier assigned to an application when you registered it in Microsoft Entra ID. This is the application that you created during the pre-configuration stage in [Create a service application](/microsoft-integration/power-automate/pre-configuration-guide#create-a-service-application). You can find this value in **Application (client) ID**.
 
