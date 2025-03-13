@@ -10,7 +10,7 @@ last_modified: 2025-03-13
 ---
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 In this guide, you will learn how to prepare for configuring Power Apps integration in CluedIn. The instructions in this guide apply to both public and private CluedIn instances, as Power Apps is hosted in your environment.
@@ -47,7 +47,7 @@ For more information, see [Register an application in Microsoft Entra ID](https:
 
     On the application's **Overview** page, you can find the **Application (client) ID** and **Directory (tenant) ID** that you will need to configure Power Apps integration in CluedIn as described in [Power Apps configuration guide](/microsoft-integration/powerapps/configuration-guide).
 
-    ![app-overview.png](../../assets/images/microsoft-integration/power-apps/app-overview.png.png)
+    ![app-overview.png](../../assets/images/microsoft-integration/power-apps/app-overview.png)
 
 ### Create a client secret
 
@@ -67,7 +67,7 @@ For more information, see [Register an application in Microsoft Entra ID](https:
 
 ## Pre-configuration steps in Power Apps
 
-In order to manage your master data from CluedIn directly in Power Apps Dataverse tables, you need to prepare a Power Apps environment. This involves creating a new security role and a new application user. These will be used to grant access to the Power Apps environment to the application that you created in [Pre-configuration steps in Microsoft Entra ID](#pre-configurationp-steps-in-microsoft-entra-id).
+In order to manage your master data from CluedIn directly in Power Apps Dataverse tables, you need to prepare a Power Apps environment. This involves creating a new security role and a new application user. These will be used to grant access to the Power Apps environment to the application that you created in [Pre-configuration steps in Microsoft Entra ID](#pre-configuration-steps-in-microsoft-entra-id).
 
 **Prerequisites**
 

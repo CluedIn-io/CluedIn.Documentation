@@ -26,7 +26,7 @@ This guide is for public CluedIn instances. If you have a zero-trust corporate e
 
 ## Verify a custom connector
 
-1. Open the Power Automate environment that you prepared during pre-configuration stage in [Configure an environment](/microsoft-integration/power-automate/configuration-guide#configure-an-environment), and then select **Custom connectors**.
+1. Open the Power Automate environment that you prepared during pre-configuration stage in [Configure an environment](/microsoft-integration/power-automate/pre-configuration-guide#configure-an-environment), and then select **Custom connectors**.
 
     Alternatively, you can use the following link, but make sure you provide your environment ID: `https://make.powerautomate.com/environments/<env-id>/connections/custom`.
 

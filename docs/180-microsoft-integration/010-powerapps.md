@@ -12,7 +12,7 @@ Power Apps is a key component of the Power Platform, which is Microsoft's suite 
 
 Power Apps can be integrated with CluedIn to enable you to **manage your master data directly in the Dataverse platform** and **automatically sync it with CluedIn**.
 
-![dataverse.png](/.attachments/dataverse-49d149dd-e53b-4e19-8b7b-c6ea276ee6e4.png)
+![power-apps-diagram.png](../../assets/images/microsoft-integration/power-apps/power-apps-diagram.png)
 
 Power Apps integration offers the following benefits:
 
