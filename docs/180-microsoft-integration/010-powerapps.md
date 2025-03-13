@@ -7,10 +7,6 @@ nav_order: 010
 has_children: true
 tags: ["integration", "microsoft", "powerapps", "dataverse", "powerautomate"]
 ---
-## On this page
-{: .no_toc .text-delta }
-1. TOC
-{:toc}
 
 Power Apps is a key component of the Power Platform, which is Microsoft's suite of tools designed for low-code development, automation, and data analysis. Power Apps allows you to build custom applications with minimal coding. In Power Apps, you can connect to Dataverse, which provides a unified and simplified data schema that allows you to integrate data from multiple sources into a single store. Dataverse is a scalable data service and app platform that lets you securely store and manage data used by business applications.
 

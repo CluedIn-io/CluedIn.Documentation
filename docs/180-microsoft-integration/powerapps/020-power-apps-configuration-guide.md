@@ -27,7 +27,7 @@ Basic Power Apps configuration is required to establish connection between your 
 
 1. In **Base URL**, enter the root address used to access resources within your Power Apps environment. You can find this value in your [Power Apps](https://make.powerapps.com/) environment: in the upper-right corner of the Power Apps page, select the settings icon, and then select **Developer Resources**. Copy the value in **Web API endpoint** and paste it to the **URL** field in CluedIn. You do not need to copy the version of the API (`/api/data/v9.2`).
 
-    ![dev-resources-base-url.png](../../assets/images/microsoft-integration\power-apps\dev-resources-base-url.png)
+    ![dev-resources-base-url.png](../../assets/images/microsoft-integration/power-apps/dev-resources-base-url.png)
 
 1. In **Tenant Id**, enter a unique identifier for your Microsoft Entra ID tenant in which your application is registered. This is the application that you created during the pre-configuration stage in [Register a new application](/microsoft-integration/powerapps/pre-configuration-guide#register-a-new-application). You can find this value in **Directory (tenant) ID**.
 
@@ -37,7 +37,7 @@ Basic Power Apps configuration is required to establish connection between your 
 
 1. In **Environment Id**, enter a unique identifier assigned to you Power Apps environment. This is the environment ID that you found during the pre-configuration stage in [Find your environment ID](/microsoft-integration/powerapps/pre-configuration-guide#find-your-environment-id)
 
-    ![cluedin-power-apps.png](../../assets/images/microsoft-integration\power-apps\cluedin-power-apps.png)
+    ![cluedin-power-apps.png](../../assets/images/microsoft-integration/power-apps/cluedin-power-apps.png)
 
 1. In the upper-right corner, select **Save**.
 
@@ -57,7 +57,7 @@ Power Apps integration offers a variety of features for syncing data between Clu
 
     1. Enter the entity types that you want to sync. If you want to sync multiple entity types, separate them with a comma (for example, _/Type1,/Type2,/Type3_). 
 
-        ![sync-entity-types.png](../../assets/images/microsoft-integration\power-apps\sync-entity-types.png)
+        ![sync-entity-types.png](../../assets/images/microsoft-integration/power-apps/sync-entity-types.png)
 
         Each entity type will be synced into a separate Dataverse table. For more information, see [Sync entity types to Dataverse tables](/microsoft-integration/powerapps/features/sync-entitytypes).
 
@@ -67,7 +67,7 @@ Power Apps integration offers a variety of features for syncing data between Clu
 
     1. Enter the name of the Dataverse table that you want to sync. This should be the logical name of the Dataverse table. If you want to sync multiple tables, separate them with a comma (for example, _logical_name1,logical_name2,logical_name3_).
 
-        ![sync-dataverse-table.png](../../assets/images/microsoft-integration\power-apps\sync-dataverse-table.png)
+        ![sync-dataverse-table.png](../../assets/images/microsoft-integration/power-apps/sync-dataverse-table.png)
 
         Each table will be synced into a separate CluedIn entity type and vocabulary associated with that entity type. The columns from the table will be synced into the vocabulary keys of the vocabulary associated with the entity type. For more information, see [Sync Dataverse tables to CluedIn entity types and vocabularies](/microsoft-integration/powerapps/features/sync-dataverse).
 
@@ -79,7 +79,7 @@ Power Apps integration offers a variety of features for syncing data between Clu
 
     1. Enter the **Dataverse Connection ID**. This is the ID that you found during the pre-configuration stage in [Create a connection](/microsoft-integration/powerapps/pre-configuration-guide#create-a-dataverse-connections).
 
-        ![ingestion-workflow.png](../../assets/images/microsoft-integration\power-apps\ingestion-workflow.png)
+        ![ingestion-workflow.png](../../assets/images/microsoft-integration/power-apps/ingestion-workflow.png)
 
         For more information, see [Create ingestion endpoint workflow](/microsoft-integration/powerapps/features/create-workflow).
 
@@ -91,7 +91,7 @@ Power Apps integration offers a variety of features for syncing data between Clu
 
     1. Turn on the toggle next to **Create CluedIn Stream**.
 
-        ![create-stream.png](../../assets/images/microsoft-integration\power-apps\create-stream.png)
+        ![create-stream.png](../../assets/images/microsoft-integration/power-apps/create-stream.png)
 
         For more information, see [Create streams](/microsoft-integration/powerapps/features/create-streams).
 
