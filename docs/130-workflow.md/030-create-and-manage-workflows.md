@@ -11,6 +11,9 @@ has_children: false
 - TOC
 {:toc}
 
+{:.important}
+To use the **Workflow** module in CluedIn, you need to configure [Power Automate integration](/microsoft-integration/power-automate).
+
 In this article, you will learn how to create workflows for automating certain approval processes. With workflows, you can easily streamline and track such processes as modifying vocabularies, inviting users, creating rules, and more.
 
 ![workflows-can-help-you-with.png](../../assets/images/workflow/workflows-can-help-you-with.png)
@@ -34,7 +37,7 @@ Currently, you can automate the approval process for certain actions in CluedIn.
 | Receiving internal CluedIn notifications | Notification | If somebody receives an internal notification in CluedIn, the same notification is sent to the external systems such as Outlook or the Approval app in Teams. |
 | Inviting a new user to CluedIn | User Invite Approval | If somebody tries to add a new user to CluedIn, an approval request is sent to the users with the same or higher claim access level. |
 
-_* The approval requests for these actions are sent only if the **Approvals for creating items** option is enabled in [workflow settings](/workflow/prerequisites#cluedin-prerequisites)._
+_* The approval requests for these actions are sent only if the **Approvals for creating items** option is enabled in [workflow settings](/microsoft-integration/power-automate/configuration-guides)._
 
 _* *The approval requests for this action are sent only if the [entity type](/management/entity-type) of the records has the **Batch approval workflow** option enabled._
 

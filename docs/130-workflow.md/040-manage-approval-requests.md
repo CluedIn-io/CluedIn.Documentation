@@ -11,6 +11,9 @@ has_children: false
 - TOC
 {:toc}
 
+{:.important}
+To use the **Workflow** module in CluedIn, you need to configure [Power Automate integration](/microsoft-integration/power-automate).
+
 In this article, you will learn how to view, approve, and reject approval requests sent from the Power Automate widget in CluedIn.
 
 ## View pending approval requests
