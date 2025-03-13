@@ -20,7 +20,7 @@ This guide is for public CluedIn instances. If you have a zero-trust corporate e
 
 ## Set up a firewall policy
 
-To enable CluedIn to call Power Automate, you need to add specific rules to your Azure Firewall as described [here](/deployment/infra-how-tos/configure-firewall#power-automate).
+To enable CluedIn to call Power Automate, you need to add specific rules to your Azure Firewall as described [here](/deployment/infra-how-tos/configure-firewall#power-apps-and-power-automate).
 
 Power Automate integration also involves Power Apps, which is used for access to Dataverse where the CluedIn custom connector is stored. That's why you need to add firewall rules both for Power Automate and Power Apps.
 
@@ -72,7 +72,7 @@ In this environment, the user account created in the previous step is granted Sy
 
     ![power-automate-create-env.png](../../assets/images/microsoft-integration/power-automate/power-automate-create-env.png)
 
-1. Add the user account that you created in the [previous section](#create-user-account) to the list of users in the environment. To do this, follow the instruction in [Add users to an environment that has a Dataverse database](https://learn.microsoft.com/en-us/power-platform/admin/add-users-to-environment#add-users-to-an-environment-that-has-a-dataverse-database).
+1. Add the user account that you created in the [previous section](#create-a-user-account) to the list of users in the environment. To do this, follow the instruction in [Add users to an environment that has a Dataverse database](https://learn.microsoft.com/en-us/power-platform/admin/add-users-to-environment#add-users-to-an-environment-that-has-a-dataverse-database).
 
     As a result, the user should be available in the list of users for the environment. On the following screenshot, the **Username** has `cluedin.com` as the domain name. This is because the user was created in the CluedIn tenant in Microsoft Entra ID. Your user will have the domain name that you specify when creating a user.
 
@@ -133,4 +133,4 @@ Note that when you register a new application in Microsoft Entra ID, a service p
 
 ## Next steps
 
-Now that you have completed all pre-configuration steps, start the configuration of workflows in CluedIn using our [Configuration guide](/Documentation/Workflows/Workflows-configuration/Configuration-guide).
+Now that you have completed all pre-configuration steps, start the configuration of workflows in CluedIn using our [Power Automate configuration guide](/microsoft-integration/power-automate/configuration-guide).

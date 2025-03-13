@@ -15,7 +15,7 @@ last_modified: 2025-03-13
 
 In this guide, you will learn how to configure and register a custom connector in CluedIn.
 
-Make sure that you have completed all of the actions described in [Pre-configuration guide](/microsoft-integration/power-automate/pre-configuration-guide).
+Make sure that you have completed all of the actions described in [Power Automate pre-configuration guide](/microsoft-integration/power-automate/pre-configuration-guide).
 
 {:.important}
 This guide is for public CluedIn instances. If you have a zero-trust corporate environment, contact our CluedIn support at [support@cluedin.com](mailto:support@cluedin.com) to configure workflows for your use case.

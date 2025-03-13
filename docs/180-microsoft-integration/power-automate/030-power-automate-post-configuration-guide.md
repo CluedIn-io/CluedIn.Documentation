@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 20
+nav_order: 30
 parent: Power Automate Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/power-automate/post-configuration-guide
@@ -40,7 +40,7 @@ This guide is for public CluedIn instances. If you have a zero-trust corporate e
 
     ![custom-connector-definition.png](../../assets/images/microsoft-integration/power-automate/custom-connector-definition.png)
 
-    If you see green checkboxes for all items, it means that the custom connector has been configured successfully. Now, you can start [creating workflows](/Documentation/Workflows/Create-and-manage-workflows) in CluedIn.
+    If you see green checkboxes for all items, it means that the custom connector has been configured successfully. Now, you can start [creating workflows](/workflow/create-and-manage-workflows) in the **Workflow** module in CluedIn.
 
 ## Troubleshooting
 
@@ -79,3 +79,7 @@ After you [create](/workflow/create-and-manage-workflows) a workflow in CluedIn,
 ![failed-trigger.png](../../assets/images/microsoft-integration/power-automate/failed-trigger.png)
 
 To fix this error, register the connector again as described in the [previous](#no-custom-connector) section.
+
+## Next steps
+
+Once you have verified that the CluedIn custom connector has been successfully configured, you can start [creating workflows](/workflow/create-and-manage-workflows) in the **Workflow** module in CluedIn.

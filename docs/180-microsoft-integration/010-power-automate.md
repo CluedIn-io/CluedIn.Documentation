@@ -3,7 +3,7 @@ layout: cluedin
 title: Power Automate Integration
 parent: Microsoft Integration
 permalink: /microsoft-integration/power-automate
-nav_order: 020
+nav_order: 010
 has_children: true
 tags: ["integration", "microsoft", "powerapps", "dataverse", "powerautomate"]
 ---
@@ -26,12 +26,13 @@ The following screenshot shows an example of a workflow that is created in the P
 
 ![create-workflow.png](../../assets/images/microsoft-integration/power-automate/create-workflow.png)
 
-The CluedIn custom connector has predefined triggers that correspond to specific events in CluedIn. To install the CluedIn custom connector, you need to complete our [Power Automate pre-configuration guide](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/3898/Pre-configuration-guide) and [Power Automate configuration guide](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/3900/Power-Automate-configuration-guide).
+The CluedIn custom connector has predefined triggers that correspond to specific events in CluedIn. To install the CluedIn custom connector, you need to complete our [Power Automate pre-configuration guide](/microsoft-integration/power-automate/pre-configuration-guide) and [Power Automate configuration guide](/microsoft-integration/power-automate/configuration-guide).
 
-**Important!** The CluedIn custom connector is an underlying element of the integration between Power Automate and CluedIn. You cannot create workflows without CluedIn custom connector.
+{:.important}
+The CluedIn custom connector is an underlying element of the integration between Power Automate and CluedIn. You cannot create workflows without CluedIn custom connector.
 
 The CluedIn custom connector and its connector references are **stored in a Dataverse table** within a dedicated Power Platform environment. Therefore, it is essential to have a dedicated environment with Dataverse as the data store. Without Dataverse, there is no location to store the CluedIn custom connector, and the workflows will not function.
 
 ![power-automate-diagram.png](../../assets/images/microsoft-integration/power-automate/power-automate-diagram.png)
 
-To use workflows in CluedIn, start from the [Power Automate pre-configuration guide](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/3898/Pre-configuration-guide).
+To use workflows in CluedIn, start from the [Power Automate pre-configuration guide](/microsoft-integration/power-automate/pre-configuration-guide).
