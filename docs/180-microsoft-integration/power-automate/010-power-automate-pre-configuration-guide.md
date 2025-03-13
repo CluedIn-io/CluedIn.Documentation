@@ -10,7 +10,7 @@ last_modified: 2025-03-13
 ---
 ## On this page
 {: .no_toc .text-delta }
-1. TOC
+- TOC
 {:toc}
 
 In this guide, you will learn how to prepare for configuring Power Automate integration for using workflows in CluedIn. The instructions in this guide are applicable to the current version of Power Automate ([2502.2](https://learn.microsoft.com/en-us/power-platform/released-versions/flow-portal/2502.2)) and Dataverse  ([9.2.25031.00154](https://learn.microsoft.com/en-us/dynamics365/released-versions/weekly-releases/update25031)).
