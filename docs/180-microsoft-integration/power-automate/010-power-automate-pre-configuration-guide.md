@@ -82,23 +82,6 @@ In this environment, the user account created in the previous step is granted Sy
 
     ![system-administrator-role.png](../../assets/images/microsoft-integration/power-automate/system-administrator-role.png)
 
-## Update SSO application
-
-To redirect users to the **Workflow Builder** or **Approvals** pages in CluedIn where they left off before signing in, update the SSO application with permissions to accept requests from the workflows-related URIs. The SSO application is usually created after installing CluedIn. For more details, see [SSO](/deployment/infra-how-tos/configure-sso).
-
-**To update the SSO application**
-
-1. In the Azure portal, find and open the application that is used for SSO in CluedIn.
-
-1. Go to **Manage** > **Authentication**.
-
-1. In the **Single-page application** section, add the following URIs:
-
-    - `https://{cluedin-domain}/admin/workflow/workflow-builder`     
-    - `https://{cluedin-domain}/admin/workflow/approvals`
-
-    ![redirect-uris.png](../../assets/images/microsoft-integration/power-automate/redirect-uris.png)
-
 ## Create a service application
 
 In order to authenticate the Power Automate widget in CluedIn, you need to register a new application in Microsoft Entra ID and grant it the necessary permissions.
@@ -125,7 +108,7 @@ Note that when you register a new application in Microsoft Entra ID, a service p
 
     - **Dynamics CRM / Dataverse**: user_impersonation, Delegated.
 
-    - **Microsoft Graph**: User.ReadBasic.All, Delegated and Application.
+    - **Microsoft Graph**: User.ReadBasic.All, Delegated.
 
     - **Power Automate**: Flows.Manage.All and Flows.Read.All, Delegated.
 
