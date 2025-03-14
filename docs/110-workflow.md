@@ -10,12 +10,12 @@ permalink: /workflow
 
 The **Workflow** module is designed to help you streamline and track approvals and notifications for specific activities in CluedIn with the help of **Power Automate workflows**. This functionality is intended only for SSO users.
 
+{:.important}
+To use the Workflow module in CluedIn, you need to configure [Power Automate integration](/microsoft-integration/power-automate).
+
 <div class="videoFrame">
 <iframe src="https://player.vimeo.com/video/1012496200?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Workflows in CluedIn"></iframe>
 </div>
-
-{:.important}
-To use the Workflow module in CluedIn, you need to configure [Power Automate integration](/microsoft-integration/power-automate).
 
 This section covers the following areas:
 
