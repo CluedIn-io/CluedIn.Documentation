@@ -56,8 +56,6 @@ If you do not see a custom CluedIn connector in your Power Automate environment,
 
 1. Select **Delete Custom Connector**.
 
-1. Fill in all the required fields in the **Workflows** section as described in [Power Automate configuration guide](/microsoft-integration/power-automate/configuration-guide).
-
 1. Select **Register Custom Connector**.
 
 1. Repeat the steps from the section [above](#verify-a-custom-connector) to verify that the connector has been created successfully.
