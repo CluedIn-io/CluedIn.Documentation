@@ -8,10 +8,6 @@ title: Power Automate configuration guide
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2025-03-13
 ---
-## On this page
-{: .no_toc .text-delta }
-- TOC
-{:toc}
 
 In this guide, you will learn how to configure and register a custom connector in CluedIn.
 
