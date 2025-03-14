@@ -21,11 +21,11 @@ In this article, you will learn how to review logs from all CluedIn services in 
 
 1. On the left navigation pane of the Log Analytics workspace, select **Logs**. Then, close the **Queries hub** pop-up window. This will open the query editor where you can run queries to retrieve logs.
 
-1. Run the following query in the Log Analytics workspace. Replace `{{name of service}}` with the appropriate service name from the [mapping reference table](#service-name-to-pod-name-mapping).
+1. Run the following query in the Log Analytics workspace. Replace `{name of service}` with the appropriate service name from the [mapping reference table](#service-name-to-pod-name-mapping).
 
     ```
     KubePodInventory
-    | where ServiceName == {{name of service}}
+    | where ServiceName == {name of service}
     | distinct ContainerID
     | join( 
         ContainerLog 
