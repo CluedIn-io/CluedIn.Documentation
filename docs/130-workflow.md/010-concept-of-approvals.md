@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Concept of approvals
+title: Concept of workflows
 parent: Workflow
 permalink: /workflow/concept-of-approvals
 nav_order: 1
@@ -10,7 +10,7 @@ has_children: false
 {:.important}
 To use the **Workflow** module in CluedIn, you need to configure [Power Automate integration](/microsoft-integration/power-automate).
 
-Let's explore the concept of approvals in CluedIn using an example of rule modification.
+Let's explore the concept of Power Automate workflows in CluedIn using an example of rule modification. If you want to automate the approval process for rule chages, you can create a specific Power Automate workflow that will send approval requests to the responsible users when somebody modifies a rule.
 
 ![concept-of-approvals.gif](../../assets/images/workflow/concept-of-approvals.gif)
 
