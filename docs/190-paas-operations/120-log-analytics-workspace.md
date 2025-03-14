@@ -13,7 +13,7 @@ headerIcon: "paas"
 
 In this article, you will learn how to review logs from all CluedIn services in your Log Analytics workspace.
 
-## Review logs in a Log Analytics workspace
+## Retrieve logs
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Log Analytics workspace.
 
