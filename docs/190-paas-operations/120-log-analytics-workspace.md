@@ -3,7 +3,7 @@ layout: cluedin
 title: Review logs in Log Analytics workspace
 parent: PaaS operations
 permalink: /paas-operations/review-logs-in-log-analytics-workspace
-nav_order: 13
+nav_order: 12
 headerIcon: "paas"
 ---
 ## On this page
