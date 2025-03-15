@@ -39,6 +39,13 @@ Below are the required endpoints for CluedIn to be functional out of the box.
 | `quay.io/jetstack` | 443 | (Optional) The cert-manager Let's Encrypt ACME service uses images. Not required if using own certificate |
 | `AKS Control Plane` | 443 | (For public clusters only) FQDN can be found under the AKS resource next to the **API server address** property (for example, `aks-cluedin.hcp.westeurope.azmk8s.io`) |
 | `*.file.core.windows.net` | 445 | The Azure File CSI driver mounts some shares via NFS/SMB using this port |
+| `community.chocolatey.org` | 443 | community.chocolatey.org |
+| `get.helm.sh` | 443 | Helm binary downloads |
+| `chocolatey.org` | 443 | Chocolatey package repository |
+| `aka.ms` | 443 | Microsoft redirection service (Azure CLI) |
+| `packages.microsoft.com` | 443 | Azure CLI and Kubernetes CLI packages |
+| `dl.k8s.io` | 443 | Kubernetes CLI downloads |
+| `openssl.org` | 443 | OpenSSL downloads |
 
 ## Enricher examples
 
