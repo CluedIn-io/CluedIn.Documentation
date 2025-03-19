@@ -64,5 +64,18 @@ If you want to use Power Automate integration for [workflows](/workflow) in Clue
 - `https://graph.microsoft.com`
 - `https://api.powerapps.com`
 - `https://*.<region>.logic.azure.com` – for example, `https://prod-251.westeurope.logic.azure.com`
+
+Additionally, you need to add the following domains, which are hosts for incoming requests from Power Automate:
+
 - `https://<name>.consent.azure-apihub.net` – for example, `https://europe002-002.consent.azure-apihub.net`
-- `https://*.azure-apihub.net` – for example, `https://europe002-002.consent.azure-apihub.net` and  `https://europe002-002.azure-apihub.net`
+- `https://*.azure-apihub.net` – for example, `https://europe002-002.consent.azure-apihub.net` and  `https://europe002-002.azure-apihub.net`
+
+Instead of using the domains above, you may choose to whitelist them by [service tags](https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview):  
+
+- `AzureConnectors`
+- `LogicApps`
+
+There are options to further narrow down by region, for example, `AzureConnectors.NorthEurope`. This would depend on your Power Platform region. For example, if Power Platform is created in the Europe region, it is not clear whether it is North or West Europe, so you would add both regions in Europe:
+
+- `AzureConnectors.NorthEurope`
+- `AzureConnectors.WestEurope`
