@@ -11,7 +11,7 @@ has_children: false
 - TOC
 {:toc}
 
-In this article, you will learn how to get the Excel Add-in, connect it to CluedIn, and use it to work with data. The add-in enables you to load the data from CluedIn into Excel, modify the data, and send the changes back to CluedIn.
+In this article, you will learn how to add the Excel Add-in, connect it to CluedIn, and use it to work with data. The add-in enables you to load the data from CluedIn into Excel, modify the data, and send the changes back to CluedIn.
 
 ## Add CluedIn Excel Add-in
 
