@@ -11,7 +11,7 @@ title: Vatlayer
 - TOC
 {:toc}
 
-This article outlines how to configure the [Vatlayer](https://vatlayer.com/) enricher. The purpose of this enricher is to validate EU VAT numbers and retrieve company information (for example, address, CVR number, full VAT, and so on). More details can be found in [Properties from Vatlayer enricher](#properties-from-vatlayer-enricher).
+This article outlines how to configure the [Vatlayer](https://vatlayer.com/) enricher. The purpose of this enricher is to validate EU VAT numbers and retrieve company information (for example, address, CVR number, full VAT, and so on). More details can be found in [Properties from Vatlayer enricher](#properties-from-vatlayer-enricher). The Vatlayer enricher does not support UK VAT numbers.
 
 The Vatlayer enricher supports the following endpoint:
 
