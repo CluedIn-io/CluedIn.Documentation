@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: Restore runbook
-parent: Automation
+parent: Backup and restore
 grand_parent: PaaS operations
 permalink: /paas-operations/automation/restore-runbook
 nav_order: 4
