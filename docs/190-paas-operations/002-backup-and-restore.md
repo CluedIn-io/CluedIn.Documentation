@@ -70,7 +70,7 @@ If you're ever in a situation where you need to restore an environment, this sec
 
 ## Runbooks
 
-To automate common PaaS tasks, use runbooks. These runbooks should be deployed to the required environment using Terraform.
+To automate backup and restore tasks, use runbooks. These runbooks should be deployed to the required environment using Terraform.
 
 - [Disaster recovery runbook](/paas-operations/automation/disaster-recovery-runbook) – responsible for orchestrating the backup > copy > restore process.
 
