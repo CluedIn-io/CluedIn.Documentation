@@ -1,7 +1,8 @@
 ---
 layout: cluedin
 title: Disaster recovery runbook
-parent: PaaS operations
+parent: Automation
+grand_parent: PaaS operations
 permalink: /paas-operations/automation/disaster-recovery-runbook
 nav_order: 1
 headerIcon: "paas"
@@ -26,7 +27,7 @@ The disaster recovery runbook can be triggered manually or on a set schedule. It
 
 ## Automation account
 
-An automation account must be provided. The runbook will be installed into the the automation account. The three dependent runbooks must already be installed. Typically the runbook should be scheduled to run once a day outside of office hours.
+An automation account must be provided. The runbook will be installed into the the automation account. The three dependent runbooks must already be installed. Typically, the runbook should be scheduled to run once a day outside of office hours.
 
 ![disaster-recovery-runbook.png](../../assets/images/paas-operations/disaster-recovery-runbook.png)
 
