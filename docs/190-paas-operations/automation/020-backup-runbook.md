@@ -12,7 +12,9 @@ headerIcon: "paas"
 - TOC
 {:toc}
 
-The backup runbook can be triggered manually or on a set schedule. It is responsible for capturing snapshots of all persistent disks used by CluedIn. This runbook is a PowerShell script, which CluedIn will provide as needed.
+The backup runbook can be triggered manually or on a set schedule. It is responsible for capturing snapshots of all persistent disks used by CluedIn.
+
+This runbook is a PowerShell script, which CluedIn will provide as needed.
 
 **Prerequisites**
 

@@ -12,7 +12,9 @@ headerIcon: "paas"
 - TOC
 {:toc}
 
-The copy snapshots runbook can be triggered manually or on a set schedule. It copies snapshots from one Azure location to another. However, if your source and target CluedIn instances are the same or reside in the same Azure location, this runbook is not required. This runbook is a PowerShell script that CluedIn will provide as needed.
+The copy snapshots runbook can be triggered manually or on a set schedule. It copies snapshots from one Azure location to another. However, if your source and target CluedIn instances are the same or reside in the same Azure location, this runbook is not required.
+
+This runbook is a PowerShell script that CluedIn will provide as needed.
 
 **Prerequisites**
 

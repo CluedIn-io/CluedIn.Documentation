@@ -12,7 +12,9 @@ headerIcon: "paas"
 - TOC
 {:toc}
 
-The disaster recovery runbook can be triggered manually or on a set schedule. It is responsible for orchestrating the backup > copy > restore process. This runbook is a PowerShell script, which CluedIn will provide as needed.
+The disaster recovery runbook can be triggered manually or on a set schedule. It is responsible for orchestrating the backup > copy > restore process.
+
+This runbook is a PowerShell script, which CluedIn will provide as needed.
 
 **Prerequisites**
 
