@@ -17,9 +17,6 @@ In this guide, you will learn how to verify that the CluedIn custom connector ha
 
 Make sure that you have completed all of the actions described in [Power Automate configuration guide](/microsoft-integration/power-automate/configuration-guide).
 
-{:.important}
-This guide is for public CluedIn instances. If you have a zero-trust corporate environment, contact our CluedIn support at [support@cluedin.com](mailto:support@cluedin.com) to configure workflows for your use case.
-
 **Prerequisites**
 
 - You need to have the System Administrator security role in the Power Automate environment.

@@ -16,7 +16,7 @@ last_modified: 2025-03-13
 In this guide, you will learn how to prepare for configuring Power Automate integration for using workflows in CluedIn. The instructions in this guide are applicable to the current version of Power Automate ([2502.2](https://learn.microsoft.com/en-us/power-platform/released-versions/flow-portal/2502.2)) and Dataverse  ([9.2.25031.00154](https://learn.microsoft.com/en-us/dynamics365/released-versions/weekly-releases/update25031)).
 
 {:.important}
-This guide is for public CluedIn instances. If you have a zero-trust corporate environment, contact our CluedIn support at [support@cluedin.com](mailto:support@cluedin.com) to configure workflows for your use case.
+This guide is for public CluedIn instances. If you have a zero-trust corporate environment, refer to [Power Automate implementation in a private cluster](/microsoft-integration/power-automate/power-automate-private-cluster).
 
 ## Set up a firewall policy
 
