@@ -55,7 +55,7 @@ The solution ensures that incoming requests are securely proxied through an Azur
 
 1. Create the Azure Function app in the same virtual network as CluedIn.
 
-1. Upload the code ([GitHub](https://github.com/CluedIn-io/CluedIn.AzureFunctionProxy)).
+1. Upload the code ([GitHub](https://github.com/CluedIn-io/CluedIn.AzureFunctionProxy)). To get access, contact our support at [support@cluedin.com](mailto:support@cluedin.com).
 
 1. Under **Networking** > **Public network access**, restrict IP address to Service Group - Azure Connectors.
 
