@@ -55,10 +55,3 @@ Upon a successful run, the runbook generates nine snapshots and stores them in a
 ![backup-runbook-process.png](../../assets/images/paas-operations/backup-runbook-process.png)
 
 Scaling up or down deployments is optional. However, it is recommended to prevent data loss while capturing snapshots.
-
-
-
-
-
-
-
