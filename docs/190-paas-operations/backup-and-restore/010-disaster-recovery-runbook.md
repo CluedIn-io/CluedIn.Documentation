@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: Disaster recovery runbook
-parent: Automation
+parent: Backup and restore
 grand_parent: PaaS operations
 permalink: /paas-operations/automation/disaster-recovery-runbook
 nav_order: 1

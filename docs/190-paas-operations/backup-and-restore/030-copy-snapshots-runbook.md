@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: Copy snapshots runbook
-parent: Automation
+parent: Backup and restore
 grand_parent: PaaS operations
 permalink: /paas-operations/automation/copy-snapshots-runbook
 nav_order: 3
