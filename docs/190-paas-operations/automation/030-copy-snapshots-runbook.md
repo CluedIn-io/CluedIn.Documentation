@@ -42,12 +42,12 @@ Snapshot transfers occur over the Microsoft backbone and can take anywhere from 
 
 | Parameter | Default | Description |
 |--|--|--|
-| LicenseKey | <required> | License key tag on snapshot |
-| Timestamp | <required> | Timestamp on snapshot |
-| SourceResourceGroup | <required> | Name of source resource group |
-| TargetSubscriptionId | <required> | ID of target Azure subscription |
-| TargetResourceGroup | <required> | Name of target resource group |
-| TargetRegion | <required> | Target Azure location |
+| LicenseKey | _required_ | License key tag on snapshot |
+| Timestamp | _required_ | Timestamp on snapshot |
+| SourceResourceGroup | _required_ | Name of source resource group |
+| TargetSubscriptionId | _required_ | ID of target Azure subscription |
+| TargetResourceGroup | _required_ | Name of target resource group |
+| TargetRegion | _required_ | Target Azure location |
 
 ## Process
 

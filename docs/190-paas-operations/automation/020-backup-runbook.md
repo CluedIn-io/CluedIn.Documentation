@@ -42,13 +42,13 @@ Upon a successful run, the runbook generates nine snapshots and stores them in a
 
 | Parameter | Default | Description |
 |--|--|--|
-| ClusterName | <required> | Name of the target AKS cluster |
-| CustomerName | <required> | Name of customer |
-| Subscription | <required> | ID of the azure subscription |
-| SnapshotType | Incremental | Incremental or Full |
-| BackupResourceGroup | <required> | Name of resource group where the snapshots will be saved to |
-| RetentionCount | 7 | Number of days to retain the snapshots |
-| EnableScaling | true | Scale down the cluster during restore |
+| ClusterName | _required_ | Name of the target AKS cluster |
+| CustomerName | _required_ | Name of customer |
+| Subscription | _required_ | ID of the azure subscription |
+| SnapshotType | `Incremental` | Incremental or Full |
+| BackupResourceGroup | _required_ | Name of resource group where the snapshots will be saved to |
+| RetentionCount | `7` | Number of days to retain the snapshots |
+| EnableScaling | `true` | Scale down the cluster during restore |
 
 ## Process
 
