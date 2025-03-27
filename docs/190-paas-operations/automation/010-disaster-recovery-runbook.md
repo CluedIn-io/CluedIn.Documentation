@@ -37,14 +37,14 @@ An automation account must be provided. The runbook will be installed into the t
 
 | Parameter | Default | Description |
 |--|--|--|
-| CustomerName | <required> | Name of customer |
-| Subscription | <required> | ID of the Azure subscription |
-| SourceResourceGroup | <required> | Name of resource group where source AKS cluster is located |
-| TargetResourceGroup | <required> | Name of resource group where target AKS cluster is located |
-| TargetStorageAccount | <required> | Name of target storage account |
-| SourceSnapshotResourceGroup | <required> | Name of resource group containing source snapshots |
-| TargetSnapshotResourceGroup | <required> | Name of resource group containing copied snapshots |
-| ScaledownDR | true | Scales down a DR cluster after a successful restoer |
+| CustomerName | _required_ | Name of customer |
+| Subscription | _required_ | ID of the Azure subscription |
+| SourceResourceGroup | _required_ | Name of resource group where source AKS cluster is located |
+| TargetResourceGroup | _required_` | Name of resource group where target AKS cluster is located |
+| TargetStorageAccount | _required_ | Name of target storage account |
+| SourceSnapshotResourceGroup | _required_ | Name of resource group containing source snapshots |
+| TargetSnapshotResourceGroup | _required_ | Name of resource group containing copied snapshots |
+| ScaledownDR | `true` | Scales down a DR cluster after a successful restoer |
 
 ## Process
 

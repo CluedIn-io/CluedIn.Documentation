@@ -42,14 +42,14 @@ The runbook will optionally scale down the target CluedIn instance after the res
 
 | Parameter | Default | Description |
 |--|--|--|
-| LicenseKey | <required> | License key tag on snapshot |
-| Timestamp | <required> | Timestamp on snapshot |
-| HostResourceGroup | <required> | Name of source resource group |
-| Subscription | <required> | ID of target Azure subscription |
-| TargetResourceGroup | <required> | Name of target resource group |
-| TargetAKSClusterName | <required> | Name of target AKS cluster |
-| StorageAccountName | <required> | Name of storage account |
-| Scaledown | false | Option to scale down after a successful restore |
+| LicenseKey | _required_ | License key tag on snapshot |
+| Timestamp | _required_ | Timestamp on snapshot |
+| HostResourceGroup | _required_ | Name of source resource group |
+| Subscription | _required_ | ID of target Azure subscription |
+| TargetResourceGroup | _required_ | Name of target resource group |
+| TargetAKSClusterName | _required_ | Name of target AKS cluster |
+| StorageAccountName | _required_ | Name of storage account |
+| Scaledown | `false` | Option to scale down after a successful restore |
 
 ## Process
 
