@@ -12,7 +12,7 @@ In this article, you will learn how to delete specific data parts (also referred
 
 If you no longer need specific data parts that form a golden record, you can easily delete them. You can delete data parts from a golden record in two places:
 
-- [On the **History** tab](#delete-data-parts-in-history) – use this option if you want to have a detailed and chronological view of all data parts forming a golden record. For more details, see [History](/Documentation/Golden-records/History).
+- [On the **History** tab](#delete-data-parts-in-history) – use this option if you want to have a detailed and chronological view of all data parts forming a golden record. For more details, see [History](/key-terms-and-features/golden-records/history).
 
 - [On the **Topology** tab](#delete-data-parts-in-topology) – use this option if you want to have a visual representation of how a golden record is formed.
 

@@ -122,4 +122,4 @@ To make the workflows available in CluedIn, you need to fulfill several prerequi
 
 1. Select **Register CluedIn Connector**.
 
-    Now, you can [create workflows](/Documentation/Workflows/Create-and-manage-workflows) to automate certain approval processes. 
+    Now, you can [create workflows](/workflow/create-and-manage-workflows) to automate certain approval processes. 
