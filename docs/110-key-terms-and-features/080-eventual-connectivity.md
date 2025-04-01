@@ -24,9 +24,9 @@ The goal of eventual connectivity is not to model your data into a final form bu
 
 **Underlying concepts**
 
-- Codes – universally unique identifiers of a record. Read more about codes [here](/Documentation/Key-terms-and-features/Codes).
+- Codes – universally unique identifiers of a record. Read more about codes [here](/key-terms-and-features/entity-codes).
 
-- Edges – a way to instruct CluedIn that there is a reference from one object to another. Edges are the key behind the eventual connectivity pattern. Read more about edge [here](/Documentation/Key-terms-and-features/Edges).
+- Edges – a way to instruct CluedIn that there is a reference from one object to another. Edges are the key behind the eventual connectivity pattern. Read more about edge [here](/key-terms-and-features/edges).
 
 - Shadow entities (also known as floating edges) – records that are constructed from edges, with the expectation that the system will eventually find a link between these records.
 
