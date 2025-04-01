@@ -35,7 +35,7 @@ Before creating a deduplication project, take the following aspects into account
 
     - **By entity type** – select the entity type; all golden records belonging to the selected entity type will be checked for duplicates. You can add multiple entity types. This is useful when you want to run a deduplication project across similar entity types.
 
-    - **Using advanced filters** – add filter rules; all golden records that meet the filter criteria will be checked for duplicates. You can add multiple filter rules. Read more about filters [here](/Documentation/Key-terms-and-features/Filters).
+    - **Using advanced filters** – add filter rules; all golden records that meet the filter criteria will be checked for duplicates. You can add multiple filter rules. Read more about filters [here](/key-terms-and-features/filters).
 
         This option is useful when you are working with a large set of data. You can narrow down the number of golden records and run a deduplication project on a sample set of data to make sure your matching rules work correctly. When you are confident in the effectiveness of your configuration with the sample set, you can then modify the filters and run the project on a larger set of data.
 

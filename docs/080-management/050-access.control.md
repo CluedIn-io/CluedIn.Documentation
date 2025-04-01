@@ -20,4 +20,4 @@ This section covers the following topics:
 
 - [Create access control policy](/management/access-control/create-access-control-policy) – learn how to create and configure an access control policy.
 
-- [Manage access control policies](/Documentation/Management/Access-control/Manage-access-control-policies) – learn how to edit, deactivate, and delete an access control policy, as well how these actions affect user access to data.
+- [Manage access control policies](/management/access-control/manage-access-control-policies) – learn how to edit, deactivate, and delete an access control policy, as well how these actions affect user access to data.
