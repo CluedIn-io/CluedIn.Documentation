@@ -6,7 +6,7 @@ grand_parent: Integration
 permalink: /integration/additional-operations-on-records/monitoring
 title: Monitoring
 tags: ["integration", "monitoring"]
-last_modified: 2023-11-07
+last_modified: 2025-02-04
 ---
 ## On this page
 {: .no_toc .text-delta }
