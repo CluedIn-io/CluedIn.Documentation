@@ -10,7 +10,27 @@ last_modified: 2025-02-05
 
 This article outlines how to configure the OneLake connector to push data from CluedIn to Microsoft’s OneLake.
 
-**Prerequisites:** Make sure you use a [service principal](/consume/export-targets/create-service-principal) to authenticate and access OneLake.
+**Prerequisites**
+
+- Make sure you have a [service principal](/consume/export-targets/create-service-principal) to authenticate and access OneLake.
+
+- In PowerBI/Fabric, enable the following settings:
+
+    - **Service principals can use Fabric APIs**
+
+        ![onelake-fabric-settings-api.png](../../assets/images/consume/export-targets/onelake-fabric-settings-api.png)
+
+    - **Users can access data stored in OneLake with apps external to Fabric**
+
+        ![onelake-fabric-settings-data-access.png](../../assets/images/consume/export-targets/onelake-fabric-settings-data-access.png)
+
+- In the workspace that you want to use in OneLake connector, give at least Contributor access to the OneLake service principal. To do that, in the workspace, select **Manage access**.
+
+    ![onelake-workspace-manage-access.png](../../assets/images/consume/export-targets/onelake-workspace-manage-access.png)
+
+    Then, add the OneLake service principal and assign it the Contributor role to the workspace.
+
+    ![onelake-workspace-manage-access-contributor.png](../../assets/images/consume/export-targets/onelake-workspace-manage-access-contributor.png)
 
 **To configure OneLake connector**
 
