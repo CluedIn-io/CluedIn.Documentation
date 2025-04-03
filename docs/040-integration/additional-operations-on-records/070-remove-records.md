@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 7
+nav_order: 8
 parent: Additional operations
 grand_parent: Integration
 permalink: /integration/additional-operations-on-records/remove-records

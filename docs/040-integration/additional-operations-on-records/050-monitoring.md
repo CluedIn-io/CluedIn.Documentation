@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 6
+nav_order: 7
 parent: Additional operations
 grand_parent: Integration
 permalink: /integration/additional-operations-on-records/monitoring
