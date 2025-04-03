@@ -1,10 +1,10 @@
 ---
 layout: cluedin
-nav_order: 9
+nav_order: 8
 parent: Additional operations
 grand_parent: Integration
 permalink: /integration/additional-operations-on-records/preview
-title: Analyze and modify source records
+title: Analysis and modification
 last_modified: 2025-04-03
 ---
 ## On this page
@@ -189,7 +189,7 @@ If you notice that your source records contain invalid values, missing values, o
 
     ![edit-values-manually-operations.png](../../assets/images/integration/additional-operations/edit-values-manually-operations.png)
 
-    If you no longer need the change or you made it by mistake, you can revert the change. To do it, select the **Undo the last operation** icon or the **Delete** icon. Note that changes can only be reverted consecutively, one by one, and not selectively.
+    If you no longer need the change or you made it by mistake, you can revert the change. To do it, select the delete icon next to the operation name or the revert icon in the upper-right corner. Note that changes can only be reverted consecutively, one by one, and not selectively.
 
 ### Transform values using operations
 
@@ -224,7 +224,7 @@ You can transform and improve the contents of columns automatically and efficien
 
     ![operations-options.png](../../assets/images/integration/additional-operations/operations-options.png)
 
-    As a result, the values in the column are automatically transformed. All applied operations are displayed on the **Operations** pane. If you no longer need the change or you made it by mistake, you can revert the change. To do it, select the **Undo the last operation** icon or the delete icon. Note that changes can only be reverted consecutively, one by one, and not selectively.
+    As a result, the values in the column are automatically transformed. All applied operations are displayed on the **Operations** pane. If you no longer need the change or you made it by mistake, you can revert the change. To do it, select the delete icon next to the operation name or the revert icon in the upper-right corner. Note that changes can only be reverted consecutively, one by one, and not selectively.
 
 ### Add columns
 
@@ -256,7 +256,7 @@ You can add new columns to your dataset. This is useful for combining values fro
 
 1. Select **Save**.
 
-    The new column is added to the data set and is marked with the information icon. If you no longer need the column, you can delete it. To delete the computed column, open the three-dot menu in the column header, select **Delete computed field**, and then confirm your choice. To delete the stored column, open the **Operations** pane, and then select the **Undo the last operation** icon or the delete icon for the corresponding operation. Note that operations can only be reverted consecutively, one by one, and not selectively.
+    The new column is added to the data set and is marked with the information icon. If you no longer need the column, you can delete it. To delete the computed column, open the three-dot menu in the column header, select **Delete computed field**, and then confirm your choice. To delete the stored column, open the **Operations** pane, and then select the delete icon for the corresponding operation or the revert icon in the upper-right corner. Note that operations can only be reverted consecutively, one by one, and not selectively.
 
 ### Remove source records
 
@@ -272,7 +272,7 @@ If you do not need specific source records, you can remove them from the data se
 
 1. In the confirmation dialog, enter _DELETE_, and then select **Confirm**.
 
-    As a result, the records are removed from the data set. This change is displayed on the **Operations** tab. If you removed the records by mistake, you can revert the change. To do it, select the **Undo the last operation** icon or the delete icon. Note that changes can only be reverted consecutively, one by one, and not selectively.
+    As a result, the records are removed from the data set. This change is displayed on the **Operations** tab. If you removed the records by mistake, you can revert the change. To do it, select the delete icon for the corresponding operation or the revert icon in the upper-right corner. Note that changes can only be reverted consecutively, one by one, and not selectively.
 
 ## Additional actions
 
