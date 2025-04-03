@@ -14,7 +14,9 @@ last_modified: 2025-04-03
 
 In this article, you will learn how to implement source record approval, which allows you to approve or reject specific records and ensure that only verified records are sent into processing.
 
-[VIDEO]
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/1069527416?h=c12b603f0e&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Source record approval in CluedIn"></iframe>
+</div>
 
 You can configure source record approval for data sources of any type (file, ingestion endpoint, database) and for manual data entry projects.
 
