@@ -112,7 +112,8 @@ Once you have created the mapping for the data set, you can check if a specific 
       
 If you identify data gaps, errors, and overall quality issues in your source records and want to fix them before processing, you can do so in the edit mode of the data set. The edit mode allows you to perform various operations and validations on the source records to address these issues. The edit mode is available in data sets created from files and endpoints.
 
-**Important!** When you switch to the edit mode, the original data set is cloned, so you can revert back to it at any time. However, reverting to the original data set means losing all changes made in the edit mode.
+{:.important}
+When you switch to the edit mode, the original data set is cloned, so you can revert back to it at any time. However, reverting to the original data set means losing all changes made in the edit mode.
 
 **To switch to the edit mode**
 
