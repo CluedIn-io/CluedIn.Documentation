@@ -75,10 +75,6 @@ After you [create](/workflow/create-and-manage-workflows) a workflow in CluedIn,
 
 To fix this error, register the connector again as described in the [previous](#no-custom-connector) section.
 
-## Next steps
-
-Once you have verified that the CluedIn custom connector has been successfully configured, you can start [creating workflows](/workflow/create-and-manage-workflows) in the **Workflow** module in CluedIn.
-
 ### Sign-in error: ID token not enabled
 
 Place of error: CluedIn
@@ -102,3 +98,7 @@ This error indicates that the redirect URI in the service application that is us
 ![configure-platforms-redirect-uri.png](../../assets/images/microsoft-integration/power-automate/configure-platforms-redirect-uri.png)
 
 For more details, see [Create a service application](/microsoft-integration/power-automate/pre-configuration-guide#create-a-service-application).
+
+## Next steps
+
+Once you have verified that the CluedIn custom connector has been successfully configured, you can start [creating workflows](/workflow/create-and-manage-workflows) in the **Workflow** module in CluedIn.
