@@ -94,9 +94,25 @@ Note that when you register a new application in Microsoft Entra ID, a service p
 
 1. Register an application in Microsoft Entra ID following the instructions [here](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate%2Cexpose-a-web-api).
 
-1. In the **Implicit grant and hybrid flows** section, select both **Access tokens** and **ID tokens**.
+1. Add a redirect URI:
 
-    ![implicit-grant-and-hybrid-flows.png](../../assets/images/microsoft-integration/power-automate/implicit-grant-and-hybrid-flows.png)
+    1. Under **Manage**, select **Authentication**.
+
+    1. Under **Platform configurations**, select **Add a platform**.
+
+    1. Under **Configure platforms**, select **Single-page application**.
+
+        ![configure-platforms-single-page-application.png](../../assets/images/microsoft-integration/power-automate/configure-platforms-single-page-application.png)
+
+    1. In the **Redirect URIs** section, enter the reply URI in the following format: `https://your-cluedin-domain/admin/workflow/workflow-builder`.
+
+        ![configure-platforms-redirect-uri.png](../../assets/images/microsoft-integration/power-automate/configure-platforms-redirect-uri.png)
+
+    1. In the **Implicit grant and hybrid flows** section, select both for **Access tokens** and **ID tokens**.
+
+        ![configure-platforms-implicit-grant-and-hybrid-flows.png](../../assets/images/microsoft-integration/power-automate/configure-platforms-implicit-grant-and-hybrid-flows.png)
+
+    1. Select **Configure**.
 
 1. In the **Advanced settings** section, in **Allow public client flows**, set the toggle to **Yes**.
 
