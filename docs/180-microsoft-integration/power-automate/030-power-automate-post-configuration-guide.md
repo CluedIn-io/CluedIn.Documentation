@@ -78,3 +78,27 @@ To fix this error, register the connector again as described in the [previous](#
 ## Next steps
 
 Once you have verified that the CluedIn custom connector has been successfully configured, you can start [creating workflows](/workflow/create-and-manage-workflows) in the **Workflow** module in CluedIn.
+
+### Sign-in error: ID token not enabled
+
+Place of error: CluedIn
+
+In CluedIn, when you go to **Workflow** > **Workflow Builder** or **Workflow** > **Approvals** you may see an error similar to the following.
+
+![sign-in-error-no-id-token.png](../../assets/images/microsoft-integration/power-automate/sign-in-error-no-id-token.png)
+
+This error indicates that the service application that is used to authenticate the Power Automate widget in CluedIn does not have the platform configurated. To fix this, add a platform and a redirect URI as described in [Create a service application](/microsoft-integration/power-automate/pre-configuration-guide#create-a-service-application).
+
+### Sign-in error: no reply address
+
+Place of error: CluedIn
+
+In CluedIn, when you go to **Workflow** > **Workflow Builder** or **Workflow** > **Approvals** you may see an error similar to the following.
+
+![sign-in-error-redirect-uri.png](../../assets/images/microsoft-integration/power-automate/sign-in-error-redirect-uri.png)
+
+This error indicates that the redirect URI in the service application that is used to authenticate the Power Automate widget in CluedIn is incorrect. To fix this, make sure the domain in the redirect URI matches your CluedIn application.
+
+![configure-platforms-redirect-uri.png](../../assets/images/microsoft-integration/power-automate/configure-platforms-redirect-uri.png)
+
+For more details, see [Create a service application](/microsoft-integration/power-automate/pre-configuration-guide#create-a-service-application).
