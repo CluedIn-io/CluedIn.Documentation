@@ -25,7 +25,7 @@ In this guide, you will learn how to deduplicate the data that you have ingested
 
 ## Create deduplication project
 
-As a first step, you need to create a deduplication project that allows you to check for duplicates that belong to a certain entity type.
+As a first step, you need to create a deduplication project that allows you to check for duplicates that belong to a certain business domain.
 
 **To create a deduplication project**
 

@@ -14,7 +14,7 @@ An entity page layout is the way in which information about a golden record is a
 
 ## Overview of entity page layouts
 
-The entity page layout is assigned to the entity type. This ensures that all golden records belonging to that entity type consistently display relevant information on the golden record overview page.
+The entity page layout is assigned to the business domain. This ensures that all golden records belonging to that business domain consistently display relevant information on the golden record overview page.
 
 All layouts are stored in **Administration** > **Entity page layouts**. CluedIn contains several built-in entity page layouts:
 
@@ -30,7 +30,7 @@ All layouts are stored in **Administration** > **Entity page layouts**. CluedIn 
 
 You cannot edit built-in layouts, but you can create custom layouts.
 
-When you create a new entity type while creating mapping, the default layout is assigned to such entity type. You change the layout later by [editing](/management/entity-type#manage-an-entity-type) the entity type.
+When you create a new business domain while creating mapping, the default layout is assigned to such business domain. You change the layout later by [editing](/management/entity-type#manage-an-entity-type) the business domain.
 
 The layouts consist of the following elements:
 
@@ -54,9 +54,9 @@ This tab contains general information about the layout, including:
 
 - Elements that are displayed on the golden record overview page (all or custom core and non-core vocabulary keys, suggested search, and quality metrics).
 
-**Entity types**
+**Business domains**
 
-This tab contains all entity types that use the current layout. You can also add more entity types to which the layout will be assigned.
+This tab contains all business domains that use the current layout. You can also add more business domains to which the layout will be assigned.
 
 ## Create a layout
 
@@ -76,9 +76,9 @@ If built-in layouts are not sufficient for you, you create your own layout.
 
     ![create-layout.gif](../../assets/images/administration/entity-page-layout/create-layout.gif)
 
-    Alternatively, you can create a layout from the entity type page. You can do it when editing the entity type.
+    Alternatively, you can create a layout from the business domain page. You can do it when editing the business domain.
 
-    After the layout is created, you can assign it to the entity type. As a result, the information on the **Overview** tab of all golden records belonging to the entity type will be arranged according to the selected layout.
+    After the layout is created, you can assign it to the business domain. As a result, the information on the **Overview** tab of all golden records belonging to the business domain will be arranged according to the selected layout.
 
 ## Manage a layout
 
@@ -114,4 +114,4 @@ You can change the layout configuration and choose the elements that should be d
 
     ![edit-layout.gif](../../assets/images/administration/entity-page-layout/edit-layout.gif)
 
-    The changes will be automatically applied to the overview pages of all golden records that belong to the entity type associated with the current layout.
+    The changes will be automatically applied to the overview pages of all golden records that belong to the business domain associated with the current layout.
