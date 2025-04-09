@@ -14,7 +14,9 @@ last_modified: 2025-04-03
 
 In this article, you will learn about various actions available on the **Preview** tab of the data set to help you analyze the uploaded records and improve their quality before processing.
 
-[VIDEO]
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/1074024743?h=3892ab526a&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Operations on source records"></iframe>
+</div>
 
 When you upload the data into CluedIn, it appears on the **Preview** tab that displays the original, raw records. At this stage, you can perform various actions to identify data quality issues and prepare your data set for processing.
 
