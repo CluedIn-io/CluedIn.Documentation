@@ -23,7 +23,7 @@ You can use the search box to find the vocabulary you need. Enter either the ful
 
 You can filter the vocabularies using the filter pane in the upper-right corner of the page. The following filters are available:
 
-- Entity type – filters vocabularies based on their primary entity type. By default, all entity types are selected. To narrow down your search results, you can opt for a specific entity type.
+- Business domain – filters vocabularies based on their primary business domain. By default, all business domains are selected. To narrow down your search results, you can opt for a specific business domain.
 
 - Integrations – filters vocabularies based on their source. By default, all integrations are selected. To narrow your search results, you can select an option to display vocabularies that are not associated with a specific source, or you can select a specific source.
 
