@@ -15,6 +15,9 @@ last_modified: 2025-03-13
 
 In this guide, you will learn how to verify that the CluedIn custom connector has been created successfully.
 
+{:.important}
+This guide is applicable to both public and private CluedIn instances.
+
 Make sure that you have completed all of the actions described in [Power Automate configuration guide](/microsoft-integration/power-automate/configuration-guide).
 
 **Prerequisites**
