@@ -31,29 +31,23 @@ As a first step, you need to create a deduplication project that allows you to c
 
 1. On the navigation pane, go to **Management**. Then, select **Deduplication**.
 
-    ![create-dedup-project-1.png](../../assets/images/getting-started/deduplication/create-dedup-project-1.png)
-
 1. Select **Create Deduplication Project**.
 
 1. On the **Create Deduplication Project** pane, do the following:
 
     1. Enter the name of the deduplication project.
 
-    1. Select the entity type that you want to use as a filter for all records.
+    1. Select the business domain that you want to use as a filter for all records.
 
         ![dedup-2.png](../../assets/images/getting-started/deduplication/dedup-2.png)
 
     1. In the lower-right corner, select **Create**.
 
-    You created the deduplication project.
-
-    ![dedup-3.png](../../assets/images/getting-started/deduplication/dedup-3.png)
-    
-    Now, you can proceed to define the rules for checking duplicates within the selected entity type.
+    You created the deduplication project. Now, you can proceed to define the rules for checking duplicates within the selected business domain.
 
 ## Configure matching rule
 
-When creating a matching rule, you need to specify certain criteria. CluedIn uses these criteria to check for matching values among records belonging to the selected entity type.
+When creating a matching rule, you need to specify certain criteria. CluedIn uses these criteria to check for matching values among records belonging to the selected business domain.
 
 **To configure a matching rule**
 
@@ -86,8 +80,6 @@ When creating a matching rule, you need to specify certain criteria. CluedIn use
 1. After you have added the needed matching criteria, in the lower-right corner of the **Preview** tab, select **Add Rule**.
 
     The status of the deduplication project becomes **Ready to generate**.
-
-    ![dedup-7.png](../../assets/images/getting-started/deduplication/dedup-7.png)
 
 1. In the upper-right corner, select **Generate Results**. Then, confirm that you want to generate the results for the deduplication project.
 
@@ -130,19 +122,14 @@ The process of fixing duplicates involves reviewing the values from duplicate re
 
     1. Review the group that will be merged and select **Next**.
 
-    1. Select an option to handle the data merging process if more recent data becomes available for the entity. Then, select **Confirm**.
+    1. Select an option to handle the data merging process if more recent data becomes available for the golden record. Then, select **Confirm**.
 
         ![dedup-12.png](../../assets/images/getting-started/deduplication/dedup-12.png)
 
-        {:.important}
-        The process of merging data may take some time.
-
-        After the process is completed, you will receive a notification. As a result, the duplicate records have been merged into one record.
-
-    You fixed the duplicate records.
+    The process of merging data may take some time. After the process is completed, you will receive a notification. As a result, the duplicate records have been merged into one record.
 
 {:.important}
-All changes to the data records in CluedIn are tracked. You can search for the needed data record and on the **Topology** pane, you can view the visual representation of the records that were merged through the deduplication process.
+All changes to golden records in CluedIn are tracked. You can search for the needed golden record and on the **Topology** pane, you can view the visual representation of the records that were merged through the deduplication process.
 
 ## Results & next steps
 

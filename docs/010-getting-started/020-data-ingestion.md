@@ -17,7 +17,7 @@ Ingesting data to CluedIn involves three basic steps: importing, mapping, and pr
 <iframe src="https://player.vimeo.com/video/843840937?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Getting started with data ingestion in CluedIn"></iframe>
 </div>
 
-In this guide, you will learn how to import a file into CluedIn, create a mapping, process the data, and perform data searches.
+In this guide, you will learn how to import a file into CluedIn, create a mapping, process the data, and search for golden records.
 
 **File for practice:** <a href="../../../assets/other/training-data.csv" download>training-data.csv</a>
 
@@ -29,13 +29,9 @@ A CSV (comma-separated values) file format allows data to be saved in a tabular 
 
 **To import a file**
 
-1. On the home page, in **Golden Records**, select **Add Record**.
+1. On the navigation pane, go to **Ingestion**, and then in the **Files** section, select **Add**.
 
-    ![golden-records-add-records.png](../../assets/images/getting-started/data-ingestion/golden-records-add-records.png)
-
-1. In **Upload Data From File**, select **Add**.
-
-    ![upload-data-from-file-add.png](../../assets/images/getting-started/data-ingestion/upload-data-from-file-add.png)
+    ![files-add.png](../../assets/images/getting-started/data-ingestion/files-add.png)
 
 1. In the **Add Files** section, add the file. You may drag the file or select the file from the computer.
 
@@ -53,9 +49,7 @@ After you uploaded the file, you can view the data from the file as a table with
 
 **To view imported data**
 
-1. On the home page, in the **Integrations** section, select **View All Data Sources**.
-
-    Alternatively, on the navigation pane, go to **Integrations** > **Data Sources**.
+1. On the navigation pane, go to **Ingestion** > **Sources**.
 
 1. Find and expand the group that you created in the previous procedure.
 
