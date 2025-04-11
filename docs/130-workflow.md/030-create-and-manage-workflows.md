@@ -70,7 +70,9 @@ Only SSO users can create workflows in CluedIn. If you see the following message
 
     Creating a workflow might take some time because it is being sent to Power Automate. After the workflow is created, you can view it in the Power Automate widget in CluedIn.
 
-1. Review the workflow steps. Each step is configured automatically. However, if needed, you can modify the **Send for approval** step, which contains approval request title and details. We do not recommend modifying the **Send approval response** step.
+1. Review the workflow steps. In all workflows, except for Notification and Stream Idle Event, each step is configured automatically. However, if needed, you can modify the **Send for approval** step, which contains approval request title and details. We do not recommend modifying the **Send approval response** step.
+
+    In the Notification and Stream Idle Event workflows, you need to add and configure an action to send a notification to the desired external system.
 
 1. Turn on the toggle next to the workflow status to enable it.
 
