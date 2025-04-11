@@ -90,7 +90,7 @@ Manual mapping gives you full control over how each field for your data set will
 
 **To configure manual mapping**
 
-1. Choose the existing entity type or create a new one. If you create a new entity type, select an icon to visually represent the entity type.
+1. Choose the existing business domain or create a new one. If you create a new business domain, select an icon to visually represent the business domain.
 
 1. Choose the existing vocabulary or create a new one.
 
@@ -138,7 +138,7 @@ Auto mapping tries to detect unique codes and map original columns to the most a
 
 **To configure auto mapping**
 
-1. Choose the existing entity type or create a new one. If you create a new entity type, select an icon to visually represent the entity type.
+1. Choose the existing business domain or create a new one. If you create a new business domain, select an icon to visually represent the business domain.
 
 1. Choose the existing vocabulary or create a new one.
 
@@ -171,7 +171,7 @@ To use AI capabilities to create mapping, first complete all the steps described
 
 AI mapping analyzes your data set and suggests the following details for your mapping:
 
-- Entity type and vocabulary.
+- Business domain and vocabulary.
 
 - Origin – field used to produce the primary unique identifier.
 

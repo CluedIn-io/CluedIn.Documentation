@@ -57,7 +57,7 @@ If you process the data and then add an enricher, the enrichment won't start aut
 
 1. On the navigation pane, go to **Consume** > **GraphQL**.
 
-1. Enter a query to enrich all golden records that belong to a certain entity type. Replace _/Organization_ with the needed name of entity type.
+1. Enter a query to enrich all golden records that belong to a certain business domain. Replace _/Organization_ with the needed name of business domain.
 
     ```
     {
@@ -73,7 +73,7 @@ If you process the data and then add an enricher, the enrichment won't start aut
 
 1. Execute the query.
 
-    You triggered the enrichment for the golden records belonging to the specified entity type. Now, you can view the enrichment results on the golden record details page.
+    You triggered the enrichment for the golden records belonging to the specified business domain. Now, you can view the enrichment results on the golden record details page.
 
 **To trigger enrichment for each golden record manually**
 

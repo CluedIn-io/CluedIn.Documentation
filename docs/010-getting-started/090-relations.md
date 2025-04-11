@@ -79,7 +79,7 @@ Adding edge relations means linking the current data set to already existing rec
 
         You can select the existing edge type or create a new one. To create a new edge type, enter a slash (/) and then enter a name.
 
-    1. Find and select the entity type to which you will link the records belonging to the current entity type.
+    1. Find and select the business domain to which you will link the records belonging to the current business domain.
 
     1. Enter the origin of the current data set. It will displayed after you process the data.
 

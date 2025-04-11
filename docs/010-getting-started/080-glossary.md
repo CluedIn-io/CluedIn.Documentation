@@ -104,7 +104,7 @@ Term refers to the list of records that meet specific conditions. For example, w
 
 1. Go to the **Matches** tab to view the records that meet the condition that you set up.
 
-    By default, all records are displayed in the following columns: **Name**, **Entity Type**, and **Description**. To add more columns to the table, see step 3 of [Find data](/getting-started/manual-data-cleaning#find-data).
+    By default, all records are displayed in the following columns: **Name**, **Business Domain**, and **Description**. To add more columns to the table, see step 3 of [Find data](/getting-started/manual-data-cleaning#find-data).
 
 1. Activate the term by turning on the toggle next to the term status.
 
