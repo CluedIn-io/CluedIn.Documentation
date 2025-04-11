@@ -6,7 +6,7 @@ permalink: /kb/how-to-tag-records-with-data-quality-issues
 nav_order: 2
 ---
 
-In this article, you will learn how to tag records with data quality issues using a data part rule and CluedIn Copilot. However, you can use a golden record rule for this purpose as well. We will use invalid email address as an example of a data quality issue.
+In this article, you will learn how to tag records with data quality issues using golden record rules and CluedIn Copilot. We will use invalid email address as an example of a data quality issue.
 
 To begin with, we have ingested, mapped, and processed a file containing contact data. Some records include invalid email addresses. Note that the email addresses in rows 1–3 violate common email address formatting rules.
 
@@ -25,7 +25,7 @@ Write a common regular expression that would check for valid email format and sh
 Then, instruct Copilot to create a data part rule using the prompt similar to the following.
 
 ```
-Create a data part rule named "User email format validation" for the TrainingContact entity type. This rule should use CluedIn AI action on the trainingcontact.email vocabulary key to tag with "Invalid email format" any email with a pattern that doesn't match the above regex.
+Create a golden record rule named "User email format validation" for the TrainingContact entity type. This rule should use CluedIn AI action on the trainingcontact.email vocabulary key to tag with "Invalid email format" any email with a pattern that doesn't match the above regex.
 ```
 
 ![validate-email-copilot.png](../../assets/images/kb/how-to/validate-email-copilot.png)
