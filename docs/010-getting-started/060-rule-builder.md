@@ -102,7 +102,7 @@ After you created the rule for the processed data, you need to reprocess the rec
 
 1. On the navigation pane, go to **Consume** > **GraphQL**.
 
-1. Enter a query to reprocess all records that belong to a certain entity type. Replace _TrainingContact_ with the needed name of entity type.
+1. Enter a query to reprocess all records that belong to a certain business domain. Replace _TrainingContact_ with the needed name of business domain.
 ```
 {
 	search(query: "entityType:/TrainingContact") {
@@ -116,7 +116,7 @@ After you created the rule for the processed data, you need to reprocess the rec
 ```
 1. Execute the query.
 
-    You reprocessed all records that belong to a certain entity type. Now, the action from the rule is applied to those records.
+    You reprocessed all records that belong to a certain business domain. Now, the action from the rule is applied to those records.
 
 **To reprocess a record manually**
 
@@ -152,7 +152,7 @@ If you want to change the rule—name, description, filters, or actions—edit t
 
         ![manage-rules-1.png](../../assets/images/management/rules/manage-rules-1.png)
 
-        For example, in the previous configuration, the rule added the tag _Prospect_ to all records of the _TrainingContact_ entity type. If you edit the rule filter and change the entity type to _Contact_, then selecting the checkbox will remove the tag from the records of the _TrainingContact_ entity type and add it to the records of the _Contact_ entity type.
+        For example, in the previous configuration, the rule added the tag _Prospect_ to all records of the _TrainingContact_ business domain. If you edit the rule filter and change the business domain to _Contact_, then selecting the checkbox will remove the tag from the records of the _TrainingContact_ business domain and add it to the records of the _Contact_ business domain.
 
     - If you don't want to reprocess the records affected both by the previous and current rule configuration, leave the checkbox unselected, and then confirm your choice. You can reprocess such records later. However, note that reprocessing via the rule details page applies only to the records matching the current rule configuration. To revert rule actions on records matching the previous rule configuration, you'll need to reprocess such records via GraphQL or manually.
 

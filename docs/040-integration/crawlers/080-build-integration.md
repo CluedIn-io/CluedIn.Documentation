@@ -90,7 +90,7 @@ The following is the minimal steps required to replicate the _Hello World_ examp
        __'.___.'__
      ´   `  |° ´ Y `
     ? What is the model name? User
-    ? What is the entity type? Person
+    ? What is the business domain? Person
     ? Enter a comma separated list of properties to add to the model id,name,username,email
     ? Choose the visibility for key: id(undefined) Visible
     ? Choose the type for key id Integer

@@ -180,7 +180,7 @@ if (getVocabularyKeyValue('customer.industry') === 'Oil & Gas') {
 
 **addCode**
 
-Adds a code to the clue. The code usually consists of an entity type, an origin, and a specific value. You can specify the required origin and value to generate the code.
+Adds a code to the clue. The code usually consists of a business domain (previously known as entity type), an origin, and a specific value. You can specify the required origin and value to generate the code.
 
 In the following example, the first parameter is the origin and the second parameter is the value. The resulting code would be `"/Customer#myOrigin:myCode"`.
 

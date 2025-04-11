@@ -43,7 +43,7 @@ On the **Map entity** tab, review the general mapping details and check the iden
 
 **What are general details?**
 
-- Entity type and vocabulary.
+- Business domain and vocabulary.
 
 - Entity name – name of the records that is displayed on the search results page and on the record details page.
 
@@ -112,7 +112,7 @@ After you select the edge mode, you need to choose the **edge type** to define t
 
 **Where can you find the origin code?**
 
-An origin code is a label or a keyword that briefly describes the origin of the record. To find the origin code, open any record and select **View Codes**. On the **Entity Codes** pane, you can find all codes associated with the record. In the example below, the code consists of entity type (/TrainingCompany), origin code (File Data Source), and primary unique identifier (1).
+An origin code is a label or a keyword that briefly describes the origin of the record. To find the origin code, open any record and select **View Codes**. On the **Entity Codes** pane, you can find all codes associated with the record. In the example below, the code consists of business domain (/TrainingCompany), origin code (File Data Source), and primary unique identifier (1).
 
 ![review-mapping-6.png](../../assets/images/integration/data-sources/review-mapping-6.png)
 
