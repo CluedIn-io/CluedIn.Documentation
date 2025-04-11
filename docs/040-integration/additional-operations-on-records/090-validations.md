@@ -14,7 +14,9 @@ last_modified: 2025-04-03
 
 In this article, you will learn how to check the source records for errors, inconsistencies, and missing values, as well as how to fix invalid values with the help of validations. As a result, you can improve the quality of source records and prevent incorrect records from becoming golden records or aggregating to the existing golden records.
 
-[VIDEO]
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/1074629501?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Source record validations in CluedIn"></iframe>
+</div>
 
 ## Perform validations
 
