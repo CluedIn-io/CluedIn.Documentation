@@ -8,13 +8,13 @@ nav_order: 3
 
 In this article, you will learn how to standardize dates using two different methods: by applying data part rules and by configuring data type during mapping.
 
-To begin with, we have ingested, mapped, and processed a file containing contact data. Note that the records include dates in various formats. Next, we’ll demonstrate how to apply two standardization methods, both leading to the same result.
+To begin with, we have ingested, mapped, and processed a file containing contact data. Note that the records include dates in various short date and long date patterns typical to the en-US culture. Next, we’ll demonstrate how to apply two standardization methods, both leading to the same result.
 
 ![how-to-standardize-dates-input.png](../../assets/images/kb/how-to/how-to-standardize-dates-input.png)
 
 **Standardizing dates using data part rules**
 
-To convert dates into ISO 8601 format (YYYY-MM-DDT00:00:00+00:00), [create](/management/rules/create-rule) a data part rule and add an action to normalize dates. In the action, you can additionally specify the culture or input format to tell CluedIn that you expect dates for the specified vocabulary key to be in a certain way. If you don’t enter the culture or input format, CluedIn will analyze the values and determine their date format on its own before converting them to ISO 8601 format.
+To convert dates into ISO 8601 format (YYYY-MM-DDT00:00:00+00:00), [create](/management/rules/create-rule) a data part rule and add an action to normalize dates. In the action, specify the culture of the input dates to help CluedIn interpret the values. Additionally, you can specify the input format for the same purpose. Both culture and input are optional parameters. If you don’t provide the culture or input format, CluedIn will analyze the values and determine their input date format before converting them to ISO 8601 format.
 
 ![how-to-standardize-dates-rule-action.png](../../assets/images/kb/how-to/how-to-standardize-dates-rule-action.png)
 
