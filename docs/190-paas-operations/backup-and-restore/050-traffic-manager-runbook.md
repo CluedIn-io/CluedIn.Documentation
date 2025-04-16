@@ -26,7 +26,7 @@ This runbook is a PowerShell script, which CluedIn will provide as needed. This 
 
 ## Automation account
 
-An automation account must be provided. The runbook will be installed into the the automation account. Typically, the runbook should only be run following a disaster event and after discussions with relevent stakeholders.
+An automation account must be provided. The runbook will be installed into the automation account. Typically, the runbook should only be run following a disaster event and after discussions with relevant stakeholders.
 
 ![traffic-manager-runbook.png](../../assets/images/paas-operations/traffic-manager-runbook.png)
 
@@ -36,7 +36,7 @@ An automation account must be provided. The runbook will be installed into the t
 |--|--|--|
 | Subscription | _required_ | ID of the Azure subscription where the traffic manager is located |
 | ResourceGroupName | _required_ | Name of resource group where the traffic manager is located |
-| FailToDRDR | `true` | Move to the DR enpoints; when `false` move back to original endpoints |
+| FailToDRDR | `true` | Move to the DR endpoints; when `false` move back to original endpoints |
 
 ## Process
 
