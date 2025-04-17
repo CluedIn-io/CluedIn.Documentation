@@ -3,8 +3,8 @@ layout: cluedin
 nav_order: 9
 parent: Additional operations
 grand_parent: Integration
-permalink: /integration/additional-operations-on-records/validation
-title: Validation
+permalink: /integration/additional-operations-on-records/validations
+title: Validations
 last_modified: 2025-04-03
 ---
 ## On this page

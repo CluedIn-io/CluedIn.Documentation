@@ -65,7 +65,12 @@ This tab contains tasks for reviewing changes to the vocabulary submitted by use
 
 **Audit log**
 
-This tab contains a detailed history of changes to the vocabulary.
+This tab contains a detailed history of changes to the vocabulary, such as:
+
+- Create a vocabulary
+- Added user to owners
+- Create a vocabulary key
+- Delete a vocabulary key
 
 ## Create a vocabulary
 

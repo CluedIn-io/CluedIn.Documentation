@@ -39,3 +39,20 @@ The following diagram shows the clean project workflow along with its statuses a
 ![clean-reference-1.png](../../assets/images/preparation/clean/clean-reference-1.png)
 
 The **Archived** status is not shown in the diagram, but you can archive the clean project when it is in any status except **Generation aborting**, **Processing aborting**, and **Revert aborting**.
+
+## Clean project audit log actions
+
+Whenever some changes or actions are made in the clean project, they are recorded and can be found on the **Audit Log** tab. These actions include the following:
+
+- Create a clean project
+- Add users to owners
+- Update a clean project
+- Generate results
+- Generate rules
+- Commit a project
+- Regenerate results
+- Revert (undo) changes
+- Cancel committing a project
+- Cancel generation of results
+- Cancel reverting (undoing) changes
+- Archive a project
