@@ -22,9 +22,12 @@ Once you have created a manual data entry project and added all the form fields 
 
 ## Add single record
 
-The process of adding a single record consists of filling out all the required fields and then generating the record. You can add records one at a time.
+The process of adding a single record consists of filling out all the required fields and then generating the record. You can add records one at a time. There are two ways to add a record:
 
-**To add a single record**
+- [In the manual data entry project](#add-single-record-in-the-manual-data-entry-project)
+- [From the action center](#add-a-record-from-the-action-center)
+
+### Add a record in the manual data entry project
 
 1. On the navigation pane, go to **Ingestion** > **Manual Data Entry**.
 
@@ -39,6 +42,26 @@ The process of adding a single record consists of filling out all the required f
 1. In the upper-right corner of the page, select **Generate**.
 
     After the record is processed, you can find it on the **Data** tab of the manual data entry project. To add more records, repeat steps 3–5.
+
+### Add a record from the action center
+
+1. On the navigation pane, select **Create**.
+
+1. Select **Enter data manually**.
+
+    The **Manual data entry** pane opens to the right side of the page.
+
+1. In the **Name** dropdown list, find and select the manual data entry project where you want to add a record.
+
+    After selecting a project, the relevant form fields will appear.
+
+1. Fill out the fields for a record.
+
+    ![manual-data-entry-add-in-action-center.png](../../assets/images/integration/manual-data-entry/manual-data-entry-add-in-action-center.png)
+
+1. Select **Add record**.
+
+    After the record is processed, you can find it on the **Data** tab of the manual data entry project you selected in step 3. To add more records, repeat steps 2–4.
 
 ## Add multiple records
 
