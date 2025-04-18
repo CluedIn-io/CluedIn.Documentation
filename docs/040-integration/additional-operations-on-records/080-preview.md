@@ -4,7 +4,7 @@ nav_order: 8
 parent: Additional operations
 grand_parent: Integration
 permalink: /integration/additional-operations-on-records/preview
-title: Analysis and modification
+title: Preview
 last_modified: 2025-04-03
 ---
 ## On this page
