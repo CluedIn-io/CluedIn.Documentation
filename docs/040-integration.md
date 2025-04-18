@@ -30,7 +30,9 @@ In the **Ingestion** module, you can upload your data into CluedIn, map it to 
 
 When you open the **Ingestion** module, the first thing you see is the dashboard that can simplify and streamline your work with data sources and source records.
 
-[VIDEO]
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/1071070771?h=4777b31837&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Ingestion dashboard in CluedIn"></iframe>
+</div>
 
 The dashboard is a place where you can start the process of uploading the data into CluedIn as well as find general statistics about your data sources. It consists of three main sections.
 
