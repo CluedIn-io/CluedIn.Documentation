@@ -96,7 +96,7 @@ AddTag(Entity, "ThisIsATag")
 **Check if the number of rows on a table/collection equals a value**
 
 ```
-CountRows(Entity.IncomingEdges) = 1
+CountRows(Entity.OutgoingEdges) = 1
 ```
 
 **Set a golden record property to a value**

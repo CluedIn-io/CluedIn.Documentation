@@ -13,19 +13,17 @@ title: Manage access control policies
 
 In this article, you will learn how to manage an access control policy and modify it when changes are required.
 
-## Edit a policy
+## Edit a policy rule
 
-If you need to change something in the access control policy—for example, add more users to the rule or allow access to more vocabulary keys—you can easily do that by editing the policy.
+If you need to change something in the access control policy—for example, add more users to the policy rule or add more vocabulary keys—you can easily do that by editing the policy rule.
 
-**To edit an access control policy**
+**To edit an access control policy rule**
 
 1. In the navigation pane, go to **Management** > **Access Control**.
 
-1. Find and open the policy that you want to edit.
+1. Find and open the access control policy that you want to edit.
 
-1. Make the needed changes, and then save them.
-
-    ![edit-access-control-policy.gif](../../assets/images/management/access-control/edit-access-control-policy.gif)
+1. Make the needed changes and then save them.
 
     The changes in the access control policy will be applied right away.
 
@@ -37,7 +35,7 @@ There are two ways to activate and deactivate a policy:
 
 - From the list of policies – this option allows you to activate or deactivate multiple policies at once.
 
-- From the rule details page.
+- From the policy details page.
 
 **To activate or deactivate the policy from the list of policies**
 
@@ -45,7 +43,7 @@ There are two ways to activate and deactivate a policy:
 
 1. Near the upper-right corner, select the needed action.
 
-    ![deactivate-access-control-policy.gif](../../assets/images/management/access-control/deactivate-access-control-policy.gif)
+    ![activate-deactive-policy.png](../../assets/images/management/access-control/activate-deactive-policy.png)
 
 **To activate or deactivate the policy from the policy details page**
 
@@ -70,5 +68,3 @@ There are two ways to delete a policy:
 **To delete a policy from the policy details page**
 
 - Select the delete icon. Then, confirm your choice.
-
-    ![delete-access-control-policy.gif](../../assets/images/management/access-control/delete-access-control-policy.gif)
