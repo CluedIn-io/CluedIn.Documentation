@@ -44,7 +44,7 @@ The reset tool is implemented as a console application that runs within a pod in
 - Manifest file
 - An instance of CluedIn
 
-The automation account with the reset runbook and the storage account with the manifest file are **prepared for you by CluedIn**. The only thing you need to do is to [run the rest tool](#run-reset-tool).
+The automation account with the reset runbook and the storage account with the manifest file are **prepared for you by CluedIn**. The only thing you need to do is to [run the reset tool](#run-reset-tool).
 
 {:.important}
 If you would like to use the reset tool, reach out to CluedIn support at [support@cluedin.com](mailto:support@cluedin.com), and we will install and configure this tool in your environment.
