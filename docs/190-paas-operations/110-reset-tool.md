@@ -69,7 +69,7 @@ Once we set up the reset tool in your environment, you can reset your CluedIn in
 
     ![start-runbook.png](../../assets/images/paas-operations/start-runbook.png) 
 
-    It takes up to 30 minutes to reset your CluedIn instance. While the rest tool is running, you can view the detailed logs.
+    It takes up to 30 minutes to reset your CluedIn instance. While the reset tool is running, you can view the detailed logs.
 
     ![runbook-logs.png](../../assets/images/paas-operations/runbook-logs.png)
 
