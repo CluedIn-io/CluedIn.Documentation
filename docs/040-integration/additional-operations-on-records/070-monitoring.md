@@ -65,25 +65,7 @@ In a data set created from an ingestion endpoint, the **Monitoring** tab consist
 
 ### Overview
 
-The **Overview** area contains general statistics about the records and queues described in [Common monitoring elements](#common-monitoring-elements). In addition to this, it contains the **Ingestion reports** section that displays the ingestion progress over time for a specific data set. This section consists of two charts:
-
-- **Hourly ingestion reports** – shows the number of records for each hour over the past four hours. Note that if the current hour is still in progress, the data for that hour will not be displayed until the following hour.
-- **Daily ingestion reports** – shows the number of records for each day over the past week. Note that if the current day is still in progress, the data for that day will not be displayed until the following day.
-
-Both of these charts show four types of ingestion metrics:
-
-- **Ingested** – the number of ingested records.
-- **Quarantine** – the number of records in quarantine.
-- **Approval Required** – the number of records requiring approval.
-- **Golden Records** – the number of produced golden records.
-
-To view the number of records at a specific point in time, hover over the line on the chart.
-
-![monitoring-hourly-ingestion-reports.png](../../assets/images/integration/additional-operations/monitoring-hourly-ingestion-reports.png)
-
-Generally, the number of ingested records correlates with the number of produced golden records. If you see a different result, it might indicate an issue in the data processing pipeline, such as records stuck in quarantine or a need for manual approval.
-
-You can find a similar section on the [Ingestion](/integration) dashboard. However, it displays the overall progress of source records over time from all data sources, rather than from a specific data set.
+The **Overview** area contains general statistics about the records and queues described in [Common monitoring elements](#common-monitoring-elements).
 
 ### Ingestion reports
 

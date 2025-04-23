@@ -55,25 +55,3 @@ This table allows you to track the number of records per manual data entry proje
 To view the records that require approval, select the corresponding number in the **Requires approval** column. If you are not the owner of the manual data entry project, you cannot approve or reject the records on the **Approval** tabs of the project.
 
 If you want to track records in manual data entry projects where you are the owner, go to **Home** > **My tasks**. You will see a similar table with the number of records per manual data entry project that require approval. Since you are the owner of each project in the table, you can go ahead and review the records.
-
-**Source record reports**
-
-This section displays the overall source record progress over time and helps you identify trends in your data ingestion process. It consists of two charts:
-
-- **Hourly ingestion reports** – shows the number of records for each hour over the past four hours. Note that if the current hour is still in progress, the data for that hour will not be displayed until the following hour.
-- **Daily ingestion reports** – shows the number of records for each day over the past week. Note that if the current day is still in progress, the data for that day will not be displayed until the following day.
-
-Both of these charts show four types of ingestion metrics:
-
-- **Ingested** – the number of ingested records.
-- **Quarantine** – the number of records in quarantine.
-- **Approval Required** – the number of records requiring approval.
-- **Golden Records** – the number of produced golden records.
-            
-To view the number of records at a specific point in time, hover over the line on the chart.
-
-![hourly-ingestion-reports.png](../../assets/images/integration/hourly-ingestion-reports.png)
-
-Generally, the number of ingested records correlates with the number of produced golden records. If you see a different result, it might indicate an issue in the data processing pipeline, such as records stuck in quarantine or a need for manual approval.
-
-Additionally, these charts are available for specific ingestion endpoints. You can find them on the **Monitoring** tab of the ingestion endpoint data set. Having these charts for specific ingestion endpoints can help you see the progress for a data set over time. For more information, see [Monitoring](/integration/additional-operations-on-records/monitoring). 
