@@ -35,7 +35,7 @@ To use the OpenCorporates enricher, you must provide the API token. To get the A
 
     - **API Token** – enter the API token for retrieving information from the OpenCorporates website.
 
-    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched.
+    - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched.
 
     - **Lookup Vocabulary Key** – enter the vocabulary key that contains the names of companies that you want to enrich.
 

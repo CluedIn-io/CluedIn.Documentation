@@ -104,14 +104,14 @@ The following table contains the properties that you can find in the clue.
 | `attribute-inputSource` | System that pushed the clue. Usually, the clue is created as a result of the mapping process, which is represented by the `cluedin-annotation` service.  |
 | `name` | Name of the clue. The name is shown on the search results page and on the golden record details page. |
 | `description` | Description of the clue. The description is shown in the default search results view and on the golden record details page. |
-| `entityType` | A common attribute that defines the business domain that the clue belongs to. The selection of the entity type is part of the mapping process. |
+| `entityType` | A common attribute that defines the business domain that the clue belongs to. The selection of the business domain is part of the mapping process. |
 | `attributeSource` | A service source of the clue. |
 | `codes` | Additional unique identifiers of the clue as defined in the mapping details. |
 | `edges` | An object that represents a specific relation (`attribute-type`) between the source clue (`attribute-from`) and the target clue (`attribute-to`), identified through their entity origin codes. |
 | `properties` | An object (also called a _property bag_) that contains all the properties (vocabulary keys) of the clue. |
 | `attribute-type` | A format of data in the property bag. |
 | `aliases` | A value used as an alternative or secondary name associated with the clue. |
-| `tags` | A value used as a label to categorize clues across entity types. |
+| `tags` | A value used as a label to categorize clues across business domains. |
 | `createdDate` | Date when the record was created in the source system. |
 | `modifiedDate` | Date when the record was modified in the source system. |
 | `quarantine` | Metadata information about the rules that were applied to the clue to send it to quarantine. |

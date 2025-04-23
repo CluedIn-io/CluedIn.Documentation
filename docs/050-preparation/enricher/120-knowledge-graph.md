@@ -33,7 +33,7 @@ To use the Knowledge Graph enricher, you must provide the API key. To get the AP
 
     - **Key** – enter the API key for accessing Google’s Knowledge Graph database.
 
-    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched using the Knowledge Graph enricher.
+    - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched using the Knowledge Graph enricher.
 
     - **Organization Name Vocab Key** – enter the vocabulary key that contains the names of organizations that will be used for searching the Knowledge Graph database.
 
@@ -51,7 +51,7 @@ After the Knowledge Graph enricher is added, you can modify its details:
 
     ![knowledge-graph-enricher-3.png](../../assets/images/preparation/enricher/knowledge-graph-enricher-3.png)
 
-- **Authentication** – modify the details you provided to configure the enricher: **Key**, **Accepted Entity Type**, **Organization Name Vocab Key**, and **Website Vocab Key**.
+- **Authentication** – modify the details you provided to configure the enricher: **Key**, **Accepted Business Domain**, **Organization Name Vocab Key**, and **Website Vocab Key**.
 
 ## Properties from Knowledge Graph enricher
 

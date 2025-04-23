@@ -45,7 +45,7 @@ The enricher requires at least one of the following attributes for searching the
 
 1. On the **Configure** tab, provide the following details:
 
-    1. **Accepted Entity Type** – enter the entity type to define which golden records will be enriched.
+    1. **Accepted Business Domain** – enter the business domain to define which golden records will be enriched.
 
     1. **Name Vocabulary Key** – enter the vocabulary key that contains the names of companies that will be used for searching the Brreg register.
 

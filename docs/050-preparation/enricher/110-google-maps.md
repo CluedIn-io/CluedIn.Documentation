@@ -57,7 +57,7 @@ The Google Maps enricher can use a variety of attributes for searching the Googl
 
 - For User: **User Address**
 
-When you're configuring the Google Maps enricher for a specific entity type, make sure you fill in the relevant fields for that entity type.
+When you're configuring the Google Maps enricher for a specific business domain, make sure you fill in the relevant fields for that business domain.
 
 **To add the Google Maps enricher**
 
@@ -71,7 +71,7 @@ When you're configuring the Google Maps enricher for a specific entity type, mak
 
     - **API Key** – enter the API key for retrieving information from the Google Maps Platform.
 
-    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched.
+    - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched.
 
     - **Vocabulary Key used to control whether it should be enriched** – enter the vocabulary key that indicates if the golden record should be enriched. If the value is true, then the golden record will be enriched. Otherwise, the golden record will not be enriched.
 

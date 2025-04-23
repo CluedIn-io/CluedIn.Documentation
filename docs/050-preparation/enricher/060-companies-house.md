@@ -43,7 +43,7 @@ You can add input parameters for the enricher (organization name, country, and C
 
     - **API Key** – enter the API key for retrieving information from the Companies House website.
 
-    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched.
+    - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched.
 
     - **Companies House Number Vocab Key** – enter the vocabulary key that contains the Companies House number that will be used for searching the Companies House website.
 

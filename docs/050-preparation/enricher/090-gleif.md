@@ -31,7 +31,7 @@ The enricher uses the Legal Entity Identifier (LEI) code to search for informati
 
 1. On the **Configure** tab, provide the following details:
 
-    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched.
+    - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched.
 
     - **Lei Code Vocabulary Key** – enter the vocabulary key that contains LEI codes of companies that you want to enrich.
 

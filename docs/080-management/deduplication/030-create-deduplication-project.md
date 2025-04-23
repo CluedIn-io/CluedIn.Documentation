@@ -19,7 +19,7 @@ Before creating a deduplication project, take the following aspects into account
 
 - **Number of golden records** that you want to check for duplicates. For an extensive set of data with hundreds of thousands or millions of records, use advanced filters to narrow down the number of records in the project to test your configuration. When you are satisfied with the configuration, you can then modify the filters and run the project on the entire set of data.
 
-    For example, if you want to deduplicate all golden records of the Company entity type, start by narrowing down the companies to a specific country. To do this, apply two filter rules: one to identify all golden records of the Company entity type, and another to find all golden records that match the specific country. This approach allows you to refine your matching rules on a targeted subset of data. When you are satisfied with the configuration, simply remove the filter rule for the specific country and run the project for all golden records of the Company entity type.
+    For example, if you want to deduplicate all golden records of the Company business domain, start by narrowing down the companies to a specific country. To do this, apply two filter rules: one to identify all golden records of the Company business domain, and another to find all golden records that match the specific country. This approach allows you to refine your matching rules on a targeted subset of data. When you are satisfied with the configuration, simply remove the filter rule for the specific country and run the project for all golden records of the Company business domain.
 
 - **Matching functions** that you want to use for detecting duplicates. To ensure a faster deduplication process and make it easier to revert merges, create separate projects for equality matching functions and fuzzy matching functions. You can create multiple deduplication projects.
 
@@ -33,19 +33,17 @@ Before creating a deduplication project, take the following aspects into account
 
 1. In the **Choose project type** section, select an option for identifying the golden records that you want to deduplicate:
 
-    - **By entity type** – select the entity type; all golden records belonging to the selected entity type will be checked for duplicates. You can add multiple entity types. This is useful when you want to run a deduplication project across similar entity types.
+    - **By business domain** – select the business domain; all golden records belonging to the selected business domain will be checked for duplicates. You can add multiple business domain. This is useful when you want to run a deduplication project across similar business domain.
 
     - **Using advanced filters** – add filter rules; all golden records that meet the filter criteria will be checked for duplicates. You can add multiple filter rules. Read more about filters [here](/key-terms-and-features/filters).
 
         This option is useful when you are working with a large set of data. You can narrow down the number of golden records and run a deduplication project on a sample set of data to make sure your matching rules work correctly. When you are confident in the effectiveness of your configuration with the sample set, you can then modify the filters and run the project on a larger set of data.
 
-1. (Optional) In the **Description** section, enter the details about the deduplication project.
+    ![create-dedup-project.png](../../assets/images/management/deduplication/create-dedup-project.png)
 
-1. In the upper-right corner, select **Create**.
+1. Select **Create**.
 
-    ![сreate-project.gif](../../assets/images/management/deduplication/сreate-project.gif)
-
-    After you create a deduplication project, add matching rules for detecting duplicates among golden records that correspond to the selected entity type or filter criteria.
+    After you create a deduplication project, add matching rules for detecting duplicates among golden records that correspond to the selected business domain or filter criteria.
 
 ## Add a matching rule
 
@@ -71,6 +69,8 @@ In the project, matching rules are combined using the **OR** logical operator, w
 
     1. Choose the [matching function](/management/deduplication/deduplication-reference#matching-functions) for detecting duplicates.
 
+        ![add-matching-rule-criteria.png](../../assets/images/management/deduplication/add-matching-rule-criteria.png)
+
     1. (Optional) Select the [normalization rules](/management/deduplication/deduplication-reference#normalization-rules) to apply during duplicate detection. These rules are temporarily applied solely for the purpose of identifying duplicates. For example, selecting **To lower-case** means that the system will convert values to lower case before comparing them to identify duplicates.
 
     1. Select **Next**.
@@ -83,6 +83,4 @@ In the project, matching rules are combined using the **OR** logical operator, w
 
     - If you are satisfied with the matching rule configuration, select **Add Rule**.
 
-        ![add-rule.gif](../../assets/images/management/deduplication/add-rule.gif)
-
-    After you add matching rules, [generate matches](/management/deduplication/manage-a-deduplication-project#generate-matches) to detect duplicates among golden records that correspond to the selected entity type or filter criteria.
+    After you add matching rules, [generate matches](/management/deduplication/manage-a-deduplication-project#generate-matches) to detect duplicates among golden records that correspond to the selected business domain or filter criteria.

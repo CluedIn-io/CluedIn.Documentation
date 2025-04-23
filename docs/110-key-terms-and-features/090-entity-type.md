@@ -68,4 +68,4 @@ In the following hierarchy, Video is a child of Document.
 
 ## Useful resources
 
-- [Add or modify an entity type](/management/entity-type)
+- [Add or modify a business domain](/management/entity-type)

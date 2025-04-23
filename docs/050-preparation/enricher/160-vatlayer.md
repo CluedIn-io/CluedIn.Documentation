@@ -33,7 +33,7 @@ To use the Vatlayer enricher, you will need to provide the API key. To get it, s
 
     - **API Key** – enter the API key for retrieving information from the Vatlayer website.
 
-    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched using the Vatlayer enricher.
+    - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched using the Vatlayer enricher.
 
     - **Accepted Vocab Key** – enter the vocabulary key that contains the VAT numbers of companies that you want to enrich.
 
@@ -49,7 +49,7 @@ After the Vatlayer enricher is added, you can modify its details:
 
     ![vatlayer-enricher-3.png](../../assets/images/preparation/enricher/vatlayer-enricher-3.png)
 
-- **Authentication** – modify the details you provided to configure the enricher: **API Key**, **Accepted Entity Type**, and **Accepted Vocab Key**.
+- **Authentication** – modify the details you provided to configure the enricher: **API Key**, **Accepted Business Domain**, and **Accepted Vocab Key**.
 
 ## Properties from Vatlayer enricher
 

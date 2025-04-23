@@ -39,7 +39,7 @@ The mapping uses multiple CluedIn terms that you will need to learn. While it ma
 
 | Name | Purpose | Link to documentation |
 |--|--|--|
-| Entity type | The entity type represents a specific business domain of your data. Read the documentation to understand how to choose a good entity type. | [Link](/key-terms-and-features/entity-type) |
+| Business domain | The business domain represents a specific business object that describes the semantic meaning of your data. Read the documentation to understand how to choose a good business domain. | [Link](/key-terms-and-features/entity-type) |
 | Vocabulary and vocabulary keys | The vocabulary is used to define the semantic layer (metadata) for your data. The vocabulary contains vocabulary keys that describe the properties coming in from the data source. Read the documentation to learn about vocabulary usage. | [Link](/key-terms-and-features/vocabularies) |
 | Codes (identifiers) | This is a mechanism that CluedIn uses to define the uniqueness of a golden record. Read the documentation to understand the concept of origin code (primary identifier) and codes (identifiers). | [Link](/key-terms-and-features/entity-codes) |
 | Origin | The origin generally determines the source of golden records, and it is used in codes (identifiers). Read the documentation to understand the importance of the origin. | [Link](/key-terms-and-features/origin) |
@@ -52,7 +52,7 @@ To get a good default mapping configuration, use the **auto-mapping** option.
 
 ![mapping-type.png](../../assets/images/playbooks/mapping-type.png)
 
-It is a great way to start and define the most important mapping attributes—**entity type** and **vocabulary**. You can learn more about the process of creating mapping and find step-by-step instructions in a dedicated [article](/integration/create-mapping).
+It is a great way to start and define the most important mapping attributes—**business domain** and **vocabulary**. You can learn more about the process of creating mapping and find step-by-step instructions in a dedicated [article](/integration/create-mapping).
 
 For lineage purposes, we recommend **keeping a vocabulary close to the source**. Later, you can map the vocabulary keys to generic, shared vocabulary keys. When you have multiple sources with vocabulary keys mapped directly to the generic, shared vocabulary keys, it can become overwhelming to have more than 10 sources mapping directly to your golden records. In order to avoid confusion for those consuming the records, it is a good practice to map to the source vocabulary first.
 
@@ -60,7 +60,7 @@ For lineage purposes, we recommend **keeping a vocabulary close to the source**.
 
 ## Setting up the right codes (identifiers)
 
-After you selected the right entity type and vocabulary, it's time to choose the right key to produce the codes for your records.
+After you selected the right business domain and vocabulary, it's time to choose the right key to produce the codes for your records.
 
 Poorly defined codes can have a truly unexpected impact. The most common pitfall of poorly defined codes is what we call _over-merging_. It happens when you set up a code that is not actually unique. Suppose you choose the country code as a key, then all records with the same country code will merge together into one record. For example, if you have 100,000 records with the country code of "DK", then all those 100,000 records will end up as 1 record.
 
@@ -86,7 +86,7 @@ Of course, CluedIn has ways to fix such data quality issues. However, if you bli
 
 This is an introductory article on the topic of mapping. We'll add more detailed articles soon, as mapping is a significant part of the processes in CluedIn. As an outcome of this article, you know about 2 important decisions you have to make while creating mapping:
 
-- Choose the **right entity type** (business domain).
+- Choose the **right business domain**.
 
 - Choose the **right vocabulary** that is close to the source.
 

@@ -37,7 +37,7 @@ The enricher requires at least one of the following attributes to search for com
 
 1. On the **Configure** tab, provide the following details:
 
-    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched.
+    - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched.
 
     - **Website vocab key** – enter the vocabulary key that contains company websites that will be used to search for company domain and logo.
 
