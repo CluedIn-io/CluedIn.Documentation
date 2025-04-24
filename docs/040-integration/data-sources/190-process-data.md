@@ -23,7 +23,7 @@ Depending on the type of data source, there are three processing options:
 
 - For ingestion endpoint only: [Bridge mode](#bridge-mode)
 
-You can process the data set as many times as you want. In CluedIn, once a record has been processed, it won’t undergo processing again. When the processing is started, CluedIn checks for identical records. If identical records are found, they won’t be processed again. However, if you change the origin code for the previously processed records, CluedIn will treat these records as new and process them.
+You can process the data set as many times as you want. In CluedIn, once a record has been processed, it won’t undergo processing again. When the processing is started, CluedIn checks for identical records. If identical records are found, they won’t be processed again. However, if you change the primary identifier for the previously processed records, CluedIn will treat these records as new and process them.
 
 After the processing is completed, the [processing log](#processing-logs) appears in the table. Any records that fail to meet specific conditions outlined in [property](/integration/additional-operations-on-records/property-rules) or [pre-process](/integration/additional-operations-on-records/preprocess-rules) rules will be sent to quarantine. To learn more about managing these records, see [Quarantine](/integration/additional-operations-on-records/quarantine). Records that were processed successfully are displayed on the **Data** tab.
 
@@ -45,12 +45,12 @@ Manual processing is available for the data coming from a file, an ingestion end
 
     - Delete the records that are currently in quarantine. This option is useful if you have already processed the data set before and there are some records in quarantine.
 
-    - View the result of the origin entity code status check along with the field that was selected for producing the entity origin code.
+    - View the result of the primary identifier status check along with the field that was selected for producing the primary identifier.
 
-    - View the result of the code status check along with the field that was selected for producing the entity code.
+    - View the result of the identifier status check along with the field that was selected for producing additional identifier.
 
         {:.important}
-        If any status check shows duplicates, the records containing duplicates will be merged to maintain data integrity and consistency. To learn more about unique identifiers, see [Codes](/integration/review-mapping#codes).
+        If any status check shows duplicates, the records containing duplicates will be merged to maintain data integrity and consistency. To learn more about unique identifiers, see [Identifiers](/integration/review-mapping#codes).
 
 1. In the lower-right corner, select **Confirm**.
 

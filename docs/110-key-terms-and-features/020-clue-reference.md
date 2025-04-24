@@ -32,9 +32,9 @@ After you create the mapping, you can generate clues and take a look at their st
 
     A JSON file with all clues created from your data set is downloaded to your computer. You can open the file in any text editor.
 
-It is a good idea to check the clues before processing to make sure they contain all the necessary details so that identical clues can be merged by codes, thus reducing the number of duplicates in the system. You can do the following:
+It is a good idea to check the clues before processing to make sure they contain all the necessary details so that identical clues can be merged by identifiers, thus reducing the number of duplicates in the system. You can do the following:
 
-- Check if the codes are correct.
+- Check if the identifiers are correct.
 
 - Check if the property and pre-process rules have been applied as intended.
 
@@ -98,7 +98,7 @@ The following table contains the properties that you can find in the clue.
 | Property | Description |
 |--|--|
 | `attribute-organization` | GUID of the organization. |
-| `attribute-origin` | Entity origin code of the clue as defined in the mapping details. It is the primary identifier that uniquely represents the clue. This property appears in several places in the clue structure. |
+| `attribute-origin` | Primary identifier of the clue as defined in the mapping details. It is the primary identifier that uniquely represents the clue. This property appears in several places in the clue structure. |
 | `attribute-appVersion` | Version of the clue schema. This property appears in several places in the clue structure. |
 | `attribute-originProviderDefinitionId` | GUID of the source that sent the data to CluedIn. The source can be a file, a database, an ingestion endpoint, a manual data entry project, and so on. Each source in CluedIn has a provider definition ID. The provider definition ID is used to restrict or grant user access to a specific data source.  |
 | `attribute-inputSource` | System that pushed the clue. Usually, the clue is created as a result of the mapping process, which is represented by the `cluedin-annotation` service.  |
@@ -107,7 +107,7 @@ The following table contains the properties that you can find in the clue.
 | `entityType` | A common attribute that defines the business domain that the clue belongs to. The selection of the business domain is part of the mapping process. |
 | `attributeSource` | A service source of the clue. |
 | `codes` | Additional unique identifiers of the clue as defined in the mapping details. |
-| `edges` | An object that represents a specific relation (`attribute-type`) between the source clue (`attribute-from`) and the target clue (`attribute-to`), identified through their entity origin codes. |
+| `edges` | An object that represents a specific relation (`attribute-type`) between the source clue (`attribute-from`) and the target clue (`attribute-to`), identified through their primary identifiers. |
 | `properties` | An object (also called a _property bag_) that contains all the properties (vocabulary keys) of the clue. |
 | `attribute-type` | A format of data in the property bag. |
 | `aliases` | A value used as an alternative or secondary name associated with the clue. |
@@ -132,7 +132,7 @@ To post clues to CluedIn, use the following post URL: `{{baseurl}}/public/api/v2
 
 ### Delta clues and why you may need them
 
-By default, CluedIn works in "Append" mode, where as new data comes in, it will append the data over the top of existing data that has a matching Entity Code or will create new Golden records where there is no matching Entity Code.
+By default, CluedIn works in the append mode, where as new data comes in, it will append the data over the top of existing data that has a matching primary identifier or will create new golden records where there is no matching primary identifier.
 
 There are situations where you actually don't want your new data to be in "Append" mode, but rather you want to change the way that CluedIn will process and treat this data.
 
@@ -142,7 +142,7 @@ The most common examples include:
 
  - You are sending data to CluedIn with "Blank Values" and your intention is to ask CluedIn to "forget" that this column or columns ever had a value for this. For example, you had a phone number from a company and you would rather now have a blank value for this as the phone number is no longer active. 
 
- - You are sending data to CluedIn with an updated value for a column and your intention is to ask CluedIn to **REMOVE** the old Entity Code or Edge that could have been built off of this, and **REPLACE** it with the new ones, not just **APPEND** over the top.
+ - You are sending data to CluedIn with an updated value for a column and your intention is to ask CluedIn to **REMOVE** the old identifier or edge that could have been built off of this, and **REPLACE** it with the new ones, not just **APPEND** over the top.
 
  - You are sending blank data to CluedIn and you actually want CluedIn to treat the values as Blank and hence if a Golden Record has a value of "Hello" you actually want to turn that value into "".
 
@@ -152,7 +152,7 @@ The most common examples include:
 You can post clues that remove outgoing or incoming edges from golden records. Following is an example of a clue that removes an outgoing edge from a golden record.
 
 
-### Remove Edge
+### Remove edge
 
 ```
 {
@@ -210,7 +210,7 @@ You can post clues that remove outgoing or incoming edges from golden records. F
 }
 ```
 
-### Remove Edge and Add Edge in same Clue (equivelant of an Update)
+### Remove edge and add edge in same clue (equivelant of an update)
 
 ```
 {
@@ -272,7 +272,7 @@ You can post clues that remove outgoing or incoming edges from golden records. F
 ```
 
 
-### Remove Incoming Edges using Delta Clues
+### Remove incoming edges using delta clues
 
 
 ```
@@ -302,7 +302,7 @@ You can post clues that remove outgoing or incoming edges from golden records. F
 }
 ```
 
-### Remove Properties using Delta Clues
+### Remove properties using delta clues
 
 
 ```
@@ -332,7 +332,7 @@ You can post clues that remove outgoing or incoming edges from golden records. F
 }
 ```
 
-### Remove Entity Code using Delta Clues
+### Remove identifier using delta clues
 
 
 ```
@@ -362,7 +362,7 @@ You can post clues that remove outgoing or incoming edges from golden records. F
 }
 ```
 
-### Remove Tag using Delta Clues
+### Remove tag using delta clues
 
 
 ```
@@ -392,7 +392,7 @@ You can post clues that remove outgoing or incoming edges from golden records. F
 }
 ```
 
-### Remove Alias using Delta Clues
+### Remove alias using delta clues
 
 
 ```
@@ -422,7 +422,7 @@ You can post clues that remove outgoing or incoming edges from golden records. F
 }
 ```
 
-### Remove Description using Delta Clues
+### Remove description using delta clues
 
 
 ```
@@ -451,7 +451,7 @@ You can post clues that remove outgoing or incoming edges from golden records. F
 }
 ```
 
-### Remove Name using Delta Clues
+### Remove name using delta clues
 
 
 ```
@@ -480,7 +480,7 @@ You can post clues that remove outgoing or incoming edges from golden records. F
 }
 ```
 
-### Remove Display Name using Delta Clues
+### Remove display name using delta clues
 
 
 ```
@@ -509,7 +509,7 @@ You can post clues that remove outgoing or incoming edges from golden records. F
 }
 ```
 
-### Remove Author using Delta Clues
+### Remove author using delta clues
 
 
 ```

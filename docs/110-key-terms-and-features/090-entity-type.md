@@ -16,7 +16,7 @@ A business domain represents a specific business object that describes the seman
 
 Each golden record is associated with exactly one business domain. You can leverage built-in business domains or define your own custom business domains.
 
-A business domain is assigned to a clue during the mapping process, and it plays a critical role in various [codes](/key-terms-and-features/entity-codes), including entity origin codes and entity codes.
+A business domain is assigned to a clue during the mapping process, and it plays a critical role in various [identifiers](/key-terms-and-features/entity-codes), including primary identifiers and additional identifiers.
 
 ## business domain usage
 

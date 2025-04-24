@@ -28,7 +28,7 @@ title: Data export playbook
 Now that you have completed the [data transformation](/playbooks/data-transformation-playbook) process and reached the desired quality of your [golden records](/key-terms-and-features/golden-records), it is time to **push golden records to the target systems** in your organization.
 
 {:.important}
-To establish correlations between exported golden records in your target systems, use the [entity origin code (primary identifier)](/key-terms-and-features/entity-codes#entity-origin-code-primary-identifier) and [codes (identifiers)](/key-terms-and-features/entity-codes#entity-codes-identifiers) instead of the entity ID. This is because the entity ID does not guarantee uniqueness, as records with different IDs could be merged.
+To establish correlations between exported golden records in your target systems, use the [primary identifier](/key-terms-and-features/entity-codes#entity-origin-code-primary-identifier) and [additional identifiers](/key-terms-and-features/entity-codes#entity-codes-identifiers) instead of the entity ID. This is because the entity ID does not guarantee uniqueness, as records with different IDs could be merged.
 
 ## Data export models
 
