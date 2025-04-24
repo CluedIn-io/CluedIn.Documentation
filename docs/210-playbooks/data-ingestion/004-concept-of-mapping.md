@@ -41,8 +41,8 @@ The mapping uses multiple CluedIn terms that you will need to learn. While it ma
 |--|--|--|
 | Business domain | The business domain represents a specific business object that describes the semantic meaning of your data. Read the documentation to understand how to choose a good business domain. | [Link](/key-terms-and-features/entity-type) |
 | Vocabulary and vocabulary keys | The vocabulary is used to define the semantic layer (metadata) for your data. The vocabulary contains vocabulary keys that describe the properties coming in from the data source. Read the documentation to learn about vocabulary usage. | [Link](/key-terms-and-features/vocabularies) |
-| Codes (identifiers) | This is a mechanism that CluedIn uses to define the uniqueness of a golden record. Read the documentation to understand the concept of origin code (primary identifier) and codes (identifiers). | [Link](/key-terms-and-features/entity-codes) |
-| Origin | The origin generally determines the source of golden records, and it is used in codes (identifiers). Read the documentation to understand the importance of the origin. | [Link](/key-terms-and-features/origin) |
+| Identifiers | This is a mechanism that CluedIn uses to define the uniqueness of a golden record. Read the documentation to understand the concept of primary identifier and identifiers. | [Link](/key-terms-and-features/entity-codes) |
+| Origin | The origin generally determines the source of golden records, and it is used in identifiers. Read the documentation to understand the importance of the origin. | [Link](/key-terms-and-features/origin) |
 
 ## Mapping process overview
 
@@ -58,13 +58,13 @@ For lineage purposes, we recommend **keeping a vocabulary close to the source**.
 
 ![configure-mapping.png](../../assets/images/playbooks/configure-mapping.png)
 
-## Setting up the right codes (identifiers)
+## Setting up the right identifiers
 
-After you selected the right business domain and vocabulary, it's time to choose the right key to produce the codes for your records.
+After you selected the right business domain and vocabulary, it's time to choose the right key to produce the identifiers for your records.
 
-Poorly defined codes can have a truly unexpected impact. The most common pitfall of poorly defined codes is what we call _over-merging_. It happens when you set up a code that is not actually unique. Suppose you choose the country code as a key, then all records with the same country code will merge together into one record. For example, if you have 100,000 records with the country code of "DK", then all those 100,000 records will end up as 1 record.
+Poorly defined identifiers can have a truly unexpected impact. The most common pitfall of poorly defined identifiers is what we call _over-merging_. It happens when you set up an identifier that is not actually unique. Suppose you choose the country code as a key, then all records with the same country code will merge together into one record. For example, if you have 100,000 records with the country code of "DK", then all those 100,000 records will end up as 1 record.
 
-Poorly defined codes can cause system slowdowns. While **reverting is possible, it will take time** as now CluedIn will need to _split_ those records. At that point, the fastest solution is to remove those records from CluedIn and restart the mapping. With the country code example, it is easy to understand that using non-unique properties as identifiers is not a good choice.
+Poorly defined identifiers can cause system slowdowns. While **reverting is possible, it will take time** as now CluedIn will need to _split_ those records. At that point, the fastest solution is to remove those records from CluedIn and restart the mapping. With the country code example, it is easy to understand that using non-unique properties as identifiers is not a good choice.
 
 Sometimes, the key you consider unique is not in fact unique. For example, a SKU code—unique internal product code—can have the following issues:
 
@@ -90,7 +90,7 @@ This is an introductory article on the topic of mapping. We'll add more detailed
 
 - Choose the **right vocabulary** that is close to the source.
 
-Additionally, you now know about the importance of choosing the **unique key** for producing the codes (identifiers). If you are unsure whether the selected key is unique, you can use a deduplication project to detect and merge duplicates.
+Additionally, you now know about the importance of choosing the **unique key** for producing the identifiers. If you are unsure whether the selected key is unique, you can use a deduplication project to detect and merge duplicates.
 
 ## Next step
 
