@@ -159,7 +159,7 @@ After you set up Microsoft Fabric, send the data to CluedIn. This process involv
 
 1. In CluedIn, create auto-mapping for the data set following the instructions [here](/integration/create-mapping).
 
-1. In CluedIn, edit the mapping for the data set to select the property used as the entity name and the property used for the entity origin code. For more information about mapping details, see [Review mapping](/integration/review-mapping).
+1. In CluedIn, edit the mapping for the data set to select the property used as the entity name and the property used for the primary identifier. For more information about mapping details, see [Review mapping](/integration/review-mapping).
 
 1. In CluedIn, got to the **Process** tab of the data set, turn on the **Auto submission** toggle, and then select **Switch to Bridge Mode**.
 
