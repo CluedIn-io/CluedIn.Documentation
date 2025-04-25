@@ -41,25 +41,23 @@ The Libpostal enricher uses the address as input to parse and normalize the stre
 
     - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched using the Libpostal enricher. Depending on the business domain that you provide, you need to fill out one more field to define the vocabulary key that contains addresses of golden records that you want to enrich.
 
-    - **Person Address Vocab Key** – if you entered /Person as the accepted business domain, enter the vocabulary key that contains the home addresses of persons that you want to enrich.
+    - **Person Address Vocabulary Key** – if you entered /Person as the accepted business domain, enter the vocabulary key that contains the home addresses of persons that you want to enrich.
 
-    - **Organization Address Vocab Key** – if you entered /Organization as the accepted business domain, enter the vocabulary key that contains the addresses of organizations that you want to enrich.
+    - **Organization Address Vocabulary Key** – if you entered /Organization as the accepted business domain, enter the vocabulary key that contains the addresses of organizations that you want to enrich.
 
-    - **User Address Vocab Key** – if you entered /User as the accepted business domain, enter the vocabulary key that contains the addresses of users that you want to enrich.
+    - **User Address Vocabulary Key** – if you entered /User as the accepted business domain, enter the vocabulary key that contains the addresses of users that you want to enrich.
 
-    - **Location Address Vocab Key** – if you entered /Location as the accepted business domain, enter the vocabulary key that contains the addresses of locations that you want to enrich.
+    - **Location Address Vocabulary Key** – if you entered /Location as the accepted business domain, enter the vocabulary key that contains the addresses of locations that you want to enrich.
 
         ![libpostal-enricher-2.png](../../assets/images/preparation/enricher/libpostal-enricher-2.png)
 
-1. Select **Add**.
+1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
     The Libpostal enricher is added and has an active status. This means that it will enrich golden records based on the configuration details during processing or when you trigger external enrichment.
 
 After the Libpostal enricher is added, you can modify its details:
 
 - **Settings** – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
-
-    ![libpostal-enricher-3.png](../../assets/images/preparation/enricher/libpostal-enricher-3.png)
 
 - **Authentication** – modify the details you provided while configuring the enricher.
 

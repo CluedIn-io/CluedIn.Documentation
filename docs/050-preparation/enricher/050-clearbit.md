@@ -39,23 +39,21 @@ The enricher requires at least one of the following attributes to search for com
 
     - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched.
 
-    - **Website vocab key** – enter the vocabulary key that contains company websites that will be used to search for company domain and logo.
+    - **Website Vocabulary Key** – enter the vocabulary key that contains company websites that will be used to search for company domain and logo.
 
-    - **Organization Name vocab key** – enter the vocabulary key that contains company names that will be used to search for company domain and logo.
+    - **Organization Name Vocabulary Key** – enter the vocabulary key that contains company names that will be used to search for company domain and logo.
 
-    - **Email Domain vocab key** – enter the vocabulary key that contains company email domains that will be used to search for company domain and logo.
+    - **Email Domain Vocabulary Key** – enter the vocabulary key that contains company email domains that will be used to search for company domain and logo.
 
         ![clearbit-enricher-2.png](../../assets/images/preparation/enricher/clearbit-enricher-2.png)
 
-1. Select **Add**.
+1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
     The Clearbit enricher is added and has the active status. It means that it will enrich relevant golden records when they are processed or when your trigger external enrichment.
 
 After the Clearbit enricher is added, you can modify its details:
 
 - **Settings** – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
-
-    ![clearbit-enricher-3.png](../../assets/images/preparation/enricher/clearbit-enricher-3.png)
 
 - **Authentication** – modify the details you provided while configuring the enricher.
 

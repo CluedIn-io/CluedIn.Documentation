@@ -31,17 +31,17 @@ To use the Knowledge Graph enricher, you must provide the API key. To get the AP
 
 1. On the **Configure** tab, provide the following details:
 
-    - **Key** – enter the API key for accessing Google’s Knowledge Graph database.
+    - **API Key** – enter the API key for accessing Google’s Knowledge Graph database.
 
     - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched using the Knowledge Graph enricher.
 
-    - **Organization Name Vocab Key** – enter the vocabulary key that contains the names of organizations that will be used for searching the Knowledge Graph database.
+    - **Organization Name Vocabulary Key** – enter the vocabulary key that contains the names of organizations that will be used for searching the Knowledge Graph database.
 
-    - **Website Vocab Key** – enter the vocabulary key that contains the websites of organizations that will be used for searching the Knowledge Graph database.
+    - **Website Vocabulary Key** – enter the vocabulary key that contains the websites of organizations that will be used for searching the Knowledge Graph database.
 
         ![knowledge-graph-enricher-2.png](../../assets/images/preparation/enricher/knowledge-graph-enricher-2.png)
 
-1. Select **Add**.
+1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
     The Knowledge Graph enricher is added and has an active status. This means that it will enrich golden records based on the configuration details during processing or when you trigger external enrichment.
 
@@ -49,9 +49,7 @@ After the Knowledge Graph enricher is added, you can modify its details:
 
 - **Settings** – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
 
-    ![knowledge-graph-enricher-3.png](../../assets/images/preparation/enricher/knowledge-graph-enricher-3.png)
-
-- **Authentication** – modify the details you provided to configure the enricher: **Key**, **Accepted Business Domain**, **Organization Name Vocab Key**, and **Website Vocab Key**.
+- **Authentication** – modify the details you provided to configure the enricher.
 
 ## Properties from Knowledge Graph enricher
 

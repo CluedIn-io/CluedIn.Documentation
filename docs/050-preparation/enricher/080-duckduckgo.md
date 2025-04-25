@@ -33,13 +33,13 @@ The enricher uses the organization name and/or the website to search for informa
 
     - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched.
 
-    - **Organization Name Vocab Key** – enter the vocabulary key that contains the names of companies that will be used for searching the DuckDuckGo engine.
+    - **Organization Name Vocabulary Key** – enter the vocabulary key that contains the names of companies that will be used for searching the DuckDuckGo engine.
 
-    - **Website Vocab Key** – enter the vocabulary key that contains the websites of companies that will be used for searching the DuckDuckGo engine.
+    - **Website Vocabulary Key** – enter the vocabulary key that contains the websites of companies that will be used for searching the DuckDuckGo engine.
 
         ![duck-duck-go-enricher-2.png](../../assets/images/preparation/enricher/duck-duck-go-enricher-2.png)
 
-1. Select **Add**.
+1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
     The DuckDuckGo enricher is added and has an active status. This means that it will enrich golden records based on the configuration details during processing or when you trigger external enrichment.
 
@@ -47,9 +47,7 @@ After the DuckDuckGo enricher is added, you can modify its details:
 
 - **Settings** – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
 
-    ![duck-duck-go-enricher-3.png](../../assets/images/preparation/enricher/duck-duck-go-enricher-3.png)
-
-- **Authentication** – modify the details you provided while configuring the enricher: **Accepted Business Domain**, **Organization Name Vocab Key**, **Organization Website Vocab Key**.
+- **Authentication** – modify the details you provided while configuring the enricher.
 
 ## Properties from DuckDuckGo enricher
 

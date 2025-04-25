@@ -51,23 +51,21 @@ The enricher requires at least one of the following attributes for searching the
 
     1. **Country Code Vocabulary Key** – enter the vocabulary key that contains the country codes of companies that will be used for searching the Brreg register.
 
+        ![brreg-enricher-config-1.png](../../assets/images/preparation/enricher/brreg-enricher-config-1.png)
+
     1. **Website Vocabulary Key** – enter the vocabulary key that contains the websites of companies that will be used for searching the Brreg register.
 
     1. **Brreg Code Vocabulary Key** – enter the vocabulary key that contains the Brreg codes of companies that will be used for searching the Brreg register.
 
-    1. **Skip entity Code Creation (Brreg Code)** – turn on the toggle if you don't want to add new entity codes that come from the source system to the enriched golden records. Otherwise, new entity codes containing Brregs codes will be added to the enriched golden records.
+        ![brreg-enricher-config-2.png](../../assets/images/preparation/enricher/brreg-enricher-config-2.png)
 
-        ![brreg-enricher-4.png](../../assets/images/preparation/enricher/brreg-enricher-4.png)
-
-1. Select **Add**.
+1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
     The Brreg enricher is added and has an active status. This means that it will enrich relevant golden records during processing or when you trigger external enrichment.
 
 After the Brreg enricher is added, you can modify its details:
 
 - **Settings** – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
-
-    ![brreg-enricher-2.png](../../assets/images/preparation/enricher/brreg-enricher-2.png)
 
 - **Authentication** – modify the details you provided while configuring the enricher.    
 

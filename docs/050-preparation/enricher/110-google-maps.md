@@ -75,41 +75,41 @@ When you're configuring the Google Maps enricher for a specific business domain,
 
     - **Vocabulary Key used to control whether it should be enriched** – enter the vocabulary key that indicates if the golden record should be enriched. If the value is true, then the golden record will be enriched. Otherwise, the golden record will not be enriched.
 
-    - **Organization Name Vocab Key** – enter the vocabulary key that contains company names that will be used for searching the Google Maps Platform.
+        ![google-maps-enricher-config-1.png](../../assets/images/preparation/enricher/google-maps-enricher-config-1.png)    
 
-    - **Organization Address Vocab Key** – enter the vocabulary key that contains company addresses that will be used for searching the Google Maps Platform.
+    - **Organization Name Vocabulary Key** – enter the vocabulary key that contains company names that will be used for searching the Google Maps Platform.
 
-    - **Organization City Vocab Key** – enter the vocabulary key that contains cities that will be used for searching the Google Maps Platform.
+    - **Organization Address Vocabulary Key** – enter the vocabulary key that contains company addresses that will be used for searching the Google Maps Platform.
 
-    - **Organization Zip** – enter the vocabulary key that contains company ZIP Codes that will be used for searching the Google Maps Platform.
+        ![google-maps-enricher-config-2.png](../../assets/images/preparation/enricher/google-maps-enricher-config-2.png)    
 
-    - **Organization State Vocab Key** – enter the vocabulary key that contains states that will be used for searching the Google Maps Platform.
+    - **Organization City Vocabulary Key** – enter the vocabulary key that contains cities that will be used for searching the Google Maps Platform.
 
-    - **Organization Country Vocab Key** – enter the vocabulary key that contains countries that will be used for searching the Google Maps Platform.
+    - **Organization Zip Vocabulary Key** – enter the vocabulary key that contains company ZIP Codes that will be used for searching the Google Maps Platform.
 
-    - **Location Address Vocab Key** – enter the vocabulary key that contains location addresses that will be used for searching the Google Maps Platform.
+    - **Organization State Vocabulary Key** – enter the vocabulary key that contains states that will be used for searching the Google Maps Platform.
 
-    - **User Address Vocab Key** – enter the vocabulary key that contains user addresses that will be used for searching the Google Maps Platform.
+    - **Organization Country Vocabulary Key** – enter the vocabulary key that contains countries that will be used for searching the Google Maps Platform.
 
-    - **Person Address Vocab Key** – enter the vocabulary key that contains person addresses that will be used for searching the Google Maps Platform.
+    - **Location Address Vocabulary Key** – enter the vocabulary key that contains location addresses that will be used for searching the Google Maps Platform.
 
-    - **Person Address City Vocab Key** – enter the vocabulary key that contains person cities that will be used for searching the Google Maps Platform.
+    - **User Address Vocabulary Key** – enter the vocabulary key that contains user addresses that will be used for searching the Google Maps Platform.
 
-    - **Latitude Vocab Key** – this field is not currently used for searching the Google Maps Platform.
+    - **Person Address Vocabulary Key** – enter the vocabulary key that contains person addresses that will be used for searching the Google Maps Platform.
 
-    - **Longitude Vocab Key** – this field is not currently used for searching the Google Maps Platform.
+    - **Person Address City Vocabulary Key** – enter the vocabulary key that contains person cities that will be used for searching the Google Maps Platform.
 
-        ![google-maps-enricher-2.png](../../assets/images/preparation/enricher/google-maps-enricher-2.png)
+    - **Latitude Vocabulary Key** – this field is not currently used for searching the Google Maps Platform.
 
-1. Select **Add**.
+    - **Longitude Vocabulary Key** – this field is not currently used for searching the Google Maps Platform.
+
+1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
     The Google Maps enricher is added and has an active status. This means that it will enrich golden records based on the configuration details during processing or when you trigger external enrichment.
 
 After the Google Maps enricher is added, you can modify its details:
 
 - **Settings** – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
-
-    ![google-maps-enricher-3.png](../../assets/images/preparation/enricher/google-maps-enricher-3.png)
 
 - **Authentication** – modify the details you provided while configuring the enricher.
 

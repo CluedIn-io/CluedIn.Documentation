@@ -39,15 +39,13 @@ The enricher uses the Legal Entity Identifier (LEI) code to search for informati
 
         ![gleif-enricher-5.png](../../assets/images/preparation/enricher/gleif-enricher-5.png)
 
-1. Select **Add**.
+1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
     The Gleif enricher is added and has an active status. This means that it will enrich relevant golden records during processing or when you trigger external enrichment.
 
 After the Gleif enricher is added, you can modify its details:
 
 - **Settings** – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
-
-    ![gleif-enricher-2.png](../../assets/images/preparation/enricher/gleif-enricher-2.png)
 
 - **Authentication** – modify the details you provided while configuring the enricher.    
 
