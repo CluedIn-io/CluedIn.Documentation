@@ -49,27 +49,27 @@ Power Apps integration offers a variety of features for syncing data between Clu
 
 **To configure specific features of Power Apps integration**
 
-1. If you want to sync multiple CluedIn entity types to Dataverse tables, specify the **Parallel Execution Count**. This is the number of entity types that can be simultaneously synced with Dataverse. Be default, this number is 5.
+1. If you want to sync multiple CluedIn business domains to Dataverse tables, specify the **Parallel Execution Count**. This is the number of business domains that can be simultaneously synced with Dataverse. Be default, this number is 5.
 
-1. If you want to sync CluedIn entity types to Dataverse tables:
+1. If you want to sync CluedIn business domains to Dataverse tables:
 
-    1. Turn on the toggle next to **Sync CluedIn Entity Types Dataverse Table**.
+    1. Turn on the toggle next to **Sync CluedIn Business Domains to Dataverse Table**.
 
-    1. Enter the entity types that you want to sync. If you want to sync multiple entity types, separate them with a comma (for example, _/Type1,/Type2,/Type3_). 
+    1. Enter the business domains that you want to sync. If you want to sync multiple business domains, separate them with a comma (for example, _/Type1,/Type2,/Type3_). 
 
         ![sync-entity-types.png](../../assets/images/microsoft-integration/power-apps/sync-entity-types.png)
 
-        Each entity type will be synced into a separate Dataverse table. For more information, see [Sync entity types to Dataverse tables](/microsoft-integration/powerapps/features/sync-entitytypes).
+        Each business domain will be synced into a separate Dataverse table. For more information, see [Sync business domains to Dataverse tables](/microsoft-integration/powerapps/features/sync-entitytypes).
 
-1. If you want to sync Dataverse tables and columns to CluedIn entity types and vocabulary keys:
+1. If you want to sync Dataverse tables and columns to CluedIn business domains and vocabulary keys:
 
-    1. Turn on the toggle next to **Sync Dataverse Table/Columns to CluedIn Entity Types and Vocabulary**.
+    1. Turn on the toggle next to **Sync Dataverse Table/Columns to CluedIn Business Domains and Vocabulary**.
 
     1. Enter the name of the Dataverse table that you want to sync. This should be the logical name of the Dataverse table. If you want to sync multiple tables, separate them with a comma (for example, _logical_name1,logical_name2,logical_name3_).
 
         ![sync-dataverse-table.png](../../assets/images/microsoft-integration/power-apps/sync-dataverse-table.png)
 
-        Each table will be synced into a separate CluedIn entity type and vocabulary associated with that entity type. The columns from the table will be synced into the vocabulary keys of the vocabulary associated with the entity type. For more information, see [Sync Dataverse tables to CluedIn entity types and vocabularies](/microsoft-integration/powerapps/features/sync-dataverse).
+        Each table will be synced into a separate CluedIn business domain and vocabulary associated with that business domain. The columns from the table will be synced into the vocabulary keys of the vocabulary associated with the business domain. For more information, see [Sync Dataverse tables to CluedIn business domains and vocabularies](/microsoft-integration/powerapps/features/sync-dataverse).
 
 1. If you want to automate the ingestion of data from Dataverse to CluedIn:
 
@@ -87,7 +87,7 @@ Power Apps integration offers a variety of features for syncing data between Clu
 
     1. Make sure you have the [Dataverse export target](/consume/export-targets/dataverse-connector) installed in your CluedIn instance. It should be available in the list of export targets (**Consume** > **Export Targets** > **Add Export Target**). You do not need to configure the Dataverse export target because it will be configured automatically.
 
-    1. Make sure you have enabled **Sync CluedIn Entity Types to Dataverse Table** for entity types of golden records that you want to export to a Dataverse table. 
+    1. Make sure you have enabled **Sync CluedIn Business Domains to Dataverse Table** for business domains of golden records that you want to export to a Dataverse table. 
 
     1. Turn on the toggle next to **Create CluedIn Stream**.
 

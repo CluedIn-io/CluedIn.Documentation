@@ -94,7 +94,7 @@ When the CluedIn Excel Add-in is added, a new group called **CluedIn** appears o
 
 - **Show Taskpane** – opens the CluedIn Excel Add-in task pane to the right side of the window.
 
-- **Create Entity Type** – opens the entity type creation pane in CluedIn in your default browser. For more information, see [Create entity type](/management/entity-type#create-an-entity-type).
+- **Create Entity Type** – opens the business domain (previously entity type) creation pane in CluedIn in your default browser. For more information, see [Create business domain](/management/entity-type#create-a-business-domaine).
 
 - **Merge Entity** – initiates the merging process by opening the merging page in CluedIn in your default browser.
 
@@ -116,9 +116,9 @@ Once you connect to an instance of CluedIn, you can start working with the data 
 
 ### Load data from CluedIn to Excel
 
-1. Select the **Entity Type** of golden records that you want to load. The dropdown list contains the entity types that are currently used in CluedIn.
+1. In **Entity Type**, select the business domain (previously entity type) of golden records that you want to load. The dropdown list contains the business domains that are currently used in CluedIn.
 
-1. Specify the **Vocabulary Keys** of golden records that you want to load. To add all vocabulary keys associated with the selected entity type, use the **Auto-select** option.
+1. Specify the **Vocabulary Keys** of golden records that you want to load. To add all vocabulary keys associated with the selected business domain, use the **Auto-select** option.
 
     ![load-data-auto-select.png](../../assets/images/microsoft-integration/excel-add-in/load-data-auto-select.png)
 
@@ -148,7 +148,7 @@ Once you connect to an instance of CluedIn, you can start working with the data 
 
     When the data is loaded, it becomes available in the spreadsheet, and you can start [modifying](#modify-loaded-data-in-excel) it as needed. By default, the rows are presented in alternating light blue and white colors.
 
-    Note that the sheet name corresponds to the entity type of loaded golden records. If you want to load the data of another entity type, just add a new sheet, edit the configuration on the **Load Data** tab, and load the data. and You can have as many sheets as you like.
+    Note that the sheet name corresponds to the business domain of loaded golden records. If you want to load the data of another business domain, just add a new sheet, edit the configuration on the **Load Data** tab, and load the data. and You can have as many sheets as you like.
 
     ![loaded-data.png](../../assets/images/microsoft-integration/excel-add-in/loaded-data.png)
 

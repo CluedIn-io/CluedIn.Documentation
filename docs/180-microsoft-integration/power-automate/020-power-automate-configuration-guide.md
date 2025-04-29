@@ -45,7 +45,7 @@ Make sure that you have completed all of the actions described in [Power Automa
 
     - **Enterprise Flow Cache Duration** – a time period for which data is stored in the cache for enterprise flows. This duration can impact the performance and efficiency of your workflows. In the context of Power Automate, the cache duration helps manage the flow’s performance by temporarily storing data to reduce the need for repeated data retrievals.
 
-    - **Entity Type Cache Duration** – a time period for which the records that belong to the entity types with the **Batch approval workflow** option enabled are stored in the cache.
+    - **Business Domain Cache Duration** – a time period for which the records that belong to the business domains with the **Batch approval workflow** option enabled are stored in the cache.
 
         ![workflows-cluedin-configuration.png](../../assets/images/microsoft-integration/power-automate/workflows-cluedin-configuration.png)
 

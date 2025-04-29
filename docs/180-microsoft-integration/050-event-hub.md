@@ -10,7 +10,7 @@ Azure Event Hub integration enables the transmission of workflow events from Clu
 
 - Adding a data source, updating a data source
 
-- Adding an entity type
+- Adding a business domain
 
 - Adding a role
 

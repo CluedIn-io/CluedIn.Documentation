@@ -16,7 +16,7 @@ Power Apps can be integrated with CluedIn to enable you to **manage your master 
 
 Power Apps integration offers the following benefits:
 
-- 2-way synchronization of Dataverse metadata to CluedIn entity types and vocabularies and vice versa:
+- 2-way synchronization of Dataverse metadata to CluedIn business domains and vocabularies and vice versa:
 
     - CluedIn stream to export golden records from CluedIn to the Dataverse tables.
 

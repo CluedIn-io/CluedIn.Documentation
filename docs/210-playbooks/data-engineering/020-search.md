@@ -45,7 +45,7 @@ To find them, I can run a query like this:
 ```
 
 The query will return me the top 20 of the `/Duck` entities.
-The `query` parameter tells the API to filter the response by a given Entity Type.
+The `query` parameter tells the API to filter the response by a given business domain (previously entity type).
 You can also specify the entity properties you want to get in the payload: `id`, `name`, and `entityType`.
 
 ### GraphQL search query with variables and cursor
