@@ -64,21 +64,17 @@ Before any Kubernetes upgrades take place, we **highly recommend** you scale dow
 
     The above may take a couple minutes to complete. But once done, it should be safe to upgrade the AKS cluster without any potential data loss.
 
-1. Because CluedIn uses Kubernetes API, normally during upgrade time you may face an error when attempting to do the AKS upgrade. As a result, it will prevent you from upgrading without bypassing the API check first. 
-To disable this API check, run the following command:
+1. Run the following commands to get the list of availble version to upgrade
 
     ```powershell
     $params = @(
-        '--name', ${aksClusterName}
-        '--resource-group', ${resourceGroup}
-        '--subscription', ${subscription}
-        '--enable-force-upgrade'
-        '--upgrade-override-until', ((Get-Date).AddDays(1).ToString('yyyy-MM-ddT00:00:00Z'))
+      '--name', ${aksClusterName}
+      '--resource-group', ${resourceGroup}
+      '--subscription', ${subscription}
     )
-    az aks update @params
+    az aks get-upgrades @params -o table
     ```
-
-    This will take a few minutes to complete and should return back successfully.
+Pick the version to upgrade from the output list
 
 With the above steps completed, it's time to upgrade. Depending on if you pass or fail the prerequisites, please follow the appropriate path below:
 
