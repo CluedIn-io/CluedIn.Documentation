@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 20
+nav_order: 2
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/purview/configuration-guide
@@ -49,22 +49,22 @@ Basic Purview configuration is required to establish connection between your Clu
 
 Once you have completed basic Purview configuration, you can enable and configure various Purview integration features:
 
-- [Sync data sources - Overview](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/2434/Sync-data-sources)
+- [Sync data sources](/microsoft-integration/purview/sync-data-sources)
 
-- [Azure Data Factory pipeline automation - Overview](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/2454/Azure-Data-Factory-pipeline-automation)
+- [Azure Data Factory (ADF) pipeline automation](/microsoft-integration/purview/adf-pipeline-automation)
 
-- [Sync manual data entry to Purview - Overview](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/4044/Sync-manual-data-entry-to-Purview)
+- [Sync manual data entry to Purview](/microsoft-integration/purview/sync-manual-data-entry-to-purview)
 
-- [Sync processing rules to Purview - Overview](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/4045/Sync-processing-rules-to-Purview)
+- [Sync processing rules to Purview](/microsoft-integration/purview/sync-processing-rules-to-purview)
 
-- [Sync clean projects to Purview - Overview](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/4047/Sync-clean-projects-to-Purview)
+- [Sync clean projects to Purview](/microsoft-integration/purview/sync-clean-projects-to-purview)
 
-- [Sync deduplication projects to Purview - Overview](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/4051/Sync-deduplication-projects-to-Purview)
+- [Sync deduplication projects to Purview](/microsoft-integration/purview/sync-deduplication-projects-to-purview)
 
-- [Sync streams to Purview - Overview](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/4053/Sync-streams-to-Purview)
+- [Sync streams to Purview](/microsoft-integration/purview/sync-streams-to-purview)
 
-- [Sync Purview glossaries to CluedIn glossaries - Overview](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/2451/Sync-Purview-glossaries-to-CluedIn-glossaries)
+- [Sync Purview glossaries to CluedIn glossaries](/microsoft-integration/purview/sync-purview-glossaries-to-cluedin-glossaries)
 
-- [Sync Purview glossaries to CluedIn vocabularies - Overview](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/2444/Sync-Purview-glossaries-to-CluedIn-vocabularies)
+- [Sync Purview glossaries to CluedIn vocabularies](/microsoft-integration/purview/sync-purview-glossaries-to-cluedin-vocabularies)
 
-- [Sync data products - Overview](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/2453/Sync-data-products)
+- [Sync data products](/microsoft-integration/purview/sync-data-products)

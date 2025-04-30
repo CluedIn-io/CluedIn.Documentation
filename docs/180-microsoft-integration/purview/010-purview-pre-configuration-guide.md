@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 10
+nav_order: 1
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/purview/pre-configuration-guide
