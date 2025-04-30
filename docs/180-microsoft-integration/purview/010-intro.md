@@ -7,6 +7,7 @@ permalink: /microsoft-integration/purview/introduction
 nav_order: 020
 has_children: false
 tags: ["integration", "microsoft", "azure", "purview"]
+published: false
 ---
 ## On this page
 {: .no_toc .text-delta }
