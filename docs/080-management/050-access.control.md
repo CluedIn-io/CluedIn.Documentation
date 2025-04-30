@@ -10,7 +10,7 @@ permalink: /management/access-control
 Access control gives you a fine-grained control over who can view and modify specific golden records. Together with source control, access control helps you configure reliable and secure access to golden records in CluedIn. For more information about the combination of source control and access control, see [Data access](/administration/user-access/data-access).
 
 <div class="videoFrame">
-<iframe src="https://player.vimeo.com/video/1069492038?h=2867233786&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Actions in access control policy rules"></iframe>
+<iframe src="https://player.vimeo.com/video/1069492038?h=2867233786&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Actions in access control policy rules"></iframe>
 </div>
 
 **Limitations of access control**

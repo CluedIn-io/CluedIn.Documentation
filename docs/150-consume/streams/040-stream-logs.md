@@ -12,7 +12,7 @@ last_modified: 2025-04-18
 In this article, you will learn how to ensure that your golden records have been successfully exported and how to identify issues when something goes wrong.
 
 <div class="videoFrame">
-<iframe src="https://player.vimeo.com/video/1070316791?h=c9b20fb462&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Stream logs in CluedIn"></iframe>
+<iframe src="https://player.vimeo.com/video/1070316791?h=c9b20fb462&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Stream logs in CluedIn"></iframe>
 </div>
 
 CluedIn offers three types of logs to assist in monitoring and troubleshooting your streams:

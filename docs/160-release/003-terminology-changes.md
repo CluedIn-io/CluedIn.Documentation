@@ -10,7 +10,7 @@ last_modified: 2025-04-02
 In the [2025.01 release](/release-notes/2025-01) of CluedIn, we have updated some of the terminology used in the platform. The terminology changes simplify CluedIn interface, making it more intuitive and better aligned with common industry concepts.
 
 <div class="videoFrame">
-<iframe src="https://player.vimeo.com/video/1070987058?h=457aee92de&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Terminology changes in CluedIn"></iframe>
+<iframe src="https://player.vimeo.com/video/1070987058?h=457aee92de&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Terminology changes in CluedIn"></iframe>
 </div>
 
 The terminology changes only affect the terms, the functionality behind the terms remains the same. The following table provides a summary of terminology changes in CluedIn.

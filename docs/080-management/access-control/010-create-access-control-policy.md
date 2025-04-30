@@ -43,7 +43,7 @@ Now that the access control feature is enabled, you can create access control po
 
     1. (Optional) In **Conditions**, set up additional criteria on top of the filters to define which golden records will be affected by the specific policy rule.
 
-    1. In **Action**, select the type of access to golden record properties: view, mask, or add/edit. Learn more in [Access control reference](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/3780/Access-control-reference#access-control-policy-rule-actions).
+    1. In **Action**, select the type of access to golden record properties: view, mask, or add/edit. Learn more in [Access control reference](/management/access-control/access-control-reference).
 
     1. In **Members**, select the users or roles to which the policy rule will apply.
 
