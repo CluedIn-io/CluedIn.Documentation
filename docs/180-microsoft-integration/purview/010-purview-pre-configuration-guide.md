@@ -234,7 +234,7 @@ To capture technical metadata from your data source in Purview, scan a data sour
 
 1. In the [Microsoft Purview portal](https://purview.microsoft.com), navigate to **Data Map** > **Data sources**.
 
-1. Find the data source that you created in [Register a new source](#register-a-new-data-source), and then select **View details**.
+1. Find the data source that you created in [Register a new data source](#register-a-new-data-source), and then select **View details**.
 
 1. On the data source page, select **New scan**.
 
@@ -256,7 +256,7 @@ To capture technical metadata from your data source in Purview, scan a data sour
 
 1. Enter the **Name** and **Description** of the new key vault.
 
-1. In **Key Vault name**, select the key vault that you created before in [Create a key vault](#create-a-key-vault).
+1. In **Key Vault name**, select the key vault that you created before in [Create a key vault and register Purview](#create-a-key-vault-and-register-purview).
 
     ![purview-new-scan-new-credential-new-key-vault-create.png](../../assets/images/microsoft-integration/purview/purview-new-scan-new-credential-new-key-vault-create.png)
 

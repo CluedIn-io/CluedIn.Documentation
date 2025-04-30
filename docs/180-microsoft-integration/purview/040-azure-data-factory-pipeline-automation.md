@@ -36,7 +36,7 @@ This section contains the steps required to prepare for syncing data from Purvie
 
     ![register-app-adf-client-secret.png](../../assets/images/microsoft-integration/purview/sync-data-sources-create-glossary.png)
 
-1. Register ADF application in the key vault that you created in [Create a key vault and register Purview](microsoft-integration/purview/pre-configuration-guide#create-a-key-vault-and-register-purview):
+1. Register ADF application in the key vault that you created in [Create a key vault and register Purview](/microsoft-integration/purview/pre-configuration-guide#create-a-key-vault-and-register-purview):
 
     1. Go to **Access policies** and select **Create**.
 
