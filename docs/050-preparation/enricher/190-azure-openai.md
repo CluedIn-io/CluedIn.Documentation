@@ -4,7 +4,7 @@ nav_order: 4
 parent: Enricher
 grand_parent: Preparation
 permalink: /preparation/enricher/azure-openai
-title: Brreg
+title: Azure OpenAI
 ---
 ## On this page
 {: .no_toc .text-delta }
