@@ -10,17 +10,17 @@ has_children: false
 {:.important}
 To use the **Workflow** module in CluedIn, you need to configure [Power Automate integration](/microsoft-integration/power-automate).
 
-Let's explore the concept of Power Automate workflows in CluedIn using an example of rule modification. If you want to automate the approval process for rule chages, you can create a specific Power Automate workflow that will send approval requests to the responsible users when somebody modifies a rule.
+Let's explore the concept of Power Automate workflows in CluedIn using an example of rule modification. If you want to automate the approval process for rule changes, you can create a dedicated Power Automate workflow that will send approval requests to the appropriate users whenever a rule is modified.
 
 ![concept-of-approvals.gif](../../assets/images/workflow/concept-of-approvals.gif)
 
-A user with at least Consulted claim access level to the Rule Builder claim can modify any rule. However, to ensure transparency and accuracy, the changes are not applied right away. Instead, an approval request is sent to the responsible users. When one of the responsible users approves changes, a notification in CluedIn is sent to the user who made the changes, and the changes are applied to the rule.
+A user with at least Consulted access level to the Rule Builder claim can modify any rule. However, to ensure transparency and accuracy, the changes are not applied right away. Instead, an approval request is sent to the appropriate users. When one of the appropriate users approves changes, a notification in CluedIn is sent to the user who made the changes, and the changes are applied to the rule.
 
-**Who are the users responsible for approval?**
+**Who are the users in charge of approval?**
 
-- In case of modifying an existing element, the responsible users are the owners that can be found on the **Owners** tab of the element. Since both users and roles can be the owners, all users with the corresponding roles are considered responsible users.
+- In case of **modifying an existing element**, the users in charge of approval are the owners listed on the **Owners** tab of the element. Since both users and roles can be the owners, all users with the corresponding roles are also considered approvers.
 
-- In case of creating a new element, the responsible users are those users who have the same or higher claim access level as the user who created the element.
+- In case of **creating a new element**, the users in charge of approval are those who have the Accountable access level to the given claim (for example, Rule Builder). If there are no users with the Accountable claim access level, then the approval request will be sent to the users with the Accountable access level to the Tenant Management claim.
 
 **Is there a connection between external approvals and internal CluedIn change requests?**
 
