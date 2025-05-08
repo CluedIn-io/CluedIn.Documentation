@@ -120,13 +120,31 @@ Note that when you register a new application in Microsoft Entra ID, a service p
 
 1. Go to **Manage** > **API permissions**, and add the following permissions:
 
-    - **Azure Service Management**: user_impersonation, Delegated.
+    - **Azure Service Management**:
 
-    - **Dynamics CRM / Dataverse**: user_impersonation, Delegated.
+        - user_impersonation – Delegated
 
-    - **Microsoft Graph**: User.ReadBasic.All, Delegated.
+    - **Dynamics CRM / Dataverse**:
 
-    - **Power Automate**: Flows.Manage.All and Flows.Read.All, Delegated.
+        - user_impersonation – Delegated
+
+    - **Microsoft Graph**:
+
+        - openid – Delegated
+
+        - profile – Delegated
+
+        - User.ReadBasic.All – Delegated.
+
+    - **Power Automate**:
+
+        - Approvals.Manage.All – Delegated
+
+        - Approvals.Read.All – Delegated
+
+        - Flows.Manage.All – Delegated
+
+        - Flows.Read.All – Delegated
 
     ![new-app-api-permissions.png](../../assets/images/microsoft-integration/power-automate/new-app-api-permissions.png)
 

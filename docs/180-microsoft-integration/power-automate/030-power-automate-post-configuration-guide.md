@@ -34,7 +34,15 @@ Make sure that you have completed all of the actions described in [Power Automa
 
     ![custom-connector.png](../../assets/images/microsoft-integration/power-automate/custom-connector.png)
 
-1. Open the custom connector, and then go to the **Definition** tab.
+1. Open the custom connector and select **Edit**.
+
+    ![custom-connector-edit.png](../../assets/images/microsoft-integration/power-automate/custom-connector-edit.png)
+
+    Alternatively, hover over the custom connector and select **Edit**.
+
+    ![custom-connector-edit-alt.png](../../assets/images/microsoft-integration/power-automate/custom-connector-edit-alt.png)
+
+1. Go to the **Definition** tab.
 
 1. Check the **Triggers** section. All items there should be marked with green checkboxes.
 
