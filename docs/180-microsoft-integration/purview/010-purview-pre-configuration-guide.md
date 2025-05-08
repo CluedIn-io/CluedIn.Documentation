@@ -316,7 +316,11 @@ To enable Purview to communicate with CluedIn, assign the Data readers and Data 
 
 1. Expand the **Edit role assignments** dropdown list, and then select **Data source admins**.
 
-1. Find and select the Purview service principal, and then select **OK**.
+1. Find and select the Purview service principal that you created in [Register an application and create a service principal](#register-an-application-and-create-a-service-principal).
+
+    ![role-assignments-data-source-admins.png](../../assets/images/microsoft-integration/purview/role-assignments-data-source-admins.png)
+
+1. Select **OK**.
 
 ## Next steps
 
