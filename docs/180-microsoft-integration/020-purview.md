@@ -19,3 +19,18 @@ We have the following **assumptions** about the customers' Microsoft Azure setup
 - Customers own only one Purview resource.
 
 - When ingesting data from ADF, the ADF pipeline should only do a one-to-one mapping from targeted file on Azure to API endpoint.
+
+The following table lists the available Purview packages and versions.
+
+| Package name | Package version | Source code |
+|--|--|--|
+| Azure-Extensions | 4.4.3 | Contact CluedIn for details |
+| Azure-Extensions | 4.4.2 | Contact CluedIn for details |
+| Azure-Extensions | 4.4.1 | Contact CluedIn for details |
+| Azure-Extensions | 4.4.0 | Contact CluedIn for details |
+| Azure-Extensions | 4.3.0 | Contact CluedIn for details |
+| Azure-Extensions | 4.2.2 | Contact CluedIn for details |
+| Azure-Extensions | 4.2.1 | Contact CluedIn for details |
+| Azure-Extensions | 4.2.0 | Contact CluedIn for details |
+| Azure-Extensions | 4.1.0 | Contact CluedIn for details |
+| Azure-Extensions | 4.0.0 | Contact CluedIn for details |
