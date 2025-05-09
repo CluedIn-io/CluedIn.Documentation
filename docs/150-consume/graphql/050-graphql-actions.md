@@ -7,11 +7,14 @@ permalink: /consume/graphql/graphql-actions
 title: GraphQL actions
 tags: ["consume","graphql"]
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 CluedIn supports GraphQL actions so that you can run commands in bulk from our GraphQL endpoint. You will need to be in the Admin role to even see these commands as they allow you to run operations in bulk.  
 
-
-Split Entities in Bulk.
+## Split entities in bulk
 
 ```json
 
@@ -28,7 +31,7 @@ Split Entities in Bulk.
 }
 ```
 
-Delete Entities in Bulk.
+## Delete entities in bulk
 
 ```json
 
@@ -45,7 +48,7 @@ Delete Entities in Bulk.
 }
 ```
 
-Run Post Processing
+## Run post-processing
 
 ```json
 {
@@ -60,7 +63,7 @@ Run Post Processing
 }
 ```
 
-Run Entity Metrics Processing
+## Run entity metrics processing
 
 ```json
 {
@@ -75,7 +78,7 @@ Run Entity Metrics Processing
 }
 ```
 
-Run Edge Processing
+## Run edge processing
 
 ```json
 {
@@ -90,8 +93,7 @@ Run Edge Processing
 }
 ```
 
-
-Run Enrichment
+## Run enrichment
 
 ```json
 {
@@ -105,3 +107,26 @@ Run Enrichment
   }
 }
 ```
+
+## Search with filter
+
+```json
+{
+  search(
+    query:"entityType:/Customer",
+    filter: "(properties.customer.addressCountry:CHN OR JPN) AND -properties.customer.addressZipCode:*"    
+  )
+   {
+    totalResults
+    entries {
+      id
+      name
+      properties
+    }
+  }
+}
+```
+
+Note that the filter uses [Lucene](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html) syntax. Also, you can test the filter query directly in the search bar.
+
+![gql-search-with-filter.png](../../assets/images/consume/gql-search-with-filter.png)
