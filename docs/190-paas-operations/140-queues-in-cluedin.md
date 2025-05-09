@@ -109,7 +109,7 @@ The following queues are dedicated to individual data sources. Depending on the 
 | Name | Queue name | Purpose | Error handling |
 | --- | --- | --- | --- |
 | Entity Metrics Queue | `CluedIn.Core.Messages.Processing.Metrics.ProcessEntityMetricsCommand`, `CluedIn.Core_CluedIn` | Calculates entity level metric values. | [Default processing error handling](#processing-error-handling-queues) |
-| Global Metrics Queue | `CluedIn.Core.Messages.Processing.Metrics.ProcessGlobalMetricsCommand`, `CluedIn.Core_CluedIn` | Scheduled job to calculate global dimension metric values. | [Default processing error handling](#processing-error-handling-queues)g |
+| Global Metrics Queue | `CluedIn.Core.Messages.Processing.Metrics.ProcessGlobalMetricsCommand`, `CluedIn.Core_CluedIn` | Scheduled job to calculate global dimension metric values. | [Default processing error handling](#processing-error-handling-queues) |
 | Archive Metrics Queue | `CluedIn.Core.Messages.Processing.Metrics.ArchiveMetricsValuesCommand`, `CluedIn.Core_CluedIn` | Creates history of entity level metric values. | [Default processing error handling](#processing-error-handling-queues) |
 
 ### Commands queue
