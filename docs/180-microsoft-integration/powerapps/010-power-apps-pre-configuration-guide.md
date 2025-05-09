@@ -166,7 +166,11 @@ The workflows in Power Apps integration are different in terms of configuration 
     
 1. Select **+ New connection**.
 
-1. Find and select a Dataverse connection, and then select **Create**.
+1. Find the Dataverse connection and select the one with the green icon.
+
+    ![dataverse-connection-select.png](../../assets/images/microsoft-integration/power-apps/dataverse-connection-select.png)
+
+1. Select **Create**.
 
     ![data-verse-connection.png](../../assets/images/microsoft-integration/power-apps/data-verse-connection.png)
 
