@@ -33,13 +33,13 @@ Currently, you can automate the approval process for certain actions in CluedIn.
 | Editing a property in the record** | Batched Clues Approval | If somebody tries to edit a property in the record, an approval request is sent to the users with the same or higher claim access level.
 | Rule creation* | Processing Rule Change Approval | If somebody tries to create a new rule, an approval request is sent to the users with the same or higher claim access level. |
 | Rule modification | Processing Rule Change Approval | If somebody tries to make changes to the rule, an approval request is sent to the owners of the rule. |
-| Entity type creation* | Entity Type Change Approval | If somebody tries to create a new entity type, an approval request is sent to the users with the same or higher claim access level. |
+| Business domain creation* | Entity Type Change Approval | If somebody tries to create a new business domain, an approval request is sent to the users with the same or higher claim access level. |
 | Receiving internal CluedIn notifications | Notification | If somebody receives an internal notification in CluedIn, the same notification is sent to the external systems such as Outlook or the Approval app in Teams. |
 | Inviting a new user to CluedIn | User Invite Approval | If somebody tries to add a new user to CluedIn, an approval request is sent to the users with the same or higher claim access level. |
 
 _* The approval requests for these actions are sent only if the **Approvals for creating items** option is enabled in [workflow settings](/microsoft-integration/power-automate/configuration-guides)._
 
-_* *The approval requests for this action are sent only if the [entity type](/management/entity-type) of the records has the **Batch approval workflow** option enabled._
+_* *The approval requests for this action are sent only if the [business domain](/management/entity-type) of the records has the **Batch approval workflow** option enabled._
 
 {:.important}
 One action can be used only in one workflow. For example, if you created a workflow with the Vocabulary Change Approval action, you can't select this action in another workflow.

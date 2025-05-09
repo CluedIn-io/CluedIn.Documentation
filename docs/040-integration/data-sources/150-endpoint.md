@@ -83,7 +83,7 @@ An ingestion endpoint is a channel through which CluedIn can receive data from e
 
     1. Select the **Mapping configuration** option:
 
-        - **New mapping** – you can create a new mapping for the data set. If you choose this option, you need to select the existing entity type or create a new one. If you create a new entity type, select an icon to visually represent the entity type.
+        - **New mapping** – you can create a new mapping for the data set. If you choose this option, you need to select the existing business domain or create a new one. If you create a new business domain, select an icon to visually represent the business domain.
 
         - **Existing mapping** – you can reuse the mapping from the data set that has the same structure. If you choose this option, you need to indicate the data set with the required mapping configuration. To do that, choose the following items one by one: a data source group, a data source, and a data set.
 

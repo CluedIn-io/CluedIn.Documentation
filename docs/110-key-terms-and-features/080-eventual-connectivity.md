@@ -24,7 +24,7 @@ The goal of eventual connectivity is not to model your data into a final form bu
 
 **Underlying concepts**
 
-- Codes – universally unique identifiers of a record. Read more about codes [here](/key-terms-and-features/entity-codes).
+- Identifiers – universally unique identifiers of a record. Read more about identifiers [here](/key-terms-and-features/entity-codes).
 
 - Edges – a way to instruct CluedIn that there is a reference from one object to another. Edges are the key behind the eventual connectivity pattern. Read more about edge [here](/key-terms-and-features/edges).
 

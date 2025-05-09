@@ -39,7 +39,7 @@ When the enricher receives the vocabulary key value, it calls an external intern
 
 **From clue to golden record**
 
-When a new clue appears in CluedIn from the enricher, it goes into the processing pipeline. It is important to note that such clue has the same entity origin code as the golden record. During processing, CluedIn transforms the clue into a data part and executes merging by codes to ensure that the new information seamlessly integrates with the existing golden record. To learn more about what happens to the clue during processing, see [Data life cycle](/key-terms-and-features/data-life-cycle).
+When a new clue appears in CluedIn from the enricher, it goes into the processing pipeline. It is important to note that such clue has the same primary identifier as the golden record. During processing, CluedIn transforms the clue into a data part and executes merging by identifiers to ensure that the new information seamlessly integrates with the existing golden record. To learn more about what happens to the clue during processing, see [Data life cycle](/key-terms-and-features/data-life-cycle).
 
 {:.important}
 The processing of a clue from an enricher follows the same steps as any other clue within the system.

@@ -16,6 +16,19 @@ In this article, you will find reference information about built-in enrichers in
 {:.important}
 Please note that the enrichers are not included in the CluedIn license. Each enricher is an open-source package provided by the CluedIn team for free to help you enrich your golden records with information from external sources.
 
+## Azure OpenAI
+
+The [Azure OpenAI](/preparation/enricher/azure-openai) enricher allows you to enhance data quality by providing more complete, current, and detailed information for your golden records. It supports the following endpoints:
+
+- `{baseUrl}/openai/deployments/{deploymentName}/completions?api-version=2022-12-01`
+    
+- `{baseUrl}/openai/deployments/deploymentName}/chat/completions?api-version=2024-06-01`
+
+| Package name | Package version | Source code |
+|--|--|--|
+| CluedIn.Enricher.AzureOpenAI | 4.4.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.AzureOpenAI/releases/tag/4.4.0) |
+
+
 ## Brreg
 
 The [Brreg](/preparation/enricher/brreg) enricher retrieves a wide range of information about Norwegian and foreign businesses operating in Norway. It supports the following endpoints:

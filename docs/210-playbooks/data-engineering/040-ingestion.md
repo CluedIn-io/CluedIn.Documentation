@@ -28,7 +28,7 @@ We want to load this data to CluedIn. To do that, we need to create an API token
 <img src="/assets/images/python-sdk/api-token.png" alt="CluedIn API token" />
 
 
-Next, create an endpoint in CluedIn. From CluedIn's main page, click "Import From Ingestion Endpoint" and create a new endpoint. You will need to enter the endpoint's name, group name, and select entity type:
+Next, create an endpoint in CluedIn. From CluedIn's main page, click "Import From Ingestion Endpoint" and create a new endpoint. You will need to enter the endpoint's name, group name, and select business domain (previouisly entity type):
 
 <img src="/assets/images/python-sdk/endpoint.png" alt="Ingestion Endpoint" />
 
@@ -163,7 +163,7 @@ Then, in the Map tab, we create an automatic mapping:
 
 1. Click "Add Mapping".
 2. Select "Auto Mapping" and "Next".
-3. Ensure the entity type is selected or type a new entity type name and click "Create".
+3. Ensure the business domain (previously entity type) is selected or type a new business domain name and click "Create".
 4. Type the new vocabulary name, like `imdb.title` and click "Create".
 5. Click "Create Mapping".
 

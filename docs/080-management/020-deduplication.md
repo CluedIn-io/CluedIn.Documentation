@@ -10,7 +10,7 @@ permalink: /management/deduplication
 The goal of deduplication is to eliminate duplicate records by merging them together into a single, accurate, and consolidated golden record. This process maintains full traceability, allowing you to identify contributing records for the resulting golden record and providing the possibility to revert changes if necessary.
 
 {:.important}
-You can reduce the number of duplicates in the system proactively even before creating a deduplication project. For this purpose, CluedIn provides the possibility of merging by codes: those [data parts](/key-terms-and-features/data-life-cycle) that have identical entity origin codes or entity codes are merged during processing. For more information, see [Codes](/integration/review-mapping#codes).
+You can reduce the number of duplicates in the system proactively even before creating a deduplication project. For this purpose, CluedIn provides the possibility of merging by identifiers: those [data parts](/key-terms-and-features/data-life-cycle) that have identical primary identifiers or additional identifiers are merged during processing. For more information, see [Identifiers](/integration/review-mapping#identifiers).
  
 The following diagram shows the basic steps for merging duplicates in CluedIn.
 

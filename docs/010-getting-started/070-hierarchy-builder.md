@@ -27,33 +27,7 @@ Before proceeding with hierarchies, ensure that you have completed the following
 
 1. Created a stream that keeps the data synchronized between CluedIn and the Microsoft SQL Server database. For more information, see [Stream data](/getting-started/data-streaming).
 
-# Enable Manual Hierarchies
-
-To be able to create hierarchies in CluedIn, enable the **Manual Hierarchies** feature.
-
-**To enable the Manual Hierarchies feature**
-
-1. On the navigation pane, go to **Administration** > **Feature Flags**.
-
-1. Find the **Manual Hierarchies** feature.
-
-    ![enable-feature-1.png](../../assets/images/getting-started/hierarchy-builder/enable-feature-1.png)
-
-1. Turn on the toggle next to the feature status. Then, confirm that you want to enable the feature.
-
-    The status of the **Manual Hierarchies** feature is changed to **Enabled**.
-
-    ![enable-feature-2.png](../../assets/images/getting-started/hierarchy-builder/enable-feature-2.png)
-
-    Now, you can build hierarchies.
-
-After enabling the **Manual Hierarchies** feature, the **Hierarchy** tab is added to the golden record page. If you disable the feature, then the tab will no longer be displayed. However, if you enable the feature again, the tab and all previously created hierarchies will be displayed again.
-
-# Build hierarchy
-
-After you enabled the **Manual Hierarchies** feature, you can build hierarchies.
-
-**To build a hierarchy**
+## Build a hierarchy
 
 1. On the navigation pane, go to **Management** > **Hierarchy Builder**.
 
@@ -63,9 +37,9 @@ After you enabled the **Manual Hierarchies** feature, you can build hierarchies.
     
     1. Enter the name of the hierarchy.
 
-    1. If you want to limit the records for building the hierarchy, find and select the entity type.
+    1. If you want to limit the records for building the hierarchy, find and select the business domain.
 
-        All records belonging to the selected entity type will be available to build the hierarchy. If you do not select the entity type, then all records existing in the system will be available to build the hierarchy.
+        All records belonging to the selected business domain will be available to build the hierarchy. If you do not select the business domain, then all records existing in the system will be available to build the hierarchy.
 
     1. In the lower-right corner, select **Create**.
 
@@ -91,7 +65,7 @@ You can view the hierarchy on the **Hierarchy Builder** page or on the **Hierarc
 
 To make sure that the data in the Microsoft SQL Server database reflects the relations that you set up, [update the stream configuration](#update-stream-configuration).
 
-# Manage hierarchy
+## Manage a hierarchy
 
 After you created the hierarchy, you can do the following actions with the elements of the hierarchy:
 
@@ -105,7 +79,7 @@ After you created the hierarchy, you can do the following actions with the eleme
 
 - View the data associated with the elements. To do that, select the element.
 
-# Update stream configuration
+## Update stream configuration
 
 After you published the hierarchy, update the stream to ensure that the data in the database reflects the relations between the records that you set up.
 
@@ -131,11 +105,11 @@ After you published the hierarchy, update the stream to ensure that the data in 
 
     If you update the hierarchy, the relations between records will be automatically updated in the database.
 
-# Results
+## Results
 
 You have created a hierarchy in CluedIn.
 
-# Next steps
+## Next steps
 
 - [Create glossary](/getting-started/glossary)
 

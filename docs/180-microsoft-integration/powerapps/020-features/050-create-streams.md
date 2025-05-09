@@ -27,13 +27,13 @@ Export target will be created automatically using the same credentials from Orga
 
 **Streams**
 
-The creation of a stream will depend on the values of **Sync Entity Types** and **Sync Dataverse Tables**.
+The creation of a stream will depend on the values of **Sync Business Domains** and **Sync Dataverse Tables**.
 
 Once the execution of the job is done, from the sample values above, two streams should have been created, one for each of the **cluedin_dog** and **crc12_customer** tables.
 
 ![CluedIn Streams](../images/cluedin-stream.png)
 
-Each stream will have a certain configuration filtered by entity type.
+Each stream will have a certain configuration filtered by business domain.
 
 ![CluedIn Stream Configuration](../images/cluedin-stream-configuration.png)
 

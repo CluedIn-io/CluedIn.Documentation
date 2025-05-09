@@ -17,7 +17,7 @@ Ingesting data to CluedIn involves three basic steps: importing, mapping, and pr
 <iframe src="https://player.vimeo.com/video/843840937?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Getting started with data ingestion in CluedIn"></iframe>
 </div>
 
-In this guide, you will learn how to import a file into CluedIn, create a mapping, process the data, and perform data searches.
+In this guide, you will learn how to import a file into CluedIn, create a mapping, process the data, and search for golden records.
 
 **File for practice:** <a href="../../../assets/other/training-data.csv" download>training-data.csv</a>
 
@@ -29,9 +29,9 @@ A CSV (comma-separated values) file format allows data to be saved in a tabular 
 
 **To import a file**
 
-1. On the home page, in the **Integrations** section, select **Import From Files**.
+1. On the navigation pane, go to **Ingestion**, and then in the **Files** section, select **Add**.
 
-    ![import-a-file-1.png](../../assets/images/getting-started/data-ingestion/import-a-file-1.png)
+    ![files-add.png](../../assets/images/getting-started/data-ingestion/files-add.png)
 
 1. In the **Add Files** section, add the file. You may drag the file or select the file from the computer.
 
@@ -49,9 +49,7 @@ After you uploaded the file, you can view the data from the file as a table with
 
 **To view imported data**
 
-1. On the home page, in the **Integrations** section, select **View All Data Sources**.
-
-    Alternatively, on the navigation pane, go to **Integrations** > **Data Sources**.
+1. On the navigation pane, go to **Ingestion** > **Sources**.
 
 1. Find and expand the group that you created in the previous procedure.
 
@@ -89,11 +87,11 @@ Mapping is the process of creating a semantic layer for your data so that CluedI
 
 1. Select **Next**.
 
-1. In **Entity Type**, enter the name of a new entity type and select **Create**. An entity type is a specific business object within the organization. A well-named entity type is global and should not be changed (for example, Person, Organization, Car) across sources.
+1. In **Business Domain**, enter the name of a new business domain and select **Create**. A business domain is a specific business object within the organization. A well-named business domain is global and should not be changed (for example, Person, Organization, Car) across sources.
 
-    The **Entity Type Code** is created automatically; it is a string that represents the entity type in code (for example, in clues).
+    The **Business Domain Identifier** is created automatically; it is a string that represents the business domain in code (for example, in clues).
 
-1. In **Icon**, select the visual representation of the entity type.
+1. In **Icon**, select the visual representation of the business domain.
 
     ![create-mapping-3.png](../../assets/images/getting-started/data-ingestion/create-mapping-3.png)
 
@@ -103,7 +101,7 @@ Mapping is the process of creating a semantic layer for your data so that CluedI
 
     ![create-mapping-4.png](../../assets/images/getting-started/data-ingestion/create-mapping-4.png)
 
-1. In **Origin**, make sure that the selected field is appropriate for generating a unique identifier (Entity Origin Code) for each record.
+1. In **Primary Identifier**, review the field that was selected automatically for generating a unique identifier for each record.
 
     ![create-mapping-5.png](../../assets/images/getting-started/data-ingestion/create-mapping-5.png)
 
@@ -131,7 +129,7 @@ Processing turns your data into golden records that can be cleaned, deduplicated
 
 1. Select **Process**.
 
-1. Review information about records that will be processed. Pay attention to the **Origin Entity Code Status** and **Code Status** sections. If there are duplicates, they will be merged during processing.
+1. Review information about records that will be processed. Pay attention to the **Primary Identifier Status** section. If there are duplicates, they will be merged during processing.
 
     ![process-data-2.png](../../assets/images/getting-started/data-ingestion/process-data-2.png)
 

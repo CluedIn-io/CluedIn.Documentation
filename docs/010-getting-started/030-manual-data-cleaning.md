@@ -35,11 +35,11 @@ Finding the data that needs to be cleaned involves defining search filters and s
 
 1. In the search field, select the search icon. Then, select **Filter**.
 
-1. In the **Entity Types** dropdown list, select the entity type to filter the records.
+1. In the **Business Domains** dropdown list, select the business domain to filter the records.
 
     ![find-data-1.png](../../assets/images/getting-started/data-cleaning/find-data-1.png)
 
-    As a result, all records with the selected entity type are displayed on the page. By default, the search results are shown in the following columns: **Name**, **Entity Type**, and **Description**.
+    As a result, all records with the selected business domain are displayed on the page. By default, the search results are shown in the following columns: **Name**, **Business Domain**, and **Description**.
 
 1. To find the specific values that you want to fix, add the corresponding column to the list of search results:
 
@@ -47,7 +47,9 @@ Finding the data that needs to be cleaned involves defining search filters and s
 
     1. Select **Add columns** > **Vocabulary**.
 
-    1. In the search field, enter the name of the vocabulary and start the search. In the search results, select the needed vocabulary key.
+    1. In the **Vocabulary Keys** section, expand the vocabulary that contains the needed vocabulary key, and then select the checkbox next to it.
+
+    1. Move the vocabulary key to the **Selected Vocabulary Keys** section using the arrow pointing to the right.
 
         ![find-data-2.png](../../assets/images/getting-started/data-cleaning/find-data-2.png)
 
@@ -71,7 +73,7 @@ After you have found the data that needs to be cleaned, create a clean project.
 
 **To create a clean project**
 
-1. In the upper-right corner of the search results page, select the ellipsis button, and then select **Clean**.
+1. In the upper-right corner of the search results page, open the three-dot menu, and then select **Clean**.
 
     ![create-a-clean-project-1.png](../../assets/images/getting-started/data-cleaning/create-a-clean-project-1.png)
 
@@ -101,7 +103,7 @@ After you have found the data that needs to be cleaned, create a clean project.
 
     ![modify-data-2.png](../../assets/images/getting-started/data-cleaning/modify-data-2.png)
 
-1. In the upper-right corner, select **Process**. In the confirmation dialog box, select **Skip stale data** and clear the **Enable rules auto generation** checkbox. Then, confirm that you want to process the data.
+1. In the upper-right corner, select **Process**. In the confirmation dialog box, select **Skip** and leave the **Enable automatic generation of data part rules** checkbox cleared. Then, confirm that you want to process the data.
 
     ![modify-data-3.png](../../assets/images/getting-started/data-cleaning/modify-data-3.png)
 

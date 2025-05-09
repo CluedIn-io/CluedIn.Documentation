@@ -70,7 +70,7 @@ The good news is that the native CluedIn administration screen is built on top o
 
 ## I have made a change in CluedIn that requires me to re-process all the data. What do I do?
 
-It will happen many times with your CluedIn account! It is highly typical and expected. CluedIn has been designed with the idea in mind that we will re-process the data all the time. Once you have made your change, you have quite a lot of control over the level of re-processing. You can re-process at a source level, globally, record level, or even something a little more custom, e.g., entity type level.
+It will happen many times with your CluedIn account! It is highly typical and expected. CluedIn has been designed with the idea in mind that we will re-process the data all the time. Once you have made your change, you have quite a lot of control over the level of re-processing. You can re-process at a source level, globally, record level, or even something a little more custom, e.g., business domain level.
 
 ## Does CluedIn index everything?
 

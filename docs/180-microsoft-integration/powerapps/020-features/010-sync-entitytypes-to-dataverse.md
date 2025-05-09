@@ -4,22 +4,22 @@ nav_order: 10
 parent: Features
 grand_parent: Power Apps Integration
 permalink: /microsoft-integration/powerapps/features/sync-entitytypes
-title: Sync entity types to Dataverse tables
+title: Sync business domains to Dataverse tables
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17
 ---
 
-This feature allows you to sync CluedIn entity types, vocabularies, and vocabulary keys with Dataverse table and columns.
+This feature allows you to sync CluedIn business domains, vocabularies, and vocabulary keys with Dataverse table and columns.
 
-**To sync CluedIn entity types with Dataverse table**
+**To sync CluedIn business domains with Dataverse table**
 
 1. On the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
 
-1. In **Sync CluedIn Entity Types to Dataverse Table**, turn on the toggle, and then enter the entity type that you want to sync. If you want to sync multiple entity types, separate them with a comma (for example, _/_Type1,/Type2,/Type3_).
+1. In **Sync CluedIn Business Domains to Dataverse Table**, turn on the toggle, and then enter the business domain that you want to sync. If you want to sync multiple business domains, separate them with a comma (for example, _/_Type1,/Type2,/Type3_).
 
     ![Sync Entity Types to Dataverse Tables](../images/sync-cluedin-entitytypes-setting.png)
 
-    Another way to enable this feature is to navigate to **Management** > **Entity Types** and select the entity type you want to sync. Then, select **Edit** and turn on the toggle for **Sync CluedIn Entity Types to Dataverse Table**. Finally, save changes.
+    Another way to enable this feature is to navigate to **Management** > **Business Domains** and select the business domain you want to sync. Then, select **Edit** and turn on the toggle for **Sync CluedIn Business Domains to Dataverse Table**. Finally, save changes.
 
     ![Sync Entity Types to Dataverse Tables](../images/sync-cluedin-entitytypes-page-setting.png)
 

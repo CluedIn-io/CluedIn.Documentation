@@ -91,7 +91,7 @@ This section focuses on data quality metrics, sensitive data identification, glo
 
 **Global Data Model**
 
-This claim governs access to global data model that allows you to explore connections between entity types in the platform. It covers only one action—viewing global data model.
+This claim governs access to global data model that allows you to explore connections between business domains in the platform. It covers only one action—viewing global data model.
 
 **Metrics**
 
@@ -147,12 +147,12 @@ This section focuses on various possibilities for managing your golden records: 
 
 **Entity Types**
 
-This claim governs access to entity types (also known as business domains) that describe the semantic meaning of golden records. Learn more about entity types in a dedicated [article](/management/entity-type).
+This claim governs access to business domains (previously known as entity types) that describe the semantic meaning of golden records. Learn more about business domains in a dedicated [article](/management/entity-type).
 
 This claim covers the following actions:
 
-- Viewing an entity type.
-- Creating and editing an entity type.
+- Viewing a business domain.
+- Creating and editing a business domain.
 
 **Access Control**
 

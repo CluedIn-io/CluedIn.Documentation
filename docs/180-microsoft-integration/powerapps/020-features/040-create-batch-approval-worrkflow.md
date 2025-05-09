@@ -9,7 +9,7 @@ tags: ["integration", "microsoft", "powerautomate", "approval", "workflow"]
 last_modified: 2023-05-17
 ---
 
-This feature enables you to automate the creation of the workflow for the batch approval process. If you process the data (regardless of the source) and the system identifies that the entity type used has been tagged for the approval process, the data will be halted, and the approval process will start and wait for the user's approval to continue the data processing.
+This feature enables you to automate the creation of the workflow for the batch approval process. If you process the data (regardless of the source) and the system identifies that the business domain used has been tagged for the approval process, the data will be halted, and the approval process will start and wait for the user's approval to continue the data processing.
 
 **Prerequisites**
 
@@ -20,7 +20,7 @@ For more information, refer to this [link](/microsoft-integration/powerapps/setu
 
 **To enable the batch approval workflow**
 
-1. In CluedIn, on the navigation pane, go to **Management** > **Entity Types**, and then select the entity type that you want to sync.
+1. In CluedIn, on the navigation pane, go to **Management** > **Business Domains**, and then select the business domain that you want to sync.
 
 1. Select **Edit** and then turn on the toggle for **Enable for Batch Approval Workflow**.
 
