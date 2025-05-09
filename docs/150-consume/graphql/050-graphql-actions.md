@@ -17,8 +17,6 @@ CluedIn supports GraphQL actions so that you can run commands in bulk from our G
 ## Split entities in bulk
 
 ```json
-
-
 {
   search(query: "user.firstName:Tim", pageSize: 4) {
     entries {
@@ -34,8 +32,6 @@ CluedIn supports GraphQL actions so that you can run commands in bulk from our G
 ## Delete entities in bulk
 
 ```json
-
-
 {
   search(query: "user.firstName:Tim", pageSize: 4) {
     entries {
