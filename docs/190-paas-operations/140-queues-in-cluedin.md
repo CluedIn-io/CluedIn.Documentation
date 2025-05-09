@@ -190,7 +190,7 @@ Stream error handling is similar to [processing error handling](#processing-erro
 | Distributed Job Control Queue | CluedIn.DistributedJobs.Commands.IDistributedJobsControlCommand, CluedIn.DistributedJobs_DistributedJobQueueManager | Used by distributed jobs subsystem to handle job lifecycle events, | In-place retry; otherwise, always use non-recoverable dead-letter queue (except for completion callback commands). |
 | Distributed Job Queue | DistributedJob_{job id} | Created per job and removed when job is done. Used to store and process job-specific work item commands. | Perform in-place retry, then silently drop command if cannot process after all tries. |
 
-## Robust Callback Subsystem Queue
+## Robust callback subsystem queue
 
 | Name | Queue name | Purpose | Error handling |
 |--|--|--|--|
