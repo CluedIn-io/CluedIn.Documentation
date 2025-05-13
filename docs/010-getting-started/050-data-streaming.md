@@ -35,7 +35,7 @@ An export target is a place where you can send the data out of CluedIn after it 
 
     ![add-export-target-1.png](../../assets/images/getting-started/data-streaming/add-export-target-1.png)
 
-1. On the **Configure** tab, enter the database connection details such as **Host**, **Database Name**, **Username**, and **Password**. Optionally, you may add **Port Number** and **Schema**.
+1. On the **Configure** tab, enter the database connection details such as **Name**, **Host**, **Database Name**, **Username**, and **Password**. Optionally, you may add **Port Number**, **Schema**, and **Connection pool size**.
 
     ![add-export-target-2.png](../../assets/images/getting-started/data-streaming/add-export-target-2.png)
 
@@ -71,21 +71,23 @@ A stream is a trigger that starts the process of sending the data to the export 
 
 1. Go to the **Export Target Configuration** tab.
 
-1. On the **Choose connector** tab, select **Sql Server Connector**, and then select **Next**.
+1. On the **Choose Connector** tab, select the Sql Server connector, and then select **Next**.
 
     ![create-stream-4.png](../../assets/images/getting-started/data-streaming/create-stream-4.png)  
 
-1. On the **Properties to export** tab, enter the **Target Name**. The target name that you enter will be the name of the table in the database.
+1. On the **Connector Properties** tab, do the following:
 
-1. Select the **Streaming Mode**. Two streaming modes are available:
+    1. Enter the **Target Name**. This will be the name of the table in the database.
+    
+    1. Select the **Streaming Mode**. Two streaming modes are available:
 
-    - **Synchronized stream** – the database and CluedIn contain the same data that is synchronized. For example, if you edit the record in CluedIn, the record is also edited in the database. 
+        - **Synchronized stream** – the database and CluedIn contain the same data that is synchronized. For example, if you edit the record in CluedIn, the record is also edited in the database. 
 
-    - **Event log stream** – every time you make a change in CluedIn, a new record is added to the database instead of replacing the existing record.
+        - **Event log stream** – every time you make a change in CluedIn, a new record is added to the database instead of replacing the existing record.
 
         ![create-stream-5.png](../../assets/images/getting-started/data-streaming/create-stream-5.png)  
 
-1. In the **Properties to export** section, click **Auto-select**. All vocabulary keys associated with the records in the strem filter will be displayed on the page.
+1. On the **Properties to Export** tab, click **Auto-select**. All vocabulary keys associated with the records in the strem filter will be displayed on the page.
 
     ![create-stream-6.png](../../assets/images/getting-started/data-streaming/create-stream-6.png)  
 

@@ -17,47 +17,33 @@ Relations are built between source ("to") and target ("from") records by using e
 <iframe src="https://player.vimeo.com/video/854717569?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Getting started with relations in CluedIn"></iframe>
 </div>
 
-In this article, you will learn how to add and view relations between golden records.
+In this article, you will learn how to add and view relations between golden records. Creating relations between golden records consists of editing the mapping of the data set that you will use as a source in order to add the edge that will link the source to the target.
 
-Creating relations between golden records consists of editing the mapping of the data set that you will use as a source and adding the edge that will link the source to the target.
+**Files for practice**
+
+- File 1: <a href="../../../assets/other/training-company.csv" download>training-data.csv</a>
+
+- File 2: <a href="../../../assets/other/training-employee.csv" download>training-data.csv</a>
 
 **Prerequisites**
 
 Before proceeding with relations between golden records, ensure that you have completed the following tasks:
 
-1. Ingested (imported, mapped, and processed) the data to which you will be linking the records. For example, this could be the list of companies with the CompanyID and CompanyName columns. For more information, see [Ingest data](/getting-started/data-ingestion).
+1. Ingested (uploaded, mapped, and processed) the data to which you will be linking the records. You can use file 1 above. See [Ingest data guide](/getting-started/data-ingestion).
 
-1. Imported and mapped the data that you will be linking to already existing records. For example, this could be the list of employees working for companies from the file in prerequisite 1. The file with employees may contain the following columns: EmployeeName and CompanyID. For more information, see [Import file](/getting-started/data-ingestion#import-file) and [Create mapping](/getting-started/data-ingestion#create-mapping).
+1. Uploaded and mapped the data that you will be linking to already existing records. You can use file 2 above. See [Import file](/getting-started/data-ingestion#import-file) and [Create mapping](/getting-started/data-ingestion#create-mapping).
 
-# Edit mapping
+## Add edge relations
 
 After you imported and mapped the data that you will be linking to already existing records, edit the mapping configuration.
 
-**To edit the mapping**
-
-1. On the navigation pane, go to **Integration** > **Data Sources**.
-
-1. Find and select the needed data set.
-
-1. On the toolbar, select **Map**. Then, select **Edit Mapping**.
-
-1. Go to the **Map entity** tab. Then, expand the **Entity Codes** section.
-
-1. Delete the entity code by which you will link the current entity to other entities:
-
-    1. Select the checkbox next to the entity code.
-
-    1. Select **Delete Entity Code**.
-
-        ![entity-mapping-1.png](../../assets/images/getting-started/relations/entity-mapping-1.png)
-
-    Now, you can proceed to add the edge relations.
-
-# Add edge relations
-
-Adding edge relations means linking the current data set to already existing records.
-
 **To add edge relations**
+
+1. On the navigation pane, go to **Ingestion** > **Sources**.
+
+1. Find and select the needed data set (for example, file 2 "training-employee.csv").
+
+1. Go to the **Map** tab, and then select **Edit mapping**.
 
 1. Go to the **Add edge relations** tab, and then select **Add relation**.
 
@@ -75,13 +61,11 @@ Adding edge relations means linking the current data set to already existing rec
 
 1. On the **Configuration** tab, do the following:
 
-    1. Specify the edge type to define the nature of relation between objects.
+    1. Specify the edge type to define the nature of relation between objects. You can select the existing edge type or create a new one. To create a new edge type, enter a slash (/) and then enter a name.
 
-        You can select the existing edge type or create a new one. To create a new edge type, enter a slash (/) and then enter a name.
+    1. Find and select the target business domain to which you will link the records from the current data set.
 
-    1. Find and select the business domain to which you will link the records belonging to the current business domain.
-
-    1. Enter the origin of the current data set. It will displayed after you process the data.
+    1. Define the origin of the target data set. It will displayed after you process the data.
 
         ![entity-mapping-2.png](../../assets/images/getting-started/relations/entity-mapping-2.png)
 
@@ -97,7 +81,7 @@ Adding edge relations means linking the current data set to already existing rec
 
 After you processed the data and streamed the records, you can view the relations between golden records in the following places:
 
-- In CluedIn: on the **Relations** tab of the record details page.
+- In CluedIn: on the **Relations** tab of the golden record details page.
 
     ![view-relations-1.png](../../assets/images/getting-started/relations/view-relations-1.png)
 
@@ -110,3 +94,13 @@ After you processed the data and streamed the records, you can view the relation
     ![view-relations-3.png](../../assets/images/getting-started/relations/view-relations-3.png)
 
     If you add more edge relations between the records, CluedIn will automatically identify the changes and update the stream with new edge relations.
+
+## Results & next steps
+
+After completing all steps outlined in this guide, you learned how to add edges to build relations between golden records in CluedIn. You've reached the final part of the Getting Started section. Now might be a great time to dive deeper into the key terms and features of CluedIn:
+
+- [Golden records](/key-terms-and-features/golden-records)
+
+- [Identifiers](/key-terms-and-features/entity-codes)
+
+- [Origin](/key-terms-and-features/origin)
