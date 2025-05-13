@@ -19,7 +19,9 @@ Rule Builder allows you to create rules for cleaning, transforming, normalizing,
 
 In this article, you will learn how to create rules in CluedIn using the Rule Builder tool. You can create a rule either before or after processing the data.
 
-# Create rule
+**Before you start:** Make sure you have completed all steps in the [Ingest data guide](/getting-started/data-ingestion).
+
+## Create rule
 
 Creating a rule involves configuring a filter and defining the rule action.
 
@@ -47,7 +49,6 @@ Creating a rule involves configuring a filter and defining the rule action.
 
         ![rule-builder-2.png](../../assets/images/getting-started/rule-builder/rule-builder-2.png)
 
-        {:.important}
         The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears. For more information, see [Filters](/key-terms-and-features/filters).
 
 1. In the **Actions** section, select **Add Action**, and then configure the action that CluedIn can perform on the filtered items:
@@ -78,7 +79,7 @@ Creating a rule involves configuring a filter and defining the rule action.
 
     - If the rule applies to the unprocessed data, process the data as described in the [Ingest data guide](/getting-started/data-ingestion). In this case, the rule will be applied to the records automatically during processing.
 
-# Reprocess records
+## Reprocess records
 
 After you created the rule for the processed data, you need to reprocess the records to apply the rule. You can reprocess the records in one of the following ways:
 
@@ -102,7 +103,7 @@ After you created the rule for the processed data, you need to reprocess the rec
 
 1. On the navigation pane, go to **Consume** > **GraphQL**.
 
-1. Enter a query to reprocess all records that belong to a certain entity type. Replace _TrainingContact_ with the needed name of entity type.
+1. Enter a query to reprocess all records that belong to a certain business domain. Replace _TrainingContact_ with the needed name of business domain.
 ```
 {
 	search(query: "entityType:/TrainingContact") {
@@ -116,7 +117,7 @@ After you created the rule for the processed data, you need to reprocess the rec
 ```
 1. Execute the query.
 
-    You reprocessed all records that belong to a certain entity type. Now, the action from the rule is applied to those records.
+    You reprocessed all records that belong to a certain business domain. Now, the action from the rule is applied to those records.
 
 **To reprocess a record manually**
 
@@ -132,11 +133,11 @@ After you created the rule for the processed data, you need to reprocess the rec
 
 1. To reprocess other records, repeat steps 1–2.
 
-# Change rule
+## Modify rule
 
 After you created the rule, you can [edit](#edit-rule), [inactivate](#inactivate-rule), or [delete](#delete-rule) it.
 
-## Edit rule
+### Edit rule
 
 If you want to change the rule—name, description, filters, or actions—edit the rule.
 
@@ -152,11 +153,11 @@ If you want to change the rule—name, description, filters, or actions—edit t
 
         ![manage-rules-1.png](../../assets/images/management/rules/manage-rules-1.png)
 
-        For example, in the previous configuration, the rule added the tag _Prospect_ to all records of the _TrainingContact_ entity type. If you edit the rule filter and change the entity type to _Contact_, then selecting the checkbox will remove the tag from the records of the _TrainingContact_ entity type and add it to the records of the _Contact_ entity type.
+        For example, in the previous configuration, the rule added the tag _Prospect_ to all records of the _TrainingContact_ business domain. If you edit the rule filter and change the business domain to _Contact_, then selecting the checkbox will remove the tag from the records of the _TrainingContact_ business domain and add it to the records of the _Contact_ business domain.
 
     - If you don't want to reprocess the records affected both by the previous and current rule configuration, leave the checkbox unselected, and then confirm your choice. You can reprocess such records later. However, note that reprocessing via the rule details page applies only to the records matching the current rule configuration. To revert rule actions on records matching the previous rule configuration, you'll need to reprocess such records via GraphQL or manually.
 
-## Inactivate rule
+### Inactivate rule
 
 If you currently do not need the rule, but might need it in future, inactivate the rule.
 
@@ -172,7 +173,7 @@ If you currently do not need the rule, but might need it in future, inactivate t
 
 1. To return the records to which the rule was applied to their original state, [reprocess the records](#reprocess-records).
 
-## Delete rule
+### Delete rule
 
 If you no longer need the rule, delete it.
 
@@ -186,10 +187,8 @@ If you no longer need the rule, delete it.
 
 1. To return the records to which the rule was applied to their original state, [reprocess the records](#reprocess-records).
 
-# Results
+## Results & next steps
 
-You learned the basic steps for creating rules to manage your records in CluedIn. You also learned how to apply the actions of the rule to the records associated with the rule.
+After completing all steps outlined in this guide, you learned how to create rules to manage your records in CluedIn and how to apply the actions of the rule to the records associated with the rule.
 
-# Next steps
-
-- [Create hierarchies](/getting-started/hierarchy-builder)
+Next, learn how to visualize relations between golden records with the help of Hierarchy Builder in our [Create hierarchies guide](/getting-started/hierarchy-builder).

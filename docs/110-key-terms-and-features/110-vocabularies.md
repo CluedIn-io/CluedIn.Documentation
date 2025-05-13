@@ -60,14 +60,14 @@ Obviously, those 2 keys—`CRM.contact.email` and `ERP.contact.email`—represen
 
 By applying this principle, you can keep your lineage and have better flexibility and agility. However, it is up to you to decide when and if you want to map vocabulary keys with the same meaning to a shared vocabulary key or keep them separate.
 
-### Entity type vs. vocabulary
+### Business domain vs. vocabulary
 
-When you map your data in CluedIn, you can map it to one entity type and one vocabulary. However, a vocabulary can be shared among different entity types and can represent only a partial aspect of the golden record. So, the following statements are true when describing a golden record:
+When you map your data in CluedIn, you can map it to one business domain and one vocabulary. However, a vocabulary can be shared among different business domains and can represent only a partial aspect of the golden record. So, the following statements are true when describing a golden record:
 
-- You can assign only **one entity type** to a golden record.
+- You can assign only **one business domain** to a golden record.
 - You can use **multiple vocabularies** for a golden record.
 
-By distinguishing between entity type and vocabulary, we decouple the value aspect of records from their modeling aspect. This approach provides greater flexibility in modeling and allows for evolution with changing use cases.
+By distinguishing between business domain and vocabulary, we decouple the value aspect of records from their modeling aspect. This approach provides greater flexibility in modeling and allows for evolution with changing use cases.
 
 ## Core vocabularies
 
@@ -80,7 +80,7 @@ The role of core vocabularies is to merge records from different systems based o
 
 Although you can add your own core vocabularies, we suggest that you do not. The reason is mainly due to upgrade support and making sure your upgrades are as seamless and automated as possible. 
 
-Core vocabularies do not include the namespace for a source system. It will typically have the entity type, the name of the key - or if it is a nested key like and address, it will have the nesting shown in the key name:
+Core vocabularies do not include the namespace for a source system. It will typically have the business domain, the name of the key - or if it is a nested key like and address, it will have the nesting shown in the key name:
 
  - organization.industry
  - organization.address.city

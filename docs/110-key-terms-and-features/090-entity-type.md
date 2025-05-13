@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Entity type (Business domain)
+title: Business domain
 parent: Key terms and features
 nav_order: 9
 has_children: false
@@ -12,44 +12,44 @@ tags: ["development","entities","entity-types"]
 - TOC
 {:toc}
 
-An entity type represents a specific business domain for data. It can signify physical objects, individuals, locations, and more. Entity types should be **global**, **timeless**, and **independent of specific data sources** (e.g., Contact, Organization, Car).
+A business domain represents a specific business object that describes the semantic meaning of golden records. It can signify physical objects, individuals, locations, and more. Business domains should be **global**, **timeless**, and **independent of specific data sources** (e.g., Contact, Organization, Car).
 
-Each golden record is associated with exactly one entity type. You can leverage built-in entity types or define your own custom entity types.
+Each golden record is associated with exactly one business domain. You can leverage built-in business domains or define your own custom business domains.
 
-An entity type is assigned to a clue during the mapping process, and it plays a critical role in various [codes](/key-terms-and-features/entity-codes), including entity origin codes and entity codes.
+A business domain is assigned to a clue during the mapping process, and it plays a critical role in various [identifiers](/key-terms-and-features/entity-codes), including primary identifiers and additional identifiers.
 
-## Entity type usage
+## business domain usage
 
 ### Adding semantic context to golden records
 
-The entity type provides **metadata**, such as a display name, icon, and description, adding a semantic layer to golden records. Golden records sharing the same entity type inherently share the same semantic meaning.
+The business domain provides **metadata**, such as a display name, icon, and description, adding a semantic layer to golden records. Golden records sharing the same business domain inherently share the same semantic meaning.
 
-When defining entity types, it’s essential to balance specificity and genericness. Use terminology familiar to your line of business (LOB) to help identify records intuitively.
+When defining business domains, it’s essential to balance specificity and genericness. Use terminology familiar to your line of business (LOB) to help identify records intuitively.
 
 {:.important}
-CluedIn is flexible—if you choose an initial entity type that needs adjustment, you can change it. However, changing entity types mid-project can be cumbersome, especially if deduplication projects, rules, or streaming configurations have already been applied.
+CluedIn is flexible—if you choose an initial business domain that needs adjustment, you can change it. However, changing business domains mid-project can be cumbersome, especially if deduplication projects, rules, or streaming configurations have already been applied.
 
 ### Filtering golden records
 
-Entity type acts as the default filter for many operations in CluedIn. Selecting the right entity type allows you to target groups of golden records that logically belong together.
+Business domain acts as the default filter for many operations in CluedIn. Selecting the right business domain allows you to target groups of golden records that logically belong together.
 
-### Producing entity origin code (primary identifier)
+### Producing primary identifier
 
-Entity type forms part of the primary identifier value. This structure enforces that records can only merge if they share the same entity type.
+Business domain forms part of the primary identifier value. This structure enforces that records can only merge if they share the same business domain.
 
-## Entity type properties and characteristics
+## Business domain properties and characteristics
 
-### Entity type code
+### Business domain code
 
-Entity types have a unique code, represented as a simple string prefixed by a slash (/). The code uniquely identifies the entity type. That is why you see a slash (/) in front of an entity type.
+Business domains have a unique code, represented as a simple string prefixed by a slash (/). The code uniquely identifies the business domain. That is why you see a slash (/) in front of a business domain.
 
-To create an entity type code, use concise, meaningful names and avoid non-alphanumeric characters where possible.
+To create a business domain code, use concise, meaningful names and avoid non-alphanumeric characters where possible.
 
-### Nested entity types
+### Nested business domains
 
-CluedIn supports nested entity types, allowing hierarchical organization of entity types. While not mandatory, this feature can help group entity types of the same nature.
+CluedIn supports nested business domains, allowing hierarchical organization of business domains. While not mandatory, this feature can help group business domains of the same nature.
 
-**Example of nested entity types**
+**Example of nested business domains**
 
 In the following hierarchy, Video is a child of Document.
 
@@ -60,12 +60,12 @@ In the following hierarchy, Video is a child of Document.
 /Document/Audio
 ```
 
-**Benefits of nested entity types**
+**Benefits of nested business domains**
 
-- **Filter grouped entities** – nested entity types allow you to filter or stream entities collectively. For example, using a filter that starts with /Document would include all documents, regardless of their specific sub-entity type.
+- **Filter grouped entities** – nested business domains allow you to filter or stream entities collectively. For example, using a filter that starts with /Document would include all documents, regardless of their specific sub-business domain.
 
-- **Streamline reporting** – nested types simplify reporting and analysis across related entity types.
+- **Streamline reporting** – nested business domains simplify reporting and analysis across related business domains.
 
 ## Useful resources
 
-- [Add or modify an entity type](/management/entity-type)
+- [Add or modify a business domain](/management/entity-type)

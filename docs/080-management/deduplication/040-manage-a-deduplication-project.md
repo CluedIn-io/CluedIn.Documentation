@@ -62,7 +62,7 @@ You can edit a deduplication project only when its [status](/management/deduplic
 
 Editing a deduplication project involves two aspects:
 
-- Editing the project configuration: project name, entity type or advanced filters, and description. For example, if you used advanced filters to narrow down the number of golden records for the project and you have reached the desired matching rules configuration, you can now modify the filters and run the project on the entire set of data.
+- Editing the project configuration: project name, business domain, or advanced filters, and description. For example, if you used advanced filters to narrow down the number of golden records for the project and you have reached the desired matching rules configuration, you can now modify the filters and run the project on the entire set of data.
 
 - Editing the matching rules configuration: change rule name; [add rule](/management/deduplication/create-a-deduplication-project#add-a-matching-rule); deactivate or delete the rule; modify matching criteria (edit, delete, add).
 

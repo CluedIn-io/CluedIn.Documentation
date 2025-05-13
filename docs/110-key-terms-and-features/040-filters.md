@@ -56,7 +56,7 @@ When adding more rules to the filter, pay attention to the **AND**/**OR** operat
 
 Filters in search help you narrow down the exact records you want to see or use for such activities as merge or clean. There are two filter modes in search:
 
-- **Basic** – you can filter records by entity types, providers, sources, or tags (if available in the system). You can select multiple values in each filter parameter.
+- **Basic** – you can filter records by business domains, providers, sources, or tags (if available in the system). You can select multiple values in each filter parameter.
 
     ![filters-5.png](../../assets/images/key-terms-and-features/filters-5.png)
 
@@ -82,11 +82,11 @@ This section includes descriptions of properties and operations available in fil
 | Created Date | Date when the record was created in the source system or date when the record was created via a manual data entry project in CluedIn. |
 | Description | Description of the record. |
 | Discovery Date | Date when the record was discovered in CluedIn during processing. |
-| Display Name | Name of the record in CluedIn that is shown at the top of on the record details page next to the entity type. If the record in the source system does not contain the display name, then the Name is shown instead of Display Name. |
+| Display Name | Name of the record in CluedIn that is shown at the top of on the record details page next to the business domain. If the record in the source system does not contain the display name, then the Name is shown instead of Display Name. |
 | Document Mime Type | A label that specifies the nature and format of the record. It is part of the metadata for records added via a crawler or posted to CluedIn. |
 | Encoding | A type of encoding scheme (e.g., UTF-8) used to represent the characters in the record. It is part of the metadata for records added via a crawler or posted to CluedIn. |
 | Entity Codes | Additional unique identifiers of the record. |
-| Entity Type | An attribute of the record that corresponds to a specific business domain. You can set up a filter to return only those records that are associated with a particular entity type. |
+| Business Domain | An attribute of the record that corresponds to a specific business domain. You can set up a filter to return only those records that are associated with a particular business domain. |
 | Last Changed By | User who was the last to edit the record. |
 | Last Processed Date | Date when the record was processed for the last time. |
 | Modified Date | Date when the record was modified in the source system or date when the record has been modified via clean, deduplication, or manual data entry project in CluedIn. |
@@ -97,7 +97,7 @@ This section includes descriptions of properties and operations available in fil
 | Provider | A system from which the data came to CluedIn, such as SAP, HubSpot, or Azure Data Lake. You can set up a filter to return only those records that were created from a specific provider. |
 | Revision | A version number of the record. It is part of the metadata for records added via a crawler or posted to CluedIn. |
 | Source | A source of the incoming data, such as a specific file, endpoint, or database. You can set up a filter to return only those records that were created from a specific source. |
-| Tag | A label that automatically categorizes records across entity types. You can set up a filter to return only those records that contain a specific tag. |
+| Tag | A label that automatically categorizes records across business domains. You can set up a filter to return only those records that contain a specific tag. |
 
 ### Operations
 

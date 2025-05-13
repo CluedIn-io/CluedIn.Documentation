@@ -31,7 +31,7 @@ As part of workflow automation, the ingestion endpoint will be created as well. 
 
 **Workflow**
 
-The creation of workflow will depend on the values of **Sync Entity Types** and **Sync Dataverse Tables**. Once the execution of the job is done, from the sample values above, you can expect two workflows to be created, one for each of the **cluedin_dog** and **crc12_customer** tables.
+The creation of workflow will depend on the values of **Sync Business Domains** and **Sync Dataverse Tables**. Once the execution of the job is done, from the sample values above, you can expect two workflows to be created, one for each of the **cluedin_dog** and **crc12_customer** tables.
 
 ![Power Automate Workflows](../images/power-automate-workflows.png)
 
@@ -49,7 +49,7 @@ As we already know the structure of the table/vocabulary that we are working on,
 
 ![Auto Mapping](../images/ingestion-endpoint-automapping-01.png)
 
-On the **Map** tab, you can find the the full view of all columns mapped to our vocabulary, including edges (relationships) and origin entity code (keys), if there are any.
+On the **Map** tab, you can find the the full view of all columns mapped to our vocabulary, including edges (relationships) and identifiers, if there are any.
 
 ![Auto Mapping](../images/ingestion-endpoint-automapping-02.png)
 

@@ -71,7 +71,7 @@ CluedIn Copilot can analyze a data set to provide general overview, suggest poss
 |--|--|--|
 | DescribeDataSet | Provides general information about a data set: column description, possible validation checks, data quality issues, and so on.<br><br>If you are on the data set page, you can just tell the Copilot to describe _this_ data set. Otherwise, you can refer to the data set by its ID, which you can find in the URL of the page.  | Tell me a bit about this data set.<br><br>Describe this data set.<br><br>Describe the data set with ID 443259BB-1D17-4078-A069-7ECAD418BA19. |
 | SuggestDatasetMapping | Provides suggestions on how to map a data set to an existing entity type and vocabulary. The suggested mapping can be used to define how the data set columns should be transformed and linked to the specified vocabulary.<br><br>If you are on the data set page, you can just tell the Copilot to suggest mapping for _this_ data set. Otherwise, you can refer to the data set by its ID, which you can find in the URL of the page. | Can you suggest a mapping from this data set to the Employee vocabulary?<br><br>Can you suggest how to map this data set to the Company vocabulary? |
-| CreateDatasetMapping | Create a mapping from a data set to an existing entity type and vocabulary. Note that you'll need to set up the entity origin code to complete the mapping.<br><br>If you are on the data set page, you can just tell the Copilot to create mapping for _this_ data set. Otherwise, you can refer to the data set by its ID, which you can find in the URL of the page. | Can you create a mapping from this data set to the Employee vocabulary? |
+| CreateDatasetMapping | Create a mapping from a data set to an existing business domain and vocabulary. Note that you'll need to set up the primary identifier to complete the mapping.<br><br>If you are on the data set page, you can just tell the Copilot to create mapping for _this_ data set. Otherwise, you can refer to the data set by its ID, which you can find in the URL of the page. | Can you create a mapping from this data set to the Employee vocabulary? |
 | ListDataSets | Provides a list of all available data sets. Note that it is not possible to list data sets by creation date or other properties, you can only get a list of all data sets. | Can you list all data sets? |
 | EntitySearchByDataSetColumnSample| Allows you to check if the values you have chosen as an entity code can already be found in the system. This can be helpful when you want to ensure that the chosen entity codes are unique and do not already exist in the system. | Can you check if values in the customerId column already have values in the system? |
 
@@ -100,7 +100,7 @@ CluedIn Copilot can create vocabularies and vocabulary keys as well detect anoma
 
 | Copilot function | Description | Prompt example |
 |--|--|--|
-| CreateVocabulary | Creates a new vocabulary with the specified name. Once a new vocabulary is created, you'll get a link to view and manage the vocabulary details.<br><br>If you are on the page of the entity type you want to associate the vocabulary with, you can just tell the Copilot to create the vocabulary for _this_ entity type. If you don't specify the entity type, it will be provided automatically, but you can change it later. | Can you create a new vocabulary called Company for the Company entity type?<br><br>Can you create a new vocabulary called Company for this entity type? |
+| CreateVocabulary | Creates a new vocabulary with the specified name. Once a new vocabulary is created, you'll get a link to view and manage the vocabulary details.<br><br>If you are on the page of the business domain you want to associate the vocabulary with, you can just tell the Copilot to create the vocabulary for _this_ business domain. If you don't specify the business domain, it will be provided automatically, but you can change it later. | Can you create a new vocabulary called Company for the Company business domain?<br><br>Can you create a new vocabulary called Company for this business domain? |
 | CreateVocabularyKey | Creates a new vocabulary key with the specified name. If you previously created a vocabulary in the chat, the new vocabulary keys will be added to that vocabulary.<br><br>You can create individual vocabulary keys one at a time by entering a separate prompt for each vocabulary key. However, if you need to create multiple vocabulary keys, you can instruct Copilot to perform the task in a single prompt. | Can you create 10 vocabulary keys including Name, Age, Gender, JobTitle, ContactNumber, Email, ManagedBy, Salary, Tenure and NickName? |
 | ProfileVocabularyKey | Creates profiling for a vocabulary key. | Can you profile this vocabulary key? |
 | StandardizeData | Provides suggestions on how to standardize or normalize values within a vocabulary key. You can review the suggestions and then instruct Copilot to create rules or do it on your own. | Can you standardize values of this vocabulary key? |
@@ -140,7 +140,7 @@ CluedIn Copilot can create clean projects according to your requirements and dis
 
 | Copilot function | Description | Prompt example |
 |--|--|--|
-| CreateCleanProject | Creates a clean project. You'll get a brief project description, including top 10 records that match the project's filters. You can click the link to go to the clean project and validate if Copilot did the right thing. Then you'll be able to generate the project results on your own. | Can you create a clean project to fix contact.jobTitle values in records of the Contact entity type? |
+| CreateCleanProject | Creates a clean project. You'll get a brief project description, including top 10 records that match the project's filters. You can click the link to go to the clean project and validate if Copilot did the right thing. Then you'll be able to generate the project results on your own. | Can you create a clean project to fix contact.jobTitle values in records of the Contact business domain? |
 | ListCleaningProjects | Provides a list of all available clean projects, including project ID and project name. | Can you list all clean projects?<br><br>What clean project are currently available in the platform? |
 
 ### Hierarchy skills
@@ -149,7 +149,7 @@ CluedIn Copilot can create hierarchies to visualize relations between golden rec
 
 | Copilot function | Description | Prompt example |
 |--|--|--|
-| CreateHierarchy | Creates a new hierarchy. Before creating the hierarchy, make sure that the records have the appropriate edge type defined.  Once the hierarchy is created, you'll get a link to view the details. | Can you create a hierarchy called Org Chart for all records of the Contact entity type? |
+| CreateHierarchy | Creates a new hierarchy. Before creating the hierarchy, make sure that the records have the appropriate edge type defined.  Once the hierarchy is created, you'll get a link to view the details. | Can you create a hierarchy called Org Chart for all records of the Contact business domain? |
 | ListHierarchies | Provides a list of all available hierarchies, including status, number of nodes, creation and modification dates. | Can you list all hierarchies that are available in the system? |
 
 ### Glossary skills
@@ -163,7 +163,7 @@ CluedIn Copilot can create glossary terms within specific category and display i
 
 ### Other skills
 
-CluedIn Copilot can search for golden records according to your requirements as well as perform actions related to entity types (create, describe, list).
+CluedIn Copilot can search for golden records according to your requirements as well as perform actions related to business domains (create, describe, list).
 
 ![search.gif](../../assets/images/microsoft-integration/copilot/search.gif)
 
@@ -171,6 +171,6 @@ CluedIn Copilot can search for golden records according to your requirements as 
 |--|--|--|
 | DataQualityMetrics | Provides current global data quality metrics. | Can you show me the global quality metrics? |
 | Search | Finds records according to your input.<br>CluedIn will return the top 10 results in a table and a link to launch into the full search query as well. | Can you find the Person records where the user.country is in the Nordics? |
-| ListEntityTypes | Provides a list of all available entity types. Note that entity types that have no associated data will not appear in the list. | Can you list all entity types? |
-| CreateEntityType| Creates a new entity type with the specified name. Once a new entity type is created, you'll get a link to view details. | Can you create a new entity type named Company? |
-| DescribeEntity | Provides general information about a golden record: entity type, name, codes, properties, vocabularies, and so on.<br>If you are on the golden record page, you can just tell the Copilot to describe _this_ golden record.  | Can you describe this golden record? |
+| ListEntityTypes | Provides a list of all available business domains. Note that business domains that have no associated data will not appear in the list. | Can you list all entity types? |
+| CreateEntityType| Creates a new business domain with the specified name. Once a new business domaine is created, you'll get a link to view details. | Can you create a new entity type named Company? |
+| DescribeEntity | Provides general information about a golden record: business domain, name, codes, properties, vocabularies, and so on.<br>If you are on the golden record page, you can just tell the Copilot to describe _this_ golden record.  | Can you describe this golden record? |

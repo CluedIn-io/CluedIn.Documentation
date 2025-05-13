@@ -33,25 +33,21 @@ To use the OpenCorporates enricher, you must provide the API token. To get the A
 
 1. On the **Configure** tab, provide the following details:
 
-    - **API Token** – enter the API token for retrieving information from the OpenCorporates website.
+    - **API Key** – enter the API token for retrieving information from the OpenCorporates website.
 
-    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched.
+    - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched.
 
     - **Lookup Vocabulary Key** – enter the vocabulary key that contains the names of companies that you want to enrich.
 
-    - **Skip Entity Code Creation (Company Number)** – turn on the toggle if you don't want to add new entity codes that come from the source system to the enriched golden records. Otherwise, new entity codes containing company numbers will be added to the enriched golden records.
-
         ![open-corporates-enricher-2.png](../../assets/images/preparation/enricher/open-corporates-enricher-2.png)
 
-1. Select **Add**.
+1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
     The OpenCorporates enricher is added and has an active status. This means that it will enrich golden records based on the configuration details during processing or when you trigger external enrichment.
 
 After the OpenCorporates enricher is added, you can modify its details:
 
 - **Settings** – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
-
-    ![open-corporates-enricher-3.png](../../assets/images/preparation/enricher/open-corporates-enricher-3.png)
 
 - **Authentication** – modify the details you provided to configure the enricher.
 
