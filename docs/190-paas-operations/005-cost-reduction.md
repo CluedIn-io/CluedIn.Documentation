@@ -16,17 +16,17 @@ CluedIn runs on Azure Kubernetes Service (AKS), which uses node pools as the und
 
 The purpose of this guide is to explain what you can do to reduce the cost of CluedIn in your environment whilst maintaining a supported setup.
 
-To find out about the base cost, see [CluedIn Azure costs](https://www.cluedin.com/cluedin-azure-costs). Additionally, keep the following considerations in mind:
+To find out about the **base cost**, see [CluedIn Azure costs](https://www.cluedin.com/cluedin-azure-costs). Additionally, keep the following considerations in mind:
 
 - You do not need to have the production environment running during development.
 
-- You can reduce the cost of your production environment by reserving the VM:
+- You can **reduce the cost** of your production environment by **reserving the VM**:
 
-    - A 1-year reservation can save approximately 30% of the base cost.
+    - A **1-year reservation** can save approximately **30%** of the base cost.
     
-    - A 3-year reservation can save up to 50% of the base cost.
+    - A **3-year reservation** can save up to **50%** of the base cost.
 
-- We can provide and set up a script for scaling the environment up or down, potentially saving up to 40% of the base cost.
+- We can provide and set up a **script for scaling the environment up or down**, potentially saving up to **40%** of the base cost.
 
 ## Shut down environments in times of low or no usage
 
