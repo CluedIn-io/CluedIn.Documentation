@@ -16,7 +16,7 @@ CluedIn runs on Azure Kubernetes Service (AKS), which uses node pools as the und
 
 The purpose of this guide is to explain what you can do to reduce the cost of CluedIn in your environment whilst maintaining a supported setup.
 
-To find out about the base cost, see [CluedIn Azure costs](https://www.cluedin.com/cluedin-azure-costs). Additionally, keep the following considerations in mind::
+To find out about the base cost, see [CluedIn Azure costs](https://www.cluedin.com/cluedin-azure-costs). Additionally, keep the following considerations in mind:
 
 - You do not need to have the production environment running during development.
 
