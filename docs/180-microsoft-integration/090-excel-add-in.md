@@ -130,6 +130,10 @@ Once you connect to an instance of CluedIn, you can start working with the data 
 
     ![refresh-reference-data.png](../../assets/images/microsoft-integration/excel-add-in/refresh-reference-data.png)
 
+    If you cannot find the needed vocabulary keys after refreshing the reference data, select the gear icon and clear the **Exclude Non-core Keys** and **Exclude Provider Keys** checkboxes.
+
+    ![load-data-clear-checkboxes.png](../../assets/images/microsoft-integration/excel-add-in/load-data-clear-checkboxes.png)
+
 1. (Optional) To specify additional filters for loading golden records, use the following options:
 
     - **Text Filter** – enter the text filter to load only golden records that contain specific text.
