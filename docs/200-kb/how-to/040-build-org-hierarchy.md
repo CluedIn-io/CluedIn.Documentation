@@ -44,7 +44,7 @@ You need to have separate data sets representing specific entities in the organi
 
 - <a href="../../../assets/other/sales-organization.json" download>sales-organization.json</a>
 
-- <a href="../../../assets/other/warehouses.json" download>warehouses.json</a>
+- <a href="../../../assets/other/warehouse.json" download>warehouse.json</a>
 
 ### Business Group data set
 
@@ -138,7 +138,7 @@ As a result, the hierarchy project displays the relations between Business Group
 
 ### Building organizational hierarchy
 
-To build organizational hierarchy, we recommend loading entities using the existing relations. Since we already have the relations between Business Group and its Companies, next we need to display the relations between Companies and their Legal Entities. To do this, load entities that have the `/LegalEntityOf` relation type with the **Incoming direction**.
+To build organizational hierarchy, we recommend loading entities using the existing relations. Since we already have the relations between Business Group and its Companies, next we need to display the relations between Companies and their Legal Entities. To do this, load entities that have the `/LegalEntityOf` relation type with the **Incoming** direction.
 
 ![load-entities-legal-entity-of.png](../../assets/images/kb/how-to/load-entities-legal-entity-of.png)
 
@@ -146,7 +146,7 @@ As a result, the hierarchy is updated with the Legal Entity golden records.
 
 ![hierarchy-legal-entity.png](../../assets/images/kb/how-to/hierarchy-legal-entity.png)
 
-Next, we need to display the relations between Legal Entities and their Purchasing Organizations. To do this, load entities that have the `/PurchasingOrgOf` relation type with the **Incoming direction**.
+Next, we need to display the relations between Legal Entities and their Purchasing Organizations. To do this, load entities that have the `/PurchasingOrgOf` relation type with the **Incoming** direction.
 
 ![load-entities-purchasing-org-of.png](../../assets/images/kb/how-to/load-entities-purchasing-org-of.png)
 
@@ -154,7 +154,7 @@ As a result, the hierarchy is updated with the Purchasing Organization golden re
 
 ![hierarchy-purchasing-org.png](../../assets/images/kb/how-to/hierarchy-purchasing-org.png)
 
-Next, we need to display the relations between Legal Entities and their Sales Organizations. To do this, load entities that have the `/SalesOrgOf` relation type with the **Incoming direction**.
+Next, we need to display the relations between Legal Entities and their Sales Organizations. To do this, load entities that have the `/SalesOrgOf` relation type with the **Incoming** direction.
 
 ![load-entities-sales-org-of.png](../../assets/images/kb/how-to/load-entities-sales-org-of.png)
 
@@ -162,7 +162,7 @@ As a result, the hierarchy is updated with the Sales Organization golden records
 
 ![hierarchy-sales-org.png](../../assets/images/kb/how-to/hierarchy-sales-org.png)
 
-Finally, we need to display the relations between Sales Organizations and their Warehouses. To do this, load entities that have the `/WarehouseOf` relation type with the **Incoming direction**.
+Finally, we need to display the relations between Sales Organizations and their Warehouses. To do this, load entities that have the `/WarehouseOf` relation type with the **Incoming** direction.
 
 ![load-entities-warehouse-of.png](../../assets/images/kb/how-to/load-entities-warehouse-of.png)
 
