@@ -1,0 +1,12 @@
+[
+    {
+        "purchasing_organization_id": "1",
+	"purchasing_organization_name": "Central Procurement",
+        "legal_entity_id": "1"
+    },
+    {
+        "purchasing_organization_id": "2",
+	"purchasing_organization_name": "Fashion Division Procurement",
+        "legal_entity_id": "2"
+    }  
+]
