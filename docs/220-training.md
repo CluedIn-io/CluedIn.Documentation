@@ -14,5 +14,5 @@ _Presented by:_ Pierre Derval, Chief Product Officer at CluedIn
 <iframe src="https://player.vimeo.com/video/1086043385?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Welcome to CluedIn training"></iframe>
 </div>
 
-{:.highlight}
+{:.important}
 To get your CluedIn instance, refer to our article [How to get CluedIn](/get-cluedin).
