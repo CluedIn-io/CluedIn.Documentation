@@ -54,24 +54,6 @@ blockquote.note::before {
   font-size: 0.75em;
   padding-bottom: 0.125rem;
 }
-p.highlight {
-  background: rgba(255, 235, 130, 0.2);
-  border-left: 4px solid #e7af06;
-  border-radius: 4px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
-  padding: 0.8rem;
-  max-width: 60%;
-}
-p.highlight::before,
-blockquote.highlight::before {
-  color: #e7af06;
-  content: "Note";
-  display: block;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 0.75em;
-  padding-bottom: 0.125rem;
-}
 p.warning {
   background: rgba(247, 126, 126, 0.2);
   border-left: 4px solid #dd2e2e;
