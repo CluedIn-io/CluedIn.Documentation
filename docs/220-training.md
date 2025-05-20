@@ -6,7 +6,7 @@ has_children: false
 permalink: /playbooks
 ---
 
-This training will introduce you to CluedIn, a modern master data management platform built to simplify, automate, and connect your enterprise data. It is designed for **anyone working with data**—whether you're leading data strategy, managing governance, or analyzing trends. In the course of this training, you will learn about the tools to work with trusted, connected data without the rigid setup and complexity of traditional master data management systems.
+This training will introduce you to CluedIn, a modern master data management platform built to simplify, automate, and connect enterprise data. It is designed for **anyone who works with data**—shaping data strategy, overseeing governance, or analyzing business trends. In the course of this training, you will learn how to use CluedIn’s tools to work with trusted, connected data without the rigid setup and complexity of traditional MDM systems.
 
 _Presented by:_ Pierre Derval, Chief Product Officer at CluedIn
 
