@@ -63,7 +63,7 @@ p.highlight {
   max-width: 60%;
 }
 p.highlight::before,
-blockquote.note::before {
+blockquote.highlight::before {
   color: #e7af06;
   content: "Note";
   display: block;
