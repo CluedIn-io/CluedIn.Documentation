@@ -191,7 +191,7 @@ When the nip.io domain does not work, do the following:
 1. Replace the line that you found in step 2 with the following line:
 
     ```
-    CLUEDIN_DOMAIN=clueidn.local
+    CLUEDIN_DOMAIN=cluedin.local
     ```
 
 ## Results
