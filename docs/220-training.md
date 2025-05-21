@@ -2,7 +2,7 @@
 layout: cluedin
 title: Training
 nav_order: 180
-has_children: false
+has_children: true
 permalink: /training
 ---
 
