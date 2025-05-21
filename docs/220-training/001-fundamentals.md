@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 1
 parent: Training
-permalink: /training
+permalink: /training/fundamentals
 title: CluedIn Fundamentals
 ---
 
