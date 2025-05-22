@@ -48,6 +48,6 @@ The following table provides the description of data types along with the type o
 | PersonName | A name of a person. | Keyword |
 | OrganizationName | A name of an organization. | Keyword |
 | Identifier | An identifier representing the key of a record, normally as a GUID or Integer. | Keyword |
-| Lookup | A custom list of possible values, which is defined with a glossary. | Keyword |
+| [Lookup](/management/data-catalog/lookup-data-type) | A custom list of possible values, which is defined with a glossary. | Keyword |
 
 _*Date normalization occurs when the **Date Time** option is enabled in **Administration** > **Settings** > **Processing Property Data Type Normalization**. In this case, CluedIn analyzes the incoming date format and converts it to ISO 8601 format (YYYY-MM-DDT00:00:00+00:00). If you want to instruct CluedIn how to interpret dates before converting them to ISO 8601 format, [create](/management/rules/create-rule) a rule with the **Normalize Date** [action](/management/rules/rules-reference)._
