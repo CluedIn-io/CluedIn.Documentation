@@ -11,6 +11,8 @@ title: Lookup data type
 - TOC
 {:toc}
 
+_The terminology and user interface described in this article might be slightly different depending on your version of CluedIn, but the overall logic remains the same._
+
 In this article, you will learn how to work with vocabulary keys that use the Lookup data type to ensure that only valid values are entered in golden records. You will also learn how to identify and fix anomalies in lookup vocabulary keys.
 
 ## Overview
