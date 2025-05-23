@@ -35,13 +35,13 @@ To use the PermID enricher, you must provide the API key. To get the API key, re
 
     - **API Key** – enter the API token for accessing the PermID database.
 
-    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched using the PermID enricher.
+    - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched using the PermID enricher.
 
-    - **Organization Name Vocab Key** – enter the vocabulary key that contains the names of organizations that will be used for retrieving information from the PermID database.
+    - **Organization Name Vocabulary Key** – enter the vocabulary key that contains the names of organizations that will be used for retrieving information from the PermID database.
 
         ![permid-enricher-2.png](../../assets/images/preparation/enricher/permid-enricher-2.png)
 
-1. Select **Add**.
+1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
     The PermID enricher is added and has an active status. This means that it will enrich golden records based on the configuration details during processing or when you trigger external enrichment.
 
@@ -49,9 +49,7 @@ After the PermID enricher is added, you can modify its details:
 
 - **Settings** – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
 
-    ![permid-enricher-3.png](../../assets/images/preparation/enricher/permid-enricher-3.png)
-
-- **Authentication** – modify the details you provided while configuring the enricher: **API Key**, **Accepted Entity Type**, **Organization Name Vocab Key**.
+- **Authentication** – modify the details you provided while configuring the enricher.
 
 ## Properties from PermID enricher
 

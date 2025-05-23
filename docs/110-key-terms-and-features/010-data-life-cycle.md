@@ -56,7 +56,7 @@ The data part processing step involves the following actions:
 
 - Triggering the enrichment – to improve the clues by providing additional details from external services.
 
-- Merging identical clues by codes – to reduce the number of duplicates in the system by merging clues that have identical entity origin codes or entity codes. For more information, see [Codes](/integration/review-mapping#codes).
+- Merging identical clues by identifiers – to reduce the number of duplicates in the system by merging clues that have identical primary identifiers or additional identifiers. For more information, see [Identifiers](/integration/review-mapping#identifiers).
 
 During **golden record processing**, CluedIn analyzed a data part and determines whether it will produce a new golden record or aggregate into the existing golden record. During this step, the following actions take place:
 

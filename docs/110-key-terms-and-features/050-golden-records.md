@@ -99,7 +99,7 @@ All in all, a data part is a record in a format that CluedIn can understand and 
 
 ### Golden record (golden)
 
-When you [process](/integration/process-data) the data set, CluedIn checks if the data part can be associated with the existing golden record. If the data part can be associated with the existing golden record—they share the same [codes](/key-terms-and-features/entity-codes)—then it is **aggregated to the existing golden record**. In this case, the golden record is re-processed. If the data part cannot be associated with the existing golden record, then a **new golden record is created**.
+When you [process](/integration/process-data) the data set, CluedIn checks if the data part can be associated with the existing golden record. If the data part can be associated with the existing golden record—they share the same [identifiers](/key-terms-and-features/entity-codes)—then it is **aggregated to the existing golden record**. In this case, the golden record is re-processed. If the data part cannot be associated with the existing golden record, then a **new golden record is created**.
 
 ![golden-record-8.png](../../assets/images/key-terms-and-features/golden-record-8.png)
 

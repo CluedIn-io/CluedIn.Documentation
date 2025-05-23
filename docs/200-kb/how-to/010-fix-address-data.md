@@ -45,11 +45,11 @@ Let's consider an example of a CluedIn golden record that contains the address p
 
 ![libpostal-address-input.png](../../assets/images/kb/how-to/libpostal-address-input.png)
 
-To configure the Libpostal enricher, specify the entity type of golden records that you want to enrich and the vocabulary key that contains the initial address.
+To configure the Libpostal enricher, specify the business domain of golden records that you want to enrich and the vocabulary key that contains the initial address.
 
 ![libpostal-settings.png](../../assets/images/kb/how-to/libpostal-settings.png)
 
-When the enricher is configured, [trigger](/preparation/enricher/add-enricher#trigger-enrichment) the enrichment for golden records. You can trigger the enrichment for all golden records of the specific entity type using the [GraphQL tool](/consume/graphql/graphql-actions). Alternatively, you can trigger the enrichment manually for each golden record. To do this, on the golden record page, select **More** > **Trigger external enrichment**.
+When the enricher is configured, [trigger](/preparation/enricher/add-enricher#trigger-enrichment) the enrichment for golden records. You can trigger the enrichment for all golden records of the specific business domain using the [GraphQL tool](/consume/graphql/graphql-actions). Alternatively, you can trigger the enrichment manually for each golden record. To do this, on the golden record page, select **More** > **Trigger external enrichment**.
 
 ![trigger-external-enrichment.png](../../assets/images/kb/how-to/trigger-external-enrichment.png)
 
@@ -84,7 +84,7 @@ To configure the Google Maps enricher, specify the following details:
 
 - **API Key** for retrieving information from the Google Maps Platform.
 
-- **Accepted Entity Type** to define which golden records will be enriched.
+- **Accepted Business Domain** (previously entity type) to define which golden records will be enriched.
 
 - **Vocabulary Key used to control whether it should be enriched** to indicate if the golden record should be enriched. If the value of the vocabulary key is _true_, then the golden record will be enriched. Otherwise, the golden record will not be enriched.
 
@@ -94,7 +94,7 @@ To configure the Google Maps enricher, specify the following details:
 
 ![google-maps-settings.png](../../assets/images/kb/how-to/google-maps-settings.png)
 
-When the enricher is configured, [trigger](/preparation/enricher/add-enricher#trigger-enrichment) the enrichment for golden records. You can trigger the enrichment for all golden records of the specific entity type using the [GraphQL tool](/consume/graphql/graphql-actions), or you can trigger the enrichment manually for each golden record. Alternatively, you can trigger the enrichment manually for each golden record. To do this, on the golden record page, select **More** > **Trigger external enrichment**.
+When the enricher is configured, [trigger](/preparation/enricher/add-enricher#trigger-enrichment) the enrichment for golden records. You can trigger the enrichment for all golden records of the specific business domain using the [GraphQL tool](/consume/graphql/graphql-actions), or you can trigger the enrichment manually for each golden record. Alternatively, you can trigger the enrichment manually for each golden record. To do this, on the golden record page, select **More** > **Trigger external enrichment**.
 
 As a result, the CluedIn golden record now contains a variety of company details from Google Maps, such as administrative area level 1 and 2, business status, country code, and more.
 

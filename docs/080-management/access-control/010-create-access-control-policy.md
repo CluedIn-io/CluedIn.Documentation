@@ -31,29 +31,33 @@ Now that the access control feature is enabled, you can create access control po
 
 1. In the navigation pane, go to **Management** > **Access Control**.
 
-1. Select **Create**. Enter the name of the policy, and then select **Create**.
+1. Select **Create Policy**.
+
+1. Enter the name of the policy, and then select **Create Policy**.
 
 1. In the **Filters** section, set up a filter to define the golden records to which the policy will apply.
 
-1. In the **Rules** section, select **Add rule**, and then define the policy rule:
+1. In the **Rules** section, select **Add Policy Rule**, and then define the policy rule:
 
     1. Enter the name of the policy rule.
 
-    1. In **Action**, select **Allow Access**.
+    1. (Optional) In **Conditions**, set up additional criteria on top of the filters to define which golden records will be affected by the specific policy rule.
 
-    1. In **Members**, select the users or roles to which the policy rule should apply.
+    1. In **Action**, select the type of access to golden record properties: view, mask, or add/edit. Learn more in [Access control reference](/management/access-control/access-control-reference).
 
-    1. If you want to allow access to all vocabulary keys in the golden records, select the **All Vocabulary Keys** checkbox.
+    1. In **Members**, select the users or roles to which the policy rule will apply.
 
-    1. If you want to allow access only to specific vocabulary keys in the golden records, select the needed vocabulary keys or vocabularies.
+    1. If you want to allow access to all vocabulary keys in the golden records affected by the access control policy, select the **All Vocabulary Keys** checkbox.
 
-    1. Select **Add rule**.
+    1. If you want to allow access only to specific vocabularies or vocabulary keys in the golden records affected by the access control policy, select the needed vocabulary keys or vocabularies.
+
+        ![add-policy-rule.png](../../assets/images/management/access-control/add-policy-rule.png)
+
+    1. Select **Add Policy Rule**.
 
     You can add multiple policy rules.
 
-1. Save your changes, and then turn on the status toggle to activate the policy.
-
-    ![create-access-control-policy.gif](../../assets/images/management/access-control/create-access-control-policy.gif)
+1. Save your changes and then turn on the status toggle to activate the policy.
 
     It might take up to 1 minute to apply the policy across the system.
 

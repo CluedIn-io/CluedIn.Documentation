@@ -90,3 +90,15 @@ The following diagram shows the flow of deactivating a user in CluedIn.
     ![deactivate-user-1.png](../../assets/images/administration/user-management/deactivate-user-1.png)
 
     The user won't be able to sign in to CluedIn.
+
+## User management reference
+
+Whenever a new user is added to CluedIn or changes are made to the user details page, they are recorded and can be found on the **Audit Log** tab. These actions include the following:
+
+- Create a user
+- Add a user to a role
+- Remove a user from a role
+- Activate a user
+- Deactivate a user
+- Delete user invite
+- Complete registration

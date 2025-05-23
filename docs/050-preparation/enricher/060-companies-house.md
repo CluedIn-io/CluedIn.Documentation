@@ -43,29 +43,25 @@ You can add input parameters for the enricher (organization name, country, and C
 
     - **API Key** – enter the API key for retrieving information from the Companies House website.
 
-    - **Accepted Entity Type** – enter the entity type to define which golden records will be enriched.
+    - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched.
 
-    - **Companies House Number Vocab Key** – enter the vocabulary key that contains the Companies House number that will be used for searching the Companies House website.
+    - **Companies House Number Vocabulary Key** – enter the vocabulary key that contains the Companies House number that will be used for searching the Companies House website.
 
-    - **Country Vocab Key** – enter the vocabulary key that contains the countries of companies that will be used for searching the Companies House website.
+        ![comapnies-house-enricher-config-1.png](../../assets/images/preparation/enricher/comapnies-house-enricher-config-1.png)    
 
-    - **Organization Name Vocab Key** – enter the vocabulary key that contains the names of companies that will be used for searching the Companies House website.
+    - **Country Vocabulary Key** – enter the vocabulary key that contains the countries of companies that will be used for searching the Companies House website.
 
-    - **Skip Entity Code Creation (Company House Number)** – turn on the toggle if you don't want to add new entity codes that come from the source system to the enriched golden records. Otherwise, new entity codes containing Companies House number will be added to the enriched golden records.
+    - **Organization Name Vocabulary Key** – enter the vocabulary key that contains the names of companies that will be used for searching the Companies House website.
 
-    - **Skip Entity Code Creation (Company Name)** – turn on the toggle if you don't want to add new entity codes that come from the source system to the enriched golden records. Otherwise, new entity codes containing company names will be added to the enriched golden records.
+        ![comapnies-house-enricher-config-2.png](../../assets/images/preparation/enricher/comapnies-house-enricher-config-2.png)
 
-        ![comapnies-house-enricher-2.png](../../assets/images/preparation/enricher/comapnies-house-enricher-2.png)
-
-1. Select **Add**.
+1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
     The Companies House enricher is added and has an active status. This means that it will enrich golden records based on the configuration details during processing or when you trigger external enrichment.
 
 After the Companies House enricher is added, you can modify its details:
 
 - **Settings** – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
-
-    ![comapnies-house-enricher-3.png](../../assets/images/preparation/enricher/comapnies-house-enricher-3.png)
 
 - **Authentication** – modify the details you provided while configuring the enricher.
 

@@ -163,3 +163,34 @@ The following table provides descriptions of the statuses of groups of duplicate
 The following diagram shows the group of duplicates workflow along with its statuses and main activities.
 
 ![group-of-duplicates-status-workflow.gif](../../assets/images/management/deduplication/group-of-duplicates-status-workflow.gif)
+
+## Deduplication project audit log actions
+
+Whenever some changes or actions are made in the deduplication project, they are recorded and can be found on the **Audit Log** tab. These actions include the following:
+
+- Create a deduplication project
+- Add users to owners
+- Update a deduplication project
+- Create a deduplication rule
+- Update a deduplication rule
+- Activate a matching rule
+- Deactivate a matching rule
+- Generate matches
+- Discard matches
+- Manual conflict resolution
+- Reset manual conflict resolutions
+- Remove entity from a group
+- Approve one group
+- Approve multiple groups
+- Approve all groups
+- Remove (revoke) approval from all groups
+- Remove (revoke) approval from groups (one or multiple groups)
+- Reject groups (one or multiple groups)
+- Merge groups (one or multiple selected groups)
+- Merge approved groups
+- Undo merged entities
+- Undo merge groups
+- Abort undo
+- Cancel generating matches
+- Cancel merge
+- Archive a deduplication project

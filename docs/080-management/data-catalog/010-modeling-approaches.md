@@ -15,7 +15,7 @@ In this article, you will learn about two data modeling approaches in CluedIn: a
 
 ## Data-first approach
 
-The data-first approach focuses on agility, flexibility, and faster time-to-value. It provides the opportunity to ingest your data first and then dynamically create an entity type and vocabulary as needed.
+The data-first approach focuses on agility, flexibility, and faster time-to-value. It provides the opportunity to ingest your data first and then dynamically create a business domain and vocabulary as needed.
 
 Unlike a predefined schema, the data-first approach uses flexible data structures to adapt to changing requirements. This allows your data models to iteratively evolve based on feedback, data analysis, and the dynamic nature of business needs.
 

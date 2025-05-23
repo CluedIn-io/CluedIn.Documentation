@@ -13,7 +13,7 @@ last_modified: 2023-05-17
 1. TOC
 {:toc}
 
-This will enable the user to see the Power Apps and Power Automate features as an iFrame in CluedIn UI. The feature below will only appear on the entity type's main page if that entity type is part of the synchronization.
+This will enable the user to see the Power Apps and Power Automate features as an iFrame in CluedIn UI. The feature below will only appear on the business domain's main page if that business domain is part of the synchronization.
 
 ### Dataverse data
 

@@ -19,41 +19,9 @@ Hierarchy Builder allows you to visualize relations between golden records. For 
 
 In this article, you will learn how to create hierarchies in CluedIn using the Hierarchy Builder tool.
 
-**Prerequisites**
+**Before you start:** Make sure you have completed all steps in the [Ingest data guide](/getting-started/data-ingestion) and [Stream data guide](/getting-started/data-streaming).
 
-Before proceeding with hierarchies, ensure that you have completed the following tasks:
-
-1. Ingested some data into CluedIn. For more information, see [Ingest data](/getting-started/data-ingestion).
-
-1. Created a stream that keeps the data synchronized between CluedIn and the Microsoft SQL Server database. For more information, see [Stream data](/getting-started/data-streaming).
-
-# Enable Manual Hierarchies
-
-To be able to create hierarchies in CluedIn, enable the **Manual Hierarchies** feature.
-
-**To enable the Manual Hierarchies feature**
-
-1. On the navigation pane, go to **Administration** > **Feature Flags**.
-
-1. Find the **Manual Hierarchies** feature.
-
-    ![enable-feature-1.png](../../assets/images/getting-started/hierarchy-builder/enable-feature-1.png)
-
-1. Turn on the toggle next to the feature status. Then, confirm that you want to enable the feature.
-
-    The status of the **Manual Hierarchies** feature is changed to **Enabled**.
-
-    ![enable-feature-2.png](../../assets/images/getting-started/hierarchy-builder/enable-feature-2.png)
-
-    Now, you can build hierarchies.
-
-After enabling the **Manual Hierarchies** feature, the **Hierarchy** tab is added to the golden record page. If you disable the feature, then the tab will no longer be displayed. However, if you enable the feature again, the tab and all previously created hierarchies will be displayed again.
-
-# Build hierarchy
-
-After you enabled the **Manual Hierarchies** feature, you can build hierarchies.
-
-**To build a hierarchy**
+## Build a hierarchy
 
 1. On the navigation pane, go to **Management** > **Hierarchy Builder**.
 
@@ -63,14 +31,20 @@ After you enabled the **Manual Hierarchies** feature, you can build hierarchies.
     
     1. Enter the name of the hierarchy.
 
-    1. If you want to limit the records for building the hierarchy, find and select the entity type.
+    1. If you want to limit the records for building the hierarchy, find and select the business domain.
 
-        All records belonging to the selected entity type will be available to build the hierarchy. If you do not select the entity type, then all records existing in the system will be available to build the hierarchy.
-
-    1. In the lower-right corner, select **Create**.
+        All records belonging to the selected business domain will be available to build the hierarchy. If you do not select the business domain, then all records existing in the system will be available to build the hierarchy.
 
         ![create-hierarchy-1.png](../../assets/images/getting-started/hierarchy-builder/create-hierarchy-1.png)
 
+    1. In the lower-right corner, select **Next**.
+
+    1. Select the starting point for the hierarchy project: **Blank** (if you do not have existing relations between golden records) or **From existing relations** (if you have existing relations between golden records).
+
+        ![create-hierarchy-2.png](../../assets/images/getting-started/hierarchy-builder/create-hierarchy-2.png)
+
+    1. Select **Create**.
+    
         The hierarchy builder page opens.
 
 1. Build the visual hierarchy by dragging the records from the left pane to the canvas.
@@ -85,13 +59,13 @@ After you enabled the **Manual Hierarchies** feature, you can build hierarchies.
 
     You created the hierarchy.
 
-You can view the hierarchy on the **Hierarchy Builder** page or on the **Hierarchies** tab of the golden record page. In addition, you can view the relations between the records on the **Relation** tab of the golden record page.
+You can view the hierarchy on the **Hierarchy Builder** page or on the **Hierarchies** tab of the golden record page. In addition, you can view the relations between the records on the **Relations** tab of the golden record page.
 
 ![relations.png](../../assets/images/getting-started/hierarchy-builder/relations.png)
 
 To make sure that the data in the Microsoft SQL Server database reflects the relations that you set up, [update the stream configuration](#update-stream-configuration).
 
-# Manage hierarchy
+## Manage a hierarchy
 
 After you created the hierarchy, you can do the following actions with the elements of the hierarchy:
 
@@ -101,11 +75,11 @@ After you created the hierarchy, you can do the following actions with the eleme
 
 - Collapse and expand elements. To collapse all elements below a certain element, point to the needed element and select **Collapse**. To expand the collapsed elements, point to the parent element, and select **Expand**.
 
-    You can also collapse all elements under a parent element. To do that, in the lower-right corner, select **Collapse all** (![collapse.png](../../assets/images/getting-started/hierarchy-builder/collapse.png)).
+    You can also collapse all elements under a parent element. To do that, in the lower-right corner, select **Collapse all**.
 
-- View the data associated with the elements. To do that, select the element.
+- View the data associated with the elements. To do that, point to the element, select the three-dot menu, and then select **Open Entity**.
 
-# Update stream configuration
+## Update stream configuration
 
 After you published the hierarchy, update the stream to ensure that the data in the database reflects the relations between the records that you set up.
 
@@ -115,11 +89,11 @@ After you published the hierarchy, update the stream to ensure that the data in 
 
 1. Open the needed stream.
 
-1. Go to the **Export Target Configuration** page. Then, select **Edit Target Configuration** and confirm that you want to edit the stream.
+1. Go to the **Export Target Configuration** pane. Then, select **Edit Export Configuration** and confirm that you want to edit the stream.
 
-1. On the **Choose a connector** tab, select **Next**.
+1. Go to the **Properties to export** tab. To do this, select **Next** two times.
 
-1. On the **Properties to export** tab, find the **Export Edges** section. Then, turn on the **Outgoing** and **Incoming** toggles.
+1. In the **Export Edges** section, turn on the **Outgoing** and **Incoming** toggles.
 
     ![update-stream-1.png](../../assets/images/getting-started/hierarchy-builder/update-stream-1.png)
 
@@ -131,11 +105,8 @@ After you published the hierarchy, update the stream to ensure that the data in 
 
     If you update the hierarchy, the relations between records will be automatically updated in the database.
 
-# Results
+## Results & next steps
 
-You have created a hierarchy in CluedIn.
+After completing all steps outlined in this guide, you learned how to visualize relations between golden records with the help of Hierarchy Builder and how to send these relations to a Microsoft SQL Server database. If you make any changes to the relations in CluedIn, they will be automatically updated in the database.
 
-# Next steps
-
-- [Create glossary](/getting-started/glossary)
-
+Next, learn how to use a glossary to document groups of golden records that meet specific criteria in the [Work with glossary guide](/getting-started/glossary).

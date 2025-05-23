@@ -40,7 +40,7 @@ You will need to install node, npm, yeoman, and the generator itself.
     npm install -g generator-cluedin-externalsearch
     ```
 
-1. Run the generator, providing `Name` and `Entity Type` (for example, Person or Company).
+1. Run the generator, providing `Name` and `Business Domain` (for example, Person or Company).
 
     ```shell
     yo cluedin-externalsearch

@@ -8,7 +8,7 @@ title: Add GraphQL entity type resolvers
 tags: ["consume","graphql"]
 ---
 
-You can add your own specific resolvers to fetch data given filters such as what entity type a record is. 
+You can add your own specific resolvers to fetch data given filters such as what business domain a record is. 
 
 Here is an example of how to return Calendar Events in a different way through the GraphQL endpoints.
 

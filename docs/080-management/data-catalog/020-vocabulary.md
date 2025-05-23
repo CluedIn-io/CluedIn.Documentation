@@ -31,7 +31,7 @@ This tab contains general information about the vocabulary, including:
 
 - Vocabulary name – a user-friendly identifier of the vocabulary.
 
-- Primary entity type – an entity type linked with the vocabulary.
+- Primary business domain – a business domain linked with the vocabulary.
 
 - Source – a source system that indicates the origin of data within the vocabulary.
 
@@ -65,15 +65,18 @@ This tab contains tasks for reviewing changes to the vocabulary submitted by use
 
 **Audit log**
 
-This tab contains a detailed history of changes to the vocabulary.
+This tab contains a detailed history of changes to the vocabulary, such as:
+
+- Create a vocabulary
+- Added user to owners
+- Create a vocabulary key
+- Delete a vocabulary key
 
 ## Create a vocabulary
 
 Depending on the selected [data modeling approach](/management/data-catalog/modeling-approaches), you can create a vocabulary in two ways:
 
 - **Automatically** – this option is part of the data-first approach. When [creating a mapping](/integration/create-mapping) for a data set, you have the option to enter the name of a new vocabulary. CluedIn will then automatically suggest the key prefix and generate the vocabulary. Once the mapping is created, you can then open the vocabulary and make any necessary adjustments.
-
-    ![create-vocabulary-mapping.gif](../../assets/images/management/data-catalog/create-vocabulary-mapping.gif)
 
 - **Manually** – this option is part of the model-first approach, which assumes that you need to create a vocabulary before using it in the mapping for a data set. The following procedure outlines the steps to manually create a vocabulary.
 
@@ -85,7 +88,7 @@ Depending on the selected [data modeling approach](/management/data-catalog/mode
 
 1. Enter the name of the vocabulary.
 
-1. Find and select the primary entity type that will most likely use the vocabulary.
+1. Find and select the primary business domain that will most likely use the vocabulary.
 
 1. (Optional) Find and select the source of the vocabulary to indicate where the data in the vocabulary comes from.
 
@@ -106,7 +109,7 @@ Depending on the selected [data modeling approach](/management/data-catalog/mode
 
 Once the vocabulary is created, you can edit its configuration based on your requirements to ensure the maintenance of organized and consistent metadata.
 
-Only Vocabulary Owners and Administrators can edit the vocabulary configuration. When you're editing a vocabulary configuration, you can change almost all of its aspects: name, primary entity type, source, and description.
+Only Vocabulary Owners and Administrators can edit the vocabulary configuration. When you're editing a vocabulary configuration, you can change almost all of its aspects: name, primary business domain, source, and description.
 
 **To edit vocabulary configuration**
 
