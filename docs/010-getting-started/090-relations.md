@@ -21,9 +21,9 @@ In this article, you will learn how to add and view relations between golden rec
 
 **Files for practice**
 
-- File 1: <a href="../../../assets/other/training-company.csv" download>training-data.csv</a>
+- File 1: <a href="../../../assets/other/training-company.csv" download>training-company.csv</a>
 
-- File 2: <a href="../../../assets/other/training-employee.csv" download>training-data.csv</a>
+- File 2: <a href="../../../assets/other/training-employee.csv" download>training-employee.csv</a>
 
 **Prerequisites**
 

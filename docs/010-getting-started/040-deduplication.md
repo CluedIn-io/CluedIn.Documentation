@@ -83,10 +83,7 @@ When creating a matching rule, you need to specify certain criteria. CluedIn use
 
 1. In the upper-right corner, select **Generate Results**. Then, confirm that you want to generate the results for the deduplication project.
 
-    {:.important}
-    The process of generating results may take some time.
-
-    After the process is completed, you will receive a notification. If duplicates are detected, the results will be displayed on the page. The results are organized into groups containing records that match your criteria. For example, on the following screenshot, the group consists of two duplicates. The name of the group corresponds to the value of the vocabulary key from the matching rule. 
+    The process of generating results may take some time. After the process is completed, you will receive a notification. If duplicates are detected, the results will be displayed on the page. The results are organized into groups containing records that match your criteria. For example, on the following screenshot, the group consists of two duplicates. The name of the group corresponds to the value of the vocabulary key from the matching rule. 
 
     ![dedup-8.png](../../assets/images/getting-started/deduplication/dedup-8.png)
 

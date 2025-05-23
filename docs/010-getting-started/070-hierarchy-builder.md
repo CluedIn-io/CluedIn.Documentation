@@ -107,6 +107,6 @@ After you published the hierarchy, update the stream to ensure that the data in 
 
 ## Results & next steps
 
-After completing all steps outlined in this guide, you learned how to visualize relations between golden records with the help of Hierarchy Builder and how to send these relations to a Microsoft SQL Server database. If you make any changes to the relations in CluedIn, they will be automatically updated in the database.
+After completing all steps outlined in this guide, you learned how to visualize relations between golden records with the help of Hierarchy Builder and how to send these relations to a Microsoft SQL Server database. If you make any changes to the relations in CluedIn, they will be automatically updated in the database. For more details about hierarchies, refer to [How to build an organizational hierarchy](/kb/how-to-build-an-organizational-hierarchy).
 
 Next, learn how to use a glossary to document groups of golden records that meet specific criteria in the [Work with glossary guide](/getting-started/glossary).
