@@ -3,6 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Training
 permalink: /training/fundamentals
+has_children: true
 title: CluedIn Fundamentals
 ---
 
