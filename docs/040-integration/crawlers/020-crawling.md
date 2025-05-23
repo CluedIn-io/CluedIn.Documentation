@@ -2,7 +2,7 @@
 layout: cluedin
 title: Crawling
 parent: Crawlers
-grand_parent: Integration
+grand_parent: Ingestion
 nav_order: 020
 has_children: false
 permalink: /integration/crawling

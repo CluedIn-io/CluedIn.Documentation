@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 050
 parent: Data sources
-grand_parent: Integration
+grand_parent: Ingestion
 permalink: /integration/create-mapping
 title: Create mapping
 tags: ["integration", "mapping"]

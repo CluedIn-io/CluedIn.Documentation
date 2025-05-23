@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 030
 parent: Manual data entry
-grand_parent: Integration
+grand_parent: Ingestion
 permalink: /integration/manual-data-entry/manage-a-manual-data-entry-project
 title: Manage a manual data entry project
 last_modified: 2025-04-01

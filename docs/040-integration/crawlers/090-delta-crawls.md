@@ -2,7 +2,7 @@
 layout: cluedin
 title: Delta Crawls
 parent: Crawlers
-grand_parent: Integration
+grand_parent: Ingestion
 nav_order: 090
 has_children: false
 permalink: /integration/delts-crawls

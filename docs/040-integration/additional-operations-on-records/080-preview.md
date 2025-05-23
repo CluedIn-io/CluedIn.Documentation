@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 8
 parent: Additional operations
-grand_parent: Integration
+grand_parent: Ingestion
 permalink: /integration/additional-operations-on-records/preview
 title: Preview
 last_modified: 2025-04-03

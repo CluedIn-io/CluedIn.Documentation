@@ -2,7 +2,7 @@
 layout: cluedin
 title: Home Screen
 parent: Crawlers
-grand_parent: Integration
+grand_parent: Ingestion
 nav_order: 040
 has_children: false
 permalink: /integration/home-screen

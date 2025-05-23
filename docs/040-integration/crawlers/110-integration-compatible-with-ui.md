@@ -2,7 +2,7 @@
 layout: cluedin
 title: Integration and the CluedIn UI
 parent: Crawlers
-grand_parent: Integration
+grand_parent: Ingestion
 nav_order: 110
 has_children: false
 permalink: /integration/integration-compatible-with-ui

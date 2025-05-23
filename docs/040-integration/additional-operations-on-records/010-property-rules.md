@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 1
 parent: Additional operations
-grand_parent: Integration
+grand_parent: Ingestion
 permalink: /integration/additional-operations-on-records/property-rules
 title: Property rules
 tags: ["integration", "property rules"]

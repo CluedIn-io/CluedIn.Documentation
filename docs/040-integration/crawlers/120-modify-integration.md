@@ -2,7 +2,7 @@
 layout: cluedin
 title: Modify an Integration
 parent: Crawlers
-grand_parent: Integration
+grand_parent: Ingestion
 nav_order: 120
 has_children: false
 permalink: /integration/modify-integrations

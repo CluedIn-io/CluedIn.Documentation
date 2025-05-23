@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 020
 parent: Manual data entry
-grand_parent: Integration
+grand_parent: Ingestion
 permalink: /integration/manual-data-entry/add-records-in-a-manual-data-entry-project
 title: Add records in a manual data entry project
 last_modified: 2025-04-01

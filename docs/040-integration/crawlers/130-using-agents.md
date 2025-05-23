@@ -2,7 +2,7 @@
 layout: cluedin
 title: Using Agents
 parent: Crawlers
-grand_parent: Integration
+grand_parent: Ingestion
 nav_order: 130
 has_children: false
 permalink: /crawling/using-agents

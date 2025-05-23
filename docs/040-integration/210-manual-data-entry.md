@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 nav_order: 030
-parent: Integration
+parent: Ingestion
 permalink: /integration/manual-data-entry
 title: Manual data entry
 has_children: true
