@@ -2,7 +2,7 @@
 layout: cluedin
 title: How to add an Integration
 parent: Crawlers
-grand_parent: Integration
+grand_parent: Ingestion
 nav_order: 060
 has_children: false
 permalink: /integration/add-integration

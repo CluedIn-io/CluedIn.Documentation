@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 6
 parent: Additional operations
-grand_parent: Integration
+grand_parent: Ingestion
 permalink: /integration/additional-operations-on-records/logs
 title: Logs
 tags: ["integration", "logs"]

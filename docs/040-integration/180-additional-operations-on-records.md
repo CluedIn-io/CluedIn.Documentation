@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: Additional operations
-parent: Integration
+parent: Ingestion
 nav_order: 020
 has_children: true
 permalink: /integration/additional-operations-on-records

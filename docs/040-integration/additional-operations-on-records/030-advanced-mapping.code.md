@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 3
 parent: Additional operations
-grand_parent: Integration
+grand_parent: Ingestion
 permalink: /integration/additional-operations-on-records/advanced-mapping-code
 title: Advanced mapping code
 tags: ["integration", "property rules"]

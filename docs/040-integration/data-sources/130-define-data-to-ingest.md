@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 010
 parent: Data sources
-grand_parent: Integration
+grand_parent: Ingestion
 permalink: /integration/define-data-to-ingest
 title: Define data to ingest
 tags: ["integration"]

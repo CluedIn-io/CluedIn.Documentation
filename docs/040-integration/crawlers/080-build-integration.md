@@ -2,7 +2,7 @@
 layout: cluedin
 title: Build Integration
 parent: Crawlers
-grand_parent: Integration
+grand_parent: Ingestion
 nav_order: 080
 has_children: false
 permalink: /integration/build-integration

@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 4
 parent: Additional operations
-grand_parent: Integration
+grand_parent: Ingestion
 permalink: /integration/additional-operations-on-records/quarantine
 title: Quarantine
 tags: ["integration", "quarantine"]

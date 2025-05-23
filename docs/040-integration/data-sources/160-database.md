@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 040
 parent: Data sources
-grand_parent: Integration
+grand_parent: Ingestion
 permalink: /integration/database
 title: Database
 tags: ["integration"]

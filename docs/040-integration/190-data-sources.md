@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 nav_order: 010
-parent: Integration
+parent: Ingestion
 permalink: /integration/data sources
 title: Data sources
 has_children: true

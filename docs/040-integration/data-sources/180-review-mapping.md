@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 060
 parent: Data sources
-grand_parent: Integration
+grand_parent: Ingestion
 permalink: /integration/review-mapping
 title: Review mapping
 tags: ["integration", "mapping"]

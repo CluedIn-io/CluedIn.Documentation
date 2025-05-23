@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 070
 parent: Data sources
-grand_parent: Integration
+grand_parent: Ingestion
 permalink: /integration/process-data
 title: Process data
 tags: ["integration", "processing"]

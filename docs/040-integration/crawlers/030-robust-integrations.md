@@ -2,7 +2,7 @@
 layout: cluedin
 title: Help with building robust integrations
 parent: Crawlers
-grand_parent: Integration
+grand_parent: Ingestion
 nav_order: 030
 has_children: false
 permalink: /integration/robust-ntegrations

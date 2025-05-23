@@ -2,7 +2,7 @@
 layout: cluedin
 title: Deploying a new Crawler
 parent: Crawlers
-grand_parent: Integration
+grand_parent: Ingestion
 nav_order: 150
 has_children: false
 permalink: /crawling/deploying-new-crawler

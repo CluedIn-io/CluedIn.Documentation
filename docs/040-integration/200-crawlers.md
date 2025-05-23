@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 nav_order: 040
-parent: Integration
+parent: Ingestion
 permalink: /integration/crawlers-and-enrichers
 title: Crawlers
 has_children: true
