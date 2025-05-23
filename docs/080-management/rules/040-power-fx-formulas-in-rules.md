@@ -4,7 +4,7 @@ nav_order: 4
 parent: Rules
 grand_parent: Management
 permalink: /management/rules/power-fx-formulas
-title: Rules reference
+title: Power Fx formulas
 last_modified: 2025-07-17
 ---
 ## On this page
