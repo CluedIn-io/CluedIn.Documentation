@@ -11,8 +11,6 @@ title: Lookup data type
 - TOC
 {:toc}
 
-_The terminology and user interface described in this article might be slightly different depending on your version of CluedIn, but the overall logic remains the same._
-
 In this article, you will learn how to work with vocabulary keys that use the Lookup data type to ensure that only valid values are entered in golden records. You will also learn how to identify and fix anomalies in lookup vocabulary keys.
 
 ## Overview
@@ -95,7 +93,7 @@ If the currency is not in the glossary term, it will be marked as an invalid val
 
 ## Find anomalies in lookup vocabulary keys
 
-_This feature will be available in 2025.01 release._
+_This feature is available starting from [2025.05 release](/release-notes/2025-05)._
 
 To quickly find anomalies in vocabulary keys that use the Lookup data type, [create](/management/rules/create-rule) a golden record rule with the corresponding action. First, define which golden records the rule should be applied to. Then, add the rule action:
 
