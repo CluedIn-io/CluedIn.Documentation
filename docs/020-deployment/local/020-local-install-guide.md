@@ -97,12 +97,12 @@ In the following instructions, we use `2025.05` as the version number. You shoul
 
     ![pull-images-result.png](../../assets/images/local-install/pull-images-result.png)
 
-1. Create an environment. In the following command, we use `202401` as the name of the environment and `2025.05` as the version number.
+1. Create an environment. In the following command, we use `202505` as the name of the environment and `2025.05` as the version number.
 
     To create an environment, run the following command:
 
     ```
-    pwsh .\cluedin.ps1 env 202401 -tag 2025.05
+    pwsh .\cluedin.ps1 env 202505 -tag 2025.05
     ```
 
     {:.important}
