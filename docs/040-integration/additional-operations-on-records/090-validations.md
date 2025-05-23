@@ -24,7 +24,7 @@ To perform source record validations, you need to meet the following prerequisit
 
 - The data set should be **mapped** to standard fields. This way CluedIn can analyze your data and suggest appropriate validation methods. Learn more in [Create mapping](/integration/create-mapping) and [Review mapping](/integration/review-mapping).
 
-- The data set should be in the **edit mode**. This way you can add validations and modify source records. Learn more in [Analysis and modification](/integration/additional-operations-on-records/preview).
+- The data set should be in the **edit mode**. This way you can add validations and modify source records. Learn more in [Preview](/integration/additional-operations-on-records/preview).
 
 **To access validations**
 
