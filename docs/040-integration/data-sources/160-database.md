@@ -24,10 +24,6 @@ You can ingest the database tables to CluedIn if you have the **read permission*
 {:.important}
 The maximum number of columns accepted for data ingestion is 490.<br>Before loading data into CluedIn, ensure that it does not contain unsupported characters. Refer to our knowledge base [article](/kb/supported-characters) for information about supported and unsupported characters.
 
-**Prerequisites**
-
-To be able to ingest the data from a database, go to **Administration** > **Feature Flags** and make sure that the **Import databases in Data Source module** feature is enabled.
-
 ## Add connection to database
 
 To be able to access the database tables in CluedIn, first establish a connection to the database.
