@@ -257,15 +257,15 @@ function extractRelatedTopics(relatedTopics, dict = new Map()) {
   for (let i = 0; i < relatedTopics.length; i++) {
     dict.set(
       'duckDuckGo.organization.relatedTopics' + i + '.firstUrl',
-      relatedTopics[i].FirstURL,
+      relatedTopics[i]?.FirstURL,
     );
     dict.set(
       'duckDuckGo.organization.relatedTopics' + i + '.text',
-      relatedTopics[i].Text,
+      relatedTopics[i]?.Text,
     );
     dict.set(
       'duckDuckGo.organization.relatedTopics' + i + '.icon',
-      relatedTopics[i].Icon.Url,
+      relatedTopics[i]?.Icon?.Url,
     );
   }
 }
@@ -273,7 +273,7 @@ try {
   // Update the content here
   let parsedContent = JSON.parse(response.Content);
   let vocabularyKeysWithValue = extractStringValues(parsedContent);
-  extractInfobox(parsedContent.Infobox.content, vocabularyKeysWithValue);
+  extractInfobox(parsedContent.Infobox?.content, vocabularyKeysWithValue);
   extractRelatedTopics(parsedContent.RelatedTopics, vocabularyKeysWithValue);
   response.Content = JSON.stringify([
     { Data: Object.fromEntries(vocabularyKeysWithValue), Score: 0 },
@@ -281,11 +281,11 @@ try {
   log(response);
 } catch (error) {
   const errorDetails = {
-    name: error.name,
-    message: error.message,
-    stack: error.stack,
+    name: error?.name,
+    message: error?.message,
+    stack: error?.stack,
   };
-  log('Error caught:', JSON.stringify(errorDetails));
+  log('Error caught:' + JSON.stringify(errorDetails));
 }
 ```
 
