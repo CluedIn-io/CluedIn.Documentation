@@ -3,13 +3,13 @@ layout: cluedin
 nav_order: 3
 parent: CluedIn Fundamentals
 grand_parent: Training
-permalink: /training/fundamentals/merging-by-identifiers
-title: Merging by identifiers
+permalink: /training/fundamentals/building-a-single-customer-view
+title: Building a single customer view
 ---
 
 **Level:** Beginner
 
-In this training, we’ll explore the concept of primary identifiers in CluedIn and how to use them to proactively merge duplicate records.
+In this training, we’ll focus on building a single customer view by identifying and merging duplicate records. We’ll explore the concept of primary identifiers in CluedIn and how to use them to proactively unify duplicate data into a single, accurate customer view.
 
 **Presented by:** Jocelyn Ramirez and Matthew Carter, your CluedIn AI trainers
 
