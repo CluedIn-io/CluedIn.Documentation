@@ -16,3 +16,5 @@ In the course of our comprehensive CluedIn Fundamentals training, we’ll explor
 <div class="videoFrame">
 <iframe src="https://player.vimeo.com/video/1086437400?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write;" title="Welcome to CluedIn Fundamentals"></iframe>
 </div>
+
+**Presentation:** <a href="../../../assets/other/training-ppt/welcome-to-cluedin-fundamentals.pptx" download>Download PPT</a>

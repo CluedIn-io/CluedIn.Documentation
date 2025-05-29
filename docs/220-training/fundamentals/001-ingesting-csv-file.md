@@ -17,6 +17,8 @@ In this training, we'll start implementing the use case presented in [CluedIn Fu
 <iframe src="https://player.vimeo.com/video/1087088366?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write;" title="CluedIn Fundamentals: Ingesting a CSV file"></iframe>
 </div>
 
+**Presentation:** <a href="../../../assets/other/training-ppt/ingesting-a-csv-file.pptx" download>Download PPT</a>
+
 **Training file:** <a href="../../../assets/other/crm-customer.csv" download>crm-customer.csv</a>
 
 **Useful resources:**
