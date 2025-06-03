@@ -77,7 +77,7 @@ After you imported and mapped the data that you will be linking to already exist
 
     You added edge relations. To view relations between golden records, [process the data](/getting-started/data-ingestion#process-data) and [stream the records](/getting-started/data-streaming).
 
-# View relations between golden records
+## View relations between golden records
 
 After you processed the data and streamed the records, you can view the relations between golden records in the following places:
 
