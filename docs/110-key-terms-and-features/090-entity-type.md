@@ -18,7 +18,7 @@ Each golden record is associated with exactly one business domain. You can lever
 
 A business domain is assigned to a clue during the mapping process, and it plays a critical role in various [identifiers](/key-terms-and-features/entity-codes), including primary identifiers and additional identifiers.
 
-## business domain usage
+## Business domain usage
 
 ### Adding semantic context to golden records
 
