@@ -39,23 +39,35 @@ The Google Maps enricher can use a variety of attributes for searching the Googl
 
 - For Organization:
 
-    - A combination of **Organization Name**, **Address**, **Zip**, **State**, **City**, **Country**
-
-    - A combination of **Organization Name** and **Address**.
-
     - **Organization Name**
 
     - **Organization Address**
 
-- For Location: **Location Address**
+    - A combination of **Organization Name**, **Address**, **Zip**, **State**, **City**, **Country**
+
+    - A combination of **Organization Name** and **Address**.
+
+    - A combination of **Organization Name**, **Address**, **Latitude**, and **Longitude**.
+
+- For Location:
+
+    - **Location Address**
+
+    - A combination of **Location Address**, **Latitude**, and **Longitude**.
 
 - For Person:
 
-    - **Person Address** and **Person Address City**
-
     - **Person Address**
 
-- For User: **User Address**
+    - A combination of **Person Address** and **Person Address City**
+
+    - A combination of **Person Address**, **Latitude**, and **Longitude**.
+
+- For User:
+
+    - **User Address**
+
+    - A combination of **User Address**, **Latitude**, and **Longitude**.
 
 When you're configuring the Google Maps enricher for a specific business domain, make sure you fill in the relevant fields for that business domain.
 
@@ -99,9 +111,9 @@ When you're configuring the Google Maps enricher for a specific business domain,
 
     - **Person Address City Vocabulary Key** – enter the vocabulary key that contains person cities that will be used for searching the Google Maps Platform.
 
-    - **Latitude Vocabulary Key** – this field is not currently used for searching the Google Maps Platform.
+    - **Latitude Vocabulary Key** – enter the vocabulary key that contains the latitude of golden records that you want to enrich. This latitude will be used for searching the Google Maps Platform only if the corresponding address vocabulary key is provided in the configuration (**Organization Address Vocab Key**, **Location Address Vocab Key**, **User Address Vocab Key**, or **Person Address Vocab Key**).
 
-    - **Longitude Vocabulary Key** – this field is not currently used for searching the Google Maps Platform.
+    - **Longitude Vocabulary Key** – enter the vocabulary key that contains the longitude of golden records that you want to enrich. This longitude will be used for searching the Google Maps Platform only if the corresponding address vocabulary key is provided in the configuration (**Organization Address Vocab Key**, **Location Address Vocab Key**, **User Address Vocab Key**, or **Person Address Vocab Key**).
 
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
