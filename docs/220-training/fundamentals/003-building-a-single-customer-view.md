@@ -48,3 +48,20 @@ In this training, we’ll explore an alternative approach to identifying and mer
 **Useful resources:**
 
 - [Deduplication](/management/deduplication)
+
+## Part 3
+
+**Level:** Beginner
+
+In this training, we'll explore strategies for defining the uniqueness of records—particularly in situations where the property used to generate a primary or additional identifier is missing or empty. In CluedIn, when two or more records share the same identifier—whether it’s primary or additional—they will be merged into a single golden record. That’s why it’s important to always use valid, unique identifiers.
+
+**Presented by:** Jocelyn Ramirez and Matthew Carter, your CluedIn AI trainers
+
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/1090434884?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="CluedIn Fundamentals Defining record uniqueness"></iframe></div>
+
+**Presentation:** <a href="../../../assets/other/training-ppt/defining-record-uniqueness.pptx" download>Download PPT</a>
+
+**Useful resources:**
+
+- [Identifiers](/key-terms-and-features/entity-codes)
