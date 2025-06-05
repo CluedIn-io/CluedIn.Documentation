@@ -20,11 +20,13 @@ In this article, you will learn about customizations that can be implemented in 
 
 CluedIn offers multiple [options](https://documentation.cluedin.net/playbooks/data-ingestion-playbook/pick-the-right-tool) for getting your data into the platform. However, you can further customize the data ingestion process if your use case requires it.
 
-![customization-options-ingestion-without-validation.png](../../assets/images/playbooks/customization-options-ingestion-without-validation.png)
+![customization-options-ingestion.png](../../assets/images/playbooks/customization-options-ingestion.png)
 
-There are two ways to customize data ingestion in CluedIn:
+There are three ways to customize data ingestion in CluedIn:
 
 - **Customization via advanced mapping** – if you want to customize the CluedIn mapping experience, you can write JavaScript code at any time. This can be useful for implementing complex conditional mapping, as the UI mapping may become too complex for such tasks. For more information, see [Advanced mapping code](/integration/additional-operations-on-records/advanced-mapping-code).
+
+- **Customization via advanced source record validation** – if you want to validate source records before processing, you can write JavaScript code. This can be useful if you want to improve the quality of source records and prevent incorrect records from being added to golden records. For more information, see [Validations](/integration/additional-operations-on-records/validations).
 
 - **Customization via crawler written in C#** – if the existing options for ingesting data into CluedIn do not meet your needs—for example, if neither Azure Data Factory, Microsoft Fabric, nor CluedIn have a specific connector—you can use a custom crawler. This can be useful if you use a legacy system that works on-premises or a very custom system. You can get acquainted with the example of crawler template [here](https://github.com/CluedIn-io/CluedIn.Connector.SqlServer).
 
