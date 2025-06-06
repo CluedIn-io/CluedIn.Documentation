@@ -65,3 +65,24 @@ In this training, we'll explore strategies for defining the uniqueness of record
 **Useful resources:**
 
 - [Identifiers](/key-terms-and-features/entity-codes)
+
+## Part 4
+
+**Level:** Beginner
+
+In this training, we'll learn how to identify and resolve data quality issues using CluedIn’s edit mode and validations. This helps fix invalid or incomplete identifiers before processing, ensuring more accurate matching and preventing unintended merges across your data.
+
+**Presented by:** Jocelyn Ramirez and Matthew Carter, your CluedIn AI trainers
+
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/1091237527?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="CluedIn Fundamentals Edit mode and validations"></iframe></div>
+
+**Presentation:** <a href="../../../assets/other/training-ppt/edit-mode-and-validations.pptx" download>Download PPT</a>
+
+**Useful resources:**
+
+- [Identifiers](/key-terms-and-features/entity-codes)
+
+- [Modify source records](/integration/additional-operations-on-records/preview#modify-source-records)
+
+- [Validations](/integration/additional-operations-on-records/validations)
