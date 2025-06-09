@@ -122,3 +122,43 @@ After correcting all invalid values, process your changes.
 If the updated values match the allowed values in the lookup vocabulary key, they will no longer be marked as invalid.
 
 ![how-to-use-lookup-keys-12.png](../../assets/images/management/data-catalog/how-to-use-lookup-keys-12.png)
+
+## Example of using countries reference data
+
+Let's consider an example of using the countries reference data in scenarios where a country can be represented in multiple formats—such as a 2-letter code, 3-letter code, or the full country name. In this case, the lookup vocabulary key serves not only to retrieve the standardized value from the list, but also to ensure the appropriate display of the full country name wherever the country reference is used. For example, instead of displaying a code like `US`, the system would use the lookup to show `United States of America`.
+
+To illustrate this example, we'll use company records. Notice the **Country** column, which contains various formats for referring to a country—such as two-letter codes, three-letter codes, and full country names. To ensure consistency and use standardized values for countries, we need to add and configure the country reference data accordingly.
+
+![lookup-countries-initial-data.png](../../assets/images/management/data-catalog/lookup-countries-initial-data.png)
+
+The first step is to add reference data to CluedIn—a list of countries that includes the following columns: **ID**, **DisplayName**, **TwoLetter**, **ThreeLetter**, and **Population**. This reference data captures multiple formats for referring to a country, allowing CluedIn to recognize and standardize country values across different representations.
+
+![lookup-countries-reference-file.png](../../assets/images/management/data-catalog/lookup-countries-reference-file.png)
+
+We mapped the reference data to the Country business domain and the ProjectCountry vocabulary. Next, we need to review the mapping details on the **Map Entity** tab and make several changes:
+
+- In the **General Details** section, in the **Entity Name** dropdown field, select the vocabulary key that contains the full name of the country (**DisplayName**).
+
+    ![lookup-countries-mapping-entity-name.png](../../assets/images/management/data-catalog/lookup-countries-mapping-entity-name.png)
+
+- In the **Identifiers** section, add the following properties for generating additional identifiers: **DisplayName**, **TwoLetter**, **ThreeLetter**. This allows CluedIn to recognize and resolve country references expressed in any of these formats. When CluedIn encounters a country reference—whether as a two-letter code, three-letter code, or full name—it will match it against the appropriate identifier and return the corresponding value from the **DisplayName** property, ensuring that the full country name is displayed consistently. Make sure to use a custom origin (for example, `country`) when generating these identifiers to maintain proper context.
+
+    ![lookup-countries-mapping-identifiers.png](../../assets/images/management/data-catalog/lookup-countries-mapping-identifiers.png)
+
+Once the mapping is complete, process the data set and [create a glossary term](#create-a-glossary-term) to represent the list of countries. Ensure the glossary is activated so that its values can be used as allowed options in vocabulary keys that use the Lookup data type. The values from the **Name** column in the glossary will then be available for selection in a dropdown list wherever the vocabulary key is applied.
+
+![lookup-countries-glossary.png](../../assets/images/management/data-catalog/lookup-countries-glossary.png)
+
+Once the glossary term containing the list of acceptable countries is ready, the next step is to [configure the vocabulary key](#change-data-type-of-vocabulary-key) that should be linked to this country list (for example, `trainingcompany.country`). To do this, [edit the vocabulary key](/management/data-catalog/manage-vocabulary-keys#edit-a-vocabulary-key), change its data type to Lookup, and select the appropriate glossary term that contains the allowed country values.
+
+After saving the changes, the vocabulary key is reprocessed and its data type is updated accordingly. As a result, the **Lookup Data** vocabulary is added to the company golden record **Overview** page, reflecting the country value selected through the lookup vocabulary key. This ensures that the golden record includes standardized, structured information about the associated country, based on the predefined list from the glossary.
+
+![lookup-countries-golden-record.png](../../assets/images/management/data-catalog/lookup-countries-golden-record.png)
+
+The initial two-letter and three-letter country codes have been changed to the full country name. 
+
+![lookup-countries-golden-record-properties.png](../../assets/images/management/data-catalog/lookup-countries-golden-record-properties.png)
+
+To sum up, when working with reference data that includes multiple formats for referring to the same entity—such as country codes and names—you can use a Lookup vocabulary key to standardize these references. For example, a country like Australia might be represented by several valid country names: `AU`, `AUS`, or `Australia`. The Lookup vocabulary key will attempt to resolve the reference by cycling through all available identifiers—including the two-letter code, three-letter code, and full country name. This approach ensures flexible and accurate matching against the standardized country list. 
+
+The same approach can be applied to currency reference data, where values such as currency codes (for example, `USD`, `EUR`) and names (for example, `US Dollar`, `Euro`) are resolved through a Lookup vocabulary key to maintain consistency and accuracy across records.
