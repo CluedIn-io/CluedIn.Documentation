@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: MDS Integration
+title: Master Data Services (MDS) Integration
 parent: Microsoft Integration
 permalink: /microsoft-integration/mds-integration
 nav_order: 080
@@ -12,7 +12,7 @@ has_children: false
 {:toc}
 
 
-In this article, you will learn how to expose on-premises MDS to CluedIn in Azure by using Azure Relay.
+In this article, you will learn how to expose on-premises Master Data Services (MDS) to CluedIn in Azure by using Azure Relay.
 
 ![mds-configuration-scenario.png](../../assets/images/microsoft-integration/mds/mds-configuration-scenario.png) 
 

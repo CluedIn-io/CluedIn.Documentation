@@ -1,10 +1,11 @@
 ---
 layout: default
 nav_order: 1
+title: Concept of hierarchy
 parent: Hierarchy builder
 grand_parent: Management
 permalink: /management/hierarchy-builder/concept-of-hierarchy
-title: Concept of hierarchy
+
 tags: ["management","hierarchy builder", "hierarchies"]
 last_modified: 2023-11-16
 ---
