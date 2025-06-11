@@ -1,12 +1,10 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 3
 parent: Hierarchy builder
 grand_parent: Management
 permalink: /management/hierarchy-builder/work-in-a-hierarchy-project
 title: Work in a hierarchy project
-tags: ["management", "hierarchy builder", "hierarchies"]
-last_modified: 2023-11-16
 ---
 ## On this page
 {: .no_toc .text-delta }
