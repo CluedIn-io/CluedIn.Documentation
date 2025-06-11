@@ -62,7 +62,7 @@ Creating a hierarchy manually gives you the possibility to build it from scratch
 
     ![create-hierarchy-manual-2.gif](../../../assets/images/management/hierarchy-builder/create-hierarchy-manual-2.gif)
 
-    You can load golden records of other entity types and add them to the hierarchy as well. To learn more, see [Work in a hierarchy project](/management/rules/work-in-a-hierarchy-project).
+    You can load golden records of other entity types and add them to the hierarchy as well. To learn more, see [Work in a hierarchy project](/management/hierarchy-builder/work-in-a-hierarchy-project).
 
 1. To save your changes, in the upper-right corner of the page, select **Save**.
 
@@ -125,7 +125,7 @@ Sometimes your data has natural hierarchies that are represented as relations. Y
 
     ![create_hierarchy_from_relations_configuration_tab.png](../../../assets/images/management/hierarchy-builder/create_hierarchy_from_relations_configuration_tab.png)
 
-    The number of hierarchy projects that are created depends on the selected **Multiple hierarchy projects** option. In case of **Single hierarchy project**, the hierarchy project opens right away, and you can review and modify it as needed. In case of **Multiple hierarchy project**, you need to open each project to review and modify it as needed. You can load golden records of other entity types and add them to the hierarchy as well. To learn more, see [Work in a hierarchy project](/management/rules/work-in-a-hierarchy-project).
+    The number of hierarchy projects that are created depends on the selected **Multiple hierarchy projects** option. In case of **Single hierarchy project**, the hierarchy project opens right away, and you can review and modify it as needed. In case of **Multiple hierarchy project**, you need to open each project to review and modify it as needed. You can load golden records of other entity types and add them to the hierarchy as well. To learn more, see [Work in a hierarchy project](/management/hierarchy-builder/work-in-a-hierarchy-project).
 
 1. Modify the created hierarchy as needed. Then, in the upper-right corner of the page, select **Save**.
 
