@@ -42,7 +42,7 @@ You can create as many manual data projects as you need. Consider having separat
 
 1. If you want to send the records created in the manual data entry project by non-owner users for approval, select the checkbox in **Require records approval**.
 
-    If you enable records approval, you, as the project owner, and any other owners will receive notifications when non-owner users try to add new records to the project. The owner needs to approve these records before they can be processed. For more information, see [Source record approval](/integration/additional-operations-on-records/source-records-approval).
+    If you enable records approval, you, as the project owner, and any other owners will receive notifications when non-owner users try to add new records to the project. The owner needs to approve these records before they can be processed. For more information, see [Approval](/integration/additional-operations-on-records/approval).
 
 1. (Optional) Enter the description of the manual data entry project.
 

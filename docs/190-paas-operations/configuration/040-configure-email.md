@@ -54,6 +54,7 @@ boostrap:
     password:
     senderName:
     senderDisplayName:
+    fromAddress:
 ```
 
 This will create a secret, storing the user and password information.  

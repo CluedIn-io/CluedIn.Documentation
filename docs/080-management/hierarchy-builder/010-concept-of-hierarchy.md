@@ -1,13 +1,11 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 1
 title: Concept of hierarchy
 parent: Hierarchy builder
 grand_parent: Management
 permalink: /management/hierarchy-builder/concept-of-hierarchy
-
 tags: ["management","hierarchy builder", "hierarchies"]
-last_modified: 2023-11-16
 ---
 
 Let's explore the concept of hierarchy through an example of Organization-Project-Employee relations. How can we visualize those relations in a hierarchy?

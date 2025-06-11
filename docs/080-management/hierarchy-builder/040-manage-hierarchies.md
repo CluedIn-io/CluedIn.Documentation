@@ -1,12 +1,10 @@
 ---
-layout: default
+layout: cluedin
 nav_order: 4
 parent: Hierarchy builder
 grand_parent: Management
 permalink: /management/hierarchy-builder/manage-hierarchies
 title: Manage hierarchies
-tags: ["management", "hierarchy builder", "hierarchies"]
-last_modified: 2023-11-16
 ---
 ## On this page
 {: .no_toc .text-delta }

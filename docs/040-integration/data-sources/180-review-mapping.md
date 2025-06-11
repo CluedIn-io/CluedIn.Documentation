@@ -15,7 +15,7 @@ last_modified: 2023-11-07
 
 After the mapping is created, review the mapping details to make sure that your records will be produced and merged in the most efficient way. This article will guide you through the essential aspects to check when reviewing your mapping details.
 
-![review-mapping-1.png](../../assets/images/integration/data-sources/review-mapping-1.png)
+![review-mapping-1.gif](../../assets/images/integration/data-sources/review-mapping-1.gif)
 
 {:.important}
 Before the data is processed, your mapping changes won't affect the existing records in CluedIn.
