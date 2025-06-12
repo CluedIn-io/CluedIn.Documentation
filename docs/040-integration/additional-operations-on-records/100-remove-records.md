@@ -28,12 +28,6 @@ Consider a scenario where a golden record is composed of data parts from three s
 
 Removing records from a specific data source is designed to remove the corresponding data parts from all relevant golden records. If these golden records contain other data parts, they will continue to exist. On the other hand, deleting a golden record using the [GraphQL tool](/consume/graphql/graphql-actions) will result in the complete deletion of the entire golden record.
 
-**Prerequisites**
-
-Go to **Administration** > **Feature Flags**, and then enable the **Remove Golden Records** feature.
-
-![remove-golden-records-1.png](../../assets/images/integration/additional-operations/remove-golden-records-1.png)
-
 **To remove records**
 
 1. On the navigation pane, go to **Integrations** > **Data Sources**.

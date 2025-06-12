@@ -43,7 +43,7 @@ If you don't have Azure Active Directory SSO enabled for CluedIn, you can add us
 
 The following diagram shows the flow of adding users to CluedIn.
 
-![add-user-diagram.png](../../assets/images/administration/user-management/add-user-diagram.png)
+![add-user-diagram.gif](../../assets/images/administration/user-management/add-user-diagram.gif)
 
 **To add a user by email address**
 
@@ -71,7 +71,7 @@ For SSO users, you can revoke user access in Azure Active Directory. For users a
 
 The following diagram shows the flow of deactivating a user in CluedIn.
 
-![deactivate-user-diagram.png](../../assets/images/administration/user-management/deactivate-user-diagram.png)
+![deactivate-user-diagram.gif](../../assets/images/administration/user-management/deactivate-user-diagram.gif)
 
 **To deactivate a user in CluedIn**
 

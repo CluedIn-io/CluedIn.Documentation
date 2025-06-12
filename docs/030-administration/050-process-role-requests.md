@@ -16,7 +16,7 @@ When users are browsing CluedIn and find that they do not have access to certain
 
 The following diagram shows the flow of processing role requests.
 
-![role-request-diagram.png](../../assets/images/administration/roles/role-request-diagram.png)
+![role-request-diagram.gif](../../assets/images/administration/roles/role-request-diagram.gif)
 
 **To process a role request**
 
