@@ -26,7 +26,7 @@ You can assign roles to the users in two places within the platform:
 
 The following diagram shows the flow of assigning roles to users.
 
-![add-role-diagram.png](../../assets/images/administration/roles/add-role-diagram.png)
+![add-role-diagram.gif](../../assets/images/administration/roles/add-role-diagram.gif)
 
 ### Assign roles in Users
 
@@ -76,7 +76,7 @@ You can review the users who have been already added to the role and add other u
 
 The following diagram shows the flow of removing roles from users.
 
-![remove-role-diagram.png](../../assets/images/administration/roles/remove-role-diagram.png)
+![remove-role-diagram.gif](../../assets/images/administration/roles/remove-role-diagram.gif)
 
 **To remove roles from a user**
 
