@@ -43,3 +43,6 @@ Removing records from a specific data source is designed to remove the correspon
     ![remove-golden-records-2.gif](../../assets/images/integration/additional-operations/remove-golden-records-2.gif)
 
 The process of removing records might take some time. During or after the process of removing records, you can make changes in the data set (edit mapping, add or remove property or pre-process rules) or process the data set again.
+
+{:.important}
+If you are working with an ingestion endpoint data source, you can also remove records that were produced from a specific request send to that ingestion endpoint. For more details, see [Ingestion reports](/integration/additional-operations-on-records/monitoring#ingestion-reports).
