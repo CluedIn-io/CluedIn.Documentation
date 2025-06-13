@@ -199,10 +199,22 @@ The **Mapping Preview** section is available when creating mapping with the foll
 
 ## Reset mapping
 
-If you've created mapping and have concerns about the accuracy or correctness of your mapping configuration, you can reset the mapping and starting over from scratch.
+If you’ve created a mapping and are concerned about its accuracy or correctness, you can reset it and start over. However, note that if the data set has already been processed, the option to reset the mapping is not available. In such cases, you’ll need to perform additional steps before you can reset the mapping for a processed data set.
 
 **To reset the mapping**
 
-- On the **Map** tab, select **Reset**, and then confirm that you want to reset the mapping configuration.
+- Depending on whether you have already processed the data set, do one of the following:
 
-   Now, you can create the mapping from scratch.    
+    - If you have already processed the data set:
+
+        1. Remove records created from the data set following the instruction [here](/integration/additional-operations-on-records/remove-records).
+
+        1. Remove processing logs of the data set following the instruction [here](/integration/process-data#remove-processing-logs).
+
+        1. On the **Map** tab, select **Reset**, and then confirm that you want to reset the mapping configuration.
+
+    - In you have not yet processed the data set:
+
+        - Go the **Map** tab, select **Reset**, and then confirm that you want to reset the mapping configuration.
+
+    Now, you can create the mapping from scratch.
