@@ -55,3 +55,5 @@ If you're using **Azure Firewall**, Microsoft provides a **service tag** to simp
 *   Use the service tag: `AzureConnectors` `LogicApps`
     
 *   This automatically includes all required outbound IP ranges for Power Automate and related services
+
+![network-with-power-automate.png](../../assets/images/microsoft-integration/power-automate/network-with-power-automate.png)
