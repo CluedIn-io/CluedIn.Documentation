@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 30
+nav_order: 40
 parent: Power Automate Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/power-automate/private-network
