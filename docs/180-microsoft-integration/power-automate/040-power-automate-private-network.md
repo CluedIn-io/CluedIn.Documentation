@@ -26,9 +26,9 @@ To enable **Power Automate** or **Power Apps** to communicate with **CluedIn** f
 
 Power Automate must access CluedIn through a **public URL**. The data flow diagram (see below) illustrates how Power Automate routes requests to CluedIn.
 To support this setup, the following components are required:
-*   ** Public DNS**
+*   **Public DNS**
     
-*   ** Public IP Address**
+*   **Public IP Address**
     
 
 
