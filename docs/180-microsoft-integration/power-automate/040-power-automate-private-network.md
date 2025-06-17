@@ -4,7 +4,7 @@ nav_order: 40
 parent: Power Automate Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/power-automate/private-network
-title: Power Automate post-configuration guide
+title: Power Automate private network configuration guide
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2025-06-17
 ---
