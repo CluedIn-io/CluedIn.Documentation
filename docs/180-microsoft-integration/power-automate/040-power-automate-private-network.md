@@ -22,17 +22,17 @@ This guide is applicable to only private CluedIn instances.
 
 To enable **Power Automate** or **Power Apps** to communicate with **CluedIn** from within a private network, external access must be configured through a publicly accessible endpoint.
 
-### 🌐 Connectivity Requirements
+### Connectivity Requirements
 
 Power Automate must access CluedIn through a **public URL**. The data flow diagram (see below) illustrates how Power Automate routes requests to CluedIn.
 To support this setup, the following components are required:
-*   **✅ Public DNS**
+*   ** Public DNS**
     
-*   **✅ Public IP Address**
+*   ** Public IP Address**
     
 
 
-### ⚙️ CluedIn Server Configuration
+### CluedIn Server Configuration
 
 The **public DNS** must be defined on the CluedIn server using an environment variable:
 
@@ -44,12 +44,12 @@ The **public DNS** must be defined on the CluedIn server using an environment va
 *   Replace `{your-domain}` with your organization’s domain name
     
 
-### 🔒 Firewall Configuration
+### Firewall Configuration
 
 Power Automate operates from Microsoft-managed IP ranges, which must be allowed through your network perimeter.
-*   🔗 **[Azure IP Ranges & Service Tags](https://www.microsoft.com/en-us/download/details.aspx?id=56519)**
+*   **[Azure IP Ranges & Service Tags](https://www.microsoft.com/en-us/download/details.aspx?id=56519)**
 
-*   🔗 **[Outbound Firewall rules](https://documentation.cluedin.net/deployment/infra-how-tos/configure-firewall#power-apps-and-power-automate)**
+*   **[Outbound Firewall rules](https://documentation.cluedin.net/deployment/infra-how-tos/configure-firewall#power-apps-and-power-automate)**
     
 If you're using **Azure Firewall**, Microsoft provides a **service tag** to simplify rule configuration:
 *   Use the service tag: `AzureConnectors` `LogicApps`
