@@ -29,16 +29,22 @@ Below are the required endpoints for CluedIn to be functional out of the box.
 | Rule address | Port | Description |
 |--|--|--|
 | `cluedinprod.azurecr.io` | 443 | CluedIn container registry |
+| `*.blob.core.windows.net` | 443 | storage account endpoint provided by the registry |
 | `api.nuget.org` | 443 | NuGet packages |
 | `github.com` | 443 | GitHub artifacts |
 | `objects.githubusercontent.com` | 443 | GitHub artifacts |
 | `billing.cluedin.com` | 443 | CluedIn licensing server |
 | `*.grafana.com` | 443 | Grafana chart content |
 | `mcr.microsoft.com` | 443 | Microsoft container registry |
+| `*.data.mcr.microsoft.com` | 443 | MCR storage backed by the Azure content delivery network |
 | `acme-v02.api.letsencrypt.org` | 443 | (Optional) Let's Encrypt service. Only required if not supplying own certificate |
 | `quay.io/jetstack` | 443 | (Optional) The cert-manager Let's Encrypt ACME service uses images. Not required if using own certificate |
 | `AKS Control Plane` | 443 | (For public clusters only) FQDN can be found under the AKS resource next to the **API server address** property (for example, `aks-cluedin.hcp.westeurope.azmk8s.io`) |
 | `*.file.core.windows.net` | 445 | The Azure File CSI driver mounts some shares via NFS/SMB using this port |
+| `pkgs.dev.azure.com` | 443 | download the nuget dlls from cluedin public |
+| `cluedin-io.github.io` | 443 | Cluedin helm repository |
+
+
 
 ## Enricher examples
 
