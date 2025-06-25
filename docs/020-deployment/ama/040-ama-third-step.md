@@ -144,7 +144,7 @@ On the **Advanced** tab, you can find technical and debugging switches that are 
 
 {:.important}
 You can make changes on this tab only with the advice of CluedIn support.
-**Bring Your own private DNS zones**
+**Bring Your own private DNS zones  Optional**
 You can enable the use of existing Private DNS Zones during installation. This means that if you choose to bring your own DNS zones, the deployment will reference them instead of creating new ones. The following zones must already exist:
 
 **privatelink.blob.core.windows.net**
