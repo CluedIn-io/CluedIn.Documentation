@@ -144,6 +144,34 @@ On the **Advanced** tab, you can find technical and debugging switches that are 
 
 {:.important}
 You can make changes on this tab only with the advice of CluedIn support.
+**Bring Your own private DNS zones**
+You can enable the use of existing Private DNS Zones during installation. This means that if you choose to bring your own DNS zones, the deployment will reference them instead of creating new ones. The following zones must already exist:
+
+privatelink.blob.core.windows.net
+privatelink.file.core.windows.net
+privatelink.vaultcore.azure.net
+
+**Prerequisites:**
+
+**Virtual Network Link:**
+Each of the above DNS zones must have a virtual network link established with the VNet that will be used during the installation process.
+
+**Access Control:**
+The user-assigned managed identity used for deployment must be granted the following roles:
+
+**1) Private DNS Zone Contributor on the respective Private DNS Zones.**
+**2) Network Contributor on the target virtual network.**
+
+**Installation Configuration:**
+As part of the deployment workflow, ensure that the "Use Existing Private DNS Zones" option is enabled in the installer interface. This instructs the deployment process to reference the provided DNS zones rather than creating new ones.
+
+**jumpbox optional**
+You can enable the Jumpbox feature during installation. This deploys a secure virtual machine inside your virtual network to provide administrative access for installation and troubleshooting. The Jumpbox comes pre-installed with all required tools, so no additional setup is needed. You must provide a valid Jumpbox Admin Username and Password to access the VM.
+
+**Bastion optional** 
+You can also choose to enable Bastion for secure, browser-based RDP or SSH access to the Jumpbox (or other VMs) without exposing any public IPs. Note: If you are bringing your own virtual network, ensure that a separate subnet named AzureBastionSubnet has already been created in that VNet. This is a prerequisite for enabling Azure Bastion.
+
+For more information about using Jumpbox or Bastion, contact CluedIn support.
 
 ![advanced.png](../../assets/images/deployment/paas-installation-guide/advanced.png)
 
