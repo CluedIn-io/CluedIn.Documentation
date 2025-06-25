@@ -43,6 +43,13 @@ Below are the required endpoints for CluedIn to be functional out of the box.
 | `*.file.core.windows.net` | 445 | The Azure File CSI driver mounts some shares via NFS/SMB using this port |
 | `pkgs.dev.azure.com` | 443 | download the nuget dlls from cluedin public |
 | `cluedin-io.github.io` | 443 | Cluedin helm repository |
+| `community.chocolatey.org` | 443 | community.chocolatey.org |
+| `get.helm.sh` | 443 | Helm binary downloads |
+| `chocolatey.org` | 443 | Chocolatey package repository |
+| `aka.ms` | 443 | Microsoft redirection service (Azure CLI) |
+| `packages.microsoft.com` | 443 | Azure CLI and Kubernetes CLI packages |
+| `dl.k8s.io` | 443 | Kubernetes CLI downloads |
+| `openssl.org` | 443 | OpenSSL downloads |
 
 
 
