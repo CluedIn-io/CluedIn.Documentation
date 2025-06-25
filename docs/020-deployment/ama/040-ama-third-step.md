@@ -147,9 +147,9 @@ You can make changes on this tab only with the advice of CluedIn support.
 **Bring Your own private DNS zones**
 You can enable the use of existing Private DNS Zones during installation. This means that if you choose to bring your own DNS zones, the deployment will reference them instead of creating new ones. The following zones must already exist:
 
-privatelink.blob.core.windows.net
-privatelink.file.core.windows.net
-privatelink.vaultcore.azure.net
+**privatelink.blob.core.windows.net**
+**privatelink.file.core.windows.net**
+**privatelink.vaultcore.azure.net**
 
 **Prerequisites:**
 
