@@ -42,6 +42,13 @@ Below are the required endpoints for CluedIn to be functional out of the box.
 | `AKS Control Plane` | 443 | (For public clusters only) FQDN can be found under the AKS resource next to the **API server address** property (for example, `aks-cluedin.hcp.westeurope.azmk8s.io`) |
 | `*.file.core.windows.net` | 445 | The Azure File CSI driver mounts some shares via NFS/SMB using this port |
 | `pkgs.dev.azure.com` | 443 | download the nuget dlls from cluedin public |
+
+## Jumpbox & bastion resources
+
+Below are the required endpoints for Jumpbox/bastion access
+
+| Rule address | Port | Description |
+|--|--|--|
 | `cluedin-io.github.io` | 443 | Cluedin helm repository |
 | `community.chocolatey.org` | 443 | community.chocolatey.org |
 | `get.helm.sh` | 443 | Helm binary downloads |
