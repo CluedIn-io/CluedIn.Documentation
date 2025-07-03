@@ -51,7 +51,7 @@ There are 3 common VM family types that CluedIn will create as part of the AKS n
 
 | VM | Quota |
 |--|--|
-| System Pool (1 x Standard_DS2_v2) | At least 2 vCPUs in the Standard DSv2 Family vCPUs quota |
+| System Pool (1 x Standard_DS2_v5) | At least 2 vCPUs in the Standard DSv5 Family vCPUs quota |
 | General Pool (2 x Standard_D8s_v4)  | At least 16 vCPUs in the Standard DSv4 Family vCPUs quota |
 | Data Pool (3 x Standard D8as_v5)  | At least 24 vCPUs in the Standard DASv5 Family vCPUs quota |
 
