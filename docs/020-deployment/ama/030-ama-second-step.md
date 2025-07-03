@@ -28,6 +28,19 @@ In addition, you should have **permission to purchase paid applications** from t
 
 ![Check_qualification_Purchasing.png](../../assets/images/ama/install-guide/check-qualitifcation.png)
 
+### Navigate to Billing Policies in Azure Portal
+To access Policies for a specific billing tenant in the Azure Portal:
+
+  1. Open the Azure Portal.
+  1. In the left-hand navigation menu, go to Cost Management.
+  1. Click on Billing Profiles.
+  1. Select the appropriate Tenant from the list.
+  1. In the sidebar, choose Settings.
+  1. Under Settings, click on Policies.
+
+> **Note:** Ensure you have the appropriate permissions to view or modify billing policies.
+> If you don’t see these options, verify your directory and tenant context in the portal.
+
 To learn how to allow purchases, see <a href="https://learn.microsoft.com/en-us/marketplace/azure-purchasing-invoicing">Azure Marketplace purchasing</a>.
 
 ## Check quota
