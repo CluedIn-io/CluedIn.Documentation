@@ -20,6 +20,7 @@ This section includes links to release notes for the CluedIn platform as well as
 
 | Version | Technical version | Release notes |
 |--|--|--|
+| 2025.05.02 | 4.5.2 | [View release notes](https://cluedin-io.github.io/Releases/2025.05/2025.05.02) |
 | 2025.05.01 | 4.5.1 | [View release notes](https://cluedin-io.github.io/Releases/2025.05/2025.05.01) |
 | 2025.05.00 | 4.5.0 | [View release notes](https://cluedin-io.github.io/Releases/2025.05/2025.05.00) |
 
