@@ -7,6 +7,7 @@ nav_order: 1
 has_children: false
 permalink: /preparation/data-quality-metrics/most-used-data-quality-metrics
 tags: ["governance","quality-metrics"]
+published: false
 ---
 
 In this article, we describe the most used data quality metrics. You can pick the ones that you want to see on your data or implement your metrics.

@@ -7,6 +7,7 @@ nav_order: 3
 has_children: false
 permalink: /preparation/data-quality-metrics/data-quality-metric-explanations
 tags: ["governance","quality-metrics"]
+published: false
 ---
 
 CluedIn calculates data quality metrics based off all data that is ingested into the platform. There are many times where you will want a verbose explanation on why a certain data quality score was given. For example, imagine if your had what you think is golden records, but CluedIn gave it very low quality scores - you would want to know exactly why. 

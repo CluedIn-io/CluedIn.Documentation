@@ -6,6 +6,7 @@ nav_order: 1
 has_children: true
 permalink: /preparation/data-quality-metrics
 tags: ["governance","quality-metrics"]
+published: false
 ---
 
 Data Metrics will allow you to score and monitor the history of data quality over time. Data Metrics are aggregated on many different levels and you might find that you need to control how that aggregation is done at each level. 
