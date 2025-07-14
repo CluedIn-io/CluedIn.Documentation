@@ -52,7 +52,7 @@ This formula consists of the following elements:
 
 - `1` – the number of characters to retrieve from the right end of the string.
 
-- `= "t"` – the equality evaluator that checks if the retieved character is equal to the letter “t”.
+- `= "t"` – the equality evaluator that checks if the retrieved character is equal to the letter “t”.
 
 The formula checks if the rightmost character of `Entity.Name` is `t`. If it is, the formula returns `true`, meaning that the rule will be applied to a specific golden record. If the formula returns `false`, the rule will not be applied to a specific golden record.
 
@@ -72,44 +72,50 @@ Custom CluedIn functions are designed to help you with querying and setting data
 
 This section contains some examples of Power Fx formulas in rules.
 
-**Set contract status to “Expiring Soon” if the contract ends within 5 days; otherwise, set it to “Active”**
+1. Set a value using an IF condition.
 
-```
-SetVocabularyKeyValue(Entity, "finance.contractStatus", If(DateDiff(Today(), GetVocabularyKeyValue(Entity, "finance.contractEndDate")) < 5, "Expiring Soon", "Active"))
-```
+    ```
+    SetVocabularyKeyValue(Entity, "user.price", If(((GetVocabularyKeyValue(Entity, "user.price") / 5) * 7) + 14 > 50, 355, ((GetVocabularyKeyValue(Entity, "user.price") / 5) * 7) + 14))
+    ```
 
-**Set salary grade to “Above Target” if the salary is higher than the target salary; otherwise, set it to “Below Target”**
+1. Set contract status to “Expiring Soon” if the contract ends within 5 days; otherwise, set it to “Active”.
 
-```
-SetVocabularyKeyValue(Entity, "finance.salaryGrade", If(Value(GetVocabularyKeyValue(Entity, "finance.salary")) > Value(GetVocabularyKeyValue(Entity, "finance.targetSalary")), "Above Target", "Below Target"))
-```
+     ```
+    SetVocabularyKeyValue(Entity, "finance.contractStatus", If(DateDiff(Today(), GetVocabularyKeyValue(Entity, "finance.contractEndDate")) < 5, "Expiring Soon", "Active"))
+    ```
 
-**Set a vocabulary key value to a date using type conversion and formatting it to ISO format**
+1. Set salary grade to “Above Target” if the salary is higher than the target salary; otherwise, set it to “Below Target”.
 
-```
-SetVocabularyKeyValue(Entity, "user.startDate", Text(DateValue(GetVocabularyKeyValue(Entity, "user.startDate")), "yyyy-MM-ddTHH:mm:ssZ"))
-```
+    ```
+    SetVocabularyKeyValue(Entity, "finance.salaryGrade", If(Value(GetVocabularyKeyValue(Entity, "finance.salary")) > Value(GetVocabularyKeyValue(Entity, "finance.targetSalary")), "Above Target", "Below Target"))
+    ```
 
-**Set full name to the combination of first name and last name, separated by a space**
+1. Set a vocabulary key value to a date using type conversion and formatting it to ISO format.
 
-```
-SetVocabularyKeyValue(Entity, "employee.fullName", GetVocabularyKeyValue(Entity, "employee.firstName") & " " & GetVocabularyKeyValue(Entity, "employee.lastName"))
-```
+    ```
+    SetVocabularyKeyValue(Entity, "user.startDate", Text(DateValue(GetVocabularyKeyValue(Entity, "user.startDate")), "yyyy-MM-ddTHH:mm:ssZ"))
+    ```
 
-**Add a tag**
+1. Set full name to the combination of first name and last name, separated by a space.
 
-```
-AddTag(Entity, "ThisIsATag")
-```
+    ```
+    SetVocabularyKeyValue(Entity, "employee.fullName", GetVocabularyKeyValue(Entity, "employee.firstName") & " " & GetVocabularyKeyValue(Entity, "employee.lastName"))
+    ```
 
-**Check if the number of rows on a table/collection equals a value**
+1. Add a tag.
 
-```
-CountRows(Entity.OutgoingEdges) = 1
-```
+    ```
+    AddTag(Entity, "ThisIsATag")
+    ```
 
-**Set a golden record property to a value**
+1. Check if the number of rows on a table/collection equals a value.
 
-```
-SetEntityProperty(Entity, "Encoding", "utf-8")
-```
+    ```
+    CountRows(Entity.OutgoingEdges) = 1
+    ```
+
+1. Set a golden record property to a value.
+
+    ```
+    SetEntityProperty(Entity, "Encoding", "utf-8")
+    ```
