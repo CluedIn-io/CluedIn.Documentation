@@ -7,6 +7,7 @@ nav_order: 2
 has_children: false
 permalink: /preparation/data-quality-metrics/how-to-add-a-data-quality-metric
 tags: ["governance","quality-metrics"]
+published: false
 ---
 
 Here is an example of how to calculate Accuracy of data. You can use this as a guide to implement your own custom data metrics.
