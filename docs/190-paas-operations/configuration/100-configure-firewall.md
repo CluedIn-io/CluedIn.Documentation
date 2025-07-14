@@ -35,13 +35,18 @@ Below are the required endpoints for CluedIn to be functional out of the box.
 | `objects.githubusercontent.com` | 443 | GitHub artifacts |
 | `billing.cluedin.com` | 443 | CluedIn licensing server |
 | `*.grafana.com` | 443 | Grafana chart content |
-| `mcr.microsoft.com` | 443 | Microsoft container registry |
-| `*.data.mcr.microsoft.com` | 443 | MCR storage backed by the Azure content delivery network |
 | `acme-v02.api.letsencrypt.org` | 443 | (Optional) Let's Encrypt service. Only required if not supplying own certificate |
 | `quay.io/jetstack` | 443 | (Optional) The cert-manager Let's Encrypt ACME service uses images. Not required if using own certificate |
-| `AKS Control Plane` | 443 | (For public clusters only) FQDN can be found under the AKS resource next to the **API server address** property (for example, `aks-cluedin.hcp.westeurope.azmk8s.io`) |
 | `*.file.core.windows.net` | 445 | The Azure File CSI driver mounts some shares via NFS/SMB using this port |
 | `pkgs.dev.azure.com` | 443 | download the nuget dlls from cluedin public |
+| `*.hcp.<location>.azmk8s.io` | 443 | (For public clusters only) Required for Node <-> API server communication. Replace <location> with the region where your AKS cluster is deployed. Can skip if Private cluster. |
+| `mcr.microsoft.com` | 443 | Microsoft container registry |
+| `*.data.mcr.microsoft.com` | 443 | MCR storage backed by the Azure content delivery network |
+| `management.azure.com	` | 443 | Required for Kubernetes operations against the Azure API. |
+| `login.microsoftonline.com` | 443	| Required for Microsoft Entra authentication. |
+| `packages.microsoft.com` | 443 | This address is the Microsoft packages repository used for cached apt-get operations. Example packages include Moby, PowerShell, and Azure CLI. |
+| `acs-mirror.azureedge.net` | 443 | This address is for the repository required to download and install required binaries like kubenet and Azure CNI. |
+| `packages.aks.azure.com` | 443 | This address will be replacing acs-mirror.azureedge.net in the future and will be used to download and install required Kubernetes and Azure CNI binaries. |
 
 ## Jumpbox & bastion resources
 
