@@ -120,7 +120,7 @@ This section contains some examples of Power Fx formulas in rules.
     SetEntityProperty(Entity, "Encoding", "utf-8")
     ```
 
-1. Get entity by [identifier](/key-terms-and-features/entity-codes) (previously known as entity code). If found, returns an entity; otherwise, returns an error.
+1. Get a golden record by [identifier](/key-terms-and-features/entity-codes) (previously known as entity code). If found, returns a golden record; otherwise, returns an error.
 
     ```
     LoadEntityByEntityCode("5452407DH")
