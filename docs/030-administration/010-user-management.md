@@ -61,7 +61,10 @@ The following diagram shows the flow of adding users to CluedIn.
 
 ### Add user via SSO
 
-If you have Azure Active Directory SSO enabled for CluedIn, the users will be able to sign in using SSO. For more information, see [Configure SSO](/deployment/infra-how-tos/configure-sso). 
+If you have Azure Active Directory SSO enabled for CluedIn, the users will be able to sign in using SSO. For more information, see [Configure SSO](/deployment/infra-how-tos/configure-sso).
+
+{: .note }
+> Because the users are part of your SSO domain, they do not need an invite. They can log in directly using their organization credentials. Use invites only for CluedIn non-SSO users. (edited) 
 
 ## Deactivate user
 
