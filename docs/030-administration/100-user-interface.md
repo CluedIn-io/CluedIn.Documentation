@@ -3,7 +3,8 @@ layout: cluedin
 title: User interface
 parent: Administration
 permalink: /administration/user-interface
-nav_order: 90
 has_children: true
 tags: ["administration", "user interface]
+published: false
 ---
+In this section, you can learn abou the configurable parts of the CluedIn interface.

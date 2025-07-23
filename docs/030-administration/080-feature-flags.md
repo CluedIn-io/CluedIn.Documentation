@@ -3,7 +3,7 @@ layout: cluedin
 title: Feature flags
 parent: Administration
 permalink: /administration/feature-flags
-nav_order: 80
+nav_order: 40
 ---
 
 In this article, you will learn about the features in CluedIn that you can turn on or off as needed.
