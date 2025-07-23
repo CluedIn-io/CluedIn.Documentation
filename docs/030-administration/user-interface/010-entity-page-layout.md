@@ -1,10 +1,9 @@
 ---
 layout: cluedin
 title: Entity page layout
-parent: User interface
-grand_parent: Administration
+parent: Administration
 permalink: /administration/entity-page-layout
-nav_order: 010
+nav_order: 50
 ---
 ## On this page
 {: .no_toc .text-delta }
