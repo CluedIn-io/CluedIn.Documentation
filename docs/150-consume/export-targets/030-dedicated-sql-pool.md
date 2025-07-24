@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: Export targets
 grand_parent: Consume
-permalink: /consume/export-targets/azure-dedicated-sql-pool-connector
+permalink: {{ site.baseurl }}/consume/export-targets/azure-dedicated-sql-pool-connector
 title: Azure Dedicated SQL Pool connector
 last_modified: 2025-01-09
 ---

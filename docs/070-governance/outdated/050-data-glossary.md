@@ -4,7 +4,7 @@ title: Data Glossary
 parent: Governance
 nav_order: 050
 has_children: false
-permalink: /governance/data-glossary
+permalink: {{ site.baseurl }}/governance/data-glossary
 tags: ["governance","data-glossary"]
 published: false
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 title: User Interface
 nav_order: 100
 has_children: true
-permalink: /user-interface
+permalink: {{ site.baseurl }}/user-interface
 published: false
 ---
 

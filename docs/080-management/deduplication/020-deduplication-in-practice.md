@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: Deduplication
 grand_parent: Management
-permalink: /management/deduplication/deduplication-in-practice
+permalink: {{ site.baseurl }}/management/deduplication/deduplication-in-practice
 title: Deduplication in practice
 ---
 

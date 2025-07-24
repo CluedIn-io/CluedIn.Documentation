@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 10
 parent: Power Apps Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/powerapps/setup-credentials
+permalink: {{ site.baseurl }}/microsoft-integration/powerapps/setup-credentials
 title: Credentials and application setup
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17

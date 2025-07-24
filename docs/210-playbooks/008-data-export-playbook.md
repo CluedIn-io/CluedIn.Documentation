@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 8
 parent: Playbooks
-permalink: /playbooks/data-export-playbook
+permalink: {{ site.baseurl }}/playbooks/data-export-playbook
 has_children: true
 title: Data export playbook
 ---

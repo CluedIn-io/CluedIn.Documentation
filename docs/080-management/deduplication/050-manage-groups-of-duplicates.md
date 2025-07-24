@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 5
 parent: Deduplication
 grand_parent: Management
-permalink: /management/deduplication/manage-groups-of-duplicates
+permalink: {{ site.baseurl }}/management/deduplication/manage-groups-of-duplicates
 title: Manage groups of duplicates
 ---
 ## On this page

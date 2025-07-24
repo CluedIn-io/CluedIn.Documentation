@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 20
 parent: Power Apps Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/powerapps/features
+permalink: {{ site.baseurl }}/microsoft-integration/powerapps/features
 title: Features
 has_children: true
 tags: ["integration", "microsoft", "powerapps", "dataverse"]

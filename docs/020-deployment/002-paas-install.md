@@ -2,7 +2,7 @@
 layout: cluedin
 title: CluedIn PaaS
 parent: Installation
-permalink: /deployment/azure-marketplace
+permalink: {{ site.baseurl }}/deployment/azure-marketplace
 nav_order: 2
 has_children: true
 tags: ["deployment", "kubernetes", "azure", "aks", "microsoft", "marketplace", "azure-marketplace"]

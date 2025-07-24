@@ -4,7 +4,7 @@ title: Scheduled Time Jobs
 parent: Development
 nav_order: 180
 has_children: false
-permalink: /development/scheduled-time-jobs
+permalink: {{ site.baseurl }}/development/scheduled-time-jobs
 tags: ["development","jobs"]
 published: false
 ---

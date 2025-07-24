@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: Data ingestion playbook
 grand_parent: Playbooks
-permalink: /playbooks/data-ingestion-playbook/pick-the-right-tool
+permalink: {{ site.baseurl }}/playbooks/data-ingestion-playbook/pick-the-right-tool
 title: Pick the right tool
 ---
 ## On this page

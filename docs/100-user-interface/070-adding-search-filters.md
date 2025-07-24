@@ -3,7 +3,7 @@ layout: cluedin
 title: Adding Search Filters
 parent: User Interface
 nav_order: 070
-permalink: /user-interface/adding-search-filters
+permalink: {{ site.baseurl }}/user-interface/adding-search-filters
 tags: ["ui","search"]
 published: false
 ---

@@ -4,7 +4,7 @@ title: Modelling
 parent: Development
 nav_order: 010
 has_children: false
-permalink: /development/modelling
+permalink: {{ site.baseurl }}/development/modelling
 tags: ["development","modelling"]
 published: false
 ---

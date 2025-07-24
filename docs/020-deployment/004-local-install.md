@@ -3,7 +3,7 @@ layout: cluedin
 title: Local
 parent: Installation
 nav_order: 4
-permalink: /deployment/local
+permalink: {{ site.baseurl }}/deployment/local
 has_children: true
 tags: ["deployment", "docker", "docker-compose", "local-deployment"]
 last_modified: 2023-07-04

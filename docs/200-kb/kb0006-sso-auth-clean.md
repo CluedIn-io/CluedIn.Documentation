@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: Restricting access to CluedIn Clean via SSO Authentication
-permalink: /kb/sso-auth-cluedin-clean
+permalink: {{ site.baseurl }}/kb/sso-auth-cluedin-clean
 parent: Knowledge base
 tags: ["security","cluedin-clean","authentication","kubernetes", "sso"]
 last_modified: 2022-03-23

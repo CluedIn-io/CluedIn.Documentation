@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: Roles
 grand_parent: Administration
-permalink: /administration/roles/assign-roles
+permalink: {{ site.baseurl }}/administration/roles/assign-roles
 title: Assign or remove roles
 tags: ["administration", "roles"]
 ---

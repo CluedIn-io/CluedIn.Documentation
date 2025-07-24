@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 5
 parent: Rules
 grand_parent: Management
-permalink: /management/rules/best-practices-for-rules
+permalink: {{ site.baseurl }}/management/rules/best-practices-for-rules
 title: Best practices for rules
 last_modified: 2025-04-11
 ---

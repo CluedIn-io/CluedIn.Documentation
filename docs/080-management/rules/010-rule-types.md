@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Rules
 grand_parent: Management
-permalink: /management/rules/rule-types
+permalink: {{ site.baseurl }}/management/rules/rule-types
 title: Rule types
 tags: ["management", "rules"]
 last_modified: 2023-11-16

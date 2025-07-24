@@ -4,7 +4,7 @@ title: Data Policies
 parent: Governance
 nav_order: 060
 has_children: false
-permalink: /governance/data-policies
+permalink: {{ site.baseurl }}/governance/data-policies
 tags: ["governance","data-policies"]
 published: false
 ---

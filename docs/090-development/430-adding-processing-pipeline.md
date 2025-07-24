@@ -3,7 +3,7 @@ layout: cluedin
 title: Adding a new Processing Pipeline
 parent: Development
 nav_order: 430
-permalink: /developer/processing-pipeline
+permalink: {{ site.baseurl }}/developer/processing-pipeline
 tags: ["development","processors"]
 published: false
 ---

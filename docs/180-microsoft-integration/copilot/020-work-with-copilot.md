@@ -3,7 +3,7 @@ layout: cluedin
 title: Work with CluedIn Copilot
 parent: Copilot Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/copilot-integration/work-with-copilot
+permalink: {{ site.baseurl }}/microsoft-integration/copilot-integration/work-with-copilot
 nav_order: 020
 has_children: false
 ---

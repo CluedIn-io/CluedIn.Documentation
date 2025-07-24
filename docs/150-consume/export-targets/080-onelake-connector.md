@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 8
 parent: Export targets
 grand_parent: Consume
-permalink: /consume/export-targets/onelake-connector
+permalink: {{ site.baseurl }}/consume/export-targets/onelake-connector
 title: OneLake connector
 last_modified: 2025-02-05
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 title: "CluedIn Expression Language (C.E.L.)"
 parent: Knowledge base
 description: "CluedIn Expression Language manual"
-permalink: /kb/cel
+permalink: {{ site.baseurl }}/kb/cel
 tags: ["cel", "advanced mapping", "prepare"]
 last_modified: 2023-10-24
 nav_order: 9

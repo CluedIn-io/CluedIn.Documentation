@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 7
 parent: Configuration
 grand_parent: PaaS operations
-permalink: /deployment/infra-how-tos/configure-certificates
+permalink: {{ site.baseurl }}/deployment/infra-how-tos/configure-certificates
 title: TLS certificates
 tags: ["deployment", "ama", "marketplace", "azure", "tls", "ssl", "certificates"]
 last_modified: 2023-06-20

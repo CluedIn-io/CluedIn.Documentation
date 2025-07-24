@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 8
 parent: Export targets
 grand_parent: Consume
-permalink: /consume/export-targets/openmirroring-connector
+permalink: {{ site.baseurl }}/consume/export-targets/openmirroring-connector
 title: Open Mirroring connector
 last_modified: 2025-03-30
 ---

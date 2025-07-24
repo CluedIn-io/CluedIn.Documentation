@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/purview/adf-pipeline-automation
+permalink: {{ site.baseurl }}/microsoft-integration/purview/adf-pipeline-automation
 title: ADF pipeline automation
 last_modified: 2025-04-30
 ---

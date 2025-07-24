@@ -2,7 +2,7 @@
 layout: cluedin
 title: How to build an organizational hierarchy
 parent: Knowledge base
-permalink: /kb/how-to-build-an-organizational-hierarchy
+permalink: {{ site.baseurl }}/kb/how-to-build-an-organizational-hierarchy
 nav_order: 4
 ---
 ## On this page

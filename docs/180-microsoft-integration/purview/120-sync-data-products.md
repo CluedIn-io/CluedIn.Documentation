@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 12
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/purview/sync-data-products
+permalink: {{ site.baseurl }}/microsoft-integration/purview/sync-data-products
 title: Sync data products
 last_modified: 2025-04-30
 ---

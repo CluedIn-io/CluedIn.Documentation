@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: User access
 grand_parent: Administration
-permalink: /administration/user-access/feature-access
+permalink: {{ site.baseurl }}/administration/user-access/feature-access
 title: Feature access
 ---
 ## On this page

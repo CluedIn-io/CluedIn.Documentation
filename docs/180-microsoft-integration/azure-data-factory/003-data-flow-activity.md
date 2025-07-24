@@ -3,7 +3,7 @@ layout: cluedin
 title: Configure ADF pipeline with Data flow activity
 parent: Azure Data Factory Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/adf-integration/data-flow-activity
+permalink: {{ site.baseurl }}/microsoft-integration/adf-integration/data-flow-activity
 nav_order: 030
 has_children: false
 ---

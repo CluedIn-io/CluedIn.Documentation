@@ -3,7 +3,7 @@ layout: cluedin
 title: Adding a new IMergePreProcessor
 parent: Development
 nav_order: 470
-permalink: /developer/imergepreprocessor
+permalink: {{ site.baseurl }}/developer/imergepreprocessor
 tags: ["development","processors"]
 published: false
 ---

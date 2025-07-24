@@ -3,7 +3,7 @@ layout: cluedin
 title: Connect Microsoft Fabric to CluedIn
 parent: Microsoft Fabric Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/fabric/connect-fabric-to-cluedin
+permalink: {{ site.baseurl }}/microsoft-integration/fabric/connect-fabric-to-cluedin
 nav_order: 020
 has_children: false
 ---

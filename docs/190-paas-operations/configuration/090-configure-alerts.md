@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 10
 parent: Configuration
 grand_parent: PaaS operations
-permalink: /deployment/infra-how-tos/configure-alerts
+permalink: {{ site.baseurl }}/deployment/infra-how-tos/configure-alerts
 title: Alerts
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-23

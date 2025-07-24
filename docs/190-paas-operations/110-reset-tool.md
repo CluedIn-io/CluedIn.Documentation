@@ -2,7 +2,7 @@
 layout: cluedin
 title: Reset tool
 parent: PaaS operations
-permalink: /paas-operations/reset-tool
+permalink: {{ site.baseurl }}/paas-operations/reset-tool
 nav_order: 11
 headerIcon: "paas"
 ---

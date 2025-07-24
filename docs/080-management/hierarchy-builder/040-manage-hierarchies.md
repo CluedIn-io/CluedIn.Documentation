@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: Hierarchy builder
 grand_parent: Management
-permalink: /management/hierarchy-builder/manage-hierarchies
+permalink: {{ site.baseurl }}/management/hierarchy-builder/manage-hierarchies
 title: Manage hierarchies
 ---
 ## On this page

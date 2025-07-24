@@ -4,7 +4,7 @@ title: Hierarchy builder
 parent: Management
 nav_order: 060
 has_children: true
-permalink: /management/hierarchy-builder
+permalink: {{ site.baseurl }}/management/hierarchy-builder
 tags: ["management","hierarchies", "hierarchy builder"]
 ---
 

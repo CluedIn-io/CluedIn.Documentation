@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 16
 parent: Enricher
 grand_parent: Preparation
-permalink: /preparation/enricher/rest-api
+permalink: {{ site.baseurl }}/preparation/enricher/rest-api
 title: REST API
 ---
 ## On this page

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Data catalog
 grand_parent: Management
-permalink: /management/data-catalog/modeling-approaches
+permalink: {{ site.baseurl }}/management/data-catalog/modeling-approaches
 title: Modeling approaches
 ---
 ## On this page

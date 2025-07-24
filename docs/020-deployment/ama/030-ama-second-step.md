@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: CluedIn PaaS
 grand_parent: Installation
-permalink: /deployment/azure-marketplace/step-2
+permalink: {{ site.baseurl }}/deployment/azure-marketplace/step-2
 title: Pre-installation checklist
 tags: ["deployment", "ama", "marketplace", "azure", "prerequisites"]
 last_modified: 2024-03-01

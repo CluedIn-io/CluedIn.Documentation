@@ -4,7 +4,7 @@ nav_order: 1
 title: Concept of hierarchy
 parent: Hierarchy builder
 grand_parent: Management
-permalink: /management/hierarchy-builder/concept-of-hierarchy
+permalink: {{ site.baseurl }}/management/hierarchy-builder/concept-of-hierarchy
 tags: ["management","hierarchy builder", "hierarchies"]
 ---
 

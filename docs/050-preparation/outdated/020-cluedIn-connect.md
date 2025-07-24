@@ -4,7 +4,7 @@ title: CluedIn Connect
 parent: Preparation
 nav_order: 20
 has_children: false
-permalink: /preparation/cluedin-connect
+permalink: {{ site.baseurl }}/preparation/cluedin-connect
 tags: ["preparation","cluedin-connect"]
 published: false
 ---

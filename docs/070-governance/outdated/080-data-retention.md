@@ -4,7 +4,7 @@ title: Data Retention
 parent: Governance
 nav_order: 080
 has_children: false
-permalink: /governance/data-retention
+permalink: {{ site.baseurl }}/governance/data-retention
 tags: ["governance","data-retention"]
 published: false
 ---

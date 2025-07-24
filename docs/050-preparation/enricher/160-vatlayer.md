@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 16
 parent: Enricher
 grand_parent: Preparation
-permalink: /preparation/enricher/vatlayer
+permalink: {{ site.baseurl }}/preparation/enricher/vatlayer
 title: Vatlayer
 ---
 ## On this page

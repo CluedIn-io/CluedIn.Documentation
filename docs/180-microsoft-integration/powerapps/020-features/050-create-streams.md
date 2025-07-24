@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 50
 parent: Features
 grand_parent: Power Apps Integration
-permalink: /microsoft-integration/powerapps/features/create-streams
+permalink: {{ site.baseurl }}/microsoft-integration/powerapps/features/create-streams
 title: Create streams
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17

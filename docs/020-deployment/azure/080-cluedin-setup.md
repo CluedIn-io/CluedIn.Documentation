@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 80
 parent: Azure
 grand_parent: Deployment
-permalink: /deployment/azure/setup
+permalink: {{ site.baseurl }}/deployment/azure/setup
 title: CluedIn Setup
 description: "CluedIn Documentation: Install CluedIn on Azure"
 has_children: true

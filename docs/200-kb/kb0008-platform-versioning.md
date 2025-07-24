@@ -3,7 +3,7 @@ layout: cluedin
 title: "Versioning and release schedule"
 parent: Knowledge base
 description: "Information on how CluedIn is versioning"
-permalink: /kb/platform-versioning
+permalink: {{ site.baseurl }}/kb/platform-versioning
 tags: ["versioning", "platform"]
 last_modified: 2022-05-09
 nav_order: 8

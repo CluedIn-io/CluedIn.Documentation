@@ -3,7 +3,7 @@ layout: cluedin
 title: Agent Jobs
 parent: Development
 nav_order: 480
-permalink: /developer/agent-jobs
+permalink: {{ site.baseurl }}/developer/agent-jobs
 tags: ["development","agents","jobs"]
 published: false
 ---

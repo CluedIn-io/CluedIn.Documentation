@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 8
 parent: Enricher
 grand_parent: Preparation
-permalink: /preparation/enricher/duckduckgo
+permalink: {{ site.baseurl }}/preparation/enricher/duckduckgo
 title: DuckDuckGo
 ---
 ## On this page

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 11
 parent: Enricher
 grand_parent: Preparation
-permalink: /preparation/enricher/google-maps
+permalink: {{ site.baseurl }}/preparation/enricher/google-maps
 title: Google Maps
 ---
 ## On this page

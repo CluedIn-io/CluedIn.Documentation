@@ -3,7 +3,7 @@ layout: cluedin
 title: Setting a Preview Image for a Clue
 parent: Development
 nav_order: 540
-permalink: /developer/clue-preview-image
+permalink: {{ site.baseurl }}/developer/clue-preview-image
 tags: ["development", "clues"]
 published: false
 ---

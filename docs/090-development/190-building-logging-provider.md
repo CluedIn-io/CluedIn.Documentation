@@ -4,7 +4,7 @@ title: Building a new Logging Provider
 parent: Development
 nav_order: 190
 has_children: false
-permalink: /development/building-logging-provider
+permalink: {{ site.baseurl }}/development/building-logging-provider
 tags: ["development","logging"]
 published: false
 ---

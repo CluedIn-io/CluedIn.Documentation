@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Additional operations
 grand_parent: Ingestion
-permalink: /integration/additional-operations-on-records/property-rules
+permalink: {{ site.baseurl }}/integration/additional-operations-on-records/property-rules
 title: Property rules
 tags: ["integration", "property rules"]
 last_modified: 2024-01-15

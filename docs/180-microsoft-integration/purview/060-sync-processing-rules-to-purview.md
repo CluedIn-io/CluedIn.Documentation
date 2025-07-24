@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 6
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/purview/sync-processing-rules-to-purview
+permalink: {{ site.baseurl }}/microsoft-integration/purview/sync-processing-rules-to-purview
 title: Sync processing rules to Purview
 last_modified: 2025-04-30
 ---

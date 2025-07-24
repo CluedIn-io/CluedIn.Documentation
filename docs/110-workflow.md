@@ -3,7 +3,7 @@ layout: cluedin
 title: Workflow
 nav_order: 110
 has_children: true
-permalink: /workflow
+permalink: {{ site.baseurl }}/workflow
 ---
 
 {: .fs-6 .fw-300 }

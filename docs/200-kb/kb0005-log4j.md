@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: CluedIn Security - Log4j2 CVE-2021-44228
-permalink: /kb/log4j
+permalink: {{ site.baseurl }}/kb/log4j
 parent: Knowledge base
 tags: ["security"]
 last_modified: 2022-01-31

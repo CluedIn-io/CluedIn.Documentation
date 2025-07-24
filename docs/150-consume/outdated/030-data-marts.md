@@ -3,7 +3,7 @@ layout: cluedin
 title: Data Marts
 parent: Consume
 nav_order: 30
-permalink: /consume/data-marts
+permalink: {{ site.baseurl }}/consume/data-marts
 tags: ["consume"]
 published: false
 ---

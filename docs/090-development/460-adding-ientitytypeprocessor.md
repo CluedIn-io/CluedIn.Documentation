@@ -3,7 +3,7 @@ layout: cluedin
 title: Adding a new IEntityTypeProcessor
 parent: Development
 nav_order: 460
-permalink: /developer/ientitypypeprocessor
+permalink: {{ site.baseurl }}/developer/ientitypypeprocessor
 tags: ["development","processors"]
 published: false
 ---

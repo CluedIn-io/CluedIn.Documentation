@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: Data catalog
 grand_parent: Management
-permalink: /management/data-catalog/vocabulary
+permalink: {{ site.baseurl }}/management/data-catalog/vocabulary
 title: Vocabulary
 ---
 ## On this page

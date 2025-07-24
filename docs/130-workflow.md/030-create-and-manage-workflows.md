@@ -2,7 +2,7 @@
 layout: cluedin
 title: Create and manage workflows
 parent: Workflow
-permalink: /workflow/create-and-manage-workflows
+permalink: {{ site.baseurl }}/workflow/create-and-manage-workflows
 nav_order: 3
 has_children: false
 ---

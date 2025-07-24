@@ -4,7 +4,7 @@ title: Common Design Decisions
 parent: Development
 nav_order: 390
 has_children: false
-permalink: /development/common-design-decisions
+permalink: {{ site.baseurl }}/development/common-design-decisions
 tags: ["development","architecture"]
 published: false
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 title: Entity Page
 parent: User Interface
 nav_order: 10
-permalink: /user-interface/entity-page
+permalink: {{ site.baseurl }}/user-interface/entity-page
 tags: ["ui"]
 published: false
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: Roles
 grand_parent: Administration
-permalink: /administration/roles/process-role-requests
+permalink: {{ site.baseurl }}/administration/roles/process-role-requests
 title: Process role requests
 tags: ["administration", "roles"]
 ---

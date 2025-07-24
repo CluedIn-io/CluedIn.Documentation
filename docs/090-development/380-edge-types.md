@@ -4,7 +4,7 @@ title: Edge Types
 parent: Development
 nav_order: 380
 has_children: false
-permalink: /development/edge-types
+permalink: {{ site.baseurl }}/development/edge-types
 tags: ["development","edges"]
 published: false
 ---

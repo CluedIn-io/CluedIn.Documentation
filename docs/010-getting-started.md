@@ -3,7 +3,7 @@ layout: cluedin
 title: Getting started
 nav_order: 40
 has_children: true
-permalink: /getting-started
+permalink: {{ site.baseurl }}/getting-started
 ---
 
 {: .fs-6 .fw-300 }

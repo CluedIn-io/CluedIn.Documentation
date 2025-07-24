@@ -2,7 +2,7 @@
 layout: cluedin
 title: Concept of workflows
 parent: Workflow
-permalink: /workflow/concept-of-approvals
+permalink: {{ site.baseurl }}/workflow/concept-of-approvals
 nav_order: 1
 has_children: false
 ---

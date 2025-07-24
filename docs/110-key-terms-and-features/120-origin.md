@@ -4,7 +4,7 @@ title: Origin
 parent: Key terms and features
 nav_order: 12
 has_children: false
-permalink: /key-terms-and-features/origin
+permalink: {{ site.baseurl }}/key-terms-and-features/origin
 tags: ["development","clues"]
 ---
 ## On this page

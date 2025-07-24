@@ -3,7 +3,7 @@ layout: cluedin
 title: Rules in CluedIn
 parent: Development
 nav_order: 410
-permalink: /developer/rules
+permalink: {{ site.baseurl }}/developer/rules
 tags: ["development","rules"]
 published: false
 ---

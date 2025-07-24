@@ -4,7 +4,7 @@ title: Data Part
 parent: Development
 nav_order: 350
 has_children: false
-permalink: /development/data-part
+permalink: {{ site.baseurl }}/development/data-part
 tags: ["development","data-parts","clues"]
 published: false
 ---

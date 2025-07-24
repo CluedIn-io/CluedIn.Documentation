@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 9
 parent: Export targets
 grand_parent: Consume
-permalink: /consume/export-targets/sql-server-connector
+permalink: {{ site.baseurl }}/consume/export-targets/sql-server-connector
 title: SQL Server connector
 last_modified: 2025-04-03
 ---

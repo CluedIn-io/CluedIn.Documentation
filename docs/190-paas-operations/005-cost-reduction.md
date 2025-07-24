@@ -2,7 +2,7 @@
 layout: cluedin
 title: Operating cost reduction
 parent: PaaS operations
-permalink: /paas-operations/cost-reduction
+permalink: {{ site.baseurl }}/paas-operations/cost-reduction
 nav_order: 5
 tags: ["kubernetes", "azure", "aks", "microsoft", "marketplace", "azure-marketplace", "cost", "reduction", "reducing"]
 headerIcon: "paas"

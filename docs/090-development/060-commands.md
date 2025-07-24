@@ -4,7 +4,7 @@ title: Commands
 parent: Development
 nav_order: 060
 has_children: false
-permalink: /development/commands
+permalink: {{ site.baseurl }}/development/commands
 tags: ["development","commands"]
 published: false
 ---

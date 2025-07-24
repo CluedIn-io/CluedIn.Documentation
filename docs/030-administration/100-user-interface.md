@@ -2,7 +2,7 @@
 layout: cluedin
 title: User interface
 parent: Administration
-permalink: /administration/user-interface
+permalink: {{ site.baseurl }}/administration/user-interface
 has_children: true
 tags: ["administration", "user interface]
 published: false

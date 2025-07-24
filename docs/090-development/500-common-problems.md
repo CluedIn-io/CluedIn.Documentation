@@ -3,7 +3,7 @@ layout: cluedin
 title: Common Problems
 parent: Development
 nav_order: 500
-permalink: /developer/common-problems
+permalink: {{ site.baseurl }}/developer/common-problems
 tags: ["development"]
 published: false
 ---

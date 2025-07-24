@@ -5,7 +5,7 @@ parent: Crawlers
 grand_parent: Ingestion
 nav_order: 110
 has_children: false
-permalink: /integration/integration-compatible-with-ui
+permalink: {{ site.baseurl }}/integration/integration-compatible-with-ui
 tags: ["integration","ui"]
 ---
 

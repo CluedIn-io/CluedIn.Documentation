@@ -2,7 +2,7 @@
 layout: cluedin
 title: Queues in CluedIn
 parent: PaaS operations
-permalink: /paas-operations/queues-in-cluedin
+permalink: {{ site.baseurl }}/paas-operations/queues-in-cluedin
 nav_order: 14
 headerIcon: "paas"
 ---

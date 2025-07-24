@@ -4,7 +4,7 @@ title: Recurring Time Jobs
 parent: Development
 nav_order: 170
 has_children: false
-permalink: /development/recurring-time-jobs
+permalink: {{ site.baseurl }}/development/recurring-time-jobs
 tags: ["development","jobs"]
 published: false
 ---

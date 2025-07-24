@@ -5,7 +5,7 @@ parent: Crawlers
 grand_parent: Ingestion
 nav_order: 090
 has_children: false
-permalink: /integration/delts-crawls
+permalink: {{ site.baseurl }}/integration/delts-crawls
 tags: ["integration","delta-crawls"]
 ---
 

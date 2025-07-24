@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 7
 parent: Export targets
 grand_parent: Consume
-permalink: /consume/export-targets/http-connector
+permalink: {{ site.baseurl }}/consume/export-targets/http-connector
 title: HTTP connector
 last_modified: 2024-10-28
 ---

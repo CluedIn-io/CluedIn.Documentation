@@ -3,7 +3,7 @@ layout: cluedin
 title: Use CluedIn's Microsoft Fabric Workload
 parent: Microsoft Fabric Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/fabric/use-cluedin-fabric-workload
+permalink: {{ site.baseurl }}/microsoft-integration/fabric/use-cluedin-fabric-workload
 nav_order: 040
 has_children: false
 ---

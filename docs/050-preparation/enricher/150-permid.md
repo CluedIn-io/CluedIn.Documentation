@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 15
 parent: Enricher
 grand_parent: Preparation
-permalink: /preparation/enricher/perm-id
+permalink: {{ site.baseurl }}/preparation/enricher/perm-id
 title: PermID
 ---
 ## On this page

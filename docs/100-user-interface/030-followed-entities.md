@@ -3,7 +3,7 @@ layout: cluedin
 title: Followed Entities
 parent: User Interface
 nav_order: 30
-permalink: /user-interface/followed-entitie
+permalink: {{ site.baseurl }}/user-interface/followed-entitie
 tags: ["ui","entities"]
 published: false
 ---

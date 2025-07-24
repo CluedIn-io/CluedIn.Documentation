@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: CluedIn Fundamentals
 grand_parent: Training
-permalink: /training/fundamentals/building-a-single-customer-view
+permalink: {{ site.baseurl }}/training/fundamentals/building-a-single-customer-view
 title: Building a single customer view
 ---
 ## On this page

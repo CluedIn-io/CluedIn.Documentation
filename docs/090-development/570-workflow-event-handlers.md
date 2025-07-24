@@ -3,7 +3,7 @@ layout: cluedin
 title: Workflow Event Handlers
 parent: Development
 nav_order: 570
-permalink: /developer/workflow-event-handlers
+permalink: {{ site.baseurl }}/developer/workflow-event-handlers
 tags: ["development", "workflows"]
 published: false
 ---

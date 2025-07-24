@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: CluedIn Security - [NOT impacted] Ingress NGINX Controller vulnerabilities
-permalink: /kb/ingress-nginx-controller
+permalink: {{ site.baseurl }}/kb/ingress-nginx-controller
 parent: Knowledge base
 tags: ["security"]
 last_modified: 2025-03-25

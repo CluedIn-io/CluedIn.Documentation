@@ -3,7 +3,7 @@ layout: cluedin
 title: Consume
 nav_order: 110
 has_children: true
-permalink: /consume
+permalink: {{ site.baseurl }}/consume
 tags: ["consume", "data export", "streams", "export-targets"]
 ---
 

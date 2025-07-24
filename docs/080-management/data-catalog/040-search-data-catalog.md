@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 5
 parent: Data catalog
 grand_parent: Management
-permalink: /management/data-catalog/search-data-catalog
+permalink: {{ site.baseurl }}/management/data-catalog/search-data-catalog
 title: Search the data catalog
 ---
 ## On this page

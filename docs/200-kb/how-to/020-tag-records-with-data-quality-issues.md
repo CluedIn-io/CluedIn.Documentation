@@ -2,7 +2,7 @@
 layout: cluedin
 title: How to tag records with data quality issues
 parent: Knowledge base
-permalink: /kb/how-to-tag-records-with-data-quality-issues
+permalink: {{ site.baseurl }}/kb/how-to-tag-records-with-data-quality-issues
 nav_order: 2
 ---
 

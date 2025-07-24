@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 9
 parent: Playbooks
-permalink: /playbooks/release-to-production-playbook
+permalink: {{ site.baseurl }}/playbooks/release-to-production-playbook
 has_children: false
 title: Release to production playbook
 ---

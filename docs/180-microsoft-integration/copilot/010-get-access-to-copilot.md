@@ -3,7 +3,7 @@ layout: cluedin
 title: Get access to CluedIn Copilot
 parent: Copilot Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/copilot-integration/get-access-to-copilot
+permalink: {{ site.baseurl }}/microsoft-integration/copilot-integration/get-access-to-copilot
 nav_order: 010
 has_children: false
 ---

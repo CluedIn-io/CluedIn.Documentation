@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: User access
 grand_parent: Administration
-permalink: /administration/user-access/data-access
+permalink: {{ site.baseurl }}/administration/user-access/data-access
 title: Data access
 ---
 ## On this page

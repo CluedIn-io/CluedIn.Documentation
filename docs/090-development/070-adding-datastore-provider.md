@@ -4,7 +4,7 @@ title: Adding a new Datastore Provider
 parent: Development
 nav_order: 070
 has_children: false
-permalink: /development/adding-datastore-provider
+permalink: {{ site.baseurl }}/development/adding-datastore-provider
 tags: ["development","data-stores"]
 published: false
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: Data catalog
 grand_parent: Management
-permalink: /management/data-catalog/manage-vocabulary-keys
+permalink: {{ site.baseurl }}/management/data-catalog/manage-vocabulary-keys
 title: Manage vocabulary keys
 ---
 ## On this page

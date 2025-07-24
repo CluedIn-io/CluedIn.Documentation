@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 5
 parent: Export targets
 grand_parent: Consume
-permalink: /consume/export-targets/azure-service-bus-connector
+permalink: {{ site.baseurl }}/consume/export-targets/azure-service-bus-connector
 title: Azure Service Bus connector
 last_modified: 2025-01-09
 ---

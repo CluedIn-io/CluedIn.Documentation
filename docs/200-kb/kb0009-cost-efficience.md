@@ -2,7 +2,7 @@
 layout: cluedin
 title: "Running CluedIn efficiently for cost"
 parent: Knowledge base
-permalink: /kb/cost-efficience
+permalink: {{ site.baseurl }}/kb/cost-efficience
 tags: ["cost"]
 last_modified: 2022-05-09
 nav_order: 10

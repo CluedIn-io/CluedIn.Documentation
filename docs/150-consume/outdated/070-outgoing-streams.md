@@ -3,7 +3,7 @@ layout: cluedin
 title: Outgoing Streams
 parent: Consume
 nav_order: 70
-permalink: /consume/outgoing-streams
+permalink: {{ site.baseurl }}/consume/outgoing-streams
 tags: ["consume","streams"]
 published: false
 ---

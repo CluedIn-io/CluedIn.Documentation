@@ -4,7 +4,7 @@ title: Subject Access Request
 parent: Governance
 nav_order: 100
 has_children: false
-permalink: /governance/subject-access-request
+permalink: {{ site.baseurl }}/governance/subject-access-request
 tags: ["governance","access-control"]
 published: false
 ---

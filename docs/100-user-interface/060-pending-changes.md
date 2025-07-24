@@ -3,7 +3,7 @@ layout: cluedin
 title: Pending Changes
 parent: User Interface
 nav_order: 060
-permalink: /user-interface/pending-changes
+permalink: {{ site.baseurl }}/user-interface/pending-changes
 tags: ["ui","entities"]
 published: false
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 40
 parent: Power Apps Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/powerapps/external-features
+permalink: {{ site.baseurl }}/microsoft-integration/powerapps/external-features
 title: External features
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17

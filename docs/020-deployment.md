@@ -3,7 +3,7 @@ layout: cluedin
 title: Installation
 nav_order: 20
 has_children: true
-permalink: /deployment
+permalink: {{ site.baseurl }}/deployment
 ---
 
 <div class="card-line">

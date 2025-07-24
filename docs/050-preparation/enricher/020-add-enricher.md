@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: Enricher
 grand_parent: Preparation
-permalink: /preparation/enricher/add-enricher
+permalink: {{ site.baseurl }}/preparation/enricher/add-enricher
 title: Add an enricher
 ---
 ## On this page

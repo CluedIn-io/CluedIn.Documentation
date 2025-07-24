@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 40
 parent: Azure
 grand_parent: Deployment
-permalink: /deployment/azure/disks
+permalink: {{ site.baseurl }}/deployment/azure/disks
 title: Disks
 tags: ["deployment", "kubernetes", "azure", "aks", "disk"]
 last_modified: 2021-11-15

@@ -3,7 +3,7 @@ layout: cluedin
 title: Configure ADF with private link
 parent: Azure Data Factory Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/adf-integration/private-link
+permalink: {{ site.baseurl }}/microsoft-integration/adf-integration/private-link
 nav_order: 010
 has_children: false
 ---

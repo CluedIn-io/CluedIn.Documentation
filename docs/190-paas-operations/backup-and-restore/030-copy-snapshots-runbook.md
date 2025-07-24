@@ -3,7 +3,7 @@ layout: cluedin
 title: Copy snapshots runbook
 parent: Backup and restore
 grand_parent: PaaS operations
-permalink: /paas-operations/automation/copy-snapshots-runbook
+permalink: {{ site.baseurl }}/paas-operations/automation/copy-snapshots-runbook
 nav_order: 3
 headerIcon: "paas"
 ---

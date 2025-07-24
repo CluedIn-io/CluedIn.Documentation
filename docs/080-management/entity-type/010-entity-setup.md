@@ -5,7 +5,7 @@ parent: Entity type
 grand_parent: Management
 nav_order: 1
 has_children: false
-permalink: /preparation/entity-setup
+permalink: {{ site.baseurl }}/preparation/entity-setup
 tags: ["management", "entity type"]
 published: false
 ---

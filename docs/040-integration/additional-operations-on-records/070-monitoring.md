@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 7
 parent: Additional operations
 grand_parent: Ingestion
-permalink: /integration/additional-operations-on-records/monitoring
+permalink: {{ site.baseurl }}/integration/additional-operations-on-records/monitoring
 title: Monitoring
 tags: ["integration", "monitoring"]
 last_modified: 2025-02-04

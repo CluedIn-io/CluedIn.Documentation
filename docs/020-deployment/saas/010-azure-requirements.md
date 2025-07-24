@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: CluedIn SaaS
 grand_parent: Installation
-permalink: /deployment/saas/requirements
+permalink: {{ site.baseurl }}/deployment/saas/requirements
 title: Azure requirements
 last_modified: 2024-04-08
 headerIcon: "saas"

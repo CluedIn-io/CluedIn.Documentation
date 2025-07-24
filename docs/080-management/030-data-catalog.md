@@ -4,7 +4,7 @@ title: Data catalog
 parent: Management
 nav_order: 030
 has_children: true
-permalink: /management/data-catalog
+permalink: {{ site.baseurl }}/management/data-catalog
 ---
 
 A data catalog is a collection of metadata that encompasses essential information about the organization, structure, usage, and lineage of data within the system. It comprises vocabularies and vocabulary keys, acting as fundamental building blocks for constructing a comprehensive data model.

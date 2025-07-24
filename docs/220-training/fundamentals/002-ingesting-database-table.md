@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: CluedIn Fundamentals
 grand_parent: Training
-permalink: /training/fundamentals/ingesting-database-table
+permalink: {{ site.baseurl }}/training/fundamentals/ingesting-database-table
 title: Ingesting a database table
 ---
 

@@ -4,7 +4,7 @@ title: Data Catalog
 parent: Governance
 nav_order: 040
 has_children: false
-permalink: /governance/data-catalog
+permalink: {{ site.baseurl }}/governance/data-catalog
 tags: ["governance","data-catalog"]
 published: false
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: Access control
 grand_parent: Management
-permalink: /management/access-control/access-control-reference
+permalink: {{ site.baseurl }}/management/access-control/access-control-reference
 title: Access control reference
 ---
 ## On this page

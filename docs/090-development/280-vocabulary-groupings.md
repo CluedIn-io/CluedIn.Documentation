@@ -4,7 +4,7 @@ title: Vocabulary Groupings
 parent: Development
 nav_order: 280
 has_children: false
-permalink: /development/vocabulary-groupings
+permalink: {{ site.baseurl }}/development/vocabulary-groupings
 tags: ["development","vocabularies"]
 published: false
 ---

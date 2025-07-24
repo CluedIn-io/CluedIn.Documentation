@@ -4,7 +4,7 @@ title: Change Verbs
 parent: Development
 nav_order: 340
 has_children: false
-permalink: /development/change-verbs
+permalink: {{ site.baseurl }}/development/change-verbs
 tags: ["development","clues"]
 published: false
 ---

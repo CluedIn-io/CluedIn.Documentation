@@ -3,7 +3,7 @@ layout: cluedin
 title: Configuration Search Relevance
 parent: Consume
 nav_order: 60
-permalink: /consume/configuration-search-relevance
+permalink: {{ site.baseurl }}/consume/configuration-search-relevance
 tags: ["consume","search"]
 published: false
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: Configuration
 grand_parent: PaaS operations
-permalink: /deployment/infra-how-tos/advanced-network
+permalink: {{ site.baseurl }}/deployment/infra-how-tos/advanced-network
 title: Advanced network configuration
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2024-03-01

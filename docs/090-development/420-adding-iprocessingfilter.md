@@ -3,7 +3,7 @@ layout: cluedin
 title: Adding a new IProcessingFilter
 parent: Development
 nav_order: 420
-permalink: /developer/iprocessingfilter
+permalink: {{ site.baseurl }}/developer/iprocessingfilter
 tags: ["development","processors"]
 published: false
 ---

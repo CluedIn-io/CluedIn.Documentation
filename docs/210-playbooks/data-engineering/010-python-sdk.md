@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 010
 parent: Data engineering playbook
 grand_parent: Playbooks
-permalink: /playbooks/data-engineering-playbook/python-sdk
+permalink: {{ site.baseurl }}/playbooks/data-engineering-playbook/python-sdk
 tags: ["python"]
 last_modified: 2025-01-14
 title: CluedIn Python SDK

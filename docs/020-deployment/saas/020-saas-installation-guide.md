@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: CluedIn SaaS
 grand_parent: Installation
-permalink: /deployment/saas/installation-guide
+permalink: {{ site.baseurl }}/deployment/saas/installation-guide
 title: SaaS installation guide
 last_modified: 2024-04-08
 headerIcon: "saas"

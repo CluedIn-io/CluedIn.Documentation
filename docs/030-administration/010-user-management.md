@@ -2,7 +2,7 @@
 layout: cluedin
 title: User management
 parent: Administration
-permalink: /administration/user-management
+permalink: {{ site.baseurl }}/administration/user-management
 nav_order: 10
 tags: ["administration", "users"]
 ---

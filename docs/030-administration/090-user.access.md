@@ -2,7 +2,7 @@
 layout: cluedin
 title: User access
 parent: Administration
-permalink: /administration/user-access
+permalink: {{ site.baseurl }}/administration/user-access
 nav_order: 30
 has_children: true
 ---

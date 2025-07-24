@@ -4,7 +4,7 @@ title: Deduplication
 parent: Management
 nav_order: 020
 has_children: true
-permalink: /management/deduplication
+permalink: {{ site.baseurl }}/management/deduplication
 ---
 
 The goal of deduplication is to eliminate duplicate records by merging them together into a single, accurate, and consolidated golden record. This process maintains full traceability, allowing you to identify contributing records for the resulting golden record and providing the possibility to revert changes if necessary.

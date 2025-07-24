@@ -2,7 +2,7 @@
 layout: cluedin
 title: Billable records
 parent: Key terms and features
-permalink: /key-terms-and-features/billable-records
+permalink: {{ site.baseurl }}/key-terms-and-features/billable-records
 nav_order: 6
 ---
 

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: CluedIn PaaS
 grand_parent: Installation
-permalink: /deployment/azure-marketplace/step-3
+permalink: {{ site.baseurl }}/deployment/azure-marketplace/step-3
 title: Installation guide
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20

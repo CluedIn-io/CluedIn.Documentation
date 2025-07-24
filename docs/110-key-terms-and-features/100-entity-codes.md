@@ -4,7 +4,7 @@ title: Identifiers
 parent: Key terms and features
 nav_order: 10
 has_children: false
-permalink: /key-terms-and-features/entity-codes
+permalink: {{ site.baseurl }}/key-terms-and-features/entity-codes
 tags: ["development","entities","entity-codes"]
 ---
 ## On this page

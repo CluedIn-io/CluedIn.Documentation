@@ -2,7 +2,7 @@
 layout: cluedin
 title: Common questions
 parent: PaaS operations
-permalink: /paas-operations/common-questions
+permalink: {{ site.baseurl }}/paas-operations/common-questions
 nav_order: 13
 headerIcon: "paas"
 ---

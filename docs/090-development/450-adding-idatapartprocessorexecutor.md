@@ -3,7 +3,7 @@ layout: cluedin
 title: Adding a new IDataPartProcessor
 parent: Development
 nav_order: 450
-permalink: /developer/idatapartprocessor
+permalink: {{ site.baseurl }}/developer/idatapartprocessor
 tags: ["development","processors"]
 published: false
 ---

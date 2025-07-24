@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: Enricher
 grand_parent: Preparation
-permalink: /preparation/enricher/brreg
+permalink: {{ site.baseurl }}/preparation/enricher/brreg
 title: Brreg
 ---
 ## On this page

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: GraphQL
 grand_parent: Consume
-permalink: /consume/graphql/add-graphql-entity-type-resolvers
+permalink: {{ site.baseurl }}/consume/graphql/add-graphql-entity-type-resolvers
 title: Add GraphQL entity type resolvers
 tags: ["consume","graphql"]
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 title: Management
 nav_order: 100
 has_children: true
-permalink: /management
+permalink: {{ site.baseurl }}/management
 ---
 
 {: .fs-6 .fw-300 }

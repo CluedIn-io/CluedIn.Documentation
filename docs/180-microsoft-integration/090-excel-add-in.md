@@ -2,7 +2,7 @@
 layout: cluedin
 title: Excel Add-in
 parent: Microsoft Integration
-permalink: /microsoft-integration/excel-add-in
+permalink: {{ site.baseurl }}/microsoft-integration/excel-add-in
 nav_order: 090
 has_children: false
 ---

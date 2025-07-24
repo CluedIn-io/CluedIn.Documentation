@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: 'Microsoft Defender for Cloud recommendations'
-permalink: /kb/defender-for-cloud-recommendations
+permalink: {{ site.baseurl }}/kb/defender-for-cloud-recommendations
 parent: Knowledge base
 tags: ["recommendations", "Defender", "Cloud"]
 nav_order: 14

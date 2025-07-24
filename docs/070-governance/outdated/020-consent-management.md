@@ -4,7 +4,7 @@ title: Consent Management
 parent: Governance
 nav_order: 020
 has_children: false
-permalink: /governance/consent-management
+permalink: {{ site.baseurl }}/governance/consent-management
 tags: ["governance","consent-management"]
 published: false
 ---

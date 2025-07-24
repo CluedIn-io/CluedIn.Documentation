@@ -4,7 +4,7 @@ title: Core Vocabularies
 parent: Development
 nav_order: 290
 has_children: false
-permalink: /development/core-vocabularies
+permalink: {{ site.baseurl }}/development/core-vocabularies
 tags: ["development","vocabularies"]
 published: false
 ---

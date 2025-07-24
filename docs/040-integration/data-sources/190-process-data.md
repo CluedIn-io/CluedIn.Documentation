@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 070
 parent: Data sources
 grand_parent: Ingestion
-permalink: /integration/process-data
+permalink: {{ site.baseurl }}/integration/process-data
 title: Process data
 tags: ["integration", "processing"]
 last_modified: 2024-10-31

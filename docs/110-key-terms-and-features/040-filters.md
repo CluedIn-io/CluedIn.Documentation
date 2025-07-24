@@ -2,7 +2,7 @@
 layout: cluedin
 title: Filters
 parent: Key terms and features
-permalink: /key-terms-and-features/filters
+permalink: {{ site.baseurl }}/key-terms-and-features/filters
 nav_order: 4
 has_children: false
 tags: ["filters"]

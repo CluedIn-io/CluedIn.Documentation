@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 30
 parent: Features
 grand_parent: Power Apps Integration
-permalink: /microsoft-integration/powerapps/features/create-workflow
+permalink: {{ site.baseurl }}/microsoft-integration/powerapps/features/create-workflow
 title: Create ingestion endpoint workflow
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17

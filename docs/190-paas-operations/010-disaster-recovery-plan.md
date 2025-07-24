@@ -2,7 +2,7 @@
 layout: cluedin
 title: Disaster recovery plan
 parent: PaaS operations
-permalink: /kb/disaster-recovery-plan
+permalink: {{ site.baseurl }}/kb/disaster-recovery-plan
 tags: ["configuration", "migration"]
 nav_order: 10
 headerIcon: "paas"

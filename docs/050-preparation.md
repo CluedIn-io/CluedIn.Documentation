@@ -3,7 +3,7 @@ layout: cluedin
 title: Preparation
 nav_order: 80
 has_children: true
-permalink: /Preparation
+permalink: {{ site.baseurl }}/Preparation
 ---
 
 {: .fs-6 .fw-300 }

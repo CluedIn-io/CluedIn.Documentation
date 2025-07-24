@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: Hierarchy builder
 grand_parent: Management
-permalink: /management/hierarchy-builder/work-in-a-hierarchy-project
+permalink: {{ site.baseurl }}/management/hierarchy-builder/work-in-a-hierarchy-project
 title: Work in a hierarchy project
 ---
 ## On this page

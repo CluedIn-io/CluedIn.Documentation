@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 10
 parent: Power Apps Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/powerapps/pre-configuration-guide
+permalink: {{ site.baseurl }}/microsoft-integration/powerapps/pre-configuration-guide
 title: Power Apps pre-configuration guide
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2025-03-13

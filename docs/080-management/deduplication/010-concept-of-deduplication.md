@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Deduplication
 grand_parent: Management
-permalink: /management/deduplication/concept-of-deduplication
+permalink: {{ site.baseurl }}/management/deduplication/concept-of-deduplication
 title: Concept of deduplication
 ---
 

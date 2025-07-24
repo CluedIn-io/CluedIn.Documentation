@@ -2,7 +2,7 @@
 layout: cluedin
 title: Add relations between records
 parent: Getting started
-permalink: /getting-started/relations
+permalink: {{ site.baseurl }}/getting-started/relations
 nav_order: 90
 tags: ["getting-started"]
 ---

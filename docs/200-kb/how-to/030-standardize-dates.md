@@ -2,7 +2,7 @@
 layout: cluedin
 title: How to standardize dates
 parent: Knowledge base
-permalink: /kb/how-to-standardize-dates
+permalink: {{ site.baseurl }}/kb/how-to-standardize-dates
 nav_order: 3
 ---
 

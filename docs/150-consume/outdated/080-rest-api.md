@@ -3,7 +3,7 @@ layout: cluedin
 title: Rest API
 parent: Consume
 nav_order: 80
-permalink: /consume/rest-api
+permalink: {{ site.baseurl }}/consume/rest-api
 tags: ["consume","rest-api"]
 published: false
 ---

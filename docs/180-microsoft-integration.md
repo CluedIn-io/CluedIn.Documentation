@@ -3,7 +3,7 @@ layout: cluedin
 title: Microsoft Integration
 nav_order: 140
 has_children: true
-permalink: /microsoft-integration
+permalink: {{ site.baseurl }}/microsoft-integration
 ---
 
 ### Introduction

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Roles
 grand_parent: Administration
-permalink: /administration/roles/claims
+permalink: {{ site.baseurl }}/administration/roles/claims
 title: Claims
 ---
 ## On this page

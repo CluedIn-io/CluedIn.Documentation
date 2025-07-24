@@ -4,7 +4,7 @@ title: Business domain
 parent: Management
 nav_order: 050
 has_children: false
-permalink: /management/entity-type
+permalink: {{ site.baseurl }}/management/entity-type
 ---
 ## On this page
 {: .no_toc .text-delta }

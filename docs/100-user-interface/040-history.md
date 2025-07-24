@@ -3,7 +3,7 @@ layout: cluedin
 title: History
 parent: User Interface
 nav_order: 40
-permalink: /user-interface/history
+permalink: {{ site.baseurl }}/user-interface/history
 tags: ["ui","entities"]
 published: false
 ---

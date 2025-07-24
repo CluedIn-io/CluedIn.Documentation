@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Upgrade
 grand_parent: PaaS operations
-permalink: /paas-operations/upgrade/aks
+permalink: {{ site.baseurl }}/paas-operations/upgrade/aks
 title: AKS upgrade
 tags: ["deployment", "ama", "marketplace", "azure", "aks", "kubernetes", "upgrade"]
 last_modified: 2024-03-27

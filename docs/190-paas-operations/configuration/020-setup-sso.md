@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: Configuration
 grand_parent: PaaS operations
-permalink: /deployment/infra-how-tos/configure-sso
+permalink: {{ site.baseurl }}/deployment/infra-how-tos/configure-sso
 title: SSO
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2024-02-29

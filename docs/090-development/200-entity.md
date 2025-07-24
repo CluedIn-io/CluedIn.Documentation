@@ -4,7 +4,7 @@ title: Entity
 parent: Development
 nav_order: 200
 has_children: false
-permalink: /development/entity
+permalink: {{ site.baseurl }}/development/entity
 tags: ["development","entities"]
 published: false
 ---

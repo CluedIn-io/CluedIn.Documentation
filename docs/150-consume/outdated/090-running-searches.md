@@ -3,7 +3,7 @@ layout: cluedin
 title: Running Searches
 parent: Consume
 nav_order: 90
-permalink: /consume/running-searches
+permalink: {{ site.baseurl }}/consume/running-searches
 tags: ["consume","search"]
 published: false
 ---

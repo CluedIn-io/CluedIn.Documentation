@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 14
 parent: Enricher
 grand_parent: Preparation
-permalink: /preparation/enricher/open-corporates
+permalink: {{ site.baseurl }}/preparation/enricher/open-corporates
 title: OpenCorporates
 ---
 ## On this page

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Data engineering playbook
 grand_parent: Playbooks
-permalink: /playbooks/data-engineering-playbook/cluedin-in-your-data-architecture
+permalink: {{ site.baseurl }}/playbooks/data-engineering-playbook/cluedin-in-your-data-architecture
 title: CluedIn in your data architecture
 ---
 ## On this page

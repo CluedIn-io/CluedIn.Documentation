@@ -3,7 +3,7 @@ layout: cluedin
 title: PaaS operations
 nav_order: 150
 has_children: true
-permalink: /paas-operations
+permalink: {{ site.baseurl }}/paas-operations
 headerIcon: "paas"
 ---
 

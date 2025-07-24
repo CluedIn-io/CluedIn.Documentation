@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 10
 parent: Export targets
 grand_parent: Consume
-permalink: /consume/export-targets/create-service-principal
+permalink: {{ site.baseurl }}/consume/export-targets/create-service-principal
 title: Create a service principal
 last_modified: 2025-01-07
 ---

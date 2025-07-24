@@ -4,7 +4,7 @@ title: Edges
 parent: Key terms and features
 nav_order: 13
 has_children: false
-permalink: /key-terms-and-features/edges
+permalink: {{ site.baseurl }}/key-terms-and-features/edges
 tags: ["development","edges"]
 ---
 

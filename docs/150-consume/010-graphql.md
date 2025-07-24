@@ -4,7 +4,7 @@ title: GraphQL
 parent: Consume
 nav_order: 3
 has_children: true
-permalink: /consume/graphql
+permalink: {{ site.baseurl }}/consume/graphql
 tags: ["consume","graphql"]
 last_modified: 2021-10-08
 ---

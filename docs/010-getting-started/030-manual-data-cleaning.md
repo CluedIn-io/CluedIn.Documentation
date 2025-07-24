@@ -2,7 +2,7 @@
 layout: cluedin
 title: Clean data
 parent: Getting started
-permalink: /getting-started/manual-data-cleaning
+permalink: {{ site.baseurl }}/getting-started/manual-data-cleaning
 nav_order: 30
 tags: ["getting-started"]
 ---

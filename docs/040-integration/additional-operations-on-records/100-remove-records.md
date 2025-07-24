@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 10
 parent: Additional operations
 grand_parent: Ingestion
-permalink: /integration/additional-operations-on-records/remove-records
+permalink: {{ site.baseurl }}/integration/additional-operations-on-records/remove-records
 title: Removal of records
 last_modified: 2024-08-26
 ---

@@ -2,7 +2,7 @@
 layout: cluedin
 title: Sync configuration between environments
 parent: PaaS operations
-permalink: /kb/config-migrate
+permalink: {{ site.baseurl }}/kb/config-migrate
 tags: ["configuration", "migration"]
 nav_order: 9
 headerIcon: "paas"

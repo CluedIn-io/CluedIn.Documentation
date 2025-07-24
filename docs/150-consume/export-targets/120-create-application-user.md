@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 12
 parent: Export targets
 grand_parent: Consume
-permalink: /consume/export-targets/create-application-user
+permalink: {{ site.baseurl }}/consume/export-targets/create-application-user
 title: Create application user for Dataverse connector
 last_modified: 2025-01-14
 ---

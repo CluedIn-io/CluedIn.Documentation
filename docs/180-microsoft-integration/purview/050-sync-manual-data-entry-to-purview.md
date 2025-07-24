@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 5
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/purview/sync-manual-data-entry-to-purview
+permalink: {{ site.baseurl }}/microsoft-integration/purview/sync-manual-data-entry-to-purview
 title: Sync manual data entry to Purview
 last_modified: 2025-04-30
 ---

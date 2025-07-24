@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
-permalink: /microsoft-integration/purview/configuration-guide
+permalink: {{ site.baseurl }}/microsoft-integration/purview/configuration-guide
 title: Purview configuration guide
 last_modified: 2025-04-30
 ---

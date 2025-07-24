@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 4
 parent: Playbooks
-permalink: /playbooks/start-your-cluedin-project
+permalink: {{ site.baseurl }}/playbooks/start-your-cluedin-project
 title: Start your CluedIn project
 ---
 ## On this page

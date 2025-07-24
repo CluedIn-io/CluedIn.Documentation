@@ -4,7 +4,7 @@ title: Person Entity Type
 parent: Development
 nav_order: 220
 has_children: false
-permalink: /development/person-entity-type
+permalink: {{ site.baseurl }}/development/person-entity-type
 tags: ["development","entity-types","entities"]
 published: false
 ---

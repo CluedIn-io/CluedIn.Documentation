@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Export targets
 grand_parent: Consume
-permalink: /consume/export-targets/connector-reference
+permalink: {{ site.baseurl }}/consume/export-targets/connector-reference
 title: Connector reference
 ---
 ## On this page

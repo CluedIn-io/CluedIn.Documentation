@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 10
 parent: Playbooks
-permalink: /playbooks/data-engineering-playbook
+permalink: {{ site.baseurl }}/playbooks/data-engineering-playbook
 has_children: true
 title: Data engineering playbook
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Clean
 grand_parent: Preparation
-permalink: /preparation/clean/create-clean-project
+permalink: {{ site.baseurl }}/preparation/clean/create-clean-project
 title: Create a clean project
 tags: ["preparation", "clean"]
 ---

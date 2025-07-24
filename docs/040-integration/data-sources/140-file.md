@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 020
 parent: Data sources
 grand_parent: Ingestion
-permalink: /integration/file
+permalink: {{ site.baseurl }}/integration/file
 title: File
 tags: ["integration"]
 last_modified: 2024-01-15

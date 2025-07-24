@@ -2,7 +2,7 @@
 layout: cluedin
 title: Master Data Services (MDS) Integration
 parent: Microsoft Integration
-permalink: /microsoft-integration/mds-integration
+permalink: {{ site.baseurl }}/microsoft-integration/mds-integration
 nav_order: 080
 has_children: false
 ---

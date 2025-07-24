@@ -4,7 +4,7 @@ title: Downloading a File and Indexing the Content
 parent: Development
 nav_order: 050
 has_children: false
-permalink: /development/downloading-file-indexing-content
+permalink: {{ site.baseurl }}/development/downloading-file-indexing-content
 tags: ["development","indexing"]
 published: false
 ---

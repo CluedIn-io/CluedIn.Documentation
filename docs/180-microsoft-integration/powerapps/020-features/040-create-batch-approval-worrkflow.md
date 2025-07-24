@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 40
 parent: Features
 grand_parent: Power Apps Integration
-permalink: /microsoft-integration/powerapps/features/create-batch-approval-workflow
+permalink: {{ site.baseurl }}/microsoft-integration/powerapps/features/create-batch-approval-workflow
 title: Create a batch approval workflow process
 tags: ["integration", "microsoft", "powerautomate", "approval", "workflow"]
 last_modified: 2023-05-17

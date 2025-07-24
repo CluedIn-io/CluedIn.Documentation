@@ -3,7 +3,7 @@ layout: cluedin
 title: Terminology changes
 parent: Release overview
 nav_order: 3
-permalink: /release-notes/terminology-changes
+permalink: {{ site.baseurl }}/release-notes/terminology-changes
 last_modified: 2025-04-02
 ---
 

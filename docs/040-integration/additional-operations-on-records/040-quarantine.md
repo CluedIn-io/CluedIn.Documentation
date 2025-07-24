@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: Additional operations
 grand_parent: Ingestion
-permalink: /integration/additional-operations-on-records/quarantine
+permalink: {{ site.baseurl }}/integration/additional-operations-on-records/quarantine
 title: Quarantine
 tags: ["integration", "quarantine"]
 last_modified: 2024-10-31

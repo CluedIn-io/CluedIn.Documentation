@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 18
 parent: Enricher
 grand_parent: Preparation
-permalink: /preparation/enricher/build-custom-enricher
+permalink: {{ site.baseurl }}/preparation/enricher/build-custom-enricher
 title: Build custom enricher
 ---
 ## On this page
