@@ -1,0 +1,12 @@
+[
+    {
+        "company_id": "1",
+	"company_name": "ABC Fashion Co.",
+        "business_group_id": "1"
+    },
+    {
+        "company_id": "2",
+	"company_name": "XYZ Home & Tech Co.",
+        "business_group_id": "1"
+    }
+]

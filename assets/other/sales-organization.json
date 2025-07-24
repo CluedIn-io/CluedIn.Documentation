@@ -1,0 +1,12 @@
+[
+    {
+        "sales_organization_id":"1",
+	"sales_organization_name":"ABC Retail Stores",
+        "legal_entity_id": "1"
+    },
+    {
+        "sales_organization_id":"2",
+	"sales_organization_name":"ABC Online Sales Division",
+        "legal_entity_id": "1"
+    }  
+]
