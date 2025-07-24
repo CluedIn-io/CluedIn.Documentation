@@ -4,7 +4,7 @@ title: Access Control
 parent: Governance
 nav_order: 010
 has_children: false
-permalink: {{ site.baseurl }}/governance/access-control
+permalink: governance/access-control
 tags: ["governance","access-control"]
 published: false
 ---

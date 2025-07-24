@@ -2,7 +2,7 @@
 layout: cluedin
 title: Feature flags
 parent: Administration
-permalink: {{ site.baseurl }}/administration/feature-flags
+permalink: administration/feature-flags
 nav_order: 40
 ---
 

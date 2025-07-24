@@ -2,7 +2,7 @@
 layout: cluedin
 title: Supported and unsupported characters
 parent: Knowledge base
-permalink: {{ site.baseurl }}/kb/supported-characters
+permalink: kb/supported-characters
 nav_order: 13
 ---
 ## On this page

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 11
 parent: Configuration
 grand_parent: PaaS operations
-permalink: {{ site.baseurl }}/deployment/infra-how-tos/configure-firewall
+permalink: deployment/infra-how-tos/configure-firewall
 title: Firewall
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-23

@@ -4,7 +4,7 @@ title: Eventual connectivity
 parent: Key terms and features
 nav_order: 8
 has_children: false
-permalink: {{ site.baseurl }}/key-terms-and-features/eventual-connectivity
+permalink: key-terms-and-features/eventual-connectivity
 tags: ["development","eventual-connectivity"]
 ---
 

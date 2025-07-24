@@ -4,7 +4,7 @@ title: Data Privacy
 parent: Governance
 nav_order: 070
 has_children: false
-permalink: {{ site.baseurl }}/governance/data-privacy
+permalink: governance/data-privacy
 tags: ["governance","data-privacy"]
 published: false
 ---

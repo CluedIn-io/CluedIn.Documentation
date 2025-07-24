@@ -5,7 +5,7 @@ parent: Data Quality Metrics
 grand_parent: Governance
 nav_order: 2
 has_children: false
-permalink: {{ site.baseurl }}/preparation/data-quality-metrics/how-to-add-a-data-quality-metric
+permalink: preparation/data-quality-metrics/how-to-add-a-data-quality-metric
 tags: ["governance","quality-metrics"]
 published: false
 ---

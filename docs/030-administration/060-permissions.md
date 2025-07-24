@@ -2,7 +2,7 @@
 layout: cluedin
 title: Permissions
 parent: Administration
-permalink: {{ site.baseurl }}/administration/permissions
+permalink: administration/permissions
 nav_order: 60
 tags: ["administration", "permissions"]
 published: false

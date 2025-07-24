@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 6
 parent: Data catalog
 grand_parent: Management
-permalink: {{ site.baseurl }}/management/data-catalog/data-types
+permalink: management/data-catalog/data-types
 title: Data types
 ---
 

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: Data engineering playbook
 grand_parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/data-engineering-playbook/extending-cluedin-with-microsoft-integrations
+permalink: playbooks/data-engineering-playbook/extending-cluedin-with-microsoft-integrations
 title: Extending CluedIn with Microsoft integrations
 last_modified: 2025-01-16
 ---

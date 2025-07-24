@@ -2,7 +2,7 @@
 layout: cluedin
 title: CluedIn SaaS
 parent: Installation
-permalink: {{ site.baseurl }}/deployment/saas
+permalink: deployment/saas
 nav_order: 1
 has_children: true
 headerIcon: "saas"

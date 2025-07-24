@@ -3,7 +3,7 @@ layout: cluedin
 title: Restore runbook
 parent: Backup and restore
 grand_parent: PaaS operations
-permalink: {{ site.baseurl }}/paas-operations/automation/restore-runbook
+permalink: paas-operations/automation/restore-runbook
 nav_order: 4
 headerIcon: "paas"
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: Golden records
 grand_parent: Key terms and features
-permalink: {{ site.baseurl }}/key-terms-and-features/golden-records/explain-log
+permalink: key-terms-and-features/golden-records/explain-log
 title: Explain Log
 last_modified: 2025-05-20
 ---

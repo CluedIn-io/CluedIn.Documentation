@@ -2,7 +2,7 @@
 layout: cluedin
 title: Data life cycle
 parent: Key terms and features
-permalink: {{ site.baseurl }}/key-terms-and-features/data-life-cycle
+permalink: key-terms-and-features/data-life-cycle
 nav_order: 1
 has_children: false
 tags: ["record", "clue", "golden record"]

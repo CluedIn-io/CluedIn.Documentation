@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: Export targets
 grand_parent: Consume
-permalink: {{ site.baseurl }}/consume/export-targets/azure-event-hub-connector
+permalink: consume/export-targets/azure-event-hub-connector
 title: Azure Event Hub connector
 last_modified: 2025-01-08
 ---

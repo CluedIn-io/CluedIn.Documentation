@@ -2,7 +2,7 @@
 layout: cluedin
 title: Search
 parent: Key terms and features
-permalink: {{ site.baseurl }}/key-terms-and-features/search
+permalink: key-terms-and-features/search
 nav_order: 3
 has_children: false
 tags: ["search"]

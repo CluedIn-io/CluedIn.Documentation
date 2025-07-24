@@ -2,7 +2,7 @@
 layout: cluedin
 title: How to fix address data
 parent: Knowledge base
-permalink: {{ site.baseurl }}/kb/how-to-fix-address-data
+permalink: kb/how-to-fix-address-data
 nav_order: 1
 ---
 ## On this page

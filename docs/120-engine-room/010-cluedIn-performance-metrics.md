@@ -3,7 +3,7 @@ layout: cluedin
 title: Processing pipeline
 parent: Engine Room
 nav_order: 1
-permalink: {{ site.baseurl }}/engine-room/processing-pipeline
+permalink: engine-room/processing-pipeline
 tags: ["development","performance"]
 ---
 

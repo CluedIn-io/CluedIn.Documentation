@@ -3,7 +3,7 @@ layout: cluedin
 title: Export targets
 parent: Consume
 nav_order: 1
-permalink: {{ site.baseurl }}/consume/export-targets
+permalink: consume/export-targets
 has_children: true
 tags: ["consume","export-targets"]
 ---

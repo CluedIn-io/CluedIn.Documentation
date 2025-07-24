@@ -2,7 +2,7 @@
 layout: cluedin
 title: Roles
 parent: Administration
-permalink: {{ site.baseurl }}/administration/roles
+permalink: administration/roles
 nav_order: 20
 has_children: true
 tags: ["administration", "roles"]

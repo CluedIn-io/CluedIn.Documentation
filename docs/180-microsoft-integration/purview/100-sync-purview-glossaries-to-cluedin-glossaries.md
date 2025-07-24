@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 10
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
-permalink: {{ site.baseurl }}/microsoft-integration/purview/sync-purview-glossaries-to-cluedin-glossaries
+permalink: microsoft-integration/purview/sync-purview-glossaries-to-cluedin-glossaries
 title: Sync Purview glossaries to CluedIn glossaries
 last_modified: 2025-04-30
 ---

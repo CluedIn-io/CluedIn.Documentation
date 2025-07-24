@@ -4,7 +4,7 @@ title: Switching a Datastore Provider
 parent: Development
 nav_order: 090
 has_children: false
-permalink: {{ site.baseurl }}/development/switching-datastore-provider
+permalink: development/switching-datastore-provider
 tags: ["development","data-stores"]
 published: false
 ---

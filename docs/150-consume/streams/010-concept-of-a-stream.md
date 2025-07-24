@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Streams
 grand_parent: Consume
-permalink: {{ site.baseurl }}/consume/streams/concept-of-a-stream
+permalink: consume/streams/concept-of-a-stream
 title: Concept of a stream
 ---
 ## On this page

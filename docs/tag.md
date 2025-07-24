@@ -2,7 +2,7 @@
 layout: cluedin
 title:
 has_children: false
-permalink: {{ site.baseurl }}/tag
+permalink: tag
 nav_exclude: true
 sitemap: false
 ---

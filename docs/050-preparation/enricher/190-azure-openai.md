@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: Enricher
 grand_parent: Preparation
-permalink: {{ site.baseurl }}/preparation/enricher/azure-openai
+permalink: preparation/enricher/azure-openai
 title: Azure OpenAI
 ---
 ## On this page

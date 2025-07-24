@@ -2,7 +2,7 @@
 layout: cluedin
 title: Clue reference
 parent: Key terms and features
-permalink: {{ site.baseurl }}/key-terms-and-features/clue-reference
+permalink: key-terms-and-features/clue-reference
 nav_order: 2
 has_children: false
 tags: ["clue"]

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 6
 parent: Additional operations
 grand_parent: Ingestion
-permalink: {{ site.baseurl }}/integration/additional-operations-on-records/logs
+permalink: integration/additional-operations-on-records/logs
 title: Logs
 tags: ["integration", "logs"]
 last_modified: 2023-11-07

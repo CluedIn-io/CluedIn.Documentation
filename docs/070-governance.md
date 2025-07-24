@@ -2,7 +2,7 @@
 layout: cluedin
 title: Governance
 nav_order: 70
-permalink: {{ site.baseurl }}/governance
+permalink: governance
 has_children: false
 ---
 

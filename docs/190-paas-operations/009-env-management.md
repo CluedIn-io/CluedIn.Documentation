@@ -2,7 +2,7 @@
 layout: cluedin
 title: Environment management playbook
 parent: PaaS operations
-permalink: {{ site.baseurl }}/kb/env-management-playbook
+permalink: kb/env-management-playbook
 tags: ["configuration", "migration"]
 nav_order: 7
 headerIcon: "paas"

@@ -2,7 +2,7 @@
 layout: cluedin
 title: Enricher
 parent: Preparation
-permalink: {{ site.baseurl }}/preparation/enricher
+permalink: preparation/enricher
 nav_order: 2
 has_children: true
 ---

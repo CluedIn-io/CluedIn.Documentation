@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 10
 parent: Power Automate Integration
 grand_parent: Microsoft Integration
-permalink: {{ site.baseurl }}/microsoft-integration/power-automate/pre-configuration-guide
+permalink: microsoft-integration/power-automate/pre-configuration-guide
 title: Power Automate pre-configuration guide
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2025-03-13

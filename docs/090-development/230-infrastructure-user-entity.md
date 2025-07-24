@@ -4,7 +4,7 @@ title: Infrastructure User Entity Type
 parent: Development
 nav_order: 230
 has_children: false
-permalink: {{ site.baseurl }}/development/infrastructure-user-entity
+permalink: development/infrastructure-user-entity
 tags: ["development","entities","entity-types"]
 published: false
 ---

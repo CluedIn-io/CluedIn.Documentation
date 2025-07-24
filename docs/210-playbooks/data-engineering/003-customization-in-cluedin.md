@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: Data engineering playbook
 grand_parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/data-engineering-playbook/customization-in-cluedin
+permalink: playbooks/data-engineering-playbook/customization-in-cluedin
 title: Customization in CluedIn
 last_modified: 2025-02-05
 ---

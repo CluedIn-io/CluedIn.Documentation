@@ -2,7 +2,7 @@
 layout: cluedin
 title: Delete CluedIn instance
 parent: Installation
-permalink: {{ site.baseurl }}/deployment/delete-cluedin-instance
+permalink: deployment/delete-cluedin-instance
 nav_order: 5
 ---
 ## On this page

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: Enricher
 grand_parent: Preparation
-permalink: {{ site.baseurl }}/preparation/enricher/enricher-reference
+permalink: preparation/enricher/enricher-reference
 title: Enricher reference
 ---
 ## On this page

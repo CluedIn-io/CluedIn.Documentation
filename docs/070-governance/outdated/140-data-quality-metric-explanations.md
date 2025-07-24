@@ -5,7 +5,7 @@ parent: Data Quality Metrics
 grand_parent: Governance
 nav_order: 3
 has_children: false
-permalink: {{ site.baseurl }}/preparation/data-quality-metrics/data-quality-metric-explanations
+permalink: preparation/data-quality-metrics/data-quality-metric-explanations
 tags: ["governance","quality-metrics"]
 published: false
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Enricher
 grand_parent: Preparation
-permalink: {{ site.baseurl }}/preparation/enricher/concept-of-enricher
+permalink: preparation/enricher/concept-of-enricher
 title: Concept of enricher
 ---
 ## On this page

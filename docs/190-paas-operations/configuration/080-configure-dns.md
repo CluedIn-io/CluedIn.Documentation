@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 8
 parent: Configuration
 grand_parent: PaaS operations
-permalink: {{ site.baseurl }}/deployment/infra-how-tos/configure-dns
+permalink: deployment/infra-how-tos/configure-dns
 title: DNS
 tags: ["deployment", "ama", "marketplace", "azure", "dns", "domain name system"]
 last_modified: 2024-05-09

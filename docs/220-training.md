@@ -3,7 +3,7 @@ layout: cluedin
 title: Training
 nav_order: 180
 has_children: true
-permalink: {{ site.baseurl }}/training
+permalink: training
 ---
 
 This training will introduce you to CluedIn, a modern master data management platform built to simplify, automate, and connect enterprise data. It is designed for **anyone who works with data**—shaping data strategy, overseeing governance, or analyzing business trends. In the course of this training, you will learn how to use CluedIn’s tools to work with trusted, connected data without the rigid setup and complexity of traditional MDM systems.

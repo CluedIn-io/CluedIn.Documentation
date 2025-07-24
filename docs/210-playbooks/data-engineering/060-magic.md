@@ -3,7 +3,7 @@ layout: cluedin
 title: CluedIn Magic
 parent: Data engineering playbook
 grand_parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/data-engineering-playbook/magic
+permalink: playbooks/data-engineering-playbook/magic
 nav_order: 060
 tags: ["python"]
 last_modified: 2025-01-15

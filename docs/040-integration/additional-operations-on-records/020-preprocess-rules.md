@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: Additional operations
 grand_parent: Ingestion
-permalink: {{ site.baseurl }}/integration/additional-operations-on-records/preprocess-rules
+permalink: integration/additional-operations-on-records/preprocess-rules
 title: Pre-process rules
 tags: ["integration", "pre-process rules"]
 last_modified: 2024-01-15

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: Rules
 grand_parent: Management
-permalink: {{ site.baseurl }}/management/rules/power-fx-formulas
+permalink: management/rules/power-fx-formulas
 title: Power Fx formulas
 last_modified: 2025-07-17
 ---

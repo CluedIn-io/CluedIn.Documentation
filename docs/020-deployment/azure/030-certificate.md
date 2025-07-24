@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 30
 parent: Azure
 grand_parent: Deployment
-permalink: {{ site.baseurl }}/deployment/azure/certificate
+permalink: deployment/azure/certificate
 title: TLS Certificate
 tags: ["deployment", "kubernetes", "azure", "certificate", "ssl", "tls"]
 last_modified: 2021-11-15

@@ -3,7 +3,7 @@ layout: cluedin
 title: Traffic manager runbook
 parent: Backup and restore
 grand_parent: PaaS operations
-permalink: {{ site.baseurl }}/paas-operations/automation/traffic-manager-runbook
+permalink: paas-operations/automation/traffic-manager-runbook
 nav_order: 5
 headerIcon: "paas"
 ---

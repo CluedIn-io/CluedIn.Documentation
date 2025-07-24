@@ -4,7 +4,7 @@ title: Modelling
 parent: Management
 nav_order: 040
 has_children: false
-permalink: {{ site.baseurl }}/management/modelling
+permalink: management/modelling
 published: false
 tags: ["management","modelling"]
 ---

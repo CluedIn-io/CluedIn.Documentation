@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: Local
 grand_parent: Installation
-permalink: {{ site.baseurl }}/deployment/local/local-upgrade
+permalink: deployment/local/local-upgrade
 title: Local upgrade
 last_modified: 2023-06-30
 headerIcon: "local"

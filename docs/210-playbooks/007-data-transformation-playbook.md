@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 7
 parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/data-transformation-playbook
+permalink: playbooks/data-transformation-playbook
 has_children: false
 title: Data transformation playbook
 ---

@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 030
 parent: Ingestion
-permalink: {{ site.baseurl }}/integration/manual-data-entry
+permalink: integration/manual-data-entry
 title: Manual data entry
 has_children: true
 last_modified: 2025-04-01

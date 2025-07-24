@@ -2,7 +2,7 @@
 layout: cluedin
 title: Work with glossary
 parent: Getting started
-permalink: {{ site.baseurl }}/getting-started/glossary
+permalink: getting-started/glossary
 nav_order: 80
 tags: ["getting-started"]
 ---

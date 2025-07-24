@@ -2,7 +2,7 @@
 layout: cluedin
 title: Power Apps Integration
 parent: Microsoft Integration
-permalink: {{ site.baseurl }}/microsoft-integration/powerapps
+permalink: microsoft-integration/powerapps
 nav_order: 010
 has_children: true
 tags: ["integration", "microsoft", "powerapps", "dataverse", "powerautomate"]

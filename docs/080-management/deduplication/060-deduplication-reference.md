@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 6
 parent: Deduplication
 grand_parent: Management
-permalink: {{ site.baseurl }}/management/deduplication/deduplication-reference
+permalink: management/deduplication/deduplication-reference
 title: Deduplication reference
 ---
 ## On this page

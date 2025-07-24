@@ -2,7 +2,7 @@
 layout: cluedin
 title: Clean
 parent: Preparation
-permalink: {{ site.baseurl }}/preparation/clean
+permalink: preparation/clean
 nav_order: 1
 has_children: true
 tags: ["preparation", "clean"]

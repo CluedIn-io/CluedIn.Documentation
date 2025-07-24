@@ -5,7 +5,7 @@ parent: Crawlers
 grand_parent: Ingestion
 nav_order: 100
 has_children: false
-permalink: {{ site.baseurl }}/integration/install-integrations
+permalink: integration/install-integrations
 tags: ["integration"]
 ---
 

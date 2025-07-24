@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Access control
 grand_parent: Management
-permalink: {{ site.baseurl }}/management/access-control/create-access-control-policy
+permalink: management/access-control/create-access-control-policy
 title: Create access control policy
 ---
 ## On this page

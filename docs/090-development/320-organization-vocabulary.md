@@ -4,7 +4,7 @@ title: Organization Vocabulary
 parent: Development
 nav_order: 320
 has_children: false
-permalink: {{ site.baseurl }}/development/organization-vocabulary
+permalink: development/organization-vocabulary
 tags: ["development","vocabularies"]
 published: false
 ---

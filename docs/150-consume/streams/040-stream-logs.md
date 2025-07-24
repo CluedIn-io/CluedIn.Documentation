@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 5
 parent: Streams
 grand_parent: Consume
-permalink: {{ site.baseurl }}/consume/streams/stream-logs
+permalink: consume/streams/stream-logs
 title: Stream logs
 tags: ["consume", "data export", "streams"]
 last_modified: 2025-04-18

@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 11
 parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/resources-for-data-steward
+permalink: playbooks/resources-for-data-steward
 title: Resources for Data Steward
 ---
 ## On this page

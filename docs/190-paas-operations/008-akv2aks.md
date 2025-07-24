@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 title: Sync certificates and secrets from AKV to AKS
-permalink: {{ site.baseurl }}/kb/sync-aks-to-akv
+permalink: kb/sync-aks-to-akv
 parent: PaaS operations
 tags: ["kubernetes","azure","aks", "akv", "key-vault", "azure"]
 last_modified: 2024-02-05

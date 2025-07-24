@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 1
 parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/before-you-start
+permalink: playbooks/before-you-start
 title: Before you start
 ---
 ## On this page

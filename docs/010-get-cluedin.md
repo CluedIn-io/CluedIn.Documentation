@@ -3,7 +3,7 @@ layout: cluedin
 title: How to get CluedIn
 nav_order: 10
 has_children: false
-permalink: {{ site.baseurl }}/get-cluedin
+permalink: get-cluedin
 ---
 
 ## On this page

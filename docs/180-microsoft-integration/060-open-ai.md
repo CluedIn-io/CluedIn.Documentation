@@ -2,7 +2,7 @@
 layout: cluedin
 title: Azure Open AI Integration
 parent: Microsoft Integration
-permalink: {{ site.baseurl }}/microsoft-integration/open-ai-integration
+permalink: microsoft-integration/open-ai-integration
 nav_order: 060
 ---
 

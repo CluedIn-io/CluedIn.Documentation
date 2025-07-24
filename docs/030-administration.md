@@ -3,7 +3,7 @@ layout: cluedin
 title: Administration
 nav_order: 120
 has_children: true
-permalink: {{ site.baseurl }}/administration
+permalink: administration
 ---
 
 In this article, you will learn about the main administrative tasks in CluedIn.

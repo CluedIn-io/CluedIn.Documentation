@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 9
 parent: Enricher
 grand_parent: Preparation
-permalink: {{ site.baseurl }}/preparation/enricher/gleif
+permalink: preparation/enricher/gleif
 title: Gleif
 ---
 ## On this page

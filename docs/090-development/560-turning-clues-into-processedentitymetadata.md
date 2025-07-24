@@ -3,7 +3,7 @@ layout: cluedin
 title: Turning Clues into ProcessedEntityMetadata
 parent: Development
 nav_order: 560
-permalink: {{ site.baseurl }}/developer/processedentitymetadata
+permalink: developer/processedentitymetadata
 tags: ["development", "clues"]
 published: false
 ---

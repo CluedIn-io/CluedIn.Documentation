@@ -2,7 +2,7 @@
 layout: cluedin
 title: Entity page layout
 parent: Administration
-permalink: {{ site.baseurl }}/administration/entity-page-layout
+permalink: administration/entity-page-layout
 nav_order: 50
 ---
 ## On this page

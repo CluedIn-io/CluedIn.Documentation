@@ -4,7 +4,7 @@ title: Vocabulary (Schema)
 parent: Key terms and features
 nav_order: 11
 has_children: false
-permalink: {{ site.baseurl }}/key-terms-and-features/vocabularies
+permalink: key-terms-and-features/vocabularies
 tags: ["development","vocabularies"]
 ---
 ## On this page

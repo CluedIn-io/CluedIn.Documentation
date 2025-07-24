@@ -4,7 +4,7 @@ title: Content Extractors
 parent: Development
 nav_order: 040
 has_children: false
-permalink: {{ site.baseurl }}/development/content-extractors
+permalink: development/content-extractors
 tags: ["development","content-extractors"]
 published: false
 ---

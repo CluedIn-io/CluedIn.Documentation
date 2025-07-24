@@ -3,7 +3,7 @@ layout: cluedin
 title: Query data using GraphQL and Python SDK
 parent: Data engineering playbook
 grand_parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/data-engineering-playbook/search
+permalink: playbooks/data-engineering-playbook/search
 nav_order: 020
 tags: ["python"]
 last_modified: 2025-01-14

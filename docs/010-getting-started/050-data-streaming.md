@@ -2,7 +2,7 @@
 layout: cluedin
 title: Stream data
 parent: Getting started
-permalink: {{ site.baseurl }}/getting-started/data-streaming
+permalink: getting-started/data-streaming
 nav_order: 50
 tags: ["getting-started"]
 ---

@@ -4,7 +4,7 @@ title: Business domain
 parent: Key terms and features
 nav_order: 9
 has_children: false
-permalink: {{ site.baseurl }}/key-terms-and-features/entity-type
+permalink: key-terms-and-features/entity-type
 tags: ["development","entities","entity-types"]
 ---
 ## On this page

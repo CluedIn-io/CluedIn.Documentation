@@ -4,7 +4,7 @@ title: Mesh API
 parent: Governance
 nav_order: 090
 has_children: false
-permalink: {{ site.baseurl }}/governance/mesh-api
+permalink: governance/mesh-api
 tags: ["governance","mesh-api"]
 last_modified: 2022-01-28
 published: false

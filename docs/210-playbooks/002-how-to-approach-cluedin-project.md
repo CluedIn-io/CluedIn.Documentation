@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 2
 parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/how-to-approach-your-cluedin-project
+permalink: playbooks/how-to-approach-your-cluedin-project
 title: How to approach your CluedIn project
 ---
 ## On this page

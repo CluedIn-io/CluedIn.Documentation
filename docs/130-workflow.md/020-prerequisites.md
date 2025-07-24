@@ -2,7 +2,7 @@
 layout: cluedin
 title: Prerequisites
 parent: Workflow
-permalink: {{ site.baseurl }}/workflow/prerequisites
+permalink: workflow/prerequisites
 nav_order: 2
 has_children: false
 published: false

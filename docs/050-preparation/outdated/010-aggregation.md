@@ -4,7 +4,7 @@ title: Aggregation
 parent: Preparation
 nav_order: 10
 has_children: false
-permalink: {{ site.baseurl }}/preparation/aggregation
+permalink: preparation/aggregation
 tags: ["preparation","aggregation"]
 published: false
 ---

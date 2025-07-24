@@ -3,7 +3,7 @@ layout: cluedin
 title: Setup credentials and permissions
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
-permalink: {{ site.baseurl }}/microsoft-integration/purview/setup
+permalink: microsoft-integration/purview/setup
 nav_order: 010
 has_children: false
 tags: ["integration", "microsoft", "azure", "purview"]

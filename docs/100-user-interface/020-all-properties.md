@@ -3,7 +3,7 @@ layout: cluedin
 title: All Properties
 parent: User Interface
 nav_order: 20
-permalink: {{ site.baseurl }}/user-interface/all-properties
+permalink: user-interface/all-properties
 tags: ["ui"]
 published: false
 ---

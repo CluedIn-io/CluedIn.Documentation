@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 50
 parent: Azure
 grand_parent: Deployment
-permalink: {{ site.baseurl }}/deployment/azure/email
+permalink: deployment/azure/email
 title: Email
 tags: ["deployment", "azure", "email"]
 last_modified: 2021-11-15

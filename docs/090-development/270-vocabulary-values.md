@@ -4,7 +4,7 @@ title: Vocabulary Values
 parent: Development
 nav_order: 270
 has_children: false
-permalink: {{ site.baseurl }}/development/vocabulary-values
+permalink: development/vocabulary-values
 tags: ["development","vocabularies"]
 published: false
 ---

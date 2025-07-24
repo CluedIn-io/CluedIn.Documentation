@@ -4,7 +4,7 @@ title: Data Quality Metrics
 parent: Governance
 nav_order: 1
 has_children: true
-permalink: {{ site.baseurl }}/preparation/data-quality-metrics
+permalink: preparation/data-quality-metrics
 tags: ["governance","quality-metrics"]
 published: false
 ---

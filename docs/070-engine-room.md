@@ -3,7 +3,7 @@ layout: cluedin
 title: Engine Room
 nav_order: 90
 has_children: true
-permalink: {{ site.baseurl }}/engine-room
+permalink: engine-room
 tags: ["engine-room"]
 ---
 

@@ -4,7 +4,7 @@ title: One Time Jobs
 parent: Development
 nav_order: 160
 has_children: false
-permalink: {{ site.baseurl }}/development/one-time-jobs
+permalink: development/one-time-jobs
 tags: ["development","jobs"]
 published: false
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 5
 parent: Clean
 grand_parent: Preparation
-permalink: {{ site.baseurl }}/preparation/clean/processing-logic-in-clean-projects
+permalink: preparation/clean/processing-logic-in-clean-projects
 title: Processing logic in clean projects
 ---
 ## On this page

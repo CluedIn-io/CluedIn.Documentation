@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 8
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
-permalink: {{ site.baseurl }}/microsoft-integration/purview/sync-deduplication-projects-to-purview
+permalink: microsoft-integration/purview/sync-deduplication-projects-to-purview
 title: Sync deduplication projects to Purview
 last_modified: 2025-04-30
 ---

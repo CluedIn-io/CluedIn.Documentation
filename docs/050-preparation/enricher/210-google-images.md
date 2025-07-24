@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 12
 parent: Enricher
 grand_parent: Preparation
-permalink: {{ site.baseurl }}/preparation/enricher/google-images
+permalink: preparation/enricher/google-images
 title: Google Images
 ---
 ## On this page

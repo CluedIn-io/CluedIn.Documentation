@@ -2,7 +2,7 @@
 layout: cluedin
 title: Deduplicate data
 parent: Getting started
-permalink: {{ site.baseurl }}/getting-started/data-deduplication
+permalink: getting-started/data-deduplication
 nav_order: 40
 tags: ["getting-started"]
 ---

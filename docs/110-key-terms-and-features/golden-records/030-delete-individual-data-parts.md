@@ -3,7 +3,7 @@ layout: cluedin
 title: Delete individual data parts
 parent: Golden records
 grand_parent: Key terms and features
-permalink: {{ site.baseurl }}/golden-records/delete-data-parts-from-golden-records
+permalink: golden-records/delete-data-parts-from-golden-records
 nav_order: 3
 has_children: false
 ---

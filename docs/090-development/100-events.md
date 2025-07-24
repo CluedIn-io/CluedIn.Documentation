@@ -4,7 +4,7 @@ title: Events
 parent: Development
 nav_order: 100
 has_children: false
-permalink: {{ site.baseurl }}/development/events
+permalink: development/events
 tags: ["development","events"]
 published: false
 ---

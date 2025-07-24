@@ -3,7 +3,7 @@ layout: cluedin
 title: Features
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
-permalink: {{ site.baseurl }}/microsoft-integration/purview/introduction
+permalink: microsoft-integration/purview/introduction
 nav_order: 020
 has_children: false
 tags: ["integration", "microsoft", "azure", "purview"]

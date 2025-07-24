@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: Local
 grand_parent: Installation
-permalink: {{ site.baseurl }}/deployment/local/step-3
+permalink: deployment/local/step-3
 title: Extension packages
 tags: ["deployment", "local"]
 last_modified: 2023-06-30

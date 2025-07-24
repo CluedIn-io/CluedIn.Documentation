@@ -4,7 +4,7 @@ title: Additional operations
 parent: Ingestion
 nav_order: 020
 has_children: true
-permalink: {{ site.baseurl }}/integration/additional-operations-on-records
+permalink: integration/additional-operations-on-records
 tags: ["integration"]
 last_modified: 2024-01-15
 ---

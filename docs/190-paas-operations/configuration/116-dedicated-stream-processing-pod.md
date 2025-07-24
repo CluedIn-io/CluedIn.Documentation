@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 16
 parent: Configuration
 grand_parent: PaaS operations
-permalink: {{ site.baseurl }}/paas-operations/config/dedicated-stream-processing-pod
+permalink: paas-operations/config/dedicated-stream-processing-pod
 title: Create dedicated stream processing pod
 tags: ["deployment", "kubernetes", "web", "frontend"]
 headerIcon: "paas"

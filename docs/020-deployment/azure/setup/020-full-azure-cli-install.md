@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 20
 parent: CluedIn Setup
 grand_parent: Azure
-permalink: {{ site.baseurl }}/deployment/azure/setup/powershell
+permalink: deployment/azure/setup/powershell
 title: "Install CluedIn using PowerShell"
 tags: ["deployment", "cluedin", "installation", "setup", "cli", "powershell"]
 # last_modified: 2021-12-07

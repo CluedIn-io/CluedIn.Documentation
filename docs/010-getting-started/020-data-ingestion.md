@@ -2,7 +2,7 @@
 layout: cluedin
 title: Ingest data
 parent: Getting started
-permalink: {{ site.baseurl }}/getting-started/data-ingestion
+permalink: getting-started/data-ingestion
 nav_order: 20
 tags: ["getting-started"]
 ---

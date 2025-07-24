@@ -3,7 +3,7 @@ layout: cluedin
 title: Exporting data to and from CluedIn with Python
 parent: Data export playbook
 grand_parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/data-engineering-playbook/export
+permalink: playbooks/data-engineering-playbook/export
 nav_order: 050
 tags: ["python"]
 last_modified: 2025-01-14

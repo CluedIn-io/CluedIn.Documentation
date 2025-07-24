@@ -2,7 +2,7 @@
 layout: cluedin
 title: Event Hub Integration
 parent: Microsoft Integration
-permalink: {{ site.baseurl }}/microsoft-integration/event-hub-integration
+permalink: microsoft-integration/event-hub-integration
 nav_order: 050
 ---
 

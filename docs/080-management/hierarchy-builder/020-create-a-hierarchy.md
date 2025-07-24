@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: Hierarchy builder
 grand_parent: Management
-permalink: {{ site.baseurl }}/management/hierarchy-builder/create-a-hierarchy
+permalink: management/hierarchy-builder/create-a-hierarchy
 title: Create a hierarchy
 ---
 ## On this page

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 6
 parent: Enricher
 grand_parent: Preparation
-permalink: {{ site.baseurl }}/preparation/enricher/companies-house
+permalink: preparation/enricher/companies-house
 title: Companies House
 ---
 ## On this page

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 13
 parent: Enricher
 grand_parent: Preparation
-permalink: {{ site.baseurl }}/preparation/enricher/libpostal
+permalink: preparation/enricher/libpostal
 title: Libpostal
 ---
 ## On this page

@@ -3,7 +3,7 @@ layout: cluedin
 title: Configure ADF pipeline with Copy data activity
 parent: Azure Data Factory Integration
 grand_parent: Microsoft Integration
-permalink: {{ site.baseurl }}/microsoft-integration/adf-integration/copy-data
+permalink: microsoft-integration/adf-integration/copy-data
 nav_order: 020
 has_children: false
 ---

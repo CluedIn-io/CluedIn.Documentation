@@ -2,7 +2,7 @@
 layout: cluedin
 title: Pricing
 parent: Installation
-permalink: {{ site.baseurl }}/deployment/pricing
+permalink: deployment/pricing
 nav_order: 3
 ---
 ## On this page

@@ -3,7 +3,7 @@ layout: cluedin
 title: Using Python SDK for Automation
 parent: Data engineering playbook
 grand_parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/data-engineering-playbook/automation
+permalink: playbooks/data-engineering-playbook/automation
 nav_order: 030
 has_children: false
 tags: ["python"]

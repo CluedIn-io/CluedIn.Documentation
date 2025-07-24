@@ -2,7 +2,7 @@
 layout: cluedin
 title: Rebuilding Elasticsearch index
 parent: Knowledge base
-permalink: {{ site.baseurl }}/kb/elastic-index-rebuild
+permalink: kb/elastic-index-rebuild
 tags: ["search","elasticsearch","index","rebuild","reprocess","reindex"]
 last_modified: 2021-10-20
 nav_order: 3

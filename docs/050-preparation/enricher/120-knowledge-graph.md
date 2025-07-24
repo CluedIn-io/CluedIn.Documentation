@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 12
 parent: Enricher
 grand_parent: Preparation
-permalink: {{ site.baseurl }}/preparation/enricher/knowledge-graph
+permalink: preparation/enricher/knowledge-graph
 title: Knowledge Graph
 ---
 ## On this page

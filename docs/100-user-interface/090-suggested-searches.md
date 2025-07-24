@@ -3,7 +3,7 @@ layout: cluedin
 title: Suggested Searches
 parent: User Interface
 nav_order: 090
-permalink: {{ site.baseurl }}/user-interface/suggested-searches
+permalink: user-interface/suggested-searches
 tags: ["ui","search"]
 last_modified: 2021-10-27
 published: false

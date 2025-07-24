@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 010
 parent: Ingestion
-permalink: {{ site.baseurl }}/integration/data sources
+permalink: integration/data sources
 title: Data sources
 has_children: true
 tags: ["integration", "data sources"]

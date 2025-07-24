@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 6
 parent: Export targets
 grand_parent: Consume
-permalink: {{ site.baseurl }}/consume/export-targets/dataverse-connector
+permalink: consume/export-targets/dataverse-connector
 title: Dataverse connector
 last_modified: 2025-01-14
 ---

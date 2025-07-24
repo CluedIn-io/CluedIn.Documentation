@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: Data ingestion playbook
 grand_parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/data-ingestion-playbook/concept-of-mapping
+permalink: playbooks/data-ingestion-playbook/concept-of-mapping
 title: Concept of mapping
 ---
 ## On this page

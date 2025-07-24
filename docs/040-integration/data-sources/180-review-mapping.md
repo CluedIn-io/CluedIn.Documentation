@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 060
 parent: Data sources
 grand_parent: Ingestion
-permalink: {{ site.baseurl }}/integration/review-mapping
+permalink: integration/review-mapping
 title: Review mapping
 tags: ["integration", "mapping"]
 last_modified: 2023-11-07

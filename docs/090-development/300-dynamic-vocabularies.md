@@ -4,7 +4,7 @@ title: Dynamic Vocabularies
 parent: Development
 nav_order: 300
 has_children: false
-permalink: {{ site.baseurl }}/development/dynamic-vocabularies
+permalink: development/dynamic-vocabularies
 tags: ["development","vocabularies"]
 published: false
 ---

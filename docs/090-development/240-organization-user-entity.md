@@ -4,7 +4,7 @@ title: Organization Entity Type
 parent: Development
 nav_order: 240
 has_children: false
-permalink: {{ site.baseurl }}/development/organization-user-entity
+permalink: development/organization-user-entity
 tags: ["development","entities","entity-types"]
 published: false
 ---

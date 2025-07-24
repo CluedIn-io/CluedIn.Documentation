@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 16
 parent: Configuration
 grand_parent: PaaS operations
-permalink: {{ site.baseurl }}/paas-operations/config/modify-response-headers
+permalink: paas-operations/config/modify-response-headers
 title: Modify web response headers
 tags: ["deployment", "kubernetes", "web", "frontend"]
 headerIcon: "paas"

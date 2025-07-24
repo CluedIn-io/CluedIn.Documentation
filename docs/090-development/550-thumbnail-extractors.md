@@ -3,7 +3,7 @@ layout: cluedin
 title: Thumbnail Extractors
 parent: Development
 nav_order: 550
-permalink: {{ site.baseurl }}/developer/thumbnail-extractors
+permalink: developer/thumbnail-extractors
 tags: ["development"]
 published: false
 ---

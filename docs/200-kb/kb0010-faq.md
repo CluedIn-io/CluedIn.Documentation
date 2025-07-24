@@ -2,7 +2,7 @@
 layout: cluedin
 title: Frequently asked questions
 parent: Knowledge base
-permalink: {{ site.baseurl }}/kb/faq
+permalink: kb/faq
 tags: ["getting-started", "faq"]
 nav_order: 15
 ---

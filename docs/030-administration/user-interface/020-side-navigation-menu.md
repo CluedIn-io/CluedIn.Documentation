@@ -3,7 +3,7 @@ layout: cluedin
 title: Side navigation menu
 parent: User interface
 grand_parent: Administration
-permalink: {{ site.baseurl }}/administration/side-navigation-menu
+permalink: administration/side-navigation-menu
 nav_order: 020
 published: false
 ---

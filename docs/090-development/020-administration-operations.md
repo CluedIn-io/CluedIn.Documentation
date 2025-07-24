@@ -4,7 +4,7 @@ title: Administration Operations
 parent: Development
 nav_order: 020
 has_children: false
-permalink: {{ site.baseurl }}/development/administration-operations
+permalink: development/administration-operations
 tags: ["development","administration"]
 published: false
 ---

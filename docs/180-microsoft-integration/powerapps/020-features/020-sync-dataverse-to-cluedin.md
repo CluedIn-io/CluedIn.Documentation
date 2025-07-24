@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 20
 parent: Features
 grand_parent: Power Apps Integration
-permalink: {{ site.baseurl }}/microsoft-integration/powerapps/features/sync-dataverse
+permalink: microsoft-integration/powerapps/features/sync-dataverse
 title: Sync Dataverse table to Cluedin business domains/vocabularies
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17

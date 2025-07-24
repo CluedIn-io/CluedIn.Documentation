@@ -2,7 +2,7 @@
 layout: cluedin
 title: Manage approval requests
 parent: Workflow
-permalink: {{ site.baseurl }}/workflow/manage-approval-requests
+permalink: workflow/manage-approval-requests
 nav_order: 4
 has_children: false
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 title: Webhooks
 parent: Development
 nav_order: 580
-permalink: {{ site.baseurl }}/developer/webhooks
+permalink: developer/webhooks
 tags: ["development", "webhooks"]
 published: false
 ---

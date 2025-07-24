@@ -2,7 +2,7 @@
 layout: cluedin
 title: Create rules
 parent: Getting started
-permalink: {{ site.baseurl }}/getting-started/rule-builder
+permalink: getting-started/rule-builder
 nav_order: 60
 tags: ["getting-started"]
 ---

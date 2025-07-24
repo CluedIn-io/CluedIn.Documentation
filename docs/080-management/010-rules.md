@@ -4,7 +4,7 @@ title: Rules
 parent: Management
 nav_order: 010
 has_children: true
-permalink: {{ site.baseurl }}/management/rules
+permalink: management/rules
 tags: ["management","rules"]
 ---
 

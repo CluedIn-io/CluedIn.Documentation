@@ -4,7 +4,7 @@ title: Access control
 parent: Management
 nav_order: 060
 has_children: true
-permalink: {{ site.baseurl }}/management/access-control
+permalink: management/access-control
 ---
 
 Access control gives you a fine-grained control over who can view and modify specific golden records. Together with source control, access control helps you configure reliable and secure access to golden records in CluedIn. For more information about the combination of source control and access control, see [Data access](/administration/user-access/data-access).

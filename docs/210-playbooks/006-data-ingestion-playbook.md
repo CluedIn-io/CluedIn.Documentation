@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 6
 parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/data-ingestion-playbook
+permalink: playbooks/data-ingestion-playbook
 has_children: true
 title: Data ingestion playbook
 ---

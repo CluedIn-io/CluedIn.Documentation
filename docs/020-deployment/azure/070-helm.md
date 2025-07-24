@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 70
 parent: Azure
 grand_parent: Deployment
-permalink: {{ site.baseurl }}/deployment/azure/helm
+permalink: deployment/azure/helm
 title: Helm
 tags: ["deployment", "kubernetes", "azure", "aks", "helm", "cluedin"]
 last_modified: 2021-11-15

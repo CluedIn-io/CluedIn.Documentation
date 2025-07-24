@@ -4,7 +4,7 @@ title: Changing Configuration Settings
 parent: Development
 nav_order: 030
 has_children: false
-permalink: {{ site.baseurl }}/development/changing-configuration-settings
+permalink: development/changing-configuration-settings
 tags: ["development","configuration"]
 published: false
 ---

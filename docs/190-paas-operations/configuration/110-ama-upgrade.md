@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 12
 parent: Configuration
 grand_parent: PaaS operations
-permalink: {{ site.baseurl }}/deployment/infra-how-tos/ama-upgrade
+permalink: deployment/infra-how-tos/ama-upgrade
 title: Marketplace upgrade
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-10-06

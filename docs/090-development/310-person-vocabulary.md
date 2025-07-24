@@ -4,7 +4,7 @@ title: Person Vocabulary
 parent: Development
 nav_order: 310
 has_children: false
-permalink: {{ site.baseurl }}/development/person-vocabulary
+permalink: development/person-vocabulary
 tags: ["development","vocabularies"]
 published: false
 ---

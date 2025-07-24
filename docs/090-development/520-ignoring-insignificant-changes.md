@@ -3,7 +3,7 @@ layout: cluedin
 title: Ignoring Insignificant Changes
 parent: Development 
 nav_order: 520
-permalink: {{ site.baseurl }}/developer/ignoring-changes
+permalink: developer/ignoring-changes
 tags: ["development"]
 published: false
 ---

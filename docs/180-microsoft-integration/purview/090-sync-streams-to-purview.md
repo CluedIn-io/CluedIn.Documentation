@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 9
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
-permalink: {{ site.baseurl }}/microsoft-integration/purview/sync-streams-to-purview
+permalink: microsoft-integration/purview/sync-streams-to-purview
 title: Sync streams to Purview
 last_modified: 2025-04-30
 ---

@@ -5,7 +5,7 @@ parent: Crawlers
 grand_parent: Ingestion
 nav_order: 130
 has_children: false
-permalink: {{ site.baseurl }}/crawling/using-agents
+permalink: crawling/using-agents
 tags: ["crawling","agents"]
 ---
 

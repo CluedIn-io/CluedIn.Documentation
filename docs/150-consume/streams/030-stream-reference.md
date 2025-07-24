@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 4
 parent: Streams
 grand_parent: Consume
-permalink: {{ site.baseurl }}/consume/streams/stream-reference
+permalink: consume/streams/stream-reference
 title: Stream reference
 tags: ["consume", "data export", "streams"]
 last_modified: 2024-01-16

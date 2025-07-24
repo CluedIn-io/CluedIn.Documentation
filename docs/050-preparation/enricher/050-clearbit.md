@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 5
 parent: Enricher
 grand_parent: Preparation
-permalink: {{ site.baseurl }}/preparation/enricher/clearbit
+permalink: preparation/enricher/clearbit
 title: Clearbit
 ---
 ## On this page

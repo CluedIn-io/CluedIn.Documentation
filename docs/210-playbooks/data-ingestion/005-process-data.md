@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 5
 parent: Data ingestion playbook
 grand_parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/data-ingestion-playbook/process-data
+permalink: playbooks/data-ingestion-playbook/process-data
 title: Process data
 ---
 ## On this page

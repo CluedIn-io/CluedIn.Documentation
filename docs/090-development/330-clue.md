@@ -4,7 +4,7 @@ title: Clue
 parent: Development
 nav_order: 330
 has_children: false
-permalink: {{ site.baseurl }}/development/clue
+permalink: development/clue
 tags: ["development","clues"]
 published: false
 ---

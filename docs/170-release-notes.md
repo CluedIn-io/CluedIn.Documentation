@@ -3,7 +3,7 @@ layout: cluedin
 title: Release overview
 nav_order: 130
 has_children: true
-permalink: {{ site.baseurl }}/release-notes
+permalink: release-notes
 ---
 ## On this page
 {: .no_toc .text-delta }

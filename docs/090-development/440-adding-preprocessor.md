@@ -3,7 +3,7 @@ layout: cluedin
 title: Adding a new PreProcessor
 parent: Development
 nav_order: 440
-permalink: {{ site.baseurl }}/developer/preprocessor
+permalink: developer/preprocessor
 tags: ["development","processors"]
 last_modified: 2021-11-29
 published: false

@@ -4,7 +4,7 @@ title: Datastores
 parent: Development
 nav_order: 080
 has_children: false
-permalink: {{ site.baseurl }}/development/datastores
+permalink: development/datastores
 tags: ["development","data-stores"]
 published: false
 ---

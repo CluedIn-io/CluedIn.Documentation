@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 010
 parent: Data sources
 grand_parent: Ingestion
-permalink: {{ site.baseurl }}/integration/define-data-to-ingest
+permalink: integration/define-data-to-ingest
 title: Define data to ingest
 tags: ["integration"]
 last_modified: 2023-11-07

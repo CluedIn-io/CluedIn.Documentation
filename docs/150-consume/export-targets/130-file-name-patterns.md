@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 13
 parent: Export targets
 grand_parent: Consume
-permalink: {{ site.baseurl }}/consume/export-targets/file-name-patterns
+permalink: consume/export-targets/file-name-patterns
 title: File name patterns
 last_modified: 2025-02-05
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 title: Extending the Existing Pipeline Process
 parent: Development
 nav_order: 510
-permalink: {{ site.baseurl }}/developer/extending-pipelines
+permalink: developer/extending-pipelines
 tags: ["development","processors"]
 published: false
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: CluedIn PaaS
 grand_parent: Installation
-permalink: {{ site.baseurl }}/deployment/azure-marketplace/step-1
+permalink: deployment/azure-marketplace/step-1
 title: Business decisions
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20

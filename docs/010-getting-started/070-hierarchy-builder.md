@@ -2,7 +2,7 @@
 layout: cluedin
 title: Create hierarchies
 parent: Getting started
-permalink: {{ site.baseurl }}/getting-started/hierarchy-builder
+permalink: getting-started/hierarchy-builder
 nav_order: 70
 tags: ["getting-started"]
 ---

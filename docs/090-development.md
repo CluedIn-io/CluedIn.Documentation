@@ -3,7 +3,7 @@ layout: cluedin
 title: Development
 nav_order: 100
 has_children: true
-permalink: {{ site.baseurl }}/development
+permalink: development
 published: false
 ---
 

@@ -2,7 +2,7 @@
 layout: cluedin
 title: Stop AKS cluster to reduce cost
 parent: Knowledge base
-permalink: {{ site.baseurl }}/kb/stop-cluster
+permalink: kb/stop-cluster
 tags: ["AKS", "cost saving"]
 nav_order: 13
 published: false

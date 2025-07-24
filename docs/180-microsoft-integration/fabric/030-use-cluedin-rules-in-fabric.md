@@ -3,7 +3,7 @@ layout: cluedin
 title: Use CluedIn rules in Microsoft Fabric
 parent: Microsoft Fabric Integration
 grand_parent: Microsoft Integration
-permalink: {{ site.baseurl }}/microsoft-integration/fabric/use-cluedin-rules-in-fabric
+permalink: microsoft-integration/fabric/use-cluedin-rules-in-fabric
 nav_order: 030
 has_children: false
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: Clean
 grand_parent: Preparation
-permalink: {{ site.baseurl }}/preparation/clean/clean-reference
+permalink: preparation/clean/clean-reference
 title: Clean project reference
 tags: ["preparation", "clean"]
 ---

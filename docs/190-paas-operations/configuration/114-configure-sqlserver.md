@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 16
 parent: Configuration
 grand_parent: PaaS operations
-permalink: {{ site.baseurl }}/deployment/kubernetes/sql
+permalink: deployment/kubernetes/sql
 title: SQL Server
 tags: ["deployment", "kubernetes", "sqlserver"]
 headerIcon: "paas"

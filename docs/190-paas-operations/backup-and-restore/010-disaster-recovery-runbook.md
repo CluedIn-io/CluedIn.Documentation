@@ -3,7 +3,7 @@ layout: cluedin
 title: Disaster recovery runbook
 parent: Backup and restore
 grand_parent: PaaS operations
-permalink: {{ site.baseurl }}/paas-operations/automation/disaster-recovery-runbook
+permalink: paas-operations/automation/disaster-recovery-runbook
 nav_order: 1
 headerIcon: "paas"
 ---

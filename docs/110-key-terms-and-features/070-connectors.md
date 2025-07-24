@@ -2,7 +2,7 @@
 layout: cluedin
 title: Connectors
 parent: Key terms and features
-permalink: {{ site.baseurl }}/key-terms-and-features/connectors
+permalink: key-terms-and-features/connectors
 nav_order: 7
 has_children: false
 ---

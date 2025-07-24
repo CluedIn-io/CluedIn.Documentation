@@ -3,7 +3,7 @@ layout: cluedin
 title: Ingestion
 nav_order: 60
 has_children: true
-permalink: {{ site.baseurl }}/integration
+permalink: integration
 ---
 
 {: .fs-6 .fw-300 }

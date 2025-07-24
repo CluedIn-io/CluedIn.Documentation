@@ -2,7 +2,7 @@
 layout: cluedin
 title: Restricting access to CluedIn Clean Basic Authentication
 parent: Knowledge base
-permalink: {{ site.baseurl }}/kb/basic-auth-cluedin-clean
+permalink: kb/basic-auth-cluedin-clean
 tags: ["security","cluedin-clean","authentication","kubernetes"]
 last_modified: 2022-08-29
 nav_order: 2

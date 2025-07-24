@@ -4,7 +4,7 @@ title: Validate Server Health
 parent: Development
 nav_order: 150
 has_children: false
-permalink: {{ site.baseurl }}/development/validate-server-health
+permalink: development/validate-server-health
 tags: ["development","health-check"]
 published: false
 ---

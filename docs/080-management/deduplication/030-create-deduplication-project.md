@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 3
 parent: Deduplication
 grand_parent: Management
-permalink: {{ site.baseurl }}/management/deduplication/create-a-deduplication-project
+permalink: management/deduplication/create-a-deduplication-project
 title: Create a deduplication project
 ---
 ## On this page

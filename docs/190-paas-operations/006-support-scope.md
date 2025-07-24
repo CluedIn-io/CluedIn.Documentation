@@ -2,7 +2,7 @@
 layout: cluedin
 title: Support scope
 parent: PaaS operations
-permalink: {{ site.baseurl }}/paas-operations/support-scope
+permalink: paas-operations/support-scope
 nav_order: 6
 tags: ["kubernetes", "azure", "aks", "microsoft", "marketplace", "azure-marketplace", "cost", "reduction", "reducing"]
 headerIcon: "paas"

@@ -5,7 +5,7 @@ parent: Entity type
 grand_parent: Management
 nav_order: 2
 has_children: false
-permalink: {{ site.baseurl }}/preparation/entity-type-translation
+permalink: preparation/entity-type-translation
 tags: ["management", "entity type"]
 published: false
 ---

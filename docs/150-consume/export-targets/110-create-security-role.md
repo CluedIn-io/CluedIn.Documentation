@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 11
 parent: Export targets
 grand_parent: Consume
-permalink: {{ site.baseurl }}/consume/export-targets/create-security-role
+permalink: consume/export-targets/create-security-role
 title: Create security role for Dataverse connector
 last_modified: 2025-01-14
 ---

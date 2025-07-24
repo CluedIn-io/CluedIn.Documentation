@@ -2,7 +2,7 @@
 layout: cluedin
 title: Copilot Integration
 parent: Microsoft Integration
-permalink: {{ site.baseurl }}/microsoft-integration/copilot-integration
+permalink: microsoft-integration/copilot-integration
 nav_order: 030
 has_children: true
 ---

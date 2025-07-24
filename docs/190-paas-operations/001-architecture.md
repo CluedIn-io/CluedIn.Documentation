@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 1
 parent: PaaS operations
-permalink: {{ site.baseurl }}/deployment/architecture
+permalink: deployment/architecture
 title: Architecture overview
 tags: ["deployment", "ama", "marketplace", "azure", "architecture"]
 last_modified: 2023-11-08

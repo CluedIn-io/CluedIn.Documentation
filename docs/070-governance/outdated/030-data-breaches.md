@@ -4,7 +4,7 @@ title: Data Breaches
 parent: Governance
 nav_order: 030
 has_children: false
-permalink: {{ site.baseurl }}/governance/data-breaches
+permalink: governance/data-breaches
 tags: ["governance","data-breaches"]
 published: false
 ---

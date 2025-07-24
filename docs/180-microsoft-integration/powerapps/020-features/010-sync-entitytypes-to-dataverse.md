@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 10
 parent: Features
 grand_parent: Power Apps Integration
-permalink: {{ site.baseurl }}/microsoft-integration/powerapps/features/sync-entitytypes
+permalink: microsoft-integration/powerapps/features/sync-entitytypes
 title: Sync business domains to Dataverse tables
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 050
 parent: Data sources
 grand_parent: Ingestion
-permalink: {{ site.baseurl }}/integration/create-mapping
+permalink: integration/create-mapping
 title: Create mapping
 tags: ["integration", "mapping"]
 last_modified: 2023-11-07

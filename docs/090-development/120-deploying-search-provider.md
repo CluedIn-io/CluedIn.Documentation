@@ -4,7 +4,7 @@ title: Deploying a New External Search Provider
 parent: Development
 nav_order: 120
 has_children: false
-permalink: {{ site.baseurl }}/development/deploying-search-provider
+permalink: development/deploying-search-provider
 tags: ["development","search-providers"]
 published: false
 ---

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: Rules
 grand_parent: Management
-permalink: {{ site.baseurl }}/management/rules/create-rule
+permalink: management/rules/create-rule
 title: Create a rule
 tags: ["management", "rules"]
 last_modified: 2023-11-16

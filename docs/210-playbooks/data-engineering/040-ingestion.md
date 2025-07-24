@@ -3,7 +3,7 @@ layout: cluedin
 title: Ingesting data to CluedIn with Python
 parent: Data engineering playbook
 grand_parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/data-engineering-playbook/ingestion
+permalink: playbooks/data-engineering-playbook/ingestion
 nav_order: 040
 tags: ["python"]
 last_modified: 2025-01-14

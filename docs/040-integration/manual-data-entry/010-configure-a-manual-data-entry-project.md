@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 010
 parent: Manual data entry
 grand_parent: Ingestion
-permalink: {{ site.baseurl }}/integration/manual-data-entry/configure-a-manual-data-entry-project
+permalink: integration/manual-data-entry/configure-a-manual-data-entry-project
 title: Configure a manual data entry project
 last_modified: 2025-04-01
 ---

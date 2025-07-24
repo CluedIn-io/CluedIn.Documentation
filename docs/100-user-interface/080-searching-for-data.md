@@ -3,7 +3,7 @@ layout: cluedin
 title: Searching for Data
 parent: User Interface
 nav_order: 080
-permalink: {{ site.baseurl }}/user-interface/searching-for-data
+permalink: user-interface/searching-for-data
 tags: ["ui","search"]
 published: false
 ---

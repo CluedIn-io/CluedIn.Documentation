@@ -4,7 +4,7 @@ title: External Search Providers
 parent: Development
 nav_order: 130
 has_children: false
-permalink: {{ site.baseurl }}/development/external-search-providers
+permalink: development/external-search-providers
 tags: ["development","search-providers"]
 published: false
 ---

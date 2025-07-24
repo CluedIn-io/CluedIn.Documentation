@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: GraphQL
 grand_parent: Consume
-permalink: {{ site.baseurl }}/consume/graphql/graphql-actions
+permalink: consume/graphql/graphql-actions
 title: GraphQL actions
 tags: ["consume","graphql"]
 ---

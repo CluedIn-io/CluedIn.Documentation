@@ -3,7 +3,7 @@ layout: cluedin
 title: Parent Aggregation
 parent: Development
 nav_order: 530
-permalink: {{ site.baseurl }}/developer/parent-aggregation
+permalink: developer/parent-aggregation
 tags: ["development"]
 published: false
 ---

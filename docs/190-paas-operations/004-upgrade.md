@@ -2,7 +2,7 @@
 layout: cluedin
 title: Upgrade
 parent: PaaS operations
-permalink: {{ site.baseurl }}/paas-operations/upgrade
+permalink: paas-operations/upgrade
 nav_order: 4
 has_children: true
 tags: ["deployment", "kubernetes", "azure", "aks", "microsoft", "marketplace", "azure-marketplace"]

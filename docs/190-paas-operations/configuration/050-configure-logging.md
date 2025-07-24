@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 5
 parent: Configuration
 grand_parent: PaaS operations
-permalink: {{ site.baseurl }}/deployment/infra-how-tos/configure-logging
+permalink: deployment/infra-how-tos/configure-logging
 title: Logging
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20

@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: CluedIn Fundamentals
 grand_parent: Training
-permalink: {{ site.baseurl }}/training/fundamentals/ingesting-csv-file
+permalink: training/fundamentals/ingesting-csv-file
 title: Ingesting a CSV file
 ---
 

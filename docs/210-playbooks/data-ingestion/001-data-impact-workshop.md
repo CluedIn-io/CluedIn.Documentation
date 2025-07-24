@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: Data ingestion playbook
 grand_parent: Playbooks
-permalink: {{ site.baseurl }}/playbooks/data-ingestion-playbook/data-impact-workshop
+permalink: playbooks/data-ingestion-playbook/data-impact-workshop
 title: Data impact workshop
 ---
 ## On this page

@@ -3,7 +3,7 @@ layout: cluedin
 title: Keep in the Loop
 parent: User Interface
 nav_order: 050
-permalink: {{ site.baseurl }}/user-interface/keep-in-the-loop
+permalink: user-interface/keep-in-the-loop
 tags: ["ui"]
 published: false
 ---
