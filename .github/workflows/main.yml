@@ -20,7 +20,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1  # Match Just-the-Docs requirements
+          ruby-version: 3.1
           bundler-cache: true
 
       - name: Install dependencies
@@ -31,12 +31,14 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: |
           JEKYLL_ENV=production bundle exec jekyll build -d build
+          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/"></head></html>' > build/index.html
 
       # Build v2025-05 branch into subfolder
       - name: Build v2025-05 version
         if: github.ref == 'refs/heads/v2025-05'
         run: |
           JEKYLL_ENV=production bundle exec jekyll build -d build/v2025-05
+          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/"></head></html>' > build/v2025-05/index.html
 
       # Deploy both builds into gh-pages branch
       - name: Deploy to GitHub Pages
@@ -45,4 +47,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./build
-          keep_files: true  # Keep old versions when updating
+          keep_files: true
