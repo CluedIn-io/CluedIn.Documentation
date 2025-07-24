@@ -128,9 +128,3 @@ sass:
 
 feed:
   disable_in_development: true
-
-nav_external_links:
-  - title: "Latest"
-    url: "/"
-  - title: "May 2025"
-    url: "/v2025-05/"
