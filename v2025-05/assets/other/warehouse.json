@@ -1,0 +1,17 @@
+[
+    {
+        "warehouse_id": "1",
+	"warehouse_name": "Distribution Center East",
+        "sales_organization_id": "1"
+    },
+    {
+        "warehouse_id": "2",
+	"warehouse_name": "Distribution Center West",
+        "sales_organization_id": "1"
+    },
+    {
+        "warehouse_id": "3",
+	"warehouse_name": "Apparel Fulfillment Hub",
+        "sales_organization_id": "1"
+    }
+]
