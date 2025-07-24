@@ -26,19 +26,17 @@ jobs:
       - name: Install dependencies
         run: bundle install
 
-      # Build master branch into root
+      # Build master branch into root (latest)
       - name: Build master version
         if: github.ref == 'refs/heads/master'
         run: |
           JEKYLL_ENV=production bundle exec jekyll build -d build
-          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/"></head></html>' > build/index.html
 
       # Build v2025-05 branch into subfolder
       - name: Build v2025-05 version
         if: github.ref == 'refs/heads/v2025-05'
         run: |
           JEKYLL_ENV=production bundle exec jekyll build -d build/v2025-05
-          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/"></head></html>' > build/v2025-05/index.html
 
       # Deploy both builds into gh-pages branch
       - name: Deploy to GitHub Pages
