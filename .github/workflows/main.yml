@@ -24,16 +24,15 @@ jobs:
           bundler-cache: true
 
       - name: Install dependencies
-        run: |
-          bundle install
+        run: bundle install
 
-      # Build master branch (latest)
+      # Build master branch into root
       - name: Build master version
         if: github.ref == 'refs/heads/master'
         run: |
-          JEKYLL_ENV=production bundle exec jekyll build -d build/latest
+          JEKYLL_ENV=production bundle exec jekyll build -d build
 
-      # Build v2025-05 branch
+      # Build v2025-05 branch into subfolder
       - name: Build v2025-05 version
         if: github.ref == 'refs/heads/v2025-05'
         run: |
