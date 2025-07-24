@@ -1,0 +1,12 @@
+[
+    {
+        "legal_entity_id": "1",
+	"legal_entity_name": "Fashion Retail Ltd.",
+        "company_id": "1"
+    },
+    {
+        "legal_entity_id": "2",
+	"legal_entity_name": "Fashion E-Commerce Ltd.",
+        "company_id": "1"
+    }
+]

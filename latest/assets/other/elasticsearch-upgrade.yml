@@ -1,0 +1,405 @@
+  infrastructure:
+    elasticsearch:
+      extraInitContainers:
+        - name: cluedin-upgrade-schema
+          image: cluedinprod.azurecr.io/cluedin/elasticsearch-upgrade:7.8.0
+          env:
+            # Default elastic properties
+            - name: node.name
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+            - name: cluster.initial_master_nodes
+              value: cluedin-elasticsearch-0,
+            - name: discovery.seed_hosts
+              value: cluedin-elasticsearch-headless
+            - name: cluster.name
+              value: elasticsearch
+            - name: network.host
+              value: 0.0.0.0
+            - name: node.data
+              value: 'true'
+            - name: node.ingest
+              value: 'true'
+            - name: node.master
+              value: 'true'
+            - name: node.ml
+              value: 'true'
+            - name: node.remote_cluster_client
+              value: 'true'
+            - name: ELASTIC_USERNAME
+              value: elastic
+            - name: ELASTIC_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: elasticsearch-credentials
+                  key: password
+            ## Upgrade specific configuration
+            - name: UPGRADE_LOCK_FILE_PATH
+              value: /usr/share/elasticsearch/data/cluedin-4.4-schema-migration-completed.lock
+            - name: UPGRADE_LOG_FILE_PATH
+              value: /usr/share/elasticsearch/data/cluedin-4.4-schema-migration.upgrade.log
+            - name: UPGRADE_INDEX_LOCK_FILE_DIR
+              value: /usr/share/elasticsearch/data
+            - name: INDEX_LIST_FILE_PATH
+              value: /usr/share/elasticsearch/data/cluedin-4.4-schema-migration.index.csv
+          volumeMounts:
+            - name: cluedin-elasticsearch
+              mountPath: /usr/share/elasticsearch/data
+            - name: esconfig
+              mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+              subPath: elasticsearch.yml
+          command:
+            - /tini
+            - --
+            - /usr/bin/stdbuf
+            - -i0
+            - -o0
+            - -e0
+            - /bin/bash
+            - -c
+          args:
+            - |
+              # Function to create an index with specified mappings and settings
+              create_index() {
+                local index_name="$1"
+
+                echo "[UPGRADE] 👉 - Creating index: $index_name with mappings and settings"
+                curl --fail -u "$es_credentials" -s -X PUT "$es_host/$index_name" -H "Content-Type: application/json" -d '{"settings":{"number_of_shards":1,"number_of_replicas":1,"refresh_interval":"100ms","mapping":{"total_fields":{"limit":"50000"}},"analysis":{"analyzer":{"name_analyzer":{"filter":["lowercase","asciifolding"],"char_filter":["html_strip"],"type":"custom","tokenizer":"my_edge_ngram_tokenizer"}},"tokenizer":{"my_edge_ngram_tokenizer":{"token_chars":["letter","digit"],"min_gram":"3","type":"edge_ngram","max_gram":"15"}}}},"mappings":{"dynamic_templates":[{"TypedProperties_DateTime":{"path_match":"typedproperties.*_Date","mapping":{"format":"yyyy-MM-dd HH:mm:ss || dd-MM-yyyy HH:mm:ss || MM-dd-yyyy HH:mm:ss || strict_date_optional_time || epoch_millis","type":"date"}}},{"TypedProperties_Boolean":{"path_match":"typedproperties.*_Boolean","mapping":{"type":"boolean"}}},{"TypedProperties_Number":{"path_match":"typedproperties.*_Float","mapping":{"type":"double"}}},{"TypedProperties_Integer":{"path_match":"typedproperties.*_Integer","mapping":{"type":"long"}}},{"TypedProperties_Duration":{"path_match":"typedproperties.*_Duration","mapping":{"type":"long"}}},{"TypedProperties_Money":{"path_match":"typedproperties.*_Money","mapping":{"type":"double"}}},{"TypedProperties_Time":{"path_match":"typedproperties.*_Time","mapping":{"format":"hour_minute_second_fraction","type":"date"}}},{"TypedProperties_Text":{"path_match":"typedproperties.*_Keyword","mapping":{"type":"keyword"}}},{"TypedProperties_String":{"path_match":"typedproperties.*_String","mapping":{"type":"keyword"}}}],"properties":{"accounts":{"type":"keyword","store":true},"actionIds":{"type":"keyword","store":true},"actionTypes":{"type":"keyword","store":true},"address":{"properties":{"city":{"type":"keyword","store":true},"countryCode":{"type":"keyword","store":true}}},"aggregationCount":{"type":"integer","store":true},"aliases":{"type":"keyword","store":true},"aliases_ngrams":{"type":"text","term_vector":"with_positions_offsets","analyzer":"name_analyzer"},"annualRevenue":{"type":"keyword","store":true},"annualRevenueLong":{"type":"long","store":true},"audiences":{"type":"keyword","store":true},"author_name":{"type":"keyword","store":true},"authors":{"type":"keyword","store":true},"blobReferences":{"properties":{"blobId":{"type":"keyword","index":false,"store":true},"dataLength":{"type":"long","store":true},"dataMD5":{"type":"keyword","index":false,"store":true},"mimeType":{"type":"keyword","index":false,"store":true},"name":{"type":"keyword","index":false,"store":true},"referenceType":{"type":"keyword","index":false,"store":true},"uri":{"type":"keyword","index":false,"store":true}}},"cachedAggregatingParentIds":{"type":"flattened"},"changeVerb":{"type":"keyword","store":true},"codes":{"type":"keyword","store":true},"companies":{"type":"keyword","store":true},"completionDate":{"type":"keyword","store":true},"createdDate":{"type":"date"},"dataDescription":{"properties":{"dataClasses":{"type":"text","index":false,"store":true}}},"dataPersistHashes":{"type":"keyword","store":true},"dayOfWeek":{"type":"keyword","store":true},"density":{"type":"integer","store":true},"description":{"type":"text","boost":1.3,"store":true,"term_vector":"with_positions_offsets_payloads"},"description_untokenized":{"type":"keyword"},"description_whitespace":{"type":"text","boost":1.3,"term_vector":"with_positions_offsets_payloads","analyzer":"whitespace"},"discoverydate":{"type":"date"},"displayname":{"type":"text","boost":1.8,"store":true,"term_vector":"with_positions_offsets_payloads"},"displayname_ngrams":{"type":"text","term_vector":"with_positions_offsets","analyzer":"name_analyzer"},"displayname_untokenized":{"type":"keyword","store":true},"documentFileHashCode":{"type":"text","boost":1.3,"store":true,"term_vector":"with_positions_offsets_payloads"},"documentFileName":{"type":"text","boost":1.8,"store":true},"documentMimeType":{"type":"text","boost":1.3,"store":true,"term_vector":"with_positions_offsets_payloads"},"documentMimeType_untokenized":{"type":"keyword"},"documentSize":{"type":"long","boost":1.8,"store":true},"employeeCount":{"type":"keyword","store":true},"employeeCountInt":{"type":"integer","store":true},"encoding":{"type":"text","boost":1.3,"store":true,"term_vector":"with_positions_offsets_payloads"},"encoding_untokenized":{"type":"keyword"},"entityType":{"type":"keyword"},"extension":{"type":"keyword","store":true},"externalReferences":{"type":"keyword","store":true},"followersCount":{"type":"integer"},"gender":{"type":"keyword","store":true},"hasAttachment":{"type":"boolean","store":true},"home":{"properties":{"address":{"properties":{"city":{"type":"keyword","store":true},"countryCode":{"type":"keyword","store":true}}}}},"id":{"type":"keyword","store":true},"importance":{"type":"keyword","store":true},"indexedText":{"type":"text","term_vector":"with_positions_offsets"},"industry":{"type":"keyword","store":true},"isCompleted":{"type":"keyword","store":true},"isDeleted":{"type":"boolean","store":true},"isExternalData":{"type":"boolean","store":true},"isFiltered":{"type":"boolean","index":false},"isPrivate":{"type":"keyword","store":true},"isSensitiveInformation":{"type":"boolean","store":true},"isShadowEntity":{"type":"boolean","store":true},"jobIds":{"type":"keyword","store":true},"lastChangedBy":{"type":"keyword","store":true},"lastDatePresented":{"type":"keyword","store":true},"lastProcessedDate":{"type":"date"},"lastchangedby_name":{"type":"keyword","store":true},"localParentIds":{"type":"keyword","store":true},"locations":{"type":"keyword","store":true},"mailFolder":{"type":"keyword","store":true},"modifiedDate":{"type":"date"},"name":{"type":"text","boost":2,"store":true,"term_vector":"with_positions_offsets_payloads"},"name_ngrams":{"type":"text","term_vector":"with_positions_offsets","analyzer":"name_analyzer"},"name_untokenized":{"type":"keyword"},"nationality":{"type":"keyword","store":true},"organizationId":{"type":"keyword","store":true},"originEntityCode":{"type":"keyword","store":true},"parentIds":{"type":"keyword","store":true},"parentRevision":{"type":"text","index":false,"store":true},"people":{"type":"keyword","store":true},"persistHash":{"type":"keyword","store":true},"persistVersion":{"type":"integer","store":true},"positions":{"type":"keyword","store":true},"previewurl":{"type":"keyword","store":true},"priority":{"type":"keyword","store":true},"probability":{"type":"keyword","store":true},"processingFlags":{"type":"keyword","store":true},"properties":{"type":"flattened"},"propertyCount":{"type":"integer","store":true},"providerDefinitionIds_v2":{"type":"keyword","store":true},"providers":{"type":"keyword","store":true},"revision":{"type":"keyword","store":true},"sentiment":{"type":"keyword","store":true},"skills":{"type":"keyword","store":true},"sortDate":{"type":"date"},"sourceIds":{"type":"keyword","store":true},"sourceOriginEntityCodes":{"type":"keyword","store":true},"stage":{"type":"keyword","store":true},"startDate":{"type":"keyword","store":true},"state":{"type":"keyword","store":true},"status":{"type":"keyword","store":true},"systemTagName":{"type":"text","boost":2,"store":true},"tags":{"type":"keyword","store":true},"tags_name":{"type":"keyword","store":true},"ttl":{"type":"long"},"type":{"type":"keyword","store":true},"typedproperties":{"properties":{"Item":{"type":"object"},"Keys":{"type":"text","fields":{"keyword":{"type":"keyword","ignore_above":256}}},"Values":{"type":"object"}}},"uri":{"type":"keyword","store":true},"uris":{"type":"keyword","store":true},"vocabulariesUsed":{"type":"keyword","store":true}}}}'
+              }
+
+              clone_index() {
+                local index_to_clone="$1"
+                local new_index_name="$2"
+
+                # Set original index to readonly and add aditional configuration
+                echo "[UPGRADE] 👉 - Updating configuration for index: $index_to_clone"
+                curl --fail -u "$es_credentials" -s -X PUT "$es_host/$index_to_clone/_settings" -H "Content-Type: application/json" -d '{"index" : {"mapping.total_fields.limit":10000, "number_of_replicas" : 1, "blocks.write" : true}}'
+
+                echo "[UPGRADE] 👉 - Cloning index: $index_to_clone to $new_index_name"
+                curl --fail -u "$es_credentials" -s -X POST "$es_host/$index_to_clone/_clone/$new_index_name"
+              }
+
+              # Function to reindex data from one index to another and poll for status
+              reindex_and_poll() {
+                local source_index="$1"
+                local dest_index="$2"
+
+                echo "[UPGRADE] 👉 - Starting reindex from $source_index to $dest_index"
+                
+                # Start the reindexing task
+                task_id=$(curl --fail -u "$es_credentials" -s -X POST "$es_host/_reindex?slices=5&wait_for_completion=false" -H "Content-Type: application/json" -d "{
+                  \"source\": {
+                    \"index\": \"$source_index\"
+                  },
+                  \"dest\": {
+                    \"index\": \"$dest_index\"
+                  }
+                }" | jq -r '.task')
+
+                if [[ -z "$task_id" || "$task_id" == "null" ]]; then
+                  echo "[UPGRADE] ❌ - Failed to start reindex task for $source_index to $dest_index."
+                  return 1
+                fi
+
+                echo "[UPGRADE] 👉 - Polling reindex status for $source_index to $dest_index with task ID: $task_id"
+
+                # Get the total document count in the source index
+                source_total=$(curl -u "$es_credentials" -s -X GET "$es_host/$source_index/_count" | jq -r '.count')
+                
+                if [[ -z "$source_total" || "$source_total" == "null" ]]; then
+                  echo "[UPGRADE] ❌ - Error: Unable to retrieve document count for source index $source_index. Exiting."
+                  return 1
+                fi
+
+                while true; do
+                  response=$(curl --fail -u "$es_credentials" -s -X GET "$es_host/_tasks/$task_id")
+                  
+                  if [[ -z "$response" ]]; then
+                    echo "[UPGRADE] ❌ - Error: No response from Elasticsearch while polling task status. Exiting."
+                    return 1
+                  fi
+
+                  completed=$(echo "$response" | jq -r '.completed')
+
+                  if [[ "$completed" == "true" ]]; then
+                    echo "[UPGRADE] ✅ - Reindex from $source_index to $dest_index completed successfully."
+                    break
+                  else
+                    # Fetch the current count of documents in the destination index
+                    dest_count=$(curl --fail -u "$es_credentials" -s -X GET "$es_host/$dest_index/_count" | jq -r '.count')
+                    
+                    if [[ -z "$dest_count" || "$dest_count" == "null" ]]; then
+                      dest_count=0
+                    fi
+
+                    # Calculate the progress percentage
+                    percent=$(awk "BEGIN {printf \"%.2f\", ($dest_count/$source_total)*100}")
+                    echo "[UPGRADE] ⏳ - Reindex in progress for $source_index to $dest_index... $percent% complete (Source: $source_total records, Dest: $dest_count records)"
+                  fi
+                  sleep 10
+                done
+              }
+
+              delete_index() {
+                local index_name="$1"
+
+                echo "[UPGRADE] 👉 - Deleting index: $index_name"
+
+                curl --fail -u "$es_credentials" -X DELETE "$es_host/$index_name"
+
+                echo "[UPGRADE] ✅ - Deleted index: $index_name"
+              }
+
+              try_delete_index() {
+                local index_name="$1"
+
+                response=$(curl -u "$es_credentials" -s -o /dev/null -w "%{http_code}" -X GET "${es_host}/${index_name}")
+
+                # Check the response code
+                if [ "$response" -eq 200 ]; then
+                    delete_index $index_name
+                fi
+              }
+
+              populate_indexes_list() {
+                CLUEDIN_INDEXES_INCLUDING_STAGE=()
+
+                if [ -f "$INDEX_LIST_FILE_PATH" ]; then
+                  echo '[UPGRADE] 👉 - Retrieving indexes from CSV'
+                  read -r -a CLUEDIN_INDEXES_INCLUDING_STAGE < "$INDEX_LIST_FILE_PATH"
+                else
+                  echo '[UPGRADE] 👉 - Retrieving indexes from Elasticsearch'
+                  # Fetch indices excluding the .tasks index and those with GUID patterns
+                  local indices=$(curl --fail -u "$es_credentials" -s -X GET "$es_host/_cat/indices" | awk '{print $3}' | grep -vE '(\.tasks|[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})')
+
+                  for index in $indices; do
+
+                  # Fields to check in the index mapping
+                  fieldsToCheck=("persistVersion" "persistHash" "isShadowEntity" "lastProcessedDate" "providerDefinitionIds_v2")
+
+                  # Check if the specified index has all the required fields in its mapping
+                  missing_fields=()
+                  for field in "${fieldsToCheck[@]}"; do
+                    if ! curl --fail -u "$es_credentials" -s "$es_host/$index/_mapping" | jq --arg field "$field" '.[] | .mappings | .. | objects | has($field)' | grep -q "true"; then
+                      missing_fields+=("$field")
+                    fi
+                  done
+                  
+                  # Output result
+                  if [ ${#missing_fields[@]} -eq 0 ]; then
+                    CLUEDIN_INDEXES_INCLUDING_STAGE+=("${index}_0")
+                  else
+                    echo '[UPGRADE] ✅ - Skipping index as it is not a CluedIn index: $index'
+                  fi
+
+                  done
+
+                  echo "${CLUEDIN_INDEXES_INCLUDING_STAGE[*]}" | tr ' ' ',' > "$INDEX_LIST_FILE_PATH"
+
+                fi
+              }
+
+              persist_index_stage() {
+                local index_name="$1"
+                local new_stage="$2"
+
+                for i in "${!CLUEDIN_INDEXES_INCLUDING_STAGE[@]}"; do
+                    if [[ "${CLUEDIN_INDEXES_INCLUDING_STAGE[$i]::-2}" == "${index_name}" ]]; then
+                        CLUEDIN_INDEXES_INCLUDING_STAGE[$i]="${index_name}_${new_stage}"
+                        break
+                    fi
+                done
+
+                echo "${CLUEDIN_INDEXES_INCLUDING_STAGE[*]}" | tr ' ' ',' > "${INDEX_LIST_FILE_PATH}"
+              }
+
+              elastic_upgrade() {
+                # Set Elasticsearch host and credentials
+
+                populate_indexes_list
+
+                for index_with_stage in $CLUEDIN_INDEXES_INCLUDING_STAGE; do
+
+                  local current_stage="${index_with_stage: -1}" # Get last char
+                  local index_name="${index_with_stage::-2}" # Get everything but the last 2 chars
+                  local index_lock_file_path=${UPGRADE_INDEX_LOCK_FILE_DIR}/cluedin-4.4-schema-migration-completed-index.${index_name}.lock
+
+                  if [ -f $index_lock_file_path ]; then
+                    echo '[UPGRADE] ✅ - Skipping index as it was already processed: $index_name'
+                    continue
+                  fi
+
+                  temp_index="${index_name}_440"
+
+                  echo "[UPGRADE] 👉 - Processing index: $index_name"
+
+                  # Current stage should be 0 if we are recovering or starting for the first time
+                  if [[ "$current_stage" -lt 3 ]]; then
+                    # In case we are retrying and are before stage 3 we try to remove the index and start over
+                    try_delete_index $temp_index
+
+                    #clone index to temp index
+                    clone_index "$index_name" "$temp_index"
+
+                    current_stage=1
+                    persist_index_stage $index_name $current_stage # Creating Temp Index
+
+                    reindex_and_poll "$index_name" "$temp_index"
+
+                    current_stage=2
+                    persist_index_stage $index_name $current_stage # Re Index to Temp Index
+
+                    original_count=$(curl --fail -u "$es_credentials" -s -X GET "$es_host/$index_name/_count" | jq -r '.count')
+                    temp_count=$(curl --fail -u "$es_credentials" -s -X GET "$es_host/$temp_index/_count" | jq -r '.count')
+
+                    if [[ "$original_count" -ne "$temp_count" ]]; then
+                      echo "[UPGRADE] ❌ - Error: Document count mismatch between $index_name and $temp_index. Skipping deletion of $index."
+                      return 1
+                    fi
+
+                    current_stage=3
+                    persist_index_stage $index_name $current_stage # Check count is the same
+                  fi
+
+                  # Current stage should be 3 if we are recovering or progressing
+                  if [[ "$current_stage" -lt 6 ]]; then
+
+                    # Delete the original index and recreate it
+                    try_delete_index "$index_name"
+                    create_index "$index_name"
+                   
+                    current_stage=4
+                    persist_index_stage $index_name $current_stage # Delete Original Index
+
+                    # Reindex back to the original index
+                    reindex_and_poll "$temp_index" "$index_name"
+
+                    current_stage=5
+                    persist_index_stage $index_name $current_stage # Re Index to New Original Index
+
+                    # Final count check before deleting temp index
+                    final_count=$(curl --fail -u "$es_credentials" -s -X GET "$es_host/$index_name/_count" | jq -r '.count')
+                    if [[ "$final_count" -ne "$temp_count" ]]; then
+                      echo "[UPGRADE] ❌ - Error: Document count mismatch after final reindex. Skipping deletion of $temp_index."
+                      return 1
+                    fi
+
+                    current_stage=6
+                    persist_index_stage $index_name $current_stage # Compare Final count
+                  fi
+
+                  # Delete the temporary index
+                  # echo "[UPGRADE] 👉 - Deleting temporary index: $temp_index"
+                  # delete_index $temp_index
+
+                  current_stage=7
+                  persist_index_stage $index_name $current_stage # Delete Temp Index
+                  
+                  echo "[UPGRADE] ✅ - Finished processing index: $index_name - $(date)"
+                  echo "[UPGRADE] 👉 - Create index lock for index: $index_name"
+                  touch $index_lock_file_path
+                  
+                done
+              }
+
+
+              ###############################################################
+              ############### START LOGIC ###################################
+              ###############################################################
+
+              ### LOGGING SETUP
+              counter=1
+              UPGRADE_LOG_FILE_PATH_CURRENT="${UPGRADE_LOG_FILE_PATH%.upgrade.log}.$((counter++)).upgrade.log"
+              while [ -e "$UPGRADE_LOG_FILE_PATH_CURRENT" ]; do
+                UPGRADE_LOG_FILE_PATH_CURRENT="${UPGRADE_LOG_FILE_PATH%.upgrade.log}.$((counter++)).upgrade.log"
+              done
+
+              exec > >(tee ${UPGRADE_LOG_FILE_PATH_CURRENT}) 2>&1
+              echo "✍ Upgrade log file path: $UPGRADE_LOG_FILE_PATH_CURRENT"
+
+              # If script exits too quickly we do not get any output so pausing for 1 second fixes it somehow?!                 
+              sleep 1 
+
+              ### END LOGGING SETUP
+
+              # Function to handle the interrupt signal and exit the script gracefully
+              exit_upon_signal() {
+                  echo "❌ Received interrupt signal. Exiting..."
+                  exit 1
+              }
+              trap exit_upon_signal SIGINT SIGTERM
+
+              echo "[UPGRADE] 🟢 Running CluedIn 4.4 Schema Migration Upgrade script"
+
+              if [[ -z "${UPGRADE_LOCK_FILE_PATH}" ]]; then
+                  echo "[UPGRADE] ⛔ - Env variable LOCK_FILE_PATH is not set"
+                  exit 1
+              fi
+
+              if [[ -z "${UPGRADE_INDEX_LOCK_FILE_DIR}" ]]; then
+                  echo "[UPGRADE] ⛔ - Env variable UPGRADE_INDEX_LOCK_FILE_DIR is not set"
+                  exit 1
+              fi
+
+              if [[ -z "${INDEX_LIST_FILE_PATH}" ]]; then
+                  echo "[UPGRADE] ⛔ - Env variable INDEX_LIST_FILE_PATH is not set"
+                  exit 1
+              fi
+
+              if [ -f $UPGRADE_LOCK_FILE_PATH ]; then
+                  echo '[UPGRADE] 👋 - Upgrade stage was already completed (lock file already exists). Exiting..'
+                  exit
+              fi
+
+              echo "[UPGRADE] 🎁 - Running ES Server in background: /usr/local/bin/docker-entrypoint.sh eswrapper"
+              /usr/local/bin/docker-entrypoint.sh eswrapper &
+              pid=$!
+
+              es_host="http://localhost:9200"
+              es_credentials="${ELASTIC_USERNAME}:${ELASTIC_PASSWORD}"
+
+              while true; do
+                  echo "[UPGRADE] ⏳ - Waiting for ES Server to be up..."
+                  
+                  HEALTH_STATUS=$(curl -u "$es_credentials" -s "$es_host/_cat/health?h=status" | tr -d '[:space:]')
+
+                  if [ "$HEALTH_STATUS" == "yellow" ] || [ "$HEALTH_STATUS" == "green" ]; then
+                    echo "ES Server is up and ready with status: $HEALTH_STATUS"
+                    break
+                  fi
+                  sleep 5s
+              done
+             
+              echo "[UPGRADE] ✅ - ES Server is up"
+
+              had_error=false
+
+              # Running the main upgrade function in a sub shell (wrapped with parenthesis) that will stop on any error (exit code !=0)
+              (
+                set -e
+                elastic_upgrade
+              )
+
+              if [[ "$?" -ne 0 ]]; then
+                had_error=true
+              fi
+
+              kill $pid
+
+              echo "[UPGRADE] ⏳ - Waiting for ES Server (PID: $pid) to stop.."
+              # || true is used to suppress exit code.
+              wait $pid || true
+
+              echo "[UPGRADE] ✅ - ES Server stopped"
+
+              if [[ "$had_error" == "true" ]]; then
+                echo "[UPGRADE] ❌ - There were errors during the last upgrade"
+                exit 1
+              fi
+
+              touch $UPGRADE_LOCK_FILE_PATH
+              echo "[UPGRADE] 👋 - Upgrade is completed. Wrote lock file: $UPGRADE_LOCK_FILE_PATH. Exiting.."
+
+              exit
