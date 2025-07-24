@@ -1,0 +1,49 @@
+name: Deploy Multi-Version Docs
+
+on:
+  push:
+    branches:
+      - master
+      - v2025-05
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1  # Match Just-the-Docs requirements
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: |
+          bundle install
+
+      # Build master branch (latest)
+      - name: Build master version
+        if: github.ref == 'refs/heads/master'
+        run: |
+          JEKYLL_ENV=production bundle exec jekyll build -d build/latest
+
+      # Build v2025-05 branch
+      - name: Build v2025-05 version
+        if: github.ref == 'refs/heads/v2025-05'
+        run: |
+          JEKYLL_ENV=production bundle exec jekyll build -d build/v2025-05
+
+      # Deploy both builds into gh-pages branch
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./build
+          keep_files: true  # Keep old versions when updating
