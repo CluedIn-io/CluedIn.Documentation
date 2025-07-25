@@ -26,7 +26,7 @@ To make the AI assistant available in CluedIn, you need to fulfill several prere
 
 1. In CluedIn, go to **Administration** > **Feature Flags**, and then enable the **AI Copilot** feature.
 
-    ![copilot-1.png](../../assets/images/key-terms-and-features/copilot-1.png)
+    ![copilot-1.png]({{ "/assets/images/key-terms-and-features/copilot-1.png" | relative_url }})
 
 1. In CluedIn, go to **Administration** > **Settings**. Scroll down to the **Copilot** section and complete the following fields:
 
@@ -40,6 +40,6 @@ To make the AI assistant available in CluedIn, you need to fulfill several prere
 
     - **Minimum Skill Development Stage** – specify which skills—alpha, beta, or production—you want to have available in CluedIn. Currently, almost all skills are **alpha**.
 
-        ![copilot-2](../../assets/images/key-terms-and-features/copilot-2.png)
+        ![copilot-2]({{ "/assets/images/key-terms-and-features/copilot-2.png" | relative_url }})
 
         For more information about the required variables, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython&pivots=programming-language-python#retrieve-key-and-endpoint).

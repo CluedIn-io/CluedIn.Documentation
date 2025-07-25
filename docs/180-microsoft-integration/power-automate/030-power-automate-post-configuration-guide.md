@@ -32,21 +32,21 @@ Make sure that you have completed all of the actions described in [Power Automa
 
     You should see a custom connector with CluedIn logo.
 
-    ![custom-connector.png](../../assets/images/microsoft-integration/power-automate/custom-connector.png)
+    ![custom-connector.png]({{ "/assets/images/microsoft-integration/power-automate/custom-connector.png" | relative_url }})
 
 1. Open the custom connector and select **Edit**.
 
-    ![custom-connector-edit.png](../../assets/images/microsoft-integration/power-automate/custom-connector-edit.png)
+    ![custom-connector-edit.png]({{ "/assets/images/microsoft-integration/power-automate/custom-connector-edit.png" | relative_url }})
 
     Alternatively, hover over the custom connector and select **Edit**.
 
-    ![custom-connector-edit-alt.png](../../assets/images/microsoft-integration/power-automate/custom-connector-edit-alt.png)
+    ![custom-connector-edit-alt.png]({{ "/assets/images/microsoft-integration/power-automate/custom-connector-edit-alt.png" | relative_url }})
 
 1. Go to the **Definition** tab.
 
 1. Check the **Triggers** section. All items there should be marked with green checkboxes.
 
-    ![custom-connector-definition.png](../../assets/images/microsoft-integration/power-automate/custom-connector-definition.png)
+    ![custom-connector-definition.png]({{ "/assets/images/microsoft-integration/power-automate/custom-connector-definition.png" | relative_url }})
 
     If you see green checkboxes for all items, it means that the custom connector has been configured successfully. Now, you can start [creating workflows](/workflow/create-and-manage-workflows) in the **Workflow** module in CluedIn.
 
@@ -82,7 +82,7 @@ Place of error: CluedIn
 
 After you [create](/workflow/create-and-manage-workflows) a workflow in CluedIn, you need to enable it, and then check its **Properties** tab. If you see the following error, it means that the workflow is not running.
 
-![failed-trigger.png](../../assets/images/microsoft-integration/power-automate/failed-trigger.png)
+![failed-trigger.png]({{ "/assets/images/microsoft-integration/power-automate/failed-trigger.png" | relative_url }})
 
 To fix this error, register the connector again as described in the [previous](#no-custom-connector) section.
 
@@ -92,7 +92,7 @@ Place of error: CluedIn
 
 In CluedIn, when you go to **Workflow** > **Workflow Builder** or **Workflow** > **Approvals** you may see an error similar to the following.
 
-![sign-in-error-no-id-token.png](../../assets/images/microsoft-integration/power-automate/sign-in-error-no-id-token.png)
+![sign-in-error-no-id-token.png]({{ "/assets/images/microsoft-integration/power-automate/sign-in-error-no-id-token.png" | relative_url }})
 
 This error indicates that the service application that is used to authenticate the Power Automate widget in CluedIn does not have the platform configurated. To fix this, add a platform and a redirect URI as described in [Create a service application](/microsoft-integration/power-automate/pre-configuration-guide#create-a-service-application).
 
@@ -102,11 +102,11 @@ Place of error: CluedIn
 
 In CluedIn, when you go to **Workflow** > **Workflow Builder** or **Workflow** > **Approvals** you may see an error similar to the following.
 
-![sign-in-error-redirect-uri.png](../../assets/images/microsoft-integration/power-automate/sign-in-error-redirect-uri.png)
+![sign-in-error-redirect-uri.png]({{ "/assets/images/microsoft-integration/power-automate/sign-in-error-redirect-uri.png" | relative_url }})
 
 This error indicates that the redirect URI in the service application that is used to authenticate the Power Automate widget in CluedIn is incorrect. To fix this, make sure the domain in the redirect URI matches your CluedIn application.
 
-![configure-platforms-redirect-uri.png](../../assets/images/microsoft-integration/power-automate/configure-platforms-redirect-uri.png)
+![configure-platforms-redirect-uri.png]({{ "/assets/images/microsoft-integration/power-automate/configure-platforms-redirect-uri.png" | relative_url }})
 
 For more details, see [Create a service application](/microsoft-integration/power-automate/pre-configuration-guide#create-a-service-application).
 

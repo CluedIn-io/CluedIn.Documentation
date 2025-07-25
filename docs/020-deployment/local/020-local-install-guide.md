@@ -16,7 +16,7 @@ headerIcon: "local"
 
 In this article, you will learn how to install CluedIn locally.
 
-![local-installation-guide.gif](../../assets/images/deployment/local-installation-guide.gif)
+![local-installation-guide.gif]({{ "/assets/images/deployment/local-installation-guide.gif" | relative_url }})
 
 ## Clone CluedIn repository
 
@@ -32,7 +32,7 @@ The first step for the local installation of CluedIn is to clone the CluedIn pub
 
     You will get an output similar to the following.
 
-    ![git-clone.png](../../assets/images/local-install/git-clone.png)
+    ![git-clone.png]({{ "/assets/images/local-install/git-clone.png" | relative_url }})
 
     Alternatively, you can clone the repository using your preferred Git client.
 
@@ -42,7 +42,7 @@ The first step for the local installation of CluedIn is to clone the CluedIn pub
 
 - For Windows environments: Modify the PowerShell execution policy to enable running local scripts. To do that, use the `Set-ExecutionPolicy RemoteSigned` command.
 
-    ![pwsh-policy.png](../../assets/images/local-install/pwsh-policy.png)
+    ![pwsh-policy.png]({{ "/assets/images/local-install/pwsh-policy.png" | relative_url }})
 
 - For Windows environments: Run your terminal session as an administrator.
 
@@ -91,11 +91,11 @@ In the following instructions, we use `2025.05` as the version number. You shoul
 
     This process might take some time.
 
-    ![pull_images_process.gif](../../assets/images/local-install/pull_images_process.gif)
+    ![pull_images_process.gif]({{ "/assets/images/local-install/pull_images_process.gif" | relative_url }})
 
     You will get an output similar to the following.
 
-    ![pull-images-result.png](../../assets/images/local-install/pull-images-result.png)
+    ![pull-images-result.png]({{ "/assets/images/local-install/pull-images-result.png" | relative_url }})
 
 1. Create an environment. In the following command, we use `202505` as the name of the environment and `2025.05` as the version number.
 
@@ -110,7 +110,7 @@ In the following instructions, we use `2025.05` as the version number. You shoul
     
     You will get an output similar to the following.
 
-    ![create-env.png](../../assets/images/local-install/create-env.png)
+    ![create-env.png]({{ "/assets/images/local-install/create-env.png" | relative_url }})
 
     {:.important}
     Environment is used for having scripts that can start CluedIn of different versions. Docker does not support multiple CluedIn versions running in parallel.
@@ -127,7 +127,7 @@ where `202401` is the name of the environment.
 
 You will get an output similar to the following.
 
-![start-cluedin.png](../../assets/images/local-install/start-cluedin.png)
+![start-cluedin.png]({{ "/assets/images/local-install/start-cluedin.png" | relative_url }})
 
 ## Create your sign-in credentials
 
@@ -137,7 +137,7 @@ The last step of the local installation of CluedIn is to create an organization 
 
 Make sure that the server has started correctly. To do that, in Docker Desktop, select the server and look for a similar section in logs.
 
-![cluedin-server-logs.png](../../assets/images/local-install/cluedin-server-logs.png)
+![cluedin-server-logs.png]({{ "/assets/images/local-install/cluedin-server-logs.png" | relative_url }})
 
 {:.important}
 In the following procedure, we’ll use `202401` as an environment, `example` as an organization name, and `Example123!` as a password for signing in to CluedIn.
@@ -152,7 +152,7 @@ In the following procedure, we’ll use `202401` as an environment, `example` as
 
     You'll get the credentials for signing in to CluedIn.
 
-    ![create-org.png](../../assets/images/local-install/create-org.png)
+    ![create-org.png]({{ "/assets/images/local-install/create-org.png" | relative_url }})
 
 1. Open the CluedIn sign-in page by running the following command:
 
@@ -160,7 +160,7 @@ In the following procedure, we’ll use `202401` as an environment, `example` as
     pwsh .\cluedin.ps1 open 202401 -Org example
     ```
 
-    ![open-cluedin.png](../../assets/images/local-install/open-cluedin.png)
+    ![open-cluedin.png]({{ "/assets/images/local-install/open-cluedin.png" | relative_url }})
 
     As a result, CluedIn opens in your default browser.   
 
@@ -168,7 +168,7 @@ In the following procedure, we’ll use `202401` as an environment, `example` as
 
 1. Sign in to CluedIn using the credentials that you received in step 1.
 
-    ![sign-in-page.png](../../assets/images/local-install/sign-in-page.png)
+    ![sign-in-page.png]({{ "/assets/images/local-install/sign-in-page.png" | relative_url }})
 
 ## Troubleshooting
 

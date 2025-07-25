@@ -28,7 +28,7 @@ When you [process](/integration/process-data) the data set, the clue becomes a *
 
 The following diagram illustrates the transition from an ingested record to a golden record, including various actions that take place along the way.
 
-![data-life-cycle.png](../../assets/images/key-terms-and-features/data-life-cycle.png)
+![data-life-cycle.png]({{ "/assets/images/key-terms-and-features/data-life-cycle.png" | relative_url }})
 
 For more information about the concept of data life cycle in CluedIn, download <a href="../../../assets/other/data-life-cycle-concept.pdf" download>this file</a>.
 

@@ -5,22 +5,25 @@ parent: Playbooks
 permalink: /playbooks/start-your-it-journey
 title: Start your IT journey
 ---
-## On this page
-{: .no_toc .text-delta }
-- TOC
-{:toc}
 
-| Audience | Time to read |
-|--|--|
-| Administrator | 7 min |
+## On this page
+
+{: .no_toc .text-delta }
+
+- TOC
+  {:toc}
+
+| Audience      | Time to read |
+| ------------- | ------------ |
+| Administrator | 7 min        |
 
 This article outlines the key stages of your IT journey, from installing CluedIn and integrating it with necessary external systems and sources, to ensuring that user access aligns with your organization policies.
 
 ## Main aspects of IT journey
 
-There are several aspects of the IT journey that you should consider in order to configure CluedIn according to your business needs. 
+There are several aspects of the IT journey that you should consider in order to configure CluedIn according to your business needs.
 
-![connections.png](../../assets/images/playbooks/connections.png)
+![connections.png]({{ "/assets/images/playbooks/connections.png" | relative_url }})
 
 The primary aspect is **authentication and authorization** to ensure that only legitimate users can access the system.
 
@@ -40,9 +43,9 @@ For your first use case, CluedIn will likely need to connect to the source. This
 
 Here are some scenarios that explain the actions to take for different levels of access to the source:
 
-- Full API access – discuss next steps with your CluedIn expert.  
+- Full API access – discuss next steps with your CluedIn expert.
 
-- File export access – if full access is not possible, but you can get an export file, use that file. 
+- File export access – if full access is not possible, but you can get an export file, use that file.
 
 - No access – if you can't get access, ask for the shape of the data and fake it. If you can't even get this, escalate. Data is the fuel of your data transformation journey. CluedIn has encountered these situations many times, so let us know if you need help.
 
@@ -60,7 +63,7 @@ If you face resistance or are blocked, there's a trick: you can stream into the 
 
 You have the flexibility to adopt CluedIn at your own pace. Since we offer 2 cloud models of CluedIn—PaaS and SaaS—the IT journey for each is different. In this section, you'll find the details about IT journey for both SaaS and PaaS.
 
-![cloud-service-model.png](../../assets/images/playbooks/cloud-service-model.png)
+![cloud-service-model.png]({{ "/assets/images/playbooks/cloud-service-model.png" | relative_url }})
 
 ### SaaS IT journey
 
@@ -82,7 +85,7 @@ With CluedIn PaaS, the installation process is automated, enabling you to instal
 
 - [Post-installation](/deployment/azure-marketplace/step-4)
 
-![paas-it-journey.png](../../assets/images/playbooks/paas-it-journey.png)
+![paas-it-journey.png]({{ "/assets/images/playbooks/paas-it-journey.png" | relative_url }})
 
 These meetings give you the opportunity to discuss any questions or concerns you may have with a CluedIn expert, ensuring that you're fully informed and comfortable at every stage of your IT journey.
 
@@ -92,7 +95,7 @@ The CluedIn PaaS **IT journey timeline** depends on two aspects:
 
 - **Access to resource** – this refers to your access for connecting to the CluedIn cluster (you can connect, you can connect but require an approval, or you can't connect and someone has to give access to CluedIn cluster).
 
-![paas-it-timeline.png](../../assets/images/playbooks/paas-it-timeline.png)
+![paas-it-timeline.png]({{ "/assets/images/playbooks/paas-it-timeline.png" | relative_url }})
 
 Based on your privileges and access to the resource group, there can be 3 IT journey scenarios:
 
@@ -108,9 +111,9 @@ The entire IT journey can be smooth and easy, but it will **depend on your IT i
 
 - Creation of a Virtual Network (VNet) with 2 subnets:
 
-    - AKS subnet – dedicated subnet for AKS resources.
+  - AKS subnet – dedicated subnet for AKS resources.
 
-    - Delegated subnet for CI – subnet specifically delegated for Container Instance (CI) operations.
+  - Delegated subnet for CI – subnet specifically delegated for Container Instance (CI) operations.
 
 - Configuration of service endpoints for secure access to storage account and key vault.
 
@@ -132,19 +135,19 @@ Additionally, your Azure administrator might be required to perform the followin
 
 - Role assignments:
 
-   - Assign the Owner role to manage resources.
+  - Assign the Owner role to manage resources.
 
-   - Assign the Storage File Data Contributor role at the storage account to manage file-level permissions.
+  - Assign the Storage File Data Contributor role at the storage account to manage file-level permissions.
 
-   - Assign the Key Vault Administrator role to the user identity to enable Key Vault management and secret handling.
+  - Assign the Key Vault Administrator role to the user identity to enable Key Vault management and secret handling.
 
 - Private DNS Zone Vnet Link:
 
-   - Virtual network link enabled for [privatelink.file.core.windows.net](http://privatelink.file.core.windows.net/)
+  - Virtual network link enabled for [privatelink.file.core.windows.net](http://privatelink.file.core.windows.net/)
 
-   - Virtual network link enabled for [privatelink.blob.core.windows.net](http://privatelink.blob.core.windows.net/)
+  - Virtual network link enabled for [privatelink.blob.core.windows.net](http://privatelink.blob.core.windows.net/)
 
-   - Virtual network link enabled for [privatelink.vaultcore.azure.net](http://privatelink.vaultcore.azure.net/)
+  - Virtual network link enabled for [privatelink.vaultcore.azure.net](http://privatelink.vaultcore.azure.net/)
 
 {:.important}
 The tasks listed above are provided as an example. They may or may not fit your IT infrastructure and policies. You can discuss your requirements and plan the IT journey with a CluedIn expert.

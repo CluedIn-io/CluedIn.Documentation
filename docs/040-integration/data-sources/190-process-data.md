@@ -54,7 +54,7 @@ Manual processing is available for the data coming from a file, an ingestion end
 
 1. In the lower-right corner, select **Confirm**.
 
-    ![process-data.gif](../../assets/images/integration/data-sources/process-data.gif)
+    ![process-data.gif]({{ "/assets/images/integration/data-sources/process-data.gif" | relative_url }})
 
 ## Auto-submission
 
@@ -68,7 +68,7 @@ Auto-submission is available for the data coming from an ingestion endpoint. Whe
 
 1. Confirm that you want to enable automatic processing of records once they are received by CluedIn.
 
-    ![auto-submission-1.gif](../../assets/images/integration/data-sources/auto-submission-1.gif)
+    ![auto-submission-1.gif]({{ "/assets/images/integration/data-sources/auto-submission-1.gif" | relative_url }})
 
 If you no longer want the records to be processed automatically, turn off the toggle next to **Auto-submission**.
 
@@ -86,7 +86,7 @@ Bridge mode allows you to use less storage and memory, resulting in increased pe
 
 1. Confirm that you want to switch to bridge mode by entering _BRIDGE_. Then, select **Confirm bridge mode**.
 
-    ![bridge-mode-1.gif](../../assets/images/integration/data-sources/bridge-mode-1.gif)
+    ![bridge-mode-1.gif]({{ "/assets/images/integration/data-sources/bridge-mode-1.gif" | relative_url }})
 
 If you no longer want your ingestion endpoint to operate in bridge mode, you can switch it back to the default mode. After switching back to the default mode, the **Preview** tab will appear. However, it will not contain records received while bridge mode was enabled.
 
@@ -98,7 +98,7 @@ If you no longer want your ingestion endpoint to operate in bridge mode, you can
 
 1. Confirm that you want to switch back to default mode by entering _DEFAULT_. Then, select **Confirm default mode**.
 
-    ![default-mode-1.gif](../../assets/images/integration/data-sources/default-mode-1.gif)
+    ![default-mode-1.gif]({{ "/assets/images/integration/data-sources/default-mode-1.gif" | relative_url }})
 
 ## Processing logs
 
@@ -116,7 +116,7 @@ Removing processing logs frees up disk space without impacting the processed rec
 
 1. Confirm that you want to remove processing logs by entering _DELETE_. Then, select **Purge**.
 
-    ![purge-logs-1.gif](../../assets/images/integration/data-sources/purge-logs-1.gif)
+    ![purge-logs-1.gif]({{ "/assets/images/integration/data-sources/purge-logs-1.gif" | relative_url }})
 
     After processing logs are removed, the **Process** tab will display information about the user who removed them and the time of removal.
 
@@ -134,7 +134,7 @@ Retention settings allow you to automatically delete processing logs after a spe
 
 1. Select **Save**.
 
-    ![retention-settings-1.gif](../../assets/images/integration/data-sources/retention-settings-1.gif)
+    ![retention-settings-1.gif]({{ "/assets/images/integration/data-sources/retention-settings-1.gif" | relative_url }})
 
 1. If you want to change the retention period, repeat step 1. Then, select another period and save your changes.
 

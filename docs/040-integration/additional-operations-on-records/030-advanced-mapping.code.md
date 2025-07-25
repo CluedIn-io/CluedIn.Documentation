@@ -17,7 +17,7 @@ In this article, you will learn about the possibility of introducing changes to 
 
 The advanced mapping code is applied to the clues after property and pre-process rules.
 
-![advanced-mapping-code.png](../../assets/images/integration/additional-operations/advanced-mapping-code.png)
+![advanced-mapping-code.png]({{ "/assets/images/integration/additional-operations/advanced-mapping-code.png" | relative_url }})
 
 **Prerequisites**
 

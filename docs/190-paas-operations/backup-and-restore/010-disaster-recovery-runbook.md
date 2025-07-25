@@ -31,7 +31,7 @@ This runbook is a PowerShell script, which CluedIn will provide as needed.
 
 An automation account must be provided. The runbook will be installed into the the automation account. The three dependent runbooks must already be installed. Typically, the runbook should be scheduled to run once a day outside of office hours.
 
-![disaster-recovery-runbook.png](../../assets/images/paas-operations/disaster-recovery-runbook.png)
+![disaster-recovery-runbook.png]({{ "/assets/images/paas-operations/disaster-recovery-runbook.png" | relative_url }})| relative_url }})
 
 ## Input parameters
 
@@ -48,6 +48,6 @@ An automation account must be provided. The runbook will be installed into the t
 
 ## Process
 
-![disaster-recovery-runbook-process.png](../../assets/images/paas-operations/disaster-recovery-runbook-process.png)
+![disaster-recovery-runbook-process.png]({{ "/assets/images/paas-operations/disaster-recovery-runbook-process.png" | relative_url }})| relative_url }})
 
 Scaling down of the DR environment following a successful restore is optional.

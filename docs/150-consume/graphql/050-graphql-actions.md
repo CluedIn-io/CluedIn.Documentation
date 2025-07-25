@@ -125,4 +125,4 @@ CluedIn supports GraphQL actions so that you can run commands in bulk from our G
 
 In `-properties.customer.addressZipCode:*`, the `-properties` means where value does not exist; and if it is `+properties`, it would mean where value exists. Note that the filter uses [Lucene](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html) syntax. Also, you can test the filter query directly in the search bar.
 
-![gql-search-with-filter.png](../../assets/images/consume/gql-search-with-filter.png)
+![gql-search-with-filter.png]({{ "/assets/images/consume/gql-search-with-filter.png" | relative_url }})| relative_url }})

@@ -39,7 +39,7 @@ Category refers to a logical grouping of terms. For example, you can have a cate
 
 1. Enter the category name. Then, in the lower-right corner, select **Create**.
 
-    ![create-category-1.png](../../assets/images/getting-started/glossary/create-category-1.png)
+    ![create-category-1.png]({{ "/assets/images/getting-started/glossary/create-category-1.png" | relative_url }})
 
     You created the category. Now, you can create a term in the category.
 
@@ -61,7 +61,7 @@ Term refers to the list of golden records that meet specific conditions. For exa
 
     1. In the **Filters** section, define which golden records should be included in the term.
 
-        ![create-term-1.png](../../assets/images/getting-started/glossary/create-term-1.png)
+        ![create-term-1.png]({{ "/assets/images/getting-started/glossary/create-term-1.png" | relative_url }})
 
     1. In the lower-right corner, select **Create**.
 
@@ -75,7 +75,7 @@ Term refers to the list of golden records that meet specific conditions. For exa
 
     1. Enter the **Short Description** and **Long Description** of the term.
 
-        ![create-term-3.png](../../assets/images/getting-started/glossary/create-term-3.png)
+        ![create-term-3.png]({{ "/assets/images/getting-started/glossary/create-term-3.png" | relative_url }})
 
 1. In the upper-right corner of the term details page, select **Save**.
 
@@ -85,7 +85,7 @@ Term refers to the list of golden records that meet specific conditions. For exa
 
 1. Activate the term by turning on the toggle next to the term status.
 
-    ![create-term-4.png](../../assets/images/getting-started/glossary/create-term-4.png)
+    ![create-term-4.png]({{ "/assets/images/getting-started/glossary/create-term-4.png" | relative_url }})
 
     You created the term and defined the records that are included in this term.
 
@@ -97,11 +97,11 @@ You can do the following actions with the terms in the glossary:
 
 - Endorse the term when you are confident that the records are of good quality, signaling to other users that the term is reliable for their use. To do that, in the upper-right corner of the term page, select **Endorse**.
 
-    ![manage-glossary-1.png](../../assets/images/getting-started/glossary/manage-glossary-1.png)
+    ![manage-glossary-1.png]({{ "/assets/images/getting-started/glossary/manage-glossary-1.png" | relative_url }})
 
 - Rate the term, enabling other users to view that it is reliable for their use.
 
-    ![manage-glossary-2.png](../../assets/images/getting-started/glossary/manage-glossary-2.png)
+    ![manage-glossary-2.png]({{ "/assets/images/getting-started/glossary/manage-glossary-2.png" | relative_url }})
 
 ## Update stream configuration
 
@@ -123,7 +123,7 @@ Streaming the glossary terms to the database is more convenient than streaming s
 
     1. In the **Choose Operation** dropdown list, select **Is True**.
 
-        ![update-stream-configuration-1.png](../../assets/images/getting-started/glossary/update-stream-configuration-1.png)
+        ![update-stream-configuration-1.png]({{ "/assets/images/getting-started/glossary/update-stream-configuration-1.png" | relative_url }})
 
 1. In the upper-right corner select **Save**. Then, confirm that you want to save your changes.
 

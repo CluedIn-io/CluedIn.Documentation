@@ -36,7 +36,7 @@ An automation account must be provided. The runbook will be installed into the t
 
 Upon a successful run, the runbook generates nine snapshots and stores them in a resource group for seven days.
 
-![backup-runbook.png](../../assets/images/paas-operations/backup-runbook.png)
+![backup-runbook.png]({{ "/assets/images/paas-operations/backup-runbook.png" | relative_url }})| relative_url }})
 
 ## Input parameters
 
@@ -52,6 +52,6 @@ Upon a successful run, the runbook generates nine snapshots and stores them in a
 
 ## Process
 
-![backup-runbook-process.png](../../assets/images/paas-operations/backup-runbook-process.png)
+![backup-runbook-process.png]({{ "/assets/images/paas-operations/backup-runbook-process.png" | relative_url }})| relative_url }})
 
 Scaling up or down deployments is optional. However, it is recommended to prevent data loss while capturing snapshots.

@@ -27,7 +27,7 @@ The enricher uses the organization name and/or the website to search for informa
 
 1. On the **Choose Enricher** tab, select **DuckDuckGo**, and then select **Next**.
 
-    ![duck-duck-go-enricher-1.png](../../assets/images/preparation/enricher/duck-duck-go-enricher-1.png)
+    ![duck-duck-go-enricher-1.png]({{ "/assets/images/preparation/enricher/duck-duck-go-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -37,7 +37,7 @@ The enricher uses the organization name and/or the website to search for informa
 
     - **Website Vocabulary Key** – enter the vocabulary key that contains the websites of companies that will be used for searching the DuckDuckGo engine.
 
-        ![duck-duck-go-enricher-2.png](../../assets/images/preparation/enricher/duck-duck-go-enricher-2.png)
+        ![duck-duck-go-enricher-2.png]({{ "/assets/images/preparation/enricher/duck-duck-go-enricher-2.png" | relative_url }})
 
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
@@ -53,11 +53,11 @@ After the DuckDuckGo enricher is added, you can modify its details:
 
 You can find the properties added to golden records from the DuckDuckGo enricher on the **Properties** page.
 
-![duck-duck-go-enricher-4.png](../../assets/images/preparation/enricher/duck-duck-go-enricher-4.png)
+![duck-duck-go-enricher-4.png]({{ "/assets/images/preparation/enricher/duck-duck-go-enricher-4.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the DuckDuckGo enricher, check the corresponding data part on the **History** page.
 
-![duck-duck-go-enricher-5.png](../../assets/images/preparation/enricher/duck-duck-go-enricher-5.png)
+![duck-duck-go-enricher-5.png]({{ "/assets/images/preparation/enricher/duck-duck-go-enricher-5.png" | relative_url }})
 
 The following table lists the properties that can be added to golden records by the DuckDuckGo enricher.
 

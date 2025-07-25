@@ -44,7 +44,7 @@ Mapping type defines how you want to configure the mapping of original fields fr
 
 1. Go to **Administration** > **Feature Flags** and enable the **AI Mapping** feature.
 
-    ![openai-1.png](../../assets/images/integration/data-sources/openai-1.png)
+    ![openai-1.png]({{ "/assets/images/integration/data-sources/openai-1.png" | relative_url }})
 
 1. Go to **Administration** > **Settings**. Scroll down to the **Open AI** section and complete the following fields:
 
@@ -56,7 +56,7 @@ Mapping type defines how you want to configure the mapping of original fields fr
 
     - **Deployment Name** – you can find this value in your Azure OpenAI resource, in **Resource Management** > **Model deployments**.
 
-        ![openai-2.png](../../assets/images/integration/data-sources/openai-2.png)
+        ![openai-2.png]({{ "/assets/images/integration/data-sources/openai-2.png" | relative_url }})
 
         For more information about the required variables, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython&pivots=programming-language-python#retrieve-key-and-endpoint).
 
@@ -96,7 +96,7 @@ Manual mapping gives you full control over how each field for your data set will
 
     With manual mapping, the mapping preview is not available.
 
-    ![create-mapping-1.png](../../assets/images/integration/data-sources/create-mapping-1.png)
+    ![create-mapping-1.png]({{ "/assets/images/integration/data-sources/create-mapping-1.png" | relative_url }})
 
 1. Select **Create Mapping**.
 
@@ -124,7 +124,7 @@ Manual mapping gives you full control over how each field for your data set will
 
     1. If you want to use the field as an alias for the records, turn on the **Use as alias** toggle.
 
-        ![create-mapping-2.png](../../assets/images/integration/data-sources/create-mapping-2.png)
+        ![create-mapping-2.png]({{ "/assets/images/integration/data-sources/create-mapping-2.png" | relative_url }})
 
     1. In the lower-right corner, select **Add Property to Annotation**.
 

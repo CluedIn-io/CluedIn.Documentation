@@ -28,7 +28,7 @@ CluedIn Copilot currently has 40+ specific skills (also called functions). To ge
 
 You'll find a description of each skill in [Copilot skills](#copilot-skills).
 
-![functions.gif](../../assets/images/microsoft-integration/copilot/functions.gif)
+![functions.gif]({{ "/assets/images/microsoft-integration/copilot/functions.gif" | relative_url }})
 
 To enhance your efficiency in interacting with CluedIn Copilot, you can **chain different skills together**. Instead of creating separate prompts for actions like creating, activating, and reprocessing a rule, you can combine these tasks into a single prompt.
 
@@ -65,7 +65,7 @@ Sometimes you may encounter issues with CluedIn Copilot where it does not unders
 
 CluedIn Copilot can analyze a data set to provide general overview, suggest possible mapping options, and create a mapping for the data set.
 
-![dataset.gif](../../assets/images/microsoft-integration/copilot/dataset.gif)
+![dataset.gif]({{ "/assets/images/microsoft-integration/copilot/dataset.gif" | relative_url }})
 
 | Copilot function | Description | Prompt example |
 |--|--|--|
@@ -79,7 +79,7 @@ CluedIn Copilot can analyze a data set to provide general overview, suggest poss
 
 CluedIn Copilot can create all [types of rules](/management/rules/rule-types)—data part rules, survivorship rules, and golden records rules—and apply any [rule action](/management/rules/rules-reference).
 
-![rule-tag.gif](../../assets/images/microsoft-integration/copilot/rule-tag.gif)
+![rule-tag.gif]({{ "/assets/images/microsoft-integration/copilot/rule-tag.gif" | relative_url }})
 
 | Copilot function | Description | Prompt example |
 |--|--|--|
@@ -96,7 +96,7 @@ CluedIn Copilot can create all [types of rules](/management/rules/rule-types)—
 
 CluedIn Copilot can create vocabularies and vocabulary keys as well detect anomalies in vocabulary key values.
 
-![profiling.gif](../../assets/images/microsoft-integration/copilot/profiling.gif)
+![profiling.gif]({{ "/assets/images/microsoft-integration/copilot/profiling.gif" | relative_url }})
 
 | Copilot function | Description | Prompt example |
 |--|--|--|
@@ -136,7 +136,7 @@ CluedIn Copilot can create and start streams to share data with other systems. N
 
 CluedIn Copilot can create clean projects according to your requirements and display information about the existing clean projects. However, it currently cannot generate the results of the clean project.
 
-![clean.gif](../../assets/images/microsoft-integration/copilot/clean.gif)
+![clean.gif]({{ "/assets/images/microsoft-integration/copilot/clean.gif" | relative_url }})
 
 | Copilot function | Description | Prompt example |
 |--|--|--|
@@ -165,7 +165,7 @@ CluedIn Copilot can create glossary terms within specific category and display i
 
 CluedIn Copilot can search for golden records according to your requirements as well as perform actions related to business domains (create, describe, list).
 
-![search.gif](../../assets/images/microsoft-integration/copilot/search.gif)
+![search.gif]({{ "/assets/images/microsoft-integration/copilot/search.gif" | relative_url }})
 
 | Copilot function | Description | Prompt example |
 |--|--|--|

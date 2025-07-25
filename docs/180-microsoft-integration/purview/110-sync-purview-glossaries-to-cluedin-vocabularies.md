@@ -28,7 +28,7 @@ Make sure you have the existing classic type glossary that contains some glossar
 
 On the following screenshot, we have the CluedIn glossary that contains 7 glossary terms. The Contact glossary term contains 2 child glossary terms: Email and FullName. In this section, you will find an instruction on how to prepare these two child glossary terms for synchronization with CluedIn.
 
-![sync-purview-glossary-to-cluedin-vocabulary-child-terms.png](../../assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-child-terms.png)
+![sync-purview-glossary-to-cluedin-vocabulary-child-terms.png]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-child-terms.png" | relative_url }})
 
 Additionally, the glossary terms should contain an attribute to indicate that they can be synced to CluedIn vocabulary keys. The name of this attribute should be the same as in the **Glossary to Vocabulary Attribute Filter** field from [CluedIn settings](#preparation-in-cluedin). The default value is _CluedInVocab_. You can create this attribute in Purview with the help of a new term template.
 
@@ -42,7 +42,7 @@ Additionally, the glossary terms should contain an attribute to indicate that th
 
 1. Enter the **Template name**.
 
-    ![new-term-template.png](../../assets/images/microsoft-integration/purview/new-term-template.png)
+    ![new-term-template.png]({{ "/assets/images/microsoft-integration/purview/new-term-template.png" | relative_url }})
 
 1. Select **New attributes**.
 
@@ -50,13 +50,13 @@ Additionally, the glossary terms should contain an attribute to indicate that th
 
 1. In **Field type**, select **Boolean**.
 
-    ![new-attribute.png](../../assets/images/microsoft-integration/purview/new-attribute.png)
+    ![new-attribute.png]({{ "/assets/images/microsoft-integration/purview/new-attribute.png" | relative_url }})
 
 1. Select **Apply**, and then select **Create**.
 
     Now, when you create a new glossary term that you want to sync to CluedIn vocabulary key, set the attribute to **True**.
 
-    ![new-term-from-cluedin-template.png](../../assets/images/microsoft-integration/purview/new-term-from-cluedin-template.png)
+    ![new-term-from-cluedin-template.png]({{ "/assets/images/microsoft-integration/purview/new-term-from-cluedin-template.png" | relative_url }})
 
 **To prepare Purview child glossary terms**
 
@@ -70,21 +70,21 @@ Additionally, the glossary terms should contain an attribute to indicate that th
 
 1. Find and select the column that should be associated with the child glossary term that you want to sync. 
 
-    ![sync-purview-glossary-to-cluedin-vocabulary-asset.png](../../assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-asset.png)
+    ![sync-purview-glossary-to-cluedin-vocabulary-asset.png]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-asset.png" | relative_url }})
 
 1. On the column details pane, select **Edit**.
 
-    ![sync-purview-glossary-to-cluedin-vocabulary-schema-edit.png](../../assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-schema-edit.png)
+    ![sync-purview-glossary-to-cluedin-vocabulary-schema-edit.png]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-schema-edit.png" | relative_url }})
 
 1. In **Glossary terms**, find and select the child glossary term that you want to assign to the column.
 
-    ![sync-purview-glossary-to-cluedin-vocabulary-fullname-edit.png](../../assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-fullname-edit.png)
+    ![sync-purview-glossary-to-cluedin-vocabulary-fullname-edit.png]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-fullname-edit.png" | relative_url }})
 
 1. Select **Save**.
 
     The child glossary term is now associated with the column.
 
-    ![sync-purview-glossary-to-cluedin-vocabulary-fullname-glossary-term.png](../../assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-fullname-glossary-term.png)
+    ![sync-purview-glossary-to-cluedin-vocabulary-fullname-glossary-term.png]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-fullname-glossary-term.png" | relative_url }})
 
 1. Repeat steps 1–8 for all child glossary terms that you want to sync to CluedIn vocabularies.
 
@@ -96,7 +96,7 @@ Additionally, the glossary terms should contain an attribute to indicate that th
 
 1. You can leave the other settings for this feature at their default values.
 
-    ![sync-purview-glossary-to-cluedin-vocabulary-settings.png](../../assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-settings.png)
+    ![sync-purview-glossary-to-cluedin-vocabulary-settings.png]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-settings.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -112,4 +112,4 @@ Once you enable synchronization of Purview glossaries to CluedIn vocabularies, y
 
     The vocabulary (a) corresponds to the glossary term in Purview. It contains vocabulary keys (b) that correspond to child glossary terms in Purview. According to default settings, the vocabulary is automatically associated with the Purview/Contact entity type, and the vocabulary key prefix is "purview". However, you can change these settings if needed.
 
-    ![sync-purview-glossary-to-cluedin-vocabulary-result.png](../../assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-result.png)
+    ![sync-purview-glossary-to-cluedin-vocabulary-result.png]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-vocabulary-result.png" | relative_url }})

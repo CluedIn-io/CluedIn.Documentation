@@ -36,7 +36,7 @@ This process takes roughly 20 minutes to complete and is highly recommended to r
 
 1. Select **Add a schedule**, and then specify the appropriate time, time zone, and days to run the backup. Then, select **Create**.
 
-   ![backup-schedule](../../assets/images/ama/howtos/backup-schedule.png)
+   ![backup-schedule]({{ "/assets/images/ama/howtos/backup-schedule.png" | relative_url }})
 
 1. On the left side, select **Runbooks**
 

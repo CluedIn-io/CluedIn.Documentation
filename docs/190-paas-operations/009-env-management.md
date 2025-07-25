@@ -16,7 +16,7 @@ This article covers best practices for using development, test, and production e
 
 The following diagram explains the purpose, data, users, and access privileges for each environment. 
  
-![env-description-1.png](../../assets/images/kb/env-description-1.png)
+![env-description-1.png]({{ "/assets/images/kb/env-description-1.png" | relative_url }})
 
 ## Types of users
 
@@ -51,7 +51,7 @@ If you want to use sensitive data while preparing the configuration for the prod
 
 After you configure all the elements you need for your data management tasks, you can move the configuration from the test environment to the production environment. You can sync test and production environments using CluedIn Production Toolkit available [here](/kb/config-migrate). However, it is important to mention that the data as well as users and roles cannot be moved from the test to production environment during synchronization.  
 
-![env-sync-1.png](../../assets/images/kb/env-sync-1.png)
+![env-sync-1.png]({{ "/assets/images/kb/env-sync-1.png" | relative_url }})
 
 ## Production environment
 

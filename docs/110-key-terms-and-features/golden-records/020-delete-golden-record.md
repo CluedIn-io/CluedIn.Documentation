@@ -32,7 +32,7 @@ If you no longer need a specific golden record, you can delete it on the golden 
 
 1. Confirm that you want to delete the golden record by entering _DELETE_. Then, select **Confirm**.
 
-    ![golden-record-delete.gif](../../assets/images/golden-records/golden-record-delete.gif)
+    ![golden-record-delete.gif]({{ "/assets/images/golden-records/golden-record-delete.gif" | relative_url }})
 
     The entire golden record is permanently deleted and cannot be restored.
 
@@ -46,18 +46,18 @@ If you no longer need a set of golden records, you can select those golden recor
 
 1. In the upper-right corner, select the three-dot button (⋮) > **Select for deletion**.
 
-    ![select-for-deletion.png](../../assets/images/golden-records/select-for-deletion.png)
+    ![select-for-deletion.png]({{ "/assets/images/golden-records/select-for-deletion.png" | relative_url }})
 
 1. Select the checkboxes next to golden records that you want to delete.
 
 1. In the upper-left corner, select **Start deletion**.
 
-    ![start-deletion.png](../../assets/images/golden-records/start-deletion.png)
+    ![start-deletion.png]({{ "/assets/images/golden-records/start-deletion.png" | relative_url }})
 
 1. Review the details of the golden records that will be deleted, and then select **Next**.
 
 1. Confirm that you want to delete golden records by entering _DELETE_. Then, select **Confirm**.
 
-    ![delete-golden-records-search.gif](../../assets/images/golden-records/delete-golden-records-search.gif)
+    ![delete-golden-records-search.gif]({{ "/assets/images/golden-records/delete-golden-records-search.gif" | relative_url }})
 
     The selected golden records are permanently deleted and cannot be restored.

@@ -21,23 +21,23 @@ Regardless of the data source type—file, ingestion endpoint, or database—the
 
 - **Total** – here you can view general information about the records from the current data set, including the total number of records, original columns, mapped columns, and records in quarantine. This is a useful tool to compare the number of original columns and mapped columns.
 
-    ![monitoring-total.png](../../assets/images/integration/additional-operations/monitoring-total.png)
+    ![monitoring-total.png]({{ "/assets/images/integration/additional-operations/monitoring-total.png" | relative_url }})
 
 - **Global queues** – here you can view global statistics on ingestion and processing requests from all data sets. This is a useful tool to ensure that the system runs correctly.
 
-    ![monitoring-global-queues.png](../../assets/images/integration/additional-operations/monitoring-global-queues.png)
+    ![monitoring-global-queues.png]({{ "/assets/images/integration/additional-operations/monitoring-global-queues.png" | relative_url }})
 
 - **Data set queues** – here you can view statistics on the records in the current data set during different stages of their life cycle (loading, mapping, processing).
 
-    ![monitoring-data-set-queues.png](../../assets/images/integration/additional-operations/monitoring-data-set-queues.png)
+    ![monitoring-data-set-queues.png]({{ "/assets/images/integration/additional-operations/monitoring-data-set-queues.png" | relative_url }})
 
 If the number of messages of any type is greater than 0 while the number of consumers is 0, there may be an issue with your data. The following screenshot illustrates a situation where troubleshooting is needed to fix the processing of records.
 
-![monitoring-error.png](../../assets/images/integration/additional-operations/monitoring-error.png)
+![monitoring-error.png]({{ "/assets/images/integration/additional-operations/monitoring-error.png" | relative_url }})
 
 To get better visibility into what is happening with your records, in addition to monitoring, use **system healthchecks**. You can find them in the upper-right corner of CluedIn.
 
-![system-healthchecks.png](../../assets/images/integration/additional-operations/system-healthchecks.png)
+![system-healthchecks.png]({{ "/assets/images/integration/additional-operations/system-healthchecks.png" | relative_url }})
 
 If the status of any item is red or orange, it means that something is wrong, and some services probably need to be restarted. To fix the problem, contact the person responsible for maintaining CluedIn for your organization (for example, system administrator) who can restart the needed service.
 
@@ -73,15 +73,15 @@ The **Ingestion reposts** area contains information about each request sent to t
 
 - **ReceiptID** – unique identifier of a request. Each request you send to an ingestion endpoint in CluedIn, whether successful or not, has a unique receipt ID.
 
-    ![monitoring-postman-receipt-id.png](../../assets/images/integration/additional-operations/monitoring-postman-receipt-id.png)
+    ![monitoring-postman-receipt-id.png]({{ "/assets/images/integration/additional-operations/monitoring-postman-receipt-id.png" | relative_url }})
 
     This ID allows you to quickly locate the request report in CluedIn. Simply copy the receipt ID from the request response and paste it to the search box above the table.
 
-    ![monitoring-search-receipt-id.png](../../assets/images/integration/additional-operations/monitoring-search-receipt-id.png)
+    ![monitoring-search-receipt-id.png]({{ "/assets/images/integration/additional-operations/monitoring-search-receipt-id.png" | relative_url }})
 
     To view the records that were sent to CluedIn in that specific request, select the receipt ID. As a result, the records appear in the **Ingested records** pane.
 
-    ![monitoring-receipt-id-ingested-records.png](../../assets/images/integration/additional-operations/monitoring-receipt-id-ingested-records.png)
+    ![monitoring-receipt-id-ingested-records.png]({{ "/assets/images/integration/additional-operations/monitoring-receipt-id-ingested-records.png" | relative_url }})
 
     Alternatively, you can copy the receipt ID, go to the **Preview** tab, paste the receipt ID in the search box, and start to search. As a result, only the records sent in a specific request will be displayed on the page.
 
@@ -103,11 +103,11 @@ The **Ingestion reposts** area contains information about each request sent to t
 
 - **Produced golden records** – the golden records generated from a specific request or those to which records from the request were aggregated as data parts. To view a list of golden records produced from a specific request, select **View ingested records**. As a result, the golden records appear in the **Produced golden records** pane.
 
-    ![monitoring-receipt-id-produced-golden-records.png](../../assets/images/integration/additional-operations/monitoring-receipt-id-produced-golden-records.png)
+    ![monitoring-receipt-id-produced-golden-records.png]({{ "/assets/images/integration/additional-operations/monitoring-receipt-id-produced-golden-records.png" | relative_url }})
 
 - **Actions** – currently, this column provides the possibility to remove records—golden records or data parts that were aggregated to the existing golden records—produced from a specific request. If you want to remove the records produced from a specific request, select **Remove records**. In the confirmation dialog, you can select the checkbox to remove the source records from the temporary storage on the **Preview** tab. To confirm your choice, enter _DELETE_, and then start the removal process.
 
-    ![monitoring-remove-records.png](../../assets/images/integration/additional-operations/monitoring-remove-records.png)
+    ![monitoring-remove-records.png]({{ "/assets/images/integration/additional-operations/monitoring-remove-records.png" | relative_url }})
 
     Once the records are removed, they will no longer be displayed when you select **View ingested records** for a specific request. The records removal mechanism is similar to the one described in [Remove records](/integration/additional-operations-on-records/remove-records), with the difference being that the article describes removing all records produced from the data set, while you have the option to remove records produced from a specific request that contributes to the data set.
 

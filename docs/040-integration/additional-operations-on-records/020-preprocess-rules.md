@@ -13,7 +13,7 @@ Pre-process rules are applied to the records that are already mapped ([clues](/k
 
 Pre-process rules are applied to the clues after the property rules have been already applied.
 
-![pre-process-rules-diagram.png](../../assets/images/integration/additional-operations/pre-process-rules-diagram.png)
+![pre-process-rules-diagram.png]({{ "/assets/images/integration/additional-operations/pre-process-rules-diagram.png" | relative_url }})
 
 All pre-process rules are listed on the **Pre-process rules** tab of the data set.
 
@@ -45,7 +45,7 @@ To access pre-process rules, go to **Administration** > **Feature Flags** and ma
 
         The following screenshot demonstrates that all records that do not contain the job title will be sent to the quarantine.
 
-        ![pre-process-rules-1.png](../../assets/images/integration/additional-operations/pre-process-rules-1.png)
+        ![pre-process-rules-1.png]({{ "/assets/images/integration/additional-operations/pre-process-rules-1.png" | relative_url }})
 
         {:.important}
         You can add only one filter to the rule. For example, if you want to quarantine all records that, in addition to the job title, do not contain the email address and the phone number, you need to create separate rules for each vocabulary key.

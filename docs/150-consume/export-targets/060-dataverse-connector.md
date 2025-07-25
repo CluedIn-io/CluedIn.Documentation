@@ -28,7 +28,7 @@ This article outlines how to configure the Dataverse connector to publish data f
 
 1. On the **Choose Target** tab, select **Dataverse Connector**. Then, select **Next**.
 
-    ![choose_target_dataverse_connector.png](../../assets/images/consume/export-targets/choose_target_dataverse_connector.png)
+    ![choose_target_dataverse_connector.png]({{ "/assets/images/consume/export-targets/choose_target_dataverse_connector.png" | relative_url }})| relative_url }})
 
 1. On the **Configure** tab, enter the connection details:
 
@@ -36,20 +36,20 @@ This article outlines how to configure the Dataverse connector to publish data f
 
     1. **URL** – you can find this value in [Power Apps](https://make.powerapps.com/), in the environment that contains your Dataverse instance. In the upper-right corner of the Power Apps page, select the settings icon, and then select **Developer Resources**. Copy the value in **Web API endpoint** and paste it to the **URL** field in CluedIn. You do not need to copy the version of the API (`/api/data/v9.2`).
 
-        ![web-api-endpoint.png](../../assets/images/consume/export-targets/web-api-endpoint.png)
+        ![web-api-endpoint.png]({{ "/assets/images/consume/export-targets/web-api-endpoint.png" | relative_url }})| relative_url }})
 
     1. **TenantID** – unique identifier for your Microsoft Entra tenant. You can find this value in the **Overview** section of app registration.
 
-        ![dataverse-tenant-id.png](../../assets/images/consume/export-targets/dataverse-tenant-id.png)
+        ![dataverse-tenant-id.png]({{ "/assets/images/consume/export-targets/dataverse-tenant-id.png" | relative_url }})| relative_url }})
 
     1. **ClientID** – unique identifier assigned to the Dataverse app when it was registered in the Microsoft identity platform. You can find this value in the **Overview** section of app registration.
 
-        ![dataverse-client-id.png](../../assets/images/consume/export-targets/dataverse-client-id.png)
+        ![dataverse-client-id.png]({{ "/assets/images/consume/export-targets/dataverse-client-id.png" | relative_url }})| relative_url }})
 
     1. **ClientSecret** – confidential string used by your Dataverse app to authenticate itself to the Microsoft identity platform. You can find this value in the **Certificates & secrets** section of app registration.
 
-        ![dataverse-client-secret.png](../../assets/images/consume/export-targets/dataverse-client-secret.png)
+        ![dataverse-client-secret.png]({{ "/assets/images/consume/export-targets/dataverse-client-secret.png" | relative_url }})| relative_url }})
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-    ![dataverse-connector-configure.png](../../assets/images/consume/export-targets/dataverse-connector-configure.png)
+    ![dataverse-connector-configure.png]({{ "/assets/images/consume/export-targets/dataverse-connector-configure.png" | relative_url }})| relative_url }})

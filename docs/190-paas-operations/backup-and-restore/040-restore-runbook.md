@@ -36,7 +36,7 @@ An automation account must be provided. The runbook will be installed into the t
 
 The runbook will optionally scale down the target CluedIn instance after the restore.
 
-![restore-runbook.png](../../assets/images/paas-operations/restore-runbook.png)
+![restore-runbook.png]({{ "/assets/images/paas-operations/restore-runbook.png" | relative_url }})
 
 ## Input parameters
 
@@ -53,4 +53,4 @@ The runbook will optionally scale down the target CluedIn instance after the res
 
 ## Process
 
-![restore-runbook-process.png](../../assets/images/paas-operations/restore-runbook-process.png)
+![restore-runbook-process.png]({{ "/assets/images/paas-operations/restore-runbook-process.png" | relative_url }})

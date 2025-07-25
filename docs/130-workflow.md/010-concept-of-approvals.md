@@ -12,7 +12,7 @@ To use the **Workflow** module in CluedIn, you need to configure [Power Automate
 
 Let's explore the concept of Power Automate workflows in CluedIn using an example of rule modification. If you want to automate the approval process for rule changes, you can create a dedicated Power Automate workflow that will send approval requests to the appropriate users whenever a rule is modified.
 
-![concept-of-approvals.gif](../../assets/images/workflow/concept-of-approvals.gif)
+![concept-of-approvals.gif]({{ "/assets/images/workflow/concept-of-approvals.gif" | relative_url }})
 
 A user with at least Consulted access level to the Rule Builder claim can modify any rule. However, to ensure transparency and accuracy, the changes are not applied right away. Instead, an approval request is sent to the appropriate users. When one of the appropriate users approves changes, a notification in CluedIn is sent to the user who made the changes, and the changes are applied to the rule.
 

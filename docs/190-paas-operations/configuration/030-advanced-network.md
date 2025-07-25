@@ -20,13 +20,13 @@ In this article, you will learn about advanced network configuration options tha
 
 The following diagram shows the default network configuration of CluedIn after installation.
 
-![ama-network-1.jpeg](../../assets/images/ama/install-guide/ama-network-1.jpeg)
+![ama-network-1.jpeg]({{ "/assets/images/ama/install-guide/ama-network-1.jpeg" | relative_url }})
 
 ## Advanced network configuration example
 
 The following diagram shows the advanced network configuration of CluedIn.
 
-![ama-network-2.jpeg](../../assets/images/ama/howtos/advanced-network-2.jpeg)
+![ama-network-2.jpeg]({{ "/assets/images/ama/howtos/advanced-network-2.jpeg" | relative_url }})
 
 Advanced network configuration requires that you have read and configured your firewall as per the firewall policy. For more information, see [Configure firewall](/deployment/infra-how-tos/configure-firewall).
 
@@ -67,7 +67,7 @@ For details on creating custom roles, see [Azure custom roles](https://learn.mic
 ### Private cluster - BYO vNet
 When using your own network (BYON) for private cluster installation, the **Network Contributor** permissions are required for the vNet created outside the managed resource group. To meet this requirement, you can create a **user-managed identity** and assign it the **Network Contributor** role on the specified vNet. During installation, ensure this user-assigned managed identity is specified in the **Network and Monitoring** section.
 
-![adv-network-pc-byov.png](../../assets/images/ama/howtos/adv-network-pc-byov.png)
+![adv-network-pc-byov.png]({{ "/assets/images/ama/howtos/adv-network-pc-byov.png" | relative_url }})
 
 ## Internal load balancer
 
@@ -141,11 +141,11 @@ As AKS maintains the load balancers, and the vnet is created at deployment time 
 For the `Private Link Service`, ensure that the `Load balancer` is set to `kubernetes-internal` and uses the frontend IP address from the private range. The Source NAT vnet and subnet should default correctly.
 Ensure that Source NAT subnet is set to No and it is best to assign a Static Private IP address.
 
-![adv-network-pls-01.png](../../assets/images/ama/howtos/adv-network-pls-01.png)
+![adv-network-pls-01.png]({{ "/assets/images/ama/howtos/adv-network-pls-01.png" | relative_url }})
 
 For the `Private endpoint`, ensure you select the virtual network that will be used to access CluedIn along with the subnet. It is recommended to statically allocate an IP address here as this will be used as the entry point for CluedIn and will be required as part of your DNS at a later stage.
 
-![adv-network-pe-01.png](../../assets/images/ama/howtos/adv-network-pe-01.png)
+![adv-network-pe-01.png]({{ "/assets/images/ama/howtos/adv-network-pe-01.png" | relative_url }})
 
 ### Next steps
 The next step is to test access from the private network to CluedIn to ensure that traffic can reach the endpoint as expected.

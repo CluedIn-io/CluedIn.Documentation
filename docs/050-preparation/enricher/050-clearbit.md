@@ -33,7 +33,7 @@ The enricher requires at least one of the following attributes to search for com
 
 1. On the **Choose Enricher** tab, select **Clearbit**, and then select **Next**.
 
-    ![clearbit-enricher-1.png](../../assets/images/preparation/enricher/clearbit-enricher-1.png)
+    ![clearbit-enricher-1.png]({{ "/assets/images/preparation/enricher/clearbit-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -45,7 +45,7 @@ The enricher requires at least one of the following attributes to search for com
 
     - **Email Domain Vocabulary Key** – enter the vocabulary key that contains company email domains that will be used to search for company domain and logo.
 
-        ![clearbit-enricher-2.png](../../assets/images/preparation/enricher/clearbit-enricher-2.png)
+        ![clearbit-enricher-2.png]({{ "/assets/images/preparation/enricher/clearbit-enricher-2.png" | relative_url }})
 
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
@@ -61,11 +61,11 @@ After the Clearbit enricher is added, you can modify its details:
 
 To quickly find the properties added to golden records from the Clearbit enricher, use the integrations filter on the **Properties** page.
 
-![clearbit-enricher-4.png](../../assets/images/preparation/enricher/clearbit-enricher-4.png)
+![clearbit-enricher-4.png]({{ "/assets/images/preparation/enricher/clearbit-enricher-4.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the Clearbit enricher, check the corresponding data part on the **History** page.
 
-![clearbit-enricher-5.png](../../assets/images/preparation/enricher/clearbit-enricher-5.png)
+![clearbit-enricher-5.png]({{ "/assets/images/preparation/enricher/clearbit-enricher-5.png" | relative_url }})
 
 The following table lists the properties that can be added to golden records by the Clearbit enricher.
 

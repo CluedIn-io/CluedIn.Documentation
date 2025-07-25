@@ -181,7 +181,7 @@ And apply Rule Actions to matched records:
 df.apply(lambda row: apply_actions(actions_with_evaluators, row), axis=1)
 ```
 
-![rules.png](../../assets/images/microsoft-integration/fabric/rules.png)
+![rules.png]({{ "/assets/images/microsoft-integration/fabric/rules.png" | relative_url }})
 
 Or you can filter the `DataFrame` with the evaluators:
 

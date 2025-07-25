@@ -26,7 +26,7 @@ You can assign roles to the users in two places within the platform:
 
 The following diagram shows the flow of assigning roles to users.
 
-![add-role-diagram.gif](../../assets/images/administration/roles/add-role-diagram.gif)
+![add-role-diagram.gif]({{ "/assets/images/administration/roles/add-role-diagram.gif" | relative_url }})
 
 ### Assign roles in Users
 
@@ -42,11 +42,11 @@ You can review the roles that are already assigned to the user and assign other 
 
 1. On the **Add role to user** pane, select the roles that you want to assign to the user. In the upper-right corner, select **Add Roles**, and then confirm that you want to assign the role to the user.
 
-    ![add-role-1.png](../../assets/images/administration/roles/add-role-1.png)
+    ![add-role-1.png]({{ "/assets/images/administration/roles/add-role-1.png" | relative_url }})
 
     A new role is assigned to the user and it is displayed on the **Roles** tab of the **User Details** page.
 
-    ![add-role-2.png](../../assets/images/administration/roles/add-role-2.png)
+    ![add-role-2.png]({{ "/assets/images/administration/roles/add-role-2.png" | relative_url }})
 
     The user will receive an email about the role changes. For the changes to take effect, the user has to sign out and sign in again.
 
@@ -64,11 +64,11 @@ You can review the users who have been already added to the role and add other u
 
 1. On the **Select users to add** pane, find and select the users that you want to add to the role. In the upper-right corner, select **Add users**, and then confirm that you want to add the users to the role.
 
-    ![add-role-3.png](../../assets/images/administration/roles/add-role-3.png)
+    ![add-role-3.png]({{ "/assets/images/administration/roles/add-role-3.png" | relative_url }})
 
     The users are added to the role and they are displayed on the **Users** tab of the role.
 
-    ![add-role-4.png](../../assets/images/administration/roles/add-role-4.png)
+    ![add-role-4.png]({{ "/assets/images/administration/roles/add-role-4.png" | relative_url }})
 
     The users will receive an email about the role changes. For the changes to take effect, the users have to sign out and sign in again.
 
@@ -76,7 +76,7 @@ You can review the users who have been already added to the role and add other u
 
 The following diagram shows the flow of removing roles from users.
 
-![remove-role-diagram.gif](../../assets/images/administration/roles/remove-role-diagram.gif)
+![remove-role-diagram.gif]({{ "/assets/images/administration/roles/remove-role-diagram.gif" | relative_url }})
 
 **To remove roles from a user**
 
@@ -90,6 +90,6 @@ The following diagram shows the flow of removing roles from users.
 
 1. Select **Remove from role**, and then confirm your choice.
 
-    ![remove-role-1.png](../../assets/images/administration/roles/remove-role-1.png)
+    ![remove-role-1.png]({{ "/assets/images/administration/roles/remove-role-1.png" | relative_url }})
 
     The role is removed from the user. The user will receive an email about the role changes. For the changes to take the effect, the users have to sign out and sign in again.

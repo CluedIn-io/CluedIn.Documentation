@@ -30,7 +30,7 @@ To perform source record validations, you need to meet the following prerequisit
 
 - On the data set page, select **Validations**.
 
-    ![access-validations.png](../../assets/images/integration/additional-operations/access-validations.png)
+    ![access-validations.png]({{ "/assets/images/integration/additional-operations/access-validations.png" | relative_url }})
 
     The pane containing **Validations** opens to the right side of the page.
 
@@ -50,7 +50,7 @@ Auto-validation is a good starting point for finding invalid values.
 
 1. On the **Validations** pane, in the **Initial Validation Setup** section, make sure that the **Auto-validation** option is selected.
 
-    ![validations-pane.png](../../assets/images/integration/additional-operations/validations-pane.png)
+    ![validations-pane.png]({{ "/assets/images/integration/additional-operations/validations-pane.png" | relative_url }})
 
 1. In the **Validation Preview** section, review the fields along with validation methods suggested by CluedIn.
 
@@ -58,7 +58,7 @@ Auto-validation is a good starting point for finding invalid values.
 
     CluedIn will run validations on the specific fields. When the validations are complete, you will see the [validation results](#review-validation-results) for each field.
 
-    ![validations-result.png](../../assets/images/integration/additional-operations/validations-result.png)
+    ![validations-result.png]({{ "/assets/images/integration/additional-operations/validations-result.png" | relative_url }})
 
     The fields that failed the validation check are highlighted in red. Now, you can process the results of auto-validation and [fix invalid values](#fix-invalid-values).
 
@@ -72,19 +72,19 @@ If auto-validation is not sufficient for you or if you want to apply different v
 
     - If you have already run auto-validation, then expand the filter dropdown, and select **Show all fields**.
 
-        ![validations-filter.png](../../assets/images/integration/additional-operations/validations-filter.png)
+        ![validations-filter.png]({{ "/assets/images/integration/additional-operations/validations-filter.png" | relative_url }})
 
     - If you have not run auto-validation, then in the **Initial Validation Setup** section, select the **Manual Setup** option, and then select **Validate**.
 
 1. From the list of all fields, find the field for which you want to add manual validation. To quickly find the needed field, start entering its name in the search field.
 
-    ![validations-search.png](../../assets/images/integration/additional-operations/validations-search.png)
+    ![validations-search.png]({{ "/assets/images/integration/additional-operations/validations-search.png" | relative_url }})
 
 1. In the **Validation Method** dropdown, select the [validation method](#validation-methods) that you want to apply to the field. Depending on the selected validation method, you might need to provide additional configuration details.
 
     For example, the following screenshot shows the validation method that checks the Job Title field for empty values. The **Inverse** toggle is turned on, indicating that if the field contains an empty string, it will be marked as invalid.
 
-    ![validations-manual-setup.png](../../assets/images/integration/additional-operations/validations-manual-setup.png)
+    ![validations-manual-setup.png]({{ "/assets/images/integration/additional-operations/validations-manual-setup.png" | relative_url }})
 
 1. When the validation for a field is configured, select **Validate**.
 
@@ -102,19 +102,19 @@ The previous validation options—auto-validation and manual validation—focus 
 
 1. On the **Validations** tab, select **Advanced Validation**.
 
-    ![validations-advanced-validations.png](../../assets/images/integration/additional-operations/validations-advanced-validations.png)
+    ![validations-advanced-validations.png]({{ "/assets/images/integration/additional-operations/validations-advanced-validations.png" | relative_url }})
 
 1. Select **Run** to load all clues that were created from the data set. The clues appear on the right side of the page.
 
 1. On the left side of the page, write the code to create source record validation logic. You can write any JavaScript code.
 
-    ![source-record-validations-advanced-code.png](../../assets/images/integration/additional-operations/source-record-validations-advanced-code.png)
+    ![source-record-validations-advanced-code.png]({{ "/assets/images/integration/additional-operations/source-record-validations-advanced-code.png" | relative_url }})
 
     In this example, we wrote the code that checks the Job Title and Department values, and if the Job Title is Accountant and Department is Marketing, then the whole record will be marked as invalid.
 
 1. To check if the code is applied as intended, select **Run**. As a result, if the record contains the specified combination of values, the **isValid** property is set to **false**.
 
-    ![source-record-validations-advanced-result.png](../../assets/images/integration/additional-operations/source-record-validations-advanced-result.png)
+    ![source-record-validations-advanced-result.png]({{ "/assets/images/integration/additional-operations/source-record-validations-advanced-result.png" | relative_url }})
 
 1. If you are satisfied with the result, select **Save**. To return to the data set, select **Back**.
 
@@ -130,7 +130,7 @@ Once you have added validations, there are a number of actions you can take to m
 
 1. **Edit** – edit the configuration of the validation for a field. You can select another [validation method](#validation-methods) and modify the configuration details. After you finish, select **Save & Validate**. As a result, the validation check for the field is run again.
 
-    ![validations-refresh-delete-edit.png](../../assets/images/integration/additional-operations/validations-refresh-delete-edit.png)
+    ![validations-refresh-delete-edit.png]({{ "/assets/images/integration/additional-operations/validations-refresh-delete-edit.png" | relative_url }})
 
 1. **Filter fields** – select between all fields, validated fields, or non-validated fields.
 
@@ -138,11 +138,11 @@ Once you have added validations, there are a number of actions you can take to m
 
 1. **Reset field filters** – resets the filters to show all fields.
 
-    ![validations-filters-sorting-reset.png](../../assets/images/integration/additional-operations/validations-filters-sorting-reset.png)
+    ![validations-filters-sorting-reset.png]({{ "/assets/images/integration/additional-operations/validations-filters-sorting-reset.png" | relative_url }})
 
 1. **Reset validation methods** – removes all validation methods so that you can start adding them from scratch.
 
-    ![validations-reset-methods.png](../../assets/images/integration/additional-operations/validations-reset-methods.png)
+    ![validations-reset-methods.png]({{ "/assets/images/integration/additional-operations/validations-reset-methods.png" | relative_url }})
 
 ## Process validation results
 
@@ -156,13 +156,13 @@ You can review validation results in two places: on the **Validations** pane and
 
 On the **Validations** pane, you can view validations results for each field. These results include the validation method as well as the total number of values, the number of valid values, and the number of invalid values. You can select the number of invalid values for a field to filter the records displayed on the page. Additionally, the status bar shows the percentage of valid values for a field.
 
-![validations-result.png](../../assets/images/integration/additional-operations/validations-result.png)
+![validations-result.png]({{ "/assets/images/integration/additional-operations/validations-result.png" | relative_url }})
 
 **Validation results on the data set page**
 
 On the data set page, you can view validation results for each column. Hover over the status bar at the bottom of the column header and you will see the validation results for that column (a). These results are the same as on the **Validations** pane. Additionally, the status bar under the column header shows the correlation between valid (green) and invalid (red) values in the column. You can also view the general statistics of valid values in the data set (b).
 
-![validations-column-hover.png](../../assets/images/integration/additional-operations/validations-column-hover.png)
+![validations-column-hover.png]({{ "/assets/images/integration/additional-operations/validations-column-hover.png" | relative_url }})
 
 ### Fix invalid values
 
@@ -178,17 +178,17 @@ After running the validation checks, you can start reviewing and fixing invalid 
 
     Regardless of the option that you use, the filter for invalid values is added to the **Filters** pane. As a result, the data set page displays the records containing invalid values. These invalid values are highlighted in red.
 
-    ![validations-invalid-values.png](../../assets/images/integration/additional-operations/validations-invalid-values.png)
+    ![validations-invalid-values.png]({{ "/assets/images/integration/additional-operations/validations-invalid-values.png" | relative_url }})
 
 1. To fix invalid values, click on the cell containing the invalid value and modify it accordingly. The modified value is marked in bold. Once the value is correct, it becomes highlighted in green.
 
-    ![validations-invalid-values-fixed.png](../../assets/images/integration/additional-operations/validations-invalid-values-fixed.png)
+    ![validations-invalid-values-fixed.png]({{ "/assets/images/integration/additional-operations/validations-invalid-values-fixed.png" | relative_url }})
 
 1. Select **Save**. The records containing fixed values disappear from the data set page because they no longer meet the filter criteria for showing invalid values.
 
     The modifications that you make to the source records are added to the **Operations** pane every time you save changes.
 
-    ![validations-operations.png](../../assets/images/integration/additional-operations/validations-operations.png)
+    ![validations-operations.png]({{ "/assets/images/integration/additional-operations/validations-operations.png" | relative_url }})
 
     If you want to revert changes, select the delete icon next to the operation name or the revert icon in the upper-right corner. Note that changes can only be reverted consecutively, one by one, and not selectively.
 

@@ -20,36 +20,36 @@ When you register a new application in Microsoft Entra ID, a service principal i
 
 1. Select **Microsoft Entra ID**.
 
-    ![microsoft-entra-id.png](../../assets/images/consume/service-principal/microsoft-entra-id.png)
+    ![microsoft-entra-id.png]({{ "/assets/images/consume/service-principal/microsoft-entra-id.png" | relative_url }})
 
 1. On the left-hand navigation pane, under **Manage**, select **App registrations**.
 
-    ![app-registrations.png](../../assets/images/consume/service-principal/app-registrations.png)
+    ![app-registrations.png]({{ "/assets/images/consume/service-principal/app-registrations.png" | relative_url }})
 
 1. Select **New registration**.
 
-    ![new-registration.png](../../assets/images/consume/service-principal/new-registration.png)
+    ![new-registration.png]({{ "/assets/images/consume/service-principal/new-registration.png" | relative_url }})
 
 1. Enter the **Name** of service principal, select **Supported account types**, and then select **Register**.
 
-    ![app-registration-fields.png](../../assets/images/consume/service-principal/app-registration-fields.png)
+    ![app-registration-fields.png]({{ "/assets/images/consume/service-principal/app-registration-fields.png" | relative_url }})
 
     After successful registration, you can find **Client ID** (a) and **Tenant ID** (b) on the overview page of your service principal (app registration).
 
-    ![client-and-tenant-id.png](../../assets/images/consume/service-principal/client-and-tenant-id.png)
+    ![client-and-tenant-id.png]({{ "/assets/images/consume/service-principal/client-and-tenant-id.png" | relative_url }})
 
 1. To create **Client Secret**, select the **Add a certificate or secret** link on the overview page of your service principal (app registration).
 
-     ![add-certificate-or-secret.png](../../assets/images/consume/service-principal/add-certificate-or-secret.png)
+     ![add-certificate-or-secret.png]({{ "/assets/images/consume/service-principal/add-certificate-or-secret.png" | relative_url }})
 
 1. Select **New client secret**.
 
-    ![new-client-secret-1.png](../../assets/images/consume/service-principal/new-client-secret-1.png)
+    ![new-client-secret-1.png]({{ "/assets/images/consume/service-principal/new-client-secret-1.png" | relative_url }})
 
 1. In the **Description** field, enter the name of the client secret. In the **Expires** field, select an expiration for the secret. Finally, select **Add**.
 
-    ![new-client-secret-2.png](../../assets/images/consume/service-principal/new-client-secret-2.png)
+    ![new-client-secret-2.png]({{ "/assets/images/consume/service-principal/new-client-secret-2.png" | relative_url }})
 
     Now, you can find the client secret value under **Certificates & secrets**.
 
-     ![secret-value.png](../../assets/images/consume/service-principal/secret-value.png)
+     ![secret-value.png]({{ "/assets/images/consume/service-principal/secret-value.png" | relative_url }})

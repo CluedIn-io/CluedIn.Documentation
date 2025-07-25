@@ -29,7 +29,7 @@ You'll need to provide the logical name of the Dataverse table. There are the fo
 
 1. In **Sync Dataverse Table/Columns to CluedIn Business Domains and Vocabulary**, turn on the toggle, and then enter the Dataverse table name. The value should be the **logical name** of the table. If you want to sync multiple tables, separate them with a comma (for example, _logical_name1_,logical_name2,logical_name3_).
 
-    ![sync-dataverse-table.png](../../assets/images/microsoft-integration/power-apps/sync-dataverse-table.png)
+    ![sync-dataverse-table.png]({{ "/assets/images/microsoft-integration/power-apps/sync-dataverse-table.png" | relative_url }})
 
     Once the synchronization has been successfully completed, you'll receive three notifications: **Entity Type Created**, **Vocabulary Created**, and **Vocabulary Keys Created**.
     

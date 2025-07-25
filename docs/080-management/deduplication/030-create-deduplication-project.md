@@ -39,7 +39,7 @@ Before creating a deduplication project, take the following aspects into account
 
         This option is useful when you are working with a large set of data. You can narrow down the number of golden records and run a deduplication project on a sample set of data to make sure your matching rules work correctly. When you are confident in the effectiveness of your configuration with the sample set, you can then modify the filters and run the project on a larger set of data.
 
-    ![create-dedup-project.png](../../assets/images/management/deduplication/create-dedup-project.png)
+    ![create-dedup-project.png]({{ "/assets/images/management/deduplication/create-dedup-project.png" | relative_url }})
 
 1. Select **Create**.
 
@@ -69,7 +69,7 @@ In the project, matching rules are combined using the **OR** logical operator, w
 
     1. Choose the [matching function](/management/deduplication/deduplication-reference#matching-functions) for detecting duplicates.
 
-        ![add-matching-rule-criteria.png](../../assets/images/management/deduplication/add-matching-rule-criteria.png)
+        ![add-matching-rule-criteria.png]({{ "/assets/images/management/deduplication/add-matching-rule-criteria.png" | relative_url }})
 
     1. (Optional) Select the [normalization rules](/management/deduplication/deduplication-reference#normalization-rules) to apply during duplicate detection. These rules are temporarily applied solely for the purpose of identifying duplicates. For example, selecting **To lower-case** means that the system will convert values to lower case before comparing them to identify duplicates.
 

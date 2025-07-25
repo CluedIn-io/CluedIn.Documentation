@@ -40,7 +40,7 @@ Removing records from a specific data source is designed to remove the correspon
 
 1. Confirm that you want to remove records by entering _REMOVE_. Then, select **Remove records**.
 
-    ![remove-golden-records-2.gif](../../assets/images/integration/additional-operations/remove-golden-records-2.gif)
+    ![remove-golden-records-2.gif]({{ "/assets/images/integration/additional-operations/remove-golden-records-2.gif" | relative_url }})
 
 The process of removing records might take some time. During or after the process of removing records, you can make changes in the data set (edit mapping, add or remove property or pre-process rules) or process the data set again.
 

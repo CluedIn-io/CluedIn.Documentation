@@ -21,15 +21,15 @@ Stream controls allows you to manage the process of sending records to the expor
 
 - **Start** – the stream will start accumulating records in the queue and sending them to the export target.
 
-    ![start-stream.gif](../../assets/images/consume/streams/start-stream.gif)
+    ![start-stream.gif]({{ "/assets/images/consume/streams/start-stream.gif" | relative_url }})| relative_url }})
 
 - **Pause** – the stream will stop sending records to the export target, but it will still continue accumulating records in the queue.
 
-    ![pause-stream.gif](../../assets/images/consume/streams/pause-stream.gif)
+    ![pause-stream.gif]({{ "/assets/images/consume/streams/pause-stream.gif" | relative_url }})| relative_url }})
 
 - **Stop** – the stream will stop sending records to the export target and accumulating records in the queue.
 
-    ![stop-stream.png](../../assets/images/consume/streams/stop-stream.png)
+    ![stop-stream.png]({{ "/assets/images/consume/streams/stop-stream.png" | relative_url }})| relative_url }})
 
 Think of these stream controls as similar to the controls on a video player. When you select **Pause**, the stream halts temporarily, remembering your playback position and storing records in the queue. This way, when you resume the stream, it continues from where you left off, maintaining your progress. On the other hand, **Stop** leads to a complete termination of the streaming process and clearing of the queue. If you start the stream after it had been stopped, it will start sending records to the export target from the beginning, not from the point at which you stopped the stream.
 
@@ -68,13 +68,13 @@ You can duplicate a stream if you want to send the same selection of golden reco
 
 Duplication is a beta feature. To access it, go to **Administration** > **Feature Flags**, and enable the **Duplicate Actions** feature.
 
-![duplicate-actions-feature-flag.png](../../assets/images/shared/duplicate-actions-feature-flag.png)
+![duplicate-actions-feature-flag.png]({{ "/assets/images/shared/duplicate-actions-feature-flag.png" | relative_url }})| relative_url }})
 
 **To duplicate a stream**
 
 1. In the list of streams, find a stream that you want to duplicate. Then, open the three-dot menu for the stream, and select **Duplicate**.
 
-    ![duplicate-stream-1.png](../../assets/images/consume/streams/duplicate-stream-1.png)
+    ![duplicate-stream-1.png]({{ "/assets/images/consume/streams/duplicate-stream-1.png" | relative_url }})| relative_url }})
 
 1. In **Name**, review the default name of the new stream and modify it if needed. The default name is created by adding __duplicate_ to the name of the stream that you're duplicating.
 
@@ -82,7 +82,7 @@ Duplication is a beta feature. To access it, go to **Administration** > **Fea
 
 1. In **Actions**, review the list of actions that will be duplicated for the new stream. To view the details of a specific action, select **View Action Details**.
 
-    ![duplicate-stream-2.png](../../assets/images/consume/streams/duplicate-stream-2.png)
+    ![duplicate-stream-2.png]({{ "/assets/images/consume/streams/duplicate-stream-2.png" | relative_url }})| relative_url }})
 
 1. Select **Duplicate**.
 

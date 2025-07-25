@@ -24,7 +24,7 @@ You can search through all golden records in CluedIn—just enter a keyword in t
 
 The search box is the starting point of your search for golden records. This is where you can enter a key word to start the search. Additionally, this is where you can quickly retrieve your recent searches and saved searches by clicking in the search box.
 
-![search-box.png](../../assets/images/key-terms-and-features/search-box.png)
+![search-box.png]({{ "/assets/images/key-terms-and-features/search-box.png" | relative_url }})
 
 The **Recent Searches** section displays up to 5 of your previous searches. To run a recent search, select it from the list.
 
@@ -32,7 +32,7 @@ The **Saved Searches** section displays up to 7 saved searches. It contains a to
 
 In the search box, you can also select a business domain in which you want to search for golden records. To do this, expand the dropdown list and select the needed business domain.
 
-![search-box-business-domains.png](../../assets/images/key-terms-and-features/search-box-business-domains.png)
+![search-box-business-domains.png]({{ "/assets/images/key-terms-and-features/search-box-business-domains.png" | relative_url }})
 
 The **Business Domains** dropdown list displays up to 8 business domains that contain the biggest number of golden records. You can also view the number of golden records per business domain. After you select a business domain, enter a keyword, and start to search, CluedIn will display only those golden records that match the keyword and belong to the selected business domain.
 
@@ -40,7 +40,7 @@ The **Business Domains** dropdown list displays up to 8 business domains that co
 
 By default, the search results page displays golden records in the tabular view in the following columns: **Name**, **Business Domain**, and **Description**. You can customize the search results page to focus on the information that is important to you. In this section, you will find different customization options.
 
-![search-results-page-default.png](../../assets/images/key-terms-and-features/search-results-page-default.png)
+![search-results-page-default.png]({{ "/assets/images/key-terms-and-features/search-results-page-default.png" | relative_url }})
 
 ### Add columns
 
@@ -62,7 +62,7 @@ If you want to view other golden record properties or vocabulary keys, you can a
 
     - For **Entity Property**, select the checkboxes next to the needed properties, and then select **Save Selection**.
 
-        ![search-select-property-to-add-as-column.png](../../assets/images/key-terms-and-features/search-select-property-to-add-as-column.png)
+        ![search-select-property-to-add-as-column.png]({{ "/assets/images/key-terms-and-features/search-select-property-to-add-as-column.png" | relative_url }})
 
     - For **Vocabulary**, do the following:
 
@@ -76,7 +76,7 @@ If you want to view other golden record properties or vocabulary keys, you can a
 
         1. After you move all the needed vocabulary keys to the **Selected Vocabulary Keys** section, select **Add Vocabulary Columns**.
 
-            ![search-select-vocab-to-add-as-column.png](../../assets/images/key-terms-and-features/search-select-vocab-to-add-as-column.png)
+            ![search-select-vocab-to-add-as-column.png]({{ "/assets/images/key-terms-and-features/search-select-vocab-to-add-as-column.png" | relative_url }})
 
     The columns are added to the search results page. You can close the **Column Options** pane.
 
@@ -90,7 +90,7 @@ If you want to improve the organization of information on the search results pag
 
     The **Column Options** pane opens where you can view the columns that are currently displayed on the search results page.
 
-    ![search-column-options.png](../../assets/images/key-terms-and-features/search-column-options.png)
+    ![search-column-options.png]({{ "/assets/images/key-terms-and-features/search-column-options.png" | relative_url }})
 
 1. To reorder columns, select the row and drag it to a new position in the list.
 
@@ -112,7 +112,7 @@ In addition to sorting by relevance, CluedIn provides two alternative sorting op
 
 - In the upper-right corner of the search results page, expand the sorting dropdown menu, and then select the needed sorting option.
 
-    ![search-results-page-sorting.png](../../assets/images/key-terms-and-features/search-results-page-sorting.png)
+    ![search-results-page-sorting.png]({{ "/assets/images/key-terms-and-features/search-results-page-sorting.png" | relative_url }})
 
     The new sorting is applied to the search results.
 
@@ -122,17 +122,17 @@ CluedIn provides two page view options:
 
 - **Tile view** – presents golden records in a visual grid-like format. In this view, golden records are arranged in rectangular tiles, each representing a specific golden record.
 
-    ![search-tile-view.png](../../assets/images/key-terms-and-features/search-tile-view.png)
+    ![search-tile-view.png]({{ "/assets/images/key-terms-and-features/search-tile-view.png" | relative_url }})
 
 - **Tabular view** – presents golden records in a structured table format. In this view, golden records are arranged in rows and columns, resembling a spreadsheet or database table.
 
-    ![search-tabular-view.png](../../assets/images/key-terms-and-features/search-tabular-view.png)
+    ![search-tabular-view.png]({{ "/assets/images/key-terms-and-features/search-tabular-view.png" | relative_url }})
 
 **To change the page view**
 
 - In the upper-right corner of the search results page, select the needed page view option: **Tile view** (a) or **Tabular view** (b).
 
-    ![search-results-page-view.png](../../assets/images/key-terms-and-features/search-results-page-view.png)
+    ![search-results-page-view.png]({{ "/assets/images/key-terms-and-features/search-results-page-view.png" | relative_url }})
 
     The new view is applied to the search results page.
 
@@ -144,7 +144,7 @@ Saved searches help you quickly retrieve a set of golden records that meet speci
 
 1. In the upper-right corner of the search results page, select the save icon.
 
-    ![save-icon.png](../../assets/images/key-terms-and-features/save-icon.png)
+    ![save-icon.png]({{ "/assets/images/key-terms-and-features/save-icon.png" | relative_url }})
 
 1. Enter the name of the search.
 
@@ -152,7 +152,7 @@ Saved searches help you quickly retrieve a set of golden records that meet speci
 
 1. Select **Save**.
 
-    ![save-a-search.png](../../assets/images/key-terms-and-features/save-a-search.png)
+    ![save-a-search.png]({{ "/assets/images/key-terms-and-features/save-a-search.png" | relative_url }})
 
     The search is saved in CluedIn. Now, you can use it when you need to quickly find a specific set of golden records or when you want to [clean](/preparation/clean) those golden records.
 
@@ -164,7 +164,7 @@ Saved searches help you quickly retrieve a set of golden records that meet speci
 
     - In the upper-right corner of the search results page, open the three-dot menu, and then select **Saved Searches**.
 
-        ![saved-search.png](../../assets/images/key-terms-and-features/saved-search.png)
+        ![saved-search.png]({{ "/assets/images/key-terms-and-features/saved-search.png" | relative_url }})
 
         The **Saved Searches** pane opens, containing your private saved searches and shared saved searches.
 
@@ -180,13 +180,13 @@ After performing a search, you can export your results in one of the following f
 
 - Go to **Administration** > **Feature flags**, and then enable the **Exporting golden records** feature.
 
-![export-golden-records-feature-flag.png](../../assets/images/key-terms-and-features/export-golden-records-feature-flag.png)
+![export-golden-records-feature-flag.png]({{ "/assets/images/key-terms-and-features/export-golden-records-feature-flag.png" | relative_url }})
 
 **To export search results**
 
 1. In the upper-right corner of the search results page, open the three-dot menu, and then select **Export**.
 
-    ![search-export-golden-records.png](../../assets/images/key-terms-and-features/search-export-golden-records.png)
+    ![search-export-golden-records.png]({{ "/assets/images/key-terms-and-features/search-export-golden-records.png" | relative_url }})
 
 1. In **Export Name**, enter the name of the export file.
 
@@ -196,13 +196,13 @@ After performing a search, you can export your results in one of the following f
 
 1. In **Columns**, review the columns that will be exported. These columns are currently displayed on the search results page. If you want to change the columns, you can add, remove, or reorder the columns as described in [Manage columns](#manage-columns). 
 
-    ![search-export-dialog.png](../../assets/images/key-terms-and-features/search-export-dialog.png)
+    ![search-export-dialog.png]({{ "/assets/images/key-terms-and-features/search-export-dialog.png" | relative_url }})
 
 1. Select **Export**. After the file for export is prepared, you will receive a notification.
 
 1. In the notification, select **View**. The **Exported Files** page opens, where you can find the files available for download.
 
-    ![search-exported-files-page.png](../../assets/images/key-terms-and-features/search-exported-files-page.png)
+    ![search-exported-files-page.png]({{ "/assets/images/key-terms-and-features/search-exported-files-page.png" | relative_url }})
 
     To view the search filters that define golden records in a file, hover over the value in the **Filter Type** column.
 

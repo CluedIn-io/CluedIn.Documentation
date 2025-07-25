@@ -18,7 +18,7 @@ Before you start implementing your CluedIn project, take a moment to read this p
 
 ## Guiding principles
 
-![guiding-principles.png](../../assets/images/playbooks/guiding-principles.png)
+![guiding-principles.png]({{ "/assets/images/playbooks/guiding-principles.png" | relative_url }})
 
 **Aim for better data, not perfect data.** At CluedIn, our mission is to enhance the quality of your data. We promise to support you throughout your journey, and we ask that you trust our expertise in handling Master Data Management (MDM) projects that involve multiple sources and millions of records.
 
@@ -32,7 +32,7 @@ Before you start implementing your CluedIn project, take a moment to read this p
 
 We recommend a three-step approach to MDM.
 
-![our-take-on-mdm.png](../../assets/images/playbooks/our-take-on-mdm.png)
+![our-take-on-mdm.png]({{ "/assets/images/playbooks/our-take-on-mdm.png" | relative_url }})
 
 **1. Acknowledge challenges.** MDM is complex. Ingesting data from 20 sources and handling 20 million records is no easy task. If it were, your data would already be in perfect shape.
 

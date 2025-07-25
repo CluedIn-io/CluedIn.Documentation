@@ -9,7 +9,7 @@ has_children: false
 
 In this article, you will learn about the differences and similarities between the following types of connectors in CluedIn—a crawler, an enricher, and an export target.
 
-![connectors.png](../../assets/images/key-terms-and-features/connectors.png)
+![connectors.png]({{ "/assets/images/key-terms-and-features/connectors.png" | relative_url }})
 
 All connectors link CluedIn with an external system, yet each one has a distinct purpose.
 

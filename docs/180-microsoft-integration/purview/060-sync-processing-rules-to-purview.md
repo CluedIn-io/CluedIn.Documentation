@@ -20,7 +20,7 @@ In this article, you will learn how to sync CluedIn rules (data part rules, surv
     
 1. Turn on the toggle in **Sync Processing Rules to Purview**.
 
-    ![sync-rules.png](../../assets/images/microsoft-integration/purview/sync-rules.png)
+    ![sync-rules.png]({{ "/assets/images/microsoft-integration/purview/sync-rules.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -30,7 +30,7 @@ In this article, you will learn how to sync CluedIn rules (data part rules, surv
 
 Once you enable synchronization of rules to Purview, you will receive a notification when the rule is synced.
 
-![sync-rules-notification.png](../../assets/images/microsoft-integration/purview/sync-rules-notification.png)
+![sync-rules-notification.png]({{ "/assets/images/microsoft-integration/purview/sync-rules-notification.png" | relative_url }})
 
 **To find the asset in Purview**
 
@@ -46,4 +46,4 @@ Once you enable synchronization of rules to Purview, you will receive a notifica
 
     The following screenshot shows the application of a data part rule, a survivorship rule, and a golden record rule within the CluedIn processing pipeline.
 
-    ![sync-rules-lineage.png](../../assets/images/microsoft-integration/purview/sync-rules-lineage.png)
+    ![sync-rules-lineage.png]({{ "/assets/images/microsoft-integration/purview/sync-rules-lineage.png" | relative_url }})

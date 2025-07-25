@@ -33,7 +33,7 @@ The first step to send the records from CluedIn to an export target is to create
     
     If you want to view the golden records matching the filter, select **Preview Condition**.
 
-    ![stream-1.gif](../../assets/images/consume/streams/stream-1.gif)
+    ![stream-1.gif]({{ "/assets/images/consume/streams/stream-1.gif" | relative_url }})
 
 1. If you want to modify golden records before sending them to the export target—for example, mask certain values—you can do it in the **Actions** section. Select **Add Action**, and then configure the action that will be performed on the records matching the stream's filter. For more information about the available actions, see [Actions in data part rules](/management/rules/rules-reference#actions-in-data-part-rules). You can add multiple actions.
 
@@ -86,7 +86,7 @@ You can configure the export target for the stream on the **Export Target Config
 
 1. Near the upper-right corner, select **Save**.
 
-    ![stream-2.gif](../../assets/images/consume/streams/stream-2.gif)
+    ![stream-2.gif]({{ "/assets/images/consume/streams/stream-2.gif" | relative_url }})
 
     You configured the export target for the stream and defined what properties will be sent to the export target. Now, you're ready to [start](/consume/streams/manage-streams) streaming records to the external system.
 

@@ -17,7 +17,7 @@ Property rules help you improve the quality of mapped records ([clues](/key-term
 
 Property rules are applied to the clues before pre-process rules and advanced mapping code.
 
-![property-rules-diagram.png](../../assets/images/integration/additional-operations/property-rules-diagram.png)
+![property-rules-diagram.png]({{ "/assets/images/integration/additional-operations/property-rules-diagram.png" | relative_url }})
 
 You can [create property rules on you own](#create-property-rules-on-your-own) or [use the CluedIn AI recommendation engine](#create-property-rules-using-ai) to generate property rules.
 
@@ -61,7 +61,7 @@ You can add multiple rules for one property.
 
 1. Select the **Action** that will be applied to the values of the property.
 
-    ![property-rules-1.png](../../assets/images/integration/additional-operations/property-rules-1.png)
+    ![property-rules-1.png]({{ "/assets/images/integration/additional-operations/property-rules-1.png" | relative_url }})
 
 1. In the lower-right corner, select **Add rule**.
 
@@ -84,13 +84,13 @@ To use AI capabilities to create property rules, first complete all the steps de
 
 1. In the pane that opens, expand each property to review suggested validations and actions.
 
-    ![property-rules-2.png](../../assets/images/integration/additional-operations/property-rules-2.png)
+    ![property-rules-2.png]({{ "/assets/images/integration/additional-operations/property-rules-2.png" | relative_url }})
 
 1. In the lower-right corner, select **Create rules**.
 
     The rules are added next to the properties.
 
-    ![property-rules-3.png](../../assets/images/integration/additional-operations/property-rules-3.png)
+    ![property-rules-3.png]({{ "/assets/images/integration/additional-operations/property-rules-3.png" | relative_url }})
 
     By selecting these rules, you can view, create, or remove rules from the property. The rules will be applied when you process the records.
 
@@ -108,7 +108,7 @@ The following CEL expression removes the first occurrences of the characters `#`
 
 On the screenshot, rows 1 and 3 contain several occurrences of `#` and `$`. The property rule removed only the first occurrences of those characters. To remove all occurrences of specific characters, use the expression from the next section.
 
-![removing-first-occurrence.png](../../assets/images/integration/additional-operations/removing-first-occurrence.png)
+![removing-first-occurrence.png]({{ "/assets/images/integration/additional-operations/removing-first-occurrence.png" | relative_url }})
 
 **Remove all occurrences of characters**
 
@@ -118,7 +118,7 @@ The following CEL expression removes all occurrences of the characters `#` and `
 ("" + value).replace(/[#\$]/g, "")
 ```
 
-![removing-all-occurrences.png](../../assets/images/integration/additional-operations/removing-all-occurrences.png)
+![removing-all-occurrences.png]({{ "/assets/images/integration/additional-operations/removing-all-occurrences.png" | relative_url }})
 
 **Turn non-numeric values to blank or null**
 
@@ -134,4 +134,4 @@ The following CEL expressions turn the value to blank or null if the value is no
 
 If the property contains non-numeric values, applying any of the above expressions will result in golden records without such property. Regardless of the expression you use, the result will be the same.
 
-![property_rule_turn_non-numeric_values_to_blank.png](../../assets/images/integration/additional-operations/property_rule_turn_non-numeric_values_to_blank.png)
+![property_rule_turn_non-numeric_values_to_blank.png]({{ "/assets/images/integration/additional-operations/property_rule_turn_non-numeric_values_to_blank.png" | relative_url }})

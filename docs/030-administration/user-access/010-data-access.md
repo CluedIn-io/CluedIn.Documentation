@@ -22,7 +22,7 @@ The operations that users can perform with data depend on the roles assigned to 
 
 Both source control and access control settings are located in **Administration** > **Settings**. This is the starting point where you specify if you want to restrict access to the data in CluedIn. By restricting access, we mean turning on the toggle under **Source Control** and **Access Control**.
 
-![data-access-section.png](../../assets/images/administration/user-access/data-access-section.png)
+![data-access-section.png]({{ "/assets/images/administration/user-access/data-access-section.png" | relative_url }})
 
 **Exception in data access settings**
 
@@ -52,7 +52,7 @@ Every source has the **Permissions** tab with a list of users or roles who have 
 
 1. In the upper-right corner, select **Grant Access**.
 
-    ![permissions-add-users.gif](../../assets/images/administration/user-access/permissions-add-users.gif)
+    ![permissions-add-users.gif]({{ "/assets/images/administration/user-access/permissions-add-users.gif" | relative_url }})
 
 When the users or roles appear on the **Permissions** tab of the source, they are granted access to the records produced from that source. However, if the access control is enabled, those users or roles must also be added to the access control policies in order to view the records.
 
@@ -74,13 +74,13 @@ Since both access control and source control regulate access to data, it is impo
 
 **Both source control and access control are disabled**
 
-![sc-ac-disabled.gif](../../assets/images/administration/user-access/sc-ac-disabled.gif)
+![sc-ac-disabled.gif]({{ "/assets/images/administration/user-access/sc-ac-disabled.gif" | relative_url }})
 
 When both source control and access control are disabled, any user with any role can view all data in CluedIn without any restrictions. If you have sensitive data that requires protection, we recommend enabling source control and/or access control to ensure secure access.
 
 **Both source control and access control are enabled**
 
-![sc-ac-enabled.gif](../../assets/images/administration/user-access/sc-ac-enabled.gif)
+![sc-ac-enabled.gif]({{ "/assets/images/administration/user-access/sc-ac-enabled.gif" | relative_url }})
 
 When both source control and access control are enabled, access to data for all users and roles is restricted according to source permissions and access control policies. To view specific golden records, the user has to meet the following requirements:
 
@@ -90,7 +90,7 @@ When both source control and access control are enabled, access to data for all 
 
 Only when both requirements are met, the user can view specific golden records. If either requirement is not met, or if no requirements are met at all, the user will not be able to view golden records. For example, if the user has permissions to the source of golden records but is not included in the access control policy that regulates access to such golden records, then the user cannot view the golden records.
 
-![sc-ac-enabled-no-policy.gif](../../assets/images/administration/user-access/sc-ac-enabled-no-policy.gif)
+![sc-ac-enabled-no-policy.gif]({{ "/assets/images/administration/user-access/sc-ac-enabled-no-policy.gif" | relative_url }})
 
 Similarly to the previous example, if the user is included in the access control policy that regulates access to golden records but does not have permissions to the source of such golden records, then the user cannot view the golden records.
 
@@ -100,7 +100,7 @@ For reliable and secure access to golden records in CluedIn, you have to configu
 
 When one of the data access settings is enabled and the other is disabled, access to data is restricted for all users and/or roles according to the enabled data access setting.
 
-![sc-enabled-ac-disabled.gif](../../assets/images/administration/user-access/sc-enabled-ac-disabled.gif)
+![sc-enabled-ac-disabled.gif]({{ "/assets/images/administration/user-access/sc-enabled-ac-disabled.gif" | relative_url }})
 
 For example, when source control is enabled and access control is disabled, access to data for all users and/or roles is restricted according to source permissions. Thus, users and/or roles can view golden records only if they are added to the **Permissions** tab of the source from which such golden records were produced.
 

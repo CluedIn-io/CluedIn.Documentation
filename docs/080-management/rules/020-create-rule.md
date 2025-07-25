@@ -43,7 +43,7 @@ Creating a rule involves defining the golden records to which the rule will be a
 
 1. Activate the rule by turning on the toggle next to the rule status.
 
-    ![create-a-rule.gif](../../assets/images/management/rules/create-a-rule.gif)
+    ![create-a-rule.gif]({{ "/assets/images/management/rules/create-a-rule.gif" | relative_url }})
 
     At this point, the rule has not yet been applied to the golden records. To ensure the rule is configured correctly, we recommend applying it to one golden record to verify the results.
 
@@ -73,7 +73,7 @@ After creating a rule, it is a good idea to test it on one golden record to veri
 
         In the tables, you can view the rules and actions that have been applied to the golden record.
 
-    ![test-a-rule.gif](../../assets/images/management/rules/test-a-rule.gif)
+    ![test-a-rule.gif]({{ "/assets/images/management/rules/test-a-rule.gif" | relative_url }})
 
 1. Depending on the results of your review, do one of the following:
 
@@ -95,7 +95,7 @@ After testing a rule on one golden record and verifying that it is applied as in
 
 1. Confirm that you want to reprocess all golden records that match the rule's filter.
 
-    ![reprocess-a-rule.gif](../../assets/images/management/rules/reprocess-a-rule.gif)
+    ![reprocess-a-rule.gif]({{ "/assets/images/management/rules/reprocess-a-rule.gif" | relative_url }})
 
     {:.important}
     The reprocessing option available on the rule details page is applicable only to the records that match the rule's filter.

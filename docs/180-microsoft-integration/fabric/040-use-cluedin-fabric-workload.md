@@ -18,7 +18,7 @@ You can install the CluedIn Cleanse Workload by first asking support@cluedin.com
 
 Once you have been invited, you can search and find the CluedIn Cleanse Workload in your Workload Hub.
 
-![Fabric2.png](../../assets/images/microsoft-integration/fabric/Fabric2.png)
+![Fabric2.png]({{ "/assets/images/microsoft-integration/fabric/Fabric2.png" | relative_url }})
 
 You will need to attach this Workload to a Workspace, or your entire Tenant - but do make sure you are attaching it to an environment that has capacity assocaited with it. Trial capacties are supported.
 

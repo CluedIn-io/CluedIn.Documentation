@@ -16,23 +16,23 @@ This article outlines how to create an application user in Power Apps in order t
 
 1. Sign in to your [Power Apps account](https://make.powerapps.com/) and make sure you are in the intended environment.
 
-    ![power-apps-home-page.png](../../assets/images/consume/export-targets/power-apps-home-page.png)
+    ![power-apps-home-page.png]({{ "/assets/images/consume/export-targets/power-apps-home-page.png" | relative_url }})
 
 1. Select **Power Platform** > **Power Platform Admin Center**.
 
-    ![power-platform-admin-center.png](../../assets/images/consume/export-targets/power-platform-admin-center.png)
+    ![power-platform-admin-center.png]({{ "/assets/images/consume/export-targets/power-platform-admin-center.png" | relative_url }})
 
 1. Select **Environments**, and then select your intended environment.
 
-   ![intended-environment.png](../../assets/images/consume/export-targets/intended-environment.png)
+   ![intended-environment.png]({{ "/assets/images/consume/export-targets/intended-environment.png" | relative_url }})
 
 1. At the top of the page, select **Settings**.
 
-    ![environment-settings.png](../../assets/images/consume/export-targets/environment-settings.png)
+    ![environment-settings.png]({{ "/assets/images/consume/export-targets/environment-settings.png" | relative_url }})
 
 1. Expand the **Users + permissions** dropdown, and then select **Application users**.
 
-    ![user-permissions-application-users.png](../../assets/images/consume/export-targets/user-permissions-application-users.png)
+    ![user-permissions-application-users.png]({{ "/assets/images/consume/export-targets/user-permissions-application-users.png" | relative_url }})
 
 1. At the top of the page, select **New app user**.
 
@@ -46,8 +46,8 @@ This article outlines how to create an application user in Power Apps in order t
 
     1. Select **Create**.
 
-        ![create-a-new-app-user.png](../../assets/images/consume/export-targets/create-a-new-app-user.png)
+        ![create-a-new-app-user.png]({{ "/assets/images/consume/export-targets/create-a-new-app-user.png" | relative_url }})
 
     As a result, the new application user is created.
 
-    ![new-app-user-successfully-created.png](../../assets/images/consume/export-targets/new-app-user-successfully-created.png)
+    ![new-app-user-successfully-created.png]({{ "/assets/images/consume/export-targets/new-app-user-successfully-created.png" | relative_url }})

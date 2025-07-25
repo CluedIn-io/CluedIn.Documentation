@@ -26,7 +26,7 @@ CluedIn PaaS uses the **standard tier** for AKS cluster management. This means t
 
 The default backup is a disaster recovery strategy where your CluedIn instance and backup vault are running in the same Azure region.
 
-![default-backup.png](../../assets/images/paas-operations/default-backup.png)
+![default-backup.png]({{ "/assets/images/paas-operations/default-backup.png" | relative_url }})| relative_url }})
 
 In the default backup scenario, we take **incremental snapshots** of your CluedIn instance **every 4 hours**. These snapshots are stored in a backup vault within the same Azure region. Additionally, we take a **full snapshot** of your CluedIn instance **once a day**, at night.
 
@@ -47,7 +47,7 @@ In the default backup scenario, we take **incremental snapshots** of your CluedI
 
 The geo-redundant backup is a disaster recovery strategy where your CluedIn instance and a backup vault are running in the primary Azure region, and an additional backup vault is running in the secondary Azure region.
 
-![geo-redundant-backup.png](../../assets/images/paas-operations/geo-redundant-backup.png)
+![geo-redundant-backup.png]({{ "/assets/images/paas-operations/geo-redundant-backup.png" | relative_url }})| relative_url }})
 
 In this scenario, you get access to the backup vault in the secondary Azure region, unlike the default backup scenario. With access to this backup, you can restore it in a different Azure region.
 
@@ -68,7 +68,7 @@ In this scenario, you get access to the backup vault in the secondary Azure regi
 
 The geo-redundant backup with cold switch-over is a disaster recovery strategy where your CluedIn instance and a backup vault are running in the primary Azure region, and an additional backup vault and inactive CluedIn instance are running in the secondary Azure region.
 
-![geo-redundant-backup-cold-switch-over.png](../../assets/images/paas-operations/geo-redundant-backup-cold-switch-over.png)
+![geo-redundant-backup-cold-switch-over.png]({{ "/assets/images/paas-operations/geo-redundant-backup-cold-switch-over.png" | relative_url }})| relative_url }})
 
 In this scenario, your CluedIn instance in the secondary Azure region is configured but remains inactive. If your CluedIn instance in the primary Azure region fails, then the instance in the secondary region will be activated using the backup vault in its own region.
 
@@ -90,7 +90,7 @@ In this scenario, your CluedIn instance in the secondary Azure region is configu
 
 The geo-redundant backup with live switch-over is a disaster recovery strategy where your CluedIn instance and a backup vault are running in the primary Azure region, and an additional CluedIn instance and backup vault are running in the secondary Azure region.
 
-![geo-redundant-backup-live-switch-over.png](../../assets/images/paas-operations/geo-redundant-backup-live-switch-over.png)
+![geo-redundant-backup-live-switch-over.png]({{ "/assets/images/paas-operations/geo-redundant-backup-live-switch-over.png" | relative_url }})| relative_url }})
 
 In this scenario, if your CluedIn instance in the primary Azure region fails, then your CluedIn instance in the secondary Azure region will take over the operation within minutes.
 

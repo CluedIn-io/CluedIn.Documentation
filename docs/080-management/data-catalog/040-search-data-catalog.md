@@ -17,7 +17,7 @@ Searching the data catalog is a valuable tool for streamlining data discovery. T
 
 By default, the **All Vocabularies** page displays only used vocabularies. These are the vocabularies that contain the vocabulary keys used in golden records.
 
-![vocabulary-search.gif](../../assets/images/management/data-catalog/vocabulary-search.gif)
+![vocabulary-search.gif]({{ "/assets/images/management/data-catalog/vocabulary-search.gif" | relative_url }})
 
 You can use the search box to find the vocabulary you need. Enter either the full name or a partial name of the vocabulary and start the search. All vocabularies that match your input will be displayed on the page.
 
@@ -35,7 +35,7 @@ If the filtered results do not meet your requirements, you can reset the filters
 
 By default, the **All Vocabular Keys** page displays only used vocabulary keys. These are the vocabulary keys used in golden records.
 
-![vocabulary-key-search.gif](../../assets/images/management/data-catalog/vocabulary-key-search.gif)
+![vocabulary-key-search.gif]({{ "/assets/images/management/data-catalog/vocabulary-key-search.gif" | relative_url }})
 
 You can use the search box to find the vocabulary key you need. Enter either the full name or a partial name of the vocabulary key and start the search. All the vocabulary keys that match your input will be displayed on the page.
 

@@ -54,7 +54,7 @@ This section includes links to release notes for the CluedIn platform as well as
 
 The following table outlines the features, updates, and UX improvements we plan to implement in 2025.
 
-![release-plan-for-2025.png](../../assets/images/release/release-plan-for-2025.png)
+![release-plan-for-2025.png]({{ "/assets/images/release/release-plan-for-2025.png" | relative_url }})
 
 ## Release process
 
@@ -64,7 +64,7 @@ In this section, you will learn about our release process and the versioning of 
  
 In order to prepare new and requested features, enhancements, and fixes, we follow a 6-stage release process. What is more, we are often in multiple release stages simultaneously across several releases. This approach allows us to efficiently prioritize tasks and ensure that features are released in a timely manner. By overlapping stages, we can quickly adapt to changing requirements and deliver continuous improvements. 
 
-![release-stages-1.png](../../assets/images/release/release-stages-1.png)
+![release-stages-1.png]({{ "/assets/images/release/release-stages-1.png" | relative_url }})
 
 The following table describes each stage of the release process.
 

@@ -42,7 +42,7 @@ Configuring an ADF pipeline with the Copy data activity consists of 4 steps:
 
 1. In the **Activities** pane, expand the **Move and transform** category, and then drag the **Copy data** activity to the pipeline canvas.
 
-    ![copy-data-activity.png](../../assets/images/microsoft-integration/azure-data-factory/copy-data-activity.png)
+    ![copy-data-activity.png]({{ "/assets/images/microsoft-integration/azure-data-factory/copy-data-activity.png" | relative_url }})
 
 ## Configure source
 
@@ -72,7 +72,7 @@ Configuring an ADF pipeline with the Copy data activity consists of 4 steps:
 
 1. Select **OK**.
 
-    ![configure-source.png](../../assets/images/microsoft-integration/azure-data-factory/configure-source.png)
+    ![configure-source.png]({{ "/assets/images/microsoft-integration/azure-data-factory/configure-source.png" | relative_url }})
 
 ## Configure sink
 
@@ -96,7 +96,7 @@ Configuring an ADF pipeline with the Copy data activity consists of 4 steps:
 
         - **Value** – enter **Bearer**, add a space, and then paste the token from CluedIn. For more information, see [Send data](/integration/endpoint#send-data).
 
-    ![configure-sink-new-linked-service.png](../../assets/images/microsoft-integration/azure-data-factory/configure-sink-new-linked-service.png)
+    ![configure-sink-new-linked-service.png]({{ "/assets/images/microsoft-integration/azure-data-factory/configure-sink-new-linked-service.png" | relative_url }})
 
 1. Test connection, and then select **Create**.
 
@@ -106,7 +106,7 @@ Configuring an ADF pipeline with the Copy data activity consists of 4 steps:
 
 1. In the **Request method** field, select **POST**.
 
-    ![configure-sink-request-method.png](../../assets/images/microsoft-integration/azure-data-factory/configure-sink-request-method.png)
+    ![configure-sink-request-method.png]({{ "/assets/images/microsoft-integration/azure-data-factory/configure-sink-request-method.png" | relative_url }})
 
 ## Debug pipeline
 
@@ -118,10 +118,10 @@ Once the source and sink are configured, you can debug the pipeline to ensure it
 
 1. Monitor the status of the pipeline run on the **Output** tab at the bottom of the window.
 
-    ![debug-pipeline.png](../../assets/images/microsoft-integration/azure-data-factory/debug-pipeline.png)
+    ![debug-pipeline.png]({{ "/assets/images/microsoft-integration/azure-data-factory/debug-pipeline.png" | relative_url }})
 
 ## Validate result in CluedIn
 
 Once the ADF pipeline is triggered successfully, you should see the data flowing into CluedIn. You can view the incoming records on the **Preview** tab of the data set.
 
-![after-debug.png](../../assets/images/microsoft-integration/azure-data-factory/after-debug.png)
+![after-debug.png]({{ "/assets/images/microsoft-integration/azure-data-factory/after-debug.png" | relative_url }})

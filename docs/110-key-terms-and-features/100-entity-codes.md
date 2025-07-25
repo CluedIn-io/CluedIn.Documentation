@@ -18,11 +18,11 @@ An **identifier** (previously known as **code**) is a mechanism that CluedIn use
 
 Let’s explore the concept of identifiers in CluedIn through an example. We have a golden record—John Smith—that originates from the HR system. One of the identifiers for this golden record is created using the ID. Now, a new record from the CRM system appears in CluedIn, and one of its identifiers matches the code of the golden record from the HR system. As a result, the new CRM record is merged with the existing HR record, integrating any new properties from the CRM record into the existing golden record.
 
-![codes-merge-1.gif](../../assets/images/key-terms-and-features/codes-merge-1.gif)
+![codes-merge-1.gif]({{ "/assets/images/key-terms-and-features/codes-merge-1.gif" | relative_url }})
 
 To find all the identifiers that uniquely represent a golden record in the system, go to the golden record page, and select **View Identifiers**.
 
-![codes-1.gif](../../assets/images/key-terms-and-features/codes-1.gif)
+![codes-1.gif]({{ "/assets/images/key-terms-and-features/codes-1.gif" | relative_url }})
 
 The identifiers are divided into two sections:
 
@@ -36,11 +36,11 @@ For more information, see the **Identifiers** section in our [Review mapping](/i
 
 A primary identifier (previously knows as entity origin code) is a **primary unique identifier** of a record in CluedIn. The required details for producing the primary identifier are established when the mapping for a data set is created. To find these details, go to the **Map** tab of the data set and select **Edit mapping**. On the **Map entity** tab, you'll find the **Primary Identifier** section, which contains the required details for producing the primary identifier.
 
-![codes-2.png](../../assets/images/key-terms-and-features/codes-2.png)
+![codes-2.png]({{ "/assets/images/key-terms-and-features/codes-2.png" | relative_url }})
 
 The primary identifier is made up from the [business domain](/key-terms-and-features/entity-type) (1), the [origin](/key-terms-and-features/origin) (2), and the value of the property that was selected for producing the primary identifier (3). This combination allows achieving absolute uniqueness across any data source that you interact with. 
 
-![codes-3.png](../../assets/images/key-terms-and-features/codes-3.png)
+![codes-3.png]({{ "/assets/images/key-terms-and-features/codes-3.png" | relative_url }})
 
 There might be cases when the property for producing the primary identifier is empty or you don't have any property suitable for defining uniqueness. In the following sections, we'll explore different ways for defining uniqueness.
 
@@ -174,7 +174,7 @@ If this is your case, the only way is to fix the issue on the source level. You 
 
 In addition to primary identifier, identifiers (previously known as entity codes) can uniquely represents a record in CluedIn. The required details for producing the identifiers are established when the mapping for a data set is created. To find these details, go to the **Map** tab of the data set and select **Edit mapping**. On the **Map entity** tab, you'll find the **Identifiers** section, which contains the required details for producing the identifiers.
 
-![codes-4.png](../../assets/images/key-terms-and-features/codes-4.png)
+![codes-4.png]({{ "/assets/images/key-terms-and-features/codes-4.png" | relative_url }})
 
 If a data set contains additional columns that can serve as unique identifiers besides the ones used for producing the primary identifier, then these columns can also be used to produce additional identifiers. For example, if the primary identifier is produced using the ID, then the additional identifier could be produced using the email. The identifiers are made up from the [business domain](/key-terms-and-features/entity-type), [origin](/key-terms-and-features/origin), and the value from the column that was selected for producing the identifiers.
 

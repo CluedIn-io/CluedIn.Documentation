@@ -41,7 +41,7 @@ The enricher requires at least one of the following attributes for searching the
 
 1. On the **Choose Enricher** tab, select **Brreg**, and then select **Next**.
 
-    ![brreg-enricher-1.png](../../assets/images/preparation/enricher/brreg-enricher-1.png)
+    ![brreg-enricher-1.png]({{ "/assets/images/preparation/enricher/brreg-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -51,13 +51,13 @@ The enricher requires at least one of the following attributes for searching the
 
     1. **Country Code Vocabulary Key** – enter the vocabulary key that contains the country codes of companies that will be used for searching the Brreg register.
 
-        ![brreg-enricher-config-1.png](../../assets/images/preparation/enricher/brreg-enricher-config-1.png)
+        ![brreg-enricher-config-1.png]({{ "/assets/images/preparation/enricher/brreg-enricher-config-1.png" | relative_url }})
 
     1. **Website Vocabulary Key** – enter the vocabulary key that contains the websites of companies that will be used for searching the Brreg register.
 
     1. **Brreg Code Vocabulary Key** – enter the vocabulary key that contains the Brreg codes of companies that will be used for searching the Brreg register.
 
-        ![brreg-enricher-config-2.png](../../assets/images/preparation/enricher/brreg-enricher-config-2.png)
+        ![brreg-enricher-config-2.png]({{ "/assets/images/preparation/enricher/brreg-enricher-config-2.png" | relative_url }})
 
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
@@ -73,11 +73,11 @@ After the Brreg enricher is added, you can modify its details:
 
 To quickly find the properties added to golden records from the Brreg enricher, use the integrations filter on the **Properties** page.
 
-![brreg-enricher-3.png](../../assets/images/preparation/enricher/brreg-enricher-3.png)
+![brreg-enricher-3.png]({{ "/assets/images/preparation/enricher/brreg-enricher-3.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the Brreg enricher, check the corresponding data part on the **History** page.
 
-![brreg-enricher-5.png](../../assets/images/preparation/enricher/brreg-enricher-5.png)
+![brreg-enricher-5.png]({{ "/assets/images/preparation/enricher/brreg-enricher-5.png" | relative_url }})
 
 The following table lists the properties that can be added to golden records by the Brreg enricher.
 

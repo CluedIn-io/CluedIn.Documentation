@@ -26,7 +26,7 @@ The REST API enricher requires the URL of an external endpoint to retrieve data.
 
 1. On the **Choose Enricher** tab, select **REST API**, and then select **Next**.
 
-    ![rest-api-enricher-1.png](../../assets/images/preparation/enricher/rest-api-enricher-1.png)
+    ![rest-api-enricher-1.png]({{ "/assets/images/preparation/enricher/rest-api-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -46,7 +46,7 @@ The REST API enricher requires the URL of an external endpoint to retrieve data.
     
         - `{Vocabulary:vocabularykey}` – this placeholder will be replaced with the value of the specified vocabulary key from the golden record. For example, if the URL contains `{Vocabulary:trainingcontact.country}` and the golden record contains `"trainingcontact.country": "Norway"`, the placeholder will be replaced with `Norway`.
 
-        ![rest-api-enricher-2.png](../../assets/images/preparation/enricher/rest-api-enricher-2.png)
+        ![rest-api-enricher-2.png]({{ "/assets/images/preparation/enricher/rest-api-enricher-2.png" | relative_url }})
 
     1. **API Key** – enter the API key required to authenticate with the endpoint, if applicable. Provide this only if the API requires a key for access.
 
@@ -72,11 +72,11 @@ After the REST API enricher is added, you can modify its details:
 
 You can find the properties added to golden records from the REST API enricher on the **Properties** page. The vocabulary keys added to golden records by the REST API enricher are grouped under **No Source** source type.
 
-![rest-api-enricher-3.png](../../assets/images/preparation/enricher/rest-api-enricher-3.png)
+![rest-api-enricher-3.png]({{ "/assets/images/preparation/enricher/rest-api-enricher-3.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the REST API enricher, check the corresponding data part on the **History** page.
 
-![rest-api-enricher-4.png](../../assets/images/preparation/enricher/rest-api-enricher-4.png)
+![rest-api-enricher-4.png]({{ "/assets/images/preparation/enricher/rest-api-enricher-4.png" | relative_url }})
 
 ## Sample scripts
 

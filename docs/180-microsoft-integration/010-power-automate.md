@@ -14,17 +14,17 @@ Power Automate can be integrated with CluedIn to **capture important events** in
 
 The following image is example of approval request in Outlook.
 
-![approval-outlook.png](../../assets/images/microsoft-integration/power-automate/approval-outlook.png)
+![approval-outlook.png]({{ "/assets/images/microsoft-integration/power-automate/approval-outlook.png" | relative_url }})
 
 The following image shows an approval request in the Approvals app in Teams.
 
-![approvals-teams.png](../../assets/images/microsoft-integration/power-automate/approvals-teams.png)
+![approvals-teams.png]({{ "/assets/images/microsoft-integration/power-automate/approvals-teams.png" | relative_url }})
 
 Power Automate can be connected with CluedIn with the help of our **CluedIn custom connector**. This custom connector enables you to create workflows in the Power Automate widget in CluedIn. This means that even though you create workflows in CluedIn, technically they are created in Power Automate.
 
 The following screenshot shows an example of a workflow that is created in the Power Automate widget in CluedIn. The first and third actions of the workflow are provided by the CluedIn custom connector. The second action comes from the Approval connector, which is a standard Power Automate connector. Once you create a workflow in CluedIn, you do not have to configure these actions because they are automatically configured for you.
 
-![create-workflow.png](../../assets/images/microsoft-integration/power-automate/create-workflow.png)
+![create-workflow.png]({{ "/assets/images/microsoft-integration/power-automate/create-workflow.png" | relative_url }})
 
 The CluedIn custom connector has predefined triggers that correspond to specific events in CluedIn. To install the CluedIn custom connector, you need to complete our [Power Automate pre-configuration guide](/microsoft-integration/power-automate/pre-configuration-guide) and [Power Automate configuration guide](/microsoft-integration/power-automate/configuration-guide).
 
@@ -33,6 +33,6 @@ The CluedIn custom connector is an underlying element of the integration between
 
 The CluedIn custom connector and its connector references are **stored in a Dataverse table** within a dedicated Power Platform environment. Therefore, it is essential to have a dedicated environment with Dataverse as the data store. Without Dataverse, there is no location to store the CluedIn custom connector, and the workflows will not function.
 
-![power-automate-diagram.png](../../assets/images/microsoft-integration/power-automate/power-automate-diagram.png)
+![power-automate-diagram.png]({{ "/assets/images/microsoft-integration/power-automate/power-automate-diagram.png" | relative_url }})
 
 To use workflows in CluedIn, start from the [Power Automate pre-configuration guide](/microsoft-integration/power-automate/pre-configuration-guide).

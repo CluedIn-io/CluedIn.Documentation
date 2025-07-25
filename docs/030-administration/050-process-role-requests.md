@@ -12,11 +12,11 @@ In this article, you will learn how to process the role requests you receive fro
 
 When users are browsing CluedIn and find that they do not have access to certain sections or modules, they can send a request to get access. When this happens, you'll receive a new role request notification.
 
-![role-request-2.png](../../assets/images/administration/roles/role-request-2.png)
+![role-request-2.png]({{ "/assets/images/administration/roles/role-request-2.png" | relative_url }})
 
 The following diagram shows the flow of processing role requests.
 
-![role-request-diagram.gif](../../assets/images/administration/roles/role-request-diagram.gif)
+![role-request-diagram.gif]({{ "/assets/images/administration/roles/role-request-diagram.gif" | relative_url }})
 
 **To process a role request**
 
@@ -36,7 +36,7 @@ The following diagram shows the flow of processing role requests.
 
     1. Select a role to assign to the user.
 
-        ![role-request-1.png](../../assets/images/administration/roles/role-request-1.png)
+        ![role-request-1.png]({{ "/assets/images/administration/roles/role-request-1.png" | relative_url }})
 
     1. In the lower-right corner, select **Grant Access**.
 

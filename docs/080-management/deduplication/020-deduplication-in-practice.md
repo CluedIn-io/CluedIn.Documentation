@@ -17,7 +17,7 @@ Let's start with the video, which shows a real-life scenario for deduplicating 1
 
 To enhance the efficiency of your deduplication project and to be able to smoothly revert merges, we recommend that you follow these guidelines.
 
-![dedup-checklist.gif](../../assets/images/management/deduplication/dedup-checklist.gif)
+![dedup-checklist.gif]({{ "/assets/images/management/deduplication/dedup-checklist.gif" | relative_url }})
 
 When you need to run a deduplication project on a large set of data, we recommend that you **start small** and limit the size of data. This approach allows you to to verify the accuracy and efficiency of your matching rules before applying them to the entire data set. If the deduplication result doesn't meet your expectations, you can easily and quickly revert changes and start again.
 

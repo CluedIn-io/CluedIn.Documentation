@@ -13,7 +13,7 @@ In this section, you will learn how to get your data from external sources into 
 
 All data you ingest into CluedIn is stored in **Integrations** > **Data Sources**. One of the main purposes of the **Data Sources** module is to provide you with the tools to create a semantic layer for your data so that CluedIn can understand it.
 
-![integrations-1.gif](../../assets/images/integration/integrations-1.gif)
+![integrations-1.gif]({{ "/assets/images/integration/integrations-1.gif" | relative_url }})
 
 Each step is explained in detail in a separate article in this section:
 

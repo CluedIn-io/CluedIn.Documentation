@@ -34,11 +34,11 @@ When you need to push a large set of records into CluedIn, we recommend that you
 
 After you send an HTTP POST request, CluedIn checks if it is correct based on the built-in logic and limitations. If your JSON is completely invalid, CluedIn won't start ingesting the data, and you'll receive a response with the status "400 Bad Request". The response body will include an array of errors that provide context for fixing them. Once you correct the request, you can try sending it again.
 
-![endpoint-error.png](../../assets/images/integration/data-sources/endpoint-error.png)
+![endpoint-error.png]({{ "/assets/images/integration/data-sources/endpoint-error.png" | relative_url }})
 
 If your JSON contains issues, such as spaces or dots in property names, CluedIn tries to fix them and store the data. These issues are treated as warnings and they are recorded on the **Logs** tab of the data set. You'll receive a response with the status "200 OK", which means that the data has been successfully sent to CluedIn. However, the response body will include an array of warnings explaining how the issues were fixed. 
 
-![endpoint-warning.png](../../assets/images/integration/data-sources/endpoint-warning.png)
+![endpoint-warning.png]({{ "/assets/images/integration/data-sources/endpoint-warning.png" | relative_url }})
 
 Once CluedIn receives the data, it initially stores it in a temporary storage, accessible through the **Preview** tab. To turn the received data into golden records, you need to map it to the semantic model and then process it.
 
@@ -91,7 +91,7 @@ An ingestion endpoint is a channel through which CluedIn can receive data from e
 
     The ingestion endpoint is added to CluedIn. It has a label **No data sent**, which indicates that CluedIn has not received data for this ingestion endpoint.
 
-    ![ingest-data-1.png](../../assets/images/integration/data-sources/ingest-data-1.png)
+    ![ingest-data-1.png]({{ "/assets/images/integration/data-sources/ingest-data-1.png" | relative_url }})
 
     Now, you can send data to CluedIn by creating HTTP POST requests.
 
@@ -105,15 +105,15 @@ To be accepted by CluedIn, your HTTP POST request should meet the following prer
 
 - The request's header must contain Authorization key with the value set to `Bearer <Your API token>`. It is very important to include the word _Bearer_ followed by a space before pasting the API token. You can find the API token in CluedIn in **Administration** > **API Tokens**.
 
-    ![ingest-data-6.png](../../assets/images/integration/data-sources/ingest-data-6.png)
+    ![ingest-data-6.png]({{ "/assets/images/integration/data-sources/ingest-data-6.png" | relative_url }})
 
 - The request's body should contain **raw data in JSON format**.
 
-    ![ingest-data-2.png](../../assets/images/integration/data-sources/ingest-data-2.png)
+    ![ingest-data-2.png]({{ "/assets/images/integration/data-sources/ingest-data-2.png" | relative_url }})
 
 - The **content-type** in the request's header should be set to **application/json**.
 
-    ![ingest-data-3.png](../../assets/images/integration/data-sources/ingest-data-3.png)
+    ![ingest-data-3.png]({{ "/assets/images/integration/data-sources/ingest-data-3.png" | relative_url }})
  
 **To send data to CluedIn**
 
@@ -121,7 +121,7 @@ To be accepted by CluedIn, your HTTP POST request should meet the following prer
 
     On the **Ingestion endpoint instructions** pane, find and copy the POST URL that you can use to send data to CluedIn.
 
-    ![ingest-data-4.png](../../assets/images/integration/data-sources/ingest-data-4.png)
+    ![ingest-data-4.png]({{ "/assets/images/integration/data-sources/ingest-data-4.png" | relative_url }})
 
 1. In Postman, paste the URL that you copied to the URL input field of your request. Then, send the request.
 

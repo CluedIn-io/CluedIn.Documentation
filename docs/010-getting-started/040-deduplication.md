@@ -39,7 +39,7 @@ As a first step, you need to create a deduplication project that allows you to c
 
     1. Select the business domain that you want to use as a filter for all records.
 
-        ![dedup-2.png](../../assets/images/getting-started/deduplication/dedup-2.png)
+        ![dedup-2.png]({{ "/assets/images/getting-started/deduplication/dedup-2.png" | relative_url }})
 
     1. In the lower-right corner, select **Create**.
 
@@ -57,7 +57,7 @@ When creating a matching rule, you need to specify certain criteria. CluedIn use
 
 1. On the **Matching Rule Name** tab, enter the name of the matching rule, and then select **Next**.
 
-    ![dedup-4.png](../../assets/images/getting-started/deduplication/dedup-4.png)
+    ![dedup-4.png]({{ "/assets/images/getting-started/deduplication/dedup-4.png" | relative_url }})
 
 1. On the **Matching Criteria** tab, do the following:
 
@@ -67,13 +67,13 @@ When creating a matching rule, you need to specify certain criteria. CluedIn use
 
     1. In the **Matching Function** dropdown list, select the method for detecting duplicates.
 
-        ![dedup-5.png](../../assets/images/getting-started/deduplication/dedup-5.png)
+        ![dedup-5.png]({{ "/assets/images/getting-started/deduplication/dedup-5.png" | relative_url }})
     
     1. In the lower-right corner, select **Next**.
 
 1. On the **Preview** tab, review the defined matching criteria.
 
-    ![dedup-6.png](../../assets/images/getting-started/deduplication/dedup-6.png)
+    ![dedup-6.png]({{ "/assets/images/getting-started/deduplication/dedup-6.png" | relative_url }})
 
     If you want to add more matching criteria to the rule, select **Add Matching Criteria**.
 
@@ -85,7 +85,7 @@ When creating a matching rule, you need to specify certain criteria. CluedIn use
 
     The process of generating results may take some time. After the process is completed, you will receive a notification. If duplicates are detected, the results will be displayed on the page. The results are organized into groups containing records that match your criteria. For example, on the following screenshot, the group consists of two duplicates. The name of the group corresponds to the value of the vocabulary key from the matching rule. 
 
-    ![dedup-8.png](../../assets/images/getting-started/deduplication/dedup-8.png)
+    ![dedup-8.png]({{ "/assets/images/getting-started/deduplication/dedup-8.png" | relative_url }})
 
     Now, you can proceed to fix the duplicates.
 
@@ -101,19 +101,19 @@ The process of fixing duplicates involves reviewing the values from duplicate re
 
 1. In the **Conflicting** section, select the values that you want to merge into the deduplicated record.
 
-    ![dedup-9.png](../../assets/images/getting-started/deduplication/dedup-9.png)
+    ![dedup-9.png]({{ "/assets/images/getting-started/deduplication/dedup-9.png" | relative_url }})
 
 1. In the upper-right corner of the page, select **Next**.
 
     The **Preview Merge** tab opens. Here, you can view the values that will be merged into the deduplicated record.
 
-    ![dedup-10.png](../../assets/images/getting-started/deduplication/dedup-10.png)
+    ![dedup-10.png]({{ "/assets/images/getting-started/deduplication/dedup-10.png" | relative_url }})
 
 1. In the upper-right corner of the page, select **Approve**. Then, confirm that you want to approve your selection of values for the group.
 
 1. Select the checkbox next to the group name. Then, select **Merge**.
 
-    ![dedup-11.png](../../assets/images/getting-started/deduplication/dedup-11.png)
+    ![dedup-11.png]({{ "/assets/images/getting-started/deduplication/dedup-11.png" | relative_url }})
 
 1. Confirm that you want to merge the records from the group:
 
@@ -121,7 +121,7 @@ The process of fixing duplicates involves reviewing the values from duplicate re
 
     1. Select an option to handle the data merging process if more recent data becomes available for the golden record. Then, select **Confirm**.
 
-        ![dedup-12.png](../../assets/images/getting-started/deduplication/dedup-12.png)
+        ![dedup-12.png]({{ "/assets/images/getting-started/deduplication/dedup-12.png" | relative_url }})
 
     The process of merging data may take some time. After the process is completed, you will receive a notification. As a result, the duplicate records have been merged into one record.
 

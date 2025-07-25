@@ -28,7 +28,7 @@ CluedIn has many built-in extension packages. To learn more, reach out to your C
 
 The following image presents an overview of the steps involved in adding SQL Server Connector to CluedIn.
 
-![local-sql-server-connector.gif](../../assets/images/deployment/local-sql-server-connector.gif)
+![local-sql-server-connector.gif]({{ "/assets/images/deployment/local-sql-server-connector.gif" | relative_url }})
 
 In the procedure, we'll use the following input variables:
 
@@ -46,7 +46,7 @@ In the procedure, we'll use the following input variables:
 
     You will get an output similar to the following.    
  
-    ![add-package.png](../../assets/images/local-install/add-package.png)
+    ![add-package.png]({{ "/assets/images/local-install/add-package.png" | relative_url }})
 
     {:.important}
     You can also specify a version for your package (`-version`) and use floating versions (for example, `1.0.0-*`) for the latest pre-release.
@@ -59,7 +59,7 @@ In the procedure, we'll use the following input variables:
 
     You will get an output similar to the following.
 
-    ![restore-package.png](../../assets/images/local-install/restore-package.png)
+    ![restore-package.png]({{ "/assets/images/local-install/restore-package.png" | relative_url }})
 
 1. Stop the CluedIn server by running the following command:
 
@@ -69,7 +69,7 @@ In the procedure, we'll use the following input variables:
 
     You will get an output similar to the following.
 
-    ![stop-cluedin-server.png](../../assets/images/local-install/stop-cluedin-server.png)
+    ![stop-cluedin-server.png]({{ "/assets/images/local-install/stop-cluedin-server.png" | relative_url }})
 
 1. Start the CluedIn server by running the following command:
 
@@ -79,18 +79,18 @@ In the procedure, we'll use the following input variables:
 
     You will get an output similar to the following.
 
-    ![start-cluedin-server.png](../../assets/images/local-install/start-cluedin-server.png)
+    ![start-cluedin-server.png]({{ "/assets/images/local-install/start-cluedin-server.png" | relative_url }})
 
     {:.important}
     Starting the CluedIn server takes some time. When CluedIn starts up, it takes all extension assets from the disk and copies them into the container.
 
 1.  After you start CluedIn, make sure the package was included. In Docker Desktop, select the CluedIn server and look for the similar section in logs.
 
-    ![sql-connector-logs.png](../../assets/images/local-install/sql-connector-logs.png)
+    ![sql-connector-logs.png]({{ "/assets/images/local-install/sql-connector-logs.png" | relative_url }})
 
 1. In browser, open the CluedIn application and check if the SQL Connector is there. To do that, go to **Consume** > **Export Targets** > **Add Export Target**.
 
-    ![sql-connector-app.png](../../assets/images/local-install/sql-connector-app.png)
+    ![sql-connector-app.png]({{ "/assets/images/local-install/sql-connector-app.png" | relative_url }})
 
     {:.important}
     The SQL Server Connector may take a few minutes to appear in the application.

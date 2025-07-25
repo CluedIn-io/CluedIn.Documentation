@@ -20,7 +20,7 @@ In this article, you will learn how to sync CluedIn streams to Purview assets.
     
 1. Turn on the toggle in **Sync CluedIn Streams**.
 
-    ![sync-streams.png](../../assets/images/microsoft-integration/purview/sync-streams.png)
+    ![sync-streams.png]({{ "/assets/images/microsoft-integration/purview/sync-streams.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -30,7 +30,7 @@ In this article, you will learn how to sync CluedIn streams to Purview assets.
 
 Once you enable synchronization of deduplication projects to Purview, you will receive a notification when the project is synced.
 
-![sync-streams-notification.png](../../assets/images/microsoft-integration/purview/sync-streams-notification.png)
+![sync-streams-notification.png]({{ "/assets/images/microsoft-integration/purview/sync-streams-notification.png" | relative_url }})
 
 **To find the asset in Purview**
 
@@ -46,4 +46,4 @@ Once you enable synchronization of deduplication projects to Purview, you will r
 
     The following screenshot shows the application of a stream within the CluedIn processing pipeline. The stream is executed on processed entities.
 
-    ![sync-streams-lineage.png](../../assets/images/microsoft-integration/purview/sync-streams-lineage.png)
+    ![sync-streams-lineage.png]({{ "/assets/images/microsoft-integration/purview/sync-streams-lineage.png" | relative_url }})

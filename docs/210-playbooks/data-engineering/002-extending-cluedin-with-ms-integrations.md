@@ -20,7 +20,7 @@ In this article, you will find an overview of various Microsoft integrations, en
 
 The **most common use case** of Power Platform integration involves using a Power Apps form for data input and a Power Automate workflow for approving the data input. Once the input is approved, it is written to the Dataverse table. The Dataverse table is then synchronized with CluedIn and the updated data is sent to the ingestion endpoint. Once the data is in CluedIn, it undergoes processing and becomes a data part of an existing [golden record](/key-terms-and-features/golden-records), which is then sent to the Dataverse export target by stream.
 
-![ms-integration-power-platform.png](../../assets/images/playbooks/ms-integration-power-platform.png)
+![ms-integration-power-platform.png]({{ "/assets/images/playbooks/ms-integration-power-platform.png" | relative_url }})
 
 The above use case is specific for data changes in the source system. In addition to this, CluedIn offers in-app [Workflow](/workflow) module for streamlining and tracking approvals and notifications for specific activities happening in CluedIn. For example, you can set up a workflow to notify the owners of a vocabulary key when other users make changes. The owners will receive an approval request in Outlook or the Approvals app in Teams, where they can approve or reject the changes. The changes will be applied only if at least one of the owners approves them.
 
@@ -32,7 +32,7 @@ To sum up, if you want to implement a process for approving and syncing data ent
 
 With Purview integration, CluedIn can take the assets from Purview and turn them into ready-for-insight data, which is then exported to the needed target system. What is more, you can configure synchronization between Purview glossaries and CluedIn vocabularies. Once the data is exported, Purview can scan it to automatically pick up on the mastered data coming out of CluedIn.
 
-![ms-integration-purview.png](../../assets/images/playbooks/ms-integration-purview.png)
+![ms-integration-purview.png]({{ "/assets/images/playbooks/ms-integration-purview.png" | relative_url }})
 
 For more information about Purview integration, see:
 
@@ -52,7 +52,7 @@ For more information about Copilot skills in CluedIn, see Work with [Copilot int
 
 [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/) is an end-to-end analytics and data platform designed for enterprises that require a unified solution. It encompasses data movement, processing, ingestion, transformation, real-time event routing, and report building. By integrating Fabric with CluedIn, you can achieve seamless data integration, enhanced data quality, and robust data management capabilities. In addition to this, CluedIn offers [OneLake connector](/consume/export-targets/onelake-connector) to export golden records to the centralized storage in OneLake.
 
-![ms-integration-fabric.png](../../assets/images/playbooks/ms-integration-fabric.png)
+![ms-integration-fabric.png]({{ "/assets/images/playbooks/ms-integration-fabric.png" | relative_url }})
  
 {:.important}
 If you use Fabric, Databricks, Snowflake, Synapse, or any other Python-based data platform, you can easily integrate with CluedIn using Python SDK as described in our instructions [here](/microsoft-integration/fabric).
@@ -67,7 +67,7 @@ In addition to this, CluedIn offers the [Azure Event Hub connector](/consume/exp
 
 [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/) is Azure's cloud ETL service for data integration and data transformation. With over 90 [built-in connectors](https://learn.microsoft.com/en-us/azure/data-factory/connector-overview), Azure Data Factory enables you to acquire data from a wide range of sources such as relational databases, big data and NoSQL systems, data lakes and storages, and many more. By integrating Azure Data Factory with CluedIn, you can build automated data flows and leverage CluedIn’s core capabilities in data quality and enrichment to ensure that the data is clean, reliable, and ready for insights.
 
-![ms-integration-adf.png](../../assets/images/playbooks/ms-integration-adf.png)
+![ms-integration-adf.png]({{ "/assets/images/playbooks/ms-integration-adf.png" | relative_url }})
 
 For more information, see:
 

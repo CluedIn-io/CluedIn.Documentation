@@ -10,7 +10,7 @@ tags: ["management","hierarchies", "hierarchy builder"]
 
 Hierarchy Builder helps you organize, visualize, and manage relations between golden records within and across different business domains.
 
-![hierarchy_builder.gif](../../assets/images/management/hierarchy-builder/hierarchy_builder.gif)
+![hierarchy_builder.gif]({{ "/assets/images/management/hierarchy-builder/hierarchy_builder.gif" | relative_url }})
 
 This section covers the following topics:
 

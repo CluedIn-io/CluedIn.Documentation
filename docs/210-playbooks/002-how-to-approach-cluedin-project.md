@@ -16,13 +16,13 @@ title: How to approach your CluedIn project
 
 This article outlines two fundamental steps for approaching any data project in CluedIn. Following these steps will help you achieve attainable value right from the start.
 
-![how-to-approach-your-cluedin-project.png](../../assets/images/playbooks/how-to-approach-your-cluedin-project.png)
+![how-to-approach-your-cluedin-project.png]({{ "/assets/images/playbooks/how-to-approach-your-cluedin-project.png" | relative_url }})| relative_url }})
 
 ## Start small
 
 Regardless of your use case, we always recommend starting your data project in CluedIn with a limited number of records from one or several data sources. By experiencing **full CluedIn cycle**—ingest, clean, deduplicate, and stream—on a small scale first, you can thoroughly understand the process before scaling up in terms of records and sources.
 
-![start-small.png](../../assets/images/playbooks/start-small.png)
+![start-small.png]({{ "/assets/images/playbooks/start-small.png" | relative_url }})| relative_url }})
 
 Here are the key benefits of starting small:
 
@@ -48,7 +48,7 @@ While CluedIn simplifies MDM processes, handling a vast amount of data from the 
 
 Approaching a data project with the traditional Waterfall methodology can be rigid and slow. Initially, you would ingest data from all your data sources. Next, you would clean the data. Only after that would you perform deduplication activities. At any stage, there’s a significant risk of errors due to the large volume of data.
 
-![waterfall.png](../../assets/images/playbooks/waterfall.png)
+![waterfall.png]({{ "/assets/images/playbooks/waterfall.png" | relative_url }})| relative_url }})
 
 Let's say you have 10 sources, each with 1,000,000 records, and you ingest data from all of them before any cleaning or deduplication activities. This whole process could take months, annoy your IT team, and you would not have improved the quality of your data at all.
 
@@ -71,6 +71,6 @@ You can start with as little as 10 records and achieve the value immediately. Wi
 
 Once you have successfully ingested, cleaned, deduplicated, and streamed a small dataset of 10 records, you can scale up and apply the same process to a larger set of 10,000 records. The more exercises you do, the deeper your understanding of data will become. If you make a mistake at any step, you can always revert your work and try again until you achieve the desired outcome. This **iterative process** ensures that you add value to your data and enhance your knowledge of CluedIn.
 
-![ebmrace-agile-revert.png](../../assets/images/playbooks/ebmrace-agile-revert.png)
+![ebmrace-agile-revert.png]({{ "/assets/images/playbooks/ebmrace-agile-revert.png" | relative_url }})| relative_url }})
 
 Our experience with data projects has shown that initial perceptions of data quality often differ from reality. This is a common and manageable challenge, and we are here to help you enhance your data quality and reveal its potential.

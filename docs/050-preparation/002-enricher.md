@@ -11,7 +11,7 @@ Enrichers allow you to enhance and improve the quality and completeness of your 
 
 The following diagram shows the basic steps of enriching the data in CluedIn.
 
-![enricher-intro.gif](../../assets/images/preparation/enricher/enricher-intro.gif)
+![enricher-intro.gif]({{ "/assets/images/preparation/enricher/enricher-intro.gif" | relative_url }})
 
 This section covers the following areas:
 

@@ -22,7 +22,7 @@ This article outlines how to configure the SQL Server connector to publish data 
 
 1. On the **Choose Target** tab, select **SQL Server Connector**. Then, select **Next**.
 
-    ![sql-server-connector-choose-target.png](../../assets/images/consume/export-targets/sql-server-connector-choose-target.png)
+    ![sql-server-connector-choose-target.png]({{ "/assets/images/consume/export-targets/sql-server-connector-choose-target.png" | relative_url }})
 
 1. On the **Configure** tab, enter the connection details:
 
@@ -44,7 +44,7 @@ This article outlines how to configure the SQL Server connector to publish data 
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-    ![sql-server-connector-configure.png](../../assets/images/consume/export-targets/sql-server-connector-configure.png)
+    ![sql-server-connector-configure.png]({{ "/assets/images/consume/export-targets/sql-server-connector-configure.png" | relative_url }})
 
     Now, you can select the SQL Server connector in a stream and start exporting golden records.
 

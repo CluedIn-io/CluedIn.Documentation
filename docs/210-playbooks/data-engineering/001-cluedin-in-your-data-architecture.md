@@ -17,7 +17,7 @@ In this article, we'll explain the global way CluedIn fits into your organizatio
 
 To begin with, CluedIn can connect with a variety of different systems and services, both to receive source data and to export golden records. The following diagram illustrates the most common source systems that can send data to CluedIn's ingestion endpoints and the most common export systems that can receive golden records from CluedIn.
 
-![high-level-architecture.png](../../assets/images/playbooks/high-level-architecture.png)
+![high-level-architecture.png]({{ "/assets/images/playbooks/high-level-architecture.png" | relative_url }})
 
 The most common source systems include:
 
@@ -62,13 +62,13 @@ These elements will be illustrated further down when we look at the use cases fo
 
 Microsoft Fabric can read data from data storages with the help of notebooks and send that data into CluedIn. Also, Fabric can read data from CluedIn and send it to data storages.
 
-![fabric-use-case.png](../../assets/images/playbooks/fabric-use-case.png)
+![fabric-use-case.png]({{ "/assets/images/playbooks/fabric-use-case.png" | relative_url }})
 
 ## Databricks use case
 
 Databricks can read data from data storages with the help of notebooks and send that data into CluedIn. Also, Databricks can read data from CluedIn and send it to data storages.
 
-![databricks-use-case.png](../../assets/images/playbooks/databricks-use-case.png)
+![databricks-use-case.png]({{ "/assets/images/playbooks/databricks-use-case.png" | relative_url }})
 
 ## Azure Data Factory use case
 
@@ -76,10 +76,10 @@ Azure Data Factory can operate as a standalone product, being a source system fo
 
 Azure Data Factory can read data from data storages and send that data into CluedIn. Also, Azure Data Factory can read data from CluedIn and send it to data storages.
 
-![adf-use-case.png](../../assets/images/playbooks/adf-use-case.png)
+![adf-use-case.png]({{ "/assets/images/playbooks/adf-use-case.png" | relative_url }})
 
 ## Synapse use case
 
 Azure Synapse Analytics can read data from data storages with the help of Spark and SQL Pool and send that data to CluedIn.
 
-![synapse-use-case.png](../../assets/images/playbooks/synapse-use-case.png)
+![synapse-use-case.png]({{ "/assets/images/playbooks/synapse-use-case.png" | relative_url }})

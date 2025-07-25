@@ -14,7 +14,7 @@ published: false
 
 To set up the workflows feature in CluedIn, you need to fulfill several prerequisites in both Azure and CluedIn.
 
-![prerequisites.gif](../../assets/images/workflow/prerequisites.gif)
+![prerequisites.gif]({{ "/assets/images/workflow/prerequisites.gif" | relative_url }})
 
 {:.important}
 Before configuring workflows, ensure that you have added the specific URLs to your Azure Firewall as described [here](/deployment/infra-how-tos/configure-firewall#power-automate).
@@ -25,7 +25,7 @@ You need to prepare the following user accounts:
 
 - A new user in Microsoft Entra ID for handling Power Automate workflows. For more information on how to create a new user, see [Microsoft documentation](https://learn.microsoft.com/en-us/entra/fundamentals/how-to-create-delete-users#create-a-new-user).
 
-    ![workflow-user.png](../../assets/images/workflow/workflow-user.png)
+    ![workflow-user.png]({{ "/assets/images/workflow/workflow-user.png" | relative_url }})
 
     This user must have the following licenses:
 
@@ -35,17 +35,17 @@ You need to prepare the following user accounts:
 
     - Microsoft Power Automate Free
 
-    ![licenses.png](../../assets/images/workflow/licenses.png)
+    ![licenses.png]({{ "/assets/images/workflow/licenses.png" | relative_url }})
 
     For more information on how to add a license, see [Microsoft documentation](https://learn.microsoft.com/en-us/entra/fundamentals/license-users-groups).
 
     The user account used in workflow credentials needs to be added to the Power Apps environment list of users.
 
-    ![power-apps-env-users.png](../../assets/images/workflow/power-apps-env-users.png)
+    ![power-apps-env-users.png]({{ "/assets/images/workflow/power-apps-env-users.png" | relative_url }})
 
     Additionally, the user account needs to be given the System Administrator security role.
 
-    ![system-administrator-role.png](../../assets/images/workflow/system-administrator-role.png)
+    ![system-administrator-role.png]({{ "/assets/images/workflow/system-administrator-role.png" | relative_url }})
 
 - An SSO service principal for authenticating SSO users with permissions to accept requests from the following URIs:
 
@@ -53,15 +53,15 @@ You need to prepare the following user accounts:
 
     - _https://{cluedin-domain}_/admin/workflow/approvals
 
-    ![redirect-uris.png](../../assets/images/workflow/redirect-uris.png)
+    ![redirect-uris.png]({{ "/assets/images/workflow/redirect-uris.png" | relative_url }})
 
     In the **Implicit grant and hybrid flows** section, select both **Access tokens** and **ID tokens**.
 
-    ![implicit-grant-and-hybrid-flows.png](../../assets/images/workflow/implicit-grant-and-hybrid-flows.png)
+    ![implicit-grant-and-hybrid-flows.png]({{ "/assets/images/workflow/implicit-grant-and-hybrid-flows.png" | relative_url }})
 
     In the **Advanced settings** section, enable public client flows.
 
-    ![allow-public-client-flows.png](../../assets/images/workflow/allow-public-client-flows.png)
+    ![allow-public-client-flows.png]({{ "/assets/images/workflow/allow-public-client-flows.png" | relative_url }})
 
 - A Power Automate service principal with permissions for authenticating the Power Automate widget. You need to add the following permissions:
 
@@ -73,7 +73,7 @@ You need to prepare the following user accounts:
 
     - **Power Automate**: Flows.Manage.All and Flows.Read.All, User.
 
-    ![api-permissions.png](../../assets/images/workflow/api-permissions.png)
+    ![api-permissions.png]({{ "/assets/images/workflow/api-permissions.png" | relative_url }})
 
     For more information about API permissions, see [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-configure-app-access-web-apis).
 
@@ -86,11 +86,11 @@ To use workflows, Dataverse must be installed in the Power Automate environment.
 
 If a new environment is yet to be [created](https://admin.powerplatform.microsoft.com/environments), make sure the Dataverse option is selected.
 
-![power-automate-create-env.png](../../assets/images/workflow/power-automate-create-env.png)
+![power-automate-create-env.png]({{ "/assets/images/workflow/power-automate-create-env.png" | relative_url }})
 
 If the environment is already created, you can install Dataverse from the environment details [page](https://admin.powerplatform.microsoft.com/environments/environment/{the_environment_id}/hub).
 
-![power-automate-add-dataverse.png](../../assets/images/workflow/power-automate-add-dataverse.png)
+![power-automate-add-dataverse.png]({{ "/assets/images/workflow/power-automate-add-dataverse.png" | relative_url }})
 
 ## CluedIn prerequisites
 
@@ -98,7 +98,7 @@ To make the workflows available in CluedIn, you need to fulfill several prerequi
 
 1. Go to **Administration** > **Feature Flags**, and then enable the **Workflow Builder** feature.
 
-    ![workflow-builder-feature.png](../../assets/images/workflow/workflow-builder-feature.png)
+    ![workflow-builder-feature.png]({{ "/assets/images/workflow/workflow-builder-feature.png" | relative_url }})
 
     As a result, the **Workflows** module appears on the navigation pane.
 

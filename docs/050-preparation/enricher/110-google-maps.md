@@ -77,7 +77,7 @@ When you're configuring the Google Maps enricher for a specific business domain,
 
 1. On the **Choose Enricher** tab, select **Google Maps**, and then select **Next**.
 
-    ![google-maps-enricher-1.png](../../assets/images/preparation/enricher/google-maps-enricher-1.png)
+    ![google-maps-enricher-1.png]({{ "/assets/images/preparation/enricher/google-maps-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -87,13 +87,13 @@ When you're configuring the Google Maps enricher for a specific business domain,
 
     - **Vocabulary Key used to control whether it should be enriched** – enter the vocabulary key that indicates if the golden record should be enriched. If the value is true, then the golden record will be enriched. Otherwise, the golden record will not be enriched.
 
-        ![google-maps-enricher-config-1.png](../../assets/images/preparation/enricher/google-maps-enricher-config-1.png)    
+        ![google-maps-enricher-config-1.png]({{ "/assets/images/preparation/enricher/google-maps-enricher-config-1.png" | relative_url }})    
 
     - **Organization Name Vocabulary Key** – enter the vocabulary key that contains company names that will be used for searching the Google Maps Platform.
 
     - **Organization Address Vocabulary Key** – enter the vocabulary key that contains company addresses that will be used for searching the Google Maps Platform.
 
-        ![google-maps-enricher-config-2.png](../../assets/images/preparation/enricher/google-maps-enricher-config-2.png)    
+        ![google-maps-enricher-config-2.png]({{ "/assets/images/preparation/enricher/google-maps-enricher-config-2.png" | relative_url }})    
 
     - **Organization City Vocabulary Key** – enter the vocabulary key that contains cities that will be used for searching the Google Maps Platform.
 
@@ -129,11 +129,11 @@ After the Google Maps enricher is added, you can modify its details:
 
 You can find the properties added to golden records from the Google Maps enricher on the **Properties** page.
 
-![google-maps-enricher-4.png](../../assets/images/preparation/enricher/google-maps-enricher-4.png)
+![google-maps-enricher-4.png]({{ "/assets/images/preparation/enricher/google-maps-enricher-4.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the Google Maps enricher, check the corresponding data part on the **History** page.
 
-![google-maps-enricher-5.png](../../assets/images/preparation/enricher/google-maps-enricher-5.png)
+![google-maps-enricher-5.png]({{ "/assets/images/preparation/enricher/google-maps-enricher-5.png" | relative_url }})
 
 The following table lists the properties that can be added to golden records by the Google Maps enricher.
 

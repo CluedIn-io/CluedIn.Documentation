@@ -28,7 +28,7 @@ Depending on the cloud service offering that you choose—PaaS or SaaS—your IT
 
 With CluedIn PaaS (platform as a service), you can install and manage CluedIn in your own Azure IT infrastructure, thus ensuring that your data stays in your own environment. We'll work as **part of your team** throughout the whole PaaS CluedIn journey to ensure customer success.
 
-![paas-journey.png](../../assets/images/playbooks/paas-journey.png)
+![paas-journey.png]({{ "/assets/images/playbooks/paas-journey.png" | relative_url }})| relative_url }})
 
 For more details about PaaS installation and IT journey, see [Start your IT journey](/playbooks/start-your-it-journey).
 
@@ -38,7 +38,7 @@ With CluedIn SaaS (software as a service), you can use CluedIn on a subscription
 
 To help you achieve your goals more efficiently with guidance from our experts, consider obtaining a committed deal license and signing the Statement of Work (SOW). By doing so, we’ll work as **part of your team** throughout the entire SaaS journey, ensuring customer success.
 
-![saas-journey.png](../../assets/images/playbooks/saas-journey.png)
+![saas-journey.png]({{ "/assets/images/playbooks/saas-journey.png" | relative_url }})| relative_url }})
 
 For more details about SaaS IT journey, see [Start your IT journey](/playbooks/start-your-it-journey).
 
@@ -46,7 +46,7 @@ For more details about SaaS IT journey, see [Start your IT journey](/playbooks/s
 
 The data journey starts from the **essential requirements** workshop, where you discuss your objectives with a CluedIn expert so that we understand your use cases. The next step is the **data discovery** workshop, where you will collaborate with a CluedIn expert to discuss the data sources for your initial use case. Establishing and connecting to the data sources is the first step in the **data quality virtuous cycle**.
 
-![data-journey.png](../../assets/images/playbooks/data-journey.png)
+![data-journey.png]({{ "/assets/images/playbooks/data-journey.png" | relative_url }})| relative_url }})
 
 The data quality virtuous cycle is a concept that emphasizes the continuous improvement of data quality through an iterative process of:
 
