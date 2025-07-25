@@ -8,17 +8,17 @@ permalink: deployment
 
 <div class="card-line">
   <div class="card" href="/deployment/saas">
-    <div class="icon"><img src="/assets/icons/Saas-purple-icon.svg" alt="CluedIn SaaS"/></div>
+    <div class="icon"><img src='{{ "/assets/icons/Saas-purple-icon.svg"" | relative_url }}' alt="CluedIn SaaS"/></div>
     <div class="title">CluedIn SaaS</div>
     <div class="content">Get access to cloud-hosted platform, the easiest way to start with CluedIn</div>
   </div>
    <div class="card" href="/deployment/azure-marketplace">
-    <div class="icon"><img src="/assets/icons/PaaS-blue-icon.svg" alt="Azure Market place"/></div>
+    <div class="icon"><img src='{{ "/assets/icons/PaaS-blue-icon.svg"" | relative_url }}' alt="Azure Market place"/></div>
     <div class="title">CluedIn PaaS</div>
     <div class="content">Install CluedIn within your company’s Azure infrastructure</div>
   </div> 
   <div class="card" href="deployment/local">
-    <div class="icon"><img src="/assets/icons/Local-icon-orange.svg" alt="Installation"/></div>
+    <div class="icon"><img src='{{ "/assets/icons/Local-icon-orange.svg"" | relative_url }}' alt="Installation"/></div>
     <div class="title">Local</div>
     <div class="content">Install CluedIn locally to test its main features and write custom code</div>
   </div>

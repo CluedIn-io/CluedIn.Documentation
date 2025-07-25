@@ -19,22 +19,22 @@ In this article, we will explore how to ingest data to CluedIn Ingestion Endpoin
 
 Let's start with a simple example. We have a table named `imdb_titles` in Databricks with 601_222 rows:
 
-<img src="/assets/images/python-sdk/catalog.png" alt="Databricks catalog" />
+<img src='{{ "/assets/images/python-sdk/catalog.png" | relative_url }}' alt="Databricks catalog" />
 
 ## CluedIn
 
 We want to load this data to CluedIn. To do that, we need to create an API token in CluedIn. Go to Administration > API Tokens and create a new token:
 
-<img src="/assets/images/python-sdk/api-token.png" alt="CluedIn API token" />
+<img src='{{ "/assets/images/python-sdk/api-token.png" | relative_url }}' alt="CluedIn API token" />
 
 
 Next, create an endpoint in CluedIn. From CluedIn's main page, click "Import From Ingestion Endpoint" and create a new endpoint. You will need to enter the endpoint's name, group name, and select business domain (previouisly entity type):
 
-<img src="/assets/images/python-sdk/endpoint.png" alt="Ingestion Endpoint" />
+<img src='{{ "/assets/images/python-sdk/endpoint.png" | relative_url }}' alt="Ingestion Endpoint" />
 
 After you create the endpoint, you will find its URL in the "View Instructions" section:
 
-<img src="/assets/images/python-sdk/endpoint-instructions.png" alt="Ingestion Endpoint Instructions" />
+<img src='{{ "/assets/images/python-sdk/endpoint-instructions.png" | relative_url }}' alt="Ingestion Endpoint Instructions" />
 
 We are ready to load data to CluedIn. Now it's time to set up Databricks.
 
@@ -157,7 +157,7 @@ print(f'posted {(i + 1):_} rows')
 
 After we run the code, we shall see ten rows in CluedIn:
 
-<img src="/assets/images/python-sdk/endpoint-preview.png" alt="Ingestion Endpoint Preview" />
+<img src='{{ "/assets/images/python-sdk/endpoint-preview.png" | relative_url }}' alt="Ingestion Endpoint Preview" />
 
 Then, in the Map tab, we create an automatic mapping:
 
@@ -167,17 +167,17 @@ Then, in the Map tab, we create an automatic mapping:
 4. Type the new vocabulary name, like `imdb.title` and click "Create".
 5. Click "Create Mapping".
 
-<img src="/assets/images/python-sdk/endpoint-mapping.png" alt="Ingestion Endpoint Mapping" />
+<img src='{{ "/assets/images/python-sdk/endpoint-mapping.png" | relative_url }}' alt="Ingestion Endpoint Mapping" />
 
 6. Click "Edit Mapping".
 7. On the "Map Entity" tab, select the property used as the entity name and the property used for the origin entity code:
 
-<img src="/assets/images/python-sdk/endpoint-mapping-2.png" alt="Ingestion Endpoint Mapping" />
+<img src='{{ "/assets/images/python-sdk/endpoint-mapping-2.png" | relative_url }}' alt="Ingestion Endpoint Mapping" />
 
 8. Click "Next" and click "Finish".
 9. On the "Process" tab, enable "Auto submission" and then click "Switch to Bridge Mode":
 
-<img src="/assets/images/python-sdk/endpoint-bridge.png" alt="Ingestion Endpoint Bridge Mode" />
+<img src='{{ "/assets/images/python-sdk/endpoint-bridge.png" | relative_url }}' alt="Ingestion Endpoint Bridge Mode" />
 
 10. After you followed the instructions, you can remove or comment on these lines in the notebook and rerun it:
 

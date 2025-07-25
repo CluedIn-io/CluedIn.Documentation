@@ -23,7 +23,7 @@ Our CluedIn instance has 601_222 entities of `/IMDb/Title`.
 
 To load them in Databricks, we need to create an API token in CluedIn. Go to Administration > API Tokens and create a new token:
 
-<img src="/assets/images/python-sdk/api-token.png" alt="CluedIn API token" />
+<img src='{{ "/assets/images/python-sdk/api-token.png" | relative_url }}' alt="CluedIn API token" />
 
 ## Databricks
 
@@ -162,7 +162,7 @@ df_titles = pd.DataFrame(
 df_titles.head()
 ```
 
-<img src="/assets/images/python-sdk/noindex.png" alt="no index" />
+<img src='{{ "/assets/images/python-sdk/noindex.png" | relative_url }}' alt="no index" />
 
 One thing to fix here, let's set the DataFrame's index to Entity Id:
 
@@ -171,7 +171,7 @@ df_titles.set_index('id', inplace=True)
 df_titles.head()
 ```
 
-<img src="/assets/images/python-sdk/index.png" alt="index" />
+<img src='{{ "/assets/images/python-sdk/index.png" | relative_url }}' alt="index" />
 
 ### Explore data
 
@@ -185,7 +185,7 @@ plt.ylabel('Count')
 plt.show()
 ```
 
-<img src="/assets/images/python-sdk/genres.png" alt="genres" />
+<img src='{{ "/assets/images/python-sdk/genres.png" | relative_url }}' alt="genres" />
 
 ### Create schema
 
@@ -223,4 +223,4 @@ display(df_spark_titles)
 
 Now, we can see our data in the Catalog:
 
-<img src="/assets/images/python-sdk/catalog.png" alt="catalog" />
+<img src='{{ "/assets/images/python-sdk/catalog.png" | relative_url }}' alt="catalog" />

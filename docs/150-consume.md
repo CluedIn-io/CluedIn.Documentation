@@ -13,21 +13,22 @@ The **Consume** module allows you to set up a connection between CluedIn and ext
 
 <div class="card-line">
   <div class="card" href="/consume/export-targets">
-    <div class="icon"><img src="/assets/icons/export-target.svg" alt="getting started"/></div>
+    <div class="icon"><img src='{{ "/assets/icons/export-target.svg" | relative_url }}' alt="getting started"/></div>
     <div class="title">Export targets</div>
     <div class="content">Set up a connection to an external destination where data from CluedIn can be sent</div>
   </div>
    <div class="card" href="/consume/streams">
-    <div class="icon"><img src="/assets/icons/streams.svg" alt="getting started"/></div>
+    <div class="icon"><img src='{{ "/assets/icons/streams.svg" | relative_url }}' alt="getting started"/></div>
     <div class="title">Streams</div>
     <div class="content">Configure a sequence of actions and transformations for your data before it reaches the destination</div>
   </div>
    <div class="card" href="/consume/graphql">
-    <div class="icon"><img src="/assets/icons/graphQL.svg" alt="getting started"/></div>
+    <div class="icon"><img src='{{ "/assets/icons/graphQL.svg" | relative_url }}' alt="getting started"/></div>
     <div class="title">GraphQL</div>
     <div class="content">Query your data using the GraphQL endpoint: retrieve entities by ID, vocabulary keys, and more</div>
   </div>
 </div>
+
 
 
 <div class="videoFrame">
