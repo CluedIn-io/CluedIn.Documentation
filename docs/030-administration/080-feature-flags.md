@@ -8,11 +8,11 @@ nav_order: 40
 
 In this article, you will learn about the features in CluedIn that you can turn on or off as needed.
 
-![feature-flags-no-icon.gif](../../assets/images/administration/feature-flags/feature-flags-no-icon.gif)
+![feature-flags-no-icon.gif]({{ "/assets/images/administration/feature-flags/feature-flags-no-icon.gif" | relative_url }})
 
 Since not all features are suitable for every business use case, they are stored separately in **Administration** > **Feature Flags**. This allows you to turn on only those features that are most relevant to your needs. However, you are free to try out any feature and see how it works for yourself.
 
-![feature-flags-example.png](../../assets/images/administration/feature-flags/feature-flags-example.png)
+![feature-flags-example.png]({{ "/assets/images/administration/feature-flags/feature-flags-example.png" | relative_url }})
 
 {:.important}
 Turning on these features is safe and will not cause any disruptions to your data or affect the stability of your instance of CluedIn. If you encounter any issues or do something wrong while using these features, remember that you can always revert your actions.

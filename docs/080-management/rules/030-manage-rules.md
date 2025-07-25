@@ -31,7 +31,7 @@ You can edit a rule to make necessary changes in rule name, description, filters
 
     If you modified filters or actions, select the checkbox to reprocess the records affected by the previous and current rule configuration. Selecting the checkbox will revert the records affected by the previous rule configuration to their initial state before the rule was applied. Simultaneously, the records affected by the current rule configuration will be adjusted according to the rule's action. If you don't select the checkbox, the rule will be updated but the records won't be reprocessed.
     
-    ![manage-rules-1.png](../../assets/images/management/rules/manage-rules-1.png)
+    ![manage-rules-1.png]({{ "/assets/images/management/rules/manage-rules-1.png" | relative_url }})
     
     After you confirm that you want to update the rule, your changes will be applied immediately.
 
@@ -126,13 +126,13 @@ You can duplicate a rule if you want to:
 
 Duplication is a beta feature. To access it, go to **Administration** > **Feature Flags**, and enable the **Duplicate Actions** feature.
 
-![duplicate-actions-feature-flag.png](../../assets/images/shared/duplicate-actions-feature-flag.png)
+![duplicate-actions-feature-flag.png]({{ "/assets/images/shared/duplicate-actions-feature-flag.png" | relative_url }})
 
 **To duplicate a rule**
 
 1. In the list of rules, find a rule that you want to duplicate. Then, open the three-dot menu for the rule, and select **Duplicate**.
 
-    ![duplicate-rule-1.png](../../assets/images/management/rules/duplicate-rule-1.png)
+    ![duplicate-rule-1.png]({{ "/assets/images/management/rules/duplicate-rule-1.png" | relative_url }})
 
 1. In **Name**, review the default name of the new rule and modify it if needed. The default name is created by adding __duplicate_ to the name of the rule that you're duplicating.
 
@@ -140,7 +140,7 @@ Duplication is a beta feature. To access it, go to **Administration** > **Fea
 
 1. In **Actions**, review the list of rule actions that will be duplicated for the new rule. To view the details of a specific rule action, select **View Action Details**.
 
-    ![duplicate-rule-2.png](../../assets/images/management/rules/duplicate-rule-2.png)
+    ![duplicate-rule-2.png]({{ "/assets/images/management/rules/duplicate-rule-2.png" | relative_url }})
 
 1. Select **Duplicate**.
 

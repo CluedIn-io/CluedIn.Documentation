@@ -37,7 +37,7 @@ The process of adding a single record consists of filling out all the required f
 
 1. Fill out the fields for a record.
 
-    ![manual-data-entry-add-single-record.png](../../assets/images/integration/manual-data-entry/manual-data-entry-add-single-record.png)
+    ![manual-data-entry-add-single-record.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-add-single-record.png" | relative_url }})
 
 1. In the upper-right corner of the page, select **Generate**.
 
@@ -57,7 +57,7 @@ The process of adding a single record consists of filling out all the required f
 
 1. Fill out the fields for a record.
 
-    ![manual-data-entry-add-in-action-center.png](../../assets/images/integration/manual-data-entry/manual-data-entry-add-in-action-center.png)
+    ![manual-data-entry-add-in-action-center.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-add-in-action-center.png" | relative_url }})
 
 1. Select **Add record**.
 
@@ -71,7 +71,7 @@ The process of adding multiple records requires creating a session, which repres
 
 Go to **Administration** > **Feature Flags**, and then enable the **Manual data entry tabular view** feature.
 
-![manual-data-entry-tabular-view-feature-flag.png](../../assets/images/integration/manual-data-entry/manual-data-entry-tabular-view-feature-flag.png)
+![manual-data-entry-tabular-view-feature-flag.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-tabular-view-feature-flag.png" | relative_url }})
 
 **To add multiple records**
 
@@ -83,7 +83,7 @@ Go to **Administration** > **Feature Flags**, and then enable the **Manual d
 
 1. Enter the data in the fields.
 
-    ![manual-data-entry-multiple-records.png](../../assets/images/integration/manual-data-entry/manual-data-entry-multiple-records.png)
+    ![manual-data-entry-multiple-records.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-multiple-records.png" | relative_url }})
 
     If you decide that you no longer need the record, you can delete it by selecting the delete icon in the **Actions** column.
 

@@ -16,7 +16,7 @@ headerIcon: "paas"
 
 In this article, you will learn about the decisions you need to make before starting the CluedIn PaaS installation process.
 
-![paas-business-decisions.gif](../../assets/images/deployment/paas-business-decisions.gif)
+![paas-business-decisions.gif]({{ "/assets/images/deployment/paas-business-decisions.gif" | relative_url }})
 
 ## Choose a license
 

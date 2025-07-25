@@ -19,7 +19,7 @@ There are two levels of logs:
 
 CluedIn performs validations on the following stages of the record life cycle: parsing, storing, mapping, and processing. If an inconsistency is detected at any of these stages, a new log entry will appear on the **Logs** tab of the data set. By selecting the log message, you will find the error or warning details. In case of an error,  related records will also be displayed, providing information for debugging purposes.
 
-![logs-1.png](../../assets/images/integration/additional-operations/logs-1.png)
+![logs-1.png]({{ "/assets/images/integration/additional-operations/logs-1.png" | relative_url }})
 
 If a record contains an error, it is not saved in CluedIn. However, if CluedIn recognizes an invalid character, it will convert it automatically to a valid one and the record will be stored in the platform.
 

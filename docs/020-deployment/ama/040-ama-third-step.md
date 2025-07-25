@@ -19,7 +19,7 @@ In this article, you will learn how to install CluedIn PaaS from the Azure Marke
 {:.important}
 Make sure that you have completed all of the actions described in [Pre-installation checklist](/deployment/azure-marketplace/step-2).
 
-![paas-installation-guide.gif](../../assets/images/deployment/paas-installation-guide.gif)
+![paas-installation-guide.gif]({{ "/assets/images/deployment/paas-installation-guide.gif" | relative_url }})
 
 ## Find CluedIn
 
@@ -31,7 +31,7 @@ Start the installation process by finding CluedIn PaaS in the Azure Marketplace.
 
 1. On the **CluedIn Master Data Management** page, select **Get It Now**.
 
-    ![ama-cluedin-page.png](../../assets/images/ama/install-guide/ama-cluedin-page.png)
+    ![ama-cluedin-page.png]({{ "/assets/images/ama/install-guide/ama-cluedin-page.png" | relative_url }})
 
 1. In **Software plan**, select the plan of your choice:
 
@@ -39,7 +39,7 @@ Start the installation process by finding CluedIn PaaS in the Azure Marketplace.
 
     - **CluedIn MDM PaaS - Pay As You Go** – select this option if you want to use CluedIn on a pay-as-you-go basis. For more information, see [Pricing](/deployment/pricing).
 
-        ![paas-software-plan.png](../../assets/images/deployment/paas-installation-guide/paas-software-plan.png)
+        ![paas-software-plan.png]({{ "/assets/images/deployment/paas-installation-guide/paas-software-plan.png" | relative_url }})
 
 1. Review your contact information, and then select **Continue**.
 
@@ -55,7 +55,7 @@ On the **Basics** tab, you can select the Azure resource group where CluedIn wil
 
    1. In **Resource group**, create a new resource group.
 
-        ![Basics_tab_Project_details.png](../../assets/images/ama/install-guide/ama-install-basic-tab-1.png)
+        ![Basics_tab_Project_details.png]({{ "/assets/images/ama/install-guide/ama-install-basic-tab-1.png" | relative_url }})
 
         You can select the existing resource group, but it must be empty. If the resource group that you select contains other Azure resources, you will get an error.
 
@@ -67,15 +67,15 @@ On the **Basics** tab, you can select the Azure resource group where CluedIn wil
 
         - If you selected **CluedIn MDM PaaS - Existing License**, enter the license key that you should have received in an email from CluedIn.
 
-            ![instance-details-license.png](../../assets/images/deployment/paas-installation-guide/instance-details-license.png)
+            ![instance-details-license.png]({{ "/assets/images/deployment/paas-installation-guide/instance-details-license.png" | relative_url }})
 
         - If you selected **CluedIn MDM PaaS - Pay As You Go**, enter the **Company name** and **Contact Email Address**.
 
-            ![instance-details-payg.png](../../assets/images/deployment/paas-installation-guide/instance-details-payg.png)
+            ![instance-details-payg.png]({{ "/assets/images/deployment/paas-installation-guide/instance-details-payg.png" | relative_url }})
 
 1. Make sure that the **Managed Application Details** section is filled out correctly. This section is usually filled out by default, but you can make changes if needed.
 
-    ![managed-app-details.png](../../assets/images/deployment/paas-installation-guide/managed-app-details.png)
+    ![managed-app-details.png]({{ "/assets/images/deployment/paas-installation-guide/managed-app-details.png" | relative_url }})
 
 ## Complete the Instance Setup tab
 
@@ -93,7 +93,7 @@ On the **Instance Setup** tab, you can create the organization used within the C
 
     1. Specify **CluedIn Administrator Password**, and then **Confirm password**. The password must be more than 12 characters long.
 
-        ![Initial_setup_tab_Organization_details.png](../../assets/images/ama/install-guide/ama-install-basic-tab-3.png)
+        ![Initial_setup_tab_Organization_details.png]({{ "/assets/images/ama/install-guide/ama-install-basic-tab-3.png" | relative_url }})
 
 1. Specify SMTP details:
 
@@ -103,7 +103,7 @@ On the **Instance Setup** tab, you can create the organization used within the C
 
     1. Add details about the email that will be used for sending invitations to other users to join CluedIn.
 
-        ![Initial_setup_tab_SMTP.png](../../assets/images/ama/install-guide/ama-install-basic-tab-4.png)
+        ![Initial_setup_tab_SMTP.png]({{ "/assets/images/ama/install-guide/ama-install-basic-tab-4.png" | relative_url }})
 
         {:.important}
         You can change SMTP details after installation by submitting a ticket to CluedIn support.
@@ -112,7 +112,7 @@ On the **Instance Setup** tab, you can create the organization used within the C
 
 On the **Network and Monitoring** tab, you can review vNet default configuration settings and make changes if needed.
 
-![network-and-monitoring.png](../../assets/images/deployment/paas-installation-guide/network-and-monitoring.png)
+![network-and-monitoring.png]({{ "/assets/images/deployment/paas-installation-guide/network-and-monitoring.png" | relative_url }})
 
 ## Review the Azure Kubernetes tab
 
@@ -131,7 +131,7 @@ The **AKS Setup** tab contains the following settings:
 
 - **Processing Node Size** that runs any CluedIn processing services. **Processing Node Size** depends on the license you have specified. If it is a pay-as-you-go installation, a basic SKU will be used at runtime.
 
-![azure-kubernetes.png](../../assets/images/deployment/paas-installation-guide/azure-kubernetes.png)
+![azure-kubernetes.png]({{ "/assets/images/deployment/paas-installation-guide/azure-kubernetes.png" | relative_url }})
 
 You can enable **auto-scaling** for the processing node pool. It means that when CPU pressure (high workload) builds up in this node pool, AKS can start up new nodes to compensate for the increase in load. When the load returns to normal, the extra nodes will be shut down. However, be aware that there are additional infrastructure and licensing costs associated with scaling up. For more information about auto-scaling, contact CluedIn support.
 
@@ -192,7 +192,7 @@ You can also choose to enable **Azure Bastion** for secure, browser-based RDP or
 
 For more information about using **Jumpbox** or **Bastion**, contact **CluedIn Support**.
 
-![advanced.png](../../assets/images/deployment/paas-installation-guide/advanced.png)
+![advanced.png]({{ "/assets/images/deployment/paas-installation-guide/advanced.png" | relative_url }})
 
 ## Review the Tags tab
 
@@ -201,7 +201,7 @@ On the **Tags** tab, you can add tags to categorize your resources and view cons
 {:.important}
 Tags do not get applied to the managed application resource itself. This may cause issues if you have comprehensive tagging policies in place. 
 
-![tags.png](../../assets/images/deployment/paas-installation-guide/tags.png)
+![tags.png]({{ "/assets/images/deployment/paas-installation-guide/tags.png" | relative_url }})
 
 ## Complete the Review + Create tab
 

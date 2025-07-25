@@ -19,7 +19,7 @@ Imagine you have a golden record—_CluedIn_—that contains several properties.
 
 To begin with, you need to add the web enricher and specify the vocabulary key. The value of this vocabulary key will be used to retrieve information from external services. In this case, the vocabulary key is _organization.website_. The enricher then retrieves all available information it can find based on the specified website address. Finally, this new information is added to the initial golden record.
 
-![enricher-example.gif](../../assets/images/preparation/enricher/enricher-example.gif)
+![enricher-example.gif]({{ "/assets/images/preparation/enricher/enricher-example.gif" | relative_url }})
 
 In the next section, you'll find out how the data from the enricher is incorporated into the corresponding golden record.
 
@@ -27,7 +27,7 @@ In the next section, you'll find out how the data from the enricher is incorpora
 
 The following diagram illustrates the place of enricher within the data life cycle in CluedIn.
 
-![enricher-life-cycle.gif](../../assets/images/preparation/enricher/enricher-life-cycle.gif)
+![enricher-life-cycle.gif]({{ "/assets/images/preparation/enricher/enricher-life-cycle.gif" | relative_url }})
 
 **From golden record to enricher**
 

@@ -31,7 +31,7 @@ Basic Purview configuration is required to establish connection between your Clu
 
     - `https://[purview-account-name].purview.azure.com/)` – for a separate Purview account.
 
-    ![purview-resorce-json.png](../../assets/images/microsoft-integration/purview/purview-resorce-json.png)
+    ![purview-resorce-json.png]({{ "/assets/images/microsoft-integration/purview/purview-resorce-json.png" | relative_url }})
 
 1. In **Client ID**, enter a unique identifier assigned to an application when you registered it in Microsoft Entra ID. This is the application that you created during the pre-configuration stage in [Register an application and create a service principal](/microsoft-integration/purview/pre-configuration-guide#register-an-application-and-create-a-service-principal). You can find this value on the application overview page, in **Application (client) ID**.
 
@@ -41,7 +41,7 @@ Basic Purview configuration is required to establish connection between your Clu
 
 1. In **Collection Name**, enter the ID of the collection in Purview for storing golden records from CluedIn. You can find the collection ID in the URL as described in [Create a new collection](/microsoft-integration/purview/pre-configuration-guide#create-a-new-collection).
 
-    ![basic-purview-configuration.png](../../assets/images/microsoft-integration/purview/basic-purview-configuration.png)
+    ![basic-purview-configuration.png]({{ "/assets/images/microsoft-integration/purview/basic-purview-configuration.png" | relative_url }})
 
 1. Select **Save**.
 

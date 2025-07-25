@@ -16,7 +16,7 @@ headerIcon: "paas"
 
 In this article, you will learn about the pre-installation processes that you must perform to ensure successful installation of CluedIn PaaS.
 
-![paas-pre-installation-checklist.gif](../../assets/images/deployment/paas-pre-installation-checklist.gif)
+![paas-pre-installation-checklist.gif]({{ "/assets/images/deployment/paas-pre-installation-checklist.gif" | relative_url }})
 
 ## Check qualification
 
@@ -26,7 +26,7 @@ Because CluedIn will be installed in your Azure resource group, you need to be t
 
 In addition, you should have **permission to purchase paid applications** from the Azure Marketplace. Set the permission to **Free + Paid** to complete the purchase registration in the Azure Marketplace.
 
-![Check_qualification_Purchasing.png](../../assets/images/ama/install-guide/check-qualitifcation.png)
+![Check_qualification_Purchasing.png]({{ "/assets/images/ama/install-guide/check-qualitifcation.png" | relative_url }})
 
 ### Navigate to Billing Policies in Azure Portal
 To access Policies for a specific billing tenant in the Azure Portal:
@@ -109,11 +109,11 @@ This section contains the step-by-step procedure for manual registration of reso
 
 1. One by one, find and select the resource providers that you want to register, and then select **Register**.
 
-    ![Manual_Registration_1](../../assets/images/ama/install-guide/register-resource-provider-1.png)
+    ![Manual_Registration_1]({{ "/assets/images/ama/install-guide/register-resource-provider-1.png" | relative_url }})
 
     Wait until the status of the resource provider is changed from **Registering** to **Registered**.
 
-    ![Manual_Registration_2](../../assets/images/ama/install-guide/register-resource-provider-2.png)
+    ![Manual_Registration_2]({{ "/assets/images/ama/install-guide/register-resource-provider-2.png" | relative_url }})
 
 1. Run the [verification script](#verification-script) to make sure that all resource providers are registered.
 
@@ -143,7 +143,7 @@ If you want a faster way to register the needed resource providers, run the scri
 
     You will get an autput similar to the following.
     
-    ![output-automatic_registration.png](../../assets/images/ama/install-guide/output-automatic-registration.png)
+    ![output-automatic_registration.png]({{ "/assets/images/ama/install-guide/output-automatic-registration.png" | relative_url }})
 
 ### Verification script
 
@@ -224,7 +224,7 @@ If you have an existing VNet and you want to reuse it for CluedIn installation, 
 
 The following diagram shows default CluedIn network configuration after installation.
 
-![ama-network-1.jpeg](../../assets/images/ama/install-guide/ama-network-1.jpeg)
+![ama-network-1.jpeg]({{ "/assets/images/ama/install-guide/ama-network-1.jpeg" | relative_url }})
 
 The deployed Azure Kubernetes Service is deployed with a single Azure Load Balancer that is used for both ingress and egress traffic. It is possible to update this post-deployment so that access is only possible via internal vnet integration, but it does require a number of steps.
 

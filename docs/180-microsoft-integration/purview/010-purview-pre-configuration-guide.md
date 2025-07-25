@@ -44,17 +44,17 @@ When you register a new application in Microsoft Entra ID, a service principal i
 
 1. In the left navigation pane, select **App registrations**. Then, on the **App registrations** page, select **+ New registration**.
 
-    ![register-app-new-registration.png](../../assets/images/microsoft-integration/purview/register-app-new-registration.png)
+    ![register-app-new-registration.png]({{ "/assets/images/microsoft-integration/purview/register-app-new-registration.png" | relative_url }})
 
 1. Provide your application's registration information: **Name** and **Supported account types**.
 
-    ![register-app-register-an-application.png](../../assets/images/microsoft-integration/purview/register-app-register-an-application.png)
+    ![register-app-register-an-application.png]({{ "/assets/images/microsoft-integration/purview/register-app-register-an-application.png" | relative_url }})
 
 1. Select **Register**.
 
     You will need the **Application (client) ID** and **Directory (tenant) ID** to configure Purview integration in CluedIn as described in [Purview configuration guide](/microsoft-integration/purview/configuration-guide).
 
-    ![register-app-overview.png](../../assets/images/microsoft-integration/purview/register-app-overview.png)
+    ![register-app-overview.png]({{ "/assets/images/microsoft-integration/purview/register-app-overview.png" | relative_url }})
 
 Once the application is registered, create a client secret.
 
@@ -62,15 +62,15 @@ Once the application is registered, create a client secret.
 
 1. Go to **Certificates & secrets** > **Client secrets** > **New client secret**.
 
-    ![register-app-new-client-secret.png](../../assets/images/microsoft-integration/purview/register-app-new-client-secret.png)
+    ![register-app-new-client-secret.png]({{ "/assets/images/microsoft-integration/purview/register-app-new-client-secret.png" | relative_url }})
 
 1. Add a description for your client secret. Select an expiration for the secret or specify a custom lifetime. Finally, select **Add**.
 
-    ![register-app-add-client-secret.png](../../assets/images/microsoft-integration/purview/register-app-add-client-secret.png)
+    ![register-app-add-client-secret.png]({{ "/assets/images/microsoft-integration/purview/register-app-add-client-secret.png" | relative_url }})
 
 1. Record the **Value** of the client secret. You will need it to configure Purview integration in CluedIn as described in [Purview configuration guide](/microsoft-integration/purview/configuration-guide). This secret value is never displayed again after you leave this page.
 
-    ![register-app-client-secret-value.png](../../assets/images/microsoft-integration/purview/register-app-client-secret-value.png)
+    ![register-app-client-secret-value.png]({{ "/assets/images/microsoft-integration/purview/register-app-client-secret-value.png" | relative_url }})
 
 ### Create a storage account
 
@@ -102,7 +102,7 @@ Once the application is registered, create a client secret.
 
     1. Select ****Review + create****.
 
-        ![create-storage-account-basics.png](../../assets/images/microsoft-integration/purview/create-storage-account-basics.png)
+        ![create-storage-account-basics.png]({{ "/assets/images/microsoft-integration/purview/create-storage-account-basics.png" | relative_url }})
 
 1. When you navigate to the **Review + create** tab, Azure runs validation on your storage account settings. After the validation is passed, select **Create**.
 
@@ -120,7 +120,7 @@ To store encryption keys, secrets, and certificates for communication between Pu
 
 1. In the **Permission model** section, select **Vault access policy**.
 
-    ![key-vault-access-configuration.png](../../assets/images/microsoft-integration/purview/key-vault-access-configuration.png)
+    ![key-vault-access-configuration.png]({{ "/assets/images/microsoft-integration/purview/key-vault-access-configuration.png" | relative_url }})
 
 1. Select **Apply**.
 
@@ -128,15 +128,15 @@ To store encryption keys, secrets, and certificates for communication between Pu
 
 1. On the **Access policies** page, select **Create**.
 
-    ![key-vault-create-access-policy.png](../../assets/images/microsoft-integration/purview/key-vault-create-access-policy.png)
+    ![key-vault-create-access-policy.png]({{ "/assets/images/microsoft-integration/purview/key-vault-create-access-policy.png" | relative_url }})
 
 1. On the **Permissions** tab, in the **Secret permissions** column, select the checkboxes for **Get** and **List**, and then select **Next**.
 
-    ![key-vault-create-access-policy-permissions.png](../../assets/images/microsoft-integration/purview/key-vault-create-access-policy-permissions.png)
+    ![key-vault-create-access-policy-permissions.png]({{ "/assets/images/microsoft-integration/purview/key-vault-create-access-policy-permissions.png" | relative_url }})
 
 1. On the **Principal** tab, find and select the Purview account, and then select **Next**.
 
-    ![key-vault-create-access-policy-principal.png](../../assets/images/microsoft-integration/purview/key-vault-create-access-policy-principal.png)
+    ![key-vault-create-access-policy-principal.png]({{ "/assets/images/microsoft-integration/purview/key-vault-create-access-policy-principal.png" | relative_url }})
 
 1. On the **Application (optional)** tab, select **Next**.
 
@@ -150,7 +150,7 @@ To store encryption keys, secrets, and certificates for communication between Pu
 
 1. On the **Secrets** page, select **Generate/Import**.
 
-    ![key-vault-create-secrets-generate-import.png](../../assets/images/microsoft-integration/purview/key-vault-create-secrets-generate-import.png)
+    ![key-vault-create-secrets-generate-import.png]({{ "/assets/images/microsoft-integration/purview/key-vault-create-secrets-generate-import.png" | relative_url }})
 
 1. Enter the **Name** of the secret.
 
@@ -162,11 +162,11 @@ To store encryption keys, secrets, and certificates for communication between Pu
 
     1. Copy the value of **key1**.
 
-        ![key-vault-create-secrets-copy-key.png](../../assets/images/microsoft-integration/purview/key-vault-create-secrets-copy-key.png)
+        ![key-vault-create-secrets-copy-key.png]({{ "/assets/images/microsoft-integration/purview/key-vault-create-secrets-copy-key.png" | relative_url }})
 
     1. Paste the copied value to the **Secret value** field.
 
-        ![key-vault-create-a-secret.png](../../assets/images/microsoft-integration/purview/key-vault-create-a-secret.png)
+        ![key-vault-create-a-secret.png]({{ "/assets/images/microsoft-integration/purview/key-vault-create-a-secret.png" | relative_url }})
 
     1. Select **Create**.
 
@@ -188,13 +188,13 @@ You need to create 2 collections: one to store the assess from Azure Data Lake S
 
     1. Enter the **Display name** and **Description** of the collection.
 
-        ![purview-create-new-collection.png](../../assets/images/microsoft-integration/purview/purview-create-new-collection.png)
+        ![purview-create-new-collection.png]({{ "/assets/images/microsoft-integration/purview/purview-create-new-collection.png" | relative_url }})
 
     1. Select **Create**.
 
         The new collection is added to the default domain. Pay attention to the collection ID, which can be found in the URL. You will need this collection ID to configure Purview integration in CluedIn as described in in [Purview configuration guide](/microsoft-integration/purview/configuration-guide).
 
-        ![purview-collection-id.png](../../assets/images/microsoft-integration/purview/purview-collection-id.png)
+        ![purview-collection-id.png]({{ "/assets/images/microsoft-integration/purview/purview-collection-id.png" | relative_url }})
 
 1. To create a collection that will be used to store the assets from Azure Data Lake Storage, repeat steps 1–3.
 
@@ -208,7 +208,7 @@ To enable Purview to discover and catalog metadata from your data sources, regis
 
 1. Find and select a data source type. This example uses Azure Data Lake Storage Gen2. Select **Continue**.
 
-    ![purview-register-data-source.png](../../assets/images/microsoft-integration/purview/purview-register-data-source.png)
+    ![purview-register-data-source.png]({{ "/assets/images/microsoft-integration/purview/purview-register-data-source.png" | relative_url }})
 
 1. Enter the **Data source name**.
 
@@ -218,13 +218,13 @@ To enable Purview to discover and catalog metadata from your data sources, regis
 
 1. Select the **Collection** for storing the assets from Azure Data Lake Storage that you created before in [Create a new collection](#create-a-new-collection).
 
-    ![purview-register-data-source-adls.png](../../assets/images/microsoft-integration/purview/purview-register-data-source-adls.png)
+    ![purview-register-data-source-adls.png]({{ "/assets/images/microsoft-integration/purview/purview-register-data-source-adls.png" | relative_url }})
 
 1. Select **Register**.
 
     The new data source is added.
 
-    ![purview-data-sources-map-view.png](../../assets/images/microsoft-integration/purview/purview-data-sources-map-view.png)
+    ![purview-data-sources-map-view.png]({{ "/assets/images/microsoft-integration/purview/purview-data-sources-map-view.png" | relative_url }})
 
 ### Scan a data source
 
@@ -238,13 +238,13 @@ To capture technical metadata from your data source in Purview, scan a data sour
 
 1. On the data source page, select **New scan**.
 
-    ![purview-new-scan.png](../../assets/images/microsoft-integration/purview/purview-new-scan.png)
+    ![purview-new-scan.png]({{ "/assets/images/microsoft-integration/purview/purview-new-scan.png" | relative_url }})
 
 1. Enter the **Name** for the scan.
 
 1. Expand the **Credential** dropdown list, and then select **+ New**.
 
-    ![purview-new-scan-new-credential.png](../../assets/images/microsoft-integration/purview/purview-new-scan-new-credential.png)
+    ![purview-new-scan-new-credential.png]({{ "/assets/images/microsoft-integration/purview/purview-new-scan-new-credential.png" | relative_url }})
 
 1. Enter the **Name** and **Description** of the credential.
 
@@ -252,13 +252,13 @@ To capture technical metadata from your data source in Purview, scan a data sour
 
 1. In the **Account key** section, expand the **Key Vault connection** dropdown, and then select **+ New**.
 
-    ![purview-new-scan-new-credential-new-key-vault.png](../../assets/images/microsoft-integration/purview/purview-new-scan-new-credential-new-key-vault.png)
+    ![purview-new-scan-new-credential-new-key-vault.png]({{ "/assets/images/microsoft-integration/purview/purview-new-scan-new-credential-new-key-vault.png" | relative_url }})
 
 1. Enter the **Name** and **Description** of the new key vault.
 
 1. In **Key Vault name**, select the key vault that you created before in [Create a key vault and register Purview](#create-a-key-vault-and-register-purview).
 
-    ![purview-new-scan-new-credential-new-key-vault-create.png](../../assets/images/microsoft-integration/purview/purview-new-scan-new-credential-new-key-vault-create.png)
+    ![purview-new-scan-new-credential-new-key-vault-create.png]({{ "/assets/images/microsoft-integration/purview/purview-new-scan-new-credential-new-key-vault-create.png" | relative_url }})
 
 1. Select **Create**.
 
@@ -266,33 +266,33 @@ To capture technical metadata from your data source in Purview, scan a data sour
 
 1. In **Secret name**, enter the name of the secret that you created before in [Create a key vault secret](#create-a-key-vault-secret).
 
-    ![purview-new-scan-new-credential-create.png](../../assets/images/microsoft-integration/purview/purview-new-scan-new-credential-create.png)
+    ![purview-new-scan-new-credential-create.png]({{ "/assets/images/microsoft-integration/purview/purview-new-scan-new-credential-create.png" | relative_url }})
 
 1. Select **Create**.
 
 1. Select **Test connection**.
 
-    ![purview-new-scan-continue.png](../../assets/images/microsoft-integration/purview/purview-new-scan-continue.png)
+    ![purview-new-scan-continue.png]({{ "/assets/images/microsoft-integration/purview/purview-new-scan-continue.png" | relative_url }})
 
 1. Once the connection is successful, select **Continue**.
 
 1. Scope your scan to a specific subset of data, and then select **Continue**.
 
-    ![purview-new-scan-scope.png](../../assets/images/microsoft-integration/purview/purview-new-scan-scope.png)
+    ![purview-new-scan-scope.png]({{ "/assets/images/microsoft-integration/purview/purview-new-scan-scope.png" | relative_url }})
 
 1. Keep the default scan rule set, and then select **Continue**.
 
-    ![purview-new-scan-scan-rule-set.png](../../assets/images/microsoft-integration/purview/purview-new-scan-scan-rule-set.png)
+    ![purview-new-scan-scan-rule-set.png]({{ "/assets/images/microsoft-integration/purview/purview-new-scan-scan-rule-set.png" | relative_url }})
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once. In this example, we run the scan once. Select **Continue**.
 
-    ![purview-new-scan-scan-trigger.png](../../assets/images/microsoft-integration/purview/purview-new-scan-scan-trigger.png)
+    ![purview-new-scan-scan-trigger.png]({{ "/assets/images/microsoft-integration/purview/purview-new-scan-scan-trigger.png" | relative_url }})
 
 1. Review your scan, and then select **Scan and run**.
 
     Once the scan is completed, it establishes a connection to the data source and captures technical metadata like names, file size, columns, and so on. As a result of the scan, the collection for storing assets from Azure Data Lake Storage contains a certain number of assets. On the following screenshot, our collection contains 18 assets.
 
-    ![purview-new-scan-collection-result.png](../../assets/images/microsoft-integration/purview/purview-new-scan-collection-result.png)
+    ![purview-new-scan-collection-result.png]({{ "/assets/images/microsoft-integration/purview/purview-new-scan-collection-result.png" | relative_url }})
 
 ### Assign roles to Purview service principal
 
@@ -304,13 +304,13 @@ To enable Purview to communicate with CluedIn, assign the Data readers and Data 
     
 1. On the default domain page, go to the **Role assignments** tab.
 
-    ![role-assignments.png](../../assets/images/microsoft-integration/purview/role-assignments.png)
+    ![role-assignments.png]({{ "/assets/images/microsoft-integration/purview/role-assignments.png" | relative_url }})
 
 1. Expand the **Edit role assignments** dropdown list, and then select **Data readers**.
 
 1. Find and select the Purview service principal that you created in [Register an application and create a service principal](#register-an-application-and-create-a-service-principal).
 
-    ![role-assignments-data-reader.png](../../assets/images/microsoft-integration/purview/role-assignments-data-reader.png)
+    ![role-assignments-data-reader.png]({{ "/assets/images/microsoft-integration/purview/role-assignments-data-reader.png" | relative_url }})
 
 1. Select **OK**.
 
@@ -318,7 +318,7 @@ To enable Purview to communicate with CluedIn, assign the Data readers and Data 
 
 1. Find and select the Purview service principal that you created in [Register an application and create a service principal](#register-an-application-and-create-a-service-principal).
 
-    ![role-assignments-data-source-admins.png](../../assets/images/microsoft-integration/purview/role-assignments-data-source-admins.png)
+    ![role-assignments-data-source-admins.png]({{ "/assets/images/microsoft-integration/purview/role-assignments-data-source-admins.png" | relative_url }})
 
 1. Select **OK**.
 

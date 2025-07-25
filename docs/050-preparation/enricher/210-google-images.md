@@ -27,7 +27,7 @@ To use the Google Images enricher, you must provide the API key. To get the API 
 
 1. On the **Choose Enricher** tab, select **Google Images**, and then select **Next**.
 
-    ![google-images-enricher-1.png](../../assets/images/preparation/enricher/google-images-enricher-1.png)
+    ![google-images-enricher-1.png]({{ "/assets/images/preparation/enricher/google-images-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -37,7 +37,7 @@ To use the Google Images enricher, you must provide the API key. To get the API 
 
     1. **Image Search text** – enter the vocabulary key that contains the text to be used for the image search.
 
-        ![google-images-enricher-2.png](../../assets/images/preparation/enricher/google-images-enricher-2.png)
+        ![google-images-enricher-2.png]({{ "/assets/images/preparation/enricher/google-images-enricher-2.png" | relative_url }})
 
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
@@ -53,8 +53,8 @@ After the Google Images enricher is added, you can modify its details:
 
 You can find the image added to the golden record on the golden record **Overview** page.
 
-![google-images-enricher-3.png](../../assets/images/preparation/enricher/google-images-enricher-3.png)
+![google-images-enricher-3.png]({{ "/assets/images/preparation/enricher/google-images-enricher-3.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the Google Images enricher, check the corresponding data part on the **History** page.
 
-![google-images-enricher-4.png](../../assets/images/preparation/enricher/google-images-enricher-4.png)
+![google-images-enricher-4.png]({{ "/assets/images/preparation/enricher/google-images-enricher-4.png" | relative_url }})

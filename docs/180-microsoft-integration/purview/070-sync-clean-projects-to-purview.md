@@ -20,19 +20,19 @@ In this article, you will learn how to sync CluedIn clean projects to Purview as
     
 1. Turn on the toggle in **Sync Clean Projects to Purview**.
 
-    ![sync-clean-projects.png](../../assets/images/microsoft-integration/purview/sync-clean-projects.png)
+    ![sync-clean-projects.png]({{ "/assets/images/microsoft-integration/purview/sync-clean-projects.png" | relative_url }})
 
 1. Select **Save**.
 
 1. Make sure you have an existing clean project.
 
-    ![sync-clean-projects-existing.png](../../assets/images/microsoft-integration/purview/sync-clean-projects-existing.png)
+    ![sync-clean-projects-existing.png]({{ "/assets/images/microsoft-integration/purview/sync-clean-projects-existing.png" | relative_url }})
 
 ## Feature demonstration
 
 Once you enable synchronization of rules to Purview, you will receive a notification when the rule is synced.
 
-![sync-clean-projects-notification.png](../../assets/images/microsoft-integration/purview/sync-clean-projects-notification.png)
+![sync-clean-projects-notification.png]({{ "/assets/images/microsoft-integration/purview/sync-clean-projects-notification.png" | relative_url }})
 
 **To find the asset in Purview**
 
@@ -48,4 +48,4 @@ Once you enable synchronization of rules to Purview, you will receive a notifica
 
     The following screenshot shows the application of a clean project within the CluedIn processing pipeline. The clean project is executed on processed entities, resulting in generating clues. The clues generated from the clean project are then sent back to the beginning of the processing pipeline.
 
-    ![sync-clean-projects-lineage-1.png](../../assets/images/microsoft-integration/purview/sync-clean-projects-lineage-1.png)
+    ![sync-clean-projects-lineage-1.png]({{ "/assets/images/microsoft-integration/purview/sync-clean-projects-lineage-1.png" | relative_url }})

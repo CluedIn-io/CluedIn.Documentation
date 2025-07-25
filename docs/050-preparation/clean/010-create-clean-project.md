@@ -34,7 +34,7 @@ If you want to regularly clean your data, we recommend setting up and saving sea
 
     - If you have the saved search, in the upper-right corner of the page, select the vertical ellipsis button, and then select **Saved Searches**. Find and open the needed saved search.
 
-        ![clean-project-1.png](../../assets/images/preparation/clean/clean-project-1.png)
+        ![clean-project-1.png]({{ "/assets/images/preparation/clean/clean-project-1.png" | relative_url }})
 
         Make sure that the vocabulary keys to be cleaned are displayed on the search results page. This way, you don't have to specify the vocabulary keys in the clean project configuration. To learn how to add vocabulary keys to the search results page, see [Add columns](/key-terms-and-features/search#add-columns).
 
@@ -46,11 +46,11 @@ If you want to regularly clean your data, we recommend setting up and saving sea
 
 1. Enter the name of the clean project. Then, in the lower-right corner, select **Next**.
 
-    ![clean-project-2.png](../../assets/images/preparation/clean/clean-project-2.png)
+    ![clean-project-2.png]({{ "/assets/images/preparation/clean/clean-project-2.png" | relative_url }})
 
 1. Review the properties that will be loaded to the clean project. These properties are taken from the column options of your search results page.
 
-    ![clean-project-3.png](../../assets/images/preparation/clean/clean-project-3.png)
+    ![clean-project-3.png]({{ "/assets/images/preparation/clean/clean-project-3.png" | relative_url }})
 
     If you do not want to load some properties to the clean project, choose the needed properties, and then select **Remove Property**.
 
@@ -74,7 +74,7 @@ Creating a clean project from the Preparation module requires more effort than u
 
     1. In the **Filters** section, define what type of data you want to load to the clean project. Then, in the lower-right corner, select **Next**.
 
-        ![clean-project-4.png](../../assets/images/preparation/clean/clean-project-4.png)
+        ![clean-project-4.png]({{ "/assets/images/preparation/clean/clean-project-4.png" | relative_url }})
 
 1. On the **Choose Vocabulary Keys** tab, do the following:
 
@@ -82,7 +82,7 @@ Creating a clean project from the Preparation module requires more effort than u
 
     1. Depending on the type of property that you chose, select the record properties or find and select the vocabulary keys that you want to load to the clean project.
 
-        ![clean-project-5.png](../../assets/images/preparation/clean/clean-project-5.png)
+        ![clean-project-5.png]({{ "/assets/images/preparation/clean/clean-project-5.png" | relative_url }})
 
     1. In the lower-right corner, select **Save Selection**.
 
@@ -108,7 +108,7 @@ You can create a glossary term to collect a group of records that meet certain c
 
     1. In the **Filters** section, choose the operation for defining what to do with the records belonging to the glossary term. Choosing **Is True** will load all records belonging to the term, and choosing **Is Not True** will load all records that do not belong to the glossary term. Then, in the lower-right corner, select **Next**.
 
-        ![clean-project-6.png](../../assets/images/preparation/clean/clean-project-6.png)
+        ![clean-project-6.png]({{ "/assets/images/preparation/clean/clean-project-6.png" | relative_url }})
 
 1. On the **Choose Vocabulary Keys** tab, do the following:
     
@@ -116,7 +116,7 @@ You can create a glossary term to collect a group of records that meet certain c
 
     1. Depending on the type of property that you chose, select the record properties or find and select the vocabulary keys that you want to load to the clean project.
 
-        ![clean-project-5.png](../../assets/images/preparation/clean/clean-project-5.png)
+        ![clean-project-5.png]({{ "/assets/images/preparation/clean/clean-project-5.png" | relative_url }})
 
     1. In the lower-right corner, select **Save Selection**.
 

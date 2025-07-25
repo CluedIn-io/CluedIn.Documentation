@@ -38,7 +38,7 @@ The Explain Log consists of two main sections that represent logical processing 
 
 - **Records** – a section that tracks how each constituent record (also known as data part) contributed to the golden record. This section can contain multiple records.
 
-![explain-log-sections.png](../../assets/images/key-terms-and-features/explain-log-sections.png)
+![explain-log-sections.png]({{ "/assets/images/key-terms-and-features/explain-log-sections.png" | relative_url }})
 
 Both sections consist of many elements that represent various operations, which happened within a logical processing step. The operation is a small and logical computation and typically has a single responsibility. Each operation consists of following information:
 
@@ -62,7 +62,7 @@ Both sections consist of many elements that represent various operations, which 
 
     Note that the information in **Summaries** and **Events and Operations** is generally the same; the difference lies in how it is visually presented. In most cases, there is a one-to-one correspondence between the two sections. However, in less common cases, some events and operations may not be included in summaries.
 
-    ![explain-log-operation.png](../../assets/images/key-terms-and-features/explain-log-operation.png)
+    ![explain-log-operation.png]({{ "/assets/images/key-terms-and-features/explain-log-operation.png" | relative_url }})
 
 If an operation does not contain **Summaries** and **Events and Operations**, it means that no changes were applied during its execution.
    
@@ -74,7 +74,7 @@ This section helps you interpret the Explain Log by focusing on two key aspects:
 
 To see which values are used in the golden record, review the **Merge data parts** operation in the **Golden Record** section. The **Summaries** table within this operation shows each property value along with the ID of the record from which it originated. Once you identify the record ID, you can further investigate the operations that were applied to that specific record throughout the processing pipeline.
 
-![explain-log-merge-data-parts.png](../../assets/images/key-terms-and-features/explain-log-merge-data-parts.png)
+![explain-log-merge-data-parts.png]({{ "/assets/images/key-terms-and-features/explain-log-merge-data-parts.png" | relative_url }})
 
 **Identifying rules applied to a golden record**
 
@@ -90,7 +90,7 @@ The structure of both operations in the Explain Log is the same. Let's consider 
     
 - **Evaluated rules** – lists all golden record rules along with their actions that exist in the system and indicates whether each rule was applied, partially applied, or skipped. If a rule was skipped, a reason is provided—for example, if the conditions defined in the rule’s action were not met.
 
-    ![explain-log-evaluate-golden-record-rules.png](../../assets/images/key-terms-and-features/explain-log-evaluate-golden-record-rules.png)
+    ![explain-log-evaluate-golden-record-rules.png]({{ "/assets/images/key-terms-and-features/explain-log-evaluate-golden-record-rules.png" | relative_url }})
 
 Note that the **Golden Record** section provides information only about survivorship rules and golden record rules. It does not include information about data part rules.  To identify which **data part rules** have been applied to a constituent record, refer to the **Evaluate rules** operation in the **Records** section.
 

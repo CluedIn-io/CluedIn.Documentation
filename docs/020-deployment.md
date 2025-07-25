@@ -40,10 +40,10 @@ The following video explores the features and differences between the SaaS, PaaS
 
 CluedIn is available as an Azure Managed Application, making deployment and operation effortless for you. Depending on the model you choose—PaaS or SaaS—CluedIn can be deployed within your company’s infrastructure or within our infrastructure. Regardless of the chosen model, this setup allows us to handle almost everything for you, including post-installation, upgrades, backups, and monitoring. This ensures that you do not need to worry about operating and managing a cluster yourself, as long as the CluedIn operations team has full access to your cluster.
 
-![paas-saas-diagram.png](../../assets/images/deployment/paas-saas-diagram.png)
+![paas-saas-diagram.png]({{ "/assets/images/deployment/paas-saas-diagram.png" | relative_url }})
 
 **SaaS vs. PaaS**
 
 The following diagram illustrates the difference between SaaS and PaaS in terms of who is responsible for managing what.
 
-![saas-paas.png](../../assets/images/deployment/saas-paas.png)
+![saas-paas.png]({{ "/assets/images/deployment/saas-paas.png" | relative_url }})

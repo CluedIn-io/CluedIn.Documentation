@@ -15,7 +15,7 @@ last_modified: 2023-11-16
 
 There are three types of rules: data part rules, survivorship rules, and golden record rules. Each rule serves a distinct purpose in managing and optimizing your golden records. The following diagram shows the order in which the rules should be applied to the records in CluedIn.
 
-![rule-types-1.png](../../assets/images/management/rules/rule-types-1.png)
+![rule-types-1.png]({{ "/assets/images/management/rules/rule-types-1.png" | relative_url }})
 
 ## Data parts rules
 
@@ -51,12 +51,12 @@ The following video explains each action available in the golden record rules.
 
 Let's take a look at the example of using different rule types in the lifecycle of a golden record in CluedIn. Suppose you are receiving data about a company from various systems such as Salesforce, SAP, and MS SQL Server. Among other properties, the records from these systems include the countryCode property, which is used in the company golden record. However, the countryCode property contains inconsistent values—some country codes are in lower case and others in title case. To normalize these values, you can create a data part rule.
 
-![rule-types-2.png](../../assets/images/management/rules/rule-types-2.png)
+![rule-types-2.png]({{ "/assets/images/management/rules/rule-types-2.png" | relative_url }})
 
 After normalizing the values, it turns out that records from different systems contributing to a single golden record contain different countryCode values. To make an informed decision over which value should be used in the golden record, you can create a survivorship rule. For example, the records coming from Salesforce and SAP have the countryCode property set to 'DK', while the records coming from MS SQL Server have the countryCode property set to 'FI'. The survivorship rule's action can select the winning value based on criteria such as the latest modified value, the record with the most properties, or a preference for a specific provider. In this case, the rule's action identifies the most frequent value and applies it to the golden record (the chosen value is 'DK').
 
-![rule-types-3.png](../../assets/images/management/rules/rule-types-3.png)
+![rule-types-3.png]({{ "/assets/images/management/rules/rule-types-3.png" | relative_url }})
 
 To make it easier to find a golden record, you can add tag to it. As an example, let's add a tag "Nordic" to the golden record with the countryCode property set to 'DK'. This simplifies the process of locating the tagged record and adding it to the clean project, glossary, or stream.
 
-![rule-types-4.png](../../assets/images/management/rules/rule-types-4.png)
+![rule-types-4.png]({{ "/assets/images/management/rules/rule-types-4.png" | relative_url }})

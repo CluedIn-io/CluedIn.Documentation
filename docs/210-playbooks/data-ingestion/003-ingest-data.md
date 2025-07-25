@@ -17,7 +17,7 @@ title: Ingest data
 
 **You are here in the data journey**
 
-![data-ingestion-you-are-here.png](../../assets/images/playbooks/data-ingestion-you-are-here.png)
+![data-ingestion-you-are-here.png]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
 
 **Before you start**
 
@@ -27,7 +27,7 @@ title: Ingest data
 
 Now that you have prepared a list of sources and selected a tool for data ingestion, you can start the actual data ingestion process. This process consists of three steps—ingest, map, and process. In this article, we'll focus on the first step to get your data into CluedIn.
 
-![ingest-data-intro.png](../../assets/images/playbooks/ingest-data-intro.png)
+![ingest-data-intro.png]({{ "/assets/images/playbooks/ingest-data-intro.png" | relative_url }})
 
 While ingesting your data, remember one of our project  principles—[start small](/playbooks/how-to-approach-your-cluedin-project). The idea is to **focus on one end-to-end data flow**, and not to load 10 million records at once as this will become a burden in the development phase of your project.
 
@@ -53,7 +53,7 @@ The current public [release](/release-notes) of CluedIn does not support nested 
 
 When the data is ingested into CluedIn, it will be represented in the following structure.
 
-![structure-of-ingested-data.png](../../assets/images/playbooks/structure-of-ingested-data.png)
+![structure-of-ingested-data.png]({{ "/assets/images/playbooks/structure-of-ingested-data.png" | relative_url }})
 
 - **Group** – this is a folder to organize your sources in a logical form.
 
@@ -65,17 +65,17 @@ When the data is ingested into CluedIn, it will be represented in the following 
 
 If you followed our instructions, you should see the result similar to the following.
 
-![ingested-data-sample-1.png](../../assets/images/playbooks/ingested-data-sample-1.png)
+![ingested-data-sample-1.png]({{ "/assets/images/playbooks/ingested-data-sample-1.png" | relative_url }})
 
 **Data source containing data sets**
 
-![ingested-data-sample-2.png](../../assets/images/playbooks/ingested-data-sample-2.png)
+![ingested-data-sample-2.png]({{ "/assets/images/playbooks/ingested-data-sample-2.png" | relative_url }})
 
 **Data set containing raw records on the Preview tab**
 
 The main goal of data ingestion is to have some records on the **Preview** tab.
 
-![ingested-data-sample-3.png](../../assets/images/playbooks/ingested-data-sample-3.png)
+![ingested-data-sample-3.png]({{ "/assets/images/playbooks/ingested-data-sample-3.png" | relative_url }})
 
 ## Next step
 

@@ -31,7 +31,7 @@ By default, backup occurs every 4 hours and typically lasts about 15 minutes. It
 
 The following diagram illustrates AKS backup configuration and the restoration of backup instances.
 
-![aks-backup-diagram.jpg](../../assets/images/ama/howtos/aks-backup-diagram.jpg)
+![aks-backup-diagram.jpg]({{ "/assets/images/ama/howtos/aks-backup-diagram.jpg" | relative_url }})
 
 ## Template deployment
 
@@ -64,7 +64,7 @@ Template deployment creates a storage account, backup vault, policies, instances
 
     1. In the **Instance details** section, enter the **Account Name** and **Aksrg** (AKS resource group).
 
-        ![backup-restore-1.png](../../assets/images/ama/howtos/backup-restore-1.png)
+        ![backup-restore-1.png]({{ "/assets/images/ama/howtos/backup-restore-1.png" | relative_url }})
 
         {:.important}
         The backup instances cannot be deployed within the same resource group as your existing AMA instance. To ensure proper configuration, the backup-related components must be deployed to a separate resource group.
@@ -73,7 +73,7 @@ Template deployment creates a storage account, backup vault, policies, instances
 
     Two resources are created within the resource group: storage account and backup vault.
 
-    ![backup-restore-2.png](../../assets/images/ama/howtos/backup-restore-2.png)
+    ![backup-restore-2.png]({{ "/assets/images/ama/howtos/backup-restore-2.png" | relative_url }})
 
 ## Backup extension configuration script
 
@@ -93,7 +93,7 @@ After you have completed the template deployment, run the backup extension scrip
 
     The following image shows an example of the parameters.
 
-    ![backup-restore-5.png](../../assets/images/ama/howtos/backup-restore-5.png)
+    ![backup-restore-5.png]({{ "/assets/images/ama/howtos/backup-restore-5.png" | relative_url }})
 
 After you executed the backup extension configuration, make sure that the resources were deployed successfully using the following steps:
 
@@ -101,15 +101,15 @@ After you executed the backup extension configuration, make sure that the resour
 
     1. In the left pane, under **Settings**, select **Extensions + applications**. You should see the following extension: **azure-aks-backup**
 
-        ![backup-restore-3.png](../../assets/images/ama/howtos/backup-restore-3.png)
+        ![backup-restore-3.png]({{ "/assets/images/ama/howtos/backup-restore-3.png" | relative_url }})
 
     1. In the left pane, under **Settings**, select **Backup (preview)**. You should the following extension: **cluedin-backup-instance**.
 
-        ![backup-restore-4.png](../../assets/images/ama/howtos/backup-restore-4.png)
+        ![backup-restore-4.png]({{ "/assets/images/ama/howtos/backup-restore-4.png" | relative_url }})
 
 1. Go to the resource group, and then open the backup vault. Set the **Datasource type** filter to **Kubernetes Services (Preview)**. You should see your backup jobs and instances.
 
-    ![backup-restore-7.png](../../assets/images/ama/howtos/backup-restore-7.png)
+    ![backup-restore-7.png]({{ "/assets/images/ama/howtos/backup-restore-7.png" | relative_url }})
 
 ## Restore a backup instance
 
@@ -125,11 +125,11 @@ After you configured the backup solution, you can restore any backup instance wh
 
 1. Select the **Backup instance**. Then, in the lower-left corner, select **Next: Restore point**.
 
-    ![backup-restore-8.png](../../assets/images/ama/howtos/backup-restore-8.png)
+    ![backup-restore-8.png]({{ "/assets/images/ama/howtos/backup-restore-8.png" | relative_url }})
 
 1. Select the **Restore point** from the list of available backups. Then, in the lower-left corner, select **Next: Restore parameters**.
 
-    ![backup-restore-9.png](../../assets/images/ama/howtos/backup-restore-9.png)
+    ![backup-restore-9.png]({{ "/assets/images/ama/howtos/backup-restore-9.png" | relative_url }})
 
 1. On the **Restore parameters** tab, do the following:
 
@@ -137,16 +137,16 @@ After you configured the backup solution, you can restore any backup instance wh
 
     1. Select the **Resources to restore**. You can choose to restore the state, the data, or both (complete backup).
 
-        ![backup-restore-11.png](../../assets/images/ama/howtos/backup-restore-11.png)
+        ![backup-restore-11.png]({{ "/assets/images/ama/howtos/backup-restore-11.png" | relative_url }})
 
     1. Validate the restore parameters.
 
-        ![backup-restore-12.png](../../assets/images/ama/howtos/backup-restore-12.png)
+        ![backup-restore-12.png]({{ "/assets/images/ama/howtos/backup-restore-12.png" | relative_url }})
 
     1. In the lower-left corner, select **Next: Review + restore**.
 
 1. Review the restore details, and then select **Restore**.
 
-    ![backup-restore-13.png](../../assets/images/ama/howtos/backup-restore-13.png)
+    ![backup-restore-13.png]({{ "/assets/images/ama/howtos/backup-restore-13.png" | relative_url }})
 
     You'll receive a notification when the restore is completed.

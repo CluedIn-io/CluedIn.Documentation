@@ -18,7 +18,7 @@ In this article, you will learn how to load data from CluedIn to a Microsoft Fab
 
 To connect CluedIn to Microsoft Fabric, you need an active API token. You can create an API token in CluedIn in **Administration** > **API tokens**.
 
-![api-token.jpg](../../assets/images/microsoft-integration/fabric/api-token.jpg)
+![api-token.jpg]({{ "/assets/images/microsoft-integration/fabric/api-token.jpg" | relative_url }})
 
 ## Load data
 
@@ -162,7 +162,7 @@ In the following procedure, we'll use a CluedIn instance that has 601_222 entiti
 
     You will get an output similar to the following.
 
-    ![output-1.png](../../assets/images/microsoft-integration/fabric/output-1.png)
+    ![output-1.png]({{ "/assets/images/microsoft-integration/fabric/output-1.png" | relative_url }})
 
 1. Set the DataFrame's index to Entity ID.
 
@@ -173,7 +173,7 @@ In the following procedure, we'll use a CluedIn instance that has 601_222 entiti
 
     You will get an output similar to the following.
 
-    ![output-2.png](../../assets/images/microsoft-integration/fabric/output-2.png)
+    ![output-2.png]({{ "/assets/images/microsoft-integration/fabric/output-2.png" | relative_url }})
 
 ## Explore data
 
@@ -186,7 +186,7 @@ plt.xlabel('Genres')
 plt.ylabel('Count')
 plt.show()
 ```
-![output-3.png](../../assets/images/microsoft-integration/fabric/output-3.png)
+![output-3.png]({{ "/assets/images/microsoft-integration/fabric/output-3.png" | relative_url }})
 
 ## Create schema
 
@@ -224,4 +224,4 @@ display(df_spark_titles)
 
 Now, you can view the data in the Catalog.
 
-![output-4.png](../../assets/images/microsoft-integration/fabric/output-4.png)
+![output-4.png]({{ "/assets/images/microsoft-integration/fabric/output-4.png" | relative_url }})

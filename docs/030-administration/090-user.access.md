@@ -9,7 +9,7 @@ has_children: true
 
 In this section, you will learn about the main aspects that define user access in CluedIn.
 
-![role-and-data-access.png](../../assets/images/administration/user-access/role-and-data-access.png)
+![role-and-data-access.png]({{ "/assets/images/administration/user-access/role-and-data-access.png" | relative_url }})
 
 Every authorized user in CluedIn has an assigned **role** that defines the user's permission to interact with CluedIn modules: Integrations, Preparation, Management, Governance, Consume, Engine Room, and Administration. Every module contains features that enable you to perform specific tasks. For example, in the Preparation module, you can create and work with clean projects. Access to those features is managed by CluedIn roles. For more information, see [Feature access](/administration/user-access/feature-access).
 

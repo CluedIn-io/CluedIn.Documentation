@@ -55,7 +55,7 @@ After you imported and mapped the data that you will be linking to already exist
 
     1. Select the edge mode.
 
-        ![add-edge-1.png](../../assets/images/getting-started/relations/add-edge-1.png)
+        ![add-edge-1.png]({{ "/assets/images/getting-started/relations/add-edge-1.png" | relative_url }})
 
     1. In the lower-right corner, select **Next**.
 
@@ -67,7 +67,7 @@ After you imported and mapped the data that you will be linking to already exist
 
     1. Define the origin of the target data set. It will displayed after you process the data.
 
-        ![entity-mapping-2.png](../../assets/images/getting-started/relations/entity-mapping-2.png)
+        ![entity-mapping-2.png]({{ "/assets/images/getting-started/relations/entity-mapping-2.png" | relative_url }})
 
     1. In the lower-right corner, select **Next**.
 
@@ -83,15 +83,15 @@ After you processed the data and streamed the records, you can view the relation
 
 - In CluedIn: on the **Relations** tab of the golden record details page.
 
-    ![view-relations-1.png](../../assets/images/getting-started/relations/view-relations-1.png)
+    ![view-relations-1.png]({{ "/assets/images/getting-started/relations/view-relations-1.png" | relative_url }})
 
     To view the edge relation details, select the arrow that connects the entities.
 
-    ![view-relations-2.png](../../assets/images/getting-started/relations/view-relations-2.png)
+    ![view-relations-2.png]({{ "/assets/images/getting-started/relations/view-relations-2.png" | relative_url }})
 
 - In the database: in the tables named **dbo.xyzOutgoingEdges** and **dbo.xyzIncomingEdges**, where _xyz_ is the target name.
 
-    ![view-relations-3.png](../../assets/images/getting-started/relations/view-relations-3.png)
+    ![view-relations-3.png]({{ "/assets/images/getting-started/relations/view-relations-3.png" | relative_url }})
 
     If you add more edge relations between the records, CluedIn will automatically identify the changes and update the stream with new edge relations.
 

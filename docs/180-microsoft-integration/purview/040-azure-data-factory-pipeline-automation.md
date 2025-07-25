@@ -30,11 +30,11 @@ This section contains the steps required to prepare for syncing data from Purvie
 
 1. Register an application for ADF following the steps described in [Register an application and create a service principal](/microsoft-integration/purview/pre-configuration-guide#register-an-application-and-create-a-service-principal). You will need the **Application (client) ID** and **Directory (tenant) ID** to configure ADF in CluedIn.
 
-    ![register-app-adf-spn.png](../../assets/images/microsoft-integration/purview/sync-data-sources-create-glossary.png)
+    ![register-app-adf-spn.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-create-glossary.png" | relative_url }})
 
 1. Create a client secret for ADF application following the steps described in [Register an application and create a service principal](/microsoft-integration/purview/pre-configuration-guide#register-an-application-and-create-a-service-principal).
 
-    ![register-app-adf-client-secret.png](../../assets/images/microsoft-integration/purview/sync-data-sources-create-glossary.png)
+    ![register-app-adf-client-secret.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-create-glossary.png" | relative_url }})
 
 1. Register ADF application in the key vault that you created in [Create a key vault and register Purview](/microsoft-integration/purview/pre-configuration-guide#create-a-key-vault-and-register-purview):
 
@@ -44,7 +44,7 @@ This section contains the steps required to prepare for syncing data from Purvie
 
     1. On the **Principal** tab, find and select the ADF service principal, and then select **Next**.
 
-        ![adf-key-vault.png](../../assets/images/microsoft-integration/purview/adf-key-vault.png)
+        ![adf-key-vault.png]({{ "/assets/images/microsoft-integration/purview/adf-key-vault.png" | relative_url }})
 
     1. Select **Create**.
 
@@ -58,19 +58,19 @@ This section contains the steps required to prepare for syncing data from Purvie
 
     1. On the **Role** tab, go to **Privileged administrator roles**, and review information about the **Contributor** role.
 
-        ![adf-assign-contributor-role.png](../../assets/images/microsoft-integration/purview/adf-assign-contributor-role.png)
+        ![adf-assign-contributor-role.png]({{ "/assets/images/microsoft-integration/purview/adf-assign-contributor-role.png" | relative_url }})
 
     1. Select **Next**.
 
     1. In **Members** > **Select members**, find and select ADF service principal.
 
-        ![adf-assign-contributor-role-members.png](../../assets/images/microsoft-integration/purview/adf-assign-contributor-role-members.png)
+        ![adf-assign-contributor-role-members.png]({{ "/assets/images/microsoft-integration/purview/adf-assign-contributor-role-members.png" | relative_url }})
 
     1. Select **Review + assign**.
 
     As a result, the ADF application now has the Contributor access to the data factory resource.
 
-    ![adf-resource-with-adf-service-principal.png](../../assets/images/microsoft-integration/purview/adf-resource-with-adf-service-principal.png)
+    ![adf-resource-with-adf-service-principal.png]({{ "/assets/images/microsoft-integration/purview/adf-resource-with-adf-service-principal.png" | relative_url }})
 
 ### Preparation in Purview
 
@@ -90,7 +90,7 @@ This section contains the steps required to prepare for syncing data from Purvie
 
     The new term is added to the glossary. Next, add the term to the asset that you want to sync with CluedIn.
 
-    ![adf-new-term.png](../../assets/images/microsoft-integration/purview/adf-new-term.png)
+    ![adf-new-term.png]({{ "/assets/images/microsoft-integration/purview/adf-new-term.png" | relative_url }})
 
 1. To add the term to the asset that you want to sync with CluedIn:
 
@@ -104,13 +104,13 @@ This section contains the steps required to prepare for syncing data from Purvie
 
     1. In **Glossary terms**, find and select the term you created in step 3.
 
-        ![adf-add-term-to-asset.png](../../assets/images/microsoft-integration/purview/adf-add-term-to-asset.png)
+        ![adf-add-term-to-asset.png]({{ "/assets/images/microsoft-integration/purview/adf-add-term-to-asset.png" | relative_url }})
 
     1. Select **Save**.
 
     The term is added to the asset that you want to sync with CluedIn. On the term details page, you can find the assets associated with the term.
 
-    ![adf-term-with-asset.png](../../assets/images/microsoft-integration/purview/adf-term-with-asset.png)
+    ![adf-term-with-asset.png]({{ "/assets/images/microsoft-integration/purview/adf-term-with-asset.png" | relative_url }})
 
     Once you have prepared the data sources that you want to sync, configure the appropriate settings in CluedIn.
 
@@ -120,7 +120,7 @@ This section contains the steps required to prepare for syncing data from Purvie
 
 1. In **Azure Data Factory Base Url**, enter the resource ID of your ADF resource. To find the resource ID, go to your ADF resource, select **JSON View**, and then copy the value of **Resource ID**. The resource ID should be in the following format: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.DataFactory/factories/{factoryName}/`.
 
-    ![adf-resource-id.png](../../assets/images/microsoft-integration/purview/adf-resource-id.png)
+    ![adf-resource-id.png]({{ "/assets/images/microsoft-integration/purview/adf-resource-id.png" | relative_url }})
 
 1. In **Azure Data Factory Client ID**, enter a unique identifier assigned to the ADF application when you registered it in Microsoft Entra ID. You can find this value on the application overview page, in **Application (client) ID**.
 
@@ -133,7 +133,7 @@ You can find this value on the application overview page, in **Directory (tenan
 
 1. In **ADF Pipeline Automation Term Pattern**, enter the name of the term that is associated with assets you want to ingest into CluedIn via automated pipeline.
 
-    ![adf-cluedin-settings.png](../../assets/images/microsoft-integration/purview/adf-cluedin-settings.png)
+    ![adf-cluedin-settings.png]({{ "/assets/images/microsoft-integration/purview/adf-cluedin-settings.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -143,7 +143,7 @@ You can find this value on the application overview page, in **Directory (tenan
 
 When the synchronization is completed, you will receive a notification.
 
-![adf-notifications.png](../../assets/images/microsoft-integration/purview/adf-notifications.png)
+![adf-notifications.png]({{ "/assets/images/microsoft-integration/purview/adf-notifications.png" | relative_url }})
 
 **How to check the pipelines in ADF?**
 
@@ -153,7 +153,7 @@ The ADF pipelines are created automatically for each Purview asset. To verify th
 
 1. Expand the **Datasets** dropdown list – you will see the dataset that has been sent to CluedIn as well as REST connection to CluedIn ingestion endpoint.
 
-    ![adf-pipelines.png](../../assets/images/microsoft-integration/purview/adf-pipelines.png)
+    ![adf-pipelines.png]({{ "/assets/images/microsoft-integration/purview/adf-pipelines.png" | relative_url }})
 
 Additionally, go to **Manage** > **Linked services**. Here, you will see the linked services that define connection information to a data store. For example, in the following screenshot, there are three linked services:
 
@@ -163,14 +163,14 @@ Additionally, go to **Manage** > **Linked services**. Here, you will see the lin
 
 1. REST – connects ADF to CluedIn ingestion endpoint.
 
-    ![adf-linked-services.png](../../assets/images/microsoft-integration/purview/adf-linked-services.png)
+    ![adf-linked-services.png]({{ "/assets/images/microsoft-integration/purview/adf-linked-services.png" | relative_url }})
 
 Finally, go to **Monitor** > **Pipeline runs** to verify that the pipeline has run successfully.
 
-![adf-pipeline-runs.png](../../assets/images/microsoft-integration/purview/adf-pipeline-runs.png)
+![adf-pipeline-runs.png]({{ "/assets/images/microsoft-integration/purview/adf-pipeline-runs.png" | relative_url }})
 
 **How to check the ingested data in CluedIn?**
 
 As a result of pipeline run, the data source in CluedIn now contains a data set.
 
-![adf-ingested-data.png](../../assets/images/microsoft-integration/purview/adf-ingested-data.png)
+![adf-ingested-data.png]({{ "/assets/images/microsoft-integration/purview/adf-ingested-data.png" | relative_url }})

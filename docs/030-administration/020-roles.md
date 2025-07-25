@@ -38,7 +38,7 @@ To get acquainted with the required claims and access levels for all actions in 
 
 To view the role's claims and access levels, select the role. In the first column, you can find the name of the section in CluedIn (a) and claims within that section (b). In the second column, you can find access levels (c) to each claim.
 
-![roles-1.png](../../assets/images/administration/roles/roles-1.png)
+![roles-1.png]({{ "/assets/images/administration/roles/roles-1.png" | relative_url }})
 
 Each role contains the same list of claims, but different access levels. We recommend that you familiarize yourself with the default CluedIn roles, so that you know which role to assign to users in your organization. If the default configuration is not suitable for you, you can change the access levels in the default roles or create your own roles.
 

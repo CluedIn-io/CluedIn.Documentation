@@ -7,4 +7,4 @@ has_children: true
 title: Data engineering playbook
 ---
 
-![data-engineering-playbook.png](../../assets/images/playbooks/data-engineering-playbook.png)
+![data-engineering-playbook.png]({{ "/assets/images/playbooks/data-engineering-playbook.png" | relative_url }})

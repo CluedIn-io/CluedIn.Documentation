@@ -18,7 +18,7 @@ This article outlines how to configure the Azure Data Lake connector to publish 
 
 1. On the **Choose Target** tab, select **Azure Data Lake Connector**. Then, select **Next**.
 
-    ![adl-connector-1.png](../../assets/images/consume/export-targets/adl-connector-1.png)
+    ![adl-connector-1.png]({{ "/assets/images/consume/export-targets/adl-connector-1.png" | relative_url }})
 
 1. On the **Configure** tab, enter the connection details:
 
@@ -26,23 +26,23 @@ This article outlines how to configure the Azure Data Lake connector to publish 
 
     1. **AccountName** – name of the Azure Data Lake storage account where you want to store the data from CluedIn.
 
-        ![adl-account-name.png](../../assets/images/consume/export-targets/adl-account-name.png)
+        ![adl-account-name.png]({{ "/assets/images/consume/export-targets/adl-account-name.png" | relative_url }})
 
     1. **AccountKey** – access key for authenticating requests to the Azure Data Lake storage account.
 
-        ![adl-account-key.png](../../assets/images/consume/export-targets/adl-account-key.png)
+        ![adl-account-key.png]({{ "/assets/images/consume/export-targets/adl-account-key.png" | relative_url }})
 
     1. **FileSystemName** – name of a container in Azure Data Lake.
 
-        ![adl-file-system-name.png](../../assets/images/consume/export-targets/adl-file-system-name.png)
+        ![adl-file-system-name.png]({{ "/assets/images/consume/export-targets/adl-file-system-name.png" | relative_url }})
 
     1. **DirectoryName** – name of a directory inside the container in Azure Data Lake.
 
-        ![adl-directory-name.png](../../assets/images/consume/export-targets/adl-directory-name.png)
+        ![adl-directory-name.png]({{ "/assets/images/consume/export-targets/adl-directory-name.png" | relative_url }})
 
     1. **Enable Stream Cache (Sync mode only)** – when stream cache is enabled, CluedIn caches the golden records at intervals, and then writes out accumulated data to one file (JSON, Parquet, or CSV). When stream cache is not enabled, CluedIn streams out golden records one by one, each in a separate JSON file. Stream cache is available only for the synchronized stream mode.
 
-        ![adl-connector-configure-1.png](../../assets/images/consume/export-targets/adl-connector-configure-1.png)
+        ![adl-connector-configure-1.png]({{ "/assets/images/consume/export-targets/adl-connector-configure-1.png" | relative_url }})
 
     1. **Output Format** – file format for the exported data. You can choose between JSON, Parquet, and CSV. However, Parquet and CSV formats are available only if you enable stream cache. If stream cache is not enabled, JSON is the default format.
 
@@ -68,6 +68,6 @@ This article outlines how to configure the Azure Data Lake connector to publish 
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-    ![adl-connector-configure-2.png](../../assets/images/consume/export-targets/adl-connector-configure-2.png)
+    ![adl-connector-configure-2.png]({{ "/assets/images/consume/export-targets/adl-connector-configure-2.png" | relative_url }})
 
     Now, you can select the Azure Data Lake connector in a stream and start exporting golden records.

@@ -17,7 +17,7 @@ In this article, you will learn how to review logs from all CluedIn services in 
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Log Analytics workspace.
 
-    ![log-analytics-workspace.png](../../assets/images/paas-operations/log-analytics-workspace.png)
+    ![log-analytics-workspace.png]({{ "/assets/images/paas-operations/log-analytics-workspace.png" | relative_url }})
 
 1. On the left navigation pane of the Log Analytics workspace, select **Logs**. Then, close the **Queries hub** pop-up window. This will open the query editor where you can run queries to retrieve logs.
 
@@ -57,11 +57,11 @@ If you want to retrieve logs for the cluedin-server pod, do the following:
     | project  TimeGenerated, LogEntry
     ```
 
-    ![query-example.png](../../assets/images/paas-operations/query-example.png)
+    ![query-example.png]({{ "/assets/images/paas-operations/query-example.png" | relative_url }})
 
     This query will return logs related to the cluedin-server pod.
 
-    ![logs-example.png](../../assets/images/paas-operations/logs-example.png)
+    ![logs-example.png]({{ "/assets/images/paas-operations/logs-example.png" | relative_url }})
 
 ## Service name to pod name mapping
 

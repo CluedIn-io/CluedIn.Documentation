@@ -17,11 +17,11 @@ title: Data impact workshop
 
 **You are here in the data journey**
 
-![data-ingestion-you-are-here.png](../../assets/images/playbooks/data-ingestion-you-are-here.png)
+![data-ingestion-you-are-here.png]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
 
 This article outlines the importance of the data impact workshop as the first step of your data ingestion process.
 
-![data-impact-workshop-intro.png](../../assets/images/playbooks/data-impact-workshop-intro.png)
+![data-impact-workshop-intro.png]({{ "/assets/images/playbooks/data-impact-workshop-intro.png" | relative_url }})
 
 The data impact workshop is a collaborative session designed to help you identify your business domains, determine the data sources to ingest, and assess their criticality to your operations.
 
@@ -50,7 +50,7 @@ For a businessperson, seeing a full solution for 10,000 records is a strong pr
 
 The data impact quadrant is a tool that helps you visualize and assess data based on two key criteria: **impact** and **access to data**. The purpose of the data impact quadrant is to help you map your sources of data and your business domains in order to evaluate where you should spend your time first.
 
-![data-impact-quadrant.png](../../assets/images/playbooks/data-impact-quadrant.png)
+![data-impact-quadrant.png]({{ "/assets/images/playbooks/data-impact-quadrant.png" | relative_url }})
 
 **What are the goals of your data impact quadrant?**
 
@@ -81,11 +81,11 @@ Follow [this link](https://miro.com/app/board/uXjVLDsv2ww=/?share_link_id=341736
 
 The following image illustrates the data impact quadrant created during a workshop.
 
-![data-impact-quadrant-example.png](../../assets/images/playbooks/data-impact-quadrant-example.png)
+![data-impact-quadrant-example.png]({{ "/assets/images/playbooks/data-impact-quadrant-example.png" | relative_url }})
 
 Generally, the data impact workshop consists of 5 steps.
 
-![data-impact-workshop-scenario.png](../../assets/images/playbooks/data-impact-workshop-scenario.png)
+![data-impact-workshop-scenario.png]({{ "/assets/images/playbooks/data-impact-workshop-scenario.png" | relative_url }})
 
 ### Step 1: Identify critical data sources
 
@@ -144,7 +144,7 @@ It’s important for your team to discuss and align on what they consider “cri
 
 Once you’ve reached an agreement, create a list of data sources, starting from the top right and moving to the bottom left, to establish your priorities. The following image shows the direction in which you should list the data sources.
 
-![data-impact-quadrant-example-order.png](../../assets/images/playbooks/data-impact-quadrant-example-order.png)
+![data-impact-quadrant-example-order.png]({{ "/assets/images/playbooks/data-impact-quadrant-example-order.png" | relative_url }})
 
 The following table is an example of what the result of the exercise might look like.
 

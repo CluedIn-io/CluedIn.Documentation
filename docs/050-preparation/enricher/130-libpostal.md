@@ -35,7 +35,7 @@ The Libpostal enricher uses the address as input to parse and normalize the stre
 
 1. On the **Choose Enricher** tab, select **Libpostal**, and then select **Next**.
 
-    ![libpostal-enricher-1.png](../../assets/images/preparation/enricher/libpostal-enricher-1.png)
+    ![libpostal-enricher-1.png]({{ "/assets/images/preparation/enricher/libpostal-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -49,7 +49,7 @@ The Libpostal enricher uses the address as input to parse and normalize the stre
 
     - **Location Address Vocabulary Key** – if you entered /Location as the accepted business domain, enter the vocabulary key that contains the addresses of locations that you want to enrich.
 
-        ![libpostal-enricher-2.png](../../assets/images/preparation/enricher/libpostal-enricher-2.png)
+        ![libpostal-enricher-2.png]({{ "/assets/images/preparation/enricher/libpostal-enricher-2.png" | relative_url }})
 
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
@@ -65,11 +65,11 @@ After the Libpostal enricher is added, you can modify its details:
 
 You can find the properties added to golden records from the Libpostal enricher on the **Properties** page.
 
-![libpostal-enricher-4.png](../../assets/images/preparation/enricher/libpostal-enricher-4.png)
+![libpostal-enricher-4.png]({{ "/assets/images/preparation/enricher/libpostal-enricher-4.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the Libpostal enricher, check the corresponding data part on the **History** page.
 
-![libpostal-enricher-5.png](../../assets/images/preparation/enricher/libpostal-enricher-5.png)
+![libpostal-enricher-5.png]({{ "/assets/images/preparation/enricher/libpostal-enricher-5.png" | relative_url }})
 
 The following table lists the properties that can be added to golden records by the Libpostal enricher.
 

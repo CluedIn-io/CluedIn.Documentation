@@ -31,7 +31,7 @@ A CSV (comma-separated values) file format allows data to be saved in a tabular 
 
 1. On the navigation pane, go to **Ingestion**, and then in the **Files** section, select **Add**.
 
-    ![files-add.png](../../assets/images/getting-started/data-ingestion/files-add.png)
+    ![files-add.png]({{ "/assets/images/getting-started/data-ingestion/files-add.png" | relative_url }})
 
 1. In the **Add Files** section, add the file. You may drag the file or select the file from the computer.
 
@@ -39,7 +39,7 @@ A CSV (comma-separated values) file format allows data to be saved in a tabular 
 
     A group indicates a department or domain within your company that is associated with the data. Think of a group as a folder where you can store files related to similar types of data.
 
-    ![import-a-file-2.png](../../assets/images/getting-started/data-ingestion/import-a-file-2.png)
+    ![import-a-file-2.png]({{ "/assets/images/getting-started/data-ingestion/import-a-file-2.png" | relative_url }})
 
 1. Select **Upload**.
 
@@ -57,7 +57,7 @@ After you uploaded the file, you can view the data from the file as a table with
 
 1. Select the element contained in the data source. This element is called a data set; think of a data set as a table in the database.
 
-    ![view-imported-data-1.png](../../assets/images/getting-started/data-ingestion/view-imported-data-1.png)
+    ![view-imported-data-1.png]({{ "/assets/images/getting-started/data-ingestion/view-imported-data-1.png" | relative_url }})
 
     The data set details page opens, where you can view imported data.
 
@@ -75,7 +75,7 @@ Mapping is the process of creating a semantic layer for your data so that CluedI
 
 1. On the data set details page, select the **Missing Mapping** label.
 
-    ![create-mapping-1.png](../../assets/images/getting-started/data-ingestion/create-mapping-1.png)
+    ![create-mapping-1.png]({{ "/assets/images/getting-started/data-ingestion/create-mapping-1.png" | relative_url }})
 
     Alternatively, go to the **Map** tab.
 
@@ -83,7 +83,7 @@ Mapping is the process of creating a semantic layer for your data so that CluedI
 
 1. In **Mapping Type**, leave the default **Auto Mapping** option selected.
 
-    ![create-mapping-2.png](../../assets/images/getting-started/data-ingestion/create-mapping-2.png)
+    ![create-mapping-2.png]({{ "/assets/images/getting-started/data-ingestion/create-mapping-2.png" | relative_url }})
 
 1. Select **Next**.
 
@@ -93,27 +93,27 @@ Mapping is the process of creating a semantic layer for your data so that CluedI
 
 1. In **Icon**, select the visual representation of the business domain.
 
-    ![create-mapping-3.png](../../assets/images/getting-started/data-ingestion/create-mapping-3.png)
+    ![create-mapping-3.png]({{ "/assets/images/getting-started/data-ingestion/create-mapping-3.png" | relative_url }})
 
 1. In **Vocabulary**, enter the name of a new vocabulary and select **Create**. A vocabulary is a structured framework for creating a unified view of your data. The purpose of vocabulary is to translate your original fields to the language CluedIn understands.
 
     The **Key prefix** is created automatically; it is added before the original field names to establish consistent and well-organized standard fields.
 
-    ![create-mapping-4.png](../../assets/images/getting-started/data-ingestion/create-mapping-4.png)
+    ![create-mapping-4.png]({{ "/assets/images/getting-started/data-ingestion/create-mapping-4.png" | relative_url }})
 
 1. In **Primary Identifier**, review the field that was selected automatically for generating a unique identifier for each record.
 
-    ![create-mapping-5.png](../../assets/images/getting-started/data-ingestion/create-mapping-5.png)
+    ![create-mapping-5.png]({{ "/assets/images/getting-started/data-ingestion/create-mapping-5.png" | relative_url }})
 
 1. In **Preview**, review the mapping of original fields to standard fields. You can edit the names of standard fields that come after the key prefix, and you can change the data type if needed.
 
-    ![create-mapping-6.png](../../assets/images/getting-started/data-ingestion/create-mapping-6.png)
+    ![create-mapping-6.png]({{ "/assets/images/getting-started/data-ingestion/create-mapping-6.png" | relative_url }})
 
  1. Select **Create Mapping**.
 
     As a result of the mapping process, you can view how the fields from the file are linked to the standard fields in CluedIn.
 
-    ![create-mapping-7.png](../../assets/images/getting-started/data-ingestion/create-mapping-7.png)
+    ![create-mapping-7.png]({{ "/assets/images/getting-started/data-ingestion/create-mapping-7.png" | relative_url }})
 
 ## Process data
 
@@ -123,7 +123,7 @@ Processing turns your data into golden records that can be cleaned, deduplicated
 
 1. On the data set details page, select the **Not Processed** label.
 
-    ![process-data-1.png](../../assets/images/getting-started/data-ingestion/process-data-1.png)
+    ![process-data-1.png]({{ "/assets/images/getting-started/data-ingestion/process-data-1.png" | relative_url }})
 
     Alternatively, go to the **Process** tab.
 
@@ -131,7 +131,7 @@ Processing turns your data into golden records that can be cleaned, deduplicated
 
 1. Review information about records that will be processed. Pay attention to the **Primary Identifier Status** section. If there are duplicates, they will be merged during processing.
 
-    ![process-data-2.png](../../assets/images/getting-started/data-ingestion/process-data-2.png)
+    ![process-data-2.png]({{ "/assets/images/getting-started/data-ingestion/process-data-2.png" | relative_url }})
 
 1. Select **Confirm**.
 
@@ -147,13 +147,13 @@ After the data has been processed, you can search for any property and view all 
 
 1. Paste the email address in the search field, and then select the search icon.
 
-    ![search-for-data-1.png](../../assets/images/getting-started/data-ingestion/search-for-data-1.png)
+    ![search-for-data-1.png]({{ "/assets/images/getting-started/data-ingestion/search-for-data-1.png" | relative_url }})
 
 1. On the search results page, select the name of the record.
 
 1. On the golden record details page, go to the **Properties** tab. Here, you can view all the properties of the golden record.
 
-    ![search-for-data-2.png](../../assets/images/getting-started/data-ingestion/search-for-data-2.png)
+    ![search-for-data-2.png]({{ "/assets/images/getting-started/data-ingestion/search-for-data-2.png" | relative_url }})
 
 ## Results & next steps
 

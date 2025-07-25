@@ -34,7 +34,7 @@ CluedIn is composed by 5 main containers:
 
 The server can operate across multiple modes. For example, it can be setup to be a Web API, a processing box, or a streaming box. By default, your configuration will have 2 pods running as a Web API and 2 pods running as a processing box. Generally, this configuration is sufficient for 90% of the use cases we face. The following screenshot shows an example of nodes running in production.
 
-![nodes-in-production.png](../../assets/images/paas-operations/nodes-in-production.png)
+![nodes-in-production.png]({{ "/assets/images/paas-operations/nodes-in-production.png" | relative_url }})
 
 **What are the key workloads running in CluedIn?**
 

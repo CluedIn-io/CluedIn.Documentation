@@ -14,13 +14,13 @@ last_modified: 2025-02-05
 
 In this article, you will learn about customizations that can be implemented in CluedIn. While this article focuses on the most common customization options, do not hesitate to reach out to CluedIn Customer Success Team if your use case requires other solutions.
 
-![customization-options.png](../../assets/images/playbooks/customization-options.png)
+![customization-options.png]({{ "/assets/images/playbooks/customization-options.png" | relative_url }})
 
 ## Customization of data ingestion
 
 CluedIn offers multiple [options](https://documentation.cluedin.net/playbooks/data-ingestion-playbook/pick-the-right-tool) for getting your data into the platform. However, you can further customize the data ingestion process if your use case requires it.
 
-![customization-options-ingestion.png](../../assets/images/playbooks/customization-options-ingestion.png)
+![customization-options-ingestion.png]({{ "/assets/images/playbooks/customization-options-ingestion.png" | relative_url }})
 
 There are three ways to customize data ingestion in CluedIn:
 
@@ -36,7 +36,7 @@ In CluedIn, there are three [types of rules](/management/rules/rule-types): data
 
 CluedIn offers a variety of [actions](/management/rules/rules-reference) for each rule type to cover the most common data transformation tasks. However, if out-of-the-box actions are not enough, and you need something non-standard, you can write custom rule actions.
 
-![customization-options-rules.png](../../assets/images/playbooks/customization-options-rules.png)
+![customization-options-rules.png]({{ "/assets/images/playbooks/customization-options-rules.png" | relative_url }})
 
 There are three ways to customize rule actions in CluedIn:
 
@@ -66,13 +66,13 @@ When the **Enrich** action is invoked, it sends the payload to the API (HTTP POS
 
 CluedIn offers a variety of [enrichers](/preparation/enricher/enricher-reference) to help you enhance your golden records with information from external sources. However, if the out-of-the-box list of enrichers is not sufficient, we can create a custom enricher in C# for your specific system. For example, an enricher that calls an internal API to enrich your data.
 
-![customization-options-enricher.png](../../assets/images/playbooks/customization-options-enricher.png)
+![customization-options-enricher.png]({{ "/assets/images/playbooks/customization-options-enricher.png" | relative_url }})
 
 ## Customization of export targets for a stream
 
 CluedIn offers a variety of [export targets](/consume/export-targets/connector-reference) to cater for different export systems. Among them are OneLake, SQL Server, Azure Data Lake, and many others. If you cannot find the needed connector in the list and require a custom solution, reach out to CluedIn and our Data Engineers will help you implement a custom solution.
 
-![customization-options-stream.png](../../assets/images/playbooks/customization-options-stream.png)
+![customization-options-stream.png]({{ "/assets/images/playbooks/customization-options-stream.png" | relative_url }})
 
 **Example of custom export target**
 
@@ -90,7 +90,7 @@ When you start the stream with the Kafka connector, CluedIn first checks if the 
 
 If all of the above customization options are not sufficient for you, consider opting for customizations using Microsoft Fabric (or Azure Databricks).
 
-![customization-options-fabric.png](../../assets/images/playbooks/customization-options-fabric.png)
+![customization-options-fabric.png]({{ "/assets/images/playbooks/customization-options-fabric.png" | relative_url }})
 
 You can run your own scripts using [CluedIn Python SDK](/playbooks/data-engineering-playbook/python-sdk) to perform such tasks as:
 

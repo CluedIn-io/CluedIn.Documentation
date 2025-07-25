@@ -12,7 +12,7 @@ In this article, you will find reference information about common transformation
 
 To access the common transformation functions, expand the menu in the column heading, and then select **Edit cells** > **Common transforms**.
 
-![common-transform.png](../../assets/images/preparation/clean/common-transform.png)
+![common-transform.png]({{ "/assets/images/preparation/clean/common-transform.png" | relative_url }})
 
 The following table provides the description of common transformation functions.
 

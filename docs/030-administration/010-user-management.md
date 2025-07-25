@@ -43,7 +43,7 @@ If you don't have Azure Active Directory SSO enabled for CluedIn, you can add us
 
 The following diagram shows the flow of adding users to CluedIn.
 
-![add-user-diagram.gif](../../assets/images/administration/user-management/add-user-diagram.gif)
+![add-user-diagram.gif]({{ "/assets/images/administration/user-management/add-user-diagram.gif" | relative_url }})
 
 **To add a user by email address**
 
@@ -55,7 +55,7 @@ The following diagram shows the flow of adding users to CluedIn.
 
     The user will receive an email with a link to activate their account. After the user follows the link and creates a password, you will see the user on the **All users** page.
 
-    ![invite-user-email-2.png](../../assets/images/administration/user-management/invite-user-email-2.png)
+    ![invite-user-email-2.png]({{ "/assets/images/administration/user-management/invite-user-email-2.png" | relative_url }})
 
     By default, the user's role is OrganizationUser. It means that the user can view all sections and modules in a read-only mode. To give the user access to more features within the platform, [add another role to the user](/administration/roles/assign-roles).
 
@@ -74,7 +74,7 @@ For SSO users, you can revoke user access in Azure Active Directory. For users a
 
 The following diagram shows the flow of deactivating a user in CluedIn.
 
-![deactivate-user-diagram.gif](../../assets/images/administration/user-management/deactivate-user-diagram.gif)
+![deactivate-user-diagram.gif]({{ "/assets/images/administration/user-management/deactivate-user-diagram.gif" | relative_url }})
 
 **To deactivate a user in CluedIn**
 
@@ -90,7 +90,7 @@ The following diagram shows the flow of deactivating a user in CluedIn.
 
     The status of the user is changed to **Blocked**.
 
-    ![deactivate-user-1.png](../../assets/images/administration/user-management/deactivate-user-1.png)
+    ![deactivate-user-1.png]({{ "/assets/images/administration/user-management/deactivate-user-1.png" | relative_url }})
 
     The user won't be able to sign in to CluedIn.
 

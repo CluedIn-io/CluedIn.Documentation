@@ -13,7 +13,7 @@ Quarantine is an area in CluedIn where records that do not meet certain conditio
 
 **Why is the record in quarantine?** To find out why the record is in quarantine, select the **View details** icon in the **Details** column. The **Reason** pane will display the rule that led to the record's quarantine. The value that led to the record's quarantine is marked with the information icon.
 
-![quarantine-1.png](../../assets/images/integration/additional-operations/quarantine-1.png)
+![quarantine-1.png]({{ "/assets/images/integration/additional-operations/quarantine-1.png" | relative_url }})
 
 **What happens to the record after it has been fixed and processed?** The record disappears from the quarantine table. On the **Process** tab of the data set, you will find a new entry including the number of records and the processing status. However, keep in mind that the record remains in its original state on the **Preview** tab of the data set.
 
@@ -35,7 +35,7 @@ Quarantine is an area in CluedIn where records that do not meet certain conditio
 
     - To process specific records, select checkboxes in the first column for the needed records. You can also process all records by selecting the checkbox in the first column header. Then, in the upper right corner of the table, open the three-dot menu, and select **Process**.
 
-        ![quarantine-3.gif](../../assets/images/integration/additional-operations/quarantine-3.gif)
+        ![quarantine-3.gif]({{ "/assets/images/integration/additional-operations/quarantine-3.gif" | relative_url }})
 
 1. If you do not want to send the records from quarantine to CluedIn, reject them in one of the following ways:
 

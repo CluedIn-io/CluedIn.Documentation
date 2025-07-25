@@ -16,19 +16,19 @@ This article outlines how to configure the Open Mirroring connector to push data
 
     - **Service principals can use Fabric APIs**
 
-        ![onelake-fabric-settings-api.png](../../assets/images/consume/export-targets/onelake-fabric-settings-api.png)
+        ![onelake-fabric-settings-api.png]({{ "/assets/images/consume/export-targets/onelake-fabric-settings-api.png" | relative_url }})
 
     - **Users can access data stored in OneLake with apps external to Fabric**
 
-        ![onelake-fabric-settings-data-access.png](../../assets/images/consume/export-targets/onelake-fabric-settings-data-access.png)
+        ![onelake-fabric-settings-data-access.png]({{ "/assets/images/consume/export-targets/onelake-fabric-settings-data-access.png" | relative_url }})
 
 - In the workspace that you want to use in Open Mirroring connector, give at least Contributor access to the Open Mirroring service principal. To do that, in the workspace, select **Manage access**.
 
-    ![onelake-workspace-manage-access.png](../../assets/images/consume/export-targets/onelake-workspace-manage-access.png)
+    ![onelake-workspace-manage-access.png]({{ "/assets/images/consume/export-targets/onelake-workspace-manage-access.png" | relative_url }})
 
     Then, add the Open Mirroring service principal and assign it the Contributor role to the workspace.
 
-    ![onelake-workspace-manage-access-contributor.png](../../assets/images/consume/export-targets/onelake-workspace-manage-access-contributor.png)
+    ![onelake-workspace-manage-access-contributor.png]({{ "/assets/images/consume/export-targets/onelake-workspace-manage-access-contributor.png" | relative_url }})
 
 **To configure Open Mirroring connector**
 
@@ -44,25 +44,25 @@ This article outlines how to configure the Open Mirroring connector to push data
 
         To find the workspace, sign in to [Microsoft Fabric](https://app.fabric.microsoft.com/home?experience=data-warehouse), and then select **Workspaces** from the left-hand menu. In the list of workspaces, find the needed workspace and select it.
 
-        ![onelake-workspace.png](../../assets/images/consume/export-targets/onelake-workspace.png)
+        ![onelake-workspace.png]({{ "/assets/images/consume/export-targets/onelake-workspace.png" | relative_url }})
 
     1. **Create Mirrored Database** – Automatically creates the Mirrored Database if it doesn't exist. Requires 'Admin' permission in the workspace.
 
     1. **Mirrored Database Name** – name of the Mirrored Database if it already exists in Microsoft Fabric. Leaving this empty will create a new Mirrored Database.
 
-        ![onelake-item-name.png](../../assets/images/consume/export-targets/onelake-item-name.png)  
+        ![onelake-item-name.png]({{ "/assets/images/consume/export-targets/onelake-item-name.png" | relative_url }})  
 
     1. **ClientID** – unique identifier assigned to the Open Mirroring app when it was registered in the Microsoft identity platform. You can find this value in the **Overview** section of app registration.
 
-        ![onelake-client-id.png](../../assets/images/consume/export-targets/onelake-client-id.png)
+        ![onelake-client-id.png]({{ "/assets/images/consume/export-targets/onelake-client-id.png" | relative_url }})
 
     1. **ClientSecret** – confidential string used by your Open Mirroring app to authenticate itself to the Microsoft identity platform. You can find this value in the **Certificates & secrets** section of app registration.
 
-        ![onelake-client-secret.png](../../assets/images/consume/export-targets/onelake-client-secret.png)
+        ![onelake-client-secret.png]({{ "/assets/images/consume/export-targets/onelake-client-secret.png" | relative_url }})
 
     1. **TenantID** – unique identifier for your Microsoft Entra tenant. You can find this value in the **Overview** section of app registration.
 
-        ![onelake-tenant-id.png](../../assets/images/consume/export-targets/onelake-tenant-id.png)
+        ![onelake-tenant-id.png]({{ "/assets/images/consume/export-targets/onelake-tenant-id.png" | relative_url }})
 
     1. **Output Format** – file format for the exported data. You can choose between JSON, Parquet, and CSV. However, Parquet and CSV formats are available only if you enabled stream cache. If stream cache is not enabled, JSON is the default format.
 

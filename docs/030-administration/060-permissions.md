@@ -35,7 +35,7 @@ To make sure that the right users have access to the right data, perform the fol
 
 The following diagram shows the flow of restricting access to data.
 
-![restrict-access-2.png](../../assets/images/administration/permissions/restrict-access-2.png)
+![restrict-access-2.png]({{ "/assets/images/administration/permissions/restrict-access-2.png" | relative_url }})
 
 ## Enable a global security filter
 
@@ -45,13 +45,13 @@ Global security filter is used for managing the overall access to data within th
 
     If the global security filter is disabled, you will see a message similar to the one below when you check permissions for data sources, manual data entry projects, configured integrations, and enrichers.
 
-    ![global-security-filter-disabled.png](../../assets/images/administration/permissions/global-security-filter-disabled.png)
+    ![global-security-filter-disabled.png]({{ "/assets/images/administration/permissions/global-security-filter-disabled.png" | relative_url }})
 
 - **Enabled** – the users cannot view the data in CluedIn unless you have specifically added permissions for data.
 
     If the global security filter is enabled, you will see a list of users who have access to data when you check permissions for data sources, manual data entry projects, configured integrations, and enrichers.
 
-    ![global-security-filter-enabled.png](../../assets/images/administration/permissions/global-security-filter-enabled.png)
+    ![global-security-filter-enabled.png]({{ "/assets/images/administration/permissions/global-security-filter-enabled.png" | relative_url }})
 
 **To enable a global security filter**
 
@@ -59,7 +59,7 @@ Global security filter is used for managing the overall access to data within th
 
 1. In the **Global Security Filter** section, turn on the toggle next to the status.
 
-     ![restrict-access-1.png](../../assets/images/administration/permissions/restrict-access-1.png)
+     ![restrict-access-1.png]({{ "/assets/images/administration/permissions/restrict-access-1.png" | relative_url }})
 
     The global security filter is enabled. The users need to sign out and sign in again for the changes to take effect.
 
@@ -95,7 +95,7 @@ With the global security filter turned on, you need to add permissions for users
 
 1. Select the checkbox next to the users you want to grant access to data. Then, select **Grant access**.
 
-    ![grant-access-1.png](../../assets/images/administration/permissions/grant-access-1.png)
+    ![grant-access-1.png]({{ "/assets/images/administration/permissions/grant-access-1.png" | relative_url }})
 
     For the changes to take effect, the users have to sign out and sign in again. Now, the users can view data, and they are listed on the **Permissions** tab of the data resource.
 

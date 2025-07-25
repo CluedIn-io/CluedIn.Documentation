@@ -54,13 +54,13 @@ This tab contains general information about the vocabulary key, including:
 
 This tab contains the global view of vocabulary key usage in the system: number of golden records, streams, glossary terms, rules, data set mappings, clean projects, deduplication projects, and saved searches where the vocabulary key is used. You can select the **View all** button to view more details and find links to the corresponding elements in the system.
 
-![vocabulary-key-usage.gif](../../assets/images/management/data-catalog/vocabulary-key-usage.gif)
+![vocabulary-key-usage.gif]({{ "/assets/images/management/data-catalog/vocabulary-key-usage.gif" | relative_url }})
 
 ### All values
 
 This tab displays all values associated with the key, along with the total number of golden records in which each value is used. When you select a specific value, a new tab containing the search results will open. This tab lists golden records where the selected vocabulary key value is used. Note that the vocabulary key column is not displayed by default, so you may need to [add columns](/key-terms-and-features/search#add-columns) to the search results page.
 
-![vocabulary-key-all-values.gif](../../assets/images/management/data-catalog/vocabulary-key-all-values.gif)
+![vocabulary-key-all-values.gif]({{ "/assets/images/management/data-catalog/vocabulary-key-all-values.gif" | relative_url }})
 
 ### Lineage
 
@@ -80,11 +80,11 @@ This tab contains a breakdown and distribution of all vocabulary key values in a
 
 Profiling is a beta feature. To access profiling, go to **Administration** > **Feature Flags**, and enable the **Profiling dashboards** feature.
 
-![preview-profiling-1.png](../../assets/images/integration/additional-operations/preview-profiling-1.png)
+![preview-profiling-1.png]({{ "/assets/images/integration/additional-operations/preview-profiling-1.png" | relative_url }})
 
 Profiling is type-specific, so the dashboards for text and number vocabulary keys are different. The following image shows an example of profiling for a text vocabulary key.
 
-![vocab-key-profiling-1.png](../../assets/images/management/data-catalog/vocab-key-profiling-1.png)
+![vocab-key-profiling-1.png]({{ "/assets/images/management/data-catalog/vocab-key-profiling-1.png" | relative_url }})
 
 The profiling for a text vocabulary key contains the following dashboards:
 
@@ -98,7 +98,7 @@ The profiling for a text vocabulary key contains the following dashboards:
 
 The following image shows an example of profiling for a number vocabulary key.
 
-![vocab-key-profiling-2.png](../../assets/images/management/data-catalog/vocab-key-profiling-2.png)
+![vocab-key-profiling-2.png]({{ "/assets/images/management/data-catalog/vocab-key-profiling-2.png" | relative_url }})
 
 The profiling for a number vocabulary key contains the following dashboards:
 

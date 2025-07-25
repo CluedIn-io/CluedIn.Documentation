@@ -17,7 +17,7 @@ title: Pick the right tool
 
 **You are here in the data journey**
 
-![data-ingestion-you-are-here.png](../../assets/images/playbooks/data-ingestion-you-are-here.png)
+![data-ingestion-you-are-here.png]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
 
 **Before you start**
 
@@ -25,11 +25,11 @@ title: Pick the right tool
 
 This article outlines all the possible tools that can be used to ingest data into CluedIn. By understanding the specifics of each tool, you can decide which one will be the most suitable for your use case.
 
-![pick-the-right-tool-intro.png](../../assets/images/playbooks/pick-the-right-tool-intro.png)
+![pick-the-right-tool-intro.png]({{ "/assets/images/playbooks/pick-the-right-tool-intro.png" | relative_url }})
 
 Now that you have a list of sources that you want to use, you can prepare a data ingestion plan. The first decision to make is how to ingest the data. CluedIn provides multiple **out-of-the-box options** for data ingestion (as shown in the diagram below). However, the best way to get the data from the source depends on your infrastructure.
 
-![data-ingestion-options.png](../../assets/images/playbooks/data-ingestion-options.png)
+![data-ingestion-options.png]({{ "/assets/images/playbooks/data-ingestion-options.png" | relative_url }})
 
 ## File
 
@@ -93,7 +93,7 @@ CluedIn can connect to various types of databases, supporting MS SQL, MySQL, and
 
 If you have large databases that need to connect to multiple systems, we recommend using an [Azure Data Factory (ADF) pipeline](#azure-data-factory). This approach ensures that the ingestion process within your data ecosystem is done only once, **reducing the load on your database**. Additionally, it provides **greater extensibility** if you need to add extra pipeline steps to send data to other systems.
 
-![db-and-adf.png](../../assets/images/playbooks/db-and-adf.png)
+![db-and-adf.png]({{ "/assets/images/playbooks/db-and-adf.png" | relative_url }})
 
 ## Crawler
 

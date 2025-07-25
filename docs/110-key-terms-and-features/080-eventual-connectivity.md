@@ -16,7 +16,7 @@ Let’s explore the concept of eventual connectivity in CluedIn through an examp
 
 At this point, the document golden record is related to the shadow entity. When a new record containing the same email address appears in the system, CluedIn recognizes matching emails, and replaces the shadow entity with a new golden record. In the end, the document record is now related to another golden record, and not to the shadow entity.
 
-![eventual-connectivity-1.gif](../../assets/images/key-terms-and-features/eventual-connectivity-1.gif)
+![eventual-connectivity-1.gif]({{ "/assets/images/key-terms-and-features/eventual-connectivity-1.gif" | relative_url }})
 
 **Goal of eventual connectivity**
 

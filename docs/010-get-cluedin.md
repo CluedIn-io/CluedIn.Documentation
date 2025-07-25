@@ -19,7 +19,7 @@ CluedIn makes doing business easy by giving you flexibility to adopt our platfor
 
 For more details about the difference between CluedIn installation options, see [Installation](/deployment).
 
-![model-and-price-comparison.png](../../assets/images/get-cluedin/model-and-price-comparison.png)
+![model-and-price-comparison.png]({{ "/assets/images/get-cluedin/model-and-price-comparison.png" | relative_url }})
 
 **Where can I find information about pricing models?**
 
@@ -43,7 +43,7 @@ By onboarding path, we mean the process of purchasing and installing CluedIn. Af
 
 This is the easiest and quickest way to start with CluedIn. You don't need an IT team to install and start using CluedIn.
 
-![saas-payg.gif](../../assets/images/get-cluedin/saas-payg.gif)
+![saas-payg.gif]({{ "/assets/images/get-cluedin/saas-payg.gif" | relative_url }})
 
 **Who can start CluedIn SaaS pay-as-you-go onboarding?**
 
@@ -65,7 +65,7 @@ Depending on whether you have the authority to create a pay-as-you-go Azure acco
 
 This option gives you access to our experts and a lower price than pay-as-you-go. You do not need an IT team to install and start using CluedIn.
 
-![saas-committed-deal.gif](../../assets/images/get-cluedin/saas-committed-deal.gif)
+![saas-committed-deal.gif]({{ "/assets/images/get-cluedin/saas-committed-deal.gif" | relative_url }})
 
 **Who can start CluedIn SaaS committed deal onboarding?**
 
@@ -97,7 +97,7 @@ By onboarding path, we mean the process of purchasing and installing CluedIn. Af
 
 This model gives you the possibility to test CluedIn in your infrastructure with 10K records for free. You'll get full control of CluedIn as you'll be running the platform in your own environment.
 
-![paas-payg.gif](../../assets/images/get-cluedin/paas-payg.gif)
+![paas-payg.gif]({{ "/assets/images/get-cluedin/paas-payg.gif" | relative_url }})
 
 **What are the steps of CluedIn PaaS pay-as-you-go onboarding?**
 
@@ -113,7 +113,7 @@ This model gives you the possibility to test CluedIn in your infrastructure with
 
 This option gives you full control of CluedIn as you'll be running the platform in your own environment. Also, it has a lower price than pay-as-you-go.
 
-![paas-committed-deal.gif](../../assets/images/get-cluedin/paas-committed-deal.gif)
+![paas-committed-deal.gif]({{ "/assets/images/get-cluedin/paas-committed-deal.gif" | relative_url }})
 
 **What are the steps of CluedIn PaaS committed deal onboarding?**
 

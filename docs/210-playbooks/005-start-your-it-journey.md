@@ -20,7 +20,7 @@ This article outlines the key stages of your IT journey, from installing CluedIn
 
 There are several aspects of the IT journey that you should consider in order to configure CluedIn according to your business needs. 
 
-![connections.png](../../assets/images/playbooks/connections.png)
+![connections.png]({{ "/assets/images/playbooks/connections.png" | relative_url }})
 
 The primary aspect is **authentication and authorization** to ensure that only legitimate users can access the system.
 
@@ -60,7 +60,7 @@ If you face resistance or are blocked, there's a trick: you can stream into the 
 
 You have the flexibility to adopt CluedIn at your own pace. Since we offer 2 cloud models of CluedIn—PaaS and SaaS—the IT journey for each is different. In this section, you'll find the details about IT journey for both SaaS and PaaS.
 
-![cloud-service-model.png](../../assets/images/playbooks/cloud-service-model.png)
+![cloud-service-model.png]({{ "/assets/images/playbooks/cloud-service-model.png" | relative_url }})
 
 ### SaaS IT journey
 
@@ -82,7 +82,7 @@ With CluedIn PaaS, the installation process is automated, enabling you to instal
 
 - [Post-installation](/deployment/azure-marketplace/step-4)
 
-![paas-it-journey.png](../../assets/images/playbooks/paas-it-journey.png)
+![paas-it-journey.png]({{ "/assets/images/playbooks/paas-it-journey.png" | relative_url }})
 
 These meetings give you the opportunity to discuss any questions or concerns you may have with a CluedIn expert, ensuring that you're fully informed and comfortable at every stage of your IT journey.
 
@@ -92,7 +92,7 @@ The CluedIn PaaS **IT journey timeline** depends on two aspects:
 
 - **Access to resource** – this refers to your access for connecting to the CluedIn cluster (you can connect, you can connect but require an approval, or you can't connect and someone has to give access to CluedIn cluster).
 
-![paas-it-timeline.png](../../assets/images/playbooks/paas-it-timeline.png)
+![paas-it-timeline.png]({{ "/assets/images/playbooks/paas-it-timeline.png" | relative_url }})
 
 Based on your privileges and access to the resource group, there can be 3 IT journey scenarios:
 

@@ -17,7 +17,7 @@ In this article, you will learn how to generate and discard matches in the dedup
 
 The primary action on the deduplication project level is the generation of matches. Its purpose is to analyze a specific set of golden records and detect potential duplicates based on your matching rules. If such duplicates are detected, they are organized into groups. The following diagram illustrates basic project workflow. For more information about project statuses, see [Deduplication reference](/management/deduplication/deduplication-reference).
 
-![manage-dedup-project-flow.gif](../../assets/images/management/deduplication/manage-dedup-project-flow.gif)
+![manage-dedup-project-flow.gif]({{ "/assets/images/management/deduplication/manage-dedup-project-flow.gif" | relative_url }})
 
 {:.important}
 Instructions on how to process groups of duplicates, including merging and unmerging, are provided in the [Manage groups of duplicates](/management/deduplication/manage-groups-of-duplicates) article.
@@ -30,7 +30,7 @@ The process of generating matches involves analyzing a specified set of golden r
 
 - In the deduplication project, select **Generate matches**, and then confirm your choice.
 
-    ![generate-results.gif](../../assets/images/management/deduplication/generate-results.gif)
+    ![generate-results.gif]({{ "/assets/images/management/deduplication/generate-results.gif" | relative_url }})
 
     During the process of generating matches, you can view the number of groups found as well as the percentage of golden records that have been checked for duplicates. When the process is complete, the groups of duplicates are displayed on the page. A group contains duplicate records that can be potentially merged into one golden record.
 
@@ -42,7 +42,7 @@ You can sort the groups of duplicates using column headers—**Name** and **Numb
 
 You can filter the groups of duplicates using the **Min matches – Max matches** slider. This allows you to focus on groups that contain a specific number of matches. For example, if you have a lot of groups of duplicates, you might want to start with small groups first. To do this, set the desired number of matches using the slider. Once you've processed the small groups, you can move on to larger groups by adjusting the slider accordingly.
 
-![sorting-and-filtering.gif](../../assets/images/management/deduplication/sorting-and-filtering.gif)
+![sorting-and-filtering.gif]({{ "/assets/images/management/deduplication/sorting-and-filtering.gif" | relative_url }})
 
 ## Discard matches
 
@@ -52,7 +52,7 @@ If you want to change matching rules, modify project filters, or regenerate matc
 
 - In the upper-right corner of the deduplication project, select **Discard matches**, and then confirm your choice.
 
-    ![discard-results.gif](../../assets/images/management/deduplication/discard-results.gif)
+    ![discard-results.gif]({{ "/assets/images/management/deduplication/discard-results.gif" | relative_url }})
 
     The project status is changed to **Ready to generate**. Now, you can edit the project as needed and generate matches again.
 
@@ -84,7 +84,7 @@ Editing a deduplication project involves two aspects:
 
     - To modify the matching criteria, expand the rule and select the vertical ellipsis button in the needed row. Then select the needed action: **Edit** or **Delete**.
 
-        ![edit-project.gif](../../assets/images/management/deduplication/edit-project.gif)
+        ![edit-project.gif]({{ "/assets/images/management/deduplication/edit-project.gif" | relative_url }})
 
 You can also add new matching criteria to the rule. To do that, expand the rule, and then select **Add Matching Criteria**. When you are satisfied with the project and matching rules configuration, proceed to generate matches.
 
@@ -100,7 +100,7 @@ You can archive a deduplication project only when its status is **Requires confi
 
 - In the upper-right corner of a deduplication project, select **Edit** > **Archive**. Then, confirm that you want to archive the project.
 
-    ![archive-project.gif](../../assets/images/management/deduplication/archive-project.gif)
+    ![archive-project.gif]({{ "/assets/images/management/deduplication/archive-project.gif" | relative_url }})
 
     The status of a deduplication project becomes **Archived**, and you can no longer work with the project.
 
@@ -108,7 +108,7 @@ You can archive a deduplication project only when its status is **Requires confi
 
 1. In the upper-right corner of the **Deduplication** page, select **View Archived**.
 
-    ![manage-dedup-project-view-archived.png](../../assets/images/management/deduplication/manage-dedup-project-view-archived.png)
+    ![manage-dedup-project-view-archived.png]({{ "/assets/images/management/deduplication/manage-dedup-project-view-archived.png" | relative_url }})
 
 1. From the list of archived deduplication projects, select the one that you want to view.    
 
@@ -123,13 +123,13 @@ You can duplicate a deduplication project if you want to:
 
 Duplication is a beta feature. To access it, go to **Administration** > **Feature Flags**, and enable the **Duplicate Actions** feature.
 
-![duplicate-actions-feature-flag.png](../../assets/images/shared/duplicate-actions-feature-flag.png)
+![duplicate-actions-feature-flag.png]({{ "/assets/images/shared/duplicate-actions-feature-flag.png" | relative_url }})
 
 **To duplicate a deduplication project**
 
 1. In the list of deduplication projects, find a project that you want to duplicate. Then, open the three-dot menu for the project, and select **Duplicate**.
 
-    ![duplicate-deduplication-1.png](../../assets/images/management/deduplication/duplicate-deduplication-1.png)
+    ![duplicate-deduplication-1.png]({{ "/assets/images/management/deduplication/duplicate-deduplication-1.png" | relative_url }})
 
 1. In **Display Name**, review the default name of the new project and modify it if needed. The default name is created by adding __duplicate_ to the name of the project that you're duplicating.
 
@@ -137,7 +137,7 @@ Duplication is a beta feature. To access it, go to **Administration** > **Fea
 
 1. In **Matching Rules**, review the list of matching rules that will be duplicated for the new project. To view the details of a specific matching rule, select the angle bracket (>) next to the name of the matching rule.
 
-    ![duplicate-deduplication-2.png](../../assets/images/management/deduplication/duplicate-deduplication-2.png)
+    ![duplicate-deduplication-2.png]({{ "/assets/images/management/deduplication/duplicate-deduplication-2.png" | relative_url }})
 
 1. Select **Duplicate**.
 

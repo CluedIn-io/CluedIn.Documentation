@@ -17,7 +17,7 @@ title: Process data
 
 **You are here in the data journey**
 
-![data-ingestion-you-are-here.png](../../assets/images/playbooks/data-ingestion-you-are-here.png)
+![data-ingestion-you-are-here.png]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
 
 **Before you start**
 
@@ -31,7 +31,7 @@ title: Process data
 
 Once your records are mapped, you can now process them. Processing is the final step of the data ingestion process in CluedIn.
 
-![process-data-intro.png](../../assets/images/playbooks/process-data-intro.png)
+![process-data-intro.png]({{ "/assets/images/playbooks/process-data-intro.png" | relative_url }})
 
 The act of processing means **sending mapped records (clues)** to the processing engine so it can either **create new golden records** or **aggregate clues to the existing golden records**.
 
@@ -88,7 +88,7 @@ Keep in mind that **CluedIn will skip the exact same records during processing**
 
 You can find step-by-step instruction for processing records in a dedicated [article](/integration/process-data). Once the processing is done, you will see the result similar to the following.
 
-![process-records-result.png](../../assets/images/playbooks/process-records-result.png)
+![process-records-result.png]({{ "/assets/images/playbooks/process-records-result.png" | relative_url }})
 
 ## Next steps
 

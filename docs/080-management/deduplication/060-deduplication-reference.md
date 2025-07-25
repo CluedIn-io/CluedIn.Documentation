@@ -19,7 +19,7 @@ Matching rules allow you to set up complex logic for detecting duplicates. In th
 
 For example, in the following configuration, either records with the same email address or records with the same first and last name are identified as duplicates.
 
-![rules.png](../../assets/images/management/deduplication/rules.png)
+![rules.png]({{ "/assets/images/management/deduplication/rules.png" | relative_url }})
 
 ## Matching functions
 
@@ -140,7 +140,7 @@ The following table provides descriptions of deduplication project statuses.
 
 The following diagram shows the deduplication project workflow along with its statuses and main activities.
 
-![dedup-project-status-workflow.gif](../../assets/images/management/deduplication/dedup-project-status-workflow.gif)
+![dedup-project-status-workflow.gif]({{ "/assets/images/management/deduplication/dedup-project-status-workflow.gif" | relative_url }})
 
 ## Group of duplicates
 
@@ -162,7 +162,7 @@ The following table provides descriptions of the statuses of groups of duplicate
 
 The following diagram shows the group of duplicates workflow along with its statuses and main activities.
 
-![group-of-duplicates-status-workflow.gif](../../assets/images/management/deduplication/group-of-duplicates-status-workflow.gif)
+![group-of-duplicates-status-workflow.gif]({{ "/assets/images/management/deduplication/group-of-duplicates-status-workflow.gif" | relative_url }})
 
 ## Deduplication project audit log actions
 

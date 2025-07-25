@@ -18,7 +18,7 @@ On this page you can learn about the supported side menu layouts, as well as how
 
 CluedIn features a side navigation menu on the left that helps you navigate between the main modules of the platform.
 
-![side_nav_menu.png](../../assets/images/administration/side-navigation-menu/side_nav_menu.png)
+![side_nav_menu.png]({{ "/assets/images/administration/side-navigation-menu/side_nav_menu.png" | relative_url }})
 
 Initially, the menu consisted of all platform modules categorized into expandable groups. With this approach, there was no prioritization of modules based on how frequently they are used. Eventually, a new menu was introduced, taking prioritization into account.
 
@@ -31,7 +31,7 @@ By default, the new side layout menu is enabled, but you can switch to the old m
 
 The new side menu layout consists of the following elements.
 
-![new_side_nav_menu_explained.png](../../assets/images/administration/side-navigation-menu/new_side_nav_menu_explained.png)
+![new_side_nav_menu_explained.png]({{ "/assets/images/administration/side-navigation-menu/new_side_nav_menu_explained.png" | relative_url }})
 
 1. Action center – the **Create** button redirects to a page with most commonly used actions (related to ingestion, preparation, and other).
 
@@ -43,7 +43,7 @@ The new side menu layout consists of the following elements.
 
     Hovering over a frequently used module displays brief information about the module, as well as statistics about the number of items in that module (total number of items, as well as the items with the largest count).
 
-    ![new_menu_popup_sp.png](../../assets/images/administration/side-navigation-menu/new_menu_popup_sp.png)
+    ![new_menu_popup_sp.png]({{ "/assets/images/administration/side-navigation-menu/new_menu_popup_sp.png" | relative_url }})
 
 1. Other modules – contain links to all modules of CluedIn, categorized into collapsible groups, such as **Consume**, **Management**, and so on.
 
@@ -51,7 +51,7 @@ The new side menu layout consists of the following elements.
 
 The old side menu layout consists of the following elements.
 
-![old_side_nav_menu_explained.png](../../assets/images/administration/side-navigation-menu/old_side_nav_menu_explained.png)
+![old_side_nav_menu_explained.png]({{ "/assets/images/administration/side-navigation-menu/old_side_nav_menu_explained.png" | relative_url }})
 
 1. Action center – the **Create** button redirects to a page with most commonly used actions (related to ingestion, preparation, and other).
 
@@ -77,11 +77,11 @@ By default, the old side layout menu is enabled, but you can switch to the new m
 
     - To enable the new side menu layout, turn the toggle on.
 
-        ![enable_new_menu.png](../../assets/images/administration/side-navigation-menu/enable_new_menu.png)
+        ![enable_new_menu.png]({{ "/assets/images/administration/side-navigation-menu/enable_new_menu.png" | relative_url }})
 
     - To enable the old side menu layout, turn the toggle off.
 
-        ![enable_old_menu.png](../../assets/images/administration/side-navigation-menu/enable_old_menu.png)
+        ![enable_old_menu.png]({{ "/assets/images/administration/side-navigation-menu/enable_old_menu.png" | relative_url }})
 
 1. Confirm your changes.
 

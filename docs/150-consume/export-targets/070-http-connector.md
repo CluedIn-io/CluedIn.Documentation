@@ -20,7 +20,7 @@ Note that as a free user of the Webhook.site, your URL will stop accepting new r
 
 1. On the **Choose Target** tab, select **Http Connector**. Then, select **Next**.
 
-    ![http-connector-choose-target.png](../../assets/images/consume/export-targets/http-connector-choose-target.png)
+    ![http-connector-choose-target.png]({{ "/assets/images/consume/export-targets/http-connector-choose-target.png" | relative_url }})
 
 1. On the **Configure** tab, enter the connection details:
 
@@ -28,12 +28,12 @@ Note that as a free user of the Webhook.site, your URL will stop accepting new r
 
     1. **Url** – unique URL of the external HTTP endpoint. The following screenshot shows the unique URL from the Webhook.site, which you can use for testing HTTP POST requests. You should provide the URL of your own endpoint.
 
-        ![unique-url.png](../../assets/images/consume/export-targets/unique-url.png)
+        ![unique-url.png]({{ "/assets/images/consume/export-targets/unique-url.png" | relative_url }})
 
     1. **Authorization** – authorization header value. You should provide this value if your endpoint requires it.
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-    ![http-connector-configure.png](../../assets/images/consume/export-targets/http-connector-configure.png)
+    ![http-connector-configure.png]({{ "/assets/images/consume/export-targets/http-connector-configure.png" | relative_url }})
 
     Now, you can select the HTTP connector in a stream and start exporting golden records.

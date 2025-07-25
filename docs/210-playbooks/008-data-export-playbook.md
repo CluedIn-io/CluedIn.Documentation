@@ -17,7 +17,7 @@ title: Data export playbook
 
 **You are here in the data journey**
 
-![data-export-you-are-here.png](../../assets/images/playbooks/data-export-you-are-here.png)
+![data-export-you-are-here.png]({{ "/assets/images/playbooks/data-export-you-are-here.png" | relative_url }})
 
 **Before you start**
 
@@ -36,11 +36,11 @@ CluedIn supports two data export models:
 
 - **Pull model** – in this model, the target system pulls data from the source system (CluedIn) when needed. You have the option to use your own code or script to get golden records from CluedIn, or you can pull the data directly using GraphQL API.
 
-    ![pull-data-export-model.png](../../assets/images/playbooks/pull-data-export-model.png)
+    ![pull-data-export-model.png]({{ "/assets/images/playbooks/pull-data-export-model.png" | relative_url }})
 
 - **Push model** – in this model, the source system (CluedIn) actively sends data to the target system. You can use CluedIn connectors and configure streams to push golden records to the target system. So, the goal of streaming in MDM is to push golden records to the target system. For more information, see [Streams](/consume/streams).
 
-    ![push-data-export-model.png](../../assets/images/playbooks/push-data-export-model.png)
+    ![push-data-export-model.png]({{ "/assets/images/playbooks/push-data-export-model.png" | relative_url }})
 
 The following table outlines the pros and cons of each data export model.
 
@@ -73,7 +73,7 @@ The push model is a good choice for use cases involving event-triggered updates 
 
 If you decide to implement the push data export model for your use case, then you'll need to configure a stream. The process of configuring a stream consists of five steps as shown on the following diagram.
 
-![data-export-playbook-streaming-steps.png](../../assets/images/playbooks/data-export-playbook-streaming-steps.png)
+![data-export-playbook-streaming-steps.png]({{ "/assets/images/playbooks/data-export-playbook-streaming-steps.png" | relative_url }})
 
 Note that **exporting edges** is an optional step. Edges represent relations between golden records. If your golden records contain edges, you can export them to be able to correctly link related golden records in the target system.
 

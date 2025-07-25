@@ -15,7 +15,7 @@ In this article, you will learn how to process and merge groups of duplicates, a
 
 When you generate matches and CluedIn detects duplicates, they are organized into groups. These groups contain golden records identified as potential duplicates based on your matching rules. The following diagram illustrates basic group workflow. For more information about group statuses, see [Deduplication reference](/management/deduplication/deduplication-reference).
 
-![manage-group-flow.gif](../../assets/images/management/deduplication/manage-group-flow.gif)
+![manage-group-flow.gif]({{ "/assets/images/management/deduplication/manage-group-flow.gif" | relative_url }})
 
 When you open a group of duplicates, you can find the following details:
 
@@ -56,7 +56,7 @@ To ensure the merged golden records meet your requirements, you need to process 
 
     - If you don't want to merge the group, select **Reject**, and then confirm your choice. Rejected groups cannot be merged. However, if you change your mind, you can **Approve** the rejected group later.
 
-    ![fix-duplicates.gif](../../assets/images/management/deduplication/fix-duplicates.gif)
+    ![fix-duplicates.gif]({{ "/assets/images/management/deduplication/fix-duplicates.gif" | relative_url }})
 
     Once all groups within the project have been processed, proceed to merge the groups.
 
@@ -74,7 +74,7 @@ Only groups with the **Approved** status can be merged. For additional details o
 
 1. Select **Confirm**.
 
-    ![merge-results.gif](../../assets/images/management/deduplication/merge-results.gif)
+    ![merge-results.gif]({{ "/assets/images/management/deduplication/merge-results.gif" | relative_url }})
 
     The groups are merged, each generating merged golden records. Next, check the merged golden records to ensure they align with your specific requirements. If you are not satisfied, you have the option to revert changes by unmerging records.
 
@@ -82,7 +82,7 @@ Only groups with the **Approved** status can be merged. For additional details o
 
 All merged golden records produced within the deduplication project are listed on the **Merges** tab. Selecting a golden record takes you to the **Topology** tab, where you can view the records that make up the golden record, linked together in a visual representation. The link between such records is the deduplication project. Having such link allows you to easily unmerge records in needed.
 
-![check-merged-record.gif](../../assets/images/management/deduplication/check-merged-record.gif)
+![check-merged-record.gif]({{ "/assets/images/management/deduplication/check-merged-record.gif" | relative_url }})
 
 ## Unmerge records
 
@@ -99,6 +99,6 @@ You can unmerge records in one of the following ways:
 
 - On the **Merges** tab of the deduplication project – select **Unmerge All**.
 
-    ![unmerge-records.gif](../../assets/images/management/deduplication/unmerge-records.gif)
+    ![unmerge-records.gif]({{ "/assets/images/management/deduplication/unmerge-records.gif" | relative_url }})
 
     After you unmerge the records, the group status is changed to **Unmerged**, and you can no longer process the group. If you want to continue working with the same group, you can [discard matches](/management/deduplication/manage-a-deduplication-project#discard-matches) and start again.

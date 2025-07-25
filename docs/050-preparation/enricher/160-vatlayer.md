@@ -27,7 +27,7 @@ To use the Vatlayer enricher, you will need to provide the API key. To get it, s
 
 1. On the **Choose Enricher** tab, select **Vatlayer**, and then select **Next**.
 
-    ![vatlayer-enricher-1.png](../../assets/images/preparation/enricher/vatlayer-enricher-1.png)
+    ![vatlayer-enricher-1.png]({{ "/assets/images/preparation/enricher/vatlayer-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -37,7 +37,7 @@ To use the Vatlayer enricher, you will need to provide the API key. To get it, s
 
     - **Accepted Vocabulary Key** – enter the vocabulary key that contains the VAT numbers of companies that you want to enrich.
 
-        ![vatlayer-enricher-2.png](../../assets/images/preparation/enricher/vatlayer-enricher-2.png)
+        ![vatlayer-enricher-2.png]({{ "/assets/images/preparation/enricher/vatlayer-enricher-2.png" | relative_url }})
 
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
@@ -53,11 +53,11 @@ After the Vatlayer enricher is added, you can modify its details:
 
 You can find the properties added to golden records from the Vatlayer enricher on the **Properties** page.
 
-![vatlayer-enricher-4.png](../../assets/images/preparation/enricher/vatlayer-enricher-4.png)
+![vatlayer-enricher-4.png]({{ "/assets/images/preparation/enricher/vatlayer-enricher-4.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the Vatlayer enricher, check the corresponding data part on the **History** page.
 
-![vatlayer-enricher-5.png](../../assets/images/preparation/enricher/vatlayer-enricher-5.png)
+![vatlayer-enricher-5.png]({{ "/assets/images/preparation/enricher/vatlayer-enricher-5.png" | relative_url }})
 
 The following table lists the properties that can be added to golden records by the Vatlayer enricher.
 

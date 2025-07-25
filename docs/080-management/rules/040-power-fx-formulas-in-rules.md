@@ -34,7 +34,7 @@ You can use Power Fx formulas in the following types of rules:
 
 In CluedIn, a Power Fx formula requires a _context_ to work with. It is called an `Entity`, and it represents a data part or a golden record. Essentially, it is a global variable that holds a sandboxed version of a data part or a golden record in CluedIn.
 
-![power-fx-formula-example.png](../../assets/images/management/rules/power-fx-formula-example.png)
+![power-fx-formula-example.png]({{ "/assets/images/management/rules/power-fx-formula-example.png" | relative_url }})
 
 Consider the following example of a formula.
 

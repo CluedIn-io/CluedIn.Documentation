@@ -47,7 +47,7 @@ Creating a rule involves configuring a filter and defining the rule action.
 
         If you want to create a rule for a value that does not yet exist in CluedIn, then enter a new value. 
 
-        ![rule-builder-2.png](../../assets/images/getting-started/rule-builder/rule-builder-2.png)
+        ![rule-builder-2.png]({{ "/assets/images/getting-started/rule-builder/rule-builder-2.png" | relative_url }})
 
         The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears. For more information, see [Filters](/key-terms-and-features/filters).
 
@@ -63,7 +63,7 @@ Creating a rule involves configuring a filter and defining the rule action.
 
         For example, if you selected the **Add tag** action, specify the value of the tag.
 
-        ![rule-builder-3.png](../../assets/images/getting-started/rule-builder/rule-builder-3.png)
+        ![rule-builder-3.png]({{ "/assets/images/getting-started/rule-builder/rule-builder-3.png" | relative_url }})
 
     1. In the lower-right corner, select **Add Action**. You can add multiple actions to the rule.
 
@@ -71,7 +71,7 @@ Creating a rule involves configuring a filter and defining the rule action.
 
 1. Activate the rule by turning on the toggle next to the rule status.
 
-    ![rule-builder-5.png](../../assets/images/getting-started/rule-builder/rule-builder-5.png)
+    ![rule-builder-5.png]({{ "/assets/images/getting-started/rule-builder/rule-builder-5.png" | relative_url }})
 
 1. Depending on whether the rule applies to the processed or unprocessed data, do one of the following:
 
@@ -93,7 +93,7 @@ After you created the rule for the processed data, you need to reprocess the rec
 
 1. Near the upper-right corner of the rule details page, select the reprocess icon.
 
-    ![rule-builder-9.png](../../assets/images/getting-started/rule-builder/rule-builder-9.png)
+    ![rule-builder-9.png]({{ "/assets/images/getting-started/rule-builder/rule-builder-9.png" | relative_url }})
 
 1. Confirm that you want to reprocess the records associated with the rule.
 
@@ -125,11 +125,11 @@ After you created the rule for the processed data, you need to reprocess the rec
 
 1. In the upper-right corner of the record details page, select **More** > **Reprocess entity**.
 
-    ![rule-builder-8.png](../../assets/images/getting-started/rule-builder/rule-builder-8.png)
+    ![rule-builder-8.png]({{ "/assets/images/getting-started/rule-builder/rule-builder-8.png" | relative_url }})
 
     You reprocessed the record. Now, you can view the result of an action performed by the rule.
 
-    ![rule-builder-7.png](../../assets/images/getting-started/rule-builder/rule-builder-7.png)
+    ![rule-builder-7.png]({{ "/assets/images/getting-started/rule-builder/rule-builder-7.png" | relative_url }})
 
 1. To reprocess other records, repeat steps 1–2.
 
@@ -151,7 +151,7 @@ If you want to change the rule—name, description, filters, or actions—edit t
 
     - If you want to reprocess the records affected both by the previous and current rule configuration, select the checkbox, and then confirm your choice.
 
-        ![manage-rules-1.png](../../assets/images/management/rules/manage-rules-1.png)
+        ![manage-rules-1.png]({{ "/assets/images/management/rules/manage-rules-1.png" | relative_url }})
 
         For example, in the previous configuration, the rule added the tag _Prospect_ to all records of the _TrainingContact_ business domain. If you edit the rule filter and change the business domain to _Contact_, then selecting the checkbox will remove the tag from the records of the _TrainingContact_ business domain and add it to the records of the _Contact_ business domain.
 
@@ -167,7 +167,7 @@ If you currently do not need the rule, but might need it in future, inactivate t
 
 1. Inactivate the rule by turning on the toggle next to the rule status.
 
-    ![rule-builder-6.png](../../assets/images/getting-started/rule-builder/rule-builder-6.png)
+    ![rule-builder-6.png]({{ "/assets/images/getting-started/rule-builder/rule-builder-6.png" | relative_url }})
 
     You inactivated the rule, but the records to which the rule was applied still contain the changes made by the rule.
 

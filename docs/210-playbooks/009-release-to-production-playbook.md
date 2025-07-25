@@ -17,11 +17,11 @@ title: Release to production playbook
 
 **You are here in the data journey**
 
-![release-to-production-playbook.png](../../assets/images/playbooks/release-to-production-playbook.png)
+![release-to-production-playbook.png]({{ "/assets/images/playbooks/release-to-production-playbook.png" | relative_url }})
 
 Now that you have implemented your first use case in the test environment, it is time to release your solution to production. This process consists of three steps as shown on the following diagram.
 
-![release-to-production-playbook-steps.png](../../assets/images/playbooks/release-to-production-playbook-steps.png)
+![release-to-production-playbook-steps.png]({{ "/assets/images/playbooks/release-to-production-playbook-steps.png" | relative_url }})
 
 ## Set up CI/CD process
 

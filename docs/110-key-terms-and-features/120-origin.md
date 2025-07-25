@@ -16,7 +16,7 @@ Generally, the origin determines the **source of a golden record**. So, when you
 
 As mentioned in our [Identifiers](/key-terms-and-features/entity-codes) reference article, the origin is used in the primary identifier and the identifiers.
 
-![entity-origin-code.png](../../assets/images/key-terms-and-features/entity-origin-code.png)
+![entity-origin-code.png]({{ "/assets/images/key-terms-and-features/entity-origin-code.png" | relative_url }})
 
 In this article, we'll explain the usage of the origin in two important processes in CluedIn:
 
@@ -40,7 +40,7 @@ Let's consider the example of three records, each coming from a different source
 
 Even if the serial number is the same, the records will not merge together as the origin of each record is different.
 
-![merging-by-codes-1.png](../../assets/images/key-terms-and-features/merging-by-codes-1.png)
+![merging-by-codes-1.png]({{ "/assets/images/key-terms-and-features/merging-by-codes-1.png" | relative_url }})
 
 So, how would you use the serial number to merge records together? The answer is by producing an **identifier that shares the same origin**, for example, `PRODUCT-SERIALNUMBER`. As a result, the identifier for each record will share the same business domain, origin, and the value of serial number as shown in the following table.
 
@@ -52,7 +52,7 @@ So, how would you use the serial number to merge records together? The answer is
 
 Since the origin is shared among different sources, each time the same serial number for a product is sent to CluedIn, it will be merged.
 
-![merging-by-codes-2.png](../../assets/images/key-terms-and-features/merging-by-codes-2.png)
+![merging-by-codes-2.png]({{ "/assets/images/key-terms-and-features/merging-by-codes-2.png" | relative_url }})
 
 ## Linking golden records
 
@@ -66,7 +66,7 @@ Suppose you have Contact records that contain the `companyID` property, and you 
 
 The **combination of those 3 values** needs to **match one of the identifiers of target records**.
 
-![linking-golden-records.png](../../assets/images/key-terms-and-features/linking-golden-records.png)
+![linking-golden-records.png]({{ "/assets/images/key-terms-and-features/linking-golden-records.png" | relative_url }})
 
 To make the process of linking golden records easier, you can use the recommendation for defining the origin that we provided in [Merging by identifiers](#merging-records-by-identifiers). Essentially, the method of **shared origin** that you use for merging by identifiers can also be used to facilitate the process of linking golden records. This way you do not have to rely on the source system and instead use the origin that you defined for related data.
 

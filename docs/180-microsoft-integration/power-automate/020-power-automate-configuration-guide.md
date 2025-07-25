@@ -20,7 +20,7 @@ Make sure that you have completed all of the actions described in [Power Automa
 
 1. Go to **Administration** > **Feature Flags**, and then enable the **Workflow Builder** feature.
 
-    ![workflow-builder-feature.png](../../assets/images/microsoft-integration/power-automate/workflow-builder-feature.png)
+    ![workflow-builder-feature.png]({{ "/assets/images/microsoft-integration/power-automate/workflow-builder-feature.png" | relative_url }})
 
     As a result, the **Workflows** module appears on the navigation pane.
 
@@ -32,13 +32,13 @@ Make sure that you have completed all of the actions described in [Power Automa
 
     - **Client ID** – a unique identifier assigned to an application when you registered it in Microsoft Entra ID. This is the application that you created during the pre-configuration stage in [Create a service application](/microsoft-integration/power-automate/pre-configuration-guide#create-a-service-application). You can find this value in **Application (client) ID**.
 
-        ![client-id.png](../../assets/images/microsoft-integration/power-automate/client-id.png)
+        ![client-id.png]({{ "/assets/images/microsoft-integration/power-automate/client-id.png" | relative_url }})
 
     - **Azure Tenant ID** – an ID of the Azure tenant that contains the service principal that handles the Power Automate widget. This is the service principal that was created automatically when you registered a new application in [Create a service application](/microsoft-integration/power-automate/pre-configuration-guide#create-a-service-application). For guidance on how to find the ID, see [Find your Microsoft Entra tenant](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant).
 
     - **Power Automate Environment ID** – an ID of the Power Automate environment. This is the environment that you prepared during the pre-configuration stage in [Configure an environment](/microsoft-integration/power-automate/pre-configuration-guide#configure-an-environment). You can find the ID on the home page of the environment.
 
-        ![env-id.png](../../assets/images/microsoft-integration/power-automate/env-id.png)
+        ![env-id.png]({{ "/assets/images/microsoft-integration/power-automate/env-id.png" | relative_url }})
 
     - **CluedIn Connector** – a name of the custom connector that allows communication between CluedIn and Power Automate. By default, it is _CluedIn_, and you do not need to change it.
 
@@ -50,7 +50,7 @@ Make sure that you have completed all of the actions described in [Power Automa
 
     - **Business Domain Cache Duration** – a time period for which the records that belong to the business domains with the **Batch approval workflow** option enabled are stored in the cache.
 
-        ![workflows-cluedin-configuration.png](../../assets/images/microsoft-integration/power-automate/workflows-cluedin-configuration.png)
+        ![workflows-cluedin-configuration.png]({{ "/assets/images/microsoft-integration/power-automate/workflows-cluedin-configuration.png" | relative_url }})
 
 1. Select **Register Custom Connector**.
 

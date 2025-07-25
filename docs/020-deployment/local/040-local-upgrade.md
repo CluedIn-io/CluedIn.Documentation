@@ -22,7 +22,7 @@ Before upgrading your local instance of CluedIn, consider whether it would be mo
 
     - To get a specific release, in [CluedIn Home](https://github.com/CluedIn-io/Home) repository, switch to the tag containing the needed release, and then check out the tag by running the following command: `$ git checkout tags/<tag> -b <branch>`.
 
-        ![local-upgrade-1.png](../../assets/images/ama/howtos/local-upgrade-1.png)
+        ![local-upgrade-1.png]({{ "/assets/images/ama/howtos/local-upgrade-1.png" | relative_url }})
 
 1. Retrieve the SQL Init image by running the following command:  
 `docker pull {acr url}/cluedin/sqlserver-init:[VERSION]`
@@ -39,7 +39,7 @@ Before upgrading your local instance of CluedIn, consider whether it would be mo
 
 1. In the **.env** file for your environment, change the tags to reference the version of CluedIn that you are upgrading to.
 
-    ![local-upgrade-2.png](../../assets/images/ama/howtos/local-upgrade-2.png)
+    ![local-upgrade-2.png]({{ "/assets/images/ama/howtos/local-upgrade-2.png" | relative_url }})
 
 1. Using a diff tool, compare the **.env** file for your environment with the **default/.env** file. If some values are missing in the **.env** file for your environment, copy them from the **default/.env** file.
 

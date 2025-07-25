@@ -16,7 +16,7 @@ headerIcon: "paas"
 
 At this point, you have a working, secure CluedIn environment. However, the default configuration provided by installation from the Azure Marketplace may not fit your organization's security policy. This guide will help you understand how to configure CluedIn to meet your needs.
 
-![paas-post-installation-guide.gif](../../assets/images/deployment/paas-post-installation-guide.gif)
+![paas-post-installation-guide.gif]({{ "/assets/images/deployment/paas-post-installation-guide.gif" | relative_url }})
 
 ## Configure custom DNS
 

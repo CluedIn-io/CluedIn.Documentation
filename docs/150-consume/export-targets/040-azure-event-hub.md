@@ -18,7 +18,7 @@ This article outlines how to configure the Azure Event Hub connector to publish 
 
 1. On the **Choose Target** tab, select **Azure Event Hub Connector**. Then, select **Next**.
 
-    ![event-hub-choose-target.png](../../assets/images/consume/export-targets/event-hub-choose-target.png)
+    ![event-hub-choose-target.png]({{ "/assets/images/consume/export-targets/event-hub-choose-target.png" | relative_url }})
 
 1. On the **Configure** tab, enter the connection details:
 
@@ -26,14 +26,14 @@ This article outlines how to configure the Azure Event Hub connector to publish 
 
     1. **Connection String** – connection string to the event hub within a namespace where you want to store the data from CluedIn. To find this value, select the needed event hub. Then, select **Shared access policies** on the left menu under **Settings**. Finally, select the policy, and then select the **Copy** button next to the **Connection string-primary key** field. For more information, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-get-connection-string#connection-string-for-a-specific-event-hub-in-a-namespace).
 
-        ![event-hub-connection-string.png](../../assets/images/consume/export-targets/event-hub-connection-string.png)
+        ![event-hub-connection-string.png]({{ "/assets/images/consume/export-targets/event-hub-connection-string.png" | relative_url }})
 
     1. **Name** – name of the event hub in the Event Hubs namespace where you want to store the data from CluedIn.
 
-       ![event-hub-name.png](../../assets/images/consume/export-targets/event-hub-name.png)
+       ![event-hub-name.png]({{ "/assets/images/consume/export-targets/event-hub-name.png" | relative_url }})
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-    ![event-hub-configure.png](../../assets/images/consume/export-targets/event-hub-configure.png)
+    ![event-hub-configure.png]({{ "/assets/images/consume/export-targets/event-hub-configure.png" | relative_url }})
 
     Now, you can select the Azure Event Hub connector in a stream and start exporting golden records.

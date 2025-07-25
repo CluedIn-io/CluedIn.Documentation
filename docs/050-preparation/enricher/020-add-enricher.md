@@ -29,7 +29,7 @@ You can add an enricher both before and after processing the data.
 
 1. Select **Save**.
 
-    ![add-enricher.gif](../../assets/images/preparation/enricher/add-enricher.gif)
+    ![add-enricher.gif]({{ "/assets/images/preparation/enricher/add-enricher.gif" | relative_url }})
 
     The enricher details page opens, where you can view and change configuration information and other settings. The enricher is active, which means that the enrichment process will begin immediately after you start [processing](/integration/process-data). If you have already processed the data before adding an enricher, you can trigger the enrichment for the existing golden records.
 
@@ -81,7 +81,7 @@ If you process the data and then add an enricher, the enrichment won't start aut
 
 1. In the upper-right corner of the golden record details page, select **More** > **Trigger external enrichment**.
 
-    ![trigger-enrichment.gif](../../assets/images/preparation/enricher/trigger-enrichment.gif)
+    ![trigger-enrichment.gif]({{ "/assets/images/preparation/enricher/trigger-enrichment.gif" | relative_url }})
 
     Now, you can view the enrichment results on the golden record details page.
 
@@ -89,8 +89,8 @@ If you process the data and then add an enricher, the enrichment won't start aut
 
 The **Properties** tab of the golden record lists new properties added through enrichment. The source of these properties is specified based on the type of enricher through which they were obtained.
 
-![enricher-properties.gif](../../assets/images/preparation/enricher/enricher-properties.gif)
+![enricher-properties.gif]({{ "/assets/images/preparation/enricher/enricher-properties.gif" | relative_url }})
 
 According to the [data life cycle](/key-terms-and-features/data-life-cycle), properties added through enrichment appear in CluedIn as a clue. This clue is then transferred to the data part, which in turn becomes the constituent element of the golden record. The **History** tab of the golden record contains all the data parts that make up that golden record, including the data parts that came from the enricher. For more information, see [History](/key-terms-and-features/golden-records/history).
 
-![enricher-history.gif](../../assets/images/preparation/enricher/enricher-history.gif)
+![enricher-history.gif]({{ "/assets/images/preparation/enricher/enricher-history.gif" | relative_url }})

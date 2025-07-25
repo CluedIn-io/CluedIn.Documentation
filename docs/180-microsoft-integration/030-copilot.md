@@ -13,7 +13,7 @@ Note that CluedIn Copilot is not enabled by default. For more information, see [
 
 The following diagram shows how CluedIn AI assistant can help you with your day-to-days tasks in CluedIn.
 
-![copilot-diagram.png](../../assets/images/microsoft-integration/copilot/copilot-diagram.png)
+![copilot-diagram.png]({{ "/assets/images/microsoft-integration/copilot/copilot-diagram.png" | relative_url }})
 
 {:.important}
 Sometimes you may encounter issues with CluedIn Copilot where it does not understand your requests as expected. In such cases, as with any generative AI solution, please start over and create a new chat.

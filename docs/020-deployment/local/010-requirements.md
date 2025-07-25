@@ -16,7 +16,7 @@ headerIcon: "local"
 
 In this article, you will learn about the pre-installation processes that you must perform to ensure successful local installation of CluedIn. Local installation of CluedIn is available to any technical person upon acceptance of our terms and conditions.
 
-![local-installation-checklist.gif](../../assets/images/deployment/local-installation-checklist.gif)
+![local-installation-checklist.gif]({{ "/assets/images/deployment/local-installation-checklist.gif" | relative_url }})
 
 ## Get access to CluedIn container registry
 
@@ -32,7 +32,7 @@ The first thing you need to do to run CluedIn locally is to get access to CluedI
 
     After you submit the form, you'll receive an email with instructions to verify your email address.
     
-    ![email-sample.png](../../assets/images/local-install/email-sample.png)
+    ![email-sample.png]({{ "/assets/images/local-install/email-sample.png" | relative_url }})
 
 1. In the email, select **Verify**.
 
@@ -40,11 +40,11 @@ The first thing you need to do to run CluedIn locally is to get access to CluedI
 
 1. Select **Confirm 'Verify'**.
 
-    ![confirm-email-verification.png](../../assets/images/local-install/confirm-email-verification.png)
+    ![confirm-email-verification.png]({{ "/assets/images/local-install/confirm-email-verification.png" | relative_url }})
     
     After you verify your email address, you'll receive an email with credentials. You'll need these credentials for authenticating to ACR.
 
-    ![email-access.png](../../assets/images/local-install/email-access.png)
+    ![email-access.png]({{ "/assets/images/local-install/email-access.png" | relative_url }})
 
 ## Check hardware requirements
 

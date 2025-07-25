@@ -20,39 +20,39 @@ This article outlines how to create a security role in Power Apps in order to us
 
 1. Sign in to your [Power Apps account](https://make.powerapps.com/) and make sure you are in the intended environment.
 
-    ![power-apps-home-page.png](../../assets/images/consume/export-targets/power-apps-home-page.png)
+    ![power-apps-home-page.png]({{ "/assets/images/consume/export-targets/power-apps-home-page.png" | relative_url }})
 
 1. Select **Power Platform** > **Power Platform Admin Center**.
 
-    ![power-platform-admin-center.png](../../assets/images/consume/export-targets/power-platform-admin-center.png)
+    ![power-platform-admin-center.png]({{ "/assets/images/consume/export-targets/power-platform-admin-center.png" | relative_url }})
 
 1. Select **Environments**, and then select your intended environment.
 
-   ![intended-environment.png](../../assets/images/consume/export-targets/intended-environment.png)
+   ![intended-environment.png]({{ "/assets/images/consume/export-targets/intended-environment.png" | relative_url }})
 
 1. At the top of the page, select **Settings**.
 
-    ![environment-settings.png](../../assets/images/consume/export-targets/environment-settings.png)
+    ![environment-settings.png]({{ "/assets/images/consume/export-targets/environment-settings.png" | relative_url }})
 
 1. Expand the **Users + permissions** dropdown, and then select **Security roles**.
 
-    ![user-permissions-security-roles.png](../../assets/images/consume/export-targets/user-permissions-security-roles.png)
+    ![user-permissions-security-roles.png]({{ "/assets/images/consume/export-targets/user-permissions-security-roles.png" | relative_url }})
 
 1. At the top of the page, select **New role**. Enter the **Role Name** and select the **Business unit** of your organization. If needed, change the **Member's privilege inheritance** according to your preference. Finally, select **Create**.
 
-    ![create-new-role.png](../../assets/images/consume/export-targets/create-new-role.png)
+    ![create-new-role.png]({{ "/assets/images/consume/export-targets/create-new-role.png" | relative_url }})
 
 1. In the list of all security roles, find and select the role that you've just created.
 
-    ![select-security-role.png](../../assets/images/consume/export-targets/select-security-role.png)
+    ![select-security-role.png]({{ "/assets/images/consume/export-targets/select-security-role.png" | relative_url }})
 
 1. Edit the security role's privileges according to the [reference table](#reference-table). To open the edit mode, select the three-dot button next to the table that you want to edit.
 
-   ![edit-table.png](../../assets/images/consume/export-targets/edit-table.png)
+   ![edit-table.png]({{ "/assets/images/consume/export-targets/edit-table.png" | relative_url }})
    
 1. Once you've updated the security role's privileges according to the [reference table](#reference-table), select **Save**.
 
-   ![save-security-role-update.png](../../assets/images/consume/export-targets/save-security-role-update.png)
+   ![save-security-role-update.png]({{ "/assets/images/consume/export-targets/save-security-role-update.png" | relative_url }})
 
 ## Reference table
 

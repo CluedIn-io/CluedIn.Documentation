@@ -21,7 +21,7 @@ Since access control is not enabled by default, first you need to enable it:
 
 1. In the **Data Access** section, turn on the toggle for **Access Control** setting.
 
-    ![access-control-enabled.png](../../assets/images/management/access-control/access-control-enabled.png)
+    ![access-control-enabled.png]({{ "/assets/images/management/access-control/access-control-enabled.png" | relative_url }})
 
 1. Save your changes.
 
@@ -51,7 +51,7 @@ Now that the access control feature is enabled, you can create access control po
 
     1. If you want to allow access only to specific vocabularies or vocabulary keys in the golden records affected by the access control policy, select the needed vocabulary keys or vocabularies.
 
-        ![add-policy-rule.png](../../assets/images/management/access-control/add-policy-rule.png)
+        ![add-policy-rule.png]({{ "/assets/images/management/access-control/add-policy-rule.png" | relative_url }})
 
     1. Select **Add Policy Rule**.
 
@@ -68,7 +68,7 @@ Now that the access control feature is enabled, you can create access control po
 
 Access control policies are applied to golden records and vocabulary keys throughout the system. If you don't have access to specific golden records, then you won't be able to view them at all. If you have access to golden records but lack access to some vocabulary keys associated with them, you will see a **Limited details** label on the golden record page. This label indicates that not all properties of the golden record are visible to you. 
 
-![limited-details-label.png](../../assets/images/management/access-control/limited-details-label.png)
+![limited-details-label.png]({{ "/assets/images/management/access-control/limited-details-label.png" | relative_url }})
 
 The information on all tabs of the golden record is displayed in accordance with access control policies. For example, on the **History** tab, you can only view only those records that generated vocabulary keys you have access to. 
 

@@ -33,17 +33,17 @@ An export target is a place where you can send the data out of CluedIn after it 
 
 1. On the **Choose Target** tab, find and select **Sql Server Connector**. Then, select **Next**.
 
-    ![add-export-target-1.png](../../assets/images/getting-started/data-streaming/add-export-target-1.png)
+    ![add-export-target-1.png]({{ "/assets/images/getting-started/data-streaming/add-export-target-1.png" | relative_url }})
 
 1. On the **Configure** tab, enter the database connection details such as **Name**, **Host**, **Database Name**, **Username**, and **Password**. Optionally, you may add **Port Number**, **Schema**, and **Connection pool size**.
 
-    ![add-export-target-2.png](../../assets/images/getting-started/data-streaming/add-export-target-2.png)
+    ![add-export-target-2.png]({{ "/assets/images/getting-started/data-streaming/add-export-target-2.png" | relative_url }})
 
 1. Select **Test Connection**. After you receive a notification that the connection is successful, select **Add**.
 
     The export target is added.
 
-    ![add-export-target-3.png](../../assets/images/getting-started/data-streaming/add-export-target-3.png)
+    ![add-export-target-3.png]({{ "/assets/images/getting-started/data-streaming/add-export-target-3.png" | relative_url }})
 
     Now, you can create a stream.
 
@@ -63,7 +63,7 @@ A stream is a trigger that starts the process of sending the data to the export 
 
 1. On the **Configuration** tab, in the **Filters** section, select **Add First Filter**, and then specify what data you want to share.
 
-    ![create-stream-2.png](../../assets/images/getting-started/data-streaming/create-stream-2.png)
+    ![create-stream-2.png]({{ "/assets/images/getting-started/data-streaming/create-stream-2.png" | relative_url }})
 
     The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
 
@@ -73,7 +73,7 @@ A stream is a trigger that starts the process of sending the data to the export 
 
 1. On the **Choose Connector** tab, select the Sql Server connector, and then select **Next**.
 
-    ![create-stream-4.png](../../assets/images/getting-started/data-streaming/create-stream-4.png)  
+    ![create-stream-4.png]({{ "/assets/images/getting-started/data-streaming/create-stream-4.png" | relative_url }})  
 
 1. On the **Connector Properties** tab, do the following:
 
@@ -85,27 +85,27 @@ A stream is a trigger that starts the process of sending the data to the export 
 
         - **Event log stream** – every time you make a change in CluedIn, a new record is added to the database instead of replacing the existing record.
 
-        ![create-stream-5.png](../../assets/images/getting-started/data-streaming/create-stream-5.png)  
+        ![create-stream-5.png]({{ "/assets/images/getting-started/data-streaming/create-stream-5.png" | relative_url }})  
 
 1. On the **Properties to Export** tab, click **Auto-select**. All vocabulary keys associated with the records in the strem filter will be displayed on the page.
 
-    ![create-stream-6.png](../../assets/images/getting-started/data-streaming/create-stream-6.png)  
+    ![create-stream-6.png]({{ "/assets/images/getting-started/data-streaming/create-stream-6.png" | relative_url }})  
 
 1. Select **Save**. To view the data that will be sent to the database, go to the **Data** tab.
 
 1. Start the stream by selecting the play button. Then, confirm that you want to start the stream.
 
-    ![create-stream-9.png](../../assets/images/getting-started/data-streaming/create-stream-9.png)
+    ![create-stream-9.png]({{ "/assets/images/getting-started/data-streaming/create-stream-9.png" | relative_url }})
 
     The **Streaming** and **Exporting** labels appear under the stream name, indicatig that the stream is active.
 
-    ![create-stream-10.png](../../assets/images/getting-started/data-streaming/create-stream-10.png)
+    ![create-stream-10.png]({{ "/assets/images/getting-started/data-streaming/create-stream-10.png" | relative_url }})
 
     On the **Monitoring** tab, you can view different data performance metrics.
 
 1. Go to the database and open the table.
 
-    ![create-stream-11.png](../../assets/images/getting-started/data-streaming/create-stream-11.png)  
+    ![create-stream-11.png]({{ "/assets/images/getting-started/data-streaming/create-stream-11.png" | relative_url }})  
 
     The records have been sent to the database.
 

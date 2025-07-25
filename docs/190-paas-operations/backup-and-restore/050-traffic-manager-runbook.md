@@ -28,7 +28,7 @@ This runbook is a PowerShell script, which CluedIn will provide as needed. This 
 
 An automation account must be provided. The runbook will be installed into the automation account. Typically, the runbook should only be run following a disaster event and after discussions with relevant stakeholders.
 
-![traffic-manager-runbook.png](../../assets/images/paas-operations/traffic-manager-runbook.png)
+![traffic-manager-runbook.png]({{ "/assets/images/paas-operations/traffic-manager-runbook.png" | relative_url }})
 
 ## Input parameters
 
@@ -40,6 +40,6 @@ An automation account must be provided. The runbook will be installed into the a
 
 ## Process
 
-![traffic-manager-runbook-process.png](../../assets/images/paas-operations/traffic-manager-runbook-process.png)
+![traffic-manager-runbook-process.png]({{ "/assets/images/paas-operations/traffic-manager-runbook-process.png" | relative_url }})
 
 Scaling down of the DR environment following a successful restore is optional.

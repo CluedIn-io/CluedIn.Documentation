@@ -15,13 +15,13 @@ headerIcon: "saas"
 
 In this article, you will learn how to subscribe to CluedIn SaaS in the Azure portal and how to configure your CluedIn account.
 
-![saas-installation-diagram.gif](../../assets/images/deployment/saas-install/saas-installation-diagram.gif)
+![saas-installation-diagram.gif]({{ "/assets/images/deployment/saas-install/saas-installation-diagram.gif" | relative_url }})
 
 ## Submit a request and receive a license key
 
 CluedIn SaaS is currently available by invitation only. You can request an invitation [here](https://www.cluedin.com/saas-invitation-application).
 
-![saas-form.png](../../assets/images/deployment/saas-install/saas-form.png)
+![saas-form.png]({{ "/assets/images/deployment/saas-install/saas-form.png" | relative_url }})
 
 After you submit an application, you'll receive an email with the license key needed to complete the SaaS installation process.
 
@@ -31,7 +31,7 @@ The CluedIn SaaS installation process consists of 2 parts:
 
 1. Configuring an account with CluedIn. All details provided in this step are required by CluedIn.
 
-![saas-diagram.gif](../../assets/images/deployment/saas-install/saas-diagram.gif)
+![saas-diagram.gif]({{ "/assets/images/deployment/saas-install/saas-diagram.gif" | relative_url }})
 
 ## Subscribe to CluedIn SaaS in Azure Marketplace
 
@@ -46,11 +46,11 @@ Make sure that you have enabled marketplace purchases and configured the require
 
 1. On the **CluedIn Master Data Management SaaS** page, select **Get It Now**.
 
-    ![saas-1-additional.png](../../assets/images/deployment/saas-install/saas-1-additional.png)
+    ![saas-1-additional.png]({{ "/assets/images/deployment/saas-install/saas-1-additional.png" | relative_url }})
 
 1. On the page that opens, review basic information about CluedIn SaaS. Then, select **Subscribe**.
 
-    ![saas-3-subscribe.png](../../assets/images/deployment/saas-install/saas-3-subscribe.png)
+    ![saas-3-subscribe.png]({{ "/assets/images/deployment/saas-install/saas-3-subscribe.png" | relative_url }})
 
 1. On the **Basics** tab, in the **Project details** section, do the following:
 
@@ -58,7 +58,7 @@ Make sure that you have enabled marketplace purchases and configured the require
 
         If you encounter an error stating that the subscription requires permission to make purchases, it means that you don't have the required permission for the subscription. Contact your IT team to get the required permissions. For more information, see [Enable marketplace purchases in Azure](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/enable-marketplace-purchases).
         
-        ![saas-4-error.png](../../assets/images/deployment/saas-install/saas-4-error.png)
+        ![saas-4-error.png]({{ "/assets/images/deployment/saas-install/saas-4-error.png" | relative_url }})
 
     1. Select or create a **Resource group** where the SaaS subscription will be stored. If you create a new resource group, you need to choose the location for that resource group.
     
@@ -67,7 +67,7 @@ Make sure that you have enabled marketplace purchases and configured the require
 
 1. In the **SaaS details** section, enter a **Name** for the SaaS application.
 
-    ![saas-2.png](../../assets/images/deployment/saas-install/saas-2.png)
+    ![saas-2.png]({{ "/assets/images/deployment/saas-install/saas-2.png" | relative_url }})
 
 1. (Optional) Select **Next: Tags** On the **Tags** tab, you can define tags to help you find your SaaS resource later.
 
@@ -82,11 +82,11 @@ Make sure that you have enabled marketplace purchases and configured the require
 
     You'll see the following message: _Your SaaS subscription is in progress_. This process takes a few minutes. Don't close the window until it's finished.
 
-    ![saas-3.png](../../assets/images/deployment/saas-install/saas-3.png)
+    ![saas-3.png]({{ "/assets/images/deployment/saas-install/saas-3.png" | relative_url }})
 
     After the subscription is completed, the **Configure account now** button becomes active, and you'll receive an email from Microsoft requesting you to activate the new subscription.
 
-    ![saas-email-1.png](../../assets/images/deployment/saas-install/saas-email-1.png)
+    ![saas-email-1.png]({{ "/assets/images/deployment/saas-install/saas-email-1.png" | relative_url }})
 
 1. Either in the email or in the Azure Marketplace, select the corresponding button to configure the account. If you selected the button in the Azure Marketplace, you can ignore the email.
 
@@ -100,7 +100,7 @@ To configure an account with CluedIn, you need a valid license key. You can find
 
 1. On the CluedIn account configuration page, enter a license key, and then select **Validate your license key**.
 
-    ![saas-6.png](../../assets/images/deployment/saas-install/saas-6.png)
+    ![saas-6.png]({{ "/assets/images/deployment/saas-install/saas-6.png" | relative_url }})
 
 1. Provide basic information for setting up your CluedIn account:
 
@@ -114,15 +114,15 @@ To configure an account with CluedIn, you need a valid license key. You can find
 
     1. Select **Complete configuration**.
 
-        ![saas-4.png](../../assets/images/deployment/saas-install/saas-4.png)
+        ![saas-4.png]({{ "/assets/images/deployment/saas-install/saas-4.png" | relative_url }})
 
     After the configuration is completed, you'll receive an email from Microsoft notifying you that the configuration was successful.
 
-    ![saas-email-2.png](../../assets/images/deployment/saas-install/saas-email-2.png)
+    ![saas-email-2.png]({{ "/assets/images/deployment/saas-install/saas-email-2.png" | relative_url }})
 
     Also, you can view your SaaS subscription in the Azure portal.
 
-    ![subscription-active.png](../../assets/images/deployment/saas-install/subscription-active.png)
+    ![subscription-active.png]({{ "/assets/images/deployment/saas-install/subscription-active.png" | relative_url }})
     
 Our automatic installer will start preparing your isolated environment. Once it is ready, you'll receive an email from CluedIn with instructions on how to get started. It can take up to 30 minutes to receive an email.
 
@@ -130,7 +130,7 @@ Our automatic installer will start preparing your isolated environment. Once it 
 
 After configuring an account, you will receive an email with a link to your CluedIn instance. To sign in, enter the email and password that you provided when configuring your CluedIn account.
 
-![saas-5.png](../../assets/images/deployment/saas-install/saas-5.png)
+![saas-5.png]({{ "/assets/images/deployment/saas-install/saas-5.png" | relative_url }})
 
 {:.important}
 To enable SSO (Entra ID) in SaaS, please refer to our [SSO configuration guide](/deployment/infra-how-tos/configure-sso).
