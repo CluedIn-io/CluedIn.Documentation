@@ -31,13 +31,13 @@ You can sign in to your CluedIn account in one of the following ways:
 
     The following diagram shows the steps involved in getting access to your CluedIn account by email.
 
-    ![getting-access-diagram.gif](../../assets/images/getting-access/getting-access-diagram.gif)
+    ![getting-access-diagram.gif]({{ "/assets/images/getting-access/getting-access-diagram.gif" | relative_url }})
 
 - **Sign in using Single Sign-On (SSO)** – SSO is not enabled by default. If your administrator has set up SSO, you’ll be able to sign in to your CluedIn account by authenticating through your company’s identity provider.
 
     If the SSO method is enabled for your organization, you can select the corresponding button on the CluedIn sign-in page.
 
-    ![sign-in-sso.png](../../assets/images/getting-access/sign-in-sso.png)
+    ![sign-in-sso.png]({{ "/assets/images/getting-access/sign-in-sso.png" | relative_url }})
 
 ### Sign in by email
 
@@ -47,11 +47,11 @@ After you created password for your account, you can sign in and start using Clu
 
 - On the CluedIn sign-in page, enter your email and password and then select **Sign In**.
 
-    ![sign-in-email-3.png](../../assets/images/getting-access/sign-in-email-3.png)
+    ![sign-in-email-3.png]({{ "/assets/images/getting-access/sign-in-email-3.png" | relative_url }})
 
     After you sign in for the first time, you may notice that you have read-only access to all sections and modules.
 
-    ![request-access-1.png](../../assets/images/getting-access/request-access-1.png)
+    ![request-access-1.png]({{ "/assets/images/getting-access/request-access-1.png" | relative_url }})
 
     To get permissions to specific modules and functions, you need to request access.
 
@@ -61,7 +61,7 @@ To get access to more functions within the platform, contact your CluedIn admini
 
 The following diagram shows the flow of requesting access directly in CluedIn.
 
-![request-access-diagram.gif](../../assets/images/getting-access/request-access-diagram.gif)
+![request-access-diagram.gif]({{ "/assets/images/getting-access/request-access-diagram.gif" | relative_url }})
 
 **To request access to CluedIn modules**
 
@@ -73,7 +73,7 @@ The following diagram shows the flow of requesting access directly in CluedIn.
 
     You will see a message similar to the following.
 
-    ![request-access-2.png](../../assets/images/getting-access/request-access-2.png)
+    ![request-access-2.png]({{ "/assets/images/getting-access/request-access-2.png" | relative_url }})
 
 1. Select **Request Access**.
 
@@ -81,7 +81,7 @@ The following diagram shows the flow of requesting access directly in CluedIn.
 
     When the request gets approved, you'll receive a notification.
 
-    ![request-access-3.png](../../assets/images/getting-access/request-access-3.png)
+    ![request-access-3.png]({{ "/assets/images/getting-access/request-access-3.png" | relative_url }})
 
 1. Sign out and sign in again for the changes to take the effect.
 
