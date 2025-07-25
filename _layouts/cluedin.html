@@ -7,21 +7,7 @@ layout: page
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2770606.js"></script>
 <!-- End of HubSpot Embed Code -->
 
-<!-- <Banner> REGEX NOT SUPPORTED in Jekill :|-->
-{% assign path_parts = page.url | split: '/' %}
-{% assign possible_version = path_parts[1] %}
-
-{% assign starts_with_v = possible_version | slice: 0,1 %}
-{% assign year = possible_version | slice: 1,4 %}
-{% assign dash = possible_version | slice: 5,1 %}
-{% assign month = possible_version | slice: 6,2 %}
-
-{% if starts_with_v == "v" and dash == "-" and year >= "2000" and month >= "01" and month <= "12" %}
-<div class="alert alert-warning" role="alert" style="text-align:center;">
-  ⚠️ You are viewing the <strong>{{ possible_version }}</strong> version of the documentation.
-  <a href="{{ "/" | relative_url }}">Click here for the latest version.</a>
-</div>
-{% endif %}
+<div id="version-banner"></div>
 
   <!-- </Banner> -->
 

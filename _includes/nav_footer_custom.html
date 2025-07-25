@@ -16,3 +16,20 @@
     select.value = current;
   });
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const match = window.location.pathname.match(/^\/(v\d{4}-\d{2})\//);
+    if (match) {
+      const version = match[1];
+      const container = document.getElementById('version-banner');
+      if (container) {
+        container.innerHTML = `
+          <div class="alert alert-warning" role="alert" style="text-align:center; margin-bottom:0;">
+            ⚠️ You are viewing the <strong>${version}</strong> version of the documentation.
+            <a href="/" style="text-decoration:underline;">Click here for the latest version.</a>
+          </div>
+        `;
+      }
+    }
+  });
+  </script>
