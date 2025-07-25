@@ -11,17 +11,18 @@ layout: page
 {% assign path_parts = page.url | split: '/' %}
 {% assign possible_version = path_parts[1] %}
 
-{% if possible_version.size == 8 and possible_version contains 'v' %}
-  {% assign year = possible_version | slice: 1,4 %}
-  {% assign month = possible_version | slice: 6,2 %}
-  {% if year >= '2000' and month <= '12' and month >= '01' %}
-    {% assign version = possible_version %}
-    <div style="background:#fff3cd;color:#856404;padding:1rem;border-bottom:1px solid #ffeeba;text-align:center;font-size:0.95rem;margin:24px 0;">
-      ⚠️ You are viewing the <strong>{{ version }}</strong> version of the documentation.
-      <a href="{{ "/" | relative_url }}" style="color:#856404;text-decoration:underline;">Click here for the latest version.</a>
-    </div>
-  {% endif %}
+{% assign starts_with_v = possible_version | slice: 0,1 %}
+{% assign year = possible_version | slice: 1,4 %}
+{% assign dash = possible_version | slice: 5,1 %}
+{% assign month = possible_version | slice: 6,2 %}
+
+{% if starts_with_v == "v" and dash == "-" and year >= "2000" and month >= "01" and month <= "12" %}
+<div class="alert alert-warning" role="alert" style="text-align:center;">
+  ⚠️ You are viewing the <strong>{{ possible_version }}</strong> version of the documentation.
+  <a href="{{ "/" | relative_url }}">Click here for the latest version.</a>
+</div>
 {% endif %}
+
   <!-- </Banner> -->
 
 
