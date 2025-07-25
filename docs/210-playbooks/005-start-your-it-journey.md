@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 5
 parent: Playbooks
-permalink: {{ site.baseurl }}{{ site.baseurl }}/playbooks/start-your-it-journey
+permalink: /playbooks/start-your-it-journey
 title: Start your IT journey
 ---
 ## On this page
