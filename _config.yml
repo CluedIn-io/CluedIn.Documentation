@@ -128,3 +128,6 @@ sass:
 
 feed:
   disable_in_development: true
+
+just_the_docs:
+  nav_footer_custom: custom_sidebar.html
