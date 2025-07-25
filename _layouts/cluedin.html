@@ -7,6 +7,24 @@ layout: page
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2770606.js"></script>
 <!-- End of HubSpot Embed Code -->
 
+<!-- <Banner> REGEX NOT SUPPORTED in Jekill :|-->
+{% assign path_parts = page.url | split: '/' %}
+{% assign possible_version = path_parts[1] %}
+
+{% if possible_version.size == 8 and possible_version contains 'v' %}
+  {% assign year = possible_version | slice: 1,4 %}
+  {% assign month = possible_version | slice: 6,2 %}
+  {% if year >= '2000' and month <= '12' and month >= '01' %}
+    {% assign version = possible_version %}
+    <div style="background:#fff3cd;color:#856404;padding:1rem;border-bottom:1px solid #ffeeba;text-align:center;font-size:0.95rem;margin:24px 0;">
+      ⚠️ You are viewing the <strong>{{ version }}</strong> version of the documentation.
+      <a href="{{ "/" | relative_url }}" style="color:#856404;text-decoration:underline;">Click here for the latest version.</a>
+    </div>
+  {% endif %}
+{% endif %}
+  <!-- </Banner> -->
+
+
 <div>
   {% if page.headerIcon == "paas" %}
   <!-- Display something if the page ID is "home" -->
