@@ -14,9 +14,9 @@ In this training, we’ll learn how to identify and label invalid records using 
 **Presented by:** Jocelyn Ramirez and Matthew Carter, your CluedIn AI trainers
 
 <div class="videoFrame">
-<iframe src="https://player.vimeo.com/video/1088432455?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="CluedIn Fundamentals Identifying and labelling incorrect data"></iframe></div>
+<iframe src="https://player.vimeo.com/video/1106102192?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="CluedIn Fundamentals Identifying and labelling incorrect data"></iframe></div>
 
-**Presentation:** <a href="../../../assets/other/training-ppt/merging-by-identifiers.pptx" download>Download PPT</a>
+**Presentation:** <a href="../../../assets/other/training-ppt/training-4a-identifying-and-labelling-incorrect-data.pptx" download>Download PPT</a>
 
 **Useful resources:**
 
