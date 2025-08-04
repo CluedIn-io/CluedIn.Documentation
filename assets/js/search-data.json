@@ -344,7 +344,7 @@
   },"49": {
     "doc": "Enricher",
     "title": "Enricher",
-    "content": "Enrichers allow you to enhance and improve the quality and completeness of your golden records by incorporating additional information from third-party sources. The following diagram shows the basic steps of enriching the data in CluedIn. This section covers the following areas: . | Concept of enricher – explore how an enricher works and where it fits in the data life cycle in CluedIn. | Adding an enricher – learn how to configure and manage an enricher. | Reference information about enrichers – find information about built-in enrichers available in CluedIn. | Building custom enricher – learn how to create custom enricher tailored to your specific needs. | . ",
+    "content": "Enrichers allow you to enhance and improve the quality and completeness of your golden records by incorporating additional information from third-party sources. The following diagram shows the basic steps of enriching the data in CluedIn. This section covers the following areas: . | Concept of enricher – explore how an enricher works and where it fits in the data life cycle in CluedIn. | Adding an enricher – learn how to configure and manage an enricher. | Reference information about enrichers – find information about built-in enrichers available in CluedIn. If you need a custom enricher, use the REST API enricher or contact us, and we will build one for you. | . ",
     "url": "/preparation/enricher",
     
     "relUrl": "/preparation/enricher"
@@ -4019,7 +4019,7 @@
   },"574": {
     "doc": "Enricher reference",
     "title": "On this page",
-    "content": ". | Azure OpenAI | Brreg | BvD | Clearbit | Companies House | CVR | DuckDuckGo | Duns &amp; Bradstreet | Gleif | Google Maps | Knowledge Graph | Libpostal | Open Corporates | PermId | Vatlayer | Web | . In this article, you will find reference information about built-in enrichers in CluedIn. Please note that the enrichers are not included in the CluedIn license. Each enricher is an open-source package provided by the CluedIn team for free to help you enrich your golden records with information from external sources. ",
+    "content": ". | Azure OpenAI | Brreg | BvD | Clearbit | Companies House | CVR | DuckDuckGo | Duns &amp; Bradstreet | Gleif | Google Maps | Knowledge Graph | Libpostal | Open Corporates | PermId | Vatlayer | Web | . In this article, you will find reference information about the built-in enrichers available in CluedIn. Please note that the enrichers are not included in the CluedIn license. Each enricher is an open-source package provided by the CluedIn team for free to help you enrich your golden records with information from external sources. If you need a custom enricher, use the REST API enricher or contact us, and we will build one for you. ",
     "url": "/preparation/enricher/enricher-reference#on-this-page",
     
     "relUrl": "/preparation/enricher/enricher-reference#on-this-page"
@@ -8196,860 +8196,804 @@
     
     "relUrl": "/integration/additional-operations-on-records"
   },"1171": {
-    "doc": "Build custom enricher",
-    "title": "On this page",
-    "content": ". | Create initial template | Install the generation tool | Add models | Add client | Add vocabulary | Add provider | . In CluedIn, an enricher allows you to take input from data flowing through the processing pipeline and then lookup services (typically external APIs) as to enrich just a single particular entity. In our HelloWorld example, we will obtain Person data from an external source called JSON Placeholder. Prerequesites . CluedIn is a .NET platform. So you will need: . | .NET installed | Visual Studio installed | Docker | . ",
-    "url": "/preparation/enricher/build-custom-enricher#on-this-page",
-    
-    "relUrl": "/preparation/enricher/build-custom-enricher#on-this-page"
-  },"1172": {
-    "doc": "Build custom enricher",
-    "title": "Create initial template",
-    "content": "To avoid cumbersome boilerplating, CluedIn provides you a script to generate a working Visual Studio solution. ",
-    "url": "/preparation/enricher/build-custom-enricher#create-initial-template",
-    
-    "relUrl": "/preparation/enricher/build-custom-enricher#create-initial-template"
-  },"1173": {
-    "doc": "Build custom enricher",
-    "title": "Install the generation tool",
-    "content": "You will need to install node, npm, yeoman, and the generator itself. | Install Yeoman and generator-cluedin-externalsearch using npm (we assume you have pre-installed node.js). | Create a new folder to store the new project. From the command prompt, run the following code to install the generator. npm install -g yo npm install -g generator-cluedin-externalsearch . | Run the generator, providing Name and Business Domain (for example, Person or Company). yo cluedin-externalsearch . For more information on how the CluedIn Server finds and loads type from integration assemblies, see Naming Integrations in the Build Integration documentation. | . ",
-    "url": "/preparation/enricher/build-custom-enricher#install-the-generation-tool",
-    
-    "relUrl": "/preparation/enricher/build-custom-enricher#install-the-generation-tool"
-  },"1174": {
-    "doc": "Build custom enricher",
-    "title": "Add models",
-    "content": "First, we will setup a User class to receive the data. See User.cs. public class User { public int id { get; set; } public string name { get; set; } public string username { get; set; } public string email { get; set; } } . ",
-    "url": "/preparation/enricher/build-custom-enricher#add-models",
-    
-    "relUrl": "/preparation/enricher/build-custom-enricher#add-models"
-  },"1175": {
-    "doc": "Build custom enricher",
-    "title": "Add client",
-    "content": "Next, we will add a client class and associated interface to fetch data from the external source. See HelloWorldClient.cs and IHelloWorldClient.cs. public class HelloWorldClient : IHelloWorldClient { private const string BaseUri = \"https://jsonplaceholder.typicode.com\"; private readonly IRestClient _client; public HelloWorldClient(IRestClient client) { _client = client ?? throw new ArgumentNullException(nameof(client)); client.BaseUrl = new Uri(BaseUri); } public async Task&lt;User&gt; GetUser(string id) =&gt; await GetAsync&lt;User&gt;($\"users/{id}\"); private async Task&lt;T&gt; GetAsync&lt;T&gt;(string url) { var request = new RestRequest(url, Method.GET); var response = await _client.ExecuteTaskAsync(request); if (response.StatusCode != HttpStatusCode.OK) { var diagnosticMessage = $\"Request to {_client.BaseUrl}{url} failed, response {response.ErrorMessage} ({response.StatusCode})\"; throw new InvalidOperationException($\"Communication to jsonplaceholder unavailable. {diagnosticMessage}\"); } var data = JsonConvert.DeserializeObject&lt;T&gt;(response.Content); return data; } } public interface IHelloWorldClient { Task&lt;User&gt; GetUser(string id); } . ",
-    "url": "/preparation/enricher/build-custom-enricher#add-client",
-    
-    "relUrl": "/preparation/enricher/build-custom-enricher#add-client"
-  },"1176": {
-    "doc": "Build custom enricher",
-    "title": "Add vocabulary",
-    "content": "Then we will define our vocabulary classes. See HelloWorldVocabulary.cs and HelloWorldVocabularies.cs. public class HelloWorldVocabulary : SimpleVocabulary { public HelloWorldVocabulary() { VocabularyName = \"HelloWorld User\"; KeyPrefix = \"helloworld.user\"; KeySeparator = \".\"; Grouping = EntityType.Unknown; AddGroup(\"HelloWorld Details\", group =&gt; { Id = group.Add(new VocabularyKey(\"Id\", VocabularyKeyDataType.Integer, VocabularyKeyVisibility.Visible)); Name = group.Add(new VocabularyKey(\"Name\", VocabularyKeyDataType.PersonName, VocabularyKeyVisibility.Visible)); Username = group.Add(new VocabularyKey(\"Username\", VocabularyKeyDataType.PersonName, VocabularyKeyVisibility.Visible)); Email = group.Add(new VocabularyKey(\"Email\", VocabularyKeyDataType.Email, VocabularyKeyVisibility.Hidden)); }); } public VocabularyKey Id { get; private set; } public VocabularyKey Name { get; private set; } public VocabularyKey Username { get; private set; } public VocabularyKey Email { get; private set; } } public static class HelloWorldVocabularies { public static HelloWorldVocabulary User { get; } = new HelloWorldVocabulary(); } . ",
-    "url": "/preparation/enricher/build-custom-enricher#add-vocabulary",
-    
-    "relUrl": "/preparation/enricher/build-custom-enricher#add-vocabulary"
-  },"1177": {
-    "doc": "Build custom enricher",
-    "title": "Add provider",
-    "content": "Lastly, we will add the provider class. See HelloWorldExternalSearchProvider.cs. public class HelloWorldExternalSearchProvider : ExternalSearchProviderBase { private static readonly Guid ProviderId = Guid.Parse(\"2261b8f8-00b7-45bb-8112-5cc897fb16d8\"); // TODO replace with new guid private readonly IHelloWorldClient _client; public HelloWorldExternalSearchProvider(IHelloWorldClient client) : base(ProviderId, EntityType.Person) { _client = client; } public override IEnumerable&lt;IExternalSearchQuery&gt; BuildQueries(ExecutionContext context, IExternalSearchRequest request) { if (!Accepts(request.EntityMetaData.EntityType)) yield break; var entityType = request.EntityMetaData.EntityType; var id = request.QueryParameters.GetValue(HelloWorldVocabularies.User.Id, new HashSet&lt;string&gt;()); var person = new Dictionary&lt;string, string&gt; { { \"id\", id.FirstOrDefault() } }; if (person.Any()) yield return new ExternalSearchQuery(this, entityType, person); } public override IEnumerable&lt;IExternalSearchQueryResult&gt; ExecuteSearch(ExecutionContext context, IExternalSearchQuery query) { var id = query.QueryParameters[\"id\"].FirstOrDefault(); if (string.IsNullOrEmpty(id)) yield break; var user = _client.GetUser(id).Result; if (user != null) yield return new ExternalSearchQueryResult&lt;User&gt;(query, user); } public override IEnumerable&lt;Clue&gt; BuildClues(ExecutionContext context, IExternalSearchQuery query, IExternalSearchQueryResult result, IExternalSearchRequest request) { var resultItem = result.As&lt;User&gt;(); var code = GetOriginEntityCode(resultItem); var clue = new Clue(code, context.Organization); PopulateMetadata(clue.Data.EntityData, resultItem); return new[] {clue}; } public override IEntityMetadata GetPrimaryEntityMetadata(ExecutionContext context, IExternalSearchQueryResult result, IExternalSearchRequest request) { var resultItem = result.As&lt;User&gt;(); return CreateMetadata(resultItem); } public override IPreviewImage GetPrimaryEntityPreviewImage(ExecutionContext context, IExternalSearchQueryResult result, IExternalSearchRequest request) { return null; } private IEntityMetadata CreateMetadata(IExternalSearchQueryResult&lt;User&gt; resultItem) { var metadata = new EntityMetadataPart(); PopulateMetadata(metadata, resultItem); return metadata; } private EntityCode GetOriginEntityCode(IExternalSearchQueryResult&lt;User&gt; resultItem) { return new EntityCode(EntityType.Person, CodeOrigin.CluedIn.CreateSpecific(\"helloworld\"), resultItem.Data.id); } private void PopulateMetadata(IEntityMetadata metadata, IExternalSearchQueryResult&lt;User&gt; resultItem) { var code = GetOriginEntityCode(resultItem); metadata.EntityType = EntityType.Person; metadata.Name = resultItem.Data.name; metadata.OriginEntityCode = code; metadata.Codes.Add(code); metadata.Properties[HelloWorldVocabularies.User.Email] = resultItem.Data.email; } } . ",
-    "url": "/preparation/enricher/build-custom-enricher#add-provider",
-    
-    "relUrl": "/preparation/enricher/build-custom-enricher#add-provider"
-  },"1178": {
-    "doc": "Build custom enricher",
-    "title": "Build custom enricher",
-    "content": " ",
-    "url": "/preparation/enricher/build-custom-enricher",
-    
-    "relUrl": "/preparation/enricher/build-custom-enricher"
-  },"1179": {
     "doc": "Microsoft Integration",
     "title": "Microsoft Integration",
     "content": "Introduction . As CluedIn is now available in Azure Marketplace, we aim to provide native integration with Microsoft products and services into our system. These products and services include Purview, Data Factory, Data Lake, PowerApps, Power Automate, Dataverse, and more. These integrations will automate most of the features available in Microsoft, make the system easier to use, and give you a native feel between CluedIn and Microsoft platforms. ",
     "url": "/microsoft-integration",
     
     "relUrl": "/microsoft-integration"
-  },"1180": {
+  },"1172": {
     "doc": "Review mapping",
     "title": "On this page",
     "content": ". | Properties | Identifiers | Relationships | . After the mapping is created, review the mapping details to make sure that your records will be produced and merged in the most efficient way. This article will guide you through the essential aspects to check when reviewing your mapping details. Before the data is processed, your mapping changes won’t affect the existing records in CluedIn. To open the mapping details, on the Map tab of the data set, select Edit mapping. You’ll see three tabs containing all mapping details: . | Map columns to vocabulary key – here you can check which properties will be sent to CluedIn after processing. | Map entity – here you can check the general details of the records that will be created after processing and the identifiers that will uniquely represent the records. | Add edge relations – here you can create rules for establishing the relationships between golden records. | . Properties . On the Map columns to vocabulary key tab, check how the original fields will be mapped to the vocabulary keys in CluedIn after processing. The following actions are available for you: . | Ignore certain fields if you don’t want to have them in CluedIn after the data is processed. | Map the original field to a different vocabulary key. | Add property rules to improve the quality of mapped records by normalizing and transforming property values. | . Identifiers . On the Map entity tab, review the general mapping details and check the identifiers that will uniquely represent the records in CluedIn—primary identifier and identifiers. What are general details? . | Business domain and vocabulary. | Entity name – name of the records that is displayed on the search results page and on the record details page. | Preview image, description, date created, and date modified – record properties that you can find on the search results page and on the record details page. You can select which column should be used for each of these settings. | . What is a primary identifier? . A primary identifier is a unique identifier of the record in CluedIn. If the primary identifiers are identical, the records will be merged. This merging is faster than creating a deduplication project because it is done on the fly and is based on strict equality matching. The deduplication project, on the other hand, is based on fuzzy matching and requires you to define matching criteria, making it a more time-consuming process. Even if you prefer to merge records by running a deduplication project, merging by primary identifiers produces cleaner, “pre-merged” records. As a result, the deduplication project will generate better results and be more performant. Options for generating the primary identifier . Depending on how unique you consider the records to be, you can choose one of the following options for generating the primary identifier: . | Single key – CluedIn will generate unique primary identifiers for the records based on the selected property. This is the most commonly used option because data often already contains unique identifiers (for example, GUIDs) from the source systems. | Auto-generated key – CluedIn will generate unique primary identifiers for the records. Choosing this option may lead to an increased number of duplicates in the system, but you can mitigate this by running a deduplication project afterwards. | Compound key – CluedIn will generate unique primary identifiers for the records by combining selected properties. Choose this option if you are confident that the data structure won’t change in the future. For example, you can select the following properties to generate a compound key: First Name, Last Name, City, Address Line 1, and Country. | . The following diagram will help you in determining which option to use for generating the primary identifier. Example . We ingested a file with 1,000 records personal data containing the following columns: ID, First Name, Last Name, Email, SSN, and Country Code. To create the mapping, we selected the Auto Mapping type, and CluedIn automatically generated the mapping for the data set. Since our data set included the ‘ID’ column, it was automatically selected as the primary identifier. This is a favorable option because no empty or duplicate values were found during the current data set check. It means that the ID is a reliable value to uniquely represent the record in CluedIn. If we select a column that contains duplicate values (for example, country), the status check will immediately inform us of the number of duplicate values in the data set. By selecting View more details, you can view the number of duplicate values in the data set, which values are duplicates, and the number of times the duplicate value occurs in the data set. Referring to the screenshot below, there are 3 duplicate values in the data set: United States, Canada, and Spain. The value United States occurs in 550 records. If we proceed with this as the primary identifier and process the data, all 550 records will be merged into a single golden record. In this case, the country cannot serve as a unique representation for each record, as it is acceptable for records to share the same country. However, if you are confident that the selected property can uniquely represent the record, you can proceed with processing the data. Records with identical primary identifiers will be automatically merged, eliminating the need for a separate deduplication project. If the primary identifier contains an empty value, it is replaced with a hash. If your data set contains a record that is nearly identical to the one with the hash value, they will not be merged because the hash is a unique value. In such cases, you can initiate a deduplication project as a solution. What are identifiers? . Identifiers can uniquely represent the record in CluedIn, in addition to the primary identifier. If two identifiers are identical, the records will be merged. CluedIn automatically detects properties that can be used as additional identifiers. For example, if the primary identifier is the ID, then the additional identifier could be the email. Even if there are no duplicate values according to the primary identifier, but there are some according to additional identifiers, the records will be merged. The following diagram will help you in determining if you need to add additional identifiers. Relationships . A relationship is a connection or association between two or more golden records that indicates how the records are related or interact with each other. If you want to connect the records from the current data set to other records in CluedIn, you can add relationships between such records. The procedure for adding relationships between records is described in our “Getting started” guide. For more information, see Add relationships between records. You can add a relationship before or after you process the records. If you add a relationship after processing, you need to process the records again. When you start creating a relationship, you have to select a property from the current data set that references another property existing in CluedIn. For instance, in the case of SQL tables, this property could be a foreign key that connects two tables. The relationship will be established based on the selected property. Then, you need to choose the edge mode: . | Edge – CluedIn creates relationships between the records based on the origin. | Strict Edge – CluedIn creates relationships between the records that belong to a specific data set, data source, or data source group. | Fuzzy Edge – CluedIn creates relationships through fuzzy matching based on the Name property of the records. | . After you select the edge mode, you need to choose the edge type to define the nature of relationships between records (for example, /WorksFor, /RequestedBy,/LocatedIn). Example . We have 2 data sets: . | Companies – contains the following columns: Company_ID and Company_Name. | Employees – contains the following columns: EmployeeID, First_Name, Last_Name, and Company_ID. Here, the Company_ID defines the company where an employee works. | . To connect employees to companies in CluedIn, we can create a relationship in the mapping details of the Employees data set. In this case, the Company_ID will serve as the property upon which the relationship is built. We select the Strict Edge mode because we are aware of the data set to which we want to connect the employees. Once the processing is complete, all employees who work for a particular company will be shown on the Relations tab of a company record. ",
     "url": "/integration/review-mapping#on-this-page",
     
     "relUrl": "/integration/review-mapping#on-this-page"
-  },"1181": {
+  },"1173": {
     "doc": "Review mapping",
     "title": "Review mapping",
     "content": " ",
     "url": "/integration/review-mapping",
     
     "relUrl": "/integration/review-mapping"
-  },"1182": {
+  },"1174": {
     "doc": "Azure OpenAI",
     "title": "On this page",
     "content": ". | Add Azure OpenAI enricher | Properties from Azure OpenAI enricher | . This article explains how to add the Azure OpenAI enricher. The purpose of this enricher is to enhance data quality by providing more complete, current, and detailed information for your golden records. It can automate the process of data research, offering up-to-date intelligence on your records and reducing the need for manual efforts. The Azure OpenAI enricher supports the following endpoints: . | {baseUrl}/openai/deployments/{deploymentName}/completions?api-version=2022-12-01 . | {baseUrl}/openai/deployments/deploymentName}/chat/completions?api-version=2024-06-01 . | . You can instruct the Azure OpenAI enricher to enhance your golden records with the help of prompts. These prompts must contain at least: . | One input property – the vocabulary key that contains the information you provide to an AI model to process and generate a response. | One output property – the vocabulary key where the desired result will be stored. | . Here are some examples of prompts: . | Finding the country based on address: . Using the address in {Vocabulary:organization.address} provide the country of the organization in {output:vocabulary:organization.CountryAI} . | Translating the text from one language to another: . Please get {output:vocabulary:organization.japaneseName} by translating {Vocabulary:organization.name} into Japanese. | Generating the summary or description based on some text: . Generate a brief summary {output:vocabulary:website.SummaryAI} based on {Vocabulary:website.WebsiteDescription} and {Vocabulary:website.Title} . | . ",
     "url": "/preparation/enricher/azure-openai#on-this-page",
     
     "relUrl": "/preparation/enricher/azure-openai#on-this-page"
-  },"1183": {
+  },"1175": {
     "doc": "Azure OpenAI",
     "title": "Add Azure OpenAI enricher",
     "content": "To use the Azure OpenAI enricher, you need to have an Azure OpenAI Service resource set up in the Azure portal and provide the necessary credentials for that resource in CluedIn. To configure Azure OpenAI integration in CluedIn . | Go to Administration &gt; Azure Integration &gt; Azure AI Services. | Enter the API Key used to authenticate and authorize access to your Azure OpenAI resource. | Enter the Base URL for your Azure OpenAI resource in the format similar to the following: https://{resource-name}.openai.azure.com/. | Leave the Resource Key field empty. | Enter the Deployment Name assigned to a specific instance of a model when it was deployed. | Specify the number of Maximum Requests that can be sent to the Azure OpenAI deployment. | Select Save. Once the Azure OpenAI integration is configured in CluedIn, proceed to add the Azure OpenAI enricher. | . To add Azure OpenAI enricher . | On the navigation pane, go to Preparation &gt; Enrich. Then, select Add Enricher. | On the Choose Enricher tab, select Azure OpenAI, and then select Next. | On the Configure tab, provide the following details: . | AI Deployment Name – enter the deployment name assigned to a specific instance of a model when it was deployed. This is the same deployment name as in Administration &gt; Azure Integration &gt; Azure AI Services. | Accepted Business Domain – enter the business domain to define which golden records will be enriched. | Prompt – enter the instruction for Azure OpenAI to generate results. The prompt requires at least one input (e.g., Vocabulary:XXXX.YYYY) and one output (e.g., output:Vocabulary:PPPP.QQQQ). For example, the following prompt asks Azure OpenAI to translate the company name and store the result in a dedicated vocabulary key: . Translate {Vocabulary:trainingcompany.name} into French and put the output into {output:vocabulary:trainingcompany.frenchName}. | . | Select Test Connection to make sure the enricher is properly configured, and then select Add. The Azure OpenAI enricher is added and has an active status. This means that it will enrich relevant golden records during processing or when you trigger external enrichment. | . After the Azure OpenAI enricher is added, you can modify its details: . | Settings – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values. | Authentication – modify the details you provided while configuring the enricher. | . ",
     "url": "/preparation/enricher/azure-openai#add-azure-openai-enricher",
     
     "relUrl": "/preparation/enricher/azure-openai#add-azure-openai-enricher"
-  },"1184": {
+  },"1176": {
     "doc": "Azure OpenAI",
     "title": "Properties from Azure OpenAI enricher",
     "content": "You can find the properties added to golden records from the Azure OpenAI enricher on the Properties page. The vocabulary keys added to golden records by the Azure Open AI enricher are grouped under No Source source type. For a more detailed information about the changes made to a golden record by the Azure OpenAI enricher, check the corresponding data part on the History page. ",
     "url": "/preparation/enricher/azure-openai#properties-from-azure-openai-enricher",
     
     "relUrl": "/preparation/enricher/azure-openai#properties-from-azure-openai-enricher"
-  },"1185": {
+  },"1177": {
     "doc": "Azure OpenAI",
     "title": "Azure OpenAI",
     "content": " ",
     "url": "/preparation/enricher/azure-openai",
     
     "relUrl": "/preparation/enricher/azure-openai"
-  },"1186": {
+  },"1178": {
     "doc": "Data sources",
     "title": "Data sources",
     "content": "In this section, you will learn how to get your data from external sources into CluedIn. All data you ingest into CluedIn is stored in Integrations &gt; Data Sources. One of the main purposes of the Data Sources module is to provide you with the tools to create a semantic layer for your data so that CluedIn can understand it. Each step is explained in detail in a separate article in this section: . | Define data to ingest – explore all the ways you can ingest data into CluedIn and choose the one that works best for your needs. | Ingest data from a file, an endpoint, or a database - find step-by-step instructions for ingesting data into CluedIn. | Create mapping - create a semantic layer for your data and review the mapping details to ensure that your records are produced and merged in the most effective way. | Process data - turn your data into golden records, making it searchable and ready to be cleaned, deduplicated, and streamed. | . In addition to these fundamental steps, we encourage you to explore additional operations on records to discover tools for normalizing and improving the quality of data. To ingest, map, and process the data, you need to have access to different modules in CluedIn. The following table contains a list of claims required to work with the Data Sources module. | Section | Claim | Access level | . | Integration | All claims | at least Consulted | . | Management | Data Catalog | at least Informed | . | Management | Annotation | at least Informed | . | Consume | Export Targets | at least Informed | . ",
     "url": "/integration/data%20sources",
     
     "relUrl": "/integration/data sources"
-  },"1187": {
+  },"1179": {
     "doc": "PaaS operations",
     "title": "PaaS operations",
     "content": "This section is dedicated to IT specialists responsible for managing CluedIn PaaS within their organizations. Supporting documents and references: . | CluedIn: CluedIn Azure costs . | Kubernetes: . | Kubernetes tools . | Introduction to Kubernetes . | . | Microsoft AKS: Configure Azure CNI networking in Azure Kubernetes Service (AKS) . | . ",
     "url": "/paas-operations",
     
     "relUrl": "/paas-operations"
-  },"1188": {
+  },"1180": {
     "doc": "Process data",
     "title": "On this page",
     "content": ". | Manual processing | Auto-submission | Bridge mode | Processing logs . | Remove processing logs | Configure retention settings | . | . In this article, you will learn about the processing of data that you ingested into CluedIn. The goal of processing is to turn your records into standalone golden records or to use them to enhance existing golden records. Depending on the type of data source, there are three processing options: . | For file, ingestion endpoint, and database: Manual processing . | For ingestion endpoint only: Auto-submission . | For ingestion endpoint only: Bridge mode . | . You can process the data set as many times as you want. In CluedIn, once a record has been processed, it won’t undergo processing again. When the processing is started, CluedIn checks for identical records. If identical records are found, they won’t be processed again. However, if you change the primary identifier for the previously processed records, CluedIn will treat these records as new and process them. After the processing is completed, the processing log appears in the table. Any records that fail to meet specific conditions outlined in property or pre-process rules will be sent to quarantine. To learn more about managing these records, see Quarantine. Records that were processed successfully are displayed on the Data tab. If the processing takes a long time, go to the Monitoring tab and check the number of messages in the queues. Depending on the type of message queue with a high message count, you can perform specific troubleshooting actions. For further details, see Monitoring. ",
     "url": "/integration/process-data#on-this-page",
     
     "relUrl": "/integration/process-data#on-this-page"
-  },"1189": {
+  },"1181": {
     "doc": "Process data",
     "title": "Manual processing",
     "content": "Manual processing is available for the data coming from a file, an ingestion endpoint, or a database. With manual processing, the original data that was initially sent to CluedIn remains in the temporary storage on the Preview tab. After the data has been processed, the resulting golden records appear on the Data tab. To process the data . | On the navigation pane, go to Integrations &gt; Data Sources. Then, find and open the data set that you need to process. | Go to the Process tab, and then select Process. The confirmation pane opens, where you can do the following: . | View the number of records that will be processed. | Delete the records that are currently in quarantine. This option is useful if you have already processed the data set before and there are some records in quarantine. | View the result of the primary identifier status check along with the field that was selected for producing the primary identifier. | View the result of the identifier status check along with the field that was selected for producing additional identifier. If any status check shows duplicates, the records containing duplicates will be merged to maintain data integrity and consistency. To learn more about unique identifiers, see Identifiers. | . | In the lower-right corner, select Confirm. | . ",
     "url": "/integration/process-data#manual-processing",
     
     "relUrl": "/integration/process-data#manual-processing"
-  },"1190": {
+  },"1182": {
     "doc": "Process data",
     "title": "Auto-submission",
     "content": "Auto-submission is available for the data coming from an ingestion endpoint. When auto-submission is enabled, data received from the ingestion endpoint is processed automatically. With auto-submission, the original data that was initially sent to CluedIn remains in the temporary storage on the Preview tab. After the data has been processed, the resulting golden records appear on the Data tab. To enable auto-submission . | On the navigation pane, go to Integrations &gt; Data Sources. Then, find and open the data set for which you want to enable auto-submission. | Go to the Process tab, and then turn on the toggle next to Auto-submission. | Confirm that you want to enable automatic processing of records once they are received by CluedIn. | . If you no longer want the records to be processed automatically, turn off the toggle next to Auto-submission. ",
     "url": "/integration/process-data#auto-submission",
     
     "relUrl": "/integration/process-data#auto-submission"
-  },"1191": {
+  },"1183": {
     "doc": "Process data",
     "title": "Bridge mode",
     "content": "Bridge mode is available for the data coming from an ingestion endpoint. When bridge-mode is enabled, all your JSON records will be transformed into golden records directly, without being stored in the temporary storage on the Preview tab. However, you can rely on data set logs and ingestion receipts for debugging purposes. Bridge mode allows you to use less storage and memory, resulting in increased performance. Use this mode when your mapping will not change over time, and you want to use the ingestion endpoint only as a mapper. To switch to bridge mode . | On the navigation pane, go to Integrations &gt; Data Sources. Then, find and open the data set that you want to switch to bridge mode. | Go to the Process tab. Open the three dots menu, and then select Switch to bridge mode. | Confirm that you want to switch to bridge mode by entering BRIDGE. Then, select Confirm bridge mode. | . If you no longer want your ingestion endpoint to operate in bridge mode, you can switch it back to the default mode. After switching back to the default mode, the Preview tab will appear. However, it will not contain records received while bridge mode was enabled. To switch back to default mode . | On the navigation pane, go to Integrations &gt; Data Sources. Then, find and open the data set that you want to switch back to default mode. | Go to the Process tab. Open the three dots menu, and then select Switch to default mode. | Confirm that you want to switch back to default mode by entering DEFAULT. Then, select Confirm default mode. | . ",
     "url": "/integration/process-data#bridge-mode",
     
     "relUrl": "/integration/process-data#bridge-mode"
-  },"1192": {
+  },"1184": {
     "doc": "Process data",
     "title": "Processing logs",
     "content": "Every time the records are processed, a new processing log appears on the Process tab of the data set. If the number of processing logs is growing, consider removing older logs. You can also configure the retention settings to automatically remove processing logs after a specific period. Remove processing logs . Removing processing logs frees up disk space without impacting the processed records. However, once removed, processing logs cannot be recovered. To remove processing logs . | Near the upper-right corner of the processing logs table, open the three dots menu, and then select Purge processing logs. | Select the statuses of the processing logs that you want to remove. | Confirm that you want to remove processing logs by entering DELETE. Then, select Purge. After processing logs are removed, the Process tab will display information about the user who removed them and the time of removal. | . Configure retention settings . Retention settings allow you to automatically delete processing logs after a specified period. To configure retention settings . | Near the upper-right corner of the processing logs table, open the three dots menu, and then select Retention settings. | Select the checkbox to enable retention. | Select a period to specify which processing logs should be removed. For example, selecting 2 months old means that all processing logs created 2 months ago will be removed. Thus, when a processing log turns 2 months old, it will be automatically removed. | Select Save. | If you want to change the retention period, repeat step 1. Then, select another period and save your changes. | If you want to remove the retention settings, repeat step 1. Then, clear the checkbox to disable retention and save your changes. | . ",
     "url": "/integration/process-data#processing-logs",
     
     "relUrl": "/integration/process-data#processing-logs"
-  },"1193": {
+  },"1185": {
     "doc": "Process data",
     "title": "Process data",
     "content": " ",
     "url": "/integration/process-data",
     
     "relUrl": "/integration/process-data"
-  },"1194": {
+  },"1186": {
     "doc": "Crawlers",
     "title": "Crawlers",
     "content": " ",
     "url": "/integration/crawlers-and-enrichers",
     
     "relUrl": "/integration/crawlers-and-enrichers"
-  },"1195": {
+  },"1187": {
     "doc": "Knowledge base",
     "title": "Knowledge base",
     "content": " ",
     "url": "/kb",
     
     "relUrl": "/kb"
-  },"1196": {
+  },"1188": {
     "doc": "REST API",
     "title": "On this page",
     "content": ". | Add REST API enricher | Properties from REST API enricher | Sample scripts . | Sample process request script | Sample process response script | Clearbit | Azure OpenAI | DuckDuckGo | REST Countries | . | . This article explains how to add the REST API enricher. The purpose of this enricher is to retrieve data from a wide variety of endpoints. It provides a flexible way to integrate diverse data sources into your golden records. This enricher is intended for users who are comfortable writing JavaScript code, as scripting is required to customize request and response handling. ",
     "url": "/preparation/enricher/rest-api#on-this-page",
     
     "relUrl": "/preparation/enricher/rest-api#on-this-page"
-  },"1197": {
+  },"1189": {
     "doc": "REST API",
     "title": "Add REST API enricher",
     "content": "The REST API enricher requires the URL of an external endpoint to retrieve data. You can use JavaScript to customize request construction and response processing for precise control over data extraction. You can find some examples of JavaScript code here. To add REST API enricher . | On the navigation pane, go to Preparation &gt; Enrich. Then, select Add Enricher. | On the Choose Enricher tab, select REST API, and then select Next. | On the Configure tab, provide the following details: . | Accepted Business Domain – enter the business domain to define which golden records will be enriched. | Method – select the HTTP method (GET or POST) that will be used for retrieving data. | URL – enter the URL of the external endpoint. This can be: . | An external API endpoint (for example, DuckDuckGo) that returns data directly to the enricher, where it is processed using the Process Response Script. | A service endpoint (for example, Power Automate, Jupyter Notebook, or a Cloud Function) that acts as a wrapper for external APIs. These endpoints can call external APIs, process the responses internally, and return the final result to the enricher. | . You can use placeholders in URL to dynamically insert values at runtime: . | {APIKey} – this placeholder will be replaced by the actual API key value provided in API Key. | {Vocabulary:vocabularykey} – this placeholder will be replaced with the value of the specified vocabulary key from the golden record. For example, if the URL contains {Vocabulary:trainingcontact.country} and the golden record contains \"trainingcontact.country\": \"Norway\", the placeholder will be replaced with Norway. | . | API Key – enter the API key required to authenticate with the endpoint, if applicable. Provide this only if the API requires a key for access. | Headers – enter any HTTP headers needed to call the endpoint. Enter one header per line in the format Header-Name=value. | Vocabulary and Properties – enter the vocabulary keys and properties to include in the request payload, with one entry per line. These will be passed to the endpoint to retrieve the relevant data. | Process Request Script – provide the JavaScript code used to construct or modify the request before it is sent to the external endpoint. You can find an example of the process request script here. | Process Response Script – provide the JavaScript code used to process the response returned from the external endpoint. This script is required to transform the API response into a format that the enricher can understand and use. You can find an example of the process response script here. | . | Select Test Connection to make sure the enricher is properly configured, and then select Add. The REST API enricher is added and has an active status. This means that it will enrich relevant golden records during processing or when you trigger external enrichment. | . After the REST API enricher is added, you can modify its details: . | Settings – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values. | Authentication – modify the details you provided while configuring the enricher. | . ",
     "url": "/preparation/enricher/rest-api#add-rest-api-enricher",
     
     "relUrl": "/preparation/enricher/rest-api#add-rest-api-enricher"
-  },"1198": {
+  },"1190": {
     "doc": "REST API",
     "title": "Properties from REST API enricher",
     "content": "You can find the properties added to golden records from the REST API enricher on the Properties page. The vocabulary keys added to golden records by the REST API enricher are grouped under No Source source type. For a more detailed information about the changes made to a golden record by the REST API enricher, check the corresponding data part on the History page. ",
     "url": "/preparation/enricher/rest-api#properties-from-rest-api-enricher",
     
     "relUrl": "/preparation/enricher/rest-api#properties-from-rest-api-enricher"
-  },"1199": {
+  },"1191": {
     "doc": "REST API",
     "title": "Sample scripts",
     "content": "This section provides some sample scripts that you can use to configure the RESP API enricher. Sample process request script . // sample request that can be accessed in the script // let request = { // ApiKey: \"testApiKey\", // Url: \"testUrl\", // Header: [{Key:\"TestHeader\", Value: 123}], // Body: { // Properties: [{Key: \"organization.name\", Value: \"CluedIn\"}] // } // }; let detailsArray = []; request.Body.Properties.forEach((x) =&gt; {  detailsArray.push(x.Value) }); request.Body = {   names: detailsArray } //modified request // let request = { // ApiKey: \"testArray\", // Url: \"testUrl\", // Header: [{Key:\"TestHeader\", Value: 123}], // Body: { // name: [\"CluedIn\"] // } // }; . Sample process response script . // Sample response that returned from external api to enricher // const response = { // HttpStatus: \"OK\". // Content: \"{\\\"fullName\\\": \\\"CluedIn ApS\\\"}\", // Headers: [ // { Key: \"Connection\", Value: \"keep-alive\"}, // { Key: \"Content-Type, Value \"application/x-javascript\"}\", // ], // }; let parsedContent = JSON.parse(response.Content); let newContent = {   ‘organization.fullName':parsedContent.fullName }; response.Content = JSON.stringify([{ Data: newContent), Score: 0 }]); // Sample response after executing the script // const response = { // HttpStatus: \"OK\", // Content: \"[{\\\"Data\\\":{\\\"organization.fullName\\\":\\\"CluedIn Aps\\\"}, \\\"Score\\\":0}]\", // ContentType: \"application/x-javascript\", // Headers: [ // { Key: \"Connection\", Value: \"keep-alive\"}, // { Key: \"Content-Type\", Value: \"application/x-javscript\", // ], . Clearbit . This code takes a company name as input and sends it to the Clearbit Autocomplete API. Then, it extracts the domain and logo of the top matching company and returns that data in a structured format usable by the enricher. Method: GET . URL . https://autocomplete.clearbit.com/v1/companies/suggest?query={Vocabulary:organization.name} . Process response scripts . let parsedContent = JSON.parse(response.Content); let content = parsedContent[0]; let image = { 'clearbit.organization.domain': content.domain, 'clearbit.organization.logo': content.logo, }; response.Content = JSON.stringify([{ Data: image, Score: 0 }]); log(JSON.stringify(response)); . Azure OpenAI . This code takes an organization’s name and sends a request to Azure OpenAI GPT-4 asking it to translate the name into Japanese. Then, it ensures the model responds in a defined JSON format and parses and returns the result in a structure compatible with the enricher. Note that you can use the Azure Open AI enricher for the same task. Method: POST . URL . https://copilot2.openai.azure.com/openai/deployments/gpt-4-32k/chat/completions?api-version=2024-06-01 . Vocabulary key and properties . organization.name . Headers . api-key={APIKey} . Process request script . let prompt = String.raw`Please get {organization.japaneseNameRestApi} by translating {Vocabulary:organization.name} into Japanese. Response in JSON using the following template ### { \"organization.japaneseNameRestApi\": \"\" } ### `; request.Body.Properties.forEach((x) =&gt; { prompt = prompt.replace('{Vocabulary:' + x.Key + '}', x.Value); }); request.Body = { messages: [{ role: 'user', content: prompt }], temperature: 0, }; . Process response script . let parsedContent = JSON.parse(response.Content); let content = parsedContent.choices[0].message.content.trimEnd(); response.Content = JSON.stringify([{ Data: JSON.parse(content), Score: 0 }]); log(JSON.stringify(response)); . DuckDuckGo . This script handles the JSON response returned by a DuckDuckGo API call. The main purpose is to extract useful information from the API response and transform it into a format usable by the enricher. Method: GET . URL . https://api.duckduckgo.com?q={Vocabulary:organization.name}&amp;format=json . Process response script . function extractStringValues(obj, dict = new Map()) { for (const [key, value] of Object.entries(obj)) { if (value &amp;&amp; typeof value !== 'object' &amp;&amp; !Array.isArray(value)) { dict.set('duckDuckGo.organization.' + key, value.toString()); } } return dict; } function extractInfobox(content, dict = new Map()) { content?.forEach((x) =&gt; { dict.set('duckDuckGo.organization.infobox.' + x.label, x.value); }); } function extractRelatedTopics(relatedTopics, dict = new Map()) { for (let i = 0; i &lt; relatedTopics.length; i++) { dict.set( 'duckDuckGo.organization.relatedTopics' + i + '.firstUrl', relatedTopics[i]?.FirstURL, ); dict.set( 'duckDuckGo.organization.relatedTopics' + i + '.text', relatedTopics[i]?.Text, ); dict.set( 'duckDuckGo.organization.relatedTopics' + i + '.icon', relatedTopics[i]?.Icon?.Url, ); } } try { // Update the content here let parsedContent = JSON.parse(response.Content); let vocabularyKeysWithValue = extractStringValues(parsedContent); extractInfobox(parsedContent.Infobox?.content, vocabularyKeysWithValue); extractRelatedTopics(parsedContent.RelatedTopics, vocabularyKeysWithValue); response.Content = JSON.stringify([ { Data: Object.fromEntries(vocabularyKeysWithValue), Score: 0 }, ]); log(response); } catch (error) { const errorDetails = { name: error?.name, message: error?.message, stack: error?.stack, }; log('Error caught:' + JSON.stringify(errorDetails)); } . REST Countries . This code extracts the official name of a country from the response and formats it into a new JSON structure. Method: GET . URL . https://restcountries.com/v3.1/name/{Vocabulary:country.country}?fullText=true . Process response script . let parsedContent = JSON.parse(response.Content); let content = parsedContent[0]; let officialName = { 'country.officialName': content.name.official, }; response.Content = JSON.stringify([{ Data: officialName, Score: 0 }]); log(JSON.stringify(response)); . ",
     "url": "/preparation/enricher/rest-api#sample-scripts",
     
     "relUrl": "/preparation/enricher/rest-api#sample-scripts"
-  },"1200": {
+  },"1192": {
     "doc": "REST API",
     "title": "REST API",
     "content": " ",
     "url": "/preparation/enricher/rest-api",
     
     "relUrl": "/preparation/enricher/rest-api"
-  },"1201": {
+  },"1193": {
     "doc": "2024.01",
     "title": "On this page",
     "content": ". | Prerequisites | Guide . | Preparation | Upgrade - Stage 1 | Upgrade - Stage 2 | Upgrade - Stage 3 | . | Troubleshooting | . This document covers the upgrade process from 2023.07 to 2024.01. The upgrade process for this specific release is not a straightforward helm upgrade and does require quite a bit of work to get it into a running state. ",
     "url": "/paas-operations/upgrade/2024-01#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/2024-01#on-this-page"
-  },"1202": {
+  },"1194": {
     "doc": "2024.01",
     "title": "Prerequisites",
     "content": ". | Access to the helm chart version 2.0.0. You may need to helm repo update to grab the latest. | Download the prerequisite zip artifact here | kubectl and helm | . ",
     "url": "/paas-operations/upgrade/2024-01#prerequisites",
     
     "relUrl": "/paas-operations/upgrade/2024-01#prerequisites"
-  },"1203": {
+  },"1195": {
     "doc": "2024.01",
     "title": "Guide",
     "content": "Included in the zipped artifact are a number of .yaml files along with a PowerShell upgrade script. The script is very generic and may not be usable in your environment if your instance of CluedIn is heavily modified. As a result, it should only be used as a reference point rather than something you run. Manual upgrade steps are provided below. Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. Preparation . | Export your current running helm values files. Keep one for this process, and also keep one as a backup. | . Note: You can export by running helm get values cluedin-platform -n cluedin --output yaml &gt; /path/to/file.yaml. This will export the currently connected kubeconfig. | Extract the downloaded artifact to a location where we’ll be working from. | Before the upgrade takes place, you need to apply the data upgrade CRD. You can do this by running kubectl apply -f /path/to/extract/artifact/dataupgrade-crd.yaml -n cluedin. You do not need to modify this file. | Update the platform-custom-values.yaml patch file to include the neo4j password and potentially change the global image tag as it’s shipped with 2024.01.00. This file is part of the extracted artifact. The field is infrastructure.neo4j.neo4j.password. It should be set to xxx in the file, and failing to update this will potentially break the upgrade process. | . Note: You can get the current neo4j password by running kubectl get secret/cluedin-neo4j-secrets -n cluedin -o jsonpath='{.data.neo4j-password}' | base64 --decode . | In the same file, remove any application.cluedin.components.packages which you do not use. This will patch against what is set in your exported values file. | . Now, you are ready to perform the actual upgrade process. It’s done in 3 stages. Upgrade - Stage 1 . Scale down a majority of the running deployments and stateful sets. To do this, run the following: . helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.0.0 \\ --values ${ExportedOriginalValues} \\ --values platform-custom-values.yaml \\ --values platform-upgrade-v2-stage1.yaml \\ --wait \\ --timeout 10m0s . When the above has been ran, you should begin to see a majority of your pods scaling down. It may take 5 minutes, so please be patient. When it has completely scaled down, you’re ready for Stage 2. Upgrade - Stage 2 . Migrate the databases due to a large number of application upgrades. To do this, run the following: . helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.0.0 \\ --values ${ExportedOriginalValues} \\ --values platform-custom-values.yaml \\ --values platform-upgrade-v2-stage2.yaml \\ --wait \\ --timeout 20m0s . This will trigger a neo4j database backup and migration along with a SQL upgrade. It can take up to 20 minutes to complete. It’ll be ready when all init-jobs have completed and the core pods are all in a running state. Please note because of the previous step scale down, only a few pods will be brought up during this stage. When successfully done, it’s ready for the final stage. Upgrade - Stage 3 . Assuming the above has been successful, it’s time to actually bring the environment back up into a running and usable state. To do this, run the final helm command below: . helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.0.0 \\ --values ${ExportedOriginalValues} \\ --values platform-custom-values.yaml \\ --set 'application.system.runDatabaseJobsOnUpgrade=true' \\ --set 'application.system.runNugetFullRestore=true' \\ --wait \\ --timeout 20m0s . After approximately 10-15 minutes, your environment should be 100% completed, and you should be able to access the front end of the UI. ",
     "url": "/paas-operations/upgrade/2024-01#guide",
     
     "relUrl": "/paas-operations/upgrade/2024-01#guide"
-  },"1204": {
+  },"1196": {
     "doc": "2024.01",
     "title": "Troubleshooting",
     "content": "If you get stuck at all during the upgrade process, reach out to support@cluedin.com. Below are some common issues due to the upgrade process. | Ensure any custom connectors are updated to .NET 6. This is due to upgrading the libraries within the application to .NET 6. For some connectors, data may not appear. Note that no data should be lost during this transition, it may just be hidden until updated. | CluedIn Developer feed is no longer supported. If your environment connects to the CluedIn Developer nuget feed, it may prevent the environment from standing up correctly. You can validate this by searching for https://pkgs.dev.azure.com/CluedIn-io/_packaging/develop/ in your values files. If a result is returned, it’s best to remove it from values. | . ",
     "url": "/paas-operations/upgrade/2024-01#troubleshooting",
     
     "relUrl": "/paas-operations/upgrade/2024-01#troubleshooting"
-  },"1205": {
+  },"1197": {
     "doc": "2024.01",
     "title": "2024.01",
     "content": " ",
     "url": "/paas-operations/upgrade/2024-01",
     
     "relUrl": "/paas-operations/upgrade/2024-01"
-  },"1206": {
+  },"1198": {
     "doc": "2024.03",
     "title": "On this page",
     "content": ". | Prerequisites | Guide | . This document covers the upgrade process from 2024.01 to 2024.03. We do not support upgrading directly to this version from prior to 2024.01. ",
     "url": "/paas-operations/upgrade/2024-03#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/2024-03#on-this-page"
-  },"1207": {
+  },"1199": {
     "doc": "2024.03",
     "title": "Prerequisites",
     "content": ". | Access to the helm chart version 2.1.0. You may need to helm repo update to grab the latest. | kubectl and helm | . ",
     "url": "/paas-operations/upgrade/2024-03#prerequisites",
     
     "relUrl": "/paas-operations/upgrade/2024-03#prerequisites"
-  },"1208": {
+  },"1200": {
     "doc": "2024.03",
     "title": "Guide",
     "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. | Connect to your cluster via the kubeconfig. | Export your current running helm values file. Keep one for this process, and also keep one as a backup. | In the values file we’ll be working with, update the following properties: . global: image: tag: \"2024.03.00\" strategy: type: Recreate application: cluedin: components: packages: - name: CluedIn.EventHub version: 4.1.0 - name: CluedIn.Purview version: 4.1.0 . | Apply the values file from your shell by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.1.0 \\ --reuse-values \\ --values ${CustomValues} \\ --wait \\ --timeout 10m0s . After a few minutes, it should successfully complete. | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
     "url": "/paas-operations/upgrade/2024-03#guide",
     
     "relUrl": "/paas-operations/upgrade/2024-03#guide"
-  },"1209": {
+  },"1201": {
     "doc": "2024.03",
     "title": "2024.03",
     "content": " ",
     "url": "/paas-operations/upgrade/2024-03",
     
     "relUrl": "/paas-operations/upgrade/2024-03"
-  },"1210": {
+  },"1202": {
     "doc": "2024.04",
     "title": "On this page",
     "content": ". | Prerequisites | Guide | . This document covers the upgrade process from 2024.03 to 2024.04. It is safe to upgrade from 2024.01 directly to 2024.04. We do not support upgrading directly to this version from prior to 2024.01. ",
     "url": "/paas-operations/upgrade/2024-04#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/2024-04#on-this-page"
-  },"1211": {
+  },"1203": {
     "doc": "2024.04",
     "title": "Prerequisites",
     "content": ". | Access to the helm chart version 2.2.0. You may need to helm repo update to grab the latest. | kubectl and helm | . ",
     "url": "/paas-operations/upgrade/2024-04#prerequisites",
     
     "relUrl": "/paas-operations/upgrade/2024-04#prerequisites"
-  },"1212": {
+  },"1204": {
     "doc": "2024.04",
     "title": "Guide",
     "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. | Connect to your cluster via the kubeconfig. | Export your current running helm values file. Keep one for this process, and also keep one as a backup. | In the values file we’ll be working with, update the following properties: . global: image: tag: \"2024.04.00\" strategy: type: Recreate application: cluedin: components: packages: - name: CluedIn.EventHub version: 4.2.0 - name: CluedIn.Purview version: 4.2.0 submitter: resources: requests: cpu: 1000m memory: 1G limits: cpu: 1000m memory: 1G . | Apply the values file from your shell by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.2.0 \\ --reuse-values \\ --values ${CustomValues} \\ --wait \\ --timeout 10m0s . After a few minutes, it should successfully complete. | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
     "url": "/paas-operations/upgrade/2024-04#guide",
     
     "relUrl": "/paas-operations/upgrade/2024-04#guide"
-  },"1213": {
+  },"1205": {
     "doc": "2024.04",
     "title": "2024.04",
     "content": " ",
     "url": "/paas-operations/upgrade/2024-04",
     
     "relUrl": "/paas-operations/upgrade/2024-04"
-  },"1214": {
+  },"1206": {
     "doc": "2024.07",
     "title": "On this page",
     "content": ". | Prerequisites | Guide | . This document covers the upgrade process from 2024.04 to 2024.07. We do not support upgrading directly to this version from prior to 2024.01. ",
     "url": "/paas-operations/upgrade/2024-07#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/2024-07#on-this-page"
-  },"1215": {
+  },"1207": {
     "doc": "2024.07",
     "title": "Prerequisites",
     "content": ". | Access to the helm chart version 2.3.0. You may need to helm repo update to grab the latest. | kubectl and helm | . ",
     "url": "/paas-operations/upgrade/2024-07#prerequisites",
     
     "relUrl": "/paas-operations/upgrade/2024-07#prerequisites"
-  },"1216": {
+  },"1208": {
     "doc": "2024.07",
     "title": "Guide",
     "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. | Connect to your cluster via the kubeconfig. | Export your current running helm values file. Keep one for this process, and also keep one as a backup. | In the values file we’ll be working with, update the following properties: . global: image: tag: \"2024.07.00\" strategy: type: Recreate application: bootstrap: dataUpgrade: toVersion: 'Version430' cluedin: components: packages: - name: CluedIn.Connector.AzureDataLake version: 4.3.0 - name: CluedIn.Connector.Dataverse version: 4.3.0 - name: CluedIn.EventHub version: 4.3.0 - name: CluedIn.PowerApps version: 4.3.0 - name: CluedIn.Provider.ExternalSearch.ClearBit version: 4.1.0 - name: CluedIn.Provider.ExternalSearch.CVR version: 4.1.0 - name: CluedIn.Provider.ExternalSearch.GoogleMaps version: 4.1.0 - name: CluedIn.Provider.ExternalSearch.Libpostal version: 4.1.0 - name: CluedIn.Purview version: 4.3.0 - name: CluedIn.Vocabularies.CommonDataModel version: 4.3.0 - name: CluedIn.Connector.SqlServer version: 4.1.0 - name: CluedIn.ExternalSearch.Providers.Web version: 4.1.0 - name: CluedIn.Connector.OneLake version: 4.3.0 roles: main: resources: limits: memory: 2G datasourceProcessing: replicas: 2 resources: requests: cpu: 1000m memory: 512M limits: cpu: 2000m memory: 8G datasource: resources: requests: cpu: 500m memory: 512M limits: cpu: 500m memory: 512M submitter: resources: requests: memory: 512M limits: memory: 512M gql: resources: requests: memory: 512M limits: memory: 4G ui: resources: requests: memory: 256M monitoring: alertManager: licenseKey: &lt;your-license-key&gt; infrastructure: haproxy-ingress: controller: resources: requests: cpu: 125m limits: cpu: 500m cert-manager: cainjector: resources: requests: memory: 128Mi . | Apply the values file from your shell by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.3.0 \\ --reuse-values \\ --values ${CustomValues} \\ --wait \\ --timeout 10m0s . After a few minutes, it should successfully complete. | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
     "url": "/paas-operations/upgrade/2024-07#guide",
     
     "relUrl": "/paas-operations/upgrade/2024-07#guide"
-  },"1217": {
+  },"1209": {
     "doc": "2024.07",
     "title": "2024.07",
     "content": " ",
     "url": "/paas-operations/upgrade/2024-07",
     
     "relUrl": "/paas-operations/upgrade/2024-07"
-  },"1218": {
+  },"1210": {
     "doc": "2024.07.01",
     "title": "On this page",
     "content": ". | Prerequisites | Guide | . This document covers the upgrade process from 2024.07 to 2024.07.01. We do not support upgrading directly to this version from prior to 2024.01. ",
     "url": "/paas-operations/upgrade/2024-07-01#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/2024-07-01#on-this-page"
-  },"1219": {
+  },"1211": {
     "doc": "2024.07.01",
     "title": "Prerequisites",
     "content": ". | Access to the helm chart version 2.3.1. You may need to helm repo update to grab the latest. | kubectl and helm | . ",
     "url": "/paas-operations/upgrade/2024-07-01#prerequisites",
     
     "relUrl": "/paas-operations/upgrade/2024-07-01#prerequisites"
-  },"1220": {
+  },"1212": {
     "doc": "2024.07.01",
     "title": "Guide",
     "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. | Connect to your cluster via the kubeconfig. | Export your current running helm values file. Keep one for this process, and also keep one as a backup. | In the values file we’ll be working with, update the following properties: . global: image: tag: \"2024.07.01\" strategy: type: Recreate application: bootstrap: dataUpgrade: toVersion: 'Version430' cluedin: components: packages: - name: CluedIn.Connector.AzureDataLake version: 4.3.0 - name: CluedIn.Connector.Dataverse version: 4.3.0 - name: CluedIn.EventHub version: 4.3.0 - name: CluedIn.PowerApps version: 4.3.0 - name: CluedIn.Provider.ExternalSearch.ClearBit version: 4.1.0 - name: CluedIn.Provider.ExternalSearch.CVR version: 4.1.0 - name: CluedIn.Provider.ExternalSearch.GoogleMaps version: 4.1.0 - name: CluedIn.Provider.ExternalSearch.Libpostal version: 4.1.0 - name: CluedIn.Purview version: 4.3.0 - name: CluedIn.Vocabularies.CommonDataModel version: 4.3.0 - name: CluedIn.Connector.SqlServer version: 4.1.0 - name: CluedIn.ExternalSearch.Providers.Web version: 4.1.0 - name: CluedIn.Connector.OneLake version: 4.3.0 roles: main: resources: limits: memory: 2G datasourceProcessing: replicas: 2 resources: requests: cpu: 1000m memory: 512M limits: cpu: 2000m memory: 8G datasource: resources: requests: cpu: 500m memory: 512M limits: cpu: 500m memory: 512M submitter: resources: requests: memory: 512M limits: memory: 512M gql: resources: requests: memory: 512M limits: memory: 4G ui: resources: requests: memory: 256M monitoring: alertManager: licenseKey: &lt;your-license-key&gt; infrastructure: haproxy-ingress: controller: resources: requests: cpu: 125m limits: cpu: 500m cert-manager: cainjector: resources: requests: memory: 128Mi . | Apply the values file from your shell by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.3.1 \\ --reuse-values \\ --values ${CustomValues} \\ --wait \\ --timeout 10m0s . After a few minutes, it should successfully complete. | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
     "url": "/paas-operations/upgrade/2024-07-01#guide",
     
     "relUrl": "/paas-operations/upgrade/2024-07-01#guide"
-  },"1221": {
+  },"1213": {
     "doc": "2024.07.01",
     "title": "2024.07.01",
     "content": " ",
     "url": "/paas-operations/upgrade/2024-07-01",
     
     "relUrl": "/paas-operations/upgrade/2024-07-01"
-  },"1222": {
+  },"1214": {
     "doc": "2024.07.02",
     "title": "On this page",
     "content": ". | Prerequisites | Guide | . This document covers the upgrade process from 2024.07 to 2024.07.02. We do not support upgrading directly to this version from prior to 2024.02. ",
     "url": "/paas-operations/upgrade/2024-07-02#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/2024-07-02#on-this-page"
-  },"1223": {
+  },"1215": {
     "doc": "2024.07.02",
     "title": "Prerequisites",
     "content": ". | Access to the helm chart version 2.3.1. You may need to helm repo update to grab the latest. | kubectl and helm | . ",
     "url": "/paas-operations/upgrade/2024-07-02#prerequisites",
     
     "relUrl": "/paas-operations/upgrade/2024-07-02#prerequisites"
-  },"1224": {
+  },"1216": {
     "doc": "2024.07.02",
     "title": "Guide",
     "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. | Connect to your cluster via the kubeconfig. | Export your current running helm values file. Keep one for this process, and also keep one as a backup. | In the values file we’ll be working with, update the following properties: . global: image: tag: \"2024.07.02\" strategy: type: Recreate application: bootstrap: dataUpgrade: toVersion: 'Version430' cluedin: components: packages: - name: CluedIn.Connector.AzureDataLake version: 4.3.0 - name: CluedIn.Connector.Dataverse version: 4.3.0 - name: CluedIn.EventHub version: 4.3.0 - name: CluedIn.PowerApps version: 4.3.0 - name: CluedIn.Provider.ExternalSearch.ClearBit version: 4.1.0 - name: CluedIn.Provider.ExternalSearch.CVR version: 4.1.0 - name: CluedIn.Provider.ExternalSearch.GoogleMaps version: 4.1.0 - name: CluedIn.Provider.ExternalSearch.Libpostal version: 4.1.0 - name: CluedIn.Purview version: 4.3.0 - name: CluedIn.Vocabularies.CommonDataModel version: 4.3.0 - name: CluedIn.Connector.SqlServer version: 4.1.0 - name: CluedIn.ExternalSearch.Providers.Web version: 4.1.0 - name: CluedIn.Connector.OneLake version: 4.3.0 roles: main: resources: limits: memory: 2G datasourceProcessing: replicas: 2 resources: requests: cpu: 1000m memory: 512M limits: cpu: 2000m memory: 8G datasource: resources: requests: cpu: 500m memory: 512M limits: cpu: 500m memory: 512M submitter: resources: requests: memory: 512M limits: memory: 512M gql: resources: requests: memory: 512M limits: memory: 4G ui: resources: requests: memory: 256M monitoring: alertManager: licenseKey: &lt;your-license-key&gt; infrastructure: haproxy-ingress: controller: resources: requests: cpu: 125m limits: cpu: 500m cert-manager: cainjector: resources: requests: memory: 128Mi . | Apply the values file from your shell by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.3.1 \\ --reuse-values \\ --values ${CustomValues} \\ --wait \\ --timeout 10m0s . After a few minutes, it should successfully complete. | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
     "url": "/paas-operations/upgrade/2024-07-02#guide",
     
     "relUrl": "/paas-operations/upgrade/2024-07-02#guide"
-  },"1225": {
+  },"1217": {
     "doc": "2024.07.02",
     "title": "2024.07.02",
     "content": " ",
     "url": "/paas-operations/upgrade/2024-07-02",
     
     "relUrl": "/paas-operations/upgrade/2024-07-02"
-  },"1226": {
+  },"1218": {
     "doc": "2024.07.03",
     "title": "On this page",
     "content": ". | Prerequisites | Guide | . This document covers the upgrade process from 2024.07 to 2024.07.03. We do not support upgrading directly to this version from prior to 2024.02. ",
     "url": "/paas-operations/upgrade/2024-07-03#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/2024-07-03#on-this-page"
-  },"1227": {
+  },"1219": {
     "doc": "2024.07.03",
     "title": "Prerequisites",
     "content": ". | Access to the helm chart version 2.3.2. You may need to helm repo update to grab the latest. | kubectl and helm | . ",
     "url": "/paas-operations/upgrade/2024-07-03#prerequisites",
     
     "relUrl": "/paas-operations/upgrade/2024-07-03#prerequisites"
-  },"1228": {
+  },"1220": {
     "doc": "2024.07.03",
     "title": "Guide",
     "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. | Connect to your cluster via the kubeconfig. | Export your current running helm values file. Keep one for this process, and also keep one as a backup. | In the values file we’ll be working with, update the following properties: . global: image: tag: \"2024.07.03\" strategy: type: Recreate application: bootstrap: dataUpgrade: toVersion: 'Version430' cluedin: components: packages: - name: CluedIn.Connector.AzureDataLake version: 4.3.0 - name: CluedIn.Connector.Dataverse version: 4.3.0 - name: CluedIn.EventHub version: 4.3.0 - name: CluedIn.PowerApps version: 4.3.0 - name: CluedIn.Provider.ExternalSearch.ClearBit version: 4.1.0 - name: CluedIn.Provider.ExternalSearch.CVR version: 4.1.0 - name: CluedIn.Provider.ExternalSearch.GoogleMaps version: 4.1.0 - name: CluedIn.Provider.ExternalSearch.Libpostal version: 4.1.2 - name: CluedIn.Purview version: 4.3.0 - name: CluedIn.Vocabularies.CommonDataModel version: 4.3.0 - name: CluedIn.Connector.SqlServer version: 4.1.0 - name: CluedIn.ExternalSearch.Providers.Web version: 4.1.0 - name: CluedIn.Connector.OneLake version: 4.3.0 roles: main: resources: limits: memory: 2G datasourceProcessing: replicas: 2 resources: requests: cpu: 1000m memory: 512M limits: cpu: 2000m memory: 8G datasource: resources: requests: cpu: 500m memory: 512M limits: cpu: 500m memory: 512M submitter: resources: requests: memory: 1G limits: memory: 1G gql: resources: requests: memory: 512M limits: memory: 4G ui: resources: requests: memory: 256M monitoring: alertManager: licenseKey: &lt;your-license-key&gt; infrastructure: haproxy-ingress: controller: resources: requests: cpu: 125m limits: cpu: 500m cert-manager: cainjector: resources: requests: memory: 128Mi . | Delete existing node exporter daemonsets . kubectl delete daemonsets/cluedin-prometheus-node-exporter -n cluedin . | Delete existing prometheus CRDS. kubectl delete crd alertmanagerconfigs.monitoring.coreos.com kubectl delete crd alertmanagers.monitoring.coreos.com kubectl delete crd podmonitors.monitoring.coreos.com kubectl delete crd probes.monitoring.coreos.com kubectl delete crd prometheusagents.monitoring.coreos.com kubectl delete crd prometheuses.monitoring.coreos.com kubectl delete crd prometheusrules.monitoring.coreos.com kubectl delete crd scrapeconfigs.monitoring.coreos.com kubectl delete crd servicemonitors.monitoring.coreos.com kubectl delete crd thanosrulers.monitoring.coreos.com . | Redeploy prometheus CRDS with compatible version for the new helm chart. kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.71.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.71.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.71.0/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.71.0/example/prometheus-operator-crd/monitoring.coreos.com_probes.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.71.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusagents.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.71.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.71.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.71.0/example/prometheus-operator-crd/monitoring.coreos.com_scrapeconfigs.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.71.0/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.71.0/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml . | Apply the values file from your shell by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.3.2 \\ --reuse-values \\ --values ${CustomValues} \\ --wait \\ --timeout 10m0s . After a few minutes, it should successfully complete. | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
     "url": "/paas-operations/upgrade/2024-07-03#guide",
     
     "relUrl": "/paas-operations/upgrade/2024-07-03#guide"
-  },"1229": {
+  },"1221": {
     "doc": "2024.07.03",
     "title": "2024.07.03",
     "content": " ",
     "url": "/paas-operations/upgrade/2024-07-03",
     
     "relUrl": "/paas-operations/upgrade/2024-07-03"
-  },"1230": {
+  },"1222": {
     "doc": "2024.12",
     "title": "On this page",
     "content": ". | Prerequisites | Guide . | Stage 1: Prepare for Upgrade | Stage 2: Run Data Upgrade | Stage 3: Finalize Upgrade | . | . This document covers the upgrade process from 2024.07 to 2024.12. We do not support upgrading directly to this version from prior to 2024.07. ",
     "url": "/paas-operations/upgrade/2024-12#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/2024-12#on-this-page"
-  },"1231": {
+  },"1223": {
     "doc": "2024.12",
     "title": "Prerequisites",
     "content": ". | Access to the helm chart version 2.4.1. You may need to helm repo update to grab the latest. | kubectl and helm | . ",
     "url": "/paas-operations/upgrade/2024-12#prerequisites",
     
     "relUrl": "/paas-operations/upgrade/2024-12#prerequisites"
-  },"1232": {
+  },"1224": {
     "doc": "2024.12",
     "title": "Guide",
     "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. Stage 1: Prepare for Upgrade . | Connect to your cluster via the kubeconfig. | Export your current running helm values file. Keep one for this process, and also keep one as a backup. | In the values file we’ll be working with, update the following properties: . global: image: tag: \"2024.12\" strategy: type: Recreate application: cluedin: image: tag: 2024.12 components: packages: - name: \"CluedIn.Connector.AzureEventHub\" version: \"4.0.1\" - name: \"CluedIn.Connector.Dataverse\" version: \"4.4.0\" - name: \"CluedIn.Connector.Http\" version: \"4.0.0\" - name: \"CluedIn.DataVerse\" version: \"4.2.2\" - name: \"CluedIn.EventHub\" version: \"4.4.0\" - name: \"CluedIn.Vocabularies.CommonDataModel\" version: \"4.4.0\" - name: \"CluedIn.Connector.AzureDataLake\" version: \"4.4.0\" - name: \"CluedIn.Connector.AzureDedicatedSqlPool\" version: \"4.0.2\" - name: \"CluedIn.Connector.AzureServiceBus\" version: \"4.0.2\" - name: \"CluedIn.Connector.OneLake\" version: \"4.4.0\" - name: \"CluedIn.ExternalSearch.Providers.DuckDuckGo.Provider\" version: \"4.4.0\" - name: \"CluedIn.ExternalSearch.Providers.PermId.Provider\" version: \"4.4.0\" - name: \"CluedIn.ExternalSearch.Providers.Web\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.Bregg\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.ClearBit\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.CompanyHouse\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.CVR\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.Gleif\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.GoogleMaps\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.KnowledgeGraph\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.Libpostal\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.OpenCorporates\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.Providers.VatLayer\" version: \"4.4.0\" - name: \"CluedIn.Purview\" version: \"4.4.0\" - name: \"CluedIn.PowerApps\" version: \"4.4.0\" - name: \"CluedIn.EnterpriseFlows.PowerAutomate\" version: \"4.4.0\" - name: \"CluedIn.Connector.SqlServer\" version: \"4.1.1\" submitter: resources: requests: memory: 1G limits: memory: 1G . | Use the Elasticsearch custom init container values from elasticsearch-upgrade.yml . | Execute the following Helm command: # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.4.1 \\ --values ${CustomValues} \\ --values elasticsearch-upgrade.yml \\ --set application.system.upgradeMode=true \\ --set application.system.runDatabaseJobsOnUpgrade=true \\ --set application.system.runNugetFullRestore=true . After a few minutes, it should successfully complete. | Validation: . | ❗ Wait until deployment finishes. Make sure that all pods are healthy and all jobs are completed. | ❗ Don’t proceed further if any of the pods have health issues. Rather investigate the issues. This will apply dynamic mappings to every CluedIn index | If any errors occur whilst running the elastic search upgrade we restart the pod and try to recover. You can find saved logs in /usr/share/elasticsearch/data/ | ⚠ We also store a list of indexes and what stage they last completed on the last run through and some completion files that will stop us reprocessing things that have already completed the upgrade within that folder. | . | . Stage 2: Run Data Upgrade . | Apply data upgrade by running following command: kubectl apply -f - &lt;&lt;EOF apiVersion: api.cluedin.com/v1 kind: DataUpgrade metadata: annotations: meta.helm.sh/release-name: cluedin-platform meta.helm.sh/release-namespace: cluedin labels: app: cluedin app.kubernetes.io/instance: cluedin-platform app.kubernetes.io/managed-by: Helm app.kubernetes.io/name: application helm.sh/chart: application-2.4.1 release: cluedin-platform name: data-upgrade-440 namespace: cluedin spec: toVersion: Version440 EOF . | Validation: . | ❗ Confirm the data upgrade completed successfully. | When the data upgrade is completed the cluedin-server pod should have below logs. [#093 12:12:33 INF] Performing Upgrade Scenario Remove legacy DeduplicateEntities jobs for version Version440 [#093 12:12:33 INF] Completed Upgrade Scenario Remove legacy DeduplicateEntities jobs for version Version440 [#093 12:18:33 INF] Performing Upgrade Scenario Migrate clean projects to dedicated hashes table for version Version440 [#124 12:18:33 INF] Completed Upgrade Scenario Migrate clean projects to dedicated hashes table for version Version440 [#124 13:03:17 INF] Performing Upgrade Scenario Elastic Search Repopulate Index for version Version440 [#067 13:03:17 INF] Completed Upgrade Scenario Elastic Search Repopulate Index for version Version440 [#067 13:03:17 INF] HTTP POST /api/upgradeto/Version440 responded 200 in 3044054.6755 ms . | . | . Stage 3: Finalize Upgrade . | Run the final stage of the upgrade to bring the system back online (disable upgrade mode): . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.4.1 \\ --values ${CustomValues} --set application.system.upgradeMode=false \\ --set application.system.runDatabaseJobsOnUpgrade=false \\ --set application.system.runNugetFullRestore=false . | Validation: . | Ensure no errors in the pod logs. | Verify the server starts in normal mode. | Ensure cluedin-ui pod is Running.. | . | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
     "url": "/paas-operations/upgrade/2024-12#guide",
     
     "relUrl": "/paas-operations/upgrade/2024-12#guide"
-  },"1233": {
+  },"1225": {
     "doc": "2024.12",
     "title": "2024.12",
     "content": " ",
     "url": "/paas-operations/upgrade/2024-12",
     
     "relUrl": "/paas-operations/upgrade/2024-12"
-  },"1234": {
+  },"1226": {
     "doc": "2024.12.01",
     "title": "On this page",
     "content": ". | Prerequisites | Guide | . This document covers the upgrade process from 2024.12 to 2024.12.01. We do not support upgrading directly to this version from prior to 2024.07. ",
     "url": "/paas-operations/upgrade/2024-12-01#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/2024-12-01#on-this-page"
-  },"1235": {
+  },"1227": {
     "doc": "2024.12.01",
     "title": "Prerequisites",
     "content": ". | Access to the helm chart version 2.4.1. You may need to helm repo update to grab the latest. | kubectl and helm | . ",
     "url": "/paas-operations/upgrade/2024-12-01#prerequisites",
     
     "relUrl": "/paas-operations/upgrade/2024-12-01#prerequisites"
-  },"1236": {
+  },"1228": {
     "doc": "2024.12.01",
     "title": "Guide",
     "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. | Connect to your cluster via the kubeconfig. | Export your current running helm values file. Keep one for this process, and also keep one as a backup. | In the values file we’ll be working with, update the following properties: . global: image: tag: \"2024.12.01\" strategy: type: Recreate application: cluedin: image: tag: \"2024.12.01\" components: packages: - name: \"CluedIn.Connector.AzureEventHub\" version: \"4.0.1\" - name: \"CluedIn.Connector.Dataverse\" version: \"4.4.0\" - name: \"CluedIn.Connector.Http\" version: \"4.0.0\" - name: \"CluedIn.DataVerse\" version: \"4.2.2\" - name: \"CluedIn.EventHub\" version: \"4.4.0\" - name: \"CluedIn.Vocabularies.CommonDataModel\" version: \"4.4.0\" - name: \"CluedIn.Connector.AzureDataLake\" version: \"4.4.1\" - name: \"CluedIn.Connector.AzureDedicatedSqlPool\" version: \"4.0.2\" - name: \"CluedIn.Connector.AzureServiceBus\" version: \"4.0.2\" - name: \"CluedIn.Connector.OneLake\" version: \"4.4.1\" - name: \"CluedIn.ExternalSearch.Providers.DuckDuckGo.Provider\" version: \"4.4.0\" - name: \"CluedIn.ExternalSearch.Providers.PermId.Provider\" version: \"4.4.0\" - name: \"CluedIn.ExternalSearch.Providers.Web\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.Bregg\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.ClearBit\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.CompanyHouse\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.CVR\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.Gleif\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.GoogleMaps\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.KnowledgeGraph\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.Libpostal\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.OpenCorporates\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.Providers.VatLayer\" version: \"4.4.0\" - name: \"CluedIn.Purview\" version: \"4.4.0\" - name: \"CluedIn.PowerApps\" version: \"4.4.0\" - name: \"CluedIn.EnterpriseFlows.PowerAutomate\" version: \"4.4.0\" - name: \"CluedIn.Connector.SqlServer\" version: \"4.1.2\" . | Delete existing node exporter daemonsets . kubectl delete daemonsets/cluedin-prometheus-node-exporter -n cluedin . | Delete existing prometheus CRDS. kubectl delete crd alertmanagerconfigs.monitoring.coreos.com kubectl delete crd alertmanagers.monitoring.coreos.com kubectl delete crd podmonitors.monitoring.coreos.com kubectl delete crd probes.monitoring.coreos.com kubectl delete crd prometheusagents.monitoring.coreos.com kubectl delete crd prometheuses.monitoring.coreos.com kubectl delete crd prometheusrules.monitoring.coreos.com kubectl delete crd scrapeconfigs.monitoring.coreos.com kubectl delete crd servicemonitors.monitoring.coreos.com kubectl delete crd thanosrulers.monitoring.coreos.com . | Redeploy prometheus CRDS with compatible version for the new helm chart. kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_probes.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusagents.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_scrapeconfigs.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml . | Apply the values file from your shell by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.4.1 \\ --values ${CustomValues} \\ --wait \\ --timeout 10m0s . After a few minutes, it should successfully complete. | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
     "url": "/paas-operations/upgrade/2024-12-01#guide",
     
     "relUrl": "/paas-operations/upgrade/2024-12-01#guide"
-  },"1237": {
+  },"1229": {
     "doc": "2024.12.01",
     "title": "2024.12.01",
     "content": " ",
     "url": "/paas-operations/upgrade/2024-12-01",
     
     "relUrl": "/paas-operations/upgrade/2024-12-01"
-  },"1238": {
+  },"1230": {
     "doc": "Google Images",
     "title": "On this page",
     "content": ". | Add Google Images enricher | Properties from Google Images enricher | . This article explains how to add the Google Images enricher. The purpose of this enricher is to search for an image based on the provided text—such as a company, organization, or any other name—and add the retrieved image to the golden record. The Google Images enricher supports the following endpoint: . | https://www.googleapis.com/customsearch/v1?key={APIKey}&amp;cx=000950167190857528722:vf0rypkbf0w&amp;q={Name}&amp;searchType=image | . ",
     "url": "/preparation/enricher/google-images#on-this-page",
     
     "relUrl": "/preparation/enricher/google-images#on-this-page"
-  },"1239": {
+  },"1231": {
     "doc": "Google Images",
     "title": "Add Google Images enricher",
     "content": "To use the Google Images enricher, you must provide the API key. To get the API key, follow the instructions here. The enricher uses the defined image search text (from a vocabulary key) as the query for retrieving relevant images. To add Google Images enricher . | On the navigation pane, go to Preparation &gt; Enrich. Then, select Add Enricher. | On the Choose Enricher tab, select Google Images, and then select Next. | On the Configure tab, provide the following details: . | API Key – enter the API key required to authenticate with the Google Images endpoint. | Accepted Business Domain – enter the business domain to define which golden records will be enriched. | Image Search text – enter the vocabulary key that contains the text to be used for the image search. | . | Select Test Connection to make sure the enricher is properly configured, and then select Add. The Google Images enricher is added and has an active status. This means that it will enrich relevant golden records during processing or when you trigger external enrichment. | . After the Google Images enricher is added, you can modify its details: . | Settings – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values. | Authentication – modify the details you provided while configuring the enricher. | . ",
     "url": "/preparation/enricher/google-images#add-google-images-enricher",
     
     "relUrl": "/preparation/enricher/google-images#add-google-images-enricher"
-  },"1240": {
+  },"1232": {
     "doc": "Google Images",
     "title": "Properties from Google Images enricher",
     "content": "You can find the image added to the golden record on the golden record Overview page. For a more detailed information about the changes made to a golden record by the Google Images enricher, check the corresponding data part on the History page. ",
     "url": "/preparation/enricher/google-images#properties-from-google-images-enricher",
     
     "relUrl": "/preparation/enricher/google-images#properties-from-google-images-enricher"
-  },"1241": {
+  },"1233": {
     "doc": "Google Images",
     "title": "Google Images",
     "content": " ",
     "url": "/preparation/enricher/google-images",
     
     "relUrl": "/preparation/enricher/google-images"
-  },"1242": {
+  },"1234": {
     "doc": "Manual data entry",
     "title": "Manual data entry",
     "content": "In addition to loading data from various sources, you can also enter data manually. The Manual data entry module allows you to create records directly in CluedIn. This way, you can capture data that may not be available from other sources but is necessary for your data management purposes. Manual data entry is used to create records in an enforced and structured manner. This means that the Administrator sets up a manual data entry project and defines the schema that will be used to create the records. Data Stewards are then tasked with creating records according to this schema. This section covers the following areas: . | Configuring a manual data entry project – learn how to create and configure a manual data entry project, add form fields, review mapping details, and define the quality rating for the source. | Adding records in a manual data entry project – learn how to add single or multiple the records manually directly to CluedIn. | Managing a manual data entry project – learn how to make changes to the manual data entry project and how to manage access to the manual data entry project and the records created within the project. | . ",
     "url": "/integration/manual-data-entry",
     
     "relUrl": "/integration/manual-data-entry"
-  },"1243": {
+  },"1235": {
     "doc": "Playbooks",
     "title": "Playbooks",
     "content": "In this section, you’ll find recommendations and guidelines on how to run a CluedIn project. After purchasing CluedIn, make sure that you get acquainted with our playbooks to ensure smooth and successful implementation of your project. ",
     "url": "/playbooks",
     
     "relUrl": "/playbooks"
-  },"1244": {
+  },"1236": {
     "doc": "2024.12.02",
     "title": "On this page",
     "content": ". | Prerequisites | Guide | . This document covers the upgrade process from 2024.12 to 2024.12.02. We do not support upgrading directly to this version from prior to 2024.07. ",
     "url": "/paas-operations/upgrade/2024-12-02#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/2024-12-02#on-this-page"
-  },"1245": {
+  },"1237": {
     "doc": "2024.12.02",
     "title": "Prerequisites",
     "content": ". | Access to the helm chart version 2.4.2. You may need to helm repo update to grab the latest. | kubectl and helm | . ",
     "url": "/paas-operations/upgrade/2024-12-02#prerequisites",
     
     "relUrl": "/paas-operations/upgrade/2024-12-02#prerequisites"
-  },"1246": {
+  },"1238": {
     "doc": "2024.12.02",
     "title": "Guide",
     "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. | Connect to your cluster via the kubeconfig. | Export your current running helm values file. Keep one for this process, and also keep one as a backup. | In the values file we’ll be working with, update the following properties: . global: image: tag: \"2024.12.02\" strategy: type: Recreate application: cluedin: image: tag: \"2024.12.02\" components: packages: - name: \"CluedIn.Connector.AzureEventHub\" version: \"4.0.1\" - name: \"CluedIn.Connector.Dataverse\" version: \"4.4.0\" - name: \"CluedIn.Connector.Http\" version: \"4.0.0\" - name: \"CluedIn.DataVerse\" version: \"4.2.2\" - name: \"CluedIn.EventHub\" version: \"4.4.1\" - name: \"CluedIn.Vocabularies.CommonDataModel\" version: \"4.4.0\" - name: \"CluedIn.Connector.AzureDataLake\" version: \"4.4.2\" - name: \"CluedIn.Connector.AzureDedicatedSqlPool\" version: \"4.0.2\" - name: \"CluedIn.Connector.AzureServiceBus\" version: \"4.0.2\" - name: \"CluedIn.Connector.OneLake\" version: \"4.4.1\" - name: \"CluedIn.ExternalSearch.Providers.DuckDuckGo.Provider\" version: \"4.4.0\" - name: \"CluedIn.ExternalSearch.Providers.PermId.Provider\" version: \"4.4.0\" - name: \"CluedIn.ExternalSearch.Providers.Web\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.Bregg\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.ClearBit\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.CompanyHouse\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.CVR\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.Gleif\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.GoogleMaps\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.KnowledgeGraph\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.Libpostal\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.OpenCorporates\" version: \"4.4.0\" - name: \"CluedIn.Provider.ExternalSearch.Providers.VatLayer\" version: \"4.4.0\" - name: \"CluedIn.Purview\" version: \"4.4.1\" - name: \"CluedIn.PowerApps\" version: \"4.4.3\" - name: \"CluedIn.EnterpriseFlows.PowerAutomate\" version: \"4.4.2\" - name: \"CluedIn.Connector.SqlServer\" version: \"4.1.2\" . | Delete existing node exporter daemonsets . kubectl delete daemonsets/cluedin-prometheus-node-exporter -n cluedin . | Delete existing prometheus CRDS. kubectl delete crd alertmanagerconfigs.monitoring.coreos.com kubectl delete crd alertmanagers.monitoring.coreos.com kubectl delete crd podmonitors.monitoring.coreos.com kubectl delete crd probes.monitoring.coreos.com kubectl delete crd prometheusagents.monitoring.coreos.com kubectl delete crd prometheuses.monitoring.coreos.com kubectl delete crd prometheusrules.monitoring.coreos.com kubectl delete crd scrapeconfigs.monitoring.coreos.com kubectl delete crd servicemonitors.monitoring.coreos.com kubectl delete crd thanosrulers.monitoring.coreos.com . | Redeploy prometheus CRDS with compatible version for the new helm chart. kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_probes.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusagents.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_scrapeconfigs.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.79.0/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml . | Apply the values file from your shell by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.4.2 \\ --values ${CustomValues} \\ --wait \\ --timeout 10m0s . After a few minutes, it should successfully complete. | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
     "url": "/paas-operations/upgrade/2024-12-02#guide",
     
     "relUrl": "/paas-operations/upgrade/2024-12-02#guide"
-  },"1247": {
+  },"1239": {
     "doc": "2024.12.02",
     "title": "2024.12.02",
     "content": " ",
     "url": "/paas-operations/upgrade/2024-12-02",
     
     "relUrl": "/paas-operations/upgrade/2024-12-02"
-  },"1248": {
+  },"1240": {
     "doc": "2025.05.00",
     "title": "On this page",
     "content": ". | Prerequisites | Guide . | Stage 1: Prepare for Upgrade | Stage 2: Run Data Upgrade | Stage 3: Finalize Upgrade | . | . This document covers the upgrade process from 2024.12 to 2025.05.00. We do not support upgrading directly to this version from prior to 2024.12. ",
     "url": "/paas-operations/upgrade/2025-05-00#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/2025-05-00#on-this-page"
-  },"1249": {
+  },"1241": {
     "doc": "2025.05.00",
     "title": "Prerequisites",
     "content": ". | Access to the helm chart version 2.5.0. You may need to helm repo update to grab the latest. | kubectl and helm | . ",
     "url": "/paas-operations/upgrade/2025-05-00#prerequisites",
     
     "relUrl": "/paas-operations/upgrade/2025-05-00#prerequisites"
-  },"1250": {
+  },"1242": {
     "doc": "2025.05.00",
     "title": "Guide",
     "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. Stage 1: Prepare for Upgrade . | Connect to your cluster via the kubeconfig. | Export your current running helm values file. Keep one for this process, and also keep one as a backup. | In the values file we’ll be working with, update the following properties: . global: image: tag: \"2025.05.00\" strategy: type: Recreate application: cluedin: components: packages: - name: \"CluedIn.Connector.AzureEventHub\" version: \"4.5.0\" - name: \"CluedIn.Connector.Dataverse\" version: \"4.5.0\" - name: \"CluedIn.Connector.Http\" version: \"4.5.0\" - name: \"CluedIn.EventHub\" version: \"4.5.0\" - name: \"CluedIn.Vocabularies.CommonDataModel\" version: \"4.5.0\" - name: \"CluedIn.Connector.AzureDataLake\" version: \"4.5.0\" - name: \"CluedIn.Connector.AzureDedicatedSqlPool\" version: \"4.0.2\" - name: \"CluedIn.Connector.AzureServiceBus\" version: \"4.5.0\" - name: \"CluedIn.Connector.OneLake\" version: \"4.5.0\" - name: \"CluedIn.ExternalSearch.Providers.DuckDuckGo.Provider\" version: \"4.5.0\" - name: \"CluedIn.ExternalSearch.Providers.PermId.Provider\" version: \"4.5.0\" - name: \"CluedIn.ExternalSearch.Providers.Web\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.Bregg\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.ClearBit\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.CompanyHouse\" version: \"4.5.0\" - name: \"CluedIn.Provider.ExternalSearch.CVR\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.Gleif\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.GoogleMaps\" version: \"4.5.0\" - name: \"CluedIn.Provider.ExternalSearch.KnowledgeGraph\" version: \"4.5.0\" - name: \"CluedIn.Provider.ExternalSearch.Libpostal\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.OpenCorporates\" version: \"4.5.0\" - name: \"CluedIn.Provider.ExternalSearch.Providers.VatLayer\" version: \"4.5.0\" - name: \"CluedIn.Purview\" version: \"4.5.0\" - name: \"CluedIn.PowerApps\" version: \"4.5.0\" - name: \"CluedIn.EnterpriseFlows.PowerAutomate\" version: \"4.5.0\" - name: \"CluedIn.Connector.SqlServer\" version: \"4.5.0\" - name: \"CluedIn.Connector.FabricOpenMirroring\" version: \"4.5.0\" - name: \"CluedIn.Provider.ExternalSearch.Providers.AzureOpenAI\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.GoogleImages\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.RestApi\" version: \"4.5.0\" gql: hubSpotToken: &lt;pat-token&gt; . | Apply the values file from your shell by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.5.0 \\ --values ${CustomValues} \\ --set application.system.upgradeMode=true \\ --set application.system.runDatabaseJobsOnUpgrade=true \\ --set application.system.runNugetFullRestore=true \\ --wait \\ --timeout 10m0s . After a few minutes, it should successfully complete. | Validation: | . | ❗ Wait until deployment finishes. Make sure that all pods are healthy and all jobs are completed. | ❗ Don’t proceed further if any of the pods have health issues. Rather investigate the issues. This will apply dynamic mappings to every CluedIn index | . | . Stage 2: Run Data Upgrade . | Apply data upgrade by running following command: kubectl apply -f - &lt;&lt;EOF apiVersion: api.cluedin.com/v1 kind: DataUpgrade metadata: annotations: meta.helm.sh/release-name: cluedin-platform meta.helm.sh/release-namespace: cluedin labels: app: cluedin app.kubernetes.io/instance: cluedin-platform app.kubernetes.io/managed-by: Helm app.kubernetes.io/name: application helm.sh/chart: application-2.5.0 release: cluedin-platform name: data-upgrade-450 namespace: cluedin spec: toVersion: Version450 EOF . | Validation: . | ❗ Confirm the data upgrade completed successfully. | . | . Stage 3: Finalize Upgrade . | Run the final stage of the upgrade to bring the system back online (disable upgrade mode): . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.5.0 \\ --values ${CustomValues} --set application.system.upgradeMode=false \\ --set application.system.runDatabaseJobsOnUpgrade=false \\ --set application.system.runNugetFullRestore=false . | Validation: . | Ensure no errors in the pod logs. | Verify the server starts in normal mode. | Ensure cluedin-ui pod is Running.. | . | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
     "url": "/paas-operations/upgrade/2025-05-00#guide",
     
     "relUrl": "/paas-operations/upgrade/2025-05-00#guide"
-  },"1251": {
+  },"1243": {
     "doc": "2025.05.00",
     "title": "2025.05.00",
     "content": " ",
     "url": "/paas-operations/upgrade/2025-05-00",
     
     "relUrl": "/paas-operations/upgrade/2025-05-00"
-  },"1252": {
+  },"1244": {
     "doc": "2025.05.01",
     "title": "On this page",
     "content": ". | Prerequisites | Guide . | Stage 1: Prepare for Upgrade | Stage 2: Run Data Upgrade | Stage 3: Finalize Upgrade | . | . This document covers the upgrade process from 2024.12 to 2025.05.01. We do not support upgrading directly to this version from prior to 2024.12. ",
     "url": "/paas-operations/upgrade/2025-05-01#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/2025-05-01#on-this-page"
-  },"1253": {
+  },"1245": {
     "doc": "2025.05.01",
     "title": "Prerequisites",
     "content": ". | Access to the helm chart version 2.5.0. You may need to helm repo update to grab the latest. | kubectl and helm | . ",
     "url": "/paas-operations/upgrade/2025-05-01#prerequisites",
     
     "relUrl": "/paas-operations/upgrade/2025-05-01#prerequisites"
-  },"1254": {
+  },"1246": {
     "doc": "2025.05.01",
     "title": "Guide",
     "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. Stage 1: Prepare for Upgrade . | Connect to your cluster via the kubeconfig. | Export your current running helm values file. Keep one for this process, and also keep one as a backup. | In the values file we’ll be working with, update the following properties: . global: image: tag: \"2025.05.01\" strategy: type: Recreate application: cluedin: components: packages: - name: \"CluedIn.Connector.AzureEventHub\" version: \"4.5.0\" - name: \"CluedIn.Connector.Dataverse\" version: \"4.5.0\" - name: \"CluedIn.Connector.Http\" version: \"4.5.0\" - name: \"CluedIn.EventHub\" version: \"4.5.0\" - name: \"CluedIn.Vocabularies.CommonDataModel\" version: \"4.5.0\" - name: \"CluedIn.Connector.AzureDataLake\" version: \"4.5.0\" - name: \"CluedIn.Connector.AzureDedicatedSqlPool\" version: \"4.0.2\" - name: \"CluedIn.Connector.AzureServiceBus\" version: \"4.5.0\" - name: \"CluedIn.Connector.OneLake\" version: \"4.5.0\" - name: \"CluedIn.ExternalSearch.Providers.DuckDuckGo.Provider\" version: \"4.5.0\" - name: \"CluedIn.ExternalSearch.Providers.PermId.Provider\" version: \"4.5.0\" - name: \"CluedIn.ExternalSearch.Providers.Web\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.Bregg\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.ClearBit\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.CompanyHouse\" version: \"4.5.0\" - name: \"CluedIn.Provider.ExternalSearch.CVR\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.Gleif\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.GoogleMaps\" version: \"4.5.0\" - name: \"CluedIn.Provider.ExternalSearch.KnowledgeGraph\" version: \"4.5.0\" - name: \"CluedIn.Provider.ExternalSearch.Libpostal\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.OpenCorporates\" version: \"4.5.0\" - name: \"CluedIn.Provider.ExternalSearch.Providers.VatLayer\" version: \"4.5.0\" - name: \"CluedIn.Purview\" version: \"4.5.0\" - name: \"CluedIn.PowerApps\" version: \"4.5.0\" - name: \"CluedIn.EnterpriseFlows.PowerAutomate\" version: \"4.5.0\" - name: \"CluedIn.Connector.SqlServer\" version: \"4.5.0\" - name: \"CluedIn.Connector.FabricOpenMirroring\" version: \"4.5.0\" - name: \"CluedIn.Provider.ExternalSearch.Providers.AzureOpenAI\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.GoogleImages\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.RestApi\" version: \"4.5.0\" gql: hubSpotToken: &lt;pat-token&gt; . | Apply the values file from your shell by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.5.0 \\ --values ${CustomValues} \\ --set application.system.upgradeMode=true \\ --set application.system.runDatabaseJobsOnUpgrade=true \\ --set application.system.runNugetFullRestore=true \\ --wait \\ --timeout 10m0s . After a few minutes, it should successfully complete. | Validation: | . | ❗ Wait until deployment finishes. Make sure that all pods are healthy and all jobs are completed. | ❗ Don’t proceed further if any of the pods have health issues. Rather investigate the issues. This will apply dynamic mappings to every CluedIn index | . | . Stage 2: Run Data Upgrade . | Apply data upgrade by running following command: kubectl apply -f - &lt;&lt;EOF apiVersion: api.cluedin.com/v1 kind: DataUpgrade metadata: annotations: meta.helm.sh/release-name: cluedin-platform meta.helm.sh/release-namespace: cluedin labels: app: cluedin app.kubernetes.io/instance: cluedin-platform app.kubernetes.io/managed-by: Helm app.kubernetes.io/name: application helm.sh/chart: application-2.5.0 release: cluedin-platform name: data-upgrade-450 namespace: cluedin spec: toVersion: Version450 EOF . | Validation: . | ❗ Confirm the data upgrade completed successfully. | . | . Stage 3: Finalize Upgrade . | Run the final stage of the upgrade to bring the system back online (disable upgrade mode): . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.5.0 \\ --values ${CustomValues} --set application.system.upgradeMode=false \\ --set application.system.runDatabaseJobsOnUpgrade=false \\ --set application.system.runNugetFullRestore=false . | Validation: . | Ensure no errors in the pod logs. | Verify the server starts in normal mode. | Ensure cluedin-ui pod is Running.. | . | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
     "url": "/paas-operations/upgrade/2025-05-01#guide",
     
     "relUrl": "/paas-operations/upgrade/2025-05-01#guide"
-  },"1255": {
+  },"1247": {
     "doc": "2025.05.01",
     "title": "2025.05.01",
     "content": " ",
     "url": "/paas-operations/upgrade/2025-05-01",
     
     "relUrl": "/paas-operations/upgrade/2025-05-01"
-  },"1256": {
+  },"1248": {
     "doc": "2025.05.02",
     "title": "On this page",
     "content": ". | Prerequisites | Guide . | Stage 1: Prepare for Upgrade | . | . This document covers the upgrade process from 2025.05.00 to 2025.05.02. We do not support upgrading directly to this version from prior to 2025.05.00 . ",
     "url": "/paas-operations/upgrade/2025-05-02#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/2025-05-02#on-this-page"
-  },"1257": {
+  },"1249": {
     "doc": "2025.05.02",
     "title": "Prerequisites",
     "content": ". | Access to the helm chart version 2.5.1. You may need to helm repo update to grab the latest. | kubectl and helm | . ",
     "url": "/paas-operations/upgrade/2025-05-02#prerequisites",
     
     "relUrl": "/paas-operations/upgrade/2025-05-02#prerequisites"
-  },"1258": {
+  },"1250": {
     "doc": "2025.05.02",
     "title": "Guide",
     "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. Stage 1: Prepare for Upgrade . | Connect to your cluster via the kubeconfig. | Export your current running helm values file. Keep one for this process, and also keep one as a backup. | In the values file we’ll be working with, update the following properties: . global: image: tag: \"2025.05.02\" strategy: type: Recreate application: cluedin: components: packages: - name: \"CluedIn.Connector.AzureEventHub\" version: \"4.5.1\" - name: \"CluedIn.Connector.Dataverse\" version: \"4.5.1\" - name: \"CluedIn.Connector.Http\" version: \"4.5.0\" - name: \"CluedIn.EventHub\" version: \"4.5.1\" - name: \"CluedIn.Vocabularies.CommonDataModel\" version: \"4.5.1\" - name: \"CluedIn.Connector.AzureDataLake\" version: \"4.5.1\" - name: \"CluedIn.Connector.AzureDedicatedSqlPool\" version: \"4.0.2\" - name: \"CluedIn.Connector.AzureServiceBus\" version: \"4.5.0\" - name: \"CluedIn.Connector.OneLake\" version: \"4.5.1\" - name: \"CluedIn.ExternalSearch.Providers.DuckDuckGo.Provider\" version: \"4.5.1\" - name: \"CluedIn.ExternalSearch.Providers.PermId.Provider\" version: \"4.5.1\" - name: \"CluedIn.ExternalSearch.Providers.Web\" version: \"4.4.2\" - name: \"CluedIn.Provider.ExternalSearch.Bregg\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.ClearBit\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.CompanyHouse\" version: \"4.5.0\" - name: \"CluedIn.Provider.ExternalSearch.CVR\" version: \"4.4.2\" - name: \"CluedIn.Provider.ExternalSearch.Gleif\" version: \"4.4.2\" - name: \"CluedIn.Provider.ExternalSearch.GoogleMaps\" version: \"4.5.1\" - name: \"CluedIn.Provider.ExternalSearch.KnowledgeGraph\" version: \"4.5.0\" - name: \"CluedIn.Provider.ExternalSearch.Libpostal\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.OpenCorporates\" version: \"4.5.0\" - name: \"CluedIn.Provider.ExternalSearch.Providers.VatLayer\" version: \"4.5.1\" - name: \"CluedIn.Purview\" version: \"4.5.1\" - name: \"CluedIn.PowerApps\" version: \"4.5.1\" - name: \"CluedIn.EnterpriseFlows.PowerAutomate\" version: \"4.5.0\" - name: \"CluedIn.Connector.SqlServer\" version: \"4.5.0\" - name: \"CluedIn.Connector.FabricOpenMirroring\" version: \"4.5.1\" - name: \"CluedIn.Provider.ExternalSearch.Providers.AzureOpenAI\" version: \"4.4.1\" - name: \"CluedIn.Provider.ExternalSearch.GoogleImages\" version: \"4.4.2\" - name: \"CluedIn.Provider.ExternalSearch.RestApi\" version: \"4.5.0\" gql: hubSpotToken: &lt;pat-token&gt; . | Apply the values file from your shell by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.5.1 \\ --values ${CustomValues} \\ --set application.system.runDatabaseJobsOnUpgrade=true \\ --set application.system.runNugetFullRestore=true \\ --wait \\ --timeout 10m0s . After a few minutes, it should successfully complete. | Validation: | . | ❗ Wait until deployment finishes. Make sure that all pods are healthy and all jobs are completed. | ❗ Don’t proceed further if any of the pods have health issues. Rather investigate the issues. This will apply dynamic mappings to every CluedIn index | Ensure no errors in the pod logs. | Verify the server starts in normal mode. | Ensure cluedin-ui pod is Running.. | . | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
     "url": "/paas-operations/upgrade/2025-05-02#guide",
     
     "relUrl": "/paas-operations/upgrade/2025-05-02#guide"
-  },"1259": {
+  },"1251": {
     "doc": "2025.05.02",
     "title": "2025.05.02",
     "content": " ",
     "url": "/paas-operations/upgrade/2025-05-02",
     
     "relUrl": "/paas-operations/upgrade/2025-05-02"
-  },"1260": {
+  },"1252": {
     "doc": "Training",
     "title": "Training",
     "content": "This training will introduce you to CluedIn, a modern master data management platform built to simplify, automate, and connect enterprise data. It is designed for anyone who works with data—shaping data strategy, overseeing governance, or analyzing business trends. In the course of this training, you will learn how to use CluedIn’s tools to work with trusted, connected data without the rigid setup and complexity of traditional MDM systems. Presented by: Pierre Derval, Chief Product Officer at CluedIn . Presentation: Download PPT . To get your CluedIn instance, refer to our article How to get CluedIn. ",
     "url": "/training",
     
     "relUrl": "/training"
-  },"1261": {
+  },"1253": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "On this page",
     "content": ". | Update: CVE-2021-45046 | Neo4j . | Actions Required | . | Elasticsearch . | Actions Required | . | OpenRefine . | Actions Required | . | Related links | . On December 9th 2021 a high severity vulnerability was disclosed in the Apache Log4j2 library for all versions between 2.0-beta9 and 2.14.1. This library is used by a significant amount of Java based applications and services. At CluedIn, we build .NET and Node.js services that are not impacted by the vulnerability. However, we do utilise some third-party services that are Java based. This announcement details the usage of those services and their exposure to CVE-2021-44228. ",
     "url": "/kb/log4j#on-this-page",
     
     "relUrl": "/kb/log4j#on-this-page"
-  },"1262": {
+  },"1254": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "Update: CVE-2021-45046",
     "content": "After the intial wave of fixes an additonal issue was discovered (CVE-2021-45-46) which highlighted that in some cases the proposed fixes for CVE-2021-44228 were insufficient. In all cases, no actions are required for CluedIn services. Notably Elasticsearch may have false positives, however Elastic reccomends the same changes as for the orginal CVE. Therefore, there are no additonal requirments for fixes with CluedIn. ",
     "url": "/kb/log4j#update-cve-2021-45046",
     
     "relUrl": "/kb/log4j#update-cve-2021-45046"
-  },"1263": {
+  },"1255": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "Neo4j",
     "content": "All versions of CluedIn use the 3.5.x (currently 3.5.29) version of the community edition of Neo4j or an earlier version. As identified in the Neo4j repository, versions prior to 4.2 used a custom logging framework and are not affected by the vulnerability. Additionally – Neo4j is not exposed to the public internet so user crafted requests that could expose the vulnerability cannot be targeted to the service. Actions Required . No action is required for the current nor any previous version of CluedIn. ",
     "url": "/kb/log4j#neo4j",
     
     "relUrl": "/kb/log4j#neo4j"
-  },"1264": {
+  },"1256": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "Elasticsearch",
     "content": "CluedIn 3.1.0-3.2.5 uses the 7.8.0 version of Elasticsearch. As identified by Elastic, Elasticsearch version 7.8+ running on JDK9+ are not susceptible. CluedIn 3.0.0 uses 7.6.2 and will require setting a JVM option to prevent exposure. Additionally – Elasticsearch is not exposed to the public internet so user crafted requests that could expose the vulnerability cannot be targeted to the service. Actions Required . CluedIn Version 3.0.0 . • In your values.yml set the following . elasticsearch: esJavaOpts: “-Dlog4j2.formatMsgNoLookups=true” . • Perform a helm upgrade with the new values.yml . No action is required for version 3.1+ of CluedIn. ",
     "url": "/kb/log4j#elasticsearch",
     
     "relUrl": "/kb/log4j#elasticsearch"
-  },"1265": {
+  },"1257": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "OpenRefine",
     "content": "CluedIn 3.2.2-3.2.5 uses the 3.4.1 version of OpenRefine. OpenRefine uses version 1.x of Log4j which does not contain the features which enable exposure to the vulnerability. All earlier versions of CluedIn use the 3.1 version of OpenRefine. Again, version 1.x of Log4j is used, which does not contain the features which enable exposure to the vulnerability. Actions Required . No action is required. ",
     "url": "/kb/log4j#openrefine",
     
     "relUrl": "/kb/log4j#openrefine"
-  },"1266": {
+  },"1258": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "Related links",
     "content": ". | https://www.randori.com/blog/cve-2021-44228/ | https://github.com/mubix/CVE-2021-44228-Log4Shell-Hashes | https://msrc-blog.microsoft.com/2021/12/11/microsofts-response-to-cve-2021-44228-apache-log4j2/ | https://www.synopsys.com/blogs/software-security/zero-day-exploit-log4j-analysis/ | https://blog.sonatype.com/a-new-0-day-log4j-vulnerability-discovered-in-the-wild | https://securelist.com/cve-2021-44228-vulnerability-in-apache-log4j-library/105210/ | https://nvd.nist.gov/vuln/detail/CVE-2021-44228 | https://blog.cloudflare.com/inside-the-log4j2-vulnerability-cve-2021-44228/ | https://github.com/neo4j-graphql/neo4j-graphql-java/issues/260 | https://github.com/neo4j/neo4j/issues/12796 | https://www.elastic.co/blog/detecting-log4j2-with-elastic-security | https://discuss.elastic.co/t/apache-log4j2-remote-code-execution-rce-vulnerability-cve-2021-44228-esa-2021-31/291476 | https://blog.cloudflare.com/cve-2021-44228-log4j-rce-0-day-mitigation/ | . ",
     "url": "/kb/log4j#related-links",
     
     "relUrl": "/kb/log4j#related-links"
-  },"1267": {
+  },"1259": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "CluedIn Security - Log4j2 CVE-2021-44228",
     "content": " ",
     "url": "/kb/log4j",
     
     "relUrl": "/kb/log4j"
-  },"1268": {
+  },"1260": {
     "doc": "Frequently asked questions",
     "title": "On this page",
     "content": ". | What happens if I change the default configuration installed using the Azure Marketplace offering? | What is different between CluedIn and other data integration platforms? | What happens with the data ingested that is terrible quality, has non-allowed values, or is noise or mess? | What do you do about sensitive and personal data? | If CluedIn has four different databases, all storing my raw data - isn’t that going to be a lot of storage? | Once the data is in CluedIn, how do I get it out? | Considering that CluedIn uses OTS databases (off-the-shelf), can I access data directly from there? | When CluedIn says it has prebuilt integrations, what about when we have customized our system so much? | If CluedIn is connecting the data for us, won’t that end up in a data model that is a mess? | The Admin screen of CluedIn is great, but I want to automate things! How do I do this? | I have made a change in CluedIn that requires me to re-process all the data. What do I do? | Does CluedIn index everything? | With four databases, how does CluedIn guarantee transactions? | Why is CluedIn written in C#? Isn’t that slow? | I am not a C# developer. Does that mean I can’t extend CluedIn? | What type of data is CluedIn not suited for? | . ",
     "url": "/kb/faq#on-this-page",
     
     "relUrl": "/kb/faq#on-this-page"
-  },"1269": {
+  },"1261": {
     "doc": "Frequently asked questions",
     "title": "What happens if I change the default configuration installed using the Azure Marketplace offering?",
     "content": "Any modifications made to the default configuration, except those explicitly documented as post-install adjustments on the Documentation portal, will result in the termination of support. This includes Premium Support, Azure Managed Application, and any other customer support service. The reason for this is the high probability that the cluster may not operate correctly. Changes outside the documented scope are considered out of support, and CluedIn will not provide assistance or troubleshooting for configurations that deviate from the originally installed setup. Here is a list of allowed changes: . | Adjusting requests and limits on CluedIn operating pods for both CPU and Memory | Setting up and receiving assistance with the CluedIn Backup Solution | Configuring Single Sign-On | Setting up SMTP details for Welcome Emails | Configuring Extended alerts via CluedIn (Note: CluedIn-specific alerts only, not customer-specific alerts) | Troubleshooting ad-hoc cluster failures, if determined not to be caused by the customer | Upgrading environments | Installing the product using our default configuration | Usage of Azure Key Vault to provide secrets to the cluster | General AKS maintenance on the default configuration | . Any deviation from this list will be considered out of support, and assistance for the issue is not guaranteed and may incur charges. ",
     "url": "/kb/faq#what-happens-if-i-change-the-default-configuration-installed-using-the-azure-marketplace-offering",
     
     "relUrl": "/kb/faq#what-happens-if-i-change-the-default-configuration-installed-using-the-azure-marketplace-offering"
-  },"1270": {
+  },"1262": {
     "doc": "Frequently asked questions",
     "title": "What is different between CluedIn and other data integration platforms?",
     "content": "Whether you are using SAP Data Services, Azure Data Factory, SSIS, Talend, Python, SAS Institute, Informatica PowerCenter, or other ETL-based tools, they all hold something in common - they require you as the engineer, architecture or business user to map different systems together. However, at CluedIn, we have found that the process of finding out what IDs need to be connected between systems as to unify or connect the records is actually the hardest part of the entire process - in fact, it gets to a point where it is just impossible to do. CluedIn uses a schema-less based integration pattern that doesn’t require a developer, architect, or business user to instruct our platform on how different systems connect - instead, we ask for a much simpler and streamlined mapping, and CluedIn will do all the work to find the relationships between the systems. As a result, we will often find connections that you could never see yourself. ",
     "url": "/kb/faq#what-is-different-between-cluedin-and-other-data-integration-platforms",
     
     "relUrl": "/kb/faq#what-is-different-between-cluedin-and-other-data-integration-platforms"
-  },"1271": {
+  },"1263": {
     "doc": "Frequently asked questions",
     "title": "What happens with the data ingested that is terrible quality, has non-allowed values, or is noise or mess?",
     "content": "CluedIn is an ELT type of integration platform where we want to take the data in as it is. No transforms. No cleaning. Nothing. That is our job! Insufficient quality data will happen all the time, and hence this is one of the big reasons enterprise companies take so long to get access to ready-to-use data. There are so many places in CluedIn that will catch and distribute the work involved in fixing and addressing the data quality issues that stream through the CluedIn processing engine. Firstly, it starts with CluedIn having many prebuilt processing steps to automatically clean and normalize data into the highest-fidelity format. Secondly, you can build up lists of “black-listed” values and either remove them or automatically transform them into another value on processing. Finally, you can set up rules that dictate good versus wrong values. It means that data keeps flowing for data that meet the standards - CluedIn will put everything else into a quarantine section for you to resolve so that less and fewer data has issues. ",
     "url": "/kb/faq#what-happens-with-the-data-ingested-that-is-terrible-quality-has-non-allowed-values-or-is-noise-or-mess",
     
     "relUrl": "/kb/faq#what-happens-with-the-data-ingested-that-is-terrible-quality-has-non-allowed-values-or-is-noise-or-mess"
-  },"1272": {
+  },"1264": {
     "doc": "Frequently asked questions",
     "title": "What do you do about sensitive and personal data?",
     "content": "CluedIn will natively detect personal data and will start by simply letting you know where it is. Then, depending on your requirements, we allow simple actions to either mask, anonymize or remove the data. As for sensitive data, this is often open to interpretation. What is sensitive for you might not be for another business, and hence CluedIn allows you to flag records as sensitive. This will build up a data model specifically for your account that will be trained to look for records with similar traits and flag them automatically over time. ",
     "url": "/kb/faq#what-do-you-do-about-sensitive-and-personal-data",
     
     "relUrl": "/kb/faq#what-do-you-do-about-sensitive-and-personal-data"
-  },"1273": {
+  },"1265": {
     "doc": "Frequently asked questions",
     "title": "If CluedIn has four different databases, all storing my raw data - isn’t that going to be a lot of storage?",
     "content": "The first thing to answer here is that you have complete control over what data you ingest into CluedIn. There are many cases where you will not want to bring in all the data. For the data that we do ingest, it is also worth mentioning that for certain types of data, we are not taking a full copy of the data but rather extracting what we need e.g., files only extract content and metadata. CluedIn also compresses all the data stored in the databases, meaning that the storage size is often much smaller than the source data itself. To put this in perspective, we have customers that have processed 100’s of TB’s of raw data, but in CluedIn, the databases will collectively be approximately 2 to 3 TB’s. ",
     "url": "/kb/faq#if-cluedin-has-four-different-databases-all-storing-my-raw-data---isnt-that-going-to-be-a-lot-of-storage",
     
     "relUrl": "/kb/faq#if-cluedin-has-four-different-databases-all-storing-my-raw-data---isnt-that-going-to-be-a-lot-of-storage"
-  },"1274": {
+  },"1266": {
     "doc": "Frequently asked questions",
     "title": "Once the data is in CluedIn, how do I get it out?",
     "content": "CluedIn is designed to sit in-between source and target systems, and hence it is in our interest to make it extremely easy to get the data out of us. There are two main ways that we recommend this, but ask that in production, you don’t use the CSV or File options - after all, this is typically the cause for siloed data in the first place! Firstly, our GraphQL API allows you to search through all the data in your CluedIn account and will return the results in JSON format. In addition, you can choose what properties you would like to select or project from the query to limit the data to only what you need. It is useful when you have other systems that want to “pull” data from CluedIn. Quite honestly, you won’t find many systems that support making GraphQL queries or REST queries, and hence we offer another option that we think is more suitable. Secondly, we allow you to create data streams directly out of CluedIn (Push) to a target. This target could be a SQL database, an Apache Spark stream, direct to Power BI, or your Data Warehouse’s dimension tables. ",
     "url": "/kb/faq#once-the-data-is-in-cluedin-how-do-i-get-it-out",
     
     "relUrl": "/kb/faq#once-the-data-is-in-cluedin-how-do-i-get-it-out"
-  },"1275": {
+  },"1267": {
     "doc": "Frequently asked questions",
     "title": "Considering that CluedIn uses OTS databases (off-the-shelf), can I access data directly from there?",
     "content": "We will not stop you from doing this, but we recommend that you only do this in a developer environment. If you want to talk directly to the databases, CluedIn has built you GraphQL interfaces to do this in a way that guarantees that you have remote access to only the data from your account. CluedIn ships with tools to administrate the different datastores, and hence we are influencing you to look in these datastores as a developer. The recommendation is to turn off native access to these datastores when you deploy into your production environment - in fact, by default, our Kubernetes setup has it disabled by default. ",
     "url": "/kb/faq#considering-that-cluedin-uses-ots-databases-off-the-shelf-can-i-access-data-directly-from-there",
     
     "relUrl": "/kb/faq#considering-that-cluedin-uses-ots-databases-off-the-shelf-can-i-access-data-directly-from-there"
-  },"1276": {
+  },"1268": {
     "doc": "Frequently asked questions",
     "title": "When CluedIn says it has prebuilt integrations, what about when we have customized our system so much?",
     "content": "The majority of integrations that CluedIn has been working with the assumption that you can change the underlying model of the source system. Hence, most of our integration will still require you to map the source objects into CluedIn to get the best out of your data. The integrations handle all the connection, delivery, and scheduling, paging, and sourcing of data. You, as a Data Architect, will need to map this into the Clue object. Fortunately, our data integration pattern makes this a simple task, and unlike other data integration platforms, we don’t need you to tell us how everything wires together - that’s our job! . ",
     "url": "/kb/faq#when-cluedin-says-it-has-prebuilt-integrations-what-about-when-we-have-customized-our-system-so-much",
     
     "relUrl": "/kb/faq#when-cluedin-says-it-has-prebuilt-integrations-what-about-when-we-have-customized-our-system-so-much"
-  },"1277": {
+  },"1269": {
     "doc": "Frequently asked questions",
     "title": "If CluedIn is connecting the data for us, won’t that end up in a data model that is a mess?",
     "content": "Yes! Because guess what? Your data landscape is typically a mess! The goal of CluedIn is not to form the perfect model of your data for a particular use case - it is to find how the data is naturally connected and then allow you to project your ideal model for ANY use case you can think of. You will find that the model that we build (we use the Graph for this part) will match the model that your data finds to find links between your different systems. Then, using the same model, we give intuitive and simple-to-use tools to mutate this natural model to a more rigid model for the use cases you want in that particular model. The good news is that the Graph was designed for running these types of projects. They are as fast as an index lookup. It means that projecting a “dirty” model into a clean one is something that scales and performs really well. ",
     "url": "/kb/faq#if-cluedin-is-connecting-the-data-for-us-wont-that-end-up-in-a-data-model-that-is-a-mess",
     
     "relUrl": "/kb/faq#if-cluedin-is-connecting-the-data-for-us-wont-that-end-up-in-a-data-model-that-is-a-mess"
-  },"1278": {
+  },"1270": {
     "doc": "Frequently asked questions",
     "title": "The Admin screen of CluedIn is great, but I want to automate things! How do I do this?",
     "content": "The good news is that the native CluedIn administration screen is built on top of the same REST API that you have direct access to as well. This means that you can do everything in the REST API that you can do in the user interface (and more!). It also means that you can script anything in CluedIn via our REST API, PowerShell, or other scripting languages. ",
     "url": "/kb/faq#the-admin-screen-of-cluedin-is-great-but-i-want-to-automate-things-how-do-i-do-this",
     
     "relUrl": "/kb/faq#the-admin-screen-of-cluedin-is-great-but-i-want-to-automate-things-how-do-i-do-this"
-  },"1279": {
+  },"1271": {
     "doc": "Frequently asked questions",
     "title": "I have made a change in CluedIn that requires me to re-process all the data. What do I do?",
     "content": "It will happen many times with your CluedIn account! It is highly typical and expected. CluedIn has been designed with the idea in mind that we will re-process the data all the time. Once you have made your change, you have quite a lot of control over the level of re-processing. You can re-process at a source level, globally, record level, or even something a little more custom, e.g., business domain level. ",
     "url": "/kb/faq#i-have-made-a-change-in-cluedin-that-requires-me-to-re-process-all-the-data-what-do-i-do",
     
     "relUrl": "/kb/faq#i-have-made-a-change-in-cluedin-that-requires-me-to-re-process-all-the-data-what-do-i-do"
-  },"1280": {
+  },"1272": {
     "doc": "Frequently asked questions",
     "title": "Does CluedIn index everything?",
     "content": "Yes. Yes, we do. You can, however, influence the CluedIn engine to store data in a more optimum way. When you are setting up your Vocabularies, you have the chance to set a Vocabulary Key Data Type. It will influence how indexes are built, and we would strongly recommend doing this. Even if you do not do this, all your content will be searchable, but you can always make things faster and more efficient if you set up your Vocabularies correctly. ",
     "url": "/kb/faq#does-cluedin-index-everything",
     
     "relUrl": "/kb/faq#does-cluedin-index-everything"
-  },"1281": {
+  },"1273": {
     "doc": "Frequently asked questions",
     "title": "With four databases, how does CluedIn guarantee transactions?",
     "content": "CluedIn ingests data into an enterprise service bus. It helps us guarantee the delivery of data. CluedIn utilizes “Eventual Consistency” for the different data stores. It means that CluedIn takes all records off the bus into a transactional log. The various databases will then read off the transaction log as fast as they can. It guarantees transactional support on your data but “eventual consistency” in the different data stores. With this setup and the fact that the different datastores will consume off the log in batches, it lessens the likelihood that the database will have issues with having a 100% consistency across the datastores simultaneously. ",
     "url": "/kb/faq#with-four-databases-how-does-cluedin-guarantee-transactions",
     
     "relUrl": "/kb/faq#with-four-databases-how-does-cluedin-guarantee-transactions"
-  },"1282": {
+  },"1274": {
     "doc": "Frequently asked questions",
     "title": "Why is CluedIn written in C#? Isn’t that slow?",
     "content": "For many reasons, the team behind CluedIn purposefully chose .net core and C# as the language for our processing engine. 1: Our core development team has decades of combined experience in building large, scalable, and performant .net applications. 2: The .NET environment has jumped leaps and bounds and has continued support for Microsoft and the community. The fact that it is open-source helped in the decision as well. 3: .NET is designed to write very large applications and scale in maintaining, separation of concern, and ease of deployment. 4: .net and C# is very much not slow. Compared to the majority of popular languages today, it is very fast. Some could argue that it is not as memory-efficient, but we think that the trade-offs to deliver solutions to you faster is well worth it. ",
     "url": "/kb/faq#why-is-cluedin-written-in-c-isnt-that-slow",
     
     "relUrl": "/kb/faq#why-is-cluedin-written-in-c-isnt-that-slow"
-  },"1283": {
+  },"1275": {
     "doc": "Frequently asked questions",
     "title": "I am not a C# developer. Does that mean I can’t extend CluedIn?",
     "content": "The interfaces to communicate with CluedIn are actually HTTP, i.e. REST. Our C# layer essentially wraps this and talks REST. It means that you can actually use any language that you want to talk to CluedIn, however, there are some restrictions or limitations if you do this: . | You cannot inject custom logic into the same application domain as CluedIn. | You will have to host your custom code in another host that is not CluedIn. | You cannot currently use the crawler templates that are available only in C#. | . Let’s go with some examples for you. What if you are a Python, R, SQL, or GO developer? Let’s say you want to build a custom integration that can be added through the user interface, but the code itself is written in Python. ",
     "url": "/kb/faq#i-am-not-a-c-developer-does-that-mean-i-cant-extend-cluedin",
     
     "relUrl": "/kb/faq#i-am-not-a-c-developer-does-that-mean-i-cant-extend-cluedin"
-  },"1284": {
+  },"1276": {
     "doc": "Frequently asked questions",
     "title": "What type of data is CluedIn not suited for?",
     "content": "There are many use-cases where CluedIn could be considered overkill or not fit for purpose. There are many use-cases that do not need all of the data preparation and cleaning pieces of CluedIn. It could very much be argued that IoT data doesn’t suffer from the same problems or require the same data preparation than other data such as operation business data. Hence here is a list of use-cases or data that we don’t think is necessarily suitable for CluedIn: . 1: Processing Signal/IoT data that doesn’t have data quality issues or doesn’t need cataloging, governance - but instead needs to be made available in a Dashboard as fast as humanly possible. 2: If you have a limited number of systems to integrate and there are no problems determining how the records are connected between the different systems. A good example would be if you just wanted to integrate your Dropbox account with your CRM. 3: Where you do not want to move data. CluedIn copies data from sources to target. It won’t necessarily take all the data, but it is an ingestion engine. You have to be very careful with this use case as many problems cannot be properly solved without copying the data. ",
     "url": "/kb/faq#what-type-of-data-is-cluedin-not-suited-for",
     
     "relUrl": "/kb/faq#what-type-of-data-is-cluedin-not-suited-for"
-  },"1285": {
+  },"1277": {
     "doc": "Frequently asked questions",
     "title": "Frequently asked questions",
     "content": " ",
     "url": "/kb/faq",
     
     "relUrl": "/kb/faq"
-  },"1286": {
+  },"1278": {
     "doc": "Supported and unsupported characters",
     "title": "On this page",
     "content": ". | Supported characters | Unsupported characters | . In this article, you’ll find reference information about supported and unsupported characters in clues and entities. If your data contains unsupported characters, remove them before submitting data to CluedIn. ",
     "url": "/kb/supported-characters#on-this-page",
     
     "relUrl": "/kb/supported-characters#on-this-page"
-  },"1287": {
+  },"1279": {
     "doc": "Supported and unsupported characters",
     "title": "Supported characters",
     "content": "All valid Unicode characters are supported. Exceptions include Unicode surrogate blocks, 0xFFFE, and 0xFFFF. Characters: 0x9, 0xA, 0xD, Character Range: 0x20-0xD7FF Character Range: 0xE000-0xFFFD Character Range: 0x10000-0x10FFFF . Unicode control characters or undefined Unicode characters should not be used but are supported. These are within the following character ranges. 0x7F-0x84 0x86-0x9F 0xFDD0-0xFDEF 0x1FFFE-0x1FFFF 0x2FFFE-0x2FFFF 0x3FFFE-0x3FFFF 0x4FFFE-0x4FFFF 0x5FFFE-0x5FFFF 0x6FFFE-0x6FFFF 0x7FFFE-0x7FFFF 0x8FFFE-0x8FFFF 0x9FFFE-0x9FFFF 0xAFFFE-0xAFFFF 0xBFFFE-0xBFFFF 0xCFFFE-0xCFFFF 0xDFFFE-0xDFFFF 0xEFFFE-0xEFFFF 0xFFFFE-0xFFFFF 0x10FFFE-0x10FFFF . ",
     "url": "/kb/supported-characters#supported-characters",
     
     "relUrl": "/kb/supported-characters#supported-characters"
-  },"1288": {
+  },"1280": {
     "doc": "Supported and unsupported characters",
     "title": "Unsupported characters",
     "content": "ASCI control characters are not supported. Exceptions include 0x9, 0xA, and 0xD, which are valid characters. | Character range 0x-0x1F is not supported. | Character 0x7F is technically supported but should not be used. | Unicode surrogate blocks are not supported. | 0xFFFE and 0xFFFF are not supported. | . ",
     "url": "/kb/supported-characters#unsupported-characters",
     
     "relUrl": "/kb/supported-characters#unsupported-characters"
-  },"1289": {
+  },"1281": {
     "doc": "Supported and unsupported characters",
     "title": "Supported and unsupported characters",
     "content": " ",
     "url": "/kb/supported-characters",
     
     "relUrl": "/kb/supported-characters"
-  },"1290": {
+  },"1282": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "On this page",
     "content": ". | Recommendations . | Container images should be deployed from trusted registries only | . | . This document covers Microsoft Defender for Cloud advisories that you may face when installing the CluedIn MDM PaaS variant of the product into your environemnt. It will explain what each advisory means and how to potentially resolve the issue. If the advisory is not listed below, please do reach out to support@cluedin.com who will be able to advise further. ",
     "url": "/kb/defender-for-cloud-recommendations#on-this-page",
     
     "relUrl": "/kb/defender-for-cloud-recommendations#on-this-page"
-  },"1291": {
+  },"1283": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "Recommendations",
     "content": "Container images should be deployed from trusted registries only . The default security policies that are set on Microsoft Defender for Cloud can be quite bare when it comes out of the box. As a result, this particular recommendation gets flagged frequently as a high risk. The CluedIn installation installs an Azure Kubernetes Service (AKS) cluster which pulls images from cluedinprod.azurecr.io with an authorization token. Because cluedinprod.azurecr.io is external to your environment, it gets flagged by this recommendation when using default baseline advisories. Solution . To resolve this issue, please amend the recommendation under remediation steps and add a regex string that can accomodate the CluedIn registry. An example is: ^cluedinprod\\.azurecr\\.io.*$. This will affect all AKS clusters. If you have additional AKS clusters which are for internal services or other products, you may want to use a more loosely defined regex string that can accommodate both CluedIn and other third-party registries. ",
     "url": "/kb/defender-for-cloud-recommendations#recommendations",
     
     "relUrl": "/kb/defender-for-cloud-recommendations#recommendations"
-  },"1292": {
+  },"1284": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "Microsoft Defender for Cloud recommendations",
     "content": " ",
     "url": "/kb/defender-for-cloud-recommendations",
     
     "relUrl": "/kb/defender-for-cloud-recommendations"
-  },"1293": {
+  },"1285": {
     "doc": "CluedIn Security - [NOT impacted] Ingress NGINX Controller vulnerabilities",
     "title": "CluedIn Security - [NOT impacted] Ingress NGINX Controller vulnerabilities",
     "content": "Wiz Research recently disclosed a series of critical unauthenticated Remote Code Execution (RCE) vulnerabilities affecting the Ingress NGINX Controller in Kubernetes (CVE-2025-1097, CVE-2025-1098, CVE-2025-24514, and CVE-2025-1974), collectively known as IngressNightmare. These vulnerabilities could allow attackers to execute arbitrary code and gain unauthorized access to Kubernetes secrets across namespaces. More information can be found in Infosecurity Magazine and The Hacker News. CluedIn is not impacted by these vulnerabilities, as we do not use NGINX as our ingress controller. Instead, CluedIn relies on HAProxy, which is not affected by these issues. If you have deployed CluedIn using our standard setup, you are not impacted. However, customers who have modified their ingress setup outside of our recommended configuration should verify their infrastructure and apply any necessary security updates. Our security team continuously monitors emerging threats and ensures our platform remains secure. If you have any questions, please contact our support team at support@cluedin.com. ",
