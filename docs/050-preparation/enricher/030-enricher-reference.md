@@ -11,10 +11,12 @@ title: Enricher reference
 - TOC
 {:toc}
 
-In this article, you will find reference information about built-in enrichers in CluedIn.
+In this article, you will find reference information about the built-in enrichers available in CluedIn.
+
+Please note that the enrichers are not included in the CluedIn license. Each enricher is an open-source package provided by the CluedIn team for free to help you enrich your golden records with information from external sources.
 
 {:.important}
-Please note that the enrichers are not included in the CluedIn license. Each enricher is an open-source package provided by the CluedIn team for free to help you enrich your golden records with information from external sources.
+If you need a custom enricher, use the [REST API enricher](/preparation/enricher/rest-api) or contact us, and we will build one for you.
 
 ## Azure OpenAI
 
