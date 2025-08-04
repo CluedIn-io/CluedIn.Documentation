@@ -21,4 +21,5 @@ This section covers the following areas:
 
 - [Reference information about enrichers](/preparation/enricher/enricher-reference) – find information about built-in enrichers available in CluedIn.
 
-- [Building custom enricher](/preparation/enricher/build-custom-enricher) – learn how to create custom enricher tailored to your specific needs.
+    {:.important}
+    If you need a custom enricher, use the [REST API enricher](/preparation/enricher/rest-api) or contact us, and we will build one for you.
