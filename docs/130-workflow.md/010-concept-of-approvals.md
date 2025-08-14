@@ -20,8 +20,6 @@ A user with at least Consulted access level to the Rule Builder claim can modify
 
 - In case of **modifying an existing element**, the users in charge of approval are the owners listed on the **Owners** tab of the element. Since both users and roles can be the owners, all users with the corresponding roles are also considered approvers.
 
-- In case of **creating a new element**, the users in charge of approval are those who have the Accountable access level to the given claim (for example, Rule Builder). If there are no users with the Accountable claim access level, then the approval request will be sent to the users with the Accountable access level to the Tenant Management claim.
-
 **Is there a connection between external approvals and internal CluedIn change requests?**
 
 When you modify an element in CluedIn, both an internal change request and an external approval request are sent to the owners. The request that is processed first determines the outcome for the element. For example, if an owner approves the internal change request in CluedIn, the element is updated accordingly. However, if another owner rejects the external approval request in Outlook, this rejection is ignored because the element has already been updated. Essentially, the first processed request is applied to the element, and any subsequent request is ignored.
