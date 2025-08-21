@@ -10765,104 +10765,244 @@
     
     "relUrl": "/kb/faq"
   },"1538": {
+    "doc": "Rules are running slowly",
+    "title": "Why Are My Rules Processing Slowly in CluedIn?",
+    "content": "Rules in CluedIn are a powerful way to clean, standardize, and enrich your data as it flows through the platform. They allow you to automate transformations and enforce business logic at scale. However, in some cases, you may notice that your Rules take longer than expected to process. This article explains the key factors that influence Rule performance, common reasons why execution may be slow, and steps you can take to optimize and troubleshoot. ",
+    "url": "/kb/rules-slow#why-are-my-rules-processing-slowly-in-cluedin",
+    
+    "relUrl": "/kb/rules-slow#why-are-my-rules-processing-slowly-in-cluedin"
+  },"1539": {
+    "doc": "Rules are running slowly",
+    "title": "How Rule Processing Works",
+    "content": "Before diving into performance issues, it’s important to understand how Rules are executed in CluedIn: . | Trigger – A Rule is triggered when new data is ingested or when a Rule is explicitly re-run on existing data. | Evaluation – The Rule engine evaluates each record against the configured conditions. | Transformation – For matching records, the Rule applies the transformation or enrichment logic. | Propagation – Updates are written back to the affected entities and, if configured, published to downstream systems. | . The time it takes depends on the volume of records, the complexity of the logic, and the resources available in your CluedIn environment. ",
+    "url": "/kb/rules-slow#how-rule-processing-works",
+    
+    "relUrl": "/kb/rules-slow#how-rule-processing-works"
+  },"1540": {
+    "doc": "Rules are running slowly",
+    "title": "Common Reasons Rules Run Slowly",
+    "content": "1. Large Data Volumes . | Symptom: Rules that work quickly on small datasets suddenly take much longer on production-scale data. | Explanation: Each Rule must scan through entities to find matches. Processing millions of records inevitably takes more time. | . Tip: Test Rules on smaller sample datasets before applying them to production. 2. Complex Rule Conditions . | Symptom: Rules with multiple conditions, regex patterns, or nested logic perform slower. | Explanation: Each additional condition increases the number of evaluations per record. Regex-based conditions are especially costly. | . Tip: Simplify Rule logic where possible. Split complex Rules into multiple smaller, focused Rules. 3. High Number of Active Rules . | Symptom: Processing slows down as more Rules are added. | Explanation: CluedIn must evaluate every active Rule against incoming records. Even if most Rules don’t apply, they still need to be checked. | . Tip: Review your Rule library and disable Rules that are not actively needed. 4. Data Distribution &amp; Entity Linking . | Symptom: Rules that depend on entity relationships (e.g., linked customers, orders, or products) take longer. | Explanation: Linking requires lookups across multiple entities. Large or poorly matched datasets increase lookup overhead. | . Tip: Ensure entity matching configurations are optimized before running Rules that depend on them. 5. Environment &amp; Resource Constraints . | Symptom: Rules slow down during periods of heavy ingestion or other intensive processing. | Explanation: The Rule engine shares compute resources with ingestion, matching, and enrichment jobs. Resource contention can delay execution. | . Tip: Schedule large Rule runs during off-peak hours or scale your CluedIn deployment to handle higher throughput. 6. Reprocessing vs. Incremental Runs . | Symptom: A Rule re-run on all historical data takes significantly longer than on new incremental data. | Explanation: Full reprocessing forces CluedIn to re-check all records, while incremental runs only apply to newly ingested or updated data. | . Tip: Use incremental runs where possible. Reserve full re-runs for cases where underlying Rule logic has changed. ",
+    "url": "/kb/rules-slow#common-reasons-rules-run-slowly",
+    
+    "relUrl": "/kb/rules-slow#common-reasons-rules-run-slowly"
+  },"1541": {
+    "doc": "Rules are running slowly",
+    "title": "How to Troubleshoot Slow Rules",
+    "content": ". | Check Rule Execution Logs . | Navigate to Rules &gt; Execution History. | Look for patterns (e.g., long-running conditions, high record counts). | . | Measure Impact of Individual Rules . | Disable all Rules. | Re-enable them one by one to isolate performance bottlenecks. | . | Profile the Data . | Use Data Quality Profiling to identify large or inconsistent fields that may slow down evaluation (e.g., very long text fields, improperly formatted values). | . | Check System Resources . | Review CluedIn environment metrics (CPU, memory, queue depth). | If resource constraints are observed, consider scaling the environment. | . | Engage with CluedIn Support . | If performance is consistently poor despite optimization, raise a support ticket with logs and execution metrics. | . | . ",
+    "url": "/kb/rules-slow#how-to-troubleshoot-slow-rules",
+    
+    "relUrl": "/kb/rules-slow#how-to-troubleshoot-slow-rules"
+  },"1542": {
+    "doc": "Rules are running slowly",
+    "title": "Best Practices for Optimizing Rule Performance",
+    "content": ". | Keep Rules Simple: Favor straightforward conditions over complex regex or nested logic. | Use Targeted Scopes: Apply Rules only to relevant entity types, not globally. | Batch Complex Logic: Break down large transformations into multiple smaller Rules. | Monitor &amp; Review: Regularly audit your Rules and disable ones that are no longer needed. | Test at Scale: Validate Rule performance in staging with production-like volumes. | Leverage Scheduling: Run heavy Rules during low-traffic times. | . ",
+    "url": "/kb/rules-slow#best-practices-for-optimizing-rule-performance",
+    
+    "relUrl": "/kb/rules-slow#best-practices-for-optimizing-rule-performance"
+  },"1543": {
+    "doc": "Rules are running slowly",
+    "title": "Summary",
+    "content": "Rules may process slowly for a variety of reasons, most often due to large data volumes, complex conditions, or resource contention. By understanding how Rule execution works and following best practices for optimization, you can ensure that your Rules run efficiently and continue delivering value without bottlenecks. If you’ve optimized your setup and still see performance issues, contact CluedIn Support for advanced troubleshooting. ",
+    "url": "/kb/rules-slow#summary",
+    
+    "relUrl": "/kb/rules-slow#summary"
+  },"1544": {
+    "doc": "Rules are running slowly",
+    "title": "Rules are running slowly",
+    "content": " ",
+    "url": "/kb/rules-slow",
+    
+    "relUrl": "/kb/rules-slow"
+  },"1545": {
+    "doc": "Rules are not working",
+    "title": "Why Are My CluedIn Rules Not Working as Expected?",
+    "content": "CluedIn Rules are designed to help you automate transformations, validations, and enrichment of your data. When they don’t behave as expected, it can be frustrating and may lead to incorrect data outcomes. This article explains the most common reasons Rules may not work, how to troubleshoot them, and best practices to ensure they deliver the results you want. ",
+    "url": "/kb/rules-not-working#why-are-my-cluedin-rules-not-working-as-expected",
+    
+    "relUrl": "/kb/rules-not-working#why-are-my-cluedin-rules-not-working-as-expected"
+  },"1546": {
+    "doc": "Rules are not working",
+    "title": "Understanding How Rules Work",
+    "content": "At a high level, a Rule in CluedIn consists of: . | Scope: The entities or attributes it applies to. | Conditions: The logic that determines whether the Rule applies. | Actions: The transformation or update to apply when conditions are met. | . If any of these are misconfigured, the Rule may not execute as you expect. ",
+    "url": "/kb/rules-not-working#understanding-how-rules-work",
+    
+    "relUrl": "/kb/rules-not-working#understanding-how-rules-work"
+  },"1547": {
+    "doc": "Rules are not working",
+    "title": "Common Reasons Rules Don’t Work",
+    "content": "1. Incorrect Scope or Target . | Symptom: Rule never seems to run. | Cause: The Rule is applied to the wrong entity type or attribute. For example, applying a Customer Rule on Contact entities. | Fix: Double-check the entity type and field mappings in the Rule configuration. | . 2. Conditions That Never Match . | Symptom: Rule exists, but no records are updated. | Cause: Condition logic is too strict or incorrectly defined. | Example: Condition is Country = US, but data uses USA or United States. | Example: Regex pattern doesn’t align with the data format. | . | Fix: Validate the condition logic against sample data. Loosen overly strict conditions where necessary. | . 3. Action Misconfiguration . | Symptom: Rule triggers but doesn’t update fields as intended. | Cause: The action is pointing to the wrong field or uses the wrong transformation. | Fix: Review the action configuration to ensure it references the correct attributes and expected values. | . 4. Rule Execution Order . | Symptom: A Rule appears to run, but results are overridden. | Cause: Another Rule is executing afterwards and undoing or replacing the changes. | Fix: Review the Rule execution order. Consider merging related logic into a single Rule or adjusting order of operations. | . 5. Data Quality Issues . | Symptom: Rule applies inconsistently. | Cause: Input data does not match expected formats or contains null values. | Fix: Run Data Profiling to check data consistency. Create preprocessing Rules to normalize data before applying main transformations. | . 6. Rule Disabled or Not Published . | Symptom: Rule doesn’t run at all. | Cause: The Rule has been saved but not activated, or changes have not been published. | Fix: Check the Rule’s status. Ensure it is active and published. | . 7. Running Rules on the Wrong Dataset . | Symptom: Rule tests fine on samples but doesn’t work in production. | Cause: Rule is only applied on a test dataset or hasn’t been re-run on historical records. | Fix: Re-run the Rule on the correct dataset and confirm scope matches production data. | . ",
+    "url": "/kb/rules-not-working#common-reasons-rules-dont-work",
+    
+    "relUrl": "/kb/rules-not-working#common-reasons-rules-dont-work"
+  },"1548": {
+    "doc": "Rules are not working",
+    "title": "How to Troubleshoot Non-Working Rules",
+    "content": ". | Check Rule Execution Logs . | Navigate to Rules &gt; Execution History. | Verify if the Rule ran, how many records matched, and whether any errors occurred. | . | Test on Sample Data . | Run the Rule against a small test dataset. | Confirm that the expected outcome occurs on a controlled set of records. | . | Validate Conditions Against Real Data . | Inspect a few sample records directly in Entity Explorer. | Confirm they satisfy the Rule conditions. | . | Review Dependencies . | Check if other Rules, enrichments, or transformations might be interfering. | . | Simplify the Rule . | Temporarily remove complex conditions. | Reintroduce them one by one until the failure point is found. | . | . ",
+    "url": "/kb/rules-not-working#how-to-troubleshoot-non-working-rules",
+    
+    "relUrl": "/kb/rules-not-working#how-to-troubleshoot-non-working-rules"
+  },"1549": {
+    "doc": "Rules are not working",
+    "title": "Best Practices to Avoid Rule Misbehavior",
+    "content": ". | Be Precise with Conditions: Use clear logic that matches real data values. | Use Standardized Data: Normalize data (e.g., country codes, phone formats) before applying Rules. | Keep Rules Modular: Use smaller, focused Rules instead of one overly complex Rule. | Document Each Rule: Add descriptions so others understand what it is intended to do. | Test in Staging First: Validate new Rules on non-production data before applying broadly. | Monitor Execution: Regularly review Rule logs and dashboards for anomalies. | . ",
+    "url": "/kb/rules-not-working#best-practices-to-avoid-rule-misbehavior",
+    
+    "relUrl": "/kb/rules-not-working#best-practices-to-avoid-rule-misbehavior"
+  },"1550": {
+    "doc": "Rules are not working",
+    "title": "Summary",
+    "content": "When Rules don’t work as expected in CluedIn, it is usually due to issues with scope, conditions, actions, or execution order. By systematically troubleshooting these areas and following best practices, you can ensure your Rules deliver consistent, predictable results. If you have confirmed your configuration is correct but Rules still fail to execute properly, contact CluedIn Support with execution logs and example records for further investigation. ",
+    "url": "/kb/rules-not-working#summary",
+    
+    "relUrl": "/kb/rules-not-working#summary"
+  },"1551": {
+    "doc": "Rules are not working",
+    "title": "Rules are not working",
+    "content": " ",
+    "url": "/kb/rules-not-working",
+    
+    "relUrl": "/kb/rules-not-working"
+  },"1552": {
+    "doc": "The Product Toolkit is failing to export or import",
+    "title": "Troubleshooting: The Product Toolkit Is Failing to Export or Import",
+    "content": "The CluedIn Product Toolkit allows you to export and import configurations such as entities, schemas, and rules between environments. This is essential for promoting changes from development to staging and production. Sometimes, you may encounter failures when running exports or imports. This article explains the most common reasons for failures, how to troubleshoot them, and best practices to ensure smooth operation. ",
+    "url": "/kb/product-toolkit-issues#troubleshooting-the-product-toolkit-is-failing-to-export-or-import",
+    
+    "relUrl": "/kb/product-toolkit-issues#troubleshooting-the-product-toolkit-is-failing-to-export-or-import"
+  },"1553": {
+    "doc": "The Product Toolkit is failing to export or import",
+    "title": "Common Reasons for Failures",
+    "content": "1. Timeouts During Execution . | Symptom: Export or import jobs stall or fail with timeout errors. | Cause: Large datasets or complex configurations can exceed default timeout limits, especially if run on underpowered machines. | Fix: . | Run the Product Toolkit on a dedicated server or cloud VM, not on a personal laptop. | Ensure stable network connectivity with sufficient bandwidth. | For very large jobs, break down exports/imports into smaller, more manageable chunks. | . | . 2. Insufficient Permissions (RACI Access) . | Symptom: Export or import completes partially, or fails with “permission denied” errors. | Cause: The account running the Toolkit does not have Accountable (A) level RACI access to the entities or configurations being moved. | Fix: . | Verify that your account has Accountable permissions for all objects in the scope of the export or import. | If not, request elevated access from your CluedIn administrator. | . | . 3. Missing or Incomplete Dependencies . | Symptom: Import fails due to missing references (e.g., schemas, rules, or entities not found). | Cause: Dependencies were not included in the export package, or were imported out of order. | Fix: . | Ensure you export all dependent configurations together. | Import dependencies (schemas, vocabularies) before higher-level artifacts (rules, pipelines). | . | . 4. Version Mismatches . | Symptom: Import fails due to incompatible format or unexpected fields. | Cause: Export was created in a different CluedIn version than the target environment. | Fix: . | Confirm both environments are running the same version of CluedIn. | If not, upgrade/downgrade to align versions before attempting import. | . | . 5. Environment Resource Constraints . | Symptom: Export/import hangs, crashes, or causes instability. | Cause: The machine running the Toolkit does not have enough memory, CPU, or disk space. | Fix: . | Run the Toolkit on a machine with at least 4 vCPUs and 8GB+ RAM. | Monitor system resources during execution. | Clean up temporary files and ensure adequate disk space is available. | . | . ",
+    "url": "/kb/product-toolkit-issues#common-reasons-for-failures",
+    
+    "relUrl": "/kb/product-toolkit-issues#common-reasons-for-failures"
+  },"1554": {
+    "doc": "The Product Toolkit is failing to export or import",
+    "title": "How to Troubleshoot",
+    "content": ". | Check Logs . | Review Toolkit log output for specific error messages. | Logs are typically stored in the working directory where you ran the command. | . | Validate Permissions . | Confirm the user has Accountable RACI access for the entire scope of the operation. | . | Test with Smaller Scope . | Try exporting or importing a smaller subset of objects. | If that works, expand gradually until you identify the problematic artifact. | . | Verify Environment Setup . | Ensure the Toolkit is running on a dedicated machine with sufficient resources. | Avoid running from personal laptops or unstable network connections. | . | Check CluedIn Version Compatibility . | Confirm both source and target environments are on the same version. | Align versions if mismatched. | . | Re-run with Debug Mode . | Use debug flags (if available) to capture more detailed logs. | Share logs with CluedIn Support if the issue persists. | . | . ",
+    "url": "/kb/product-toolkit-issues#how-to-troubleshoot",
+    
+    "relUrl": "/kb/product-toolkit-issues#how-to-troubleshoot"
+  },"1555": {
+    "doc": "The Product Toolkit is failing to export or import",
+    "title": "Best Practices for Reliable Toolkit Operations",
+    "content": ". | Run on a Dedicated Machine: Use a dedicated server or VM for large exports/imports. | Use Accountable RACI Access: Always ensure you have Accountable access before starting. | Export/Import in Logical Order: Move foundational artifacts (schemas, vocabularies) before dependent ones (rules, pipelines). | Monitor Logs and Metrics: Track execution logs and system resource usage. | Align Environments: Keep source and target environments on the same CluedIn version. | Test Before Production: Run exports/imports in staging first before applying to production. | . ",
+    "url": "/kb/product-toolkit-issues#best-practices-for-reliable-toolkit-operations",
+    
+    "relUrl": "/kb/product-toolkit-issues#best-practices-for-reliable-toolkit-operations"
+  },"1556": {
+    "doc": "The Product Toolkit is failing to export or import",
+    "title": "Summary",
+    "content": "Product Toolkit export/import issues usually arise from timeouts, missing permissions, incomplete dependencies, version mismatches, or resource limitations. By running the Toolkit on a dedicated machine, ensuring Accountable RACI access, and following best practices, you can significantly reduce the risk of failures. If problems persist, collect execution logs and contact CluedIn Support for assistance. ",
+    "url": "/kb/product-toolkit-issues#summary",
+    
+    "relUrl": "/kb/product-toolkit-issues#summary"
+  },"1557": {
+    "doc": "The Product Toolkit is failing to export or import",
+    "title": "The Product Toolkit is failing to export or import",
+    "content": " ",
+    "url": "/kb/product-toolkit-issues",
+    
+    "relUrl": "/kb/product-toolkit-issues"
+  },"1558": {
     "doc": "Slow Performance",
     "title": "CluedIn Is Processing Slowly and Feels Slow in General",
     "content": "CluedIn is designed to process large volumes of data at scale, but in some cases you may notice that the platform feels “slow” — whether that’s during ingestion, rule execution, data linking, or even while navigating the user interface. This article explains the typical reasons why CluedIn might perform slowly, how to troubleshoot performance bottlenecks, and best practices to keep your environment running efficiently. ",
     "url": "/kb/slow#cluedin-is-processing-slowly-and-feels-slow-in-general",
     
     "relUrl": "/kb/slow#cluedin-is-processing-slowly-and-feels-slow-in-general"
-  },"1539": {
+  },"1559": {
     "doc": "Slow Performance",
     "title": "What Does “Slow” Mean?",
     "content": "Performance issues in CluedIn can show up in different ways: . | Ingestion Lag: New data takes longer than expected to appear in the platform. | Rule Processing Delays: Rules take longer to apply or complete. | Entity Linking/Matching: Deduplication or linking jobs run slowly. | Export Latency: Exports to downstream systems take longer to complete. | UI Responsiveness: The CluedIn portal feels sluggish when navigating or opening dashboards. | . Identifying which area feels slow is the first step to diagnosing the cause. ",
     "url": "/kb/slow#what-does-slow-mean",
     
     "relUrl": "/kb/slow#what-does-slow-mean"
-  },"1540": {
+  },"1560": {
     "doc": "Slow Performance",
     "title": "Common Causes of Performance Issues",
     "content": "1. High Data Volumes . | Symptom: Processing slows as more records are ingested. | Explanation: Larger datasets mean more work for ingestion, matching, and rules engines. | Fix: Scale your CluedIn environment to handle growth; consider batching ingestion jobs. | . 2. Complex or Excessive Rules . | Symptom: Rules engine takes a long time to run. | Explanation: Multiple active rules or complex regex conditions can increase evaluation overhead. | Fix: Review active rules, simplify logic, and disable rules that are not essential. | . 3. Resource Constraints . | Symptom: The whole platform (processing + UI) feels sluggish. | Explanation: The CluedIn instance does not have enough CPU, memory, or storage IOPS to handle workload. | Fix: . | Run CluedIn on dedicated infrastructure, not a shared environment. | Scale up VM/container resources. | Monitor system utilization to detect bottlenecks. | . | . 4. Network or Connectivity Issues . | Symptom: Ingestion from external sources and exports to downstream systems are slow. | Explanation: Latency or instability in network connections to source/target systems slows down jobs. | Fix: Ensure stable, high-bandwidth connections between CluedIn and data sources/destinations. | . 5. Inefficient Matching Configurations . | Symptom: Linking and deduplication jobs are disproportionately slow. | Explanation: Overly broad or poorly tuned match rules increase the number of comparisons per entity. | Fix: Optimize matching rules to focus on the most reliable identifiers. | . 6. Running Heavy Jobs on Underpowered Machines . | Symptom: Toolkit exports/imports or processing jobs time out. | Explanation: Running CluedIn utilities (e.g., Product Toolkit) on personal laptops or small VMs can cause slowness. | Fix: Use dedicated servers or cloud VMs with sufficient resources for large-scale jobs. | . 7. Competing Workloads . | Symptom: Performance degrades when multiple ingestion, rules, and export jobs run in parallel. | Explanation: Shared resources are consumed by concurrent jobs. | Fix: Schedule heavy workloads during off-peak hours or stagger job execution. | . ",
     "url": "/kb/slow#common-causes-of-performance-issues",
     
     "relUrl": "/kb/slow#common-causes-of-performance-issues"
-  },"1541": {
+  },"1561": {
     "doc": "Slow Performance",
     "title": "Troubleshooting Checklist",
     "content": ". | Identify Where It’s Slow . | Is it ingestion, rule execution, linking, exporting, or UI? | . | Check Logs &amp; Dashboards . | Review processing logs for errors or bottlenecks. | Check dashboards for job status and queue lengths. | . | Monitor System Resources . | CPU, memory, and disk usage should be reviewed on the CluedIn host. | . | Audit Rules &amp; Match Configurations . | Disable unnecessary rules. | Simplify complex logic. | Refine match rules. | . | Test Environment Sizing . | Compare resource allocation (CPU/RAM/storage) to recommended CluedIn sizing guidelines. | Scale up if needed. | . | Check Network Performance . | Ensure data source/destination connectivity is reliable and performant. | . | Try Smaller Batches . | Re-run ingestion or exports on smaller subsets to isolate scaling issues. | . | . ",
     "url": "/kb/slow#troubleshooting-checklist",
     
     "relUrl": "/kb/slow#troubleshooting-checklist"
-  },"1542": {
+  },"1562": {
     "doc": "Slow Performance",
     "title": "Best Practices to Maintain Good Performance",
     "content": ". | Run CluedIn on Dedicated Infrastructure: Avoid running on shared or undersized machines. | Scale with Data Growth: Allocate more resources as your dataset grows. | Schedule Heavy Jobs Strategically: Run big exports/imports or reprocessing during quiet hours. | Regularly Audit Rules: Keep only the Rules that add value; retire unused ones. | Optimize Matching Configurations: Focus on the most discriminating identifiers. | Monitor Continuously: Use system and CluedIn logs/dashboards to stay ahead of bottlenecks. | . ",
     "url": "/kb/slow#best-practices-to-maintain-good-performance",
     
     "relUrl": "/kb/slow#best-practices-to-maintain-good-performance"
-  },"1543": {
+  },"1563": {
     "doc": "Slow Performance",
     "title": "Summary",
     "content": "When CluedIn feels slow, it is usually due to large data volumes, complex rules, insufficient resources, or network constraints. By identifying where the slowness occurs, monitoring resources, and following optimization best practices, you can significantly improve performance. If slowness persists even after optimization, collect logs and environment metrics and contact CluedIn Support for further assistance. ",
     "url": "/kb/slow#summary",
     
     "relUrl": "/kb/slow#summary"
-  },"1544": {
+  },"1564": {
     "doc": "Slow Performance",
     "title": "Slow Performance",
     "content": " ",
     "url": "/kb/slow",
     
     "relUrl": "/kb/slow"
-  },"1545": {
+  },"1565": {
     "doc": "Supported and unsupported characters",
     "title": "On this page",
     "content": ". | Supported characters | Unsupported characters | . In this article, you’ll find reference information about supported and unsupported characters in clues and entities. If your data contains unsupported characters, remove them before submitting data to CluedIn. ",
     "url": "/kb/supported-characters#on-this-page",
     
     "relUrl": "/kb/supported-characters#on-this-page"
-  },"1546": {
+  },"1566": {
     "doc": "Supported and unsupported characters",
     "title": "Supported characters",
     "content": "All valid Unicode characters are supported. Exceptions include Unicode surrogate blocks, 0xFFFE, and 0xFFFF. Characters: 0x9, 0xA, 0xD, Character Range: 0x20-0xD7FF Character Range: 0xE000-0xFFFD Character Range: 0x10000-0x10FFFF . Unicode control characters or undefined Unicode characters should not be used but are supported. These are within the following character ranges. 0x7F-0x84 0x86-0x9F 0xFDD0-0xFDEF 0x1FFFE-0x1FFFF 0x2FFFE-0x2FFFF 0x3FFFE-0x3FFFF 0x4FFFE-0x4FFFF 0x5FFFE-0x5FFFF 0x6FFFE-0x6FFFF 0x7FFFE-0x7FFFF 0x8FFFE-0x8FFFF 0x9FFFE-0x9FFFF 0xAFFFE-0xAFFFF 0xBFFFE-0xBFFFF 0xCFFFE-0xCFFFF 0xDFFFE-0xDFFFF 0xEFFFE-0xEFFFF 0xFFFFE-0xFFFFF 0x10FFFE-0x10FFFF . ",
     "url": "/kb/supported-characters#supported-characters",
     
     "relUrl": "/kb/supported-characters#supported-characters"
-  },"1547": {
+  },"1567": {
     "doc": "Supported and unsupported characters",
     "title": "Unsupported characters",
     "content": "ASCI control characters are not supported. Exceptions include 0x9, 0xA, and 0xD, which are valid characters. | Character range 0x-0x1F is not supported. | Character 0x7F is technically supported but should not be used. | Unicode surrogate blocks are not supported. | 0xFFFE and 0xFFFF are not supported. | . ",
     "url": "/kb/supported-characters#unsupported-characters",
     
     "relUrl": "/kb/supported-characters#unsupported-characters"
-  },"1548": {
+  },"1568": {
     "doc": "Supported and unsupported characters",
     "title": "Supported and unsupported characters",
     "content": " ",
     "url": "/kb/supported-characters",
     
     "relUrl": "/kb/supported-characters"
-  },"1549": {
+  },"1569": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "On this page",
     "content": ". | Recommendations . | Container images should be deployed from trusted registries only | . | . This document covers Microsoft Defender for Cloud advisories that you may face when installing the CluedIn MDM PaaS variant of the product into your environemnt. It will explain what each advisory means and how to potentially resolve the issue. If the advisory is not listed below, please do reach out to support@cluedin.com who will be able to advise further. ",
     "url": "/kb/defender-for-cloud-recommendations#on-this-page",
     
     "relUrl": "/kb/defender-for-cloud-recommendations#on-this-page"
-  },"1550": {
+  },"1570": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "Recommendations",
     "content": "Container images should be deployed from trusted registries only . The default security policies that are set on Microsoft Defender for Cloud can be quite bare when it comes out of the box. As a result, this particular recommendation gets flagged frequently as a high risk. The CluedIn installation installs an Azure Kubernetes Service (AKS) cluster which pulls images from cluedinprod.azurecr.io with an authorization token. Because cluedinprod.azurecr.io is external to your environment, it gets flagged by this recommendation when using default baseline advisories. Solution . To resolve this issue, please amend the recommendation under remediation steps and add a regex string that can accomodate the CluedIn registry. An example is: ^cluedinprod\\.azurecr\\.io.*$. This will affect all AKS clusters. If you have additional AKS clusters which are for internal services or other products, you may want to use a more loosely defined regex string that can accommodate both CluedIn and other third-party registries. ",
     "url": "/kb/defender-for-cloud-recommendations#recommendations",
     
     "relUrl": "/kb/defender-for-cloud-recommendations#recommendations"
-  },"1551": {
+  },"1571": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "Microsoft Defender for Cloud recommendations",
     "content": " ",
     "url": "/kb/defender-for-cloud-recommendations",
     
     "relUrl": "/kb/defender-for-cloud-recommendations"
-  },"1552": {
+  },"1572": {
     "doc": "CluedIn Security - [NOT impacted] Ingress NGINX Controller vulnerabilities",
     "title": "CluedIn Security - [NOT impacted] Ingress NGINX Controller vulnerabilities",
     "content": "Wiz Research recently disclosed a series of critical unauthenticated Remote Code Execution (RCE) vulnerabilities affecting the Ingress NGINX Controller in Kubernetes (CVE-2025-1097, CVE-2025-1098, CVE-2025-24514, and CVE-2025-1974), collectively known as IngressNightmare. These vulnerabilities could allow attackers to execute arbitrary code and gain unauthorized access to Kubernetes secrets across namespaces. More information can be found in Infosecurity Magazine and The Hacker News. CluedIn is not impacted by these vulnerabilities, as we do not use NGINX as our ingress controller. Instead, CluedIn relies on HAProxy, which is not affected by these issues. If you have deployed CluedIn using our standard setup, you are not impacted. However, customers who have modified their ingress setup outside of our recommended configuration should verify their infrastructure and apply any necessary security updates. Our security team continuously monitors emerging threats and ensures our platform remains secure. If you have any questions, please contact our support team at support@cluedin.com. ",
