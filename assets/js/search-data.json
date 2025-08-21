@@ -10765,55 +10765,104 @@
     
     "relUrl": "/kb/faq"
   },"1538": {
+    "doc": "Slow Performance",
+    "title": "CluedIn Is Processing Slowly and Feels Slow in General",
+    "content": "CluedIn is designed to process large volumes of data at scale, but in some cases you may notice that the platform feels “slow” — whether that’s during ingestion, rule execution, data linking, or even while navigating the user interface. This article explains the typical reasons why CluedIn might perform slowly, how to troubleshoot performance bottlenecks, and best practices to keep your environment running efficiently. ",
+    "url": "/kb/slow#cluedin-is-processing-slowly-and-feels-slow-in-general",
+    
+    "relUrl": "/kb/slow#cluedin-is-processing-slowly-and-feels-slow-in-general"
+  },"1539": {
+    "doc": "Slow Performance",
+    "title": "What Does “Slow” Mean?",
+    "content": "Performance issues in CluedIn can show up in different ways: . | Ingestion Lag: New data takes longer than expected to appear in the platform. | Rule Processing Delays: Rules take longer to apply or complete. | Entity Linking/Matching: Deduplication or linking jobs run slowly. | Export Latency: Exports to downstream systems take longer to complete. | UI Responsiveness: The CluedIn portal feels sluggish when navigating or opening dashboards. | . Identifying which area feels slow is the first step to diagnosing the cause. ",
+    "url": "/kb/slow#what-does-slow-mean",
+    
+    "relUrl": "/kb/slow#what-does-slow-mean"
+  },"1540": {
+    "doc": "Slow Performance",
+    "title": "Common Causes of Performance Issues",
+    "content": "1. High Data Volumes . | Symptom: Processing slows as more records are ingested. | Explanation: Larger datasets mean more work for ingestion, matching, and rules engines. | Fix: Scale your CluedIn environment to handle growth; consider batching ingestion jobs. | . 2. Complex or Excessive Rules . | Symptom: Rules engine takes a long time to run. | Explanation: Multiple active rules or complex regex conditions can increase evaluation overhead. | Fix: Review active rules, simplify logic, and disable rules that are not essential. | . 3. Resource Constraints . | Symptom: The whole platform (processing + UI) feels sluggish. | Explanation: The CluedIn instance does not have enough CPU, memory, or storage IOPS to handle workload. | Fix: . | Run CluedIn on dedicated infrastructure, not a shared environment. | Scale up VM/container resources. | Monitor system utilization to detect bottlenecks. | . | . 4. Network or Connectivity Issues . | Symptom: Ingestion from external sources and exports to downstream systems are slow. | Explanation: Latency or instability in network connections to source/target systems slows down jobs. | Fix: Ensure stable, high-bandwidth connections between CluedIn and data sources/destinations. | . 5. Inefficient Matching Configurations . | Symptom: Linking and deduplication jobs are disproportionately slow. | Explanation: Overly broad or poorly tuned match rules increase the number of comparisons per entity. | Fix: Optimize matching rules to focus on the most reliable identifiers. | . 6. Running Heavy Jobs on Underpowered Machines . | Symptom: Toolkit exports/imports or processing jobs time out. | Explanation: Running CluedIn utilities (e.g., Product Toolkit) on personal laptops or small VMs can cause slowness. | Fix: Use dedicated servers or cloud VMs with sufficient resources for large-scale jobs. | . 7. Competing Workloads . | Symptom: Performance degrades when multiple ingestion, rules, and export jobs run in parallel. | Explanation: Shared resources are consumed by concurrent jobs. | Fix: Schedule heavy workloads during off-peak hours or stagger job execution. | . ",
+    "url": "/kb/slow#common-causes-of-performance-issues",
+    
+    "relUrl": "/kb/slow#common-causes-of-performance-issues"
+  },"1541": {
+    "doc": "Slow Performance",
+    "title": "Troubleshooting Checklist",
+    "content": ". | Identify Where It’s Slow . | Is it ingestion, rule execution, linking, exporting, or UI? | . | Check Logs &amp; Dashboards . | Review processing logs for errors or bottlenecks. | Check dashboards for job status and queue lengths. | . | Monitor System Resources . | CPU, memory, and disk usage should be reviewed on the CluedIn host. | . | Audit Rules &amp; Match Configurations . | Disable unnecessary rules. | Simplify complex logic. | Refine match rules. | . | Test Environment Sizing . | Compare resource allocation (CPU/RAM/storage) to recommended CluedIn sizing guidelines. | Scale up if needed. | . | Check Network Performance . | Ensure data source/destination connectivity is reliable and performant. | . | Try Smaller Batches . | Re-run ingestion or exports on smaller subsets to isolate scaling issues. | . | . ",
+    "url": "/kb/slow#troubleshooting-checklist",
+    
+    "relUrl": "/kb/slow#troubleshooting-checklist"
+  },"1542": {
+    "doc": "Slow Performance",
+    "title": "Best Practices to Maintain Good Performance",
+    "content": ". | Run CluedIn on Dedicated Infrastructure: Avoid running on shared or undersized machines. | Scale with Data Growth: Allocate more resources as your dataset grows. | Schedule Heavy Jobs Strategically: Run big exports/imports or reprocessing during quiet hours. | Regularly Audit Rules: Keep only the Rules that add value; retire unused ones. | Optimize Matching Configurations: Focus on the most discriminating identifiers. | Monitor Continuously: Use system and CluedIn logs/dashboards to stay ahead of bottlenecks. | . ",
+    "url": "/kb/slow#best-practices-to-maintain-good-performance",
+    
+    "relUrl": "/kb/slow#best-practices-to-maintain-good-performance"
+  },"1543": {
+    "doc": "Slow Performance",
+    "title": "Summary",
+    "content": "When CluedIn feels slow, it is usually due to large data volumes, complex rules, insufficient resources, or network constraints. By identifying where the slowness occurs, monitoring resources, and following optimization best practices, you can significantly improve performance. If slowness persists even after optimization, collect logs and environment metrics and contact CluedIn Support for further assistance. ",
+    "url": "/kb/slow#summary",
+    
+    "relUrl": "/kb/slow#summary"
+  },"1544": {
+    "doc": "Slow Performance",
+    "title": "Slow Performance",
+    "content": " ",
+    "url": "/kb/slow",
+    
+    "relUrl": "/kb/slow"
+  },"1545": {
     "doc": "Supported and unsupported characters",
     "title": "On this page",
     "content": ". | Supported characters | Unsupported characters | . In this article, you’ll find reference information about supported and unsupported characters in clues and entities. If your data contains unsupported characters, remove them before submitting data to CluedIn. ",
     "url": "/kb/supported-characters#on-this-page",
     
     "relUrl": "/kb/supported-characters#on-this-page"
-  },"1539": {
+  },"1546": {
     "doc": "Supported and unsupported characters",
     "title": "Supported characters",
     "content": "All valid Unicode characters are supported. Exceptions include Unicode surrogate blocks, 0xFFFE, and 0xFFFF. Characters: 0x9, 0xA, 0xD, Character Range: 0x20-0xD7FF Character Range: 0xE000-0xFFFD Character Range: 0x10000-0x10FFFF . Unicode control characters or undefined Unicode characters should not be used but are supported. These are within the following character ranges. 0x7F-0x84 0x86-0x9F 0xFDD0-0xFDEF 0x1FFFE-0x1FFFF 0x2FFFE-0x2FFFF 0x3FFFE-0x3FFFF 0x4FFFE-0x4FFFF 0x5FFFE-0x5FFFF 0x6FFFE-0x6FFFF 0x7FFFE-0x7FFFF 0x8FFFE-0x8FFFF 0x9FFFE-0x9FFFF 0xAFFFE-0xAFFFF 0xBFFFE-0xBFFFF 0xCFFFE-0xCFFFF 0xDFFFE-0xDFFFF 0xEFFFE-0xEFFFF 0xFFFFE-0xFFFFF 0x10FFFE-0x10FFFF . ",
     "url": "/kb/supported-characters#supported-characters",
     
     "relUrl": "/kb/supported-characters#supported-characters"
-  },"1540": {
+  },"1547": {
     "doc": "Supported and unsupported characters",
     "title": "Unsupported characters",
     "content": "ASCI control characters are not supported. Exceptions include 0x9, 0xA, and 0xD, which are valid characters. | Character range 0x-0x1F is not supported. | Character 0x7F is technically supported but should not be used. | Unicode surrogate blocks are not supported. | 0xFFFE and 0xFFFF are not supported. | . ",
     "url": "/kb/supported-characters#unsupported-characters",
     
     "relUrl": "/kb/supported-characters#unsupported-characters"
-  },"1541": {
+  },"1548": {
     "doc": "Supported and unsupported characters",
     "title": "Supported and unsupported characters",
     "content": " ",
     "url": "/kb/supported-characters",
     
     "relUrl": "/kb/supported-characters"
-  },"1542": {
+  },"1549": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "On this page",
     "content": ". | Recommendations . | Container images should be deployed from trusted registries only | . | . This document covers Microsoft Defender for Cloud advisories that you may face when installing the CluedIn MDM PaaS variant of the product into your environemnt. It will explain what each advisory means and how to potentially resolve the issue. If the advisory is not listed below, please do reach out to support@cluedin.com who will be able to advise further. ",
     "url": "/kb/defender-for-cloud-recommendations#on-this-page",
     
     "relUrl": "/kb/defender-for-cloud-recommendations#on-this-page"
-  },"1543": {
+  },"1550": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "Recommendations",
     "content": "Container images should be deployed from trusted registries only . The default security policies that are set on Microsoft Defender for Cloud can be quite bare when it comes out of the box. As a result, this particular recommendation gets flagged frequently as a high risk. The CluedIn installation installs an Azure Kubernetes Service (AKS) cluster which pulls images from cluedinprod.azurecr.io with an authorization token. Because cluedinprod.azurecr.io is external to your environment, it gets flagged by this recommendation when using default baseline advisories. Solution . To resolve this issue, please amend the recommendation under remediation steps and add a regex string that can accomodate the CluedIn registry. An example is: ^cluedinprod\\.azurecr\\.io.*$. This will affect all AKS clusters. If you have additional AKS clusters which are for internal services or other products, you may want to use a more loosely defined regex string that can accommodate both CluedIn and other third-party registries. ",
     "url": "/kb/defender-for-cloud-recommendations#recommendations",
     
     "relUrl": "/kb/defender-for-cloud-recommendations#recommendations"
-  },"1544": {
+  },"1551": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "Microsoft Defender for Cloud recommendations",
     "content": " ",
     "url": "/kb/defender-for-cloud-recommendations",
     
     "relUrl": "/kb/defender-for-cloud-recommendations"
-  },"1545": {
+  },"1552": {
     "doc": "CluedIn Security - [NOT impacted] Ingress NGINX Controller vulnerabilities",
     "title": "CluedIn Security - [NOT impacted] Ingress NGINX Controller vulnerabilities",
     "content": "Wiz Research recently disclosed a series of critical unauthenticated Remote Code Execution (RCE) vulnerabilities affecting the Ingress NGINX Controller in Kubernetes (CVE-2025-1097, CVE-2025-1098, CVE-2025-24514, and CVE-2025-1974), collectively known as IngressNightmare. These vulnerabilities could allow attackers to execute arbitrary code and gain unauthorized access to Kubernetes secrets across namespaces. More information can be found in Infosecurity Magazine and The Hacker News. CluedIn is not impacted by these vulnerabilities, as we do not use NGINX as our ingress controller. Instead, CluedIn relies on HAProxy, which is not affected by these issues. If you have deployed CluedIn using our standard setup, you are not impacted. However, customers who have modified their ingress setup outside of our recommended configuration should verify their infrastructure and apply any necessary security updates. Our security team continuously monitors emerging threats and ensures our platform remains secure. If you have any questions, please contact our support team at support@cluedin.com. ",
