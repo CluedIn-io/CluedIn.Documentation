@@ -7951,68 +7951,68 @@
     
     "relUrl": "/microsoft-integration/purview/sync-processing-rules-to-purview"
   },"1136": {
-    "doc": "How to tag records with data quality issues",
+    "doc": "Working with Tags on Golden Records and Data Parts",
     "title": "Working with Tags in Golden Record and Data Part Rules",
     "content": "Tags in CluedIn allow you to add metadata labels to records that can drive automation, filtering, and reporting. When used together with Golden Record Rules and Data Part Rules, tags become a powerful way to classify, prioritize, and enrich your data lifecycle. ",
-    "url": "/kb/how-to-tag-records-with-data-quality-issues#working-with-tags-in-golden-record-and-data-part-rules",
+    "url": "/kb/how-to-use-tags-with-golden-records-and-data-parts#working-with-tags-in-golden-record-and-data-part-rules",
     
-    "relUrl": "/kb/how-to-tag-records-with-data-quality-issues#working-with-tags-in-golden-record-and-data-part-rules"
+    "relUrl": "/kb/how-to-use-tags-with-golden-records-and-data-parts#working-with-tags-in-golden-record-and-data-part-rules"
   },"1137": {
-    "doc": "How to tag records with data quality issues",
+    "doc": "Working with Tags on Golden Records and Data Parts",
     "title": "What Are Tags?",
     "content": ". | Tags are labels you can attach to entities, golden records, or data parts. | They provide contextual information (e.g., VIP Customer, DoNotContact, HighRisk). | Tags can be added automatically by Rules or manually by data stewards. | Tags are non-destructive – they don’t overwrite existing values but enrich records with extra classification. | . ",
-    "url": "/kb/how-to-tag-records-with-data-quality-issues#what-are-tags",
+    "url": "/kb/how-to-use-tags-with-golden-records-and-data-parts#what-are-tags",
     
-    "relUrl": "/kb/how-to-tag-records-with-data-quality-issues#what-are-tags"
+    "relUrl": "/kb/how-to-use-tags-with-golden-records-and-data-parts#what-are-tags"
   },"1138": {
-    "doc": "How to tag records with data quality issues",
+    "doc": "Working with Tags on Golden Records and Data Parts",
     "title": "Why Use Tags with Rules?",
     "content": ". | Golden Record Rules: Apply tags to identify or categorize the final, trusted version of a record. Example: Mark customers who pass validation as Verified. | Data Part Rules: Apply tags at the data part (source record) level to flag issues or classify records before they are merged. Example: Tag data from a specific system as LegacySource. | . Benefits: . | Drive workflow automation (e.g., escalate tagged entities to specific teams). | Improve search and filtering in the CluedIn portal. | Support compliance and governance (e.g., tag PII records). | Provide visibility into how records are sourced and resolved. | . ",
-    "url": "/kb/how-to-tag-records-with-data-quality-issues#why-use-tags-with-rules",
+    "url": "/kb/how-to-use-tags-with-golden-records-and-data-parts#why-use-tags-with-rules",
     
-    "relUrl": "/kb/how-to-tag-records-with-data-quality-issues#why-use-tags-with-rules"
+    "relUrl": "/kb/how-to-use-tags-with-golden-records-and-data-parts#why-use-tags-with-rules"
   },"1139": {
-    "doc": "How to tag records with data quality issues",
+    "doc": "Working with Tags on Golden Records and Data Parts",
     "title": "How to Work with Tags in Golden Record Rules",
     "content": "Step 1: Navigate to Rules . | Log in to the CluedIn Portal. | Go to Governance &gt; Rules. | Choose Golden Record Rules. | . Step 2: Create or Edit a Rule . | Click New Rule or select an existing Golden Record Rule to edit. | . Step 3: Define Conditions . | Configure the conditions that determine when a record should be tagged. | Example: If Customer.Spend &gt; 10000, then apply tag HighValue. | . Step 4: Add Tag Action . | In the Actions section, choose Add Tag. | Enter one or more tags to apply (e.g., VIP, PrioritySupport). | . Step 5: Save &amp; Activate . | Save the Rule and publish it. | Once active, matching golden records will automatically be tagged. | . ",
-    "url": "/kb/how-to-tag-records-with-data-quality-issues#how-to-work-with-tags-in-golden-record-rules",
+    "url": "/kb/how-to-use-tags-with-golden-records-and-data-parts#how-to-work-with-tags-in-golden-record-rules",
     
-    "relUrl": "/kb/how-to-tag-records-with-data-quality-issues#how-to-work-with-tags-in-golden-record-rules"
+    "relUrl": "/kb/how-to-use-tags-with-golden-records-and-data-parts#how-to-work-with-tags-in-golden-record-rules"
   },"1140": {
-    "doc": "How to tag records with data quality issues",
+    "doc": "Working with Tags on Golden Records and Data Parts",
     "title": "How to Work with Tags in Data Part Rules",
     "content": "Step 1: Navigate to Rules . | In the CluedIn Portal, go to Governance &gt; Rules. | Choose Data Part Rules. | . Step 2: Create or Edit a Rule . | Click New Rule or edit an existing Data Part Rule. | . Step 3: Define Conditions . | Set up conditions to identify specific source records. | Example: If SourceSystem = LegacyCRM, then apply tag LegacySource. | . Step 4: Add Tag Action . | In the Actions section, choose Add Tag. | Apply tags such as NeedsValidation, LowConfidence, or HighRisk. | . Step 5: Save &amp; Activate . | Save and publish the Rule. | Tags will now apply to data parts that meet your conditions. | . ",
-    "url": "/kb/how-to-tag-records-with-data-quality-issues#how-to-work-with-tags-in-data-part-rules",
+    "url": "/kb/how-to-use-tags-with-golden-records-and-data-parts#how-to-work-with-tags-in-data-part-rules",
     
-    "relUrl": "/kb/how-to-tag-records-with-data-quality-issues#how-to-work-with-tags-in-data-part-rules"
+    "relUrl": "/kb/how-to-use-tags-with-golden-records-and-data-parts#how-to-work-with-tags-in-data-part-rules"
   },"1141": {
-    "doc": "How to tag records with data quality issues",
+    "doc": "Working with Tags on Golden Records and Data Parts",
     "title": "Best Practices for Using Tags",
     "content": ". | Use Clear Naming Conventions: Keep tag names short, consistent, and meaningful (e.g., HighValueCustomer, not customer_high_value_flag). | Automate Where Possible: Use Rules to apply tags automatically rather than relying on manual tagging. | Leverage Tags in Search &amp; Filters: Use the portal’s search filters to find records with specific tags. | Combine with Workflows: Route tagged records into downstream workflows (e.g., send DoNotContact to marketing suppression lists). | Audit Regularly: Review tag usage periodically to ensure consistency and remove obsolete tags. | . ",
-    "url": "/kb/how-to-tag-records-with-data-quality-issues#best-practices-for-using-tags",
+    "url": "/kb/how-to-use-tags-with-golden-records-and-data-parts#best-practices-for-using-tags",
     
-    "relUrl": "/kb/how-to-tag-records-with-data-quality-issues#best-practices-for-using-tags"
+    "relUrl": "/kb/how-to-use-tags-with-golden-records-and-data-parts#best-practices-for-using-tags"
   },"1142": {
-    "doc": "How to tag records with data quality issues",
+    "doc": "Working with Tags on Golden Records and Data Parts",
     "title": "Common Use Cases",
     "content": ". | Tagging VIP customers in Golden Record Rules for reporting. | Flagging low-confidence data parts for stewardship review. | Marking legacy system records during migration projects. | Adding compliance-related tags like ContainsPII. | Tagging products as Discontinued for downstream systems. | . ",
-    "url": "/kb/how-to-tag-records-with-data-quality-issues#common-use-cases",
+    "url": "/kb/how-to-use-tags-with-golden-records-and-data-parts#common-use-cases",
     
-    "relUrl": "/kb/how-to-tag-records-with-data-quality-issues#common-use-cases"
+    "relUrl": "/kb/how-to-use-tags-with-golden-records-and-data-parts#common-use-cases"
   },"1143": {
-    "doc": "How to tag records with data quality issues",
+    "doc": "Working with Tags on Golden Records and Data Parts",
     "title": "Summary",
     "content": "Tags in CluedIn provide an effective way to enrich, classify, and control data across Golden Records and Data Parts. By combining Tags with Rules, you can ensure that important metadata is applied consistently, driving better governance, compliance, and automation. ",
-    "url": "/kb/how-to-tag-records-with-data-quality-issues#summary",
+    "url": "/kb/how-to-use-tags-with-golden-records-and-data-parts#summary",
     
-    "relUrl": "/kb/how-to-tag-records-with-data-quality-issues#summary"
+    "relUrl": "/kb/how-to-use-tags-with-golden-records-and-data-parts#summary"
   },"1144": {
-    "doc": "How to tag records with data quality issues",
-    "title": "How to tag records with data quality issues",
+    "doc": "Working with Tags on Golden Records and Data Parts",
+    "title": "Working with Tags on Golden Records and Data Parts",
     "content": " ",
-    "url": "/kb/how-to-tag-records-with-data-quality-issues",
+    "url": "/kb/how-to-use-tags-with-golden-records-and-data-parts",
     
-    "relUrl": "/kb/how-to-tag-records-with-data-quality-issues"
+    "relUrl": "/kb/how-to-use-tags-with-golden-records-and-data-parts"
   },"1145": {
     "doc": "Azure Data Factory Integration",
     "title": "Azure Data Factory Integration",
