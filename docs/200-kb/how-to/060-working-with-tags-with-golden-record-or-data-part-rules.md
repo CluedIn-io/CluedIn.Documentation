@@ -1,8 +1,8 @@
 ---
 layout: cluedin
-title: How to tag records with data quality issues
+title: Working with Tags on Golden Records and Data Parts
 parent: Knowledge base
-permalink: /kb/how-to-tag-records-with-data-quality-issues
+permalink: /kb/how-to-use-tags-with-golden-records-and-data-parts
 nav_order: 2
 ---
 
