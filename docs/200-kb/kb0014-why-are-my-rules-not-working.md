@@ -5,7 +5,6 @@ parent: Knowledge base
 permalink: /kb/rules-not-working
 tags: ["Rules", "Debug"]
 nav_order: 15
-published: false
 ---
 
 # Why Are My CluedIn Rules Not Working as Expected?

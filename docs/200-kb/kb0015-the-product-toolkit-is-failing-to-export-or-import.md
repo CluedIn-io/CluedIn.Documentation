@@ -5,7 +5,6 @@ parent: Knowledge base
 permalink: /kb/product-toolkit-issues
 tags: ["Environment", "Deployment"]
 nav_order: 16
-published: false
 ---
 
 # Troubleshooting: The Product Toolkit Is Failing to Export or Import

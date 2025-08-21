@@ -5,7 +5,6 @@ parent: Knowledge base
 permalink: /kb/rules-slow
 tags: ["Rules", "Performance"]
 nav_order: 14
-published: false
 ---
 
 # Why Are My Rules Processing Slowly in CluedIn?

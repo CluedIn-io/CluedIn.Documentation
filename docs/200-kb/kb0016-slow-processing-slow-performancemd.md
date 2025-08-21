@@ -5,7 +5,6 @@ parent: Knowledge base
 permalink: /kb/slow
 tags: ["Rules", "Performance"]
 nav_order: 17
-published: true
 ---
 
 # CluedIn Is Processing Slowly and Feels Slow in General
