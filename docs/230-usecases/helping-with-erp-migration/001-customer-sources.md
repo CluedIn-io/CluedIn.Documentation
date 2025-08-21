@@ -2,8 +2,9 @@
 layout: cluedin
 title: ERP Migration
 nav_order: 180
-has_children: true
+has_children: false
 permalink: /erp-migration
+parent: Use Cases Summary
 ---
 
 # ERP Migration in CluedIn — Step-by-Step Implementation Guide

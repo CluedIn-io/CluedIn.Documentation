@@ -2,8 +2,9 @@
 layout: cluedin
 title: Implement Data Quality Management
 nav_order: 180
-has_children: true
+has_children: false
 permalink: /data-quality-use-case
+parent: Use Cases Summary
 ---
 
 # Data Quality in CluedIn — Step‑by‑Step Implementation Guide

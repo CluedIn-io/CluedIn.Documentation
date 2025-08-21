@@ -2,8 +2,9 @@
 layout: cluedin
 title: Customer Acceleration Case
 nav_order: 180
-has_children: true
+has_children: false
 permalink: /customer-acceleration-case
+parent: Use Cases Summary
 ---
 
 # Customer Onboarding Acceleration in CluedIn — Step-by-Step Implementation Guide

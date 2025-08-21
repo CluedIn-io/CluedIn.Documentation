@@ -2,8 +2,9 @@
 layout: cluedin
 title: Householding Use Case
 nav_order: 180
-has_children: true
+has_children: false
 permalink: /householding
+parent: Use Cases Summary
 ---
 
 # Householding MDM in CluedIn — Step-by-Step Implementation Guide

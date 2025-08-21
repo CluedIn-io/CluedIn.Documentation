@@ -2,7 +2,8 @@
 layout: cluedin
 title: Regulatory Compliance
 nav_order: 180
-has_children: true
+has_children: false
+parent: Use Cases Summary
 permalink: /regulatory-compliance
 ---
 

@@ -2,8 +2,9 @@
 layout: cluedin
 title: Customer 360 Case
 nav_order: 180
-has_children: true
+has_children: false
 permalink: /customer360
+parent: Use Cases Summary
 ---
 
 # Customer 360 in CluedIn — Step-by-Step Implementation Guide

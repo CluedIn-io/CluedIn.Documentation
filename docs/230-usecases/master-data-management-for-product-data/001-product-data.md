@@ -2,8 +2,9 @@
 layout: cluedin
 title: Product 360
 nav_order: 180
-has_children: true
+has_children: false
 permalink: /product360
+parent: Use Cases Summary
 ---
 
 # Product 360 in CluedIn — Step-by-Step Implementation Guide

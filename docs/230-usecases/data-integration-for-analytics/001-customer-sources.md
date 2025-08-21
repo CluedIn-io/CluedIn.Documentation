@@ -2,8 +2,9 @@
 layout: cluedin
 title: Data Analytics Use Case
 nav_order: 180
-has_children: true
+has_children: false
 permalink: /data-analytics-use-case
+parent: Use Cases Summary
 ---
 
 # MDM for Data Analytics in CluedIn — Step-by-Step Implementation Guide
