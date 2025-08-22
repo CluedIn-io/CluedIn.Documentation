@@ -53,7 +53,7 @@ Welcome to the Quick Feature Tour of CluedIn. Here you’ll find short videos th
 
     <!-- Deduplication -->
     <div class="video-card">
-      <h2>Deduplication</h2>
+      <h2>Deduplicate</h2>
       <p class="subtitle">Find out how to identify and merge duplicate records into unique, trusted golden records with full control.</p>
       <div class="video-wrapper">
         <iframe src="https://player.vimeo.com/video/1109296767?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
@@ -79,6 +79,11 @@ Welcome to the Quick Feature Tour of CluedIn. Here you’ll find short videos th
         <iframe src="https://player.vimeo.com/video/1109950040?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
                 frameborder="0" allowfullscreen></iframe>
       </div>
+    </div>
+
+    <div class="video-card more-card">
+
+      <p class="more-text">And more to come...</p>
     </div>
 
   </div>
