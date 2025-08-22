@@ -271,3 +271,79 @@ body {
   background-position: right bottom;
   background-repeat: no-repeat;
 }
+
+/* Container for Quick Feature Tour page */
+.quick-tour {
+  max-width: 1200px;
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
+}
+
+.quick-tour h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+}
+
+.quick-tour .intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #555;
+}
+
+/* Grid */
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: flex-start; /* packs items to the left */
+}
+
+/* Card */
+.video-card {
+  border: 1px solid #ffffff;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 15px #0000001a;
+  border-radius: 4px;
+  padding: 1.5rem;
+  flex: 0 0 48%; /* fixed card width */
+  max-width: 500px;
+}
+
+/* Tablet and smaller (≤ 950px): 1 per row */
+@media (max-width: 950px) {
+  .video-card {
+    flex: 0 0 100%;  /* full width */
+    max-width: 100%;
+  }
+}
+
+.video-card h2 {
+  margin: 0 0 0.25rem !important;
+  font-size: 1.4rem;
+}
+
+.video-card .subtitle {
+  margin: 0 0 1rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Video iframe wrapper */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
