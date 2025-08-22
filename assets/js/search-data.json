@@ -3080,7 +3080,7 @@
     "relUrl": "/quick-feature-tour"
   },"440": {
     "doc": "Quick feature tour",
-    "title": "Deduplication",
+    "title": "Deduplicate",
     "content": "Find out how to identify and merge duplicate records into unique, trusted golden records with full control. ",
     "url": "/quick-feature-tour",
     
@@ -3095,7 +3095,7 @@
   },"442": {
     "doc": "Quick feature tour",
     "title": "Stream",
-    "content": "Learn how to set up near real-time data pipelines that automatically deliver golden records to your target systems. ",
+    "content": "Learn how to set up near real-time data pipelines that automatically deliver golden records to your target systems. And more to come... ",
     "url": "/quick-feature-tour",
     
     "relUrl": "/quick-feature-tour"
