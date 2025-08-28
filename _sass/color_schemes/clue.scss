@@ -296,8 +296,9 @@ body {
 .video-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 24px;
   justify-content: flex-start; /* packs items to the left */
+  max-width: 1000px;
 }
 
 /* Card */
@@ -306,9 +307,15 @@ body {
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 0px 15px #0000001a;
   border-radius: 4px;
-  padding: 1.5rem;
+  padding: 24px;
   flex: 0 0 48%; /* fixed card width */
-  max-width: 500px;
+  max-width: 48%;
+}
+
+.video-card-single-row {
+  flex: 0 0 100%;  /* full width */
+  height: 240px;
+  max-width: calc(96% + 24px);
 }
 
 /* Tablet and smaller (≤ 950px): 1 per row */
