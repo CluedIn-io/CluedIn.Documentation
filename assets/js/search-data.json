@@ -11950,7 +11950,7 @@
   },"1707": {
     "doc": "Release overview",
     "title": "On this page",
-    "content": ". | Release notes . | Latest release | Previous releases | Releases of additional resources | . | Release plan for 2025 | Release process . | Release stages | Product release versioning | . | . In this article, you will find links to release notes and learn about our release process and product versioning. ",
+    "content": ". | Release notes . | Latest release | Previous releases | Releases of additional resources | . | Release plan for 2025–2026 | Release process . | Release stages | Product release versioning | . | . In this article, you will find links to release notes and learn about our release process and product versioning. ",
     "url": "/release-notes#on-this-page",
     
     "relUrl": "/release-notes#on-this-page"
@@ -11963,11 +11963,11 @@
     "relUrl": "/release-notes#release-notes"
   },"1709": {
     "doc": "Release overview",
-    "title": "Release plan for 2025",
+    "title": "Release plan for 2025–2026",
     "content": "The following table outlines the features, updates, and UX improvements we plan to implement between September 2025 and September 2026. ",
-    "url": "/release-notes#release-plan-for-2025",
+    "url": "/release-notes#release-plan-for-20252026",
     
-    "relUrl": "/release-notes#release-plan-for-2025"
+    "relUrl": "/release-notes#release-plan-for-20252026"
   },"1710": {
     "doc": "Release overview",
     "title": "Release process",
