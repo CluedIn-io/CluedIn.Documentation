@@ -54,7 +54,7 @@ This section includes links to release notes for the CluedIn platform as well as
 
 The following table outlines the features, updates, and UX improvements we plan to implement between September 2025 and September 2026.
 
-![release-plan-for-2025-2026.png]({{ "/assets/images/release/release-plan-for-2025-2026.png" | relative_url }})
+![roadmap-2025-2026.png]({{ "/assets/images/release/roadmap-2025-2026.png" | relative_url }})
 
 ## Release process
 
