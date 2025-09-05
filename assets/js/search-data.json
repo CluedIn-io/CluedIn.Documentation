@@ -3781,7 +3781,7 @@
   },"540": {
     "doc": "How to get CluedIn",
     "title": "On this page",
-    "content": ". | Onboarding path for CluedIn SaaS . | CluedIn SaaS pay-as-you-go | CluedIn SaaS committed deal | . | Onboarding path for CluedIn PaaS . | CluedIn PaaS pay-as-you-go | CluedIn PaaS committed deal | . | Next steps | . CluedIn makes doing business easy by giving you flexibility to adopt our platform at your own pace. We are offering 2 cloud models of CluedIn: . | SaaS (software as a service) – allows you to use CluedIn on a subscription basis. Instead of installing CluedIn in your own Azure IT infrastructure, you can access it in an isolated environment through a web browser. As a software provider, we are responsible for hosting, managing updates, and ensuring security. | PaaS (platform as a service) – allows you to install and manage CluedIn in your own Azure IT infrastructure, thus ensuring that your data stays in your own environment. As a software provider, we are managing updates and ensuring security. However, hosting the platform is your responsibility, giving you flexibility and control over your infrastructure while benefiting from our managed services. | . For more details about the difference between CluedIn installation options, see Installation. Where can I find information about pricing models? . | To learn about our pay-as-you pricing model, see Pricing. | To learn about our committed deal pricing model, book a meeting with our sales team representative here. | . Can I change my pricing model? . Yes, you can change your pricing model from pay-as-you-go to committed deal and vice versa. However, a change from committed deal to pay-as-you-go is governed by the terms of the contract. If you decide to change the pricing model, contact our support team by email support@cluedin.com. Can I move from SaaS to PaaS or vice versa? . Yes, but there is a migration fee for this process. If you decide to change the cloud service model, contact our support team by email support@cluedin.com. ",
+    "content": ". | Onboarding path for CluedIn SaaS . | CluedIn SaaS pay-as-you-go | CluedIn SaaS committed deal | . | Onboarding path for CluedIn PaaS . | CluedIn PaaS pay-as-you-go | CluedIn PaaS committed deal | . | Next steps | . CluedIn makes doing business easy by giving you flexibility to adopt our platform at your own pace. We are offering 2 cloud models of CluedIn: . | SaaS (software as a service) – allows you to use CluedIn on a subscription basis. Instead of installing CluedIn in your own Azure IT infrastructure, you can access it in an isolated environment through a web browser. As a software provider, we are responsible for hosting, managing updates, and ensuring security. For details about the available service levels and support options, see our CluedIn SaaS SLA. | PaaS (platform as a service) – allows you to install and manage CluedIn in your own Azure IT infrastructure, thus ensuring that your data stays in your own environment. As a software provider, we are managing updates and ensuring security. However, hosting the platform is your responsibility, giving you flexibility and control over your infrastructure while benefiting from our managed services. | . For more details about the difference between CluedIn installation options, see Installation. Where can I find information about pricing models? . | To learn about our pay-as-you pricing model, see Pricing. | To learn about our committed deal pricing model, book a meeting with our sales team representative here. | . Can I change my pricing model? . Yes, you can change your pricing model from pay-as-you-go to committed deal and vice versa. However, a change from committed deal to pay-as-you-go is governed by the terms of the contract. If you decide to change the pricing model, contact our support team by email support@cluedin.com. Can I move from SaaS to PaaS or vice versa? . Yes, but there is a migration fee for this process. If you decide to change the cloud service model, contact our support team by email support@cluedin.com. ",
     "url": "/get-cluedin#on-this-page",
     
     "relUrl": "/get-cluedin#on-this-page"
@@ -12662,510 +12662,517 @@
     
     "relUrl": "/usecases"
   },"1809": {
+    "doc": "Terms of service",
+    "title": "Terms of service",
+    "content": "Welcome to CluedIn’s Terms of Service. These terms set out the legal framework for using our platform and related services. For full details, please refer to our official Terms and Conditions. These outline your rights and responsibilities as a customer, as well as CluedIn’s commitments as a service provider. CluedIn provides a dedicated Service Level Agreement (SLA) for our SaaS customers, which specifies our commitments to service availability, uptime, and support response times. Download the CluedIn SaaS SLA . ",
+    "url": "/terms-of-service",
+    
+    "relUrl": "/terms-of-service"
+  },"1810": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "On this page",
     "content": ". | Update: CVE-2021-45046 | Neo4j . | Actions Required | . | Elasticsearch . | Actions Required | . | OpenRefine . | Actions Required | . | Related links | . On December 9th 2021 a high severity vulnerability was disclosed in the Apache Log4j2 library for all versions between 2.0-beta9 and 2.14.1. This library is used by a significant amount of Java based applications and services. At CluedIn, we build .NET and Node.js services that are not impacted by the vulnerability. However, we do utilise some third-party services that are Java based. This announcement details the usage of those services and their exposure to CVE-2021-44228. ",
     "url": "/kb/log4j#on-this-page",
     
     "relUrl": "/kb/log4j#on-this-page"
-  },"1810": {
+  },"1811": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "Update: CVE-2021-45046",
     "content": "After the intial wave of fixes an additonal issue was discovered (CVE-2021-45-46) which highlighted that in some cases the proposed fixes for CVE-2021-44228 were insufficient. In all cases, no actions are required for CluedIn services. Notably Elasticsearch may have false positives, however Elastic reccomends the same changes as for the orginal CVE. Therefore, there are no additonal requirments for fixes with CluedIn. ",
     "url": "/kb/log4j#update-cve-2021-45046",
     
     "relUrl": "/kb/log4j#update-cve-2021-45046"
-  },"1811": {
+  },"1812": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "Neo4j",
     "content": "All versions of CluedIn use the 3.5.x (currently 3.5.29) version of the community edition of Neo4j or an earlier version. As identified in the Neo4j repository, versions prior to 4.2 used a custom logging framework and are not affected by the vulnerability. Additionally – Neo4j is not exposed to the public internet so user crafted requests that could expose the vulnerability cannot be targeted to the service. Actions Required . No action is required for the current nor any previous version of CluedIn. ",
     "url": "/kb/log4j#neo4j",
     
     "relUrl": "/kb/log4j#neo4j"
-  },"1812": {
+  },"1813": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "Elasticsearch",
     "content": "CluedIn 3.1.0-3.2.5 uses the 7.8.0 version of Elasticsearch. As identified by Elastic, Elasticsearch version 7.8+ running on JDK9+ are not susceptible. CluedIn 3.0.0 uses 7.6.2 and will require setting a JVM option to prevent exposure. Additionally – Elasticsearch is not exposed to the public internet so user crafted requests that could expose the vulnerability cannot be targeted to the service. Actions Required . CluedIn Version 3.0.0 . • In your values.yml set the following . elasticsearch: esJavaOpts: “-Dlog4j2.formatMsgNoLookups=true” . • Perform a helm upgrade with the new values.yml . No action is required for version 3.1+ of CluedIn. ",
     "url": "/kb/log4j#elasticsearch",
     
     "relUrl": "/kb/log4j#elasticsearch"
-  },"1813": {
+  },"1814": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "OpenRefine",
     "content": "CluedIn 3.2.2-3.2.5 uses the 3.4.1 version of OpenRefine. OpenRefine uses version 1.x of Log4j which does not contain the features which enable exposure to the vulnerability. All earlier versions of CluedIn use the 3.1 version of OpenRefine. Again, version 1.x of Log4j is used, which does not contain the features which enable exposure to the vulnerability. Actions Required . No action is required. ",
     "url": "/kb/log4j#openrefine",
     
     "relUrl": "/kb/log4j#openrefine"
-  },"1814": {
+  },"1815": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "Related links",
     "content": ". | https://www.randori.com/blog/cve-2021-44228/ | https://github.com/mubix/CVE-2021-44228-Log4Shell-Hashes | https://msrc-blog.microsoft.com/2021/12/11/microsofts-response-to-cve-2021-44228-apache-log4j2/ | https://www.synopsys.com/blogs/software-security/zero-day-exploit-log4j-analysis/ | https://blog.sonatype.com/a-new-0-day-log4j-vulnerability-discovered-in-the-wild | https://securelist.com/cve-2021-44228-vulnerability-in-apache-log4j-library/105210/ | https://nvd.nist.gov/vuln/detail/CVE-2021-44228 | https://blog.cloudflare.com/inside-the-log4j2-vulnerability-cve-2021-44228/ | https://github.com/neo4j-graphql/neo4j-graphql-java/issues/260 | https://github.com/neo4j/neo4j/issues/12796 | https://www.elastic.co/blog/detecting-log4j2-with-elastic-security | https://discuss.elastic.co/t/apache-log4j2-remote-code-execution-rce-vulnerability-cve-2021-44228-esa-2021-31/291476 | https://blog.cloudflare.com/cve-2021-44228-log4j-rce-0-day-mitigation/ | . ",
     "url": "/kb/log4j#related-links",
     
     "relUrl": "/kb/log4j#related-links"
-  },"1815": {
+  },"1816": {
     "doc": "CluedIn Security - Log4j2 CVE-2021-44228",
     "title": "CluedIn Security - Log4j2 CVE-2021-44228",
     "content": " ",
     "url": "/kb/log4j",
     
     "relUrl": "/kb/log4j"
-  },"1816": {
+  },"1817": {
     "doc": "Frequently asked questions",
     "title": "On this page",
     "content": ". | What happens if I change the default configuration installed using the Azure Marketplace offering? | What is different between CluedIn and other data integration platforms? | What happens with the data ingested that is terrible quality, has non-allowed values, or is noise or mess? | What do you do about sensitive and personal data? | If CluedIn has four different databases, all storing my raw data - isn’t that going to be a lot of storage? | Once the data is in CluedIn, how do I get it out? | Considering that CluedIn uses OTS databases (off-the-shelf), can I access data directly from there? | When CluedIn says it has prebuilt integrations, what about when we have customized our system so much? | If CluedIn is connecting the data for us, won’t that end up in a data model that is a mess? | The Admin screen of CluedIn is great, but I want to automate things! How do I do this? | I have made a change in CluedIn that requires me to re-process all the data. What do I do? | Does CluedIn index everything? | With four databases, how does CluedIn guarantee transactions? | Why is CluedIn written in C#? Isn’t that slow? | I am not a C# developer. Does that mean I can’t extend CluedIn? | What type of data is CluedIn not suited for? | . ",
     "url": "/kb/faq#on-this-page",
     
     "relUrl": "/kb/faq#on-this-page"
-  },"1817": {
+  },"1818": {
     "doc": "Frequently asked questions",
     "title": "What happens if I change the default configuration installed using the Azure Marketplace offering?",
     "content": "Any modifications made to the default configuration, except those explicitly documented as post-install adjustments on the Documentation portal, will result in the termination of support. This includes Premium Support, Azure Managed Application, and any other customer support service. The reason for this is the high probability that the cluster may not operate correctly. Changes outside the documented scope are considered out of support, and CluedIn will not provide assistance or troubleshooting for configurations that deviate from the originally installed setup. Here is a list of allowed changes: . | Adjusting requests and limits on CluedIn operating pods for both CPU and Memory | Setting up and receiving assistance with the CluedIn Backup Solution | Configuring Single Sign-On | Setting up SMTP details for Welcome Emails | Configuring Extended alerts via CluedIn (Note: CluedIn-specific alerts only, not customer-specific alerts) | Troubleshooting ad-hoc cluster failures, if determined not to be caused by the customer | Upgrading environments | Installing the product using our default configuration | Usage of Azure Key Vault to provide secrets to the cluster | General AKS maintenance on the default configuration | . Any deviation from this list will be considered out of support, and assistance for the issue is not guaranteed and may incur charges. ",
     "url": "/kb/faq#what-happens-if-i-change-the-default-configuration-installed-using-the-azure-marketplace-offering",
     
     "relUrl": "/kb/faq#what-happens-if-i-change-the-default-configuration-installed-using-the-azure-marketplace-offering"
-  },"1818": {
+  },"1819": {
     "doc": "Frequently asked questions",
     "title": "What is different between CluedIn and other data integration platforms?",
     "content": "Whether you are using SAP Data Services, Azure Data Factory, SSIS, Talend, Python, SAS Institute, Informatica PowerCenter, or other ETL-based tools, they all hold something in common - they require you as the engineer, architecture or business user to map different systems together. However, at CluedIn, we have found that the process of finding out what IDs need to be connected between systems as to unify or connect the records is actually the hardest part of the entire process - in fact, it gets to a point where it is just impossible to do. CluedIn uses a schema-less based integration pattern that doesn’t require a developer, architect, or business user to instruct our platform on how different systems connect - instead, we ask for a much simpler and streamlined mapping, and CluedIn will do all the work to find the relationships between the systems. As a result, we will often find connections that you could never see yourself. ",
     "url": "/kb/faq#what-is-different-between-cluedin-and-other-data-integration-platforms",
     
     "relUrl": "/kb/faq#what-is-different-between-cluedin-and-other-data-integration-platforms"
-  },"1819": {
+  },"1820": {
     "doc": "Frequently asked questions",
     "title": "What happens with the data ingested that is terrible quality, has non-allowed values, or is noise or mess?",
     "content": "CluedIn is an ELT type of integration platform where we want to take the data in as it is. No transforms. No cleaning. Nothing. That is our job! Insufficient quality data will happen all the time, and hence this is one of the big reasons enterprise companies take so long to get access to ready-to-use data. There are so many places in CluedIn that will catch and distribute the work involved in fixing and addressing the data quality issues that stream through the CluedIn processing engine. Firstly, it starts with CluedIn having many prebuilt processing steps to automatically clean and normalize data into the highest-fidelity format. Secondly, you can build up lists of “black-listed” values and either remove them or automatically transform them into another value on processing. Finally, you can set up rules that dictate good versus wrong values. It means that data keeps flowing for data that meet the standards - CluedIn will put everything else into a quarantine section for you to resolve so that less and fewer data has issues. ",
     "url": "/kb/faq#what-happens-with-the-data-ingested-that-is-terrible-quality-has-non-allowed-values-or-is-noise-or-mess",
     
     "relUrl": "/kb/faq#what-happens-with-the-data-ingested-that-is-terrible-quality-has-non-allowed-values-or-is-noise-or-mess"
-  },"1820": {
+  },"1821": {
     "doc": "Frequently asked questions",
     "title": "What do you do about sensitive and personal data?",
     "content": "CluedIn will natively detect personal data and will start by simply letting you know where it is. Then, depending on your requirements, we allow simple actions to either mask, anonymize or remove the data. As for sensitive data, this is often open to interpretation. What is sensitive for you might not be for another business, and hence CluedIn allows you to flag records as sensitive. This will build up a data model specifically for your account that will be trained to look for records with similar traits and flag them automatically over time. ",
     "url": "/kb/faq#what-do-you-do-about-sensitive-and-personal-data",
     
     "relUrl": "/kb/faq#what-do-you-do-about-sensitive-and-personal-data"
-  },"1821": {
+  },"1822": {
     "doc": "Frequently asked questions",
     "title": "If CluedIn has four different databases, all storing my raw data - isn’t that going to be a lot of storage?",
     "content": "The first thing to answer here is that you have complete control over what data you ingest into CluedIn. There are many cases where you will not want to bring in all the data. For the data that we do ingest, it is also worth mentioning that for certain types of data, we are not taking a full copy of the data but rather extracting what we need e.g., files only extract content and metadata. CluedIn also compresses all the data stored in the databases, meaning that the storage size is often much smaller than the source data itself. To put this in perspective, we have customers that have processed 100’s of TB’s of raw data, but in CluedIn, the databases will collectively be approximately 2 to 3 TB’s. ",
     "url": "/kb/faq#if-cluedin-has-four-different-databases-all-storing-my-raw-data---isnt-that-going-to-be-a-lot-of-storage",
     
     "relUrl": "/kb/faq#if-cluedin-has-four-different-databases-all-storing-my-raw-data---isnt-that-going-to-be-a-lot-of-storage"
-  },"1822": {
+  },"1823": {
     "doc": "Frequently asked questions",
     "title": "Once the data is in CluedIn, how do I get it out?",
     "content": "CluedIn is designed to sit in-between source and target systems, and hence it is in our interest to make it extremely easy to get the data out of us. There are two main ways that we recommend this, but ask that in production, you don’t use the CSV or File options - after all, this is typically the cause for siloed data in the first place! Firstly, our GraphQL API allows you to search through all the data in your CluedIn account and will return the results in JSON format. In addition, you can choose what properties you would like to select or project from the query to limit the data to only what you need. It is useful when you have other systems that want to “pull” data from CluedIn. Quite honestly, you won’t find many systems that support making GraphQL queries or REST queries, and hence we offer another option that we think is more suitable. Secondly, we allow you to create data streams directly out of CluedIn (Push) to a target. This target could be a SQL database, an Apache Spark stream, direct to Power BI, or your Data Warehouse’s dimension tables. ",
     "url": "/kb/faq#once-the-data-is-in-cluedin-how-do-i-get-it-out",
     
     "relUrl": "/kb/faq#once-the-data-is-in-cluedin-how-do-i-get-it-out"
-  },"1823": {
+  },"1824": {
     "doc": "Frequently asked questions",
     "title": "Considering that CluedIn uses OTS databases (off-the-shelf), can I access data directly from there?",
     "content": "We will not stop you from doing this, but we recommend that you only do this in a developer environment. If you want to talk directly to the databases, CluedIn has built you GraphQL interfaces to do this in a way that guarantees that you have remote access to only the data from your account. CluedIn ships with tools to administrate the different datastores, and hence we are influencing you to look in these datastores as a developer. The recommendation is to turn off native access to these datastores when you deploy into your production environment - in fact, by default, our Kubernetes setup has it disabled by default. ",
     "url": "/kb/faq#considering-that-cluedin-uses-ots-databases-off-the-shelf-can-i-access-data-directly-from-there",
     
     "relUrl": "/kb/faq#considering-that-cluedin-uses-ots-databases-off-the-shelf-can-i-access-data-directly-from-there"
-  },"1824": {
+  },"1825": {
     "doc": "Frequently asked questions",
     "title": "When CluedIn says it has prebuilt integrations, what about when we have customized our system so much?",
     "content": "The majority of integrations that CluedIn has been working with the assumption that you can change the underlying model of the source system. Hence, most of our integration will still require you to map the source objects into CluedIn to get the best out of your data. The integrations handle all the connection, delivery, and scheduling, paging, and sourcing of data. You, as a Data Architect, will need to map this into the Clue object. Fortunately, our data integration pattern makes this a simple task, and unlike other data integration platforms, we don’t need you to tell us how everything wires together - that’s our job! . ",
     "url": "/kb/faq#when-cluedin-says-it-has-prebuilt-integrations-what-about-when-we-have-customized-our-system-so-much",
     
     "relUrl": "/kb/faq#when-cluedin-says-it-has-prebuilt-integrations-what-about-when-we-have-customized-our-system-so-much"
-  },"1825": {
+  },"1826": {
     "doc": "Frequently asked questions",
     "title": "If CluedIn is connecting the data for us, won’t that end up in a data model that is a mess?",
     "content": "Yes! Because guess what? Your data landscape is typically a mess! The goal of CluedIn is not to form the perfect model of your data for a particular use case - it is to find how the data is naturally connected and then allow you to project your ideal model for ANY use case you can think of. You will find that the model that we build (we use the Graph for this part) will match the model that your data finds to find links between your different systems. Then, using the same model, we give intuitive and simple-to-use tools to mutate this natural model to a more rigid model for the use cases you want in that particular model. The good news is that the Graph was designed for running these types of projects. They are as fast as an index lookup. It means that projecting a “dirty” model into a clean one is something that scales and performs really well. ",
     "url": "/kb/faq#if-cluedin-is-connecting-the-data-for-us-wont-that-end-up-in-a-data-model-that-is-a-mess",
     
     "relUrl": "/kb/faq#if-cluedin-is-connecting-the-data-for-us-wont-that-end-up-in-a-data-model-that-is-a-mess"
-  },"1826": {
+  },"1827": {
     "doc": "Frequently asked questions",
     "title": "The Admin screen of CluedIn is great, but I want to automate things! How do I do this?",
     "content": "The good news is that the native CluedIn administration screen is built on top of the same REST API that you have direct access to as well. This means that you can do everything in the REST API that you can do in the user interface (and more!). It also means that you can script anything in CluedIn via our REST API, PowerShell, or other scripting languages. ",
     "url": "/kb/faq#the-admin-screen-of-cluedin-is-great-but-i-want-to-automate-things-how-do-i-do-this",
     
     "relUrl": "/kb/faq#the-admin-screen-of-cluedin-is-great-but-i-want-to-automate-things-how-do-i-do-this"
-  },"1827": {
+  },"1828": {
     "doc": "Frequently asked questions",
     "title": "I have made a change in CluedIn that requires me to re-process all the data. What do I do?",
     "content": "It will happen many times with your CluedIn account! It is highly typical and expected. CluedIn has been designed with the idea in mind that we will re-process the data all the time. Once you have made your change, you have quite a lot of control over the level of re-processing. You can re-process at a source level, globally, record level, or even something a little more custom, e.g., business domain level. ",
     "url": "/kb/faq#i-have-made-a-change-in-cluedin-that-requires-me-to-re-process-all-the-data-what-do-i-do",
     
     "relUrl": "/kb/faq#i-have-made-a-change-in-cluedin-that-requires-me-to-re-process-all-the-data-what-do-i-do"
-  },"1828": {
+  },"1829": {
     "doc": "Frequently asked questions",
     "title": "Does CluedIn index everything?",
     "content": "Yes. Yes, we do. You can, however, influence the CluedIn engine to store data in a more optimum way. When you are setting up your Vocabularies, you have the chance to set a Vocabulary Key Data Type. It will influence how indexes are built, and we would strongly recommend doing this. Even if you do not do this, all your content will be searchable, but you can always make things faster and more efficient if you set up your Vocabularies correctly. ",
     "url": "/kb/faq#does-cluedin-index-everything",
     
     "relUrl": "/kb/faq#does-cluedin-index-everything"
-  },"1829": {
+  },"1830": {
     "doc": "Frequently asked questions",
     "title": "With four databases, how does CluedIn guarantee transactions?",
     "content": "CluedIn ingests data into an enterprise service bus. It helps us guarantee the delivery of data. CluedIn utilizes “Eventual Consistency” for the different data stores. It means that CluedIn takes all records off the bus into a transactional log. The various databases will then read off the transaction log as fast as they can. It guarantees transactional support on your data but “eventual consistency” in the different data stores. With this setup and the fact that the different datastores will consume off the log in batches, it lessens the likelihood that the database will have issues with having a 100% consistency across the datastores simultaneously. ",
     "url": "/kb/faq#with-four-databases-how-does-cluedin-guarantee-transactions",
     
     "relUrl": "/kb/faq#with-four-databases-how-does-cluedin-guarantee-transactions"
-  },"1830": {
+  },"1831": {
     "doc": "Frequently asked questions",
     "title": "Why is CluedIn written in C#? Isn’t that slow?",
     "content": "For many reasons, the team behind CluedIn purposefully chose .net core and C# as the language for our processing engine. 1: Our core development team has decades of combined experience in building large, scalable, and performant .net applications. 2: The .NET environment has jumped leaps and bounds and has continued support for Microsoft and the community. The fact that it is open-source helped in the decision as well. 3: .NET is designed to write very large applications and scale in maintaining, separation of concern, and ease of deployment. 4: .net and C# is very much not slow. Compared to the majority of popular languages today, it is very fast. Some could argue that it is not as memory-efficient, but we think that the trade-offs to deliver solutions to you faster is well worth it. ",
     "url": "/kb/faq#why-is-cluedin-written-in-c-isnt-that-slow",
     
     "relUrl": "/kb/faq#why-is-cluedin-written-in-c-isnt-that-slow"
-  },"1831": {
+  },"1832": {
     "doc": "Frequently asked questions",
     "title": "I am not a C# developer. Does that mean I can’t extend CluedIn?",
     "content": "The interfaces to communicate with CluedIn are actually HTTP, i.e. REST. Our C# layer essentially wraps this and talks REST. It means that you can actually use any language that you want to talk to CluedIn, however, there are some restrictions or limitations if you do this: . | You cannot inject custom logic into the same application domain as CluedIn. | You will have to host your custom code in another host that is not CluedIn. | You cannot currently use the crawler templates that are available only in C#. | . Let’s go with some examples for you. What if you are a Python, R, SQL, or GO developer? Let’s say you want to build a custom integration that can be added through the user interface, but the code itself is written in Python. ",
     "url": "/kb/faq#i-am-not-a-c-developer-does-that-mean-i-cant-extend-cluedin",
     
     "relUrl": "/kb/faq#i-am-not-a-c-developer-does-that-mean-i-cant-extend-cluedin"
-  },"1832": {
+  },"1833": {
     "doc": "Frequently asked questions",
     "title": "What type of data is CluedIn not suited for?",
     "content": "There are many use-cases where CluedIn could be considered overkill or not fit for purpose. There are many use-cases that do not need all of the data preparation and cleaning pieces of CluedIn. It could very much be argued that IoT data doesn’t suffer from the same problems or require the same data preparation than other data such as operation business data. Hence here is a list of use-cases or data that we don’t think is necessarily suitable for CluedIn: . 1: Processing Signal/IoT data that doesn’t have data quality issues or doesn’t need cataloging, governance - but instead needs to be made available in a Dashboard as fast as humanly possible. 2: If you have a limited number of systems to integrate and there are no problems determining how the records are connected between the different systems. A good example would be if you just wanted to integrate your Dropbox account with your CRM. 3: Where you do not want to move data. CluedIn copies data from sources to target. It won’t necessarily take all the data, but it is an ingestion engine. You have to be very careful with this use case as many problems cannot be properly solved without copying the data. ",
     "url": "/kb/faq#what-type-of-data-is-cluedin-not-suited-for",
     
     "relUrl": "/kb/faq#what-type-of-data-is-cluedin-not-suited-for"
-  },"1833": {
+  },"1834": {
     "doc": "Frequently asked questions",
     "title": "Frequently asked questions",
     "content": " ",
     "url": "/kb/faq",
     
     "relUrl": "/kb/faq"
-  },"1834": {
+  },"1835": {
     "doc": "Rules are running slowly",
     "title": "Why Are My Rules Processing Slowly in CluedIn?",
     "content": "Rules in CluedIn are a powerful way to clean, standardize, and enrich your data as it flows through the platform. They allow you to automate transformations and enforce business logic at scale. However, in some cases, you may notice that your Rules take longer than expected to process. This article explains the key factors that influence Rule performance, common reasons why execution may be slow, and steps you can take to optimize and troubleshoot. ",
     "url": "/kb/rules-slow#why-are-my-rules-processing-slowly-in-cluedin",
     
     "relUrl": "/kb/rules-slow#why-are-my-rules-processing-slowly-in-cluedin"
-  },"1835": {
+  },"1836": {
     "doc": "Rules are running slowly",
     "title": "How Rule Processing Works",
     "content": "Before diving into performance issues, it’s important to understand how Rules are executed in CluedIn: . | Trigger – A Rule is triggered when new data is ingested or when a Rule is explicitly re-run on existing data. | Evaluation – The Rule engine evaluates each record against the configured conditions. | Transformation – For matching records, the Rule applies the transformation or enrichment logic. | Propagation – Updates are written back to the affected entities and, if configured, published to downstream systems. | . The time it takes depends on the volume of records, the complexity of the logic, and the resources available in your CluedIn environment. ",
     "url": "/kb/rules-slow#how-rule-processing-works",
     
     "relUrl": "/kb/rules-slow#how-rule-processing-works"
-  },"1836": {
+  },"1837": {
     "doc": "Rules are running slowly",
     "title": "Common Reasons Rules Run Slowly",
     "content": "1. Large Data Volumes . | Symptom: Rules that work quickly on small datasets suddenly take much longer on production-scale data. | Explanation: Each Rule must scan through entities to find matches. Processing millions of records inevitably takes more time. | . Tip: Test Rules on smaller sample datasets before applying them to production. 2. Complex Rule Conditions . | Symptom: Rules with multiple conditions, regex patterns, or nested logic perform slower. | Explanation: Each additional condition increases the number of evaluations per record. Regex-based conditions are especially costly. | . Tip: Simplify Rule logic where possible. Split complex Rules into multiple smaller, focused Rules. 3. High Number of Active Rules . | Symptom: Processing slows down as more Rules are added. | Explanation: CluedIn must evaluate every active Rule against incoming records. Even if most Rules don’t apply, they still need to be checked. | . Tip: Review your Rule library and disable Rules that are not actively needed. 4. Data Distribution &amp; Entity Linking . | Symptom: Rules that depend on entity relationships (e.g., linked customers, orders, or products) take longer. | Explanation: Linking requires lookups across multiple entities. Large or poorly matched datasets increase lookup overhead. | . Tip: Ensure entity matching configurations are optimized before running Rules that depend on them. 5. Environment &amp; Resource Constraints . | Symptom: Rules slow down during periods of heavy ingestion or other intensive processing. | Explanation: The Rule engine shares compute resources with ingestion, matching, and enrichment jobs. Resource contention can delay execution. | . Tip: Schedule large Rule runs during off-peak hours or scale your CluedIn deployment to handle higher throughput. 6. Reprocessing vs. Incremental Runs . | Symptom: A Rule re-run on all historical data takes significantly longer than on new incremental data. | Explanation: Full reprocessing forces CluedIn to re-check all records, while incremental runs only apply to newly ingested or updated data. | . Tip: Use incremental runs where possible. Reserve full re-runs for cases where underlying Rule logic has changed. ",
     "url": "/kb/rules-slow#common-reasons-rules-run-slowly",
     
     "relUrl": "/kb/rules-slow#common-reasons-rules-run-slowly"
-  },"1837": {
+  },"1838": {
     "doc": "Rules are running slowly",
     "title": "How to Troubleshoot Slow Rules",
     "content": ". | Check Rule Execution Logs . | Navigate to Rules &gt; Execution History. | Look for patterns (e.g., long-running conditions, high record counts). | . | Measure Impact of Individual Rules . | Disable all Rules. | Re-enable them one by one to isolate performance bottlenecks. | . | Profile the Data . | Use Data Quality Profiling to identify large or inconsistent fields that may slow down evaluation (e.g., very long text fields, improperly formatted values). | . | Check System Resources . | Review CluedIn environment metrics (CPU, memory, queue depth). | If resource constraints are observed, consider scaling the environment. | . | Engage with CluedIn Support . | If performance is consistently poor despite optimization, raise a support ticket with logs and execution metrics. | . | . ",
     "url": "/kb/rules-slow#how-to-troubleshoot-slow-rules",
     
     "relUrl": "/kb/rules-slow#how-to-troubleshoot-slow-rules"
-  },"1838": {
+  },"1839": {
     "doc": "Rules are running slowly",
     "title": "Best Practices for Optimizing Rule Performance",
     "content": ". | Keep Rules Simple: Favor straightforward conditions over complex regex or nested logic. | Use Targeted Scopes: Apply Rules only to relevant entity types, not globally. | Batch Complex Logic: Break down large transformations into multiple smaller Rules. | Monitor &amp; Review: Regularly audit your Rules and disable ones that are no longer needed. | Test at Scale: Validate Rule performance in staging with production-like volumes. | Leverage Scheduling: Run heavy Rules during low-traffic times. | . ",
     "url": "/kb/rules-slow#best-practices-for-optimizing-rule-performance",
     
     "relUrl": "/kb/rules-slow#best-practices-for-optimizing-rule-performance"
-  },"1839": {
+  },"1840": {
     "doc": "Rules are running slowly",
     "title": "Summary",
     "content": "Rules may process slowly for a variety of reasons, most often due to large data volumes, complex conditions, or resource contention. By understanding how Rule execution works and following best practices for optimization, you can ensure that your Rules run efficiently and continue delivering value without bottlenecks. If you’ve optimized your setup and still see performance issues, contact CluedIn Support for advanced troubleshooting. ",
     "url": "/kb/rules-slow#summary",
     
     "relUrl": "/kb/rules-slow#summary"
-  },"1840": {
+  },"1841": {
     "doc": "Rules are running slowly",
     "title": "Rules are running slowly",
     "content": " ",
     "url": "/kb/rules-slow",
     
     "relUrl": "/kb/rules-slow"
-  },"1841": {
+  },"1842": {
     "doc": "Rules are not working",
     "title": "Why Are My CluedIn Rules Not Working as Expected?",
     "content": "CluedIn Rules are designed to help you automate transformations, validations, and enrichment of your data. When they don’t behave as expected, it can be frustrating and may lead to incorrect data outcomes. This article explains the most common reasons Rules may not work, how to troubleshoot them, and best practices to ensure they deliver the results you want. ",
     "url": "/kb/rules-not-working#why-are-my-cluedin-rules-not-working-as-expected",
     
     "relUrl": "/kb/rules-not-working#why-are-my-cluedin-rules-not-working-as-expected"
-  },"1842": {
+  },"1843": {
     "doc": "Rules are not working",
     "title": "Understanding How Rules Work",
     "content": "At a high level, a Rule in CluedIn consists of: . | Scope: The entities or attributes it applies to. | Conditions: The logic that determines whether the Rule applies. | Actions: The transformation or update to apply when conditions are met. | . If any of these are misconfigured, the Rule may not execute as you expect. ",
     "url": "/kb/rules-not-working#understanding-how-rules-work",
     
     "relUrl": "/kb/rules-not-working#understanding-how-rules-work"
-  },"1843": {
+  },"1844": {
     "doc": "Rules are not working",
     "title": "Common Reasons Rules Don’t Work",
     "content": "1. Incorrect Scope or Target . | Symptom: Rule never seems to run. | Cause: The Rule is applied to the wrong entity type or attribute. For example, applying a Customer Rule on Contact entities. | Fix: Double-check the entity type and field mappings in the Rule configuration. | . 2. Conditions That Never Match . | Symptom: Rule exists, but no records are updated. | Cause: Condition logic is too strict or incorrectly defined. | Example: Condition is Country = US, but data uses USA or United States. | Example: Regex pattern doesn’t align with the data format. | . | Fix: Validate the condition logic against sample data. Loosen overly strict conditions where necessary. | . 3. Action Misconfiguration . | Symptom: Rule triggers but doesn’t update fields as intended. | Cause: The action is pointing to the wrong field or uses the wrong transformation. | Fix: Review the action configuration to ensure it references the correct attributes and expected values. | . 4. Rule Execution Order . | Symptom: A Rule appears to run, but results are overridden. | Cause: Another Rule is executing afterwards and undoing or replacing the changes. | Fix: Review the Rule execution order. Consider merging related logic into a single Rule or adjusting order of operations. | . 5. Data Quality Issues . | Symptom: Rule applies inconsistently. | Cause: Input data does not match expected formats or contains null values. | Fix: Run Data Profiling to check data consistency. Create preprocessing Rules to normalize data before applying main transformations. | . 6. Rule Disabled or Not Published . | Symptom: Rule doesn’t run at all. | Cause: The Rule has been saved but not activated, or changes have not been published. | Fix: Check the Rule’s status. Ensure it is active and published. | . 7. Running Rules on the Wrong Dataset . | Symptom: Rule tests fine on samples but doesn’t work in production. | Cause: Rule is only applied on a test dataset or hasn’t been re-run on historical records. | Fix: Re-run the Rule on the correct dataset and confirm scope matches production data. | . ",
     "url": "/kb/rules-not-working#common-reasons-rules-dont-work",
     
     "relUrl": "/kb/rules-not-working#common-reasons-rules-dont-work"
-  },"1844": {
+  },"1845": {
     "doc": "Rules are not working",
     "title": "How to Troubleshoot Non-Working Rules",
     "content": ". | Check Rule Execution Logs . | Navigate to Rules &gt; Execution History. | Verify if the Rule ran, how many records matched, and whether any errors occurred. | . | Test on Sample Data . | Run the Rule against a small test dataset. | Confirm that the expected outcome occurs on a controlled set of records. | . | Validate Conditions Against Real Data . | Inspect a few sample records directly in Entity Explorer. | Confirm they satisfy the Rule conditions. | . | Review Dependencies . | Check if other Rules, enrichments, or transformations might be interfering. | . | Simplify the Rule . | Temporarily remove complex conditions. | Reintroduce them one by one until the failure point is found. | . | . ",
     "url": "/kb/rules-not-working#how-to-troubleshoot-non-working-rules",
     
     "relUrl": "/kb/rules-not-working#how-to-troubleshoot-non-working-rules"
-  },"1845": {
+  },"1846": {
     "doc": "Rules are not working",
     "title": "Best Practices to Avoid Rule Misbehavior",
     "content": ". | Be Precise with Conditions: Use clear logic that matches real data values. | Use Standardized Data: Normalize data (e.g., country codes, phone formats) before applying Rules. | Keep Rules Modular: Use smaller, focused Rules instead of one overly complex Rule. | Document Each Rule: Add descriptions so others understand what it is intended to do. | Test in Staging First: Validate new Rules on non-production data before applying broadly. | Monitor Execution: Regularly review Rule logs and dashboards for anomalies. | . ",
     "url": "/kb/rules-not-working#best-practices-to-avoid-rule-misbehavior",
     
     "relUrl": "/kb/rules-not-working#best-practices-to-avoid-rule-misbehavior"
-  },"1846": {
+  },"1847": {
     "doc": "Rules are not working",
     "title": "Summary",
     "content": "When Rules don’t work as expected in CluedIn, it is usually due to issues with scope, conditions, actions, or execution order. By systematically troubleshooting these areas and following best practices, you can ensure your Rules deliver consistent, predictable results. If you have confirmed your configuration is correct but Rules still fail to execute properly, contact CluedIn Support with execution logs and example records for further investigation. ",
     "url": "/kb/rules-not-working#summary",
     
     "relUrl": "/kb/rules-not-working#summary"
-  },"1847": {
+  },"1848": {
     "doc": "Rules are not working",
     "title": "Rules are not working",
     "content": " ",
     "url": "/kb/rules-not-working",
     
     "relUrl": "/kb/rules-not-working"
-  },"1848": {
+  },"1849": {
     "doc": "The Product Toolkit is failing to export or import",
     "title": "Troubleshooting: The Product Toolkit Is Failing to Export or Import",
     "content": "The CluedIn Product Toolkit allows you to export and import configurations such as entities, schemas, and rules between environments. This is essential for promoting changes from development to staging and production. Sometimes, you may encounter failures when running exports or imports. This article explains the most common reasons for failures, how to troubleshoot them, and best practices to ensure smooth operation. ",
     "url": "/kb/product-toolkit-issues#troubleshooting-the-product-toolkit-is-failing-to-export-or-import",
     
     "relUrl": "/kb/product-toolkit-issues#troubleshooting-the-product-toolkit-is-failing-to-export-or-import"
-  },"1849": {
+  },"1850": {
     "doc": "The Product Toolkit is failing to export or import",
     "title": "Common Reasons for Failures",
     "content": "1. Timeouts During Execution . | Symptom: Export or import jobs stall or fail with timeout errors. | Cause: Large datasets or complex configurations can exceed default timeout limits, especially if run on underpowered machines. | Fix: . | Run the Product Toolkit on a dedicated server or cloud VM, not on a personal laptop. | Ensure stable network connectivity with sufficient bandwidth. | For very large jobs, break down exports/imports into smaller, more manageable chunks. | . | . 2. Insufficient Permissions (RACI Access) . | Symptom: Export or import completes partially, or fails with “permission denied” errors. | Cause: The account running the Toolkit does not have Accountable (A) level RACI access to the entities or configurations being moved. | Fix: . | Verify that your account has Accountable permissions for all objects in the scope of the export or import. | If not, request elevated access from your CluedIn administrator. | . | . 3. Missing or Incomplete Dependencies . | Symptom: Import fails due to missing references (e.g., schemas, rules, or entities not found). | Cause: Dependencies were not included in the export package, or were imported out of order. | Fix: . | Ensure you export all dependent configurations together. | Import dependencies (schemas, vocabularies) before higher-level artifacts (rules, pipelines). | . | . 4. Version Mismatches . | Symptom: Import fails due to incompatible format or unexpected fields. | Cause: Export was created in a different CluedIn version than the target environment. | Fix: . | Confirm both environments are running the same version of CluedIn. | If not, upgrade/downgrade to align versions before attempting import. | . | . 5. Environment Resource Constraints . | Symptom: Export/import hangs, crashes, or causes instability. | Cause: The machine running the Toolkit does not have enough memory, CPU, or disk space. | Fix: . | Run the Toolkit on a machine with at least 4 vCPUs and 8GB+ RAM. | Monitor system resources during execution. | Clean up temporary files and ensure adequate disk space is available. | . | . ",
     "url": "/kb/product-toolkit-issues#common-reasons-for-failures",
     
     "relUrl": "/kb/product-toolkit-issues#common-reasons-for-failures"
-  },"1850": {
+  },"1851": {
     "doc": "The Product Toolkit is failing to export or import",
     "title": "How to Troubleshoot",
     "content": ". | Check Logs . | Review Toolkit log output for specific error messages. | Logs are typically stored in the working directory where you ran the command. | . | Validate Permissions . | Confirm the user has Accountable RACI access for the entire scope of the operation. | . | Test with Smaller Scope . | Try exporting or importing a smaller subset of objects. | If that works, expand gradually until you identify the problematic artifact. | . | Verify Environment Setup . | Ensure the Toolkit is running on a dedicated machine with sufficient resources. | Avoid running from personal laptops or unstable network connections. | . | Check CluedIn Version Compatibility . | Confirm both source and target environments are on the same version. | Align versions if mismatched. | . | Re-run with Debug Mode . | Use debug flags (if available) to capture more detailed logs. | Share logs with CluedIn Support if the issue persists. | . | . ",
     "url": "/kb/product-toolkit-issues#how-to-troubleshoot",
     
     "relUrl": "/kb/product-toolkit-issues#how-to-troubleshoot"
-  },"1851": {
+  },"1852": {
     "doc": "The Product Toolkit is failing to export or import",
     "title": "Best Practices for Reliable Toolkit Operations",
     "content": ". | Run on a Dedicated Machine: Use a dedicated server or VM for large exports/imports. | Use Accountable RACI Access: Always ensure you have Accountable access before starting. | Export/Import in Logical Order: Move foundational artifacts (schemas, vocabularies) before dependent ones (rules, pipelines). | Monitor Logs and Metrics: Track execution logs and system resource usage. | Align Environments: Keep source and target environments on the same CluedIn version. | Test Before Production: Run exports/imports in staging first before applying to production. | . ",
     "url": "/kb/product-toolkit-issues#best-practices-for-reliable-toolkit-operations",
     
     "relUrl": "/kb/product-toolkit-issues#best-practices-for-reliable-toolkit-operations"
-  },"1852": {
+  },"1853": {
     "doc": "The Product Toolkit is failing to export or import",
     "title": "Summary",
     "content": "Product Toolkit export/import issues usually arise from timeouts, missing permissions, incomplete dependencies, version mismatches, or resource limitations. By running the Toolkit on a dedicated machine, ensuring Accountable RACI access, and following best practices, you can significantly reduce the risk of failures. If problems persist, collect execution logs and contact CluedIn Support for assistance. ",
     "url": "/kb/product-toolkit-issues#summary",
     
     "relUrl": "/kb/product-toolkit-issues#summary"
-  },"1853": {
+  },"1854": {
     "doc": "The Product Toolkit is failing to export or import",
     "title": "The Product Toolkit is failing to export or import",
     "content": " ",
     "url": "/kb/product-toolkit-issues",
     
     "relUrl": "/kb/product-toolkit-issues"
-  },"1854": {
+  },"1855": {
     "doc": "Slow Performance",
     "title": "CluedIn Is Processing Slowly and Feels Slow in General",
     "content": "CluedIn is designed to process large volumes of data at scale, but in some cases you may notice that the platform feels “slow” — whether that’s during ingestion, rule execution, data linking, or even while navigating the user interface. This article explains the typical reasons why CluedIn might perform slowly, how to troubleshoot performance bottlenecks, and best practices to keep your environment running efficiently. ",
     "url": "/kb/slow#cluedin-is-processing-slowly-and-feels-slow-in-general",
     
     "relUrl": "/kb/slow#cluedin-is-processing-slowly-and-feels-slow-in-general"
-  },"1855": {
+  },"1856": {
     "doc": "Slow Performance",
     "title": "What Does “Slow” Mean?",
     "content": "Performance issues in CluedIn can show up in different ways: . | Ingestion Lag: New data takes longer than expected to appear in the platform. | Rule Processing Delays: Rules take longer to apply or complete. | Entity Linking/Matching: Deduplication or linking jobs run slowly. | Export Latency: Exports to downstream systems take longer to complete. | UI Responsiveness: The CluedIn portal feels sluggish when navigating or opening dashboards. | . Identifying which area feels slow is the first step to diagnosing the cause. ",
     "url": "/kb/slow#what-does-slow-mean",
     
     "relUrl": "/kb/slow#what-does-slow-mean"
-  },"1856": {
+  },"1857": {
     "doc": "Slow Performance",
     "title": "Common Causes of Performance Issues",
     "content": "1. High Data Volumes . | Symptom: Processing slows as more records are ingested. | Explanation: Larger datasets mean more work for ingestion, matching, and rules engines. | Fix: Scale your CluedIn environment to handle growth; consider batching ingestion jobs. | . 2. Complex or Excessive Rules . | Symptom: Rules engine takes a long time to run. | Explanation: Multiple active rules or complex regex conditions can increase evaluation overhead. | Fix: Review active rules, simplify logic, and disable rules that are not essential. | . 3. Resource Constraints . | Symptom: The whole platform (processing + UI) feels sluggish. | Explanation: The CluedIn instance does not have enough CPU, memory, or storage IOPS to handle workload. | Fix: . | Run CluedIn on dedicated infrastructure, not a shared environment. | Scale up VM/container resources. | Monitor system utilization to detect bottlenecks. | . | . 4. Network or Connectivity Issues . | Symptom: Ingestion from external sources and exports to downstream systems are slow. | Explanation: Latency or instability in network connections to source/target systems slows down jobs. | Fix: Ensure stable, high-bandwidth connections between CluedIn and data sources/destinations. | . 5. Inefficient Matching Configurations . | Symptom: Linking and deduplication jobs are disproportionately slow. | Explanation: Overly broad or poorly tuned match rules increase the number of comparisons per entity. | Fix: Optimize matching rules to focus on the most reliable identifiers. | . 6. Running Heavy Jobs on Underpowered Machines . | Symptom: Toolkit exports/imports or processing jobs time out. | Explanation: Running CluedIn utilities (e.g., Product Toolkit) on personal laptops or small VMs can cause slowness. | Fix: Use dedicated servers or cloud VMs with sufficient resources for large-scale jobs. | . 7. Competing Workloads . | Symptom: Performance degrades when multiple ingestion, rules, and export jobs run in parallel. | Explanation: Shared resources are consumed by concurrent jobs. | Fix: Schedule heavy workloads during off-peak hours or stagger job execution. | . ",
     "url": "/kb/slow#common-causes-of-performance-issues",
     
     "relUrl": "/kb/slow#common-causes-of-performance-issues"
-  },"1857": {
+  },"1858": {
     "doc": "Slow Performance",
     "title": "Troubleshooting Checklist",
     "content": ". | Identify Where It’s Slow . | Is it ingestion, rule execution, linking, exporting, or UI? | . | Check Logs &amp; Dashboards . | Review processing logs for errors or bottlenecks. | Check dashboards for job status and queue lengths. | . | Monitor System Resources . | CPU, memory, and disk usage should be reviewed on the CluedIn host. | . | Audit Rules &amp; Match Configurations . | Disable unnecessary rules. | Simplify complex logic. | Refine match rules. | . | Test Environment Sizing . | Compare resource allocation (CPU/RAM/storage) to recommended CluedIn sizing guidelines. | Scale up if needed. | . | Check Network Performance . | Ensure data source/destination connectivity is reliable and performant. | . | Try Smaller Batches . | Re-run ingestion or exports on smaller subsets to isolate scaling issues. | . | . ",
     "url": "/kb/slow#troubleshooting-checklist",
     
     "relUrl": "/kb/slow#troubleshooting-checklist"
-  },"1858": {
+  },"1859": {
     "doc": "Slow Performance",
     "title": "Best Practices to Maintain Good Performance",
     "content": ". | Run CluedIn on Dedicated Infrastructure: Avoid running on shared or undersized machines. | Scale with Data Growth: Allocate more resources as your dataset grows. | Schedule Heavy Jobs Strategically: Run big exports/imports or reprocessing during quiet hours. | Regularly Audit Rules: Keep only the Rules that add value; retire unused ones. | Optimize Matching Configurations: Focus on the most discriminating identifiers. | Monitor Continuously: Use system and CluedIn logs/dashboards to stay ahead of bottlenecks. | . ",
     "url": "/kb/slow#best-practices-to-maintain-good-performance",
     
     "relUrl": "/kb/slow#best-practices-to-maintain-good-performance"
-  },"1859": {
+  },"1860": {
     "doc": "Slow Performance",
     "title": "Summary",
     "content": "When CluedIn feels slow, it is usually due to large data volumes, complex rules, insufficient resources, or network constraints. By identifying where the slowness occurs, monitoring resources, and following optimization best practices, you can significantly improve performance. If slowness persists even after optimization, collect logs and environment metrics and contact CluedIn Support for further assistance. ",
     "url": "/kb/slow#summary",
     
     "relUrl": "/kb/slow#summary"
-  },"1860": {
+  },"1861": {
     "doc": "Slow Performance",
     "title": "Slow Performance",
     "content": " ",
     "url": "/kb/slow",
     
     "relUrl": "/kb/slow"
-  },"1861": {
+  },"1862": {
     "doc": "Why can I not delete certain things in CluedIn",
     "title": "Known Limitations: Objects That Cannot Currently Be Deleted in CluedIn",
     "content": "CluedIn provides extensive capabilities for creating, managing, and governing master data assets. However, there are certain object types that cannot currently be deleted once created. These are known product limitations and are on the roadmap for improvement. This article outlines what those objects are, why deletion is not yet supported, and recommended workarounds or best practices. ",
     "url": "/kb/unable-to-delete#known-limitations-objects-that-cannot-currently-be-deleted-in-cluedin",
     
     "relUrl": "/kb/unable-to-delete#known-limitations-objects-that-cannot-currently-be-deleted-in-cluedin"
-  },"1862": {
+  },"1863": {
     "doc": "Why can I not delete certain things in CluedIn",
     "title": "Objects That Cannot Be Deleted",
     "content": "1. Business Domains . | Description: Business Domains define the logical areas of your data model (e.g., Customer, Product, Supplier). | Issue: Once created, Business Domains cannot be deleted. | Impact: Unused domains remain visible in the portal. | Workaround: Mark unused domains as Inactive or rename them with a prefix (e.g., ZZ_Obsolete) to indicate they are not in use. | . 2. Vocabularies . | Description: Vocabularies are controlled lists of business terms and definitions used across CluedIn. | Issue: Vocabularies cannot be deleted. | Impact: Test or unused vocabularies can clutter the governance layer. | Workaround: Mark them as Deprecated or rename with an ARCHIVE_ prefix. | . 3. Vocabulary Keys . | Description: Keys represent individual entries within a Vocabulary. | Issue: Vocabulary Keys cannot be removed once added. | Impact: Erroneous or outdated keys persist in dropdowns and rules. | Workaround: Use tagging or mark keys as Inactive/Obsolete and provide clear descriptions that they should not be used. | . 4. Roles . | Description: Roles control user permissions and responsibilities (e.g., Steward, Analyst, Administrator). | Issue: Roles cannot be deleted once created. | Impact: Experimental or obsolete roles remain in the UI. | Workaround: Remove all user assignments from unused roles and rename them with an archival prefix. | . 5. Golden Record Layouts . | Description: Layouts define how Golden Record data is displayed in the portal. | Issue: Layouts cannot be deleted once created. | Impact: Testing and experimentation can create clutter. | Workaround: Rename layouts with an ARCHIVE_ prefix or move them into a separate grouping for clarity. | . 6. Deduplication Projects . | Description: Deduplication Projects configure and test matching rules for resolving duplicate records. | Issue: Deduplication Projects cannot be deleted. | Impact: Old experiments or tests stay visible in the list. | Workaround: Use descriptive naming (e.g., Test_Project_DO_NOT_USE) or archive notes to separate them from active projects. | . 7. Cleaning Projects . | Description: Cleaning Projects are used to standardize and fix bulk data issues. | Issue: Cleaning Projects cannot be deleted. | Impact: Completed or test cleaning jobs remain in the history. | Workaround: Clearly label completed or obsolete projects; they remain valuable for audit and rollback purposes. | . ",
     "url": "/kb/unable-to-delete#objects-that-cannot-be-deleted",
     
     "relUrl": "/kb/unable-to-delete#objects-that-cannot-be-deleted"
-  },"1863": {
+  },"1864": {
     "doc": "Why can I not delete certain things in CluedIn",
     "title": "Why Deletion Is Restricted",
     "content": "These limitations are primarily due to auditability, lineage, and rollback guarantees: . | CluedIn ensures a full historical view of governance objects and transformations. | Removing these objects would create gaps in audit trails and lineage history. | Certain items (like Cleaning Projects) support undo/rollback, which depends on retaining the original record. | . ",
     "url": "/kb/unable-to-delete#why-deletion-is-restricted",
     
     "relUrl": "/kb/unable-to-delete#why-deletion-is-restricted"
-  },"1864": {
+  },"1865": {
     "doc": "Why can I not delete certain things in CluedIn",
     "title": "Best Practices",
     "content": ". | Adopt a naming convention: Prefix unused or test objects with ZZ_, ARCHIVE_, or DO_NOT_USE. | Document clearly: Add notes in descriptions indicating the status of the object. | Limit testing clutter: Use a non-production environment (sandbox) for experimenting with Business Domains, Deduplication, or Cleaning Projects. | Govern creation: Restrict who can create these objects to reduce the number of unused items. | . ",
     "url": "/kb/unable-to-delete#best-practices",
     
     "relUrl": "/kb/unable-to-delete#best-practices"
-  },"1865": {
+  },"1866": {
     "doc": "Why can I not delete certain things in CluedIn",
     "title": "Roadmap Note",
     "content": "Deletion support for these object types is a known product limitation. The CluedIn team is tracking this and working toward improvements to better support archival and lifecycle management of governance objects. ",
     "url": "/kb/unable-to-delete#roadmap-note",
     
     "relUrl": "/kb/unable-to-delete#roadmap-note"
-  },"1866": {
+  },"1867": {
     "doc": "Why can I not delete certain things in CluedIn",
     "title": "Summary",
     "content": "Currently, the following objects cannot be deleted in CluedIn: . | Business Domains | Vocabularies | Vocabulary Keys | Roles | Golden Record Layouts | Deduplication Projects | Cleaning Projects | . Until deletion support is available, use naming conventions, documentation, and governance controls to manage unused items effectively. ",
     "url": "/kb/unable-to-delete#summary",
     
     "relUrl": "/kb/unable-to-delete#summary"
-  },"1867": {
+  },"1868": {
     "doc": "Why can I not delete certain things in CluedIn",
     "title": "Why can I not delete certain things in CluedIn",
     "content": " ",
     "url": "/kb/unable-to-delete",
     
     "relUrl": "/kb/unable-to-delete"
-  },"1868": {
+  },"1869": {
     "doc": "How can I get better matches of duplicate records in CluedIn",
     "title": "How to Get Better Matches in Deduplication Projects",
     "content": "Deduplication Projects in CluedIn help identify and merge duplicate records across your data sources. Good results depend not only on the rules you configure, but also on the quality and consistency of the data being matched. This article provides practical advice for improving match quality. ",
     "url": "/kb/better-matches#how-to-get-better-matches-in-deduplication-projects",
     
     "relUrl": "/kb/better-matches#how-to-get-better-matches-in-deduplication-projects"
-  },"1869": {
+  },"1870": {
     "doc": "How can I get better matches of duplicate records in CluedIn",
     "title": "Key Principles",
     "content": "1. Prioritize Deterministic Matching Rules . It’s tempting to design complex rules to cover every possible variation in your data. However, this often increases false positives and makes matching less predictable. | Instead of chasing perfection, create rules that are as deterministic and strict as possible (e.g., “Exact match on Tax ID” or “Exact match on Email Address”). | Use high-confidence identifiers first: IDs, email, phone numbers, domains. | Apply fuzzy matching sparingly, only where no strong identifier exists. | . 2. Use CluedIn Clean to Improve Input Data . Matching accuracy is only as good as the quality of your input data. Use CluedIn Clean to standardize and normalize data before running matching: . | Clean addresses into a structured, comparable format. | Convert phone numbers to E.164 international format. | Normalize company names (remove “Ltd”, “Inc”, punctuation). | Standardize casing, diacritics, and whitespace. | . By cleaning first, you make it easier for deterministic rules to succeed, rather than relying on fuzzy matching to compensate for poor data quality. 3. Apply Normalisers to Ignore Irrelevant Differences . Normalisers allow you to exclude certain aspects of data from the matching process so that records aren’t incorrectly treated as different: . | Case Normalisation: Treat CLUEdin, CluedIn, and cluedin as identical. | Whitespace Normalisation: Ignore leading/trailing or multiple spaces. | Punctuation Normalisation: Strip characters like commas, periods, or dashes where not significant. | Custom Normalisers: Define rules to remove common “noise” (e.g., Ltd, Inc, GmbH). | . ",
     "url": "/kb/better-matches#key-principles",
     
     "relUrl": "/kb/better-matches#key-principles"
-  },"1870": {
+  },"1871": {
     "doc": "How can I get better matches of duplicate records in CluedIn",
     "title": "Recommended Approach",
     "content": ". | Start simple and strict . | Build rules around unique, high-confidence identifiers. | Ensure those identifiers are cleaned and normalised first. | . | Add cleaning steps in CluedIn Clean . | Focus on the data elements used in matching. | Validate that cleaned values align with your rules. | . | Use fuzzy matching only as a fallback . | Apply it after deterministic rules to catch edge cases. | Always review candidates in stewardship before merging. | . | . ",
     "url": "/kb/better-matches#recommended-approach",
     
     "relUrl": "/kb/better-matches#recommended-approach"
-  },"1871": {
+  },"1872": {
     "doc": "How can I get better matches of duplicate records in CluedIn",
     "title": "Example",
     "content": ". | Before Cleaning . | Acme Inc. vs. ACME, Incorporated | Phone: 0044 7700 900123 vs. +44 7700 900123 | . | After CluedIn Clean &amp; Normalisation . | Acme vs. Acme | Phone: +447700900123 vs. +447700900123 | . | . Result: Deterministic matching rules (Exact Name + Exact Phone) succeed with confidence, no need for fuzzy fallback. ",
     "url": "/kb/better-matches#example",
     
     "relUrl": "/kb/better-matches#example"
-  },"1872": {
+  },"1873": {
     "doc": "How can I get better matches of duplicate records in CluedIn",
     "title": "Summary",
     "content": "To get the best matches in Deduplication Projects: . | Keep rules deterministic and simple. | Clean data with CluedIn Clean so it conforms to your matching rules. | Use normalisers to remove irrelevant differences like case, whitespace, and punctuation. | Reserve fuzzy matching for edge cases where no strong identifiers exist. | . This approach ensures higher accuracy, fewer false positives, and faster stewardship. ",
     "url": "/kb/better-matches#summary",
     
     "relUrl": "/kb/better-matches#summary"
-  },"1873": {
+  },"1874": {
     "doc": "How can I get better matches of duplicate records in CluedIn",
     "title": "How can I get better matches of duplicate records in CluedIn",
     "content": " ",
     "url": "/kb/better-matches",
     
     "relUrl": "/kb/better-matches"
-  },"1874": {
+  },"1875": {
     "doc": "Supported and unsupported characters",
     "title": "On this page",
     "content": ". | Supported characters | Unsupported characters | . In this article, you’ll find reference information about supported and unsupported characters in clues and entities. If your data contains unsupported characters, remove them before submitting data to CluedIn. ",
     "url": "/kb/supported-characters#on-this-page",
     
     "relUrl": "/kb/supported-characters#on-this-page"
-  },"1875": {
+  },"1876": {
     "doc": "Supported and unsupported characters",
     "title": "Supported characters",
     "content": "All valid Unicode characters are supported. Exceptions include Unicode surrogate blocks, 0xFFFE, and 0xFFFF. Characters: 0x9, 0xA, 0xD, Character Range: 0x20-0xD7FF Character Range: 0xE000-0xFFFD Character Range: 0x10000-0x10FFFF . Unicode control characters or undefined Unicode characters should not be used but are supported. These are within the following character ranges. 0x7F-0x84 0x86-0x9F 0xFDD0-0xFDEF 0x1FFFE-0x1FFFF 0x2FFFE-0x2FFFF 0x3FFFE-0x3FFFF 0x4FFFE-0x4FFFF 0x5FFFE-0x5FFFF 0x6FFFE-0x6FFFF 0x7FFFE-0x7FFFF 0x8FFFE-0x8FFFF 0x9FFFE-0x9FFFF 0xAFFFE-0xAFFFF 0xBFFFE-0xBFFFF 0xCFFFE-0xCFFFF 0xDFFFE-0xDFFFF 0xEFFFE-0xEFFFF 0xFFFFE-0xFFFFF 0x10FFFE-0x10FFFF . ",
     "url": "/kb/supported-characters#supported-characters",
     
     "relUrl": "/kb/supported-characters#supported-characters"
-  },"1876": {
+  },"1877": {
     "doc": "Supported and unsupported characters",
     "title": "Unsupported characters",
     "content": "ASCI control characters are not supported. Exceptions include 0x9, 0xA, and 0xD, which are valid characters. | Character range 0x-0x1F is not supported. | Character 0x7F is technically supported but should not be used. | Unicode surrogate blocks are not supported. | 0xFFFE and 0xFFFF are not supported. | . ",
     "url": "/kb/supported-characters#unsupported-characters",
     
     "relUrl": "/kb/supported-characters#unsupported-characters"
-  },"1877": {
+  },"1878": {
     "doc": "Supported and unsupported characters",
     "title": "Supported and unsupported characters",
     "content": " ",
     "url": "/kb/supported-characters",
     
     "relUrl": "/kb/supported-characters"
-  },"1878": {
+  },"1879": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "On this page",
     "content": ". | Recommendations . | Container images should be deployed from trusted registries only | . | . This document covers Microsoft Defender for Cloud advisories that you may face when installing the CluedIn MDM PaaS variant of the product into your environemnt. It will explain what each advisory means and how to potentially resolve the issue. If the advisory is not listed below, please do reach out to support@cluedin.com who will be able to advise further. ",
     "url": "/kb/defender-for-cloud-recommendations#on-this-page",
     
     "relUrl": "/kb/defender-for-cloud-recommendations#on-this-page"
-  },"1879": {
+  },"1880": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "Recommendations",
     "content": "Container images should be deployed from trusted registries only . The default security policies that are set on Microsoft Defender for Cloud can be quite bare when it comes out of the box. As a result, this particular recommendation gets flagged frequently as a high risk. The CluedIn installation installs an Azure Kubernetes Service (AKS) cluster which pulls images from cluedinprod.azurecr.io with an authorization token. Because cluedinprod.azurecr.io is external to your environment, it gets flagged by this recommendation when using default baseline advisories. Solution . To resolve this issue, please amend the recommendation under remediation steps and add a regex string that can accomodate the CluedIn registry. An example is: ^cluedinprod\\.azurecr\\.io.*$. This will affect all AKS clusters. If you have additional AKS clusters which are for internal services or other products, you may want to use a more loosely defined regex string that can accommodate both CluedIn and other third-party registries. ",
     "url": "/kb/defender-for-cloud-recommendations#recommendations",
     
     "relUrl": "/kb/defender-for-cloud-recommendations#recommendations"
-  },"1880": {
+  },"1881": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "Microsoft Defender for Cloud recommendations",
     "content": " ",
     "url": "/kb/defender-for-cloud-recommendations",
     
     "relUrl": "/kb/defender-for-cloud-recommendations"
-  },"1881": {
+  },"1882": {
     "doc": "CluedIn Security - [NOT impacted] Ingress NGINX Controller vulnerabilities",
     "title": "CluedIn Security - [NOT impacted] Ingress NGINX Controller vulnerabilities",
     "content": "Wiz Research recently disclosed a series of critical unauthenticated Remote Code Execution (RCE) vulnerabilities affecting the Ingress NGINX Controller in Kubernetes (CVE-2025-1097, CVE-2025-1098, CVE-2025-24514, and CVE-2025-1974), collectively known as IngressNightmare. These vulnerabilities could allow attackers to execute arbitrary code and gain unauthorized access to Kubernetes secrets across namespaces. More information can be found in Infosecurity Magazine and The Hacker News. CluedIn is not impacted by these vulnerabilities, as we do not use NGINX as our ingress controller. Instead, CluedIn relies on HAProxy, which is not affected by these issues. If you have deployed CluedIn using our standard setup, you are not impacted. However, customers who have modified their ingress setup outside of our recommended configuration should verify their infrastructure and apply any necessary security updates. Our security team continuously monitors emerging threats and ensures our platform remains secure. If you have any questions, please contact our support team at support@cluedin.com. ",
