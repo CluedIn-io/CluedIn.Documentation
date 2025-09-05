@@ -15,6 +15,8 @@ CluedIn makes doing business easy by giving you flexibility to adopt our platfor
 
 - **SaaS** (software as a service) – allows you to use CluedIn on a subscription basis. Instead of installing CluedIn in your own Azure IT infrastructure, you can access it in an isolated environment through a web browser. As a software provider, we are responsible for hosting, managing updates, and ensuring security.
 
+    For details about the available service levels and support options, see our <a href="../../assets/other/CluedIn SaaS SLA - 2025.pdf" download>CluedIn SaaS SLA</a>.
+
 - **PaaS** (platform as a service) – allows you to install and manage CluedIn in your own Azure IT infrastructure, thus ensuring that your data stays in your own environment. As a software provider, we are managing updates and ensuring security. However, hosting the platform is your responsibility, giving you flexibility and control over your infrastructure while benefiting from our managed services.
 
 For more details about the difference between CluedIn installation options, see [Installation](/deployment).
