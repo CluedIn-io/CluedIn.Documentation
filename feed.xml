@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2025-09-10T07:17:09+00:00</updated>
+    <updated>2025-09-10T14:26:30+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -186,54 +186,6 @@
     </entry>
     
     <entry>
-        <title>Sync business domains to Dataverse tables</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/powerapps/features/sync-entitytypes" />
-        <id>https://documentation.cluedin.net/microsoft-integration/powerapps/features/sync-entitytypes</id>
-        <updated>2023-05-17T00:00:00+00:00</updated>
-        <summary>
-        
-        Sync business domains to Dataverse tables.
-        
-        
-        
-        Tags: integration, microsoft, powerapps, dataverse.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Sync Dataverse table to Cluedin business domains/vocabularies</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/powerapps/features/sync-dataverse" />
-        <id>https://documentation.cluedin.net/microsoft-integration/powerapps/features/sync-dataverse</id>
-        <updated>2023-05-17T00:00:00+00:00</updated>
-        <summary>
-        
-        Sync Dataverse table to Cluedin business domains/vocabularies.
-        
-        
-        
-        Tags: integration, microsoft, powerapps, dataverse.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Create ingestion endpoint workflow</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/powerapps/features/create-workflow" />
-        <id>https://documentation.cluedin.net/microsoft-integration/powerapps/features/create-workflow</id>
-        <updated>2023-05-17T00:00:00+00:00</updated>
-        <summary>
-        
-        Create ingestion endpoint workflow.
-        
-        
-        
-        Tags: integration, microsoft, powerapps, dataverse.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Features</title>
         <link href="https://documentation.cluedin.net/microsoft-integration/powerapps/features" />
         <id>https://documentation.cluedin.net/microsoft-integration/powerapps/features</id>
@@ -250,22 +202,6 @@
     </entry>
     
     <entry>
-        <title>Create a batch approval workflow process</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/powerapps/features/create-batch-approval-workflow" />
-        <id>https://documentation.cluedin.net/microsoft-integration/powerapps/features/create-batch-approval-workflow</id>
-        <updated>2023-05-17T00:00:00+00:00</updated>
-        <summary>
-        
-        Create a batch approval workflow process.
-        
-        
-        
-        Tags: integration, microsoft, powerautomate, approval, workflow.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>External features</title>
         <link href="https://documentation.cluedin.net/microsoft-integration/powerapps/external-features" />
         <id>https://documentation.cluedin.net/microsoft-integration/powerapps/external-features</id>
@@ -273,22 +209,6 @@
         <summary>
         
         External features.
-        
-        
-        
-        Tags: integration, microsoft, powerapps, dataverse.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Create streams</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/powerapps/features/create-streams" />
-        <id>https://documentation.cluedin.net/microsoft-integration/powerapps/features/create-streams</id>
-        <updated>2023-05-17T00:00:00+00:00</updated>
-        <summary>
-        
-        Create streams.
         
         
         
