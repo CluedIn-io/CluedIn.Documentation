@@ -7,6 +7,7 @@ permalink: /microsoft-integration/powerapps/features/create-streams
 title: Create streams
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17
+published: false
 ---
 
 This feature allows you to automate the creation of export targets and streams.
