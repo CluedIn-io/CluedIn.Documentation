@@ -7,6 +7,7 @@ permalink: /microsoft-integration/powerapps/features/create-batch-approval-workf
 title: Create a batch approval workflow process
 tags: ["integration", "microsoft", "powerautomate", "approval", "workflow"]
 last_modified: 2023-05-17
+published: false
 ---
 
 This feature enables you to automate the creation of the workflow for the batch approval process. If you process the data (regardless of the source) and the system identifies that the business domain used has been tagged for the approval process, the data will be halted, and the approval process will start and wait for the user's approval to continue the data processing.

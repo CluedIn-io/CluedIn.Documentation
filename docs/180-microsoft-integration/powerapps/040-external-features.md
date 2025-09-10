@@ -18,16 +18,16 @@ This will enable the user to see the Power Apps and Power Automate features as a
 ### Dataverse data
 
 This will enable you to see and navigate to Power Apps table data as well as add, edit, and delete data directly from a Power Apps platform.
-![iFrame Dataverse Data](./images/iframe-dataverse-data.png)
+![iFrame Dataverse Data](../../../assets/images/microsoft-integration/power-apps-backup/iframe-dataverse-data-2.png)
 
 ### Dataverse columns
 
 This will enable you to see and navigate to PowerApps columns as well as add, edit, and delete columns directly from a Power Apps platform.
 
-![iFrame Dataverse Column](./images/iframe-dataverse-column.png)
+![iFrame Dataverse Column](../../../assets/images/microsoft-integration/power-apps-backup/iframe-dataverse-column-2.png)
 
 ### Workflow
 
 This will enable you to see the workflow associated with it as well as wiew the columns that have been synced and the ingestion endpoint details in the HTTP event.
 
-![iFrame Workflow](./images/iframe-workflow.png)
+![iFrame Workflow](../../../assets/images/microsoft-integration/power-apps-backup/iframe-workflow-3.png)

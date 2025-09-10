@@ -5,8 +5,9 @@ parent: Features
 grand_parent: Power Apps Integration
 permalink: /microsoft-integration/powerapps/features/create-workflow
 title: Create ingestion endpoint workflow
-tags: ["integration", "microsoft", "powerapps", "dataverse"]
+tags: ["integration", "microsoft", "PowerApps", "dataverse"]
 last_modified: 2023-05-17
+published: false
 ---
 
 This feature allows you to automate the creation of workflow that will send the data from Dataverse to CluedIn via ingestion endpoint.

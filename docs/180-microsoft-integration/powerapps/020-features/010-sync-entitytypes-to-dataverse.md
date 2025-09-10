@@ -7,6 +7,7 @@ permalink: /microsoft-integration/powerapps/features/sync-entitytypes
 title: Sync business domains to Dataverse tables
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17
+published: false
 ---
 
 This feature allows you to sync CluedIn business domains, vocabularies, and vocabulary keys with Dataverse table and columns.
