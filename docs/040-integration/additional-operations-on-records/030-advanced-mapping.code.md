@@ -243,13 +243,13 @@ C.E.L. supports the following logical operators:
 - `and` (`&&`)
 
     ```
-    return a || b;
+    return a && b;
     ```
 
 - `or` (`||`)
 
     ```
-    return a && b;
+    return a || b;
     ```
 
 - `not` (`!`)
