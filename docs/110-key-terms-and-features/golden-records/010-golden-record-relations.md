@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 5
+nav_order: 1
 parent: Golden records
 grand_parent: Key terms and features
 permalink: /key-terms-and-features/golden-records/golden-record-relations
@@ -12,7 +12,7 @@ last_modified: 2025-05-20
 - TOC
 {:toc}
 
-Relations connect golden records by linking a source record to a target record through a specific edge type (for example, _/WorksFor_ or _/FinancedBy_). These relations can be created either before or after data is processed.
+Relations connect golden records by linking a source record to a target record through a specific edge type (for example, _/WorksFor_ or _/FinancedBy_). These relations can be created either before or after data is [processed](/integration/process-data).
 
 In this article, you will learn how to view and manage relations between golden records.
 
