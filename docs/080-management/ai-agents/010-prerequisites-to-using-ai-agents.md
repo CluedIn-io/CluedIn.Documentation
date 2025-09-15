@@ -142,8 +142,12 @@ Organization-wide settings apply to all AI agents and AI agent jobs that exist w
 
 1. Configure the following settings:
 
-    - **Display "Show Raw Data" button in Chat Details** – [TBD].
+    - **Display "Show Raw Data" button in Chat Details** – when enabled, this option adds the **Show Raw Data** button to the AI agent job page (**Configuration** tab > **Logs** section). The button reveals the raw JSON data for requests and responses exchanged between CluedIn and the LLM.
 
-    - **Show "Started Job" notification** – if this option is enabled, the user will receive a notification every time they start an AI agent job.
+        ![logs_section_show_raw_data_sp.png]({{ "/assets/images/management/ai-agents/configure-organization-wide-ai-agent-settings/logs_section_show_raw_data_sp.png" | relative_url }})
 
-    - **Auto-approve AI suggestions** – if this option is enabled, all suggestions returned by an AI agent will be automatically approved. The users will not need to [manually review and approve/reject the suggestions](/management/ai-agents/review-the-results-returned-by-an-ai-agent).
+        This feature is useful for fine-tuning prompts but is best suited for users with a strong technical background in LLMs and JSON.
+
+    - **Show "Started Job" notification** – when enabled, the user will receive a notification every time they start an AI agent job.
+
+    - **Auto-approve AI suggestions** – when enabled, all suggestions returned by an AI agent will be automatically approved. The users will not need to [manually review and approve/reject the suggestions](/management/ai-agents/review-the-results-returned-by-an-ai-agent).
