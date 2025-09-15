@@ -6,6 +6,10 @@ nav_order: 1
 permalink: /governance/tag-monitoring
 tags: ["governance", "tag monitoring", "tags"]
 ---
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 Tags are an essential mechanism that helps you [flag golden records that have data quality issues](https://documentation.cluedin.net/kb/how-to-tag-records-with-data-quality-issues). With the Tag Monitoring module, you can gain insight into tag usage across CluedIn. In particular, you can monitor the following information:
 
@@ -84,7 +88,7 @@ This article explains how to monitor both types of information.
 
     1. Period of interest.
 
-    ![select_domain_and_period.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/select_domain_and_period.png" | relative_url }})
+    ![select_domain_and_period-2.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/select_domain_and_period-2.png" | relative_url }})
 
 1. On the tags panel on the left, select the tag of interest.
 
@@ -102,11 +106,18 @@ This article explains how to monitor both types of information.
 
     1. The percentage of golden records that are currently flagged with this tag.
 
+        - If you selected a business domain in step 2a, then the percentage refers to the number of tagged records only within that domain.
+
+        - If no domain is selected, the percentage refers to the number of tagged records compared to all records in CluedIn.
+
     ![tag_card.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/tag_card.png" | relative_url }})
 
 1. In the **Data quality in business domains** chart on the right, review the information about the tag usage over time. To view the number of records tagged at a specific time, hover over the corresponding data point in the chart.
 
     ![view_data_point_sp.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/view_data_point_sp.png" | relative_url }})
+
+    {:.important} 
+    By default, the data in the chart refreshes every 15 minutes. Your administrator can change this interval in **Administration** > **Settings** > **High Time Resolution Metric interval in minutes**.
 
 1. At the bottom of the page, review the list of golden records tagged with the selected tag.
 
@@ -132,7 +143,7 @@ You can leverage [AI agents](/management/ai-agents) to fix the golden records fl
 
 **Pre-requisites**
 
-- The AI agents feature must be enabled. For details, see [Prerequisites to using AI agents](/management/ai-agents/prerequisites-to-using-ai-agents)
+- The AI agents feature must be enabled. For details, see [Prerequisites to using AI agents](/management/ai-agents/prerequisites-to-using-ai-agents).
 
 **To fix tagged records with AI**
 
@@ -154,7 +165,13 @@ You can leverage [AI agents](/management/ai-agents) to fix the golden records fl
 
     The **Fix Data Quality Issues with AI** panel opens on the right of the page.
 
-1. Select an **AI Agent** and an **Endpoint** that are most suitable to fix the tagged records. Then, select **Create AI Job**.
+1. On the **Fix Data Quality Issues with AI** panel, do the following:
+
+    1. Select an **AI Agent** and an **Endpoint** that are most suitable to fix the tagged records.
+
+    1. Use the **Active** toggle to set whether the job should be enabled by default. You can update this setting later on the job page.
+
+    1. Select **Create AI Job**.
 
     ![fix_with_ai_panel.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/fix_with_ai_panel.png" | relative_url }})
 
@@ -162,7 +179,7 @@ You can leverage [AI agents](/management/ai-agents) to fix the golden records fl
 
     ![ai_agent_job_creted.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/ai_agent_job_creted.png" | relative_url }})
 
-    At this point, the AI agent job has not analyzed or changed the records in any way.
+    At this point, the AI agent did not analyze or change the records in any way.
 
 1. Configure, test, and run the AI agent job:
 
@@ -172,13 +189,16 @@ You can leverage [AI agents](/management/ai-agents) to fix the golden records fl
 
         You are redirected to the AI agent job page.
 
-    1. Go to the **Configuration** tab of the job. The **Data** and **Skills** sections are filled out for you.
+    1. Go to the **Configuration** tab of the job. Note that the **Data** and **Skills** sections are filled out for you.
+
+        {:.important}
+        The **Data** section defines the subset of data the AI agent should work on. When you create an AI agent job, CluedIn automatically includes all records flagged with the selected tag (in this example, **invalid-validation-phone**). This selection applies across all business domains, even if you have a domain selected on the **Tag Monitoring** page.
 
         ![ai_agent_job_data_and_skills.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/ai_agent_job_data_and_skills.png" | relative_url }})
 
-        Review the provided **Instructions**. If needed, provide any additional ones.
+      1. Review the provided **Instructions**. If needed, provide any additional ones.
 
-        ![edit_instructions.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/edit_instructions.png" | relative_url }})
+         ![edit_instructions.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/edit_instructions.png" | relative_url }})
 
       1. [Test the job](/management/ai-agents/create-configure-and-run-an-ai-agent#test-the-job) to verify that it fixes the records as expected.
 
@@ -191,6 +211,9 @@ You can leverage [AI agents](/management/ai-agents) to fix the golden records fl
 1. When done, go back to **Governance** > **Tag Monitoring** to verify that there is a decrease in the number of records flagged with the selected tag.
 
     ![verify_records_are_fixed_sp.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/verify_records_are_fixed_sp.png" | relative_url }})
+
+    {:.important}
+    By default, the data in the chart refreshes every 15 minutes. Your administrator can change this interval in **Administration** > **Settings** > **High Time Resolution Metric interval in minutes**.
 
 ## Create a Clean project for tagged records
 
@@ -246,7 +269,8 @@ Clean projects are intended to fix the records manually. You can also leverage t
 
 The **Tag Monitoring** page lists all tags that are currently used in CluedIn. If this list is not sufficient, and you need new tags in place, you can create these tags directly from the **Tag Monitoring** page.
 
-**Important:** You can also use the [Rule Builder module](/management/rules) to create new tags. For a step-by-step walkthrough, see [Identifying and labelling incorrect data](/training/fundamentals/identifying-and-labelling-incorrect-data).
+{:.important}
+You can also use the [Rule Builder module](/management/rules) to create new tags. For a step-by-step walkthrough, see [Identifying and labelling incorrect data](/training/fundamentals/identifying-and-labelling-incorrect-data).
 
 **To add tags from the Tag Monitoring page**
 
