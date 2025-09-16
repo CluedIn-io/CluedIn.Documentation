@@ -87,22 +87,32 @@ After testing a rule on one golden record and verifying that it is applied as in
 
 **To apply a rule to all golden records**
 
-1. On the navigation pane, go to **Management** > **Rule builder**.
+1. On the navigation pane, go to **Rule Builder** (or, alternatively, **Management** > **Rule Builder**).
 
 1. Choose the needed type of rule, and then open the rule that you created.
 
-1. Near upper-right corner, select the reprocessing button.
+1. In the upper-right corner of the page, select the reprocessing button.
 
-1. Confirm that you want to reprocess all golden records that match the rule's filter.
+    ![reprocess_btn_sp.png]({{ "/assets/images/management/rules/create-a-rule/reprocess_btn_sp.png" | relative_url }})
 
-    ![reprocess-a-rule.gif]({{ "/assets/images/management/rules/reprocess-a-rule.gif" | relative_url }})
+1. Confirm that you want to reprocess all golden records that match the rule's filters.
 
     {:.important}
-    The reprocessing option available on the rule details page is applicable only to the records that match the rule's filter.
+    The reprocessing option available on the rule details page is applicable only to the records that match the rule's filters.
 
     You can track the reprocessing of records in the status bar. If, during the reprocessing, you decide to add another action to the rule or modify a filter, you can cancel the current reprocessing operation and make the needed changes.
 
-    After the reprocessing is completed, the records associated with the rule are modified in accordance with the rule's actions.
+    ![processing_progress_bar_sp.png]({{ "/assets/images/management/rules/create-a-rule/processing_progress_bar_sp.png" | relative_url }})
+
+    After the reprocessing is completed, the following takes place:
+
+    - Records associated with the rule are modified in accordance with the rule's actions.
+
+    - The **Affected Records** tab shows the list of modified records.
+
+        ![affected_records_tab_sp.png]({{ "/assets/images/management/rules/create-a-rule/affected_records_tab_sp.png" | relative_url }})
+
+        To view the changes made to a specific record, go to the **History** or **Topology** tab of the golden record page.
 
 There is an alternative approach to reprocess the records associated with the rule. It involves the GraphQL tool.
 
