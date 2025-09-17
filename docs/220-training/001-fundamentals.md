@@ -9,12 +9,12 @@ title: CluedIn Fundamentals
 
 **Level:** Beginner
 
-In the course of our comprehensive CluedIn Fundamentals training, we’ll explore how to build a single customer view by transforming disconnected data sources from CRM and ERP systems into unified and trusted golden records. This training is divided into several sessions, where you’ll learn how to perform key operations in CluedIn.
+CluedIn Fundamentals is the starting point of a progressive 4-level journey designed to help you master the platform. In this first stage, you’ll learn how to ingest, clean, and explore data using CluedIn’s flexible graph-based model.
 
 **Presented by:** Pierre Derval, Chief Product Officer at CluedIn
 
 <div class="videoFrame">
-<iframe src="https://player.vimeo.com/video/1086437400?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write;" title="Welcome to CluedIn Fundamentals"></iframe>
+<iframe src="https://player.vimeo.com/video/1119472108?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write;" title="CluedIn Fundamentals"></iframe>
 </div>
 
-**Presentation:** <a href="../../../assets/other/training-ppt/welcome-to-cluedin-fundamentals.pptx" download>Download PPT</a>
+**Presentation:** <a href="../../../assets/other/training-ppt/cluedin-fundamentals.pptx" download>Download PPT</a>
