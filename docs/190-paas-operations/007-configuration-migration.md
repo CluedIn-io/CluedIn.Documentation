@@ -73,7 +73,7 @@ To get the IDs of specific parameters, you will need to use the front end and na
         #
         # -BackupAdminSettings      [switch] true | false (Default)
         # -SelectVocabularies       [string] csv guids | None (Default)
-        # -SelectDataSets           [string] csv ints | All | None (Default)
+        # -SelectDataSets           [string] csv guids | All | None (Default)
         # -SelectRules              [string] csv guids | All | None (Default)
         # -SelectExportTargets      [string] csv guids | All | None (Default)
         # -SelectStreams            [string] csv guids | All | None (Default)
