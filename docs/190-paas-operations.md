@@ -21,3 +21,5 @@ Supporting documents and references:
 
 - **Microsoft AKS**: [Configure Azure CNI networking in Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster)
 
+{:.important}
+CluedIn team performs installation activities on all business days **except Friday**. Deploying on a Friday carries higher risk because issues may not surface immediately and can escalate into weekend incidents with fewer people available to respond. As a best practice, it is recommended to schedule installations earlier in the week (Tuesday–Thursday) to allow time for monitoring, troubleshooting, and stabilization.

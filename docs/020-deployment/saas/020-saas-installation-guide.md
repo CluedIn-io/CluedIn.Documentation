@@ -17,6 +17,9 @@ In this article, you will learn how to subscribe to CluedIn SaaS in the Azure po
 
 ![saas-installation-diagram.gif]({{ "/assets/images/deployment/saas-install/saas-installation-diagram.gif" | relative_url }})
 
+{:.important}
+CluedIn team performs installation activities on all business days **except Friday**. Deploying on a Friday carries higher risk because issues may not surface immediately and can escalate into weekend incidents with fewer people available to respond. As a best practice, it is recommended to schedule installations earlier in the week (Tuesday–Thursday) to allow time for monitoring, troubleshooting, and stabilization.
+
 ## Submit a request and receive a license key
 
 CluedIn SaaS is currently available by invitation only. You can request an invitation [here](https://www.cluedin.com/saas-invitation-application).

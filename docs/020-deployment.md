@@ -36,6 +36,9 @@ The following video explores the features and differences between the SaaS, PaaS
 <iframe src="https://player.vimeo.com/video/928300363?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture;" title="CluedIn installation options"></iframe>
 </div>
 
+{:.important}
+CluedIn team performs installation activities on all business days **except Friday**. Deploying on a Friday carries higher risk because issues may not surface immediately and can escalate into weekend incidents with fewer people available to respond. As a best practice, it is recommended to schedule installations earlier in the week (Tuesday–Thursday) to allow time for monitoring, troubleshooting, and stabilization.
+
 **Azure Managed Application**
 
 CluedIn is available as an Azure Managed Application, making deployment and operation effortless for you. Depending on the model you choose—PaaS or SaaS—CluedIn can be deployed within your company’s infrastructure or within our infrastructure. Regardless of the chosen model, this setup allows us to handle almost everything for you, including post-installation, upgrades, backups, and monitoring. This ensures that you do not need to worry about operating and managing a cluster yourself, as long as the CluedIn operations team has full access to your cluster.

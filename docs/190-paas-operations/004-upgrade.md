@@ -11,9 +11,11 @@ headerIcon: "paas"
 
 When signing up with CluedIn and taking on the Managed Services agreement, product upgrades will be handled for you by the CluedIn team. The team will reach out and work with your requirements to ensure that upgrades happen when it's most convenient for your business.
 
+{:.important}
+CluedIn team performs installation activities on all business days **except Friday**. Deploying on a Friday carries higher risk because issues may not surface immediately and can escalate into weekend incidents with fewer people available to respond. As a best practice, it is recommended to schedule installations earlier in the week (Tuesday–Thursday) to allow time for monitoring, troubleshooting, and stabilization.
+
 For some customers, a more tailored agreement exists whereby the management of the cluster and resources are managed by you, including upgrades. This section contains guides for self-service upgrading of CluedIn.
 
-{:.important}
 For release note specifics, please visit [Release Notes](/release-notes).
 
 ## Managed Upgrade Process
@@ -38,4 +40,4 @@ If a cluster has large amounts of data, times may vary during the upgrade proces
 5. **Cluster Ready for Use**  
    - Once the upgrade completes and the cluster is back online, send a notification to all relevant teams and stakeholders to inform them that the cluster is ready for use.
 
-  ![Diagram](../assets/images/upgrade/upgrade-process-diagram.png)
+  ![Diagram]({{ "/assets/images/upgrade/upgrade-process-diagram.png" | relative_url }})
