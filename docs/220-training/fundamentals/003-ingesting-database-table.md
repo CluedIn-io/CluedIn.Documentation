@@ -7,9 +7,11 @@ permalink: /training/fundamentals/ingesting-database-table
 title: 1.1.2. Ingesting a database table
 ---
 
+**Module:** [1.1. Ingestion](/training/fundamentals/ingestion)
+
 **Level:** Beginner
 
-In this training, we'll explore another method of data ingestion—by bringing in a database table with customer data from an ERP system.
+In this session, we'll explore another method of data ingestion—by bringing in a database table with customer data from an ERP system.
 
 **Presented by:** Jocelyn Ramirez, your Customer Success Manager, and Matthew Carter, your CluedIn AI Trainer
 

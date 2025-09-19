@@ -7,9 +7,11 @@ permalink: /training/fundamentals/ingesting-csv-file
 title: 1.1.1. Ingesting a CSV file
 ---
 
+**Module:** [1.1. Ingestion](/training/fundamentals/ingestion)
+
 **Level:** Beginner
 
-In this training, we'll start implementing the use case presented in the introduction to [1.1. Ingestion](/training/fundamentals/ingestion)—creating a single source of truth for customer data by integrating information from CRM and ERP systems. Our focus here is on ingesting a CSV file containing customer records from the CRM system.
+In this session, we'll start implementing the use case presented in the introduction to [1.1. Ingestion](/training/fundamentals/ingestion)—creating a single source of truth for customer data by integrating information from CRM and ERP systems. Our focus here is on ingesting a CSV file containing customer records from the CRM system.
 
 **Presented by:** Jocelyn Ramirez, your Customer Success Manager, and Matthew Carter, your CluedIn AI Trainer
 
