@@ -66,6 +66,9 @@ You have the flexibility to adopt CluedIn at your own pace. Since we offer 2 clo
 
 With CluedIn SaaS, the installation process is fully automated: we'll provide everything you need to install CluedIn. What is more, if you have a committed SaaS deal, we can offer you a development or test environment at hosting cost. However, keep in mind that we'll have to work together to implement the [main aspects of IT journey](#main-aspects-of-it-journey) in order to configure CluedIn for your business needs.
 
+{:.important}
+CluedIn team performs installation activities on all business days **except Friday**. Deploying on a Friday carries higher risk because issues may not surface immediately and can escalate into weekend incidents with fewer people available to respond. As a best practice, it is recommended to schedule installations earlier in the week (Tuesday–Thursday) to allow time for monitoring, troubleshooting, and stabilization.
+
 Useful links to learn more about CluedIn SaaS:
 
 - [CluedIn SaaS installation](/deployment/saas)
@@ -85,6 +88,9 @@ With CluedIn PaaS, the installation process is automated, enabling you to instal
 ![paas-it-journey.png]({{ "/assets/images/playbooks/paas-it-journey.png" | relative_url }})
 
 These meetings give you the opportunity to discuss any questions or concerns you may have with a CluedIn expert, ensuring that you're fully informed and comfortable at every stage of your IT journey.
+
+{:.important}
+CluedIn team performs installation activities on all business days **except Friday**. Deploying on a Friday carries higher risk because issues may not surface immediately and can escalate into weekend incidents with fewer people available to respond. As a best practice, it is recommended to schedule installations earlier in the week (Tuesday–Thursday) to allow time for monitoring, troubleshooting, and stabilization.
 
 The CluedIn PaaS **IT journey timeline** depends on two aspects:
 
@@ -147,7 +153,7 @@ Additionally, your Azure administrator might be required to perform the followin
    - Virtual network link enabled for [privatelink.vaultcore.azure.net](http://privatelink.vaultcore.azure.net/)
 
 {:.important}
-The tasks listed above are provided as an example. They may or may not fit your IT infrastructure and policies. You can discuss your requirements and plan the IT journey with a CluedIn expert.
+The tasks listed above are provided as an example. They may or may not fit your IT infrastructure and policies. You can discuss your requirements and plan the IT journey with a CluedIn expert.<br>CluedIn team performs installation activities on all business days **except Friday**. Deploying on a Friday carries higher risk because issues may not surface immediately and can escalate into weekend incidents with fewer people available to respond. As a best practice, it is recommended to schedule installations earlier in the week (Tuesday–Thursday) to allow time for monitoring, troubleshooting, and stabilization.
 
 Useful links to learn more about CluedIn PaaS:
 

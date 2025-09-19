@@ -14,7 +14,10 @@ CluedIn SaaS is the easiest and quickest way to start with CluedIn. You do not n
 <iframe src="https://player.vimeo.com/video/927057390?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="CluedIn SaaS installation"></iframe>
 </div>
 
-Useful links:
+{:.important}
+CluedIn team performs installation activities on all business days **except Friday**. Deploying on a Friday carries higher risk because issues may not surface immediately and can escalate into weekend incidents with fewer people available to respond. As a best practice, it is recommended to schedule installations earlier in the week (Tuesday–Thursday) to allow time for monitoring, troubleshooting, and stabilization.
+
+**Useful resources:**
 
 - [Installation](/deployment) – learn about the difference between CluedIn SaaS and PaaS.
 

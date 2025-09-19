@@ -16,10 +16,14 @@ headerIcon: "paas"
 
 In this article, you will learn how to install CluedIn PaaS from the Azure Marketplace.
 
-{:.important}
-Make sure that you have completed all of the actions described in [Pre-installation checklist](/deployment/azure-marketplace/step-2).
-
 ![paas-installation-guide.gif]({{ "/assets/images/deployment/paas-installation-guide.gif" | relative_url }})
+
+{:.important}
+CluedIn team performs installation activities on all business days **except Friday**. Deploying on a Friday carries higher risk because issues may not surface immediately and can escalate into weekend incidents with fewer people available to respond. As a best practice, it is recommended to schedule installations earlier in the week (Tuesday–Thursday) to allow time for monitoring, troubleshooting, and stabilization.
+
+## Prerequisites
+
+- Make sure that you have completed all of the actions described in [Pre-installation checklist](/deployment/azure-marketplace/step-2).
 
 ## Find CluedIn
 

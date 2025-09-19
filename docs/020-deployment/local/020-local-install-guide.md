@@ -18,6 +18,9 @@ In this article, you will learn how to install CluedIn locally.
 
 ![local-installation-guide.gif]({{ "/assets/images/deployment/local-installation-guide.gif" | relative_url }})
 
+{:.important}
+CluedIn team performs installation activities on all business days **except Friday**. Deploying on a Friday carries higher risk because issues may not surface immediately and can escalate into weekend incidents with fewer people available to respond. As a best practice, it is recommended to schedule installations earlier in the week (Tuesday–Thursday) to allow time for monitoring, troubleshooting, and stabilization.
+
 ## Clone CluedIn repository
 
 The first step for the local installation of CluedIn is to clone the CluedIn public repository named **Home** [https://github.com/CluedIn-io/Home](https://github.com/CluedIn-io/Home).
