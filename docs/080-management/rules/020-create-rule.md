@@ -104,15 +104,21 @@ After testing a rule on one golden record and verifying that it is applied as in
 
     ![processing_progress_bar_sp.png]({{ "/assets/images/management/rules/create-a-rule/processing_progress_bar_sp.png" | relative_url }})
 
-    After the reprocessing is completed, the following takes place:
+1. After the reprocessing is complete, check the rule status.
 
-    - Records associated with the rule are modified in accordance with the rule's actions.
+    ![rule_status_after_execution_sp.png]({{ "/assets/images/management/rules/create-a-rule/rule_status_after_execution_sp.png" | relative_url }})
 
-    - The **Affected Records** tab shows the list of modified records.
+    - **Healthy** – the rule executed successfully:
 
-        ![affected_records_tab_sp.png]({{ "/assets/images/management/rules/create-a-rule/affected_records_tab_sp.png" | relative_url }})
+        - Records associated with the rule are modified in accordance with the rule's actions.
 
-        To view the changes made to a specific record, go to the **History** or **Topology** tab of the golden record page.
+        - The **Affected Records** tab shows the list of modified records.
+
+            ![affected_records_tab_sp.png]({{ "/assets/images/management/rules/create-a-rule/affected_records_tab_sp.png" | relative_url }})
+
+            To view the changes made to a specific record, go to the **History** or **Topology** tab of the golden record page.
+
+    - **Unhealthy** – issues occurred during rule execution. Open the [rule execution logs](#view-rule-execution-logs) to review the details and adjust the rule as needed.
 
 There is an alternative approach to reprocess the records associated with the rule. It involves the GraphQL tool.
 
@@ -138,3 +144,33 @@ There is an alternative approach to reprocess the records associated with the ru
 1. Execute the query.
 
     After the query is executed, the rule's action will be applied to the records matching the rule's filter.
+
+## View rule execution logs
+
+If there are issues in the rule configuration or when applying the rule to the golden records, corresponding information appears in rule execution logs. Use these logs to identify the root cause of an issue and adjust the rule as needed.
+
+CluedIn stores logs only from the last unsuccessful rule execution. Historical logs from earlier executions are not retained.
+
+Each log entry is assigned a severity type, which indicates the importance or seriousness of the logged event. Currently, CluedIn retains only logs of the **Error** severity type (messages about problems that prevented part of a rule from executing correctly). Support for additional severity types will be added in the future.
+
+**To view rule execution logs**
+
+1. On the navigation pane, go to **Rule Builder** (or, alternatively, **Management** > **Rule Builder**).
+
+1. Choose the needed type of rule, and then open the rule that you created.
+
+1. On the rule page, go to the **Log** tab.
+
+1. In the upper-right corner of the page, select the period for which you want to view the logs.
+
+1. Select the category of interest:
+
+    - **PowerFx Rule** – contains logs about errors caused by the configuration of [PowerFx formulas](/management/rules/power-fx-formulas) in the rule.
+
+    - **General Exceptions** – contains logs about other errors that prevented the rule from executing correctly.
+
+    - **All** – includes both types of information: errors related to PowerFx rules and general exceptions.
+
+1. Review the **Message** column for details about why the issue occurred.
+
+    ![log_tab.png]({{ "/assets/images/management/rules/view-rule-execution-logs/log_tab.png" | relative_url }})
