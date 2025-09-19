@@ -1343,19 +1343,19 @@
     
     "relUrl": "/playbooks/data-ingestion-playbook/data-impact-workshop"
   },"192": {
-    "doc": "What you'll be building",
-    "title": "What you'll be building",
-    "content": "Level: Beginner . In the course of our comprehensive CluedIn Fundamentals training, we’ll explore how to build a single customer view by transforming disconnected data sources from CRM and ERP systems into unified and trusted golden records. This training is divided into several sessions, where you’ll learn how to perform key operations in CluedIn. Presented by: Pierre Derval, Chief Product Officer at CluedIn . Presentation: Download PPT . ",
-    "url": "/training/fundamentals/what-you-will-build",
-    
-    "relUrl": "/training/fundamentals/what-you-will-build"
-  },"193": {
-    "doc": "CluedIn Fundamentals",
-    "title": "CluedIn Fundamentals",
+    "doc": "1. CluedIn Fundamentals",
+    "title": "1. CluedIn Fundamentals",
     "content": "Level: Beginner . CluedIn Fundamentals is the starting point of a progressive 4-level journey designed to help you master the platform. In this first stage, you’ll learn how to ingest, clean, and explore data using CluedIn’s flexible graph-based model. Presented by: Pierre Derval, Chief Product Officer at CluedIn . Presentation: Download PPT . ",
     "url": "/training/fundamentals",
     
     "relUrl": "/training/fundamentals"
+  },"193": {
+    "doc": "1.1. Ingestion",
+    "title": "1.1. Ingestion",
+    "content": "In the course of our comprehensive CluedIn Fundamentals training, we’ll explore how to build a single customer view by transforming disconnected data sources from CRM and ERP systems into unified and trusted golden records. This training is divided into several sessions, where you’ll learn how to perform key operations in CluedIn. Presented by: Pierre Derval, Chief Product Officer at CluedIn . Presentation: Download PPT . Training plan: . | Session | Objective | Watch time | . | 1.1.1. Ingesting a CSV file | - Ingest a CSV file containing customer records from the CRM system. | 5 mins | . | 1.1.2. Ingesting a database table | - Ingest a database table with customer data from an ERP system. | 6 mins | . | 1.1.3. Building a single customer view | - Build a single customer view by identifying and merging duplicate records from the CRM and the ERP. | 36 mins | . | 1.1.4. Identifying and labelling incorrect data | - Identify and label invalid records using tags. | 12 mins | . ",
+    "url": "/training/fundamentals/ingestion",
+    
+    "relUrl": "/training/fundamentals/ingestion"
   },"194": {
     "doc": "Product 360",
     "title": "Product 360 in CluedIn — Step-by-Step Implementation Guide",
@@ -2176,9 +2176,9 @@
     
     "relUrl": "/playbooks/how-to-approach-your-cluedin-project"
   },"311": {
-    "doc": "Ingesting a CSV file",
-    "title": "Ingesting a CSV file",
-    "content": "Level: Beginner . In this training, we’ll start implementing the use case presented in What you’ll be building—creating a single source of truth for customer data by integrating information from CRM and ERP systems. Our focus here is on ingesting a CSV file containing customer records from the CRM system. Presented by: Jocelyn Ramirez and Matthew Carter, your CluedIn AI trainers . Presentation: Download PPT . Training file: crm-customer.csv . Useful resources: . | Getting started with data ingestion . | Golden records . | . ",
+    "doc": "1.1.1. Ingesting a CSV file",
+    "title": "1.1.1. Ingesting a CSV file",
+    "content": "Level: Beginner . In this training, we’ll start implementing the use case presented in the introduction to 1. Ingestion—creating a single source of truth for customer data by integrating information from CRM and ERP systems. Our focus here is on ingesting a CSV file containing customer records from the CRM system. Presented by: Jocelyn Ramirez, your Customer Success Manager, and Matthew Carter, your CluedIn AI Trainer . Presentation: Download PPT . Training file: crm-customer.csv . Useful resources: . | Getting started with data ingestion . | Golden records . | . ",
     "url": "/training/fundamentals/ingesting-csv-file",
     
     "relUrl": "/training/fundamentals/ingesting-csv-file"
@@ -2512,9 +2512,9 @@
     
     "relUrl": "/playbooks/data-ingestion-playbook/ingest-data"
   },"359": {
-    "doc": "Ingesting a database table",
-    "title": "Ingesting a database table",
-    "content": "Level: Beginner . In this training, we’ll explore another method of data ingestion—by bringing in a database table with customer data from an ERP system. Presented by: Jocelyn Ramirez and Matthew Carter, your CluedIn AI trainers . Presentation: Download PPT . Training file: erp-customer.csv (import this file into your database to replicate the process demonstrated during the training) . Useful resources: . | Getting started with data ingestion . | Golden records . | . ",
+    "doc": "1.1.2. Ingesting a database table",
+    "title": "1.1.2. Ingesting a database table",
+    "content": "Level: Beginner . In this training, we’ll explore another method of data ingestion—by bringing in a database table with customer data from an ERP system. Presented by: Jocelyn Ramirez, your Customer Success Manager, and Matthew Carter, your CluedIn AI Trainer . Presentation: Download PPT . Training file: erp-customer.csv (import this file into your database to replicate the process demonstrated during the training) . Useful resources: . | Getting started with data ingestion . | Golden records . | . ",
     "url": "/training/fundamentals/ingesting-database-table",
     
     "relUrl": "/training/fundamentals/ingesting-database-table"
@@ -2596,43 +2596,43 @@
     
     "relUrl": "/release-notes/terminology-changes"
   },"371": {
-    "doc": "Building a single customer view",
+    "doc": "1.1.3. Building a single customer view",
     "title": "On this page",
     "content": ". | Part 1 | Part 2 | Part 3 | Part 4 | . ",
     "url": "/training/fundamentals/building-a-single-customer-view#on-this-page",
     
     "relUrl": "/training/fundamentals/building-a-single-customer-view#on-this-page"
   },"372": {
-    "doc": "Building a single customer view",
+    "doc": "1.1.3. Building a single customer view",
     "title": "Part 1",
-    "content": "Level: Beginner . In this training, we’ll focus on building a single customer view by identifying and merging duplicate records. We’ll explore the concept of primary identifiers in CluedIn and how to use them to proactively unify duplicate data into a single, accurate customer view. Presented by: Jocelyn Ramirez and Matthew Carter, your CluedIn AI trainers . Presentation: Download PPT . Useful resources: . | Identifiers . | Origin . | Business domain . | . ",
+    "content": "Level: Beginner . In this training, we’ll focus on building a single customer view by identifying and merging duplicate records. We’ll explore the concept of primary identifiers in CluedIn and how to use them to proactively unify duplicate data into a single, accurate customer view. Presented by: Jocelyn Ramirez, your Customer Success Manager, and Matthew Carter, your CluedIn AI Trainer . Presentation: Download PPT . Useful resources: . | Identifiers . | Origin . | Business domain . | . ",
     "url": "/training/fundamentals/building-a-single-customer-view#part-1",
     
     "relUrl": "/training/fundamentals/building-a-single-customer-view#part-1"
   },"373": {
-    "doc": "Building a single customer view",
+    "doc": "1.1.3. Building a single customer view",
     "title": "Part 2",
-    "content": "Level: Beginner . In this training, we’ll explore an alternative approach to identifying and merging duplicate records as part of building a single, unified customer view—a deduplication project. You’ll learn how to set up and work with a deduplication project, understand when this method is most effective, and see how it compares to other deduplication strategies, such as merging by identifiers. Presented by: Jocelyn Ramirez and Matthew Carter, your CluedIn AI trainers . Presentation: Download PPT . Useful resources: . | Deduplication | . ",
+    "content": "Level: Beginner . In this training, we’ll explore an alternative approach to identifying and merging duplicate records as part of building a single, unified customer view—a deduplication project. You’ll learn how to set up and work with a deduplication project, understand when this method is most effective, and see how it compares to other deduplication strategies, such as merging by identifiers. Presented by: Jocelyn Ramirez, your Customer Success Manager, and Matthew Carter, your CluedIn AI Trainer . Presentation: Download PPT . Useful resources: . | Deduplication | . ",
     "url": "/training/fundamentals/building-a-single-customer-view#part-2",
     
     "relUrl": "/training/fundamentals/building-a-single-customer-view#part-2"
   },"374": {
-    "doc": "Building a single customer view",
+    "doc": "1.1.3. Building a single customer view",
     "title": "Part 3",
-    "content": "Level: Beginner . In this training, we’ll explore strategies for defining the uniqueness of records—particularly in situations where the property used to generate a primary or additional identifier is missing or empty. In CluedIn, when two or more records share the same identifier—whether it’s primary or additional—they will be merged into a single golden record. That’s why it’s important to always use valid, unique identifiers. Presented by: Jocelyn Ramirez and Matthew Carter, your CluedIn AI trainers . Presentation: Download PPT . Useful resources: . | Identifiers | . ",
+    "content": "Level: Beginner . In this training, we’ll explore strategies for defining the uniqueness of records—particularly in situations where the property used to generate a primary or additional identifier is missing or empty. In CluedIn, when two or more records share the same identifier—whether it’s primary or additional—they will be merged into a single golden record. That’s why it’s important to always use valid, unique identifiers. Presented by: Jocelyn Ramirez, your Customer Success Manager, and Matthew Carter, your CluedIn AI Trainer . Presentation: Download PPT . Useful resources: . | Identifiers | . ",
     "url": "/training/fundamentals/building-a-single-customer-view#part-3",
     
     "relUrl": "/training/fundamentals/building-a-single-customer-view#part-3"
   },"375": {
-    "doc": "Building a single customer view",
+    "doc": "1.1.3. Building a single customer view",
     "title": "Part 4",
-    "content": "Level: Beginner . In this training, we’ll learn how to identify and resolve data quality issues using CluedIn’s edit mode and validations. This helps fix invalid or incomplete identifiers before processing, ensuring more accurate matching and preventing unintended merges across your data. Presented by: Jocelyn Ramirez and Matthew Carter, your CluedIn AI trainers . Presentation: Download PPT . Useful resources: . | Identifiers . | Modify source records . | Validations . | . ",
+    "content": "Level: Beginner . In this training, we’ll learn how to identify and resolve data quality issues using CluedIn’s edit mode and validations. This helps fix invalid or incomplete identifiers before processing, ensuring more accurate matching and preventing unintended merges across your data. Presented by: Jocelyn Ramirez, your Customer Success Manager, and Matthew Carter, your CluedIn AI Trainer . Presentation: Download PPT . Useful resources: . | Identifiers . | Modify source records . | Validations . | . ",
     "url": "/training/fundamentals/building-a-single-customer-view#part-4",
     
     "relUrl": "/training/fundamentals/building-a-single-customer-view#part-4"
   },"376": {
-    "doc": "Building a single customer view",
-    "title": "Building a single customer view",
+    "doc": "1.1.3. Building a single customer view",
+    "title": "1.1.3. Building a single customer view",
     "content": " ",
     "url": "/training/fundamentals/building-a-single-customer-view",
     
@@ -2876,9 +2876,9 @@
     
     "relUrl": "/deployment/delete-cluedin-instance"
   },"411": {
-    "doc": "Identifying and labelling incorrect data",
-    "title": "Identifying and labelling incorrect data",
-    "content": "Level: Beginner . In this training, we’ll learn how to identify and label invalid records using tags. We’ll explore different types of tags—such as structural, data quality, and business logic tags—and understand how each can be applied to highlight specific data issues. This approach helps streamline data cleanup, improve data quality, and ensure that invalid records are clearly marked for review or correction. Presented by: Jocelyn Ramirez and Matthew Carter, your CluedIn AI trainers . Presentation: Download PPT . Useful resources: . | Golden record rules . | Create rules . | . ",
+    "doc": "1.1.4. Identifying and labelling incorrect data",
+    "title": "1.1.4. Identifying and labelling incorrect data",
+    "content": "Level: Beginner . In this training, we’ll learn how to identify and label invalid records using tags. We’ll explore different types of tags—such as structural, data quality, and business logic tags—and understand how each can be applied to highlight specific data issues. This approach helps streamline data cleanup, improve data quality, and ensure that invalid records are clearly marked for review or correction. Presented by: Jocelyn Ramirez, your Customer Success Manager, and Matthew Carter, your CluedIn AI Trainer . Presentation: Download PPT . Useful resources: . | Golden record rules . | Create rules . | . ",
     "url": "/training/fundamentals/identifying-and-labelling-incorrect-data",
     
     "relUrl": "/training/fundamentals/identifying-and-labelling-incorrect-data"
