@@ -1,17 +1,17 @@
 ---
 layout: cluedin
-nav_order: 3
-parent: CluedIn Fundamentals
-grand_parent: Training
+nav_order: 2
+parent: 1.1. Ingestion
+grand_parent: 1. CluedIn Fundamentals
 permalink: /training/fundamentals/ingesting-database-table
-title: Ingesting a database table
+title: 1.1.2. Ingesting a database table
 ---
 
 **Level:** Beginner
 
 In this training, we'll explore another method of data ingestion—by bringing in a database table with customer data from an ERP system.
 
-**Presented by:** Jocelyn Ramirez and Matthew Carter, your CluedIn AI trainers
+**Presented by:** Jocelyn Ramirez, your Customer Success Manager, and Matthew Carter, your CluedIn AI Trainer
 
 <div class="videoFrame">
 <iframe src="https://player.vimeo.com/video/1087769955?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="CluedIn Fundamentals: Ingesting a database table"></iframe></div>
