@@ -8,16 +8,63 @@ permalink: /key-terms-and-features/edges
 tags: ["development","edges"]
 ---
 
-An edge is your way to be able to create relations between records. This relation will consist of a source and a target, or a "to" and a "from". In addition to an edge, you will have an edge type. This edge type will explain the relation (for example, /WorksFor, /LivesWith). Each edge can also contain properties including a weight and a general property bag. Weight is used to indicate the strength of the relation between two golden records. This weight is used in the processing pipeline to help evaluate decisions.
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
-**How can you pass data to another record through an edge?**
+An edge defines a relation between two records in CluedIn.
 
-There are many cases where you will denormalize references to other entities, but you do want to have some friendly values to reference these records. When you are creating your edges, you will notice that you can pass in extra properties on either the "from" reference or the "to" reference. Placing properties on these references will propagate these values onto the appropriate entity. For example, you created a clue for a company and it had a reference to a country via an ID. In this case, you would want to reference that country, but that country should bring back friendly values to the company clue so that it is easy to look at in the user interface. In this way, if you update the values in the country clue, then CluedIn will automatically update all references to this country. The properties are used only for passing vocabularies. By default, it will only copy these properties to the target reference when that target reference exists. 
+- Each edge connects a source and a target (also referred to as "from" and "to").
 
-**What are the edge types?**
+- Each edge has an edge type that explains the nature of the relation (for example, /WorksFor, /LivesWith).
 
-Edges types are a way to determine the relations between data. This is typically in the structure of Object - Verb - Object. For example, John - works at - Lego. In CluedIn, edges can store properties such as weights and general metadata, but the main idea behind these edges is to describe the relation of two nodes for processing and querying purposes. 
+- Edges can also include properties, such as:
 
-In CluedIn, there are static edge types and dynamic edge types. Static edge types are your way to set an edge type based on known rules that will not change. All other edge types should be dynamic. 
+    - Weight – Indicates the strength of the relation between two Golden Records. Used in the processing pipeline to influence decision-making.
 
-It is always recommended to leave edges in crawlers as generic as possible and introduce new processors in the processing server to dynamically resolve generic edge types into specific ones. Imagine you have an edge type of "Works At" that you set statically in your crawlers - you can see that it has a temporal factor to it, in that you have no guarantee that this will always be "Works At". Due to this, you can introduce new processors that would check other values e.g. A Job start and end date, and use this to dynamically change the edge type to "Worked At" if this person was ever to leave.
+    - Property bag – Stores additional metadata about the relation.
+
+## Passing data through an edge
+
+Edges can also be used to propagate data between related records.
+
+- Often, you will denormalize references to other entities but still want user-friendly values for display.
+
+- When creating an edge, you can attach extra properties to either the "from" or "to" reference.
+
+- These properties are propagated to the connected entity and are typically used for passing vocabularies.
+
+Consider this example:
+
+- A company record references a country by an ID.
+
+- Through the edge, the company record can also display friendly country values in the UI.
+
+- If the country record is updated, CluedIn automatically updates all references to that country.
+
+{:.important}
+By default, CluedIn copies these properties only to the target reference, and only if that reference exists.
+
+## Edge types
+
+An edge type defines the kind of relation between two records, typically expressed in the structure: Object – Verb – Object. For example: John – works at – Lego
+
+In CluedIn, edge types can also store metadata such as weights and properties, but their primary purpose is to describe and query relationships between nodes.
+
+## Static vs. dynamic edge types
+
+- Static edge types – Defined by fixed rules that do not change.
+
+- Dynamic edge types – More flexible, determined at runtime based on additional conditions.
+
+{:.important}
+The best practice it to keep edge types in crawlers as generic as possible. Use processors in the processing server to resolve them dynamically into specific types.
+
+Consider this example:
+
+- A crawler sets a static edge type: _Works At_.
+
+- However, employment is temporal — it may not always be valid.
+
+- A processor can check job start and end dates and dynamically update the edge type to _Worked At_ once the person leaves.
