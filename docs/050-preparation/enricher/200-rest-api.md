@@ -323,6 +323,8 @@ In the following example, ingested company data contains missing or incorrect ad
 
 ![data-before-enrichment.png]({{ "/assets/images/preparation/enricher/rest-api/melissa/data-before-enrichment.png" | relative_url }})
 
+#### Configure Melissa REST API enricher
+
 To [add the Melissa REST API enricher](#add-rest-api-enricher), on the **Configure** tab, provide the following information:
 
 - **Accepted Business Domain:** In this example, **/Address**.
@@ -391,6 +393,8 @@ To [add the Melissa REST API enricher](#add-rest-api-enricher), on the **Configu
 
 ![configure_tab.png]({{ "/assets/images/preparation/enricher/rest-api/melissa/configure_tab.png" | relative_url }})
 
+#### Example of golden record before and after enrichment
+
 An example of a golden record before enrichment:
 
 ![golden_record_before_enrichment.png]({{ "/assets/images/preparation/enricher/rest-api/melissa/golden_record_before_enrichment.png" | relative_url }})
@@ -403,7 +407,9 @@ Same record after enrichment:
 
 ![golden_record_after_enrichment.png]({{ "/assets/images/preparation/enricher/rest-api/melissa/golden_record_after_enrichment.png" | relative_url }})
 
-In Postman, the equivalent would be as follows:
+#### Sample response
+
+Provided below is an example of the response you would receive for the same request in Postman. If you need an additional address line in your golden records, select the relevant fields from the response and add them to the [process response script](#configure-melissa-rest-api-enricher) provided earlier on this page. For example, you could include the **Latitude** and **Longitude** fields.
 
 - **URL:**
 
