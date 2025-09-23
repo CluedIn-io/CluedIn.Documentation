@@ -223,19 +223,14 @@ Once connected, you can quickly and easily:
 **Recommendation** 
 We recommend using **Free Lens**, since it includes built-in log access and provides a more complete out-of-the-box experience. For teams working regularly with Kubernetes, Lens can become an indispensable daily tool for monitoring and troubleshooting clusters. 
 
-
-
-
-
-
 ## Performing the Upgrade 
 
 With the previous steps completed, you are now ready to begin the upgrade process. Please note that upgrade steps may vary depending on the release. The follow steps are part of the typical process: 
 
   1. Get current values 
   1. Setup new values 
-  1. Run the helm upgrade in upgrade mode 
-  1. Run the data update 
+  1. System Pre-Checks
+  1. Run the helm (Basic)
   1. Complete the upgrade 
   1. Validate the upgrade 
 
@@ -329,13 +324,23 @@ Based on the earlier example, your YAML file should now look like this:
 
 -----------
 
+### System Pre-checks
+Before starting an upgrade, ensure the following checks are completed:
+
+  - Verify that the UI is running correctly.
+  - Confirm that all pods are in a healthy (green) state.
+  - Review the server logs and ensure they are free of errors.
+
+If any issues are detected, it is recommended to resolve them before proceeding with the upgrade. In some cases, the upgrade itself may address certain problems, but when uncertain, seek advice from CluedIn Support.
+
+**Check CluedIn Workload**
+Determine whether CluedIn is currently processing a high volume of data. If the system is under heavy load, it is generally advisable to allow all data to finish processing before performing the upgrade.
+
+Any data still in the queues should remain forward-compatible, but minimizing workload reduces risk during the upgrade process.
+
+Check the internal CluedIn queues and confirm their status before proceeding.
+
 ### Helm Upgrade (Basic) 
-
-Before starting an upgrade, ensure the following checks are completed: 
-
-  - Verify that the UI is running correctly. 
-  - Confirm that all pods are in a healthy (green) state. 
-  - Review the server logs to confirm they are free of errors. 
 
 During a Helm upgrade, the UI will be temporarily unavailable. Please notify all users in advance so they are aware of the downtime. 
 
@@ -406,10 +411,6 @@ Application started
 ``` 
 
 This indicates a successful startup, finally check the CluedIn UI and ensure everything is running smoothly.
-
-
-
-
 
 ## Common Operations
 This guide outlines common CluedIn activities you may need to carry out during installation, upgrades, or when troubleshooting performance issues. It is designed to provide practical steps and references that help you keep your CluedIn environment running smoothly.
