@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: How to add an Integration
+title: Add an integration
 parent: Crawlers
 grand_parent: Ingestion
 nav_order: 060
@@ -9,90 +9,109 @@ permalink: /integration/add-integration
 tags: ["integration"]
 ---
 
-### Introduction
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
-An integration should not be specific to a user. When an integration is installed, it generally takes a number of parameters to be able to add it multiple times for different user.
+An integration in CluedIn should not be tied to a specific user. When installed, an integration typically accepts parameters so it can be added multiple times for different users or contexts. Examples include:
 
-Eg: Slack account of multiple organizations, multiple shared email inbox from the same Exchange server, multiple Office 365 accounts...
+- Slack accounts from multiple organizations.
 
-Please refer to the documentation on [How to build an integration](./build-integration)
+- Multiple shared email inboxes from the same Exchange server.
 
-> When installing an integration,
-> if you want CluedIn to only read, add the integration with a user that has read-only on ALL information
-> if you want CluedIn to push-back to the integration, add it with an administrator account
+- Multiple Office 365 accounts.
 
+For details, see [Build an integration](./build-integration).
 
-### Types of integration
+When installing an integration:
 
-#### Cloud integration
+- To allow read-only access, add the integration with a user account that has read-only permissions to all relevant data.
 
-Cloud integration are generally integration for existing SaaS product such as HubSpot, Slack, Dropbox.
+- To allow push-back (write access), add the integration with an administrator account.
 
-To authenticate to this integration, we have 3 authentication methods which variates based on the product.
+## Types of integration
 
-> Notice, if you are running CluedIn, on-prem, you will need to setup the Oauth process with the product you want to add.
-> Refer to the provider's documentation and follow the steps.
+Integrations fall under the following types:
 
-*Oauth authentication*
+- Cloud integrations
 
-In this type of integration, you will be redirect to the Integration's website where he will ask your permission for CluedIn to access the data.
+- On-premise integrations
 
-*API Token*
+### Cloud integrations
 
-In this type of integration, you will need to provide a valid API token so CluedIn could access the data.
+Cloud integrations connect CluedIn to existing SaaS products such as HubSpot, Slack, or Dropbox.
 
-*Form Fields*
+To authenticate a cloud integration, CluedIn supports three methods (the method varies by product):
 
-Sometimes, the integration required multiple fields such as a 'URL', a username... Be sure to have the correct information before adding them.
+- OAuth authentication – You are redirected to the integration’s website, where you grant CluedIn permission to access your data.
 
+- API token – You provide a valid API token so CluedIn can access the data.
 
-#### On-premise integration
+- Form fields – Some integrations require multiple fields (for example, URL, username). Make sure you have the correct details before configuring them.
 
-Another type of integration are 'on-prem', they are integration that you need to install on your servers. A good example is a File system provider which will scan all the files located into a physical hard-drive.
+{:.important}
+If you are running CluedIn on-premises, you must set up the OAuth process with the product you want to add. Refer to the provider’s documentation for setup steps.
 
-### Adding an Integration
+### On-premise integration
 
-1. Login to CluedIn
-2. Go to the integration section
-3. Click on Available integrations.
+On-premise integrations are installed on your own servers. A common example is the File System provider, which scans files located on a physical hard drive.
 
-![available-integration](../assets/images/integration/integration-add-1.png)
+## Add an integration
 
-4. Click on 'Add configuration'
+1. Sign in to CluedIn.
 
-![available-integration](../assets/images/integration/integration-add-2.png)
+1. Go to the **Integration** section.
 
-5. Follow the authentication process
+1. Select **Available integrations**.
 
-![available-integration](../assets/images/integration/integration-add-3.png)
+     ![available-integration]({{ "/assets/images/integration/integration-add-1.png" | relative_url }})
 
-6. Configure your integration and add it
+1. Select **Add configuration**.
 
-7. Congratz, your configuration is now added
+    ![available-integration]({{ "/assets/images/integration/integration-add-2.png" | relative_url }})
 
-![available-integration](../assets/images/integration/integration-add-4.png)
+1. Follow the authentication process.
 
+    ![available-integration]({{ "/assets/images/integration/integration-add-3.png" | relative_url }})
 
-### Data coming in
+6. Configure your integration and add it.
 
-Once the integration added, CluedIn will ingest the date, once that is done, you will receive a notification.
+    You have added the integration.
 
-### Product Owner
+    ![available-integration]({{ "/assets/images/integration/integration-add-4.png" | relative_url }})
 
-You can set the Product Owner when you add an integration. You can have multiple Product Owners and it can change throughout the lifetime of the integration. 
+## Data coming in
 
-Setting the Product Owner will dictate certain actions and responsibilities. These responsibilities include: 
+Once an integration is added, CluedIn will ingest the data. When the ingestion is complete, you will receive a notification.
 
- - They are responsible for accepting or rejecting Mesh Commands.
- - They will be notified when a Subject Request Access contains data for this integration point. 
- - They will be responsible for the CluedIn Clean projects that contain data from this integration point. 
- - They will be notified when their system is involved in a Data Breach.
- - They will be responsible for accepting or rejecting the Data involved in a retention setup. 
- - They are responsible for setting the Consent for the properties in their integration.
- - They are responsible for resolving duplicates in their integration point. 
- - They are responsible for the provider specific Vocabularies and the mappings to Core Vocabulary Keys.
+## Product Owner
+
+You can set the Product Owner when you add an integration:
+
+- Multiple Product Owners can be assigned.
+
+- The Product Owner role can change throughout the lifetime of the integration.
+
+Setting a Product Owner defines certain actions and responsibilities, including:
+
+ - Accepting or rejecting Mesh Commands.
+
+ - Receiving notifications when a Subject Request Access contains data for this integration point.
+
+ - Taking responsibility for CluedIn [clean projects](/preparation/clean) that use data from this integration.
+
+ - Being notified if their system is involved in a data breach.
+
+ - Accepting or rejecting data involved in a retention setup. 
+
+ - Setting the Consent for properties in their integration.
+
+ - Resolving duplicates in their integration point. 
+
+ - Managing provider-specific vocabularies and mappings to core vocabulary keys.
  
-### Integration Access
+## Integration access
 
-![Diagram](../assets/images/integration/setting-access-at-integration-level.png)
+![Diagram]({{ "/assets/images/integration/setting-access-at-integration-level.png" | relative_url }})
 

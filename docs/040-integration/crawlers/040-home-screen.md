@@ -8,15 +8,29 @@ has_children: false
 permalink: /integration/home-screen
 tags: ["integration","home-screen"]
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
-Your integration Home Screen will give you details of how many data sources you have connected and actions to be able to add new integrations or configure existing sources. 
+The integration Home Screen provides an overview of your integrations, including:
 
-You will also be able to see information on the amount of data that is stored in CluedIn based off the data you have ingested. 
+- The number of connected data sources.
 
-Your integration home screen will notify and alert you if there is a data source that has stopped working. This could be for many reasons, but it typically falls within:
+- Actions to add new integrations or configure existing ones.
 
- - The authentication has stopped working due to expiry of authentication tokens or change in authentication.
- - The configuration needs attention e.g. a data source has moved location and will need to be updated to support a new source location.
- - An Administrator has paused or stopped the integration.
+- Information on the amount of data stored in CluedIn based on what you have ingested.
 
- CluedIn will maintain the state of when the integration has stopped working and so on resolution, we know exactly the offset or point in time in which we need to sync data to get it back to a 100% sync state. 
+## Notifications and alerts
+
+The Home Screen also notifies you if a data source has stopped working. Common reasons include:
+
+ - Authentication issues – Expired tokens or changes in authentication methods.
+
+ - Configuration changes – For example, a data source has moved and needs updating.
+
+ - Administrative actions – An administrator has paused or stopped the integration.
+
+## State management
+
+CluedIn maintains the state of integrations when they stop working. Once the issue is resolved, CluedIn automatically knows the correct offset (point in time) to resume syncing, ensuring data is restored to a 100% sync state.
