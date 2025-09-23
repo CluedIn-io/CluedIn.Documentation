@@ -505,6 +505,87 @@ NOTE: Logs stored in kubernetes pod are limited to the default 10MB of size, if 
 
 ------
 
+### Checking CluedIn Queues
+This guide explains how to identify and troubleshoot issues with CluedIn queues, which are powered by a messaging system called RabbitMQ.
+
+**What are RabbitMQ Queues?**
+RabbitMQ is a message broker – it allows different parts of CluedIn to communicate by passing messages between them.
+
+  - Think of a queue as a waiting line for messages.
+  - One service in CluedIn places messages onto the queue.
+  - Another service takes messages off the queue and processes them.
+
+This setup helps CluedIn handle large volumes of data reliably and asynchronously.
+
+**Why Are Queues Important?**
+
+If queues stop working correctly, CluedIn may not be able to move data between services efficiently. Common symptoms include:
+
+  - Queues growing indefinitely (messages are piling up but not being processed).
+  - Queues stuck (no new messages are being consumed).
+
+Services that depend on these messages may experience failures or degraded performance.
+
+By checking the queues, you can quickly determine if CluedIn’s internal messaging system is healthy, or if a backlog or failure might be affecting the platform.
+
+**Accesing rabbitmq**
+Run this command to get access the rabbitmq credentials. 
+ 
+```powershell
+kubectl get secret cluedin-rabbitmq -n cluedin -o jsonpath="{.data.rabbitmq-password}" | base64 --decode 
+```
+
+RabbitMQ includes a built-in management UI. To access it, you first need to open a port forward to the RabbitMQ pod:
+
+```powershell
+#kubectl port-forward service/cluedin-rabbitmq 15672:15672 -n cluedin 
+```
+Returns
+```powershell
+Forwarding from 127.0.0.1:15672 -> 15672 
+Handling connection for 15672 
+Handling connection for 15672 
+Handling connection for 15672 
+Handling connection for 15672 
+Handling connection for 15672 
+Handling connection for 15672 
+```
+
+This makes the RabbitMQ dashboard available at http://localhost:15672.
+
+When logging in to the RabbitMQ UI:
+  - Username: cluedin
+  - Password: Retrieve the password from your stored CluedIn credentials.
+
+**Checking queues**  
+Once logged in, you will typically be directed to the Overview tab. This dashboard provides a high-level summary of RabbitMQ, including the total number of messages currently in the system and key metrics about queue activity.
+
+You can also sort by total message to view the largest queue in rabbitmq.
+
+
+
+ 
+
+You can look into message rates to see if queues  message are being processed or not.  
+
+Incoming mean that message are being published to queue by publisher to be consumed  by consumer at later time. 
+
+ 
+
+Deliver/get mean that message from queue are being consumed by consumer. 
+
+ 
+
+If you found that a lot of incoming message but none are being deliver/get, that it might be that there is no consumer that are processing this message. 
+
+  
+
+You can see number of consumer attached to a queue by clicking +/- icon on the right to enable consumer collumn.  
+
+ above example shows that queue RemoteEvents_cludedin-server-processing are connected with 1 consumer and message delivered at 224/s. Which mean it is healthy. 
+
+------
+
 ### Scenario 1: CrashLoopBackOff state 
 A pod is in a CrashLoopBackOff state, the container keeps starting, failing, and restarting in a loop. 
 
