@@ -1,8 +1,5 @@
 ---
 layout: cluedin
-nav_order: 1
-parent: Upgrade
-grand_parent: PaaS operations
 permalink: /paas-operations/upgrade/guide
 title: CluedIn Upgrade Guide
 tags: ["deployment", "ama", "marketplace", "azure", "aks", "kubernetes", "upgrade"]
