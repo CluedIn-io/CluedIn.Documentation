@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2025-09-22T15:14:28+00:00</updated>
+    <updated>2025-09-24T13:49:40+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1771,6 +1771,22 @@
         Power Fx formulas.
         
         
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>CluedIn Upgrade Guide</title>
+        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide" />
+        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide</id>
+        <updated>2025-09-22T00:00:00+00:00</updated>
+        <summary>
+        
+        CluedIn Upgrade Guide.
+        
+        
+        
+        Tags: deployment, ama, marketplace, azure, aks, kubernetes, upgrade.
         
         </summary>
     </entry>
