@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 1
+nav_order: 2
 parent: Upgrade
 grand_parent: PaaS operations
 permalink: /paas-operations/upgrade/aks
