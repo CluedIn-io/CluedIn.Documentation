@@ -1,5 +1,8 @@
 ---
 layout: cluedin
+nav_order: 1
+parent: Upgrade
+grand_parent: PaaS operations
 permalink: /paas-operations/upgrade/guide
 title: CluedIn Upgrade Guide
 tags: ["deployment", "ama", "marketplace", "azure", "aks", "kubernetes", "upgrade"]
@@ -64,12 +67,14 @@ CluedIn publishes upgrade documentation with each new release. Please ensure you
 
 Pay particular attention to any infrastructure-related changes, as these may require additional preparation or configuration. 
 
+-------
+
 ## Preparing your Environment 
 ### Access to CluedIn Application
 
 Before starting an upgrade, it’s best practice to open the CluedIn UI and confirm that all services are running as expected. If you don’t have direct access, make sure someone who does is available and ready to assist throughout the upgrade process.
 
-[CluedIn UI – Link]
+[Verifying CluedIn UI](#verifying-cluedin-ui)
 
 #### Connecting Helm and Kubectl to the CluedIn AKS Cluster
 
@@ -220,6 +225,8 @@ Once connected, you can quickly and easily:
 **Recommendation** 
 We recommend using **Free Lens**, since it includes built-in log access and provides a more complete out-of-the-box experience. For teams working regularly with Kubernetes, Lens can become an indispensable daily tool for monitoring and troubleshooting clusters. 
 
+----
+
 ## Performing the Upgrade 
 
 With the previous steps completed, you are now ready to begin the upgrade process. Please note that upgrade steps may vary depending on the release. The follow steps are part of the typical process: 
@@ -324,9 +331,9 @@ Based on the earlier example, your YAML file should now look like this:
 ### System Pre-checks
 Before starting an upgrade, ensure the following checks are completed:
 
-  - Verify that the UI is running correctly.
-  - Confirm that all pods are in a healthy (green) state.
-  - Review the server logs and ensure they are free of errors.
+  - [Verify that the UI](#verifying-cluedin-ui) is running correctly.
+  - Confirm that [all pods](#checking-cluedin-pods) are in a healthy (green) state.
+  - Review the [server logs](#checking-cluedin-logs) and ensure they are free of errors.
 
 If any issues are detected, it is recommended to resolve them before proceeding with the upgrade. In some cases, the upgrade itself may address certain problems, but when uncertain, seek advice from CluedIn Support.
 
@@ -335,7 +342,7 @@ Determine whether CluedIn is currently processing a high volume of data. If the 
 
 Any data still in the queues should remain forward-compatible, but minimizing workload reduces risk during the upgrade process.
 
-Check the internal CluedIn queues and confirm their status before proceeding.
+Check the internal [CluedIn queues](#checking-cluedin-queues) and confirm their status before proceeding.
 
 ### Helm Upgrade (Basic) 
 
@@ -408,6 +415,8 @@ Application started
 ``` 
 
 This indicates a successful startup, finally check the CluedIn UI and ensure everything is running smoothly.
+
+----
 
 ## Common Operations
 This guide outlines common CluedIn activities you may need to carry out during installation, upgrades, or when troubleshooting performance issues. It is designed to provide practical steps and references that help you keep your CluedIn environment running smoothly.
