@@ -8,6 +8,7 @@ title: CluedIn Upgrade Guide
 tags: ["deployment", "ama", "marketplace", "azure", "aks", "kubernetes", "upgrade"]
 last_modified: 2025-09-22
 headerIcon: "paas"
+nav_exclude: true
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -234,9 +235,8 @@ With the previous steps completed, you are now ready to begin the upgrade proces
   1. Get current values 
   1. Setup new values 
   1. System Pre-Checks
-  1. Run the helm (Basic)
-  1. Complete the upgrade 
-  1. Validate the upgrade 
+  1. Helm upgrade (Basic)
+  1. Verify upgrade 
 
 -----------
 
@@ -267,10 +267,10 @@ The Helm user values file is a YAML file which defines the configuration values 
 
 {:.important}
 We recommend using the following format for naming your user values files: 
-values-<environment>-<release-version>.yml 
+values-{environment}-{release-version}.yml 
 
-  - <environment> = the target environment (e.g., dev, staging, prod). 
-  - <release-version> = the release identifier, written as a hyphen-separated date or version number. 
+  - {environment} = the target environment (e.g., dev, staging, prod). 
+  - {release-version} = the release identifier, written as a hyphen-separated date or version number. 
 
 Example: 
 For release 2024.12.02 on the dev environment, the file should be named: 
@@ -342,7 +342,7 @@ Determine whether CluedIn is currently processing a high volume of data. If the 
 
 Any data still in the queues should remain forward-compatible, but minimizing workload reduces risk during the upgrade process.
 
-Check the internal [CluedIn queues](#checking-cluedin-queues) and confirm their status before proceeding.
+Check the internal [CluedIn queues](#checking-cluedin-queues).
 
 ### Helm Upgrade (Basic) 
 
@@ -403,10 +403,11 @@ After about **10 minutes**, the Helm command in PowerShell should complete and d
 
 However, while the Helm upgrade itself will be finished, some pods may still be starting up. It can take an additional **10–15** minutes for all pods to become fully healthy (green). 
 
+### Verify Upgrade
 You can monitor progress by checking: 
 
-  - CluedIn pods 
-  - CluedIn server logs 
+  - [CluedIn pods](#checking-cluedin-pods)
+  - [CluedIn server logs](#checking-cluedin-logs)
 
 When checking the server logs, look for the following message: 
 
@@ -414,7 +415,22 @@ When checking the server logs, look for the following message:
 Application started
 ``` 
 
-This indicates a successful startup, finally check the CluedIn UI and ensure everything is running smoothly.
+This indicates a successful startup, finally check the [CluedIn UI](#verifying-cluedin-ui) and ensure everything is running smoothly.
+
+**Finally**
+Check the cluedin helm chart version has matches the target version.
+
+```powershell
+helm list -a -n cluedin 
+```
+
+The output should display the new installed chart version. For example: 
+
+```powershell
+cluedin-platform-2.5.2 
+```
+
+The following sections outline common operational tasks, along with typical failure scenarios and their mitigations.
 
 ----
 
@@ -585,6 +601,8 @@ The number of consumers attached to a queue can be viewed by clicking the +/– 
 In the example above, the queue RemoteEvents_cluedin-server-processing is connected to a single consumer, with messages being delivered at a rate of 224/s. This indicates that the queue is functioning as expected and is in a healthy state.
 
 ------
+
+## Common Problems
 
 ### Scenario 1: CrashLoopBackOff state 
 A pod is in a CrashLoopBackOff state, the container keeps starting, failing, and restarting in a loop. 
