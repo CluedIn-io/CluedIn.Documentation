@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Modify an Integration
+title: Modify an integration
 parent: Crawlers
 grand_parent: Ingestion
 nav_order: 120
@@ -8,21 +8,50 @@ has_children: false
 permalink: /integration/modify-integrations
 tags: ["integration"]
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
-There will be many times where you will need to change an integration. This may be due to changes in the source, changes in versions or fixing mistakes. 
+There will be many times when you need to update an integration. This may happen due to:
 
-There are some situations where you may need to cleanup changes. These include:
+- Changes in the source system
 
- - You change the name of a Vocabulary Key
- - You need to remove edges
- - You need to change existing edges
- - You need to remove Vocabularies
+- Version upgrades
 
- Due to CluedIn being a append-only system (with support for deleting if necessary) it means that certain changes require cleanup. 
+- Fixing mistakes
 
- For removing or changing edges, you can use the "ObsoleteSince" extension method to instruct to CluedIn that since a particular Version if your Crawlers, you had an edge, and after the case you need to remove or change the data in the edge. 
+## When cleanup is required
 
- If you do this, this CluedIn will do the cleanup for you. You can also perform this using Post Processors. If you decide to do it in your CluedIn Crawlers then it means that your Crawlers might become a bit harder to manage. If you solve it in Post Processing, then you make sure that your crawlers always stay business-logic-agnostic. 
+Certain situations require cleanup in CluedIn, including:
 
- For changing or removing Vocabulary Key Names, the same method applies. There is the "ObsoleteSince" extension methods available on the VocabulayKey class which will allow you to instruct CluedIn to cleanup the mistakes. 
+- Renaming a vocabulary key
+
+- Removing edges
+
+- Changing existing edges
+
+- Removing vocabularies
+
+## Using ObsoleteSince for edges
+
+To remove or change edges, use the `ObsoleteSince` extension method to tell CluedIn that:
+
+- Up to a specific version of your crawler, the edge existed.
+
+- After that version, the edge should be removed or changed.
+
+CluedIn will then handle the cleanup automatically.
+
+You can also manage this via post processors:
+
+- If you handle it in the crawler, your crawlers may become harder to maintain.
+
+- If you handle it in post-processing, your crawlers remain business-logic agnostic.
+
+## Using ObsoleteSince for vocabulary keys
+
+The same approach applies to vocabulary keys.
+
+Use the `ObsoleteSince` method on the `VocabularyKey` class to instruct CluedIn to clean up renamed or deprecated keys.
 

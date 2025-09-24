@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Integration and the CluedIn UI
+title: Integration and CluedIn UI
 parent: Crawlers
 grand_parent: Ingestion
 nav_order: 110
@@ -8,26 +8,23 @@ has_children: false
 permalink: /integration/integration-compatible-with-ui
 tags: ["integration","ui"]
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
+To allow users to add and manage an integration from the interface, you must include specific information in your provider. If this information is missing, the provider will still work, but the user experience will be negatively affected.
 
-### Introduction
+## IExtendedProviderMetadata interface
 
-To be able to let someone adding and managing an Integration from the user interface, you need to add some information in your provider.
+To provide information to CluedIn.UI, implement the `IExtendedProviderMetadata` interface. The sections below explain the purpose of each property in this interface.
 
-If you don't, the provider will be valid but you will deteriorate the User experience of the product.
-
-### IExtendedProviderMetadata interface
-
-To provide the information to the CluedIn.UI, you will need to implement the IExtendedProviderMetadata interface.
-
-Please read the sections below to understand what each property of that interface is used for.
-
-A concrete example:
+Example:
 
 - [HelloWorldProvider.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Provider/HelloWorldProvider.cs)
 
 
-The code:
+Code:
 
 ```csharp
     public interface IExtendedProviderMetadata
@@ -56,11 +53,19 @@ The code:
     }
 ```
 
-### Icon
+## Icon
 
-The Icon is used by the CluedIn.UI to quickly show to all users what the provider is. The 'ideal' size of the image is 128x128px.
+The icon is used by CluedIn.UI to quickly show to all users what the provider is. The ideal image size is 128x128px.
 
-* For your icon to be found, you must add it as an Embedded Resource via the Build Action property in your Provider project. See [Build actions](https://docs.microsoft.com/en-us/visualstudio/ide/build-actions?view=vs-2019). The convention we are using is to place the icon image file under a `Resources` folder. The `Icon` property above must point to this file using '.' notation rather than '\'. For example:
+To make your icon discoverable:
+
+1. Add it as an Embedded Resource via the Build Action property in your Provider project. For details, see [Build Actions](https://docs.microsoft.com/en-us/visualstudio/ide/build-actions?view=vs-2019).
+
+1. Our convention is to place the image file under a `Resources` folder.
+
+1. Reference the icon in the `Icon` property using `.` notation (dot), not `\`.
+
+Example folder structure:
 
 ```
 - Provider.HellowWorld.csproj
@@ -68,42 +73,40 @@ The Icon is used by the CluedIn.UI to quickly show to all users what the provide
         \cluedin.png
 ```
 
-would be represented as `Resources.cluedin.png`
+This would be referenced as `Resources.cluedin.png`.
 
-Here is an example of how the Provider Icon is used in the application:
+The following example shows how the Provider Icon is used in the application:
 
-![Diagram](../assets/images/integration/provider-icons.png)
+![Diagram]({{ "/assets/images/integration/provider-icons.png" | relative_url }})
 
-### Domain
+## Domain
 
-This is the URL of your application. Leave it empty if the integration does not have a website.
+This property represents the URL of your application:
 
-The value is used by the CluedIn.UI to redirect to the integration's website if he needs more information.
+- Leave it empty if the integration does not have a website.
+
+- CluedIn.UI uses this value to redirect users to the integration’s website when more information is needed.
+
+For example, for a Slack integration, you would set the `Domain` property to `https://slack.com/`.
+
+
+## About
+
+This property represents the description of the integration.
+
+For example, for a Zendesk integration, you could use the following: `Zendesk makes better experiences for agents, admins, and customers. As employees, we encourage each other to grow and innovate.`
+
+## AuthMethods
+
+The authentication methods property is a JSON object that tells CluedIn.UI how the user should authenticate with the integration.
+
+### Oauth
+
+CluedIn provides a mechanism to handle integrations that require an OAuth flow. However, you must still provide a redirect URL so the UI knows where to send the user during authentication.
 
 Example:
 
--  if you build a Slack integration, you would have: `https://slack.com/` assigned to the Domain property.
-
-
-### About
-
-About is the description of Integration.
-
-Example:
-
-- For a Zendesk integration, you would write: `Zendesk makes better experiences for agents, admins, and customers. As employees, we encourage each other to grow and innovate.`
-
-### AuthMethods
-
-The authentication methods is a JSON object used to explain to the CluedIn.UI how the user needs to authenticate towards the integration.
-
-#### Oauth
-
-CluedIn provides you a mechanism to get permission on the integration that requires an 'Oauth' dance, never the less, you still need to add 'some' URL for the UI to know where he should redirect correctly.
-
-Example: 
-
-```JSON
+```
 "authMethods": {
   "oauth": {
     "oauthCallbackKey": "office365azureactivedirectory",
@@ -113,15 +116,16 @@ Example:
 },
 ```
 
-NOTE: For future version, CluedIn will work to remove the needs of those value by creating a generic controllers, but due to some 'exceptions' we have encounter with some Oauth mechanism, it is still required to mention those values.
+{:.important}
+In future versions, CluedIn will aim to remove the need for these values by introducing generic controllers. However, due to certain exceptions encountered with some OAuth mechanisms, these values are still required for now.
 
-#### Credentials
+### Credentials
 
-Credentials is generally use for the system that requires a BASIC authentication. This will be used by the integration to pull the data.
+Credentials are generally used for systems that require basic authentication. These credentials allow the integration to pull data from the source system.
 
 Example:
 
-```JSON
+```
 "credentials": [{
   "displayName": "User Name",
   "type": "input",
@@ -135,13 +139,13 @@ Example:
 }],
 ```
 
-#### API Token
+### API token
 
-Some integrations require sometimes an API token to be passed along the request.
+Some integrations require an API token to be included with the request.
 
 Example:
 
-```JSON
+```
 "token": [{
   "displayName": "Api Token",
   "type": "input",
@@ -150,11 +154,11 @@ Example:
 }],
 ```
 
-#### Custom
+### Custom
 
-If you need a 'custom' field to be sent to your Integration, you can use the Credentials object with extra fields.
+If your integration requires a custom field, you can add it to the `credentials` object as an extra field.
 
-```JSON
+```
 "credentials": [{
     "type": "subdomain",
     "name": "websiteName",
@@ -175,15 +179,17 @@ If you need a 'custom' field to be sent to your Integration, you can use the Cre
 }],
 ```
 
-#### Properties
+### Properties
 
-The properties used to setup more precisely what you want to crawl from that integration.
+The properties let you define more precisely what to crawl from an integration.
 
-If you want the integration to get ALL data, leave it empty but from time to time, you want the User adding the integration to pick a specific 'project' or 'folder' or any other kind of segmentation that your integration might have.
+- If you want the integration to fetch all data, leave the properties empty.
 
-Example: List of Projects
+- If you want to limit the scope, you can require the user adding the integration to select a specific project, folder, or another type of segmentation supported by the integration.
 
-```JSON
+Example – List of projects:
+
+```
 [{
   "displayName": "Projects to include",
   "type": "list",
@@ -198,15 +204,15 @@ Example: List of Projects
 }]
 ```
 
-- displayName: the label that would be displayed in the UI once the integration is rendered.
-- type: The type of data that would be returned `list` or `tree`.
-- isRequired: mentioned if it is needed for the User to setup this information.
-- name: The name of the field to setup (taken from the `HelperConfiguration`).
-- options: The 'value' that should be set for each value selected by the user.
+- `displayName` – The label displayed in the UI when the integration is rendered.
+- `type` – The type of data returned, either `list` or `tree`.
+- `isRequired` – Indicates whether the user must provide this information.
+- `name` – The name of the field to configure (taken from `HelperConfiguration`).
+- `options` – The value that should be set for each value selected by the user.
 
-Example: Tree of folders
+Example – Tree of folders:
 
-```JSON
+```
 [{
   "displayName": "Folders to include",
   "name": "folders",
@@ -215,28 +221,35 @@ Example: Tree of folders
 }]
 ```
 
-NOTE: In the case you more options, please contact us.
+{:.important}
+Contact us if you need more options.
 
-#### Type
+### Type
 
-A list of type for the integration. Useful when you have hundreds of integration installed.
+A list of types for the integration. This is especially useful when you have many integrations installed.
 
-Values can be: 
+Possible values include:
 
-- "Cloudfile"
-- "Support"
-- "CRM"
-- "Social"
-- "Code"
-- "Task"
-- "Communication"
+- `Cloudfile`
+
+- `Support`
+
+- `CRM`
+
+- `Social`
+
+- `Code`
+
+- `Task`
+
+- `Communication`
 
 Example:
 
-```JSON
+```
 type: ["Task", "Support"]
 ```
 
 In the UI:
 
-![Diagram](../assets/images/integration/integration-categories.png)
+![Diagram]({{ "/assets/images/integration/integration-categories.png" | relative_url }})
