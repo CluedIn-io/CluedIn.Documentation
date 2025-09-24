@@ -558,31 +558,25 @@ When logging in to the RabbitMQ UI:
   - Password: Retrieve the password from your stored CluedIn credentials.
 
 **Checking queues**  
-Once logged in, you will typically be directed to the Overview tab. This dashboard provides a high-level summary of RabbitMQ, including the total number of messages currently in the system and key metrics about queue activity.
+Upon logging in, the system typically directs the user to the Overview tab. This dashboard provides a high-level summary of RabbitMQ, including the total number of messages currently in the system and key metrics related to queue activity.
 
-You can also sort by total message to view the largest queue in rabbitmq.
+The queues can be sorted by total messages to quickly identify the largest queues within RabbitMQ.
 
+![rabbitmq-queues.png]({{ "/assets/images/upgrade/rabbitmq-queues.png" | relative_url }})
 
+Message rates can also be reviewed to determine whether queues are processing messages as expected:
+  - Incoming – Indicates that messages are being published to the queue by a producer. These messages remain in the queue until they are consumed.
+  - Deliver/Get – Indicates that messages from the queue are being consumed by a consumer.
 
- 
+![rabbitmq-rates.png]({{ "/assets/images/upgrade/rabbitmq-rates.png" | relative_url }})
 
-You can look into message rates to see if queues  message are being processed or not.  
+If a large number of Incoming messages are observed but no corresponding Deliver/Get activity is recorded, it may indicate that no consumers are currently available to process those messages.
 
-Incoming mean that message are being published to queue by publisher to be consumed  by consumer at later time. 
+The number of consumers attached to a queue can be viewed by clicking the +/– icon on the right-hand side to enable the Consumers column.
 
- 
+![rabbitmq-consumers.png]({{ "/assets/images/upgrade/rabbitmq-consumers.png" | relative_url }})
 
-Deliver/get mean that message from queue are being consumed by consumer. 
-
- 
-
-If you found that a lot of incoming message but none are being deliver/get, that it might be that there is no consumer that are processing this message. 
-
-  
-
-You can see number of consumer attached to a queue by clicking +/- icon on the right to enable consumer collumn.  
-
- above example shows that queue RemoteEvents_cludedin-server-processing are connected with 1 consumer and message delivered at 224/s. Which mean it is healthy. 
+In the example above, the queue RemoteEvents_cluedin-server-processing is connected to a single consumer, with messages being delivered at a rate of 224/s. This indicates that the queue is functioning as expected and is in a healthy state.
 
 ------
 
