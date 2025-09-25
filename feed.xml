@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2025-09-25T12:20:50+00:00</updated>
+    <updated>2025-09-25T12:37:23+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1776,13 +1776,93 @@
     </entry>
     
     <entry>
-        <title>CluedIn Upgrade Guide</title>
+        <title>Plan the upgrade</title>
+        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide/plan-the-upgrade" />
+        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide/plan-the-upgrade</id>
+        <updated>2025-09-22T00:00:00+00:00</updated>
+        <summary>
+        
+        Plan the upgrade.
+        
+        
+        
+        Tags: deployment, ama, marketplace, azure, aks, kubernetes, upgrade.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Prepare for the upgrade</title>
+        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide/prepare-for-the-upgrade" />
+        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide/prepare-for-the-upgrade</id>
+        <updated>2025-09-22T00:00:00+00:00</updated>
+        <summary>
+        
+        Prepare for the upgrade.
+        
+        
+        
+        Tags: deployment, ama, marketplace, azure, aks, kubernetes, upgrade.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Perform the upgrade</title>
+        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide/perform-the-upgrade" />
+        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide/perform-the-upgrade</id>
+        <updated>2025-09-22T00:00:00+00:00</updated>
+        <summary>
+        
+        Perform the upgrade.
+        
+        
+        
+        Tags: deployment, ama, marketplace, azure, aks, kubernetes, upgrade.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Common upgrade operations</title>
+        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide/common-upgrade-operations" />
+        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide/common-upgrade-operations</id>
+        <updated>2025-09-22T00:00:00+00:00</updated>
+        <summary>
+        
+        Common upgrade operations.
+        
+        
+        
+        Tags: deployment, ama, marketplace, azure, aks, kubernetes, upgrade.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Resolve common upgrade issues</title>
+        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide/resolve-common-upgrade-issues" />
+        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide/resolve-common-upgrade-issues</id>
+        <updated>2025-09-22T00:00:00+00:00</updated>
+        <summary>
+        
+        Resolve common upgrade issues.
+        
+        
+        
+        Tags: deployment, ama, marketplace, azure, aks, kubernetes, upgrade.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Upgrade guide</title>
         <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide" />
         <id>https://documentation.cluedin.net/paas-operations/upgrade/guide</id>
         <updated>2025-09-22T00:00:00+00:00</updated>
         <summary>
         
-        CluedIn Upgrade Guide.
+        Upgrade guide.
         
         
         
