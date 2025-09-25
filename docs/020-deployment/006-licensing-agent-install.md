@@ -23,13 +23,13 @@ In the Azure Marketplace, navigate to our PaaS offering:     [CluedIn Master Dat
 
   ![ama-cluedin-page.png]({{ "/assets/images/ama/install-guide/ama-cluedin-page.png" | relative_url }})
 
-1. Under Software plan, choose the option that suits your needs:
+2. Under Software plan, choose the option that suits your needs:
     CluedIn Licensing Agent – select this plan to install the licensing agent.
 
   ![paas-software-plan.png]({{ "/assets/images/deployment/paas-installation-guide/licensing-agent-plan.png" | relative_url }})
 
-1. Review your contact information and select Continue to proceed.
-1. Review your contact information, and then select **Continue**.
+3. Review your contact information and select Continue to proceed.
+4. Review your contact information, and then select **Continue**.
 
 ### Basics Tab
 #### Project Details
