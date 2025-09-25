@@ -19,155 +19,141 @@ Before upgrading CluedIn, it’s important to make sure your environment is read
 
 ## Get access to CluedIn application
 
-Before starting an upgrade, it’s best practice to open the CluedIn UI and confirm that all services are running as expected. If you don’t have direct access, make sure someone who does is available and ready to assist throughout the upgrade process.
-
-[Verifying CluedIn UI](/paas-operations/upgrade/guide/common-upgrade-operations#check-cluedin-ui)
+Before starting an upgrade, it is best practice to open the CluedIn UI and confirm that all services are running as expected. If you don’t have direct access, make sure that someone who does is available to assist throughout the upgrade process. For instructions, see [Check CluedIn UI](/paas-operations/upgrade/guide/common-upgrade-operations#check-cluedin-ui).
 
 ## Connect Helm and kubectl to the CluedIn AKS cluster
 
 Helm and kubectl are command-line tools used to manage Kubernetes clusters. To connect them to the CluedIn Azure Kubernetes Service (AKS) cluster, you will need a valid kubeconfig file.
 
-### Obtaining the kubeconfig
+1. Contact your Azure administrator and ask them to provide the kubeconfig file to you.
 
-- The kubeconfig file must be securely provided by your Azure administrator.  
-- Treat this file as sensitive information—it contains access credentials and cluster details.  
-- Store it in a secure location and **never** check it into source control.
+    {:.important}
+    Treat this file as sensitive information – it contains access credentials and cluster details.
+  
+1. Store the file in a secure location. **Do not commit** the file to a source control tool.
 
-### Setting up your environment
+1. Once you have the kubeconfig file, configure your environment to use it. For example, in PowerShell, run the following:
 
-Once you have the kubeconfig file, configure your environment to point to it. For example, in PowerShell:
+    ```powershell
+    $env:KUBECONFIG="path-to-file"
+    ```
 
-```powershell
-$env:KUBECONFIG="path-to-file"
-```
-
-This ensures that both kubectl and helm commands will use the correct cluster context. 
-
-**Access Modes** 
-**Public Cluster** 
-
-  - Description: A Kubernetes cluster with a public endpoint can be accessed from anywhere on the internet. 
-  - Considerations: 
-
-    - This setup is less common due to security risks. 
-    - Ensure your personal or organizational firewalls allow outbound access. 
-    - Always use role-based access control (RBAC) and strong authentication. 
-
-**Private Cluster** 
-
-  - Description: In a private AKS cluster, the API server is only accessible within the virtual network (VNet). 
-  - Requirements: 
-
-    - Your Azure administrator must peer your virtual machine (VM) or workstation to the cluster's VNet. 
-    - Once peered, you can securely connect to the cluster without exposing it to the public internet. 
+    This ensures that both kubectl and Helm commands will use the correct cluster context. 
 
 ------------
 
 ## Configure kubectl 
 
-Kubectl lets you communicate directly with the Kubernetes API server defined in your **kubeconfig** file. This means you can: 
+Kubectl lets you communicate directly with the Kubernetes API server defined in your kubeconfig file. This means that you can: 
 
-  - Inspect cluster resources (pods, services, deployments, nodes). 
-  - Apply configuration files (kubectl apply -f deployment.yaml). 
+  - Inspect cluster resources (pods, services, deployments, and nodes). 
+
+  - Apply configuration files (`kubectl apply -f deployment.yaml`). 
+
   - Scale applications up or down. 
-  - Restart, delete, or debug workloads. 
 
-Without kubectl, you wouldn’t have a straightforward way to manage or query what’s running inside your AKS cluster. 
+  - Restart, delete, or debug the workloads. 
 
-To check kubectl is installed correctly, run the following command in PowerShell: 
+Without kubectl, there is no simple way to manage or query what’s running inside your AKS cluster.
+
+1. To verify that kubectl is installed correctly, run the following command in PowerShell: 
  
-```powershell
-kubectl version --client 
-```
-  - If installed, you’ll see the client version details (e.g., Client Version: v1.30.0). 
-  - If not, you’ll get a “command not found” error. In this case, contact your system administrator to install and configure it properly. 
+    ```powershell
+    kubectl version --client 
+    ```
+    - If kubectl is installed, you’ll see the client version details (for example, **Client Version: v1.30.0**).
 
-To check that kubectl is correctly connected to your cluster run the following command in powershell: 
+    - If not, you’ll get a "command not found" error. In this case, contact your system administrator to install and configure kubectl properly. 
 
-```powershell
-kubectl get pods --namespace cluedin 
-```
+1. To confirm that kubectl is correctly connected to your cluster, run the following command in PowerShell: 
+
+    ```powershell
+    kubectl get pods --namespace cluedin 
+    ```
  
-You should see a list of pods. 
+    - You should see a list of pods as a result. 
 
-If not then your kubeconfig is not configured correctly or network access is not configured correctly. [See admin] 
+    - If not, your kubeconfig or network access may not be configured correctly. Contact your administrator.
 
 ------------
 
 ## Configure Helm
 
-We use Helm to upgrade because it makes updating applications simple, consistent, and reversible - allowing you to apply changes with one command while keeping version history for easy rollbacks. 
+We use Helm for upgrades because it makes updating applications simple, consistent, and reversible. With a single command, you can apply changes while keeping version history for easy rollbacks.
 
-To check helm is installed correctly run the following command in PowerShell: 
+1. To verify that Helm is installed correctly, run the following command in PowerShell:
  
-```powershell
-helm version 
-```
+    ```powershell
+    helm version 
+    ```
 
-  - You should see a client version (e.g., v3.x.x). 
-  - If you see “command not found,” Helm isn’t installed or not in your PATH. In this case, contact your system administrator to install and configure it properly. 
-
-Check you are connected to the cluster 
-
-```powershell
-helm config current-context 
-```
-
-  - You should see the cluster name (eg. aks-cluedin-eastus). 
-  - If you see an error like “current-context is not set”. Contact your system administrator to ensure the kubeconfig is configured correctly. 
-
-**Verifying the CluedIn Helm Repository** 
-
-CluedIn publishes its latest Helm charts to a dedicated Helm repository. To check if it’s configured, run: 
-
-```powershell
-helm repo list 
-```
-
-  - If CluedIn appears in the list, you’re ready to use it. 
-  - If not, add it with: 
-
-```powershell
-Helm repo add https://cluedin-io.github.io/Charts 
-Helm repo list 
-```
+    - If Helm is installed, you’ll see the client version details (e.g., **v3.x.x**).
  
-**Updating Charts Before an Upgrade** 
+    - If you get a "command not found" error, this means that Helm is not installed or is not in your PATH. In this case, contact your system administrator to install and configure it properly.
 
-Before performing any upgrade, always fetch the latest CluedIn charts: 
+1. To verify that you are connected to the cluster, run the following command in PowerShell: 
 
-```powershell
-Helm repo update 
-```
+    ```powershell
+    helm config current-context 
+    ```
 
-This ensures you’re deploying the most up-to-date configurations and fixes. 
+    - You should see the cluster name (for example, **aks-cluedin-eastus**).
+
+    - If you get an error similar to "current-context is not set", contact your system administrator to ensure that the kubeconfig is configured correctly. 
+
+1. CluedIn publishes its latest Helm charts to a dedicated Helm repository. Verify that the repository is configured by running the following command:
+
+    ```powershell
+    helm repo list 
+    ```
+
+    - If CluedIn appears in the list, you are ready to use the repository.
+
+    - If not, add the repository by running the following command: 
+
+        ```powershell
+        Helm repo add https://cluedin-io.github.io/Charts 
+        Helm repo list 
+        ```
+
+1. Before performing any upgrade, always fetch the latest CluedIn charts: 
+
+    ```powershell
+    Helm repo update 
+    ```
+
+This ensures that you are deploying the most up-to-date configurations and fixes.  
 
 -----------
 
 ## Connect Lens to your CluedIn cluster
 
-**Lens** and **Open Lens** are powerful, free tools designed for monitoring and managing Kubernetes clusters. They provide a user-friendly graphical interface that simplifies many everyday Kubernetes tasks. By reducing the need to recall and execute long or complex command-line instructions, these tools can significantly improve productivity and save valuable time. 
-
-**Why Use Lens?** 
-
-  - Ease of Use: Offers an intuitive dashboard for viewing and managing cluster resources. 
-  - Productivity Boost: Eliminates the need to memorize kubectl commands for common tasks. 
-  - Logs Built In: The Free Lens version includes built-in log viewing, which makes it especially useful for troubleshooting. 
-
-**Connecting to Your Cluster** 
-
-Lens connects to Kubernetes using your kubeconfig file. You can add clusters in two main ways: 
-
-  1. Drop-in method: Place your kubeconfig into the system’s .kube folder (commonly located at ~/.kube/config). 
-  1. UI method: Import or configure your cluster directly through the Lens graphical interface. 
-
-**Key Capabilities** 
-Once connected, you can quickly and easily: 
-  - View and manage pods, services, deployments, and namespaces. 
-  - Monitor resource usage such as CPU and memory. 
-  - Access and search through logs directly from the UI. 
-  - Inspect and edit Kubernetes objects without leaving the dashboard. 
-
 {:.important}
-**Recommendation** 
-We recommend using **Free Lens**, since it includes built-in log access and provides a more complete out-of-the-box experience. For teams working regularly with Kubernetes, Lens can become an indispensable daily tool for monitoring and troubleshooting clusters.
+This step is optional. It does not depend on the previous steps, you can perform it whenever appropriate.
+
+Lens and Open Lens are powerful, free tools designed to monitor and manage Kubernetes clusters. They provide a user-friendly graphical interface that simplifies multiple everyday Kubernetes tasks. By reducing the need to recall and execute long or complex command-line instructions, these tools improve productivity and save valuable time. 
+
+Reasons to use Lens:
+
+  - Ease of use – It offers an intuitive dashboard to view and manage cluster resources.
+
+  - Productivity boost – It eliminates the need to memorize kubectl commands for common tasks. 
+
+  - Built-in logs – The Freelens version includes built-in log viewing, which makes it especially useful for troubleshooting.
+
+We recommend using FreeLens, as it includes built-in log access and offers a more complete out-of-the-box experience. For teams that work regularly with Kubernetes, Lens can quickly become an indispensable daily tool for monitoring and troubleshooting clusters.
+
+Lens connects to Kubernetes using your kubeconfig file. You can add clusters in two ways: 
+
+- Drop-in method – Place your kubeconfig into the system’s `.kube` folder (commonly located at `~/.kube/config`). 
+- UI method – Import or configure your cluster directly through the Lens graphical interface.
+
+Once connected, Lens allows you to:
+ 
+  - View and manage pods, services, deployments, and namespaces.
+ 
+  - Monitor CPU, memory, and other resource usage. 
+
+  - Access and search through logs directly from the UI. 
+
+  - Inspect and edit Kubernetes objects without leaving the dashboard. 
