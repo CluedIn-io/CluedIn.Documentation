@@ -236,6 +236,7 @@ With the previous steps completed, you are now ready to begin the upgrade proces
   1. Setup new values 
   1. System Pre-Checks
   1. Helm upgrade (Basic)
+  1. Helm upgrade with Data Upgrade
   1. Verify upgrade 
 
 -----------
@@ -403,20 +404,6 @@ After about **10 minutes**, the Helm command in PowerShell should complete and d
 
 However, while the Helm upgrade itself will be finished, some pods may still be starting up. It can take an additional **10–15** minutes for all pods to become fully healthy (green). 
 
-### Verify Upgrade
-You can monitor progress by checking: 
-
-  - [CluedIn pods](#checking-cluedin-pods)
-  - [CluedIn server logs](#checking-cluedin-logs)
-
-When checking the server logs, look for the following message: 
-
-```
-Application started
-``` 
-
-This indicates a successful startup, finally check the [CluedIn UI](#verifying-cluedin-ui) and ensure everything is running smoothly.
-
 **Finally**
 Check the cluedin helm chart version has matches the target version.
 
@@ -431,6 +418,128 @@ cluedin-platform-2.5.2
 ```
 
 The following sections outline common operational tasks, along with typical failure scenarios and their mitigations.
+
+### Helm Upgrade with Data Upgrade
+This step should only be executed if explicitly directed, and it replaces the step above titled “Helm Upgrade (Basic).”
+
+In some cases, an upgrade also requires changes to the underlying data. When this occurs, CluedIn must be placed into Upgrade Mode during installation.
+
+{:.important}
+**Upgrade Mode** Upgrade Mode ensures that no data is ingested or processed while the upgrade is in progress, preventing inconsistencies and maintaining data integrity.
+
+During this upgrade, the UI will be disabled. Please notify all users in advance so they are aware of the downtime. 
+
+A standard CluedIn upgrade typically results in 20–30 minutes of downtime. If the upgrade includes data migrations or additional updates or large volumes of data, the outage may take longer. 
+
+**Verify the Current CluedIn Helm Chart Version** 
+Run the following command to list all Helm releases in the cluedin namespace: 
+
+```powershell
+helm list -a -n cluedin 
+```
+
+The output will display the currently installed chart version. For example: 
+
+```powershell
+cluedin-platform-2.5.1 
+```
+
+This indicates that the current Helm chart version in use is **2.5.1**. 
+
+```powershell
+# ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. 
+
+helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \
+     --version {CluedInChartVersion} \ 
+     --values ${CustomValues} \ 
+     --set application.system.upgradeMode=true \
+     --set application.system.runDatabaseJobsOnUpgrade=true \
+     --set application.system.runNugetFullRestore=true \
+     --wait \
+     --timeout 10m0s
+```
+
+**Parameter details:** 
+  - {CluedInChartVersion} – The target chart version specified in the documentation. 
+  - ${CustomValues} – The full path to the user values file you created in the previous step.
+  - upgradeMode=true - Ensures no data is ingested or processed 
+  - runDatabaseJobsOnUpgrade=true – Ensures the database is refreshed during the upgrade. 
+  - runNugetFullRestore=true – Ensures all packages are fully restored. 
+  - --timeout 10m0s – A best practice is to allow a 10-minute timeout. If the upgrade fails due to a timeout, please follow the documented mitigation steps. 
+
+After a few minutes, it should successfully complete.
+
+**Validation**
+  - Wait until deployment finishes. Make sure that all pods are healthy and all jobs are completed.
+  - Don’t proceed further if any of the pods have health issues. 
+
+**Run Data Upgrade**
+The data upgrade requires a trigger which is applied by running the following command:
+
+```yaml
+kubectl apply -f - <<EOF
+apiVersion: api.cluedin.com/v1
+kind: DataUpgrade
+metadata:
+  annotations:
+    meta.helm.sh/release-name: cluedin-platform
+    meta.helm.sh/release-namespace: cluedin
+  labels:
+    app: cluedin
+    app.kubernetes.io/instance: cluedin-platform
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: application
+    helm.sh/chart: application-2.5.1
+    release: cluedin-platform
+  name: data-upgrade-450
+  namespace: cluedin
+spec:
+  toVersion: Version450
+EOF
+```
+
+**Validation**
+Check the CluedIn server pod logs. The logs should display the following (Version450 label will vary):
+
+```powershell
+[#098 05:57:02 INF] Performing Upgrade Scenario Apply DataSource and Manual Data Entry Project Owners Upgrade for version Version450
+[#090 05:57:03 INF] Completed Upgrade Scenario Apply DataSource and Manual Data Entry Project Owners Upgrade for version Version450
+[#090 05:57:03 INF] Performing Upgrade Scenario Elastic search upgrade mapping for version Version450
+[#095 05:57:04 INF] Completed Upgrade Scenario Elastic search upgrade mapping for version Version450
+[#095 05:57:04 INF] HTTP POST /api/upgradeto/Version450 responded 200 in 1857.3003 ms
+```
+
+**responded 200** indicates a successful upgrade.
+
+**Finalise Upgrade**
+CluedIn must now be taken back out of *Upgrade Mode* to bring CluedIn back online. Run the following command:
+
+```powershell
+ # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here.
+
+ helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \
+   --version {CluedInChartVersion} \ 
+   --values ${CustomValues} \ 
+   --set application.system.upgradeMode=false \
+   --set application.system.runDatabaseJobsOnUpgrade=false \
+   --set application.system.runNugetFullRestore=false
+```
+
+After a few minutes the command should complete.
+
+### Verify Upgrade
+You can monitor progress by checking: 
+
+  - [CluedIn pods](#checking-cluedin-pods)
+  - [CluedIn server logs](#checking-cluedin-logs)
+
+When checking the server logs, look for the following message: 
+
+```
+Application started
+``` 
+
+This indicates a successful startup, finally check the [CluedIn UI](#verifying-cluedin-ui) and ensure everything is running smoothly.
 
 ----
 
