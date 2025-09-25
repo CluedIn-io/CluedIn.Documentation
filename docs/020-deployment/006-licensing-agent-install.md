@@ -4,12 +4,10 @@ title: CluedIn Licensing Agent
 parent: Installation
 permalink: /deployment/marketplace-licensing-agent
 nav_order: 2
-has_children: true
+has_children: false
 tags: ["deployment", "licensing-agent", "azure", "microsoft", "marketplace", "azure-marketplace"]
 headerIcon: "paas"
 ---
-
-## CluedIn Licensing Agent
 
 The CluedIn licensing agent is delivered as an Azure Managed Application and is installed via the Azure Marketplace. It enables CluedIn to bill customers directly through the Marketplace.
 
@@ -21,13 +19,17 @@ The person performing the installation must have the appropriate Azure permissio
 ## Installation Steps
 In the Azure Marketplace, navigate to our PaaS offering:     [CluedIn Master Data Management](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cluedin.azure_cluedin?tab=Overview).
 
-  - On the CluedIn Master Data Management page, select Get It Now.
+1. On the CluedIn Master Data Management page, select Get It Now.
+
   ![ama-cluedin-page.png]({{ "/assets/images/ama/install-guide/ama-cluedin-page.png" | relative_url }})
-  - Under Software plan, choose the option that suits your needs:
+
+1. Under Software plan, choose the option that suits your needs:
     CluedIn Licensing Agent – select this plan to install the licensing agent.
+
   ![paas-software-plan.png]({{ "/assets/images/deployment/paas-installation-guide/licensing-agent-plan.png" | relative_url }})
-  - Review your contact information and select Continue to proceed.
-  - Review your contact information, and then select **Continue**.
+
+1. Review your contact information and select Continue to proceed.
+1. Review your contact information, and then select **Continue**.
 
 ### Basics Tab
 #### Project Details
