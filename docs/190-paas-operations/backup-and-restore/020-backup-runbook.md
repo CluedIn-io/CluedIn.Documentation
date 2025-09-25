@@ -55,3 +55,16 @@ Upon a successful run, the runbook generates nine snapshots and stores them in a
 ![backup-runbook-process.png]({{ "/assets/images/paas-operations/backup-runbook-process.png" | relative_url }})
 
 Scaling up or down deployments is optional. However, it is recommended to prevent data loss while capturing snapshots.
+
+## Permissions
+
+The runbook must be granted the following permissions:
+
+| Resource                     | Assigned Role(s)                                             | Why This Role is Needed                                                                 |
+|------------------------------|--------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| AKS Resource Group           | Reader                                                       | Required to read AKS configurations and metadata.                                        |
+| AKS Instance                 | Contributor                                                  | Required to scale AKS Instance and send aks command.                                     |
+| Snapshot Resource Group      | Reader, Disk Snapshot Contributor                           | Required to read snapshots and creating/managing disk snapshots in the resource group.   |
+| AKS Node Resource Group      | Reader, Disk Snapshot Contributor, VM Restore Contributor    | Required to read list of disk, delete old disk, and restore new Disk from snapshot.      |
+| Storage Account Resource Group | Reader                                                     | Required to read Storage account configurations and metadata.                            |
+| Storage Account              | Storage Blob Data Contributor, Storage Account Key Operator Service Role | Required to store pod replica configuration during scaling down. |
