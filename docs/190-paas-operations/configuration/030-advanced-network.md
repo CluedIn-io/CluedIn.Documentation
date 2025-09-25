@@ -32,7 +32,6 @@ The following diagram shows the advanced network configuration of CluedIn.
 
 ![advanced-network-key-blue.png]({{ "/assets/images/ama/howtos/advanced-network-key-blue.png" | relative_url }}){: width="200"}
 
-**Notes**
 **HubVNet**
 This virtual network is hosted by the client. All IP addresses and address ranges in this design are suggestions only and must be validated and finalized by the client according to their internal IP planning policies.
 
