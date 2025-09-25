@@ -20,17 +20,17 @@ In this article, you will learn about advanced network configuration options tha
 
 The following diagram shows the default network configuration of CluedIn after installation.
 
-![network-diagram-1.png]({{ "/assets/images/ama/install-guide/network-diagram-1.png" | relative_url }})
+![network-diagram-1.png]({{ "/assets/images/ama/install-guide/network-diagram-1.png" | relative_url }}){: width="800"}
 
 ## Advanced network configuration example
 
 The following diagram shows the advanced network configuration of CluedIn.
 
-![advanced-network-1.png]({{ "/assets/images/ama/howtos/advanced-network-1.png" | relative_url }})
-----
-![advanced-network-3.png]({{ "/assets/images/ama/howtos/advanced-network-3.png" | relative_url }})
-----
-![advanced-network-key.png]({{ "/assets/images/ama/howtos/advanced-network-key.png" | relative_url }}){: width="200"}
+![advanced-network-blue-1.png]({{ "/assets/images/ama/howtos/advanced-network-blue-1.png" | relative_url }}){: width="800"}
+
+![advanced-network-blue-3.png]({{ "/assets/images/ama/howtos/advanced-network-blue-3.png" | relative_url }}){: width="800"}
+
+![advanced-network-key-blue.png]({{ "/assets/images/ama/howtos/advanced-network-key-blue.png" | relative_url }}){: width="200"}
 
 **Notes**
 **HubVNet**
