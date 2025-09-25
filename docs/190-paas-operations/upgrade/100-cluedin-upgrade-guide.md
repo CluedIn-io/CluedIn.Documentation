@@ -499,7 +499,17 @@ EOF
 ```
 
 **Validation**
-Inspect the CluedIn pod logs for the server ...
+Check the CluedIn server pod logs. The logs should display the following (Version450 label will vary):
+
+```powershell
+[#098 05:57:02 INF] Performing Upgrade Scenario Apply DataSource and Manual Data Entry Project Owners Upgrade for version Version450
+[#090 05:57:03 INF] Completed Upgrade Scenario Apply DataSource and Manual Data Entry Project Owners Upgrade for version Version450
+[#090 05:57:03 INF] Performing Upgrade Scenario Elastic search upgrade mapping for version Version450
+[#095 05:57:04 INF] Completed Upgrade Scenario Elastic search upgrade mapping for version Version450
+[#095 05:57:04 INF] HTTP POST /api/upgradeto/Version450 responded 200 in 1857.3003 ms
+```
+
+**responded 200** indicates a successful upgrade.
 
 **Finalise Upgrade**
 CluedIn must now be taken back out of *Upgrade Mode* to bring CluedIn back online. Run the following command:
