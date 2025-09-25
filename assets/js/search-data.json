@@ -2954,18 +2954,18 @@
     "relUrl": "/playbooks/data-ingestion-playbook"
   },"422": {
     "doc": "CluedIn Licensing Agent",
+    "title": "Installation Steps",
+    "content": "In the Azure Marketplace, navigate to our PaaS offering: CluedIn Master Data Management. | On the CluedIn Master Data Management page, select Get It Now. | . | Under Software plan, choose the option that suits your needs: CluedIn Licensing Agent – select this plan to install the licensing agent. | . | Review your contact information and select Continue to proceed. | Review your contact information, and then select Continue. | . Basics Tab . Project Details . | In Subscription, select the Azure subscription where you want to install CluedIn. | In Resource group, create a new resource group. You may also select an existing resource group, but it must be empty. If the selected resource group contains other Azure resources, an error will occur. | . Instance Details . | In Region, specify the Azure region where the resources will be created. Typically, this should match the region of your resource group. | Enter the following information: . | Name | Company Name | Contact Name | Contact Email | . | Verify that the Managed Application Details section is filled in correctly: . | Keep the application name as cluedinlicense. | The managed resource group is usually filled in by default, but you can make changes if required. | . | . License . | In the License section, keep the installation name as cluedinlicense. | . Review + Create Tab . | Review all settings and accept the terms and conditions. | When you are ready to deploy to your cloud environment, select Create. | After a few minutes, the Azure portal will notify you once the installation is complete. | . ",
+    "url": "/deployment/marketplace-licensing-agent#installation-steps",
+    
+    "relUrl": "/deployment/marketplace-licensing-agent#installation-steps"
+  },"423": {
+    "doc": "CluedIn Licensing Agent",
     "title": "CluedIn Licensing Agent",
     "content": "The CluedIn licensing agent is delivered as an Azure Managed Application and is installed via the Azure Marketplace. It enables CluedIn to bill customers directly through the Marketplace. The installation process is straightforward: you complete a short form, which then provisions a Managed Application in the customer’s azure subscription. Once installed, any agreed CluedIn charges can be billed to that subscription. The person performing the installation must have the appropriate Azure permissions to install paid applications. While the process is generally simple, please note that existing Azure policies can sometimes block the installation. ",
     "url": "/deployment/marketplace-licensing-agent",
     
     "relUrl": "/deployment/marketplace-licensing-agent"
-  },"423": {
-    "doc": "CluedIn Licensing Agent",
-    "title": "Installation Steps",
-    "content": "In the Azure Marketplace, navigate to our PaaS offering: CluedIn Master Data Management. | On the CluedIn Master Data Management page, select Get It Now. | Under Software plan, choose the option that suits your needs: CluedIn Licensing Agent – select this plan to install the licensing agent. | Review your contact information and select Continue to proceed. | Review your contact information, and then select Continue. | . Basics Tab . Project Details . | In Subscription, select the Azure subscription where you want to install CluedIn. | In Resource group, create a new resource group. You may also select an existing resource group, but it must be empty. If the selected resource group contains other Azure resources, an error will occur. | . Instance Details . | In Region, specify the Azure region where the resources will be created. Typically, this should match the region of your resource group. | Enter the following information: . | Name | Company Name | Contact Name | Contact Email | . | Verify that the Managed Application Details section is filled in correctly: . | Keep the application name as cluedinlicense. | The managed resource group is usually filled in by default, but you can make changes if required. | . | . License . | In the License section, keep the installation name as cluedinlicense. | . Review + Create Tab . | Review all settings and accept the terms and conditions. | When you are ready to deploy to your cloud environment, select Create. | After a few minutes, the Azure portal will notify you once the installation is complete. | . ",
-    "url": "/deployment/marketplace-licensing-agent#installation-steps",
-    
-    "relUrl": "/deployment/marketplace-licensing-agent#installation-steps"
   },"424": {
     "doc": "Support scope",
     "title": "Support scope",
