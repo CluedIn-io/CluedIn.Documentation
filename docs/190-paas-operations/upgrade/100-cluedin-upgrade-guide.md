@@ -629,8 +629,31 @@ To check previous logs before pods is crashed, simply add –p at the end of kub
 kubectl logs <pod name> -n cluedin –p 
 ```
 
---Give an example error
---Give an example resolution
+**Example**
+
+```powershell
+kubectl logs cluedin-neo4j-0 -n cluedin -p
+```
+
+**Returns**
+
+```powershell
+2025-09-25 09:35:09.212+0000 INFO  Starting Neo4j.
+2025-09-25 09:35:09.522+0000 INFO  Setting max memory usage to 1.5GiB
+2025-09-25 09:35:11.785+0000 INFO  Performing database recovery...
+2025-09-25 09:35:14.120+0000 INFO  Recovery complete.
+2025-09-25 09:35:14.785+0000 INFO  Starting Bolt connector on 0.0.0.0:7687
+2025-09-25 09:35:15.333+0000 ERROR OutOfMemoryError: Java heap space
+2025-09-25 09:35:15.335+0000 INFO  Neo4j shutting down due to fatal error
+
+```
+
+**Resolution**
+
+The error indicates that the Neo4j container was killed due to insufficient memory (OutOfMemoryError: Java heap space).
+This usually happens when the container's memory limit is too low for the workload or Neo4j's internal memory settings are too aggressive.
+
+To fix this, we need to increase the limit imposed on neo4j statefulset.
 
 ------
 
@@ -714,10 +737,54 @@ If you want to read the log in a more convenient way, it might be useful to down
 kubectl logs <pod name> -n cluedin  >  <podname>.log 
 ```
 
---Give an example error
---Give an example resolution
+**Example**
+```powershell
+kubectl logs cluedin-gql-97cb77cd6-d5rcz -n cluedin 
+```
+**Returns**
+```powershell
+14:48:32.145Z ERROR CluedIn.UI.GQL/CluedIn.UI.GQL: 500: Internal Server Error
+err: {
+"message": "500: Internal Server Error",
+"locations": [
+{
+"line": 109,
+"column": 7
+}
+],
+"path": [
+"inbound",
+"dataSource",
+connectorConfiguration
+],
+"extensions": {
+"code": "INTERNAL_SERVER_ERROR",
+"response": {
+"url": "http://cluedin-server:9000/api/v1/configuration/providers?id=FA871776-60CA-49A6-8433-42BEE288400E",
+"status": 500,
+"statusText": "Internal Server Error",
+"body": "{\"type\":\"https://tools.ietf.org/html/rfc7231#section-6.6.1\",\"title\":\"An error occurred while processing your request.\",\"status\":500,\"detail\":\"Our job server is down and not accepting new providers for now\",\"traceId\":\"00-cc0351878f70a5edc267cdca4409b4b9-129d08969588f435-00\"}"
+}
+}
+}
+```
 
-### Scenario 3: Pod Running and Ready, but Application Exhibits Unexpected Behaviour
+**Resolution**
+
+In this example, might be related to issue with connection to our job server(redis ).
+
+Common causes include:
+  - cluedin-server started before redis causing it to not properly connect to redis during boot.
+
+To address this issue, we need to restart cluedin-server so it properly connect to redis during boot.
+
+```
+kubectl rollout restart deployment cluedin-server -n cluedin
+```
+
+------
+
+### Scenario 4: Pod Running and Ready, but Application Exhibits Unexpected Behaviour
 
 A pod can contain one or more application containers, and may also include one or more init containers.
 
