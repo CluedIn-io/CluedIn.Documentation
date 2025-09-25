@@ -27,10 +27,10 @@ The following diagram shows the default network configuration of CluedIn after i
 The following diagram shows the advanced network configuration of CluedIn.
 
 ![advanced-network-1.png]({{ "/assets/images/ama/howtos/advanced-network-1.png" | relative_url }})
-
+----
 ![advanced-network-3.png]({{ "/assets/images/ama/howtos/advanced-network-3.png" | relative_url }})
-
-![advanced-network-key.png]({{ "/assets/images/ama/howtos/advanced-network-key.png" | relative_url }})
+----
+![advanced-network-key.png]({{ "/assets/images/ama/howtos/advanced-network-key.png" | relative_url }}){: width="200"}
 
 **Notes**
 **HubVNet**
