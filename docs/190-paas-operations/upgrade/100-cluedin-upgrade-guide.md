@@ -738,10 +738,13 @@ kubectl logs <pod name> -n cluedin  >  <podname>.log
 ```
 
 **Example**
+
 ```powershell
 kubectl logs cluedin-gql-97cb77cd6-d5rcz -n cluedin 
 ```
+
 **Returns**
+
 ```powershell
 14:48:32.145Z ERROR CluedIn.UI.GQL/CluedIn.UI.GQL: 500: Internal Server Error
 err: {
