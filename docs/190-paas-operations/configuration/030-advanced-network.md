@@ -20,13 +20,37 @@ In this article, you will learn about advanced network configuration options tha
 
 The following diagram shows the default network configuration of CluedIn after installation.
 
-![ama-network-1.jpeg]({{ "/assets/images/ama/install-guide/ama-network-1.jpeg" | relative_url }})
+![network-diagram-1.png]({{ "/assets/images/ama/install-guide/network-diagram-1.png" | relative_url }})
 
 ## Advanced network configuration example
 
 The following diagram shows the advanced network configuration of CluedIn.
 
-![ama-network-2.jpeg]({{ "/assets/images/ama/howtos/advanced-network-2.jpeg" | relative_url }})
+![advanced-network-1.png]({{ "/assets/images/ama/howtos/advanced-network-1.png" | relative_url }})
+
+![advanced-network-2.png]({{ "/assets/images/ama/howtos/advanced-network-2.png" | relative_url }})
+
+![advanced-network-key.png]({{ "/assets/images/ama/howtos/advanced-network-key.png" | relative_url }})
+
+**Notes**
+**HubVNet**
+This virtual network is hosted by the client. All IP addresses and address ranges in this design are suggestions only and must be validated and finalized by the client according to their internal IP planning policies.
+
+**AzureFirewallSubnet**
+The Azure Firewall service should be provisioned and managed by the client.
+  - IP address ranges shown in this design are placeholders and may be adjusted to align with the client’s networking strategy.
+  - The subnet must meet minimum size requirements (at least /26) to support firewall functionality and scaling.
+
+**AzureBastionSubnet**
+Azure Bastion is optional and can be deployed by the client for secure, browser-based RDP/SSH access.
+  - The subnet name must be AzureBastionSubnet, and the IP range must be /26 or larger, per Azure requirements.
+  - If CluedIn provisions Bastion, it and the jumpbox will be deployed inside the AKS VNet rather than the Hub.
+
+**AksVNet**
+This virtual network is dedicated to hosting Azure Kubernetes Service (AKS) resources.
+  - NICs (Network Interface Cards) and Private Endpoints within this VNet will be assigned IPs dynamically from the allocated subnet pools.
+  - Subnets must be sized appropriately to support expected service scaling, including node pools and private endpoints.
+  - When integrating Bastion or other management services, ensure sufficient IP allocation and configure NSGs (Network Security Groups) to allow secure access.
 
 Advanced network configuration requires that you have read and configured your firewall as per the firewall policy. For more information, see [Configure firewall](/deployment/infra-how-tos/configure-firewall).
 
