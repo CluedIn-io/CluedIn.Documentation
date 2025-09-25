@@ -8,7 +8,7 @@ title: Upgrade guide
 tags: ["deployment", "ama", "marketplace", "azure", "aks", "kubernetes", "upgrade"]
 last_modified: 2025-09-22
 headerIcon: "paas"
-nav_exclude: true
+
 ---
 
 This guide provides instructions for upgrading CluedIn after the initial [installation](/deployment). Regular upgrades are recommended to ensure you benefit from the latest features, improvements, and fixes. For details about the updates available in a specific release, see [Release notes](/release-notes).

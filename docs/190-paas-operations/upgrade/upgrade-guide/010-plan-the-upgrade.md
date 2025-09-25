@@ -25,38 +25,41 @@ CluedIn releases version numbers follow this format: **`{year}.{month}.{patch}`*
 
 Before starting an upgrade, make sure you have the following in place: 
 
-  1. Access to the live CluedIn application 
-  1. Access to the kubeconfig file this must be provided by your azure administrator 
-  1. A machine or VM with the following tools installed: 
+1. Access to the live CluedIn application.
 
-      - Kubectl 1.30 (min) 
-      - Helm 3.x.x 
-      - Visual Studio Code (optional) 
-      - Lens (or FreeLens) (optional) 
+1. Access to the kubeconfig file – this must be provided by your Azure administrator.
+
+1. A machine or a virtual machine (VM) with the following tools installed: 
+
+    - Kubectl (version 1.30 or higher)
+
+    - Helm 3.x.x 
+
+    - (Optional) Visual Studio Code
+
+    - (Optional) Lens (or FreeLens)
 
 ## Perform pre-upgrade actions 
 
-Before performing an upgrade, complete the following steps to ensure a smooth process and minimize risks: 
+Before performing an upgrade, complete the following steps to ensure a smooth process and minimize risks:
 
-  1. Schedule Downtime 
-    Plan the upgrade during a period when the application is not in use. The application will be unavailable throughout the upgrade process. 
+1. **Schedule downtime** – Plan the upgrade during a period when the application is not in use. The application will be unavailable throughout the upgrade process. 
 
-  1. Perform a Full Backup 
-    Back up all persistent disks and user values. This step is critical in case a rollback is required. 
+1. **Perform a full backup** – Back up all persistent disks and user values. This step is critical in case a rollback becomes necessary.
 
-  1. Allocate Sufficient Time 
-    Allow enough time to run the full upgrade and to manage potential disaster recovery scenarios if needed. 
+1. **Allocate sufficient time** – Ensure you have enough time for the full upgrade and, if required, disaster recovery.
 
-  1. Inform Stakeholders 
-    Keep all relevant stakeholders informed before, during, and after the upgrade: 
+1. **Inform the stakeholders** – Communicate at all stages of the upgrade:
 
-      - Before the upgrade: Provide advance notice of the planned upgrade window, expected downtime, and potential business impact. 
-      - During the upgrade: Share progress updates if the process takes longer than anticipated or if issues arise. 
-      - After the upgrade: Confirm completion, communicate any changes that may affect users, and provide guidance on reporting unexpected issues. 
+    - Before the upgrade: Provide advance notice of the planned upgrade window, expected downtime, and potential business impact. 
+
+    - During the upgrade: Provide updates if the upgrade takes longer than anticipated or if issues arise. 
+
+    - After the upgrade: Confirm completion, communicate any changes affecting users, and explain how to report issues. 
 
 ## Review the upgrade documentation 
 
-CluedIn publishes upgrade documentation with each new release. Please ensure you read the documentation in full before beginning the upgrade process. While many upgrades share common steps, not all are identical, and some may include specialized procedures. 
+CluedIn publishes [upgrade documentation](/paas-operations/upgrade) with each new release. Be sure to review this documentation in full before beginning the upgrade process. While many upgrades follow common steps, not all are identical, and some may include specialized procedures. 
 
 {:.important}
 Pay particular attention to any infrastructure-related changes, as these may require additional preparation or configuration. 
