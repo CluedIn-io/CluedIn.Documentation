@@ -42,7 +42,7 @@ kubectl logs <pod name> -n cluedin –p
 ------
 
 ## Scenario 2: Pod not ready
-A pod can be in the **Running** state but still marked as **Not Ready** if it is failing its readiness probes. This situation occurs when Kubernetes has successfully started the pod, but the application inside is not yet prepared to handle traffic. In other words, the container is alive, but it cannot serve requests.
+A pod can be in the **Running** state but still marked as **Not Ready** if it is failing its readiness probes. This situation occurs when [Kubernetes](/paas-operations/upgrade/guide/required-tools#kubernetes) has successfully started the pod, but the application inside is not yet prepared to handle traffic. In other words, the container is alive, but it cannot serve requests.
 
 In this case, when you run `kubectl get pods –n cluedin`, you will see similar output: 
 
@@ -107,7 +107,7 @@ In some cases, a pod may be in the **Running** state and marked as **Ready**, bu
     cluedin-ui-7d9f8d7c9d-abc12       1/1   Running  0        5m
     ``` 
 
-    This usually means that the problem is not with Kubernetes itself, but with the application inside the pod, or with network access between the user and the pod. 
+    This usually means that the problem is not with [Kubernetes](/paas-operations/upgrade/guide/required-tools#kubernetes) itself, but with the application inside the pod, or with network access between the user and the pod. 
  
 1. Even if a pod appears healthy, the application inside might be failing silently. To check for hidden errors, review the pod logs by running the following command: 
 

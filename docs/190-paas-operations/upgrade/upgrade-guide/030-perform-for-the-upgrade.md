@@ -35,7 +35,7 @@ Keep in mind that upgrade steps may vary depending on the release. The following
 
 ## Get current Helm user values
 
-The [Helm](/paas-operations/upgrade/guide/required-tools#helm) user values file is a YAML file that defines the configuration values to be applied when upgrading a Kubernetes cluster. The file will look similar to the following:
+The [Helm](/paas-operations/upgrade/guide/required-tools#helm) user values file is a YAML file that defines the configuration values to be applied when upgrading a [Kubernetes](/paas-operations/upgrade/guide/required-tools#kubernetes) cluster. The file will look similar to the following:
 
   ```yaml
     global: 

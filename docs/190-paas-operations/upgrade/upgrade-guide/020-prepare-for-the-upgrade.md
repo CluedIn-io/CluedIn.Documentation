@@ -21,9 +21,17 @@ Before upgrading CluedIn, it’s important to make sure your environment is read
 
 Before starting an upgrade, it is best practice to open the CluedIn UI and confirm that all services are running as expected. If you don’t have direct access, make sure that someone who does is available to assist throughout the upgrade process. For instructions, see [Check CluedIn UI](/paas-operations/upgrade/guide/common-upgrade-operations#check-cluedin-ui).
 
-## Connect Helm and kubectl to the CluedIn AKS cluster
+## Prepare the kubeconfig file
 
-To connect [Helm](/paas-operations/upgrade/guide/required-tools#helm) and [kubectl](/paas-operations/upgrade/guide/required-tools#kubectl) to the CluedIn Azure Kubernetes Service (AKS) cluster, you will need a valid kubeconfig file.
+The kubeconfig file is a configuration file used by [kubectl](/paas-operations/upgrade/guide/required-tools#kubectl) and other [Kubernetes](/paas-operations/upgrade/guide/required-tools#kubernetes) tools to connect to a cluster. It contains the information required for authentication and cluster access, including:
+
+- Cluster details – The API server address and certificate data.
+
+- User credentials – Authentication tokens, certificates, or keys.
+
+- Contexts – Mappings that specify which cluster, user, and namespace should be used by default.
+
+You need a valid kubeconfig file to connect [Helm](/paas-operations/upgrade/guide/required-tools#helm) and kubectl to the CluedIn [Azure Kubernetes Service (AKS)](/paas-operations/upgrade/guide/required-tools#azure-kubernetes-service) cluster.
 
 1. Contact your Azure administrator and ask them to provide the kubeconfig file to you.
 
@@ -40,11 +48,9 @@ To connect [Helm](/paas-operations/upgrade/guide/required-tools#helm) and [kubec
 
     This ensures that both kubectl and Helm commands will use the correct cluster context. 
 
-------------
-
 ## Configure kubectl 
 
-Before performing an upgrade, you need to ensure that [kubectl](/paas-operations/upgrade/guide/required-tools#kubectl) is both installed and properly connected to your Kubernetes cluster. The steps below help you verify the installation and confirm that kubectl can communicate with the `cluedin` namespace.
+Before performing an upgrade, you need to ensure that [kubectl](/paas-operations/upgrade/guide/required-tools#kubectl) is both installed and properly connected to your [Kubernetes](/paas-operations/upgrade/guide/required-tools#kubernetes) cluster. The steps below help you verify the installation and confirm that kubectl can communicate with the `cluedin` namespace.
 
 1. To verify that kubectl is installed correctly, run the following command in PowerShell: 
  
@@ -63,13 +69,11 @@ Before performing an upgrade, you need to ensure that [kubectl](/paas-operations
  
     - You should see a list of pods as a result. 
 
-    - If not, your kubeconfig or network access may not be configured correctly. Contact your administrator.
-
-------------
+    - If not, your [kubeconfig](#prepare-the-kubeconfig-file) or network access may not be configured correctly. Contact your administrator.
 
 ## Configure Helm
 
-Before upgrading CluedIn, you need to make sure [Helm](/paas-operations/upgrade/guide/required-tools#helm) is installed, connected to the correct Kubernetes cluster, and configured with the CluedIn Helm repository. The steps below walk you through verifying your Helm setup and updating to the latest charts.
+Before upgrading CluedIn, you need to make sure [Helm](/paas-operations/upgrade/guide/required-tools#helm) is installed, connected to the correct [Kubernetes](/paas-operations/upgrade/guide/required-tools#kubernetes) cluster, and configured with the CluedIn Helm repository. The steps below walk you through verifying your Helm setup and updating to the latest charts.
 
 1. To verify that Helm is installed correctly, run the following command in PowerShell:
  
@@ -89,7 +93,7 @@ Before upgrading CluedIn, you need to make sure [Helm](/paas-operations/upgrade/
 
     - You should see the cluster name (for example, **aks-cluedin-eastus**).
 
-    - If you get an error similar to "current-context is not set", contact your system administrator to ensure that the kubeconfig is configured correctly. 
+    - If you get an error similar to "current-context is not set", contact your system administrator to ensure that the [kubeconfig](#prepare-the-kubeconfig-file) is configured correctly. 
 
 1. CluedIn publishes its latest Helm charts to a dedicated Helm repository. Verify that the repository is configured by running the following command:
 
@@ -114,14 +118,12 @@ Before upgrading CluedIn, you need to make sure [Helm](/paas-operations/upgrade/
 
     This ensures that you are deploying the most up-to-date configurations and fixes.  
 
------------
-
 ## Connect Lens or Freelens to your CluedIn cluster
 
 {:.important}
 This step is optional. It does not depend on the previous steps, you can perform it whenever appropriate.
 
-[Lens or Freelens](/paas-operations/upgrade/guide/required-tools#lens-or-freelens) (depending on what you selected) connects to Kubernetes using your kubeconfig file. You can add clusters in two ways: 
+[Lens or Freelens](/paas-operations/upgrade/guide/required-tools#lens-or-freelens) (depending on what you selected) connects to [Kubernetes](/paas-operations/upgrade/guide/required-tools#kubernetes) using your [kubeconfig file](#prepare-the-kubeconfig-file). You can add clusters in two ways: 
 
 - Drop-in method – Place your kubeconfig into the system’s `.kube` folder (commonly located at `~/.kube/config`). 
 - UI method – Import or configure your cluster directly through the Lens (or Freelens) graphical interface.
