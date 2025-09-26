@@ -68,7 +68,7 @@ For example, for release 2024.12.02 on the dev environment, the file should be n
 
 1. To get your Helm user values, run the following command in PowerShell (replace `<environment>` and `<release-version>` with your values): 
  
-    ```powershell
+    ```
     helm get values cluedin-platform -n cluedin -o yaml > ./ values-<environment>-<release-version>.yml 
     ```
 
@@ -284,7 +284,7 @@ Use this method of upgrading Helm only if you are explicitly instructed to do so
 
 1. Run the data upgrade. The data upgrade requires a trigger which is applied by running the following command:
 
-    ```yaml
+    ```
     kubectl apply -f - <<EOF
     apiVersion: api.cluedin.com/v1
     kind: DataUpgrade
