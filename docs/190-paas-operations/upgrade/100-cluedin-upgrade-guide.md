@@ -18,7 +18,7 @@ The upgrade process typically involves the steps outlined below.
 {:.important}
 If issues occur during the upgrade, see [Resolve common upgrade issues](/paas-operations/upgrade/guide/resolve-common-upgrade-issues) for troubleshooting instructions.
 
-![upgrade_process.png]({{ "/assets/images/paas-operations/upgrade/upgrade_process_2.png" | relative_url }})
+![upgrade_process.png]({{ "/assets/images/paas-operations/upgrade/upgrade_process_3.png" | relative_url }})
 
 **Prerequisites for upgrade**
 
@@ -32,8 +32,11 @@ Before starting an upgrade, make sure you have the following in place:
 
 **Stage 1 – Plan your upgrade**
 1. Get familiar with the versioning scheme. See [instructions](/paas-operations/upgrade/guide/plan-the-upgrade#get-familiar-with-the-versioning-scheme).
-1. Perform pre-upgrade actions. See [instructions](/paas-operations/upgrade/guide/plan-the-upgrade#perform-pre-upgrade-actions).
-1. Review the upgrade documentation. See [instructions](/paas-operations/upgrade/guide/plan-the-upgrade#review-the-upgrade-documentation).
+1. Schedule the upgrade window. See [instructions](/paas-operations/upgrade/guide/plan-the-upgrade#schedule-the-upgrade-window).
+1. Inform the stakeholders. See [instructions](/paas-operations/upgrade/guide/plan-the-upgrade#inform-the-stakeholders).
+1. Perform a full backup. See [instructions](/paas-operations/upgrade/guide/plan-the-upgrade#perform-a-full-backup).
+1. Review upgrade-related documentation. See [instructions](/paas-operations/upgrade/guide/plan-the-upgrade#review-upgrade-related-documentation).
+1. Prepare and test custom packages. See [instructions](/paas-operations/upgrade/guide/plan-the-upgrade#prepare-and-test-custom-packages).
 
 **Stage 2 – Prepare for the upgrade**
 1. Get access to CluedIn application. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#get-access-to-cluedin-application).

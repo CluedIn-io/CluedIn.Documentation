@@ -25,6 +25,8 @@ Before starting [CluedIn upgrade](/paas-operations/upgrade/guide), make sure you
 
 - (Optional) [Lens or Freelens](#lens-or-freelens)
 
+## Azure Kubernetes Service
+
 ## kubectl
 
 [kubectl](https://kubernetes.io/docs/reference/kubectl/) is command-line tool for interacting with Kubernetes clusters. It lets you deploy applications, inspect and manage cluster resources, and view logs.

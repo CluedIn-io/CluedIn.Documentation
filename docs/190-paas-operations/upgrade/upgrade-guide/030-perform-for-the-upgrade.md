@@ -33,8 +33,6 @@ Keep in mind that upgrade steps may vary depending on the release. The following
 
 1. [Notify about upgrade completion](#notify-about-upgrade-completion)
 
------------
-
 ## Get current Helm user values
 
 The [Helm](/paas-operations/upgrade/guide/required-tools#helm) user values file is a YAML file that defines the configuration values to be applied when upgrading a Kubernetes cluster. The file will look similar to the following:
@@ -78,9 +76,9 @@ For example, for release 2024.12.02 on the dev environment, the file should be n
 
 1. Check the contents of the file. It should look similar to the example above. If it appears empty, this usually means you are not connected to the cluster correctly. In that case, revisit the earlier steps to verify your connection. 
 
------------
-
 ## Prepare new Helm user values 
+
+1. Make sure that your packages are ready to be installed in the new version. For details, see [Prepare and test custom packages](/paas-operations/upgrade/guide/plan-the-upgrade#prepare-and-test-custom-packages).
 
 1. The required values for the target release are published in [CluedIn documentation](/paas-operations/upgrade). Before proceeding, carefully verify that your current release is compatible with the target release. Once verified, duplicate the values file created in the previous step and rename it to match the target release. 
 
@@ -99,9 +97,6 @@ For example, for release 2024.12.02 on the dev environment, the file should be n
         Package versions are listed in the **Packages** section of the release details page.
 
         ![package_versions]({{ "/assets/images/paas-operations/upgrade/package_versions.png" | relative_url }})
-
-        {:.important}
-        If the release includes customer-specific packages, ensure they are compiled against the version of the platform you are deploying. Be aware that breaking API changes may exist and should be addressed in advance.
 
     - An IDE such as [Visual Studio Code](/paas-operations/upgrade/guide/required-tools#visual-studio-code) will highlight any formatting or indentation issues as you edit the YAML file.
 
@@ -131,7 +126,6 @@ For example, for release 2024.12.02 on the dev environment, the file should be n
                 version: "4.5.0" 
       ```
 
------------
 
 ## Perform system pre-checks
 
