@@ -23,7 +23,7 @@ Before starting an upgrade, it is best practice to open the CluedIn UI and confi
 
 ## Connect Helm and kubectl to the CluedIn AKS cluster
 
-Helm and kubectl are command-line tools used to manage Kubernetes clusters. To connect them to the CluedIn Azure Kubernetes Service (AKS) cluster, you will need a valid kubeconfig file.
+To connect [Helm](/paas-operations/upgrade/guide/plan-the-upgrade#helm) and [kubectl](/paas-operations/upgrade/guide/plan-the-upgrade#kubectl) to the CluedIn Azure Kubernetes Service (AKS) cluster, you will need a valid kubeconfig file.
 
 1. Contact your Azure administrator and ask them to provide the kubeconfig file to you.
 
@@ -44,17 +44,7 @@ Helm and kubectl are command-line tools used to manage Kubernetes clusters. To c
 
 ## Configure kubectl 
 
-Kubectl lets you communicate directly with the Kubernetes API server defined in your kubeconfig file. This means that you can: 
-
-  - Inspect cluster resources (pods, services, deployments, and nodes). 
-
-  - Apply configuration files (`kubectl apply -f deployment.yaml`). 
-
-  - Scale applications up or down. 
-
-  - Restart, delete, or debug the workloads. 
-
-Without kubectl, there is no simple way to manage or query what’s running inside your AKS cluster.
+Before performing an upgrade, you need to ensure that [kubectl](/paas-operations/upgrade/guide/plan-the-upgrade#kubectl) is both installed and properly connected to your Kubernetes cluster. The steps below help you verify the installation and confirm that kubectl can communicate with the `cluedin` namespace.
 
 1. To verify that kubectl is installed correctly, run the following command in PowerShell: 
  
@@ -79,7 +69,7 @@ Without kubectl, there is no simple way to manage or query what’s running insi
 
 ## Configure Helm
 
-We use Helm for upgrades because it makes updating applications simple, consistent, and reversible. With a single command, you can apply changes while keeping version history for easy rollbacks.
+Before upgrading CluedIn, you need to make sure [Helm](/paas-operations/upgrade/guide/plan-the-upgrade#helm) is installed, connected to the correct Kubernetes cluster, and configured with the CluedIn Helm repository. The steps below walk you through verifying your Helm setup and updating to the latest charts.
 
 1. To verify that Helm is installed correctly, run the following command in PowerShell:
  
@@ -122,38 +112,16 @@ We use Helm for upgrades because it makes updating applications simple, consiste
     Helm repo update 
     ```
 
-This ensures that you are deploying the most up-to-date configurations and fixes.  
+    This ensures that you are deploying the most up-to-date configurations and fixes.  
 
 -----------
 
-## Connect Lens to your CluedIn cluster
+## Connect Lens or Freelens to your CluedIn cluster
 
 {:.important}
 This step is optional. It does not depend on the previous steps, you can perform it whenever appropriate.
 
-Lens and Open Lens are powerful, free tools designed to monitor and manage Kubernetes clusters. They provide a user-friendly graphical interface that simplifies multiple everyday Kubernetes tasks. By reducing the need to recall and execute long or complex command-line instructions, these tools improve productivity and save valuable time. 
-
-Reasons to use Lens:
-
-  - Ease of use – It offers an intuitive dashboard to view and manage cluster resources.
-
-  - Productivity boost – It eliminates the need to memorize kubectl commands for common tasks. 
-
-  - Built-in logs – The Freelens version includes built-in log viewing, which makes it especially useful for troubleshooting.
-
-We recommend using FreeLens, as it includes built-in log access and offers a more complete out-of-the-box experience. For teams that work regularly with Kubernetes, Lens can quickly become an indispensable daily tool for monitoring and troubleshooting clusters.
-
-Lens connects to Kubernetes using your kubeconfig file. You can add clusters in two ways: 
+[Lens or Freelens](/paas-operations/upgrade/guide/plan-the-upgrade#lens-or-freelens) (depending on what you selected) connects to Kubernetes using your kubeconfig file. You can add clusters in two ways: 
 
 - Drop-in method – Place your kubeconfig into the system’s `.kube` folder (commonly located at `~/.kube/config`). 
-- UI method – Import or configure your cluster directly through the Lens graphical interface.
-
-Once connected, Lens allows you to:
- 
-  - View and manage pods, services, deployments, and namespaces.
- 
-  - Monitor CPU, memory, and other resource usage. 
-
-  - Access and search through logs directly from the UI. 
-
-  - Inspect and edit Kubernetes objects without leaving the dashboard. 
+- UI method – Import or configure your cluster directly through the Lens (or Freelens) graphical interface.

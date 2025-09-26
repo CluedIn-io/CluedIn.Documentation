@@ -25,19 +25,91 @@ CluedIn releases version numbers follow this format: **`{year}.{month}.{patch}`*
 
 Before starting an upgrade, make sure you have the following in place: 
 
-1. Access to the live CluedIn application.
+1. Access to live CluedIn application.
 
 1. Access to the kubeconfig file – this must be provided by your Azure administrator.
 
-1. A machine or a virtual machine (VM) with the following tools installed: 
+1. A machine or a virtual machine (VM) with the all the [required tools](#required-tools) installed.
 
-    - Kubectl (version 1.30 or higher)
+## Required tools
 
-    - Helm 3.x.x 
+Before starting the upgrade, make sure you have the necessary tools installed and ready.
 
-    - (Optional) Visual Studio Code
+- [kubectl](#kubectl)
 
-    - (Optional) Lens (or FreeLens)
+- [Helm](#helm)
+
+- (Optional) [Visual Studio Code](#visual-studio-code)
+
+- (Optional) [Lens or FreeLens](#lens-or-freelens)
+
+### kubectl
+
+[kubectl](https://kubernetes.io/docs/reference/kubectl/) is command-line tool for interacting with Kubernetes clusters. It lets you deploy applications, inspect and manage cluster resources, and view logs.
+
+When it comes to CluedIn, kubectl lets you communicate directly with the Kubernetes API server defined in your kubeconfig file. This means that you can: 
+
+  - Inspect cluster resources (pods, services, deployments, and nodes). 
+
+  - Apply configuration files (`kubectl apply -f deployment.yaml`). 
+
+  - Scale applications up or down. 
+
+  - Restart, delete, or debug the workloads. 
+
+Without kubectl, there is no simple way to manage or query what’s running inside your AKS cluster.
+
+- Required version: 1.30 or higher.
+
+- For installation instructions, see [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
+
+### Helm
+
+[Helm](https://helm.sh/docs/) is a package manager for Kubernetes. It simplifies the deployment, upgrade, and management of applications by using reusable, versioned packages called charts.
+
+When it comes to CluedIn, we use Helm for upgrades because it makes updating applications simple, consistent, and reversible. With a single command, you can apply changes while keeping version history for easy rollbacks.
+
+- Required version: 3.x.x.
+
+- For installation instructions, see [Helm documentation](https://helm.sh/docs/intro/install/).
+
+### Visual Studio Code
+
+[Visual Studio Code](https://code.visualstudio.com/) is lightweight, cross-platform code editor. The editor is useful for editing YAML files and reviewing configuration files during the upgrade.
+
+- This tool is optional to use.
+
+- You can download Visual Studio Code from the [official website](https://code.visualstudio.com/Download).
+
+### Lens or Freelens
+
+[Lens](https://k8slens.dev/) and [Freelens](https://freelensapp.github.io/) are powerful, free tools designed to monitor and manage Kubernetes clusters. They provide a user-friendly graphical interface that simplifies multiple everyday Kubernetes tasks. By reducing the need to recall and execute long or complex command-line instructions, these tools improve productivity and save valuable time. 
+
+Reasons to use Lens:
+
+  - Ease of use – It offers an intuitive dashboard to view and manage cluster resources.
+
+  - Productivity boost – It eliminates the need to memorize [kubectl](#kubectl) commands for common tasks. 
+
+  - Built-in logs – The Freelens version includes built-in log viewing, which makes it especially useful for troubleshooting.
+
+We recommend using FreeLens, as it includes built-in log access and offers a more complete out-of-the-box experience. For teams that work regularly with Kubernetes, Lens can quickly become an indispensable daily tool for monitoring and troubleshooting clusters.
+
+Once you connect Lens (or Freelens) your CluedIn cluster, it allows you to:
+ 
+  - View and manage pods, services, deployments, and namespaces.
+ 
+  - Monitor CPU, memory, and other resource usage. 
+
+  - Access and search through logs directly from the UI. 
+
+  - Inspect and edit Kubernetes objects without leaving the dashboard. 
+
+Lens and Freelens are optional to use. You can download them from:
+
+- [Official Lens website](https://k8slens.dev/download)
+
+- [Official Freelens website](https://freelensapp.github.io/) 
 
 ## Perform pre-upgrade actions 
 
