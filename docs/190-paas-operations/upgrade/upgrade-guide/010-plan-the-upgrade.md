@@ -23,27 +23,45 @@ CluedIn releases version numbers follow this format: **`{year}.{month}.{patch}`*
 
 For details about the updates available in a specific release, see [Release notes](/release-notes).
 
-## Perform pre-upgrade actions 
+## Schedule the upgrade window
 
-Before performing an upgrade, complete the following steps to ensure a smooth process and minimize risks:
+- Schedule downtime – Plan the upgrade during a period when the application is not in use. The application will be unavailable throughout the upgrade process. 
 
-1. **Schedule downtime** – Plan the upgrade during a period when the application is not in use. The application will be unavailable throughout the upgrade process. 
+- Allocate sufficient time – Ensure you have enough time for the full upgrade and, if required, disaster recovery.
 
-1. **Perform a full backup** – Back up all persistent disks and user values. This step is critical in case a rollback becomes necessary.
+## Inform the stakeholders
+It is essential to keep stakeholders informed at every stage of the upgrade process:
 
-1. **Allocate sufficient time** – Ensure you have enough time for the full upgrade and, if required, disaster recovery.
+- Before the upgrade – Provide advance notice of the planned upgrade window, expected downtime, and potential business impact. 
 
-1. **Inform the stakeholders** – Communicate at all stages of the upgrade:
+- During the upgrade – Provide updates if the upgrade takes longer than anticipated or if issues arise. 
 
-    - Before the upgrade: Provide advance notice of the planned upgrade window, expected downtime, and potential business impact. 
+- After the upgrade – Confirm completion, communicate any changes affecting users, and explain how to report issues. 
 
-    - During the upgrade: Provide updates if the upgrade takes longer than anticipated or if issues arise. 
+## Perform a full backup
 
-    - After the upgrade: Confirm completion, communicate any changes affecting users, and explain how to report issues. 
+Back up the following:
 
-## Review the upgrade documentation 
+- All persistent disks
+
+- All user values
+
+This step is critical in case a rollback becomes necessary.
+
+## Review upgrade-related documentation 
 
 CluedIn publishes [upgrade documentation](/paas-operations/upgrade) with each new release. Be sure to review this documentation in full before beginning the upgrade process. While many upgrades follow common steps, not all are identical, and some may include specialized procedures. 
 
 {:.important}
-Pay particular attention to any infrastructure-related changes, as these may require additional preparation or configuration. 
+Pay particular attention to any infrastructure-related changes, as these may require additional preparation or configuration.
+
+## Prepare and test custom packages
+If you use custom packages, verify that the following steps are completed before upgrading:
+
+- The package developer reviews the [Release notes](/release-notes#release-notes) to identify any breaking changes in the new CluedIn version and adapts the code if necessary.
+
+- The packages are compiled and deployed against the new version you plan to upgrade to.
+
+- Package developer tests the packages locally with the new version.
+
+- The packages are available in the feed accessible by the cluster. If the packages are not deployed towards the standard CluedIn feed, add a custom feed.
