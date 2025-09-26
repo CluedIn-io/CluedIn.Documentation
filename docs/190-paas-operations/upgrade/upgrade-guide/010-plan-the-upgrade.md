@@ -21,7 +21,16 @@ Careful planning ensures that the upgrade process is efficient, minimizes downti
 
 CluedIn releases version numbers follow this format: **`{year}.{month}.{patch}`**. For example, **`2025.05.02`**.
 
-For details about the updates available in a specific release, see [Release notes](/release-notes).
+## Review upgrade-related documentation
+
+When planning the upgrade, consult the following documentation:
+
+- [Release notes](/release-notes) – Provide an overview of the updates available in a specific release.
+
+- [Upgrade documentation](/paas-operations/upgrade) – CluedIn publishes upgrade documentation with each new release. Be sure to review this documentation in full before beginning the upgrade process. While many upgrades follow common steps, not all are identical, and some may include specialized procedures. 
+
+    {:.important}
+    Pay particular attention to any infrastructure-related changes, as these may require additional preparation or configuration.
 
 ## Schedule the upgrade window
 
@@ -47,13 +56,6 @@ Back up the following:
 - All user values
 
 This step is critical in case a rollback becomes necessary.
-
-## Review upgrade-related documentation 
-
-CluedIn publishes [upgrade documentation](/paas-operations/upgrade) with each new release. Be sure to review this documentation in full before beginning the upgrade process. While many upgrades follow common steps, not all are identical, and some may include specialized procedures. 
-
-{:.important}
-Pay particular attention to any infrastructure-related changes, as these may require additional preparation or configuration.
 
 ## Prepare and test custom packages
 If you use custom packages, verify that the following steps are completed before upgrading:

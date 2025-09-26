@@ -32,7 +32,7 @@ To troubleshoot this, it is important to review the logs of the previous contain
 
 To check previous logs from before a pod crashed, add the `–p` (stands for previous) flag at the end of the `kubectl logs` command:
  
-```powershell
+```
 kubectl logs <pod name> -n cluedin –p 
 ```
 
@@ -65,7 +65,7 @@ To investigate whether a pod is failing due to a readiness probe, do the followi
     If you find repeated **Readiness probe failed** events, this confirms that the pod is starting but failing to pass the readiness check. For example, a pod might be running but remain **Not Ready** until it successfully connects to its database. In this case, the readiness probe will continue to fail until the dependency becomes available.
 
     Example:
-    ```powershell
+    ```
     kubectl logs <pod-name> -n cluedin 
     ```
 
@@ -96,7 +96,7 @@ In some cases, a pod may be in the **Running** state and marked as **Ready**, bu
 
 1. To begin diagnosing the issue, run the following command:
 
-    ```powershell
+    ```
     kubectl get pods –n cluedin 
     ```
     The output will be similar to the following:
@@ -111,13 +111,13 @@ In some cases, a pod may be in the **Running** state and marked as **Ready**, bu
  
 1. Even if a pod appears healthy, the application inside might be failing silently. To check for hidden errors, review the pod logs by running the following command: 
 
-    ```powershell
+    ```
     kubectl logs <pod name> -n cluedin 
     ```
 
     If you want to read the log in a more convenient way, you can download it to a file and open it with any file reader. 
 
-    ```powershell 
+    ``` 
     kubectl logs <pod name> -n cluedin  >  <podname>.log 
     ```
 
@@ -134,7 +134,7 @@ A pod can contain one or more application containers, and may also include one o
 
 To verify whether a pod is unable to start because of a failing init container, describe the pod with the following command:
 
-```powershell
+```
 kubectl describe pod <pod-name> -n cluedin
 ```
 
@@ -178,7 +178,7 @@ In the example above:
 
 Sometimes, an init container may run indefinitely without explicitly failing. In both scenarios, it is useful to inspect the init container logs for more details. You can view the logs of a specific init container by adding the `-c <init-container-name>` flag to the `kubectl logs` command:
 
-```powershell
+```
 kubectl logs <pod-name> -n cluedin -c <init-container-name>
 ```
 

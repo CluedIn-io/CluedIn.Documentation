@@ -85,7 +85,7 @@ Monitoring the state of pods is a routine task in [Kubernetes](/paas-operations/
  
 1. To get more details about a pod that is not starting or is stuck in a crash loop, run the following command:
 
-    ```powershell
+    ```
     kubectl describe pod <pod-name> -n cluedin 
     ```
 
@@ -105,7 +105,7 @@ Reviewing pod logs is an essential step in troubleshooting errors and verifying 
 
 To check the logs of a pod, run the following command: 
 
-```powershell
+```
 kubectl logs <pod name> -n cluedin 
 ```
 
@@ -162,7 +162,7 @@ By checking the queues, you can quickly determine if CluedIn’s internal messag
     ```
 
     This will return an output similar to the following:
-    ```powershell
+    ```
     Forwarding from 127.0.0.1:15672 -> 15672 
     Handling connection for 15672 
     Handling connection for 15672 
