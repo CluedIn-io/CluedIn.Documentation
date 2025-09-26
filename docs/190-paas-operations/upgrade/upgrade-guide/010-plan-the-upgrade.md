@@ -29,11 +29,11 @@ Before starting an upgrade, make sure you have the following in place:
 
 1. Access to the kubeconfig file – this must be provided by your Azure administrator.
 
-1. A machine or a virtual machine (VM) with the all the [required tools](#required-tools) installed.
+1. A machine or a virtual machine (VM) with all the [required tools](#required-tools) installed.
 
-## Required tools
+### Required tools
 
-Before starting the upgrade, make sure you have the necessary tools installed and ready.
+Before starting the upgrade, make sure you have the necessary tools installed and ready:
 
 - [kubectl](#kubectl)
 
@@ -43,7 +43,7 @@ Before starting the upgrade, make sure you have the necessary tools installed an
 
 - (Optional) [Lens or FreeLens](#lens-or-freelens)
 
-### kubectl
+#### kubectl
 
 [kubectl](https://kubernetes.io/docs/reference/kubectl/) is command-line tool for interacting with Kubernetes clusters. It lets you deploy applications, inspect and manage cluster resources, and view logs.
 
@@ -63,7 +63,7 @@ Without kubectl, there is no simple way to manage or query what’s running insi
 
 - For installation instructions, see [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/#kubectl).
 
-### Helm
+#### Helm
 
 [Helm](https://helm.sh/docs/) is a package manager for Kubernetes. It simplifies the deployment, upgrade, and management of applications by using reusable, versioned packages called charts.
 
@@ -73,7 +73,7 @@ When it comes to CluedIn, we use Helm for upgrades because it makes updating app
 
 - For installation instructions, see [Helm documentation](https://helm.sh/docs/intro/install/).
 
-### Visual Studio Code
+#### Visual Studio Code
 
 [Visual Studio Code](https://code.visualstudio.com/) is lightweight, cross-platform code editor. The editor is useful for editing YAML files and reviewing configuration files during the upgrade.
 
@@ -81,7 +81,7 @@ When it comes to CluedIn, we use Helm for upgrades because it makes updating app
 
 - You can download Visual Studio Code from the [official website](https://code.visualstudio.com/Download).
 
-### Lens or Freelens
+#### Lens or Freelens
 
 [Lens](https://k8slens.dev/) and [Freelens](https://freelensapp.github.io/) are powerful, free tools designed to monitor and manage Kubernetes clusters. They provide a user-friendly graphical interface that simplifies multiple everyday Kubernetes tasks. By reducing the need to recall and execute long or complex command-line instructions, these tools improve productivity and save valuable time. 
 
@@ -93,9 +93,9 @@ Reasons to use Lens:
 
   - Built-in logs – The Freelens version includes built-in log viewing, which makes it especially useful for troubleshooting.
 
-We recommend using FreeLens, as it includes built-in log access and offers a more complete out-of-the-box experience. For teams that work regularly with Kubernetes, Lens can quickly become an indispensable daily tool for monitoring and troubleshooting clusters.
+We recommend using Freelens, as it includes built-in log access and offers a more complete out-of-the-box experience. For teams that work regularly with Kubernetes, Lens can quickly become an indispensable daily tool for monitoring and troubleshooting clusters.
 
-Once you connect Lens (or Freelens) your CluedIn cluster, it allows you to:
+Once you [connect Lens (or Freelens) your CluedIn cluster](/paas-operations/upgrade/guide/prepare-for-the-upgrade#connect-lens-or-freelens-to-your-cluedin-cluster), it allows you to:
  
   - View and manage pods, services, deployments, and namespaces.
  
