@@ -36,7 +36,7 @@ The installation process is straightforward:
 
 1. In the **Create this app in Azure** window, under **Software plan**, select **CluedIn Licensing Agent**.
 
-    ![paas-software-plan.png]({{ "/assets/images/deployment/paas-installation-guide/licensing-agent-plan.png" | relative_url }})
+    ![licensing-agent-plan.png]({{ "/assets/images/deployment/licensing-agent/licensing-agent-plan-2.png" | relative_url }})
 
 1. Review your contact information, and then select **Continue**.
 
@@ -71,11 +71,11 @@ The installation process is straightforward:
 
         * The managed resource group is usually filled in by default, but you can make changes if needed.
 
-    ![managed-app-details.png]({{ "/assets/images/deployment/paas-installation-guide/licensing-agent-basics-tab.png" | relative_url }})
+    ![managed-app-details.png]({{ "/assets/images/deployment/licensing-agent/licensing-agent-basics-tab.png" | relative_url }})
 
 1. On the **License** tab, keep the installation name as **cluedinlicense**.
 
-    ![Licensing-agent-Name.png]({{ "/assets/images/deployment/paas-installation-guide/licensing-agent-licesne-tab.png" | relative_url }})
+    ![Licensing-agent-Name.png]({{ "/assets/images/deployment/licensing-agent/licensing-agent-licesne-tab.png" | relative_url }})
 
 1. On the **Review + create** tab, do the following:
 
