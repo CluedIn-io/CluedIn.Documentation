@@ -124,7 +124,7 @@ In some cases, a pod may be in the **Running** state and marked as **Ready**, bu
 <!-- Give an example error -->
 <!-- Give an example resolution -->
 
-## Scenario 4: Pod running and ready, but application exhibits unexpected behaviour
+## Scenario 4: Pod pending due to init container issues
 
 A pod can contain one or more application containers, and may also include one or more init containers.
 

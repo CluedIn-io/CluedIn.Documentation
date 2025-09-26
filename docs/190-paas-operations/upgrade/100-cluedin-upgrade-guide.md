@@ -28,16 +28,16 @@ If issues occur during the upgrade, see [Resolve common upgrade issues](/paas-op
 
 **Stage 2 – Prepare for the upgrade**
 1. Get access to CluedIn application. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#get-access-to-cluedin-application).
-1. Connect Helm and kubectl to the CluedIn AKS cluster. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#connect-helm-and-kubectl-to-the-cluedin-aks-cluster).
-1. Configure kubectl. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#configure-kubectl).
-1. Configure Helm. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#configure-helm).
-1. (Optional) Connect Lens to your cluster. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#connect-lens-to-your-cluedin-cluster).
+1. Connect [Helm](/paas-operations/upgrade/guide/plan-the-upgrade#helm) and [kubectl](/paas-operations/upgrade/guide/plan-the-upgrade#kubectl) to the CluedIn AKS cluster. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#connect-helm-and-kubectl-to-the-cluedin-aks-cluster).
+1. Configure [kubectl](/paas-operations/upgrade/guide/plan-the-upgrade#kubectl). See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#configure-kubectl).
+1. Configure [Helm](/paas-operations/upgrade/guide/plan-the-upgrade#helm). See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#configure-helm).
+1. (Optional) Connect [Lens or Freelens](/paas-operations/upgrade/guide/plan-the-upgrade#lens-or-freelens) to your cluster. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#connect-lens-to-your-cluedin-cluster).
 
 **Stage 3 – Perform the upgrade**
-1. Get current Helm user values. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#get-current-helm-user-values).
-1. Prepare new Helm user values. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#prepare-new-helm-user-values).
+1. Get current [Helm](/paas-operations/upgrade/guide/plan-the-upgrade#helm) user values. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#get-current-helm-user-values).
+1. Prepare new [Helm](/paas-operations/upgrade/guide/plan-the-upgrade#helm) user values. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#prepare-new-helm-user-values).
 1. Perform system pre-checks. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#perform-system-pre-checks).
-1. Perform Helm upgrade. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#perform-helm-upgrade).
+1. Perform [Helm](/paas-operations/upgrade/guide/plan-the-upgrade#helm) upgrade. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#perform-helm-upgrade).
 1. Verify the upgrade. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#verify-the-upgrade).
 1. Notify about upgrade completion. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#notify-about-upgrade-completion).
 

@@ -21,23 +21,23 @@ Before you begin, make sure that you have completed all actions outlined in [Pla
 
 Keep in mind that upgrade steps may vary depending on the release. The following sequence outlines a typical upgrade process:
 
-1. Get current Helm user values.
+1. [Get current Helm user values](#get-current-helm-user-values)
 
-1. Prepare new Helm user values.
+1. [Prepare new Helm user values](#prepare-new-helm-user-values)
 
-1. Perform system pre-checks.
+1. [Perform system pre-checks](#perform-system-pre-checks)
 
-1. Perform Helm upgrade.
+1. [Perform Helm upgrade](#perform-helm-upgrade)
 
-1. Verify the upgrade.
+1. [Verify the upgrade](#verify-the-upgrade)
 
-1. Notify about upgrade completion.
+1. [Notify about upgrade completion](#notify-about-upgrade-completion)
 
 -----------
 
 ## Get current Helm user values
 
-The Helm user values file is a YAML file that defines the configuration values to be applied when upgrading a Kubernetes cluster. The file will look similar to the following:
+The [Helm](/paas-operations/upgrade/guide/plan-the-upgrade#helm) user values file is a YAML file that defines the configuration values to be applied when upgrading a Kubernetes cluster. The file will look similar to the following:
 
   ```yaml
     global: 
@@ -74,7 +74,7 @@ For example, for release 2024.12.02 on the dev environment, the file should be n
     helm get values cluedin-platform -n cluedin -o yaml > ./ values-<environment>-<release-version>.yml 
     ```
 
-1. YAML file is created in your working directory. Open the file in your preferred IDE (we typically use Visual Studio Code). 
+1. YAML file is created in your working directory. Open the file in your preferred IDE (we typically use [Visual Studio Code](/paas-operations/upgrade/guide/plan-the-upgrade#visual-studio-code)). 
 
 1. Check the contents of the file. It should look similar to the example above. If it appears empty, this usually means you are not connected to the cluster correctly. In that case, revisit the earlier steps to verify your connection. 
 
@@ -88,7 +88,7 @@ For example, for release 2024.12.02 on the dev environment, the file should be n
 
 1. Carefully compare your existing values file with the new release’s required values. Update any outdated entries and add newly introduced values. In most cases, you will update container image tags and package versions, but additional configuration keys may also be required.
 
-    An IDE such as Visual Studio Code will highlight any formatting or indentation issues as you edit the YAML file.
+    An IDE such as [Visual Studio Code](/paas-operations/upgrade/guide/plan-the-upgrade#visual-studio-code) will highlight any formatting or indentation issues as you edit the YAML file.
 
     {:.important}
     YAML is whitespace-sensitive—use spaces (not tabs) and ensure correct indentation, or the deployment will fail.
@@ -138,15 +138,15 @@ For example, for release 2024.12.02 on the dev environment, the file should be n
 
 ## Perform Helm upgrade
 
-There are several methods to upgrade Helm:
+There are several methods to upgrade [Helm](/paas-operations/upgrade/guide/plan-the-upgrade#helm):
 
-- Basic Helm upgrade – This is the default method. Use it unless you are explicitly instructed otherwise.
+- [Basic Helm upgrade](#basic-helm-upgrade) – This is the default method. Use it unless you are explicitly instructed otherwise.
 
-- Helm upgrade with data upgrade – Use this method only when specifically instructed to do so.
+- [Helm upgrade with data upgrade](#helm-upgrade-with-data-upgrade) – Use this method only when specifically instructed to do so.
 
 ### Basic Helm upgrade
 
-During a Helm upgrade, the UI will be temporarily unavailable. Make sure to notify all users in advance so that they are aware of the downtime. 
+During a [Helm](/paas-operations/upgrade/guide/plan-the-upgrade#helm) upgrade, the UI will be temporarily unavailable. Make sure to notify all users in advance so that they are aware of the downtime. 
 
 A standard CluedIn upgrade typically results in 20–30 minutes of downtime. If the upgrade includes data migrations or additional updates, the outage may take longer. 
 
@@ -217,13 +217,12 @@ A standard CluedIn upgrade typically results in 20–30 minutes of downtime. If 
 
 In some cases, an upgrade also requires changes to the underlying data. When this occurs, CluedIn must be placed into the Upgrade Mode during installation. Upgrade Mode ensures that no data is ingested or processed while the upgrade is in progress, preventing inconsistencies and maintaining data integrity.
 
+During a [Helm](/paas-operations/upgrade/guide/plan-the-upgrade#helm) upgrade, the UI will be temporarily unavailable. Make sure to notify all users in advance so that they are aware of the downtime. 
+
+A standard CluedIn upgrade typically results in 20–30 minutes of downtime. If the upgrade includes data migrations or additional updates, the outage may take longer.
+
 {:.important}
 Use this method of upgrading Helm only if you are explicitly instructed to do so. It replaces the steps provided in [Basic Helm upgrade](#basic-helm-upgrade).
-
-
-During a Helm upgrade, the UI will be temporarily unavailable. Make sure to notify all users in advance so that they are aware of the downtime. 
-
-A standard CluedIn upgrade typically results in 20–30 minutes of downtime. If the upgrade includes data migrations or additional updates, the outage may take longer. 
 
 1. Verify the current CluedIn Helm chart version. Run the following command to list all Helm releases in the `cluedin` namespace: 
 
