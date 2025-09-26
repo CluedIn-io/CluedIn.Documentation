@@ -120,7 +120,7 @@ Pod logs are especially useful for troubleshooting in the following scenarios:
   - **Init Containers Delayed or Failing** – The initialization steps take too long or do not complete successfully.  
 
 {:.important}
-Logs stored in a Kubernetes pod are limited to the default 10 MB size. If logs grow beyond this limit, older entries will no longer be visible when using [kubectl](/paas-operations/upgrade/guide/plan-the-upgrade#kubectl) logs. If you have log analytics configured to collect pod logs, it is recommended to use that to read the pod logs. 
+Logs stored in a Kubernetes pod are limited to the default 10 MB size. If logs grow beyond this limit, older entries will no longer be visible when using [kubectl](/paas-operations/upgrade/guide/required-tools#kubectl) logs. If you have log analytics configured to collect pod logs, it is recommended to use that to read the pod logs. 
 
 ------
 
