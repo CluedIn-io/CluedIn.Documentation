@@ -86,12 +86,27 @@ For example, for release 2024.12.02 on the dev environment, the file should be n
 
     For example, to go to release 2025.05.00 on the dev environment, the file should be named `values-dev-2025-05-00.yml`.
 
-1. Carefully compare your existing values file with the new release’s required values. Update any outdated entries and add newly introduced values. In most cases, you will update container image tags and package versions, but additional configuration keys may also be required.
+1. Carefully compare your existing values file with the new release’s required values. Update any outdated entries and add newly introduced values:
 
-    An IDE such as [Visual Studio Code](/paas-operations/upgrade/guide/required-tools#visual-studio-code) will highlight any formatting or indentation issues as you edit the YAML file.
+    - In most cases, you will update container image tags and package versions, but additional configuration keys may also be required.
 
-    {:.important}
-    YAML is whitespace-sensitive—use spaces (not tabs) and ensure correct indentation, or the deployment will fail.
+    - Platform version (specified in `tag`) must align with the specified package versions.
+
+    - To learn which package `version` must be used, see the [Release notes](/release-notes#release-notes) section. The **Release notes** column points to the release details.
+
+        ![release_overview_page]({{ "/assets/images/paas-operations/upgrade/release_overview_page.png" | relative_url }})
+
+        Package versions are listed in the **Packages** section of the release details page.
+
+        ![package_versions]({{ "/assets/images/paas-operations/upgrade/package_versions.png" | relative_url }})
+
+        {:.important}
+        If the release includes customer-specific packages, ensure they are compiled against the version of the platform you are deploying. Be aware that breaking API changes may exist and should be addressed in advance.
+
+    - An IDE such as [Visual Studio Code](/paas-operations/upgrade/guide/required-tools#visual-studio-code) will highlight any formatting or indentation issues as you edit the YAML file.
+
+        {:.important}
+        YAML is whitespace-sensitive—use spaces (not tabs) and ensure correct indentation, or the deployment will fail.
 
 1. Once everything looks correct, save the file. 
 
