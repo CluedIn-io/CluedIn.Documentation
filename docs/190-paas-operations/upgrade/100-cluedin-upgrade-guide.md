@@ -18,14 +18,14 @@ The upgrade process typically involves the steps outlined below.
 {:.important}
 If issues occur during the upgrade, see [Resolve common upgrade issues](/paas-operations/upgrade/guide/resolve-common-upgrade-issues) for troubleshooting instructions.
 
-![upgrade_process.png]({{ "/assets/images/paas-operations/upgrade/upgrade_process_3.png" | relative_url }})
+![upgrade_process.png]({{ "/assets/images/paas-operations/upgrade/upgrade_process_4.png" | relative_url }})
 
 **Prerequisites for upgrade**
 
 Before starting an upgrade, make sure you have the following in place: 
 
 1. Access to live CluedIn application.
-1. Access to AKS cluster.
+1. Access to [Azure Kubernetes Service (AKS)](/paas-operations/upgrade/guide/required-tools#azure-kubernetes-service) cluster.
 1. Access to the kubeconfig file – this must be provided by your Azure administrator.
 1. A machine or a virtual machine (VM).
 1. All the [required tools](/paas-operations/upgrade/guide/required-tools) installed on the machine/VM.
@@ -40,17 +40,22 @@ Before starting an upgrade, make sure you have the following in place:
 
 **Stage 2 – Prepare for the upgrade**
 1. Get access to CluedIn application. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#get-access-to-cluedin-application).
-1. Connect [Helm](/paas-operations/upgrade/guide/required-tools#helm) and [kubectl](/paas-operations/upgrade/guide/required-tools#kubectl) to the CluedIn AKS cluster. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#connect-helm-and-kubectl-to-the-cluedin-aks-cluster).
+1. Prepare the [kubeconfig file](/paas-operations/upgrade/guide/prepare-for-the-upgrade#prepare-the-kubeconfig-file). See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#prepare-the-kubeconfig-file).
 1. Configure [kubectl](/paas-operations/upgrade/guide/required-tools#kubectl). See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#configure-kubectl).
 1. Configure [Helm](/paas-operations/upgrade/guide/required-tools#helm). See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#configure-helm).
-1. (Optional) Connect [Lens or Freelens](/paas-operations/upgrade/guide/required-tools#lens-or-freelens) to your cluster. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#connect-lens-to-your-cluedin-cluster).
+1. (Optional) Connect [Lens or Freelens](/paas-operations/upgrade/guide/required-tools#lens-or-freelens) to your cluster. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#connect-lens-or-freelens-to-your-cluedin-cluster).
 
 **Stage 3 – Perform the upgrade**
-1. Get current [Helm](/paas-operations/upgrade/guide/required-tools#helm) user values. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#get-current-helm-user-values).
-1. Prepare new [Helm](/paas-operations/upgrade/guide/required-tools#helm) user values. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#prepare-new-helm-user-values).
+1. Get current Helm user values. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#get-current-helm-user-values).
+1. Prepare new Helm user values. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#prepare-new-helm-user-values).
 1. Perform system pre-checks. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#perform-system-pre-checks).
-1. Perform [Helm](/paas-operations/upgrade/guide/required-tools#helm) upgrade. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#perform-helm-upgrade).
+1. Perform Helm upgrade. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#perform-helm-upgrade).
 1. Verify the upgrade. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#verify-the-upgrade).
 1. Notify about upgrade completion. See [instructions](/paas-operations/upgrade/guide/perform-the-upgrade#notify-about-upgrade-completion).
+
+**Useful resources**
+- [Resolve common upgrade issues](/paas-operations/upgrade/guide/resolve-common-upgrade-issues)
+- [Common upgrade operations](/paas-operations/upgrade/guide/common-upgrade-operations)
+- [Release notes](/release-notes)
 
 

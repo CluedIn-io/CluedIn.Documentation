@@ -48,10 +48,10 @@ A successful load of the CluedIn UI is a strong indication that your installatio
 
 ## Check CluedIn pods 
 
-Monitoring the state of pods is a routine task in Kubernetes, and it is especially critical during installation and upgrades. Verifying that pods are running and healthy ensures that the CluedIn platform is functioning correctly and that new deployments are stable. 
+Monitoring the state of pods is a routine task in [Kubernetes](/paas-operations/upgrade/guide/required-tools#kubernetes), and it is especially critical during installation and upgrades. Verifying that pods are running and healthy ensures that the CluedIn platform is functioning correctly and that new deployments are stable. 
 
 
-1. Before checking the pods, make sure you are already connected to the target Kubernetes cluster via a valid kubeconfig file. Without this connection, you will not be able to query the cluster. 
+1. Before checking the pods, make sure you are already connected to the target Kubernetes cluster via a valid [kubeconfig file](/paas-operations/upgrade/guide/prepare-for-the-upgrade#prepare-the-kubeconfig-file). Without this connection, you will not be able to query the cluster. 
 
 1. To view the status of all CluedIn pods, run the following command: 
 
@@ -64,7 +64,7 @@ Monitoring the state of pods is a routine task in Kubernetes, and it is especial
 
     - **All pods in Running or Completed state**. This indicates that your CluedIn installation is healthy and the infrastructure is actively running.
 
-        If all pods are **Green/Running** but the application still has issues, check the pod logs. See the [Check CluedIn logs](#check-cluedin-logs) section for details.
+        If all pods are **Green/Running** but the application still has issues, check the pod logs. For details, see the [Check CluedIn logs](#check-cluedin-logs) section.
 
     - **Pods in Pending state**. If some pods remain in the **Pending** state, allow a few minutes for them to transition to **Running**. If a pod is still pending after **5 minutes**, review the logs to identify the cause. 
 
@@ -120,12 +120,12 @@ Pod logs are especially useful for troubleshooting in the following scenarios:
   - **Init Containers Delayed or Failing** – The initialization steps take too long or do not complete successfully.  
 
 {:.important}
-Logs stored in a Kubernetes pod are limited to the default 10 MB size. If logs grow beyond this limit, older entries will no longer be visible when using [kubectl](/paas-operations/upgrade/guide/required-tools#kubectl) logs. If you have log analytics configured to collect pod logs, it is recommended to use that to read the pod logs. 
+Logs stored in a [Kubernetes](/paas-operations/upgrade/guide/required-tools#kubernetes) pod are limited to the default 10 MB size. If logs grow beyond this limit, older entries will no longer be visible when using [kubectl](/paas-operations/upgrade/guide/required-tools#kubectl) logs. If you have log analytics configured to collect pod logs, it is recommended to use that to read the pod logs. 
 
 ------
 
 ## Check CluedIn queues
-CluedIn queues are powered by a messaging system called RabbitMQ. RabbitMQ is a message broker – it allows different parts of CluedIn to communicate by passing messages between them:
+CluedIn queues are powered by a messaging system called [RabbitMQ](https://www.rabbitmq.com/). RabbitMQ is a message broker – it allows different parts of CluedIn to communicate by passing messages between them:
 
   - Think of a queue as a waiting line for messages.
 
@@ -184,7 +184,7 @@ By checking the queues, you can quickly determine if CluedIn’s internal messag
 
     - You can sort the queues by total messages to quickly identify the largest queues within RabbitMQ.
 
-        ![rabbitmq-queues.png]({{ "/assets/images/upgrade/rabbitmq-queues.png" | relative_url }})
+        ![rabbitmq-queues.png]({{ "/assets/images/upgrade/rabbitmq-queues-2.png" | relative_url }})
 
     - You can also review message rates to determine whether queues are processing the messages as expected:
 
@@ -192,12 +192,12 @@ By checking the queues, you can quickly determine if CluedIn’s internal messag
 
         - **Deliver/Get** – Indicates that messages from the queue are being consumed by a consumer.
 
-        ![rabbitmq-rates.png]({{ "/assets/images/upgrade/rabbitmq-rates.png" | relative_url }})
+        ![rabbitmq-rates.png]({{ "/assets/images/upgrade/rabbitmq-rates-2.png" | relative_url }})
 
         If you see a large number of **Incoming** messages but no corresponding **Deliver/Get** activity, it may indicate that no consumers are currently available to process those messages.
 
     - To check the number of consumers attached to a queue, click the **+/–** icon on the right-hand side to display the **Consumers** column.
 
-        ![rabbitmq-consumers.png]({{ "/assets/images/upgrade/rabbitmq-consumers.png" | relative_url }})
+        ![rabbitmq-consumers.png]({{ "/assets/images/upgrade/rabbitmq-consumers-2.png" | relative_url }})
 
         In the example above, the queue **RemoteEvents_cluedin-server-processing** is connected to a single consumer, with messages delivered at a rate of 224/s. This indicates that the queue is healthy and functioning as expected.

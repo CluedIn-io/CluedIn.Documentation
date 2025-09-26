@@ -17,6 +17,10 @@ headerIcon: "paas"
 
 Before starting [CluedIn upgrade](/paas-operations/upgrade/guide), make sure you have the necessary tools installed and ready:
 
+- [Kubernetes](#kubernetes)
+
+- [Azure Kubernetes Service (AKS)](#azure-kubernetes-service)
+
 - [kubectl](#kubectl)
 
 - [Helm](#helm)
@@ -25,7 +29,17 @@ Before starting [CluedIn upgrade](/paas-operations/upgrade/guide), make sure you
 
 - (Optional) [Lens or Freelens](#lens-or-freelens)
 
+## Kubernetes
+
+[Kubernetes](https://kubernetes.io/) is an open-source container orchestration platform. It automates the deployment, scaling, and management of containerized applications.
+
+**Download link:** [Official website](https://kubernetes.io/releases/download/).
+
 ## Azure Kubernetes Service
+
+[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/products/kubernetes-service) is a managed Kubernetes service provided by Microsoft Azure. It simplifies running Kubernetes by handling cluster management tasks such as upgrades, scaling, and security.
+
+**Link to get AKS:** [Official website](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account).
 
 ## kubectl
 
@@ -49,7 +63,7 @@ Without kubectl, there is no simple way to manage or query what’s running insi
 
 ## Helm
 
-[Helm](https://helm.sh/docs/) is a package manager for Kubernetes. It simplifies the deployment, upgrade, and management of applications by using reusable, versioned packages called charts.
+[Helm](https://helm.sh/) is a package manager for Kubernetes. It simplifies the deployment, upgrade, and management of applications by using reusable, versioned packages called charts.
 
 When it comes to CluedIn, we use Helm for upgrades because it makes updating applications simple, consistent, and reversible. With a single command, you can apply changes while keeping version history for easy rollbacks.
 
