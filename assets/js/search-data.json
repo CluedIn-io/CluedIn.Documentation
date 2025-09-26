@@ -5328,45 +5328,45 @@
   },"761": {
     "doc": "Plan the upgrade",
     "title": "On this page",
-    "content": ". | Get familiar with the versioning scheme | Schedule the upgrade window | Inform the stakeholders | Perform a full backup | Review upgrade-related documentation | Prepare and test custom packages | . Careful planning ensures that the upgrade process is efficient, minimizes downtime, and accounts for dependencies across your environment. This page covers stage 1 of the CluedIn upgrade process. It outlines the decisions and preparations you should make before executing the upgrade. ",
+    "content": ". | Get familiar with the versioning scheme | Review upgrade-related documentation | Schedule the upgrade window | Inform the stakeholders | Perform a full backup | Prepare and test custom packages | . Careful planning ensures that the upgrade process is efficient, minimizes downtime, and accounts for dependencies across your environment. This page covers stage 1 of the CluedIn upgrade process. It outlines the decisions and preparations you should make before executing the upgrade. ",
     "url": "/paas-operations/upgrade/guide/plan-the-upgrade#on-this-page",
     
     "relUrl": "/paas-operations/upgrade/guide/plan-the-upgrade#on-this-page"
   },"762": {
     "doc": "Plan the upgrade",
     "title": "Get familiar with the versioning scheme",
-    "content": "CluedIn releases version numbers follow this format: {year}.{month}.{patch}. For example, 2025.05.02. For details about the updates available in a specific release, see Release notes. ",
+    "content": "CluedIn releases version numbers follow this format: {year}.{month}.{patch}. For example, 2025.05.02. ",
     "url": "/paas-operations/upgrade/guide/plan-the-upgrade#get-familiar-with-the-versioning-scheme",
     
     "relUrl": "/paas-operations/upgrade/guide/plan-the-upgrade#get-familiar-with-the-versioning-scheme"
   },"763": {
+    "doc": "Plan the upgrade",
+    "title": "Review upgrade-related documentation",
+    "content": "When planning the upgrade, consult the following documentation: . | Release notes – Provide an overview of the updates available in a specific release. | Upgrade documentation – CluedIn publishes upgrade documentation with each new release. Be sure to review this documentation in full before beginning the upgrade process. While many upgrades follow common steps, not all are identical, and some may include specialized procedures. Pay particular attention to any infrastructure-related changes, as these may require additional preparation or configuration. | . ",
+    "url": "/paas-operations/upgrade/guide/plan-the-upgrade#review-upgrade-related-documentation",
+    
+    "relUrl": "/paas-operations/upgrade/guide/plan-the-upgrade#review-upgrade-related-documentation"
+  },"764": {
     "doc": "Plan the upgrade",
     "title": "Schedule the upgrade window",
     "content": ". | Schedule downtime – Plan the upgrade during a period when the application is not in use. The application will be unavailable throughout the upgrade process. | Allocate sufficient time – Ensure you have enough time for the full upgrade and, if required, disaster recovery. | . ",
     "url": "/paas-operations/upgrade/guide/plan-the-upgrade#schedule-the-upgrade-window",
     
     "relUrl": "/paas-operations/upgrade/guide/plan-the-upgrade#schedule-the-upgrade-window"
-  },"764": {
+  },"765": {
     "doc": "Plan the upgrade",
     "title": "Inform the stakeholders",
     "content": "It is essential to keep stakeholders informed at every stage of the upgrade process: . | Before the upgrade – Provide advance notice of the planned upgrade window, expected downtime, and potential business impact. | During the upgrade – Provide updates if the upgrade takes longer than anticipated or if issues arise. | After the upgrade – Confirm completion, communicate any changes affecting users, and explain how to report issues. | . ",
     "url": "/paas-operations/upgrade/guide/plan-the-upgrade#inform-the-stakeholders",
     
     "relUrl": "/paas-operations/upgrade/guide/plan-the-upgrade#inform-the-stakeholders"
-  },"765": {
+  },"766": {
     "doc": "Plan the upgrade",
     "title": "Perform a full backup",
     "content": "Back up the following: . | All persistent disks . | All user values . | . This step is critical in case a rollback becomes necessary. ",
     "url": "/paas-operations/upgrade/guide/plan-the-upgrade#perform-a-full-backup",
     
     "relUrl": "/paas-operations/upgrade/guide/plan-the-upgrade#perform-a-full-backup"
-  },"766": {
-    "doc": "Plan the upgrade",
-    "title": "Review upgrade-related documentation",
-    "content": "CluedIn publishes upgrade documentation with each new release. Be sure to review this documentation in full before beginning the upgrade process. While many upgrades follow common steps, not all are identical, and some may include specialized procedures. Pay particular attention to any infrastructure-related changes, as these may require additional preparation or configuration. ",
-    "url": "/paas-operations/upgrade/guide/plan-the-upgrade#review-upgrade-related-documentation",
-    
-    "relUrl": "/paas-operations/upgrade/guide/plan-the-upgrade#review-upgrade-related-documentation"
   },"767": {
     "doc": "Plan the upgrade",
     "title": "Prepare and test custom packages",
@@ -10844,7 +10844,7 @@
   },"1549": {
     "doc": "Upgrade guide",
     "title": "Upgrade guide",
-    "content": "This guide provides instructions for upgrading CluedIn after the initial installation. Regular upgrades are recommended to ensure you benefit from the latest features, improvements, and fixes. For details about the updates available in a specific release, see Release notes. The upgrade process typically involves the steps outlined below. If issues occur during the upgrade, see Resolve common upgrade issues for troubleshooting instructions. Prerequisites for upgrade . Before starting an upgrade, make sure you have the following in place: . | Access to live CluedIn application. | Access to Azure Kubernetes Service (AKS) cluster. | Access to the kubeconfig file – this must be provided by your Azure administrator. | A machine or a virtual machine (VM). | All the required tools installed on the machine/VM. | . Stage 1 – Plan your upgrade . | Get familiar with the versioning scheme. See instructions. | Schedule the upgrade window. See instructions. | Inform the stakeholders. See instructions. | Perform a full backup. See instructions. | Review upgrade-related documentation. See instructions. | Prepare and test custom packages. See instructions. | . Stage 2 – Prepare for the upgrade . | Get access to CluedIn application. See instructions. | Prepare the kubeconfig file. See instructions. | Configure kubectl. See instructions. | Configure Helm. See instructions. | (Optional) Connect Lens or Freelens to your cluster. See instructions. | . Stage 3 – Perform the upgrade . | Get current Helm user values. See instructions. | Prepare new Helm user values. See instructions. | Perform system pre-checks. See instructions. | Perform Helm upgrade. See instructions. | Verify the upgrade. See instructions. | Notify about upgrade completion. See instructions. | . Useful resources . | Resolve common upgrade issues | Common upgrade operations | Release notes | . ",
+    "content": "This guide provides instructions for upgrading CluedIn after the initial installation. Regular upgrades are recommended to ensure you benefit from the latest features, improvements, and fixes. For details about the updates available in a specific release, see Release notes. The upgrade process typically involves the steps outlined below. If issues occur during the upgrade, see Resolve common upgrade issues for troubleshooting instructions. Prerequisites for upgrade . Before starting an upgrade, make sure you have the following in place: . | Access to live CluedIn application. | Access to Azure Kubernetes Service (AKS) cluster. | Access to the kubeconfig file – this must be provided by your Azure administrator. | A machine or a virtual machine (VM). | All the required tools installed on the machine/VM. | . Stage 1 – Plan your upgrade . | Get familiar with the versioning scheme. See instructions. | Review upgrade-related documentation. See instructions. | Schedule the upgrade window. See instructions. | Inform the stakeholders. See instructions. | Perform a full backup. See instructions. | Prepare and test custom packages. See instructions. | . Stage 2 – Prepare for the upgrade . | Get access to CluedIn application. See instructions. | Prepare the kubeconfig file. See instructions. | Configure kubectl. See instructions. | Configure Helm. See instructions. | (Optional) Connect Lens or Freelens to your cluster. See instructions. | . Stage 3 – Perform the upgrade . | Get current Helm user values. See instructions. | Prepare new Helm user values. See instructions. | Perform system pre-checks. See instructions. | Perform Helm upgrade. See instructions. | Verify the upgrade. See instructions. | Notify about upgrade completion. See instructions. | . Useful resources . | Resolve common upgrade issues | Common upgrade operations | Release notes | . ",
     "url": "/paas-operations/upgrade/guide",
     
     "relUrl": "/paas-operations/upgrade/guide"
