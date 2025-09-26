@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2025-09-26T12:14:23+00:00</updated>
+    <updated>2025-09-26T13:33:35+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1847,6 +1847,22 @@
         <summary>
         
         Resolve common upgrade issues.
+        
+        
+        
+        Tags: deployment, ama, marketplace, azure, aks, kubernetes, upgrade.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Required tools for CluedIn upgrade</title>
+        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide/required-tools" />
+        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide/required-tools</id>
+        <updated>2025-09-22T00:00:00+00:00</updated>
+        <summary>
+        
+        Required tools for CluedIn upgrade.
         
         
         
