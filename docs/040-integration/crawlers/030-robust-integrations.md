@@ -69,7 +69,7 @@ Endpoint changes:
 
 ## Crawler validation framework
 
-CluedIn’s Crawler Framework ships with a validation framework, which you can extend.
+CluedIn’s crawler framework ships with a [validation framework](/crawling/crawler-validation-framework), which you can extend.
 
 - To add new rules, implement the `IClueValidationRule` interface.
 

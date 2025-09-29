@@ -13,7 +13,7 @@ tags: ["crawling","agents"]
 1. TOC
 {:toc}
 
-Agents are the orchestrators of running integrations. They allow you to run crawlers in remote environments, often on different machines and even in different physical networks.
+Agents are the orchestrators of integrations. They make it possible to run crawlers in remote environments, often on different machines and even in different physical networks.
 
 ## Why use agents
 
@@ -23,7 +23,7 @@ Agents are typically used in hybrid environments, for example:
 
 - Crawlers must run against systems inside an internal business network.
 
-In this setup, Agents handle the communication between CluedIn and internal data sources.
+In this setup, agents handle the communication between CluedIn and internal data sources.
 
 ## Responsibilities of agents
 
@@ -43,7 +43,7 @@ To run an agent, you must:
 
     - The API key must match one of the keys registered in the agents database within CluedIn.
 
-    - It must also be associated with the organization ID of the account running the agent.
+    - The API key must also be associated with the organization ID of the account running the agent.
 
 Simplest setup:
 
@@ -89,7 +89,7 @@ Agents can be deployed in two main ways:
 
 - Directly connected to the backend
 
-- Communicates with agent Controller via a direct container reference.
+- Communicates with Agent Controller via a direct container reference.
 
 ![Diagram]({{ "/assets/images/crawling/agent-complex.png" | relative_url }})
 
@@ -102,11 +102,11 @@ Agents can be deployed in two main ways:
 
 - No access to CluedIn databases, Message Bus, and so on.
 
-- Deployed with ComponentHost + individual components:
+- Deployed with ComponentHost and individual components:
 
     - Smaller package than the full CluedIn.
 
-    - Processing, WebApi, and DataStores are not included.
+    - Processing, Web API, and DataStores are not included.
 
 - Uses an agent API key for authentication.
 
@@ -130,7 +130,7 @@ Agents can be deployed in two main ways:
 
  - Log shipping from the agent back to the CluedIn cluster.
 
- - CompressedRecord<T> payload).
+ - CompressedRecord payload.
 
 ## Job types
  - Normal jobs:
@@ -143,7 +143,7 @@ Agents can be deployed in two main ways:
 
     - Used to monitor systems and produce clues when changes occur.
 
-    - Examples: file system monitoring, Kafka queue monitoring.
+    Examples include file system monitoring and Kafka queue monitoring.
 
 ## Job statistics
 
@@ -178,7 +178,7 @@ Jobs can be restricted to run only on:
     - On-prem (single tenant)
 
 ## Orchestration server
-- Agents automatically download updates from the server (zip file deployed centrally).
+- Agents automatically download updates from the server (ZIP file deployed centrally).
 
 - This enables updates for agents deployed in environments where CluedIn does not have direct access to the machines.
 
@@ -194,7 +194,7 @@ Agents can be deployed by downloading the agent binaries and decompressing them 
 Please contact your partner or CluedIn representative to obtain access to the binaries.
 
 ### Configure the agent
-The Agent is configured through the `container.config` file located in your `<agent-root>/Agent` folder.
+The agent is configured through the `container.config` file located in your `<agent-root>/Agent` folder.
 
 Open this file, and you should see a configuration similar to the following example:
 ```
@@ -243,17 +243,17 @@ Open this file, and you should see a configuration similar to the following exam
 
 To connect your agent to the Kubernetes cluster running the CluedIn Server, API, and JobServer, fill in the following configuration values in `container.config`:
 
-- `ServerUrl` – The route to your CluedIn WebAPI. For example, `https://app.<hostname>/api/`.
+- `ServerUrl` – The route to your CluedIn Web API. For example, `https://app.<hostname>/api/`.
 
-- `AgentServerUrl` – The route to your CluedIn WebAPI. For example, `https://app.<hostname>/api/`.
+- `AgentServerUrl` – The route to your CluedIn Web API. For example, `https://app.<hostname>/api/`.
 
-- `ServerBlobUrl` – The route to your Blob storage. By default, this is the same as your WebAPI URL.
+- `ServerBlobUrl` – The route to your Blob storage. By default, this is the same as your Web API URL.
 
 - `WebhookUrl` – The route to your Webhook API. By default, it should be `https://app.<hostname>/webhooks/`.
 
-- `ServerStatusUrl` – The status endpoint of your WebAPI. By default, it should be `https://app.<hostname>/api/status`.
+- `ServerStatusUrl` – The status endpoint of your Web API. By default, it should be `https://app.<hostname>/api/status`.
 
-- `ServerLoggingUrl` – The logging endpoint of your WebAPI. By default, it should be `https://app.<hostname>/api/`.
+- `ServerLoggingUrl` – The logging endpoint of your Web API. By default, it should be `https://app.<hostname>/api/`.
 
 - `AuthServerUrl` – The route to your Authentication API. By default, it should be `ttps://app.<hostname>/auth/`.
 
@@ -264,16 +264,16 @@ The agent you downloaded must authenticate against a registered agent within the
 
 You can register the agent in two ways:
 
-1. Port-forward to the CluedIn SQL Server pod in your Kubernetes cluster:
+- Port-forward to the CluedIn SQL Server pod in your Kubernetes cluster:
 
     ```
     kubectl port-forward -l app=sqlserver 1433 --address 0.0.0.0
     ```
 
-    Then add an Agent registration under `DataStore.Db.OpenCommunication > dbo.Agent`.
+    Then, add an agent registration under `DataStore.Db.OpenCommunication > dbo.Agent`.
 
 
-1. Run a SQL query directly against the `DataStore.Db.OpenCommunication` database (see the example below).
+- Run a SQL query directly against the `DataStore.Db.OpenCommunication` database, as in the following example:
 
    ```
    DECLARE @AgentId varchar(60);
@@ -298,7 +298,7 @@ You can register the agent in two ways:
     After completing the registration, copy the API token you created and set it as the value of `ApiKey` in the `container.config` file you downloaded earlier.
 
 ### Deploy crawlers
-To deploy a crawler into an Agent, you will need the crawler assembly files (DLLs), either:
+To deploy a crawler into an agent, you will need the crawler assembly files (DLLs), either:
 
 - From a NuGet package.
 
@@ -310,20 +310,20 @@ Required assemblies:
 
 - `CluedIn.Crawling._CrawlerName_.Core`
 
-- `CluedIn.Crawling._CrawlerName_.Infrastructure1
+- `CluedIn.Crawling._CrawlerName_.Infrastructure1`
 
-The Provider project is not required in the agent, because the provider is registered in the cloud WebAPI instance. Everything in the provider project is executed from the cluster.
+The provider project is not required in the agent, because the provider is registered in the cloud Web API instance. Everything in the provider project is executed from the cluster.
 
 {:.important}
-Ensure that all dependencies needed by your crawler (e.g., NuGet dependencies) are deployed along with the crawler assemblies.
+Ensure that all dependencies needed by your crawler (such as NuGet dependencies) are deployed along with the crawler assemblies.
 
-Deployment steps:
+**To deploy a crawler**
 
 1. Move the crawler assemblies into `<agent-root>/Agent`.
 
-    The assemblies will be picked up automatically when the Agent starts.
+    The assemblies will be picked up automatically when the agent starts.
 
-1. On the cluster, deploy:
+1. On the cluster, deploy the following:
 
     - All crawler packages listed above.
 
@@ -331,26 +331,27 @@ Deployment steps:
 
 ### Run the agent
 
-Running the Agent is as simple as starting the `boot.sh` file. On Windows, you may need to install a tool like [Cygwin](https://www.cygwin.com/) to run `.sh` files.
+1. To run the agent, simply start the `boot.sh` file. On Windows, you may need to install a tool like [Cygwin](https://www.cygwin.com/) to run `.sh` files.
 
-When the agent starts, you will see output showing:
+    When the agent starts, you will see an output showing:
 
-- Assemblies being loaded.
+    - Assemblies being loaded.
 
-- The agent attempting to connect to the cluster.
+    - The agent attempting to connect to the cluster.
 
-{:.important}
-Ensure there are no networking issues blocking calls to the API server.
+1. Review the output and ensure there are no networking issues blocking the calls to the API server.
 
-Once connected, you can log in to CluedIn, add your integration, and the data crawling will be executed by the agent instead of the CluedIn server in the Kubernetes cluster.
+    Once connected, you can do the following:
 
-You can also register the agent as a Windows Service so that it automatically restarts if the Windows VM reboots. For details, see the corresponding [Microsoft guide](https://docs.microsoft.com/en-us/dotnet/framework/windows-services/how-to-install-and-uninstall-services).
+    - Sign in to CluedIn, add your integration, and the data crawling will be executed by the agent instead of the CluedIn server in the Kubernetes cluster.
+
+    - Register the agent as a Windows Service so that it automatically restarts if the Windows VM reboots. For details, see the corresponding [Microsoft guide](https://docs.microsoft.com/en-us/dotnet/framework/windows-services/how-to-install-and-uninstall-services).
 
 ### Enable verbose logging
 
 By default, the agent runs with low logging verbosity.
 
-To increase verbosity:
+**To increase verbosity**
 
 1. Set the environment variable: `$env:ASPNETCORE_ENVIRONMENT = "verbose"`.
 

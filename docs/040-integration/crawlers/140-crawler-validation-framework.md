@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Crawler Validation Framework
+title: Crawler validation framework
 parent: Crawlers
 grand_parent: Ingestion
 nav_order: 140
@@ -9,8 +9,10 @@ permalink: /crawling/crawler-validation-framework
 tags: ["crawling","agents"]
 ---
 
-While building new integrations for CluedIn, you will want to make sure that you are building your integrations in the recommended way. The crawler validation framework will help guide a developer to produce a Clue that is of the highest readiness for processing. The validation framework will only run during Debug / Developer mode and will not run once deployed to production. 
+When [building](/integration/build-integration) new integrations for CluedIn, it’s important to follow the recommended practices. The crawler validation framework helps developers ensure that each [clue](/key-terms-and-features/clue-reference) they produce is ready for processing at the highest quality level.
 
-The validation framework acts as a guide to warn a developer if they may have forgotten to do something important such as setting a Uri, setting a Name. It might be the case that you don't haave these properties (which is fine and normal) but it is also one of those pieces that is easy to forget - hence the framework. 
+- The framework runs only in Debug/Developer mode and is disabled in production.
 
-A developer can supress the validators at a Clue Producer level in the cases where you can confirm that you won't be able to produce what is expected for a Clue. 
+- The framework acts as a guide by warning developers when key properties might be missing—for example, a `Uri` or `Name`. While it’s normal in some cases not to have these properties, they are easy to overlook, which is why the framework highlights them.
+
+- In situations where you know a property cannot be produced, you can suppress the validators at the Clue Producer level.

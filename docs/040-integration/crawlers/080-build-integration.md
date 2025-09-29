@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Build Integration
+title: Build an integration
 parent: Crawlers
 grand_parent: Ingestion
 nav_order: 080
@@ -8,36 +8,42 @@ has_children: false
 permalink: /integration/build-integration
 tags: ["integration"]
 ---
-### Introduction
 
-CluedIn official integrations are one size fits all integrations. They will generally try to ingest as much data as they can.
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
-If you want to ingest data in a precise fashion or want to ingest data from an in-house tool, an old tool, from some custom APIs, you will need to create your own integration.
+CluedIn’s official integrations are designed as one-size-fits-all solutions. They generally attempt to ingest as much data as possible.
 
-### Pre-requesite
+If you need more control—such as ingesting data selectively, connecting to in-house or legacy tools, or working with custom APIs—you will need to create a custom integration.
 
-CluedIn is a .NET platform. So you will need:
+## Prerequisites
+
+CluedIn is a .NET platform. Therefore, you will need the following:
 
 - .NET installed
 - Visual Studio installed
 - Docker
 
 
-### Creating initial template
+## Create the initial template
 
-To avoid cumbersome boilerplating, CluedIn provides you a script to generate a working Visual studio solution.
+To save time and avoid cumbersome boilerplate, CluedIn provides a script that generates a working Visual Studio solution for you.
 
-1. Create a folder for your provider
+**To create the initial template**
+
+1. Create a folder for your provider.
     ```shell
     mkdir my-first-integration
     cd my-first-integration
     ```
 
-1. Run the generator
+1. Run the generator.
     ```shell
     docker run --rm -ti -v ${PWD}:/generated cluedin/generator-crawler-template
     ```
-    The generator will ask some questions and then generate all your solution files:
+    The generator will ask some questions and will then generate all your solution files.
 
     ```shell
          _-----_     ╭──────────────────────────╮
@@ -56,7 +62,7 @@ To avoid cumbersome boilerplating, CluedIn provides you a script to generate a w
     ```
 
 
-1. Initialize a git repo
+1. Initialize a Git repository.
     ```shell
     git init
     git add .
@@ -64,21 +70,26 @@ To avoid cumbersome boilerplating, CluedIn provides you a script to generate a w
     ```
 
 
-1. Open the solution in Visual Studio and build it or alternatively you should also build it from the command line using the dotnet cli: `dotnet build` 
+1. Open the solution in Visual Studio and build it. Alternatively, build it from the command line using the .NET CLI:
+    ```
+    dotnet build
+    ```
 
 
-### Adding a Model
+## Add a model
 
-There are several steps needed to create a crawler that fetches data, creates Clues and passes them back to CluedIn for processing. Please refer to our [Hello World](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld) sample repository for a working example. This is based on a simple external [JSON service ](https://jsonplaceholder.typicode.com/users)
+You need to perform several steps to create a crawler that fetches data, creates [clues](/key-terms-and-features/clue-reference), and passes them back to CluedIn for processing. For a working reference, see our [Hello World sample repository](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld), which demonstrates the process using a simple external [JSON service ](https://jsonplaceholder.typicode.com/users).
 
-The following is the minimal steps required to replicate the _Hello World_ example:
+The minimal steps required to replicate the Hello World example are as follows.
+
+**To replicate the Hello World example**
 
 1. Create model classes. You can use a subgenerator for this:
     ```shell
     docker run --rm -ti -v ${PWD}:/generated cluedin/generator-crawler-template crawler-template:model
     ```  
 
-1. Answer the questions as follows, to create a User model and vocabulary, similar to the one in the example [User.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Core/Models/User.cs)
+1. Answer the questions as shown in the example. This will create a User model and a vocabulary, matching the example in [User.cs](https://github.com/CluedIn-io/CluedIn.Crawling.HelloWorld/blob/master/src/HelloWorld.Core/Models/User.cs).
     ```shell
          _-----_     ╭──────────────────────────╮
         |       |    │    This sub-generator    │
@@ -110,32 +121,32 @@ The following is the minimal steps required to replicate the _Hello World_ examp
        create test/MyFirstIntegration.Crawling.Unit.Test/ClueProducers/UserClueProducerTests.cs
     ```
 
-    This will generate 4 files as shown above. If you try to run the tests you will notice there is a failing one, as we need to complete some work in the ClueProducer.
+    This will generate four files listed above. If you try to run the tests, one will fail because the ClueProducer still needs to be completed.
 
-1. Go to the `src/MyFirstIntegration.Crawling/ClueProducers/UserClueProducer.cs` file, in line 29 uncomment the following code:
+1. Go to the `src/MyFirstIntegration.Crawling/ClueProducers/UserClueProducer.cs` file. In line 29, uncomment the following code:
     ```csharp
     if(input.Name != null)
         data.Name = input.Name;
     ```
 1. Delete all other comments in the `UserClueProducer.cs` file.
 
-1. Open the `src/MyFirstIntegration.Infrastructure/MyFirstIntegrationClient.cs` and modify line 16 with the URL for the endpoint:
+1. Open the `src/MyFirstIntegration.Infrastructure/MyFirstIntegrationClient.cs` file. In line 16, specify the URL for the endpoint:
     ```csharp
         private const string BaseUri = "https://jsonplaceholder.typicode.com";
     ```
 
-1. Since this is a public endpoint we don't need to pass any tokens. Remove or comment out line 42
+1. Because this is a public endpoint, no tokens are required. Remove or comment out line 42.
 
     ```csharp
     // client.AddDefaultParameter("api_key", myfirstintegrationCrawlJobData.ApiKey, ParameterType.QueryString);`
     ```
-1. Add a method to retrieve users (you will need to import some namespaces too):
+1. Add a method to retrieve users. You will also need to import some namespaces.
 
     ```csharp
     public async Task<IList<User>> GetUsers() => await GetAsync<IList<User>>("users");
     ```
 
-1. In the `src/MyFirstIntegration.Crawling/MyFirstIntegrationCrawler.cs` you retrieve the data you want to insert in CluedIn. Add the following inside the `GetData` method:
+1. In the `src/MyFirstIntegration.Crawling/MyFirstIntegrationCrawler.cs` file, you retrieve the data you want to insert in CluedIn. Add the following code inside the `GetData` method:
     ```csharp
         //retrieve data from provider and yield objects
 
@@ -145,7 +156,7 @@ The following is the minimal steps required to replicate the _Hello World_ examp
         }
     ```
 
-1. In order to test the provider, you can use the Integration test provided. Open the `test/integration/Crawling.MyFirstIntegration.Integration.Test/MyFirstIntegrationDataIngestion.cs` file, and in the `CorrectNumberOfEntityTypes` method add a new annotation to indicate the expectation of receiving 10 Persons (that's what the sample endpoint returns by default):
+1. To test the provider, you can use the provided integration test. Open the `test/integration/Crawling.MyFirstIntegration.Integration.Test/MyFirstIntegrationDataIngestion.cs` file. Then, in the `CorrectNumberOfEntityTypes` method, add a new annotation to indicate the expected result: 10 persons (the default return from the sample endpoint).
     ```csharp
     [Theory]
     [InlineData("/Provider/Root", 1)]
@@ -153,50 +164,108 @@ The following is the minimal steps required to replicate the _Hello World_ examp
     public void CorrectNumberOfEntityTypes(string entityType, int expectedCount)
     ```
 
-1. Execute the tests - they should all pass.
+1. Execute the tests. They should all pass.
 
-1. Before adding the integration to CluedIn, open the file `src\MyFirstIntegration.Core\MyFirstIntegrationConstants.cs` and modify the values for the constants before the `TODO` comment. This information will be used in the GUI of CluedIn to show information about the integration. In particular you should set the `CrawlerDescription`, `Integration`, `Uri` (if this integration corresponds to an online tool), and `IconResourceName`. This last property corresponds to the path of an embedded resource in the Provider project.
+1. Before adding the integration to CluedIn, open the `src\MyFirstIntegration.Core\MyFirstIntegrationConstants.cs` file. Then, modify the values for the constants before the `TODO` comment. This information will be used in the CluedIn GUI to show information about the integration.
 
-### Architecture
+    In particular, make sure to set the following:
 
-As you can see in the example - these are the main components:
-- A *client* that knows how to retrieve data from your source (e.g. `MyFirstIntegrationClient.cs`). It has methods to produce plain objects with the information.
-- The method `GetData` in the main Crawling class `MyFirstIntegrationCrawler.cs` - you can consider this as the entry point for the provider. This method will invoke the correct methods of the *client*, in order to yield plain objects.
-- A *Vocabulary* class (e.g. `UserVocabulary.cs`) which is for the most part generated automatically. This class defines the different keys of the data you are processing and how they map to generic terms (email, address, company) also in use in other sources. In addition it can define the relationship with other *Vocabularies* (also known as edges). For example the relationship between a user and a company.
-- A *ClueProducer* (e.g. `UserClueProducer.cs`) which essentially translates the plain object (retrieved by the *client*) into a *clue*, which is the object understood by CluedIn. It uses the keys from the *Vocabulary* to map the data from the object to the clue.
+    - `CrawlerDescription` – A short description of the crawler.
 
-In this case the sample API was very open and generic, however in other cases you may need extra information (credentials, data sources, etc.) on how to connect to the source, or what data to retrieve. This can be captured in the *CrawlJobData* (e.g. `MyFirstIntegrationCrawlJobData.cs`). You can enrich it with whatever properties you need. However, you will also need to expand two methods in the *Provider* (e.g. `MyFirstIntegrationProvider.cs`):
-- `GetCrawlJobData` which translates the keys from a generic dictionary into the *CrawlJobData* object and
-- `GetHelperConfiguration` which performs the opposite translation (from the *CrawlJobData* to a dictionary)
+    - `Integration` – The name of the integration.
+
+    - `Uri` – The URL of the tool, if this integration corresponds to an online service.
+
+    - `IconResourceName` – The path of an embedded resource in the provider project.
+
+## Architecture
+
+As shown in the example, these are the main components of a CluedIn integration:
+
+- **Client** (for example, `MyFirstIntegrationClient.cs`):
+
+    - Responsible for retrieving data from your source.
+
+    - Contains methods that return plain objects with the required information.
+
+- The `GetData` method in the main crawling class `MyFirstIntegrationCrawler.cs`:
+
+    - Acts as the entry point for the provider.
+
+    - Invokes the client’s methods to retrieve plain objects.
+
+- **Vocabulary class** (for example, `UserVocabulary.cs`):
+
+    - Mostly generated automatically.
+
+    - Defines the data keys you are processing and maps them to generic terms (such as email, address, company) used across CluedIn.
+
+    - Can also define relationships with other vocabularies (known as [edges](/key-terms-and-features/edges)). For example, the relationship between a user and a company.
+
+- **ClueProducer** (for example, `UserClueProducer.cs`):
+
+    - Translates plain objects retrieved by the client into [clues](/key-terms-and-features/clue-reference), the format understood by CluedIn.
+
+    - Uses the keys defined in the vocabulary to map object data to the clue.
+
+In this case, the sample API was open and generic. In other cases, however, you may need additional details—such as credentials, data sources, or connection parameters—to access the source and determine what data to retrieve. This information can be captured in `CrawlJobData` (for example, `MyFirstIntegrationCrawlJobData.cs`), which you can enrich with any properties you need. To support this, you must also extend two methods in the provider (for example, `MyFirstIntegrationProvider.cs`):
+
+- `GetCrawlJobData` – Translates the keys from a generic dictionary into the `CrawlJobData` object.
+
+- `GetHelperConfiguration` – Performs the opposite translation (from `CrawlJobData` to a dictionary).
 
 
-### Deploying the provider locally
+## Deploy the provider locally
 
-If you are running CluedIn locally for testing purposes using Docker, you can follow these instructions to add the integration.
+If you are running CluedIn locally for testing purposes using Docker, you can add your integration by following the provided steps.
 
-You most likely used the Home GitHub repo to pull your CluedIn environment down and boot it up. You can now use this to inject extra components into CluedIn.
+**To deploy the provider locally**
 
-Under the `env` folder you can use the `default` folder or you can create new environments (See Home GitHub Readme). 
+1. Set up your environment:
 
-Within this folder there is a `components` folder. Create a new folder in here called `ServerComponent`. This is essentially a folder in which you can inject your own DLL files and CluedIn will look in this folder on boot of the CluedIn Server Docker Container and load these assemblies as well. 
+    - You most likely used the Home GitHub repository to pull your CluedIn environment down and boot it up.
 
-In the example of a Crawler, you will need to copy the DLL files produced by your different projects (not including the test DLLs), the .json dependency file, any third party libraries you used in your crawler (e.g. a custom NuGet package for talking to a service) and optionally you will want the PDB files if you would like to debug. 
+    - You can now use this repository to inject extra components into CluedIn.
 
-Copy all of these into your newly created `ServerComponent` folder and restart the CluedIn Server Docker container. Make sure that the version of your CluedIn dependencies are exactly the same as the version you are running of CluedIn. You can check this in your packages.props file.
+    - Under the `env` folder, you can either use the `default` folder or can create new environments (see the Home GitHub README for details).
 
-````xml
-<PropertyGroup Label="Dependency Versions">
-    <_ComponentHost>2.0.0-alpha-14</_ComponentHost>
-    <_AutoFixture>4.11.0</_AutoFixture>
-    <_CluedIn>3.2.2</_CluedIn>
-  </PropertyGroup>
-```
+1. Inside your chosen environment folder, open the `components` folder.
 
-### Testing the provider in your environment
+1. In there, create a new folder called `ServerComponent`. This folder is where you inject your DLL files. On startup, the CluedIn Server Docker container will scan this folder and load the assemblies.
 
-Please refer to [install an integration](./install-integrations)
+1. For a crawler integration, copy the following files into the `ServerComponent` folder:
+
+    - The DLL files produced by your different projects (excluding test DLLs).
+
+    - The JSON dependency file.
+
+    - Any third-party libraries used in your crawler (for example, a custom NuGet package for accessing a service).
+
+    - (Optional) The PDB files, if you need to debug. 
+
+1. Restart the CluedIn Server Docker container. Make sure that the versions of your CluedIn dependencies match the version of CluedIn you are running. You can check the version in your `packages.props` file.
+
+    ````xml
+    <PropertyGroup Label="Dependency Versions">
+        <_ComponentHost>2.0.0-alpha-14</_ComponentHost>
+        <_AutoFixture>4.11.0</_AutoFixture>
+        <_CluedIn>3.2.2</_CluedIn>
+     </PropertyGroup>
+    ```
+
+## Test the provider in your environment
+
+To test your provider locally, follow the steps in [Install integrations](./install-integrations).
 
 
-### Generating Models, Vocabularies and ClueProducers
+## Generate models, vocabularies, and ClueProducers
 
-Please refer to the [FileGenerator GitHub Repository](https://github.com/CluedIn-io/Crawling.FileGenerator). This can be used to generate basic models, vocabularies and clue producers using one of three options: Metadata file; CSV files with data; Microsoft SQL Server. The generators need to be updated depending on each data source - more details can be found in the README section of the repository.
+You can use the [FileGenerator GitHub repository](https://github.com/CluedIn-io/Crawling.FileGenerator) to generate basic models, vocabularies, and ClueProducers. The generator supports three input options:
+
+- Metadata file
+
+- CSV files with data
+
+- Microsoft SQL Server
+
+The generated code will need to be updated based on the specifics of your data source. More details are available in the repository’s README.

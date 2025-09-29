@@ -16,27 +16,43 @@ tags: ["integration"]
 
 ## Install integrations in Kubernetes
 
-### Via the helm chart
+You can install integrations in Kubernetes either via the Helm chart or by building a custom image.
 
-In a production environment, using Kubernetes, you can configure the components that you want to install through the `values.yml` file. You can specify custom packages and versions, define your own package feeds, set authentication, and even use an alternative installer image.
+### Via the Kelm chart
+
+In a production environment, using Kubernetes, you can configure which components to install through the `values.yml` file. Here, you can specify the following:
+
+- Custom packages and versions
+
+- Package feeds
+
+- Authentication details
+
+- Alternative installer images
+
+Consider the following example:
 
 ```yaml
 cluedin:
     components:
-        image: ''    # name of the container to use as an installer - will default to 'cluedin
+        image: ''    # name of the container to use as an installer - defaults to 'cluedin
                      # nuget-installer'
-        packages: [] # list of extra Nuget Packages to install in server in name, or name/version pairs
-                     # version should be a supported nuget version format.
-        sources: {}  # Nuget sources to use
+        packages: [] # list of extra NuGet packages to install in server (name or name/version pairs,
+                     # version should be in a supported NuGet version format)
+        sources: {}  # NuGet sources to use
 ```
 
-At pod startup time, the packages will be passed from an init container to the CluedIn container.
+At pod startup time, the packages are passed from an init container to the CluedIn container.
 
 #### Configure packages
 
-Packages must be listed using their full package ID and an optional version. If you provide a version, you may use [floating versions](https://docs.microsoft.com/en-us/nuget/concepts/dependency-resolution#floating-versions), which are resolved at startup.
+Packages must be listed using their full package ID with an optional version. If you provide a version, you can use [floating versions](https://docs.microsoft.com/en-us/nuget/concepts/dependency-resolution#floating-versions), which are resolved at startup.
 
-In this example, the latest version of `CluedIn.Crawling.HubSpot` will be installed, while for `CluedIn.Provider.HubSpot`, the latest 3.0.0 pre-release or full-release version will be installed.
+In the provided example, the following is installed:
+
+- The latest version of `CluedIn.Crawling.HubSpot`.
+
+- The latest `3.0.0` pre-release or full-release version of `CluedIn.Provider.HubSpot`.
 
 ```yaml
 cluedin:
@@ -66,16 +82,16 @@ cluedin:
 
 ### Via a custom image
 
-You can build a custom Docker image that contains the integration packages. This approach ensures the packages and assets are already included in the init container and do not need to be downloaded at runtime.
+You can build a custom Docker image that contains the integration packages. This approach ensures that the packages and assets are already included in the init container, so they do not need to be downloaded at runtime.
 
-1. Create a `packages.txt` file with the integrations to be installed. You can specify versions after the package name.
+1. Create a `packages.txt` file with the list of integrations to be installed. You can specify versions after the package name.
 
     ```txt
     CluedIn.Crawling.HubSpot
     CluedIn.Provider.HubSpot 3.0.0-*
     ```
 
-1. Create a `nuget.config` with the feeds to be used. This is a standard [nuget.config](https://docs.microsoft.com/en-us/nuget/reference/nuget-config-file). The public nuget.org feed is included by  default.
+1. Create a standard [nuget.config](https://docs.microsoft.com/en-us/nuget/reference/nuget-config-file) file that defines the feeds to use. The public `nuget.org` feed is included by  default.
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -85,9 +101,7 @@ You can build a custom Docker image that contains the integration packages. This
     </configuration>
     ```
 
-1. Use the following Docker file to build your image.
-
-    If one or more feeds require credentials, you must expose an `ARG` and an `ENV` named `NUGETCRED_<feedname>` so the credentials can be passed to the install script.
+1. Use the following Dockerfile to build your image. If one or more feeds require credentials, expose an `ARG` and an `ENV` named `NUGETCRED_<feedname>` so credentials can be passed to the install script.
 
     ```Dockerfile
     FROM cluedin/nuget-installer as base
@@ -117,7 +131,7 @@ You can build a custom Docker image that contains the integration packages. This
     # Mount components folder which is where the integration components would be placed
     > docker run --rm -it -v '.:/components' my/cluedin-installer
     ```
-5. In `values.yal`, configure your custom image for component installation.
+5. In `values.yml`, configure your custom image for component installation.
     ```yaml
     cluedin:
       components:
