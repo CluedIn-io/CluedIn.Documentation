@@ -26,9 +26,13 @@ This feature allows you to sync CluedIn business domains, vocabularies, and voca
 
     ![Sync Entity Types to Dataverse Tables](../../../assets/images/microsoft-integration/power-apps-backup/sync-cluedin-entitytypes-setting.png)
 
-    Another way to enable this feature is to navigate to **Management** > **Business Domains** and select the business domain you want to sync. Then, select **Edit** and turn on the toggle for **Sync CluedIn Business Domains to Dataverse Table**. Finally, save changes.
+    Another way to enable this feature is to navigate to **Management** > **Business Domains** and select the business domain you want to sync. Then, select **Edit** and turn on the toggle for **(a) Sync CluedIn Business Domains to Dataverse Table**.
+    
+    Enter the Vocabulary Name(s) in the **(b) Vocabulary for Dataverse Sync** textbox to select specific vocabularies for the Dataverse sync. Leave this textbox empty to sync all vocabularies associated with the Business Domain.
+    
+    Finally, save changes.
 
-    ![Sync Entity Types to Dataverse Tables](../../../assets/images/microsoft-integration/power-apps-backup/sync-cluedin-entitytypes-page-setting.png)
+    ![Sync Entity Types to Dataverse Tables](../../../assets/images/microsoft-integration/power-apps/sync-cluedin-entitytypes-page-setting.png)
 
     All the vocabulary keys below will be created as columns in the Dataverse table.
 
@@ -90,6 +94,10 @@ This feature allows you to automate the creation of workflow that will send the 
 
     ![Create workflow to Ingest Data to CluedIn](../../../assets/images/microsoft-integration/power-apps-backup/create-workflow-to-ingest-data-setting-3.png)
 
+1. (Optional) In the **Workflow Access Users List** field, enter the list email address(es) in a comma-delimited format to grant access to the created Workflow. All emails must be registered to your Azure organization directory.
+
+    ![Create workflow to Ingest Data to CluedIn](../../../assets/images/microsoft-integration/power-apps/workflow-access-users-list.png)
+
 **Ingestion endpoint**
 
 As part of workflow automation, the ingestion endpoint will be created as well. From our sample above, you can expect two ingestion endpoints to be created, one for each of the **cluedin_dog** and **crc12_customer** tables.
@@ -128,50 +136,11 @@ Once the data is received, you can expect to see it processed because we have al
 
 ![Auto Processing](../../../assets/images/microsoft-integration/power-apps-backup/ingestion-endpoint-auto-submission.png)
 
-## Create a batch approval workflow process
-
-This feature enables you to automate the creation of the workflow for the batch approval process. If you process the data (regardless of the source) and the system identifies that the business domain used has been tagged for the approval process, the data will be halted, and the approval process will start and wait for the user's approval to continue the data processing.
-
-**Prerequisites**
-
-- Dataverse connection
-- Approval connection
-
-**To enable the batch approval workflow**
-
-1. In CluedIn, on the navigation pane, go to **Management** > **Business Domains**, and then select the business domain that you want to sync.
-
-1. Select **Edit** and then turn on the toggle for **Enable for Batch Approval Workflow**.
-
-1. Select **Save**.
-    
-    ![Create workflow for Batch Approval](../../../assets/images/microsoft-integration/power-apps-backup/batch-approval-entitytypes-page-setting.png)
-
-    After enabling this feature, a new table (Approval Queue Table) will be created in Dataverse.
-
-**Approval Queue table in Dataverse**
-
-This table will serve as a storage of the CluedIn data or information on the data waiting for approval.
-
-The **CluedIn Approval Queue ID** is the ID of the data that we are trying to approve in this process.
-
-![Approval Queue Table](../../../assets/images/microsoft-integration/power-apps-backup/approval-queue-table.png)
-
-**Workflow**
-
-The content of the approval workflow will be composed of events such as condition, approval, variables, and HTTP. A 60-second cycle will occur to check if there is data in the **Approval Queue** table. Once we receive a response in the Approval Process, we send the Approval details together with the CluedIn Approval Queue IDs to the CluedIn API via an HTTP event.
-
-![Batch Approval Workflow](../../../assets/images/microsoft-integration/power-apps-backup/batch-approval-workflow.png)
-
-**Notifications**
-
-Once the automation has been done, you can expect a notification for creating the Approval Queue Table/Columns and the creation of the Batch Approval Workflow.
-
-![Batch Approval Workflow notification](../../../assets/images/microsoft-integration/power-apps-backup/batch-approval-workflow-notification-3.png)
-
 ## Create streams
 
 This feature allows you to automate the creation of export targets and streams.
+
+    Important notice: Make sure that the CluedIn.Connector.Dataverse has been installed.
 
 **To automate the creation of export targets and streams**
 

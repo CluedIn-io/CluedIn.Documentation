@@ -101,6 +101,8 @@ In order to manage your master data from CluedIn directly in Power Apps Datavers
 
 1. In **Member's privilege inheritance**, select **Direct User (Basic) access level and Team privileges**.
 
+        Important: You must add the `System Customizer` role to the Service Principal role. This role is required so the Service Principal can automatically access tables created by the PowerApps component or Dataverse Connector.
+
     ![create-security-role.png]({{ "/assets/images/microsoft-integration/power-apps/create-security-role.png" | relative_url }})
 
 1. Select **Save**.
