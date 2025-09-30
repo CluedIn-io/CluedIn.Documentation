@@ -18,7 +18,7 @@ The upgrade process typically involves the steps outlined below.
 {:.important}
 If issues occur during the upgrade, see [Resolve common upgrade issues](/paas-operations/upgrade/guide/resolve-common-upgrade-issues) for troubleshooting instructions.
 
-![upgrade_process.png]({{ "/assets/images/paas-operations/upgrade/upgrade_process_5.png" | relative_url }})
+![upgrade_process.png]({{ "/assets/images/paas-operations/upgrade/upgrade_process_6.png" | relative_url }})
 
 **Prerequisites for upgrade**
 
@@ -29,6 +29,7 @@ Before starting an upgrade, make sure you have the following in place:
 1. Access to the kubeconfig file – this must be provided by your Azure administrator.
 1. A machine or a virtual machine (VM).
 1. All the [required tools](/paas-operations/upgrade/guide/required-tools) installed on the machine/VM.
+1. Valid and trusted SSL certificates for the environment.
 
 **Stage 1 – Plan your upgrade**
 1. Get familiar with the versioning scheme. See [instructions](/paas-operations/upgrade/guide/plan-the-upgrade#get-familiar-with-the-versioning-scheme).
