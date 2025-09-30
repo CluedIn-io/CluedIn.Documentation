@@ -31,12 +31,22 @@ The kubeconfig file is a configuration file used by [kubectl](/paas-operations/u
 
 - Contexts – Mappings that specify which cluster, user, and namespace should be used by default.
 
+The kubeconfig is a plain text YAML file that contains the access details (credentials and cluster information), no file extension is required. By default, it is stored in the user’s home directory under the hidden .kube folder:
+
+```
+~/.kube/config
+``` 
+
 You need a valid kubeconfig file to connect [Helm](/paas-operations/upgrade/guide/required-tools#helm) and kubectl to the CluedIn [Azure Kubernetes Service (AKS)](/paas-operations/upgrade/guide/required-tools#azure-kubernetes-service) cluster.
 
 1. Contact your Azure administrator and ask them to provide the kubeconfig file to you.
 
     {:.important}
     Treat this file as sensitive information – it contains access credentials and cluster details.
+
+1. Your administrator can find the kubeconfig file in the Azure Portal.
+
+    ![get-kube-config.png]({{ "/assets/images/paas-operations/upgrade/get-kube-config.png" | relative_url }})
   
 1. Store the file in a secure location. **Do not commit** the file to a source control tool.
 
