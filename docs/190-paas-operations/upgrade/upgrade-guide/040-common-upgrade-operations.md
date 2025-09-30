@@ -19,7 +19,9 @@ This section outlines common CluedIn activities you may need to carry out during
 
 ## Check CluedIn UI 
 
-A successful load of the CluedIn UI is a strong indication that your installation is functioning correctly. 
+A successful load of the CluedIn UI is a strong indication that your installation is functioning correctly.
+
+**To check CluedIn UI**
 
 1. To access the UI, use the URL that was configured during installation. Contact your administrator to get the URL. This URL may be either public or private: 
 
@@ -50,8 +52,9 @@ A successful load of the CluedIn UI is a strong indication that your installatio
 
 Monitoring the state of pods is a routine task in [Kubernetes](/paas-operations/upgrade/guide/required-tools#kubernetes), and it is especially critical during installation and upgrades. Verifying that pods are running and healthy ensures that the CluedIn platform is functioning correctly and that new deployments are stable. 
 
+**To check CluedIn pods**
 
-1. Before checking the pods, make sure you are already connected to the target Kubernetes cluster via a valid [kubeconfig file](/paas-operations/upgrade/guide/prepare-for-the-upgrade#prepare-the-kubeconfig-file). Without this connection, you will not be able to query the cluster. 
+1. Before checking the pods, make sure you are already [connected](/paas-operations/upgrade/guide/prepare-for-the-upgrade#prepare-the-kubeconfig-file) to the target Kubernetes cluster via a valid [kubeconfig file](/paas-operations/upgrade/guide/required-tools#kubeconfig-file). Without this connection, you will not be able to query the cluster. 
 
 1. To view the status of all CluedIn pods, run the following command: 
 
@@ -101,15 +104,7 @@ All CluedIn pods generate logs that provide detailed information about what the 
 
   - Gain visibility into the internal behavior of the system.   
 
-Reviewing pod logs is an essential step in troubleshooting errors and verifying that your installation is functioning correctly.
-
-To check the logs of a pod, run the following command: 
-
-```
-kubectl logs <pod name> -n cluedin 
-```
-
-Pod logs are especially useful for troubleshooting in the following scenarios:  
+Reviewing pod logs is an essential step in troubleshooting errors and verifying that your installation is functioning correctly. Pod logs are especially useful for troubleshooting in the following scenarios:  
 
   - **CrashLoopBackOff** – A pod repeatedly fails to start.  
 
@@ -119,8 +114,16 @@ Pod logs are especially useful for troubleshooting in the following scenarios:
 
   - **Init Containers Delayed or Failing** – The initialization steps take too long or do not complete successfully.  
 
-{:.important}
-Logs stored in a [Kubernetes](/paas-operations/upgrade/guide/required-tools#kubernetes) pod are limited to the default 10 MB size. If logs grow beyond this limit, older entries will no longer be visible when using [kubectl](/paas-operations/upgrade/guide/required-tools#kubectl) logs. If you have log analytics configured to collect pod logs, it is recommended to use that to read the pod logs. 
+**To check the logs of a pod**
+
+- Run the following command: 
+
+    ```
+    kubectl logs <pod name> -n cluedin 
+    ```
+
+    {:.important}
+    Logs stored in a [Kubernetes](/paas-operations/upgrade/guide/required-tools#kubernetes) pod are limited to the default 10 MB size. If logs grow beyond this limit, older entries will no longer be visible when using [kubectl](/paas-operations/upgrade/guide/required-tools#kubectl) logs. If you have log analytics configured to collect pod logs, it is recommended to use that to read the pod logs. 
 
 ------
 
@@ -133,7 +136,7 @@ CluedIn queues are powered by a messaging system called [RabbitMQ](https://www.r
 
   - Another service takes messages off the queue and processes them.
 
-This setup helps CluedIn handle large volumes of data reliably and asynchronously.
+This setup helps CluedIn handle large volumes of data reliably and asynchronously. By checking the queues, you can quickly determine if CluedIn’s internal messaging system is healthy, or if a backlog or failure might be affecting the platform.
 
 **Why are queues important?**
 
@@ -145,9 +148,7 @@ If queues stop working correctly, CluedIn may not be able to move data between s
 
 Services that depend on these messages may experience failures or degraded performance.
 
-**Check the queues**
-
-By checking the queues, you can quickly determine if CluedIn’s internal messaging system is healthy, or if a backlog or failure might be affecting the platform.
+**To check the queues**
 
 1. Accesing RabbitMQ. Run the following command to get access the RabbitMQ credentials. 
  
