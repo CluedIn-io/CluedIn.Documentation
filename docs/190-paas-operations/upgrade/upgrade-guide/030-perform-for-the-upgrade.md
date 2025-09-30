@@ -157,7 +157,9 @@ There are several methods to upgrade [Helm](/paas-operations/upgrade/guide/requi
 
 During a [Helm](/paas-operations/upgrade/guide/required-tools#helm) upgrade, the UI will be temporarily unavailable. Make sure to notify all users in advance so that they are aware of the downtime. 
 
-A standard CluedIn upgrade typically results in 20–30 minutes of downtime. If the upgrade includes data migrations or additional updates, the outage may take longer. 
+A standard CluedIn upgrade typically results in 20–30 minutes of downtime. If the upgrade includes data migrations or additional updates, the outage may take longer.
+
+**To perform a basic Helm upgrade**
 
 1. Check the current CluedIn Helm chart version. To do this, run the following command to list all Helm releases in the `cluedin` namespace: 
 
@@ -232,6 +234,8 @@ A standard CluedIn upgrade typically results in 20–30 minutes of downtime. If 
 
 {:.important}
 Use this method of upgrading Helm only if you are explicitly instructed to do so. It replaces the steps provided in [Basic Helm upgrade](#basic-helm-upgrade).
+
+**To perform Helm upgrade with data upgrade**
 
 1. Verify the current CluedIn Helm chart version. Run the following command to list all Helm releases in the `cluedin` namespace: 
 

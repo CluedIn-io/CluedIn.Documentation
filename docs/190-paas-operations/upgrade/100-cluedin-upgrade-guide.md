@@ -26,7 +26,7 @@ Before starting an upgrade, make sure you have the following in place:
 
 1. Access to live CluedIn application.
 1. Access to [Azure Kubernetes Service (AKS)](/paas-operations/upgrade/guide/required-tools#azure-kubernetes-service) cluster.
-1. Access to the kubeconfig file – this must be provided by your Azure administrator.
+1. Access to the [kubeconfig file](/paas-operations/upgrade/guide/required-tools#kubeconfig-file) – this must be provided by your Azure administrator.
 1. A machine or a virtual machine (VM).
 1. All the [required tools](/paas-operations/upgrade/guide/required-tools) installed on the machine/VM.
 1. Valid and trusted SSL certificates for the environment.
@@ -41,7 +41,7 @@ Before starting an upgrade, make sure you have the following in place:
 
 **Stage 2 – Prepare for the upgrade**
 1. Get access to CluedIn application. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#get-access-to-cluedin-application).
-1. Prepare the [kubeconfig file](/paas-operations/upgrade/guide/prepare-for-the-upgrade#prepare-the-kubeconfig-file). See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#prepare-the-kubeconfig-file).
+1. Prepare the kubeconfig file. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#prepare-the-kubeconfig-file).
 1. Configure [kubectl](/paas-operations/upgrade/guide/required-tools#kubectl). See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#configure-kubectl).
 1. Configure [Helm](/paas-operations/upgrade/guide/required-tools#helm). See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#configure-helm).
 1. (Optional) Connect [Lens or Freelens](/paas-operations/upgrade/guide/required-tools#lens-or-freelens) to your cluster. See [instructions](/paas-operations/upgrade/guide/prepare-for-the-upgrade#connect-lens-or-freelens-to-your-cluedin-cluster).

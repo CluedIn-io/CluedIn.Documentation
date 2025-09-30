@@ -18,16 +18,13 @@ headerIcon: "paas"
 Before starting [CluedIn upgrade](/paas-operations/upgrade/guide), make sure you have the necessary tools installed and ready:
 
 - [Kubernetes](#kubernetes)
-
 - [Azure Kubernetes Service (AKS)](#azure-kubernetes-service)
-
 - [kubectl](#kubectl)
-
 - [Helm](#helm)
-
 - (Optional) [Visual Studio Code](#visual-studio-code)
-
 - (Optional) [Lens or Freelens](#lens-or-freelens)
+
+In addition to the above, you also need a valid [kubeconfig file](#kubeconfig-file).
 
 ## Kubernetes
 
@@ -37,15 +34,48 @@ Before starting [CluedIn upgrade](/paas-operations/upgrade/guide), make sure you
 
 ## Azure Kubernetes Service
 
-[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/products/kubernetes-service) is a managed Kubernetes service provided by Microsoft Azure. It simplifies running Kubernetes by handling cluster management tasks such as upgrades, scaling, and security.
+[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/products/kubernetes-service) is a managed [Kubernetes](#kubernetes) service provided by Microsoft Azure. It simplifies running Kubernetes by handling cluster management tasks such as upgrades, scaling, and security.
 
 **Link to get AKS:** [Official website](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account).
 
+## Kubeconfig file
+
+The kubeconfig file is a configuration file used by [kubectl](#kubectl) and other [Kubernetes](#kubernetes) tools to connect to a cluster. It contains the information required for authentication and cluster access, including:
+
+- Cluster details – The API server address and certificate data.
+
+- User credentials – Authentication tokens, certificates, or keys.
+
+- Contexts – Mappings that define which cluster, user, and namespace to use by default.
+
+The kubeconfig is a plain-text YAML file that stores access details (credentials and cluster information):
+
+- The file does not require a file extension.
+
+- By default, the file is stored in the user’s home directory under the hidden .kube folder:
+
+    ```
+    ~/.kube/config
+    ``` 
+
+**To get the kubeconfig file**
+
+1. Contact your Azure administrator and ask them to provide the kubeconfig file to you.
+
+    Your administrator can find the kubeconfig file in Azure Portal.
+
+    ![get-kube-config.png]({{ "/assets/images/paas-operations/upgrade/get-kube-config-2.png" | relative_url }})
+
+1. Store the file in a secure location. 
+
+    {:.important}
+    Treat this file as sensitive information – it contains access credentials and cluster details.<br>**Do not commit** the file to a source control tool.
+
 ## kubectl
 
-[kubectl](https://kubernetes.io/docs/reference/kubectl/) is command-line tool for interacting with Kubernetes clusters. It lets you deploy applications, inspect and manage cluster resources, and view logs.
+[kubectl](https://kubernetes.io/docs/reference/kubectl/) is command-line tool for interacting with [Kubernetes](#kubernetes) clusters. It lets you deploy applications, inspect and manage cluster resources, and view logs.
 
-When it comes to CluedIn, kubectl lets you communicate directly with the Kubernetes API server defined in your kubeconfig file. This means that you can: 
+When it comes to CluedIn, kubectl lets you communicate directly with the Kubernetes API server defined in your [kubeconfig file](#kubeconfig-file). This means that you can: 
 
   - Inspect cluster resources (pods, services, deployments, and nodes). 
 
@@ -55,7 +85,7 @@ When it comes to CluedIn, kubectl lets you communicate directly with the Kuberne
 
   - Restart, delete, or debug the workloads. 
 
-Without kubectl, there is no simple way to manage or query what’s running inside your AKS cluster.
+Without kubectl, there is no simple way to manage or query what’s running inside your [AKS](#azure-kubernetes-service) cluster.
 
 **Required version:** 1.30 or higher.
 
@@ -63,7 +93,7 @@ Without kubectl, there is no simple way to manage or query what’s running insi
 
 ## Helm
 
-[Helm](https://helm.sh/) is a package manager for Kubernetes. It simplifies the deployment, upgrade, and management of applications by using reusable, versioned packages called charts.
+[Helm](https://helm.sh/) is a package manager for [Kubernetes](#kubernetes). It simplifies the deployment, upgrade, and management of applications by using reusable, versioned packages called charts.
 
 When it comes to CluedIn, we use Helm for upgrades because it makes updating applications simple, consistent, and reversible. With a single command, you can apply changes while keeping version history for easy rollbacks.
 
@@ -81,7 +111,7 @@ This tool is optional to use.
 
 ## Lens or Freelens
 
-[Lens](https://k8slens.dev/) and [Freelens](https://freelensapp.github.io/) are powerful, free tools designed to monitor and manage Kubernetes clusters. They provide a user-friendly graphical interface that simplifies multiple everyday Kubernetes tasks. By reducing the need to recall and execute long or complex command-line instructions, these tools improve productivity and save valuable time. 
+[Lens](https://k8slens.dev/) and [Freelens](https://freelensapp.github.io/) are powerful, free tools designed to monitor and manage [Kubernetes](#kubernetes) clusters. They provide a user-friendly graphical interface that simplifies multiple everyday Kubernetes tasks. By reducing the need to recall and execute long or complex command-line instructions, these tools improve productivity and save valuable time. 
 
 Reasons to use Lens:
 
@@ -103,7 +133,7 @@ Once you [connect Lens (or Freelens) your CluedIn cluster](/paas-operations/upgr
 
   - Inspect and edit Kubernetes objects without leaving the dashboard. 
 
-Lens and Freelens are optional to use. You can download them from:
+Lens and Freelens are optional to use.
 
 **Download links**:
 
