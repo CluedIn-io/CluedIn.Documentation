@@ -41,7 +41,7 @@ cluedin-ui-7d9f8d7c9d-abc12       0/1   CrashLoopBackOff 9        5m
     kubectl logs <pod name> -n cluedin –p 
     ```
     
-    Example:
+    Example (for a pod named `cluedin-neo4j-0`):
 
     ```powershell
     kubectl logs cluedin-neo4j-0 -n cluedin -p
@@ -154,7 +154,7 @@ In some cases, a pod may be in the **Running** state and marked as **Ready**, bu
     kubectl logs <pod name> -n cluedin 
     ```
 
-    Example:
+    Example (for a pod named `cluedin-gql-97cb77cd6-d5rcz`):
 
     ```powershell
     kubectl logs cluedin-gql-97cb77cd6-d5rcz -n cluedin 
@@ -195,13 +195,12 @@ In some cases, a pod may be in the **Running** state and marked as **Ready**, bu
     kubectl logs <pod name> -n cluedin  >  <podname>.log 
     ```
 
+
 ### Resolution
 
-In the example above, the issue may be related to the connection with the job server (Redis). Common causes include:
+In this example, the issue may be related to a failed connection to the job server (Redis). This is commonly caused by the `cluedin-server` starting before Redis, preventing it from establishing a proper connection during boot.
 
-  - The `cluedin-server` started before Redis, preventing it from connecting properly to Redis during boot.
-
-To address this issue, restart the `cluedin-server` so it can establish a proper connection to Redis during startup:
+To resolve this issue, restart the deployment of `cluedin-server` so it can establish a proper connection to Redis during startup:
 
 ```
 kubectl rollout restart deployment cluedin-server -n cluedin
