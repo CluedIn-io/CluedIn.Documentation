@@ -63,15 +63,13 @@ cluedin-ui-7d9f8d7c9d-abc12       0/1   CrashLoopBackOff 9        5m
 
 ### Resolution
 
-In the example above, the error indicates that the Neo4j container was killed due to insufficient memory (`OutOfMemoryError: Java heap space`). This usually happens in the following cases:
+In the example above, the error indicates that the Neo4j container was terminated due to insufficient memory (`OutOfMemoryError: Java heap space`). This usually happens in the following cases:
 
-- The container's memory limit is too low for the workload.
+- The container's memory limit is set too low for the workload.
 
-- Neo4j's internal memory settings are too aggressive.
+- Neo4j's internal memory settings (heap, page cache, and so on) are too aggressive for the available resources.
 
 To fix this, increase the limit imposed on Neo4j StatefulSet.
-
-------
 
 ## Scenario 2: Pod not ready
 
@@ -99,7 +97,7 @@ To investigate whether a pod is failing due to a readiness probe, do the followi
     Warning  Unhealthy  2m (x4 over 4m)  kubelet  Readiness probe failed: {{reason}}
     ```
 
-    If you find repeated **Readiness probe failed** events, this confirms that the pod is starting but failing to pass the readiness check. For example, a pod might be running but remain **Not Ready** until it successfully connects to its database. In this case, the readiness probe will continue to fail until the dependency becomes available.
+    If you find repeated `Readiness probe failed` events, this confirms that the pod is starting but failing to pass the readiness check. For example, a pod might be running but remain **Not Ready** until it successfully connects to its database. In this case, the readiness probe will continue to fail until the dependency becomes available.
 
     Example:
     ```
