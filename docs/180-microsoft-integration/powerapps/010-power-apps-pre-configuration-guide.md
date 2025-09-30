@@ -17,7 +17,7 @@ In this guide, you will learn how to prepare for configuring Power Apps integrat
 
 ## Set up a firewall policy
 
-To enable CluedIn to call Power Apps, you need to add specific rules to your Azure Firewall as described [here](/deployment/infra-how-tos/configure-firewall#power-apps-and-power-automate).
+To enable CluedIn to call Power Apps, you need to add specific rules to your Azure Firewall as described in the [Firewall guide](/deployment/infra-how-tos/configure-firewall#power-apps-and-power-automate).
 
 Power Apps integration also involves Power Automate, which is used for data ingestion workflow to push data from Dataverse to CluedIn. That's why you need to add firewall rules both for Power Automate and Power Apps.
 
@@ -100,6 +100,9 @@ In order to manage your master data from CluedIn directly in Power Apps Datavers
 1. Enter the role name and then select the business unit.
 
 1. In **Member's privilege inheritance**, select **Direct User (Basic) access level and Team privileges**.
+
+    {:.important}
+    You must add the **System Customizer** role to Service Principal. This role is required for the Service Principal to automatically access tables created by the PowerApps component or the Dataverse connector.
 
     ![create-security-role.png]({{ "/assets/images/microsoft-integration/power-apps/create-security-role.png" | relative_url }})
 
