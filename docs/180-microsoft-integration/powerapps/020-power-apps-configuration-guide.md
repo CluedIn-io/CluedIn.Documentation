@@ -35,15 +35,13 @@ Basic Power Apps configuration is required to establish connection between your 
 
 1. In **Client Secret**, enter a string value that your application uses to prove its identity when requesting a token. This is the client secret that you created during the pre-configuration stage in [Create a client secret](/microsoft-integration/powerapps/pre-configuration-guide#create-a-client-secret)
 
-1. In **Parallel Execution Count**, sets the maximum number of threads that can run simultaneously for each executing job (e.g., the "Sync Entity Types Job"). This value controls the concurrency for individual tasks
+1. In **Parallel Execution Count**, set the maximum number of threads that can run simultaneously for each executing job (for example, the "Sync Entity Types" job). This value controls the concurrency for individual tasks.
 
-1. In **Main Owner Email**, enter a valid email address (ideally an administrator's) to be used as the primary contact for system-generated items like Entity Types, Vocabularies, and Streams.
+1. In **Main Owner Email**, enter a valid email address—ideally that of an administrator. This address will be used as the primary contact for system-generated items such as entity types, vocabularies, and streams.
 
-    ![cluedin-power-apps.png]({{ "/assets/images/microsoft-integration/power-apps/cluedin-power-apps.png" | relative_url }})
+    ![cluedin-power-apps.png]({{ "/assets/images/microsoft-integration/power-apps/cluedin-power-apps-2.png" | relative_url }})
 
 1. In the upper-right corner, select **Save**.
-
-    Proceed to the next section to configure Power Apps integration features that you want to use.
 
 ## Next steps
 

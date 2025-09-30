@@ -18,7 +18,13 @@ last_modified: 2023-05-17
 
 This feature allows you to sync CluedIn business domains, vocabularies, and vocabulary keys with Dataverse table and columns.
 
-**To sync CluedIn business domains with Dataverse table**
+There are several ways how you can perform the sync:
+
+- From CluedIn settings – This option is convenient if you want to sync multiple business domains at once.
+
+- From the **Business Domains** module – This option is convenient if you want to sync one business domain at a time.
+
+**To sync CluedIn business domains with Dataverse table (from CluedIn settings)**
 
 1. On the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
 
@@ -26,13 +32,36 @@ This feature allows you to sync CluedIn business domains, vocabularies, and voca
 
     ![Sync Entity Types to Dataverse Tables](../../../assets/images/microsoft-integration/power-apps-backup/sync-cluedin-entitytypes-setting.png)
 
-    Another way to enable this feature is to navigate to **Management** > **Business Domains** and select the business domain you want to sync. Then, select **Edit** and turn on the toggle for **(a) Sync CluedIn Business Domains to Dataverse Table**.
-    
-    Enter the Vocabulary Name(s) in the **(b) Vocabulary for Dataverse Sync** textbox to select specific vocabularies for the Dataverse sync. Leave this textbox empty to sync all vocabularies associated with the Business Domain.
-    
-    Finally, save changes.
+    All the vocabulary keys below will be created as columns in the Dataverse table.
 
-    ![Sync Entity Types to Dataverse Tables](../../../assets/images/microsoft-integration/power-apps/sync-cluedin-entitytypes-page-setting.png)
+    ![Sync Entity Types to Dataverse Tables](../../../assets/images/microsoft-integration/power-apps-backup/entity-type-dog-details.png)
+
+    Once the synchronization has been completed, you'll receive two notifications: **Dataverse Table Created** and **Dataverse Column Created/Updated**.
+
+    ![Sync Entity Types to Dataverse Tables Notification](../../../assets/images/microsoft-integration/power-apps-backup/sync-cluedin-entitytypes-notification.png)
+
+1. Verify the table and columns created in Dataverse.
+
+    ![Sync Entity Types to Dataverse Tables](../../../assets/images/microsoft-integration/power-apps-backup/dataverse-dog-table-details.png)
+
+
+**To sync CluedIn business domains with Dataverse table (from the Business Domains module)**
+
+1. On the navigation pane, go to **Management** > **Business Domains**.
+
+1. Select the business domain that you want to sync.
+
+1. In the upper-right corner of the business domain page, select **Edit**.
+
+1. On the **Configuration** tab, do the following:
+
+    1. Turn on the **Sync CluedIn Business Domain to Dataverse Table** toggle.
+    
+    1. In **Vocabulary for Dataverse Sync**, enter the names of vocabularies to include in the Dataverse sync. If you enter multiple names, they must be provided as a comma-separated list. To sync all vocabularies associated with this business domain, leave this field empty.
+
+    ![Sync Entity Types to Dataverse Tables](../../../assets/images/microsoft-integration/power-apps/sync-cluedin-entitytypes-page-setting-2.png)
+    
+1. In the upper-right corner of the business domain page, select **Save**.
 
     All the vocabulary keys below will be created as columns in the Dataverse table.
 
@@ -94,9 +123,9 @@ This feature allows you to automate the creation of workflow that will send the 
 
     ![Create workflow to Ingest Data to CluedIn](../../../assets/images/microsoft-integration/power-apps-backup/create-workflow-to-ingest-data-setting-3.png)
 
-1. (Optional) In the **Workflow Access Users List** field, enter the list email address(es) in a comma-delimited format to grant access to the created Workflow. All emails must be registered to your Azure organization directory.
+1. (Optional) In **Workflow Access Users List**, enter one or more email addresses in a comma-delimited format to grant access to the created workflow. All addresses must be registered in your Azure organization directory.
 
-    ![Create workflow to Ingest Data to CluedIn](../../../assets/images/microsoft-integration/power-apps/workflow-access-users-list.png)
+    ![Create workflow to Ingest Data to CluedIn](../../../assets/images/microsoft-integration/power-apps/workflow-access-users-list-2.png)
 
 **Ingestion endpoint**
 
@@ -140,7 +169,9 @@ Once the data is received, you can expect to see it processed because we have al
 
 This feature allows you to automate the creation of export targets and streams.
 
-    Important notice: Make sure that the CluedIn.Connector.Dataverse has been installed.
+**Prerequisites**
+
+- CluedIn.Connector.Dataverse is installed.
 
 **To automate the creation of export targets and streams**
 
