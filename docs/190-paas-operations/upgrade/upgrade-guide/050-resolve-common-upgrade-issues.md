@@ -37,10 +37,7 @@ kubectl logs <pod name> -n cluedin –p
 ```
 
 **Example**
-
-```powershell
-kubectl logs cluedin-neo4j-0 -n cluedin -p
-```
+Running the above command:
 
 **Returns**
 
@@ -54,12 +51,14 @@ kubectl logs cluedin-neo4j-0 -n cluedin -p
 2025-09-25 09:35:15.335+0000 INFO  Neo4j shutting down due to fatal error
 ```
 
+The error indicates that the Neo4j container was terminated due to insufficient memory (OutOfMemoryError: Java heap space).
+This typically occurs when either:
+
+  - The container’s memory limit is set too low for the workload, or
+  - Neo4j’s internal memory settings (heap, page cache, etc.) are too aggressive for the available resources.
+
 **Resolution**
-
-The error indicates that the Neo4j container was killed due to insufficient memory (OutOfMemoryError: Java heap space).
-This usually happens when the container's memory limit is too low for the workload or Neo4j's internal memory settings are too aggressive.
-
-To fix this, we need to increase the limit imposed on neo4j statefulset.
+Increase the memory limit assigned to the Neo4j StatefulSet.
 
 ------
 
