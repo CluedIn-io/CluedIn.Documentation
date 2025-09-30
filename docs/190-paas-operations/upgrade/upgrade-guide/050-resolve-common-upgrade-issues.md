@@ -143,6 +143,7 @@ In some cases, a pod may be in the **Running** state and marked as **Ready**, bu
     ```
 
 **Example**
+Given we have a pod with the name `cluedin-gql-97cb77cd6-d5rcz`.
 
 ```powershell
 kubectl logs cluedin-gql-97cb77cd6-d5rcz -n cluedin 
@@ -177,19 +178,16 @@ connectorConfiguration
 }
 ```
 
+In this example, the issue may be related to a failed connection to our job server (Redis).
+
+Commonly caused by the `cluedin-server` starting before Redis, preventing it from establishing a proper connection during boot.
+
 **Resolution**
-
-In this example, might be related to issue with connection to our job server(redis ).
-
-Common causes include:
-  - cluedin-server started before redis causing it to not properly connect to redis during boot.
-
-To address this issue, we need to restart cluedin-server so it properly connect to redis during boot.
+Restart the deployment `cluedin-server` to ensure it reconnects to Redis correctly at startup:
 
 ```
 kubectl rollout restart deployment cluedin-server -n cluedin
 ```
-
 
 ## Scenario 4: Pod pending due to init container issues
 
