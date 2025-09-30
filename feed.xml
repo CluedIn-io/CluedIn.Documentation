@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2025-09-30T10:39:37+00:00</updated>
+    <updated>2025-09-30T11:54:18+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -193,22 +193,6 @@
         <summary>
         
         Features.
-        
-        
-        
-        Tags: integration, microsoft, powerapps, dataverse.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>External features</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/powerapps/external-features" />
-        <id>https://documentation.cluedin.net/microsoft-integration/powerapps/external-features</id>
-        <updated>2023-05-17T00:00:00+00:00</updated>
-        <summary>
-        
-        External features.
         
         
         
@@ -1330,22 +1314,6 @@
     </entry>
     
     <entry>
-        <title>Power Apps configuration guide</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/powerapps/configuration-guide" />
-        <id>https://documentation.cluedin.net/microsoft-integration/powerapps/configuration-guide</id>
-        <updated>2025-03-13T00:00:00+00:00</updated>
-        <summary>
-        
-        Power Apps configuration guide.
-        
-        
-        
-        Tags: integration, microsoft, powerapps, dataverse.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Power Automate configuration guide</title>
         <link href="https://documentation.cluedin.net/microsoft-integration/power-automate/configuration-guide" />
         <id>https://documentation.cluedin.net/microsoft-integration/power-automate/configuration-guide</id>
@@ -1883,6 +1851,22 @@
         
         
         Tags: deployment, ama, marketplace, azure, aks, kubernetes, upgrade.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Power Apps configuration guide</title>
+        <link href="https://documentation.cluedin.net/microsoft-integration/powerapps/configuration-guide" />
+        <id>https://documentation.cluedin.net/microsoft-integration/powerapps/configuration-guide</id>
+        <updated>2025-09-29T00:00:00+00:00</updated>
+        <summary>
+        
+        Power Apps configuration guide.
+        
+        
+        
+        Tags: integration, microsoft, powerapps, dataverse.
         
         </summary>
     </entry>
