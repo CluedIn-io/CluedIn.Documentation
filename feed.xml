@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2025-10-02T13:32:35+00:00</updated>
+    <updated>2025-10-02T14:56:58+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -600,22 +600,6 @@
     </entry>
     
     <entry>
-        <title>History</title>
-        <link href="https://documentation.cluedin.net/key-terms-and-features/golden-records/history" />
-        <id>https://documentation.cluedin.net/key-terms-and-features/golden-records/history</id>
-        <updated>2024-01-15T00:00:00+00:00</updated>
-        <summary>
-        
-        History.
-        
-        
-        
-        Tags: golden record history.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Property rules</title>
         <link href="https://documentation.cluedin.net/integration/additional-operations-on-records/property-rules" />
         <id>https://documentation.cluedin.net/integration/additional-operations-on-records/property-rules</id>
@@ -627,6 +611,22 @@
         
         
         Tags: integration, property rules.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>History</title>
+        <link href="https://documentation.cluedin.net/key-terms-and-features/golden-records/history" />
+        <id>https://documentation.cluedin.net/key-terms-and-features/golden-records/history</id>
+        <updated>2024-01-15T00:00:00+00:00</updated>
+        <summary>
+        
+        History.
+        
+        
+        
+        Tags: golden record history.
         
         </summary>
     </entry>
@@ -1693,6 +1693,20 @@
         <summary>
         
         Sync data products.
+        
+        
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Golden record relations</title>
+        <link href="https://documentation.cluedin.net/key-terms-and-features/golden-records/golden-record-relations" />
+        <id>https://documentation.cluedin.net/key-terms-and-features/golden-records/golden-record-relations</id>
+        <updated>2025-05-20T00:00:00+00:00</updated>
+        <summary>
+        
+        Golden record relations.
         
         
         
