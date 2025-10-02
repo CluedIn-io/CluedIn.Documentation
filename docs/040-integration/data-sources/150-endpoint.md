@@ -48,9 +48,9 @@ Once CluedIn receives the data, it initially stores it in a temporary storage, a
 
 CluedIn provides the following processing options for turning your data into golden records:
 
-- **Manual processing** - when CluedIn receives the data from the endpoint, you are required to process the data manually. You can view the received data in the temporary storage at any time, and you can process the data set as many times as you need. In CluedIn, once a record has been processed, it won't undergo processing again. When you trigger processing, CluedIn will check for identical records. If identical records are found, they won't be processed again. However, if you change the origin code for the previously processed records, CluedIn will treat these record as new and process them.
+- **Manual processing** – when CluedIn receives the data from the endpoint, you are required to process the data manually. You can view the received data in the temporary storage at any time, and you can process the data set as many times as you need. In CluedIn, once a record has been processed, it won't undergo processing again. When you trigger processing, CluedIn will check for identical records. If identical records are found, they won't be processed again. However, if you change the origin code for the previously processed records, CluedIn will treat these record as new and process them.
 
-- **Automatic processing** - when CluedIn receives the data from the endpoint, this data is processed automatically. You can view the received data in the temporary storage at any time.
+- **Automatic processing** – when CluedIn receives the data from the endpoint, this data is processed automatically. You can view the received data in the temporary storage at any time.
 
 - **Bridge mode** – all your JSON records will be transformed into golden records directly, without being stored in the temporary storage. However, you can rely on rely on data set logs for debugging purposes.
 
@@ -126,3 +126,70 @@ To be accepted by CluedIn, your HTTP POST request should meet the following prer
 1. In Postman, paste the URL that you copied to the URL input field of your request. Then, send the request.
 
     The data has been sent to CluedIn. You can now view it on the [Preview](/integration/additional-operations-on-records/preview) tab of the data set. The next steps involve [creating a mapping](/integration/create-mapping) and [processing the data](/integration/process-data).
+
+## Schema protection
+
+By default, CluedIn processes incoming data without checking if it matches a specific format (schema). The data is processed and turned into golden records, even if it contains new, unmapped fields.
+
+If you expect an endpoint to receive data in a specific format and want to block data that does not match, you can enable the Schema Protection feature.
+
+### How schema protection works
+
+The Schema Protection feature as follows:
+
+1. When the feature us enabled, CluedIn uses the mapping that is currently defined for the dataset as the standard, expected schema.
+
+1. Every time new data arrives through the endpoint, CluedIn checks whether it matches the expected mapping:
+
+    - As usual, the incoming data appears in temporary storage on the **Preview** tab.
+
+    - If the data contains new fields (outside of the current mapping), these fields appear on the **Map** tab. They are marked with a **Warning** label and remain unmapped.
+
+        ![unmapped_fields.png]({{ "/assets/images/integration/data-sources/endpoint/unmapped_fields.png" | relative_url }})
+
+        You can choose to [ignore](/integration/create-mapping#ignore-fields-for-an-ingestion-endpoint) these new fields in the [mapping](/integration/create-mapping). When ignored, the fields are skipped during processing and do not appear in the resulting golden records. Ignoring fields is useful to prevent records with new, unmapped fields from being quarantined.
+
+       ![ignore_field_btn.png]({{ "/assets/images/integration/data-sources/endpoint/ignore_field_btn.png" | relative_url }})
+
+1. When you [process the data](/integration/process-data), the following takes place:
+
+    - Records that contain new, unmapped fields (that were not ignored) are moved to [quarantine](/integration/additional-operations-on-records/quarantine).
+
+    - Ignored fields are skipped and do not appear in the resulting golden records.
+
+    - Other fields are processed normally.
+
+### Enable Schema Protection 
+
+Schema protection is not enabled by default. You must turn it on before using it.
+
+**Prerequisites**
+
+- An ingestion endpoint was [added](#add-ingestion-endpoint). 
+
+- The endpoint received data that matches the expected format for this endpoint.
+
+- A mapping was [created](/integration/create-mapping). When schema protection is enabled, CluedIn will catch all incoming fields outside of this mapping.
+
+    {:.important}
+    To include a new field in the mapping (and have this field processed), first disable schema protection for the endpoint. Then, map the field on the **Map** tab and re-enable schema protection.
+
+**To enable schema protection for an ingestion endpoint**
+
+1. On the navigation pane, go to **Administration** > **Feature flags**. Then, locate and enable the **Schema Drift** feature.
+
+    ![schema_protection_feature_flag.png]({{ "/assets/images/integration/data-sources/endpoint/schema_protection_feature_flag.png" | relative_url }})
+
+1.  On the navigation pane, go to **Ingest** > **Endpoints**.
+
+1.  Select the needed endpoint in the list. Then, select the needed dataset.
+
+1. On the **Process** tab of the dataset, turn on the **Schema protection** toggle.
+
+    ![schema_protection_toggle_sp.png]({{ "/assets/images/integration/data-sources/endpoint/schema_protection_toggle_sp.png" | relative_url }})
+
+1. Confirm that you want to enable schema protection.
+
+    Now, when the endpoint receives fields that are outside of the defined mapping, these fields will appear on the **Map** tab, marked with a **Warning** label. If needed, proceed to [ignore](/integration/create-mapping#ignore-fields-for-an-ingestion-endpoint) these fields.
+
+    ![unmapped_fields.png]({{ "/assets/images/integration/data-sources/endpoint/unmapped_fields.png" | relative_url }})

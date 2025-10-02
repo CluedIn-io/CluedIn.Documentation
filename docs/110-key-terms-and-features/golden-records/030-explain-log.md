@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 4
+nav_order: 3
 parent: Golden records
 grand_parent: Key terms and features
 permalink: /key-terms-and-features/golden-records/explain-log

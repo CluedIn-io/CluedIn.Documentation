@@ -96,7 +96,15 @@ When you have cleaned the data, send it back to CluedIn. Processing cleaned data
 
     ![process-cleaned-data.png]({{ "/assets/images/preparation/clean/process-cleaned-data.png" | relative_url }})
 
-    You can track the processing status in the progress bar. When the cleaned data is processed, the status of the clean project becomes **Processed**. It means that the corrected values have been submitted to the golden records in CluedIn.
+    You can track the processing status in the progress bar. When the cleaned data is processed, the following takes places:
+
+    - The status of the clean project becomes **Processed**. It means that the corrected values have been submitted to the golden records in CluedIn.
+
+    - The **Data** tab shows the list of golden records that were changed as part of the clean project.
+
+        ![clean_project_data_tab_sp.png]({{ "/assets/images/preparation/clean/manage-a-clean-project/clean_project_data_tab_sp.png" | relative_url }})
+
+        To view the changes made to a specific record, go to the **History** or **Topology** tab of the golden record page.
 
 **Automatic rules generation**
 

@@ -9,15 +9,25 @@ tags: ["integration", "quarantine"]
 last_modified: 2024-10-31
 ---
 
-Quarantine is an area in CluedIn where records that do not meet certain conditions are sent during processing. These conditions are usually set in [pre-process rules](/integration/additional-operations-on-records/preprocess-rules) or [property rules](/integration/additional-operations-on-records/property-rules). In this article, you will learn how to manage quarantined records.
+Quarantine is an area in CluedIn where records that do not meet certain conditions are sent during processing. These conditions are typically defined through the following:
 
-**Why is the record in quarantine?** To find out why the record is in quarantine, select the **View details** icon in the **Details** column. The **Reason** pane will display the rule that led to the record's quarantine. The value that led to the record's quarantine is marked with the information icon.
+- [Pre-process rules](/integration/additional-operations-on-records/preprocess-rules)
+
+- [Property rules](/integration/additional-operations-on-records/property-rules)
+
+- [Schema protection](/integration/endpoint#schema-protection)
+
+To find out why the record is in quarantine, select the **View details** icon in the **Details** column. The **Reason** pane will display the rule that led to the record's quarantine. The value that led to the record's quarantine is marked with the information icon.
 
 ![quarantine-1.png]({{ "/assets/images/integration/additional-operations/quarantine-1.png" | relative_url }})
 
-**What happens to the record after it has been fixed and processed?** The record disappears from the quarantine table. On the **Process** tab of the data set, you will find a new entry including the number of records and the processing status. However, keep in mind that the record remains in its original state on the **Preview** tab of the data set.
+Once a record is in quarantine, you can perform the following actions:
 
-**What happens to the record if you reject it?** The record disappears from the quarantine table. However, the record is not lost, it remains in its original state on the **Preview** tab of the data set. If you re-process the data set without changing the previous rules, the record will appear in the quarantine table again.
+- **Fix and process the record.** The record will disappear from the quarantine table. On the **Process** tab of the dataset, you will find a new entry including the number of records and the processing status. However, keep in mind that the record will remain in its original state on the **Preview** tab of the data set.
+
+- **Reject the record.** The record will disappear from the quarantine table. However, the record will not be lost, it will remain in its original state on the **Preview** tab of the data set. If you re-process the data set without changing the previous rules, the record will appear in the quarantine table again.
+
+If a record is quarantined due to the [Schema Protection feature](/integration/endpoint#schema-protection), it will be automatically released from quarantine if you disable the feature.
 
 **To manage quarantined records**
 

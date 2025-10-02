@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 1
+nav_order: 2
 parent: Golden records
 grand_parent: Key terms and features
 permalink: /key-terms-and-features/golden-records/history

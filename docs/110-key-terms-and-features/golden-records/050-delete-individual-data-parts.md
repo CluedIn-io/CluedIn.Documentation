@@ -4,7 +4,7 @@ title: Delete individual data parts
 parent: Golden records
 grand_parent: Key terms and features
 permalink: /golden-records/delete-data-parts-from-golden-records
-nav_order: 3
+nav_order: 5
 has_children: false
 ---
 
