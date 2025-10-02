@@ -50,7 +50,7 @@ Setting up an AI agent job involves the following steps:
 
 1. [Adding a data source](#add-a-data-source) – specify a set of golden records the agent should operate on.
     
-1. [Configuring the prompt](#configure-the-prompt) – define the instructions  the agent should follow to complete the task.
+1. [Configuring a prompt](#configure-a-prompt) – define the instructions the agent should follow to complete the task.
 
 1. [Testing the job](#test-the-job) – verify the job’s setup by running a preliminary test on a subset of golden records to ensure the agent performs as expected.
 
@@ -169,7 +169,7 @@ When you test the job, no changes are made to the your golden records. The purpo
         ![test_run_results.png]({{ "/assets/images/management/ai-agents/test-a-job/test_run_results.png" | relative_url }})
 
         {:.important}
-        If the test run returns no results, try adjusting the job settings as described in [Troubleshoot an AI agent job](#troubleshoot-an-ai-agentjob).
+        If the test run returns no results, try adjusting the job settings as described in [Troubleshoot an AI agent job](#troubleshoot-an-ai-agent-job).
 
     1. To view the AI agent suggestions, locate a cell highlighted in green. Then, hover over the information icon in that cell to view the current golden record value and how the AI agent suggests to change it.
 

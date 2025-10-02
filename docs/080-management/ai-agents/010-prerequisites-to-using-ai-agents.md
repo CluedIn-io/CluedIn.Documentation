@@ -17,7 +17,7 @@ In this article, you will learn about the steps required to start using the AI a
 
 To use AI agents in CluedIn, take the following steps:
 
-1. [Enable the AI Agents feature](#enable-ai-agents-feature)
+1. [Enable the AI Agents feature](#enable-the-ai-agents-feature)
 
 1. [Configure the AI settings](#configure-ai-settings)
 

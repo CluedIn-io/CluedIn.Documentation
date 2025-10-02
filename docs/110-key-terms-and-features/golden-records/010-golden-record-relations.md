@@ -129,7 +129,7 @@ Once a golden record is processed, you can view its relations with other golden 
 
 1. Configure **Graph Display Settings**:
 
-    - **Include all directions** – [TBD].
+    - **Include all directions** – when this option is enabled, the graph will expand all direct relations of the neighbouring records.
 
     - **Include Shadow Records** – when this option is enabled, the graph will also show all [shadow records](/key-terms-and-features/eventual-connectivity) associated with the golden records in it. This option may be useful when debugging relations between golden records.
 

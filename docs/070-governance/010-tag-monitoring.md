@@ -27,7 +27,7 @@ In addition to providing insight, the Tag Monitoring module also allows you to a
 
 - [Fix tagged records using AI agents](#fix-tagged-records-with-ai).
 
-- [Create a clean project](#create-a-clean-project-for-tagged-golden-records) for the tagged records.
+- [Create a clean project](#create-a-clean-project-for-tagged-records) for the tagged records.
 
 {:.important}
 The tag monitoring functionality is not enabled by default. To use it, you must first [enable](#enable-the-tag-monitoring-functionality) it.
@@ -80,7 +80,7 @@ This article explains how to monitor both types of information.
     {:.important}
     If the **Tag Monitoring** module is not available, this may mean that the tag monitoring functionality is not [enabled](#enable-the-tag-monitoring-functionality).
 
-1. By default, the **Tag Monitoring** page shows the data for all [business domains](/key-terms-and-features/Image/entity-type) and for the last month going back from today.
+1. By default, the **Tag Monitoring** page shows the data for all [business domains](/key-terms-and-features/entity-type) and for the last month going back from today.
 
     If needed, select the following:
 
@@ -96,7 +96,7 @@ This article explains how to monitor both types of information.
 
     The tags panel shows the following information about a tag:
 
-    1. The [rule]/management/rules) that was used to apply this tag.
+    1. The [rule](/management/rules) that was used to apply this tag.
 
     1. [Rule type](/management/rules/rule-types) (data part rule or golden record rule).
 
@@ -131,9 +131,9 @@ This article explains how to monitor both types of information.
 
 1. Act on the tagged golden records. You can perform the following actions:
 
-    - [Fix tagged records with AI](#fix-tagged-records-with-AI).
+    - [Fix tagged records with AI](#fix-tagged-records-with-ai).
 
-    - [Create a clean project](#create-a-clean-project-for-tagged-golden-records) for the records tagged.
+    - [Create a clean project](#create-a-clean-project-for-tagged-records) for the records tagged.
 
     - [Add new tags](#add-new-tags) if the current ones are not sufficient.
 
@@ -141,7 +141,7 @@ This article explains how to monitor both types of information.
 
 You can leverage [AI agents](/management/ai-agents) to fix the golden records flagged with a specific tag.
 
-**Pre-requisites**
+**Prerequisites**
 
 - The AI agents feature must be enabled. For details, see [Prerequisites to using AI agents](/management/ai-agents/prerequisites-to-using-ai-agents).
 
@@ -204,7 +204,7 @@ You can leverage [AI agents](/management/ai-agents) to fix the golden records fl
 
          ![test_job_btn.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/test_job_btn.png" | relative_url }})
 
-      1. [Run the job](create-configure-and-run-an-ai-agent#run-the-job) and [review its results](/management/ai-agents/review-the-results-returned-by-an-ai-agent) to have the records fixed.
+      1. [Run the job](/management/ai-agents/create-configure-and-run-an-ai-agent#run-the-job) and [review its results](/management/ai-agents/review-the-results-returned-by-an-ai-agent) to have the records fixed.
 
          ![run_job_btn.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/run_job_btn.png" | relative_url }})
 
@@ -227,7 +227,7 @@ Clean projects are intended to fix the records manually. You can also leverage t
 1. On the navigation pane, go to **Governance** > **Tag Monitoring**.
 
     {:.important}
-    If the **Tag Monitoring** module is not available, this may mean that the tag monitoring functionality is not [enabled](https://dev.azure.com/CluedIn-io/CluedIn/_wiki/wikis/CluedIn.wiki/4280/Enable-the-tag-monitoring-functionality).
+    If the **Tag Monitoring** module is not available, this may mean that the tag monitoring functionality is not [enabled](#enable-the-tag-monitoring-functionality).
 
 1. On the tags panel on the left, select the tag of interest.
 
