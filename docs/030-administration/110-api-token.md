@@ -1,9 +1,8 @@
 ---
 layout: cluedin
-title: User interface
+title: Generate API token
 parent: Administration
 permalink: /administration/api-token
-has_children: true
 tags: ["api token", "api"]
 
 ---
