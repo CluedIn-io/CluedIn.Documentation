@@ -9,6 +9,11 @@ tags: ["consume", "data export", "streams"]
 last_modified: 2025-04-18
 ---
 
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
+
 In this article, you will learn how to ensure that your golden records have been successfully exported and how to identify issues when something goes wrong.
 
 <div class="videoFrame">
@@ -23,7 +28,7 @@ CluedIn offers three types of logs to assist in monitoring and troubleshooting y
 
 - **Export target health checks** – view the health check status of the export target, updated every minute.
 
-**Golden record stream logs**
+## Golden record stream logs
 
 Each golden record contains the **Streams** tab, where you can find the stream that exported the golden record and the date it was sent to the export target.
 
@@ -31,7 +36,7 @@ Each golden record contains the **Streams** tab, where you can find the stream t
 
 This page lists active and paused streams that exported the golden record. However, if the stream is stopped, it is not displayed on the **Streams** tab because all of its logs are cleared. You can select the stream to view its details.
 
-**Stream logs**
+## Stream logs
 
 Each stream contains the **Stream Log** tab, where you’ll find all golden records that were exported by this stream. If the stream encounters an error while exporting golden records, it will be displayed on the page. This way, you can quickly identify and address any issues.
 
@@ -51,7 +56,7 @@ You can filter the stream logs by two categories:
 
 This page displays logs only when the stream is active or paused. If you stop the stream, the logs are cleared.
 
-**Export target health checks**
+## Export target health checks
 
 Each export target contains the **Health Checks** tab, where you can find the health check status of the export target.
 

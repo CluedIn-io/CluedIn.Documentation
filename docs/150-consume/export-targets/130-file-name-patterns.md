@@ -8,7 +8,14 @@ title: File name patterns
 last_modified: 2025-02-05
 ---
 
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
+
 In this article, you will learn about the file name patterns that you can use in the export target configuration to customize the output file names.
+
+## Supported file name patterns
 
 CluedIn supports the following file name patterns:
 
@@ -36,7 +43,7 @@ CluedIn supports the following file name patterns:
     - `ToLower`
     - `ToLowerInvariant` (equivalent to `ToLowerInvariant`)
 
-**Example filename patterns**
+## Example filename patterns
 
 | File name pattern  | Example output  |
 |--|--|
@@ -44,7 +51,7 @@ CluedIn supports the following file name patterns:
 | `{StreamId}_{DataTime}.{OutputFormat:ToUpper}` | `ba4afc12-f6dc-4394-b9d5-68f6dacf3b3b_2024-07-05T03:02:57.2612933Z.PARQUET` |
 | `{ContainerName}_{DataTime:yyyyMMddHHmmss}.{OutputFormat}` | `CustomerRecord_20240705030355.parquet` |
 
-**Default file name patterns**
+## Default file name patterns
 
 | Connector | Default file name pattern |
 |--|--|

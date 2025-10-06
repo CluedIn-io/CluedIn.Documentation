@@ -7,27 +7,64 @@ permalink: /engine-room
 tags: ["engine-room"]
 ---
 
-The processing pipeline in CluedIn can be described as a tree of different processing steps. Each processing step has dependencies on previous steps being run and hence you can conceptualise it as a dependency tree of processing steps. 
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
+
+The Engine Room in CluedIn provides a visual overview of the data processing pipeline—a dependency-based tree of processing steps that define how data flows through the system. Each step depends on previous ones, forming a processing tree that represents CluedIn’s internal data operations. 
 
 ![Diagram](../assets/images/preparation/intro-engine-room.png)
 
-The Engine Room is a visualisation of this processing workflow. It will give you statistics on amount of data processing in a particular state, error rates and will even allow you to introduce new processing sub-workflows. 
+The Engine Room serves as a visualization of this processing workflow. It provides statistics such as:
 
-If you have added an integration to your account, the Engine Room will be able to report on what state that data is in the overall process. It will also help you gauge how much infrastructure you will need to scale to the point where you can keep up with the number of processing servers required. 
+- The amount of data in each processing state.
 
-You can click on any of the processing steps and you will see details as to the state and processing speed of that particular step. You can use this to gauge what is happening in CluedIn at any moment of processing. 
+- Error rates across processing stages.
 
-![Diagram](../assets/images/preparation/quick-view-processing-statistics.png)
+- Performance and processing speed per step.
+
+You can also use it to introduce new processing sub-workflows as needed.
+
+## Monitoring data processing
+
+If you’ve added an integration to your account, the Engine Room shows the current processing state of that data within the system. This helps you:
+
+- Track the progress of data ingestion and enrichment.
+
+- Identify potential bottlenecks or errors.
+
+- Estimate infrastructure requirements for scaling.
+
+By clicking on a processing step, you can view detailed metrics about that specific step—including processing speed, state, and error rate—helping you understand what is happening in CluedIn in real time.
+
+![Diagram](../assets/images/preparation/quick-view-processing-statistics-2.png)
+
+## Accessing system statistics
 
 It is often required to understand what is happening under the hood of CluedIn. A lot of this can be sourced from the many Adminstrator screens that come with CluedIn for the underlying systems. Due to complex security an infrastructure setups, many times you might find that you don't have access to these systems, but would still like to see some metrics and progress statistics. For this, we have our Statistics API which aggregates the statistics from across the different underlying stores.
 
-There are 4 types of statistics that we offer through this API:
+The API exposes four main types of statistics:
 
-Processing
-Crawling
-Configuration
-Footprint
-CluedIn uses a queuing system that operates the many different operations that CluedIn does on your data. This can be thought of as a Tree of processes. You can see that process tree below or by calling our {{url}}/api/queue/map endpoint.
+- Processing
+
+- Crawling
+
+- Configuration
+
+- Footprint
+
+## Processing statistics
+
+CluedIn uses a queuing system to manage operations. The processing flow can be visualized as a hierarchical tree of queues.
+
+You can retrieve this process tree via the following endpoint:
+
+```
+{{url}}/api/queue/map
+```
+
+Sample response:
 
 ```json
 {
@@ -83,11 +120,15 @@ CluedIn uses a queuing system that operates the many different operations that C
 }
 ```
 
-Each Queue will have its own statistics and you can either call /api/queue/statistics to get all statistics of all queues or you can get an individual queue by calling {{url}}/api/queue/statistics?queueName=CluedIn.Core.Messages.Processing.Metrics.ArchiveMetricsValuesCommand:CluedIn.Core_CluedIn
+Each queue includes its own statistics. You can query all statistics or an individual queue:
 
-You can also add an "expand=true" which will give you the aggregate values of all child items or a parent (and child's children etc.)
+- `/api/queue/statistics`
 
-It will respond with the following details. Comments are for guidance in the user interface
+- `{{url}}/api/queue/statistics?queueName=CluedIn.Core.Messages.Processing.Metrics.ArchiveMetricsValuesCommand:CluedIn.Core_CluedIn`
+
+To include aggregated child statistics, append `expand=true`.
+
+Sample response:
 
 ```json
 {
@@ -212,22 +253,49 @@ It will respond with the following details. Comments are for guidance in the use
 }
 ```
 
-The Crawling statistics will report on the metrics for the fetching and mapping part of the process. It is often that Crawlers are run using Agents and these Agents may run on-premise and separate to the processing boxes.
+## Crawling statistics
 
-The Crawling statstics will report on many things including:
+Crawling statistics focus on data retrieval and mapping. These are especially useful when crawlers run via on-premise agents.
 
-	Number of Tasks generated by Crawl (number of records to crawl)
-	Number of Completed Tasks (number of records that successfully crawled)
-	Number of Failed Tasks (number of records that failed to crawl)
-	Status
-	Estimated Number of Records (optional)
-	Configuration = [HttpGet] /api/configuration
+Metrics include:
 
-Configuration is managed using Yaml and .Config files, however these are closed down from the User Interface. It is however very useful to explore the possible configuration options and also to be aware of the current state of the application. For example, we may want to know if a certain feature is enabled or not. The Configuration Endpoint exposes parts of the Configuration that are for read only access. We will not expose Secrets, Passwords, API Tokens or anything that exposes credentials. This is also useful for debugging and exploring potential issues. For example, you can configure CluedIn with many different parameters and features, but if there are settings that are against our recommended settings, we can expose this in the configuration user interface to alert the first places to potentially look. This is also important to validate if the configuration that has been set is actually in action in the running state of the application. All settings a read-only.
+- Number of tasks generated by the crawl (number of records to crawl)
 
-Footprint
+- Number of completed tasks (number of records that successfully crawled)
 
-Graph = api/graph/configuration
-Search = api/search/health
+- Number of failed tasks (number of records that failed to crawl)
 
-It is valuable to know the running state of the CluedIn application. It is not as important for Data Stewards and Business Users to know this, but very much more adminstrators or systems owners that are not necessarily aware of how to operate the sub systems. For this, we expose some underlying metrics and statistics around memory, desk, cpu and utilisation. This will help you to understand if it might be necessary to increase the infrastructure of your CluedIn installation or potentially to dedicate more resources to a particular process. All values are read-only. For more advanced exploration, please use the underlying system adminstrator interfaces.
+- Crawl status
+
+- (Optional) Estimated number of records
+
+## Configuration
+
+Configuration settings =are managed using YAML and .config files. While these are not editable via the UI, you can explore their current state through:
+
+```
+GET /api/configuration
+```
+
+This endpoint provides a read-only view of configuration parameters such as feature toggles and environment details—excluding any sensitive information like passwords or tokens. It’s particularly useful for debugging and verifying that runtime configurations match expected values.
+
+## Footprint metrics
+
+CluedIn exposes low-level system metrics to help administrators assess performance and resource utilization.
+Use the following endpoints:
+
+- Graph health: `api/graph/configuration`
+
+- Search health: `api/search/health`
+
+These endpoints provide insights into:
+
+- Memory usage
+
+- Disk space
+
+- CPU load
+
+- Component utilization
+
+This data helps administrators decide whether additional infrastructure or resources are needed.
