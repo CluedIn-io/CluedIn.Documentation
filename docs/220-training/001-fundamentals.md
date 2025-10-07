@@ -4,7 +4,7 @@ nav_order: 1
 parent: Training
 permalink: /training/fundamentals
 has_children: true
-title: 1. CluedIn fundamentals
+title: 1. CluedIn fundamentals training
 ---
 
 **Level:** Beginner
