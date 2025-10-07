@@ -8,32 +8,68 @@ permalink: /consume/graphql
 tags: ["consume","graphql"]
 last_modified: 2021-10-08
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
-CluedIn provides GraphQL as its way to pull and query data from it. The CluedIn GraphQL endpoint uses a combination of the different datastores to service the result of the query in question. 
+CluedIn provides GraphQL as a flexible way to pull and query data. The CluedIn GraphQL endpoint integrates multiple datastores to service each query efficiently, using an internal query optimizer to determine which datastore should handle which part of the request.
 
-You might find that a particular GraphQL query uses the Search, Graph and Blob Datastore to render the results. This is due to the query optimiser of CluedIn that determines the right datastore to serve the different parts of your query. This also allows immense flexibility with querying the data. An example would be that if we wanted to find all entities that are of a specific business domain and have a particular value for a property then you will find that the Search Store will service both these parts of the query and hence CluedIn will only ask it to service the query. If you then ask it to run this query, but return the full history of the records then CluedIn will run the search against the Search Store, but then using the results from the Search it will then ask the Blob Store to fetch the full object history out if it. Likewise, if you asked it to also return the records that are connected to these results of type Person, then it will most likely ask the Graph Store to fulfil that part of the query. 
+## How it works
 
-![image](../assets/images/consume/simple-graphql-example.png)
+Depending on the query, CluedIn may interact with one or more of the following datastores:
 
-The GraphQL endpoint has many different operations, including the ability to:
+- Search store – For full-text searches and property-based lookups.
 
-* Lookup entities by Id
-* Lookup entities using a Full Text search
-* Lookup entities using property value matches. 
-* Lookup Metrics of Data
+- Graph store – For exploring relationships and connected records.
 
-All value lookups are case sensitive by default and hence if you were to use our GraphQL search point to lookup organisation.industry:Banking then if you had a value in an entity that was “banking” (note the lower case “b”) then you would not match this data. Although this behaviour can be changed, there is a better way to handle this. One of the main ideas behind CluedIn is that we are going to give downstream consumers a standard representation of the data and hence “banking” and “Banking” are different variations of essentially the same value. We would rather that you use CluedIn Clean to normalise these values and standardise as a business on the way that you will represent values for downstream consumers. It is perfectly fine to not propagate these changes back to the sources using the Mesh API, but downstream consumers should receive a standardised representation of values. 
+- Blob store – For retrieving complete record histories and raw data.
 
-If you decide that you would like to enabled case incentive values, you will need to extend the inbuilt ElasticEntity model within CluedIn and add in your own properties with their respective analysers to achieve that. 
+The query optimizer automatically selects the best datastore combination for each query.
 
-# Examples
-To help you get upskilled on our GraphQL implementation, here are some examples for you to play with.
+Consider the following example:
 
-## Get an entity by Id
+- A query that finds all entities in a specific business domain with a certain property value is handled entirely by the Search store.
 
-Obtain an example id by searching for your admin user:
+- If the query also requests the full history of those records, CluedIn first retrieves the results from the Search store, and then asks the Blob store for historical data.
 
-![search for admin](../assets/images/consume/01-by-id-01.png)
+- If the query expands to include related records (for example, entities of the Person type connected to the results), CluedIn adds the Graph store to process that part of the query.
+
+![image]({{ "/assets/images/consume/simple-graphql-example-2.png" | relative_url }})
+
+## Supported operations
+
+The CluedIn GraphQL endpoint supports a wide range of operations, including:
+
+* Get entities by ID.
+
+* Get entities using a full-text search.
+
+* Get entities by property value.
+
+* Get data metrics.
+
+## Case sensitivity in lookups
+
+By default, all value lookups are case-sensitive. For example, `organisation.industry:Banking` will not match entities where the value is "banking" (lowercase “b”).
+
+While you can modify this behavior, CluedIn encourages using CluedIn Clean to normalize and standardize data values. This ensures that downstream consumers receive consistent data (for example, "Banking" vs "banking") without requiring schema or query adjustments.
+
+You can standardize capitalization and formatting conventions without pushing changes back to the original source systems through the Mesh API.
+
+## Enabling case-insensitive lookups
+
+If you need to enable case-insensitive searches, extend the built-in ElasticEntity model within CluedIn and add custom properties with their respective analyzers to support case-insensitive matching.
+
+## Examples of using GraphQL
+
+To help you get familiar with CluedIn’s GraphQL implementation, the following examples illustrate common queries you can experiment with.
+
+### Get an entity by ID
+
+You can retrieve a specific entity using its unique ID. To begin, you will need to obtain an example ID by searching for your admin user.
+
+![search for admin]({{ "/assets/images/consume/01-by-id-01-2.png" | relative_url }})
 
 ~~~
 {
@@ -44,9 +80,9 @@ Obtain an example id by searching for your admin user:
 }
 ~~~
 
-![image](../assets/images/consume/01-by-id-02.png)
+![image]({{ "/assets/images/consume/01-by-id-02-2.png" | relative_url }})
 
-## Get entities by search
+### Get entities by search
 
 ~~~
 {
@@ -60,9 +96,9 @@ Obtain an example id by searching for your admin user:
 }
 ~~~
 
-![image](../assets/images/consume/02-by-search.png)
+![image]({{ "/assets/images/consume/02-by-search-2.png" | relative_url }})
 
-## Get entities by particular vocabulary keys
+### Get entities by vocabulary keys
 
 ~~~
 {
@@ -77,9 +113,9 @@ Obtain an example id by searching for your admin user:
 ~~~
 
 
-![image](../assets/images/consume/03-by-vocab-key.png)
+![image]({{ "/assets/images/consume/03-by-vocab-key-2.png" | relative_url }})
 
-## Get entities by a combination of vocabulary keys
+### Get entities by a combination of vocabulary keys
 
 ~~~
 {
@@ -93,9 +129,9 @@ Obtain an example id by searching for your admin user:
 }
 ~~~
 
-![image](../assets/images/consume/04-by-vocab-key-combo.png)
+![image]({{ "/assets/images/consume/04-by-vocab-key-combo-2.png" | relative_url }})
 
-## Get all entities that have a value for a certain property
+### Get all entities that have a value for a certain property
 
 ~~~
 {
@@ -110,9 +146,9 @@ Obtain an example id by searching for your admin user:
 }
 ~~~
 
-![image](../assets/images/consume/05-certain-prop.png)
+![image]({{ "/assets/images/consume/05-certain-prop-2.png" | relative_url }})
 
-or just find out how many records match
+Alternatively, find out how many records match.
 
 ~~~
 {
@@ -123,9 +159,9 @@ or just find out how many records match
 }
 ~~~
 
-![image](../assets/images/consume/05-certain-prop-num-match.png)
+![image]({{ "/assets/images/consume/05-certain-prop-num-match-2.png" | relative_url }})
 
-## Change what properties come back in the results, 4 records at a time
+### Change what properties come back in the results, 4 records at a time
 
 ~~~
 {
@@ -143,9 +179,9 @@ or just find out how many records match
 }
 ~~~
 
-![image](../assets/images/consume/06-what-props-pagesize4.png)
+![image]({{ "/assets/images/consume/06-what-props-pagesize4-2.png" | relative_url }})
 
-## Change what metadata comes out of the properties
+### Change what metadata comes out of the properties
 
 ~~~
 {
@@ -161,9 +197,9 @@ or just find out how many records match
 }
 ~~~
 
-![image](../assets/images/consume/07-what-metadata.png)
+![image]({{ "/assets/images/consume/07-what-metadata-2.png" | relative_url }})
 
-## Explore Edges
+### Explore edges
 
 ~~~
 {
@@ -182,4 +218,4 @@ or just find out how many records match
 }
 ~~~
 
-![image](../assets/images/consume/8.png)
+![image]({{ "/assets/images/consume/8-2.png" | relative_url }})
