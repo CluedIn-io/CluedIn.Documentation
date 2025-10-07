@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 4
 parent: 1.1. Ingestion
-grand_parent: 1. CluedIn fundamentals
+grand_parent: 1. CluedIn fundamentals training
 permalink: /training/fundamentals/identifying-and-labelling-incorrect-data
 title: 1.1.4. Identifying and labelling incorrect data
 ---

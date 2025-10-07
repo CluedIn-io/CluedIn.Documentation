@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 nav_order: 1
-parent: 1. CluedIn fundamentals
+parent: 1. CluedIn fundamentals training
 grand_parent: Training
 permalink: /training/fundamentals/ingestion
 has_children: true
