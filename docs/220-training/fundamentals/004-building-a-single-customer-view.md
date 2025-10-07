@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 3
 parent: 1.1. Ingestion
-grand_parent: 1. CluedIn Fundamentals
+grand_parent: 1. CluedIn fundamentals
 permalink: /training/fundamentals/building-a-single-customer-view
 title: 1.1.3. Building a single customer view
 ---
