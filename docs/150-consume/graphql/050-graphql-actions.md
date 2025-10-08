@@ -12,11 +12,13 @@ tags: ["consume","graphql"]
 - TOC
 {:toc}
 
-CluedIn supports GraphQL actions so that you can run commands in bulk from our GraphQL endpoint. You will need to be in the Admin role to even see these commands as they allow you to run operations in bulk.  
+CluedIn supports GraphQL actions, which allow you to perform bulk operations directly from the GraphQL endpoint. These actions are restricted to [Admin users](/administration/roles) for security reasons, as they can modify or process large volumes of data at once.
 
 ## Split entities in bulk
 
-```json
+The following query splits multiple records that match a given search filter.
+
+```
 {
   search(query: "user.firstName:Tim", pageSize: 4) {
     entries {
@@ -30,8 +32,9 @@ CluedIn supports GraphQL actions so that you can run commands in bulk from our G
 ```
 
 ## Delete entities in bulk
+You can delete multiple records at once by specifying a search query.
 
-```json
+```
 {
   search(query: "user.firstName:Tim", pageSize: 4) {
     entries {
@@ -45,8 +48,9 @@ CluedIn supports GraphQL actions so that you can run commands in bulk from our G
 ```
 
 ## Run post-processing
+Trigger post-processing jobs in bulk for matching records.
 
-```json
+```
 {
   search(query: "user.firstName:Tim", pageSize: 4) {
     entries {
@@ -60,8 +64,9 @@ CluedIn supports GraphQL actions so that you can run commands in bulk from our G
 ```
 
 ## Run entity metrics processing
+Process data quality metrics for a batch of records.
 
-```json
+```
 {
   search(query: "user.firstName:Tim", pageSize: 4) {
     entries {
@@ -75,8 +80,9 @@ CluedIn supports GraphQL actions so that you can run commands in bulk from our G
 ```
 
 ## Run edge processing
+Rebuild or recalculate relationships ([edges](/key-terms-and-features/edges)) between records.
 
-```json
+```
 {
   search(query: "user.firstName:Tim", pageSize: 4) {
     entries {
@@ -90,8 +96,9 @@ CluedIn supports GraphQL actions so that you can run commands in bulk from our G
 ```
 
 ## Run enrichment
+Re-run enrichment for a specific set of records to pull in updated or missing data:
 
-```json
+```
 {
   search(query: "user.firstName:Tim", pageSize: 4) {
     entries {
@@ -104,9 +111,12 @@ CluedIn supports GraphQL actions so that you can run commands in bulk from our G
 }
 ```
 
-## Search with filter
+## Search with filters
+You can refine search results using filters with [Lucene syntax](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
 
-```json
+The following example retrieves all Customer records where the `addressCountry` property equals CHN or JPN, and where `addressZipCode` is missing.
+
+```
 {
   search(
     query:"entityType:/Customer",
@@ -123,6 +133,12 @@ CluedIn supports GraphQL actions so that you can run commands in bulk from our G
 }
 ```
 
-In `-properties.customer.addressZipCode:*`, the `-properties` means where value does not exist; and if it is `+properties`, it would mean where value exists. Note that the filter uses [Lucene](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html) syntax. Also, you can test the filter query directly in the search bar.
+In the filter expression:
+
+- `-properties.customer.addressZipCode:*` means the properties where the value does not exist.
+
+- `+properties.customer.addressZipCode:*` means the properties where the value exists.
+
+Filters use Lucene syntax, and you can test your filter expressions directly in the CluedIn search bar.
 
 ![gql-search-with-filter.png]({{ "/assets/images/consume/gql-search-with-filter.png" | relative_url }})
