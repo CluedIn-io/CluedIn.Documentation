@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 9
+nav_order: 10
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/purview/sync-streams-to-purview
