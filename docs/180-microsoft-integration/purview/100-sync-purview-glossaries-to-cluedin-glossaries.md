@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 10
+nav_order: 11
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/purview/sync-purview-glossaries-to-cluedin-glossaries

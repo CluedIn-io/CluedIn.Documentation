@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 8
+nav_order: 9
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/purview/sync-deduplication-projects-to-purview
