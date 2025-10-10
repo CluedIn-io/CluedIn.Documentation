@@ -6,7 +6,10 @@ permalink: /kb/connect-to-slack
 nav_order: 2
 ---
 
-# CluedIn → Slack Alerts: End-to-End Setup Guide
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 This walkthrough shows two supported patterns for getting **data quality** and **master data (MDM) alerts** from CluedIn into Slack channels:
 

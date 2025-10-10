@@ -1,12 +1,15 @@
 ---
 layout: cluedin
-title: CluedIn for Data Engineers
+title: CluedIn for Data Engineers — Build & Operate Handbook
 parent: Knowledge base
 permalink: /kb/cluedin-data-engineers
 nav_order: 2
 ---
 
-# CluedIn for Data Engineers — Build & Operate Handbook
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 **Audience:** Data Engineers, Analytics Engineers, MLEs  
 **Goal:** Provide a practical, end‑to‑end playbook for building reliable, secure, and observable pipelines in CluedIn—from ingestion through mapping, cleaning, exports, CI/CD, and operations.

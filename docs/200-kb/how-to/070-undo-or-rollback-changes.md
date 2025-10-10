@@ -1,12 +1,15 @@
 ---
 layout: cluedin
-title: How to rollback or undo changes that have been made
+title: How to roll back or undo changes
 parent: Knowledge base
 permalink: /kb/how-to-rollback-or-undo
 nav_order: 2
 ---
 
-# Rolling Back and Undoing Changes in CluedIn
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 Mistakes happen — whether it’s applying a transformation you didn’t mean to, merging the wrong records, or running a cleaning project with unintended results. CluedIn provides several built-in features to **rollback or undo changes**, helping you recover quickly and maintain trust in your data.
 
@@ -99,7 +102,4 @@ Mistakes happen — whether it’s applying a transformation you didn’t mean t
 
 ## Summary
 
-CluedIn offers multiple ways to **undo or rollback changes**, including undoing data changes, unmerging Golden Records, and reverting entire cleaning projects. Combined with detailed audit trails and version history, these features give you confidence to manage your data safely — knowing that mistakes can be corrected without permanent damage.  
-
----
-
+CluedIn offers multiple ways to **undo or rollback changes**, including undoing data changes, unmerging Golden Records, and reverting entire cleaning projects. Combined with detailed audit trails and version history, these features give you confidence to manage your data safely — knowing that mistakes can be corrected without permanent damage.

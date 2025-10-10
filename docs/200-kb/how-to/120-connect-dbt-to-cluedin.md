@@ -1,12 +1,15 @@
 ---
 layout: cluedin
-title: Connect DBT to CluedIn
+title: Connect DBT to CluedIn — Step-by-step guide
 parent: Knowledge base
 permalink: /kb/dbt-to-cluedin
 nav_order: 2
 ---
 
-# Connecting dbt to CluedIn: A Step-by-Step Guide
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 This guide explains how to integrate **dbt (Data Build Tool)** with **CluedIn** so that the transformations, tests, and models in dbt flow seamlessly into CluedIn’s **data quality** and **master data management (MDM)** framework.
 

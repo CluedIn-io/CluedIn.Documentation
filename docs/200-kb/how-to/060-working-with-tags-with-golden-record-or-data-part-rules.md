@@ -1,12 +1,15 @@
 ---
 layout: cluedin
-title: Working with Tags on Golden Records and Data Parts
+title: Working with tags on golden records and data parts
 parent: Knowledge base
 permalink: /kb/how-to-use-tags-with-golden-records-and-data-parts
 nav_order: 2
 ---
 
-# Working with Tags in Golden Record and Data Part Rules
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 Tags in CluedIn allow you to add metadata labels to records that can drive automation, filtering, and reporting. When used together with **Golden Record Rules** and **Data Part Rules**, tags become a powerful way to classify, prioritize, and enrich your data lifecycle.
 
@@ -106,6 +109,4 @@ Benefits:
 
 ## Summary
 
-Tags in CluedIn provide an effective way to enrich, classify, and control data across Golden Records and Data Parts. By combining Tags with Rules, you can ensure that important metadata is applied consistently, driving better governance, compliance, and automation.  
-
----
+Tags in CluedIn provide an effective way to enrich, classify, and control data across Golden Records and Data Parts. By combining Tags with Rules, you can ensure that important metadata is applied consistently, driving better governance, compliance, and automation.

@@ -1,12 +1,15 @@
 ---
 layout: cluedin
-title: CluedIn for Data Governance Manager
+title: CluedIn for Data Governance Manager — Operating Manual
 parent: Knowledge base
 permalink: /kb/cluedin-data-governance-manager
 nav_order: 2
 ---
 
-# CluedIn for Data Governance Managers — Operating Manual
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 **Audience:** Data Governance Managers, Chiefs of Data/Privacy, Risk & Compliance leads  
 **Goal:** Provide a practical, prescriptive playbook to govern data on CluedIn—policy/controls, ownership, privacy & consent, access & retention, DQ governance, lineage, AI use, audit evidence, and operating cadence.

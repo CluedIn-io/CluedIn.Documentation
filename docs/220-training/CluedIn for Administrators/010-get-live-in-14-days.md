@@ -1,12 +1,15 @@
 ---
 layout: cluedin
-title: CluedI For Administrators
+title: CluedI For Administrators — The Practical Handbook
 parent: Knowledge base
 permalink: /kb/cluedin-for-administrators
 nav_order: 2
 ---
 
-# CluedIn for Administrators — The Practical Handbook
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 **Audience:** Platform admins, security engineers, data platform owners  
 **Goal:** Give administrators a clear, actionable view of how to operate CluedIn securely at scale—identity, access, integrations, features, observability, and governance.
