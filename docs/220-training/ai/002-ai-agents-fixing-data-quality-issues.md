@@ -3,8 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: 2.1. AI agents
 grand_parent: 2. AI training
-permalink: /training/ai/ai-agents/fixing-data-quality-issues
-has_children: true
+permalink: /training/ai/ai-agents/fixing-data-quality-issuese
 title: 2.1.1. Demo – Set up and use AI agents to resolve basic data quality issues
 ---
 
