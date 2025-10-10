@@ -114,23 +114,24 @@ In order to manage your master data from CluedIn directly in Power Apps Datavers
 
 ### Security role reference table
 
-| Table | Create | Read | Write | Delete |
-|--|--|--|--|--|
-| _Customization_ |  |  |  |  |
-| Solution | Organization | Organization | Organization | Organization |
-| Publisher | Organization | Organization | Organization | Organization |
-| Entity | Organization | Organization | Organization | Organization |
-| Entity Key | Organization | Organization |  | Organization |
-| Attribute | Organization | Organization | Organization | Organization |
-| System Form | Organization | Organization | Organization | Organization |
-| View | Organization | Organization | Organization | Organization |
-| Custom Control Default Config | Organization |  | Organization | Organization |
-| Process | Organization | Organization | Organization | Organization |
-| _Custom Tables_ |  |  |  |  |
-| Connection Reference | Organization | Organization | Organization | Organization |
-| Connector | Organization | Organization | Organization | Organization |
-| Dataflow | Organization | Organization | Organization | Organization |
-| OptionSet | Organization | Organization | Organization | Organization |
+| Table | Create | Read | Write | Delete | Append To |
+|--|--|--|--|--|--|
+| _Customization_ |  |  |  |  |  |
+| Solution | Organization | Organization | Organization | Organization |  |
+| Publisher | Organization | Organization | Organization | Organization | |
+| Entity | Organization | Organization | Organization | Organization | |
+| Entity Key | Organization | Organization |  | Organization | |
+| Attribute | Organization | Organization | Organization | Organization | |
+| System Form | Organization | Organization | Organization | Organization | |
+| View | Organization | Organization | Organization | Organization | |
+| Custom Control Default Config | Organization |  | Organization | Organization | |
+| Process | Organization | Organization | Organization | Organization | |
+| Relationship Entity | Organization | Organization | Organization | Organization | |
+| _Custom Tables_ |  |  |  |  |  |
+| Connection Reference | Organization | Organization | Organization | Organization | |
+| Connector | Organization | Organization | Organization | Organization | |
+| Dataflow | Organization | Organization | Organization | Organization | |
+| OptionSet | Organization | Organization | Organization | Organization | Organization |
 
 ### Create a new application user
 
