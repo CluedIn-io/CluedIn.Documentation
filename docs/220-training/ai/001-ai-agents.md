@@ -22,8 +22,8 @@ In this CluedIn AI agents training, you’ll learn how to automate data quality 
 
 | Session | Objective | Watch time |
 | :------ | :------ | :------ |
-| [2.1.1. Demo – Set up and use AI agents to resolve basic data quality issues](/training/ai/ai-agents/fixing-data-quality-issues) | - Use AI agents to fix basic data quality issues in customer contact details. | 7 mins |
-| _(Coming soon)_ 2.1.2. Demo – Deduplicate data with AI agents | - Use AI agents to detect and merge duplicate customer records. | _Coming soon_ |
+| [2.1.1. Demo – Set up and use AI agents to resolve basic data quality issues](/training/ai/ai-agents/fixing-data-quality-issues) | - Use an AI agent to fix basic data quality issues in customer contact details. | 7 mins |
+| [2.1.2. Demo – Set up and use AI agents to deduplicate data](/training/ai/ai-agents/deduplicating-data) | - Use and AI agent to identify and merge duplicate customer records. | 9 mins |
 | _(Coming soon)_ 2.1.3. Demo – Set up data quality rules with AI agents | - Use AI agents to analyze a dataset and suggest data quality rules for it. | _Coming soon_ |
 
 **Useful resources:**
