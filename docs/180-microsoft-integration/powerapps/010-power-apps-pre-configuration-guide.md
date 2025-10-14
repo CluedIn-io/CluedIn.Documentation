@@ -114,24 +114,139 @@ In order to manage your master data from CluedIn directly in Power Apps Datavers
 
 ### Security role reference table
 
-| Table | Create | Read | Write | Delete | Append To |
-|--|--|--|--|--|--|
-| _Customization_ |  |  |  |  |  |
-| Solution | Organization | Organization | Organization | Organization |  |
-| Publisher | Organization | Organization | Organization | Organization | |
-| Entity | Organization | Organization | Organization | Organization | |
-| Entity Key | Organization | Organization |  | Organization | |
-| Attribute | Organization | Organization | Organization | Organization | |
-| System Form | Organization | Organization | Organization | Organization | |
-| View | Organization | Organization | Organization | Organization | |
-| Custom Control Default Config | Organization |  | Organization | Organization | |
-| Process | Organization | Organization | Organization | Organization | |
-| Relationship Entity | Organization | Organization | Organization | Organization | |
-| _Custom Tables_ |  |  |  |  |  |
-| Connection Reference | Organization | Organization | Organization | Organization | |
-| Connector | Organization | Organization | Organization | Organization | |
-| Dataflow | Organization | Organization | Organization | Organization | |
-| OptionSet | Organization | Organization | Organization | Organization | Organization |
+<table>
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Create</th>
+      <th>Read</th>
+      <th>Write</th>
+      <th>Delete</th>
+      <th>Append to</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="6"><em>Customization</em></td>
+    </tr>
+    <tr>
+      <td>Solution</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Publisher</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Entity</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Entity Key</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Attribute</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>System Form</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>View</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Custom Control Default Config</td>
+      <td>Organization</td>
+      <td></td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Process</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Relationship Entity</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="6"><em>Custom tables</em></td>
+    </tr>
+    <tr>
+      <td>Connection Reference</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Connector</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Dataflow</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>OptionSet</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ### Create a new application user
 
