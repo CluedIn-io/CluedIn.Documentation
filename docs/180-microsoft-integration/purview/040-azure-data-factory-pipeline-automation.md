@@ -25,13 +25,25 @@ CluedIn can automatically provision and execute pipelines for assets that you ta
 
 | Orchestrator | Azure Data Lake (ADLS) | Azure SQL Database/SQL Server | Snowflake | Fabric Files | Fabric Table |
 |---|---|---|---|---|---|
-| **Azure Data Factory** | Supported (all file formats) | Supported | Supported | Supported (all file formats except Parquet) | Not supported |
-| **Fabric Data Factory** | Supported (all file formats) | – | – | Supported (all file formats including Parquet) | Supported |
+| **Azure Data Factory (ADF)** | Supported (all file formats) | Supported | Supported | Supported (all file formats except Parquet) | Not supported |
+| **Fabric Data Factory (FDF)** | Supported (all file formats) | – | – | Supported (all file formats including Parquet) | Supported |
 
 Note the following:
-- **Fabric Files** refer to the files stored in Fabric OneLake item folders (Lakehouse and so on).
+- Fabric Files refer to the files stored in Fabric OneLake item folders (Lakehouse and so on).
 
 - If you need Parquet in Fabric Files or to automate Fabric Table ingestion, use Fabric Data Factory.
+
+## Choosing the right orchestrator
+
+Use the following guidance to select the most suitable orchestrator for your scenario:
+
+- Choose Azure Data Factory (ADF) if:
+
+  - You need to automate data pipelines involving ADLS files (any format), Azure SQL Database/SQL Server, or Snowflake sources.
+
+  - You do not require support for Parquet files in Fabric Files or Fabric Tables.
+
+- Choose Fabric Data Factory (FDF) if you need to automate data pipelines involving ADLS files (any format), Fabric Files (including Parquet), or Fabric Tables.
 
 ## Prerequisites
 Before you begin, ensure that you have the following:
@@ -41,20 +53,20 @@ Before you begin, ensure that you have the following:
 
 - One of the following orchestration environments available to you:
 
-  - An Azure Data Factory resource.
+  - An Azure Data Factory (ADF) resource.
 
-  - Or, a Fabric workspace with Fabric Data Factory enabled.
+  - Or, a Fabric workspace with Fabric Data Factory (FDF) enabled.
 
-## Preparation
-This section describes what you need to set up depending on your chosen orchestrator.
+## Configure data factory pipeline automation
+This section outlines the setup steps required to automate pipelines in CluedIn, depending on the orchestrator you choose.
 
-### Option A — Use Azure Data Factory (existing flow)
-Follow the provided steps to prepare ADF and Purview, then configure CluedIn settings.
+### Configure data factory pipeline automation using Azure Data Factory (existing flow)
+Follow these steps to prepare Azure Data Factory (ADF) and Microsoft Purview, and then configure the required settings in CluedIn.
 
-**To set up data factory pipeline automation using Azure Data Factory**
+**To configure data factory pipeline automation using Azure Data Factory**
 
 1. Create and verify Azure resources:
-    1. Create (or identify) an Azure Data Factory resource in the correct subscription/resource group.
+    1. Create (or identify) an ADF resource in the correct subscription/resource group.
 
         ![adf-instance.png]({{ "/assets/images/microsoft-integration/purview/adf-instance-2.png" | relative_url }})
 
@@ -62,10 +74,10 @@ Follow the provided steps to prepare ADF and Purview, then configure CluedIn set
 
         ![akv-instance.png]({{ "/assets/images/microsoft-integration/purview/akv-instance-2.png" | relative_url }})
 
-1. Set up a Service principal. Follow the steps outlined in [Service principal (both ADF and Fabric)](#service-principal-both-adf--fabric) to create app registration and client secret. There are no ADF‑specific differences here.
+1. Set up a service principal. Follow the steps outlined in [Create and configure the service principal](#create-and-configure-the-service-principal) to create app registration and client secret. There are no ADF‑specific differences for this step.
 
 1. Assign roles and permissions:
-    1. In Azure Data Factory, assign the service principal the **Contributor** role (or a least‑privilege custom role that allows pipeline authoring/execution).
+    1. In ADF, assign the service principal the **Contributor** role (or a least‑privileged custom role that allows pipeline authoring and execution).
 
         ![adf-assign-contributor-role.png]({{ "/assets/images/microsoft-integration/purview/adf-assign-contributor-role.png" | relative_url }})
 
@@ -74,13 +86,13 @@ Follow the provided steps to prepare ADF and Purview, then configure CluedIn set
         ![key-vault-create-access-policy-permissions.png]({{ "/assets/images/microsoft-integration/purview/key-vault-create-access-policy-permissions.png" | relative_url }})
 
     1. Grant data‑plane access where needed:
-        - **ADLS Gen2**: **Storage Blob Data Reader** (read) and/or **Storage Blob Data Contributor** (write) on the target containers.
+        - ADLS Gen2: Storage Blob Data Reader (read) and/or Storage Blob Data Contributor (write) on the target containers.
 
-        - **Azure SQL/SQL Server**: Grant database-level read and/or write access as required.
+        - Azure SQL/SQL Server: Grant database-level read and/or write access as required.
 
-        - **Snowflake**: Map a Snowflake user/role and grant warehouse/database/schema/table privileges.
+        - Snowflake: Map a Snowflake user/role and grant warehouse/database/schema/table privileges.
 
-1. Prepare Purview. Follow the steps outline in [Purview glossary term (both ADF & Fabric)](#purview-glossary-term-both-adf--fabric) to create/apply the term. There are no ADF‑specific differences here.
+1. Prepare Purview. Follow the steps outlined in [Create and apply Purview glossary term](#create-and-apply-purview-glossary-term) to create and apply the term. There are no ADF‑specific differences for this step.
 
 1. Configure CluedIn (ADF settings). In CluedIn, go to **Administration** > **Settings** > **Purview**. Then, do the following:
 
@@ -108,36 +120,36 @@ Follow the provided steps to prepare ADF and Purview, then configure CluedIn set
         ![adf-pipeline-runs.png]({{ "/assets/images/microsoft-integration/purview/adf-pipeline-runs.png" | relative_url }})
 
 
-1. Verify the ingestion in CluedIn. In the target data source in CluedIn, verify that the following:
+1. Verify the ingestion in CluedIn. In the target data source in CluedIn, confirm that the following:
 
-    - There is a dataset for each automated asset.
+    - A dataset exists for each automated asset.
 
-    - The rows are flowing.
+    - Rows are flowing correctly.
 
         ![sync-data-products-adf-notification.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-adf-notification.png" | relative_url }})
 
----
+### Configure data factory pipeline automation using Fabric Data Factory (new flow)
+CluedIn now supports pipeline automation through Fabric Data Factory (FDF). Use this option when you need to automate:
 
-### Option B — Use Fabric Data Factory (new)
-CluedIn now supports pipeline automation via Fabric Data Factory. Use this option when you need:
+- Parquet files inside Fabric Files (OneLake).
 
-- Parquet files inside Fabric Files (OneLake) to be automated.
-
-- Fabric Table ingestion automation.
+- Fabric Tables ingestion.
 
 **Prerequisites**
 - Ensure that you have a Fabric workspace with the capacity and permissions to create data factory items.
 
     ![fabric-workspace.png]({{ "/assets/images/microsoft-integration/purview/fabric-workspace-2.png" | relative_url }})
 
-1. Register (or reuse) the service principal:
-    1. Use the same app registration as for ADF or create a separate one following the steps outlined in the [Service principal](#service-principal-both-adf--fabric) section.
+**To configure data factory pipeline automation using Fabric Data Factory**
 
-    1. Ensure that the identity has the **Contributor** (or equivalent) access for the Fabric workspace.
+1. Register (or reuse) the service principal:
+    1. Use the same app registration as for Azure Data Factory (ADF) or create a separate one following the steps outlined in the [Create and configure the service principal](#create-and-configure-the-service-principal) section.
+
+    1. Ensure that the identity has **Contributor** (or equivalent) access for the Fabric workspace.
 
         ![fabric-workspace-access.png]({{ "/assets/images/microsoft-integration/purview/fabric-workspace-access-2.png" | relative_url }})
 
-1. Prepare Purview. Follow the steps outlined in [Purview glossary term (both ADF & Fabric)](#purview-glossary-term-both-adf--fabric) to create and apply the term. There are no Fabric‑specific differences here.
+1. Prepare Purview. Follow the steps outlined in [Create and apply Purview glossary term](#create-and-apply-purview-glossary-term) to create and apply the term. There are no Fabric‑specific differences for this step.
 
 1. Configure CluedIn (Fabric settings). In CluedIn, go to **Administration** > **Settings** > **Purview** (or Fabric section). Then, do the following:
 
@@ -151,7 +163,7 @@ CluedIn now supports pipeline automation via Fabric Data Factory. Use this optio
 
     ![adf-cluedin-settings.png]({{ "/assets/images/microsoft-integration/purview/adf-cluedin-settings.png" | relative_url }})
 
-1. Validate the setup in Fabric Data Factory:
+1. Validate the setup in FDF:
 
     1. In your Fabric workspace, go to **Data Factory** and verify that pipelines were created for the tagged assets.
 
@@ -163,36 +175,14 @@ CluedIn now supports pipeline automation via Fabric Data Factory. Use this optio
 
 1. Verify the ingestion in CluedIn. In the target data source, confirm that datasets are present and data is flowing.
 
-## Create and apply Purview glossary term
-*This section applies to: ADF, Fabric.*
-
-Use a single glossary term in Microsoft Purview to mark assets for automation. CluedIn looks for this term to decide which assets to ingest.
-
-**To create and apply a Purview glossary term**
-
-1. In the Microsoft Purview portal, go to **Unified Catalog** > **Catalog management** > **Classic types** and create or select your glossary.
-
-    ![sync-data-sources-create-glossary.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-create-glossary.png" | relative_url }})
-
-1. Create a new term (for example, **CluedInADF**).  
-
-    ![adf-new-term.png]({{ "/assets/images/microsoft-integration/purview/adf-new-term.png" | relative_url }})
-
-1. Apply the term to each asset that you want CluedIn to ingest (for example, ADLS path, Fabric file or folder, and so on).  
-
-    ![adf-term-with-asset.png]({{ "/assets/images/microsoft-integration/purview/adf-term-with-asset.png" | relative_url }})
-
-    {:.important}
-    In CluedIn settings, you will reference this exact term string as the **Term Pattern**.
-
 ## Create and configure the service principal
-*This section applies to: ADF, Fabric.*
+*This section applies to: Azure Data Factory (ADF), Fabric Data Factory (FDF).*
 
 Use a single service principal (app registration) for automation, or separate ones per platform if your organization prefers stricter isolation. CluedIn uses this identity to authenticate with Azure resources and orchestrators.
 
 **Security tips**
 
-- Store secrets in Azure Key Vault and reference them where supported.
+- Store secrets in Azure Key Vault and reference them wherever supported.
 
 - Use short‑lived client secrets or certificates with rotation policies.
 
@@ -220,31 +210,31 @@ Use a single service principal (app registration) for automation, or separate on
     {:.important}
     Assign the minimum access necessary. If your organization uses PIM, ensure that the service principal can activate the roles when needed.
 
-    For Azure Data Factory (ADF):
+    **For ADF:**
 
-    - **Resource role**: *Contributor* role on the ADF resource (or a custom role with `dataFactory/*` as appropriate).
+    - Resource role: Contributor role on the ADF resource (or a custom role with `dataFactory/*` as appropriate).
 
-    - **Key Vault** (if used): **Get** and **List** on secrets.
+    - Key Vault (if used): Get and List on secrets.
 
-    - **Data sources** (as applicable):
+    - Data sources (as applicable):
 
-        - ADLS Gen2: *Storage Blob Data Reader* (read) and/or *Storage Blob Data Contributor* (write) on the target containers.
+        - ADLS Gen2: Storage Blob Data Reader (read) and/or Storage Blob Data Contributor (write) on the target containers.
 
         - Azure SQL/SQL Server (via MI/private link): Grant the database permissions per your policy (for example, read on source, write on staging).
 
         - Snowflake: Create and assign a Snowflake user/role mapped to this automation and grant the warehouse/database/schema/table privileges as needed.
 
-    For Fabric Data Factory (FDF):
+    **For FDF:**
 
-    - **Fabric workspace**: *Contributor* (or a role that allows creating and running Data Factory pipelines).
+    - Fabric workspace: Contributor role (or a role that allows creating and running data factory pipelines).
 
-    - **OneLake/Fabric items**:
+    - OneLake/Fabric items:
 
-        - Lakehouse/files: Grant permissions on the workspace/item folders.
+        - Lakehouse or files: Grant permissions on the workspace or item folders.
 
         - Fabric Table: Ensure that the service principal can read from/write to the Lakehouse and run pipelines that materialize/ingest tables.
 
-    - **External sources** (such as ADLS): Grant the same storage roles as above when reading from or landing to ADLS.
+    - External sources (such as ADLS): Grant the same storage roles as above when reading from or landing to ADLS.
 
 1. In CluedIn, go to **Administration** > **Settings** > **Purview**. Then, do the following:
 
@@ -254,21 +244,31 @@ Use a single service principal (app registration) for automation, or separate on
 
     ![adf-cluedin-settings.png]({{ "/assets/images/microsoft-integration/purview/adf-cluedin-settings.png" | relative_url }})
 
-## Choosing the right orchestrator
+## Create and apply Purview glossary term
+*This section applies to: Azure Data Factory (ADF), Fabric Data Factory (FDF).*
 
-Use the following guidance to select the most suitable orchestrator for your scenario:
+Use a single glossary term in Microsoft Purview to mark assets for automation. CluedIn looks for this term to decide which assets to ingest.
 
-- Choose Azure Data Factory if:
+**To create and apply a Purview glossary term**
 
-  - You need to automate data pipelines involving ADLS files (any format), Azure SQL Database/SQL Server, or Snowflake sources.
+1. In the Microsoft Purview portal, go to **Unified Catalog** > **Catalog management** > **Classic types** and create or select your glossary.
 
-  - You do not require support for Parquet files in Fabric Files or Fabric Tables.
+    ![sync-data-sources-create-glossary.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-create-glossary.png" | relative_url }})
 
-- Choose Fabric Data Factory if you need to automate data pipelines involving ADLS files (any format), Fabric Files (including Parquet), or Fabric Tables.
+1. Create a new term (for example, **CluedInADF**).  
+
+    ![adf-new-term.png]({{ "/assets/images/microsoft-integration/purview/adf-new-term.png" | relative_url }})
+
+1. Apply the term to each asset that you want CluedIn to ingest (for example, ADLS path, Fabric file or folder, and so on).  
+
+    ![adf-term-with-asset.png]({{ "/assets/images/microsoft-integration/purview/adf-term-with-asset.png" | relative_url }})
+
+    {:.important}
+    In CluedIn settings, you will reference this exact term string as the *term pattern*.
 
 ## Troubleshooting and tips
 
-- If no pipelines appear after tagging assets, verify that the **Term Pattern** in CluedIn exactly matches the term defined in Purview.
+- If no pipelines appear after tagging assets, verify that the term pattern in CluedIn exactly matches the glossary term defined in Purview.
 
 - For permission errors, review Key Vault policies (for ADF) or Fabric connection credentials.
 
