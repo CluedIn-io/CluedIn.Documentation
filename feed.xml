@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2025-10-13T09:04:38+00:00</updated>
+    <updated>2025-10-14T10:36:08+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1574,13 +1574,13 @@
     </entry>
     
     <entry>
-        <title>ADF pipeline automation</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/adf-pipeline-automation" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/adf-pipeline-automation</id>
+        <title>Data factory pipeline run schedule</title>
+        <link href="https://documentation.cluedin.net/microsoft-integration/purview/data-factory-pipeline-run-schedule" />
+        <id>https://documentation.cluedin.net/microsoft-integration/purview/data-factory-pipeline-run-schedule</id>
         <updated>2025-04-30T00:00:00+00:00</updated>
         <summary>
         
-        ADF pipeline automation.
+        Data factory pipeline run schedule.
         
         
         
@@ -1881,6 +1881,20 @@
         
         
         Tags: integration, microsoft, powerapps, dataverse.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Data factory pipeline automation</title>
+        <link href="https://documentation.cluedin.net/microsoft-integration/purview/data-factory-pipeline-automation" />
+        <id>https://documentation.cluedin.net/microsoft-integration/purview/data-factory-pipeline-automation</id>
+        <updated>2025-10-09T00:00:00+00:00</updated>
+        <summary>
+        
+        Data factory pipeline automation.
+        
+        
         
         </summary>
     </entry>
