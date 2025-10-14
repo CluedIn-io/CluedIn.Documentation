@@ -2627,9 +2627,9 @@
     "doc": "2.1.3. Demo – Set up and use AI agents to suggest data quality rules",
     "title": "2.1.3. Demo – Set up and use AI agents to suggest data quality rules",
     "content": "Module: 2.1. AI agents . Level: Beginner . This session continues our series of practical trainings on using AI agents for data management. Today, we’ll learn how to use an AI agent to analyze a dataset and suggest potential data quality rules for it. Presented by: Jocelyn Ramirez, your Customer Success Manager, and Matthew Carter, your CluedIn AI Trainer . Presentation: Download PPT . Training data: Download CSV . Useful resources: . | AI agents . | Ingest data . | Rules . | CluedIn fundamentals training . | . ",
-    "url": "/training/ai/ai-agents/suffesting-data-quality-rules",
+    "url": "/training/ai/ai-agents/suggesting-data-quality-rules",
     
-    "relUrl": "/training/ai/ai-agents/suffesting-data-quality-rules"
+    "relUrl": "/training/ai/ai-agents/suggesting-data-quality-rules"
   },"376": {
     "doc": "1.1.3. Building a single customer view",
     "title": "On this page",
