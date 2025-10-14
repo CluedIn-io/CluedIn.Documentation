@@ -3,7 +3,7 @@ layout: cluedin
 nav_order: 2
 parent: 2.1. AI agents
 grand_parent: 2. AI training
-permalink: /training/ai/ai-agents/suffesting-data-quality-rules
+permalink: /training/ai/ai-agents/suggesting-data-quality-rules
 has_children: true
 title: 2.1.3. Demo – Set up and use AI agents to suggest data quality rules
 ---
