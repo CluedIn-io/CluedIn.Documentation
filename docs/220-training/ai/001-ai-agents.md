@@ -13,7 +13,7 @@ In this CluedIn AI agents training, you’ll learn how to automate data quality 
 **Presented by:** Jocelyn Ramirez, your Customer Success Manager
 
 <div class="videoFrame">
-<iframe src="https://player.vimeo.com/video/1125198143?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write;" title="Welcome to CluedIn Fundamentals"></iframe>
+<iframe src="https://player.vimeo.com/video/1125198143?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write;" title="AI agents"></iframe>
 </div>
 
 **Presentation:** <a href="../../../assets/other/training-ppt/cluedin-ai-training-ai-agents-overview.pptx" download>Download PPT</a>
