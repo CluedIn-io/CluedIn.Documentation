@@ -223,6 +223,9 @@ You can run the job:
 
 1. When the job completes, proceed to [review the results](/management/ai-agents/review-the-results-returned-by-an-ai-agent) returned by the AI agent.
 
+    {:.important}
+    The recommended approach is to work iteratively – run the job, review the results, then run the job and review the results again. Repeat this process until the AI agent produces all expected suggestions.
+
 1. To view input and output data exchanged between CluedIn and the large language model (LLM), go to the **Configuration** tab of the job. Then, expand the **Logs** section.
 
     ![view_logs_sp.png]({{ "/assets/images/management/ai-agents/test-a-job/view_logs_sp.png" | relative_url }})
