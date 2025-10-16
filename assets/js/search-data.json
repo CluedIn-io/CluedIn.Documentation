@@ -13595,7 +13595,7 @@
   },"1942": {
     "doc": "Terms of service",
     "title": "Service level agreement (SLA)",
-    "content": ". | CluedIn provides a dedicated service level agreement (SLA) for our SaaS customers, which specifies our commitments to service availability, uptime, and support response times. Download the CluedIn SaaS SLA . | To maintain full SLA coverage, CluedIn operations team must have direct access to your cluster environment. This means our engineers can securely connect to the cluster without waiting for approvals or have a jump box available. If direct access is unavailable, SLA response and resolution times may be temporarily paused until access is restored. | . ",
+    "content": ". | (For CluedIn SaaS customers) CluedIn provides a dedicated service level agreement (SLA), which specifies our commitments to service availability, uptime, and support response times. Download the CluedIn SaaS SLA . | (For CluedIn PaaS customers) To maintain full SLA coverage, CluedIn operations team must have direct access to your cluster environment. This means our engineers can securely connect to the cluster without waiting for approvals or have a jump box available. If direct access is unavailable, SLA response and resolution times may be temporarily paused until access is restored. | . ",
     "url": "/terms-of-service#service-level-agreement-sla",
     
     "relUrl": "/terms-of-service#service-level-agreement-sla"
