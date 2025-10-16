@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: CluedIn for Data Engineers — Build & Operate Handbook
+title: CluedIn for Data Engineers — build & operate handbook
 parent: Knowledge base
 permalink: /kb/cluedin-data-engineers
 nav_order: 2

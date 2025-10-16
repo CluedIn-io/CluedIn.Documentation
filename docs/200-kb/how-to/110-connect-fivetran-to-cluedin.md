@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Connect FiveTran to CluedIn
+title: Connect Fivetran to CluedIn
 parent: Knowledge base
 permalink: /kb/connect-to-fivetran
 nav_order: 2

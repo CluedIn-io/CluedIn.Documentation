@@ -120,55 +120,55 @@ The process of creating a hierarchy involves configuring a hierarchy project and
 
 ### Hierarchy project configuration
 
-Start by creating a hierarchy project. In the first step, you only need to provide the hierarchy name. You do not need to select the business domain because we will rely on the existing edge relations.
+1. Start by creating a hierarchy project. In the first step, you only need to provide the hierarchy name. You do not need to select the business domain because we will rely on the existing edge relations.
 
-![create-hierarchy-general.png]({{ "/assets/images/kb/how-to/create-hierarchy-general.png" | relative_url }})
+    ![create-hierarchy-general.png]({{ "/assets/images/kb/how-to/create-hierarchy-general.png" | relative_url }})
 
-Since the relations between golden records already exist in the system, we can use them as the starting for building the hierarchy. We will build the hierarchy from top to bottom, starting with the relations between Business Group and Company. These relations are represented by the `/CompanyOf` relation type with the **Incoming** direction.
+1. Since the relations between golden records already exist in the system, we can use them as the starting for building the hierarchy. We will build the hierarchy from top to bottom, starting with the relations between Business Group and Company. These relations are represented by the `/CompanyOf` relation type with the **Incoming** direction.
 
-![create-hierarchy-config-1.png]({{ "/assets/images/kb/how-to/create-hierarchy-config-1.png" | relative_url }})
+    ![create-hierarchy-config-1.png]({{ "/assets/images/kb/how-to/create-hierarchy-config-1.png" | relative_url }})
 
-For the top-level hierarchy project configuration, we rely on the existing relations to **Automatically** identify top-level golden records. Regarding the hierarchy type configuration, we choose the **Single hierarchy project** option because there is only one top-level Business Group golden record.
+1. For the top-level hierarchy project configuration, we rely on the existing relations to **Automatically** identify top-level golden records. Regarding the hierarchy type configuration, we choose the **Single hierarchy project** option because there is only one top-level Business Group golden record.
 
-![create-hierarchy-config-2.png]({{ "/assets/images/kb/how-to/create-hierarchy-config-2.png" | relative_url }})
+    ![create-hierarchy-config-2.png]({{ "/assets/images/kb/how-to/create-hierarchy-config-2.png" | relative_url }})
 
-As a result, the hierarchy project displays the relations between Business Group and its Companies. Next, we will explain how to load other entities of the organizational hierarchy to the project one by one.
+    As a result, the hierarchy project displays the relations between Business Group and its Companies. Next, we will explain how to load other entities of the organizational hierarchy to the project one by one.
 
-![create-hierarchy-result.png]({{ "/assets/images/kb/how-to/create-hierarchy-result.png" | relative_url }})
+    ![create-hierarchy-result.png]({{ "/assets/images/kb/how-to/create-hierarchy-result.png" | relative_url }})
 
 ### Building organizational hierarchy
 
-To build organizational hierarchy, we recommend loading entities using the existing relations. Since we already have the relations between Business Group and its Companies, next we need to display the relations between Companies and their Legal Entities. To do this, load entities that have the `/LegalEntityOf` relation type with the **Incoming** direction.
+1. To build organizational hierarchy, we recommend loading entities using the existing relations. Since we already have the relations between Business Group and its Companies, next we need to display the relations between Companies and their Legal Entities. To do this, load entities that have the `/LegalEntityOf` relation type with the **Incoming** direction.
 
-![load-entities-legal-entity-of.png]({{ "/assets/images/kb/how-to/load-entities-legal-entity-of.png" | relative_url }})
+    ![load-entities-legal-entity-of.png]({{ "/assets/images/kb/how-to/load-entities-legal-entity-of.png" | relative_url }})
 
-As a result, the hierarchy is updated with the Legal Entity golden records.
+    As a result, the hierarchy is updated with the Legal Entity golden records.
 
-![hierarchy-legal-entity.png]({{ "/assets/images/kb/how-to/hierarchy-legal-entity.png" | relative_url }})
+    ![hierarchy-legal-entity.png]({{ "/assets/images/kb/how-to/hierarchy-legal-entity.png" | relative_url }})
 
-Next, we need to display the relations between Legal Entities and their Purchasing Organizations. To do this, load entities that have the `/PurchasingOrgOf` relation type with the **Incoming** direction.
+1. Next, we need to display the relations between Legal Entities and their Purchasing Organizations. To do this, load entities that have the `/PurchasingOrgOf` relation type with the **Incoming** direction.
 
-![load-entities-purchasing-org-of.png]({{ "/assets/images/kb/how-to/load-entities-purchasing-org-of.png" | relative_url }})
+    ![load-entities-purchasing-org-of.png]({{ "/assets/images/kb/how-to/load-entities-purchasing-org-of.png" | relative_url }})
 
-As a result, the hierarchy is updated with the Purchasing Organization golden records.
+    As a result, the hierarchy is updated with the Purchasing Organization golden records.
 
-![hierarchy-purchasing-org.png]({{ "/assets/images/kb/how-to/hierarchy-purchasing-org.png" | relative_url }})
+    ![hierarchy-purchasing-org.png]({{ "/assets/images/kb/how-to/hierarchy-purchasing-org.png" | relative_url }})
 
-Next, we need to display the relations between Legal Entities and their Sales Organizations. To do this, load entities that have the `/SalesOrgOf` relation type with the **Incoming** direction.
+1. Next, we need to display the relations between Legal Entities and their Sales Organizations. To do this, load entities that have the `/SalesOrgOf` relation type with the **Incoming** direction.
 
-![load-entities-sales-org-of.png]({{ "/assets/images/kb/how-to/load-entities-sales-org-of.png" | relative_url }})
+    ![load-entities-sales-org-of.png]({{ "/assets/images/kb/how-to/load-entities-sales-org-of.png" | relative_url }})
 
-As a result, the hierarchy is updated with the Sales Organization golden records.
+    As a result, the hierarchy is updated with the Sales Organization golden records.
 
-![hierarchy-sales-org.png]({{ "/assets/images/kb/how-to/hierarchy-sales-org.png" | relative_url }})
+    ![hierarchy-sales-org.png]({{ "/assets/images/kb/how-to/hierarchy-sales-org.png" | relative_url }})
 
-Finally, we need to display the relations between Sales Organizations and their Warehouses. To do this, load entities that have the `/WarehouseOf` relation type with the **Incoming** direction.
+1. Finally, we need to display the relations between Sales Organizations and their Warehouses. To do this, load entities that have the `/WarehouseOf` relation type with the **Incoming** direction.
 
-![load-entities-warehouse-of.png]({{ "/assets/images/kb/how-to/load-entities-warehouse-of.png" | relative_url }})
+    ![load-entities-warehouse-of.png]({{ "/assets/images/kb/how-to/load-entities-warehouse-of.png" | relative_url }})
 
-As a result, the hierarchy is updated with the Warehouse golden records. This is the last level that we needed to add to the hierarchy, and now our hierarchy displays the relations between Business Group, Companies, Legal Entities, Procurement Organizations, Sales Organizations, and Warehouses.
+    As a result, the hierarchy is updated with the Warehouse golden records. This is the last level that we needed to add to the hierarchy, and now our hierarchy displays the relations between Business Group, Companies, Legal Entities, Procurement Organizations, Sales Organizations, and Warehouses.
 
-![hierarchy-warehouse.png]({{ "/assets/images/kb/how-to/hierarchy-warehouse.png" | relative_url }})
+    ![hierarchy-warehouse.png]({{ "/assets/images/kb/how-to/hierarchy-warehouse.png" | relative_url }})
 
 ### Hierarchy creation results
 

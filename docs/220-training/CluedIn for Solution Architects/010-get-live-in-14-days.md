@@ -1,12 +1,14 @@
 ---
 layout: cluedin
-title: CluedIn for Solution Architects
+title: CluedIn for Solution Architects — integration & reference architecture guide
 parent: Knowledge base
 permalink: /kb/cluedin-solution-architects
 nav_order: 2
 ---
-
-# CluedIn for Solution Architects — Integration & Reference Architecture Guide
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 **Audience:** Solution/Enterprise Architects, Platform Owners, Domain Architects  
 **Goal:** Explain where **CluedIn** fits in the wider data landscape, which architectural patterns it enables, and how to integrate it cleanly with surrounding systems (sources, lakes/warehouses, catalogs, BI/AI/Apps, and governance).

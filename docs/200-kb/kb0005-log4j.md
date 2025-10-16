@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: CluedIn Security - Log4j2 CVE-2021-44228
+title: CluedIn Security — Log4j2 CVE-2021-44228
 permalink: /kb/log4j
 parent: Knowledge base
 tags: ["security"]
@@ -22,49 +22,44 @@ However, we do utilise some third-party services that are Java based.
 This announcement details the usage of those services and their exposure to CVE-2021-44228.
 
 ## Update: CVE-2021-45046
-After the intial wave of fixes an additonal issue was discovered ([CVE-2021-45-46](https://nvd.nist.gov/vuln/detail/CVE-2021-45046#vulnCurrentDescriptionTitle)) which highlighted that in some cases the proposed fixes for CVE-2021-44228 were insufficient.  
+After the initial wave of fixes an additional issue was discovered ([CVE-2021-45-46](https://nvd.nist.gov/vuln/detail/CVE-2021-45046#vulnCurrentDescriptionTitle)) which highlighted that in some cases the proposed fixes for CVE-2021-44228 were insufficient.  
 
-In all cases, no actions are required for CluedIn services.  Notably Elasticsearch may have false positives, however [Elastic reccomends](https://discuss.elastic.co/t/apache-log4j2-remote-code-execution-rce-vulnerability-cve-2021-44228-esa-2021-31/291476#update-dec-15-10) the same changes as for the orginal CVE.
+In all cases, no actions are required for CluedIn services. Notably, Elasticsearch may have false positives, however [Elastic reccomends](https://discuss.elastic.co/t/apache-log4j2-remote-code-execution-rce-vulnerability-cve-2021-44228-esa-2021-31/291476#update-dec-15-10) the same changes as for the original CVE.
 
-Therefore, there are no additonal requirments for fixes with CluedIn.
+Therefore, there are no additional requirements for fixes with CluedIn.
 
 ## Neo4j
 
-All versions of CluedIn use the 3.5.x (currently 3.5.29) version of the community edition of Neo4j or 
-an earlier version. 
+All versions of CluedIn use the 3.5.x (currently 3.5.29) version of the community edition of Neo4j or an earlier version. 
 
-As identified in the [Neo4j repository](https://github.com/neo4j/neo4j/issues/12796#issuecomment-992289758https://github.com/neo4j/neo4j/issues/12796), versions prior to 4.2 used a custom logging framework and are 
-not affected by the vulnerability.
+As identified in the [Neo4j repository](https://github.com/neo4j/neo4j/issues/12796#issuecomment-992289758https://github.com/neo4j/neo4j/issues/12796), versions prior to 4.2 used a custom logging framework and are not affected by the vulnerability.
 
-Additionally – Neo4j is not exposed to the public internet so user crafted requests that could expose 
-the vulnerability cannot be targeted to the service.
+Additionally – Neo4j is not exposed to the public internet so user crafted requests that could expose the vulnerability cannot be targeted to the service.
 
-### Actions Required
+### Actions required
 
 No action is required for the current nor any previous version of CluedIn.
 
 ## Elasticsearch
 
-CluedIn 3.1.0-3.2.5 uses the 7.8.0 version of Elasticsearch. As identified by [Elastic](https://discuss.elastic.co/t/apache-log4j2-remote-code-execution-rce-vulnerability-cve-2021-44228-esa-2021-31/291476), Elasticsearch 
-version 7.8+ running on JDK9+ are not susceptible.
+CluedIn 3.1.0-3.2.5 uses the 7.8.0 version of Elasticsearch. As identified by [Elastic](https://discuss.elastic.co/t/apache-log4j2-remote-code-execution-rce-vulnerability-cve-2021-44228-esa-2021-31/291476), Elasticsearch version 7.8+ running on JDK9+ are not susceptible.
 
 CluedIn 3.0.0 uses 7.6.2 and will require setting a JVM option to prevent exposure.
 
-Additionally – Elasticsearch is not exposed to the public internet so user crafted requests that could 
-expose the vulnerability cannot be targeted to the service.
+Additionally – Elasticsearch is not exposed to the public internet so user crafted requests that could expose the vulnerability cannot be targeted to the service.
 
-### Actions Required
+### Actions required
 
-CluedIn Version 3.0.0
+CluedIn version 3.0.0:
 
-• In your `values.yml` set the following
+1. In your `values.yml` set the following
 
-```yaml
-elasticsearch:
- esJavaOpts: “-Dlog4j2.formatMsgNoLookups=true”
-```
+    ```yaml
+    elasticsearch:
+    esJavaOpts: “-Dlog4j2.formatMsgNoLookups=true”
+    ```
 
-• Perform a `helm upgrade` with the new `values.yml`
+1. Perform a `helm upgrade` with the new `values.yml`
 
 No action is required for version 3.1+ of CluedIn.
 
@@ -76,7 +71,7 @@ which does not contain the features which enable exposure to the vulnerability.
 All earlier versions of CluedIn use the 3.1 version of OpenRefine. Again, version 1.x of Log4j is used, 
 which does not contain the features which enable exposure to the vulnerability.
 
-### Actions Required
+### Actions required
 
 No action is required.
 

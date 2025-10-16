@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: CluedIn For Data Stewards — Field Guide
+title: CluedIn for Data Stewards — field guide
 parent: Knowledge base
 permalink: /kb/cluedin-for-data-stewards
 nav_order: 2

@@ -1,12 +1,14 @@
 ---
 layout: cluedin
-title: Go Live in 14 Days with CluedIn - A Step‑by‑Step Playbook
+title: Go live in 14 days with CluedIn — Step‑by‑step playbook
 parent: Knowledge base
 permalink: /kb/14-days-live
 nav_order: 2
 ---
-
-# Go Live in 14 Days with CluedIn: A Step‑by‑Step Playbook
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 **Audience:** Data engineers, analytics engineers, solutions architects  
 **Goal:** Get a working, production‑minded slice of your use case live in **14 days**—with real data flowing **in** via **Ingestion Endpoints** and **out** via **Export Targets**, while building the habits that make CluedIn successful over time.

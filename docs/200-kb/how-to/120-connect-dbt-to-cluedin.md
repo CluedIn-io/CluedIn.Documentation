@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Connect DBT to CluedIn — Step-by-step guide
+title: Connect DBT to CluedIn
 parent: Knowledge base
 permalink: /kb/dbt-to-cluedin
 nav_order: 2

@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: CluedIn for Data Governance Manager — Operating Manual
+title: CluedIn for Data Governance Manager — operating manual
 parent: Knowledge base
 permalink: /kb/cluedin-data-governance-manager
 nav_order: 2
