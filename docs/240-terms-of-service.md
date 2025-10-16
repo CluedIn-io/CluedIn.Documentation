@@ -16,8 +16,8 @@ The [standard CluedIn contract](https://www.cluedin.com/terms-and-conditions) de
 
 ## Service level agreement (SLA)
 
-- CluedIn provides a dedicated service level agreement (SLA) for our [SaaS customers](/get-cluedin#onboarding-path-for-cluedin-saas), which specifies our commitments to service availability, uptime, and support response times.
+- (For CluedIn [SaaS customers](/get-cluedin#onboarding-path-for-cluedin-saas)) CluedIn provides a dedicated service level agreement (SLA), which specifies our commitments to service availability, uptime, and support response times.
 
     <a href="../../assets/other/CluedIn SaaS SLA - 2025.pdf" download>Download the CluedIn SaaS SLA</a>
 
-- To maintain full SLA coverage, CluedIn operations team must have direct access to your cluster environment. This means our engineers can securely connect to the cluster without waiting for approvals or have a jump box available. If direct access is unavailable, SLA response and resolution times may be temporarily paused until access is restored.
+- (For CluedIn [PaaS customers](/get-cluedin#onboarding-path-for-cluedin-paas)) To maintain full SLA coverage, CluedIn operations team must have direct access to your cluster environment. This means our engineers can securely connect to the cluster without waiting for approvals or have a jump box available. If direct access is unavailable, SLA response and resolution times may be temporarily paused until access is restored.
