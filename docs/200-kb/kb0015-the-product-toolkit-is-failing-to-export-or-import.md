@@ -1,13 +1,15 @@
 ---
 layout: cluedin
-title: The Product Toolkit is failing to export or import
+title: Product Toolkit failing to export or import
 parent: Knowledge base
 permalink: /kb/product-toolkit-issues
 tags: ["Environment", "Deployment"]
 nav_order: 16
 ---
-
-# Troubleshooting: The Product Toolkit Is Failing to Export or Import
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 The CluedIn Product Toolkit allows you to export and import configurations such as entities, schemas, and rules between environments. This is essential for promoting changes from development to staging and production.  
 

@@ -1,13 +1,15 @@
 ---
 layout: cluedin
-title: Rules are running slowly
+title: Rules running slowly
 parent: Knowledge base
 permalink: /kb/rules-slow
 tags: ["Rules", "Performance"]
 nav_order: 14
 ---
-
-# Why Are My Rules Processing Slowly in CluedIn?
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 Rules in CluedIn are a powerful way to clean, standardize, and enrich your data as it flows through the platform. They allow you to automate transformations and enforce business logic at scale. However, in some cases, you may notice that your Rules take longer than expected to process.  
 

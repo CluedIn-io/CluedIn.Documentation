@@ -1,13 +1,16 @@
 ---
 layout: cluedin
-title: Why can I not delete certain things in CluedIn
+title: Why can I not delete certain objects in CluedIn
 parent: Knowledge base
 permalink: /kb/unable-to-delete
 tags: ["Delete", "Known Issue"]
 nav_order: 17
 ---
 
-# Known Limitations: Objects That Cannot Currently Be Deleted in CluedIn
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 CluedIn provides extensive capabilities for creating, managing, and governing master data assets. However, there are certain object types that **cannot currently be deleted once created**. These are known product limitations and are on the roadmap for improvement.
 

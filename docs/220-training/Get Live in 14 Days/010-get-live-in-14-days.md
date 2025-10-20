@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Go live in 14 days with CluedIn — Step‑by‑step playbook
+title: Go live in 14 days with CluedIn — step‑by‑step playbook
 parent: Knowledge base
 permalink: /kb/14-days-live
 nav_order: 2
