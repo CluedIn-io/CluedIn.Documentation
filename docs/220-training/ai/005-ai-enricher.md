@@ -22,4 +22,4 @@ In this CluedIn AI enricher training, you’ll learn how to automatically enhanc
 
 | Session | Objective | Watch time |
 | :------ | :------ | :------ |
-| _(Coming soon)_ 2.2.1. Demo – Use AI enricher to fill gaps in data | - Use AI enricher to fill missing product details. | _Coming soon_ |
+| [2.2.1. Demo – Use AI enricher to fill gaps in data](/training/ai/ai-enricher/demo) | - Use AI enricher to fill missing hotel details. | 8 mins |
