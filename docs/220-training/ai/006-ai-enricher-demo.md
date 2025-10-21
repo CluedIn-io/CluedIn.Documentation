@@ -16,7 +16,7 @@ In this session, we'll explore how to set up an AI enricher to analyze a sample 
 **Presented by:** Jocelyn Ramirez, your Customer Success Manager, and Matthew Carter, your CluedIn AI Trainer
 
 <div class="videoFrame">
-<iframe src="https://player.vimeo.com/video/1125166723?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="CluedIn AI training: Using AI agents to fix data quality issues"></iframe></div>
+<iframe src="https://player.vimeo.com/video/1129100402?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="CluedIn AI training: AI enricher demo"></iframe></div>
 
 **Presentation:** <a href="../../../assets/other/training-ppt/cluedin-ai-training-ai-enricher-demo.pptx" download>Download PPT</a>
 
