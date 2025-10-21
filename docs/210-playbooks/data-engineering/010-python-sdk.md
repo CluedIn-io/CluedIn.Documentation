@@ -55,25 +55,27 @@ pip install cluedin
 
 ### Cloud environments and notebooks
 
-To install CluedIn Python SDK in a notebook, use `%pip` instead of `pip` and run the following command in your notebook's cell:
+1. To install CluedIn Python SDK in a notebook, use `%pip` instead of `pip` and run the following command in your notebook's cell:
 
-```shell
-%pip install cluedin
-```
+    ```shell
+    %pip install cluedin
+    ```
 
-Alternatively, when you use notebooks in tools like Microsoft Fabric, Databricks, etc., there is usually a way to configure the notebook's environment. For example, here's how to install a module in Microsoft Fabric: [https://learn.microsoft.com/en-us/fabric/data-engineering/create-and-use-environment](https://learn.microsoft.com/en-us/fabric/data-engineering/create-and-use-environment).
+    Alternatively, when you use notebooks in tools like Microsoft Fabric, Databricks, etc., there is usually a way to configure the notebook's environment. For example, here's how to install a module in Microsoft Fabric: [https://learn.microsoft.com/en-us/fabric/data-engineering/create-and-use-environment](https://learn.microsoft.com/en-us/fabric/data-engineering/create-and-use-environment).
 
-In all cases, after you install the `cluedin` package, you can import it in your Python code:
+1. In all cases, after you install the `cluedin` package, you can import it in your Python code:
 
-```python
-import cluedin
-```
+    ```python
+    import cluedin
+    ```
 
 ## Authentication
 
-To connect to your CluedIn instance via API or CluedIn Python SDK, you need two things:
-URL of your CluedIn instance
-API (access) token - a JWT token that gives you access to API
+To connect to your CluedIn instance via API or CluedIn Python SDK, you need the following:
+
+- URL of your CluedIn instance.
+
+- API (access) token – a JWT token that gives you access to API.
 
 CluedIn Python SDK uses the `Context` object to keep the information it needs to connect to CluedIn API.
 
