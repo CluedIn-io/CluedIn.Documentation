@@ -1,0 +1,51 @@
+Hotel ID,Hotel Name,Address,Country,Amenities,DescriptionEN,DescriptionFR
+HOTEL0001,Grand Vista Hotel,"243 Main Street, Lyon",n/a,"outdoor pool, yoga studio, restaurant, balcony rooms, room service, airport shuttle, coworking space, free Wi-Fi, complimentary breakfast",n/a,n/a
+HOTEL0002,HarborPoint Resort,"130 Maple Lane, Vancouver",n/a,"heated pool, fitness center, wine lounge, balcony rooms, laundry service, concierge, conference center, free Wi-Fi, pet-friendly",n/a,n/a
+HOTEL0003,Le Jardin Boutique Hotel,"18 Broadway, Paris",n/a,"indoor pool, yoga studio, café, spa, airport shuttle, room service, conference center, complimentary breakfast, on-site parking",n/a,n/a
+HOTEL0004,NorthStar Heritage Inn,"101 Maple Lane, Ottawa",n/a,"indoor pool, fitness center, café, balcony rooms, laundry service, room service, coworking space, pet-friendly, complimentary breakfast",n/a,n/a
+HOTEL0005,Aurora Bay Lodge,"85 Harbor Lane, Madrid",n/a,"outdoor pool, gym, rooftop bar, garden terrace, concierge, airport shuttle, meeting rooms, complimentary breakfast, on-site parking",n/a,n/a
+HOTEL0006,SilverPeak Retreat,"153 Hillcrest Drive, Milan",n/a,"heated pool, sauna, café, spa, airport shuttle, laundry service, meeting rooms, on-site parking, complimentary breakfast",n/a,n/a
+HOTEL0007,The Maplewood Hotel,"272 Queen’s Road, London",n/a,"outdoor pool, sauna, café, balcony rooms, concierge, room service, conference center, on-site parking, free Wi-Fi",n/a,n/a
+HOTEL0008,Château Lumière,"30 Main Street, New York",n/a,"indoor pool, gym, wine lounge, garden terrace, laundry service, room service, conference center, complimentary breakfast, on-site parking",n/a,n/a
+HOTEL0009,OceanGate Resort,"114 Market Street, Berlin",n/a,"infinity pool, gym, café, garden terrace, concierge, laundry service, business lounge, complimentary breakfast, on-site parking",n/a,n/a
+HOTEL0010,Riverbend Lodge,"152 Hillcrest Drive, Nice",n/a,"indoor pool, sauna, restaurant, spa, laundry service, concierge, conference center, complimentary breakfast, free Wi-Fi",n/a,n/a
+HOTEL0011,Artisphere Hotel,"299 Oak Avenue, Barcelona",n/a,"heated pool, sauna, rooftop bar, balcony rooms, concierge, laundry service, meeting rooms, complimentary breakfast, on-site parking",n/a,n/a
+HOTEL0012,Nova Vista Inn,"152 Park Avenue, Toronto",n/a,"outdoor pool, fitness center, café, balcony rooms, concierge, room service, coworking space, pet-friendly, free Wi-Fi",n/a,n/a
+HOTEL0013,Golden Trail Resort,"129 Oak Avenue, Rome",n/a,"outdoor pool, sauna, café, garden terrace, airport shuttle, laundry service, conference center, on-site parking, pet-friendly",n/a,n/a
+HOTEL0014,Horizon Bay Lodge,"288 Queen’s Road, Manchester",n/a,"indoor pool, gym, café, garden terrace, laundry service, airport shuttle, conference center, on-site parking, complimentary breakfast",n/a,n/a
+HOTEL0015,Starlight Suites,"212 Valley Road, Miami",n/a,"heated pool, gym, restaurant, garden terrace, laundry service, airport shuttle, meeting rooms, on-site parking, free Wi-Fi",n/a,n/a
+HOTEL0016,BlueHaven Hotel,"294 Willow Way, Munich",n/a,"indoor pool, gym, wine lounge, garden terrace, airport shuttle, laundry service, meeting rooms, free Wi-Fi, complimentary breakfast",n/a,n/a
+HOTEL0017,Cedar Grove Inn,"35 Valley Road, Valencia",n/a,"heated pool, fitness center, rooftop bar, jacuzzi, room service, laundry service, conference center, complimentary breakfast, free Wi-Fi",n/a,n/a
+HOTEL0018,Velaria Grand Hotel,"43 Oak Avenue, Naples",n/a,"heated pool, gym, rooftop bar, garden terrace, airport shuttle, laundry service, meeting rooms, pet-friendly, on-site parking",n/a,n/a
+HOTEL0019,Cascade View Lodge,"71 Elm Street, Bristol",n/a,"heated pool, sauna, restaurant, garden terrace, laundry service, room service, meeting rooms, pet-friendly, on-site parking",n/a,n/a
+HOTEL0020,BelleRive Hotel,"91 Hillcrest Drive, Los Angeles",n/a,"indoor pool, fitness center, rooftop bar, jacuzzi, airport shuttle, concierge, coworking space, pet-friendly, free Wi-Fi",n/a,n/a
+HOTEL0021,Emerald Shore Resort,"153 Hillcrest Drive, Hamburg",n/a,"heated pool, fitness center, rooftop bar, garden terrace, room service, laundry service, business lounge, pet-friendly, on-site parking",n/a,n/a
+HOTEL0022,Urban Hive Hotel,"259 Main Street, Seville",n/a,"outdoor pool, yoga studio, café, balcony rooms, laundry service, room service, conference center, on-site parking, complimentary breakfast",n/a,n/a
+HOTEL0023,Alpine Crest Lodge,"153 Queen’s Road, Florence",n/a,"outdoor pool, fitness center, restaurant, balcony rooms, airport shuttle, laundry service, meeting rooms, complimentary breakfast, pet-friendly",n/a,n/a
+HOTEL0024,Royal Meridian,"231 Elm Street, Birmingham",n/a,"heated pool, sauna, rooftop bar, spa, airport shuttle, concierge, meeting rooms, complimentary breakfast, free Wi-Fi",n/a,n/a
+HOTEL0025,Solstice Bay Hotel,"194 Main Street, San Francisco",n/a,"infinity pool, fitness center, rooftop bar, spa, concierge, airport shuttle, conference center, free Wi-Fi, complimentary breakfast",n/a,n/a
+HOTEL0026,The Copperleaf,"122 Pine Road, Cologne",n/a,"heated pool, gym, wine lounge, spa, room service, concierge, conference center, complimentary breakfast, free Wi-Fi",n/a,n/a
+HOTEL0027,Crystal View Inn,"114 Station Avenue, Granada",n/a,"heated pool, sauna, wine lounge, jacuzzi, room service, laundry service, meeting rooms, on-site parking, free Wi-Fi",n/a,n/a
+HOTEL0028,Eclipse Grand Hotel,"143 Pine Road, Turin",n/a,"indoor pool, gym, rooftop bar, garden terrace, laundry service, room service, business lounge, pet-friendly, complimentary breakfast",n/a,n/a
+HOTEL0029,Amberlight Resort,"149 Queen’s Road, Liverpool",n/a,"indoor pool, yoga studio, wine lounge, jacuzzi, airport shuttle, room service, coworking space, free Wi-Fi, pet-friendly",n/a,n/a
+HOTEL0030,Harborstone Suites,"191 Willow Way, Chicago",n/a,"infinity pool, fitness center, rooftop bar, garden terrace, airport shuttle, concierge, coworking space, free Wi-Fi, pet-friendly",n/a,n/a
+HOTEL0031,Mountain Crest Lodge,"13 Oak Avenue, Stuttgart",n/a,"infinity pool, fitness center, wine lounge, garden terrace, concierge, airport shuttle, coworking space, free Wi-Fi, complimentary breakfast",n/a,n/a
+HOTEL0032,Sapphire Bay Inn,"104 Queen’s Road, Bilbao",n/a,"outdoor pool, fitness center, café, jacuzzi, laundry service, airport shuttle, coworking space, pet-friendly, on-site parking",n/a,n/a
+HOTEL0033,The Ironwood Hotel,"131 Broadway, Venice",n/a,"outdoor pool, fitness center, café, garden terrace, concierge, room service, meeting rooms, complimentary breakfast, free Wi-Fi",n/a,n/a
+HOTEL0034,Cielo Verde Resort,"43 Cedar Street, Leeds",n/a,"indoor pool, gym, wine lounge, jacuzzi, concierge, room service, conference center, pet-friendly, on-site parking",n/a,n/a
+HOTEL0035,Amberline Lodge,"169 Broadway, Boston",n/a,"heated pool, sauna, restaurant, garden terrace, room service, laundry service, business lounge, free Wi-Fi, pet-friendly",n/a,n/a
+HOTEL0036,The Sandstone Retreat,"137 Hillcrest Drive, Frankfurt",n/a,"infinity pool, fitness center, wine lounge, garden terrace, airport shuttle, room service, conference center, pet-friendly, free Wi-Fi",n/a,n/a
+HOTEL0037,Oakridge Manor,"253 Broadway, Alicante",n/a,"indoor pool, gym, restaurant, spa, room service, airport shuttle, conference center, on-site parking, free Wi-Fi",n/a,n/a
+HOTEL0038,Marina Crest Hotel,"22 Highland Road, Verona",n/a,"indoor pool, sauna, café, balcony rooms, concierge, laundry service, conference center, pet-friendly, on-site parking",n/a,n/a
+HOTEL0039,The Foxglove Inn,"218 Maple Lane, Glasgow",n/a,"outdoor pool, fitness center, café, jacuzzi, concierge, laundry service, coworking space, free Wi-Fi, on-site parking",n/a,n/a
+HOTEL0040,Seaside Horizon Resort,"213 Ocean View, Washington",n/a,"indoor pool, fitness center, restaurant, garden terrace, laundry service, room service, coworking space, pet-friendly, on-site parking",n/a,n/a
+HOTEL0041,Highland View Lodge,"216 Oak Avenue, Dresden",n/a,"infinity pool, fitness center, restaurant, balcony rooms, laundry service, room service, business lounge, pet-friendly, complimentary breakfast",n/a,n/a
+HOTEL0042,Rosemont Grand,"80 Cedar Street, Malaga",n/a,"indoor pool, fitness center, café, balcony rooms, concierge, laundry service, meeting rooms, on-site parking, free Wi-Fi",n/a,n/a
+HOTEL0043,Urban Sanctuary Hotel,"51 King Street, Pisa",n/a,"infinity pool, yoga studio, rooftop bar, jacuzzi, concierge, laundry service, business lounge, complimentary breakfast, on-site parking",n/a,n/a
+HOTEL0044,The Pearlview Resort,"83 Park Avenue, Cambridge",n/a,"infinity pool, yoga studio, restaurant, garden terrace, airport shuttle, concierge, meeting rooms, on-site parking, pet-friendly",n/a,n/a
+HOTEL0045,Coastal Edge Inn,"238 Hillcrest Drive, Dallas",n/a,"outdoor pool, sauna, wine lounge, garden terrace, laundry service, concierge, coworking space, free Wi-Fi, complimentary breakfast",n/a,n/a
+HOTEL0046,Grand Luma Hotel,"85 Maple Lane, Hanover",n/a,"outdoor pool, yoga studio, wine lounge, balcony rooms, laundry service, concierge, coworking space, on-site parking, complimentary breakfast",n/a,n/a
+HOTEL0047,The Verdant Retreat,"111 Maple Lane, Salamanca",n/a,"infinity pool, yoga studio, café, balcony rooms, laundry service, airport shuttle, meeting rooms, free Wi-Fi, complimentary breakfast",n/a,n/a
+HOTEL0048,Azure Sky Suites,"148 Maple Lane, Genoa",n/a,"heated pool, gym, wine lounge, garden terrace, concierge, airport shuttle, business lounge, pet-friendly, complimentary breakfast",n/a,n/a
+HOTEL0049,Valentina Resort,"210 Pine Road, Oxford",n/a,"heated pool, fitness center, rooftop bar, garden terrace, airport shuttle, laundry service, meeting rooms, free Wi-Fi, complimentary breakfast",n/a,n/a
+HOTEL0050,Terra Solis Lodge,"201 Union Road, Atlanta",n/a,"indoor pool, sauna, café, balcony rooms, laundry service, room service, conference center, pet-friendly, free Wi-Fi",n/a,n/a
