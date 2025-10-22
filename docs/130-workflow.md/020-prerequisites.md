@@ -102,7 +102,7 @@ To make the workflows available in CluedIn, you need to fulfill several prerequi
 
     As a result, the **Workflows** module appears on the navigation pane.
 
-1. Go to **Administration** > **Azure Integration** > **Settings**. Scroll down to the **Workflows** section and complete the following fields:
+1. Go to **Administration** > **Azure Integration** > **Workflow**. Then, complete the following fields:
 
     - **Client Username** – an email of a Microsoft Entra ID user for handling workflows. You can find this value in the **User principal name** field of a Microsoft Entra ID user.
 

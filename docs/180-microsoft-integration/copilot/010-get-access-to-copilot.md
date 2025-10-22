@@ -28,7 +28,7 @@ To make the AI assistant available in CluedIn, you need to fulfill several prere
 
     ![copilot-1.png]({{ "/assets/images/key-terms-and-features/copilot-1.png" | relative_url }})
 
-1. In CluedIn, go to **Administration** > **Azure Integration** > **Settings**. Scroll down to the **Copilot** section and complete the following fields:
+1. In CluedIn, go to **Administration** > **Azure Integration** > **Copilot**. Then, complete the following fields:
 
     - **Base Url** – you can find this value in your Azure OpenAI resource. In Azure portal, go to **Resource Management** > **Keys and Endpoint**, and then get the value from the **Endpoint** field. Alternatively, you can find this value in Azure OpenAI Studio by going to **Playground** > **View code**.
 

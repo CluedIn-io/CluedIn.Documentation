@@ -18,7 +18,7 @@ This feature allows you to automate the creation of workflow that will send the 
 
 **To automate the workflow creation**
 
-1. In CluedIn, on the navigation pane, go to **Administration** > **Azure Integration** > **Settings**, and then find the **PowerApps** section.
+1. In CluedIn, on the navigation pane, go to **Administration** > **Azure Integration** > **Power Apps**.
 
 1. In **Create workflow to Ingest Data to CluedIn**, turn on the toggle.
 

@@ -94,7 +94,7 @@ Follow these steps to prepare Azure Data Factory (ADF) and Microsoft Purview, an
 
 1. Prepare Purview. Follow the steps outlined in [Create and apply Purview glossary term](#create-and-apply-purview-glossary-term) to create and apply the term. There are no ADF‑specific differences for this step.
 
-1. Configure CluedIn (ADF settings). In CluedIn, go to **Administration** > **Azure Integration** > **Settings** > **Purview**. Then, do the following:
+1. Configure CluedIn (ADF settings). In CluedIn, go to **Administration** > **Azure Integration** > **Purview**. Then, do the following:
 
     - In **Azure Data Factory Base Url**, enter the resource ID URL of your ADF. For example, `/subscriptions/.../resourceGroups/.../providers/Microsoft.DataFactory/factories/<name>`.
 
@@ -151,7 +151,7 @@ CluedIn now supports pipeline automation through Fabric Data Factory (FDF). Use 
 
 1. Prepare Purview. Follow the steps outlined in [Create and apply Purview glossary term](#create-and-apply-purview-glossary-term) to create and apply the term. There are no Fabric‑specific differences for this step.
 
-1. Configure CluedIn (Fabric settings). In CluedIn, go to **Administration** > **Azure Integration** > **Settings** > **Purview** (or Fabric section). Then, do the following:
+1. Configure CluedIn (Fabric settings). In CluedIn, go to **Administration** > **Azure Integration** > **Purview** (or Fabric section). Then, do the following:
 
     - In **Fabric Data Factory Base Url**, enter `https://api.fabric.microsoft.com/<workspaceId>` (replace `<workspaceId>` with your Fabric workspace ID).
 
@@ -236,7 +236,7 @@ Use a single service principal (app registration) for automation, or separate on
 
     - External sources (such as ADLS): Grant the same storage roles as above when reading from or landing to ADLS.
 
-1. In CluedIn, go to **Administration** > **Azure Integration** > **Settings** > **Purview**. Then, do the following:
+1. In CluedIn, go to **Administration** > **Azure Integration** > **Purview**. Then, do the following:
 
     - Enter the data factory **Tenant ID**, **Client ID**, and **Client Secret** for the service principal.
 

@@ -20,7 +20,7 @@ Microsoft Purview integration is enabled on the **Settings** page in CluedIn. Wh
 
 **To connect CluedIn to Microsoft Purview**
 
-1. In CluedIn, go to **Administration** > **Azure Integration** > **Settings**, and then scroll down to find the **Purview** section.
+1. In CluedIn, go to **Administration** > **Azure Integration** > **Purview**.
 
 1. Enter Microsoft Purview credentials:
 
@@ -94,7 +94,7 @@ Azure Data Factory integration is enabled on the **Settings** page in CluedIn. W
 
 **To connect CluedIn to Azure Data Factory**
 
-1. In CluedIn, go to **Administration** > **Azure Integration** > **Settings**, and then scroll down to find the **Purview** section.
+1. In CluedIn, go to **Administration** > **Azure Integration** > **Purview**.
 
 1. Enter [Microsoft Azure Data Factory Credentials](https://learn.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory):
 
