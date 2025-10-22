@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Review logs in Log Analytics workspace
+title: Azure SQL migration
 parent: PaaS operations
 permalink: /paas-operations/azure-sql-migration
 tags: ["configuration", "migration"]
