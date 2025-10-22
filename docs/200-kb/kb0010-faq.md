@@ -13,97 +13,158 @@ nav_order: 15
 
 ## What happens if I change the default configuration installed using the Azure Marketplace offering?
 
-Any modifications made to the default configuration, except those explicitly documented as post-install adjustments on the Documentation portal, will result in the termination of support. This includes Premium Support, Azure Managed Application, and any other customer support service. The reason for this is the high probability that the cluster may not operate correctly. Changes outside the documented scope are considered out of support, and CluedIn will not provide assistance or troubleshooting for configurations that deviate from the originally installed setup.
+Any modifications made to the default configuration, except those explicitly documented as post-install adjustments on the documentation portal, will result in the termination of support. This includes:
 
-Here is a list of allowed changes:
+- Premium Support.
+- Azure Managed Application.
+- And any other customer support service.
 
-- Adjusting requests and limits on CluedIn operating pods for both CPU and Memory
-- Setting up and receiving assistance with the CluedIn Backup Solution
-- Configuring Single Sign-On
-- Setting up SMTP details for Welcome Emails
-- Configuring Extended alerts via CluedIn (Note: CluedIn-specific alerts only, not customer-specific alerts)
-- Troubleshooting ad-hoc cluster failures, if determined not to be caused by the customer
-- Upgrading environments
-- Installing the product using our default configuration
-- Usage of Azure Key Vault to provide secrets to the cluster
-- General AKS maintenance on the default configuration
+The reason for this is the high probability that the cluster may not operate correctly. Changes outside the documented scope are considered out of support, and CluedIn will not provide assistance or troubleshooting for configurations that deviate from the originally installed setup.
 
-Any deviation from this list will be considered out of support, and assistance for the issue is not guaranteed and may incur charges.
+Allowed changes include the following:
+
+- Adjusting requests and limits on CluedIn operating pods (CPU and memory).
+- Setting up and receiving assistance with the CluedIn backup solution.
+- Configuring single sign-on (SSO).
+- Setting up SMTP details for welcome emails.
+- Configuring extended alerts via CluedIn (CluedIn-specific alerts only, not customer-specific).
+- Troubleshooting ad-hoc cluster failures, if determined not to be caused by the customer.
+- Upgrading environments.
+- Installing the product using the default configuration.
+- Using Azure Key Vault to provide secrets to the cluster.
+- Performing general AKS maintenance on the default configuration.
+
+Any deviation from this list will be considered out of support. Assistance for such issues is not guaranteed and may incur additional charges.
 
 ## What is different between CluedIn and other data integration platforms?
 
-Whether you are using SAP Data Services, Azure Data Factory, SSIS, Talend, Python, SAS Institute, Informatica PowerCenter, or other ETL-based tools, they all hold something in common - they require you as the engineer, architecture or business user to map different systems together. However, at CluedIn, we have found that the process of finding out what IDs need to be connected between systems as to unify or connect the records is actually the hardest part of the entire process - in fact, it gets to a point where it is just impossible to do.
+Whether you use SAP Data Services, Azure Data Factory, SSIS, Talend, Python, SAS Institute, Informatica PowerCenter, or other ETL-based tools, they all hold something in common: you, as the engineer, architect, or business user, must map different systems together.
 
-CluedIn uses a schema-less based integration pattern that doesn't require a developer, architect, or business user to instruct our platform on how different systems connect - instead, we ask for a much simpler and streamlined mapping, and CluedIn will do all the work to find the relationships between the systems. As a result, we will often find connections that you could never see yourself. 
+At CluedIn, we have found that identifying which IDs need to be connected between systems to unify or connect records is often the hardest part, and sometimes impossible.
 
-## What happens with the data ingested that is terrible quality, has non-allowed values, or is noise or mess?
+CluedIn uses a schema-less based integration pattern that doesn't require you to define how systems connect. Instead, you provide a much simpler and streamlined mapping, and CluedIn automatically detects relationships between the systems, often uncovering connections that you would not see yourself. 
 
-CluedIn is an ELT type of integration platform where we want to take the data in as it is. No transforms. No cleaning. Nothing. That is our job! Insufficient quality data will happen all the time, and hence this is one of the big reasons enterprise companies take so long to get access to ready-to-use data. There are so many places in CluedIn that will catch and distribute the work involved in fixing and addressing the data quality issues that stream through the CluedIn processing engine. Firstly, it starts with CluedIn having many prebuilt processing steps to automatically clean and normalize data into the highest-fidelity format.  Secondly, you can build up lists of "black-listed" values and either remove them or automatically transform them into another value on processing. Finally, you can set up rules that dictate good versus wrong values. It means that data keeps flowing for data that meet the standards - CluedIn will put everything else into a quarantine section for you to resolve so that less and fewer data has issues. 
+## What happens with low-quality, invalid, or messy ingested data?
 
-## What do you do about sensitive and personal data?
+CluedIn is an extract-load-transform (ELT) type of integration platform. We ingest data as-is, without cleaning or transformation. 
 
-CluedIn will natively detect personal data and will start by simply letting you know where it is. Then, depending on your requirements, we allow simple actions to either mask, anonymize or remove the data. As for sensitive data, this is often open to interpretation. What is sensitive for you might not be for another business, and hence CluedIn allows you to flag records as sensitive. This will build up a data model specifically for your account that will be trained to look for records with similar traits and flag them automatically over time. 
+CluedIn detects and addresses data quality issues through its processing engine:
 
-## If CluedIn has four different databases, all storing my raw data - isn't that going to be a lot of storage?
+1. Automated cleaning and normalization into the highest-fidelity format.
+1. Support for “blacklisted values”, with the ability to remove or transform invalid data during processing.
+1. Rules to define what qualifies as valid or invalid data.
 
-The first thing to answer here is that you have complete control over what data you ingest into CluedIn. There are many cases where you will not want to bring in all the data. For the data that we do ingest, it is also worth mentioning that for certain types of data, we are not taking a full copy of the data but rather extracting what we need e.g., files only extract content and metadata. CluedIn also compresses all the data stored in the databases, meaning that the storage size is often much smaller than the source data itself. To put this in perspective, we have customers that have processed 100's of TB's of raw data, but in CluedIn, the databases will collectively be approximately 2 to 3 TB's. 
+Data that meets standards continues through processing; data that fails is quarantined for review and resolution.
 
-## Once the data is in CluedIn, how do I get it out?
+## How does CluedIn handle sensitive and personal data?
 
-CluedIn is designed to sit in-between source and target systems, and hence it is in our interest to make it extremely easy to get the data out of us. There are two main ways that we recommend this, but ask that in production, you don't use the CSV or File options - after all, this is typically the cause for siloed data in the first place! Firstly, our GraphQL API allows you to search through all the data in your CluedIn account and will return the results in JSON format. In addition, you can choose what properties you would like to select or project from the query to limit the data to only what you need. It is useful when you have other systems that want to "pull" data from CluedIn. Quite honestly, you won't find many systems that support making GraphQL queries or REST queries, and hence we offer another option that we think is more suitable. Secondly, we allow you to create data streams directly out of CluedIn (Push) to a target. This target could be a SQL database, an Apache Spark stream, direct to Power BI, or your Data Warehouse's dimension tables. 
+For personal data:
+1. CluedIn automatically detects personal data and alerts you to its presence.
+1. Depending on your requirements, you can then choose to mask, anonymize, or remove the data.
 
-## Considering that CluedIn uses OTS databases (off-the-shelf), can I access data directly from there?
+For sensitive data:
+- The definition of what is considered sensitive varies across organizations.
+- For this reason, CluedIn lets you manually flag records as sensitive, building a custom data model that learns and automatically flags similar data over time.
 
-We will not stop you from doing this, but we recommend that you only do this in a developer environment. If you want to talk directly to the databases, CluedIn has built you GraphQL interfaces to do this in a way that guarantees that you have remote access to only the data from your account. CluedIn ships with tools to administrate the different datastores, and hence we are influencing you to look in these datastores as a developer. The recommendation is to turn off native access to these datastores when you deploy into your production environment - in fact, by default, our Kubernetes setup has it disabled by default. 
+## Does storing raw data in four databases require a lot of storage?
 
-## When CluedIn says it has prebuilt integrations, what about when we have customized our system so much?
+Not necessarily. You control what data is ingested into CluedIn. For many data types, we extract only what is needed (for example, content and metadata from files), not full copies.
 
-The majority of integrations that CluedIn has been working with the assumption that you can change the underlying model of the source system. Hence, most of our integration will still require you to map the source objects into CluedIn to get the best out of your data. The integrations handle all the connection, delivery, and scheduling, paging, and sourcing of data. You, as a Data Architect, will need to map this into the Clue object. Fortunately, our data integration pattern makes this a simple task, and unlike other data integration platforms, we don't need you to tell us how everything wires together - that's our job!
+All stored data is compressed, so total storage is often much smaller than the source. For example, customers processing hundreds of terabytes of source data typically use 2–3 TB of storage in CluedIn.
 
-## If CluedIn is connecting the data for us, won't that end up in a data model that is a mess?
+## How can I extract data from CluedIn?
 
-Yes! Because guess what? Your data landscape is typically a mess! The goal of CluedIn is not to form the perfect model of your data for a particular use case - it is to find how the data is naturally connected and then allow you to project your ideal model for ANY use case you can think of. You will find that the model that we build (we use the Graph for this part) will match the model that your data finds to find links between your different systems. Then, using the same model, we give intuitive and simple-to-use tools to mutate this natural model to a more rigid model for the use cases you want in that particular model. The good news is that the Graph was designed for running these types of projects. They are as fast as an index lookup. It means that projecting a "dirty" model into a clean one is something that scales and performs really well.
+CluedIn is designed to sit between source and target systems, making data extraction simple and reliable.
 
-## The Admin screen of CluedIn is great, but I want to automate things! How do I do this?
+Two main options are recommended:
 
-The good news is that the native CluedIn administration screen is built on top of the same REST API that you have direct access to as well. This means that you can do everything in the REST API that you can do in the user interface (and more!). It also means that you can script anything in CluedIn via our REST API, PowerShell, or other scripting languages. 
+1. GraphQL API – Query all data in your CluedIn account, selecting specific properties as needed. Results are returned in JSON format.
+1. Data Streams – Send (push) data directly to a target system (SQL database, Apache Spark, Power BI, or Data Warehouse).
 
-## I have made a change in CluedIn that requires me to re-process all the data. What do I do?
+{:.important}
+Avoid using CSV or file exports in production as they can reintroduce data silos.
 
-It will happen many times with your CluedIn account! It is highly typical and expected. CluedIn has been designed with the idea in mind that we will re-process the data all the time. Once you have made your change, you have quite a lot of control over the level of re-processing. You can re-process at a source level, globally, record level, or even something a little more custom, e.g., business domain level.
+## Considering that CluedIn uses off-the-shelf (OTS) databases, can I access data directly from there?
+
+While technically possible, direct database access is recommended only in developer environments.
+
+In production, CluedIn provides GraphQL interfaces to safely query your data without exposing the underlying stores.
+
+Native database access is disabled by default in Kubernetes deployments for security reasons.
+
+## What if my systems are highly customized—can CluedIn still integrate them?
+
+Yes. CluedIn integrations assume that the source model can be customized. You will still need to map your source objects into CluedIn to achieve optimal results.
+
+The integrations handle the connection, scheduling, paging, and data delivery—you simply define the logical mapping to the Clue object. Unlike other platforms, CluedIn does not require you to define every connection. This is handled automatically instead.
+
+## If CluedIn connects my data, won't the data model be messy?
+
+At first, yes—because your data landscape is typically messy. CluedIn’s goal is to reveal the natural connections in your data, not impose an artificial structure.
+
+Once those relationships are discovered, you can project clean, business-specific models for different use cases. The underlying graph engine ensures fast, scalable projections.
+
+## Can I automate CluedIn administration?
+
+Yes. The CluedIn administration UI is built entirely on top of our REST API. Anything you can do in the interface can also be scripted via:
+
+- REST API
+- PowerShell
+- Other scripting languages
+
+This enables full automation of administrative tasks.
+
+## What to do if I have made a change that requires me to re-process the data?
+
+Re-processing is common and expected. You can choose the scope of re-processing based on your needs:
+
+- Source level
+
+- Record level
+
+- Custom options like business domain level
+
+- Global re-processing
 
 ## Does CluedIn index everything?
 
-Yes. Yes, we do. You can, however, influence the CluedIn engine to store data in a more optimum way. When you are setting up your Vocabularies, you have the chance to set a Vocabulary Key Data Type. It will influence how indexes are built, and we would strongly recommend doing this. Even if you do not do this, all your content will be searchable, but you can always make things faster and more efficient if you set up your Vocabularies correctly.
+Yes. However, you can optimize indexing by specifying vocabulary key data types during setup. This improves search performance and efficiency while keeping all data searchable.
 
-## With four databases, how does CluedIn guarantee transactions?
+## How does CluedIn guarantee data consistency across multiple databases?
 
-CluedIn ingests data into an enterprise service bus. It helps us guarantee the delivery of data. CluedIn utilizes "Eventual Consistency" for the different data stores. It means that CluedIn takes all records off the bus into a transactional log. The various databases will then read off the transaction log as fast as they can. It guarantees transactional support on your data but "eventual consistency" in the different data stores. With this setup and the fact that the different datastores will consume off the log in batches, it lessens the likelihood that the database will have issues with having a 100% consistency across the datastores simultaneously.
+CluedIn uses an enterprise service bus (ESB) with an eventual consistency model. Data is ingested into a transactional log, which multiple databases read asynchronously.
 
-## Why is CluedIn written in C#? Isn't that slow?
+This guarantees transactional delivery of data and ensures stability even under heavy processing loads.
 
-For many reasons, the team behind CluedIn purposefully chose .net core and C# as the language for our processing engine. 
+## Why is CluedIn written in C#?
 
-1: Our core development team has decades of combined experience in building large, scalable, and performant .net applications. 
-2: The .NET environment has jumped leaps and bounds and has continued support for Microsoft and the community. The fact that it is open-source helped in the decision as well. 
-3: .NET is designed to write very large applications and scale in maintaining, separation of concern, and ease of deployment. 
-4: .net and C# is very much not slow. Compared to the majority of popular languages today, it is very fast. Some could argue that it is not as memory-efficient, but we think that the trade-offs to deliver solutions to you faster is well worth it. 
+CluedIn is built on .NET Core and C# for several reasons:
 
-## I am not a C# developer. Does that mean I can't extend CluedIn?
+- Proven scalability and performance in large systems.
 
-The interfaces to communicate with CluedIn are actually HTTP, i.e. REST. Our C# layer essentially wraps this and talks REST. It means that you can actually use any language that you want to talk to CluedIn, however, there are some restrictions or limitations if you do this:
+- Strong ecosystem support from Microsoft and the open-source community.
 
- - You cannot inject custom logic into the same application domain as CluedIn.
- - You will have to host your custom code in another host that is not CluedIn. 
- - You cannot currently use the crawler templates that are available only in C#. 
+- Maintainable architecture with clear separation of concerns.
 
- Let's go with some examples for you. What if you are a Python, R, SQL, or GO developer? Let's say you want to build a custom integration that can be added through the user interface, but the code itself is written in Python. 
+- High speed compared to most modern languages.
+
+While C# may be slightly less memory-efficient, the trade-off enables faster, more stable delivery.
+
+## I am not a C# developer. Can I still extend CluedIn?
+
+Yes. CluedIn communicates via HTTP (REST), so you can use any language that supports REST APIs (Python, R, Go, and so on).
+
+However:
+
+- You cannot inject custom logic into the same application domain as CluedIn.
+- You must host your custom code separately. 
+- Crawler templates are available only in C#. 
 
 ## What type of data is CluedIn not suited for?
 
-There are many use-cases where CluedIn could be considered overkill or not fit for purpose. There are many use-cases that do not need all of the data preparation and cleaning pieces of CluedIn. It could very much be argued that IoT data doesn't suffer from the same problems or require the same data preparation than other data such as operation business data. Hence here is a list of use-cases or data that we don't think is necessarily suitable for CluedIn:
+CluedIn may not be ideal for:
 
-1: Processing Signal/IoT data that doesn't have data quality issues or doesn't need cataloging, governance - but instead needs to be made available in a Dashboard as fast as humanly possible. 
-2: If you have a limited number of systems to integrate and there are no problems determining how the records are connected between the different systems. A good example would be if you just wanted to integrate your Dropbox account with your CRM. 
-3: Where you do not want to move data. CluedIn copies data from sources to target. It won't necessarily take all the data, but it is an ingestion engine. You have to be very careful with this use case as many problems cannot be properly solved without copying the data.
+- Internet of things (IoT) or signal data that needs near-real-time dashboards without governance or cataloging.
+- Simple integrations (for example, connecting Dropbox to a CRM) with clear record relationships.
+- Use cases that prohibit data movement, because CluedIn works by copying and processing ingested data.
 
