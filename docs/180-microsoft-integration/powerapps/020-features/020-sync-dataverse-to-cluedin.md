@@ -26,7 +26,7 @@ You'll need to provide the logical name of the Dataverse table. There are the fo
 
 **To sync Dataverse table and columns into CluedIn business domains and vocabulary**
 
-1. On the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
+1. On the navigation pane, go to **Administration** > **Azure Integration** > **Settings**, and then find the **PowerApps** section.
 
 1. In **Sync Dataverse Table/Columns to CluedIn Business Domains and Vocabulary**, turn on the toggle, and then enter the Dataverse table name. The value should be the **logical name** of the table. If you want to sync multiple tables, separate them with a comma (for example, _logical_name1_,logical_name2,logical_name3_).
 

@@ -24,7 +24,7 @@ Make sure that you have completed all of the actions described in [Power Automa
 
     As a result, the **Workflows** module appears on the navigation pane.
 
-1. Go to **Administration** > **Settings**. Scroll down to the **Workflows** section and complete the following fields:
+1. Go to **Administration** > **Azure Integration** > **Settings**. Scroll down to the **Workflows** section and complete the following fields:
 
     - **Client Username** – an email of a Microsoft Entra ID user for handling workflows. This is the user that you created during the pre-configuration stage in [Create a user account](/microsoft-integration/power-automate/pre-configuration-guide#create-a-user-account). You can find the needed value in the **User principal name** field.
 

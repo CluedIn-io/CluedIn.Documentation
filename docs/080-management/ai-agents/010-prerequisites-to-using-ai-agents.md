@@ -134,7 +134,7 @@ Organization-wide settings apply to all AI agents and AI agent jobs that exist w
 
 **To configure organization-wide settings for AI agents**
 
-1. On the navigation pane, go to **Administration** > **Settings**.
+1. On the navigation pane, go to **Administration** > **Azure Integration** > **Settings**.
 
 1. Scroll down the page until you reach the **AI Agents** section.
 

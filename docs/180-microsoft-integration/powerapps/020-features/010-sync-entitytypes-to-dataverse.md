@@ -14,7 +14,7 @@ This feature allows you to sync CluedIn business domains, vocabularies, and voca
 
 **To sync CluedIn business domains with Dataverse table**
 
-1. On the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
+1. On the navigation pane, go to **Administration** > **Azure Integration** > **Settings**, and then find the **PowerApps** section.
 
 1. In **Sync CluedIn Business Domains to Dataverse Table**, turn on the toggle, and then enter the business domain that you want to sync. If you want to sync multiple business domains, separate them with a comma (for example, _/_Type1,/Type2,/Type3_).
 
