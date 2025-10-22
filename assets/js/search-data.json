@@ -13595,7 +13595,7 @@
   },"1942": {
     "doc": "Terms of service",
     "title": "On this page",
-    "content": ". | Standard CluedIn contract | SaaS . | Service level agreement (SLA) | . | PaaS . | Azure Managed Application Description &amp; SLA | Premium Support | . | . Welcome to CluedIn’s terms of service. These terms set out the legal framework for using our platform and related services. ",
+    "content": ". | Standard CluedIn contract | SaaS . | SaaS SLA | . | PaaS . | Azure Managed Application SLA | Premium Support SLA | . | . Welcome to CluedIn’s terms of service. These terms set out the legal framework for using our platform and related services, including the standard CluedIn contract and service-level agreements (SLAs). ",
     "url": "/terms-of-service#on-this-page",
     
     "relUrl": "/terms-of-service#on-this-page"
@@ -13609,14 +13609,14 @@
   },"1944": {
     "doc": "Terms of service",
     "title": "SaaS",
-    "content": "Service level agreement (SLA) . | (For CluedIn SaaS customers) CluedIn provides a dedicated service level agreement (SLA), which specifies our commitments to service availability, uptime, and support response times. Download the CluedIn SaaS SLA . | (For CluedIn PaaS customers) To maintain full SLA coverage, CluedIn operations team must have direct access to your cluster environment. This means our engineers can securely connect to the cluster without waiting for approvals or have a jump box available. If direct access is unavailable, SLA response and resolution times may be temporarily paused until access is restored. | . ",
+    "content": "SaaS SLA . For CluedIn SaaS customers, CluedIn provides a dedicated service level agreement (SLA), which specifies our commitments to service availability, uptime, and support response times. Download the CluedIn SaaS SLA . ",
     "url": "/terms-of-service#saas",
     
     "relUrl": "/terms-of-service#saas"
   },"1945": {
     "doc": "Terms of service",
     "title": "PaaS",
-    "content": "Azure Managed Application Description &amp; SLA . Please refer to Azure Managed Application Description &amp; SLA . Premium Support . Please refer to Premium SUpport Service Level Agreement . ",
+    "content": "For CluedIn PaaS customers, maintaining full SLA coverage requires that the CluedIn operations team has direct access to your cluster environment. This means our engineers can securely connect to the cluster without waiting for approvals, or have a jump box available. If direct access is unavailable, SLA response and resolution times may be temporarily paused until access is restored. Azure Managed Application SLA . For environments deployed via Azure Managed Applications, see Azure Managed Application Description &amp; SLA. Premium Support SLA . For customers with Premium Support agreements, see Premium Support Service Level Agreement. ",
     "url": "/terms-of-service#paas",
     
     "relUrl": "/terms-of-service#paas"
