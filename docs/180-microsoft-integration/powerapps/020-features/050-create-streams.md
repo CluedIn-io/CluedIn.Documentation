@@ -14,7 +14,7 @@ This feature allows you to automate the creation of export targets and streams.
 
 **To automate the creation of export targets and streams**
 
-1. On the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
+1. On the navigation pane, go to **Administration** > **Azure Integration** > **Power Apps**.
 
 1. In **Create CluedIn Stream**, turn on the toggle.
 

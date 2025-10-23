@@ -26,7 +26,7 @@ There are several ways how you can perform the sync:
 
 **To sync CluedIn business domains with Dataverse table (from CluedIn settings)**
 
-1. On the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
+1. On the navigation pane, go to **Administration** > **Azure Integration** > **Power Apps**.
 
 1. In **Sync CluedIn Business Domains to Dataverse Table**, turn on the toggle, and then enter the business domain that you want to sync. If you want to sync multiple business domains, separate them with a comma (for example, _/_Type1,/Type2,/Type3_).
 
@@ -93,7 +93,7 @@ You'll need to provide the logical name of the Dataverse table. There are the fo
 
 **To sync Dataverse table and columns into CluedIn business domains and vocabulary**
 
-1. On the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
+1. On the navigation pane, go to **Administration** > **Azure Integration** > **Power Apps**.
 
 1. In **Sync Dataverse Table/Columns to CluedIn Business Domains and Vocabulary**, turn on the toggle, and then enter the Dataverse table name. The value should be the **logical name** of the table. If you want to sync multiple tables, separate them with a comma (for example, _logical_name1_,logical_name2,logical_name3_).
 
@@ -117,7 +117,7 @@ This feature allows you to automate the creation of workflow that will send the 
 
 **To automate the workflow creation**
 
-1. In CluedIn, on the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
+1. In CluedIn, on the navigation pane, go to **Administration** > **Azure Integration** > **Power Apps**.
 
 1. In **Create workflow to Ingest Data to CluedIn**, turn on the toggle.
 
@@ -175,7 +175,7 @@ This feature allows you to automate the creation of export targets and streams.
 
 **To automate the creation of export targets and streams**
 
-1. On the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
+1. On the navigation pane, go to **Administration** > **Azure Integration** > **Power Apps**.
 
 1. In **Create CluedIn Stream**, turn on the toggle.
 
