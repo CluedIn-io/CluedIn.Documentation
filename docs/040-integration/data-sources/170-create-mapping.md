@@ -46,7 +46,7 @@ Mapping type defines how you want to configure the mapping of original fields fr
 
     ![openai-1.png]({{ "/assets/images/integration/data-sources/openai-1.png" | relative_url }})
 
-1. Go to **Administration** > **Settings**. Scroll down to the **Open AI** section and complete the following fields:
+1. Go to **Administration** > **Azure Integration** > **Azure AI Services**. Then, complete the following fields:
 
     - **API Key** – check the following [link](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key) to learn where to find your API Key.
 
