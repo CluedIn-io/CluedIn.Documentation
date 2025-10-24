@@ -1,0 +1,501 @@
+customer_id,first_name,last_name,email,phone,address,city,state_or_region,postal_code,country,country_id,crm_id,erp_id,loyalty_status,preferred_language,account_manager,last_purchase_date,total_spent
+CUST0001,Martina,López,martina.lópez@outlook.com,+34 1641293261,5819 Hussain square,Madrid,Community of Madrid,13011,Spain,ES,SF-3731,SAP-8460,Silver,Finnish,Dr Ann Barrett,2024-04-09,14953.84
+CUST0002,Michael,Davis,michael.davis@outlook.com,+1 3714134160,3414 Rosemary street,Austin,TX,61765,United States,US,SF-4926,SAP-3245,Silver,Icelandic,Emma Morris,2023-12-06,16912.46
+CUST0003,Ben,Becker,ben.becker@hotmail.com,+49 1225471828,7441 Fiona neck,Cologne,North Rhine-Westphalia,74167,Germany,DE,SF-6355,SAP-6595,Silver,French,Jasmine Fraser,2024-11-20,1286.75
+CUST0004,Noah,Schneider,noah.schneider@outlook.com,+49 9266520394,5604 Christian cliff,Cologne,North Rhine-Westphalia,92757,Germany,DE,SF-8040,SAP-5798,Bronze,Norwegian,Janet Davies-Smith,2024-01-24,6736.45
+CUST0005,Francesco,Russo,francesco.russo@yahoo.com,+39 10798734,1998 Rosemary ranch,Naples,Campania,13897,Italy,IT,SF-8779,SAP-8341,Platinum,Norwegian,Dylan Reeves,2025-03-16,14315.7
+CUST0006,John,Garcia,john.garcia@hotmail.com,+1 6867683840,2919 Ronald extensions,Austin,TX,81790,United States,US,SF-6859,SAP-9627,Silver,Danish,Sally Murray,2025-10-18,11845.69
+CUST0007,Jennifer,Garcia,jennifer..garcia@outlook.com,+1 6582273379,1636 John mount,San Francisco,CA,53230,United States,US,SF-8356,SAP-7952,Gold,Norwegian,Kim Turner-Ford,2024-04-05,16921.31
+CUST0008,John,Miller,john.miller@yahoo.com,+1 498004800,867 Daniels keys,Denver,CO,76909,United States,US,SF-4232,SAP-1041,Silver,French,Adrian Charlton,2024-02-22,9778.77
+CUST0009,Sophie,Visser,sophie.visser@gmail.com,00447123,1120 Lee squares,Amsterdam,North Holland,6389DE,Netherlands,NL,SF-7379,SAP-8336,Platinum,Danish,Stewart Robinson-Gough,2024-12-06,6755.85
+CUST0010,Valeria,Martínez,valeria.martínez@yahoo.com,+34 671421472,5431 Dorothy viaduct,Barcelona,Catalonia,11081,Spain,ES,SF-6967,SAP-7554,Gold,Italian,Leanne Begum,2024-01-11,13245.14
+CUST0011,Martina,Pérez,martina.pérez@hotmail.com,+34 9304384396,5650 Arthur crescent,Bilbao,Basque Country,49200,Spain,ES,SF-3862,SAP-8473,Platinum,Finnish,Martyn Bryan,2024-05-28,13312.54
+CUST0012,Ola,Hansen,ola.hansen@hotmail.com,+47 5027591975,8742 Geraldine squares,Oslo,Oslo,9009,Norway,NO,SF-2959,SAP-5594,Gold,Finnish,Dr Howard Jones,2025-09-25,6945.11
+CUST0013,Patricia,Brown,patricia.brown@hotmail.com,+1 2420578019,7858 Colin roads,Denver,CO,93202,United States,US,SF-6277,SAP-5423,Gold,German,Valerie Thomas,2024-07-08,6169.71
+CUST0014,Lucas,García,lucas.garcía@outlook.com,+34 8110628969,8907 Kim greens,Valencia,Valencian Community,69426,Spain,ES,SF-6151,SAP-8619,Gold,Norwegian,Ross Fisher,2024-09-19,14612.06
+CUST0015,Michael,Johnson,michael.johnson@outlook.com,+1 553477935,1654 Nathan club,San Francisco,CA,81610,United States,US,SF-2987,SAP-4512,Platinum,English,Ms Teresa Fowler,2024-08-04,9861.29
+CUST0016,Olivia,Evans,olivia.evans@hotmail.com,+44 182745527,5316 Sharon crossroad,Glasgow,Glasgow City,M5 5HJ,United Kingdom,UK,SF-3733,SAP-8858,Gold,Finnish,Mr Edward Porter,2025-09-08,17533.73
+CUST0017,Jennifer,Miller,jennifer.miller@yahoo.com,abcd1234,2568 Simpson summit,Boston,MA,20786,United States,US,SF-7467,SAP-6423,Gold,Danish,Terence Taylor,2025-07-05,85.35
+CUST0018,Mateo,López,mateo.lópez@outlook.com,+34 416635458,5097 Amy burg,Barcelona,Catalonia,73689,Spain,ES,SF-2218,SAP-2310,Silver,Norwegian,Mohammed Gill,2024-09-06,2249.73
+CUST0019,Valeria,Martínez,valeria martínez@yahoo.com,+34 421569092,1365 Vincent estate,Malaga,Andalusia,83066,Spain,ES,SF-1214,SAP-2516,Silver,Norwegian,Mr Karl Carr,2025-08-19,16233.02
+CUST0020,Jack,Brown,jack.brown@gmail.com,+44 6036434098,7232 Morton viaduct,Manchester,Greater Manchester,HS43 0HR,United Kingdom,UK,SF-3217,SAP-1078,Platinum,Spanish,Olivia Taylor,2025-06-14,3546.67
+CUST0021,Jules,Petit,jules.petit@gmail.com,+33 778485665,8060 Parsons pass,Paris,Île-de-France,55342,France,FR,SF-3117,SAP-2418,Silver,Italian,Annette Robinson,2024-12-12,622.31
+CUST0022,Jack,O'Sullivan,jack.o'sullivan@gmail.com,+353 93114104,8855 Singh crescent,Cork,County Cork,DD9 0EZ,Ireland,IE,SF-7603,SAP-2618,Silver,French,Debra Briggs,2024-06-22,14065.54
+CUST0023,William,Anderson,william.anderson@gmail.com,+1 747817177,453 Butler pass,Toronto,ON,E1S 0X6,Canada,CA,SF-9444,SAP-7219,Bronze,Icelandic,Alex Sutton,2024-03-18,14045.13
+CUST0024,Mia,Weber,mia.weber@outlook.com,+49 210221642,5424 Thomas mews,Cologne,North Rhine-Westphalia,31482,Germany,DE,SF-2175,SAP-5973,Gold,German,Elliot Bennett,2024-12-14,15142.77
+CUST0025,Noah,Meyer,noah meyer@yahoo.com,+49 18076020,8809 Julie meadows,Munich,Bavaria,92811,Germany,DE,SF-6726,SAP-8745,Bronze,Norwegian,Brett Wall,2025-02-18,9611.33
+CUST0026,Sofía,Sánchez,sofía.sánchez@hotmail.com,+34 6171658815,5103 Adams crossing,Madrid,Community of Madrid,43078,Spain,ES,SF-1592,SAP-4804,Gold,Finnish,Miss Tina Gordon,2024-09-04,15997.96
+CUST0027,Sophia,Brown,sophia.brown@gmail.com,+44 14750503,2026 Watson road,Glasgow,Glasgow City,WV7V 9DJ,United Kingdom,UK,SF-8726,SAP-2285,Platinum,French,Samantha Lucas,2025-03-22,3637.43
+CUST0028,Gabriel,Petit,gabriel.petit@outlook.com,+33 334399913,5398 Davies extensions,Paris,Île-de-France,46365,France,FR,SF-5049,SAP-6951,Silver,French,Ruth Hodgson-French,2023-10-23,15894.85
+CUST0029,Lukas,Müller,lukas.müller@yahoo.com,+49 709143530,3287 Hussain meadows,Hamburg,Hamburg,86354,Germany,DE,SF-2020,SAP-5144,Platinum,English,Dr Donald Williams,2025-03-30,18017.42
+CUST0030,John,Garcia,john.garcia@hotmail.com,+1 6867683840,2919 Ronald extensions,Austin,TX,81790,United States,US,SF-6222,SAP-5212,Bronze,German,Mr Hugh Cunningham,2024-11-26,2106.72
+CUST0031,Giorgio,Costa,giorgio.costa@gmail.com,+39 43565540,5443 Green terrace,Turin,Piedmont,73531,Italy,IT,SF-3622,SAP-3591,Silver,Italian,Tom Kemp,2025-07-10,1351.28
+CUST0032,Lukas,Fischer,lukas.fischer@outlook.com,+49 404262024,4156 Sean burg,Cologne,North Rhine-Westphalia,64480,Germany,DE,SF-5070,SAP-7798,Bronze,English,Adrian Robinson,2025-02-08,5694.52
+CUST0033,Valeria,Sánchez,valeria.sánchez@gmail.com,+34 5190035692,8891 Caroline mall,Barcelona,Catalonia,58110,Spain,ES,SF-4377,SAP-6081,Platinum,Icelandic,Mr Damien Cooper,2024-08-28,14708.23
+CUST0034,Noah,Martin,noah.martin@hotmail.com,+1 4255613989,907 Sean shoal,Ottawa,ON,C4Y 4N0,Canada,CA,SF-1327,SAP-9413,Bronze,Danish,Mrs Michelle Marsh,2024-04-09,9836.09
+CUST0035,Lars,Larsen,lars.larsen@gmail.com,+47 451655023,5393 Bethan path,Oslo,Oslo,3539,Norway,NO,SF-8968,SAP-4280,Silver,Icelandic,Jessica Bevan,2025-10-04,7028.86
+CUST0036,Lucas,Sánchez,lucas.sánchez@yahoo.com,+34 307500713,7850 Caroline dale,Seville,Andalusia,57309,Spain,ES,SF-2497,SAP-5873,Gold,French,Dr Brett Hill,2024-12-30,2853.19
+CUST0037,Oliver,Williams,oliver.williams@outlook.com,+44 5179141792,5687 Giles mills,Leeds,West Yorkshire,S8H 7TL,United Kingdom,UK,SF-1797,SAP-8582,Bronze,English,Mr Stanley White,2025-06-18,2578.62
+CUST0038,Matti,Korhonen,matti.korhonen@hotmail.com,+358 3683502095,3147 Johnson harbor,Tampere,Pirkanmaa,3403,Finland,FI,SF-1783,SAP-2856,Platinum,Norwegian,Lisa Edwards,2024-04-22,13886.97
+CUST0039,James,O'Sullivan,james.o'sullivan@hotmail.com,+353 1699774153,5475 Goodwin plains,Waterford,County Waterford,G2 6FH,Ireland,IE,SF-4488,SAP-7873,Gold,English,Gavin Miles,2024-12-17,1394.94
+CUST0040,Jules,Richard,jules.richard@gmail.com,+33 8401032351,879 Edward freeway,Bordeaux,Nouvelle-Aquitaine,21600,France,FR,SF-5391,SAP-4240,Platinum,German,Dr Georgina Franklin,2025-01-18,17063.56
+CUST0041,Karl,Karlsson,karl.karlsson@hotmail.com,+46 3431579752,1429 Beverley light,Gothenburg,Västra Götaland,456 49,Sweden,SE,SF-9458,SAP-9398,Gold,Italian,Sarah Hewitt,2024-06-10,10325.68
+CUST0042,Sean,Byrne,sean.byrne@yahoo.com,+353 35474004,8057 Davis village,Waterford,County Waterford,NN89 7JL,Ireland,IE,SF-8725,SAP-4881,Gold,Spanish,June Day,2024-07-10,6075.25
+CUST0043,Ben,Müller,ben.müller@outlook.com,+49 80729460,6894 Wood ville,Berlin,Berlin,11739,Germany,DE,SF-7783,SAP-7994,Silver,French,Samantha Robinson,2024-12-10,19525.49
+CUST0044,Sigurður,Sigurðardóttir,sigurður.gmail.com,+354 55037818,3138 Lisa ramp,Hafnarfjörður,Capital Region,565,Iceland,IS,SF-9246,SAP-6777,Platinum,Italian,Joyce Payne-Graham,2024-02-05,2612.19
+CUST0045,Jack,Davies,jack.davies@gmail.com,+44 4513526677,4836 Clayton green,Glasgow,Glasgow City,HG37 5RL,United Kingdom,UK,SF-6853,SAP-9013,Gold,Finnish,Dr Malcolm Lee,2024-10-22,15332.99
+CUST0046,Lena,Müller,lena..müller@outlook.com,+49 548216397,7886 Sheila center,Hamburg,Hamburg,15560,Germany,DE,SF-1039,SAP-8306,Silver,Danish,Jade Brooks,2025-06-20,16450.63
+CUST0047,Sofía,González,sofía.gonzález@yahoo.com,+34 2899039492,4824 Robert gateway,Madrid,Community of Madrid,97728,Spain,ES,SF-3228,SAP-9380,Silver,Icelandic,Mark Johnson,2024-04-25,13247.0
+CUST0048,James,Williams,james.williams@yahoo.com,+1 160519451,6392 Elaine skyway,Miami,FL,24226,United States,US,SF-2457,SAP-8209,Bronze,Norwegian,Lawrence May,2024-10-18,12616.38
+CUST0049,Harry,Smith,harry.smith@hotmail.com,+44 500163381,1190 Perkins expressway,Birmingham,West Midlands,E2E 9AN,United Kingdom,UK,SF-4543,SAP-3261,Gold,Finnish,Annette Walker-Patel,2025-04-30,6510.46
+CUST0050,Francesco,Esposito,francesco.esposito@outlook.com,+39 69435235,2347 Keith ramp,Florence,Tuscany,36291,Italy,IT,SF-7187,SAP-7901,Platinum,Spanish,Ms Jane Harrison,2024-06-13,6515.99
+CUST0051,Charlotte,Clark,charlotte.clark@yahoo.com,+1 6652442667,4962 Anna tunnel,Toronto,ON,N4T 1P7,Canada,CA,SF-7680,SAP-6241,Bronze,Italian,Kyle Kent,2025-03-19,13844.2
+CUST0052,Ben,Becker,ben.becker@yahoo.com,+49 721552453,4187 Rees rue,Cologne,North Rhine-Westphalia,18002,Germany,DE,SF-5059,SAP-3079,Platinum,French,Linda Baker,2025-07-22,12941.25
+CUST0053,Noah,Weber,noah.weber@gmail.com,+49 502920609,3591 Webb lake,Cologne,North Rhine-Westphalia,86064,Germany,DE,SF-8808,SAP-8378,Platinum,Spanish,Dr Owen Gould,2024-03-07,18440.77
+CUST0054,Noah,Fischer,noah.fischer@yahoo.com,+49 34817637,939 Richards plain,Frankfurt,Hesse,74651,Germany,DE,SF-6555,SAP-9102,Gold,Danish,Dr Donald Williams,2025-05-12,85.6
+CUST0055,Linda,Johnson,linda.johnson@gmail.com,+1 2597714135,4268 Stanley gardens,New York,NY,34130,United States,US,SF-5599,SAP-6546,Gold,Danish,Mrs Olivia Wallace,2024-04-29,4310.54
+CUST0056,Sem,Bakker,sem.bakker@hotmail.com,+31 40117046,677 Pearce skyway,Rotterdam,South Holland,4048GL,Netherlands,NL,SF-7521,SAP-3374,Silver,French,Judith Day,2025-08-13,19654.17
+CUST0057,James,Smith,james.smith@gmail.com,+353 400683737,2788 Clayton forest,Galway,County Galway,TR4 4ZL,Ireland,IE,SF-9055,SAP-4152,Bronze,Swedish,Rebecca Lewis,2024-03-19,9852.81
+CUST0058,Sophie,Walsh,sophie.walsh@outlook.com,+353 3674925384,9437 Cameron stravenue,Cork,County Cork,LU83 7TA,Ireland,IE,SF-9236,SAP-4626,Bronze,Danish,Sean Morton,2025-04-12,10914.59
+CUST0059,William,Tremblay,william.tremblay@yahoo.com,+1 237730425,4861 Stewart shore,Ottawa,ON,P7H 4K0,Canada,CA,SF-3467,SAP-5114,Gold,Spanish,Sheila Jones-Hill,2024-09-17,3562.83
+CUST0060,Mary,Jones,mary.jones@yahoo.com,+1 7425883253,5658 Parsons motorway,Miami,FL,65814,United States,US,SF-1715,SAP-7631,Silver,English,Carl Smith-O'Neill,2024-03-20,8541.61
+CUST0061,Emma,Robert,emma.robert@yahoo.com,+33 54521770,2656 Baldwin plain,Nice,Provence-Alpes-Côte d'Azur,20648,France,FR,SF-8076,SAP-3310,Gold,English,Mr Lewis Stevens,2024-11-02,9790.23
+CUST0062,Patricia,Johnson,patricia.johnson@gmail.com,+1 4883819534,9639 Wood trace,San Francisco,CA,17951,United States,US,SF-8422,SAP-4361,Silver,Swedish,Hilary Bird,2024-01-09,1857.63
+CUST0063,Mila,de Vries,mila.de vries@gmail.com,+31 86498308,5998 Bryan forks,Rotterdam,South Holland,6523NY,Netherlands,NL,SF-4234,SAP-2424,Silver,French,Louise Stokes,2025-04-24,15405.49
+CUST0064,Harry,Williams,harry.williams@outlook.com,+44 4485860870,1915 Henry cape,Manchester,Greater Manchester,M2 1AY,United Kingdom,UK,SF-6694,SAP-9842,Silver,Norwegian,Damian Jones-Cook,2023-12-01,6960.48
+CUST0065,Oliver,Jones,oliver.jones@gmail.com,+44 3318839134,1194 Singh neck,Manchester,Greater Manchester,E6 1YB,United Kingdom,UK,SF-1404,SAP-7837,Silver,Italian,Keith Barker,2024-06-14,11796.99
+CUST0066,Leon,Becker,leon.becker@yahoo.com,12345,9524 Lisa ridges,Cologne,North Rhine-Westphalia,41405,Germany,DE,SF-7376,SAP-3935,Bronze,Danish,Lynne Butler,2025-06-28,17608.16
+CUST0067,Jack,Evans,jack.evans@outlook.com,+44 9904843432,7463 Zoe light,Bristol,Bristol,LA49 4YZ,United Kingdom,UK,SF-7178,SAP-6961,Gold,Swedish,Stewart Hunt,2024-01-08,3397.26
+CUST0068,Liam,Roy,liam.roy@outlook.com,+999999999999999,2332 Kayleigh forest,Calgary,AB,G5S 6A3,Canada,CA,SF-1660,SAP-1399,Gold,Icelandic,Mohamed Francis-Smith,2024-12-24,8177.23
+CUST0069,George,Wilson,george.wilson@outlook.com,+44 487175946,2614 Charles alley,London,Greater London,LD97 0JN,United Kingdom,UK,SF-6349,SAP-8027,Gold,German,Miss Diana Taylor,2023-12-17,16148.76
+CUST0070,Daniel,Byrne,daniel.byrne@gmail.com,+353 927437736,3812 Arthur turnpike,Cork,County Cork,PE3P 8JF,Ireland,IE,SF-9884,SAP-5380,Platinum,Finnish,Steven Hammond-Thompson,2024-06-17,10131.49
+CUST0071,Finn,Bakker,finn.bakker@gmail.com,00447123,6091 Williams mountain,Rotterdam,South Holland,2629HL,Netherlands,NL,SF-5574,SAP-1201,Silver,Italian,Miss Diana Ahmed,2024-05-21,8849.24
+CUST0072,Isla,Evans,isla.evans@hotmail.com,+44 15984789,7821 Williams rapid,London,Greater London,S5 0DJ,United Kingdom,UK,SF-7502,SAP-8733,Bronze,German,Mr Tom Perry,2025-01-12,9738.89
+CUST0073,Alessia,Romano,alessia.romano@yahoo.com,+39 152366040,3236 Clive mountains,Bologna,Emilia-Romagna,48759,Italy,IT,SF-9987,SAP-9174,Silver,German,Gail Williams,2024-05-26,19768.26
+CUST0074,Benjamin,Anderson,benjamin.anderson@outlook.com,+1 17537600,4957 Fiona mews,Toronto,ON,R6J 7A4,Canada,CA,SF-9160,SAP-2628,Platinum,Swedish,Dr Jordan Jones,2024-09-04,8502.74
+CUST0075,Lukas,Schneider,lukas.schneider@hotmail.com,+49 23631838,5715 Potter cove,Berlin,Berlin,55375,Germany,DE,SF-3649,SAP-1995,Bronze,Spanish,Ms Maria Ali,2024-11-10,5652.69
+CUST0076,Jack,Brown,jack.brown@gmail.com,+44 6277520485,6132 Adams locks,Edinburgh,City of Edinburgh,B7B 4PE,United Kingdom,UK,SF-8429,SAP-4726,Silver,Italian,Dr Douglas Mason,2023-10-23,11352.44
+CUST0077,Jack,Davies,jack.davies@yahoo.com,+44 863252018,9260 Ali field,Bristol,Bristol,N9U 7BH,United Kingdom,UK,SF-4490,SAP-9183,Gold,English,Henry Clarke-Barber,2025-09-06,4901.78
+CUST0078,Lena,Fischer,lena.fischer@yahoo.com,+49 2339808768,410 O'Neill roads,Munich,Bavaria,18598,Germany,DE,SF-2220,SAP-6050,Bronze,Italian,Alice Ellis-Kemp,2023-11-02,17238.05
+CUST0079,George,Wilson,georgewilson@example,+44 766842189,5146 Green ville,Bristol,Bristol,W1 7NW,United Kingdom,UK,SF-7405,SAP-2373,Platinum,Finnish,Miss Lynne Lee,2024-10-23,2938.14
+CUST0080,Lucía,González,lucía.gonzález@hotmail.com,+34 981138797,2839 Caroline plaza,Malaga,Andalusia,71114,Spain,ES,SF-1890,SAP-1934,Silver,Spanish,Alex Bates,2025-01-30,13063.05
+CUST0081,Louis,Bernard,louis.bernard@gmail.com,+33 589411592,5387 Brian harbor,Lyon,Auvergne-Rhône-Alpes,14608,France,FR,SF-4216,SAP-5796,Bronze,English,Dr Ronald McDonald,2024-11-20,8288.97
+CUST0082,Amelia,Roy,amelia.roy@outlook.com,+1 4564954183,3807 Perry haven,Quebec City,QC,P1C 7E2,Canada,CA,SF-3014,SAP-6439,Bronze,Icelandic,Miss Francesca Jackson,2025-03-18,14062.25
+CUST0083,Daan,Visser,daan.visser@outlook.com,+31 57021466,3786 Taylor mission,Amsterdam,North Holland,1649RY,Netherlands,NL,SF-8810,SAP-2448,Bronze,Spanish,Jodie Ward,2024-12-24,5312.3
+CUST0084,Lucas,Bernard,lucas.bernard@outlook.com,+33 572684969,5934 Murphy islands,Toulouse,Occitanie,80967,France,FR,SF-4233,SAP-3684,Gold,Swedish,Ms Geraldine Smith,2024-08-15,12362.59
+CUST0085,Amelia,Smith,amelia.smith@yahoo.com,+44 6285349390,9068 Victoria cape,London,Greater London,SW7 6FU,United Kingdom,UK,SF-6224,SAP-2936,Gold,Swedish,Philip Kerr,2025-01-23,8758.9
+CUST0086,Sofia,Jensen,sofia.jensen@yahoo.com,+45 8447633472,9460 Taylor well,Aalborg,North Denmark,6421,Denmark,DK,SF-8442,SAP-8985,Gold,Finnish,Dr Carol Carey,2024-10-11,14683.31
+CUST0087,James,Jones,james.jones@gmail.com,+1 63673259,8918 Gareth lodge,Seattle,WA,86503,United States,US,SF-4836,SAP-8842,Gold,Finnish,Ms Lisa Jones,2024-05-15,5957.27
+CUST0088,Lars,Larsen,larslarsen@,+47 1117909210,336 Johnson locks,Oslo,Oslo,5791,Norway,NO,SF-3456,SAP-5607,Gold,Icelandic,Mr Roger Davis,2025-08-20,12123.82
+CUST0089,Sophia,Brown,sophia.brown@gmail.com,00447123,2026 Watson road,Glasgow,Glasgow City,WV7V 9DJ,United Kingdom,UK,SF-4881,SAP-3413,Platinum,Icelandic,Dr Geoffrey Morris,2024-09-24,6576.08
+CUST0090,Benjamin,Tremblay,benjamin.tremblay@outlook.com,+1 49916212,2405 Ashleigh squares,Vancouver,BC,T4X 4A0,Canada,CA,SF-4885,SAP-8258,Silver,Norwegian,Mrs Melissa Thompson,2024-06-11,12345.54
+CUST0091,Olivia,Brown,olivia.brown@gmail.com,+44 75430386,5477 Jordan islands,Bristol,Bristol,M5 6FJ,United Kingdom,UK,SF-9974,SAP-5864,Gold,Icelandic,Chelsea Armstrong,2025-06-29,827.17
+CUST0092,John,Garcia,john.garcia@hotmail.com,+1 6867683840,2919 Ronald extensions,Austin,TX,81790,United States,US,SF-1229,SAP-9130,Platinum,Spanish,Stewart Taylor,2025-02-15,3728.25
+CUST0093,Sofia,Jensen,sofia.jensen@outlook.com,+45 3324320659,607 Jean prairie,Copenhagen,Capital Region,2163,Denmark,DK,SF-9873,SAP-4859,Platinum,Swedish,Connor Hall,2024-05-07,19278.46
+CUST0094,Lucas,Richard,lucas.richard@yahoo.com,+33 192300982,4707 Smith branch,Marseille,Provence-Alpes-Côte d'Azur,67453,France,FR,SF-8699,SAP-8362,Gold,English,Dr Gareth Davies,2024-02-22,2236.54
+CUST0095,James,Smith,james.smith@gmail.com,+353 400683737,2788 Clayton forest,Galway,County Galway,TR4 4ZL,Ireland,IE,SF-9331,SAP-5365,Silver,German,Leanne Dawson-Douglas,2024-05-04,13421.37
+CUST0096,Emily,Walsh,emilywalsh@,+353 59029034,3896 Brady flat,Dublin,County Dublin,WF71 6YQ,Ireland,IE,SF-6831,SAP-3998,Bronze,German,Stephanie Turner-Harris,2025-07-28,16702.63
+CUST0097,Leon,Wagner,leon.wagner@gmail.com,+49 6658774600,1457 Robertson port,Dresden,Saxony,28082,Germany,DE,SF-8762,SAP-7323,Platinum,Italian,Mrs Katy Morris,2025-07-30,10110.33
+CUST0098,Noah,Meyer,noah.meyer@hotmail.com,+49 9600684154,2319 Russell forks,Cologne,North Rhine-Westphalia,28051,Germany,DE,SF-1762,SAP-6658,Gold,Danish,Stacey Lloyd-Bates,2024-05-04,9929.92
+CUST0099,Mateo,González,mateo.gonzález@gmail.com,+999999999999999,412 Teresa court,Valencia,Valencian Community,80924,Spain,ES,SF-2230,SAP-2824,Bronze,Finnish,Mr Dean Pearson,2023-11-17,10158.77
+CUST0100,Daan,Visser,daan.visser@outlook.com,+31 57021466,3786 Taylor mission,Amsterdam,North Holland,1649RY,Netherlands,NL,SF-4363,SAP-7699,Platinum,French,Jasmine Knight,2024-05-21,8917.12
+CUST0101,Lucas,Bernard,lucas.bernard@gmail.com,+33 147445785,4880 Douglas views,Lyon,Auvergne-Rhône-Alpes,93889,France,FR,SF-2511,SAP-4493,Bronze,Danish,Stephanie Morris,2024-07-12,12257.29
+CUST0102,Michael,Smith,michael.smith@hotmail.com,+1 10006271,5701 Jade club,Denver,CO,60734,United States,US,SF-8567,SAP-5561,Gold,Spanish,Nathan Taylor,2025-05-07,9045.74
+CUST0103,Alma,Hansen,alma.hansen@outlook.com,+45 8885621674,526 Morgan unions,Copenhagen,Capital Region,1641,Denmark,DK,SF-6986,SAP-6611,Silver,Danish,Shannon Green,2024-08-24,15820.02
+CUST0104,Patricia,Brown,patricia.brown@outlook.com,+1 352679363,2798 Arthur plain,San Francisco,CA,94096,United States,US,SF-1089,SAP-9000,Platinum,Swedish,Julian Connolly,2025-05-26,17978.0
+CUST0105,Zoé,Martin,zoé.martin@yahoo.com,+33 95612467,8522 Jackson view,Bordeaux,Nouvelle-Aquitaine,47674,France,FR,SF-6009,SAP-1721,Gold,Danish,Dr Alexander Davies,2024-10-23,6828.03
+CUST0106,Michael,Jones,michael.jones@hotmail.com,+1 455538946,2886 Jasmine points,Austin,TX,98172,United States,US,SF-4242,SAP-8754,Platinum,Italian,Irene Quinn,2023-12-11,4616.02
+CUST0107,Lucas,Sánchez,lucas.sánchez@gmail.com,+34 41035591,8030 Walker hollow,Madrid,Community of Madrid,20185,Spain,ES,SF-6543,SAP-7418,Gold,Norwegian,Dr Kevin Davidson,2023-11-20,5605.09
+CUST0108,Lucía,Romero,lucía.romero@outlook.com,+34 903266454,3348 Turner crescent,Bilbao,Basque Country,68777,Spain,ES,SF-2928,SAP-3735,Bronze,Norwegian,Terence Shah,2024-02-05,7110.32
+CUST0109,Amelia,Clark,amelia.clark@gmail.com,+1 69285731,7919 Price skyway,Calgary,AB,B2C 3R4,Canada,CA,SF-1746,SAP-9054,Gold,Norwegian,Dr Francesca Cox,2024-02-20,12073.47
+CUST0110,James,O'Brien,james.o'brien@hotmail.com,+353 5491849834,9254 Waters village,Galway,County Galway,PO64 5HT,Ireland,IE,SF-5840,SAP-1489,Silver,French,Elaine Davis,2024-01-08,10263.91
+CUST0111,Mary,Brown,mary.brown@outlook.com,+1 815648657,8222 Dunn rue,Miami,FL,90737,United States,US,SF-9034,SAP-8202,Platinum,Danish,Emma Matthews,2024-03-18,14092.74
+CUST0112,Noah,Thompson,noah.thompson@gmail.com,+1 2225309718,6832 Sandra course,Quebec City,QC,M0M 2J0,Canada,CA,SF-7506,SAP-8135,Bronze,Danish,Mr Danny Dawson,2023-11-08,15898.24
+CUST0113,John,Jones,john.jones@hotmail.com,+1 591491264,1852 Brett gardens,Chicago,IL,42376,United States,US,SF-3902,SAP-9243,Silver,Swedish,Lawrence Martin,2025-07-28,815.86
+CUST0114,Lucas,Robert,lucas.robert@hotmail.com,+33 7893521166,100 Kate forge,Nice,Provence-Alpes-Côte d'Azur,72259,France,FR,SF-9553,SAP-4556,Silver,French,Ms Maria Russell,2025-06-26,19572.73
+CUST0115,Aoife,Kelly,aoife.kelly@outlook.com,++44 123456,4511 Martyn walks,Limerick,County Limerick,G84 1AF,Ireland,IE,SF-5421,SAP-3873,Silver,Norwegian,Antony Pearson,2024-04-24,8759.27
+CUST0116,Patricia,Brown,patricia.brown@hotmail.com,+1 754865924,1431 Brown greens,Denver,CO,41494,United States,US,SF-8271,SAP-5882,Platinum,Spanish,Philip Cox,2024-12-04,7621.4
+CUST0117,Lena,Becker,lena.becker@hotmail.com,+49 94371634,8390 Philip mountains,Dresden,Saxony,31422,Germany,DE,SF-2817,SAP-8988,Gold,Icelandic,Paula Lewis,2024-01-15,9972.06
+CUST0118,Jennifer,Jones,jennifer.jones@yahoo.com,+1 810059644,9528 Heath ridges,Seattle,WA,42092,United States,US,SF-5618,SAP-7859,Gold,Norwegian,Hugh Bishop,2024-10-12,2526.78
+CUST0119,Gabriel,Durand,gabriel.durand@yahoo.com,+33 4163662218,3986 Benjamin neck,Paris,Île-de-France,78937,France,FR,SF-9226,SAP-9590,Gold,Finnish,Dr Shirley Vincent,2024-11-06,7171.76
+CUST0120,Sophie,Byrne,sophie.byrne@outlook.com,+353 42052651,6512 Ford common,Galway,County Galway,PL2 2LZ,Ireland,IE,SF-3365,SAP-4169,Bronze,Norwegian,Dr Karl Turner,2024-12-08,18616.61
+CUST0121,Ola,Hansen,ola.hansen@hotmail.com,+47 5027591975,8742 Geraldine squares,Oslo,Oslo,9009,Norway,NO,SF-1408,SAP-9945,Gold,Icelandic,Judith Mason,2024-08-27,11892.76
+CUST0122,Amelia,Brown,amelia.brown@yahoo.com,+44 161662459,3206 Elliott island,London,Greater London,HD45 7DD,United Kingdom,UK,SF-4764,SAP-2258,Platinum,Spanish,Mrs Joanne Williams,2025-05-23,16338.59
+CUST0123,Emma,Martin,emma.martin@outlook.com,+1 76901748,2695 Barker point,Edmonton,AB,N7M 1X5,Canada,CA,SF-4996,SAP-8307,Platinum,Finnish,Billy Andrews,2025-01-01,6698.25
+CUST0124,Matti,Mäkinen,matti.mäkinen@hotmail.com,+358 17743629,9345 Davies loop,Oulu,North Ostrobothnia,5768,Finland,FI,SF-5334,SAP-6738,Gold,Finnish,Charlene Singh,2024-09-15,12677.83
+CUST0125,Patricia,Jones,patricia.jones@hotmail.com,+1 74001930,4557 Gerard rapid,Denver,CO,32567,United States,US,SF-6663,SAP-2664,Platinum,Swedish,Edward Webb-O'Sullivan,2024-02-20,247.37
+CUST0126,Mila,Bos,mila.bos@hotmail.com,+31 72928824,2225 Wilson coves,The Hague,South Holland,9559PY,Netherlands,NL,SF-7508,SAP-1343,Gold,French,Ashleigh Owen,2025-06-06,19616.87
+CUST0127,Noah,Weber,noah.weber@yahoo.com,+49 4199119601,1506 Allen valley,Cologne,North Rhine-Westphalia,21405,Germany,DE,SF-2552,SAP-9262,Gold,Spanish,Heather Simpson,2025-07-19,17539.91
+CUST0128,Daniel,Ryan,daniel.ryan@hotmail.com,+353 1914426506,348 Tina shoals,Galway,County Galway,FK0E 4PQ,Ireland,IE,SF-5293,SAP-6830,Platinum,Swedish,George Taylor,2025-01-04,15800.59
+CUST0129,Leon,Müller,leon.müller@outlook.com,+49 7877531825,1690 Rees streets,Dresden,Saxony,33951,Germany,DE,SF-1855,SAP-2943,Platinum,Spanish,Mr Jordan Morris,2024-04-07,12383.51
+CUST0130,Jennifer,Williams,jennifer.williams@hotmail.com,+1 65147847,3870 Burton junctions,Seattle,WA,50277,United States,US,SF-2864,SAP-3753,Platinum,German,Jeffrey Webster,2024-06-30,3830.07
+CUST0131,Julia,Meijer,julia.meijer@hotmail.com,+31 1502471414,9107 Lee drives,Rotterdam,South Holland,6306PQ,Netherlands,NL,SF-8822,SAP-4482,Bronze,Norwegian,Dylan Parker,2023-12-25,14985.64
+CUST0132,Harry,Brown,harry.brown@gmail.com,+44 1394127434,64 Williams manors,London,Greater London,PL76 3WE,United Kingdom,UK,SF-7991,SAP-7445,Platinum,Icelandic,Alexandra Griffiths,2025-04-01,10884.17
+CUST0133,Elin,Svensson,elin.svensson@hotmail.com,+46 3185024779,4919 Hill inlet,Gothenburg,Västra Götaland,423 32,Sweden,SE,SF-9236,SAP-7139,Platinum,Finnish,Jamie Byrne,2025-01-30,16563.9
+CUST0134,George,Smith,george.smith@yahoo.com,+44 4981622291,605 Thomas ford,Edinburgh,City of Edinburgh,DN2 4PE,United Kingdom,UK,SF-4289,SAP-5405,Bronze,English,Frederick Morris,2024-03-07,8869.1
+CUST0135,Lars,Nilsson,lars.nilsson@outlook.com,+999999999999999,3109 Jessica place,Malmö,Skåne County,375 89,Sweden,SE,SF-1237,SAP-9626,Bronze,Icelandic,Ms Lynda Doherty,2025-03-24,12640.11
+CUST0136,Lars,Hansen,lars.hansen@yahoo.com,+47 97235755,6452 Hammond wall,Bergen,Vestland,2711,Norway,NO,SF-5289,SAP-2625,Platinum,Italian,Mrs Marion Brown,2025-10-07,11058.37
+CUST0137,Hannah,Müller,hannah.müller@outlook.com,+49 69315068,251 Terry ports,Dresden,Saxony,31553,Germany,DE,SF-7259,SAP-6613,Bronze,Swedish,Jemma Ahmed,2025-03-03,1177.33
+CUST0138,Zoé,Thomas,zoé.thomas@hotmail.com,+33 190068688,9687 Harris lodge,Toulouse,Occitanie,26151,France,FR,SF-1371,SAP-3133,Silver,Italian,Ben Thompson,2025-02-14,18740.25
+CUST0139,Robert,Davis,robert.davis@gmail.com,+1 614282605,7335 Lee lake,Austin,TX,31318,United States,US,SF-7246,SAP-2211,Silver,Spanish,Charlie Watts,2024-04-28,7605.34
+CUST0140,Lars,Olsson,lars.olsson@outlook.com,+46 67938642,7694 Fox pine,Stockholm,Stockholm County,751 74,Sweden,SE,SF-8271,SAP-5852,Silver,Danish,Joe Taylor,2025-05-24,16118.77
+CUST0141,Isla,Williams,isla.williams@outlook.com,+44 60989466,7060 Morton tunnel,Birmingham,West Midlands,E81 5QF,United Kingdom,UK,SF-7733,SAP-6606,Silver,Icelandic,Lee Lane,2024-03-24,16440.15
+CUST0142,Mikko,Mäkinen,mikko.mäkinen@hotmail.com,+358 8008951819,8780 Mandy drives,Helsinki,Uusimaa,5045,Finland,FI,SF-5150,SAP-2297,Gold,French,Mr Craig Watson,2025-02-21,16742.83
+CUST0143,Patricia,Johnson,patricia.johnson@gmail.com,+1 894830636,1200 Hall port,Miami,FL,99092,United States,US,SF-6864,SAP-5028,Silver,German,Dr Maurice Bennett,2025-01-03,15650.7
+CUST0144,Gabriel,Thomas,gabriel.thomas@hotmail.com,+33 314631995,6111 Taylor road,Bordeaux,Nouvelle-Aquitaine,57716,France,FR,SF-7778,SAP-3722,Gold,Norwegian,Sharon Williams,2024-10-21,4596.86
+CUST0145,Ingrid,Johansen,ingrid.johansen@gmail.com,+47 4368501364,8221 Mistry underpass,Bergen,Vestland,9994,Norway,NO,SF-8105,SAP-4945,Gold,French,Bryan George-O'Sullivan,2024-06-20,18991.26
+CUST0146,John,Johnson,john.johnson@hotmail.com,+1 3146661961,4655 Price centers,Chicago,IL,66170,United States,US,SF-6569,SAP-2462,Silver,Finnish,Dawn Hamilton,2025-08-24,6824.62
+CUST0147,Ola,Hansen,ola.hansen@hotmail.com,+47 5027591975,8742 Geraldine squares,Oslo,Oslo,9009,Norway,NO,SF-6665,SAP-2009,Silver,Spanish,Lorraine Hall,2024-12-26,10423.42
+CUST0148,Lena,Meyer,lena.meyer@gmail.com,+49 643764211,6886 Barbara valleys,Berlin,Berlin,79262,Germany,DE,SF-9553,SAP-7269,Platinum,Icelandic,Gail Kay-Butler,2024-11-15,10549.55
+CUST0149,Leon,Müller,leon.müller@yahoo.com,+49 2571915874,8326 Benjamin mission,Munich,Bavaria,89296,Germany,DE,SF-2419,SAP-2744,Silver,German,Ronald Robinson,2023-12-27,10509.98
+CUST0150,Linda,Brown,linda.brown@gmail.com,+1 478527582,2855 Simon gateway,Chicago,IL,31883,United States,US,SF-6673,SAP-9982,Bronze,Danish,Dr Beverley Barry,2025-02-07,7289.77
+CUST0151,Olivia,Evans,olivia.evans@outlook.com,+44 117328809,9916 Julie landing,Birmingham,West Midlands,IP6 9BP,United Kingdom,UK,SF-1713,SAP-7841,Silver,Finnish,Roger Green,2025-04-01,14511.83
+CUST0152,Liam,Wilson,liam.wilson@yahoo.com,+1 293794575,4489 Abbott stream,Ottawa,ON,K0M 5K0,Canada,CA,SF-3080,SAP-9893,Silver,Norwegian,Ms Zoe Reeves,2025-03-21,18623.09
+CUST0153,Leon,Fischer,leon.fischer@yahoo.com,+49 4499525219,2146 Bruce inlet,Stuttgart,Baden-Württemberg,80631,Germany,DE,SF-6647,SAP-6596,Silver,English,Dr Gary Wright,2025-10-20,11902.18
+CUST0154,Leon,Becker,leon.becker@yahoo.com,+49 10482541,9524 Lisa ridges,Cologne,North Rhine-Westphalia,41405,Germany,DE,SF-1236,SAP-1334,Platinum,Finnish,Sian James,2025-07-15,17515.84
+CUST0155,James,Smith,james.smith@yahoo.com,+1 238210410,8142 Vanessa squares,San Francisco,CA,29197,United States,US,SF-3649,SAP-7249,Gold,German,Mrs Josephine Davies,2024-11-20,9524.87
+CUST0156,Jack,Brown,jack.brown@gmail.com,+44 484090628,2771 Brown inlet,Manchester,Greater Manchester,L57 3FF,United Kingdom,UK,SF-1138,SAP-3464,Bronze,French,Sean Watts,2024-01-09,10437.33
+CUST0157,Francesco,Esposito,francesco.esposito@outlook.com,+39 69435235,2347 Keith ramp,Florence,Tuscany,36291,Italy,IT,SF-5645,SAP-5503,Silver,French,Mr Joel Patel,2024-02-26,3326.52
+CUST0158,Robert,Brown,robert.brown@gmail.com,+1 89865141,4968 Hazel trail,Chicago,IL,38703,United States,US,SF-7402,SAP-1311,Gold,Norwegian,Jennifer Atkinson-Thomas,2024-07-31,19001.75
+CUST0159,Daniel,Murphy,daniel.murphy@gmail.com,+353 522509063,8263 Louise ridge,Galway,County Galway,SY7 8JN,Ireland,IE,SF-7296,SAP-6318,Silver,German,Dr Lewis Chan,2025-01-08,5722.43
+CUST0160,James,Smith,james.smith@gmail.com,+353 400683737,2788 Clayton forest,Galway,County Galway,TR4 4ZL,Ireland,IE,SF-3575,SAP-3353,Silver,Norwegian,Dr Tony Hill,2024-02-25,15462.9
+CUST0161,Daniel,Torres,daniel.torres@yahoo.com,+34 87663435,2419 Rachael dam,Malaga,Andalusia,46851,Spain,ES,SF-4000,SAP-9223,Gold,English,Miss Margaret Hart,2025-08-31,10924.75
+CUST0162,Hannah,Meyer,hannah.meyer@outlook.com,+49 8109491714,3423 Naylor cove,Frankfurt,Hesse,36649,Germany,DE,SF-9397,SAP-8942,Bronze,German,Mrs Jean Short,2024-02-24,3074.07
+CUST0163,Charlotte,Roy,charlotte.roy@gmail.com,+1 6546200415,4881 Patterson passage,Toronto,ON,K4X 7A9,Canada,CA,SF-3177,SAP-6765,Silver,Spanish,Charlie Green,2025-09-29,7690.64
+CUST0164,Linda,Williams,linda.williams@gmail.com,+1 48388077,3428 Barbara keys,Denver,CO,38666,United States,US,SF-8267,SAP-5894,Bronze,Danish,Gavin Manning,2024-11-15,7631.67
+CUST0165,Lucas,Martin,lucas.martin@yahoo.com,+33 525776926,79 Smith common,Paris,Île-de-France,29487,France,FR,SF-2923,SAP-6857,Platinum,Italian,Jade Day,2025-10-14,11653.43
+CUST0166,James,Johnson,james.johnson@yahoo.com,+1 201031542,9083 Francesca isle,Miami,FL,57083,United States,US,SF-7078,SAP-1449,Silver,Swedish,Mr Brian Thomas,2025-10-04,16824.82
+CUST0167,John,Smith,john.smith@gmail.com,+1 506730484,8029 Booth dam,San Francisco,CA,51245,United States,US,SF-4099,SAP-3850,Platinum,Swedish,Dr Francis Richards,2025-09-25,17055.28
+CUST0168,Lars,Svensson,larssvensson@,+46 1162222571,9565 Jack glens,Gothenburg,Västra Götaland,547 69,Sweden,SE,SF-7956,SAP-8631,Gold,Icelandic,Keith Parry,2025-05-09,1809.85
+CUST0169,Linda,Davis,linda.davis@outlook.com,+1 61221643,4389 Griffiths heights,San Francisco,CA,23257,United States,US,SF-7739,SAP-4209,Platinum,Danish,Derek Blake,2024-04-25,9265.19
+CUST0170,Sofía,López,sofía.lópez@gmail.com,+34 985486768,9227 Dawson road,Madrid,Community of Madrid,10231,Spain,ES,SF-9573,SAP-7551,Platinum,Icelandic,Charlotte Griffiths,2025-09-25,12030.22
+CUST0171,Ben,Wagner,ben.wagner@gmail.com,+49 740965026,4540 Anderson brook,Dresden,Saxony,52966,Germany,DE,SF-3341,SAP-3565,Silver,Swedish,Mr Steven Harris,2023-10-24,17893.0
+CUST0172,Linda,Miller,linda.miller@outlook.com,+1 75240270,6537 Smith mall,Boston,MA,58484,United States,US,SF-1311,SAP-2635,Platinum,English,Brett King,2024-12-02,8415.66
+CUST0173,Daan,Bos,daan.bos@yahoo.com,+31 3134473611,3236 Townsend pine,Eindhoven,North Brabant,5684YT,Netherlands,NL,SF-6655,SAP-3558,Platinum,French,Tina Fitzgerald,2024-11-20,6733.92
+CUST0174,Emma,Dubois,emma.dubois@gmail.com,+33 97346009,6748 Janet well,Nice,Provence-Alpes-Côte d'Azur,68002,France,FR,SF-9164,SAP-3595,Bronze,Danish,Gemma Woods,2024-08-07,7265.22
+CUST0175,Karl,Andersson,karl.andersson@outlook.com,+46 7252375745,4499 Morris knolls,Uppsala,Uppsala County,944 58,Sweden,SE,SF-4531,SAP-3871,Bronze,English,Mr Kyle Smith,2025-03-16,3983.22
+CUST0176,Emma,Schmidt,emma.schmidt@yahoo.com,+49 21323947,793 Kimberley street,Munich,Bavaria,28134,Germany,DE,SF-4642,SAP-4272,Platinum,Danish,Dr Joseph Thomas,2024-12-20,5512.23
+CUST0177,Louis,Petit,louis.petit@yahoo.com,+33 5254581847,5503 Taylor spur,Paris,Île-de-France,53985,France,FR,SF-9983,SAP-9704,Bronze,Icelandic,Dr Geraldine Jones,2024-03-12,3140.51
+CUST0178,Henrik,Johansen,henrik.johansen@yahoo.com,+47 38228947,8613 Philip stravenue,Oslo,Oslo,5317,Norway,NO,SF-9941,SAP-8132,Platinum,Spanish,Dr Jack Harris,2023-11-26,2232.87
+CUST0179,Sofia,Costa,sofia.costa@hotmail.com,+39 736930522,1922 Luke island,Naples,Campania,34136,Italy,IT,SF-8061,SAP-8314,Platinum,Italian,Douglas Matthews-Sharp,2024-10-24,10848.05
+CUST0180,James,Davis,james.davis@outlook.com,+1 321007430,51 Sims rue,Chicago,IL,61190,United States,US,SF-8166,SAP-9251,Silver,French,Gareth Evans,2025-06-20,11541.85
+CUST0181,Jennifer,Smith,jennifer.smith@yahoo.com,+1 740024800,8747 Abbie isle,Boston,MA,33081,United States,US,SF-9487,SAP-2479,Gold,Italian,Benjamin Roberts-Williams,2024-08-28,512.0
+CUST0182,Patricia,Miller,patricia.miller@gmail.com,+1 5389324503,1079 Lawrence lights,Austin,TX,39936,United States,US,SF-9221,SAP-5901,Silver,Italian,Lucy Hughes,2024-11-12,4632.88
+CUST0183,James,Byrne,james.byrne@gmail.com,+353 52216437,2580 Bennett path,Dublin,County Dublin,TR1 1SZ,Ireland,IE,SF-4993,SAP-8540,Silver,Danish,Ms Teresa Harris,2024-01-10,18127.57
+CUST0184,Louis,Petit,louis.petit@yahoo.com,+33 5254581847,5503 Taylor spur,Paris,Île-de-France,53985,France,FR,SF-9433,SAP-7749,Gold,French,Carl Williams-Edwards,2024-02-29,9280.33
+CUST0185,Sophie,Bos,sophie.bos@yahoo.com,+31 618724618,8134 Parsons canyon,Eindhoven,North Brabant,9200MO,Netherlands,NL,SF-1248,SAP-6901,Silver,Icelandic,Miss Cheryl Turner,2024-05-23,18323.44
+CUST0186,John,Davis,john.davis@gmail.com,+1 36972973,9538 Keith skyway,San Francisco,CA,59037,United States,US,SF-8905,SAP-7179,Platinum,Swedish,Dr Justin Lewis,2025-05-27,12528.87
+CUST0187,Isla,Davies,isla.davies@hotmail.com,+44 83460330,863 Robert divide,London,Greater London,W0C 3QQ,United Kingdom,UK,SF-5544,SAP-2000,Silver,Italian,Ruth Higgins,2024-02-19,14138.71
+CUST0188,Ben,Meyer,ben.meyer@hotmail.com,+49 76451370,597 Wells landing,Berlin,Berlin,89553,Germany,DE,SF-7723,SAP-5764,Bronze,Icelandic,Lisa Allen,2024-12-07,15848.63
+CUST0189,Mary,Williams,mary.williams@hotmail.com,+1 431799950,3851 Simmons run,Miami,FL,61918,United States,US,SF-2959,SAP-2149,Bronze,English,Harry Hunt-Payne,2024-03-15,19931.41
+CUST0190,Aino,Mäkinen,aino mäkinen@yahoo.com,+358 6931273977,8920 Weston points,Tampere,Pirkanmaa,1586,Finland,FI,SF-7606,SAP-8687,Gold,German,Wayne Russell,2025-04-21,2183.12
+CUST0191,Patricia,Smith,patricia.smith@gmail.com,+1 5254776476,1575 Stevens ridge,Austin,TX,68730,United States,US,SF-9214,SAP-7535,Silver,Icelandic,Denis Bell-Hughes,2024-01-26,7561.82
+CUST0192,Benjamin,Roy,benjamin.roy@outlook.com,+1 1527511362,5962 Liam mission,Vancouver,BC,R8P 1L8,Canada,CA,SF-8557,SAP-1668,Silver,English,Ross Turner,2025-07-13,9958.55
+CUST0193,Chiara,Russo,chiara.russo@outlook.com,+39 40949426,2917 King station,Naples,Campania,60235,Italy,IT,SF-5737,SAP-7266,Gold,Danish,Henry Freeman,2025-09-14,19654.64
+CUST0194,Jules,Petit,jules.petit@yahoo.com,+33 479058853,5510 Barton station,Bordeaux,Nouvelle-Aquitaine,98564,France,FR,SF-7610,SAP-4058,Silver,Finnish,Ms Paula Bond,2024-01-25,3045.8
+CUST0195,Charlotte,Roy,charlotte.roy@hotmail.com,++44 123456,8000 Bradley freeway,Edmonton,AB,K9G 7X1,Canada,CA,SF-1175,SAP-9079,Silver,English,Dr James Evans,2025-01-09,16994.32
+CUST0196,Emma,Bakker,emma.bakker@gmail.com,+31 12657865,2077 Jones plaza,The Hague,South Holland,8126ZQ,Netherlands,NL,SF-1908,SAP-9926,Bronze,English,Stewart Young,2023-12-13,12796.83
+CUST0197,Chloé,Richard,chloé.richard@hotmail.com,+33 8431124435,7017 Matthews stravenue,Bordeaux,Nouvelle-Aquitaine,69466,France,FR,SF-9187,SAP-8769,Bronze,Icelandic,Dr Marian Ali,2024-09-05,14300.06
+CUST0198,Sophie,Meijer,sophie.meijer@yahoo.com,+31 186768588,8277 Malcolm island,Eindhoven,North Brabant,6789VW,Netherlands,NL,SF-5328,SAP-8018,Silver,Italian,Mr Eric Hall,2024-11-27,2160.76
+CUST0199,Harry,Jones,harry.jones@outlook.com,+44 23800798,1402 Clarke village,Glasgow,Glasgow City,G2G 1WF,United Kingdom,UK,SF-9343,SAP-5728,Bronze,Danish,Jake Wade-Hudson,2024-04-15,6235.07
+CUST0200,Sofia,Esposito,sofia.esposito@yahoo.com,+39 1875487928,8788 May path,Rome,Lazio,74809,Italy,IT,SF-6178,SAP-4887,Platinum,Italian,Simon Smith-Woods,2024-12-23,5185.82
+CUST0201,Emma,Meyer,emma.meyer@yahoo.com,+49 1782684794,1207 Harvey hollow,Frankfurt,Hesse,24599,Germany,DE,SF-4841,SAP-6199,Gold,Spanish,Brenda Green-Hart,2025-01-24,17051.43
+CUST0202,Michael,Smith,michael.smith@outlook.com,+1 4427588321,8235 Ronald shoals,Miami,FL,65070,United States,US,SF-8473,SAP-4772,Bronze,German,Sylvia Haynes-Bennett,2023-11-23,8680.09
+CUST0203,Noah,Roy,noah.roy@gmail.com,+1 77639969,8643 Jonathan cape,Ottawa,ON,K6S 6Y0,Canada,CA,SF-8972,SAP-7327,Platinum,French,Dr Victor Kelly,2025-01-09,14264.41
+CUST0204,Daniel,Romero,daniel.romero@outlook.com,+34 7996583730,2641 Richards burgs,Barcelona,Catalonia,93476,Spain,ES,SF-6802,SAP-1859,Platinum,Icelandic,Aimee Kaur,2025-03-04,11445.35
+CUST0205,Sara,Solberg,sara.solberg@hotmail.com,+47 54429481,5620 Jones valley,Stavanger,Rogaland,5800,Norway,NO,SF-2808,SAP-7486,Gold,English,Dr Kieran Price,2025-04-09,10609.08
+CUST0206,Jack,Taylor,jack.taylor@yahoo.com,+44 7840992614,4191 Charles mill,Birmingham,West Midlands,LS73 9FP,United Kingdom,UK,SF-2942,SAP-2361,Gold,German,Miss Debra Simpson,2024-02-01,16823.89
+CUST0207,Henrik,Johansen,henrik.johansen@outlook.com,,5408 Lewis coves,Oslo,Oslo,5607,Norway,NO,SF-4587,SAP-2806,Gold,Spanish,Alice Hall,2024-05-17,19668.03
+CUST0208,Sophie,Visser,sophie.visser@yahoo.com,00447123,2088 Smith court,Rotterdam,South Holland,1672NY,Netherlands,NL,SF-8097,SAP-3632,Bronze,Finnish,Jacob Harding,2025-08-24,5446.34
+CUST0209,Chiara,Rossi,chiara.rossi@hotmail.com,12345,5551 Smith way,Florence,Tuscany,83084,Italy,IT,SF-3242,SAP-8476,Platinum,German,Ben McDonald,2025-05-05,8496.94
+CUST0210,Charlotte,Roy,charlotte.roy@outlook.com,+1 51878332,973 Barrett estate,Halifax,NS,J1V 9L7,Canada,CA,SF-8657,SAP-5691,Gold,Swedish,Molly Jones,2025-09-04,5840.58
+CUST0211,Hugo,García,hugo.garcía@gmail.com,+34 2565540448,1706 Stephenson course,Valencia,Valencian Community,69893,Spain,ES,SF-7333,SAP-9138,Gold,Italian,Tina Murphy,2024-04-26,16339.13
+CUST0212,Chloé,Durand,chloé.durand@outlook.com,+33 3474452850,957 Carole knoll,Marseille,Provence-Alpes-Côte d'Azur,19636,France,FR,SF-8822,SAP-4056,Gold,Finnish,Peter White,2025-01-29,7675.87
+CUST0213,Emily,Ryan,emily.ryan@hotmail.com,+353 115090041,3852 Hussain branch,Dublin,County Dublin,S2 5RQ,Ireland,IE,SF-9955,SAP-7943,Gold,Swedish,Marc Bentley,2025-01-01,2676.09
+CUST0214,Valeria,Martínez,valeria.martínez@outlook.com,+34 3590857849,4971 Linda plaza,Seville,Andalusia,63709,Spain,ES,SF-6199,SAP-4895,Bronze,Swedish,Alan Cooper-Price,2024-12-23,16970.09
+CUST0215,Mary,Miller,mary.miller@gmail.com,+1 861823572,1632 Mason road,Austin,TX,28730,United States,US,SF-4946,SAP-7385,Bronze,Danish,Mr Philip Simpson,2024-08-23,1551.77
+CUST0216,Linda,Davis,linda.davis@outlook.com,00447123,3619 James junction,Austin,TX,53883,United States,US,SF-6328,SAP-3365,Platinum,Italian,Shannon Mitchell,2024-03-25,18163.66
+CUST0217,Sean,Ryan,sean.ryan@yahoo.com,+353 74715444,9071 Knight cape,Galway,County Galway,G5 8TF,Ireland,IE,SF-1219,SAP-4422,Gold,Icelandic,Molly Davidson-Begum,2024-06-26,7966.86
+CUST0218,Leon,Becker,leon.becker@yahoo.com,+49 10482541,9524 Lisa ridges,Cologne,North Rhine-Westphalia,41405,Germany,DE,SF-4655,SAP-4834,Bronze,Swedish,Miss Naomi Holt,2025-07-27,16126.47
+CUST0219,Charlotte,Thompson,charlotte.thompson@gmail.com,+1 8957880416,1055 Walters hills,Vancouver,BC,X3S 0R5,Canada,CA,SF-3073,SAP-6317,Bronze,Spanish,Julie Chan,2025-03-29,16917.29
+CUST0220,Lucas,González,lucas.gonzález@yahoo.com,+34 8672504804,435 Helen prairie,Seville,Andalusia,63507,Spain,ES,SF-2571,SAP-8976,Bronze,Finnish,Leigh Johnson-Anderson,2024-05-16,12095.87
+CUST0221,James,Brown,james.brown@yahoo.com,+1 7241514533,3971 Lee prairie,Miami,FL,60379,United States,US,SF-1232,SAP-5427,Bronze,Icelandic,Chloe Barry,2025-05-05,5967.92
+CUST0222,Mila,de Vries,mila.de vries@yahoo.com,+31 342745167,5693 Kennedy springs,Eindhoven,North Brabant,4733JQ,Netherlands,NL,SF-9795,SAP-9469,Platinum,English,Andrew Allen,2025-04-19,14875.32
+CUST0223,James,Smith,james.smith@gmail.com,+353 400683737,2788 Clayton forest,Galway,County Galway,TR4 4ZL,Ireland,IE,SF-3756,SAP-1393,Silver,Spanish,Sally Fletcher,2024-09-07,3263.21
+CUST0224,Mary,Smith,mary.smith@outlook.com,+1 57776607,4071 Victoria parkway,Chicago,IL,52882,United States,US,SF-3475,SAP-3558,Bronze,English,Dr Robert Cole,2024-11-28,2254.21
+CUST0225,Lukas,Becker,lukas.becker@yahoo.com,+49 754691029,485 Chelsea islands,Cologne,North Rhine-Westphalia,61081,Germany,DE,SF-6478,SAP-7755,Platinum,Icelandic,Dr Marcus Patel,2024-03-05,17124.87
+CUST0226,Emma,Schmidt,emma.schmidt@gmail.com,+49 6690955307,2937 Walker junctions,Hamburg,Hamburg,79340,Germany,DE,SF-7991,SAP-9019,Silver,French,Stacey Davies,2025-08-26,11280.49
+CUST0227,Olivia,Smith,olivia.smith@outlook.com,+44 444199149,5640 Elaine curve,Leeds,West Yorkshire,DD9A 4ZN,United Kingdom,UK,SF-6412,SAP-1670,Platinum,Swedish,Bradley Doherty,2024-04-14,15450.53
+CUST0228,Robert,Smith,robert.smith@hotmail.com,+1 1351344147,3293 Vaughan squares,Austin,TX,45024,United States,US,SF-3686,SAP-6237,Silver,English,Leigh Cole,2024-06-25,12740.72
+CUST0229,Isla,Davies,isla.davies@yahoo.com,+44 3554425738,3428 Stone underpass,London,Greater London,FY4B 6QF,United Kingdom,UK,SF-3169,SAP-1108,Bronze,Finnish,Michael Hussain-Edwards,2024-07-18,14788.64
+CUST0230,Giorgio,Costa,giorgio.costa@outlook.com,+39 6771322975,6546 Lynch summit,Bologna,Emilia-Romagna,16433,Italy,IT,SF-5508,SAP-1793,Silver,French,Bethany Howell,2024-12-14,14054.27
+CUST0231,Isla,Davies,isla.davies@hotmail.com,+44 64215106,7515 Begum square,London,Greater London,CR1 3BW,United Kingdom,UK,SF-7768,SAP-3626,Silver,Danish,Stanley Barnes,2024-01-08,12180.5
+CUST0232,Leon,Meyer,leon.meyer@hotmail.com,+49 1202112629,9222 Sheppard mountains,Dresden,Saxony,79286,Germany,DE,SF-7341,SAP-1249,Gold,English,Maurice Welch,2023-10-27,4421.86
+CUST0233,Jack,Taylor,jack.taylor@gmail.com,+44 21761128,6239 Jane shoal,Birmingham,West Midlands,LS34 4BD,United Kingdom,UK,SF-3401,SAP-4393,Silver,Swedish,Mr Vincent Hicks,2025-08-13,18054.59
+CUST0234,Lena,Becker,lena.becker@yahoo.com,+49 882528308,1776 Clive mall,Stuttgart,Baden-Württemberg,41416,Germany,DE,SF-3952,SAP-6967,Platinum,German,Ms Karen Turner,2024-08-26,10315.86
+CUST0235,Mia,Weber,mia.weber@hotmail.com,+49 38789763,6012 Birch summit,Hamburg,Hamburg,77060,Germany,DE,SF-8771,SAP-2537,Bronze,French,Miss Karen Bailey,2025-01-06,4291.79
+CUST0236,Mateo,González,mateo.gonzález@outlook.com,+34 18516140,9143 Albert haven,Seville,Andalusia,21230,Spain,ES,SF-6715,SAP-1163,Platinum,Swedish,Sian Dunn,2024-11-09,19561.8
+CUST0237,Lena,Meyer,lena.meyer@yahoo.com,+49 7632788790,1382 Leanne mountain,Munich,Bavaria,57600,Germany,DE,SF-5940,SAP-7238,Bronze,French,Lewis Law-Butcher,2025-05-12,17468.13
+CUST0238,Charlotte,Anderson,charlotte.anderson@outlook.com,+1 82960417,3321 Brooks stravenue,Calgary,AB,G1C 2C8,Canada,CA,SF-1258,SAP-9935,Silver,Swedish,Thomas Pratt,2025-06-28,10783.8
+CUST0239,Linda,Davis,linda.davis@gmail.com,+1 15461151,8623 Swift throughway,San Francisco,CA,20599,United States,US,SF-2818,SAP-7759,Bronze,German,Nicholas Morrison,2025-03-02,13901.65
+CUST0240,Julia,Bos,julia.bos@outlook.com,,1338 Mason passage,Eindhoven,North Brabant,8946RZ,Netherlands,NL,SF-2234,SAP-3508,Silver,French,Tracey Matthews,2024-01-05,12326.58
+CUST0241,William,Martin,william.martin@gmail.com,+1 168962488,3555 Bradley neck,Edmonton,AB,H6S 4K7,Canada,CA,SF-5768,SAP-2799,Bronze,English,Catherine Bailey,2024-08-15,1941.82
+CUST0242,Amelia,Evans,amelia.evans@yahoo.com,+44 87508168,6615 Katie terrace,Edinburgh,City of Edinburgh,HP4 4QJ,United Kingdom,UK,SF-7160,SAP-3167,Silver,Norwegian,Brett Iqbal,2024-06-17,17154.79
+CUST0243,Daniel,Romero,daniel.romero@outlook.com,+34 5255246355,9786 Carol spur,Bilbao,Basque Country,55095,Spain,ES,SF-9200,SAP-8206,Gold,Swedish,Lindsey Moran,2025-04-11,8449.84
+CUST0244,Amelia,Murphy,amelia.murphy@gmail.com,+1 96407768,7289 Ruth hill,Ottawa,ON,H0C 9M9,Canada,CA,SF-3620,SAP-4566,Silver,English,Cheryl Quinn,2024-02-03,9095.87
+CUST0245,William,Wilson,william.wilson@outlook.com,+1 7792770530,2874 Gould summit,Halifax,NS,M1K 9V7,Canada,CA,SF-1080,SAP-2475,Bronze,German,Joanna Sanderson-Parry,2024-10-22,14545.86
+CUST0246,Ben,Becker,ben.becker@yahoo.com,+49 51104028,6047 Louis springs,Frankfurt,Hesse,93034,Germany,DE,SF-5376,SAP-7637,Bronze,French,Mr Marcus Williams,2025-04-21,7476.5
+CUST0247,Valeria,Martínez,valeria.martínez@outlook.com,+34 5949448099,6139 Ferguson port,Seville,Andalusia,33774,Spain,ES,SF-4247,SAP-2147,Silver,Finnish,Robert Norton,2025-09-23,6902.19
+CUST0248,Hannah,Schneider,hannah.schneider@gmail.com,+49 832715806,6655 Marion plain,Hamburg,Hamburg,12284,Germany,DE,SF-2306,SAP-4343,Gold,Spanish,Jake Mills,2024-11-30,9778.06
+CUST0249,Lukas,Müller,lukas.müller@gmail.com,+49 15227955,8788 Clark ford,Berlin,Berlin,52745,Germany,DE,SF-2982,SAP-9016,Bronze,Icelandic,Dr Joanne Sutton,2024-10-03,8121.29
+CUST0250,Ben,Wagner,ben.wagner@hotmail.com,+49 6911454105,7033 Sandra curve,Frankfurt,Hesse,24757,Germany,DE,SF-7924,SAP-3388,Platinum,French,Lynne Murphy,2023-12-06,3011.2
+CUST0251,Emma,Thompson,emma.thompson@gmail.com,+1 382883468,8263 Davies inlet,Quebec City,QC,K8R 7H9,Canada,CA,SF-3882,SAP-8516,Silver,Swedish,Mrs Andrea Smith,2023-10-25,5582.98
+CUST0252,Emma,Weber,emma.weber@hotmail.com,+49 36483765,9950 Rosemary cliffs,Hamburg,Hamburg,84018,Germany,DE,SF-3722,SAP-2765,Bronze,English,Phillip Ward,2023-12-11,7076.22
+CUST0253,Robert,Williams,robert.williams@hotmail.com,00447123,8628 Brian mountains,Chicago,IL,80973,United States,US,SF-5131,SAP-3387,Silver,Norwegian,Gareth Hanson,2025-06-11,2768.87
+CUST0254,Lucas,Bernard,lucas@@gmail.com,+33 6548288453,5973 Jemma stream,Nice,Provence-Alpes-Côte d'Azur,19391,France,FR,SF-3391,SAP-7096,Bronze,Icelandic,Dr Christian Turner,2024-08-15,3132.76
+CUST0255,Louis,Petit,louis.petit@yahoo.com,+33 5254581847,5503 Taylor spur,Paris,Île-de-France,53985,France,FR,SF-2926,SAP-8428,Gold,Italian,Hannah Richardson,2025-03-20,7261.51
+CUST0256,Mila,Visser,mila.visser@hotmail.com,+31 418285137,7476 Hilary wall,The Hague,South Holland,1255TE,Netherlands,NL,SF-7990,SAP-3259,Platinum,Spanish,Elizabeth Carpenter,2024-12-13,17763.46
+CUST0257,James,Williams,james.williams@outlook.com,+1 25279749,9441 Hill stream,Seattle,WA,50369,United States,US,SF-8964,SAP-3697,Platinum,Italian,David Davey,2024-06-10,9432.51
+CUST0258,Alma,Hansen,alma.hansen@hotmail.com,+45 34832609,9603 Davies plains,Odense,Southern Denmark,5872,Denmark,DK,SF-3775,SAP-7556,Silver,English,Brenda Lamb,2024-04-18,852.47
+CUST0259,Harry,Smith,harrysmith@,+44 647318422,8541 Kelly key,Manchester,Greater Manchester,M31 6ZA,United Kingdom,UK,SF-6618,SAP-4294,Gold,Spanish,Timothy Rice,2025-01-26,6633.37
+CUST0260,Sara,Solberg,sara.gmail.com,+47 551588014,4485 Katie rapid,Oslo,Oslo,1715,Norway,NO,SF-5917,SAP-1890,Platinum,Norwegian,Mr Adrian Cox,2024-08-30,2697.98
+CUST0261,Mary,Jones,mary.jones@hotmail.com,+1 711264142,1855 Henry forge,Miami,FL,24507,United States,US,SF-4776,SAP-7591,Platinum,Finnish,Mr Brian Heath,2024-06-03,17488.98
+CUST0262,Sem,Bakker,sem.bakker@hotmail.com,+31 253415498,3308 Beverley island,Eindhoven,North Brabant,9348NF,Netherlands,NL,SF-6267,SAP-7720,Silver,Italian,Abbie Clements-Summers,2024-04-24,14119.46
+CUST0263,Mary,Garcia,mary.garcia@outlook.com,+1 499504557,6405 Hawkins shore,Denver,CO,38160,United States,US,SF-6405,SAP-6778,Gold,Icelandic,Natalie Ali,2024-05-23,12543.4
+CUST0264,George,Davies,george.davies@hotmail.com,+44 856884189,2054 Nicole ramp,Manchester,Greater Manchester,DD6V 0QR,United Kingdom,UK,SF-9462,SAP-7438,Silver,Swedish,Dr Damien Sanderson,2024-02-15,18447.64
+CUST0265,Michael,Garcia,michael.garcia@gmail.com,+1 2680306614,9711 Patel throughway,Miami,FL,29369,United States,US,SF-5236,SAP-4421,Gold,English,Jenna Smith,2024-04-15,16716.25
+CUST0266,Hugo,Pérez,hugo.pérez@gmail.com,+34 384026962,398 Alexandra pike,Barcelona,Catalonia,80817,Spain,ES,SF-4125,SAP-3917,Bronze,French,Dr Matthew Moore,2024-09-10,3186.94
+CUST0267,Mary,Jones,mary.jones@hotmail.com,+1 471651171,2980 Charlotte gardens,San Francisco,CA,56645,United States,US,SF-4339,SAP-6692,Bronze,French,Timothy Sheppard-Hooper,2024-10-06,5554.0
+CUST0268,James,Garcia,james.garcia@gmail.com,+1 83742088,8454 Green stream,New York,NY,86369,United States,US,SF-9052,SAP-3890,Silver,Swedish,Ms Margaret Phillips,2025-03-29,5933.98
+CUST0269,Chiara,Russo,chiara.russo@gmail.com,++44 123456,4255 Liam field,Turin,Piedmont,24089,Italy,IT,SF-1365,SAP-4357,Silver,Italian,Mr Shane Kelly,2025-09-26,18477.59
+CUST0270,Alessia,Esposito,alessia.esposito@yahoo.com,+39 948007682,3232 Stokes bridge,Turin,Piedmont,40077,Italy,IT,SF-9636,SAP-3187,Platinum,Italian,Neil Hunt,2024-01-22,1174.6
+CUST0271,Louis,Thomas,louis.thomas@hotmail.com,+33 4465727963,2663 Austin square,Lyon,Auvergne-Rhône-Alpes,53661,France,FR,SF-2050,SAP-4297,Platinum,English,Lindsey Martin-Austin,2024-12-24,14251.56
+CUST0272,Mary,Johnson,mary.johnson@yahoo.com,+1 533342625,6549 Russell light,Boston,MA,33080,United States,US,SF-1386,SAP-1357,Platinum,Norwegian,Brenda Brooks,2024-06-18,411.78
+CUST0273,Lucas,García,lucas.garcía@outlook.com,+34 22938025,4455 Evans parks,Barcelona,Catalonia,13069,Spain,ES,SF-6082,SAP-3585,Gold,Spanish,Carol Roberts,2025-05-06,19069.07
+CUST0274,Sophie,Jansen,sophie.jansen@outlook.com,+31 753075516,8868 Carter island,Utrecht,Utrecht,3767IS,Netherlands,NL,SF-1019,SAP-3644,Bronze,Icelandic,Jeffrey Webster,2023-11-27,6103.18
+CUST0275,Daniel,Byrne,daniel.byrne@gmail.com,+353 62718714,1270 Jacob brook,Waterford,County Waterford,NR9 4FH,Ireland,IE,SF-1057,SAP-4277,Gold,Italian,Pauline Palmer,2025-07-31,5971.2
+CUST0276,Daniel,O'Sullivan,daniel.o'sullivan@hotmail.com,+353 173336421,8875 Dawn plaza,Waterford,County Waterford,SL5M 7TG,Ireland,IE,SF-7669,SAP-7745,Bronze,Icelandic,Miss Chloe Davidson,2024-12-20,16745.77
+CUST0277,Linda,Johnson,linda.johnson@outlook.com,+1 235171369,591 Gallagher plains,Seattle,WA,65770,United States,US,SF-8575,SAP-8404,Bronze,English,Mr Marcus Hancock,2025-08-10,12182.66
+CUST0278,Grace,O'Brien,grace.o'brien@hotmail.com,+353 463418607,4137 Aimee causeway,Waterford,County Waterford,S2 1FA,Ireland,IE,SF-2093,SAP-3010,Gold,Finnish,Howard Murphy,2023-12-08,16262.84
+CUST0279,Jennifer,Smith,jennifer.smith@gmail.com,+1 1520429634,1322 Slater brook,San Francisco,CA,34568,United States,US,SF-8507,SAP-2797,Bronze,Swedish,Vincent Fisher,2023-11-01,19827.21
+CUST0280,Olivia,Jones,olivia.jones@hotmail.com,+44 7910493596,1792 Melanie stravenue,Manchester,Greater Manchester,NN4 8SG,United Kingdom,UK,SF-1690,SAP-2917,Gold,Finnish,Anthony Barry,2024-04-27,19678.93
+CUST0281,Mary,Smith,mary..smith@outlook.com,+1 779435586,3646 Jasmine pine,Denver,CO,21648,United States,US,SF-7972,SAP-3397,Gold,Swedish,Edward Phillips-Frost,2024-08-07,17093.87
+CUST0282,Sophia,Brown,sophia.brown@gmail.com,+44 14750503,2026 Watson road,Glasgow,Glasgow City,WV7V 9DJ,United Kingdom,UK,SF-5027,SAP-2803,Platinum,Norwegian,Ms Leanne Richardson,2025-08-11,644.09
+CUST0283,Martina,Torres,martina.torres@hotmail.com,+34 4818153843,4843 Hilary walks,Bilbao,Basque Country,30915,Spain,ES,SF-7989,SAP-5953,Silver,Danish,Mr Jordan Stevenson,2024-08-10,17808.09
+CUST0284,Robert,Johnson,robert.johnson@yahoo.com,+1 57424642,84 George branch,San Francisco,CA,32246,United States,US,SF-3188,SAP-4101,Gold,Spanish,Ms Patricia Knight,2024-09-24,13453.86
+CUST0285,Daniel,Romero,daniel.romero@yahoo.com,+34 92290936,8675 Armstrong walks,Bilbao,Basque Country,48927,Spain,ES,SF-3463,SAP-3549,Silver,Norwegian,Arthur Bell,2024-04-18,12448.29
+CUST0286,Ola,Olsen,ola.olsen@hotmail.com,+47 6774371148,6238 Hazel port,Bergen,Vestland,1049,Norway,NO,SF-4203,SAP-6067,Platinum,Spanish,Abigail Parker,2023-12-19,4885.6
+CUST0287,James,Garcia,james.garcia@gmail.com,12345,8144 Sutton port,Chicago,IL,32834,United States,US,SF-5635,SAP-5134,Silver,English,Mr Craig Murray,2024-06-23,8822.14
+CUST0288,Olivia,Taylor,olivia.taylor@hotmail.com,+44 295894878,6014 Gavin radial,Birmingham,West Midlands,S14 9JY,United Kingdom,UK,SF-2964,SAP-3047,Platinum,Spanish,Dr Annette Wheeler,2024-07-06,9870.08
+CUST0289,Ben,Becker,ben.becker@gmail.com,+49 57186828,9780 Davey dam,Berlin,Berlin,91427,Germany,DE,SF-3780,SAP-6257,Bronze,Icelandic,Mr Tony Morris,2024-07-17,2412.29
+CUST0290,Sem,de Vries,sem..de vries@outlook.com,+31 59707786,9278 Nigel mews,Utrecht,Utrecht,8769NK,Netherlands,NL,SF-7223,SAP-4886,Platinum,Icelandic,Ian Cook,2025-06-11,13462.79
+CUST0291,Patricia,Jones,patricia@@gmail.com,+1 2475271482,6335 Morgan islands,Miami,FL,27445,United States,US,SF-6850,SAP-9147,Bronze,Norwegian,Elliott Robertson,2024-10-06,4590.83
+CUST0292,Mateo,García,mateo.garcía@outlook.com,+34 889567035,5054 Wilson plaza,Barcelona,Catalonia,62257,Spain,ES,SF-1015,SAP-9984,Platinum,English,Alexandra Skinner,2025-01-20,10226.67
+CUST0293,Mateo,Pérez,mateo.pérez@gmail.com,+34 989446369,267 Cunningham river,Malaga,Andalusia,23733,Spain,ES,SF-5055,SAP-4798,Gold,Icelandic,Harry Edwards-Reeves,2024-02-19,991.26
+CUST0294,Hugo,Martínez,hugo.martínez@gmail.com,+34 6280468707,4815 Ellis roads,Seville,Andalusia,88780,Spain,ES,SF-7351,SAP-6493,Silver,Icelandic,Gordon Saunders,2024-01-13,17588.07
+CUST0295,Lucas,Robert,lucas robert@yahoo.com,+33 765596254,9048 Christopher inlet,Nice,Provence-Alpes-Côte d'Azur,82722,France,FR,SF-3562,SAP-5762,Silver,Finnish,Paula Carter,2024-01-10,5733.78
+CUST0296,Ingrid,Hansen,ingrid.gmail.com,+1-,4329 Nicholas ferry,Bergen,Vestland,3527,Norway,NO,SF-6709,SAP-6896,Bronze,German,Rosemary Randall,2024-11-24,8383.69
+CUST0297,Lucía,Romero,lucía.romero@gmail.com,+34 722821753,125 Webb corners,Bilbao,Basque Country,68176,Spain,ES,SF-6040,SAP-4743,Gold,Spanish,Julia Green,2025-01-29,8049.12
+CUST0298,Jennifer,Davis,jennifer.davis@gmail.com,+1 8743737830,5038 Taylor bridge,New York,NY,90036,United States,US,SF-2257,SAP-2195,Gold,Finnish,Russell Cooper-Cunningham,2025-09-21,13142.19
+CUST0299,Hugo,Pérez,hugo.pérez@gmail.com,+34 384026962,398 Alexandra pike,Barcelona,Catalonia,80817,Spain,ES,SF-6815,SAP-2258,Silver,French,Glenn Palmer,2024-02-07,1424.69
+CUST0300,Robert,Garcia,robert.garcia@yahoo.com,+1 78035998,1108 Hodgson park,New York,NY,29359,United States,US,SF-6133,SAP-1468,Silver,Icelandic,Ryan Thompson,2024-05-24,2990.55
+CUST0301,Giulia,Bianchi,giulia.bianchi@yahoo.com,+39 87379053,2587 Hodgson tunnel,Turin,Piedmont,61382,Italy,IT,SF-6189,SAP-8360,Bronze,Italian,Jeremy Smith,2024-05-01,18316.31
+CUST0302,Charlotte,Thompson,charlotte.thompson@gmail.com,+1 5677457234,4063 Wright flat,Montreal,QC,V4E 4E7,Canada,CA,SF-5929,SAP-7847,Bronze,German,Michelle Kirk,2023-10-28,2993.27
+CUST0303,Emma,Nielsen,emma.nielsen@hotmail.com,+45 506464636,2618 Ross river,Copenhagen,Capital Region,1949,Denmark,DK,SF-9007,SAP-7774,Gold,English,Maria Williams,2024-09-21,10351.12
+CUST0304,Ingrid,Larsen,ingrid.larsen@yahoo.com,,9674 Clifford islands,Oslo,Oslo,6568,Norway,NO,SF-6332,SAP-3322,Silver,German,Rita Thorpe-McLean,2024-08-27,13497.75
+CUST0305,Harry,Wilson,harry.wilson@gmail.com,+44 581748198,6398 Harris square,Leeds,West Yorkshire,LU9H 6LR,United Kingdom,UK,SF-8239,SAP-3112,Platinum,Danish,Amy Begum,2024-03-26,12321.65
+CUST0306,Daan,de Jong,daan.de jong@hotmail.com,+31 1571922233,1328 Jill trafficway,The Hague,South Holland,3964UE,Netherlands,NL,SF-7146,SAP-2585,Gold,Swedish,Laura Watson,2024-10-15,712.4
+CUST0307,Sem,Smeets,sem.smeets@outlook.com,+31 545363497,644 Jennifer union,Utrecht,Utrecht,1875DA,Netherlands,NL,SF-7063,SAP-1874,Gold,German,Denis Rees-Baker,2025-07-01,17756.91
+CUST0308,Daniel,Smith,daniel.smith@gmail.com,+353 6759094376,7691 Davies dam,Waterford,County Waterford,GU3M 6RD,Ireland,IE,SF-9009,SAP-8060,Silver,Norwegian,Abbie Jones,2024-08-29,1176.64
+CUST0309,Hugo,Martínez,hugo.martínez@yahoo.com,+34 3200841229,3692 Dunn turnpike,Valencia,Valencian Community,89029,Spain,ES,SF-6335,SAP-8885,Gold,Danish,Diana Bowen,2024-12-13,5542.97
+CUST0310,Sofia,Gallo,sofia.gallo@gmail.com,+39 415237494,5585 Raymond trafficway,Turin,Piedmont,41474,Italy,IT,SF-1084,SAP-1609,Bronze,French,Hugh King,2024-02-29,1880.89
+CUST0311,Francesco,Gallo,francesco.gallo@yahoo.com,+39 286421170,5215 Lynne rue,Turin,Piedmont,62085,Italy,IT,SF-2696,SAP-8569,Silver,Finnish,Dr Roger Morgan,2024-09-21,12871.96
+CUST0312,Emma,Anderson,emma.anderson@gmail.com,+1 94847059,6867 Mark courts,Quebec City,QC,J2P 7P0,Canada,CA,SF-8447,SAP-3542,Platinum,French,Jamie Dennis-Joyce,2025-01-15,11399.61
+CUST0313,Robert,Johnson,robert.johnson@gmail.com,+1 676874459,560 Katie landing,New York,NY,22532,United States,US,SF-1243,SAP-3510,Silver,Danish,Kate Clements,2025-01-22,5348.03
+CUST0314,Oliver,Wilson,oliver.wilson@outlook.com,+44 60059571,9114 Leigh burg,Glasgow,Glasgow City,CF46 1FQ,United Kingdom,UK,SF-9594,SAP-8835,Silver,Spanish,Ronald Murphy-Martin,2024-11-01,550.07
+CUST0315,William,Wilson,william.wilson@hotmail.com,+1 3076200411,4916 Jones mill,Halifax,NS,A6X 6B2,Canada,CA,SF-8914,SAP-5847,Silver,Icelandic,Dr Katherine Rice,2023-11-26,16881.91
+CUST0316,Daniel,O'Sullivan,daniel.o'sullivan@yahoo.com,+353 12685803,9750 Daniel vista,Cork,County Cork,RM1 3WG,Ireland,IE,SF-3079,SAP-6959,Gold,English,Tracy Butcher,2024-09-18,9687.95
+CUST0317,Lucas,Bernard,lucas.bernard@yahoo.com,+33 5115323958,7476 Barnes lodge,Nice,Provence-Alpes-Côte d'Azur,31031,France,FR,SF-9024,SAP-3420,Gold,Swedish,Mr Colin Hart,2024-09-22,11413.27
+CUST0318,Anna,Olsson,anna.olsson@gmail.com,+46 463623647,1048 Day ridges,Gothenburg,Västra Götaland,296 27,Sweden,SE,SF-2590,SAP-6041,Platinum,German,Eric Wright,2024-08-20,7793.67
+CUST0319,John,Garcia,john.garcia@yahoo.com,+1 9945315791,8364 Geraldine forest,New York,NY,46327,United States,US,SF-6616,SAP-4365,Silver,Icelandic,Bradley Mitchell,2025-07-12,10287.91
+CUST0320,Daniel,O'Brien,daniel.o'brien@yahoo.com,abcd1234,9160 Melissa cove,Cork,County Cork,G5F 7EL,Ireland,IE,SF-7339,SAP-6124,Platinum,Finnish,Dr Arthur Morgan,2024-06-22,11995.21
+CUST0321,Sofia,Rossi,sofia.rossi@gmail.com,+39 1453282770,1016 Talbot radial,Bologna,Emilia-Romagna,31307,Italy,IT,SF-3450,SAP-3695,Gold,Norwegian,Clive Parsons,2024-10-12,5372.72
+CUST0322,Mia,Wagner,mia.wagner@outlook.com,+49 96771194,5203 Ellie squares,Cologne,North Rhine-Westphalia,63623,Germany,DE,SF-4857,SAP-3634,Bronze,German,Dr Mohammad Wright,2025-03-28,1407.84
+CUST0323,Zoé,Martin,zoé.martin@yahoo.com,+33 56603253,3978 Terry crest,Paris,Île-de-France,47073,France,FR,SF-6391,SAP-2810,Gold,Finnish,Carl Hardy,2024-08-07,7866.3
+CUST0324,James,Miller,james.miller@yahoo.com,+1 4001587324,4573 Denise loaf,Boston,MA,39519,United States,US,SF-8830,SAP-6963,Bronze,Danish,Hilary Khan,2024-08-16,3303.48
+CUST0325,Mila,Jansen,mila.jansen@gmail.com,+31 2618231974,1839 Skinner roads,Utrecht,Utrecht,7760AF,Netherlands,NL,SF-9292,SAP-9794,Platinum,Danish,Rita Bell,2025-10-14,5972.03
+CUST0326,Daan,Visser,daan.visser@outlook.com,+31 57021466,3786 Taylor mission,Amsterdam,North Holland,1649RY,Netherlands,NL,SF-5658,SAP-7087,Platinum,Finnish,Dawn Davidson,2024-06-23,4131.75
+CUST0327,Chiara,Romano,chiara.romano@yahoo.com,+39 182774455,2144 Bibi way,Bologna,Emilia-Romagna,25254,Italy,IT,SF-4722,SAP-2043,Platinum,Finnish,Rebecca Jones,2024-03-22,18645.83
+CUST0328,Linda,Jones,linda.jones@outlook.com,+1 58749735,3682 Robson parkways,Seattle,WA,66629,United States,US,SF-7811,SAP-4673,Platinum,German,Dr Dennis Richardson,2024-09-09,18529.75
+CUST0329,Benjamin,Martin,benjamin.martin@gmail.com,+1 925217904,3925 Jones corner,Toronto,ON,E3K 3Y8,Canada,CA,SF-3255,SAP-8540,Gold,German,Lauren Coles-Quinn,2023-11-17,7746.36
+CUST0330,James,Smith,james.smith@outlook.com,+1 509821924,1734 Wilson heights,Seattle,WA,63754,United States,US,SF-7527,SAP-9070,Silver,Italian,Bernard Armstrong,2025-06-14,5904.53
+CUST0331,Chiara,Ferrari,chiara.ferrari@gmail.com,+39 58518627,1099 Parry creek,Bologna,Emilia-Romagna,93133,Italy,IT,SF-7845,SAP-6105,Platinum,Finnish,Amy Phillips-Freeman,2024-08-02,235.49
+CUST0332,Léa,Martin,léa.martin@yahoo.com,+33 73353539,1827 Chloe plains,Nice,Provence-Alpes-Côte d'Azur,52012,France,FR,SF-9828,SAP-8824,Platinum,Norwegian,Phillip Warner,2025-07-28,13168.25
+CUST0333,Luca,Esposito,luca.esposito@yahoo.com,++44 123456,4894 Joel well,Milan,Lombardy,33675,Italy,IT,SF-4825,SAP-3236,Bronze,Swedish,Eric Smith,2025-08-22,15037.4
+CUST0334,Noah,Pedersen,noah.pedersen@hotmail.com,+47 19790428,5653 Jennifer way,Trondheim,Trøndelag,8510,Norway,NO,SF-1888,SAP-3800,Silver,English,Terence Kelly,2025-05-17,5828.93
+CUST0335,Zoé,Petit,zoé.petit@hotmail.com,+33 50119162,3732 Taylor ridge,Toulouse,Occitanie,42630,France,FR,SF-3890,SAP-4439,Platinum,Spanish,Dr Jake Richards,2025-06-23,17784.54
+CUST0336,Giorgio,Russo,giorgio.russo@hotmail.com,+39 1044233963,4561 Russell valley,Bologna,Emilia-Romagna,63069,Italy,IT,SF-9032,SAP-9046,Gold,French,Glen Dodd,2024-05-28,5891.1
+CUST0337,Liam,Anderson,liam.anderson@yahoo.com,+1 96768575,8862 Brandon squares,Calgary,AB,H0N 2P4,Canada,CA,SF-5976,SAP-5715,Gold,German,Jacob Allen-Watson,2024-11-25,2568.77
+CUST0338,Patricia,Miller,patricia.miller@gmail.com,+1 105668741,3896 Barry terrace,Austin,TX,26152,United States,US,SF-7190,SAP-9386,Gold,English,Dr Robert Chambers,2025-08-26,12082.62
+CUST0339,Luca,Bianchi,luca.bianchi@hotmail.com,+39 6011226403,5719 Rita way,Florence,Tuscany,51644,Italy,IT,SF-4495,SAP-8075,Bronze,Norwegian,Harry Lane,2024-06-29,8799.53
+CUST0340,John,Miller,john.miller@outlook.com,+1 35324377,3641 Sian lock,Chicago,IL,62759,United States,US,SF-8039,SAP-1470,Gold,French,Rachel Mellor,2024-05-18,661.31
+CUST0341,Charlotte,Murphy,charlotte.murphy@hotmail.com,++44 123456,121 Patel club,Montreal,QC,V9S 6A5,Canada,CA,SF-7370,SAP-9889,Platinum,Swedish,Mr Reece Lewis,2024-05-26,14520.99
+CUST0342,Ola,Andersen,ola.andersen@outlook.com,+47 74772379,8662 Murphy oval,Bergen,Vestland,8789,Norway,NO,SF-8134,SAP-7394,Gold,Swedish,Leah Metcalfe,2025-06-15,10361.91
+CUST0343,Leon,Becker,leon.becker@hotmail.com,+49 655746395,4378 Clare roads,Munich,Bavaria,21718,Germany,DE,SF-4663,SAP-6033,Platinum,Finnish,Dr Ryan Coles,2024-08-26,3417.02
+CUST0344,Sofia,Ferrari,sofia.ferrari@yahoo.com,+39 70567590,1272 Anne views,Rome,Lazio,86021,Italy,IT,SF-6918,SAP-2228,Gold,Icelandic,Louis Phillips,2025-07-27,11851.54
+CUST0345,Olivia,Wilson,olivia.wilson@yahoo.com,+1 5484961360,1907 Haynes ports,Montreal,QC,C7G 0L6,Canada,CA,SF-3285,SAP-2711,Platinum,French,Lawrence Davis,2025-06-26,8731.24
+CUST0346,Chiara,Ferrari,chiara.ferrari@outlook.com,+39 46041276,3804 Lawrence track,Rome,Lazio,89463,Italy,IT,SF-5273,SAP-7819,Silver,French,Daniel Spencer,2025-06-22,10715.86
+CUST0347,Noah,Wilson,noah.wilson@yahoo.com,+1 1646398540,2961 Brown walks,Ottawa,ON,Y4B 4H2,Canada,CA,SF-8897,SAP-1554,Bronze,Finnish,Gerald Murphy,2024-09-19,6409.94
+CUST0348,Valeria,Torres,valeria.torres@yahoo.com,+34 2989951667,8560 Charlene curve,Malaga,Andalusia,73723,Spain,ES,SF-1396,SAP-1181,Silver,Spanish,Dr Jason Cameron,2025-09-02,18889.96
+CUST0349,Isla,Evans,isla.evans@yahoo.com,+44 24498384,3140 Green lake,Bristol,Bristol,BT5 0RN,United Kingdom,UK,SF-5434,SAP-8784,Platinum,Danish,Ms Shirley Lynch,2025-04-21,1496.75
+CUST0350,Hannah,Meyer,hannah.meyer@outlook.com,+49 7051838207,7589 David forest,Munich,Bavaria,17830,Germany,DE,SF-6356,SAP-1727,Platinum,English,Lisa Daniels,2024-04-15,9951.43
+CUST0351,Matti,Virtanen,matti.virtanen@yahoo.com,+358 9994301906,9921 Bailey square,Helsinki,Uusimaa,4469,Finland,FI,SF-7734,SAP-5395,Silver,Italian,Elizabeth Scott,2024-09-15,9666.64
+CUST0352,Gabriel,Martin,gabriel.martin@yahoo.com,+33 94092173,7955 Lesley cliffs,Lyon,Auvergne-Rhône-Alpes,25711,France,FR,SF-6723,SAP-8349,Gold,Icelandic,Alex Archer,2025-07-10,13723.91
+CUST0353,Amelia,Wilson,amelia.wilson@outlook.com,+1 59570847,5133 Timothy island,Halifax,NS,R2V 9A1,Canada,CA,SF-6030,SAP-7046,Platinum,Spanish,Leanne Khan,2025-06-14,749.38
+CUST0354,Giorgio,Bianchi,giorgio.bianchi@hotmail.com,+39 31993223,5576 Jemma springs,Florence,Tuscany,40084,Italy,IT,SF-1352,SAP-2104,Platinum,Italian,Joshua Hill,2023-10-29,15446.51
+CUST0355,Patricia,Brown,patricia.brown@yahoo.com,+1 67641447,6180 Chloe keys,Boston,MA,99191,United States,US,SF-9198,SAP-6552,Bronze,Danish,Ms Aimee Morris,2025-10-06,9095.18
+CUST0356,William,Murphy,william.murphy@hotmail.com,+1 859459248,4337 Richards mills,Montreal,QC,Y6T 1X1,Canada,CA,SF-3286,SAP-9182,Silver,Italian,Ms Tracey Wheeler,2024-02-08,3264.5
+CUST0357,Sophia,Jones,sophia.jones@outlook.com,+44 77270718,1947 Joan stream,Birmingham,West Midlands,HS65 3LD,United Kingdom,UK,SF-9756,SAP-6721,Platinum,Spanish,Martyn Foster,2025-05-05,15892.67
+CUST0358,Ola,Andersen,ola.andersen@yahoo.com,+47 9896522403,7208 Marsh spurs,Bergen,Vestland,2623,Norway,NO,SF-8325,SAP-1549,Platinum,Norwegian,Hugh Hawkins,2024-03-30,19583.63
+CUST0359,William,Anderson,william.anderson@yahoo.com,+1 5459677610,4173 Deborah hill,Quebec City,QC,M9G 1A3,Canada,CA,SF-3349,SAP-3718,Silver,Italian,Mr Trevor Hughes,2024-01-18,15245.43
+CUST0360,Anna,Sigurðsson,anna.sigurðsson@yahoo.com,+354 7104011980,2387 Dawn route,Akureyri,Northeastern Region,279,Iceland,IS,SF-5787,SAP-6991,Silver,French,Deborah Hill-Stewart,2024-07-29,16804.08
+CUST0361,Sem,Jansen,sem.jansen@gmail.com,+31 94251583,1875 Clarke wall,Rotterdam,South Holland,6705DM,Netherlands,NL,SF-3624,SAP-1202,Gold,German,Dr Shannon Kaur,2024-03-05,1649.77
+CUST0362,Jack,Williams,jack.williams@gmail.com,+44 4986833007,5992 Watson trail,London,Greater London,B9 0LH,United Kingdom,UK,SF-8389,SAP-6450,Platinum,Icelandic,Robert Wells,2024-08-27,16281.27
+CUST0363,Chiara,Esposito,chiara.esposito@outlook.com,+39 19351523,4044 Johnson parkway,Naples,Campania,42011,Italy,IT,SF-7425,SAP-8359,Gold,Danish,Dr Phillip Harrison,2023-12-26,9695.84
+CUST0364,Sophia,Wilson,sophia.wilson@outlook.com,+44 9777307308,8044 Ricky corner,Birmingham,West Midlands,BT8 2XP,United Kingdom,UK,SF-8129,SAP-6351,Bronze,Danish,Francesca Thomson,2025-08-01,8369.59
+CUST0365,Emma,Fischer,emma.fischer@yahoo.com,+49 8800304755,1882 Dylan square,Hamburg,Hamburg,73351,Germany,DE,SF-3896,SAP-9819,Gold,Swedish,Alice Tomlinson,2023-12-28,5744.69
+CUST0366,Francesco,Costa,francesco.costa@outlook.com,,4561 Clark ridge,Milan,Lombardy,40998,Italy,IT,SF-5288,SAP-3808,Bronze,German,Jacqueline Gordon-Cox,2025-05-20,9028.91
+CUST0367,Mateo,González,mateo.gonzález@hotmail.com,+34 45875733,3173 Trevor bridge,Malaga,Andalusia,28946,Spain,ES,SF-2892,SAP-9919,Gold,Spanish,Ms Diana Brown,2024-11-11,19104.05
+CUST0368,Olivia,Murphy,olivia.murphy@gmail.com,+1 40028850,3679 Norris tunnel,Calgary,AB,N0A 3Y6,Canada,CA,SF-8335,SAP-8066,Gold,Italian,Miss Jennifer Patel,2025-05-27,13240.1
+CUST0369,Harry,Taylor,harry.taylor@hotmail.com,+44 10685997,7159 Hope crest,Birmingham,West Midlands,N6 8DL,United Kingdom,UK,SF-9167,SAP-2886,Platinum,French,Mrs Rachael Murphy,2024-07-28,14951.18
+CUST0370,James,Brown,james.brown@yahoo.com,+1 89114480,7425 Dawn walks,Miami,FL,28650,United States,US,SF-8111,SAP-7994,Silver,German,Jennifer Owen-Smith,2024-01-10,5588.61
+CUST0371,George,Davies,george.davies@gmail.com,+44 6464335522,3687 Julian streets,Birmingham,West Midlands,B0W 3BU,United Kingdom,UK,SF-5743,SAP-4575,Silver,German,Lorraine Wall,2024-03-10,7202.13
+CUST0372,Lars,Olsson,lars.olsson@hotmail.com,+46 754097397,2320 Andrea unions,Uppsala,Uppsala County,400 86,Sweden,SE,SF-6218,SAP-8547,Bronze,Finnish,Dr Jade Storey,2024-09-10,10294.46
+CUST0373,Emma,Anderson,emma.anderson@gmail.com,,5212 Dixon club,Quebec City,QC,P1J 5L7,Canada,CA,SF-6224,SAP-3671,Gold,Spanish,Joanna Baldwin-Davies,2023-12-02,14853.34
+CUST0374,Julia,de Vries,julia.gmail.com,+31 100888622,1914 Francis unions,Utrecht,Utrecht,6173HW,Netherlands,NL,SF-5358,SAP-6584,Platinum,Finnish,Gemma Watson,2023-12-15,4744.08
+CUST0375,Léa,Martin,léa.martin@hotmail.com,+33 927005487,8330 Taylor trail,Paris,Île-de-France,52833,France,FR,SF-5877,SAP-9081,Gold,German,Miss Maureen Hopkins,2024-10-11,13267.25
+CUST0376,Noah,Müller,noah.müller@outlook.com,+49 6411709451,3078 Laura flats,Dresden,Saxony,92464,Germany,DE,SF-3204,SAP-9530,Silver,Danish,Lawrence McKenzie-Cox,2024-04-28,8158.63
+CUST0377,Sofía,García,sofía.garcía@outlook.com,+34 415027771,6775 Chan park,Malaga,Andalusia,32154,Spain,ES,SF-1923,SAP-3671,Platinum,Italian,Mr Abdul Carter,2024-04-30,3679.51
+CUST0378,Mila,Bos,mila.bos@gmail.com,+31 98372166,9364 Thomas lodge,Rotterdam,South Holland,6866MN,Netherlands,NL,SF-7319,SAP-7158,Silver,Swedish,Connor Henderson,2025-02-27,18663.31
+CUST0379,Guðmundur,Sigurðardóttir,guðmundur.sigurðardóttir@outlook.com,+354 4008096585,2271 Albert alley,Kópavogur,Capital Region,288,Iceland,IS,SF-2710,SAP-1020,Platinum,French,Dr Carl Webb,2024-12-07,12872.01
+CUST0380,Noah,Wilson,noah.wilson@outlook.com,+1 61164303,868 Samantha overpass,Vancouver,BC,B0K 4S3,Canada,CA,SF-5708,SAP-8939,Gold,German,Steven Ellis,2024-01-03,17537.29
+CUST0381,Juhani,Laine,juhani.laine@gmail.com,+358 31124080,4319 Dale vista,Helsinki,Uusimaa,8115,Finland,FI,SF-2298,SAP-3903,Platinum,English,Chelsea Harrison,2024-08-07,5300.23
+CUST0382,Jennifer,Williams,jennifer.williams@hotmail.com,+1 459523233,1364 Simpson corner,New York,NY,91034,United States,US,SF-3624,SAP-9986,Silver,Swedish,Sophie Lowe-Todd,2024-08-24,18835.93
+CUST0383,Emma,Schneider,emma.schneider@yahoo.com,+49 4840572039,2522 Jenna port,Frankfurt,Hesse,65297,Germany,DE,SF-3015,SAP-8383,Platinum,Finnish,Charlie Adams,2024-02-01,7014.59
+CUST0384,Mary,Williams,mary.williams@gmail.com,+1 9516013250,8586 Iain green,Denver,CO,70594,United States,US,SF-1057,SAP-4814,Gold,Danish,Miss Lynn Harrison,2025-05-16,19535.86
+CUST0385,Olivia,Smith,olivia.smith@outlook.com,+44 444199149,5640 Elaine curve,Leeds,West Yorkshire,DD9A 4ZN,United Kingdom,UK,SF-2291,SAP-8844,Gold,Icelandic,Ian Curtis,2024-02-05,12102.52
+CUST0386,Amelia,Smith,amelia.smith@outlook.com,+44 7355796251,1770 Dean coves,Leeds,West Yorkshire,W75 1XQ,United Kingdom,UK,SF-8785,SAP-7779,Platinum,Spanish,Mr Eric Herbert,2024-05-15,770.13
+CUST0387,Lars,Hansen,lars.hansen@outlook.com,+47 211100531,8659 George estate,Stavanger,Rogaland,2616,Norway,NO,SF-6046,SAP-2901,Gold,Danish,Dr Jay Harrison,2023-11-23,11666.83
+CUST0388,Sophia,Wilson,sophia.wilson@yahoo.com,+44 7916999083,9361 Toby drive,Bristol,Bristol,L5 8BN,United Kingdom,UK,SF-3708,SAP-1738,Silver,German,Nicholas Holland-Ahmed,2024-10-08,13212.57
+CUST0389,Louis,Bernard,louis.bernard@yahoo.com,+33 355551652,6654 Neil mountain,Toulouse,Occitanie,39654,France,FR,SF-1554,SAP-8488,Bronze,Finnish,Brian O'Neill,2023-12-09,14443.62
+CUST0390,Noah,Roy,noah.roy@yahoo.com,+1 999502663,3220 Callum flat,Toronto,ON,M7G 1G5,Canada,CA,SF-3395,SAP-3877,Silver,German,Dr Joanna Holmes,2025-10-20,16051.42
+CUST0391,Patricia,Garcia,patricia.garcia@gmail.com,+1 2761576340,9074 Carole radial,Austin,TX,97033,United States,US,SF-7394,SAP-6674,Silver,Italian,Ian Brown-Collins,2025-09-22,14811.17
+CUST0392,George,Evans,george.evans@hotmail.com,+44 3421001578,4979 Law course,Leeds,West Yorkshire,CM0 0GY,United Kingdom,UK,SF-8113,SAP-2023,Gold,Icelandic,Andrea Hughes,2024-08-15,9517.11
+CUST0393,Mary,Williams,mary.williams@outlook.com,+1 5976695528,9899 Lord forest,Miami,FL,39203,United States,US,SF-2686,SAP-9808,Gold,German,Ashley White,2025-09-08,11067.49
+CUST0394,Finn,Smeets,finn.smeets@yahoo.com,+31 753996371,3716 Joshua ridges,Amsterdam,North Holland,6385QI,Netherlands,NL,SF-5459,SAP-2742,Bronze,Swedish,Cheryl Smith-Harris,2024-09-07,854.04
+CUST0395,Linda,Johnson,linda.johnson@gmail.com,+1 426755537,6584 Long harbors,Austin,TX,71079,United States,US,SF-7367,SAP-6688,Silver,Icelandic,Diane Burton,2025-03-05,5485.69
+CUST0396,George,Taylor,george.taylor@yahoo.com,+44 25105874,2224 Harriet unions,Birmingham,West Midlands,B6U 7XU,United Kingdom,UK,SF-3559,SAP-5628,Bronze,German,Kim Kerr,2024-08-19,15851.31
+CUST0397,Hannah,Wagner,hannah.wagner@outlook.com,00447123,3170 Gardner island,Munich,Bavaria,58626,Germany,DE,SF-6087,SAP-8037,Bronze,Spanish,Natalie Day-Barker,2024-05-28,12538.58
+CUST0398,Daniel,Pérez,danielpérez@,+34 175963564,1152 Megan pines,Seville,Andalusia,57978,Spain,ES,SF-6895,SAP-9941,Platinum,French,Eileen Watkins,2024-02-23,7029.98
+CUST0399,Robert,Brown,robert.brown@gmail.com,+1 9668180321,5461 Louis shoals,Boston,MA,77308,United States,US,SF-1249,SAP-2656,Platinum,Finnish,Aaron Ashton,2025-06-28,19398.29
+CUST0400,Elin,Karlsson,elin.gmail.com,+46 617583230,9340 Gerald ports,Uppsala,Uppsala County,439 27,Sweden,SE,SF-4867,SAP-7449,Gold,Italian,Dr Stacey Hudson,2025-08-09,375.47
+CUST0401,Jules,Richard,jules.richard@gmail.com,+33 8401032351,879 Edward freeway,Bordeaux,Nouvelle-Aquitaine,21600,France,FR,SF-6445,SAP-9507,Silver,German,Katherine Forster-Harrison,2025-10-01,7049.75
+CUST0402,Ola,Hansen,ola.hansen@hotmail.com,+47 5027591975,8742 Geraldine squares,Oslo,Oslo,9009,Norway,NO,SF-7992,SAP-3447,Gold,Italian,Ruth Moore,2025-01-02,9034.18
+CUST0403,Alessia,Romano,alessiaromano@example,+39 926508484,5440 Valerie plains,Rome,Lazio,70446,Italy,IT,SF-7195,SAP-8069,Gold,Norwegian,Nicholas Jones-Green,2024-04-20,12790.93
+CUST0404,Jack,Jones,jack.jones@gmail.com,+44 60850598,8427 Michael pine,Birmingham,West Midlands,AB59 2PG,United Kingdom,UK,SF-7628,SAP-4752,Gold,Spanish,Dr Robert Brown,2025-01-20,1211.3
+CUST0405,Francesco,Gallo,francesco.gallo@hotmail.com,+39 52085635,1634 Jamie vista,Milan,Lombardy,24745,Italy,IT,SF-5392,SAP-9657,Gold,Finnish,Shannon Hunt,2024-08-08,7936.98
+CUST0406,Linda,Davis,linda.davis@yahoo.com,+1 64962086,6953 Grant junction,Denver,CO,50285,United States,US,SF-8754,SAP-4492,Bronze,French,Shaun Khan-Fraser,2024-09-26,4585.14
+CUST0407,Marco,Romano,marco.romano@hotmail.com,+39 709778177,4115 Brooks extensions,Bologna,Emilia-Romagna,15543,Italy,IT,SF-6039,SAP-9940,Bronze,Danish,Miss Jade King,2025-07-16,54.77
+CUST0408,James,Jones,james.jones@yahoo.com,+1 564940382,8672 Gemma inlet,Austin,TX,25492,United States,US,SF-5210,SAP-3229,Platinum,Spanish,Miss Samantha Williamson,2023-10-24,2164.43
+CUST0409,Lucas,López,lucas..lópez@outlook.com,+34 79639042,2787 Barton trail,Bilbao,Basque Country,24871,Spain,ES,SF-8354,SAP-3825,Gold,Swedish,Christine Clayton-Stephens,2025-07-12,19438.95
+CUST0410,Mila,Smeets,mila.smeets@hotmail.com,,7564 Ruth port,Amsterdam,North Holland,5969IS,Netherlands,NL,SF-7254,SAP-9491,Platinum,Norwegian,Frederick Davidson,2025-05-23,5559.39
+CUST0411,Chloé,Durand,chloé.durand@gmail.com,+33 1077697141,4161 Frank key,Toulouse,Occitanie,53633,France,FR,SF-2110,SAP-8941,Silver,Finnish,Jennifer Woods,2023-12-30,19424.26
+CUST0412,Michael,Williams,michael.williams@hotmail.com,+1 862264109,743 Williams greens,New York,NY,82193,United States,US,SF-7838,SAP-9415,Platinum,German,Harry Marshall,2024-07-21,3444.19
+CUST0413,Linda,Davis,linda.davis@outlook.com,+1 2467973605,6058 Greenwood stravenue,New York,NY,96907,United States,US,SF-9841,SAP-3331,Bronze,Finnish,Peter Cooper,2025-05-14,18761.94
+CUST0414,Sophia,Brown,sophia.brown@gmail.com,+44 14750503,2026 Watson road,Glasgow,Glasgow City,WV7V 9DJ,United Kingdom,UK,SF-5645,SAP-1794,Gold,Spanish,Paige Parsons,2024-08-09,10104.11
+CUST0415,Sophia,Williams,sophia.williams@outlook.com,+1-,3223 Catherine turnpike,Glasgow,Glasgow City,L2H 0NA,United Kingdom,UK,SF-6424,SAP-2515,Silver,Norwegian,Danielle Watson,2023-12-19,14756.52
+CUST0416,Jennifer,Smith,jennifer.smith@gmail.com,+1 635106909,7795 Thompson lane,New York,NY,95465,United States,US,SF-3653,SAP-7757,Bronze,Norwegian,Ian Kaur,2025-09-19,6413.56
+CUST0417,John,Miller,john.miller@hotmail.com,+1 323922739,5646 Declan ranch,Boston,MA,22326,United States,US,SF-9155,SAP-1937,Gold,Icelandic,Jodie Campbell-Williams,2025-03-13,11749.8
+CUST0418,Isla,Smith,isla.smith@yahoo.com,12345,3400 Lynda mews,Birmingham,West Midlands,B15 3SX,United Kingdom,UK,SF-8483,SAP-9705,Silver,Italian,Miss Joyce White,2024-04-24,7832.77
+CUST0419,Ben,Müller,ben.müller@yahoo.com,+49 99660787,4739 Adam lock,Berlin,Berlin,51158,Germany,DE,SF-1979,SAP-8688,Gold,Swedish,Harriet Gray-Dyer,2024-07-29,15195.53
+CUST0420,Robert,Smith,robert.smith@hotmail.com,+1 2756681069,4823 Rachel corners,Boston,MA,70243,United States,US,SF-4710,SAP-6278,Gold,German,Mohamed Johnson-Jones,2024-01-06,1343.6
+CUST0421,Olivia,Thompson,olivia.thompson@yahoo.com,+1 556137187,4411 Russell extension,Vancouver,BC,H9S 7S2,Canada,CA,SF-8894,SAP-1900,Gold,Norwegian,Dr Simon Jones,2024-01-20,15285.65
+CUST0422,Sofia,Russo,sofia.russo@yahoo.com,+39 96417748,8872 McKenzie mountains,Naples,Campania,73558,Italy,IT,SF-1820,SAP-6895,Platinum,Italian,Joyce Pritchard,2025-03-04,5970.95
+CUST0423,Sofía,Martínez,sofía.martínez@gmail.com,+34 825093804,8426 Gallagher light,Seville,Andalusia,80902,Spain,ES,SF-8034,SAP-8274,Bronze,Italian,Lucy Williams,2024-05-14,3206.01
+CUST0424,Giulia,Gallo,giulia.gallo@gmail.com,+39 8303469015,9281 Hall fork,Rome,Lazio,89918,Italy,IT,SF-3807,SAP-5758,Bronze,Spanish,Miss Kim Long,2025-05-29,15696.99
+CUST0425,Michael,Davis,michael.davis@yahoo.com,+1 5752332551,6157 Graham skyway,Seattle,WA,18265,United States,US,SF-4574,SAP-9039,Platinum,English,Kayleigh Carroll,2025-06-01,11425.72
+CUST0426,Hannah,Meyer,hannah.meyer@outlook.com,+49 37874583,2489 Andrea circle,Munich,Bavaria,58194,Germany,DE,SF-7730,SAP-4176,Gold,Icelandic,Dr Amber Fletcher,2024-12-11,11923.85
+CUST0427,Jack,Wilson,jack.wilson@yahoo.com,+44 4709841034,645 Allen freeway,Glasgow,Glasgow City,GU16 8YW,United Kingdom,UK,SF-1551,SAP-7990,Bronze,Spanish,Mr Darren Wells,2024-10-05,528.41
+CUST0428,Noah,Wilson,noah.wilson@outlook.com,+1 9644706284,4953 Mohammed forest,Quebec City,QC,A2S 3X5,Canada,CA,SF-4954,SAP-3040,Silver,Danish,Mr Philip Thomas,2023-12-22,18454.49
+CUST0429,Mila,Meijer,mila.meijer@gmail.com,+31 856999860,429 Lawson view,Rotterdam,South Holland,9436QL,Netherlands,NL,SF-3612,SAP-4387,Bronze,French,Mr Joel Smith,2025-09-29,7010.74
+CUST0430,Erik,Nilsson,erik.nilsson@hotmail.com,+46 4976467380,9374 Nicholas loaf,Gothenburg,Västra Götaland,610 71,Sweden,SE,SF-1918,SAP-8348,Bronze,German,Andrea Fisher,2025-08-18,1349.95
+CUST0431,Giorgio,Gallo,giorgio.gallo@outlook.com,+39 80445291,2940 Reynolds well,Turin,Piedmont,52674,Italy,IT,SF-3426,SAP-5172,Silver,French,Bruce Johnson,2024-12-01,13736.0
+CUST0432,Patricia,Davis,patriciadavis@example,+1 52701500,308 Clark drive,San Francisco,CA,57164,United States,US,SF-1272,SAP-8160,Gold,Norwegian,Glen Fox,2025-06-03,12659.58
+CUST0433,Lukas,Becker,lukas.becker@yahoo.com,+49 70177466,6945 Kenneth port,Frankfurt,Hesse,21409,Germany,DE,SF-3312,SAP-3401,Silver,Finnish,Mr Gareth Taylor,2025-09-05,6874.93
+CUST0434,Michael,Brown,michael.brown@outlook.com,+1 8748989447,5581 Shaw greens,Seattle,WA,53938,United States,US,SF-5690,SAP-8763,Platinum,German,Jill Jones,2025-02-06,16268.73
+CUST0435,Francesco,Ferrari,francesco.ferrari@outlook.com,+39 50540885,4849 Thomas harbor,Rome,Lazio,79959,Italy,IT,SF-7985,SAP-9333,Platinum,Norwegian,Rachel Richards,2025-04-03,18153.18
+CUST0436,Emma,Johansen,emma.johansen@hotmail.com,+47 2815274388,7266 Thomas isle,Oslo,Oslo,5258,Norway,NO,SF-1262,SAP-5988,Gold,German,Ms Jessica Morris,2025-10-07,19214.58
+CUST0437,Linda,Garcia,linda.garcia@outlook.com,+1 618445673,4724 Bartlett brooks,New York,NY,17919,United States,US,SF-7942,SAP-9483,Silver,Danish,Kathleen Kemp,2025-08-07,6293.25
+CUST0438,Louis,Petit,louis.petit@yahoo.com,+33 5254581847,5503 Taylor spur,Paris,Île-de-France,53985,France,FR,SF-1211,SAP-4647,Bronze,Danish,Geoffrey Macdonald,2025-05-22,13258.42
+CUST0439,Mateo,Torres,mateo.torres@hotmail.com,+34 41959500,309 Russell islands,Valencia,Valencian Community,18253,Spain,ES,SF-2519,SAP-6529,Gold,German,Gavin Butler-Archer,2024-09-30,16100.84
+CUST0440,James,Garcia,james.garcia@gmail.com,+1 46080734,1554 Jane streets,New York,NY,23790,United States,US,SF-3332,SAP-8528,Gold,Spanish,Jayne Taylor,2025-07-21,10899.6
+CUST0441,Chloé,Dubois,chloé.dubois@gmail.com,+33 69657618,7467 Katherine turnpike,Paris,Île-de-France,88814,France,FR,SF-2087,SAP-8923,Platinum,German,Ryan Kemp,2024-11-19,6344.16
+CUST0442,Ben,Weber,ben.weber@gmail.com,+49 62615129,5874 Kirk vista,Frankfurt,Hesse,18537,Germany,DE,SF-3987,SAP-2806,Platinum,Norwegian,Ruth Day,2024-03-20,10694.64
+CUST0443,Oliver,Jones,oliver.jones@yahoo.com,+44 2811226143,1417 Kevin gateway,Birmingham,West Midlands,W0 3LQ,United Kingdom,UK,SF-9023,SAP-4428,Bronze,Spanish,Dr Tina Frost,2025-10-08,13140.32
+CUST0444,Léa,Petit,léapetit@example,+33 77993983,5372 Gail burgs,Marseille,Provence-Alpes-Côte d'Azur,30748,France,FR,SF-7036,SAP-5691,Bronze,Norwegian,Christian Jones,2024-10-03,15419.19
+CUST0445,Robert,Miller,robert.miller@yahoo.com,+1 933351355,605 Elaine radial,Austin,TX,51698,United States,US,SF-4940,SAP-1664,Bronze,French,Melanie Ward,2025-08-03,16471.63
+CUST0446,James,Williams,james.williams@yahoo.com,+1 85678874,5789 Morris spurs,Seattle,WA,44788,United States,US,SF-2992,SAP-9143,Silver,Spanish,Patrick Day,2023-11-30,7836.73
+CUST0447,Henrik,Nilsen,henrik.nilsen@yahoo.com,+47 44253087,5796 Alexandra tunnel,Stavanger,Rogaland,9583,Norway,NO,SF-5702,SAP-7292,Platinum,Finnish,Jamie Miah,2025-04-01,14203.98
+CUST0448,Zoé,Bernard,zoé.gmail.com,+33 337493653,2013 Max run,Bordeaux,Nouvelle-Aquitaine,12076,France,FR,SF-7151,SAP-7337,Platinum,French,Molly Brown,2025-06-20,6425.09
+CUST0449,Olivia,Smith,olivia.smith@outlook.com,+44 444199149,5640 Elaine curve,Leeds,West Yorkshire,DD9A 4ZN,United Kingdom,UK,SF-6967,SAP-3351,Bronze,German,Miss Kirsty Bowen,2025-08-14,8282.43
+CUST0450,Ben,Müller,ben.müller@gmail.com,+49 533743140,7606 Nicholls forge,Hamburg,Hamburg,96084,Germany,DE,SF-6988,SAP-3179,Platinum,Danish,Kathleen Davies,2025-07-24,10286.63
+CUST0451,Jennifer,Miller,jennifer.miller@outlook.com,+1 9920455578,9210 Jackson avenue,New York,NY,76489,United States,US,SF-6631,SAP-6141,Bronze,Swedish,Joyce Morgan,2025-08-04,12248.98
+CUST0452,Chloé,Martin,chloé.martin@outlook.com,+33 8981344642,5147 Moore ranch,Toulouse,Occitanie,91537,France,FR,SF-3530,SAP-3110,Silver,German,Jean Burns-Griffiths,2023-12-11,13186.47
+CUST0453,Louis,Durand,louis.durand@gmail.com,+33 793492064,5904 Scott route,Paris,Île-de-France,88407,France,FR,SF-3069,SAP-5372,Bronze,Swedish,Valerie Smith,2025-04-27,4308.41
+CUST0454,Oliver,Davies,oliver.davies@hotmail.com,+44 27157497,5239 Barrett path,Manchester,Greater Manchester,B96 2AU,United Kingdom,UK,SF-1484,SAP-8432,Gold,German,Callum Walker-Gibbons,2025-05-17,17691.32
+CUST0455,Léa,Martin,léa.martin@gmail.com,+33 13952308,8570 Carole station,Nice,Provence-Alpes-Côte d'Azur,48280,France,FR,SF-3002,SAP-4502,Bronze,German,Barbara Ward-Edwards,2025-04-08,9613.11
+CUST0456,Robert,Johnson,robert.johnson@hotmail.com,+1 23235702,7554 Walker skyway,New York,NY,75651,United States,US,SF-7560,SAP-2952,Silver,Icelandic,Tina Hodgson,2024-03-03,1079.14
+CUST0457,Charlotte,Thompson,charlotte.thompson@hotmail.com,+1 694894924,1071 Billy court,Ottawa,ON,J4E 7E7,Canada,CA,SF-9670,SAP-9325,Silver,Swedish,Samantha Cox,2025-05-08,11010.03
+CUST0458,Mary,Davis,mary.davis@outlook.com,+1 484708759,7725 Gail isle,San Francisco,CA,98151,United States,US,SF-4224,SAP-6376,Bronze,Norwegian,Mr Jamie Evans,2025-05-23,12576.94
+CUST0459,Isla,Davies,isla.davies@outlook.com,+44 48607081,1604 Burton isle,Leeds,West Yorkshire,EX9 7EU,United Kingdom,UK,SF-5562,SAP-4038,Gold,Swedish,Elliott Jackson,2025-02-16,7037.6
+CUST0460,John,Johnson,john.johnson@hotmail.com,+1 67321648,7099 Megan fields,Chicago,IL,32960,United States,US,SF-3851,SAP-3093,Silver,English,Elizabeth Taylor,2024-08-14,18118.14
+CUST0461,Benjamin,Martin,benjamin.martin@hotmail.com,+1 7525269971,596 Ali ways,Quebec City,QC,V6J 9X2,Canada,CA,SF-9426,SAP-4358,Platinum,Swedish,Ms Diane Chambers,2024-07-15,8417.97
+CUST0462,Mary,Brown,mary.brown@yahoo.com,+1 80849221,7508 Scott mount,New York,NY,59355,United States,US,SF-8514,SAP-9588,Silver,Spanish,Charles Taylor,2024-03-11,12267.44
+CUST0463,James,Ryan,james ryan@yahoo.com,+353 61887166,933 Holly isle,Dublin,County Dublin,DD5X 0TL,Ireland,IE,SF-6414,SAP-2908,Platinum,Spanish,Graham Allen,2024-02-23,12309.34
+CUST0464,Giulia,Romano,giulia.romano@hotmail.com,+39 139846978,1941 Thornton tunnel,Turin,Piedmont,33093,Italy,IT,SF-4549,SAP-7416,Gold,English,Gary Flynn,2025-02-26,7094.88
+CUST0465,Patricia,Davis,patricia.davis@gmail.com,+1 31102207,1359 Ahmed neck,Seattle,WA,71256,United States,US,SF-2972,SAP-4196,Platinum,Italian,Sarah Thomas,2024-03-25,5380.64
+CUST0466,Jennifer,Johnson,jennifer.johnson@outlook.com,+1 495630669,9912 Giles islands,Boston,MA,28089,United States,US,SF-6885,SAP-8967,Gold,Italian,Mr John Davies,2025-02-20,12430.03
+CUST0467,Noah,Clark,noah.clark@hotmail.com,+1 1671304399,4440 Eric square,Calgary,AB,S9P 8G3,Canada,CA,SF-1391,SAP-1459,Silver,Norwegian,Denise Clarke,2024-08-15,14639.41
+CUST0468,Patricia,Miller,patricia.miller@outlook.com,+1 279772599,6608 Thompson view,Denver,CO,25395,United States,US,SF-7644,SAP-8363,Bronze,Norwegian,Kieran Wells,2024-10-11,2261.05
+CUST0469,Harry,Evans,harry.evans@outlook.com,+44 52575918,3025 Williams spur,Birmingham,West Midlands,N75 2RA,United Kingdom,UK,SF-1183,SAP-5926,Platinum,Swedish,Nathan Wood,2024-02-01,15387.96
+CUST0470,Matti,Hämäläinen,matti.hämäläinen@hotmail.com,+358 164055884,3119 Daniel radial,Tampere,Pirkanmaa,8385,Finland,FI,SF-2181,SAP-3185,Gold,Swedish,Chloe Lees,2025-04-27,3040.16
+CUST0471,Lena,Müller,lena müller@yahoo.com,+49 36479462,2916 Nicola wells,Frankfurt,Hesse,69512,Germany,DE,SF-7420,SAP-9165,Platinum,Italian,Dr Vincent Johnson,2025-01-26,16331.09
+CUST0472,Mary,Jones,mary.jones@outlook.com,+1 718660763,7200 Irene coves,Miami,FL,94405,United States,US,SF-3983,SAP-4033,Silver,Spanish,Mr Peter Marshall,2024-09-10,1613.63
+CUST0473,Harry,Williams,harry.williams@hotmail.com,+44 25460892,5867 Palmer plaza,Bristol,Bristol,LN2 0NS,United Kingdom,UK,SF-7805,SAP-9830,Bronze,French,Mr Mohamed Reynolds,2025-02-17,6558.47
+CUST0474,Léa,Durand,léa.durand@yahoo.com,+33 667281848,8925 Samantha village,Paris,Île-de-France,34133,France,FR,SF-1166,SAP-3434,Bronze,Spanish,Conor Edwards,2024-01-22,18468.27
+CUST0475,Sofía,González,sofía.gonzález@yahoo.com,+34 987845455,3214 Clark coves,Barcelona,Catalonia,67056,Spain,ES,SF-5874,SAP-9047,Gold,Danish,Sandra John,2025-06-18,476.48
+CUST0476,James,Smith,james.smith@yahoo.com,+1 343292973,3727 Holden flats,Miami,FL,96775,United States,US,SF-3553,SAP-7354,Platinum,Danish,Lindsey Bolton,2024-02-24,2211.16
+CUST0477,Martina,Sánchez,martina.sánchez@yahoo.com,+34 9575504537,5189 Lorraine parks,Malaga,Andalusia,36434,Spain,ES,SF-4725,SAP-9059,Platinum,English,Leigh Begum,2024-07-05,17885.66
+CUST0478,Olivia,Wilson,olivia.wilson@hotmail.com,+1 3142266738,257 Paul bridge,Montreal,QC,J4M 3G9,Canada,CA,SF-7505,SAP-2044,Gold,English,Mr William Lee,2025-03-25,5189.74
+CUST0479,Chiara,Bianchi,chiara@@gmail.com,+39 8657329675,3789 Burrows course,Turin,Piedmont,51880,Italy,IT,SF-7638,SAP-5090,Platinum,Swedish,Mr Adam Franklin,2025-03-06,4869.13
+CUST0480,Francesco,Esposito,francesco.esposito@outlook.com,abcd1234,2347 Keith ramp,Florence,Tuscany,36291,Italy,IT,SF-8234,SAP-5729,Bronze,Spanish,Dale Parker-Bradley,2025-08-31,11192.07
+CUST0481,Emma,Robert,emma.robert@yahoo.com,+33 54742757,4894 Gregory lake,Marseille,Provence-Alpes-Côte d'Azur,82990,France,FR,SF-3441,SAP-8200,Platinum,Icelandic,Dr Allan Hicks,2024-01-04,10108.33
+CUST0482,Amelia,Clark,amelia.clark@gmail.com,+1 69285731,7919 Price skyway,Calgary,AB,B2C 3R4,Canada,CA,SF-6317,SAP-5512,Platinum,French,Mohamed Miah,2024-07-04,10252.67
+CUST0483,Jules,Dubois,jules.dubois@outlook.com,+33 80421883,5145 Lawrence road,Lyon,Auvergne-Rhône-Alpes,57563,France,FR,SF-5829,SAP-3001,Platinum,Spanish,Jordan Patel-Ward,2024-01-19,14201.72
+CUST0484,Emma,Müller,emma.müller@hotmail.com,+49 51092728,9961 Matthews motorway,Frankfurt,Hesse,85806,Germany,DE,SF-2459,SAP-6622,Platinum,Icelandic,Alex Marshall-Jones,2024-09-14,16115.03
+CUST0485,Ingrid,Andersen,ingrid.andersen@hotmail.com,+47 668184087,9301 Nathan curve,Trondheim,Trøndelag,3886,Norway,NO,SF-9895,SAP-8647,Silver,Danish,Mrs Tracy Webb,2025-09-29,10616.39
+CUST0486,William,Thompson,william.thompson@gmail.com,+1 82022577,3781 Roberts springs,Ottawa,ON,L1V 9M2,Canada,CA,SF-1894,SAP-4910,Bronze,Finnish,Katie Talbot,2025-06-19,18432.37
+CUST0487,Luca,Rossi,luca.rossi@gmail.com,+39 311262580,2416 Talbot wall,Milan,Lombardy,79717,Italy,IT,SF-1969,SAP-1908,Silver,Icelandic,Mr Cameron Wall,2024-01-18,19971.76
+CUST0488,Jennifer,Davis,jennifer.davis@yahoo.com,+1 626858843,4938 Williams circles,Austin,TX,31487,United States,US,SF-3613,SAP-4192,Silver,Swedish,Toby McLean-Campbell,2025-04-01,15127.7
+CUST0489,Emma,Tremblay,emma.tremblay@outlook.com,+1 514795785,8787 Aimee well,Calgary,AB,A2H 4X7,Canada,CA,SF-6047,SAP-9698,Gold,Finnish,Jayne Norris,2025-04-19,10552.84
+CUST0490,Noah,Martin,noah.martin@hotmail.com,+1 7784669306,4271 Ann shore,Halifax,NS,N5E 6Y5,Canada,CA,SF-5008,SAP-6654,Silver,Italian,Ms Jodie Ward,2025-03-31,9861.19
+CUST0491,Valeria,Martínez,valeria.martínez@hotmail.com,+34 9592909123,1033 Bray views,Seville,Andalusia,10549,Spain,ES,SF-5549,SAP-1382,Silver,Finnish,Irene Holloway,2025-03-05,3329.07
+CUST0492,Francesco,Rossi,francesco.rossi@gmail.com,+39 2387423598,5424 Leanne vista,Milan,Lombardy,42010,Italy,IT,SF-2104,SAP-4503,Silver,Italian,Mandy Taylor,2023-12-20,2029.02
+CUST0493,Liam,Murphy,liam.murphy@gmail.com,+1 837360883,2901 Potter isle,Quebec City,QC,Y4G 2K7,Canada,CA,SF-6615,SAP-6562,Bronze,Danish,Peter O'Sullivan-Walton,2024-08-12,5477.47
+CUST0494,Chloé,Petit,chloé.petit@gmail.com,+33 3984263716,3145 Warren common,Marseille,Provence-Alpes-Côte d'Azur,31146,France,FR,SF-4509,SAP-5060,Gold,Finnish,Melissa Roberts,2024-10-05,13269.24
+CUST0495,Leon,Becker,leon.becker@yahoo.com,+49 10482541,9524 Lisa ridges,Cologne,North Rhine-Westphalia,41405,Germany,DE,SF-7158,SAP-5024,Silver,Danish,Ricky Parry,2025-07-25,17080.03
+CUST0496,Jennifer,Miller,jennifer.miller@outlook.com,+1 86063964,3677 Rachael river,Chicago,IL,33291,United States,US,SF-7226,SAP-8787,Bronze,Spanish,Dr Conor Moore,2025-03-14,688.16
+CUST0497,Charlotte,Anderson,charlotte anderson@yahoo.com,+1 62346804,3864 Giles lakes,Toronto,ON,R4H 7V5,Canada,CA,SF-1010,SAP-3826,Platinum,Spanish,Mrs Jade Watts,2024-07-06,2772.79
+CUST0498,Mila,de Vries,mila.de vries@yahoo.com,+31 75259380,3010 Edwards lakes,The Hague,South Holland,6733VX,Netherlands,NL,SF-9455,SAP-6529,Silver,Norwegian,Dr Amy Gibson,2025-03-17,19264.99
+CUST0499,George,Davies,george.davies@outlook.com,+44 5482765825,5586 Paul junctions,Edinburgh,City of Edinburgh,WA4 1BG,United Kingdom,UK,SF-8518,SAP-9793,Gold,German,Diane Fuller,2025-05-21,16555.08
+CUST0500,Sofía,Sánchez,sofía.sánchez@hotmail.com,+34 7724260699,6041 Dean ridge,Madrid,Community of Madrid,78417,Spain,ES,SF-1879,SAP-8373,Bronze,Norwegian,Neil O'Neill,2025-08-14,17131.33

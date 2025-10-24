@@ -22,4 +22,4 @@ In this CluedIn Copilot training, you’ll learn how to manage and automate ever
 
 | Session | Objective | Watch time |
 | :------ | :------ | :------ |
-| _(Coming soon)_ 2.3.1. Demo – Use CluedIn Copilot in practice | - Use CluedIn Copilot to ingest and manage a sample dataset. | _(Coming soon)_ |
+| [2.3.1. Demo – Use CluedIn Copilot in practice](/training/ai/copilot/demo) | - Use CluedIn Copilot to ingest and manage a sample dataset. | 7 mins |
