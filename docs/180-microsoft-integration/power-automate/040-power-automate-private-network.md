@@ -47,9 +47,9 @@ The **public DNS** must be defined on the CluedIn server using an environment va
 ### Firewall Configuration
 
 Power Automate operates from Microsoft-managed IP ranges, which must be allowed through your network perimeter.
-*   **[Azure IP Ranges & Service Tags](https://www.microsoft.com/en-us/download/details.aspx?id=56519)**
+*   [Azure IP Ranges & Service Tags](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
 
-*   **[Outbound Firewall rules](https://documentation.cluedin.net/deployment/infra-how-tos/configure-firewall#power-apps-and-power-automate)**
+*   [Outbound Firewall rules](https://documentation.cluedin.net/deployment/infra-how-tos/configure-firewall#power-apps-and-power-automate)
     
 If you're using **Azure Firewall**, Microsoft provides a **service tag** to simplify rule configuration:
 *   Use the service tag: `AzureConnectors` `LogicApps`

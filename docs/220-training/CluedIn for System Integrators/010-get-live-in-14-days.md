@@ -1,12 +1,14 @@
 ---
 layout: cluedin
-title: CluedIn for System Integrators
+title: CluedIn for System Integrators — integration cookbook
 parent: Knowledge base
 permalink: /kb/cluedin-system-integrators
 nav_order: 2
 ---
-
-# CluedIn for System Integrators — Integration Cookbook
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 **Audience:** System Integrators, Professional Services, SI practice leads  
 **Goal:** Provide proven patterns, templates, and guardrails for integrating **CluedIn** with the wider ecosystem: **Data Lakes**, **Data Engineering tools**, **Data Governance tools**, **Power Platform & AI stacks (Power Automate, Power Apps, Copilot, Azure AI Foundry, OpenAI, Claude, Ollama)**, and **Dataverse**.

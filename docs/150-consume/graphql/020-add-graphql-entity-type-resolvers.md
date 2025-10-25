@@ -7,10 +7,18 @@ permalink: /consume/graphql/add-graphql-entity-type-resolvers
 title: Add GraphQL entity type resolvers
 tags: ["consume","graphql"]
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
-You can add your own specific resolvers to fetch data given filters such as what business domain a record is. 
+You can extend CluedIn’s GraphQL endpoint by adding custom entity resolvers that fetch data based on specific filters. For example, by business domain or entity type.
 
-Here is an example of how to return Calendar Events in a different way through the GraphQL endpoints.
+The following examples demonstrate how to implement your own GraphQL resolvers for specific entity types.
+
+## Example 1: Calendar event entity resolver
+
+This example shows how to return calendar events in a customized way through the GraphQL endpoint.
 
 
 ```csharp
@@ -57,7 +65,10 @@ namespace Custom.GraphQL.Types.Specific
 }
 ```
 
-Here is a more complex example:
+## Example 2: File entity resolver
+
+The following example shows a more advanced resolver for file entities. This implementation demonstrates additional logic, including field inspection and working directly with entity edges.
+
 
 ```csharp
 using System.Linq;

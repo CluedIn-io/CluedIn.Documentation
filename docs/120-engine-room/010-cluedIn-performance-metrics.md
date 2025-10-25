@@ -6,32 +6,78 @@ nav_order: 1
 permalink: /engine-room/processing-pipeline
 tags: ["development","performance"]
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
-### Introduction
+Conceptually, you can think of CluedIn as a streaming platform with multiple persistence stores. In addition, CluedIn ships with extensive functionality to integrate, manipulate, govern, and steward data on its way to downstream consumers.
 
-Conceptually, you can think of CluedIn as a Streaming platform with multiple persistence stores. It just so happens that CluedIn also ships with a lot of functionality to integrate, manipulate, govern and steward this data on its way to downstream consumers. 
+With this in mind, the natural question arises: How long does it take to process data from input to output?
 
-With this in mind, the question of how long does it take to process data from an input to its output arises. Naturally, it strongly depends on many factors, including: 
+The answer depends on many factors, including:
 
- - The number of CPU cores assigned to processing. 
- - The amount of RAM assigned to processing.
- - The complexity and size of the data being processed.
- - What CluedIn features you are running on the processing pipeline (we will assume you are using all features)
+- The number of CPU cores assigned to processing.
 
- To provide some baselines and benchmarks, we will introduce some datasets coming from different types of platforms that speak to the complexity and size of data. 
+- The amount of RAM assigned to processing.
 
- CluedIn utilises an Enterprise Service Bus to queue the incoming data. This data is then monitored by many different "workers". These "workers" are in-memory .net core processes that take a record at a time and run it through 100's of validations, automated cleaners and more. The reason to explain this, is that, in its raw form, the Enterprise Service Bus can process incoming messages very fast, it is the 100's of validations and automated processors that will (for example) take this rate from 30,000 messagess to 1000 messages per second i.e. the more the system automates, the slower it can process the data. 
+- The complexity and size of the data.
 
- CluedIn scales both vertically and horizontally, meaning that you can increase the speed of processing by either using bigger machines or more machines. Due to the stateless nature of the processing components of CluedIn, it means that you can have 0 processing services or 100 running. 
+- Which CluedIn features are enabled in the processing pipeline (this article assumes all features are active).
 
- Although CluedIn can technically run using 1 CPU core, it is not optimal for any real workloads within CluedIn. The amount of CPU Cores and RAM that you assign to processing services is all set in your Helm charts. Within Kuberenets you will still need to allocate enough in your Node Pools to be able to scale your processing servers. 
+## Processing architecture
 
- Let's start to talk about the data itself. We will typically talk about simple data vs complex data in CluedIn. Simple data is  data that uses as little of the 100's of inbuilt services as possible i.e. less work, means quicker processing. Good examples of simple data usually comes in the form of well structured and small records such as rows in a table or JSON/XML from a REST service. Complex data usually will come in the form of Physical files or large records in tables or JSON/XML packages. We refer to it as complex data due to the fact that it will be enabling a lot of the inbuilt processing functions and require their attention. 
+CluedIn uses an Enterprise Service Bus (ESB) to queue incoming data. This data is then monitored by multiple workers—in-memory .NET Core processes that:
 
- NOTE: It has to be mentioned that you should still think about whether you need to bring in all columns in all tables from all sources. It is a hard question to answer, as it may be that the data you do not bring in, was the exact data you needed in a particular situation. What should be remembered is that you can always bring this data in later without the need for complex remodelling. 
+- Take one record at a time.
 
- There are many ways to monitor the performance of your processing pipeline, one of which is exposed to Administrators with the CluedIn User Interface itself. The Engine Room will give you a breakdown of the overall speed of the processing pipeline and then a zoom in on each processing pipeline step to show the rate of each step.
+- Run it through hundreds of validations, automated cleaners, and processors.
 
- ![Diagram](../assets/images/development/engine-room.png)
+Because the ESB itself can process messages extremely quickly, the performance bottleneck often comes from the volume of validations and processors. For example:
 
- This also gives you the idea that you can turn different processing pipelines if you want to. For example, if you are not wanting some of the more "expensive" processing pipeline steps then these can be disabled through configuration. 
+- Raw ESB rate: ~30,000 messages per second.
+
+- With full processing: ~1,000 messages per second.
+
+The more the system automates, the slower it processes data.
+
+## Scaling
+
+CluedIn scales vertically (bigger machines) and horizontally (more machines).
+
+- Processing components are stateless, so you can run anywhere from 0 to 100+ processing services.
+
+- While CluedIn can technically run on 1 CPU core, this is not optimal for production workloads.
+
+- CPU cores and RAM for processing services are configured in Helm charts.
+
+- Kubernetes Node Pools must also have sufficient resources to allow scaling.
+
+## Simple vs. complex data
+
+In CluedIn, we typically distinguish between simple and complex data:
+
+- Simple data – Requires minimal built-in services, so it is processed faster.
+
+    Example: small, well-structured records such as table rows or JSON/XML from a REST API.
+
+- Complex data – Triggers many built-in processing functions, requiring more work.
+
+    Example: physical files, large records in tables, or large JSON/XML packages.
+
+{:.important}
+Consider carefully whether you need to ingest all columns from all tables. You can always bring in additional data later without complex remodeling.
+
+## Monitoring the performance
+
+CluedIn provides ways to monitor the processing pipeline’s performance. Administrators can use the Engine Room in the UI to:
+
+- View the overall speed of the processing pipeline.
+
+- Drill down into each processing step to see throughput rates.
+
+![Diagram]({{ "/assets/images//development/engine-room.png" | relative_url }})
+
+## Configuring the pipelines
+
+You can selectively enable or disable certain processing pipelines. If you don’t need some of the more expensive steps, you can turn them off through configuration. This allows you to balance data quality against performance, depending on your requirements.

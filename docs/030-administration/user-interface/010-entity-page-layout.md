@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Entity page layout
+title: Golden record page layout
 parent: Administration
 permalink: /administration/entity-page-layout
 nav_order: 070
@@ -10,13 +10,13 @@ nav_order: 070
 - TOC
 {:toc}
 
-An entity page layout is the way in which information about a golden record is arranged on the golden record overview page. In this article, you will learn about the types of layouts and how they are applied to golden records.
+A golden record page layout is the way in which information about a golden record is arranged on the golden record overview page. In this article, you will learn about the types of layouts and how they are applied to golden records.
 
-## Overview of entity page layouts
+## Overview of golden record page layouts
 
-The entity page layout is assigned to the business domain. This ensures that all golden records belonging to that business domain consistently display relevant information on the golden record overview page.
+The golden record page layout is assigned to the business domain. This ensures that all golden records belonging to that business domain consistently display relevant information on the golden record overview page.
 
-All layouts are stored in **Administration** > **Entity page layouts**. CluedIn contains several built-in entity page layouts:
+All layouts are stored in **Administration** > **Golden record layouts**. CluedIn contains several built-in golden record page layouts:
 
 - Default layout
 
@@ -34,7 +34,7 @@ When you create a new business domain while creating mapping, the default layout
 
 The layouts consist of the following elements:
 
-- **Nav** – a container for the following information about a golden record: entity properties, core vocabularies, source vocabularies, information sources, sources, and relations.
+- **Nav** – a container for the following information about a golden record: golden record properties, core vocabularies, source vocabularies, information sources, sources, and relations.
 
 - **Main** – a container for the following information about a golden record: quality metrics and suggested searches.
 
@@ -44,7 +44,7 @@ The following screenshot displays the arrangement of nav (a) and main (b) contai
 
 ## Layout details page
 
-On the layout details page, you can view relevant information about the entity page layout and take other actions to manage the layout.
+On the layout details page, you can view relevant information about the golden record page layout and take other actions to manage the layout.
 
 **Configuration**
 
@@ -64,7 +64,7 @@ If built-in layouts are not sufficient for you, you create your own layout.
 
 **To create a layout**
 
-1. On the navigation pane, go to **Administration** > **Entity page layouts**.
+1. On the navigation pane, go to **Administration** > **Golden record layouts**.
 
 1. Select **Create layout**.
 
@@ -86,7 +86,7 @@ You can change the layout configuration and choose the elements that should be d
 
 **To edit a layout**
 
-1. On the navigation pane, go to **Administration** > **Entity page layouts**.
+1. On the navigation pane, go to **Administration** > **Golden record layouts**.
 
 1. Open the layout that you want to edit, and then select **Edit**.
 

@@ -5,7 +5,7 @@ parent: Enricher
 grand_parent: Preparation
 permalink: /preparation/enricher/build-custom-enricher
 title: Build custom enricher
-published: false
+
 ---
 ## On this page
 {: .no_toc .text-delta }

@@ -1,13 +1,15 @@
 ---
 layout: cluedin
-title: How can I get better matches of duplicate records in CluedIn
+title: Get better matches in deduplication projects
 parent: Knowledge base
 permalink: /kb/better-matches
 tags: ["Deduplication", "Matching"]
 nav_order: 18
 ---
-
-# How to Get Better Matches in Deduplication Projects
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 Deduplication Projects in CluedIn help identify and merge duplicate records across your data sources. Good results depend not only on the rules you configure, but also on the **quality and consistency of the data being matched**. This article provides practical advice for improving match quality.
 

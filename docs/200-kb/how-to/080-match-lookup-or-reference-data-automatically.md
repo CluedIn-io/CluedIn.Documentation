@@ -1,12 +1,15 @@
 ---
 layout: cluedin
-title: How to match reference data or lookup data automatically
+title: How to match reference or lookup data automatically to a known list of values
 parent: Knowledge base
 permalink: /kb/how-to-match-reference-data
 nav_order: 2
 ---
 
-# How to Automatically Match Lookup or Reference Data to a Known List of Values
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 Many business processes rely on **lookup tables** or **reference data** (e.g., country codes, product categories, departments, payment terms). In practice, data sources often contain values that don’t exactly match your standard lists. CluedIn provides tools to automatically align these values to your **canonical reference set**.
 

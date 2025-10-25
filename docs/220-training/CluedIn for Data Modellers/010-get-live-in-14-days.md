@@ -1,12 +1,14 @@
 ---
 layout: cluedin
-title: CluedIn for Data Modellers
+title: CluedIn for Data Modellers — canonical & export schema playbook
 parent: Knowledge base
 permalink: /kb/cluedin-data-modellers
 nav_order: 2
 ---
-
-# CluedIn for Data Modellers — Canonical & Export Schema Playbook
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 **Audience:** Data Modellers, Semantic Layer Owners, Analytics Architects  
 **Goal:** Provide a practical handbook to model data in CluedIn—canonical entities, relationships, semantics, temporal patterns, export schemas, contracts, and safe iteration with Stewards, Engineers, Admins, and Governance.

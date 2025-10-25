@@ -1,12 +1,14 @@
 ---
 layout: cluedin
-title: CluedIn for Developers
+title: CluedIn for Developers — build, integrate, automate
 parent: Knowledge base
 permalink: /kb/cluedin-for-developers
 nav_order: 2
 ---
-
-# CluedIn for Developers — Build, Integrate, Automate
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 **Audience:** Application developers, integration engineers, platform/DevOps engineers  
 **Goal:** Give developers a practical, end‑to‑end handbook to build against CluedIn: auth, APIs/SDK patterns, ingestion producers, export consumers, webhooks, cleaning/validation-as-code, AI Agents, dedup, logging/audit, testing, CI/CD, and secure operations.

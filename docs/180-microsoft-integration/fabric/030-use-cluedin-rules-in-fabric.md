@@ -7,14 +7,18 @@ permalink: /microsoft-integration/fabric/use-cluedin-rules-in-fabric
 nav_order: 030
 has_children: false
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
-CluedIn provides a powerful GraphQL API for getting data and metadata and executing actions. In this article, you will learn how to read CluedIn rules' metadata in Microsoft Fabric and use it to work with data in OneLake.
+CluedIn provides a powerful GraphQL API for retrieving data and metadata and executing actions. In this article, you will learn how to read CluedIn rules' metadata in Microsoft Fabric and use it to work with data in OneLake.
 
-**To use CluedIn rule in Microsoft Fabric**
+## Set up your environment
 
-Create a notebook in Microsoft Fabric, install dependencies, and get a CluedIn access token.
+Create a notebook in Microsoft Fabric, install dependencies, and get a CluedIn access token:
 
-```python
+```
 !pip install cluedin
 !pip install jqqb_evaluator
 
@@ -29,7 +33,9 @@ ctx = cluedin.Context.from_dict({
 ctx.get_token()
 ```
 
-Get all the rules from CluedIn.
+## Retrieve rules from CluedIn
+
+Get all the rules from CluedIn:
 
 ```python
 # get all data part rules
@@ -38,13 +44,15 @@ rules = cluedin.rules.get_rules(ctx)
 list(map(lambda x: x['name'], rules['data']['management']['rules']['data']))
 ```
 
-If you want to get a particular rule by ID, use the following method.
+Retrieve a specific rule by ID:
 
 ```python
 cluedin.rules.get_rule(ctx, rule_id)
 ```
 
-From a rule's conditions, you can create an `Evaluator` that helps to evaluate if a given object matches with the rule's conditions. In the following example, we take all data part rules from CluedIn, create a list of evaluators, and then test if a test object matches to at least one evaluator in the list:
+## Evaluate data against rule conditions
+
+You can create an `Evaluator` to check if a given object matches the rule's conditions. In the following example, we take all data part rules from CluedIn, create a list of evaluators, and then check if a test object matches at least one evaluator in the list:
 
 ```python
 # get all data part rules ids 
@@ -63,14 +71,14 @@ obj = {
 any(map(lambda evaluator: evaluator.object_matches_rules(obj), evaluators))
 ```
 
-The evaluator's `explain()` method helps to understand the current evaluator's conditions. It outputs code in terms of pandas' `DataFrame.query` method:
+Use the `explain()` method to understand how evaluators check conditions. It outputs code in terms of pandas' `DataFrame.query` method:
 
 ```python
 # explain all evaluators
 list(map(lambda evaluator: evaluator.explain(), evaluators))
 ```
 
-Output:
+Sample output:
 ```
 [
     'df.query(\'`employee.job` == "Ackounting" | `employee.job` == "Acounting" | `employee.job` == "Akkounting" | `employee.job` == "aCoUnTiNg" | `employee.job` == "account ing" | `employee.job` == "accounting"\')',
@@ -79,7 +87,9 @@ Output:
 ]
 ```
 
-With the help of a few methods, you can transform your data using CluedIn rules:
+## Apply rule actions to your data
+
+Define helper functions to interpret and apply CluedIn rule actions:
 
 ```python
 def set_value_action(obj, field, val):
@@ -127,7 +137,7 @@ result = list(get_actions_with_evaluators(rules[0]))
 result[0]['action']({ 'employee.job': 'CEO' })
 ```
 
-
+Apply actions conditionally:
 ```python
 def apply_actions(actions_with_evaluators, obj):
     """
@@ -145,7 +155,9 @@ apply_actions(actions_with_evaluators, { 'employee.job': 'Akkounting' })
 
 ```
 
-Now, we can load CluedIn data in a `DataFrame`:
+## Work with CluedIn data in Microsoft Fabric
+
+Load CluedIn data into a `DataFrame`:
 
 ```python
 import pandas as pd
@@ -174,7 +186,7 @@ df = pd.DataFrame(cluedin.gql.entries(ctx, query, { 'query': 'entityType:/Employ
 df.head(20)
 ```
 
-And apply Rule Actions to matched records:
+Apply rule actions to matching records:
 
 ```python
 # apply rule actions to a data frame
@@ -183,7 +195,9 @@ df.apply(lambda row: apply_actions(actions_with_evaluators, row), axis=1)
 
 ![rules.png]({{ "/assets/images/microsoft-integration/fabric/rules.png" | relative_url }})
 
-Or you can filter the `DataFrame` with the evaluators:
+## Filter data with evaluators
+
+Filter the `DataFrame` with evaluators:
 
 ```python
 def evaluate(row):

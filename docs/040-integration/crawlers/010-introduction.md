@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: What are Integrations
+title: About integrations
 parent: Crawlers
 grand_parent: Ingestion
 nav_order: 010
@@ -10,30 +10,47 @@ tags: ["integration"]
 last_modified: 2022-01-12
 ---
 
-## Introduction
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
-The first thing you need to do when CluedIn is running, is to feed it with data. You need to choose which data you want to add to CluedIn. Data is pushed into CluedIn via integrations. You have two options:
+When CluedIn is running, the first step is to feed it with data. You decide which data to add, and this is done through integrations. You have two options:
 
-- [Installing an existing integration](./install-integrations)
-- Building a custom integration
+- [Install an existing integration](./install-integrations)
+- Build a custom integration
 
 {:.important}
-When you install CluedIn, you gain access to out-of-the-box integrations. Feel free to contact us for assistance with configuring and enabling these integrations. Additionally, we can implement custom integrations upon request.
+When you install CluedIn, you get access to out-of-the-box integrations. Contact us if you need help configuring or enabling them. We can also implement custom integrations on request.
 
-There are two main types of integrations: providers and enrichers.
+## Types of integrations
 
-### Providers
+There are two main types of integrations:
 
-These integrations allow you to add data into CluedIn. They can connect to cloud tools, databases, file systems, etc. extract the data you want to send to CluedIn and assemble it in a format CluedIn will understand.
+- Providers
 
-There are many *providers* available in our [GitHub](https://github.com/CluedIn-io), but alternatively you can also [build your own](./build-integration) to cater for your specific requirements. In order to do this though, you will require some C# coding experience.
+- Enrichers
 
-Some of the most common *providers* are the following:
+## Providers
+
+Providers allow you to add data into CluedIn:
+
+- They can connect to cloud tools, databases, file systems, and so on.
+
+- They extract the data you want and format it so CluedIn can understand it.
+
+There are many providers available in our [GitHub repository](https://github.com/CluedIn-io). You can also [build your own providers](./build-integration), but this requires C# coding experience.
+
+Common provider types include:
 * [Crawlers](https://github.com/CluedIn-io?q=crawl&type=public)
 * [Connectors](https://github.com/CluedIn-io?q=connect&type=public)
 
-### Enrichers
+## Enrichers
 
-Their mission is to add extra information to improve data that is already in CluedIn. Data in CluedIn is structured in entities; these are similar to records. They can contain information about a person, a company, a task, etc. An enricher will use the existing information CluedIn to then query other external systems to try to find out more information about that entity, i.e. *enrich* it.
+Enrichers add extra information to data that is already in CluedIn:
 
-We have a list of available *enrichers* in our [GitHub](https://github.com/CluedIn-io?q=enricher&type=public), but you can also [build your own](/preparation/enricher/build-custom-enricher), as long as you have some C# coding experience. 
+- Data in CluedIn is structured as entities (similar to records) – for example, a person, a company, or a task.
+
+- An enricher uses the existing information in CluedIn to query external systems for additional details about that entity.
+
+We have a list of available enrichers in our [GitHub repository](https://github.com/CluedIn-io?q=enricher&type=public). You can also [build your own enrichers](/preparation/enricher/build-custom-enricher) if you have some C# coding experience.

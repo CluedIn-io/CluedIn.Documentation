@@ -17,95 +17,93 @@ summary: "CluedIn IPython Magic simplifies working with CluedIn in Jupyter noteb
 
 [IPython](https://ipython.org/),
 the command shell behind [Jupyter](https://jupyter.org/) notebooks,
-provides an awesome feature called [magics](https://ipython.readthedocs.io/en/stable/interactive/python-ipython-diff.html#magics).
-In short, you can skip writing Python code and use more like command line syntax.
+provides an awesome feature called [magics](https://ipython.readthedocs.io/en/stable/interactive/python-ipython-diff.html#magics). In short, you can skip writing Python code and use more like command line syntax. This approach can simplify many repeating tasks, including work with [CluedIn Python SDK](https://pypi.org/project/cluedin/).
 
-This approach can simplify many repeating tasks, including work with [CluedIn Python SDK](https://pypi.org/project/cluedin/).
-
-In this article, I want to introduce you
-to [CluedIn Magic](https://pypi.org/project/cluedin-magic/) - the package that lets you work with
+In this article, we want to introduce you
+to [CluedIn Magic](https://pypi.org/project/cluedin-magic/) – the package that lets you work with
 CluedIn API with minimal code.
 
-CluedIn Magic depends on CluedIn Python SDK, so you only need to install one package to get them both:
+## Install CluedIn Magic
 
-```shell
-%pip install cluedin-magic
-```
+1. CluedIn Magic depends on CluedIn Python SDK, so you only need to install one package to get them both:
 
-When working with products like Microsoft Fabric, Synapse Analytics, Databricks, etc.,
-I usually pre-install packages in an environment so you don't have to run the above line.
+    ```shell
+    %pip install cluedin-magic
+    ```
 
-Now, we can load CluedIn Magic by calling the `%load_ext` magic:
+    When working with products like Microsoft Fabric, Synapse Analytics, Databricks, and so on,
+we usually pre-install packages in an environment so that there is no need to run the line above.
 
-```shell
-%load_ext cluedin_magic
-```
+1. We can now load CluedIn Magic by calling the `%load_ext` magic:
 
-After this, you can call `%cluedin` magic. If you do it without parameters or with wrong parameters, it will give you a brief help:
+    ```shell
+    %load_ext cluedin_magic
+    ```
 
-```
-Available commands: get-context, search
-Usage:
-%cluedin get-context --jwt <jwt>
-%cluedin search --context <context> --query <query> [--limit <limit>]
-```
+1. After this, you can call `%cluedin` magic. If you do it without parameters or with wrong parameters, it will provide you with brief help instructions:
+
+    ```
+    Available commands: get-context, search
+    Usage:
+    %cluedin get-context --jwt <jwt>
+    %cluedin search --context <context> --query <query> [--limit <limit>]
+    ```
 
 ## Get CluedIn context
 
-When you work with CluedIn API, you need a context—a domain, organization name,
-email, password, or API token. What if I tell you that you just need the API token,
-and then CluedIn Magic will automagically resolve the rest? Let's try it!
+When you work with CluedIn API, you need a context—a domain, organization name, email, password, or API token. What if we tell you that you just need the API token, and then CluedIn Magic will automagically resolve the rest? Let's try it!
 
-At first, you only need an API token &mdash; you can get one from
-[Administration -> API Tokens](https://documentation.cluedin.net/integration/endpoint#send-data) in CluedIn.
+1. At first, you only need an API token&mdash;you can get one in [CluedIn > Administration > API Tokens](https://documentation.cluedin.net/integration/endpoint#send-data).
 
-In the example below, I store it in an environment variable and then can get into a variable:
+1. In the following example, we store the API token in an environment variable, which is then retrieved into a local variable:
 
 
-```shell
-access_token = %env ACCESS_TOKEN
-```
+    ```shell
+    access_token = %env ACCESS_TOKEN
+    ```
 
-```shell
-ctx = %cluedin get-context --jwt $access_token
-```
+    ```shell
+    ctx = %cluedin get-context --jwt $access_token
+    ```
 
-Now, just give it to CluedIn Magic and it will give you a working CluedIn context:
+1. Pass the value to CluedIn Magic, and it will give you a working CluedIn context:
 
-```shell
-ctx = %cluedin get-context --jwt eyJhbGci...5Odvpr1g
-```
+    ```shell
+    ctx = %cluedin get-context --jwt eyJhbGci...5Odvpr1g
+    ```
 
-You can use this context now with CluedIn Python SDK or CluedIn Magic.
+    You can use this context now with CluedIn Python SDK or CluedIn Magic.
 
 ## Search
 
-Say you want to load all `/Infrastructure/User` entities &mdash;
-provide a context and a query, and get a pandas DataFrame with your data:
+Let's say that you want to load all `/Infrastructure/User` entities.
 
-```shell
-%cluedin search --context ctx --query +entityType:/Infrastructure/User
-```
+1. Provide a context and a query, and get a pandas DataFrame with your data:
 
-<img src="/assets/images/python-sdk/notebook.png" alt="notebook" />
+    ```shell
+    %cluedin search --context ctx --query +entityType:/Infrastructure/User
+    ```
 
-You can get a sample by providing a limit if you have millions of entities.
-In the next example, I get ten entities out of all entities in the system:
+    <img src="/assets/images/python-sdk/notebook.png" alt="notebook" />
 
-```shell
-%cluedin search --context ctx --query * --limit 10
-```
+1. You can get a sample by providing a limit if you have millions of entities.
 
-In the next example, I get ten records of type
+    - In this example, we retrieve ten entities out of all entities in the system:
+
+        ```shell
+        %cluedin search --context ctx --query * --limit 10
+        ```
+
+    - In this example, we retrieve ten records of type
 `/IMDb/Name` where `imdb.name.birthYear` vocabulary key property does not equal `\\N`:
 
-```shell
-%cluedin search --context ctx --query +entityType:/IMDb/Name -properties.imdb.name.birthYear:"\\\\N" --limit 10
-```
+        ```shell
+        %cluedin search --context ctx --query +entityType:/IMDb/Name -properties.imdb.name.birthYear:"\\\\N" --limit 10
+        ```
 
-You can also save the results in a variable and use it as a usual pandas DataFrame:
+1. You can save the results in a variable and use it as a usual pandas DataFrame:
 
-```shell
-pd = %cluedin search --context ctx --query +entityType:/IMDb/Name +properties.imdb.name.birthYear:1981
+    ```shell
+    pd = %cluedin search --context ctx --query +entityType:/IMDb/Name +properties.imdb.name.birthYear:1981
 pd.head()
-```
+    ```

@@ -49,32 +49,32 @@ If you want to create a disk on a different resource group (for increased resili
 
 1. Create a new `StorageClass` object which links to the resource group 
 
-```yml
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: external-rg-hdd
-provisioner: kubernetes.io/azure-disk
-parameters:
-  skuname: Standard_LRS
-  kind: Managed
-  cachingMode: ReadOnly
-  resourceGroup: RESOURCE_GROUP_NAME
-allowVolumeExpansion: true
-```
+    ```yml
+    kind: StorageClass
+    apiVersion: storage.k8s.io/v1
+    metadata:
+      name: external-rg-hdd
+    provisioner: kubernetes.io/azure-disk
+    parameters:
+    skuname: Standard_LRS
+    kind: Managed
+    cachingMode: ReadOnly
+    resourceGroup: RESOURCE_GROUP_NAME
+    allowVolumeExpansion: true
+    ```
 
-2. Update the `storageClass` / `storageClassName` in the appropriate chart .. 
+1. Update the `storageClass` / `storageClassName` in the appropriate chart .. 
 
-```yml
-mssql:
-  persistence:
-    storageClass: "external-rg-hdd"
-```
+    ```yml
+    mssql:
+      persistence:
+        storageClass: "external-rg-hdd"
+    ```
 
 When it provisions the PVC for the first time it will provision them on a different resource group.
 
-Note: Its is **unsupported/not possible** to create disks in another *subscription*.
-Microsoft have said they have no plans to support this.
+{:.important}
+It is **not supported** (and currently **not possible**) to create disks in a different subscription. According to Microsoft, there are no plans to enable this capability in the future.
 
 ## Different SKUs in Azure
 

@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Help with building robust integrations
+title: Tips on building robust integrations
 parent: Crawlers
 grand_parent: Ingestion
 nav_order: 030
@@ -8,33 +8,74 @@ has_children: false
 permalink: /integration/robust-ntegrations
 tags: ["integration"]
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
+With the CluedIn team building over 220 integrations to date, we’ve collected many tips and tricks to guide developers in building solid and reliable integrations.
 
-With the CluedIn team building just over 220 integrations to date, we have learnt quite a lot of tips and tricks in guiding developers to build good and robust integrations. 
+This section provides an exhaustive list of advice from the team to help you build robust integrations.
 
-Here is an exhaustive list of advice from the team to help you also build robust integrations.
+## Best practices for building integrations
 
- - Make sure you attend the 3 day developer training given by the CluedIn team. You will be given first hand advice and labs on building solid integrations. 
- - Your integrations are responsible for fetching data, not cleaning it, not access control, not joining or blending data. In an ETL world, CluedIn wants your integrations to be more like ELT i.e. just extract and load. The CluedIn server will do the "T" or the Transform. 
- - Build your crawlers with a mindset that the structure can and will change on a regular basis (even if it does not).
- - Many source systems will contain "Discovery Endpoints" in which you can "sniff" what types of data is possible for you to fetch. These are great to use, because they make your integration more dynamic than static. In this way you can build integrations that are very flexible and can use the source system to discover what objects or data is available and then "iterate" over all objects to fetch all the rows or instances of those objects. It is quite typical that these types of sources will also describe the data in forms of "type", "constraints" and more. 
- - Use the inbuilt Crawler Validation Framework within the Crawler Templates to help validate if you are building your crawler with best practices. 
- - Your crawlers may be responsible for fetching billions of rows of data and hence this should be designed into your crawler as well. This means that practices like paging, filtering and more is recommended. 
- - You might find that many CluedIn integrations will use "Service Accounts" to access data. This means that CluedIn will need to "iterate" all the individual accounts that this "Service Account" has access to. 
- - There is a default timeout on crawlers in that if they have not fetched data within a 10 minute window, the CluedIn server assumes that something has gone wrong and will terminate the job. You can sometimes cause this accidentally or it might be that sometimes you will need to increase this timeout. For example, if your integration was built in a way to sort a table of data before ingesting it (because of a performance reason) then you might find that your table takes longer than 10 minutes to sort before it can start iterating and ingesting data from the platform. Increasing the timeout is fine and supported. You can change this in your container.config file.
+ - Attend the 3-day developer training provided by the CluedIn team. It includes first-hand advice and labs on building integrations.
+ 
+ - Keep integrations focused on fetching data only – not cleaning, access control, or joining/blending data.
 
- The best way to learn how to build a new integration is typically to view the over 220 prebuilt integrations as to see what the final solution looks like. You will notice that CluedIn is using the advice above in its integrations as to also abide by best practices. 
+    In ETL terms, CluedIn follows an ELT model: Extract + Load are handled by integrations; Transform is handled by the CluedIn server.
+ 
+ - Build crawlers assuming the data structure will change regularly (even if it does not).
 
- You can probably imagine that an integration that we build and deploy today, may change requirements tomorrow. Due to the nature of the integrations being very simple in nature and just tasked with fetching data, you will often find that the common failures are due to the underlying system changing in some way. The typical issues are:
+ - Many source systems provide "Discovery Endpoints", which let you detect what types of data are available to fetch. Using these makes your integration more dynamic and flexible rather than static. With Discovery Endpoints, your integration can identify available objects or datasets and then iterate through them to fetch all rows or instances.
 
-  - The location of the source has changed e.g. a connection string or physical location.
-  - The data itself has changed structure and can no longer be properly reserialized into the JSON or XML format that CluedIn is asking for. 
+    These sources often also describe the data in terms of types, constraints, and other metadata, which can further guide your integration logic.
 
-  There are some of these changes that are more drastic than others and CluedIn integrations can be setup in a way to "survive" some changes without the need for new deployments and changes to integration code. For example, if your underlying data has simply added a new column or property, CluedIn can "survive" this change, but eventually you should map that new property into its rightful Entity Code, Edge, Vocabulary Key or other. At least data will continue to flow from source to CluedIn. If the object structure changes dramatically, you will notice that CluedIn will throw notifications and alerts that we detect that a change is dramatic enough to stop the flow of data suffering from this issue until it is addressed. Making the changes in your code and redeploying will address this issue and data will continue to flow. 
+ - Leverage the inbuilt Crawler Validation Framework within the Crawler Template to ensure your crawler follows best practices.
 
-  You might also find that endpoints (REST) change, but we do find that most providers are quite good at versioning their endpoints so that data will continue to flow. However, in this case you might find that changing to the new endpoints will require to to run a complete re-crawl as you might be getting more rich data from the new endpoints. Therefor some sources might be sophisticated enough that we don't require to fetch all data, but only the new fields that we are interested in. This complicates the crawler too much and it should potentially be avoided. It really depends on the source itself and if you find that you are charged a lot of money for pulling data. There are many integration sources that can be like this and it means that you may have to control this in your integration code. 
+ - Design crawlers to handle large datasets (billions of rows). Implement paging, filtering, and retry mechanisms.
 
-  The CluedIn Crawler framework ships with a validation framework in which this can be extended as well. To add new Rules, all you need to do is implement the IClueValidationRule interface and then compile and drop this into your CluedIn directory to reboot. The Framework currently watches for:
+ - Expect to use "Service Accounts" – your crawler may need to iterate across all accounts accessible to that service account.
+ 
+ - Be mindful of the default crawler timeout (10 minutes). If a crawler does not fetch data in that window, CluedIn will terminate the job. You can increase this timeout in `container.config` if needed (for example, for pre-sorting large tables).
+
+## Learning from prebuilt integrations
+
+The best way to learn how to build integrations is by reviewing the 220+ prebuilt integrations. You will see that they consistently apply the best practices listed above.
+
+## Handling changing requirements
+
+Integrations must adapt to changes in source systems.
+
+Typical issues include:
+
+- The location of the source changes (for example, connection string, physical location).
+
+- The data structure changes, breaking JSON/XML serialization.
+
+CluedIn’s resilience to changes:
+
+- If a new column/property is added, CluedIn can continue processing until you map it properly (entity code, edge, vocabulary key, and so on).
+
+- If the structure changes dramatically, CluedIn will generate notifications and alerts, stopping the data flow until you update and redeploy the integration.
+
+Endpoint changes:
+
+- REST endpoints may change, but most providers handle this through versioning.
+
+- Switching to a new endpoint may require a full re-crawl, especially if richer data is returned.
+
+- Some sources charge for data pulls – avoid overly complex crawlers that attempt to minimize costs by selectively fetching only certain fields unless necessary.
+
+## Crawler validation framework
+
+CluedIn’s crawler framework ships with a [validation framework](/crawling/crawler-validation-framework), which you can extend.
+
+- To add new rules, implement the `IClueValidationRule` interface.
+
+- Compile your changes, drop them into the CluedIn directory, and restart the system.
+
+The framework currently watches for:
 
 ```csharp
 DATA_001_File_MustBeIndexed

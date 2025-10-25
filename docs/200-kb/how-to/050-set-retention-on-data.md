@@ -1,13 +1,14 @@
 ---
 layout: cluedin
-title: Set Retention Policies on Data
+title: Set retention policies on data
 parent: Knowledge base
 permalink: /kb/set-retention
 nav_order: 5
 ---
-
-
-# Setting Retention Policies for Records in CluedIn
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 Retention policies define how long data is stored in CluedIn before it is automatically archived or deleted. They are essential for managing compliance requirements, controlling storage costs, and ensuring that outdated or irrelevant data does not clutter your environment.  
 

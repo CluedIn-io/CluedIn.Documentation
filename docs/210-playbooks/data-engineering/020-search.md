@@ -44,9 +44,9 @@ To find them, I can run a query like this:
 }
 ```
 
-The query will return me the top 20 of the `/Duck` entities.
-The `query` parameter tells the API to filter the response by a given business domain (previously entity type).
-You can also specify the entity properties you want to get in the payload: `id`, `name`, and `entityType`.
+- The query will return me the top 20 of the `/Duck` entities.
+- The `query` parameter tells the API to filter the response by a given business domain (previously entity type).
+- You can also specify the entity properties you want to get in the payload: `id`, `name`, and `entityType`.
 
 ### GraphQL search query with variables and cursor
 
@@ -80,12 +80,12 @@ Variables:
 ```
 
 Here are a few things to notice in this query:
-- `query ($query: String, $pageSize: Int)` - we defined a query with parameters. We can also give this query a name: `query searchEntities($query: String, $pageSize: Int)`
-- `sort: FIELDS sortFields: {field: "id", direction: ASCENDING}` - it's important to sort by a unique field to get predictable results when you page data.
-- `cursor` - we ask CluedIn to return a special value that we can pass to our next query to get the next page of results.
-- `"pageSize": 10000` - By default, the page size is 20, so if you have millions of entities, you will get only the first `20`. Setting the page size to its maximum value (`10000`) will decrease the number of requests you send to CluedIn API, but there are situations when you only want to get a few entities from the top, and a query with a smaller page size will be faster.
+- `query ($query: String, $pageSize: Int)` – we defined a query with parameters. We can also give this query a name: `query searchEntities($query: String, $pageSize: Int)`
+- `sort: FIELDS sortFields: {field: "id", direction: ASCENDING}` – it's important to sort by a unique field to get predictable results when you page data.
+- `cursor` – we ask CluedIn to return a special value that we can pass to our next query to get the next page of results.
+- `"pageSize": 10000` – by default, the page size is 20, so if you have millions of entities, you will get only the first `20`. Setting the page size to its maximum value (`10000`) will decrease the number of requests you send to CluedIn API, but there are situations when you only want to get a few entities from the top, and a query with a smaller page size will be faster.
 
-![GraphQL](/assets/images/python-sdk/gql.png)
+![GraphQL](/assets/images/python-sdk/gql-2.png)
 
 ## CluedIn Python SDK
 
@@ -93,32 +93,31 @@ Here are a few things to notice in this query:
 
 You can use any programming language to send a GraphQL request to CluedIn and get the data back. Let's explore how you can do it in Python.
 
-First of all, you will need to install the latest version of CluedIn Python SDK:
+1. Install the latest version of CluedIn Python SDK:
 
-```python
-%pip install cluedin
-```
+    ```python
+    %pip install cluedin
+    ```
 
-Let's import it then together with Pandas (we will use Pandas to load data in DataFrames):
+1. Import it together with Pandas (we will use Pandas to load data in DataFrames):
 
-```python
-import pandas as pd
-import cluedin
-```
+    ```python
+    import pandas as pd
+    import cluedin
+    ```
 
-You need an API token; you can copy or create a new one by going to "API Tokens" under "Administration" in CluedIn.
+1. You need an API token. You can copy or create a new one by going to **Administration** > **API Tokens** in CluedIn.
 
-Now, in our example, CluedIn is installed at `https://foobar.contoso.com/`,
-so we need to initialize a Context for our CluedIn instance by providing `org_name` (`foobar`), `domain` (`contoso.com`), and the `access_token` (the one you copied from CluedIn UI):
+1. In our example, CluedIn is now installed at `https://foobar.contoso.com/`. We now need to initialize a Context for our CluedIn instance by providing `org_name` (`foobar`), `domain` (`contoso.com`), and the `access_token` (the one you copied from CluedIn UI):
 
 
-```python
-ctx = cluedin.Context.from_dict({
-    'domain': 'contoso.com',
-    'org_name': 'foobar',
-    'access_token': '{paste_your_token_here}'
-})
-```
+    ```python
+    ctx = cluedin.Context.from_dict({
+        'domain': 'contoso.com',
+        'org_name': 'foobar',
+        'access_token': '{paste_your_token_here}'
+    })
+    ```
 
 ### Running a GraphQL query
 
@@ -365,6 +364,6 @@ And here is another example of how to use Actions in the Python SDK to delete en
 
 Here is a list of available actions you can use:
 
-- `deleteEntity` - deletes an entity.
-- `postProcess` - reprocesses an entity.
-- `enrichEntity` - enriches an entity.
+- `deleteEntity` – deletes an entity.
+- `postProcess` – reprocesses an entity.
+- `enrichEntity` – enriches an entity.

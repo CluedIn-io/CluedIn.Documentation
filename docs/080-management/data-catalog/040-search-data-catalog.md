@@ -13,7 +13,7 @@ title: Search the data catalog
 
 Searching the data catalog is a valuable tool for streamlining data discovery. This article provides information on how to make the process of finding metadata faster and more efficient by using filters.
 
-**Vocabularies**
+## Vocabularies
 
 By default, the **All Vocabularies** page displays only used vocabularies. These are the vocabularies that contain the vocabulary keys used in golden records.
 
@@ -31,9 +31,9 @@ You can filter the vocabularies using the filter pane in the upper-right corner 
 
 If the filtered results do not meet your requirements, you can reset the filters and try again.
 
-**Vocabulary keys**
+## Vocabulary keys
 
-By default, the **All Vocabular Keys** page displays only used vocabulary keys. These are the vocabulary keys used in golden records.
+By default, the **All Vocabulary Keys** page displays only used vocabulary keys. These are the vocabulary keys used in golden records.
 
 ![vocabulary-key-search.gif]({{ "/assets/images/management/data-catalog/vocabulary-key-search.gif" | relative_url }})
 

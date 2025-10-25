@@ -5,8 +5,11 @@ parent: Knowledge base
 permalink: /kb/cluedin-ai
 nav_order: 2
 ---
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
-# CluedIn: The 100% AI-First Operating Model
 **Scope:** How to run CluedIn with AI at the center—using **AI Agents**, **AI Rules**, **AI Enricher**, **AI Mapping**, and **Copilot**—from onboarding to daily operations, with safety, observability, and governance.
 
 > TL;DR: Automate suggestions and safe auto-fixes end‑to‑end, keep humans in the approval loop for high‑impact changes, and measure everything. Start read‑only, then progress to **suggest → gated auto‑fix → auto‑promotion** with rollback.

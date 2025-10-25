@@ -13,7 +13,7 @@ nav_order: 14
 
 This document covers Microsoft Defender for Cloud advisories that you may face when installing the CluedIn MDM PaaS variant of the product into your environemnt. It will explain what each advisory means and how to potentially resolve the issue.
 
-If the advisory is not listed below, please do reach out to support@cluedin.com who will be able to advise further.
+If the advisory is not listed below, please do reach out to [support@cluedin.com](mailto:support@cluedin.com) who will be able to advise further.
 
 ## Recommendations
 

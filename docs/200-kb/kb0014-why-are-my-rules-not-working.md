@@ -1,13 +1,15 @@
 ---
 layout: cluedin
-title: Rules are not working
+title: Rules not working as expected
 parent: Knowledge base
 permalink: /kb/rules-not-working
 tags: ["Rules", "Debug"]
 nav_order: 15
 ---
-
-# Why Are My CluedIn Rules Not Working as Expected?
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 CluedIn Rules are designed to help you automate transformations, validations, and enrichment of your data. When they don’t behave as expected, it can be frustrating and may lead to incorrect data outcomes.  
 

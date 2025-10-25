@@ -6,7 +6,10 @@ permalink: /kb/snowflake-to-cluedin
 nav_order: 2
 ---
 
-# Push data from Snowflake to CluedIn Ingestion Endpoints
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 This guide shows practical patterns for pushing data directly from Snowflake into CluedIn **Ingestion Endpoints** using either a Snowpark Python stored procedure (batch) or a Snowflake External Function (event/row-oriented). It follows CluedIn’s recommended practices around payload shape, batching, idempotency, and operational monitoring.
 

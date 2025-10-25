@@ -113,7 +113,7 @@ For more information about the client secret, see [Microsoft documentation](http
 
 1. In the **Implicit grant and hybrid flows** section, select the **ID tokens** checkbox.
 
-    ![Add_redirect_URIs_ID_tokens.png]({{ "/assets/images/ama/howtos/configure-sso-8.png" | relative_url }})
+    ![Add_redirect_URIs_ID_tokens.png]({{ "/assets/images/ama/howtos/configure-sso-8-2.png" | relative_url }})
 
 1. At the bottom of the page, select **Save**.
 
@@ -164,7 +164,7 @@ You need to register a web API with the Microsoft identity platform and expose i
 
 1. For the first-time setup, you will need to specify the `Application ID URI`. For this, leave it as the default selection which will be a randomly generated GUID.
 
-    ![configure-sso-scopename.png]({{ "/assets/images/ama/howtos/configure-sso-scopename.png" | relative_url }})
+    ![configure-sso-scopename.png]({{ "/assets/images/ama/howtos/configure-sso-scopename-2.png" | relative_url }})
 
 1. Select **Save and continue**.
 

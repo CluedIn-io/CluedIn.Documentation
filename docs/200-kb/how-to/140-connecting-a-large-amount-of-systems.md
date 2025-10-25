@@ -1,12 +1,14 @@
 ---
 layout: cluedin
-title: Connect lots of systems into CluedIn
+title: Connect multiple data sources to CluedIn
 parent: Knowledge base
 permalink: /kb/connect-lots-of-systems
 nav_order: 2
 ---
-
-# Best practices to integrate hundreds of data sources through CluedIn
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 Integrating **100+** sources isn’t a modeling marathon you finish upfront—it’s an incremental journey you steer with evidence from the data itself. CluedIn’s graph-first architecture, schema-on-read ingestion, and late-binding mapping make this practical at scale. This article distills field-proven practices to help you land sources quickly, let the model **evolve**, and still end up with trustworthy, connected master data.
 

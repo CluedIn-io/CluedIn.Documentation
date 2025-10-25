@@ -1,12 +1,14 @@
 ---
 layout: cluedin
-title: CluedIn For Data Stewards
+title: CluedIn for Data Stewards — field guide
 parent: Knowledge base
 permalink: /kb/cluedin-for-data-stewards
 nav_order: 2
 ---
-
-# CluedIn for Data Stewards — Field Guide
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 **Audience:** Data Stewards, Data Quality Leads, Business Owners  
 **Goal:** Give stewards a clear, practical playbook for operating CluedIn: profiling, validation, cleaning, dedup review, metadata & glossary, and day‑to‑day rhythms with engineers and admins.

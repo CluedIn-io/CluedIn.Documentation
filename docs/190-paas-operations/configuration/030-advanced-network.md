@@ -90,7 +90,7 @@ For details on creating custom roles, see [Azure custom roles](https://learn.mic
 ### Private cluster - BYO vNet
 When using your own network (BYON) for private cluster installation, the **Network Contributor** permissions are required for the vNet created outside the managed resource group. To meet this requirement, you can create a **user-managed identity** and assign it the **Network Contributor** role on the specified vNet. During installation, ensure this user-assigned managed identity is specified in the **Network and Monitoring** section.
 
-![adv-network-pc-byov.png]({{ "/assets/images/ama/howtos/adv-network-pc-byov.png" | relative_url }})
+![adv-network-pc-byov.png]({{ "/assets/images/ama/howtos/adv-network-pc-byov-2.png" | relative_url }})
 
 ## Internal load balancer
 
@@ -149,7 +149,7 @@ If you have any questions, you can request CluedIn support by sending an email t
 ## Integration options
 With Kubernetes now configured to use the internal load balancer for ingress, you will need to decide how you want to access this front-end load balancer from your internal network. The two options supported are `Virtual network peering` and `Private link service with private endpoint`.
 
-**Note**: If your subnets overlap in any way, the only option will be `Private link service with private endpoint`.
+If your subnets overlap in any way, the only option will be `Private link service with private endpoint`.
 
 ### Virtual network peering
 To configure virtual network peering, refer to [Microsoft documentation](https://learn.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal). As all resources have already been created, you only need to follow the **Create virtual network peer** step in the tutorial.
@@ -164,11 +164,11 @@ As AKS maintains the load balancers, and the vnet is created at deployment time 
 For the `Private Link Service`, ensure that the `Load balancer` is set to `kubernetes-internal` and uses the frontend IP address from the private range. The Source NAT vnet and subnet should default correctly.
 Ensure that Source NAT subnet is set to No and it is best to assign a Static Private IP address.
 
-![adv-network-pls-01.png]({{ "/assets/images/ama/howtos/adv-network-pls-01.png" | relative_url }})
+![adv-network-pls-01.png]({{ "/assets/images/ama/howtos/adv-network-pls-01-2.png" | relative_url }})
 
 For the `Private endpoint`, ensure you select the virtual network that will be used to access CluedIn along with the subnet. It is recommended to statically allocate an IP address here as this will be used as the entry point for CluedIn and will be required as part of your DNS at a later stage.
 
-![adv-network-pe-01.png]({{ "/assets/images/ama/howtos/adv-network-pe-01.png" | relative_url }})
+![adv-network-pe-01.png]({{ "/assets/images/ama/howtos/adv-network-pe-01-2.jpg" | relative_url }})
 
 ### Next steps
 The next step is to test access from the private network to CluedIn to ensure that traffic can reach the endpoint as expected.

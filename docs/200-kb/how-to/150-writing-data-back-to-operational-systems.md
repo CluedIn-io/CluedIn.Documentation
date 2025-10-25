@@ -1,12 +1,14 @@
 ---
 layout: cluedin
-title: Writing data back to operational systems
+title: Write clean data back to operational systems
 parent: Knowledge base
 permalink: /kb/writing-back-to-operational-systems
 nav_order: 2
 ---
-
-# How to write clean data back to your operational systems
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 After CluedIn has unified and cleaned your data, you can **write mastered data back** to the systems that run your business. This article covers two proven patterns:
 

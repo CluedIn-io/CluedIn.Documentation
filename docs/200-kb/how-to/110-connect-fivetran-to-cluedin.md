@@ -1,12 +1,15 @@
 ---
 layout: cluedin
-title: Connect FiveTran to CluedIn
+title: Connect Fivetran to CluedIn
 parent: Knowledge base
 permalink: /kb/connect-to-fivetran
 nav_order: 2
 ---
 
-# Connecting Fivetran to CluedIn: A Complete Guide
+## On this page
+{: .no_toc .text-delta }
+1. TOC
+{:toc}
 
 This guide explains how to integrate **Fivetran** with **CluedIn** so that the data pipelines and transformations managed in Fivetran flow directly into CluedIn’s **data quality** and **master data management (MDM)** framework.
 

@@ -1,13 +1,16 @@
 ---
 layout: cluedin
-title: Slow Performance
+title: Slow CluedIn performance
 parent: Knowledge base
 permalink: /kb/slow
 tags: ["Rules", "Performance"]
 nav_order: 17
 ---
 
-# CluedIn Is Processing Slowly and Feels Slow in General
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 CluedIn is designed to process large volumes of data at scale, but in some cases you may notice that the platform feels “slow” — whether that’s during ingestion, rule execution, data linking, or even while navigating the user interface.  
 
