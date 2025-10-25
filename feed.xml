@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2025-10-24T13:25:20+00:00</updated>
+    <updated>2025-10-25T17:19:32+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -154,13 +154,13 @@
     </entry>
     
     <entry>
-        <title>What are Integrations</title>
+        <title>About integrations</title>
         <link href="https://documentation.cluedin.net/integration/introduction" />
         <id>https://documentation.cluedin.net/integration/introduction</id>
         <updated>2022-01-12T00:00:00+00:00</updated>
         <summary>
         
-        What are Integrations.
+        About integrations.
         
         
         
@@ -170,13 +170,13 @@
     </entry>
     
     <entry>
-        <title>CluedIn Security - Log4j2 CVE-2021-44228</title>
+        <title>CluedIn Security — Log4j2 CVE-2021-44228</title>
         <link href="https://documentation.cluedin.net/kb/log4j" />
         <id>https://documentation.cluedin.net/kb/log4j</id>
         <updated>2022-01-31T00:00:00+00:00</updated>
         <summary>
         
-        CluedIn Security - Log4j2 CVE-2021-44228.
+        CluedIn Security — Log4j2 CVE-2021-44228.
         
         
         
