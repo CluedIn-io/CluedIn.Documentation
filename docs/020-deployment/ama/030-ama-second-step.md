@@ -224,7 +224,7 @@ If you have an existing VNet and you want to reuse it for CluedIn installation, 
 
 The following diagram shows default CluedIn network configuration after installation.
 
-![ama-network-1.jpeg]({{ "/assets/images/ama/install-guide/ama-network-1.jpeg" | relative_url }})
+![network-diagram-1.png]({{ "/assets/images/ama/install-guide/network-diagram-1.png" | relative_url }})
 
 The deployed Azure Kubernetes Service is deployed with a single Azure Load Balancer that is used for both ingress and egress traffic. It is possible to update this post-deployment so that access is only possible via internal vnet integration, but it does require a number of steps.
 

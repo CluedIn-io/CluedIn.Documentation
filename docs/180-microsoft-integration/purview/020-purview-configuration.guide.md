@@ -23,7 +23,7 @@ Basic Purview configuration is required to establish connection between your Clu
 
 **To configure Purview in CluedIn**
 
-1. In CluedIn, go to **Administration** > **Settings**, and then scroll down to find the **Purview** section.
+1. In CluedIn, go to **Administration** > **Azure Integration** > **Purview**.
 
 1. In **Base URL**, enter the base URL for HTTP calls to Purview API. To find the base URL, go to your Microsoft Purview account, select **JSON View**, and then copy the value of **catalog**. The base URL value can be in one of following formats:
 

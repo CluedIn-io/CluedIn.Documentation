@@ -3,7 +3,7 @@ layout: cluedin
 title: Golden record page layout
 parent: Administration
 permalink: /administration/entity-page-layout
-nav_order: 50
+nav_order: 070
 ---
 ## On this page
 {: .no_toc .text-delta }

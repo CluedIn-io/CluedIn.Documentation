@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 12
+nav_order: 13
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/purview/sync-data-products

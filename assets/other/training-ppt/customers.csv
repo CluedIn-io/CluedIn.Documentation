@@ -1,0 +1,101 @@
+CustomerID,FirstName,LastName,Email,Phone,Address,Country
+CUST0001,Amanda,Collins,amanda.collins@yahoo.com,(343) 074-3566,"018 Alexandra Brook Apt. 804, Lake Karenfurt, LA 73728",USA
+CUST0002,Antonio,Brown,n-a,(297) 373-9277,"20470 William Village Suite 576, Ferrellburgh, MT 82627",USA
+CUST0003,Cynthia,Carter,cynthia.carter@yahoo.com,(238) 214-2795,"75482 Austin Port Suite 043, Greenland, AR 43530",USA
+CUST0004,Heather,Morgan,heather.morgan@yahoo.com,(31) 626-1989,"087 Cunningham Summit Apt. 593, Heiditon, SD 27892",USA
+CUST0005,Joseph,Hester,joseph.hester@gmail.com,(4) 088-2791,"979 John Key, South Brandonport, NY 37673",USA
+CUST0006,Katherine,Harrison,katherine.harris,177-893-7025,"10632 Eric Inlet Suite 361, West Connorport, KY 32000",USA
+CUST0007,Justin,Lin,justin.lin@yahoo.com,(88) 253-7168,"49885 Morales Vista Suite 615, West Joseview, MN 65206",USA
+CUST0008,William,Flores,william.flores@yahoo.com,(192) 732-7465,"0840 Vega Track, Smithville, ND 58384",USA
+CUST0009,Evan,King,evan.king@yahoo.com,345-984-3405,"773 Wilson Corner Suite 698, West Danaport, MD 22808",USA
+CUST0010,Ruth,Stephens,-,(685) 980-0866,"25967 Greene Cove Suite 471, Lake Christopherton, VT 93392",USA
+CUST0011,Ronald,White,ronald.white@gmail.com,191-668-9390,"Unit 6545 Box 1158, DPO AE 88986",USA
+CUST0012,Austin,Miller,austin.miller@yahoo.com,(43) 726-3003,"432 Robert Hills Suite 022, Frederickland, WV 68888",USA
+CUST0013,Alexandria,Maldonado,alexandria.maldonado@gmail.com,(983) 540-5098,"3500 Finley Cliffs Suite 477, Clarkchester, DE 77258",USA
+CUST0014,Evan,King,n-a,345 984 3405,"10650 Walker Fort, Scottshire, AK 02421",USA
+CUST0015,Kat,Harrison,katherine.harrison@gmail.com,(177) 893-7025,"10632 Eric Inlet Suite 361, West Connorport, KY 32000",USA
+CUST0016,Ron,White,ronald.white,191 668 9390,"88196 Summers Rest, Michellemouth, NC 20032",USA
+CUST0017,Antony,Brown,antonio.brown@gmail.com,(297) 373-9277,"20470 William Village Suite 576, Ferrellburgh, MT 82627",USA
+CUST0018,Alexandria,Maldonado,alexandria.maldonad,983-540-5098,"3500 Finley Cliffs Suite 477, Clarkchester, DE 77258",USA
+CUST0019,Cynthia,Carter,cynthia.carter@yahoo.com,238 214 2795,"75482 Austin Port Suite 043, Greenland, AR 43530",USA
+CUST0020,Justin,Lin,justin.lin@yahoo.com,(88) 253-7168,"49885 Morales Vista Suite 615, West Joseview, MN 65206",USA
+CUST0021,Amanda,Collins,amanda.collins@yahoo.com,(191) 668-9390,"018 Alexandra Brook Apt. 804, Lake Karenfurt, LA 73728",USA
+CUST0022,Heather,Morgan,n-a,31-626-1989,"087 Cunningham Summit Apt. 593, Heiditon, SD 27892",USA
+CUST0023,Will,Flores,william.flores@yahoo.com,(192) 732-7465,"0840 Vega Track, Smithville, ND 58384",USA
+CUST0024,Jennifer,Garcia,jennifer.garcia@gmail.com,(137) 750-8268,"81442 Tina Stream, Mendezhaven, DC 95235",USA
+CUST0025,Austin,Miller,missing,(43) 726-3003,"432 Robert Hills Suite 022, Frederickland, WV 68888",USA
+CUST0026,Ron,Bell,ronald.bell@yahoo.com,866-248-2830,"USCGC Mata, FPO AP 97159",USA
+CUST0027,Michelle,Johnson,michelle.johnson@yahoo.com,x,"11181 Mitchell Row, North Kathrynside, MO 30969",USA
+CUST0028,Denise,Sloan,denise.sloan@gmail.com,(177) 893-7025,"USNV Krause, FPO AA 05215",USA
+CUST0029,Christopher,Bruce,christopher.bruce@gmail.com,(792) 484-3114,"557 Douglas Skyway Suite 493, Katherineport, HI 81516",USA
+CUST0030,Keith,Boyd,keith.boyd@yahoo.com,n-a,"7430 Justin Forks, New Lindachester, AR 96271",USA
+CUST0031,Ruth,Stephens,ruth.stephens@gmail.com,685-980-0866,"25967 Greene Cove Suite 471, Lake Christopherton, VT 93392",USA
+CUST0032,Jannette,Harper,janet.harper@yahoo.com,536-182-9009,"55787 Thomas Rest Suite 496, Lake Warrenburgh, NC 11276",USA
+CUST0033,Vanesa,Gonzales,vanessa.gonzales@gmail.com,(631) 322-1470,"9040 Amanda Estates Suite 451, Teresaland, OR 20485",USA
+CUST0034,Becca,Summers,rebecca.summers@gmail.com,941-494-8082,"394 Gordon Crossroad, Lynnport, PA 76031",USA
+CUST0035,Chris,Thompson,christopher.thompson,71-115-51153,"39736 Gloria Junctions, Reginabury, UT 31871",USA
+CUST0036,Christopher,Coleman,christopher.coleman@yahoo.com,38 6942 1686,"465 Margaret Pass, Janeport, KY 66457",USA
+CUST0037,Tracy,Wood,tracy.wood@yahoo.com,(229) 852-7771,"PSC 3945, Box 6983, APO AA 71568",USA
+CUST0038,Rodney,Williams,rodney.williams@yahoo.com,(241) 531-6511,"5682 Jasmine Stravenue, Kimberlybury, ID 74438",USA
+CUST0039,Melissa,Fitzgerald,melissa.fitzgerald,(786) 02 44825,"175 Casey Dam, South Amanda, RI 77689",USA
+CUST0040,Rachel,Lee,rachel.lee@yahoo.com,(52) 924-8403,"6060 Christopher Freeway Suite 267, Watkinsport, PA 63593",USA
+CUST0041,Anita,King,anita.king,none,"4026 Michael Harbor, Faithport, MI 54430",USA
+CUST0042,Gary,Petersen,gary.petersen,(825) 739-7800,"59523 William Points, Johnmouth, TX 11337",USA
+CUST0043,Cody,Obrien,cody.obrien@yahoo.com,(467) 550-6462,"481 Amanda Land Apt. 674, Port Brittanyburgh, ND 10542",USA
+CUST0044,Roy,Estrada,roy.estrada@gmail.com,missing,"946 Stone Spur, Melissabury, ND 27676",USA
+CUST0045,Corey,Warren,corey.warren@gmail.com,(226) 364-1917,"74687 Jennifer Isle Suite 486, Calebland, IN 88987",USA
+CUST0046,Lori,Warner,lori.warner@gmail.com,(348) 058-8297,"3803 Erin Glens, Johnsonville, IL 18343",USA
+CUST0047,James,Meyers,-,(146) 520-7701,"5497 Miller Lakes, Chambersville, MO 44138",USA
+CUST0048,Christina,Klein,christina.klein@yahoo.com,(700) 666-8523,"24494 Gomez Unions Apt. 125, Pattonview, NJ 91526",USA
+CUST0049,Matthew,Gamble,matthew.gamble@yahoo.com,513-675-7335,"024 Natasha Island Apt. 895, North Ian, DE 42207",USA
+CUST0050,Ronald,Bell,ronald.bell@yahoo.com,x,"USCGC Mata, FPO AP 97159",USA
+CUST0051,John,Thompson,john.thompson,(739) 622-8164,"837 Jenny Estates, Rosaleschester, TX 03445",USA
+CUST0052,Joshua,Sanders,joshua.sanders@yahoo.com,(123) 320-5979,"924 Randolph Circles Apt. 193, South Jasonside, IL 72995",USA
+CUST0053,Edgar,Carney,edgar.carney@gmail.com,847-110-3462,"6315 Flores Springs, Ryanmouth, PA 73266",USA
+CUST0054,Brian,Griffith,brian.griffith@gmail.com,569-854-0312,"81353 Debra Glens Apt. 296, New Bryan, NC 69080",USA
+CUST0055,Angela,Smith,angela.smith@gmail.com,310-740-9178,"285 Nguyen Lane, Port Jill, OR 87588",USA
+CUST0056,Keith,Boyd,keith.boyd@yahoo.com,164-354-8145,"7430 Justin Forks, New Lindachester, AR 96271",USA
+CUST0057,Nicole,Murphy,nicole.murphy,658-280-3697,"72711 Myers Pike, West Johnfurt, TX 16380",USA
+CUST0058,Janet,Harper,janet.harper@yahoo.com,(536) 182-9009,"55787 Thomas Rest Suite 496, Lake Warrenburgh, NC 11276",USA
+CUST0059,Tonya,Robinson,tonya.robinson@gmail.com,(743) 721-2615,"1856 Douglas Points Apt. 990, South Jonathan, MA 38571",USA
+CUST0060,Kenneth,Hodge,kenneth.hodge@gmail.com,235-136-4312,"9545 Hill Mill Apt. 331, New Catherinetown, OH 62076",USA
+CUST0061,Jeff,Frey,jeff.frey,460-425-5585,"433 Lee Knolls, Fosterberg, MT 85892",USA
+CUST0062,Audrey,Pierce,audrey.pierce@gmail.com,514-470-6704,"PSC 6629, Box 7947, APO AE 18072",USA
+CUST0063,Janice,Walker,janice.walker@yahoo.com,(901) 914-2280,"188 Jonathan Corner, Anthonyhaven, NC 37955",USA
+CUST0064,Mitchell,Jennings,mitchell.jennings@yahoo.com,(870) 999-4649,"86257 Jason Summit Suite 061, Carrolltown, OR 33161",USA
+CUST0065,Michael,Smith,michael.smith,(614) 916-8864,"02094 Raymond Manor, Gonzalezport, ME 86514",USA
+CUST0066,Heidi,Jacobs,heidi.jacobs,(58) 921-0432,"791 Willis Road, Nguyenfort, MA 65255",USA
+CUST0067,Tina,Peterson,tina.peterson@yahoo.com,(673) 704-3896,"74595 Taylor Greens, East Anthonyshire, TX 41757",USA
+CUST0068,Belinda,Wright,belinda.wright@gmail.com,(251) 659-9161,"35422 William Turnpike Apt. 985, Greenhaven, MN 94426",USA
+CUST0069,William,Lawrence,william.lawrence@gmail.com,(248) 800-1552,"65294 Moore Road Suite 344, Wheelerburgh, UT 16414",USA
+CUST0070,Jackie,Burns,jackie.burns@yahoo.com,(708) 930-6027,"USS Carlson, FPO AA 13937",USA
+CUST0071,Zachary,Yu,zachary.yu@yahoo.com,(963) 644-7012,"803 Mariah Extensions, Colonland, NY 95506",USA
+CUST0072,David,Powers,david.powers@yahoo.com,(528) 351-6374,"Unit 7974 Box 1346, DPO AE 99719",USA
+CUST0073,Michelle,Johnson,michelle.johnson@yahoo.com,665 094 4208,"11181 Mitchell Row, North Kathrynside, MO 30969",USA
+CUST0074,Vanessa,Gonzales,vanessa.gonzales@gmail.com,631 322 1470,"9040 Amanda Estates Suite 451, Teresaland, OR 20485",USA
+CUST0075,Roger,Anderson,roger.anderson,241 440 8877,"74989 Matthew Turnpike, North Kimberlyside, KS 78249",USA
+CUST0076,Caitlin,Lindsey,caitlin.lindsey@yahoo.com,516 299 4051,"939 Fowler Landing Apt. 403, Brendafurt, NH 39150",USA
+CUST0077,Christopher,Baker,christopher.baker@gmail.com,(301) 711-6095,"6986 Stephanie Streets, Clarkshire, IA 85054",USA
+CUST0078,Mackenzie,Moreno,mackenzie.moreno@gmail.com,(267) 328-8293,"88040 Mark Square, Douglasstad, AR 25975",USA
+CUST0079,Paul,Lawrence,paul.lawrence,(287) 052-8626,"1626 Hensley Squares, Isaiahview, SC 17704",USA
+CUST0080,Christina,Elliott,christina.elliott@gmail.com,(995) 815-6912,"818 Burton Rest, Port Leah, MS 66082",USA
+CUST0081,Jeremy,Edwards,jeremy.edwards@gmail.com,(348) 790-9040,"7686 Kelly Rapids Suite 519, Port Davidview, ID 91304",USA
+CUST0082,Taylor,Foster,taylor.foster@yahoo.com,(941) 600-2179,"6659 Michael Meadows Suite 123, Michaelport, PA 91656",USA
+CUST0083,Alexa,Velasquez,alexa.velasquez,(329) 011-9455,"Unit 5149 Box 7635, DPO AE 83174",USA
+CUST0084,Dylan,Sparks,dylan.sparks@yahoo.com,missing,"425 Gabriel Turnpike, Butlerfort, NV 73692",USA
+CUST0085,Maria,Sosa,maria.sosa,(466) 741-5059,"8957 Rachel Harbors Apt. 979, West Angela, LA 10396",USA
+CUST0086,Ronald,Davis,ronald.davis@yahoo.com,(333) 899-9924,"09272 Christina Dale Suite 278, Michellestad, AK 67040",USA
+CUST0087,Nicholas,Collins,nicholas.collins@yahoo.com,(385) 319-2004,"0647 Aaron Dale Apt. 704, East Julieview, NH 93536",USA
+CUST0088,Shelley,Stephenson,shelley.stephenson,(433) 364-8082,"655 Acosta Run Suite 402, New Markville, FL 59695",USA
+CUST0089,Casey,Montgomery,casey.montgomery@gmail.com,(480) 629-5126,"887 Hernandez Field Apt. 489, South Audreyshire, WA 12960",USA
+CUST0090,Joel,Ross,joel.ross@yahoo.com,(965) 948-1484,"886 Thomas Club, Alvarezview, TN 60219",USA
+CUST0091,Sandra,Norris,sandra.norris@yahoo.com,(154) 324-2228,"24607 Bowman View Apt. 651, Jonathanbury, PA 29282",USA
+CUST0092,James,Schmidt,n-a,(600) 153 9619,"2632 Seth Shores Suite 769, Taylorshire, PA 02958",USA
+CUST0093,Christopher,Thompson,christopher.thompson,(711) 155-1153,"39736 Gloria Junctions, Reginabury, UT 31871",USA
+CUST0094,Evelyn,Shaffer,evelyn.shaffer@yahoo.com,591-580-9096,"10923 Walters Knoll, Cochranchester, KS 15921",USA
+CUST0095,Natalie,Nunez,n-a,(282) 478-3641,"78684 Megan Lock, South Kimberly, KS 06126",USA
+CUST0096,Mallory,Brennan,mallory.brennan@yahoo.com,(117) 702-5229,"330 Susan Shores Apt. 555, North Sarah, LA 37236",USA
+CUST0097,Rebecca,Summers,rebecca.summers@gmail.com,(941) 494 8082,"394 Gordon Crossroad, Lynnport, PA 76031",USA
+CUST0098,William,Smith,william.smith@yahoo.com,(944) 556-5704,"4327 Freeman Stravenue Suite 963, West Nancy, KY 51144",USA
+CUST0099,Leslie,Sellers,n-a,(760) 309-7204,"852 Gregory Extensions Suite 699, Justinchester, OH 91676",USA
+CUST0100,Christopher,Morrison,christopher.morrison@gmail.com,695-548-7397,"558 Henderson Island Apt. 591, Hamiltonfurt, ME 99083",USA

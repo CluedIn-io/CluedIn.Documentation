@@ -18,19 +18,19 @@ published: false
 
 To connect to Power Apps, you need to provide your [Microsoft 365](https://www.microsoft365.com/) credentials in CluedIn settings.
 
-1. In CluedIn, on the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
+1. In CluedIn, on the navigation pane, go to **Administration** > **Azure Integration** > **Power Apps*.
 
 1. Complete the following fields with the settings for PowerApps:
 
-    - Base Url
+    - **Base URL**
 
-    - Tenant Id
+    - **Tenant ID**
 
-    - Client Id
+    - **Client ID**
 
-    - Client Secret
+    - **Client Secret**
 
-    - Environment Id
+    - **Environment ID**
 
     ![Input Microsoft Purview credentials](./images/cluedin-setting-new.png)
     
@@ -42,7 +42,7 @@ To connect to Power Apps, you need to provide your [Microsoft 365](https://www.m
 
     **Base Url** is the _Web API endpoint_ base URL.
 
-5. For Tenant Id, Client Id, and Client Secret, you can generate this by navigating to your Azure Active Directory > App registration. Please refer to this [link](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/walkthrough-register-app-azure-active-directory).
+5. For **Tenant ID**, **Client ID**, and **Client Secret**, you can generate this by navigating to your Azure Active Directory > App registration. Please refer to this [link](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/walkthrough-register-app-azure-active-directory).
 
 ## Setup security roles
 

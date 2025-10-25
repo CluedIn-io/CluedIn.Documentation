@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 1
 parent: 1.1. Ingestion
-grand_parent: 1. CluedIn Fundamentals
+grand_parent: 1. CluedIn fundamentals training
 permalink: /training/fundamentals/ingesting-csv-file
 title: 1.1.1. Ingesting a CSV file
 ---

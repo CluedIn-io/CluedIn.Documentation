@@ -17,7 +17,7 @@ In this guide, you will learn how to prepare for configuring Power Apps integrat
 
 ## Set up a firewall policy
 
-To enable CluedIn to call Power Apps, you need to add specific rules to your Azure Firewall as described [here](/deployment/infra-how-tos/configure-firewall#power-apps-and-power-automate).
+To enable CluedIn to call Power Apps, you need to add specific rules to your Azure Firewall as described in the [Firewall guide](/deployment/infra-how-tos/configure-firewall#power-apps-and-power-automate).
 
 Power Apps integration also involves Power Automate, which is used for data ingestion workflow to push data from Dataverse to CluedIn. That's why you need to add firewall rules both for Power Automate and Power Apps.
 
@@ -101,6 +101,9 @@ In order to manage your master data from CluedIn directly in Power Apps Datavers
 
 1. In **Member's privilege inheritance**, select **Direct User (Basic) access level and Team privileges**.
 
+    {:.important}
+    You must add the **System Customizer** role to Service Principal. This role is required for the Service Principal to automatically access tables created by the PowerApps component or the Dataverse connector.
+
     ![create-security-role.png]({{ "/assets/images/microsoft-integration/power-apps/create-security-role.png" | relative_url }})
 
 1. Select **Save**.
@@ -111,23 +114,139 @@ In order to manage your master data from CluedIn directly in Power Apps Datavers
 
 ### Security role reference table
 
-| Table | Create | Read | Write | Delete |
-|--|--|--|--|--|
-| _Customization_ |  |  |  |  |
-| Solution | Organization | Organization | Organization | Organization |
-| Publisher | Organization | Organization | Organization | Organization |
-| Entity | Organization | Organization | Organization | Organization |
-| Entity Key | Organization | Organization |  | Organization |
-| Attribute | Organization | Organization | Organization | Organization |
-| System Form | Organization | Organization | Organization | Organization |
-| View | Organization | Organization | Organization | Organization |
-| Custom Control Default Config | Organization |  | Organization | Organization |
-| Process | Organization | Organization | Organization | Organization |
-| _Custom Tables_ |  |  |  |  |
-| Connection Reference | Organization | Organization | Organization | Organization |
-| Connector | Organization | Organization | Organization | Organization |
-| Dataflow | Organization | Organization | Organization | Organization |
-| OptionSet | Organization | Organization | Organization | Organization |
+<table>
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Create</th>
+      <th>Read</th>
+      <th>Write</th>
+      <th>Delete</th>
+      <th>Append to</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="6"><em>Customization</em></td>
+    </tr>
+    <tr>
+      <td>Solution</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Publisher</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Entity</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Entity Key</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Attribute</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>System Form</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>View</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Custom Control Default Config</td>
+      <td>Organization</td>
+      <td></td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Process</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Relationship Entity</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="6"><em>Custom tables</em></td>
+    </tr>
+    <tr>
+      <td>Connection Reference</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Connector</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Dataflow</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>OptionSet</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+      <td>Organization</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ### Create a new application user
 

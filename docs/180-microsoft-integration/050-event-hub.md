@@ -36,7 +36,7 @@ Essentially, any task featuring a progress bar in CluedIn is classified as a wor
 
 1. Create an event hub following the steps from [Microsoft tutorial](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-create).
 
-1. In CluedIn, go to **Administration** > **Settings**, and then scroll down to find the **EventHub** section.
+1. In CluedIn, go to **Administration** > **Azure Integration** > **Azure Event Hub**.
 
 1. Provide the **Connection String** to your event hub. To find the connection string:
 

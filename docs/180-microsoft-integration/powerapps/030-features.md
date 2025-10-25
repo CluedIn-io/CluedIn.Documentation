@@ -18,17 +18,50 @@ last_modified: 2023-05-17
 
 This feature allows you to sync CluedIn business domains, vocabularies, and vocabulary keys with Dataverse table and columns.
 
-**To sync CluedIn business domains with Dataverse table**
+There are several ways how you can perform the sync:
 
-1. On the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
+- From CluedIn settings – This option is convenient if you want to sync multiple business domains at once.
+
+- From the **Business Domains** module – This option is convenient if you want to sync one business domain at a time.
+
+**To sync CluedIn business domains with Dataverse table (from CluedIn settings)**
+
+1. On the navigation pane, go to **Administration** > **Azure Integration** > **Power Apps**.
 
 1. In **Sync CluedIn Business Domains to Dataverse Table**, turn on the toggle, and then enter the business domain that you want to sync. If you want to sync multiple business domains, separate them with a comma (for example, _/_Type1,/Type2,/Type3_).
 
     ![Sync Entity Types to Dataverse Tables](../../../assets/images/microsoft-integration/power-apps-backup/sync-cluedin-entitytypes-setting.png)
 
-    Another way to enable this feature is to navigate to **Management** > **Business Domains** and select the business domain you want to sync. Then, select **Edit** and turn on the toggle for **Sync CluedIn Business Domains to Dataverse Table**. Finally, save changes.
+    All the vocabulary keys below will be created as columns in the Dataverse table.
 
-    ![Sync Entity Types to Dataverse Tables](../../../assets/images/microsoft-integration/power-apps-backup/sync-cluedin-entitytypes-page-setting.png)
+    ![Sync Entity Types to Dataverse Tables](../../../assets/images/microsoft-integration/power-apps-backup/entity-type-dog-details.png)
+
+    Once the synchronization has been completed, you'll receive two notifications: **Dataverse Table Created** and **Dataverse Column Created/Updated**.
+
+    ![Sync Entity Types to Dataverse Tables Notification](../../../assets/images/microsoft-integration/power-apps-backup/sync-cluedin-entitytypes-notification.png)
+
+1. Verify the table and columns created in Dataverse.
+
+    ![Sync Entity Types to Dataverse Tables](../../../assets/images/microsoft-integration/power-apps-backup/dataverse-dog-table-details.png)
+
+
+**To sync CluedIn business domains with Dataverse table (from the Business Domains module)**
+
+1. On the navigation pane, go to **Management** > **Business Domains**.
+
+1. Select the business domain that you want to sync.
+
+1. In the upper-right corner of the business domain page, select **Edit**.
+
+1. On the **Configuration** tab, do the following:
+
+    1. Turn on the **Sync CluedIn Business Domain to Dataverse Table** toggle.
+    
+    1. In **Vocabulary for Dataverse Sync**, enter the names of vocabularies to include in the Dataverse sync. If you enter multiple names, they must be provided as a comma-separated list. To sync all vocabularies associated with this business domain, leave this field empty.
+
+    ![Sync Entity Types to Dataverse Tables](../../../assets/images/microsoft-integration/power-apps/sync-cluedin-entitytypes-page-setting-2.png)
+    
+1. In the upper-right corner of the business domain page, select **Save**.
 
     All the vocabulary keys below will be created as columns in the Dataverse table.
 
@@ -60,7 +93,7 @@ You'll need to provide the logical name of the Dataverse table. There are the fo
 
 **To sync Dataverse table and columns into CluedIn business domains and vocabulary**
 
-1. On the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
+1. On the navigation pane, go to **Administration** > **Azure Integration** > **Power Apps**.
 
 1. In **Sync Dataverse Table/Columns to CluedIn Business Domains and Vocabulary**, turn on the toggle, and then enter the Dataverse table name. The value should be the **logical name** of the table. If you want to sync multiple tables, separate them with a comma (for example, _logical_name1_,logical_name2,logical_name3_).
 
@@ -84,11 +117,15 @@ This feature allows you to automate the creation of workflow that will send the 
 
 **To automate the workflow creation**
 
-1. In CluedIn, on the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
+1. In CluedIn, on the navigation pane, go to **Administration** > **Azure Integration** > **Power Apps**.
 
 1. In **Create workflow to Ingest Data to CluedIn**, turn on the toggle.
 
     ![Create workflow to Ingest Data to CluedIn](../../../assets/images/microsoft-integration/power-apps-backup/create-workflow-to-ingest-data-setting-3.png)
+
+1. (Optional) In **Workflow Access Users List**, enter one or more email addresses in a comma-delimited format to grant access to the created workflow. All addresses must be registered in your Azure organization directory.
+
+    ![Create workflow to Ingest Data to CluedIn](../../../assets/images/microsoft-integration/power-apps/workflow-access-users-list-2.png)
 
 **Ingestion endpoint**
 
@@ -128,54 +165,17 @@ Once the data is received, you can expect to see it processed because we have al
 
 ![Auto Processing](../../../assets/images/microsoft-integration/power-apps-backup/ingestion-endpoint-auto-submission.png)
 
-## Create a batch approval workflow process
-
-This feature enables you to automate the creation of the workflow for the batch approval process. If you process the data (regardless of the source) and the system identifies that the business domain used has been tagged for the approval process, the data will be halted, and the approval process will start and wait for the user's approval to continue the data processing.
-
-**Prerequisites**
-
-- Dataverse connection
-- Approval connection
-
-**To enable the batch approval workflow**
-
-1. In CluedIn, on the navigation pane, go to **Management** > **Business Domains**, and then select the business domain that you want to sync.
-
-1. Select **Edit** and then turn on the toggle for **Enable for Batch Approval Workflow**.
-
-1. Select **Save**.
-    
-    ![Create workflow for Batch Approval](../../../assets/images/microsoft-integration/power-apps-backup/batch-approval-entitytypes-page-setting.png)
-
-    After enabling this feature, a new table (Approval Queue Table) will be created in Dataverse.
-
-**Approval Queue table in Dataverse**
-
-This table will serve as a storage of the CluedIn data or information on the data waiting for approval.
-
-The **CluedIn Approval Queue ID** is the ID of the data that we are trying to approve in this process.
-
-![Approval Queue Table](../../../assets/images/microsoft-integration/power-apps-backup/approval-queue-table.png)
-
-**Workflow**
-
-The content of the approval workflow will be composed of events such as condition, approval, variables, and HTTP. A 60-second cycle will occur to check if there is data in the **Approval Queue** table. Once we receive a response in the Approval Process, we send the Approval details together with the CluedIn Approval Queue IDs to the CluedIn API via an HTTP event.
-
-![Batch Approval Workflow](../../../assets/images/microsoft-integration/power-apps-backup/batch-approval-workflow.png)
-
-**Notifications**
-
-Once the automation has been done, you can expect a notification for creating the Approval Queue Table/Columns and the creation of the Batch Approval Workflow.
-
-![Batch Approval Workflow notification](../../../assets/images/microsoft-integration/power-apps-backup/batch-approval-workflow-notification-3.png)
-
 ## Create streams
 
 This feature allows you to automate the creation of export targets and streams.
 
+**Prerequisites**
+
+- CluedIn.Connector.Dataverse is installed.
+
 **To automate the creation of export targets and streams**
 
-1. On the navigation pane, go to **Administration** > **Settings**, and then find the **PowerApps** section.
+1. On the navigation pane, go to **Administration** > **Azure Integration** > **Power Apps**.
 
 1. In **Create CluedIn Stream**, turn on the toggle.
 

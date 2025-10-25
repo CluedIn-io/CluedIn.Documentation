@@ -40,13 +40,13 @@ Mapping type defines how you want to configure the mapping of original fields fr
 
  - **AI Mapping** – CluedIn uses AI capabilities to interpret your data and create mapping. You can check the results of AI mapping and make changes if needed.
 
- The AI mapping feature is is not available by default. To use it, you need to fulfill several prerequisites:
+ The AI mapping feature is not available by default. To use it, you need to fulfill several prerequisites:
 
 1. Go to **Administration** > **Feature Flags** and enable the **AI Mapping** feature.
 
     ![openai-1.png]({{ "/assets/images/integration/data-sources/openai-1.png" | relative_url }})
 
-1. Go to **Administration** > **Settings**. Scroll down to the **Open AI** section and complete the following fields:
+1. Go to **Administration** > **Azure Integration** > **Azure AI Services**. Then, complete the following fields:
 
     - **API Key** – check the following [link](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key) to learn where to find your API Key.
 
@@ -196,6 +196,44 @@ The **Mapping Preview** section is available when creating mapping with the foll
 - **Status** – contains the status of each vocabulary key (New, Existing, or Ignored).
 
 - **Preview** – allows you to view the values in the column.
+
+## Ignore fields
+
+By default, all fields included in the mapping are [processed](/integration/process-data) and appear in the resulting golden records. If you do not want a field to be processed, you can choose to ignore it.
+
+### Ignore fields for an ingestion endpoint
+
+When data is [ingested through an endpoint](/integration/endpoint) with [schema protection](/integration/endpoint#schema-protection) enabled, CluedIn checks whether the incoming data matches the mapping defined for that endpoint:
+
+- If the data contains new, unmapped fields (outside of the defined mapping), the records are moved to [quarantine](/integration/additional-operations-on-records/quarantine) during [processing](/integration/process-data).
+
+- To prevent these records from being quarantined, you can mark the unmapped fields as ignored. Ignored fields are skipped during processing and do not appear in the resulting golden records.
+
+{:.important}
+To include a new field in the mapping (and have this field processed), first disable schema protection for the endpoint. Then, map the field on the **Map** tab and re-enable schema protection.
+
+**To ignore unmapped fields for an ingestion endpoint**
+
+1. On the navigation pane, go to **Ingest** > **Endpoints**.
+
+1. Navigate to the needed endpoint and dataset.
+
+1. On the **Map** tab of the dataset, locate the fields marked with a **Warning** label. These are the fields outside of the defined schema.
+
+    ![locate_field_to_ignore_sp.png]({{ "/assets/images/integration/data-sources/create-mapping/locate_field_to_ignore_sp.png" | relative_url }})
+
+1. Next to the needed field, select **Ignore Field**.
+
+    ![ignore_field_btn.png]({{ "/assets/images/integration/data-sources/create-mapping/ignore_field_btn.png" | relative_url }})
+
+1. On the **Ignore field** panel, select **Ignore field**.
+
+    ![ignore_field_panel.png]({{ "/assets/images/integration/data-sources/create-mapping/ignore_field_panel.png" | relative_url }})
+
+    The field is marked as ignored and will not be processed. On the **Map** tab, the field is marked with a corresponding icon.
+
+    ![field_ignored_sp.png]({{ "/assets/images/integration/data-sources/create-mapping/field_ignored_sp.png" | relative_url }})
+
 
 ## Reset mapping
 

@@ -16,13 +16,15 @@ A clean project is where you specify the data to be cleaned, retrieve it from Cl
 
 You can create a clean project from several places in CluedIn. This article will guide you through the different methods for creating a clean project, helping you select the most convenient one to suit your needs.
 
-There are three ways to create a clean project:
+There are several ways to create a clean project:
 
 - [From the search results page](#from-the-search-results-page) – this is the most convenient option as you can define filters once and then reuse them to run the clean projects.
 
 - [From the Preparation module](#from-the-preparation-module) – this is a bit laborious option as you have to define filters every time you need to run the clean project.
 
 - [From the glossary term](#from-the-glossary-term) – this is another convenient option as you can rely on previously defined filters that include the records that need to be cleaned.
+
+- [From the Tag Monitoring module](/governance/tag-monitoring) – this option is useful for creating a clean project that includes all records flagged with a specific tag.
 
 ## From the search results page
 

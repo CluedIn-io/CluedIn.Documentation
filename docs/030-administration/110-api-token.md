@@ -3,7 +3,6 @@ layout: cluedin
 title: Generate an API token
 parent: Administration
 permalink: /administration/api-token
-has_children: true
 tags: ["api token", "api"]
 ---
 

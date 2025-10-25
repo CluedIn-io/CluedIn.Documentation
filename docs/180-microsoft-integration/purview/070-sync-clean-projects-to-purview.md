@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 7
+nav_order: 8
 parent: Microsoft Purview Integration
 grand_parent: Microsoft Integration
 permalink: /microsoft-integration/purview/sync-clean-projects-to-purview

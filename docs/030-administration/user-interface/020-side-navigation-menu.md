@@ -1,11 +1,9 @@
 ---
 layout: cluedin
 title: Side navigation menu
-parent: User interface
-grand_parent: Administration
+parent: Administration
 permalink: /administration/side-navigation-menu
-nav_order: 020
-published: false
+nav_order: 060
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -25,7 +23,7 @@ Initially, the menu consisted of all platform modules categorized into expandabl
 By default, the new side layout menu is enabled, but you can switch to the old menu whenever needed.
 
 {: .important }
-> The side menu layout applies at the organization level, and not for individual users.
+The side menu layout applies at the organization level, and not for individual users.
 
 ## New side menu layout
 

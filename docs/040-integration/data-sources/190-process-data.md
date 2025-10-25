@@ -25,7 +25,17 @@ Depending on the type of data source, there are three processing options:
 
 You can process the data set as many times as you want. In CluedIn, once a record has been processed, it won’t undergo processing again. When the processing is started, CluedIn checks for identical records. If identical records are found, they won’t be processed again. However, if you change the primary identifier for the previously processed records, CluedIn will treat these records as new and process them.
 
-After the processing is completed, the [processing log](#processing-logs) appears in the table. Any records that fail to meet specific conditions outlined in [property](/integration/additional-operations-on-records/property-rules) or [pre-process](/integration/additional-operations-on-records/preprocess-rules) rules will be sent to quarantine. To learn more about managing these records, see [Quarantine](/integration/additional-operations-on-records/quarantine). Records that were processed successfully are displayed on the **Data** tab.
+After processing is completed, the following takes place:
+
+- [Processing log](#processing-logs) appears in the table.
+
+- Records are moved to [quarantine](/integration/additional-operations-on-records/quarantine) if:
+
+    - They fail to meet specific conditions outlined in [property](/integration/additional-operations-on-records/property-rules) or [pre-process](/integration/additional-operations-on-records/preprocess-rules) rules. will be sent to quarantine.
+
+    - (For data ingested through an [endpoint](/integration/endpoint)) [Schema protection](/integration/endpoint#schema-protection) is enabled, and the records contain fields outside of the defined mapping.
+
+- Records that were processed successfully are displayed on the **Data** tab.
 
 If the processing takes a long time, go to the **Monitoring** tab and check the number of messages in the queues. Depending on the type of message queue with a high message count, you can perform specific troubleshooting actions. For further details, see [Monitoring](/integration/additional-operations-on-records/monitoring).
 

@@ -2,7 +2,7 @@
 layout: cluedin
 nav_order: 2
 parent: 1.1. Ingestion
-grand_parent: 1. CluedIn Fundamentals
+grand_parent: 1. CluedIn fundamentals training
 permalink: /training/fundamentals/ingesting-database-table
 title: 1.1.2. Ingesting a database table
 ---
