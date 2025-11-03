@@ -3,7 +3,6 @@ layout: cluedin
 title: Azure SQL migration
 parent: PaaS operations
 permalink: /paas-operations/azure-sql-migration
-tags: ["configuration", "migration"]
 nav_order: 15
 headerIcon: "paas"
 ---
