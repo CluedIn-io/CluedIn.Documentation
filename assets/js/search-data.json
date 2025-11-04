@@ -3004,7 +3004,7 @@
   },"429": {
     "doc": "CluedIn licensing agent",
     "title": "On this page",
-    "content": ". | Prerequisites | Installation steps | . The CluedIn licensing agent is delivered as an Azure Managed Application and is installed via the Azure Marketplace. It enables CluedIn to bill customers directly through the Marketplace. The installation process is straightforward: . | You complete a short form, which then provisions a Managed Application in the customer’s Azure subscription. | Once installed, any agreed CluedIn charges can be billed to that subscription. | . ",
+    "content": ". | Prerequisites | Installation steps | . The CluedIn licensing agent is delivered as an Azure Managed Application and is installed via the Azure Marketplace. It enables CluedIn to bill customers directly through the Marketplace. The installation process is straightforward: . | You complete a short form, which then provisions a Managed Application in the customer’s Azure subscription. | Once installed, any agreed CluedIn charges can be billed to that subscription. | . Azure Policy Notice The installation of the licensing agent may fail if your subscription includes an Azure Policy that blocks public storage accounts. To proceed, temporarily exclude this resource group from that policy before installation. ",
     "url": "/deployment/marketplace-licensing-agent#on-this-page",
     
     "relUrl": "/deployment/marketplace-licensing-agent#on-this-page"
