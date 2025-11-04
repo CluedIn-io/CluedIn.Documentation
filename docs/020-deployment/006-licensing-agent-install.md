@@ -21,6 +21,10 @@ The installation process is straightforward:
 
 1. Once installed, any agreed CluedIn charges can be billed to that subscription.
 
+{: .warning}
+**Azure Policy Notice**  
+The installation of the licensing agent may fail if your subscription includes an Azure Policy that blocks public storage accounts. To proceed, temporarily exclude this resource group from that policy before installation.
+
 ## Prerequisites
 
 1. **Azure account**. If you already have an Azure account, you can proceed to the next prerequisite. If you do not have an Azure account, create a [pay-as-you-go](https://azure.microsoft.com/en-us/pricing/purchase-options/pay-as-you-go/search/?ef_id=_k_EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE_k_&OCID=AIDcmmbnk3rt9z_SEM__k_EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE_k_&gad_source=1&gclid=EAIaIQobChMIwOntxpn2hAMV_AYGAB3AMAFmEAAYASAAEgJ8LPD_BwE) account using a valid credit card.
