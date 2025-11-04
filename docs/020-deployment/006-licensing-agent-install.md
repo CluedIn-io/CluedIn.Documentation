@@ -88,3 +88,8 @@ The installation of the licensing agent may fail if your subscription includes a
     1. When you are ready to deploy to your cloud environment, select **Create**.
 
         After a few minutes, the Azure portal will notify you once the installation is complete.
+
+-------
+
+# Azure Marketplace Application Internal Installation Flow
+
