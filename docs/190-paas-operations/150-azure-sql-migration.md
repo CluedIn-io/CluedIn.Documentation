@@ -51,18 +51,18 @@ Get the Bicep template from `Global Ops`
 
 1. Prepare Input Parameters: 
 
-    - Update the Vnet & subnet IDs
-    - Update the Azure SQL username & password
-    - Change the specs if you want to choose different from default
+- Update the Vnet & subnet IDs
+- Update the Azure SQL username & password
+- Change the specs if you want to choose different from default
 
 1. Run Bicep Template:
 
-    It Deploys the following components:
-    - Azure SQL Server
-    - Elastic Pool (optional)
-    - CluedIn Databases
-    - Private endpoint
-    - Private DNS zone
+It Deploys the following components:
+- Azure SQL Server
+- Elastic Pool (optional)
+- CluedIn Databases
+- Private endpoint
+- Private DNS zone
 
 1. Validation Checklist:
 
@@ -86,14 +86,15 @@ Get the Bicep template from `Global Ops`
 1. Check the existing in-cluster SQL DB size to estimate migration time:
     ```bash
     kubectl exec -it <cluedin-sql-pod-name> -n cluedin -- /opt/mssql-tools/bin/sqlcmd \
-      -S localhost -U sa -P <SA_PASSWORD> \
-      -Q "SET NOCOUNT ON;
-      CREATE TABLE #Space (DBName SYSNAME, DataSize NVARCHAR(50), LogSize NVARCHAR(50));
-      EXEC sp_MSforeachdb 'USE [?];
-      INSERT INTO #Space
-      SELECT DB_NAME(), (SELECT SUM(size)*8/1024 FROM sys.database_files WHERE type_desc=''ROWS''), (SELECT SUM(size)*8/1024 FROM sys.database_files WHERE type_desc=''LOG'');';
-      SELECT DBName AS [Database], DataSize AS [Data(MB)], LogSize AS [Log(MB)] FROM #Space;
-      DROP TABLE #Space;"
+    -S localhost -U sa -P <SA_PASSWORD> \
+    -Q "SET NOCOUNT ON;
+    CREATE TABLE #Space (DBName SYSNAME, DataSize NVARCHAR(50), LogSize NVARCHAR(50));
+    EXEC sp_MSforeachdb 'USE [?];
+    INSERT INTO #Space
+    SELECT DB_NAME(), (SELECT SUM(size)*8/1024 FROM sys.database_files WHERE type_desc=''ROWS''), (SELECT SUM(size)*8/1024 FROM sys.database_files WHERE type_desc=''LOG'');';
+    SELECT DBName AS [Database], DataSize AS [Data(MB)], LogSize AS [Log(MB)] FROM #Space;
+    DROP TABLE #Space;"
+
     ```
   If any DB is larger than 30GB, consider increasing the individual DB storage size on Azure SQL. All the DBs are created with 32GB by default.
 
@@ -166,7 +167,7 @@ Get the Bicep template from `Global Ops`
         cluedin-sqlserver-secret:
           sapassword: <Azure_SQL_ADMIN_PASSWORD>
     ```
-    **note:** If keyvault is used, update the keyvault secret `cluedin-mssql-sa-password` with new Azure SQL password 
+    **note:** If keyvault is used, update the keyvault secret `cluedin-mssql-sa-password` with new Azure SQL  password 
 
 1. Scale down the in-cluster SQL deployment and remove the sql secret cluedin-sqlserver-secret
 
@@ -175,6 +176,6 @@ Get the Bicep template from `Global Ops`
     helm upgrade -i cluedin-platform -n cluedin cluedin-platform/cluedin-platform --version 2.6.x --values values.yaml --set application.system.runDatabaseJobsOnUpgrade=true
     ```
 1. Post-Deployment Checks:
-    - All pods should be in Running state
-    - UI should be accessible
-    - Run sanity tests
+  - All pods should be in Running state
+  - UI should be accessible
+  - Run sanity tests
