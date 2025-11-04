@@ -35,7 +35,7 @@ This approach ensures secure, seamless, and auditable data migration without req
 
 ![sql-migration-blocks.png]({{ "/assets/images/paas-operations/sql-migration-blocks.png" | relative_url }})
 
-# Azure SQL Server Creation
+## Azure SQL Server Creation
 
 **Pre-requisites**:
 
@@ -94,7 +94,6 @@ Get the Bicep template from `Global Ops`
       SELECT DB_NAME(), (SELECT SUM(size)*8/1024 FROM sys.database_files WHERE type_desc=''ROWS''), (SELECT SUM(size)*8/1024 FROM sys.database_files WHERE type_desc=''LOG'');';
       SELECT DBName AS [Database], DataSize AS [Data(MB)], LogSize AS [Log(MB)] FROM #Space;
       DROP TABLE #Space;"
-
     ```
   If any DB is larger than 30GB, consider increasing the individual DB storage size on Azure SQL. All the DBs are created with 32GB by default.
 
@@ -110,7 +109,6 @@ Get the Bicep template from `Global Ops`
     ```
 
 1. This job will:
-
     - Connect to the in-cluster SQL
     - Export DB to BACPAC
     - Upload BACPAC to Azure Storage
@@ -120,9 +118,10 @@ Get the Bicep template from `Global Ops`
     ```bash
     kubectl logs job/<sql-migration-job-name> -n cluedin
     ```
+
 1. Verify Data in Azure SQL:
-- Connect using Azure Data Studio or sqlcmd
-- Validate that table counts and data match the original in-cluster database
+  - Connect using Azure Data Studio or sqlcmd
+  - Validate that table counts and data match the original in-cluster database
 
 ## Helm Upgrade (Post-Migration)
 
@@ -133,7 +132,6 @@ Get the Bicep template from `Global Ops`
 1. Update Helm Values:
 
     Backup the current helm values and rename it to new values.yaml and insert the Azure SQL connection values into the new values.yaml.
-
     ```yaml
     application:
       sqlserver:
@@ -177,7 +175,6 @@ Get the Bicep template from `Global Ops`
     helm upgrade -i cluedin-platform -n cluedin cluedin-platform/cluedin-platform --version 2.6.x --values values.yaml --set application.system.runDatabaseJobsOnUpgrade=true
     ```
 1. Post-Deployment Checks:
-
     - All pods should be in Running state
     - UI should be accessible
     - Run sanity tests
