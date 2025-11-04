@@ -88,3 +88,17 @@ The installation of the licensing agent may fail if your subscription includes a
     1. When you are ready to deploy to your cloud environment, select **Create**.
 
         After a few minutes, the Azure portal will notify you once the installation is complete.
+
+-------
+
+# Azure Marketplace Application Internal Installation Flow
+
+An Azure Managed Application enables publishers (such as solution providers) to deliver, deploy, and manage complete solutions for customers directly within their own Azure subscriptions — while maintaining a secure and controlled management experience.
+
+When a consumer installs a Managed Application from the Azure Marketplace or via private offer, the solution’s infrastructure is provisioned into the customer’s subscription but remains managed and governed by the publisher through delegated access permissions.
+
+![azure-script-execution.png]({{ "assets/images/ama/installer/azure-script-execution.png" | relative_url }})
+
+## Licensing agent AMA resources
+
+![azure-deployment-script.png]({{ "assets/images/ama/installer/azure-deployment-script.png" | relative_url }})

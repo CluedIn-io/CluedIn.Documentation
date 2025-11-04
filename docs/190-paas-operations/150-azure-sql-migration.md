@@ -35,7 +35,7 @@ This approach ensures secure, seamless, and auditable data migration without req
 
 ![sql-migration-blocks.png]({{ "/assets/images/paas-operations/sql-migration-blocks.png" | relative_url }})
 
-# Azure SQL Server Creation
+## Azure SQL Server Creation
 
 **Pre-requisites**:
 
@@ -119,6 +119,7 @@ It Deploys the following components:
     ```bash
     kubectl logs job/<sql-migration-job-name> -n cluedin
     ```
+
 1. Verify Data in Azure SQL:
   - Connect using Azure Data Studio or sqlcmd
   - Validate that table counts and data match the original in-cluster database
@@ -132,7 +133,6 @@ It Deploys the following components:
 1. Update Helm Values:
 
     Backup the current helm values and rename it to new values.yaml and insert the Azure SQL connection values into the new values.yaml.
-
     ```yaml
     application:
       sqlserver:
