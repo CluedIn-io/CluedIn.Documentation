@@ -2,7 +2,7 @@
 layout: cluedin
 title: Azure SQL migration
 parent: PaaS operations
-permalink: /paas-operations/azure-sql-migration
+permalink: /paas-operations/azure-sql-migration/
 nav_order: 15
 headerIcon: "paas"
 ---
@@ -93,7 +93,7 @@ This approach ensures secure, seamless, and auditable data migration without req
    CREATE TABLE #Space (DBName SYSNAME, DataSize NVARCHAR(50), LogSize NVARCHAR(50));
    EXEC sp_MSforeachdb 'USE [?];
    INSERT INTO #Space
-   SELECT DB_NAME(), (SELECT SUM(size)*8/1024 FROM sys.database_files WHERE type_desc=''ROWS''), (SELECT SUM(size)*8/1024 FROM sys database_files WHERE type_desc=''LOG'');';
+   SELECT DB_NAME(), (SELECT SUM(size)*8/1024 FROM sys.database_files WHERE type_desc=''ROWS''), (SELECT SUM(size)*8/1024 FROM sys.database_files WHERE type_desc=''LOG'');';
    SELECT DBName AS [Database], DataSize AS [Data(MB)], LogSize AS [Log(MB)] FROM #Space;
    DROP TABLE #Space;"
     ```
