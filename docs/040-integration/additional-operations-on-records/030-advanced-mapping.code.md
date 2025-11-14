@@ -220,6 +220,30 @@ removeAliases()
 [value]
 ```
 
+**fillVocabularyKeysIfBlank**
+
+By default, CluedIn ignores vocabulary keys that have empty values during ingestion. This means such keys will not be written to the entity unless explicitly handled.
+
+The `fillVocabularyKeysIfBlank()` method allows you to populate these empty vocabulary keys with a **zero-width space character** (`\u200B`) when passed as a parameter. This makes them visually appear blank while still ensuring the keys exist in the entity. It is useful when downstream processes, such as mapping rules or deduplication, rely on the presence of those keys.
+
+```
+fillVocabularyKeysIfBlank("\u200B");
+
+[value]
+```
+
+
+In the above example, all empty vocabulary keys are assigned a zero-width space. This allows them to be treated as non-empty during rule evaluation or processing.
+
+**Use case example**
+
+Suppose you have a data source where certain fields (such as `customer.email` or `customer.phoneNumber`) must be intentionally cleared to comply with privacy regulations like GDPR or CCPA. By default, CluedIn ignores empty values during ingestion, which means the existing values in the golden record are retained. The following script ensures that the target vocabulary keys are explicitly updated with blank values instead : 
+
+
+> **Note:** The zero-width space will not be visible in the CluedIn UI but serves as a placeholder for blank fields, enabling consistent processing and data quality validation.
+
+
+
 ## CluedIn Expression Language (C.E.L.)
 
 CluedIn Expression Language (C.E.L.) is a language used to work with and manipulate your data in CluedIn.
