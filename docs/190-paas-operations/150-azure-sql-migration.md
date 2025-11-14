@@ -2,7 +2,8 @@
 layout: cluedin
 title: Azure SQL migration
 parent: PaaS operations
-permalink: /paas-operations/azure-sql-migration
+permalink: /paas-operations/azure-mssql-migration
+tags: ["mssql migrations"]
 nav_order: 15
 headerIcon: "paas"
 ---
