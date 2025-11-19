@@ -7,10 +7,15 @@ permalink: /deployment
 ---
 
 <div class="card-line">
-  <div class="card" href="/deployment/saas">
+  <div class="card" href="https://landing.cluedin.com/signup">
     <div class="icon"><img src="/assets/icons/Saas-purple-icon.svg" alt="CluedIn SaaS"/></div>
     <div class="title">CluedIn SaaS</div>
-    <div class="content">Get access to cloud-hosted platform, the easiest way to start with CluedIn</div>
+    <div class="content">The easiest and fastest way to start with CluedIn.</div>
+  </div>
+  <div class="card" href="/deployment/saas">
+    <div class="icon"><img src="/assets/icons/Saas-purple-icon.svg" alt="CluedIn Private SaaS"/></div>
+    <div class="title">CluedIn Private SaaS</div>
+    <div class="content">Get access to a fully isolated tenant designed for enterprise needs.</div>
   </div>
    <div class="card" href="/deployment/azure-marketplace">
     <div class="icon"><img src="/assets/icons/PaaS-blue-icon.svg" alt="Azure Market place"/></div>
@@ -45,8 +50,8 @@ CluedIn is available as an Azure Managed Application, making deployment and oper
 
 ![paas-saas-diagram.png]({{ "/assets/images/deployment/paas-saas-diagram.png" | relative_url }})
 
-**SaaS vs. PaaS**
+**Private SaaS vs. PaaS**
 
-The following diagram illustrates the difference between SaaS and PaaS in terms of who is responsible for managing what.
+The following diagram illustrates the difference between Private SaaS and PaaS in terms of who is responsible for managing what.
 
 ![saas-paas.png]({{ "/assets/images/deployment/saas-paas.png" | relative_url }})
