@@ -2591,24 +2591,24 @@
   },"370": {
     "doc": "Pricing",
     "title": "On this page",
-    "content": ". | Pay-as-you-go | Committed deal | . In this article, you will learn about our pricing options for CluedIn SaaS and PaaS. ",
+    "content": ". | CluedIn SaaS | Enterprise and Committed deals | . In this article, you will learn about our pricing options for CluedIn SaaS and PaaS. ",
     "url": "/deployment/pricing#on-this-page",
     
     "relUrl": "/deployment/pricing#on-this-page"
   },"371": {
     "doc": "Pricing",
-    "title": "Pay-as-you-go",
-    "content": "Our pay-as-you-go pricing model operates on a monthly invoicing system, where the cost is calculated based on the number of billable records recorded every hour. For more information, see Billable records. Additionally, you can download our billable record overview here. ",
-    "url": "/deployment/pricing#pay-as-you-go",
+    "title": "CluedIn SaaS",
+    "content": "Please https://www.cluedin.com/saas-pricing . ",
+    "url": "/deployment/pricing#cluedin-saas",
     
-    "relUrl": "/deployment/pricing#pay-as-you-go"
+    "relUrl": "/deployment/pricing#cluedin-saas"
   },"372": {
     "doc": "Pricing",
-    "title": "Committed deal",
+    "title": "Enterprise and Committed deals",
     "content": "To find out about our committed deal pricing model, reach out to our sales team here. ",
-    "url": "/deployment/pricing#committed-deal",
+    "url": "/deployment/pricing#enterprise-and-committed-deals",
     
-    "relUrl": "/deployment/pricing#committed-deal"
+    "relUrl": "/deployment/pricing#enterprise-and-committed-deals"
   },"373": {
     "doc": "Pricing",
     "title": "Pricing",
