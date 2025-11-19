@@ -24,8 +24,6 @@ CluedIn makes doing business easy by giving you flexibility to adopt our platfor
 
 For more details about the difference between CluedIn installation options, see [Installation](/deployment).
 
-![model-and-price-comparison.png]({{ "/assets/images/get-cluedin/model-and-price-comparison.png" | relative_url }})
-
 **Where can I find information about pricing models?**
 
 - To learn about our pricing model, see [Pricing](/deployment/pricing).
