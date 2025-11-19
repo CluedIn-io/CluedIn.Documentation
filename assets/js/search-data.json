@@ -1630,9 +1630,9 @@
     
     "relUrl": "/release-notes/2024-12"
   },"233": {
-    "doc": "CluedIn SaaS",
-    "title": "CluedIn SaaS",
-    "content": "CluedIn SaaS is the easiest and quickest way to start with CluedIn. You do not need an IT team to install and start using CluedIn. Check out the following video for an overview of CluedIn SaaS installation process. CluedIn team performs installation activities on all business days except Friday. Deploying on a Friday carries higher risk because issues may not surface immediately and can escalate into weekend incidents with fewer people available to respond. As a best practice, it is recommended to schedule installations earlier in the week (Tuesday–Thursday) to allow time for monitoring, troubleshooting, and stabilization. Useful resources: . | Installation – learn about the difference between CluedIn SaaS and PaaS. | Pricing – learn about our pricing options (pay-as-you-go and committed deal). | . ",
+    "doc": "CluedIn Private SaaS",
+    "title": "CluedIn Private SaaS",
+    "content": "CluedIn Private SaaS is a premium deployment model that provides each customer with a fully isolated and dedicated CluedIn environment. Unlike the standard multi-tenant SaaS offering, Private SaaS runs in a separate tenant with its own infrastructure, ensuring enhanced security, compliance, performance, and data isolation. CluedIn manages and maintains the environment, while customers benefit from enterprise-grade controls and the ability to scale independently of the shared SaaS platform. CluedIn team performs installation activities on all business days except Friday. Deploying on a Friday carries higher risk because issues may not surface immediately and can escalate into weekend incidents with fewer people available to respond. As a best practice, it is recommended to schedule installations earlier in the week (Tuesday–Thursday) to allow time for monitoring, troubleshooting, and stabilization. Useful resources: . | Installation – learn about the difference between CluedIn SaaS and PaaS. | Pricing – learn about our pricing options (pay-as-you-go and committed deal). | . ",
     "url": "/deployment/saas",
     
     "relUrl": "/deployment/saas"
