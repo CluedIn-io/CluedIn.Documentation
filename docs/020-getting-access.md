@@ -17,7 +17,9 @@ In this article, you will find instructions on how to get access to CluedIn.
 
 Depending on the type of CluedIn installation that you performed, do one of the following:
 
-- **Installation of CluedIn SaaS** – sign in to CluedIn using the email address and password that you specified when configuring your CluedIn account. For more information, see [CluedIn SaaS installation guide](/deployment/saas#configure-an-account-with-cluedin).
+- **Sign up for CluedIn Saas** - [Signup for free](https://landing.cluedin.com/signup)
+
+- **Installation of CluedIn Private SaaS** – sign in to CluedIn using the email address and password that you specified when configuring your CluedIn account. For more information, see [CluedIn Private SaaS installation guide](/deployment/saas#configure-an-account-with-cluedin).
 
 - **Installation of CluedIn PaaS** – sign in to CluedIn using the email address and password that you specified on the **Instance Setup** tab of CluedIn installation. For more information, see [CluedIn PaaS installation guide](/deployment/azure-marketplace/step-3#complete-the-instance-setup-tab).
 
