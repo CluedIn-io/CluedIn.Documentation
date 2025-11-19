@@ -18,24 +18,9 @@ In this article, you will learn about the decisions you need to make before star
 
 ![paas-business-decisions.gif]({{ "/assets/images/deployment/paas-business-decisions.gif" | relative_url }})
 
-## Choose a license
+### Committed-deal license required
 
-We offer two types of licenses: [pay-as-you-go](#pay-as-you-go-license) and [committed-deal](#committed-deal-license).
-
-
-|  | Pay-as-you-go | Committed-deal |
-|--|--|--|
-| All CluedIn features | Yes | Yes |
-| Billing | Per hour | Upfront |
-| Discount on billing | No | Yes |
-| CluedIn support | No | Yes |
-| Welcome package | No | Yes |
-
-### Pay-as-you-go license
-
-If you choose the **pay-as-you go license**, you can install CluedIn PaaS directly from the Azure Marketplace and start using it without the need to contact anyone at CluedIn. Check out our <a href="https://vimeo.com/showcase/10332033" target="_blank">training materials</a> to get started. With this type of license, you do not get a fixed price for using CluedIn and you will be charged per hour of use. Learn more about the pay-as-you-go pricing model [here](/deployment/pricing).
-
-### Committed-deal license
+CluedIn Private SaaS and PaaS are only available with a committed deal license.
 
 If you choose the **committed-deal license**, contact your Account Executive or our <a href="https://www.cluedin.com/get-in-touch" target="_blank">sales team</a> to discuss the contract. We’ll make sure you get the best deal to get started with CluedIn. After you sign the contract, we’ll send you the **license key by email**.
 
