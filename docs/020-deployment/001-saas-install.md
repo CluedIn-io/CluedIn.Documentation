@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: CluedIn SaaS
+title: CluedIn Private SaaS
 parent: Installation
 permalink: /deployment/saas
 nav_order: 1
@@ -8,7 +8,7 @@ has_children: true
 headerIcon: "saas"
 ---
 
-CluedIn SaaS is the easiest and quickest way to start with CluedIn. You do not need an IT team to install and start using CluedIn. Check out the following video for an overview of CluedIn SaaS installation process.
+CluedIn Private SaaS is a premium deployment model that provides each customer with a fully isolated and dedicated CluedIn environment. Unlike the standard multi-tenant SaaS offering, Private SaaS runs in a separate tenant with its own infrastructure, ensuring enhanced security, compliance, performance, and data isolation. CluedIn manages and maintains the environment, while customers benefit from enterprise-grade controls and the ability to scale independently of the shared SaaS platform.
 
 <div class="videoFrame">
 <iframe src="https://player.vimeo.com/video/927057390?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="CluedIn SaaS installation"></iframe>
