@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2025-11-19T11:32:23+00:00</updated>
+    <updated>2025-11-19T11:34:02+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -854,13 +854,13 @@
     </entry>
     
     <entry>
-        <title>SaaS installation guide</title>
+        <title>Private SaaS installation guide</title>
         <link href="https://documentation.cluedin.net/deployment/saas/installation-guide" />
         <id>https://documentation.cluedin.net/deployment/saas/installation-guide</id>
         <updated>2024-04-08T00:00:00+00:00</updated>
         <summary>
         
-        SaaS installation guide.
+        Private SaaS installation guide.
         
         
         
