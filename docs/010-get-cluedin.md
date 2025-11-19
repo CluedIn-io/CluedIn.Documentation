@@ -28,7 +28,7 @@ For more details about the difference between CluedIn installation options, see 
 
 **Where can I find information about pricing models?**
 
-- To learn about our pay-as-you pricing model, see [Pricing](/deployment/pricing).
+- To learn about our pricing model, see [Pricing](/deployment/pricing).
 
 - To learn about our committed deal pricing model, book a meeting with our sales team representative [here](https://www.cluedin.com/discovery-call).
 
