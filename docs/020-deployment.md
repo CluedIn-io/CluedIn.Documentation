@@ -10,7 +10,7 @@ permalink: /deployment
   <div class="card" href="https://landing.cluedin.com/signup">
     <div class="icon"><img src="/assets/icons/Saas-purple-icon.svg" alt="CluedIn SaaS"/></div>
     <div class="title">CluedIn SaaS</div>
-    <div class="content">The easiest and fastest way to start with CluedIn.</div>
+    <div class="content">Free to start.<br/>The easiest and fastest way to start with CluedIn.</div>
   </div>
   <div class="card" href="/deployment/saas">
     <div class="icon"><img src="/assets/icons/Saas-purple-icon.svg" alt="CluedIn Private SaaS"/></div>
