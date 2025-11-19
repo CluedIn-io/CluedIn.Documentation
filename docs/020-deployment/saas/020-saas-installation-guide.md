@@ -1,10 +1,10 @@
 ---
 layout: cluedin
 nav_order: 2
-parent: CluedIn SaaS
+parent: CluedIn Private SaaS
 grand_parent: Installation
 permalink: /deployment/saas/installation-guide
-title: SaaS installation guide
+title: Private SaaS installation guide
 last_modified: 2024-04-08
 headerIcon: "saas"
 ---
