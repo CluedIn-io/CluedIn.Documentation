@@ -16,7 +16,9 @@ In this section, we'll walk you through the fundamental steps to get started wit
 
 Before proceeding with the getting started guides, make sure that you have CluedIn up and running. This step is essential to ensure that you can follow along seamlessly and fully experience the basic features. If you don't have CluedIn installed, check the following guides:
 
-- [CluedIn SaaS installation](/deployment/saas)
+- [CluedIn SaaS Sign up](https://landing.cluedin.com/signup)
+- 
+- [CluedIn Private SaaS installation](/deployment/saas)
 
 - [CluedIn PaaS installation](/deployment/azure-marketplace)
 
