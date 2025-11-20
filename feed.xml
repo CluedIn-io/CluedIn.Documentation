@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2025-11-20T08:48:20+00:00</updated>
+    <updated>2025-11-20T09:11:34+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1900,13 +1900,13 @@
     </entry>
     
     <entry>
-        <title>CluedIn licensing agent</title>
+        <title>Licensing agent (PAAS)</title>
         <link href="https://documentation.cluedin.net/deployment/marketplace-licensing-agent" />
         <id>https://documentation.cluedin.net/deployment/marketplace-licensing-agent</id>
         <updated>2025-11-20T00:00:00+00:00</updated>
         <summary>
         
-        CluedIn licensing agent.
+        Licensing agent (PAAS).
         
         
         
