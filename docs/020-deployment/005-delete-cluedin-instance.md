@@ -3,7 +3,7 @@ layout: cluedin
 title: Delete CluedIn instance
 parent: Installation
 permalink: /deployment/delete-cluedin-instance
-nav_order: 5
+nav_order: 6
 ---
 ## On this page
 {: .no_toc .text-delta }

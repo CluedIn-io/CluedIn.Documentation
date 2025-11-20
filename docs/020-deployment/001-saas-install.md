@@ -3,7 +3,7 @@ layout: cluedin
 title: CluedIn Private SaaS
 parent: Installation
 permalink: /deployment/saas
-nav_order: 1
+nav_order: 2
 has_children: true
 headerIcon: "saas"
 ---

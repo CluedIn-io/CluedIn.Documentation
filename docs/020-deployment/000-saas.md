@@ -4,7 +4,7 @@ title: CluedIn SaaS
 parent: Installation
 permalink: /deployment/cluedin-saas
 nav_order: 1
-has_children: true
+has_children: false
 headerIcon: "saas"
 ---
 
