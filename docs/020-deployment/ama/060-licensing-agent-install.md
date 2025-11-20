@@ -1,9 +1,9 @@
 ---
 layout: cluedin
 title: CluedIn licensing agent
-parent: Installation
+parent: CluedIn PaaS
 permalink: /deployment/marketplace-licensing-agent
-nav_order: 2
+nav_order: 6
 has_children: false
 tags: ["deployment", "licensing-agent", "azure", "microsoft", "marketplace", "azure-marketplace"]
 headerIcon: "paas"
