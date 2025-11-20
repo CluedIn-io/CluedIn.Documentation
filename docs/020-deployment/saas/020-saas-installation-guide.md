@@ -1,7 +1,7 @@
 ---
 layout: cluedin
 nav_order: 2
-parent: CluedIn Private SaaS (via Azure Azure Marketplace)
+parent: CluedIn Private SaaS
 grand_parent: Installation
 permalink: /deployment/saas/installation-guide
 title: Private SaaS - Azure Market Place
