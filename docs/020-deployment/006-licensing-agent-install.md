@@ -1,7 +1,7 @@
 ---
 layout: cluedin
-title: CluedIn licensing agent
-parent: CluedIn PaaS
+title: Licensing agent (PAAS)
+parent: Installation
 permalink: /deployment/marketplace-licensing-agent
 nav_order: 6
 has_children: false
