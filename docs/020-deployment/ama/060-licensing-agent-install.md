@@ -6,6 +6,7 @@ permalink: /deployment/marketplace-licensing-agent
 nav_order: 6
 has_children: false
 tags: ["deployment", "licensing-agent", "azure", "microsoft", "marketplace", "azure-marketplace"]
+last_modified: 2025-11-20
 headerIcon: "paas"
 ---
 ## On this page
