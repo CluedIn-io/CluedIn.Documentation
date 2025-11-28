@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Licensing agent (PAAS)
+title: Request for Azure Policy Exemption - Deployment Script Storage Accounts
 parent: Installation
 permalink: /deployment/azure-policy-exemption
 nav_order: 7
@@ -14,8 +14,6 @@ headerIcon: "paas"
 {: .no_toc .text-delta }
 - TOC
 {:toc}
-
-# Request for Azure Policy Exemption: Deployment Script Storage Accounts
 
 ## Summary
 
