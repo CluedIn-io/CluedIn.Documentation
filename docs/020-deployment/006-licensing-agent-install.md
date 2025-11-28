@@ -34,7 +34,7 @@ The installation of the licensing agent may fail if your subscription includes a
 
 1. White list firewall for CluedIn's webhook https://billing.cluedin.com port: 443.
 
-1. If required - [Request Azure Policy Exemption](/deployment/azure-policy-exemption)
+1. If required - [Request Azure Policy Exemption](/deployment/azure-policy-exemption).
 
 ## Installation steps
 1. In Azure Marketplace, navigate to [CluedIn PaaS offering](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cluedin.azure_cluedin?tab=Overview).
