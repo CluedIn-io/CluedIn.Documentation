@@ -24,7 +24,7 @@ The installation process is straightforward:
 
 {: .warning}
 **Azure Policy Notice**  
-The installation of the licensing agent may fail if your subscription includes an Azure Policy that blocks public storage accounts. To proceed, temporarily exclude this resource group from that policy before installation. [Request for Azure Policy Exemption](/azure-policy-exemption)
+The installation of the licensing agent may fail if your subscription includes an Azure Policy that blocks public storage accounts. To proceed, temporarily exclude this resource group from that policy before installation. 
 
 ## Prerequisites
 
@@ -33,6 +33,8 @@ The installation of the licensing agent may fail if your subscription includes a
 1. **Marketplace purchases and Contributor role**. Make sure that you have enabled Marketplace purchases and configured the required user permissions (at least **Contributor**) for the subscription where you want to store the CluedIn SaaS application. For more information, see [Enable marketplace purchases in Azure](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/enable-marketplace-purchases).
 
 1. White list firewall for CluedIn's webhook https://billing.cluedin.com port: 443.
+
+1. If required - [Request Azure Policy Exemption](/deployment/azure-policy-exemption).
 
 ## Installation steps
 1. In Azure Marketplace, navigate to [CluedIn PaaS offering](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cluedin.azure_cluedin?tab=Overview).
