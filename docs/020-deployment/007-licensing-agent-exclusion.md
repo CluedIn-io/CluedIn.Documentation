@@ -5,6 +5,7 @@ parent: Installation
 permalink: /deployment/azure-policy-exemption
 nav_order: 7
 has_children: false
+nav_exclude: true
 tags: ["deployment", "licensing-agent", "azure", "microsoft", "marketplace", "azure-marketplace"]
 last_modified: 2025-11-20
 headerIcon: "paas"
