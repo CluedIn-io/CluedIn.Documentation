@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2025-11-28T10:31:50+00:00</updated>
+    <updated>2025-11-28T10:40:07+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1916,13 +1916,13 @@
     </entry>
     
     <entry>
-        <title>Licensing agent (PAAS)</title>
+        <title>Request for Azure Policy Exemption - Deployment Script Storage Accounts</title>
         <link href="https://documentation.cluedin.net/deployment/azure-policy-exemption" />
         <id>https://documentation.cluedin.net/deployment/azure-policy-exemption</id>
         <updated>2025-11-20T00:00:00+00:00</updated>
         <summary>
         
-        Licensing agent (PAAS).
+        Request for Azure Policy Exemption - Deployment Script Storage Accounts.
         
         
         
