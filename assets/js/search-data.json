@@ -3018,14 +3018,14 @@
   },"431": {
     "doc": "Licensing agent (PAAS)",
     "title": "On this page",
-    "content": ". | Prerequisites | Installation steps | Azure Marketplace Application Internal Installation Flow . | Licensing agent AMA resources | . | . The CluedIn licensing agent is delivered as an Azure Managed Application and is installed via the Azure Marketplace. It enables CluedIn to bill customers directly through the Marketplace. The installation process is straightforward: . | You complete a short form, which then provisions a Managed Application in the customer’s Azure subscription. | Once installed, any agreed CluedIn charges can be billed to that subscription. | . Azure Policy Notice The installation of the licensing agent may fail if your subscription includes an Azure Policy that blocks public storage accounts. To proceed, temporarily exclude this resource group from that policy before installation. ",
+    "content": ". | Prerequisites | Installation steps | Azure Marketplace Application Internal Installation Flow . | Licensing agent AMA resources | . | . The CluedIn licensing agent is delivered as an Azure Managed Application and is installed via the Azure Marketplace. It enables CluedIn to bill customers directly through the Marketplace. The installation process is straightforward: . | You complete a short form, which then provisions a Managed Application in the customer’s Azure subscription. | Once installed, any agreed CluedIn charges can be billed to that subscription. | . Azure Policy Notice The installation of the licensing agent may fail if your subscription includes an Azure Policy that blocks public storage accounts. To proceed, temporarily exclude this resource group from that policy before installation. Request for Azure Policy Exemption . ",
     "url": "/deployment/marketplace-licensing-agent#on-this-page",
     
     "relUrl": "/deployment/marketplace-licensing-agent#on-this-page"
   },"432": {
     "doc": "Licensing agent (PAAS)",
     "title": "Prerequisites",
-    "content": ". | Azure account. If you already have an Azure account, you can proceed to the next prerequisite. If you do not have an Azure account, create a pay-as-you-go account using a valid credit card. | Marketplace purchases and Contributor role. Make sure that you have enabled Marketplace purchases and configured the required user permissions (at least Contributor) for the subscription where you want to store the CluedIn SaaS application. For more information, see Enable marketplace purchases in Azure. | . ",
+    "content": ". | Azure account. If you already have an Azure account, you can proceed to the next prerequisite. If you do not have an Azure account, create a pay-as-you-go account using a valid credit card. | Marketplace purchases and Contributor role. Make sure that you have enabled Marketplace purchases and configured the required user permissions (at least Contributor) for the subscription where you want to store the CluedIn SaaS application. For more information, see Enable marketplace purchases in Azure. | White list firewall for CluedIn’s webhook https://billing.cluedin.com port: 443. | . ",
     "url": "/deployment/marketplace-licensing-agent#prerequisites",
     
     "relUrl": "/deployment/marketplace-licensing-agent#prerequisites"
