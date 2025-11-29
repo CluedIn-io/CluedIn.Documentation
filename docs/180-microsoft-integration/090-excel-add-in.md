@@ -194,12 +194,13 @@ You can identify groups of different cell values that may represent the same thi
 
 Users can now define validation rules directly within the description field of a vocabulary key. These rules follow a standardized format:
 
-Required for [BUSINESS_DOMAIN]
-MinValue for [BUSINESS_DOMAIN] [VALUE]
-MaxValue for [BUSINESS_DOMAIN] [VALUE]
-MinLength for [BUSINESS_DOMAIN] [VALUE]
-MaxLength for [BUSINESS_DOMAIN] [VALUE]
-RegexPattern for [BUSINESS_DOMAIN] [REGEX_PATTERN] **[VALIDATION_MESSAGE]**
+ - Required for [BUSINESS_DOMAIN]
+ - MinValue for [BUSINESS_DOMAIN] [VALUE]
+ - MaxValue for [BUSINESS_DOMAIN] [VALUE]
+ - MinLength for [BUSINESS_DOMAIN] [VALUE]
+ - MaxLength for [BUSINESS_DOMAIN] [VALUE]
+ - RegexPattern for [BUSINESS_DOMAIN] [REGEX_PATTERN] **[VALIDATION_MESSAGE]**
+
 The Excel add-in automatically parses these rules and applies the corresponding validations to the worksheet.
 
 **To cluster and edit data**
