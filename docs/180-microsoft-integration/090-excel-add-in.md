@@ -190,6 +190,18 @@ When the data from CluedIn is loaded to Excel, you can modify it by making chang
 
 You can identify groups of different cell values that may represent the same thing. Additionally, you can merge these values into one, thereby performing data cleaning.
 
+**To enforce validation checks on columns**
+
+Users can now define validation rules directly within the description field of a vocabulary key. These rules follow a standardized format:
+
+Required for [BUSINESS_DOMAIN]
+MinValue for [BUSINESS_DOMAIN] [VALUE]
+MaxValue for [BUSINESS_DOMAIN] [VALUE]
+MinLength for [BUSINESS_DOMAIN] [VALUE]
+MaxLength for [BUSINESS_DOMAIN] [VALUE]
+RegexPattern for [BUSINESS_DOMAIN] [REGEX_PATTERN] **[VALIDATION_MESSAGE]**
+The Excel add-in automatically parses these rules and applies the corresponding validations to the worksheet.
+
 **To cluster and edit data**
 
 1. In the **CluedIn Excel Add-in** task pane, go to the **Cluster** tab.
