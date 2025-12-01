@@ -199,7 +199,10 @@ Users can now define validation rules directly within the description field of a
  - MaxValue for [BUSINESS_DOMAIN] [VALUE]
  - MinLength for [BUSINESS_DOMAIN] [VALUE]
  - MaxLength for [BUSINESS_DOMAIN] [VALUE]
- - RegexPattern for [BUSINESS_DOMAIN] [REGEX_PATTERN] **[VALIDATION_MESSAGE]**
+ - RegexPattern for [BUSINESS_DOMAIN] [REGEX_PATTERN] \*\*[VALIDATION_MESSAGE]\*\*
+
+Note: You don't need the [] in your final result, these are just placeholders. You will need the double asteriks for your validation method, remember to include that. Once you have added your rules, you will need to refresh the Excel plugin with the refresh button and click "Load Data" again so that Excel can load the expected validation into a new session. When you make a change to a cell in Excel that violates the validation, you will see a warning in the CluedIn plugin window of Excel. You will need to fix your record before you can publish again. The Regex patterns you will need to use are those that are supported by Javascript. 
+
 
 The Excel add-in automatically parses these rules and applies the corresponding validations to the worksheet.
 
