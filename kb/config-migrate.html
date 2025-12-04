@@ -8,14 +8,15 @@
      </span><span class="c"># The below are all optional. Please see what values are accepted below. If running without any of the below.</span><span class="w">
      </span><span class="c"># It will not export anything as everything defaults to export nothing.</span><span class="w">
      </span><span class="c">#</span><span class="w">
-     </span><span class="c"># -BackupAdminSettings      [switch] true | false (Default)</span><span class="w">
-     </span><span class="c"># -SelectVocabularies       [string] csv guids | None (Default)</span><span class="w">
-     </span><span class="c"># -SelectDataSets           [string] csv guids | All | None (Default)</span><span class="w">
-     </span><span class="c"># -SelectRules              [string] csv guids | All | None (Default)</span><span class="w">
-     </span><span class="c"># -SelectExportTargets      [string] csv guids | All | None (Default)</span><span class="w">
-     </span><span class="c"># -SelectStreams            [string] csv guids | All | None (Default)</span><span class="w">
-     </span><span class="c"># -SelectGlossaries         [string] csv guids | All | None (Default)</span><span class="w">
-     </span><span class="c"># -SelectCleanProjects      [string] csv guids | All | None (Default)</span><span class="w">
+     </span><span class="c"># -BackupAdminSettings          [switch] true | false (Default)</span><span class="w">
+     </span><span class="c"># -SelectVocabularies           [string] csv guids | None (Default)</span><span class="w">
+     </span><span class="c"># -SelectDataSets               [string] csv guids | All | None (Default)</span><span class="w">
+     </span><span class="c"># -SelectRules                  [string] csv guids | All | None (Default)</span><span class="w">
+     </span><span class="c"># -SelectExportTargets          [string] csv guids | All | None (Default)</span><span class="w">
+     </span><span class="c"># -SelectStreams                [string] csv guids | All | None (Default)</span><span class="w">
+     </span><span class="c"># -SelectGlossaries             [string] csv guids | All | None (Default)</span><span class="w">
+     </span><span class="c"># -SelectCleanProjects          [string] csv guids | All | None (Default)</span><span class="w">
+     </span><span class="c"># -SelectDeduplicationProjects  [string] csv guids | All | None (Default)</span><span class="w">
 </span></code></pre></div> </div> <p><strong>Note</strong>: <code class="language-plaintext highlighter-rouge">/path/to/</code> will differ on your local system. Please update this to be the local respective path.</p> </li> <li> <p>The script will launch and prepare to connect. You will be prompted for a username and password which will obtain a JWToken if successful. Once connected, it will attempt to export all the desired configuration specified above.</p> <p>Depending on how much configuration there is to export, this may take up to 15 minutes to complete. Once export has completed, move onto the import phase.</p> </li> </ol> <h3 id="importing-configuration-destination-system"> <a href="#importing-configuration-destination-system" class="anchor-heading" aria-labelledby="importing-configuration-destination-system"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Importing configuration (Destination system) </h3> <ol> <li>Open up a new <code class="language-plaintext highlighter-rouge">PowerShell</code> session to avoid any conflict with environmental variables.</li> <li> <p>In the <code class="language-plaintext highlighter-rouge">PowerShell</code> window, run the following:</p> <p><strong>Note</strong>: We will be using the ficticious front end <code class="language-plaintext highlighter-rouge">https://cluedin-destination.customer.com</code> in the example below.</p> <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="nv">$params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">@{</span><span class="w">
      </span><span class="nx">BaseURL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'customer.com'</span><span class="w">
      </span><span class="nx">Organization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'cluedin-destination'</span><span class="w">
