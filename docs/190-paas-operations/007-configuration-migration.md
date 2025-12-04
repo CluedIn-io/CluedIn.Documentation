@@ -71,14 +71,15 @@ To get the IDs of specific parameters, you will need to use the front end and na
         # The below are all optional. Please see what values are accepted below. If running without any of the below.
         # It will not export anything as everything defaults to export nothing.
         #
-        # -BackupAdminSettings      [switch] true | false (Default)
-        # -SelectVocabularies       [string] csv guids | None (Default)
-        # -SelectDataSets           [string] csv guids | All | None (Default)
-        # -SelectRules              [string] csv guids | All | None (Default)
-        # -SelectExportTargets      [string] csv guids | All | None (Default)
-        # -SelectStreams            [string] csv guids | All | None (Default)
-        # -SelectGlossaries         [string] csv guids | All | None (Default)
-        # -SelectCleanProjects      [string] csv guids | All | None (Default)
+        # -BackupAdminSettings          [switch] true | false (Default)
+        # -SelectVocabularies           [string] csv guids | None (Default)
+        # -SelectDataSets               [string] csv guids | All | None (Default)
+        # -SelectRules                  [string] csv guids | All | None (Default)
+        # -SelectExportTargets          [string] csv guids | All | None (Default)
+        # -SelectStreams                [string] csv guids | All | None (Default)
+        # -SelectGlossaries             [string] csv guids | All | None (Default)
+        # -SelectCleanProjects          [string] csv guids | All | None (Default)
+        # -SelectDeduplicationProjects  [string] csv guids | All | None (Default)
     ```
 
     **Note**: `/path/to/` will differ on your local system. Please update this to be the local respective path.
