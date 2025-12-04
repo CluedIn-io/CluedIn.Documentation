@@ -83,6 +83,7 @@ To get the IDs of specific parameters, you will need to use the front end and na
     ```
 
     **Note**: `/path/to/` will differ on your local system. Please update this to be the local respective path.
+    **Note**: For datasets, only export Ingestion Endpoints, Databases or Manual Creation Projects. Files should not be exported. When datasets are imported, they will only be imported as either an Ingestion Endpoint, Database or Manual Creation Project. If you try to import a File dataset, it will  be created as an Ingestion Endpoint as the export process does not Export Data, only the metadata associataed with a dataset, as it is expected that you run data through the target environment directly. 
 
 1. The script will launch and prepare to connect. You will be prompted for a username and password which will obtain a JWToken if successful. Once connected, it will attempt to export all the desired configuration specified above.
 
