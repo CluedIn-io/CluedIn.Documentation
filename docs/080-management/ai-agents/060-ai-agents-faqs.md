@@ -62,19 +62,37 @@ This is the most common setup that CluedIn customers use for AI features.
 Each AI agent is configured with the following elements:
 
 - A set of text instructions (prompts).
-- The ability to suggest (not create) recommendations to a human.
+- The ability to generate recommendations for a human reviewer.
 - The ability to use a single LLM to do its work.
 - An optional schedule defining how often it runs.
 - Access to one or more datasets, governed by [CluedIn’s access control rules](/management/access-control).
 
 Key principles:
-- Agents have read-only access. They cannot change data or create anything (for example, a rule).
+- AI Agents only have read-only access. They cannot directly modify data or create objects (for example, rules, deduplication projects etc.). It can only suggest recommendations. 
 - Agents run a set of jobs (prompts) toward defined goals.
-- Once an agent finishes running, it provides suggestions for human review.
+- Once an agent completest its run, it a set of suggestions for human review.
 
-A Human-In-The-Loop (HITL) must approve or reject every suggestion. Once a human acts on a suggestion, an audit trail records the decision, recording that:
-- The AI agent proposed the action.
-- The human approved and executed it.
+Human-In-The-Loop (HITL):
+
+By default, every suggestion must be explicitly reviewed and approved by a Human-In-The-Loop (HITL). Approval actions are recorded in the audit log, including:
+- Which AI agent proposed the action
+- Which human user approved and executed it
+- What decision was taken
+
+Auto-approval of AI suggestions:
+
+CluedIn provides an optional setting that allows organizations to automatically approve AI suggestions without manual HITL review.
+
+When this setting is enabled:
+- The AI agent still remains read-only, it does not perform updates directly.
+- However, CluedIn automatically executes the suggested actions on the user’s behalf, as if a human approved them
+- All auto-approved actions are logged for audit and traceability
+
+This mode is intended for low-risk, trusted workflows where continuous human review would create unnecessary overhead.
+
+
+Data access boundaries:
+
 
 An AI agent can only read data explicitly provided to it. The agent cannot access data of its own volition.
 
