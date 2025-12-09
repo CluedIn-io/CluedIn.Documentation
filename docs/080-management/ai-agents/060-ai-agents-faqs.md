@@ -41,11 +41,14 @@ How it works:
 
 This is the most common setup that CluedIn customers use for AI features.
 
+<!-- Hiding this section since the code is peding rebase, test and merge activities>
 ### Open chat/public API (coming in November 2025)
 
 - This option will support publicly hosted LLMs (including [Google Gemini](https://gemini.google.com/), [Open AI](https://openai.com/), and [Anthropic Claude](https://claude.ai/)).
 - In this configuration, communication occurs over the public internet, secured via HTTPS and authenticated API tokens.
 - Data remains encrypted during transit and at rest, but customers must ensure they trust the provider’s Terms and Conditions regarding data usage. For example, some providers commit not to use API data for training.
+
+-->
 
 ## AI agent configuration
 
