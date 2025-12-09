@@ -70,7 +70,7 @@ Each AI agent is configured with the following elements:
 Key principles:
 - AI Agents only have read-only access. They cannot directly modify data or create objects (for example, rules, deduplication projects etc.). It can only suggest recommendations. 
 - Agents run a set of jobs (prompts) toward defined goals.
-- Once an agent completest its run, it a set of suggestions for human review.
+- Once an agent completest its run, it produces a set of suggestions for human review.
 
 Human-In-The-Loop (HITL):
 
