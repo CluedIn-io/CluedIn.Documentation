@@ -189,6 +189,7 @@ This approach ensures secure, seamless, and auditable data migration without req
 The switch from an internal MS SQL deployment to Azure SQL impacts the underlying infrastructure and, as a result, the expected costs. The costs outlined below are accurate as of January 2026.
 
 ### Added / Modified Infrastructure
+
 | Resource | Region | Spec | Cost (USD) |
 |--|--|--|--|
 | Azure SQL Database | East US | Elastic Pool, SKU: General Purpose, 4 x vCore, 500Gb storage LRS | $737.37 |
@@ -196,6 +197,7 @@ The switch from an internal MS SQL deployment to Azure SQL impacts the underlyin
 | **Total** |  |  | **862.93** |
 
 ### Removed / Modified Infrastructure
+
 | Resource | Region | Spec | Cost (USD) |
 |--|--|--|--|
 | Managed Disks: MS SQL | East US | Premium SSD, LRS Redundancy, P30 Disk | $540.68 |
