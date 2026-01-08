@@ -194,7 +194,7 @@ The switch from an internal MS SQL deployment to Azure SQL impacts the underlyin
 |--|--|--|--|
 | Azure SQL Database | East US | Elastic Pool, SKU: General Purpose, 4 x vCore, 500Gb storage LRS | $737.37 |
 | Virtual Machine Scale Sets: Data | East US | D4as v5 | $125.56 |
-| **Total** |  |  | **862.93** |
+| **Total** |  |  | **$862.93** |
 
 ### Removed / Modified Infrastructure
 
@@ -202,7 +202,7 @@ The switch from an internal MS SQL deployment to Azure SQL impacts the underlyin
 |--|--|--|--|
 | Managed Disks: MS SQL | East US | Premium SSD, LRS Redundancy, P30 Disk | $540.68 |
 | Virtual Machine Scale Sets: Data | East US | D8as v5 | $251.12 |
-| **Total** |  |  | **791.80** |
+| **Total** |  |  | **$791.80** |
 
 **Approximate price difference: $71.13.**
 Note: Prices may vary slightly depending on region and data consumption.
