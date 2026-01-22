@@ -27,7 +27,7 @@ Purpose of This Document:
 | **Certificate**               | Internal server-to-server communication                           | ~1 year        | CluedIn                | Automatically rotated              |
 | **Certificate**               | Frontend / public-facing TLS certificate                          | ~1 year        | Customer               | Managed by customer                |
 | **NuGet PAT Token**           | Access to custom/private NuGet packages                           | ~180 days      | Customer               | Managed by customer                |
-| **ACR Token**                 | Pull container images from CluedIn Azure Container Registry (ACR) | ~1 year        | CluedIn                | Manually renewed during deployment |
+| **ACR Token**                 | Pull container images from CluedIn Azure Container Registry (ACR) | ~1 year        | CluedIn                | renewed during deployment |
 | **Organisation Admin Secret** | CluedIn administrative account access                             | N/A            | Customer               | Not applicable                     |
 | **SSO Client Secret**         | Authentication for Single Sign-On (SSO) integration               | ~1 year        | Customer               | Managed by customer                |
 | **Infrastructure Secrets**    | Internal platform secrets (e.g. SQL, RabbitMQ credentials)        | N/A            | CluedIn                | Not applicable                     |
