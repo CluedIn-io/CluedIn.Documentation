@@ -6182,7 +6182,7 @@
   },"883": {
     "doc": "Backup runbook",
     "title": "On this page",
-    "content": ". | Typical persistent disks | Automation account | Snapshots | Input parameters | Process . | Release 2025.09.00 and later | Release 2025.05.02 and earlier | . | Permissions | . The backup runbook can be triggered manually or on a set schedule. It is responsible for capturing snapshots of all persistent disks used by CluedIn. This runbook is a PowerShell script, which CluedIn will provide as needed. Prerequisites . | An active CluedIn cluster with a valid license | The runbook script | An automation account | A storage account | Sufficient permissions | . ",
+    "content": ". | Typical persistent disks | Automation account | Snapshots . | Release 2025.09.00 and later | Release 2025.05.02 and earlier | . | Input parameters | Process | Permissions | . The backup runbook can be triggered manually or on a set schedule. It is responsible for capturing snapshots of all persistent disks used by CluedIn. This runbook is a PowerShell script, which CluedIn will provide as needed. Prerequisites . | An active CluedIn cluster with a valid license | The runbook script | An automation account | A storage account | Sufficient permissions | . ",
     "url": "/paas-operations/automation/backup-runbook#on-this-page",
     
     "relUrl": "/paas-operations/automation/backup-runbook#on-this-page"
@@ -6203,7 +6203,7 @@
   },"886": {
     "doc": "Backup runbook",
     "title": "Snapshots",
-    "content": "Upon a successful run, the runbook generates snapshots and stores them in a resource group for seven days. ",
+    "content": "Upon a successful run, the runbook generates snapshots and stores them in a resource group for seven days. Release 2025.09.00 and later . From release 2025.09.00 onward, CluedIn uses Azure SQL, which provides Point-in-Time Restore (PITR) by default. In this configuration, the backup runbook captures snapshots for five persistent disks. Release 2025.05.02 and earlier . For releases prior to 2025.09.00, the backup runbook captures snapshots for nine persistent disks. ",
     "url": "/paas-operations/automation/backup-runbook#snapshots",
     
     "relUrl": "/paas-operations/automation/backup-runbook#snapshots"
@@ -6217,7 +6217,7 @@
   },"888": {
     "doc": "Backup runbook",
     "title": "Process",
-    "content": "Release 2025.09.00 and later . From release 2025.09.00 onward, CluedIn uses Azure SQL, which provides Point-in-Time Restore (PITR) by default. In this configuration, the backup runbook captures snapshots for five persistent disks. Release 2025.05.02 and earlier . For releases prior to 2025.09.00, the backup runbook captures snapshots for nine persistent disks. Scaling up or down deployments is optional. However, it is recommended to prevent data loss while capturing snapshots. ",
+    "content": ". Scaling up or down deployments is optional. However, it is recommended to prevent data loss while capturing snapshots. ",
     "url": "/paas-operations/automation/backup-runbook#process",
     
     "relUrl": "/paas-operations/automation/backup-runbook#process"
