@@ -18,6 +18,8 @@ CluedIn supports private endpoint connections via an internal load balancer. The
 - If your service requires private connectivity for **more than eight private endpoints**, you have the following options:
   - Add an additional frontend IP to the load balancer. Each frontend IP supports up to eight private links.
   - Use a single private link, which can support **up to 512 private endpoints**.
+- Use dedicated subnets for Private Link Services to avoid NSG interference.
+- Disable public access on the internal load balancer or AKS ingress.
 
 ## Support
 
