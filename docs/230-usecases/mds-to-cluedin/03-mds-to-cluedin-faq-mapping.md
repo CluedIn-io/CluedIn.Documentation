@@ -129,7 +129,7 @@ Instead of one schema for everyone:
 ### Step-by-step flow
 
 
-![flowpart3](../assets/images/playbooks/mds/flowpart3.svg)
+![flowpart3](../../../assets/images/playbooks/mds/flowpart3.svg)
 
 Streams and export targets are standard CluedIn mechanisms.
 
@@ -138,7 +138,7 @@ Streams and export targets are standard CluedIn mechanisms.
 ## Cutover plan for the worked example (consumer-by-consumer)
 
 
-![exampleFlow](../assets/images/playbooks/mds/exampleFlow.svg)
+![exampleFlow](../../../assets/images/playbooks/mds/exampleFlow.svg)
 
 ---
 
