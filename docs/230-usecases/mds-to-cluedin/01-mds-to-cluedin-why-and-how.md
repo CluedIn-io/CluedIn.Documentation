@@ -106,8 +106,6 @@ This approach tends to work best when you have multiple domains and multiple con
 
 ![MDS3](../../../assets/images/playbooks/mds/MDS3.svg)
 
----
-
 ## Migration decision matrix: MDS integration vs SQL ingestion vs Hybrid
 
 Use this to choose the approach that best fits your constraints.
