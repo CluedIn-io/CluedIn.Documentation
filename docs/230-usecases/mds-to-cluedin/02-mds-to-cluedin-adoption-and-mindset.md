@@ -31,7 +31,7 @@ CluedIn adoption works best when you treat the output as a **product**:
 - improve continuously
 - publish explicit contracts through Streams to Export Targets 
 
-![MindsetShift](../assets/images/playbooks/mds/minsetshift.svg)
+![MindsetShift](../../../assets/images/playbooks/mds/minsetshift.svg)
 
 ---
 
