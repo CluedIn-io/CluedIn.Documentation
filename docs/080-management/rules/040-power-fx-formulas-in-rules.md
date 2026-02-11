@@ -125,3 +125,9 @@ This section contains some examples of Power Fx formulas in rules.
     ```
     LoadEntityByEntityCode("5452407DH")
     ```
+
+1. Check if the lookup vocabulary key is invalid due to lookup code not found in reference data.
+
+    ```
+    ("[Invalid (Missing)]" in GetVocabularyKeyValue(Entity,"product.producttype-EntityCode"))
+    ```
