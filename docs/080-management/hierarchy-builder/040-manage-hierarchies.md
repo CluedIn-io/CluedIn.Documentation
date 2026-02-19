@@ -81,11 +81,11 @@ If you no longer need a hierarchy, you can delete it. The hierarchy is also dele
 
 Since you made the hierarchy of your choosing (also multi-domain), you are asking yourself a question: How can I use it to build my drill-down reports?
 
-Well, let's imagine a scenario. In this picture below, we have built the hierarchy involve Business Domain /Region, and the business Domain /Companies, attached this each of the regions.
+Well, let's imagine a scenario. In this picture below, we have built the hierarchy involve Business Domain `/Region`, and the business Domain `/Company`, attached this each of the regions.
 
 ![HierarchyBuilderExample.png](../../../assets/images/management/hierarchy-builder/HierarchyBuilderExample.png)
 
-Note: This hierarchy would need to be published in order to expose the relationships as we usually expect, in format of /HRCHY_<hierarchyName> (example: /HRCHY_RegionCompany)
+Note: This hierarchy would need to be published in order to expose the relationships as we usually expect, in format of `/HRCHY_<hierarchyName>` (example: `/HRCHY_RegionCompany`)
 
 The next step would be to export the data related to the hierarchy using the CluedIn Stream in a configuration similar to the following:
 
@@ -96,9 +96,9 @@ Note: It is not important which properties you are exporting, as the following s
 
 When the data is being exported, depending on how you defined the target table, you will get the 3 tables in the following format:
 
-- <TargetTable>
-- <TargetTable>Codes
-- <TargetTable>OutgoingEdges
+- `<TargetTable>`
+- `<TargetTable>Codes`
+- `<TargetTable>OutgoingEdges`
 
 Now the SQL script to get the parent/child/level format of the table, it would look like this:
 
@@ -156,3 +156,4 @@ Now the SQL script to get the parent/child/level format of the table, it would l
     OPTION (MAXRECURSION 32767);
 
 In your case, you would need to replace any occurence of `CompanyNRegions` with your `<TargetTable>` and `/HRCHY_RegionCompany` with your `/HRCHY_<HierarchyName>`
+
