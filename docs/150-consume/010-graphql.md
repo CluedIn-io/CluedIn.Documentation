@@ -262,26 +262,34 @@ Variable
 }
 ~~~
 
+### Get all record which have failed lookup data
+~~~
+{
+  search(query:"+entityType:/FabricCompany +properties.fabriccompany.country-EntityCode:[Invalid*") {
+    totalResults
+    entries {
+      name
+      properties
+    }
+  }
+}
+~~~
+
 ### Filter by Tags
 
 ~~~
 query {
   search(
-    query: "*"
-    filter: "tags:Location Lookups"
-    pageSize: 10
-    includeProperties: false
-    includeEdges: false
-    includeRelations: false
-    includeExternalData: false
-    includeUnstructuredData: false
+    query: "+entityType:/FabricCompany"
+    pageSize: 10000
+    filter: "tags:Invalid Validate that 'fabriccompany.country' contains ISO-2 coded country codes only, two uppercase letters."
   ) {
     totalResults
-    cursor
     entries {
+      tags
       id
-      entityType
-      actions { postProcess processEdges }
+      name
+      properties
     }
   }
 }
@@ -293,19 +301,19 @@ query {
 ~~~
 query {
   search(
-    query: "+entityType:/Location"
+    query: "+entityType:/FabricCompany"
     pageSize: 10000
     filters: [{
       fieldName: "codes"
       operator: OR
-      values: ["gml-test-location-0", "gml-test-location-1", "gml-test-location-2"]
+      values: ["/FabricCompany#company:CluedIn(hash-sha1):a57b9dad98e2679de828ef1f4aced537534c600d"]
     }]
   ) {
     totalResults
     entries {
       id
       name
-      actions { postProcess }
+      properties
     }
   }
 }
