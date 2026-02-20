@@ -219,3 +219,94 @@ Alternatively, find out how many records match.
 ~~~
 
 ![image]({{ "/assets/images/consume/8-2.png" | relative_url }})
+
+### Search for all golden records which comes from certain datasource
+
+Query
+~~~
+query searchQuery($query: String, $filters: [FilterQuery], $cursor: PagingCursor) {
+  search(
+    query: $query
+    filters: $filters
+    pageSize: 10000
+    cursor: $cursor
+    sort: FIELDS
+    sortFields: { field: "id", direction: ASCENDING }
+  ) {
+    totalResults
+    cursor
+    entries {
+      id
+      name
+      entityType
+      properties
+    }
+  }
+}
+~~~
+
+Variable
+~~~
+{
+  "query": "*",
+  "cursor": null,
+  "filters": [
+    {
+      "aggregationName": "providerDefinitionIds_v2",
+      "operator": "OR",
+      "values": [
+        "5158674b-7d18-4bb2-bb49-2e95c17f0b57"
+      ]
+    }
+  ]
+}
+~~~
+
+### Filter by Tags
+
+~~~
+query {
+  search(
+    query: "*"
+    filter: "tags:Location Lookups"
+    pageSize: 10
+    includeProperties: false
+    includeEdges: false
+    includeRelations: false
+    includeExternalData: false
+    includeUnstructuredData: false
+  ) {
+    totalResults
+    cursor
+    entries {
+      id
+      entityType
+      actions { postProcess processEdges }
+    }
+  }
+}
+~~~
+
+
+### Filter "codes" via filters-array and then postProcess
+
+~~~
+query {
+  search(
+    query: "+entityType:/Location"
+    pageSize: 10000
+    filters: [{
+      fieldName: "codes"
+      operator: OR
+      values: ["gml-test-location-0", "gml-test-location-1", "gml-test-location-2"]
+    }]
+  ) {
+    totalResults
+    entries {
+      id
+      name
+      actions { postProcess }
+    }
+  }
+}
+~~~
