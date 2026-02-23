@@ -157,3 +157,6 @@ Now the SQL script to get the parent/child/level format of the table, it would l
 
 In your case, you would need to replace any occurence of `CompanyNRegions` with your `<TargetTable>` and `/HRCHY_RegionCompany` with your `/HRCHY_<HierarchyName>`
 
+
+![StreamConfiguration.png](../../../assets/images/management/hierarchy-builder/SQLResult.png)
+
