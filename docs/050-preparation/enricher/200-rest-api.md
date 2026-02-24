@@ -58,6 +58,9 @@ The REST API enricher requires the URL of an external endpoint to retrieve data.
 
     1. **Process Response Script** – provide the JavaScript code used to process the response returned from the external endpoint. This script is required to transform the API response into a format that the enricher can understand and use. You can find an example of the process response script in the [Sample scripts](#sample-process-response-script) section of this page.
 
+    1. **Include Confidence Score** – decide whether the results will include a confidence score, which can be used during data processing.
+
+
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
     The REST API enricher is added and has an active status. This means that it will enrich relevant golden records during processing or when you trigger external enrichment.
@@ -89,17 +92,23 @@ This section provides some sample scripts that you can use to configure the RESP
 //  let request = {
 //     ApiKey: "testApiKey",
 //     Url: "testUrl",
-//     Header: [{Key:"TestHeader", Value: 123}],
+//     Headers: [
+//        { Key: "TestHeader", Value: "123"}
+//     ],
 //     Body: {
 //        Properties: [{Key: "organization.name", Value: "CluedIn"}]
 //     }
 //   };
   
+// Add Header
+request.AddHeader('TestHeader2', '456');
+
 let detailsArray = [];  
 request.Body.Properties.forEach((x) => {
  detailsArray.push(x.Value)
 });
-  
+
+// Update Body that will be sent to external api
 request.Body = {
   names: detailsArray
 }
@@ -108,7 +117,10 @@ request.Body = {
 //  let request = {
 //      ApiKey: "testArray",
 //      Url: "testUrl",
-//      Header: [{Key:"TestHeader", Value: 123}],
+//      Headers: [
+//          { Key: "TestHeader", Value: "123"},
+//          { Key: "TestHeader2", Value: "456"}
+//      ],
 //      Body: {
 //          name: ["CluedIn"]
 //      }
@@ -130,9 +142,12 @@ request.Body = {
 
 let parsedContent = JSON.parse(response.Content); 
 let newContent = {
-  ‘organization.fullName':parsedContent.fullName
+  "organization.fullName":parsedContent.fullName
 };
-response.Content = JSON.stringify([{ Data: newContent), Score: 0 }]);  
+
+// Data must be returned in the following format to be processed by enricher
+// Score can be assigned with external api response
+response.Content = JSON.stringify([{ Data: newContent, Score: 0 }]);  
   
 // Sample response after executing the script
 //    const response = {
@@ -145,6 +160,98 @@ response.Content = JSON.stringify([{ Data: newContent), Score: 0 }]);
 //        ],
 ```
 
+### Modifying request and response objects in process request and response scripts
+
+
+| Name              | Type      | Description                                                                                          |
+| ----------------- | --------- | ---------------------------------------------------------------------------------------------------- |
+| `request`         | Request   | The current HTTP request object that can be modified during script execution.                        |
+| `originalRequest` | Request   | The original, unmodified HTTP request for reference purposes.                                        |
+| `response`        | Response  | The response from external endpoint that can be populated or modified by the script.                 |
+
+**Request**
+
+| Property  | Type            | Description                                   |
+| --------- | --------------- | --------------------------------------------- |
+| `Method`  | `string`        | The HTTP request method (e.g. `GET`, `POST`). |
+| `Url`     | `string`        | The target URL for the HTTP request.          |
+| `Headers` | `Array<Header>` | List of HTTP headers included in the request. |
+| `ApiKey`  | `string`        | API key used for authenticating the request.  |
+| `Body`    | `object`        | The body content of the HTTP request.         |
+
+| Method      | Signature                                     | Description                       |
+| ----------- | --------------------------------------------- | --------------------------------- |
+| `addHeader` | `addHeader(key: string, value: string): void` | Adds a new header to the request. |
+
+**Header**
+
+| Property | Type     | Description   |
+| -------- | -------- | ------------- |
+| `Key`    | `string` | Header name.  |
+| `Value`  | `string` | Header value. |
+
+**Response**
+
+| Property      | Type            | Description                                                                                               |
+| ------------- | --------------- | --------------------------------------------------------------------------------------------------------- |
+| `HttpStatus`  | `string`        | The HTTP status code of the response (e.g. `200 OK`).                                                     |
+| `Content`     | `string`        | The raw response body content. Must be in **Result format** when returned to the enricher for processing. |
+| `ContentType` | `string`        | The response content type (e.g. `application/json`).                                                      |
+| `Headers`     | `Array<Header>` | List of HTTP headers included in the response.                                                            |
+
+
+**Result (Format for Response Content for returning value to enricher)**
+
+| Property | Type     | Description                                                                       |
+| -------- | -------- | --------------------------------------------------------------------------------- |
+| `Data`   | `object` | Key-value data extracted from the response. Each key represents a vocabulary key. |
+| `Score`  | `number` | A numeric score indicating the relevance or confidence of the results.            |
+
+### Helper functions
+You can use the following helper functions in your scripts to facilitate common tasks.
+
+**Logging**
+
+| Function | Signature    | Description                                                                                     |
+| -------- | ------------ | ----------------------------------------------------------------------------------------------- |
+| `log`    | `log(value)` | Writes a message to the application log at **Information** level. Useful for debugging scripts. |
+
+Example:
+```
+log("Processing response from API");
+```
+
+**String Encoding**
+
+| Function     | Signature                           | Description                                    |
+| ------------ | ----------------------------------- | ---------------------------------------------- |
+| `toBase64`   | `toBase64(value: string): string`   | Encodes a UTF-8 string into Base64 format.     |
+| `fromBase64` | `fromBase64(value: string): string` | Decodes a Base64-encoded string back to UTF-8. |
+| `urlEncode`  | `urlEncode(value: string): string`  | Encodes a string for safe use in a URL.        |
+| `urlDecode`  | `urlDecode(value: string): string`  | Decodes a URL-encoded string.                  |
+
+Example: 
+```
+var encoded = stringEncoder.toBase64("hello");
+var decoded = stringEncoder.fromBase64(encoded);
+```
+
+**Cache**
+
+| Function | Signature                                                   | Description                                                                                                |
+| -------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `get`    | `get(key: string): object`                                  | Retrieves a cached value for the current organization. Returns `null` if not found.                        |
+| `set`    | `set(key: string, value: object, expiration: number): void` | Stores a value in cache with an expiration time (in milliseconds). Does nothing if the key already exists. |
+
+Example:
+```
+var token = cache.get("authToken");
+
+if (!token) {
+    token = "new-token";
+    cache.set("authToken", token, 60000);
+}
+```
 
 ### Clearbit
 
@@ -167,6 +274,7 @@ let image = {
   'clearbit.organization.domain': content.domain,
   'clearbit.organization.logo': content.logo,
 };
+
 response.Content = JSON.stringify([{ Data: image, Score: 0 }]);
 log(JSON.stringify(response));
 ```
@@ -207,9 +315,11 @@ let prompt = String.raw`Please get {organization.japaneseNameRestApi} by transla
                     }
                     ###
   `;
+
   request.Body.Properties.forEach((x) => {
     prompt = prompt.replace('{Vocabulary:' + x.Key + '}', x.Value);
   });
+
   request.Body = {
     messages: [{ role: 'user', content: prompt }],
     temperature: 0,
@@ -323,7 +433,7 @@ In the following example, ingested company data contains missing or incorrect ad
 
 ![data-before-enrichment.png]({{ "/assets/images/preparation/enricher/rest-api/melissa/data-before-enrichment.png" | relative_url }})
 
-#### Configure Melissa REST API enricher
+**Configure Melissa REST API enricher**
 
 To [add the Melissa REST API enricher](#add-rest-api-enricher), on the **Configure** tab, provide the following information:
 
@@ -363,7 +473,6 @@ To [add the Melissa REST API enricher](#add-rest-api-enricher), on the **Configu
     
     
     let newContent = {
-
       'company.address.city':melissaCity,
       'company.address.zipcode':melissaZipcode,
       'company.address.state':melissaState,
@@ -376,7 +485,7 @@ To [add the Melissa REST API enricher](#add-rest-api-enricher), on the **Configu
     
     //apply conditions if required
     
-    if ( melissaDeliveryIndicator==='B')
+    if( melissaDeliveryIndicator==='B')
     {
        newContent[ 'company.address.type']='Business';
     }
@@ -393,7 +502,7 @@ To [add the Melissa REST API enricher](#add-rest-api-enricher), on the **Configu
 
 ![configure_tab.png]({{ "/assets/images/preparation/enricher/rest-api/melissa/configure_tab.png" | relative_url }})
 
-#### Example of golden record before and after enrichment
+**Example of golden record before and after enrichment**
 
 An example of a golden record before enrichment:
 
@@ -407,7 +516,7 @@ Same record after enrichment:
 
 ![golden_record_after_enrichment.png]({{ "/assets/images/preparation/enricher/rest-api/melissa/golden_record_after_enrichment.png" | relative_url }})
 
-#### Sample response
+**Sample response**
 
 Provided below is an example of the response you would receive for the same request in Postman. If you need an additional address line in your golden records, select the relevant fields from the response and add them to the [process response script](#configure-melissa-rest-api-enricher) provided earlier on this page. For example, you could include the **Latitude** and **Longitude** fields.
 
@@ -493,3 +602,678 @@ Provided below is an example of the response you would receive for the same requ
         ]
     }
     ```
+
+### Duns and Bradstreet (D&B)
+This code takes an organization’s DUNS number, or its name and country, and sends a request to the Dun & Bradstreet API to retrieve additional details. Before doing so, an enricher must be set up to obtain the authentication key.
+
+**Authentication**
+
+**Method:** POST
+
+**URL**
+```
+https://plus.dnb.com/v2/token
+```
+
+**Process request script**
+```
+const authCacheKey = 'dnb_auth_token';
+const cachedAuthToken = cache.Get(authCacheKey);
+
+if (!cachedAuthToken) {
+  const key =
+    '{Consumer Key}';
+  const secret =
+    '{Consumer Secret}';
+
+  const credentials = `${key}:${secret}`;
+
+  const base64 = stringEncoder.toBase64(credentials);
+
+  request.AddHeader('Content-Type', 'application/json');
+  request.AddHeader('Authorization', `Basic ${base64}`);
+
+  request.Body = { grant_type: 'client_credentials' };
+} else {
+  log('Auth token: ' + cachedAuthToken);
+}
+```
+
+**Process response script**
+```
+try {
+  let parsedContent = JSON.parse(response.Content);
+  cache.Set(
+    "dnb_auth_token",
+    parsedContent.access_token,
+    parsedContent.expiresIn * 1000
+  );
+  response.Content = JSON.stringify([{ Data: {}, Score: 0 }]);
+} catch (error) {
+  const errorDetails = {
+    name: error?.name,
+    message: error?.message,
+    stack: error?.stack,
+  };
+  log("Authentication failed :" + JSON.stringify(errorDetails));
+}
+```
+
+
+**Search using DUNS number**
+
+**Method:** GET
+
+**URL**
+
+```
+https://plus.dnb.com/v1/data/duns/{Vocabulary:testduns.dunsnumber}?blockIDs=companyfinancials_L1_v3,hierarchyconnections_L1_v1,companyinfo_L3_v1,companyinfo_identifiers_v1,esginsight_L3_v1
+```
+
+**Process request script**
+```
+const authCacheKey = 'dnb_auth_token';
+const cachedAuthToken = cache.Get(authCacheKey);
+
+if (cachedAuthToken) {
+  request.AddHeader('Authorization', `Bearer ${cachedAuthToken}`);
+
+  request.Body = { grant_type: 'client_credentials' };
+} else {
+  log('Unable to retrieve DnB auth token');
+}
+```
+
+**Process response script**
+
+```
+function populateIndustryCodes(results, parsedContent) {
+  const selectedTypes = ['19295', '37788'];
+
+  const industryCodeValues =
+    parsedContent?.organization?.industryCodes?.filter(
+      x =>
+        x?.typeDnBCode > 0 &&
+        selectedTypes.includes(String(x.typeDnBCode))
+    ) ?? [];
+
+  if (industryCodeValues.length === 0) return;
+
+  let industryCodesIndex = 0;
+  for (const industryCode of industryCodeValues) {
+      results[`Industry_${industryCodesIndex}_Description`] = industryCode.description;
+      results[`Industry_${industryCodesIndex}_TypeDescription`] = industryCode.typeDescription;
+      results[`Industry_${industryCodesIndex}_TypeDnBCode`] = industryCode.typeDnBCode;
+      results[`Industry_${industryCodesIndex}_Priority`] = industryCode.priority;
+      results[`Industry_${industryCodesIndex}_Code`] = industryCode.code;
+
+      industryCodesIndex++;
+    }
+}
+
+function populateOrganizationInfo(results, parsedContent) {
+  const org = parsedContent?.organization;
+
+  // DUNS Control Status
+  if (org?.dunsControlStatus) {
+    const status = org.dunsControlStatus;
+
+    results.DunsControlStatusFullReportDate = status.fullReportDate;
+    results.DunsControlStatusLastUpdateDate = status.lastUpdateDate;
+    results.DunsControlStatusOperatingStatusDescription = status.operatingStatus?.description;
+    results.DunsControlStatusOperatingStatusDnbCode = status.operatingStatus?.dnbCode;
+    results.DunsControlStatusIsMarketable = status.isMarketable;
+    results.DunsControlStatusIsMailUndeliverable = status.isMailUndeliverable;
+    results.DunsControlStatusIsTelephoneDisconnected = status.isTelephoneDisconnected;
+    results.DunsControlStatusIsDelisted = status.isDelisted;
+
+    if (status?.operatingStatus) {
+      results.OperatingStatusCode = status.operatingStatus?.dnbCode;
+      results.OperatingStatusDescription = status.operatingStatus?.description;
+    }
+  }
+
+  // DUNS Numbers
+  results.Duns = org?.duns;
+  results.DomesticUltimateDuns = org?.corporateLinkage?.domesticUltimate?.duns;
+  results.GlobalUltimateDuns = org?.corporateLinkage?.globalUltimate?.duns;
+  results.ParentDuns = org?.corporateLinkage?.parent?.duns;
+  results.HeadQuarterDuns = org?.corporateLinkage?.headQuarter?.duns;
+
+  // Business Information
+  results.PrimaryBusinessName = org?.primaryName;
+  results.BusinessEntityTypeDnbCode = org?.businessEntityType?.dnbCode;
+  results.BusinessEntityTypeDescription = org?.businessEntityType?.description;
+
+  // Trade Style Names
+  const tradeStyleNames =
+    org?.tradeStyleNames
+      ?.map(t => t?.name)
+      ?.filter(n => n && n.length > 0) ?? [];
+
+  if (tradeStyleNames.length > 0) {
+    results.TradeStyleNames = tradeStyleNames.join(" | ");
+  }
+
+  // Website
+  const website = org?.websiteAddress?.[0];
+  if (website) {
+    results.WebsiteUrl = website.url;
+  }
+
+  // Telephone
+  const telephone = org?.telephone?.[0];
+  if (telephone?.isdCode && telephone?.telephoneNumber) {
+    results.Telephone = `+${telephone.isdCode} ${telephone.telephoneNumber}`;
+  }
+
+  // Fax
+  const fax = org?.fax?.[0];
+  if (fax?.isdCode && fax?.faxNumber) {
+    results.Fax = `+${fax.isdCode} ${fax.faxNumber}`;
+  }
+
+  // Stock Exchange
+  const primaryStockExchange =
+    org?.stockExchanges?.find(x => x?.isPrimary === true);
+
+  if (primaryStockExchange) {
+    results.StockExchangeTickerName = primaryStockExchange.tickerName;
+    results.StockExchangeName = primaryStockExchange.exchangeName?.description;
+    results.StockExchangeCountryCode = primaryStockExchange.exchangeCountry?.isoAlpha2Code;
+  }
+
+  // Registration Numbers
+  const selectedRegistrationNumberTypes = ['2541'];
+
+  if (selectedRegistrationNumberTypes.length > 0) {
+    const registrationNumbers =
+      org?.registrationNumbers?.filter(
+        x =>
+          x?.typeDnBCode > 0 &&
+          selectedRegistrationNumberTypes.includes(
+            String(x.typeDnBCode)
+          )
+      ) ?? [];
+
+    let index = 0;
+    for (const reg of registrationNumbers) {
+      results[`RegistrationNumbers_${index}_RegistrationNumber`] = reg.registrationNumber;
+      results[`RegistrationNumbers_${index}_TypeDescription`] = reg.typeDescription;
+      results[`RegistrationNumbers_${index}_TypeDnBCode`] = reg.typeDnBCode;
+      results[`RegistrationNumbers_${index}_RegistrationNumberClassDescription`] = reg.registrationNumberClass?.description;
+      results[`RegistrationNumbers_${index}_RegistrationNumberClassDnbCode`] = reg.registrationNumberClass?.dnbCode;
+
+      index++;
+    }
+  }
+
+  // Corporate Linkage - Family Tree Roles Played
+  let familyIndex = 0;
+  for (const role of org?.corporateLinkage?.familytreeRolesPlayed ?? []) {
+    results[`CorporateLinkageFamilyTreeRolesPlayedVocabulary_${familyIndex}_Description`] = role.description;
+    results[`CorporateLinkageFamilyTreeRolesPlayedVocabulary_${familyIndex}_DnbCode`] = role.dnbCode;
+    familyIndex++;
+  }
+
+  results.HierarchyLevel = org?.corporateLinkage?.hierarchyLevel;
+  results.GlobalUltimateFamilyTreeMembersCount = org?.corporateLinkage?.globalUltimateFamilyTreeMembersCount;
+
+  // Number of Employees
+  results.NumberOfEmployees = org?.numberOfEmployees?.[0]?.value;
+  results.GlobalUltimateNumberOfEmployees = org?.corporateLinkage?.globalUltimate?.numberOfEmployees?.[0]?.value;
+  results.DomesticUltimateNumberOfEmployees = org?.corporateLinkage?.domesticUltimate?.numberOfEmployees?.[0]?.value;
+
+  // Yearly Revenue
+  const orgFinancial = org?.financials?.[0];
+  const orgRevenue = orgFinancial?.yearlyRevenue?.[0];
+
+  results.YearlyRevenue = orgRevenue && orgRevenue.currency
+      ? `${orgRevenue.value} ${orgRevenue.currency}`
+      : null;
+
+  const globalUltimateFinancial = org?.globalUltimate?.financials?.[0];
+  const globalUltimateRevenue = globalUltimateFinancial?.yearlyRevenue?.[0];
+
+  results.GlobalUltimateYearlyRevenue = globalUltimateRevenue && globalUltimateRevenue.currency
+      ? `${globalUltimateRevenue.value} ${globalUltimateRevenue.currency}`
+      : null;
+
+  const domesticUltimateFinancial = org?.domesticUltimate?.financials?.[0];
+  const domesticUltimateRevenue = domesticUltimateFinancial?.yearlyRevenue?.[0];
+
+  results.DomesticUltimateYearlyRevenue = domesticUltimateRevenue && domesticUltimateRevenue.currency
+      ? `${domesticUltimateRevenue.value} ${domesticUltimateRevenue.currency}`
+      : null;
+}
+
+function populatePrimaryAddresses(results, parsedContent) {
+  const org = parsedContent?.organization;
+
+  const domesticUltimateDuns = org?.corporateLinkage?.domesticUltimate?.duns;
+  const globalUltimateDuns = org?.corporateLinkage?.globalUltimate?.duns;
+  const parentDuns = org?.corporateLinkage?.parent?.duns;
+  const headQuarterDuns = org?.corporateLinkage?.headQuarter?.duns;
+  const duns = org?.duns;
+
+  // Domestic Ultimate
+  if (
+    org?.corporateLinkage?.domesticUltimate?.primaryAddress &&
+    domesticUltimateDuns &&
+    domesticUltimateDuns !== duns
+  ) {
+    const addr = org.corporateLinkage.domesticUltimate.primaryAddress;
+
+    results.DomesticUltimatePrimaryAddressCountry = addr.addressCountry?.name;
+    results.DomesticUltimateISO2CountryCode = addr.addressCountry?.isoAlpha2Code;
+    results.DomesticUltimatePrimaryAddressCountyName = addr.addressCounty?.name;
+    results.DomesticUltimatePrimaryAddressLocality = addr.addressLocality?.name;
+    results.DomesticUltimatePrimaryAddressPostalCode = addr.postalCode;
+    results.DomesticUltimatePrimaryAddressRegionName = addr.addressRegion?.name;
+    results.DomesticUltimatePrimaryAddressRegionAbbreviatedName = addr.addressRegion?.abbreviatedName;
+    results.DomesticUltimatePrimaryAddressStreetLine1 = addr.streetAddress?.line1;
+    results.DomesticUltimatePrimaryAddressStreetLine2 = addr.streetAddress?.line2;
+  }
+
+  // Global Ultimate
+  if (
+    org?.corporateLinkage?.globalUltimate?.primaryAddress &&
+    globalUltimateDuns &&
+    globalUltimateDuns !== duns
+  ) {
+    const addr = org.corporateLinkage.globalUltimate.primaryAddress;
+
+    results.GlobalUltimatePrimaryAddressCountry = addr.addressCountry?.name;
+    results.GlobalUltimateISO2CountryCode = addr.addressCountry?.isoAlpha2Code;
+    results.GlobalUltimatePrimaryAddressCountyName = addr.addressCounty?.name;
+    results.GlobalUltimatePrimaryAddressLocality = addr.addressLocality?.name;
+    results.GlobalUltimatePrimaryAddressPostalCode = addr.postalCode;
+    results.GlobalUltimatePrimaryAddressRegionName = addr.addressRegion?.name;
+    results.GlobalUltimatePrimaryAddressRegionAbbreviatedName = addr.addressRegion?.abbreviatedName;
+    results.GlobalUltimatePrimaryAddressStreetLine1 = addr.streetAddress?.line1;
+    results.GlobalUltimatePrimaryAddressStreetLine2 = addr.streetAddress?.line2;
+  }
+
+  // Parent
+  if (
+    org?.corporateLinkage?.parent?.primaryAddress &&
+    parentDuns &&
+    parentDuns !== duns
+  ) {
+    const addr = org.corporateLinkage.parent.primaryAddress;
+
+    results.ParentPrimaryAddressCountry = addr.addressCountry?.name;
+    results.ParentISO2CountryCode = addr.addressCountry?.isoAlpha2Code;
+    results.ParentPrimaryAddressCountyName = addr.addressCounty?.name;
+    results.ParentPrimaryAddressLocality = addr.addressLocality?.name;
+    results.ParentPrimaryAddressPostalCode = addr.postalCode;
+    results.ParentPrimaryAddressRegionName = addr.addressRegion?.name;
+    results.ParentPrimaryAddressRegionAbbreviatedName = addr.addressRegion?.abbreviatedName;
+    results.ParentPrimaryAddressStreetLine1 = addr.streetAddress?.line1;
+    results.ParentPrimaryAddressStreetLine2 = addr.streetAddress?.line2;
+  }
+
+  // HeadQuarter
+  if (
+    org?.corporateLinkage?.headQuarter?.primaryAddress &&
+    headQuarterDuns &&
+    headQuarterDuns !== duns
+  ) {
+    const addr = org.corporateLinkage.headQuarter.primaryAddress;
+
+    results.HeadQuarterPrimaryAddressCountry = addr.addressCountry?.name;
+    results.HeadQuarterISO2CountryCode = addr.addressCountry?.isoAlpha2Code;
+    results.HeadQuarterPrimaryAddressCountyName = addr.addressCounty?.name;
+    results.HeadQuarterPrimaryAddressLocality = addr.addressLocality?.name;
+    results.HeadQuarterPrimaryAddressPostalCode = addr.postalCode;
+    results.HeadQuarterPrimaryAddressRegionName = addr.addressRegion?.name;
+    results.HeadQuarterPrimaryAddressRegionAbbreviatedName = addr.addressRegion?.abbreviatedName;
+    results.HeadQuarterPrimaryAddressStreetLine1 = addr.streetAddress?.line1;
+    results.HeadQuarterPrimaryAddressStreetLine2 = addr.streetAddress?.line2;
+  }
+
+  // Self
+  if (!org?.primaryAddress) return;
+
+  const primary = org.primaryAddress;
+
+  results.PrimaryAddressCountry = primary.addressCountry?.name;
+  results.ISO2CountryCode = primary.addressCountry?.isoAlpha2Code;
+  results.PrimaryAddressCountyName = primary.addressCounty?.name;
+  results.PrimaryAddressLocality = primary.addressLocality?.name;
+  results.PrimaryAddressPostalCode = primary.postalCode;
+  results.PrimaryAddressRegionName = primary.addressRegion?.name;
+  results.PrimaryAddressRegionAbbreviatedName = primary.addressRegion?.abbreviatedName;
+  results.PrimaryAddressStreetLine1 = primary.streetAddress?.line1;
+  results.PrimaryAddressStreetLine2 = primary.streetAddress?.line2;
+}
+
+try {
+  let parsedContent = JSON.parse(response.Content);
+  let results = {};
+
+  const confidenceScore = parsedContent?.matchCandidates?.[0]?.matchQualityInformation?.confidenceCode;
+  populatePrimaryAddresses(results, parsedContent);
+  populateOrganizationInfo(results, parsedContent);
+  populateIndustryCodes(results, parsedContent);
+
+  log('Parsed DnB Results: ' + JSON.stringify(results));
+  response.Content = JSON.stringify([{ Data: results, Score: confidenceScore ? confidenceScore * 10 : 100 }]);
+} catch (error) {
+  const errorDetails = {
+    name: error?.name,
+    message: error?.message,
+    stack: error?.stack,
+  };
+  log("Authentication failed :" + JSON.stringify(errorDetails));
+}
+```
+
+
+**Search using Name and Country**
+
+**Method:** GET
+
+**URL**
+```
+https://plus.dnb.com/v1/match/extendedMatch?name={Vocabulary:testduns.account}&countryISOAlpha2Code={Vocabulary:testduns.adminregion}&blockIDs=companyfinancials_L1_v3,hierarchyconnections_L1_v1,companyinfo_L3_v1,companyinfo_identifiers_v1,esginsight_L3_v1
+```
+
+**Process request script**
+```
+const authCacheKey = 'dnb_auth_token';
+const cachedAuthToken = cache.Get(authCacheKey);
+
+if (cachedAuthToken) {
+  request.AddHeader('Authorization', `Bearer ${cachedAuthToken}`);
+
+  request.Body = { grant_type: 'client_credentials' };
+} else {
+  log('Unable to retrieve DnB auth token');
+}
+```
+
+
+**Process response script**
+```
+function populateIndustryCodes(results, parsedContent) {
+  const selectedTypes = ['19295', '37788'];
+
+  const industryCodeValues =
+    parsedContent?.embeddedProduct?.organization?.industryCodes?.filter(
+      x =>
+        x?.typeDnBCode > 0 &&
+        selectedTypes.includes(String(x.typeDnBCode))
+    ) ?? [];
+
+  if (industryCodeValues.length === 0) return;
+
+  let industryCodesIndex = 0;
+  for (const industryCode of industryCodeValues) {
+      results[`Industry_${industryCodesIndex}_Description`] = industryCode.description;
+      results[`Industry_${industryCodesIndex}_TypeDescription`] = industryCode.typeDescription;
+      results[`Industry_${industryCodesIndex}_TypeDnBCode`] = industryCode.typeDnBCode;
+      results[`Industry_${industryCodesIndex}_Priority`] = industryCode.priority;
+      results[`Industry_${industryCodesIndex}_Code`] = industryCode.code;
+
+      industryCodesIndex++;
+    }
+}
+
+function populateOrganizationInfo(results, parsedContent) {
+  const org = parsedContent?.embeddedProduct?.organization;
+
+  // DUNS Control Status
+  if (org?.dunsControlStatus) {
+    const status = org.dunsControlStatus;
+
+    results.DunsControlStatusFullReportDate = status.fullReportDate;
+    results.DunsControlStatusLastUpdateDate = status.lastUpdateDate;
+    results.DunsControlStatusOperatingStatusDescription = status.operatingStatus?.description;
+    results.DunsControlStatusOperatingStatusDnbCode = status.operatingStatus?.dnbCode;
+    results.DunsControlStatusIsMarketable = status.isMarketable;
+    results.DunsControlStatusIsMailUndeliverable = status.isMailUndeliverable;
+    results.DunsControlStatusIsTelephoneDisconnected = status.isTelephoneDisconnected;
+    results.DunsControlStatusIsDelisted = status.isDelisted;
+
+    if (status?.operatingStatus) {
+      results.OperatingStatusCode = status.operatingStatus?.dnbCode;
+      results.OperatingStatusDescription = status.operatingStatus?.description;
+    }
+  }
+
+  // DUNS Numbers
+  results.Duns = org?.duns;
+  results.DomesticUltimateDuns = org?.corporateLinkage?.domesticUltimate?.duns;
+  results.GlobalUltimateDuns = org?.corporateLinkage?.globalUltimate?.duns;
+  results.ParentDuns = org?.corporateLinkage?.parent?.duns;
+  results.HeadQuarterDuns = org?.corporateLinkage?.headQuarter?.duns;
+
+  // Business Information
+  results.PrimaryBusinessName = org?.primaryName;
+  results.BusinessEntityTypeDnbCode = org?.businessEntityType?.dnbCode;
+  results.BusinessEntityTypeDescription = org?.businessEntityType?.description;
+
+  // Trade Style Names
+  const tradeStyleNames =
+    org?.tradeStyleNames
+      ?.map(t => t?.name)
+      ?.filter(n => n && n.length > 0) ?? [];
+
+  if (tradeStyleNames.length > 0) {
+    results.TradeStyleNames = tradeStyleNames.join(" | ");
+  }
+
+  // Website
+  const website = org?.websiteAddress?.[0];
+  if (website) {
+    results.WebsiteUrl = website.url;
+  }
+
+  // Telephone
+  const telephone = org?.telephone?.[0];
+  if (telephone?.isdCode && telephone?.telephoneNumber) {
+    results.Telephone = `+${telephone.isdCode} ${telephone.telephoneNumber}`;
+  }
+
+  // Fax
+  const fax = org?.fax?.[0];
+  if (fax?.isdCode && fax?.faxNumber) {
+    results.Fax = `+${fax.isdCode} ${fax.faxNumber}`;
+  }
+
+  // Stock Exchange
+  const primaryStockExchange =
+    org?.stockExchanges?.find(x => x?.isPrimary === true);
+
+  if (primaryStockExchange) {
+    results.StockExchangeTickerName = primaryStockExchange.tickerName;
+    results.StockExchangeName = primaryStockExchange.exchangeName?.description;
+    results.StockExchangeCountryCode = primaryStockExchange.exchangeCountry?.isoAlpha2Code;
+  }
+
+  // Registration Numbers
+  const selectedRegistrationNumberTypes = ['2541'];
+
+  if (selectedRegistrationNumberTypes.length > 0) {
+    const registrationNumbers =
+      org?.registrationNumbers?.filter(
+        x =>
+          x?.typeDnBCode > 0 &&
+          selectedRegistrationNumberTypes.includes(
+            String(x.typeDnBCode)
+          )
+      ) ?? [];
+
+    let index = 0;
+    for (const reg of registrationNumbers) {
+      results[`RegistrationNumbers_${index}_RegistrationNumber`] = reg.registrationNumber;
+      results[`RegistrationNumbers_${index}_TypeDescription`] = reg.typeDescription;
+      results[`RegistrationNumbers_${index}_TypeDnBCode`] = reg.typeDnBCode;
+      results[`RegistrationNumbers_${index}_RegistrationNumberClassDescription`] = reg.registrationNumberClass?.description;
+      results[`RegistrationNumbers_${index}_RegistrationNumberClassDnbCode`] = reg.registrationNumberClass?.dnbCode;
+
+      index++;
+    }
+  }
+
+  // Corporate Linkage - Family Tree Roles Played
+  let familyIndex = 0;
+  for (const role of org?.corporateLinkage?.familytreeRolesPlayed ?? []) {
+    results[`CorporateLinkageFamilyTreeRolesPlayedVocabulary_${familyIndex}_Description`] = role.description;
+    results[`CorporateLinkageFamilyTreeRolesPlayedVocabulary_${familyIndex}_DnbCode`] = role.dnbCode;
+    familyIndex++;
+  }
+
+  results.HierarchyLevel = org?.corporateLinkage?.hierarchyLevel;
+  results.GlobalUltimateFamilyTreeMembersCount = org?.corporateLinkage?.globalUltimateFamilyTreeMembersCount;
+
+  // Number of Employees
+  results.NumberOfEmployees = org?.numberOfEmployees?.[0]?.value;
+  results.GlobalUltimateNumberOfEmployees = org?.corporateLinkage?.globalUltimate?.numberOfEmployees?.[0]?.value;
+  results.DomesticUltimateNumberOfEmployees = org?.corporateLinkage?.domesticUltimate?.numberOfEmployees?.[0]?.value;
+
+  // Yearly Revenue
+  const orgFinancial = org?.financials?.[0];
+  const orgRevenue = orgFinancial?.yearlyRevenue?.[0];
+
+  results.YearlyRevenue = orgRevenue && orgRevenue.currency
+      ? `${orgRevenue.value} ${orgRevenue.currency}`
+      : null;
+
+  const globalUltimateFinancial = org?.globalUltimate?.financials?.[0];
+  const globalUltimateRevenue = globalUltimateFinancial?.yearlyRevenue?.[0];
+
+  results.GlobalUltimateYearlyRevenue = globalUltimateRevenue && globalUltimateRevenue.currency
+      ? `${globalUltimateRevenue.value} ${globalUltimateRevenue.currency}`
+      : null;
+
+  const domesticUltimateFinancial = org?.domesticUltimate?.financials?.[0];
+  const domesticUltimateRevenue = domesticUltimateFinancial?.yearlyRevenue?.[0];
+
+  results.DomesticUltimateYearlyRevenue = domesticUltimateRevenue && domesticUltimateRevenue.currency
+      ? `${domesticUltimateRevenue.value} ${domesticUltimateRevenue.currency}`
+      : null;
+}
+
+function populatePrimaryAddresses(results, parsedContent) {
+  const org = parsedContent?.embeddedProduct?.organization;
+
+  const domesticUltimateDuns = org?.corporateLinkage?.domesticUltimate?.duns;
+  const globalUltimateDuns = org?.corporateLinkage?.globalUltimate?.duns;
+  const parentDuns = org?.corporateLinkage?.parent?.duns;
+  const headQuarterDuns = org?.corporateLinkage?.headQuarter?.duns;
+  const duns = org?.duns;
+
+  // Domestic Ultimate
+  if (
+    org?.corporateLinkage?.domesticUltimate?.primaryAddress &&
+    domesticUltimateDuns &&
+    domesticUltimateDuns !== duns
+  ) {
+    const addr = org.corporateLinkage.domesticUltimate.primaryAddress;
+
+    results.DomesticUltimatePrimaryAddressCountry = addr.addressCountry?.name;
+    results.DomesticUltimateISO2CountryCode = addr.addressCountry?.isoAlpha2Code;
+    results.DomesticUltimatePrimaryAddressCountyName = addr.addressCounty?.name;
+    results.DomesticUltimatePrimaryAddressLocality = addr.addressLocality?.name;
+    results.DomesticUltimatePrimaryAddressPostalCode = addr.postalCode;
+    results.DomesticUltimatePrimaryAddressRegionName = addr.addressRegion?.name;
+    results.DomesticUltimatePrimaryAddressRegionAbbreviatedName = addr.addressRegion?.abbreviatedName;
+    results.DomesticUltimatePrimaryAddressStreetLine1 = addr.streetAddress?.line1;
+    results.DomesticUltimatePrimaryAddressStreetLine2 = addr.streetAddress?.line2;
+  }
+
+  // Global Ultimate
+  if (
+    org?.corporateLinkage?.globalUltimate?.primaryAddress &&
+    globalUltimateDuns &&
+    globalUltimateDuns !== duns
+  ) {
+    const addr = org.corporateLinkage.globalUltimate.primaryAddress;
+
+    results.GlobalUltimatePrimaryAddressCountry = addr.addressCountry?.name;
+    results.GlobalUltimateISO2CountryCode = addr.addressCountry?.isoAlpha2Code;
+    results.GlobalUltimatePrimaryAddressCountyName = addr.addressCounty?.name;
+    results.GlobalUltimatePrimaryAddressLocality = addr.addressLocality?.name;
+    results.GlobalUltimatePrimaryAddressPostalCode = addr.postalCode;
+    results.GlobalUltimatePrimaryAddressRegionName = addr.addressRegion?.name;
+    results.GlobalUltimatePrimaryAddressRegionAbbreviatedName = addr.addressRegion?.abbreviatedName;
+    results.GlobalUltimatePrimaryAddressStreetLine1 = addr.streetAddress?.line1;
+    results.GlobalUltimatePrimaryAddressStreetLine2 = addr.streetAddress?.line2;
+  }
+
+  // Parent
+  if (
+    org?.corporateLinkage?.parent?.primaryAddress &&
+    parentDuns &&
+    parentDuns !== duns
+  ) {
+    const addr = org.corporateLinkage.parent.primaryAddress;
+
+    results.ParentPrimaryAddressCountry = addr.addressCountry?.name;
+    results.ParentISO2CountryCode = addr.addressCountry?.isoAlpha2Code;
+    results.ParentPrimaryAddressCountyName = addr.addressCounty?.name;
+    results.ParentPrimaryAddressLocality = addr.addressLocality?.name;
+    results.ParentPrimaryAddressPostalCode = addr.postalCode;
+    results.ParentPrimaryAddressRegionName = addr.addressRegion?.name;
+    results.ParentPrimaryAddressRegionAbbreviatedName = addr.addressRegion?.abbreviatedName;
+    results.ParentPrimaryAddressStreetLine1 = addr.streetAddress?.line1;
+    results.ParentPrimaryAddressStreetLine2 = addr.streetAddress?.line2;
+  }
+
+  // HeadQuarter
+  if (
+    org?.corporateLinkage?.headQuarter?.primaryAddress &&
+    headQuarterDuns &&
+    headQuarterDuns !== duns
+  ) {
+    const addr = org.corporateLinkage.headQuarter.primaryAddress;
+
+    results.HeadQuarterPrimaryAddressCountry = addr.addressCountry?.name;
+    results.HeadQuarterISO2CountryCode = addr.addressCountry?.isoAlpha2Code;
+    results.HeadQuarterPrimaryAddressCountyName = addr.addressCounty?.name;
+    results.HeadQuarterPrimaryAddressLocality = addr.addressLocality?.name;
+    results.HeadQuarterPrimaryAddressPostalCode = addr.postalCode;
+    results.HeadQuarterPrimaryAddressRegionName = addr.addressRegion?.name;
+    results.HeadQuarterPrimaryAddressRegionAbbreviatedName = addr.addressRegion?.abbreviatedName;
+    results.HeadQuarterPrimaryAddressStreetLine1 = addr.streetAddress?.line1;
+    results.HeadQuarterPrimaryAddressStreetLine2 = addr.streetAddress?.line2;
+  }
+
+  // Self
+  if (!org?.primaryAddress) return;
+
+  const primary = org.primaryAddress;
+
+  results.PrimaryAddressCountry = primary.addressCountry?.name;
+  results.ISO2CountryCode = primary.addressCountry?.isoAlpha2Code;
+  results.PrimaryAddressCountyName = primary.addressCounty?.name;
+  results.PrimaryAddressLocality = primary.addressLocality?.name;
+  results.PrimaryAddressPostalCode = primary.postalCode;
+  results.PrimaryAddressRegionName = primary.addressRegion?.name;
+  results.PrimaryAddressRegionAbbreviatedName = primary.addressRegion?.abbreviatedName;
+  results.PrimaryAddressStreetLine1 = primary.streetAddress?.line1;
+  results.PrimaryAddressStreetLine2 = primary.streetAddress?.line2;
+}
+
+try {
+  let parsedContent = JSON.parse(response.Content);
+  let results = {};
+
+  const confidenceScore = parsedContent?.matchCandidates?.[0]?.matchQualityInformation?.confidenceCode;
+  populatePrimaryAddresses(results, parsedContent);
+  populateOrganizationInfo(results, parsedContent);
+  populateIndustryCodes(results, parsedContent);
+
+  log('Parsed DnB Results: ' + JSON.stringify(results));
+  response.Content = JSON.stringify([{ Data: results, Score: confidenceScore ? confidenceScore * 10 : 100 }]);
+} catch (error) {
+  const errorDetails = {
+    name: error?.name,
+    message: error?.message,
+    stack: error?.stack,
+  };
+  log("Authentication failed :" + JSON.stringify(errorDetails));
+}
+```
