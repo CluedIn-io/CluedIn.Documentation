@@ -26,9 +26,9 @@ The following diagram shows the default network configuration of CluedIn after i
 
 The following diagram shows the advanced network configuration of CluedIn.
 
-![advanced-network-blue-1.png]({{ "/assets/images/ama/howtos/advanced-network-blue-1.png" | relative_url }}){: width="800"}
+![advanced-network-architecture.png]({{ "/assets/images/ama/howtos/advanced-network-architecture.png" | relative_url }}){: width="800"}
 
-![advanced-network-blue-3.png]({{ "/assets/images/ama/howtos/advanced-network-blue-3.png" | relative_url }}){: width="800"}
+![advanced-network-diagram.png]({{ "/assets/images/ama/howtos/advanced-network-diagram.png" | relative_url }}){: width="800"}
 
 ![advanced-network-key-blue.png]({{ "/assets/images/ama/howtos/advanced-network-key-blue.png" | relative_url }}){: width="200"}
 
