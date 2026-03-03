@@ -4033,7 +4033,7 @@
   },"576": {
     "doc": "Disaster recovery runbook",
     "title": "On this page",
-    "content": ". | Automation account | Input parameters | Process . | 1. Backup of the Primary CluedIn Instance | 2. Transfer of Snapshots and BACPAC Files | 3. Disaster Recovery Environment Validation | . | . The disaster recovery runbook can be triggered manually or on a set schedule. It is responsible for orchestrating the backup &gt; copy &gt; restore process. This runbook is a PowerShell script, which CluedIn will provide as needed. Prerequisites . | This runbook is for CluedIn versions 2025.09.00 and onwards | An active CluedIn cluster with a valid license (and/or a passive CluedIn cluster) | The runbook script | An automation account | The backup runbook | The copy runbook | The restore runbook | A storage account | Sufficient permissions | . ",
+    "content": ". | Automation account | Input parameters | Process . | 1. Backup of the Primary CluedIn Instance | 2. Transfer of Snapshots and BACPAC Files | 3. Disaster Recovery Environment Validation | . | . The disaster recovery runbook can be triggered manually or on a set schedule. It is responsible for orchestrating the backup &gt; copy &gt; restore process. This runbook is a PowerShell script, which CluedIn will provide as needed. This runbook is recommended for instances with less than 1M records. Prerequisites . | This runbook is for CluedIn versions 2025.09.00 and onwards | An active CluedIn cluster with a valid license (and/or a passive CluedIn cluster) | The runbook script | An automation account | The backup runbook | The copy runbook | The restore runbook | A storage account | Sufficient permissions | . ",
     "url": "/paas-operations/automation/disaster-recovery-runbook#on-this-page",
     
     "relUrl": "/paas-operations/automation/disaster-recovery-runbook#on-this-page"
@@ -6092,37 +6092,37 @@
     "doc": "Disaster recovery runbook - Pre 2025.09.00",
     "title": "On this page",
     "content": ". | Automation account | Input parameters | Process | . The disaster recovery runbook can be triggered manually or on a set schedule. It is responsible for orchestrating the backup &gt; copy &gt; restore process. This runbook is a PowerShell script, which CluedIn will provide as needed. Prerequisites . | An active CluedIn cluster with a valid license (and/or a passive CluedIn cluster) | The runbook script | An automation account | The backup runbook | The copy runbook | The restore runbook | A storage account | Sufficient permissions | . ",
-    "url": "/paas-operations/automation/disaster-recovery-runbook#on-this-page",
+    "url": "/paas-operations/automation/legacy/disaster-recovery-runbook#on-this-page",
     
-    "relUrl": "/paas-operations/automation/disaster-recovery-runbook#on-this-page"
+    "relUrl": "/paas-operations/automation/legacy/disaster-recovery-runbook#on-this-page"
   },"871": {
     "doc": "Disaster recovery runbook - Pre 2025.09.00",
     "title": "Automation account",
     "content": "An automation account must be provided. The runbook will be installed into the the automation account. The three dependent runbooks must already be installed. Typically, the runbook should be scheduled to run once a day outside of office hours. ",
-    "url": "/paas-operations/automation/disaster-recovery-runbook#automation-account",
+    "url": "/paas-operations/automation/legacy/disaster-recovery-runbook#automation-account",
     
-    "relUrl": "/paas-operations/automation/disaster-recovery-runbook#automation-account"
+    "relUrl": "/paas-operations/automation/legacy/disaster-recovery-runbook#automation-account"
   },"872": {
     "doc": "Disaster recovery runbook - Pre 2025.09.00",
     "title": "Input parameters",
     "content": "| Parameter | Default | Description | . | CustomerName | required | Name of customer | . | Subscription | required | ID of the Azure subscription | . | SourceResourceGroup | required | Name of resource group where source AKS cluster is located | . | TargetResourceGroup | required` | Name of resource group where target AKS cluster is located | . | TargetStorageAccount | required | Name of target storage account | . | SourceSnapshotResourceGroup | required | Name of resource group containing source snapshots | . | TargetSnapshotResourceGroup | required | Name of resource group containing copied snapshots | . | ScaledownDR | true | Scales down a DR cluster after a successful restoer | . ",
-    "url": "/paas-operations/automation/disaster-recovery-runbook#input-parameters",
+    "url": "/paas-operations/automation/legacy/disaster-recovery-runbook#input-parameters",
     
-    "relUrl": "/paas-operations/automation/disaster-recovery-runbook#input-parameters"
+    "relUrl": "/paas-operations/automation/legacy/disaster-recovery-runbook#input-parameters"
   },"873": {
     "doc": "Disaster recovery runbook - Pre 2025.09.00",
     "title": "Process",
     "content": ". Scaling down of the DR environment following a successful restore is optional. ",
-    "url": "/paas-operations/automation/disaster-recovery-runbook#process",
+    "url": "/paas-operations/automation/legacy/disaster-recovery-runbook#process",
     
-    "relUrl": "/paas-operations/automation/disaster-recovery-runbook#process"
+    "relUrl": "/paas-operations/automation/legacy/disaster-recovery-runbook#process"
   },"874": {
     "doc": "Disaster recovery runbook - Pre 2025.09.00",
     "title": "Disaster recovery runbook - Pre 2025.09.00",
     "content": " ",
-    "url": "/paas-operations/automation/disaster-recovery-runbook",
+    "url": "/paas-operations/automation/legacy/disaster-recovery-runbook",
     
-    "relUrl": "/paas-operations/automation/disaster-recovery-runbook"
+    "relUrl": "/paas-operations/automation/legacy/disaster-recovery-runbook"
   },"875": {
     "doc": "MDS → CluedIn (Part 2): Best adoption approach and the mindset change",
     "title": "On this page",
