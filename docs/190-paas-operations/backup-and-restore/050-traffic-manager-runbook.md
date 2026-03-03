@@ -4,7 +4,7 @@ title: Traffic manager runbook
 parent: Backup and restore
 grand_parent: PaaS operations
 permalink: /paas-operations/automation/traffic-manager-runbook
-nav_order: 5
+nav_order: 7
 headerIcon: "paas"
 ---
 ## On this page
