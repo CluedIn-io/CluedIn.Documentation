@@ -17,8 +17,8 @@ The disaster recovery runbook can be triggered manually or on a set schedule. It
 This runbook is a PowerShell script, which CluedIn will provide as needed.
 
 {:.important}
-> This runbook is recommended for instances with larger than 1M records.
-> Additional costs are incurred as the secondary database must always be running.
+This runbook is recommended for instances with larger than 1M records.
+Additional costs are incurred as the secondary database must always be running.
 
 **Prerequisites**
 
@@ -69,11 +69,11 @@ The secondary backup performs the following actions:
 
 ---
 
-### 2. Transfer of Snapshots and BACPAC Files
+### 2. Transfer of Snapshots
 
 Upon successful completion of the backups:
 
-- Disk snapshots and BACPAC files are transferred from the primary region to the secondary region via the Microsoft backbone.
+- Disk snapshots are transferred from the primary region to the secondary region via the Microsoft backbone.
 - Transfer completion and data integrity should be validated before proceeding.
 
 ---
