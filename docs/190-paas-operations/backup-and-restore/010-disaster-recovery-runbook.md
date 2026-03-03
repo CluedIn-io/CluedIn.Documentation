@@ -22,6 +22,7 @@ This runbook is recommended for instances with less than 1M records.
 **Prerequisites**
 
 - This runbook is for CluedIn versions 2025.09.00 and onwards
+- Pre 2025.09.00 use [Disaster recovery runbook - legacy](/paas-operations/automation/legacy/disaster-recovery-runbook)
 - An active CluedIn cluster with a valid license (and/or a passive CluedIn cluster)
 - The runbook script
 - An automation account
@@ -35,7 +36,7 @@ This runbook is recommended for instances with less than 1M records.
 
 An automation account must be provided. The runbook will be installed into the the automation account. The three dependent runbooks must already be installed. Typically, the runbook should be scheduled to run once a day outside of office hours.
 
-![disaster-recovery-runbook.png]({{ "/assets/images/paas-operations/disaster-recovery-runbook-2025.png" | relative_url }})
+![disaster-recovery-runbook.png]({{ "/assets/images/paas-operations/disaster-recovery-runbook-2026.png" | relative_url }})
 
 ## Input parameters
 
