@@ -4,7 +4,7 @@ title: Backup runbook
 parent: Backup and restore
 grand_parent: PaaS operations
 permalink: /paas-operations/automation/backup-runbook
-nav_order: 4
+nav_order: 3
 headerIcon: "paas"
 ---
 ## On this page

@@ -1,10 +1,10 @@
 ---
 layout: cluedin
 title: Disaster recovery runbook - Pre 2025.09.00
-parent: Backup and restore
-grand_parent: PaaS operations
-permalink: /paas-operations/automation/disaster-recovery-runbook
-nav_order: 2
+parent: Legacy
+grand_parent: Backup and restore
+permalink: /paas-operations/automation/legacy/disaster-recovery-runbook
+nav_order: 1
 headerIcon: "paas"
 ---
 ## On this page

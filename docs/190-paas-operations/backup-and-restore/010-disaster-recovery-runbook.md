@@ -16,6 +16,9 @@ The disaster recovery runbook can be triggered manually or on a set schedule. It
 
 This runbook is a PowerShell script, which CluedIn will provide as needed.
 
+{:.important}
+This runbook is recommended for instances with less than 1M records.
+
 **Prerequisites**
 
 - This runbook is for CluedIn versions 2025.09.00 and onwards
