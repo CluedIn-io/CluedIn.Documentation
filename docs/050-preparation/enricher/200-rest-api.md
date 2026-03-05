@@ -527,16 +527,15 @@ Provided below is an example of the response you would receive for the same requ
     ```
 - **Response:**
 
-    ```
+```
     {
         "Version": "9.4.1.1228",
         "TransmissionReference": "",
         "TransmissionResults": "",
         "TotalRecords": "1",
-        "Records": [
-            {
-                "RecordID": "1",
-                "Results": "AC16,AV24,GS05",
+        "Records": [{
+                "RecordID": "1",
+                "Results": "AC16,AV24,GS05",
                 "FormattedAddress": "Walmart Inc.;702 SW 8th St;Bentonville AR  72716-6299",
                 "Organization": "Walmart Inc.",
                 "AddressLine1": "702 SW 8th St",
@@ -601,7 +600,7 @@ Provided below is an example of the response you would receive for the same requ
             }
         ]
     }
-    ```
+```
 
 ### Duns and Bradstreet (D&B)
 This code takes an organization’s DUNS number, or its name and country, and sends a request to the Dun & Bradstreet API to retrieve additional details. Before doing so, an enricher must be set up to obtain the authentication key.
