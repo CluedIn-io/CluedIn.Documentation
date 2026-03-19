@@ -1,4 +1,18 @@
-# Example of CluedIn vs Client RACI responsibilities matrix
+---
+layout: cluedin
+nav_order: 12
+parent: Playbooks
+permalink: /playbooks/clued-vs-client-raci-example
+title: Example Of CluedIn vs Client RACI Responsibilities Matrix
+---
+
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
+
+## Example of CluedIn vs Client RACI responsibilities matrix
 
 **Assumption:** this version is for a **CluedIn-led implementation with no SI partner** and assumes **PaaS/customer-managed Azure** unless noted otherwise.
 
@@ -40,15 +54,15 @@ That includes platform installation, technical onboarding, ingestion setup, data
 That includes business goals, use-case prioritization, business-rule sign-off, source-system access, enterprise architecture/security/legal/procurement approvals, UAT, go-live approval, and ongoing stewardship. Recent CluedIn RFx material says successful implementations need customer-side roles such as Product Owner / Business Data Owner, Data Architect, Data Engineer, and Data Steward, and states that CluedIn typically runs a cross-functional RACI early around domain ownership, change control, and integration responsibilities. 
 
 **For PaaS, the client owns the Azure foundation; CluedIn owns the platform on top of it.**
-CluedIn’s public docs say the PaaS installation process must be carried out by a customer Azure Administrator with the right Azure permissions, quota, network planning, and readiness steps. The same docs also say CluedIn can handle most of the operational heavy lifting once the operations team has access, including post-installation, upgrades, backups, and monitoring. Public support-scope docs also make clear that unsupported infra deviations are out of support, so the customer should stay accountable for Azure guardrails while CluedIn stays accountable for supported CluedIn configuration and operations. ([CluedIn Documentation][2])
+CluedIn’s public docs say the PaaS installation process must be carried out by a customer Azure Administrator with the right Azure permissions, quota, network planning, and readiness steps. The same docs also say CluedIn can handle most of the operational heavy lifting once the operations team has access, including post-installation, upgrades, backups, and monitoring. Public support-scope docs also make clear that unsupported infra deviations are out of support, so the customer should stay accountable for Azure guardrails while CluedIn stays accountable for supported CluedIn configuration and operations.
 
 **Data modeling, configuration, integration, and migration are shared — but not equally.**
-CluedIn’s docs make it clear that the platform’s data model is built through vocabularies and vocabulary keys, rules automate business logic and data transformation, streams/export targets push mastered data out, and GraphQL provides flexible pull/query access. That strongly supports a split where **CluedIn is responsible for building/configuring the mechanics**, while the **client is accountable for defining the business meaning, target-state behavior, and acceptance criteria**. ([CluedIn Documentation][3])
+CluedIn’s docs make it clear that the platform’s data model is built through vocabularies and vocabulary keys, rules automate business logic and data transformation, streams/export targets push mastered data out, and GraphQL provides flexible pull/query access. That strongly supports a split where **CluedIn is responsible for building/configuring the mechanics**, while the **client is accountable for defining the business meaning, target-state behavior, and acceptance criteria**.
 
 ### Two important caveats
 
 **1) If the deal is Private SaaS or SaaS, shift several infra rows toward CluedIn.**
-In SaaS/Private SaaS, CluedIn takes more ownership for the environment itself. The client still remains accountable for identity decisions, business rules, source access, UAT, and data stewardship. The docs explicitly note that SSO applies to both PaaS and SaaS, but in SaaS the final enablement step is completed by CluedIn support. ([CluedIn Documentation][1])
+In SaaS/Private SaaS, CluedIn takes more ownership for the environment itself. The client still remains accountable for identity decisions, business rules, source access, UAT, and data stewardship. The docs explicitly note that SSO applies to both PaaS and SaaS, but in SaaS the final enablement step is completed by CluedIn support.
 
 **2) If an SI partner is involved, many “R” tasks move from CluedIn to the SI.**
 That is especially true for integration build, migration factory work, and some rollout/change-management tasks. CluedIn should then stay **A/C** on product-specific design, supported configuration, and L2/L3 product support. That also lines up with the older internal three-party roles template, which separated CluedIn, Partner, and Customer responsibilities rather than forcing CluedIn to own every delivery task. 
