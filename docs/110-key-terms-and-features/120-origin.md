@@ -24,6 +24,8 @@ In this article, we'll explain the usage of the origin in two important processe
 
 - [Linking golden records](#linking-golden-records)
 
+ ---
+
 ## Merging records by identifiers
 
 Since the origin is used in the primary identifier and the identifiers, it plays a role in merging—when 2 identifiers are identical, the records will merge together.
@@ -54,6 +56,8 @@ Since the origin is shared among different sources, each time the same serial nu
 
 ![merging-by-codes-2.png]({{ "/assets/images/key-terms-and-features/merging-by-codes-2.png" | relative_url }})
 
+---
+
 ## Linking golden records
 
 Origin can be used to link golden records together to **create relationship**. You can link golden records using identifiers, rules, or manually in the UI. To create a relationship using identifiers, you need to know the **origin of target golden records**. These are the golden records to which you want to link current records.
@@ -69,6 +73,76 @@ The **combination of those 3 values** needs to **match one of the identifiers of
 ![linking-golden-records.png]({{ "/assets/images/key-terms-and-features/linking-golden-records.png" | relative_url }})
 
 To make the process of linking golden records easier, you can use the recommendation for defining the origin that we provided in [Merging by identifiers](#merging-records-by-identifiers). Essentially, the method of **shared origin** that you use for merging by identifiers can also be used to facilitate the process of linking golden records. This way you do not have to rely on the source system and instead use the origin that you defined for related data.
+
+---
+
+## Understanding origin in identity resolution
+
+Origin is a component of the entity identifier and defines the namespace in which identifier values are interpreted.
+
+An entity identifier in CluedIn is composed of:
+
+- Entity type  
+- Origin  
+- Value  
+
+### Example
+
+/Organization#CRM:123  
+/Organization#ERP:123  
+
+In this example, the value `123` represents two different identifiers because the origin differs.
+
+---
+
+## Impact on identity resolution
+
+Origin is used as part of identifier matching during entity resolution.
+
+Origin determines:
+
+- the identity boundary for a given data source  
+- how identifier values are interpreted within that boundary  
+
+If the same origin and value are used across records, they are treated as the same identifier and may result in merging.
+
+If the origin differs, the identifiers are treated as distinct, even when the value is identical.
+
+---
+
+## Linking records using origin
+
+Origin is also used when linking records across business domains.
+
+To create a relationship using identifiers, the following must match:
+
+- Business domain  
+- Origin  
+- Value  
+
+This combination must correspond to an identifier on the target record.
+
+---
+
+## Common configuration considerations
+
+### Using the same origin for multiple systems
+
+Using a shared origin across systems allows records with matching identifier values to be treated as the same identifier.
+
+This approach should only be used when identifier values are consistent and represent the same logical entity across systems.
+
+### Using different origins for the same system
+
+Using multiple origins for the same logical source may prevent matching and result in duplicate entities.
+
+### Using unstable origins
+
+Origins derived from dynamic values (for example, file names or timestamps) can lead to inconsistent identity resolution and duplicate records.
+
+Origins should remain stable and represent a logical source system.
+
+---
 
 ## Useful resources
 
