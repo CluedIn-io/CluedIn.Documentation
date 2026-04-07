@@ -82,7 +82,7 @@ Origin is a component of the entity identifier and defines the namespace in whic
 
 An entity identifier in CluedIn is composed of:
 
-- Entity type  
+- Business domain 
 - Origin  
 - Value  
 
