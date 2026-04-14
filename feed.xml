@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-03-30T14:51:15+00:00</updated>
+    <updated>2026-04-14T04:02:58+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1136,48 +1136,6 @@
     </entry>
     
     <entry>
-        <title>Dataverse connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/dataverse-connector" />
-        <id>https://documentation.cluedin.net/consume/export-targets/dataverse-connector</id>
-        <updated>2025-01-14T00:00:00+00:00</updated>
-        <summary>
-        
-        Dataverse connector.
-        
-        
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Create security role for Dataverse connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/create-security-role" />
-        <id>https://documentation.cluedin.net/consume/export-targets/create-security-role</id>
-        <updated>2025-01-14T00:00:00+00:00</updated>
-        <summary>
-        
-        Create security role for Dataverse connector.
-        
-        
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Create application user for Dataverse connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/create-application-user" />
-        <id>https://documentation.cluedin.net/consume/export-targets/create-application-user</id>
-        <updated>2025-01-14T00:00:00+00:00</updated>
-        <summary>
-        
-        Create application user for Dataverse connector.
-        
-        
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>CluedIn Magic</title>
         <link href="https://documentation.cluedin.net/playbooks/data-engineering-playbook/magic" />
         <id>https://documentation.cluedin.net/playbooks/data-engineering-playbook/magic</id>
@@ -1927,6 +1885,34 @@
         
         
         Tags: deployment, licensing-agent, azure, microsoft, marketplace, azure-marketplace.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Dataverse connector (legacy)</title>
+        <link href="https://documentation.cluedin.net/consume/export-targets/dataverse-connector" />
+        <id>https://documentation.cluedin.net/consume/export-targets/dataverse-connector</id>
+        <updated>2026-04-13T00:00:00+00:00</updated>
+        <summary>
+        
+        Dataverse connector (legacy).
+        
+        
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Dataverse connector</title>
+        <link href="https://documentation.cluedin.net/consume/export-targets/dataverse-connector-v2" />
+        <id>https://documentation.cluedin.net/consume/export-targets/dataverse-connector-v2</id>
+        <updated>2026-04-13T00:00:00+00:00</updated>
+        <summary>
+        
+        Dataverse connector.
+        
+        
         
         </summary>
     </entry>
