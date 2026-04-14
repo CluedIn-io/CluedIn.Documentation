@@ -14,7 +14,7 @@ tags: ["getting-started"]
 Relations are built between source ("to") and target ("from") records by using edges of a certain type (for example, /WorksFor). You can create relations either before or after processing the data.
 
 > **Note**  
-> The terms "from" and "to" can be confusing.  
+> In this context:  
 > - **From** refers to the record in the current dataset  
 > - **To** refers to the existing record you are linking to
 
