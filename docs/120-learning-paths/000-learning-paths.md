@@ -1,17 +1,14 @@
 ---
 layout: cluedin
 title: Learning paths
-permalink: /learning-paths
 nav_order: 120
 has_children: true
-tags: ["learning-paths", "training"]
+permalink: /learning-paths
 ---
-## On this page
-{: .no_toc .text-delta }
-- TOC
-{:toc}
 
-This section contains role-based learning paths for CluedIn. Each course is designed to guide a learner through the instance gradually, starting with shared orientation and then moving into role-specific workflows.
+CluedIn learning paths provide role-based guidance for gradually learning the platform through realistic workflows rather than disconnected feature tours.
+
+These learning paths are designed to complement the existing product documentation. They do not replace the reference articles. Instead, they connect the reference material into a progressive route through the instance so that a learner can understand not only *what* each feature does, but also *when* and *why* it should be used.
 
 ## Available courses
 
@@ -20,12 +17,21 @@ This section contains role-based learning paths for CluedIn. Each course is desi
 
 ## Design principles
 
-These courses are written to be applied in a **dev** or **test** environment first. They assume that learners should become confident in reading the instance before they are asked to configure or clean anything at scale.
+These learning paths follow four principles:
 
-## How to use this section
+1. **Walk the instance in the same order work usually happens**: ingest, map, process, inspect, improve, govern, and publish.
+2. **Keep roles distinct**: the Data Steward is primarily responsible for operational quality and trust in records; the Data Architect is primarily responsible for shaping the model, mappings, rules, and downstream behavior.
+3. **Use the product as it is documented today**: modules point learners to the strongest current documentation sections instead of relying on stale or outdated material.
+4. **Practice with real product surfaces**: each module tells the learner where to go in the UI, what to look for, what good looks like, and what to hand off to the next role.
 
-1. Start with the course overview.
-1. Run the shared foundation module first.
-1. Move through the modules in order.
-1. Use the exercises as workshop tasks or self-guided practice.
-1. Use the completion checks to decide when a learner is ready for the next step.
+## How to use these learning paths
+
+- Work through the modules in order.
+- Read the linked product documentation alongside each module.
+- Practice in a non-production environment first.
+- Keep notes on what felt unclear in your own instance so you can adapt the course to your organization's data model, naming, and governance conventions.
+
+## Suggested audience split
+
+- Choose the **Data Steward** path if your main responsibility is reviewing records, resolving quality issues, investigating duplicates, validating data, and operating recurring governance loops.
+- Choose the **Data Architect** path if your main responsibility is defining business domains, vocabularies, mappings, identifiers, relations, rules, enrichers, streams, and release discipline across environments.

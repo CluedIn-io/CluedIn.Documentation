@@ -2,48 +2,48 @@
 layout: cluedin
 title: Data Steward course
 parent: Learning paths
-permalink: /learning-paths/data-steward-course
 nav_order: 10
+permalink: /learning-paths/data-steward-course
 has_children: true
-tags: ["learning-paths", "data-steward", "training"]
 ---
-## On this page
-{: .no_toc .text-delta }
-- TOC
-{:toc}
 
-The Data Steward course is designed to make a learner comfortable reading quality signals, investigating suspicious records, fixing visible issues, and confirming the result inside CluedIn.
+This course is for the person who lives closest to the quality of data in CluedIn. The goal is not to turn a steward into a platform administrator. The goal is to build a confident operator who can move through the instance, recognize what good and bad data looks like, trace where issues came from, choose the correct remediation path, and work productively with Data Architects.
 
-## Course goal
+The narrative of this course follows the same progression as the stronger "Getting started" guides in the documentation: data enters the platform, gets mapped and processed, becomes searchable, is investigated, improved, governed, and handed off for downstream use.
 
-A learner completing this course should be able to:
+## Course outcomes
 
-- navigate the instance confidently;
-- isolate a problem population with search and filters;
-- review source-level validation issues;
-- review duplicate candidates and make stewardship decisions;
-- verify the effect of a fix in the product.
+By the end of this course, a learner should be able to:
+
+- explain how source records become golden records
+- move confidently through Ingestion, Search, record pages, Clean, Deduplication, Glossary, Governance, and AI-assisted remediation surfaces
+- use search, filters, saved searches, and record inspection to isolate operational data issues
+- understand when to use validations, clean projects, deduplication, tags, glossary terms, or AI jobs
+- document findings well enough for a Data Architect to improve mappings, identifiers, rules, or streams
 
 ## Recommended audience
 
-Use this course for data stewards, business data owners, operational data quality analysts, or any user who needs to investigate and resolve visible data issues inside the product.
+This course fits Data Stewards, data quality analysts, master data operators, and business users who routinely investigate problematic records.
 
-## Prerequisites
+## Suggested duration
 
-- Access to a **dev** or **test** environment.
-- A data set with mapped records.
-- Permission to review records, saved searches, validations, and deduplication outputs.
+- Guided first pass: 2 to 3 half-days
+- Practice and repetition: 1 to 2 weeks of real operational usage
 
-## Suggested sequence
+## Module sequence
 
-1. [Course overview and setup](/learning-paths/data-steward-course/course-overview-and-setup)
-1. [Shared foundation and safe environment](/learning-paths/data-steward-course/shared-foundation-and-safe-environment)
-1. [Orientation in the instance](/learning-paths/data-steward-course/orientation-in-the-instance)
-1. [Investigate with search and filters](/learning-paths/data-steward-course/investigate-with-search-and-filters)
-1. [Review source-level validations](/learning-paths/data-steward-course/review-source-level-validations)
-1. [Review and resolve duplicates](/learning-paths/data-steward-course/review-and-resolve-duplicates)
-1. [Run the steward operating loop](/learning-paths/data-steward-course/run-the-steward-operating-loop)
+1. [Course purpose, setup, and operating model](/learning-paths/data-steward-course/course-purpose-and-setup)
+2. [First tour of the instance and the golden record mindset](/learning-paths/data-steward-course/instance-tour-and-golden-record-mindset)
+3. [How ingestion, mapping, and processing affect stewardship](/learning-paths/data-steward-course/ingestion-mapping-and-processing-for-stewards)
+4. [Find and inspect records with search, filters, and saved searches](/learning-paths/data-steward-course/search-filters-and-record-inspection)
+5. [Review source quality with validations and mapping checkpoints](/learning-paths/data-steward-course/validations-and-mapping-checkpoints)
+6. [Clean recurring quality issues with clean projects](/learning-paths/data-steward-course/clean-projects-and-remediation)
+7. [Resolve duplicates and understand merge decisions](/learning-paths/data-steward-course/deduplication-and-conflict-resolution)
+8. [Use glossary, tags, and governance views to organize work](/learning-paths/data-steward-course/glossary-tags-and-governance)
+9. [Use AI agents safely for stewardship work](/learning-paths/data-steward-course/ai-assisted-stewardship)
+10. [Understand streams, downstream impact, and architect handoffs](/learning-paths/data-steward-course/streams-downstream-impact-and-handoffs)
+11. [Capstone operating loop and readiness checklist](/learning-paths/data-steward-course/capstone-operating-loop)
 
-## Completion check
+## What this course is not
 
-A learner is ready to operate as a Data Steward when they can independently identify a recurring issue, narrow the affected records, decide how to handle them, and verify the outcome in the instance.
+This course does not try to make the steward the owner of modeling, release management, or deep connector design. Those are covered in the Data Architect path. But the steward still needs enough architectural literacy to recognize when an issue is operational and when it is structural.
