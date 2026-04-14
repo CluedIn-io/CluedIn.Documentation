@@ -1,0 +1,78 @@
+<h2 class="no_toc text-delta" id="on-this-page">On this page</h2>
+<ul id="markdown-toc">
+  <li><a href="#what-you-should-get-from-this-module" id="markdown-toc-what-you-should-get-from-this-module">What you should get from this module</a></li>
+  <li><a href="#guided-walkthrough" id="markdown-toc-guided-walkthrough">Guided walkthrough</a></li>
+  <li><a href="#role-lens" id="markdown-toc-role-lens">Role lens</a></li>
+  <li><a href="#practice-assignment" id="markdown-toc-practice-assignment">Practice assignment</a></li>
+  <li><a href="#exit-criteria" id="markdown-toc-exit-criteria">Exit criteria</a></li>
+  <li><a href="#suggested-source-material" id="markdown-toc-suggested-source-material">Suggested source material</a></li>
+</ul>
+
+<p>Architecture in CluedIn starts with semantics. Before rules, streams, or AI, the architect needs a crisp model for what kinds of entities exist, how their metadata is named, and how multiple sources should converge into trustworthy golden records.</p>
+
+<h2 id="what-you-should-get-from-this-module">What you should get from this module</h2>
+
+<ul>
+  <li>understand the conceptual model behind business domains, vocabularies, and golden records</li>
+  <li>design modeling choices that make stewardship and consumption easier</li>
+  <li>avoid weak semantic design that creates confusion later</li>
+</ul>
+
+<p><img src="/assets/images/key-terms-and-features/golden-record-4.png" alt="golden-record-4.png" /></p>
+
+<h2 id="guided-walkthrough">Guided walkthrough</h2>
+
+<p>Start with the golden-record documentation and the vocabulary documentation together. Explain the stack in business terms:</p>
+
+<ul>
+  <li><strong>Business domain</strong> expresses what the thing is.</li>
+  <li><strong>Vocabulary</strong> expresses how its metadata is organized.</li>
+  <li><strong>Golden record</strong> expresses the current trustworthy projection of that thing across sources and changes.</li>
+</ul>
+
+<p>Architects need to make these three layers work together cleanly. Poor business-domain design leads to overbroad buckets that confuse search, filters, and relations. Poor vocabulary design leads to inconsistent naming, duplicated meanings, and weak downstream reuse.</p>
+
+<p>Walk through the vocabulary page and discuss:</p>
+<ul>
+  <li>naming and key-prefix discipline</li>
+  <li>primary business domain assignment</li>
+  <li>owners and accountability</li>
+  <li>usage visibility across rules, glossary, and streams</li>
+</ul>
+
+<p>Then return to the golden-record model and explain why the architecture matters operationally. If the domain and vocabulary are coherent, then search, saved searches, glossary, and streams become easier to use. If they are sloppy, the entire platform becomes harder to interpret.</p>
+
+<p>Also introduce the idea that golden records are shaped over time by ingestion, clean projects, enrichers, deduplication, manual changes, and rules. The architect is designing not just the starting model, but the space in which those later interventions will behave.</p>
+
+<h2 id="role-lens">Role lens</h2>
+
+<p>The architect should treat semantics as infrastructure. Business domains and vocabularies are not decoration for the UI. They are the frame that makes mapping, governance, rule authoring, and downstream export consistent over time.</p>
+
+<h2 id="practice-assignment">Practice assignment</h2>
+
+<p>Take one real or example entity type and design:</p>
+
+<ul>
+  <li>the business domain name</li>
+  <li>the vocabulary name and key prefix</li>
+  <li>five to ten high-value vocabulary keys</li>
+  <li>the likely owners of the vocabulary</li>
+  <li>two common stewardship questions this design should support in search or glossary</li>
+</ul>
+
+<p>Then critique your own model: where could ambiguity or overlap still create problems?</p>
+
+<h2 id="exit-criteria">Exit criteria</h2>
+
+<ul>
+  <li>The learner can explain how business domains, vocabularies, and golden records fit together.</li>
+  <li>The learner can propose a coherent vocabulary design with naming discipline.</li>
+  <li>The learner understands how semantic design affects operations later.</li>
+</ul>
+
+<h2 id="suggested-source-material">Suggested source material</h2>
+
+<ul>
+  <li><a href="/key-terms-and-features/golden-records">Golden records</a></li>
+  <li><a href="/management/data-catalog/vocabulary">Vocabulary</a></li>
+</ul>
