@@ -38,11 +38,11 @@ Upon a successful run, the runbook generates snapshots and stores them in a reso
 
 ### Release 2025.09.00 and later
 
-From release 2025.09.00 onward, CluedIn uses Azure SQL, which provides Point-in-Time Restore (PITR) by default.
+From release 2025.09.00 onward, CluedIn uses Azure SQL.
 
-In this configuration, the backup runbook captures snapshots for five persistent disks.
+In this configuration, the backup runbook captures snapshots for five persistent disks. BacPac's are also created for Azure Sql databases which are stored in a storage account.
 
-![backup-runbook-process.png]({{ "/assets/images/paas-operations/backup-runbook-with-azure.png" | relative_url }})
+![backup-runbook-process.png]({{ "/assets/images/paas-operations/backup-with-azure-sql.png" | relative_url }})
 
 ### Release 2025.05.02 and earlier
 
