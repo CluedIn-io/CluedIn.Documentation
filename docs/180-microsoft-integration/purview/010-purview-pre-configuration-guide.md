@@ -134,7 +134,7 @@ To store encryption keys, secrets, and certificates for communication between Pu
 
     ![key-vault-create-access-policy-permissions.png]({{ "/assets/images/microsoft-integration/purview/key-vault-create-access-policy-permissions.png" | relative_url }})
 
-1. On the **Principal** tab, find and select the Purview account, and then select **Next**.
+1. On the **Principal** tab, find and select the service principal you want to use with the Purview account, and then select **Next**.
 
     ![key-vault-create-access-policy-principal.png]({{ "/assets/images/microsoft-integration/purview/key-vault-create-access-policy-principal.png" | relative_url }})
 
