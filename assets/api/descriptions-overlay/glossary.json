@@ -1,0 +1,178 @@
+{
+  "_about": "Glossary category (Glossary, GlossarySearch). Requires the Management.Glossary RACI claim.",
+
+  "GET /api/v1/glossary": {
+    "summary": "List glossary terms",
+    "description": "Returns paged glossary terms along with a total count. Filter by active state, creator, tag, category, and search text. When `GlossaryAccess.FilterTermsByOwnership` is on, the result is restricted to terms the caller owns or has been granted access to.",
+    "parameters": {
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 20.",
+      "filterActive": "When set, restrict to active or inactive terms.",
+      "filterCreator": "Filter by creator id/name.",
+      "filterTag": "Filter by tag.",
+      "filterCategory": "Filter by category id.",
+      "searchName": "Free-text search over term name.",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction. Defaults to true (ascending).",
+      "id": "When supplied with `version`, returns a specific term version (`GET /api/v1/glossary?id=...&version=...`).",
+      "version": "Term version to return (used with `id`)."
+    }
+  },
+  "POST /api/v1/glossary": {
+    "summary": "Create glossary term",
+    "description": "Creates a new glossary term from the supplied model. Returns 409 Conflict if a term with the same name already exists, 400 with validation details when the model is invalid or the term has no condition."
+  },
+  "PUT /api/v1/glossary": {
+    "summary": "Update glossary term",
+    "description": "Updates an existing glossary term. Returns 409 Conflict on name collisions, 400 with validation details when the model or filter rules fail validation, and re-reads the term after update so the response contains the latest state. The action goes through the RACI approval pipeline for glossary term updates."
+  },
+  "GET /api/v1/glossary/{id}": {
+    "summary": "Get glossary term",
+    "description": "Returns a single glossary term by id, scoped to the calling user.",
+    "parameters": { "id": "Glossary term identifier." }
+  },
+  "DELETE /api/v1/glossary/{id}": {
+    "summary": "Delete glossary term",
+    "description": "Deletes a glossary term. The action goes through the RACI approval pipeline for glossary term deletion.",
+    "parameters": { "id": "Glossary term identifier." }
+  },
+  "GET /api/v1/glossary/category": {
+    "summary": "List glossary categories",
+    "description": "Returns paged glossary categories.",
+    "parameters": {
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to int.MaxValue (returns all)."
+    }
+  },
+  "POST /api/v1/glossary/category": {
+    "summary": "Create glossary category",
+    "description": "Creates a new glossary category from the supplied model. Returns 409 Conflict when a category with the same name already exists."
+  },
+  "PUT /api/v1/glossary/category": {
+    "summary": "Update glossary category",
+    "description": "Updates an existing glossary category. Returns 409 Conflict on name collisions. The response includes the refreshed category."
+  },
+  "GET /api/v1/glossary/category/{id}": {
+    "summary": "Get glossary category",
+    "description": "Returns a single glossary category by id. Returns 404 if the category cannot be found.",
+    "parameters": { "id": "Glossary category identifier." }
+  },
+  "DELETE /api/v1/glossary/category/{id}": {
+    "summary": "Delete glossary category",
+    "description": "Deletes a glossary category. The action goes through the RACI approval pipeline for glossary category deletion.",
+    "parameters": { "id": "Glossary category identifier." }
+  },
+  "GET /api/v1/glossary/category/search/{name}": {
+    "summary": "Search glossary categories by name",
+    "description": "Returns glossary categories whose name matches the supplied value. Returns 404 if nothing matches.",
+    "parameters": { "name": "Category name to search for." }
+  },
+  "GET /api/v1/glossary/term/search/{name}": {
+    "summary": "Search glossary terms by name",
+    "description": "Returns glossary terms whose name matches the supplied value. Returns 404 if nothing matches.",
+    "parameters": { "name": "Term name to search for." }
+  },
+  "POST /api/v1/glossary/termlexicon": {
+    "summary": "Add term lexicon entry",
+    "description": "Adds a lexicon entry (synonym, alias) to a glossary term. Returns 409 Conflict when a lexicon entry with the same name already exists."
+  },
+  "DELETE /api/v1/glossary/lexicon/{id}": {
+    "summary": "Delete term lexicon entry",
+    "description": "Deletes a glossary term lexicon entry.",
+    "parameters": { "id": "Lexicon entry identifier." }
+  },
+  "GET /api/v1/glossary/tag": {
+    "summary": "List glossary tags",
+    "description": "Returns paged glossary tags.",
+    "parameters": {
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to int.MaxValue."
+    }
+  },
+  "POST /api/v1/glossary/tag": {
+    "summary": "Create glossary tag",
+    "description": "Creates a new glossary tag. Returns 409 Conflict when a tag with the same name already exists."
+  },
+  "DELETE /api/v1/glossary/tag/{id}": {
+    "summary": "Delete glossary tag",
+    "description": "Deletes a glossary tag.",
+    "parameters": { "id": "Glossary tag identifier." }
+  },
+  "POST /api/v1/glossary/endorsement": {
+    "summary": "Endorse glossary term",
+    "description": "Adds an endorsement on a glossary term. Endorsement is not restricted by RACI level — any authenticated user can endorse."
+  },
+  "DELETE /api/v1/glossary/endorsement": {
+    "summary": "Remove glossary endorsement",
+    "description": "Removes the caller's endorsement from a glossary term.",
+    "parameters": { "termId": "Glossary term identifier." }
+  },
+  "POST /api/v1/glossary/rating": {
+    "summary": "Rate glossary term",
+    "description": "Adds a rating for a glossary term. Open to any authenticated user."
+  },
+  "PUT /api/v1/glossary/rating": {
+    "summary": "Update glossary rating",
+    "description": "Updates an existing rating for a glossary term."
+  },
+  "POST /api/v1/glossary/import": {
+    "summary": "Import glossary terms from CSV",
+    "description": "Imports glossary terms from one or more uploaded CSV files (file size capped at 10 MB per file). The body must be a multipart upload containing `.csv` files."
+  },
+  "GET /api/v1/glossary/reference": {
+    "summary": "List terms that reference a term",
+    "description": "Returns paged glossary terms that reference the supplied term — terms whose rules or text mention it.",
+    "parameters": {
+      "id": "Referenced glossary term identifier.",
+      "page": "0-based page number.",
+      "take": "Page size."
+    }
+  },
+  "POST /api/v1/glossary/clean": {
+    "summary": "Create clean project from glossary term",
+    "description": "Creates a clean project seeded from the supplied glossary term — useful to remediate the records the term currently matches.",
+    "parameters": {
+      "id": "Glossary term identifier.",
+      "take": "Maximum number of records to seed the clean project with."
+    }
+  },
+  "POST /api/v1/glossary/stream": {
+    "summary": "Create stream from glossary term",
+    "description": "Creates a stream seeded from the supplied glossary term. Returns 404 if the term cannot be found. (The implementation is partial — the stream creation step is currently a TODO and may be a no-op in some builds.)",
+    "parameters": { "id": "Glossary term identifier." }
+  },
+  "GET /api/v1/glossary/dependencies/{id}": {
+    "summary": "Find glossary dependencies",
+    "description": "Returns the dependencies of a glossary term — other glossary artifacts (terms, lexicons, tags, rules) that reference it.",
+    "parameters": { "id": "Glossary term identifier." }
+  },
+
+  "GET /api/v1/glossarysearch/entities": {
+    "summary": "List entities matched by a glossary term",
+    "description": "Returns paged entities that match a glossary term's rule set. Response is cached for 360 seconds.",
+    "parameters": {
+      "id": "Glossary term identifier.",
+      "skip": "Number of results to skip. Defaults to 0.",
+      "take": "Page size. Defaults to 20."
+    }
+  },
+  "GET /api/v1/glossarysearch/metrics": {
+    "summary": "Get glossary completeness metrics",
+    "description": "Returns completeness statistics across the organisation's glossary — for example coverage and adoption metrics surfaced in the Governance Cockpit. Response is cached for 360 seconds."
+  },
+  "GET /api/v1/glossarysearch/lineage": {
+    "summary": "Get glossary term lineage",
+    "description": "Returns a glossary term together with its lexicon and tags, used by the lineage view in the UI. Returns 404 if the term cannot be found. Response is cached for 360 seconds.",
+    "parameters": { "id": "Glossary term identifier." }
+  },
+  "GET /api/v1/glossarysearch/analytics": {
+    "summary": "Get glossary term analytics",
+    "description": "Returns analytics-oriented metadata for a glossary term (lexicon, tags, and the term itself). Returns 404 if the term cannot be found. Response is cached for 360 seconds.",
+    "parameters": { "id": "Glossary term identifier." }
+  },
+  "GET /api/v1/glossarysearch/pii": {
+    "summary": "Get PII details for a glossary term",
+    "description": "Returns personally-identifiable-information details (counts of sensitive classifications) associated with the entities a glossary term currently matches. Response is cached for 360 seconds.",
+    "parameters": { "id": "Glossary term identifier." }
+  }
+}

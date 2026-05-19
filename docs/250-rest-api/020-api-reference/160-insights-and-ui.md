@@ -1,0 +1,27 @@
+---
+layout: cluedin
+title: Insights & UI
+parent: API reference
+grand_parent: REST API
+permalink: /rest-api/api-reference/insights-and-ui
+nav_order: 160
+tags: ["api", "rest api"]
+---
+
+Insights, widgets, page and layout templates, notifications, profiles, and other endpoints used by the CluedIn UI.
+
+See [Get started](/rest-api/get-started) for authentication, base URLs, and request conventions that apply to all endpoints in this category.
+
+<p>
+  <a class="btn btn-primary" href="{{ '/assets/api/viewer.html?spec=insights-and-ui' | relative_url }}" target="_blank" rel="noopener">Open full-screen &#8599;</a>
+  <a class="btn" href="{{ '/assets/api/categories/insights-and-ui.json' | relative_url }}" download>Download category specification (JSON)</a>
+</p>
+
+<iframe
+  src="{{ '/assets/api/viewer.html?spec=insights-and-ui' | relative_url }}"
+  title="CluedIn REST API — Insights & UI"
+  style="width: 100%; height: 80vh; border: 1px solid #e1e4e8; border-radius: 6px;"
+  loading="lazy">
+</iframe>
+
+This category covers the following API tags: Insight, GenericWidget, WidgetQuery, PageTemplate, PageTemplateEntities, LayoutTemplate, TagMetadata, Activities, Notification, NotificationV2, Profile, Person, Project, Results.

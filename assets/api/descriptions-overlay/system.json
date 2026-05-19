@@ -1,0 +1,54 @@
+{
+  "_about": "System & health endpoints (Status, HealthLiveness, HealthReadiness, RobotsTxt, DefaultRedirect catch-all).",
+
+  "GET /api/v1/status": {
+    "summary": "Get platform status",
+    "description": "Returns the overall CluedIn platform health along with a JSON health response. Returns 200 OK when the health evaluator reports Green or Yellow, or 500 Internal Server Error when it reports Red. When the client sends `Accept: text/html`, the body is a short plain-text message; otherwise it is a JSON health document."
+  },
+  "GET /status": {
+    "summary": "Get platform status (root)",
+    "description": "Convenience alias for `GET /api/v1/status` that does not require the `/api` prefix. Same response shape and semantics."
+  },
+
+  "GET /api/v1/health": {
+    "summary": "Get liveness status",
+    "description": "Returns whether the API service is alive — that is, the process is running and the liveness evaluator is satisfied. Typically used by Kubernetes liveness probes to decide whether to restart the pod. Returns 200 unless the evaluator reports Red, in which case 500 is returned. The response is a short plain-text message on `Accept: text/html`, JSON otherwise."
+  },
+  "GET /api/v1/health/liveness": {
+    "summary": "Get liveness status (explicit path)",
+    "description": "Alias for `GET /api/v1/health` exposed under the explicit `/liveness` path. Both share the same handler and behaviour."
+  },
+  "GET /health": {
+    "summary": "Get liveness status (root)",
+    "description": "Convenience alias for the liveness check that does not require the `/api` prefix. Same response shape and semantics as `GET /api/v1/health`."
+  },
+  "GET /health/liveness": {
+    "summary": "Get liveness status (root, explicit path)",
+    "description": "Convenience alias for the explicit liveness check that does not require the `/api` prefix."
+  },
+
+  "GET /api/v1/health/readiness": {
+    "summary": "Get readiness status",
+    "description": "Returns whether the API service is ready to handle traffic — its dependencies are up and any warmup has completed. Typically used by Kubernetes readiness probes to decide whether to route requests to the pod. Returns 200 when the evaluator reports Green or Yellow, or 500 when Red."
+  },
+  "GET /health/readiness": {
+    "summary": "Get readiness status (root)",
+    "description": "Convenience alias for the readiness check that does not require the `/api` prefix. Same response shape and semantics as `GET /api/v1/health/readiness`."
+  },
+
+  "GET /robots.txt": {
+    "summary": "Get robots.txt",
+    "description": "Returns the hard-coded `robots.txt` content for the API host. The body always reads `User-agent: *` and `Disallow: /`, instructing search engines and well-behaved crawlers not to index the API surface."
+  },
+
+  "GET /{url}": {
+    "summary": "Catch-all (404 Not Found)",
+    "description": "Default catch-all route that matches any URL no other controller has claimed. Always returns 404 Not Found. The same handler is registered for every HTTP method, so unknown paths produce a consistent 404 instead of a 405 Method Not Allowed."
+  },
+  "POST /{url}":    { "summary": "Catch-all (404 Not Found)", "description": "See `GET /{url}` — the catch-all handler matches every HTTP method and always returns 404 Not Found." },
+  "PUT /{url}":     { "summary": "Catch-all (404 Not Found)", "description": "See `GET /{url}` — the catch-all handler matches every HTTP method and always returns 404 Not Found." },
+  "DELETE /{url}":  { "summary": "Catch-all (404 Not Found)", "description": "See `GET /{url}` — the catch-all handler matches every HTTP method and always returns 404 Not Found." },
+  "OPTIONS /{url}": { "summary": "Catch-all (404 Not Found)", "description": "See `GET /{url}` — the catch-all handler matches every HTTP method and always returns 404 Not Found." },
+  "HEAD /{url}":    { "summary": "Catch-all (404 Not Found)", "description": "See `GET /{url}` — the catch-all handler matches every HTTP method and always returns 404 Not Found." },
+  "PATCH /{url}":   { "summary": "Catch-all (404 Not Found)", "description": "See `GET /{url}` — the catch-all handler matches every HTTP method and always returns 404 Not Found." }
+}

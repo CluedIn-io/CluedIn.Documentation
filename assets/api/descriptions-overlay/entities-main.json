@@ -1,0 +1,268 @@
+{
+  "_about": "Entities — main Entity tag (EntityController + EntityController.Merge + EntityController.Path + EntityDetail.EntityController).",
+
+  "GET /api/v1/entity": {
+    "summary": "Get entity by id",
+    "description": "Returns the entity with the supplied id, augmented with editable-field permissions, suggested searches, and per-provider account data so the UI can render the entity card. The query supports a `full` flag that switches to the raw blob-store serialisation. For Mail entities the body is read from the search store when missing from the primary store, and HTML detection wraps plain text in `<pre>` tags. Returns 400 for invalid GUIDs, 403 when the caller lacks access to any of the entity's providers, and 404 when the entity does not exist.",
+    "parameters": {
+      "id": "Entity identifier (GUID).",
+      "full": "When true, return the full blob-store serialised entity instead of the rendered card."
+    }
+  },
+  "GET /api/v1/entity/acl": {
+    "summary": "Get entity ACL",
+    "description": "Returns the user records (organisation provider accounts) that map to the providers contributing data to the entity. Useful to show who can act on an entity through which provider. Returns 404 if the entity does not exist.",
+    "parameters": {
+      "id": "Entity identifier (GUID)."
+    }
+  },
+  "GET /api/v1/entityedges": {
+    "summary": "Get entity edges",
+    "description": "Returns the incoming and outgoing edges for an entity, with edge grouping applied when the number of edges of the same type exceeds the configured `Entity.EdgeGroupingThreshold` (default 25). Set `disableGrouping=true` to receive every individual edge. Returns 400 for invalid GUIDs and 404 if the entity does not exist.",
+    "parameters": {
+      "id": "Entity identifier (GUID).",
+      "disableGrouping": "When true, return every edge individually instead of grouping by edge type."
+    }
+  },
+  "GET /api/v1/entity/schema": {
+    "summary": "Get entity property schema",
+    "description": "Returns the entity property schema known to the platform. With the `key` query parameter, the response is filtered to schema entries whose key or display name contains the value, and includes additional metadata such as editability, removability, and obsolete state.",
+    "parameters": {
+      "key": "Optional substring to filter schema entries by key or display name."
+    }
+  },
+  "GET /api/v1/entity/code": {
+    "summary": "Get entity by code",
+    "description": "Returns an entity by its code. Two query shapes are supported: a single `id` parameter that contains a serialised entity code, or `type` + `origin` + `value` as separate components. Returns 400 for invalid codes, 404 if no entity matches, and 403 when the caller lacks access. With the three-part form the response is just the entity id rather than the full entity card.",
+    "parameters": {
+      "id": "Serialised entity code.",
+      "type": "Entity type (used with the three-part variant).",
+      "origin": "Code origin (used with the three-part variant).",
+      "value": "Code value (used with the three-part variant)."
+    }
+  },
+  "GET /api/v1/entity/email": {
+    "summary": "Get person entity by email",
+    "description": "Returns the Person entity whose CluedIn email entity code matches the supplied address. Returns 400 for malformed addresses, 404 if no Person matches, and 403 when the caller lacks access.",
+    "parameters": {
+      "email": "Email address to look up."
+    }
+  },
+  "GET /api/v1/entity/domain": {
+    "summary": "Get organization entity by email domain",
+    "description": "Returns the Organization entity whose CluedIn email-domain entity code matches the supplied domain. Returns 400 for empty input, 404 if no Organization matches, and 403 when the caller lacks access.",
+    "parameters": {
+      "domain": "Email domain to look up."
+    }
+  },
+  "GET /api/v1/entity/suggest": {
+    "summary": "Get suggested graph queries for an entity",
+    "description": "Returns a set of suggested graph search queries for the entity, used to power the \"Related\" / suggested searches surfaces in the UI. Returns 400 for invalid GUIDs and 404 if the entity does not exist.",
+    "parameters": {
+      "id": "Entity identifier (GUID)."
+    }
+  },
+  "GET /api/v1/entity/relations": {
+    "summary": "Get related entities",
+    "description": "Returns the entities related to the supplied entity through a specific relationship, combining incoming and outgoing endpoints. Returns 404 when no entities match the relationship. Defaults: `page=0`, `take=10`.",
+    "parameters": {
+      "id": "Entity identifier (GUID).",
+      "relationship": "Relationship type to follow.",
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 10."
+    }
+  },
+  "GET /api/v1/entity/domainusers": {
+    "summary": "List domain users",
+    "description": "Returns users whose email domain matches the organisation's configured email domain, excluding the current caller and users that already have a CluedIn profile. Returns 204 No Content when the organisation has no email domain configured, and 404 if the caller's user entity cannot be found.",
+    "parameters": {
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 10."
+    }
+  },
+  "POST /api/v1/entity/associate": {
+    "summary": "Associate entities by relationship",
+    "description": "Creates outgoing edges of the supplied relationship type from each source entity to the target entity, and journals each addition. The `ids` parameter accepts comma, semicolon, or pipe-separated identifiers. Returns 406 when the relationship is not a known `EntityEdgeType`, 404 when the target entity does not exist, and 202 Accepted on success. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "ids": "Comma/semicolon/pipe-separated list of source entity ids.",
+      "targetId": "Target entity identifier.",
+      "relationship": "Relationship (edge) type."
+    }
+  },
+  "POST /api/v1/entity/disassociate": {
+    "summary": "Disassociate entities by relationship",
+    "description": "Removes outgoing edges of the supplied relationship type from each source entity to the target entity and journals each removal. Same id parsing and validation rules as `POST /entity/associate`. Returns 202 Accepted on success. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "ids": "Comma/semicolon/pipe-separated list of source entity ids.",
+      "targetId": "Target entity identifier.",
+      "relationship": "Relationship (edge) type."
+    }
+  },
+  "GET /api/v1/entity/history": {
+    "summary": "Get entity version history (deprecated)",
+    "description": "Returns the serialised version history of an entity (a JSON document of the blob-store version history). **Deprecated** — use `GET /api/entityhistory/{id}` on the dedicated history controller instead.",
+    "parameters": {
+      "id": "Entity identifier (GUID)."
+    }
+  },
+  "GET /api/v1/entity/historysummary": {
+    "summary": "Get entity history summary (deprecated)",
+    "description": "Returns a summary of changes to an entity grouped by source, optionally filtered by date range. **Deprecated** — use `GET /api/entityhistory/list/{id}` instead.",
+    "parameters": {
+      "id": "Entity identifier (GUID).",
+      "dateFrom": "Optional lower bound on change timestamps.",
+      "dateTo": "Optional upper bound on change timestamps."
+    }
+  },
+  "GET /api/v1/entity/historydetails": {
+    "summary": "Get entity history detail (deprecated)",
+    "description": "Returns the per-property changes for a single data part in the entity's history. **Deprecated** — use `GET /api/entityhistory/details/{id}/{partId}` instead.",
+    "parameters": {
+      "id": "Entity identifier (GUID).",
+      "partId": "Data part identifier."
+    }
+  },
+  "GET /api/v1/entityTypes": {
+    "summary": "List entity type facets",
+    "description": "Returns the entity-type facets known to the organisation. Optional `entityType` filter narrows the result to a single type. Flags `includeShadowEntities` and `includeExternalData` control whether shadow and external-data entities contribute to the facet counts. (Also exposed as `GET /api/gdpr/entityTypes`.)",
+    "parameters": {
+      "entityType": "Optional entity type technical name.",
+      "includeShadowEntities": "Include shadow entity types. Defaults to true.",
+      "includeExternalData": "Include externally-sourced entity types. Defaults to true."
+    }
+  },
+  "POST /api/v1/entity/mergeEntities": {
+    "summary": "Merge entities",
+    "description": "Merges a set of source entities into a target entity, dispatching a merge-with-user-input command and starting a workflow that records merge context (ids, user-supplied property choices, etc.). Source ids are comma, semicolon, or pipe-separated. Returns 400 when the target entity is missing and 202 Accepted when the merge command is queued. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "ids": "Comma/semicolon/pipe-separated source entity ids.",
+      "targetId": "Target entity identifier."
+    }
+  },
+  "GET /api/v1/entity/path": {
+    "summary": "Get shortest graph path",
+    "description": "Returns the all-shortest-paths between the caller's user entity (or a supplied `sourceId`) and the target entity. The Cypher query walks up to 5 hops and excludes temporal, code, and other technical relationships. Returns an empty list when neither endpoint can be found. Cached for 400 seconds.",
+    "parameters": {
+      "sourceId": "Optional source entity identifier; defaults to the caller's user entity.",
+      "targetId": "Target entity identifier."
+    }
+  },
+  "GET /api/v1/entity/peoplepath": {
+    "summary": "Get shortest people path",
+    "description": "Returns the shortest graph paths from the caller's user entity to the target entity that go through Person/User/Contact/Organization nodes. Excludes temporal, code, follow, and similar technical relationships. Useful for \"who knows whom\" surfaces. Cached for 400 seconds.",
+    "parameters": {
+      "targetId": "Target entity identifier."
+    }
+  },
+  "GET /api/v1/entity/entitypropertyfilterdetails": {
+    "summary": "List entity property filter names",
+    "description": "Returns the property names available for an entity-property filter, scoped by the supplied `PropertyScope` (defaults to `All`). Used by the UI to render property pickers for filters.",
+    "parameters": {
+      "scope": "Property scope. Defaults to `All`."
+    }
+  },
+
+  "GET /api/edges/centeredOnEntity": {
+    "summary": "Get edges centered on an entity",
+    "description": "Returns the entities and edges reachable within `depth` hops of the supplied entity. Use the toggles to control whether incoming edges, shadow entities, temporal entities, and external data participate. Returns 404 if the centre entity does not exist. The response includes an `IsLimitedByNumberOfRelationships` flag indicating whether `maxNumberOfEdges` was reached.",
+    "parameters": {
+      "entityId": "Centre entity identifier.",
+      "depth": "Hop depth. Defaults to 2.",
+      "maxNumberOfEdges": "Hard cap on returned edges. Defaults to 500.",
+      "includeIncomingOnCenter": "Include incoming edges on the centre entity. Defaults to true.",
+      "includeIncomingOnOther": "Include incoming edges on neighbouring entities. Defaults to false.",
+      "includeShadowEntities": "Include shadow entities. Defaults to false.",
+      "includeTemporalEntities": "Include temporal entities. Defaults to false.",
+      "includeExternalData": "Include externally-sourced entities. Defaults to false."
+    }
+  },
+  "GET /api/entity/edgeDetails": {
+    "summary": "Get edge properties",
+    "description": "Returns the properties stored on a specific edge between two entities. Returns 404 if either endpoint cannot be found.",
+    "parameters": {
+      "fromEntityId": "Source entity identifier.",
+      "toEntityId": "Target entity identifier.",
+      "edgeType": "Edge type.",
+      "edgePropertiesHash": "Hash identifying the specific edge instance."
+    }
+  },
+  "POST /api/entity/sensitive": {
+    "summary": "Mark entity as sensitive",
+    "description": "Publishes a service-bus command marking the entity as sensitive. Returns 400 for invalid GUIDs and 200 once the command has been published. Same handler as the PUT variant.",
+    "parameters": {
+      "id": "Entity identifier (GUID)."
+    }
+  },
+  "PUT /api/entity/sensitive": {
+    "summary": "Mark entity as sensitive",
+    "description": "Same handler as `POST /api/entity/sensitive`; both verbs are accepted for backwards compatibility.",
+    "parameters": {
+      "id": "Entity identifier (GUID)."
+    }
+  },
+  "POST /api/entity/unsensitive": {
+    "summary": "Mark entity as not sensitive",
+    "description": "Publishes a service-bus command clearing the sensitive flag on the entity. Returns 400 for invalid GUIDs and 200 once the command has been published. Requires the Administration.Data RACI claim. Same handler as the PUT variant.",
+    "parameters": {
+      "id": "Entity identifier (GUID)."
+    }
+  },
+  "PUT /api/entity/unsensitive": {
+    "summary": "Mark entity as not sensitive",
+    "description": "Same handler as `POST /api/entity/unsensitive`; both verbs are accepted for backwards compatibility. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "id": "Entity identifier (GUID)."
+    }
+  },
+  "POST /api/property/anonymise": {
+    "summary": "Anonymise a property value",
+    "description": "Returns the supplied value with the anonymisation utility applied for the caller's organisation. Returns 400 for empty input. Same handler as the PUT variant.",
+    "parameters": {
+      "value": "Value to anonymise."
+    }
+  },
+  "PUT /api/property/anonymise": {
+    "summary": "Anonymise a property value",
+    "description": "Same handler as `POST /api/property/anonymise`; both verbs are accepted.",
+    "parameters": {
+      "value": "Value to anonymise."
+    }
+  },
+  "POST /api/property/deanonymise": {
+    "summary": "De-anonymise a property value",
+    "description": "Returns the supplied value with anonymised tokens replaced by the original values. Returns 400 when the value is empty or does not contain `<anonymised>...</anonymised>` markers. Same handler as the PUT variant.",
+    "parameters": {
+      "value": "Value to de-anonymise."
+    }
+  },
+  "PUT /api/property/deanonymise": {
+    "summary": "De-anonymise a property value",
+    "description": "Same handler as `POST /api/property/deanonymise`; both verbs are accepted.",
+    "parameters": {
+      "value": "Value to de-anonymise."
+    }
+  },
+  "GET /api/gdpr/entityTypes": {
+    "summary": "List entity type facets (GDPR path)",
+    "description": "Alias for `GET /api/v1/entityTypes` exposed under the GDPR-themed `/api/gdpr/entityTypes` path. Same response shape and semantics.",
+    "parameters": {
+      "entityType": "Optional entity type technical name.",
+      "includeShadowEntities": "Include shadow entity types. Defaults to true.",
+      "includeExternalData": "Include externally-sourced entity types. Defaults to true."
+    }
+  },
+  "GET /api/entity/branchInfo": {
+    "summary": "Get entity version branches",
+    "description": "Returns the version-history branches for an entity, each with its name, the origin provider definitions that contributed to it, and the list of versions (data part id, input source, parent and child part ids). Used by version-history visualisations.",
+    "parameters": {
+      "entityId": "Entity identifier."
+    }
+  },
+  "GET /api/entity/summary": {
+    "summary": "Get entity summary",
+    "description": "Returns counts and slim-info lists for the providers, sources, enrichers, clean projects, deduplication projects, AI agents, and export streams that the entity participates in. Returns 404 if the entity does not exist. Source ids and stream membership are read from the search store and stream log service for efficiency.",
+    "parameters": {
+      "entityId": "Entity identifier."
+    }
+  }
+}

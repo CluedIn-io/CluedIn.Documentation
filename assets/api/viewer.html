@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CluedIn REST API category</title>
+    <link rel="icon" href="/assets/images/favicon.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css" />
+    <style>
+      body {
+        margin: 0;
+        background: #fafafa;
+      }
+      /* The auth/server bar is hidden because "Try it out" is disabled in this
+         read-only reference. */
+      .swagger-ui .scheme-container {
+        display: none;
+      }
+      .err {
+        padding: 24px;
+        font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+        color: #b00020;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      Generic category viewer. Loads a per-category OpenAPI sub-specification
+      based on the `spec` query parameter and renders it with Swagger UI.
+
+      Example: /assets/api/viewer.html?spec=entities
+      The sub-spec is fetched from /assets/api/categories/<spec>.json
+    -->
+    <div id="swagger-ui"></div>
+    <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+    <script>
+      var slug = new URLSearchParams(location.search).get('spec');
+      if (!slug || !/^[a-z0-9-]+$/.test(slug)) {
+        document.getElementById('swagger-ui').innerHTML =
+          '<div class="err">Missing or invalid <code>?spec=&lt;category&gt;</code> parameter.</div>';
+      } else {
+        window.ui = SwaggerUIBundle({
+          url: 'categories/' + slug + '.json',
+          dom_id: '#swagger-ui',
+          presets: [SwaggerUIBundle.presets.apis],
+          deepLinking: true,
+          docExpansion: 'list',
+          filter: true,
+          tagsSorter: 'alpha',
+          operationsSorter: 'alpha',
+          defaultModelsExpandDepth: -1,
+          supportedSubmitMethods: [],
+          validatorUrl: null
+        });
+      }
+    </script>
+  </body>
+</html>

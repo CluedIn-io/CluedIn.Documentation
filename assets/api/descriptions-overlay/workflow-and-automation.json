@@ -1,0 +1,191 @@
+{
+  "_about": "Workflow & automation (Automate, PowerAutomate, EnterpriseFlows, Task, TaskApproval, TaskRoleRequest, ApprovalItem, MeshCenter, MeshProcessor).",
+
+  "PUT /api/v1/approvalitem/batchupdate": {
+    "summary": "Batch update approval items",
+    "description": "Processes a batch approval action against multiple approval items in one call. Returns `{ count, results }` where `count` is the number of items and `results` is a per-item outcome list."
+  },
+
+  "GET /api/v1/enterpriseFlows": {
+    "summary": "List Enterprise Flows",
+    "description": "Returns paged Enterprise Flows filtered by keyword and ordered by the requested field/direction. Requires the Workflow.WorkflowBuilder RACI claim.",
+    "parameters": {
+      "keyword": "Optional keyword filter.",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction. Defaults to false.",
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 20."
+    }
+  },
+  "POST /api/v1/enterpriseFlows": {
+    "summary": "Create Enterprise Flow",
+    "description": "Creates an Enterprise Flow from a template, name, and description. Returns 201 Created with the new flow id and a `Location` header pointing at the flow. Requires the Workflow.WorkflowBuilder RACI claim."
+  },
+  "GET /api/v1/enterpriseFlows/{id}": {
+    "summary": "Get Enterprise Flow",
+    "description": "Returns Enterprise Flow details. If an activated flow is missing a trigger URL, the server publishes an error notification and logs the condition (the flow is enabled but not ready). Returns 404 when the flow cannot be found. Requires the Workflow.WorkflowBuilder RACI claim.",
+    "parameters": { "id": "Enterprise Flow identifier." }
+  },
+  "PUT /api/v1/enterpriseFlows/{id}": {
+    "summary": "Update Enterprise Flow status",
+    "description": "Updates an Enterprise Flow's status (typically to activate or deactivate) and returns the updated flow model. Requires the Workflow.WorkflowBuilder RACI claim.",
+    "parameters": { "id": "Enterprise Flow identifier." }
+  },
+  "DELETE /api/v1/enterpriseFlows/{id}": {
+    "summary": "Delete Enterprise Flow",
+    "description": "Deletes an Enterprise Flow by id and returns deletion status/details. Returns 404 when the flow cannot be found. Requires the Workflow.WorkflowBuilder RACI claim.",
+    "parameters": { "id": "Enterprise Flow identifier." }
+  },
+  "GET /api/v1/enterpriseFlows/templates": {
+    "summary": "List Enterprise Flow templates",
+    "description": "Returns the Enterprise Flow templates the organisation can choose from when creating a new flow. Requires the Workflow.WorkflowBuilder RACI claim."
+  },
+  "POST /api/v1/enterpriseFlows/callback": {
+    "summary": "Enterprise Flow callback",
+    "description": "Callback endpoint used by the Enterprise Flow execution infrastructure to deliver execution results back to CluedIn. Requires the dedicated `EnterpriseFlowsCallback` role."
+  },
+
+  "GET /api/v1/enterpriseFlows/getWidgetToken": {
+    "summary": "Get Power Automate widget token",
+    "description": "Returns the token used by the embedded Power Automate widget when surfacing flows in the CluedIn UI."
+  },
+  "POST /api/v1/enterpriseFlows/webhooks/{templateId}": {
+    "summary": "Register Power Automate webhook",
+    "description": "Registers a Power Automate webhook against the supplied template id.",
+    "parameters": { "templateId": "Power Automate template identifier." }
+  },
+  "DELETE /api/v1/enterpriseFlows/webhooks": {
+    "summary": "Delete Power Automate webhooks",
+    "description": "Removes registered Power Automate webhooks for the caller's organisation."
+  },
+
+  "GET /api/v1/meshcenter": {
+    "summary": "List mesh-center GDPR commands",
+    "description": "Returns paged GDPR mesh commands stored for the organisation, filtered by `isQueuedFilter` (defaults to queued only) and optionally narrowed to a single provider definition. Supports `skip`, `take`, and `ascending` sort. Requires the Preparation.MeshCenter RACI claim.",
+    "parameters": {
+      "take": "Page size. Defaults to 10.",
+      "skip": "Number of items to skip. Defaults to 0.",
+      "ascending": "When true, sort ascending by creation date. Defaults to false.",
+      "providerDefinitionId": "Optional provider definition filter.",
+      "isQueuedFilter": "Filter by queued state. Defaults to true."
+    }
+  },
+
+  "GET /api/MeshProcessor/AcceptsUpdate": {
+    "summary": "Check whether entity accepts mesh updates",
+    "description": "Returns whether the supplied entity can accept mesh commands (writes) given the caller's allowed provider definitions. Returns 400 if the entity cannot be found.",
+    "parameters": { "id": "Entity identifier." }
+  },
+  "GET /api/MeshProcessor/AcceptVocabKey/{id}/key/{key}": {
+    "summary": "Check whether vocab key accepts mesh updates",
+    "description": "Returns whether a specific vocabulary key on the supplied entity can accept mesh commands given the caller's allowed provider definitions.",
+    "parameters": {
+      "id": "Entity identifier.",
+      "key": "Vocabulary key name."
+    }
+  },
+
+  "GET /api/v1/tasks": {
+    "summary": "List user tasks",
+    "description": "Returns paged user tasks assigned to the caller. Supports filtering by task type, active state, and search text; sortable by any supported field.",
+    "parameters": {
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 20.",
+      "filterTaskType": "Filter by task type identifier.",
+      "filterActive": "Filter by active state. Defaults to true.",
+      "searchName": "Free-text search.",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction. Defaults to true."
+    }
+  },
+  "GET /api/v1/tasks/requests": {
+    "summary": "List tasks requested by current user",
+    "description": "Returns paged tasks that the calling user created (as the requester) rather than is assigned to (as the recipient). Same filters as `GET /api/v1/tasks`.",
+    "parameters": {
+      "page": "0-based page number.",
+      "take": "Page size.",
+      "filterTaskType": "Filter by task type identifier.",
+      "filterActive": "Filter by active state.",
+      "searchName": "Free-text search.",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction."
+    }
+  },
+  "GET /api/v1/tasks/byobject/{objectid}/{objecttypeid}": {
+    "summary": "List tasks for an object",
+    "description": "Returns paged tasks attached to a specific object (for example rules, streams, glossary terms).",
+    "parameters": {
+      "objectid": "Object identifier.",
+      "objecttypeid": "Object type identifier.",
+      "page": "0-based page number.",
+      "take": "Page size.",
+      "filterTaskType": "Filter by task type identifier.",
+      "filterActive": "Filter by active state.",
+      "searchName": "Free-text search.",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction."
+    }
+  },
+  "GET /api/v1/tasks/{taskId}": {
+    "summary": "Get task details",
+    "description": "Returns the full details for a user task.",
+    "parameters": { "taskId": "Task identifier." }
+  },
+
+  "GET /api/v1/tasks/approval/{taskId}": {
+    "summary": "Get approval task details",
+    "description": "Returns the details of an approval task.",
+    "parameters": { "taskId": "Task identifier." }
+  },
+  "PUT /api/v1/tasks/approval/approve/{taskId}": {
+    "summary": "Approve approval task",
+    "description": "Approves an approval task, queuing the original (RACI-approved) request for processing. Returns 409 Conflict if the task is already complete.",
+    "parameters": { "taskId": "Task identifier." }
+  },
+  "PUT /api/v1/tasks/approval/reject/{taskId}": {
+    "summary": "Reject approval task",
+    "description": "Rejects an approval task with a reason from the supplied model. Returns 409 Conflict if the task is already complete.",
+    "parameters": { "taskId": "Task identifier." }
+  },
+
+  "POST /api/v1/tasks/rolerequest": {
+    "summary": "Create role request task",
+    "description": "Submits a request to grant the current user a RACI claim at a given level. Returns 202 Accepted on success."
+  },
+  "GET /api/v1/tasks/rolerequest/{taskId}": {
+    "summary": "Get role request task",
+    "description": "Returns the details of a role request task.",
+    "parameters": { "taskId": "Task identifier." }
+  },
+  "PUT /api/v1/tasks/rolerequest/approve/{taskId}": {
+    "summary": "Approve role request",
+    "description": "Approves a role request and grants the requested claim. Returns 409 Conflict if the task is already complete.",
+    "parameters": { "taskId": "Task identifier." }
+  },
+  "PUT /api/v1/tasks/rolerequest/reject/{taskId}": {
+    "summary": "Reject role request",
+    "description": "Rejects a role request. Returns 409 Conflict if the task is already complete.",
+    "parameters": { "taskId": "Task identifier." }
+  },
+
+  "POST /api/deduplication/projects/{projectId}/automate/automate": {
+    "summary": "Automate deduplication project",
+    "description": "Triggers full automation of a deduplication project (generates and commits results). Returns 400 when the project has no rules or is in a state that does not allow automation, 404 when the project cannot be found. Requires the Management.DeduplicationManagement RACI claim.",
+    "parameters": { "projectId": "Deduplication project identifier." }
+  },
+  "POST /api/deduplication/projects/{projectId}/automate/cancel": {
+    "summary": "Cancel deduplication automation",
+    "description": "Cancels an in-progress automation. Returns 400 when the project is in a state that does not allow cancellation, 404 when the project cannot be found. Requires the Management.DeduplicationManagement RACI claim.",
+    "parameters": { "projectId": "Deduplication project identifier." }
+  },
+  "GET /api/deduplication/projects/{projectId}/automate/projectcanbeautomated": {
+    "summary": "Check whether deduplication project can be automated",
+    "description": "Returns whether the project meets the preconditions for automation. Returns 404 when the project cannot be found. Requires the Management.DeduplicationManagement RACI claim.",
+    "parameters": { "projectId": "Deduplication project identifier." }
+  },
+  "GET /api/deduplication/projects/{projectId}/automate/lastdeduplicationstarttime": {
+    "summary": "Get last automation start time",
+    "description": "Returns the start time of the most recent automation job for the project, as `{ LastJobStartTime }`. Returns 404 when the project cannot be found. Requires the Management.DeduplicationManagement RACI claim.",
+    "parameters": { "projectId": "Deduplication project identifier." }
+  }
+}

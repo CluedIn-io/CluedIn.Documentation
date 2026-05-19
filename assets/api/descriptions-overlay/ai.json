@@ -1,0 +1,362 @@
+{
+  "_about": "AI category (AIAgent, AiDeployment, AiEndpoint, AiJob, AiJobSkill, AiPlatform, AiPlatformDefinition, Copilot, LanguageServer). The Platform/Deployment/Endpoint stack chains together: platforms hold provider configuration, deployments link a model to a platform with cost settings, endpoints expose deployments with default options. Jobs run prompts through endpoints with allowed skills.",
+
+  "GET /api/v1/aiagent": {
+    "summary": "List AI agents",
+    "description": "Returns AI agents in the organisation, augmented with avatar image, total job costs in the deployment currency, count of active jobs, and count of pending non-dry-run results. Optional `metadataFilter` narrows by key/value metadata pairs. Requires the Management.AiAgents RACI claim.",
+    "parameters": {
+      "metadataFilter": "Optional key/value metadata filters as repeated `metadataFilter[key]=value` parameters."
+    }
+  },
+  "GET /api/v1/aiagent/{id}": {
+    "summary": "Get AI agent",
+    "description": "Returns a single AI agent with name, description, instructions, base64 avatar, and metadata. Requires the Management.AiAgents RACI claim.",
+    "parameters": { "id": "AI agent identifier." }
+  },
+  "POST /api/v1/aiagent": {
+    "summary": "Create AI agent",
+    "description": "Creates an AI agent with the supplied name, description, instructions, and metadata. Records an audit-log change set and adds the calling user as the agent's owner. Requires the Management.AiAgents RACI claim."
+  },
+  "PUT /api/v1/aiagent/{id}": {
+    "summary": "Update AI agent",
+    "description": "Updates an AI agent's name, description, instructions, and metadata. Records an audit-log change set comparing the before and after state. Requires the Management.AiAgents RACI claim.",
+    "parameters": { "id": "AI agent identifier." }
+  },
+  "DELETE /api/v1/aiagent/{id}": {
+    "summary": "Delete AI agent",
+    "description": "Deletes an AI agent. Returns 400 with validation details when the agent is still linked to one or more AI jobs (delete the jobs first). Requires the Management.AiAgents RACI claim.",
+    "parameters": { "id": "AI agent identifier." }
+  },
+
+  "GET /api/v1/ai/admin/platform": {
+    "summary": "List AI platforms",
+    "description": "Returns the AI platforms configured for the organisation, ordered by the backing data store. Platforms hold provider-level configuration used by deployments."
+  },
+  "POST /api/v1/ai/admin/platform": {
+    "summary": "Create AI platform",
+    "description": "Creates a non-system-managed AI platform from a platform definition. Persists provider display name, configuration values, and request limits."
+  },
+  "GET /api/v1/ai/admin/platform/{id}": {
+    "summary": "Get AI platform",
+    "description": "Returns one AI platform by id.",
+    "parameters": { "id": "AI platform identifier." }
+  },
+  "PUT /api/v1/ai/admin/platform/{id}": {
+    "summary": "Update AI platform",
+    "description": "Updates a non-system-managed AI platform. The platform definition cannot be changed; secrets are injected from the existing platform where needed.",
+    "parameters": { "id": "AI platform identifier." }
+  },
+  "DELETE /api/v1/ai/admin/platform/{id}": {
+    "summary": "Delete AI platform",
+    "description": "Deletes a non-system-managed platform after verifying that no AI deployment references it. Returns 400 (validation) when the platform is in use.",
+    "parameters": { "id": "AI platform identifier." }
+  },
+  "PUT /api/v1/ai/admin/platform/test-connection": {
+    "summary": "Test new AI platform connection",
+    "description": "Tests a provider configuration before creating an AI platform from it."
+  },
+  "GET /api/v1/ai/admin/platform/{id}/test-connection": {
+    "summary": "Test stored AI platform connection",
+    "description": "Tests whether the stored AI platform configuration can connect to its external provider.",
+    "parameters": { "id": "AI platform identifier." }
+  },
+  "PUT /api/v1/ai/admin/platform/{id}/test-connection": {
+    "summary": "Test updated AI platform connection",
+    "description": "Tests a modified configuration for an existing platform without persisting the update.",
+    "parameters": { "id": "AI platform identifier." }
+  },
+
+  "GET /api/v1/ai/admin/deployment": {
+    "summary": "List AI deployments",
+    "description": "Returns all configured AI deployments, including display name, provider platform, token-cost configuration, aggregate cost, currency, and token limits."
+  },
+  "POST /api/v1/ai/admin/deployment": {
+    "summary": "Create AI deployment",
+    "description": "Creates a new AI deployment and optionally validates provider connectivity before saving. Deployments link a model/deployment name to an AI platform together with token-cost settings.",
+    "parameters": { "testConnection": "When true, test connectivity before saving the deployment. Defaults to false." }
+  },
+  "GET /api/v1/ai/admin/deployment/{id}": {
+    "summary": "Get AI deployment",
+    "description": "Returns a single AI deployment with cost statistics in the configured currency.",
+    "parameters": { "id": "AI deployment identifier." }
+  },
+  "PUT /api/v1/ai/admin/deployment/{id}": {
+    "summary": "Update AI deployment",
+    "description": "Updates model name, display name, platform link, cost currency, token costs, and max input tokens. Can optionally test connectivity and recalculate existing cost statistics with the new settings.",
+    "parameters": {
+      "id": "AI deployment identifier.",
+      "testConnection": "When true, test connectivity before saving. Defaults to false.",
+      "updateExistingCosts": "When true, recalculate existing deployment and job cost statistics using the new cost settings. Defaults to false."
+    }
+  },
+  "DELETE /api/v1/ai/admin/deployment/{id}": {
+    "summary": "Delete AI deployment",
+    "description": "Deletes a non-system-managed deployment after verifying no AI endpoint references it.",
+    "parameters": { "id": "AI deployment identifier." }
+  },
+  "PUT /api/v1/ai/admin/deployment/test-connection": {
+    "summary": "Test new AI deployment connection",
+    "description": "Tests an AI deployment configuration before it is saved."
+  },
+  "GET /api/v1/ai/admin/deployment/{id}/test-connection": {
+    "summary": "Test stored AI deployment connection",
+    "description": "Sends a simple chat-completion test through the configured platform and deployment.",
+    "parameters": { "id": "AI deployment identifier." }
+  },
+
+  "GET /api/v1/ai/admin/endpoint": {
+    "summary": "List AI endpoints",
+    "description": "Returns AI endpoints with linked deployment names, endpoint type, option schema/defaults, management flags, and audit metadata."
+  },
+  "POST /api/v1/ai/admin/endpoint": {
+    "summary": "Create AI endpoint",
+    "description": "Creates a non-system-managed AI endpoint linked to a deployment. Optionally sends a test chat completion before saving.",
+    "parameters": { "testConnection": "When true, test the endpoint before saving. Defaults to false." }
+  },
+  "GET /api/v1/ai/admin/endpoint/{id}": {
+    "summary": "Get AI endpoint",
+    "description": "Returns a single AI endpoint with the linked deployment display name and configuration metadata.",
+    "parameters": { "id": "AI endpoint identifier." }
+  },
+  "PUT /api/v1/ai/admin/endpoint/{id}": {
+    "summary": "Update AI endpoint",
+    "description": "Updates a non-system-managed endpoint name, endpoint type, default options, deployment link, and options schema. Can optionally test connectivity before saving.",
+    "parameters": {
+      "id": "AI endpoint identifier.",
+      "testConnection": "When true, test the endpoint before saving. Defaults to false."
+    }
+  },
+  "DELETE /api/v1/ai/admin/endpoint/{id}": {
+    "summary": "Delete AI endpoint",
+    "description": "Deletes a non-system-managed endpoint after verifying no AI job references it.",
+    "parameters": { "id": "AI endpoint identifier." }
+  },
+  "PUT /api/v1/ai/admin/endpoint/test-connection": {
+    "summary": "Test new AI endpoint connection",
+    "description": "Tests endpoint settings before creating or updating an endpoint."
+  },
+  "GET /api/v1/ai/admin/endpoint/{id}/test-connection": {
+    "summary": "Test stored AI endpoint connection",
+    "description": "Sends a simple chat-completion test through the stored endpoint configuration.",
+    "parameters": { "id": "AI endpoint identifier." }
+  },
+
+  "GET /api/v1/ai/endpoint": {
+    "summary": "List public AI endpoints",
+    "description": "Returns the AI endpoints available to the caller (just id and name), ordered by name. Used by client code to enumerate endpoints before calling chat or completion."
+  },
+  "POST /api/v1/ai/endpoint/{id}/chat": {
+    "summary": "Get chat completion via AI endpoint",
+    "description": "Sends a chat-completion request through the supplied AI endpoint with options, message list, and optional function definitions. Returns the model response under `response`.",
+    "parameters": { "id": "AI endpoint identifier." }
+  },
+  "POST /api/v1/ai/endpoint/{id}/completions/generate": {
+    "summary": "Generate completion via AI endpoint",
+    "description": "Sends a text-completion request through the supplied AI endpoint with options and a prompt. Returns the model response under `response`.",
+    "parameters": { "id": "AI endpoint identifier." }
+  },
+
+  "GET /api/v1/ai/platform-definition": {
+    "summary": "List AI platform definitions",
+    "description": "Returns the known AI platform definitions (provider templates) with their id, name, configuration JSON schema, `SystemManaged` flag, and whether they support test-connection."
+  },
+  "GET /api/v1/ai/platform-definition/{id}/logo": {
+    "summary": "Get AI platform definition logo",
+    "description": "Returns the embedded logo image for a platform definition. Public — allowed anonymously. Response is cached for 24 hours.",
+    "parameters": { "id": "Platform definition identifier." }
+  },
+
+  "GET /api/v1/aijob": {
+    "summary": "List AI jobs",
+    "description": "Returns AI Agent jobs, including enabled state, scheduled execution metadata, endpoint cost rollups, metadata, and count of pending non-dry-run results.",
+    "parameters": {
+      "metadataFilter": "Optional key/value metadata filters as repeated `metadataFilter[key]=value` parameters."
+    }
+  },
+  "POST /api/v1/aijob": {
+    "summary": "Create AI job",
+    "description": "Creates an AI Agent job with prompt, allowed skills, endpoint, schedule settings, data sources, metadata, and enabled state. Enabled scheduled jobs are scheduled immediately."
+  },
+  "GET /api/v1/aijob/summary": {
+    "summary": "Get AI jobs summary",
+    "description": "Returns cross-job summary information such as approval rate for non-dry-run AI job results."
+  },
+  "GET /api/v1/aijob/{id}": {
+    "summary": "Get AI job",
+    "description": "Returns a single AI Agent job with prompt, data sources, endpoint/deployment cost settings, result summary, provider definition, and metadata.",
+    "parameters": { "id": "AI job identifier." }
+  },
+  "PUT /api/v1/aijob/{id}": {
+    "summary": "Update AI job",
+    "description": "Replaces an AI job configuration (prompt, metadata, allowed skills, schedule, endpoint, enabled state, data-source configuration). Scheduling is updated to match the saved state.",
+    "parameters": { "id": "AI job identifier." }
+  },
+  "PATCH /api/v1/aijob/{id}": {
+    "summary": "Patch AI job",
+    "description": "Applies a JSON Patch document to an AI job update model, then saves the resulting job configuration. Useful when only a few fields need to change.",
+    "parameters": { "id": "AI job identifier." }
+  },
+  "DELETE /api/v1/aijob/{id}": {
+    "summary": "Delete AI job",
+    "description": "Deletes an AI job only when it has no approved results. Jobs with approved results are retained for auditability.",
+    "parameters": { "id": "AI job identifier." }
+  },
+  "POST /api/v1/aijob/{id}/execution-queue": {
+    "summary": "Run AI job now",
+    "description": "Starts a non-dry-run distributed execution for an enabled and valid AI job. Returns the started distributed job id.",
+    "parameters": { "id": "AI job identifier." }
+  },
+  "POST /api/v1/aijob/{id}/dry-run": {
+    "summary": "Dry-run AI job",
+    "description": "Runs an AI job as a dry run using draft update settings without committing those settings as the live job configuration.",
+    "parameters": { "id": "AI job identifier." }
+  },
+  "POST /api/v1/aijob/{id}/preview": {
+    "summary": "Preview AI job input",
+    "description": "Builds a preview of the prompt input for a job using current or draft settings. Useful for validating that the data source returns rows and that the prompt context is shaped correctly.",
+    "parameters": { "id": "AI job identifier." }
+  },
+  "GET /api/v1/aijob/{id}/chatstream": {
+    "summary": "Get latest job chat stream",
+    "description": "Returns stream items from the latest job run chat stream, optionally after an offset.",
+    "parameters": {
+      "id": "AI job identifier.",
+      "offset": "Optional stream offset."
+    }
+  },
+  "GET /api/v1/aijob/{id}/runs": {
+    "summary": "List AI job runs",
+    "description": "Returns paged job runs, filtered by run type (normal, test/dry, or all).",
+    "parameters": {
+      "id": "AI job identifier.",
+      "runType": "Run type filter, for example `TestRun` or `Normal`.",
+      "pageNumber": "1-based page number. Defaults to 1.",
+      "pageSize": "Page size. Defaults to 10.",
+      "sortDirection": "Sort direction. Defaults to `Ascending`."
+    }
+  },
+  "GET /api/v1/aijob/{id}/runs/{runId}/results": {
+    "summary": "List AI job run results",
+    "description": "Returns paged results generated by a specific job run, with access-control filtering applied by skill.",
+    "parameters": {
+      "id": "AI job identifier.",
+      "runId": "AI job run identifier.",
+      "pageNumber": "1-based page number.",
+      "pageSize": "Page size.",
+      "sortDirection": "Sort direction."
+    }
+  },
+  "GET /api/v1/aijob/{jobId}/runs/{runId}/chats": {
+    "summary": "List AI job run chats",
+    "description": "Returns paged chat records for a specific AI job run, optionally restricted to chats that produced no results.",
+    "parameters": {
+      "jobId": "AI job identifier.",
+      "runId": "AI job run identifier.",
+      "pageNumber": "1-based page number.",
+      "pageSize": "Page size.",
+      "sortDirection": "Sort direction.",
+      "includeOnlyChatsWithNoResults": "When true, return only chat rows with zero results."
+    }
+  },
+  "GET /api/v1/aijob/{jobId}/runs/{runId}/chats/{chatId}": {
+    "summary": "Get AI job run chat",
+    "description": "Returns one chat record from a job run.",
+    "parameters": {
+      "jobId": "AI job identifier.",
+      "runId": "AI job run identifier.",
+      "chatId": "Chat identifier."
+    }
+  },
+  "GET /api/v1/aijob/{id}/results/{type}": {
+    "summary": "List AI job results by type",
+    "description": "Returns paged non-dry-run job results of a given result type, filtered by state and search text, with access-control filtering applied by skill.",
+    "parameters": {
+      "id": "AI job identifier.",
+      "type": "Result type.",
+      "state": "Optional result state filter (`Pending`, `Approved`, `Rejected`).",
+      "pageNumber": "1-based page number.",
+      "pageSize": "Page size.",
+      "sortDirection": "Sort direction.",
+      "searchName": "Optional text filter over result description."
+    }
+  },
+  "GET /api/v1/aijob/{id}/results/{type}/{resultId}": {
+    "summary": "Get AI job result",
+    "description": "Returns one non-dry-run result for the job and result type.",
+    "parameters": {
+      "id": "AI job identifier.",
+      "type": "Result type.",
+      "resultId": "Result identifier."
+    }
+  },
+  "POST /api/v1/aijob/{id}/results/{type}/approvals": {
+    "summary": "Approve or reject selected job results",
+    "description": "Applies an approval action to selected results of the given result type.",
+    "parameters": {
+      "id": "AI job identifier.",
+      "type": "Result type."
+    }
+  },
+  "PUT /api/v1/aijob/{id}/bulk-result-approval-request": {
+    "summary": "Bulk approve or reject job results",
+    "description": "Applies an approval action to all non-dry-run results for a job and returns counts for successful, skipped, and errored items.",
+    "parameters": { "id": "AI job identifier." }
+  },
+
+  "GET /api/v1/aijobskills": {
+    "summary": "List AI job skills",
+    "description": "Returns AI Agent skills available to the organisation, including skill id, display description, auto-approval state, and supported primary data-source types."
+  },
+
+  "GET /api/copilot/getAllChats": {
+    "summary": "List Copilot chat sessions",
+    "description": "Returns the calling user's Copilot chat sessions (sorted newest first), each populated with messages."
+  },
+  "GET /api/copilot/getChat/{chatId}": {
+    "summary": "Get Copilot chat session",
+    "description": "Returns a single Copilot chat session by id along with its messages.",
+    "parameters": { "chatId": "Chat session identifier." }
+  },
+  "POST /api/copilot/createChatSession": {
+    "summary": "Create Copilot chat session",
+    "description": "Creates a Copilot chat session with the supplied title and language for the calling user."
+  },
+  "PUT /api/copilot/updateChatSession": {
+    "summary": "Update Copilot chat session",
+    "description": "Updates an existing Copilot chat session (typically its title)."
+  },
+  "DELETE /api/copilot/deleteChatSession/{chatId}": {
+    "summary": "Delete Copilot chat session",
+    "description": "Deletes a Copilot chat session.",
+    "parameters": { "chatId": "Chat session identifier." }
+  },
+  "POST /api/copilot/chat": {
+    "summary": "Send Copilot chat message",
+    "description": "Adds a user message to a Copilot chat session. The chat continuation runs through SignalR (`CopilotHub`); the HTTP response is 202 Accepted as soon as the message is queued."
+  },
+  "POST /api/copilot/suggestions": {
+    "summary": "Get Copilot suggested prompts",
+    "description": "Returns suggested prompts for the current URL across the user's available Copilot skills, translated into the requested language when needed."
+  },
+  "GET /api/copilot/chat/{chatId}/examples": {
+    "summary": "Get Copilot example prompts",
+    "description": "Returns grouped example prompts for the chat's language (falling back to English).",
+    "parameters": { "chatId": "Chat session identifier." }
+  },
+  "POST /api/copilot/reprocess/{chatId}": {
+    "summary": "Reprocess Copilot chat",
+    "description": "Reprocesses the last failed turn in a Copilot chat session. Returns 404 when the chat cannot be found.",
+    "parameters": { "chatId": "Chat session identifier." }
+  },
+
+  "POST /api/powerfx/lsp": {
+    "summary": "Power Fx Language Server (LSP)",
+    "description": "Channels Language Server Protocol messages between the Power Fx formula bar in the UI and the in-process LanguageServer, used to power intellisense, hover info, and diagnostics for rule expressions. Returns 400 with the error message when the LSP processing fails.",
+    "parameters": { "scope": "Processing rule scope. Defaults to `Entity`." }
+  },
+  "GET /api/powerfx/context": {
+    "summary": "Get Power Fx context",
+    "description": "Returns a sample JSON context document showing the shape of the `Entity` record (properties, tags, aliases, identifiers, outgoing edges) available to Power Fx expressions in the given scope.",
+    "parameters": { "scope": "Processing rule scope. Defaults to `Entity`." }
+  }
+}

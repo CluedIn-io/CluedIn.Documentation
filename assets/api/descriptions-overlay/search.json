@@ -1,0 +1,255 @@
+{
+  "_about": "Search category (Search, SavedSearch, SuggestedSearch, RulesAutoComplete, SearchToClean). The Search controller dispatches between V1/V2/V3 implementations at runtime based on `Feature.Search.V3.Enabled` / `V2.Enabled` configuration flags; the v2/v3 paths invoke the same dispatcher with version-specific defaults.",
+
+  "GET /api/v1/search": {
+    "summary": "Search entities",
+    "description": "Free-text search across the CluedIn graph. The controller dispatches to the V1, V2, or V3 implementation depending on the `Feature.Search.V3.Enabled` / `Feature.Search.V2.Enabled` flags. Multiple overloads accept additional combinations of `type`, `dateSort`, `nameSort`, `direction`, `includePreviousFacets`, and `searchUnTokenized` — the spec exposes a single endpoint and the controller resolves the actual signature by `ExactQueryParam` matching. Response is cached for 120 seconds.",
+    "parameters": {
+      "q": "Search query string.",
+      "type": "Optional entity-type filter.",
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 27.",
+      "dateSort": "When true, sort by modification date.",
+      "nameSort": "When true, sort by name.",
+      "direction": "Sort direction: `asc` or `desc`. Defaults to `desc`.",
+      "includePreviousFacets": "Include facets from the previous (unfiltered) search.",
+      "includeExternalData": "Include externally-sourced entities. Defaults to false.",
+      "includeUnstructuredData": "Include unstructured entities. Defaults to false.",
+      "searchUnTokenized": "V3 only — search the `name_untokenized` field for exact matches."
+    }
+  },
+  "GET /api/v2/search": {
+    "summary": "Search entities (v2)",
+    "description": "Version 2 of the entity search endpoint. Reached either explicitly via `/api/v2/search` or implicitly when `Feature.Search.V2.Enabled` is true and V3 is not. Same query parameters as `/api/v1/search`."
+  },
+  "GET /api/v3/search": {
+    "summary": "Search entities (v3)",
+    "description": "Version 3 of the entity search endpoint. Reached either explicitly via `/api/v3/search` or implicitly when `Feature.Search.V3.Enabled` is true. Adds the `searchUnTokenized` option and richer ranking."
+  },
+  "GET /api/v1/search/suggest": {
+    "summary": "Get search auto-suggest",
+    "description": "Returns auto-suggest completions for a query prefix. Dispatches to V1, V2, or V3 implementation based on the `Search.V3.Enabled` / `Search.V3.AutoSuggestEnabled` / `Search.V2.Enabled` configuration flags. Returns an empty list when the query is empty.",
+    "parameters": { "q": "Query prefix to complete." }
+  },
+  "GET /api/v2/search/suggest": {
+    "summary": "Get search auto-suggest (v2)",
+    "description": "Version 2 of the auto-suggest endpoint, used when `Search.V2.Enabled` is true and V3 is not.",
+    "parameters": { "q": "Query prefix to complete." }
+  },
+  "GET /api/v3/search/suggest": {
+    "summary": "Get search auto-suggest (v3)",
+    "description": "Version 3 of the auto-suggest endpoint, used when `Search.V3.Enabled` or `Search.V3.AutoSuggestEnabled` is true.",
+    "parameters": { "q": "Query prefix to complete." }
+  },
+  "GET /api/v1/entitysearch": {
+    "summary": "Search inside an entity",
+    "description": "Returns a paged sub-search scoped to a single root entity, optionally filtered by entity type, with date-sort options. Dispatches between V2 and V3 implementations based on `Feature.Search.V3.Enabled`.",
+    "parameters": {
+      "id": "Root entity identifier.",
+      "type": "Optional entity-type filter.",
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 27.",
+      "dateSort": "When true, sort by modification date.",
+      "direction": "Sort direction. Defaults to `desc`."
+    }
+  },
+  "GET /api/v2/entitysearch": {
+    "summary": "Search inside an entity (v2)",
+    "description": "Version 2 of the entity sub-search. Same parameters as `/api/v1/entitysearch`."
+  },
+  "GET /api/v3/entitysearch": {
+    "summary": "Search inside an entity (v3)",
+    "description": "Version 3 of the entity sub-search. Same parameters as `/api/v1/entitysearch`."
+  },
+  "GET /api/v1/dynamicfacets": {
+    "summary": "Search with dynamic facets",
+    "description": "Returns a paged entity sub-search together with dynamically computed vocabulary-key facets, for use in the entity-detail facet panel. Dispatches between V2 and V3 implementations based on `Feature.Search.V3.Enabled`.",
+    "parameters": {
+      "id": "Root entity identifier.",
+      "type": "Entity-type filter.",
+      "page": "0-based page number.",
+      "take": "Page size."
+    }
+  },
+  "GET /api/v2/dynamicfacets": {
+    "summary": "Search with dynamic facets (v2)",
+    "description": "Version 2 of the dynamic-facets endpoint."
+  },
+  "GET /api/v3/dynamicfacets": {
+    "summary": "Search with dynamic facets (v3)",
+    "description": "Version 3 of the dynamic-facets endpoint."
+  },
+  "GET /api/v2/joinsearch": {
+    "summary": "Joined search",
+    "description": "Joined search that lets a query span related entities; results are still entity instances but ranking includes edges of related types. Available only as `/api/joinsearch` and `/api/v2/joinsearch`. Dispatches to V2 or V3 implementation when feature flags are enabled. Returns an empty response when neither V2 nor V3 is enabled.",
+    "parameters": {
+      "q": "Search query string.",
+      "type": "Optional entity-type filter.",
+      "id": "Optional related entity identifier to anchor the join.",
+      "page": "0-based page number.",
+      "take": "Page size."
+    }
+  },
+  "GET /api/v3/joinsearch": {
+    "summary": "Joined search (v3)",
+    "description": "Version 3 of the joined search endpoint, used when `Feature.Search.V3.Enabled` is true."
+  },
+  "GET /api/v1/subsearch": {
+    "summary": "Sub-search",
+    "description": "Runs a free-text search restricted to entities related to (a sub-graph of) the supplied parent entity id. Dispatches between V2 and V3 implementations based on `Feature.Search.V3.Enabled`.",
+    "parameters": {
+      "id": "Parent entity identifier.",
+      "q": "Search query string.",
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 27."
+    }
+  },
+  "GET /api/v2/subsearch": {
+    "summary": "Sub-search (v2)",
+    "description": "Version 2 of the sub-search endpoint. Same parameters as `/api/v1/subsearch`."
+  },
+  "GET /api/v3/subsearch": {
+    "summary": "Sub-search (v3)",
+    "description": "Version 3 of the sub-search endpoint. Same parameters as `/api/v1/subsearch`."
+  },
+  "GET /api/v1/search/id": {
+    "summary": "Get entity from search store by id",
+    "description": "Returns the entity record stored in the search index (Elasticsearch) for the supplied id. Returns 400 for invalid GUIDs.",
+    "parameters": { "q": "Entity identifier (GUID)." }
+  },
+  "GET /api/v1/search/morelikethis": {
+    "summary": "More like this",
+    "description": "Returns entities that the search index considers similar to the supplied entity, augmented with suggested searches per hit. With the `type` parameter the similarity is restricted to one or more entity types (comma-separated). Returns 400 for invalid GUIDs.",
+    "parameters": {
+      "id": "Entity identifier (GUID).",
+      "type": "Optional comma-separated list of entity types to restrict the similarity to."
+    }
+  },
+  "GET /api/v1/search/terms": {
+    "summary": "Get term aggregations for a property",
+    "description": "Returns a term aggregation for a vocabulary key (property name) — the list of distinct values seen across the index and their counts. With only `id` the aggregation is run on the entity record id; with `propertyName` it targets a vocabulary key. Supports `resolveMappedKeys` to follow mapping chains. Returns 404 if the property cannot be resolved.",
+    "parameters": {
+      "id": "Entity identifier (when running on a single record).",
+      "propertyName": "Fully-qualified vocabulary key.",
+      "size": "Maximum number of buckets. Defaults to 1000.",
+      "resolveMappedKeys": "When true, resolve to the destination mapped key. Defaults to false."
+    }
+  },
+  "GET /api/v1/search/terms/paged": {
+    "summary": "Get paged term aggregations",
+    "description": "Returns paged term aggregations for a vocabulary key with optional text search inside the bucket names. Returns 404 if the property cannot be resolved and 400 when the cursor cannot be parsed.",
+    "parameters": {
+      "propertyName": "Fully-qualified vocabulary key.",
+      "size": "Page size. Defaults to 10.",
+      "cursor": "Opaque paging cursor for the next page.",
+      "searchTerm": "Optional substring search inside bucket names.",
+      "resolveMappedKeys": "When true, resolve to the destination mapped key. Defaults to false."
+    }
+  },
+  "GET /api/v1/search/facets": {
+    "summary": "Get facet aggregations for a field",
+    "description": "Returns Elasticsearch term aggregations for a single schema field, taking the field's `DataType` into account (IP addresses get an additional `IpRange` aggregation). Returns 404 if the field is not in the entity schema.",
+    "parameters": {
+      "fieldName": "Schema field name.",
+      "size": "Maximum number of buckets. Defaults to 1000.",
+      "resolveMappedKeys": "When true, follow mapping chains when running the aggregation."
+    }
+  },
+  "GET /api/v1/search/count": {
+    "summary": "Get search count (deprecated)",
+    "description": "**Deprecated** — always returns 0. Kept to avoid breaking older UI clients."
+  },
+  "PUT /api/v1/search/count": {
+    "summary": "Clear search count (deprecated)",
+    "description": "**Deprecated** — always returns 0. Kept to avoid breaking older UI clients."
+  },
+  "PUT /api/v1/search/clear": {
+    "summary": "Clear search entities (deprecated)",
+    "description": "**Deprecated** — always returns 0. Kept to avoid breaking older UI clients."
+  },
+  "GET /api/v1/search/subscribe": {
+    "summary": "Get subscribed searches (deprecated)",
+    "description": "**Deprecated** — returns an empty array. Kept to avoid breaking older UI clients."
+  },
+  "POST /api/v1/search/subscribe": {
+    "summary": "Subscribe to search (deprecated)",
+    "description": "**Deprecated** — returns the string `\"Not supported\"`. Kept to avoid breaking older UI clients."
+  },
+  "POST /api/v1/search/unsubscribe": {
+    "summary": "Unsubscribe from search (deprecated)",
+    "description": "**Deprecated** — returns the string `\"Not supported\"`. Kept to avoid breaking older UI clients."
+  },
+
+  "POST /api/v2/searchtoclean/checkquery": {
+    "summary": "Debug clean-project query translation",
+    "description": "Internal debug endpoint that compares the Elasticsearch query produced by the `NestExpressionTranslator` and the `FilterRuleToNestConverter` for a given clean project model. Pick the translator with the `method` query parameter (`NestTranslator` or `QueryBuilder`). **Not for production use.** Requires the Preparation.Clean RACI claim.",
+    "parameters": {
+      "method": "Which translator to run: `NestTranslator` or `QueryBuilder`."
+    }
+  },
+
+  "GET /api/v1/savedsearch": {
+    "summary": "List saved searches",
+    "description": "Returns paged saved searches matching the supplied filter model. Returns 400 with validation details when the filter model is invalid.",
+    "parameters": {
+      "take": "Page size. Defaults to 20.",
+      "page": "0-based page number. Defaults to 0."
+    }
+  },
+  "POST /api/v1/savedsearch": {
+    "summary": "Create a saved search",
+    "description": "Creates a new saved search from the supplied model. Returns 201 Created with a `Location` header pointing at the new resource. Returns 400 when the filter rule fails validation."
+  },
+  "GET /api/v1/savedsearch/{savedSearchId}": {
+    "summary": "Get a saved search",
+    "description": "Returns a single saved search by id. Returns 404 if the saved search cannot be found.",
+    "parameters": { "savedSearchId": "Saved search identifier." }
+  },
+  "POST /api/v1/savedsearch/{savedSearchId}": {
+    "summary": "Update a saved search",
+    "description": "Updates a saved search. Returns 403 if the caller does not have access to update it, 404 if it cannot be found, and 400 when the filter rule fails validation.",
+    "parameters": { "savedSearchId": "Saved search identifier." }
+  },
+  "DELETE /api/v1/savedsearch/{savedSearchId}": {
+    "summary": "Delete a saved search",
+    "description": "Deletes a saved search. Returns 403 if the caller does not have access to delete it and 404 if it cannot be found.",
+    "parameters": { "savedSearchId": "Saved search identifier." }
+  },
+  "GET /api/v1/savedsearch/favorites": {
+    "summary": "List favorite saved searches",
+    "description": "Returns the caller's favorite saved searches, paged.",
+    "parameters": {
+      "take": "Page size. Defaults to 20.",
+      "page": "0-based page number. Defaults to 0."
+    }
+  },
+  "POST /api/v1/savedsearch/favorites": {
+    "summary": "Add favorite saved search",
+    "description": "Adds a saved search to the caller's favorites. Returns 201 Created with a link to the favorites list and 404 when the saved search id cannot be found."
+  },
+  "DELETE /api/v1/savedsearch/favorites/{favoriteId}": {
+    "summary": "Remove favorite saved search",
+    "description": "Removes a favorite by id. Returns 404 if the favorite cannot be found.",
+    "parameters": { "favoriteId": "Favorite identifier." }
+  },
+
+  "GET /api/v1/suggestedsearch": {
+    "summary": "Get suggested search results",
+    "description": "Runs a registered related-entities query (`queryKey`) with the supplied `tokens`, returning either the matched entities (as cards augmented with suggested searches) or the related-entity paths. Returns an empty list when the `SuggestedSearches.Enabled` feature flag is off. Response is cached for 1200 seconds.",
+    "parameters": {
+      "queryKey": "Name of the related-entities query.",
+      "tokens": "Token string consumed by the query.",
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 10."
+    }
+  },
+
+  "GET /api/v1/ruleautocomplete/list": {
+    "summary": "List rule auto-complete items",
+    "description": "Returns auto-complete suggestions for a rule editor property — the candidate values the property is likely to take, based on the object type. Used by the rules-builder UI to power dropdowns.",
+    "parameters": {
+      "property": "Rule property name.",
+      "objectTypeId": "Object type identifier."
+    }
+  }
+}

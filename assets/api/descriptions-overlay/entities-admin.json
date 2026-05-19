@@ -1,0 +1,165 @@
+{
+  "_about": "Entities — AdminEntity tag (AdminEntityController). All endpoints require the global Admin role.",
+
+  "GET /api/v1/admin/entity/blob": {
+    "summary": "Admin: get blob entity",
+    "description": "Returns an entity straight from the blob data store, serialised with the persisting flavor. When `organizationId` is supplied the request impersonates that organisation. Admin-only.",
+    "parameters": {
+      "id": "Entity identifier.",
+      "organizationId": "Optional organisation to impersonate."
+    }
+  },
+  "GET /api/v1/admin/entity/blob/compressed": {
+    "summary": "Admin: download compressed blob entity",
+    "description": "Returns the encrypted blob backing an entity as a downloadable file, decrypting in place and setting the original filename, MIME type, MD5 (if known), and modification date on the response. Admin-only.",
+    "parameters": {
+      "id": "Entity identifier.",
+      "organizationId": "Optional organisation to impersonate."
+    }
+  },
+  "GET /api/v1/admin/processedentity/blob": {
+    "summary": "Admin: get processed entity blob",
+    "description": "Returns the processed-entity record from the blob data store, serialised with the persisting flavor. Returns 404 if the processed entity does not exist. Admin-only.",
+    "parameters": {
+      "id": "Processed entity identifier.",
+      "organizationId": "Optional organisation to impersonate."
+    }
+  },
+  "GET /api/v1/admin/processedentity/blob/compressed": {
+    "summary": "Admin: download compressed processed entity",
+    "description": "Returns the processed entity record as a downloadable, compressed file with `.processedentity` filename suffix. Admin-only.",
+    "parameters": {
+      "id": "Processed entity identifier.",
+      "organizationId": "Optional organisation to impersonate."
+    }
+  },
+  "GET /api/v1/admin/entity/graph": {
+    "summary": "Admin: get graph entity",
+    "description": "Returns an entity straight from the graph data store, serialised with the persisting flavor. Admin-only.",
+    "parameters": {
+      "id": "Entity identifier.",
+      "organizationId": "Optional organisation to impersonate."
+    }
+  },
+  "GET /api/v1/admin/entity/search": {
+    "summary": "Admin: get search-store entity",
+    "description": "Returns an entity straight from the search data store, serialised with the persisting flavor. Admin-only.",
+    "parameters": {
+      "id": "Entity identifier.",
+      "organizationId": "Optional organisation to impersonate."
+    }
+  },
+  "GET /api/v1/admin/entity/clue": {
+    "summary": "Admin: get entity as clue",
+    "description": "Reads an entity from the blob store and synthesises a `Clue` that mirrors its codes, properties, edges, and metadata, then serialises the clue. Useful for re-ingesting an entity. Admin-only.",
+    "parameters": {
+      "id": "Entity identifier.",
+      "organizationId": "Optional organisation to impersonate."
+    }
+  },
+  "POST /api/v1/admin/entity/mergeEntities": {
+    "summary": "Admin: force merge entities",
+    "description": "Forces a merge of the supplied source entity ids into a target entity (under impersonated organisation), running the merge pipeline with `ForceMerging=true` and `ManualMergeActionKind`. Admin-only.",
+    "parameters": {
+      "ids": "Comma/semicolon/pipe-separated source entity ids.",
+      "organizationId": "Organisation to operate on.",
+      "targetId": "Optional target entity id."
+    }
+  },
+  "POST /api/v1/admin/entity/deduplicateedges": {
+    "summary": "Admin: deduplicate entity edges",
+    "description": "Removes duplicate relationships on the supplied entity in the graph data store. Admin-only.",
+    "parameters": {
+      "id": "Entity identifier.",
+      "organizationId": "Optional organisation to impersonate."
+    }
+  },
+  "DELETE /api/v1/admin/deletebyid": {
+    "summary": "Admin: delete entity by id",
+    "description": "Dispatches a `DeleteEntityCommand` for the supplied entity id under impersonated organisation. Returns 200 once the command has been queued. Admin-only.",
+    "parameters": {
+      "entityId": "Entity identifier.",
+      "organizationId": "Organisation to operate on."
+    }
+  },
+  "GET /api/v1/admin/codelookup": {
+    "summary": "Admin: lookup entity by code",
+    "description": "Returns entity-code lookup results matching the supplied code, scoped to the impersonated organisation. Admin-only.",
+    "parameters": {
+      "code": "Entity code to look up.",
+      "organizationId": "Organisation to impersonate."
+    }
+  },
+  "GET /api/v1/admin/organizations": {
+    "summary": "Admin: list organisations",
+    "description": "Returns the profile of every organisation in the platform. Admin-only."
+  },
+  "GET /api/v1/admin/allproviders": {
+    "summary": "Admin: list providers",
+    "description": "Returns every provider registered in the system (category, details, id, enabled flag, name, type), ordered by name. Admin-only."
+  },
+  "GET /api/v1/admin/getAllEntityTypes": {
+    "summary": "Admin: list entity types by type",
+    "description": "Returns every entity type known to the platform that matches the supplied type filter. Admin-only.",
+    "parameters": {
+      "type": "Entity type technical name to filter by."
+    }
+  },
+  "POST /api/v1/admin/toggleproviderstatus": {
+    "summary": "Admin: enable or disable provider",
+    "description": "Sets a provider's `IsEnabled` flag and publishes a `ProviderEnabledNotification` or `ProviderDisabledNotification`. Returns 404 if the provider id cannot be found. Admin-only.",
+    "parameters": {
+      "providerId": "Provider identifier.",
+      "value": "True to enable, false to disable."
+    }
+  },
+  "GET /api/v1/admin/configuration": {
+    "summary": "Admin: get application configuration",
+    "description": "Returns a dictionary of every key/value pair from the application configuration (`AppSettings`). Admin-only."
+  },
+  "GET /api/v1/admin/agentjobs": {
+    "summary": "Admin: list agent jobs",
+    "description": "Returns the agent-job records stored for the organisation. The endpoint accepts optional `organizationId`, `from`, and `to` parameters (the date range parameters are accepted but currently ignored — the same underlying query is used either way). Admin-only.",
+    "parameters": {
+      "organizationId": "Optional organisation to impersonate.",
+      "from": "Currently ignored.",
+      "to": "Currently ignored."
+    }
+  },
+  "GET /api/v1/admin/webhooks": {
+    "summary": "Admin: list webhooks",
+    "description": "Returns the webhook definitions stored for the organisation (or the impersonated organisation when `organizationId` is supplied). Admin-only.",
+    "parameters": {
+      "organizationId": "Optional organisation to impersonate."
+    }
+  },
+  "GET /api/v1/admin/generatetoken": {
+    "summary": "Admin: get user token (placeholder)",
+    "description": "Stub endpoint currently routed to the agent-jobs query under impersonated organisation context. The name suggests it is intended for impersonation-token generation; treat the current response shape as implementation-defined. Admin-only.",
+    "parameters": {
+      "userId": "User identifier.",
+      "organizationId": "Organisation to impersonate."
+    }
+  },
+  "GET /api/v1/admin/vocabs": {
+    "summary": "Admin: search vocabulary keys",
+    "description": "Returns vocabulary keys across every vocabulary in the organisation whose name starts with `q`. Admin-only.",
+    "parameters": {
+      "q": "Prefix to match against vocabulary key names."
+    }
+  },
+  "GET /api/v1/admin/vocabs/type": {
+    "summary": "Admin: get vocabulary keys by type",
+    "description": "Returns vocabulary keys across every vocabulary in the organisation whose name equals `type`. Admin-only.",
+    "parameters": {
+      "type": "Exact vocabulary key name."
+    }
+  },
+  "POST /api/v1/admin/previewImage": {
+    "summary": "Admin: build a preview image part",
+    "description": "Builds a `RawDataPart` of type `/RawData/PreviewImage` from a supplied URL (downloads it server-side) or a raw byte array, and returns the resulting image reference. Admin-only.",
+    "parameters": {
+      "q": "Either a URL to download or a byte array (depending on overload)."
+    }
+  }
+}

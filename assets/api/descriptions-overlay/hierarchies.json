@@ -1,0 +1,84 @@
+{
+  "_about": "Hierarchies category (Hierarchies, GlobalDataModel). Hierarchies require the Management.Hierarchies RACI claim; GlobalDataModel requires Administration.EntityTypes.",
+
+  "GET /api/v1/globaldatamodel": {
+    "summary": "Get global data model",
+    "description": "Returns the relationship schema for entity types as a list of `From → To` paths. Optionally filtered by edge direction, entity type, and integration. The server only returns paths whose endpoints have data (or are temporal/entity-code paths), so the UI can render a graph that matches what is actually present in the organisation.",
+    "parameters": {
+      "edgeDirection": "Optional edge direction filter.",
+      "entityType": "Optional entity type filter.",
+      "integration": "Optional integration filter."
+    }
+  },
+
+  "GET /api/v1/hierarchies": {
+    "summary": "List hierarchies",
+    "description": "Returns paged hierarchies for the organisation along with the total count. Filter by name, entity code, and status; sort by any supported field.",
+    "parameters": {
+      "searchName": "Free-text search over hierarchy name.",
+      "entityCode": "Filter by entity code.",
+      "filterStatus": "Filter by hierarchy status (for example draft, published).",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction. Defaults to false (descending).",
+      "pageNumber": "0-based page number. Defaults to 0.",
+      "pageTake": "Page size. Defaults to 20."
+    }
+  },
+  "POST /api/v1/hierarchies": {
+    "summary": "Create hierarchy",
+    "description": "Creates one or more hierarchies. When `CreateWithTopLevelRoots` is true, the server discovers top-level roots from the supplied edge type/direction and uses them as project roots; when `CreateMultiProjects` is true, one hierarchy is created per root (subject to the organisation's multi-project limit — exceeding the limit returns 500 with an explanatory message)."
+  },
+  "PUT /api/v1/hierarchies": {
+    "summary": "Update hierarchy",
+    "description": "Updates an existing hierarchy. Returns 400 with validation details when the model is invalid or the id is empty, and 404 when the hierarchy cannot be found."
+  },
+  "GET /api/v1/hierarchies/{id}": {
+    "summary": "Get hierarchy",
+    "description": "Returns a hierarchy by id. Returns 404 if it cannot be found.",
+    "parameters": { "id": "Hierarchy identifier." }
+  },
+  "DELETE /api/v1/hierarchies/{id}": {
+    "summary": "Delete hierarchy",
+    "description": "Deletes a hierarchy. Returns 404 if it cannot be found.",
+    "parameters": { "id": "Hierarchy identifier." }
+  },
+  "GET /api/v1/hierarchies/{id}/export": {
+    "summary": "Export hierarchy as CSV",
+    "description": "Exports the hierarchy as CSV. Response is `text/csv` with `Content-Disposition: attachment; filename=hierarchy-{id}.csv`. Returns 404 if the hierarchy cannot be found.",
+    "parameters": { "id": "Hierarchy identifier." }
+  },
+  "GET /api/v1/hierarchies/{id}/publishStatus": {
+    "summary": "Get hierarchy publish status",
+    "description": "Returns the publish progress and status for the hierarchy. Returns 404 if it cannot be found.",
+    "parameters": { "id": "Hierarchy identifier." }
+  },
+  "POST /api/v1/hierarchies/clone": {
+    "summary": "Clone hierarchy",
+    "description": "Clones a hierarchy and returns the new hierarchy id. Returns 400 when the source id is empty and 404 when the source hierarchy cannot be found."
+  },
+  "GET /api/v1/hierarchies/edgeTypes": {
+    "summary": "List edge types for hierarchy building",
+    "description": "Returns the edge types that can be used to extend a hierarchy from the supplied entity type. Used by the hierarchy builder UI to populate the edge picker.",
+    "parameters": { "entityType": "Entity type to inspect." }
+  },
+  "POST /api/v1/hierarchies/entities": {
+    "summary": "Get entities reachable through an edge type",
+    "description": "Returns entities reachable from a hierarchy through a specific edge type and direction, optionally narrowed by keyword. Used by the hierarchy builder to populate node pickers. Returns 404 when an upstream resource cannot be found."
+  },
+  "POST /api/v1/hierarchies/previewEntities": {
+    "summary": "Preview entities to append",
+    "description": "Previews the entities that would be appended to a hierarchy if the supplied edge type + direction were applied. Returns the previewed nodes and an estimate of the total number of nodes the full append would produce. Returns 400 with validation details when the model is invalid."
+  },
+  "POST /api/v1/hierarchies/appendEntities": {
+    "summary": "Append entities from an edge type",
+    "description": "Extends an existing hierarchy with entities reachable through the supplied edge type and direction. Returns the resulting trees so the UI can render the new branches."
+  },
+  "POST /api/v1/hierarchies/refresh": {
+    "summary": "Refresh hierarchy",
+    "description": "Refreshes a hierarchy by replaying patches against the latest entity graph, producing a new version and (optionally) limited to a set of target entity codes. Returns 400 when the model is invalid or the hierarchy id is empty, and 404 when the hierarchy cannot be found."
+  },
+  "POST /api/v1/hierarchies/publish": {
+    "summary": "Publish hierarchy",
+    "description": "Publishes a hierarchy so it is available to downstream consumers, returning the published hierarchy model. Returns 400 when the id is empty and 404 when the hierarchy cannot be found."
+  }
+}

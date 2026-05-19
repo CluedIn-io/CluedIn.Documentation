@@ -1,0 +1,346 @@
+{
+  "_about": "Administration & configuration (AdminClusterSettings, AdminCommands, AdminIndexCommands, Configuration, ExtendedConfiguration, Setting, Logging, Log, MeteredBilling). AdminCommands endpoints are admin-only and typically enqueue background processing jobs; Configuration endpoints manage provider definitions and integration configuration.",
+
+  "GET /api/v1/admin/clustersettings/runtimeloglevel/getavailablepresets": {
+    "summary": "List runtime log level presets",
+    "description": "Returns the available `LoggingEnvironmentPreset` values (Development, Staging, Production, etc.). Admin-only."
+  },
+  "GET /api/v1/admin/clustersettings/runtimeloglevel/getavailableswitches": {
+    "summary": "List runtime log level switches",
+    "description": "Returns the configurable runtime log-level switches that overrides can target. Admin-only."
+  },
+  "GET /api/v1/admin/clustersettings/runtimeloglevel/getcurrentoverrides": {
+    "summary": "Get current runtime log level overrides",
+    "description": "Returns the active runtime log-level override configuration (preset and/or per-switch overrides) plus its expiration time. Admin-only."
+  },
+  "POST /api/v1/admin/clustersettings/runtimeloglevel/setoverrides": {
+    "summary": "Set runtime log level overrides",
+    "description": "Sets a runtime log-level override (preset, switch overrides, or both) with a positive lifetime. The override expires automatically after `Lifetime`. Returns 400 when `Lifetime` is non-positive or neither preset nor switch overrides are supplied. Admin-only."
+  },
+  "POST /api/v1/admin/clustersettings/runtimeloglevel/setoverrides/setpreset": {
+    "summary": "Set runtime log level preset",
+    "description": "Convenience endpoint to apply a `LoggingEnvironmentPreset` with a lifetime expressed in minutes (defaults to 60). Returns 400 for non-positive lifetimes or unknown preset values. Admin-only.",
+    "parameters": {
+      "environmentPreset": "Preset value.",
+      "lifetimeMinutes": "Lifetime in minutes. Defaults to 60."
+    }
+  },
+  "POST /api/v1/admin/clustersettings/runtimeloglevel/clearoverrides": {
+    "summary": "Clear runtime log level overrides",
+    "description": "Removes the active runtime log-level override and reverts the cluster to its default configuration. Admin-only."
+  },
+
+  "POST /api/v1/admin/commands/remapindex": {
+    "summary": "Admin: full remap and reindex",
+    "description": "Publishes a `FullRemapAndReIndex` event to trigger a complete reindex across the organisation. Requires the Administration.Data RACI claim."
+  },
+
+  "GET /api/v1/admin/agents": {
+    "summary": "Admin: list agents",
+    "description": "Returns the agents (workers) registered with the cluster, used by the admin tooling to inspect processing capacity."
+  },
+  "GET /api/v1/admin/provider/configuration": {
+    "summary": "Admin: get provider configuration",
+    "description": "Returns the raw provider configuration record from the configuration repository — typically used for debugging an integration."
+  },
+
+  "GET /api/v1/admin/commands/aggregate/parents": {
+    "summary": "Admin: aggregate entity parents",
+    "description": "Diagnostic endpoint that aggregates an entity's parent records. Used by support engineers to investigate entity-graph anomalies."
+  },
+  "GET /api/v1/admin/commands/archive/metrics": {
+    "summary": "Admin: archive metrics (global)",
+    "description": "Triggers archival of metrics across the organisation."
+  },
+  "GET /api/v1/admin/commands/archive/metrics/entity": {
+    "summary": "Admin: archive metrics for an entity",
+    "description": "Triggers archival of metrics for a single entity."
+  },
+  "POST /api/v1/admin/commands/clean/userstate": {
+    "summary": "Admin: clean user state",
+    "description": "Clears cached/derived user state for the current organisation. Useful when a user account is in an inconsistent state."
+  },
+  "GET /api/v1/admin/commands/deduplicate": {
+    "summary": "Admin: deduplicate (entity)",
+    "description": "Queues an ad-hoc deduplication run for the requested entity or scope. Used for support troubleshooting outside the deduplication-projects flow."
+  },
+  "GET /api/v1/admin/commands/deduplicate/all": {
+    "summary": "Admin: deduplicate (all)",
+    "description": "Queues an organisation-wide ad-hoc deduplication pass. Heavy operation — only used for support investigations."
+  },
+  "GET /api/v1/admin/commands/deduplicate/entity": {
+    "summary": "Admin: deduplicate one entity",
+    "description": "Queues a deduplication pass scoped to a single entity."
+  },
+  "GET /api/v1/admin/commands/externalsearch/entity": {
+    "summary": "Admin: trigger external search for entity",
+    "description": "Triggers an external-search/enrichment pass for the supplied entity using the configured enrichers."
+  },
+  "GET /api/v1/admin/commands/identitycounter": {
+    "summary": "Admin: get identity counters",
+    "description": "Returns the configured identity counters and their state."
+  },
+  "GET /api/v1/admin/commands/identitycounter/getid": {
+    "summary": "Admin: get next identity counter id",
+    "description": "Returns the next id from an identity counter (advances the counter)."
+  },
+  "GET /api/v1/admin/commands/identitycounter/getuniqueid": {
+    "summary": "Admin: get unique identity counter id",
+    "description": "Returns a guaranteed-unique id from an identity counter."
+  },
+  "GET /api/v1/admin/commands/identitycounter/getreservations": {
+    "summary": "Admin: get identity counter reservations",
+    "description": "Returns currently held id reservations on an identity counter."
+  },
+  "POST /api/v1/admin/commands/loadCsv": {
+    "summary": "Admin: load CSV",
+    "description": "Loads a CSV file into the organisation as part of an admin import. Used for support data-loading scenarios."
+  },
+  "GET /api/v1/admin/commands/mesh/create/missingAtTarget/entityType": {
+    "summary": "Admin: create missing mesh records by entity type",
+    "description": "Creates missing target-side mesh records for every entity of the supplied type."
+  },
+  "GET /api/v1/admin/commands/mesh/create/missingAtTarget/id": {
+    "summary": "Admin: create missing mesh records by entity id",
+    "description": "Creates missing target-side mesh records for a single entity id."
+  },
+  "GET /api/v1/admin/commands/mesh/create/missingAtTarget/sync": {
+    "summary": "Admin: sync missing mesh records",
+    "description": "Synchronises missing target-side mesh records across the organisation."
+  },
+  "GET /api/v1/admin/commands/mesh/create/missingAtTarget/sync/entityId": {
+    "summary": "Admin: sync missing mesh records for entity",
+    "description": "Synchronises missing target-side mesh records for a single entity id."
+  },
+  "POST /api/v1/admin/commands/PopulateOriginEntityCodesCollections": {
+    "summary": "Admin: populate origin entity codes",
+    "description": "Backfills the `OriginEntityCodes` collection on entities — used after data-model migrations."
+  },
+  "GET /api/v1/admin/commands/process/all": {
+    "summary": "Admin: process all entities",
+    "description": "Queues a full reprocessing pass over all entities."
+  },
+  "GET /api/v1/admin/commands/process/all/entityType": {
+    "summary": "Admin: process all entities of type",
+    "description": "Queues a reprocessing pass for every entity of the supplied entity type."
+  },
+  "GET /api/v1/admin/commands/process/entity": {
+    "summary": "Admin: process entity",
+    "description": "Queues a reprocessing pass for a single entity."
+  },
+  "GET /api/v1/admin/commands/process/customhooks/syncoutgoinghook/all": {
+    "summary": "Admin: sync outgoing custom hooks",
+    "description": "Re-publishes outgoing-hook events for every entity that has custom hooks defined."
+  },
+  "GET /api/v1/admin/commands/process/metric/global": {
+    "summary": "Admin: process global metric",
+    "description": "Queues processing of a global metric across the organisation."
+  },
+  "GET /api/v1/admin/commands/process/metrics/global": {
+    "summary": "Admin: process global metrics",
+    "description": "Queues processing of global metrics for the organisation."
+  },
+  "GET /api/v1/admin/commands/process/metrics/entity": {
+    "summary": "Admin: process metrics for entity",
+    "description": "Queues processing of the metrics that apply to a single entity."
+  },
+  "GET /api/v1/admin/commands/process/metrics/entity/all": {
+    "summary": "Admin: process metrics for all entities",
+    "description": "Queues processing of entity metrics across all entities."
+  },
+  "GET /api/v1/admin/commands/process/metrics/entity/all/entityType": {
+    "summary": "Admin: process metrics for entities of type",
+    "description": "Queues processing of entity metrics for every entity of the supplied type."
+  },
+  "GET /api/v1/admin/commands/process/metrics/entity/explain": {
+    "summary": "Admin: explain entity metrics processing",
+    "description": "Returns an explain-log trace of the metric processing on a single entity, useful for debugging metric definitions."
+  },
+  "GET /api/v1/admin/commands/processEdges/all": {
+    "summary": "Admin: process edges (all)",
+    "description": "Queues a reprocessing pass over edges across all entities."
+  },
+  "GET /api/v1/admin/commands/processEdges/all/entityType": {
+    "summary": "Admin: process edges for entity type",
+    "description": "Queues a reprocessing pass over edges for entities of the supplied type."
+  },
+  "GET /api/v1/admin/commands/processEdges/entity": {
+    "summary": "Admin: process edges for entity",
+    "description": "Queues a reprocessing pass over edges for a single entity."
+  },
+  "POST /api/v1/admin/commands/reset/accountinformation": {
+    "summary": "Admin: reset account information",
+    "description": "Resets cached account information for the organisation."
+  },
+  "POST /api/v1/admin/commands/resync/datastores/all": {
+    "summary": "Admin: resync all data stores",
+    "description": "Triggers a resync of all secondary data stores (graph, search, blob) from the primary data store."
+  },
+  "POST /api/v1/admin/commands/resync/datastores/entity": {
+    "summary": "Admin: resync entity across data stores",
+    "description": "Triggers a resync of a single entity across all secondary data stores."
+  },
+  "POST /api/v1/admin/commands/send/all": {
+    "summary": "Admin: send all entities",
+    "description": "Re-sends all entities through the processing pipeline."
+  },
+  "POST /api/v1/admin/commands/send/insight": {
+    "summary": "Admin: send insight",
+    "description": "Re-sends a queued insight command for an entity."
+  },
+  "GET /api/v1/admin/commands/split/all/entityType": {
+    "summary": "Admin: split entities by type",
+    "description": "Queues a split-entity pass for every entity of the supplied type. Used to reverse a bad merge across many entities."
+  },
+  "POST /api/v1/admin/commands/split/entity": {
+    "summary": "Admin: split entity",
+    "description": "Splits a single entity into its constituent data parts."
+  },
+  "POST /api/v1/admin/commands/split/isolate/datapart": {
+    "summary": "Admin: isolate data part",
+    "description": "Splits one data part off an entity into its own entity, useful for diagnosing merges."
+  },
+  "POST /api/v1/admin/memory/insert": {
+    "summary": "Admin: insert into memory store",
+    "description": "Inserts an item into the admin memory store (used for ad-hoc support state)."
+  },
+
+  "GET /api/v1/configuration": {
+    "summary": "List configurations",
+    "description": "Returns paged configurations (provider definitions) for the organisation. Multiple overloads exist that accept different filter shapes; consult the in-code controllers for the specific combinations supported on your deployment.",
+    "parameters": {
+      "page": "0-based page number.",
+      "take": "Page size.",
+      "searchName": "Free-text search.",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction."
+    }
+  },
+  "GET /api/v1/configuration/{name}": {
+    "summary": "Get configuration by name",
+    "description": "Returns the configuration identified by name (typically a provider definition lookup).",
+    "parameters": { "name": "Configuration name." }
+  },
+  "GET /api/v1/configuration/providers": {
+    "summary": "List configured providers",
+    "description": "Returns paged provider definitions filtered by status, name, owner, and include/exclude type lists.",
+    "parameters": {
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to `int.MaxValue`.",
+      "status": "Provider status filter (`Active`, `Inactive`, `Unapproved`). Defaults to `Active`.",
+      "searchName": "Free-text search over provider name.",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction. Defaults to true.",
+      "includeTypes": "Comma-separated list of types to include.",
+      "excludeTypes": "Comma-separated list of types to exclude.",
+      "ownerId": "Filter by owner id."
+    }
+  },
+  "GET /api/v1/configuration/providers/count": {
+    "summary": "Count configured providers",
+    "description": "Returns the count of provider definitions matching the supplied filters (same filters as `GET /api/v1/configuration/providers`)."
+  },
+  "GET /api/v1/configuration/providers/history": {
+    "summary": "Get provider configuration history",
+    "description": "Returns the change history for the supplied provider definition.",
+    "parameters": {
+      "id": "Provider definition identifier.",
+      "take": "Page size.",
+      "page": "0-based page number."
+    }
+  },
+  "GET /api/v1/configuration/inactiveproviders": {
+    "summary": "List inactive providers (deprecated)",
+    "description": "**Deprecated** — use `GET /api/v1/configuration/providers?status=Inactive`."
+  },
+  "GET /api/v1/configuration/unapprovedproviders": {
+    "summary": "List unapproved providers (deprecated)",
+    "description": "**Deprecated** — use `GET /api/v1/configuration/providers?status=Unapproved`."
+  },
+  "GET /api/v1/configuration/providerlist": {
+    "summary": "List all provider definitions",
+    "description": "Returns all provider definitions visible to the caller. Lightweight alternative to `/providers` when filtering isn't needed."
+  },
+  "GET /api/v1/configuration/jobs": {
+    "summary": "List configuration jobs",
+    "description": "Returns the agent jobs associated with provider configurations (typically crawl jobs)."
+  },
+  "DELETE /api/v1/configuration/deletewebhook": {
+    "summary": "Delete provider webhook",
+    "description": "Deletes a webhook registration associated with a provider configuration."
+  },
+
+  "GET /api/v1/configuration/providerdefinitionowners": {
+    "summary": "List provider definition owners",
+    "description": "Returns the owners (users/teams) of provider definitions."
+  },
+  "POST /api/v1/configuration/providerdefinitionowners": {
+    "summary": "Add provider definition owner",
+    "description": "Adds an owner to a provider definition."
+  },
+  "PUT /api/v1/configuration/providerdefinitionowners": {
+    "summary": "Update provider definition owner",
+    "description": "Updates an owner entry for a provider definition."
+  },
+  "DELETE /api/v1/configuration/providerdefinitionowners": {
+    "summary": "Remove provider definition owner",
+    "description": "Removes an owner from a provider definition."
+  },
+
+  "GET /api/v1/configuration/providefinitionaccounts": {
+    "summary": "List provider account memberships",
+    "description": "Returns the user account memberships on provider definitions. (Note: the spelling `providefinition` rather than `providerdefinition` is preserved from the original route definition.)"
+  },
+  "POST /api/v1/configuration/providefinitionaccounts": {
+    "summary": "Add provider account membership",
+    "description": "Adds a user-account membership to a provider definition."
+  },
+  "DELETE /api/v1/configuration/providefinitionaccounts": {
+    "summary": "Remove provider account membership",
+    "description": "Removes a user-account membership from a provider definition."
+  },
+  "GET /api/v1/configuration/providefinitionaccounts/user": {
+    "summary": "List provider memberships for a user",
+    "description": "Returns the provider definitions a specific user has access to."
+  },
+  "GET /api/v1/configuration/providefinitionaccounts/current": {
+    "summary": "List provider memberships for current user",
+    "description": "Returns the provider definitions the calling user has access to."
+  },
+
+  "POST /api/v1/extendedconfiguration/resolveOptions": {
+    "summary": "Resolve extended configuration options",
+    "description": "Resolves dynamic option lists for extended configuration UI controls (for example dropdowns whose options depend on other field values). The server iterates registered `IExtendedConfigurationProvider` implementations until one can handle the request. Returns 404 when no provider can handle the request and 400 on validation failures."
+  },
+  "POST /api/v1/extendedconfiguration/resolveOptionByValue": {
+    "summary": "Resolve a single extended configuration option",
+    "description": "Resolves a single extended configuration option by value (used to render the selected option's label without re-fetching the full option list). Returns 404 when no provider can handle the request."
+  },
+
+  "GET /api/v1/settings": {
+    "summary": "List user settings",
+    "description": "Returns the user-level settings stored for the calling user. Includes the organisation and user identifiers on each entry."
+  },
+  "POST /api/v1/settings": {
+    "summary": "Create user setting",
+    "description": "Creates a new user setting. Returns 202 Accepted when the setting has been persisted; 400 with validation details when the model is invalid."
+  },
+  "PUT /api/v1/settings": {
+    "summary": "Create or update user setting",
+    "description": "Updates a user setting if a setting with the same key already exists for the caller; otherwise creates it. Returns 202 Accepted."
+  },
+
+  "GET /api/v1/logs": {
+    "summary": "Stream logs (recent)",
+    "description": "Returns the most recent application logs for the organisation by reading from the RabbitMQ log stream. With no `offset`, returns the last ~1000 entries; supply `offset` to continue from a previous read. The response is `{ consoleMessages: [...] }`. Requires the OrganizationalAdmin role.",
+    "parameters": { "offset": "Optional starting offset (inclusive). When omitted, the server reads from `lastOffset - 999`." }
+  },
+  "POST /api/v1/logging": {
+    "summary": "Write log message",
+    "description": "Writes a log message into the server's logger with the supplied severity. The endpoint mainly exists so the UI can ship client-side errors back to the backend logger. Returns 200 with `\"Logged\"`. Note: any authenticated user can post; treat the logger as untrusted input.",
+    "parameters": {
+      "message": "Log message.",
+      "type": "Severity (`debug`, `warn`, `error`; defaults to information)."
+    }
+  }
+}
