@@ -3,6 +3,7 @@ layout: cluedin
 nav_order: 1
 parent: "2026.01.00"
 grand_parent: Upgrade
+great_grand_parent: "PaaS operations"
 permalink: /paas-operations/upgrade/2026-01-00/support
 title: "2026.01.00 Support"
 tags: ["upgrade", "software", "2026.01.00 support", "2.7.0", "4.7.0"]
