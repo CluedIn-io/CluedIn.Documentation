@@ -29,7 +29,7 @@ We do not support upgrading directly to this version from prior to 2026.01.00.
 {:.important}
 Before any upgrade takes place, ensure you have taken a snapshot or **backup of all your running PVCs** in your AKS cluster. This is very important as databases may be upgraded during this process.
 
-### Stage 1: Prepare for upgrade
+### Stage 1: Apply values for support release
 
   1. Connect to your cluster using the kubeconfig.
 
