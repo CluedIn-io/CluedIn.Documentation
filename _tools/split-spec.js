@@ -17,7 +17,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = '/srv/jekyll/assets/api';
+// Resolve paths relative to this script so the splitter works both inside
+// the docker container (where the script lives at /srv/jekyll/_tools/...)
+// and natively from the repo root (`node _tools/split-spec.js`).
+const ROOT = path.resolve(__dirname, '..', 'assets', 'api');
 const SRC = path.join(ROOT, 'swagger.json');
 const OUT_DIR = path.join(ROOT, 'categories');
 const OVERLAY_DIR = path.join(ROOT, 'descriptions-overlay');

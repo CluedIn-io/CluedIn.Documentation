@@ -46,24 +46,3 @@ The full CluedIn OpenAPI specification is bundled with this documentation and ca
   <a class="btn btn-primary" href="{{ '/assets/api/swagger.json' | relative_url }}" download>Download full swagger.json</a>
 </p>
 
-## Keeping the reference up to date
-
-This documentation renders a point-in-time snapshot of the OpenAPI specification (`assets/api/swagger.json`). It is not refreshed automatically. To update it after the API changes:
-
-1. Download the current specification from a CluedIn environment:
-
-   ```
-   https://<organization>.<domain>/api/swagger/v1/swagger.json
-   ```
-
-2. Replace `assets/api/swagger.json` with the downloaded file.
-
-3. Regenerate the per-category sub-specifications by running the splitter inside the running Docker container:
-
-   ```
-   docker exec cluedin-docs node /srv/jekyll/_tools/split-spec.js
-   ```
-
-   The splitter rewrites every file in `assets/api/categories/`.
-
-4. Commit the changes. The reference picks them up on the next site build.
