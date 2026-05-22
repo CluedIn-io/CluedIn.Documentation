@@ -575,7 +575,7 @@ API Key: create your own, premium has 60 day trial
 
 Process Response Script:
 
-```
+```javascript
 // Expects an input object named `response` like:
 // {
 //   HttpStatus: "OK",
