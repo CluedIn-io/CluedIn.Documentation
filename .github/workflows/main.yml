@@ -32,12 +32,6 @@ jobs:
         run: |
           JEKYLL_ENV=production bundle exec jekyll build -d build
 
-      # Build v2025-05 branch into subfolder
-      - name: Build v2025-05 version
-        if: github.ref == 'refs/heads/v2025-05'
-        run: |
-          JEKYLL_ENV=production bundle exec jekyll build -d build/v2025-05
-
       # Deploy both builds into gh-pages branch
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

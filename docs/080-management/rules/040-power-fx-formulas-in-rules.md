@@ -125,3 +125,21 @@ This section contains some examples of Power Fx formulas in rules.
     ```
     LoadEntityByEntityCode("5452407DH")
     ```
+
+1. Check if the lookup vocabulary key is invalid due to lookup code not found in reference data.
+
+    ```
+    ("[Invalid (Missing)]" in GetVocabularyKeyValue(Entity,"product.producttype-EntityCode"))
+    ```
+
+1. Getting the latest currency exchange rate from another record to product record so that a live price in common currency can be calculated.
+
+    ```
+    SetVocabularyKeyValue(Entity,"Product.ExchangeRate", 
+     GetVocabularyKeyValue( 
+           LoadEntityByEntityCode("/ExchangeRate#CurrencyCode:" &  
+                  GetVocabularyKeyValue(Entity,"Product.localCurrencyCode")) 
+                 ,"currency.exchangeRate"))
+    ```
+
+

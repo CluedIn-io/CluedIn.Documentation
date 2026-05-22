@@ -26,9 +26,9 @@ The following diagram shows the default network configuration of CluedIn after i
 
 The following diagram shows the advanced network configuration of CluedIn.
 
-![advanced-network-blue-1.png]({{ "/assets/images/ama/howtos/advanced-network-blue-1.png" | relative_url }}){: width="800"}
+![advanced-network-architecture.png]({{ "/assets/images/deployment/paas-installation-guide/advanced-network-architecture.png" | relative_url }}){: width="800"}
 
-![advanced-network-blue-3.png]({{ "/assets/images/ama/howtos/advanced-network-blue-3.png" | relative_url }}){: width="800"}
+![advanced-network-diagram.png]({{ "/assets/images/deployment/paas-installation-guide/advanced-network-diagram.png" | relative_url }}){: width="800"}
 
 ![advanced-network-key-blue.png]({{ "/assets/images/ama/howtos/advanced-network-key-blue.png" | relative_url }}){: width="200"}
 
@@ -57,13 +57,14 @@ During the installation, you will have the option to use the recommended CluedIn
 
 CluedIn supports two main options, which are detailed in the following table.
 
-| Supported CNI Modes | Description | Recommended class | Reference |
-| --- | --- | --- | --- |
-| Azure CNI Overlay | \***Default**\*<br>CluedIn recommends this option as it only requires 1 IP per node from your subnet.<br>This means if you have 5 nodes, a total of 5 IP addresses will need to be used upfront. | `/27`<br>30 available IP addresses | [Azure CNI Overlay planning](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay?tabs=kubectl#ip-address-planning) |
-| Azure CNI | Assigns 1 IP per pod, per node based on the `maxPods` property, which defaults to `50` during installation.<br>This means that if you have 5 nodes, each with a max of 50 pods, a total of 250 IP addresses will need to be used upfront. | `/23`<br>510 available IP addresses | [CNI network planning](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overview#plan-ip-addressing-for-your-cluster) |
+| Supported CNI Modes | Description | Recommended class | Reference | Notes|
+| --- | --- | --- | --- | --- |
+| Azure CNI Overlay | \***Default**\*<br>CluedIn recommends this option as it only requires 1 IP per node from your subnet.<br>This means if you have 5 nodes, a total of 5 IP addresses will need to be used upfront. | `/27`<br>30 available IP addresses | [Azure CNI Overlay planning](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay?tabs=kubectl#ip-address-planning) | When using Azure CNI Overlay, ensure that both the node CIDR and pod CIDR ranges are allowed in your NSG configuration. Refer to the official [documentation](https://learn.microsoft.com/en-us/azure/aks/concepts-network-azure-cni-overlay#network-security-groups) for details. |
+| Azure CNI | Assigns 1 IP per pod, per node based on the `maxPods` property, which defaults to `50` during installation.<br>This means that if you have 5 nodes, each with a max of 50 pods, a total of 250 IP addresses will need to be used upfront. | `/23`<br>510 available IP addresses | [CNI network planning](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overview#plan-ip-addressing-for-your-cluster) | |
 
 {:.important}
 It is best to always accomodate for expansion of your cluster, especially during AKS upgrades as additional nodes will be spun up at upgrade time. The above is CluedIn's recommendation.
+
 
 ## Advanced network configuration options
 

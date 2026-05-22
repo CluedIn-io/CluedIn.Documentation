@@ -160,6 +160,7 @@ If you choose to bring your own zones, the deployment will reference them instea
 - `privatelink.blob.core.windows.net`
 - `privatelink.file.core.windows.net`
 - `privatelink.vaultcore.azure.net`
+- `privatelink.database.windows.net`
 
 **Prerequisites**
 

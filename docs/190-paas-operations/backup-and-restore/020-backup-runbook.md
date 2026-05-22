@@ -4,7 +4,7 @@ title: Backup runbook
 parent: Backup and restore
 grand_parent: PaaS operations
 permalink: /paas-operations/automation/backup-runbook
-nav_order: 2
+nav_order: 3
 headerIcon: "paas"
 ---
 ## On this page
@@ -34,7 +34,19 @@ An automation account must be provided. The runbook will be installed into the t
 
 ## Snapshots
 
-Upon a successful run, the runbook generates nine snapshots and stores them in a resource group for seven days.
+Upon a successful run, the runbook generates snapshots and stores them in a resource group for seven days.
+
+### Release 2025.09.00 and later
+
+From release 2025.09.00 onward, CluedIn uses Azure SQL.
+
+In this configuration, the backup runbook captures snapshots for five persistent disks. BacPac's are also created for Azure Sql databases which are stored in a storage account.
+
+![backup-runbook-process.png]({{ "/assets/images/paas-operations/backup-with-azure-sql.png" | relative_url }})
+
+### Release 2025.05.02 and earlier
+
+For releases prior to 2025.09.00, the backup runbook captures snapshots for nine persistent disks.
 
 ![backup-runbook.png]({{ "/assets/images/paas-operations/backup-runbook.png" | relative_url }})
 
