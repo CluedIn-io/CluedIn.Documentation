@@ -18,7 +18,7 @@ This enricher is intended for users who are comfortable **writing JavaScript cod
 
 ## Add REST API enricher
 
-The REST API enricher requires the URL of an external endpoint to retrieve data. You can use JavaScript to customize request construction and response processing for precise control over data extraction. You can find some examples of JavaScript code in the [Sample scripts](#sample-scripts) section of this page.
+The REST API enricher requires the URL of an external endpoint to retrieve data. You can use JavaScript to customize request construction and response processing for precise control over data extraction. You can find some examples of JavaScript code in the [Sample scripts V1](#sample-v1) and [Sample scripts V2](#sample-v2) section of this page.
 
 **To add REST API enricher**
 
@@ -32,9 +32,11 @@ The REST API enricher requires the URL of an external endpoint to retrieve data.
 
     1. **Accepted Business Domain** – enter the business domain to define which golden records will be enriched.
 
-    1. **Method** – select the HTTP method (GET or POST) that will be used to retrieve data.
+    1. **Version** – select the version of REST API enricher.
 
-    1. **URL** – enter the URL of the external endpoint. This can be:
+    1. **Method** – available only in V1. Select the HTTP method (GET or POST) that will be used to retrieve data.
+
+    1. **URL** – available only in V1. Enter the URL of the external endpoint. This can be:
 
         - An external API endpoint (for example, DuckDuckGo) that returns data directly to the enricher, where it is processed using the **Process Response Script**.
 
@@ -48,15 +50,17 @@ The REST API enricher requires the URL of an external endpoint to retrieve data.
 
         ![rest-api-enricher-2.png]({{ "/assets/images/preparation/enricher/rest-api-enricher-2.png" | relative_url }})
 
-    1. **API Key** – enter the API key required to authenticate with the endpoint, if applicable. Provide this only if the API requires a key for access.
+    1. **API Key** – enter the API key required to authenticate with the endpoint, if applicable. Provide this only if the API requires a key for access. Use `{APIKey}` in **URL (V1)**, **Process Request Script (V1)** and **Process Script (V2)** and the place holder will be replaced by actual API Key value provided.
 
-    1. **Headers** – enter any HTTP headers needed to call the endpoint. Enter one header per line in the format `Header-Name=value`.
+    1. **Headers** – available only in V1. Enter any HTTP headers needed to call the endpoint. Enter one header per line in the format `Header-Name=value`.
 
     1. **Vocabulary and Properties** – enter the vocabulary keys and properties to include in the request payload, with one entry per line. These will be passed to the endpoint to retrieve the relevant data.
 
-    1. **Process Request Script** – provide the JavaScript code used to construct or modify the request before it is sent to the external endpoint. You can find an example of the process request script in the [Sample scripts](#sample-process-request-script) section of this page.
+    1. **Process Request Script** – available only in V1. Provide the JavaScript code used to construct or modify the request before it is sent to the external endpoint. You can find an example of the process request script in the [Sample scripts](#sample-process-request-script) section of this page.
 
-    1. **Process Response Script** – provide the JavaScript code used to process the response returned from the external endpoint. This script is required to transform the API response into a format that the enricher can understand and use. You can find an example of the process response script in the [Sample scripts](#sample-process-response-script) section of this page.
+    1. **Process Response Script** – available only in V1. Provide the JavaScript code used to process the response returned from the external endpoint. This script is required to transform the API response into a format that the enricher can understand and use. You can find an example of the process response script in the [Sample scripts](#sample-process-response-script) section of this page.
+
+    1. **Process Script** – available only in V2. Provide the JavaScript code used to request and process the response returned from the external endpoint. This script is required to transform the API response into a format that the enricher can understand and use. You can find an example of the process response script in the [Sample scripts](#sample-process-script) section of this page.
 
     1. **Include Confidence Score** – decide whether the results will include a confidence score, which can be used during data processing.
 
@@ -81,13 +85,13 @@ For a more detailed information about the changes made to a golden record by the
 
 ![rest-api-enricher-4.png]({{ "/assets/images/preparation/enricher/rest-api-enricher-4.png" | relative_url }})
 
-## Sample scripts
+## Sample (V1)
 
-This section provides some sample scripts that you can use to configure the RESP API enricher.
+This section provides some sample configuration and scripts that you can use to configure the V1 REST API enricher.
 
 ### Sample process request script
 
-```  
+```javascript
 // sample request that can be accessed in the script
 //  let request = {
 //     ApiKey: "testApiKey",
@@ -129,7 +133,7 @@ request.Body = {
 
 ### Sample process response script
 
-```
+```javascript
 //  Sample response that returned from external api to enricher
 //    const response = {
 //        HttpStatus: "OK".
@@ -160,28 +164,38 @@ response.Content = JSON.stringify([{ Data: newContent, Score: 0 }]);
 //        ],
 ```
 
-### Modifying request and response objects in process request and response scripts
+### Accessing and modifying request and response objects in process request and response scripts
 
 
-| Name              | Type      | Description                                                                                          |
-| ----------------- | --------- | ---------------------------------------------------------------------------------------------------- |
-| `request`         | Request   | The current HTTP request object that can be modified during script execution.                        |
-| `originalRequest` | Request   | The original, unmodified HTTP request for reference purposes.                                        |
-| `response`        | Response  | The response from external endpoint that can be populated or modified by the script.                 |
+| Name              | Type         | Description                                                                                          |
+| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------- |
+| `request`         | `Request`    | The current HTTP request object that can be modified during script execution.                        |
+| `originalRequest` | `Request`    | The original, unmodified HTTP request for reference purposes. Available in Process Response Script.  |
+| `response`        | `Response`   | The response from external endpoint that can be populated or modified by the script.                 |
+| `vocabularies`    | `Property[]` | The list of vocabularies and properties from enricher configuration.                                 |
 
 **Request**
 
-| Property  | Type            | Description                                   |
-| --------- | --------------- | --------------------------------------------- |
-| `Method`  | `string`        | The HTTP request method (e.g. `GET`, `POST`). |
-| `Url`     | `string`        | The target URL for the HTTP request.          |
-| `Headers` | `Array<Header>` | List of HTTP headers included in the request. |
-| `ApiKey`  | `string`        | API key used for authenticating the request.  |
-| `Body`    | `object`        | The body content of the HTTP request.         |
+| Property  | Type       | Description                                   |
+| --------- | ---------- | --------------------------------------------- |
+| `Method`  | `string`   | The HTTP request method (e.g. `GET`, `POST`). |
+| `Url`     | `string`   | The target URL for the HTTP request.          |
+| `Headers` | `Header[]` | List of HTTP headers included in the request. |
+| `ApiKey`  | `string`   | API key used for authenticating the request.  |
+| `Body`    | `object`   | The body content of the HTTP request.         |
 
 | Method      | Signature                                     | Description                       |
 | ----------- | --------------------------------------------- | --------------------------------- |
 | `addHeader` | `addHeader(key: string, value: string): void` | Adds a new header to the request. |
+
+**Response**
+
+| Property      | Type       | Description                                                                                                                                 |
+| ------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `HttpStatus`  | `string`   | The HTTP status code of the response (e.g. `200 OK`).                                                                                       |
+| `Content`     | `string`   | The raw response body content. Must be converted into a string value with the **Result** type when returned to the enricher for processing. |
+| `ContentType` | `string`   | The response content type (e.g. `application/json`).                                                                                        |
+| `Headers`     | `Header[]` | List of HTTP headers included in the response.                                                                                              |
 
 **Header**
 
@@ -190,72 +204,23 @@ response.Content = JSON.stringify([{ Data: newContent, Score: 0 }]);
 | `Key`    | `string` | Header name.  |
 | `Value`  | `string` | Header value. |
 
-**Response**
+**Property**
 
-| Property      | Type            | Description                                                                                               |
-| ------------- | --------------- | --------------------------------------------------------------------------------------------------------- |
-| `HttpStatus`  | `string`        | The HTTP status code of the response (e.g. `200 OK`).                                                     |
-| `Content`     | `string`        | The raw response body content. Must be in **Result format** when returned to the enricher for processing. |
-| `ContentType` | `string`        | The response content type (e.g. `application/json`).                                                      |
-| `Headers`     | `Array<Header>` | List of HTTP headers included in the response.                                                            |
+| Property | Type     | Description     |
+| -------- | -------- | --------------- |
+| `Key`    | `string` | Property name.  |
+| `Value`  | `string` | Property value. |
 
-
-**Result (Format for Response Content for returning value to enricher)**
+**Result**
 
 | Property | Type     | Description                                                                       |
 | -------- | -------- | --------------------------------------------------------------------------------- |
 | `Data`   | `object` | Key-value data extracted from the response. Each key represents a vocabulary key. |
 | `Score`  | `number` | A numeric score indicating the relevance or confidence of the results.            |
 
-### Helper functions
-You can use the following helper functions in your scripts to facilitate common tasks.
-
-**Logging**
-
-| Function | Signature    | Description                                                                                     |
-| -------- | ------------ | ----------------------------------------------------------------------------------------------- |
-| `log`    | `log(value)` | Writes a message to the application log at **Information** level. Useful for debugging scripts. |
-
-Example:
-```
-log("Processing response from API");
-```
-
-**String Encoding**
-
-| Function     | Signature                           | Description                                    |
-| ------------ | ----------------------------------- | ---------------------------------------------- |
-| `toBase64`   | `toBase64(value: string): string`   | Encodes a UTF-8 string into Base64 format.     |
-| `fromBase64` | `fromBase64(value: string): string` | Decodes a Base64-encoded string back to UTF-8. |
-| `urlEncode`  | `urlEncode(value: string): string`  | Encodes a string for safe use in a URL.        |
-| `urlDecode`  | `urlDecode(value: string): string`  | Decodes a URL-encoded string.                  |
-
-Example: 
-```
-var encoded = stringEncoder.toBase64("hello");
-var decoded = stringEncoder.fromBase64(encoded);
-```
-
-**Cache**
-
-| Function | Signature                                                   | Description                                                                                                |
-| -------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `get`    | `get(key: string): object`                                  | Retrieves a cached value for the current organization. Returns `null` if not found.                        |
-| `set`    | `set(key: string, value: object, expiration: number): void` | Stores a value in cache with an expiration time (in milliseconds). Does nothing if the key already exists. |
-
-Example:
-```
-var token = cache.get("authToken");
-
-if (!token) {
-    token = "new-token";
-    cache.set("authToken", token, 60000);
-}
-```
-
 ### Clearbit
 
-This code takes a company name as input and sends it to the Clearbit Autocomplete API. Then, it extracts the domain and logo of the top matching company and returns that data in a structured format usable by the enricher.
+This script takes a company name as input and sends it to the Clearbit Autocomplete API. Then, it extracts the domain and logo of the top matching company and returns that data in a structured format usable by the enricher.
 
 **Method:** GET
 
@@ -267,7 +232,7 @@ https://autocomplete.clearbit.com/v1/companies/suggest?query={Vocabulary:organiz
 
 **Process response script**  
 
-```
+```javascript
 let parsedContent = JSON.parse(response.Content);
 let content = parsedContent[0];
 let image = {
@@ -281,7 +246,7 @@ log(JSON.stringify(response));
 
 ### Azure OpenAI
 
-This code takes an organization's name and sends a request to Azure OpenAI GPT-4 asking it to translate the name into Japanese. Then, it ensures the model responds in a defined JSON format and parses and returns the result in a structure compatible with the enricher. Note that you can use the [Azure Open AI enricher](/preparation/enricher/azure-openai) for the same task.
+This scripts take an organization's name and sends a request to Azure OpenAI GPT-4 asking it to translate the name into Japanese. Then, it ensures the model responds in a defined JSON format and parses and returns the result in a structure compatible with the enricher. Note that you can use the [Azure Open AI enricher](/preparation/enricher/azure-openai) for the same task.
 
 **Method:** POST
 
@@ -305,7 +270,7 @@ api-key={APIKey}
 
 **Process request script**
 
-```
+```javascript
 let prompt = String.raw`Please get {organization.japaneseNameRestApi} by translating {Vocabulary:organization.name} into Japanese.
   
                     Response in JSON using the following template
@@ -328,7 +293,7 @@ let prompt = String.raw`Please get {organization.japaneseNameRestApi} by transla
 
 **Process response script**
 
-```
+```javascript
 let parsedContent = JSON.parse(response.Content);
 let content = parsedContent.choices[0].message.content.trimEnd();
 response.Content = JSON.stringify([{ Data: JSON.parse(content), Score: 0 }]);
@@ -349,7 +314,7 @@ https://api.duckduckgo.com?q={Vocabulary:organization.name}&format=json
 
 **Process response script**
 
-```
+```javascript
 function extractStringValues(obj, dict = new Map()) {
   for (const [key, value] of Object.entries(obj)) {
     if (value && typeof value !== 'object' && !Array.isArray(value)) {
@@ -401,7 +366,7 @@ try {
 
 ### REST Countries
 
-This code extracts the official name of a country from the response and formats it into a new JSON structure.
+This script extracts the official name of a country from the response and formats it into a new JSON structure.
 
 **Method:** GET
 
@@ -413,7 +378,7 @@ https://restcountries.com/v3.1/name/{Vocabulary:country.country}?fullText=true
 
 **Process response script**
 
-```
+```javascript
 let parsedContent = JSON.parse(response.Content);
 let content = parsedContent[0];
 let officialName = {
@@ -437,68 +402,68 @@ In the following example, ingested company data contains missing or incorrect ad
 
 To [add the Melissa REST API enricher](#add-rest-api-enricher), on the **Configure** tab, provide the following information:
 
-- **Accepted Business Domain:** In this example, **/Address**.
+**Accepted Business Domain:** In this example, **/Address**.
 
-- **Method:** GET.
+**Method:** GET.
 
-- **URL:**
+**URL:**
 
-   In this example, the URL references several vocabulary keys that store address-related data.
+In this example, the URL references several vocabulary keys that store address-related data.
 
-    ```
-    https://address.melissadata.net/V3/WEB/GlobalAddress/doGlobalAddress?id={APIKey}&a1={Vocabulary:company.address.streetAddress}&loc={Vocabulary:company.address.city}&admarea={Vocabulary:company.address.state}&ctry={Vocabulary:company.address.country}&postal={Vocabulary:company.address.zipcode}
-    ```
+```
+https://address.melissadata.net/V3/WEB/GlobalAddress/doGlobalAddress?id={APIKey}&a1={Vocabulary:company.address.streetAddress}&loc={Vocabulary:company.address.city}&admarea={Vocabulary:company.address.state}&ctry={Vocabulary:company.address.country}&postal={Vocabulary:company.address.zipcode}
+```
 
-- **Headers:**
+**Headers:**
 
-    ```
-    Content-Type=application/json
-    ```
+```
+Content-Type=application/json
+```
 
-- **Process response script:**
+**Process response script:**
 
-    This script transforms the raw response into a structured format that fits CluedIn’s schema.
+This script transforms the raw response into a structured format that fits CluedIn’s schema.
 
-    ```
-    let parsedContent = JSON.parse(response.Content); 
-    let content=parsedContent.Records[0];
-    
-    let melissaCountryName=content.CountryName;
-    let melissaCountryISO=content.CountryISO3166_1_Alpha3;
-    let melissaZipcode=content.PostalCode;
-    let melissaFullAddress =content.FormattedAddress;
-    let melissaCity=content.Locality;
-    let melissaState=content.AdministrativeArea;
-    let melissaDeliveryIndicator=content.DeliveryIndicator;
-    
-    
-    let newContent = {
-      'company.address.city':melissaCity,
-      'company.address.zipcode':melissaZipcode,
-      'company.address.state':melissaState,
-      'company.address.country':melissaCountryISO,
-      'company.address.vocabKey2':melissaCountryName,
-      'company.address.vocabKey1':melissaFullAddress,
-      'company.address.type':melissaDeliveryIndicator,
-    
-    };
-    
-    //apply conditions if required
-    
-    if( melissaDeliveryIndicator==='B')
-    {
-       newContent[ 'company.address.type']='Business';
-    }
-    else if( melissaDeliveryIndicator==='R'){
-       newContent['company.address.type']='Residential';
-    }
-    else{
-       newContent['company.address.type']='Unknown';
-    }
-    
-    response.Content = JSON.stringify([{ Data: newContent, Score: 0 }]);
-    //log(JSON.stringify(response));
-    ```
+```javascript
+let parsedContent = JSON.parse(response.Content); 
+let content=parsedContent.Records[0];
+
+let melissaCountryName=content.CountryName;
+let melissaCountryISO=content.CountryISO3166_1_Alpha3;
+let melissaZipcode=content.PostalCode;
+let melissaFullAddress =content.FormattedAddress;
+let melissaCity=content.Locality;
+let melissaState=content.AdministrativeArea;
+let melissaDeliveryIndicator=content.DeliveryIndicator;
+
+
+let newContent = {
+  'company.address.city':melissaCity,
+  'company.address.zipcode':melissaZipcode,
+  'company.address.state':melissaState,
+  'company.address.country':melissaCountryISO,
+  'company.address.vocabKey2':melissaCountryName,
+  'company.address.vocabKey1':melissaFullAddress,
+  'company.address.type':melissaDeliveryIndicator,
+
+};
+
+//apply conditions if required
+
+if( melissaDeliveryIndicator==='B')
+{
+    newContent[ 'company.address.type']='Business';
+}
+else if( melissaDeliveryIndicator==='R'){
+    newContent['company.address.type']='Residential';
+}
+else{
+    newContent['company.address.type']='Unknown';
+}
+
+response.Content = JSON.stringify([{ Data: newContent, Score: 0 }]);
+//log(JSON.stringify(response));
+```
 
 ![configure_tab.png]({{ "/assets/images/preparation/enricher/rest-api/melissa/configure_tab.png" | relative_url }})
 
@@ -520,14 +485,15 @@ Same record after enrichment:
 
 Provided below is an example of the response you would receive for the same request in Postman. If you need an additional address line in your golden records, select the relevant fields from the response and add them to the [process response script](#configure-melissa-rest-api-enricher) provided earlier on this page. For example, you could include the **Latitude** and **Longitude** fields.
 
-- **URL:**
+**URL:**
 
-    ```
-    https://address.melissadata.net/V3/WEB/GlobalAddress/doGlobalAddress?id=key&org=Walmart Inc.&a1=702 S.W. 8th St.&loc=Bentonville&admarea=AR&ctry=USA&postal=72716&act=check,verify&format=JSON
-    ```
-- **Response:**
+```
+https://address.melissadata.net/V3/WEB/GlobalAddress/doGlobalAddress?id=key&org=Walmart Inc.&a1=702 S.W. 8th St.&loc=Bentonville&admarea=AR&ctry=USA&postal=72716&act=check,verify&format=JSON
+```
 
-    ```
+**Response:**
+
+```json
     {
         "Version": "9.4.1.1228",
         "TransmissionReference": "",
@@ -601,92 +567,54 @@ Provided below is an example of the response you would receive for the same requ
             }
         ]
     }
-    ```
-
-### Duns and Bradstreet (D&B)
-This code takes an organization’s DUNS number, or its name and country, and sends a request to the Dun & Bradstreet API to retrieve additional details. Before doing so, an enricher must be set up to obtain the authentication key.
-
-**Authentication**
-
-**Method:** POST
-
-**URL**
-```
-https://plus.dnb.com/v2/token
 ```
 
-**Process request script**
-```
-const authCacheKey = 'dnb_auth_token';
-const cachedAuthToken = cache.Get(authCacheKey);
+## Sample (V2)
 
-if (!cachedAuthToken) {
-  const key =
-    '{Consumer Key}';
-  const secret =
-    '{Consumer Secret}';
+This section provides some sample configuration and scripts that you can use to configure the V2 REST API enricher.
 
-  const credentials = `${key}:${secret}`;
+### Sample process script
 
-  const base64 = stringEncoder.toBase64(credentials);
+```javascript
+// companies.country vocabulary key added to Vocabulary and Properties field can be accessed using .find
+const country = vocabularies.find(x => x.Key === 'companies.country')?.Value; 
+const url = `https://restcountries.com/v3.1/name/${country}?fullText=true`;
 
-  request.AddHeader('Content-Type', 'application/json');
-  request.AddHeader('Authorization', `Basic ${base64}`);
 
-  request.Body = { grant_type: 'client_credentials' };
-} else {
-  log('Auth token: ' + cachedAuthToken);
-}
-```
+// usee http.send() to make an API call
+const countryResponse = http.send({
+  url: url,
+  method: "GET",
+  // sample headers and body
+  // headers: [
+  //   {Key: 'Content-Type', Value: 'application/json'},
+  //   {Key: 'Authorization', Value: `Bearer ${token}`}
+  // ],
+  // body: { name: 'testName' }
+});
 
-**Process response script**
-```
-try {
-  let parsedContent = JSON.parse(response.Content);
-  cache.Set(
-    "dnb_auth_token",
-    parsedContent.access_token,
-    parsedContent.expiresIn * 1000
-  );
-  response.Content = JSON.stringify([{ Data: {}, Score: 0 }]);
-} catch (error) {
-  const errorDetails = {
-    name: error?.name,
-    message: error?.message,
-    stack: error?.stack,
-  };
-  log("Authentication failed :" + JSON.stringify(errorDetails));
-}
+log(JSON.stringify(countryResponse));
+
+let parsedContent = JSON.parse(countryResponse?.Content);
+let results = {
+  'country.officialName': parsedContent[0]?.name?.official,
+};
+
+response =  JSON.stringify([{ Data: results, Score: 100 }]);
 ```
 
+### Dun & Bradstreet
 
-**Search using DUNS number**
-
-**Method:** GET
-
-**URL**
+**Vocabulary key and properties**
 
 ```
-https://plus.dnb.com/v1/data/duns/{Vocabulary:testduns.dunsnumber}?blockIDs=companyfinancials_L1_v3,hierarchyconnections_L1_v1,companyinfo_L3_v1,companyinfo_identifiers_v1,esginsight_L3_v1
+companies.dunsnumber
 ```
 
-**Process request script**
-```
-const authCacheKey = 'dnb_auth_token';
-const cachedAuthToken = cache.Get(authCacheKey);
+**Process script**
+```javascript
+// REST API Enricher V2 - DnB Search by DUNS - Process Response Script
 
-if (cachedAuthToken) {
-  request.AddHeader('Authorization', `Bearer ${cachedAuthToken}`);
-
-  request.Body = { grant_type: 'client_credentials' };
-} else {
-  log('Unable to retrieve DnB auth token');
-}
-```
-
-**Process response script**
-
-```
 function populateIndustryCodes(results, parsedContent) {
   const selectedTypes = ['19295', '37788'];
 
@@ -948,8 +876,18 @@ function populatePrimaryAddresses(results, parsedContent) {
   results.PrimaryAddressStreetLine2 = primary.streetAddress?.line2;
 }
 
-try {
-  let parsedContent = JSON.parse(response.Content);
+function searchByDuns(token) {
+  // Get DUNS Number from vocabularies passed in Vocabulary and Properties control, please change the key as needed
+  const dunsNumber = vocabularies.find(x => x.Key === 'companies.dunsnumber')?.Value;
+  const dnbResponse = http.send({
+    url: `https://plus.dnb.com/v1/data/duns/${dunsNumber}?blockIDs=companyfinancials_L1_v3,hierarchyconnections_L1_v1,companyinfo_L3_v1,companyinfo_identifiers_v1,esginsight_L3_v1`,
+    method: "GET",
+    headers: [
+      {Key: 'Authorization', Value: `Bearer ${token}`}
+    ]
+  });
+
+  let parsedContent = JSON.parse(dnbResponse.Content);
   let results = {};
 
   const confidenceScore = parsedContent?.matchCandidates?.[0]?.matchQualityInformation?.confidenceCode;
@@ -957,10 +895,54 @@ try {
   populateOrganizationInfo(results, parsedContent);
   populateIndustryCodes(results, parsedContent);
 
-  log('Parsed DnB Results: ' + JSON.stringify(results));
-  response.Content = JSON.stringify([{ Data: results, Score: confidenceScore ? confidenceScore * 10 : 100 }]);
-} catch (error) {
-  const errorDetails = {
+  return JSON.stringify([{ Data: results, Score: confidenceScore ? confidenceScore * 10 : 100 }]);
+}
+
+
+try {
+  const authCacheKey = 'dnb_auth_token';
+  const cachedAuthToken = cache.Get(authCacheKey);
+
+  if (!cachedAuthToken) {
+    // replace key and secret with actual value
+    const key =
+      '{key}'; 
+    const secret =
+      '{secret}';
+
+    const credentials = `${key}:${secret}`;
+
+    const base64 = stringEncoder.toBase64(credentials);
+    const tokenResponse = http.send({
+        url: `https://plus.dnb.com/v2/token`,
+        method: "POST",
+        headers: [              
+            {Key: 'Content-Type', Value: 'application/json'},
+            {Key: 'Authorization', Value: `Basic ${base64}`}
+            ],
+        body: { grant_type: 'client_credentials' }
+      });
+
+    log(JSON.stringify(tokenResponse));
+    if (tokenResponse?.HttpStatus != 'OK') {
+        throw new Error(`DnB returned ${tokenResponse?.HttpStatus} - ${tokenResponse?.Content}`);
+    } 
+    
+    // cache the access token to reduce number of API calls
+    const parsedTokenContent = JSON.parse(tokenResponse.Content);
+        cache.Set(
+          "dnb_auth_token",
+          parsedTokenContent.access_token,
+          parsedTokenContent.expiresIn * 1000
+        );
+
+      response = searchByDuns(parsedTokenContent.access_token);
+    } else {
+      log('Auth token: ' + cachedAuthToken);
+      response = searchByDuns(cachedAuthToken);
+    }
+  } catch (error) {
+    const errorDetails = {
     name: error?.name,
     message: error?.message,
     stack: error?.stack,
@@ -969,311 +951,98 @@ try {
 }
 ```
 
+### REST Countries
+This script extracts the official name of a country from the response and formats it into a new JSON structure.
 
-**Search using Name and Country**
-
-**Method:** GET
-
-**URL**
+**Vocabulary and Properties**
 ```
-https://plus.dnb.com/v1/match/extendedMatch?name={Vocabulary:testduns.account}&countryISOAlpha2Code={Vocabulary:testduns.adminregion}&blockIDs=companyfinancials_L1_v3,hierarchyconnections_L1_v1,companyinfo_L3_v1,companyinfo_identifiers_v1,esginsight_L3_v1
+companies.country
 ```
 
-**Process request script**
+**Process script**
+```javascript
+const country = vocabularies.find(x => x.Key === 'companies.country')?.Value;
+const url = `https://restcountries.com/v3.1/name/${country}?fullText=true`;
+
+
+const countryResponse = http.send({
+  url: url,
+  method: "GET",
+});
+
+log(JSON.stringify(countryResponse));
+
+let parsedContent = JSON.parse(countryResponse?.Content);
+let results = {
+  'country.officialName': parsedContent[0]?.name?.official,
+};
+
+response =  JSON.stringify([{ Data: results, Score: 100 }]);
 ```
-const authCacheKey = 'dnb_auth_token';
-const cachedAuthToken = cache.Get(authCacheKey);
 
-if (cachedAuthToken) {
-  request.AddHeader('Authorization', `Bearer ${cachedAuthToken}`);
+## Helper functions
+You can use the following helper functions in your scripts to facilitate common tasks.
 
-  request.Body = { grant_type: 'client_credentials' };
-} else {
-  log('Unable to retrieve DnB auth token');
+**Logging**
+
+| Function | Signature    | Description                                                                                     |
+| -------- | ------------ | ----------------------------------------------------------------------------------------------- |
+| `log`    | `log(value)` | Writes a message to the application log at **Information** level. Useful for debugging scripts. |
+
+Example:
+```javascript
+log("Processing response from API");
+```
+
+**String Encoding**
+
+| Function     | Signature                           | Description                                    |
+| ------------ | ----------------------------------- | ---------------------------------------------- |
+| `toBase64`   | `toBase64(value: string): string`   | Encodes a UTF-8 string into Base64 format.     |
+| `fromBase64` | `fromBase64(value: string): string` | Decodes a Base64-encoded string back to UTF-8. |
+| `urlEncode`  | `urlEncode(value: string): string`  | Encodes a string for safe use in a URL.        |
+| `urlDecode`  | `urlDecode(value: string): string`  | Decodes a URL-encoded string.                  |
+
+Example: 
+```javascript
+// use stringEncoder object
+var encoded = stringEncoder.toBase64("hello");
+var decoded = stringEncoder.fromBase64(encoded);
+```
+
+**Cache**
+
+| Function | Signature                                                   | Description                                                                                                |
+| -------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `get`    | `get(key: string): object`                                  | Retrieves a cached value for the current organization. Returns `null` if not found.                        |
+| `set`    | `set(key: string, value: object, expiration: number): void` | Stores a value in cache with an expiration time (in milliseconds). Does nothing if the key already exists. |
+
+Example:
+```javascript
+// use cache object
+var token = cache.get("authToken");
+
+if (!token) {
+    token = "new-token";
+    cache.set("authToken", token, 60000);
 }
 ```
 
+**Http (V2)**
 
-**Process response script**
-```
-function populateIndustryCodes(results, parsedContent) {
-  const selectedTypes = ['19295', '37788'];
+| Function | Signature                            | Description                                                                                                                                                                                                                      |
+| -------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `send`   | `send(request: object): Response`    | Sends an HTTP request based on the provided request object and return the response. Refer to request  [Request and Response Type](#accessing-and-modifying-request-and-response-objects-in-process-request-and-response-scripts) |
 
-  const industryCodeValues =
-    parsedContent?.embeddedProduct?.organization?.industryCodes?.filter(
-      x =>
-        x?.typeDnBCode > 0 &&
-        selectedTypes.includes(String(x.typeDnBCode))
-    ) ?? [];
-
-  if (industryCodeValues.length === 0) return;
-
-  let industryCodesIndex = 0;
-  for (const industryCode of industryCodeValues) {
-      results[`Industry_${industryCodesIndex}_Description`] = industryCode.description;
-      results[`Industry_${industryCodesIndex}_TypeDescription`] = industryCode.typeDescription;
-      results[`Industry_${industryCodesIndex}_TypeDnBCode`] = industryCode.typeDnBCode;
-      results[`Industry_${industryCodesIndex}_Priority`] = industryCode.priority;
-      results[`Industry_${industryCodesIndex}_Code`] = industryCode.code;
-
-      industryCodesIndex++;
-    }
-}
-
-function populateOrganizationInfo(results, parsedContent) {
-  const org = parsedContent?.embeddedProduct?.organization;
-
-  // DUNS Control Status
-  if (org?.dunsControlStatus) {
-    const status = org.dunsControlStatus;
-
-    results.DunsControlStatusFullReportDate = status.fullReportDate;
-    results.DunsControlStatusLastUpdateDate = status.lastUpdateDate;
-    results.DunsControlStatusOperatingStatusDescription = status.operatingStatus?.description;
-    results.DunsControlStatusOperatingStatusDnbCode = status.operatingStatus?.dnbCode;
-    results.DunsControlStatusIsMarketable = status.isMarketable;
-    results.DunsControlStatusIsMailUndeliverable = status.isMailUndeliverable;
-    results.DunsControlStatusIsTelephoneDisconnected = status.isTelephoneDisconnected;
-    results.DunsControlStatusIsDelisted = status.isDelisted;
-
-    if (status?.operatingStatus) {
-      results.OperatingStatusCode = status.operatingStatus?.dnbCode;
-      results.OperatingStatusDescription = status.operatingStatus?.description;
-    }
-  }
-
-  // DUNS Numbers
-  results.Duns = org?.duns;
-  results.DomesticUltimateDuns = org?.corporateLinkage?.domesticUltimate?.duns;
-  results.GlobalUltimateDuns = org?.corporateLinkage?.globalUltimate?.duns;
-  results.ParentDuns = org?.corporateLinkage?.parent?.duns;
-  results.HeadQuarterDuns = org?.corporateLinkage?.headQuarter?.duns;
-
-  // Business Information
-  results.PrimaryBusinessName = org?.primaryName;
-  results.BusinessEntityTypeDnbCode = org?.businessEntityType?.dnbCode;
-  results.BusinessEntityTypeDescription = org?.businessEntityType?.description;
-
-  // Trade Style Names
-  const tradeStyleNames =
-    org?.tradeStyleNames
-      ?.map(t => t?.name)
-      ?.filter(n => n && n.length > 0) ?? [];
-
-  if (tradeStyleNames.length > 0) {
-    results.TradeStyleNames = tradeStyleNames.join(" | ");
-  }
-
-  // Website
-  const website = org?.websiteAddress?.[0];
-  if (website) {
-    results.WebsiteUrl = website.url;
-  }
-
-  // Telephone
-  const telephone = org?.telephone?.[0];
-  if (telephone?.isdCode && telephone?.telephoneNumber) {
-    results.Telephone = `+${telephone.isdCode} ${telephone.telephoneNumber}`;
-  }
-
-  // Fax
-  const fax = org?.fax?.[0];
-  if (fax?.isdCode && fax?.faxNumber) {
-    results.Fax = `+${fax.isdCode} ${fax.faxNumber}`;
-  }
-
-  // Stock Exchange
-  const primaryStockExchange =
-    org?.stockExchanges?.find(x => x?.isPrimary === true);
-
-  if (primaryStockExchange) {
-    results.StockExchangeTickerName = primaryStockExchange.tickerName;
-    results.StockExchangeName = primaryStockExchange.exchangeName?.description;
-    results.StockExchangeCountryCode = primaryStockExchange.exchangeCountry?.isoAlpha2Code;
-  }
-
-  // Registration Numbers
-  const selectedRegistrationNumberTypes = ['2541'];
-
-  if (selectedRegistrationNumberTypes.length > 0) {
-    const registrationNumbers =
-      org?.registrationNumbers?.filter(
-        x =>
-          x?.typeDnBCode > 0 &&
-          selectedRegistrationNumberTypes.includes(
-            String(x.typeDnBCode)
-          )
-      ) ?? [];
-
-    let index = 0;
-    for (const reg of registrationNumbers) {
-      results[`RegistrationNumbers_${index}_RegistrationNumber`] = reg.registrationNumber;
-      results[`RegistrationNumbers_${index}_TypeDescription`] = reg.typeDescription;
-      results[`RegistrationNumbers_${index}_TypeDnBCode`] = reg.typeDnBCode;
-      results[`RegistrationNumbers_${index}_RegistrationNumberClassDescription`] = reg.registrationNumberClass?.description;
-      results[`RegistrationNumbers_${index}_RegistrationNumberClassDnbCode`] = reg.registrationNumberClass?.dnbCode;
-
-      index++;
-    }
-  }
-
-  // Corporate Linkage - Family Tree Roles Played
-  let familyIndex = 0;
-  for (const role of org?.corporateLinkage?.familytreeRolesPlayed ?? []) {
-    results[`CorporateLinkageFamilyTreeRolesPlayedVocabulary_${familyIndex}_Description`] = role.description;
-    results[`CorporateLinkageFamilyTreeRolesPlayedVocabulary_${familyIndex}_DnbCode`] = role.dnbCode;
-    familyIndex++;
-  }
-
-  results.HierarchyLevel = org?.corporateLinkage?.hierarchyLevel;
-  results.GlobalUltimateFamilyTreeMembersCount = org?.corporateLinkage?.globalUltimateFamilyTreeMembersCount;
-
-  // Number of Employees
-  results.NumberOfEmployees = org?.numberOfEmployees?.[0]?.value;
-  results.GlobalUltimateNumberOfEmployees = org?.corporateLinkage?.globalUltimate?.numberOfEmployees?.[0]?.value;
-  results.DomesticUltimateNumberOfEmployees = org?.corporateLinkage?.domesticUltimate?.numberOfEmployees?.[0]?.value;
-
-  // Yearly Revenue
-  const orgFinancial = org?.financials?.[0];
-  const orgRevenue = orgFinancial?.yearlyRevenue?.[0];
-
-  results.YearlyRevenue = orgRevenue && orgRevenue.currency
-      ? `${orgRevenue.value} ${orgRevenue.currency}`
-      : null;
-
-  const globalUltimateFinancial = org?.globalUltimate?.financials?.[0];
-  const globalUltimateRevenue = globalUltimateFinancial?.yearlyRevenue?.[0];
-
-  results.GlobalUltimateYearlyRevenue = globalUltimateRevenue && globalUltimateRevenue.currency
-      ? `${globalUltimateRevenue.value} ${globalUltimateRevenue.currency}`
-      : null;
-
-  const domesticUltimateFinancial = org?.domesticUltimate?.financials?.[0];
-  const domesticUltimateRevenue = domesticUltimateFinancial?.yearlyRevenue?.[0];
-
-  results.DomesticUltimateYearlyRevenue = domesticUltimateRevenue && domesticUltimateRevenue.currency
-      ? `${domesticUltimateRevenue.value} ${domesticUltimateRevenue.currency}`
-      : null;
-}
-
-function populatePrimaryAddresses(results, parsedContent) {
-  const org = parsedContent?.embeddedProduct?.organization;
-
-  const domesticUltimateDuns = org?.corporateLinkage?.domesticUltimate?.duns;
-  const globalUltimateDuns = org?.corporateLinkage?.globalUltimate?.duns;
-  const parentDuns = org?.corporateLinkage?.parent?.duns;
-  const headQuarterDuns = org?.corporateLinkage?.headQuarter?.duns;
-  const duns = org?.duns;
-
-  // Domestic Ultimate
-  if (
-    org?.corporateLinkage?.domesticUltimate?.primaryAddress &&
-    domesticUltimateDuns &&
-    domesticUltimateDuns !== duns
-  ) {
-    const addr = org.corporateLinkage.domesticUltimate.primaryAddress;
-
-    results.DomesticUltimatePrimaryAddressCountry = addr.addressCountry?.name;
-    results.DomesticUltimateISO2CountryCode = addr.addressCountry?.isoAlpha2Code;
-    results.DomesticUltimatePrimaryAddressCountyName = addr.addressCounty?.name;
-    results.DomesticUltimatePrimaryAddressLocality = addr.addressLocality?.name;
-    results.DomesticUltimatePrimaryAddressPostalCode = addr.postalCode;
-    results.DomesticUltimatePrimaryAddressRegionName = addr.addressRegion?.name;
-    results.DomesticUltimatePrimaryAddressRegionAbbreviatedName = addr.addressRegion?.abbreviatedName;
-    results.DomesticUltimatePrimaryAddressStreetLine1 = addr.streetAddress?.line1;
-    results.DomesticUltimatePrimaryAddressStreetLine2 = addr.streetAddress?.line2;
-  }
-
-  // Global Ultimate
-  if (
-    org?.corporateLinkage?.globalUltimate?.primaryAddress &&
-    globalUltimateDuns &&
-    globalUltimateDuns !== duns
-  ) {
-    const addr = org.corporateLinkage.globalUltimate.primaryAddress;
-
-    results.GlobalUltimatePrimaryAddressCountry = addr.addressCountry?.name;
-    results.GlobalUltimateISO2CountryCode = addr.addressCountry?.isoAlpha2Code;
-    results.GlobalUltimatePrimaryAddressCountyName = addr.addressCounty?.name;
-    results.GlobalUltimatePrimaryAddressLocality = addr.addressLocality?.name;
-    results.GlobalUltimatePrimaryAddressPostalCode = addr.postalCode;
-    results.GlobalUltimatePrimaryAddressRegionName = addr.addressRegion?.name;
-    results.GlobalUltimatePrimaryAddressRegionAbbreviatedName = addr.addressRegion?.abbreviatedName;
-    results.GlobalUltimatePrimaryAddressStreetLine1 = addr.streetAddress?.line1;
-    results.GlobalUltimatePrimaryAddressStreetLine2 = addr.streetAddress?.line2;
-  }
-
-  // Parent
-  if (
-    org?.corporateLinkage?.parent?.primaryAddress &&
-    parentDuns &&
-    parentDuns !== duns
-  ) {
-    const addr = org.corporateLinkage.parent.primaryAddress;
-
-    results.ParentPrimaryAddressCountry = addr.addressCountry?.name;
-    results.ParentISO2CountryCode = addr.addressCountry?.isoAlpha2Code;
-    results.ParentPrimaryAddressCountyName = addr.addressCounty?.name;
-    results.ParentPrimaryAddressLocality = addr.addressLocality?.name;
-    results.ParentPrimaryAddressPostalCode = addr.postalCode;
-    results.ParentPrimaryAddressRegionName = addr.addressRegion?.name;
-    results.ParentPrimaryAddressRegionAbbreviatedName = addr.addressRegion?.abbreviatedName;
-    results.ParentPrimaryAddressStreetLine1 = addr.streetAddress?.line1;
-    results.ParentPrimaryAddressStreetLine2 = addr.streetAddress?.line2;
-  }
-
-  // HeadQuarter
-  if (
-    org?.corporateLinkage?.headQuarter?.primaryAddress &&
-    headQuarterDuns &&
-    headQuarterDuns !== duns
-  ) {
-    const addr = org.corporateLinkage.headQuarter.primaryAddress;
-
-    results.HeadQuarterPrimaryAddressCountry = addr.addressCountry?.name;
-    results.HeadQuarterISO2CountryCode = addr.addressCountry?.isoAlpha2Code;
-    results.HeadQuarterPrimaryAddressCountyName = addr.addressCounty?.name;
-    results.HeadQuarterPrimaryAddressLocality = addr.addressLocality?.name;
-    results.HeadQuarterPrimaryAddressPostalCode = addr.postalCode;
-    results.HeadQuarterPrimaryAddressRegionName = addr.addressRegion?.name;
-    results.HeadQuarterPrimaryAddressRegionAbbreviatedName = addr.addressRegion?.abbreviatedName;
-    results.HeadQuarterPrimaryAddressStreetLine1 = addr.streetAddress?.line1;
-    results.HeadQuarterPrimaryAddressStreetLine2 = addr.streetAddress?.line2;
-  }
-
-  // Self
-  if (!org?.primaryAddress) return;
-
-  const primary = org.primaryAddress;
-
-  results.PrimaryAddressCountry = primary.addressCountry?.name;
-  results.ISO2CountryCode = primary.addressCountry?.isoAlpha2Code;
-  results.PrimaryAddressCountyName = primary.addressCounty?.name;
-  results.PrimaryAddressLocality = primary.addressLocality?.name;
-  results.PrimaryAddressPostalCode = primary.postalCode;
-  results.PrimaryAddressRegionName = primary.addressRegion?.name;
-  results.PrimaryAddressRegionAbbreviatedName = primary.addressRegion?.abbreviatedName;
-  results.PrimaryAddressStreetLine1 = primary.streetAddress?.line1;
-  results.PrimaryAddressStreetLine2 = primary.streetAddress?.line2;
-}
-
-try {
-  let parsedContent = JSON.parse(response.Content);
-  let results = {};
-
-  const confidenceScore = parsedContent?.matchCandidates?.[0]?.matchQualityInformation?.confidenceCode;
-  populatePrimaryAddresses(results, parsedContent);
-  populateOrganizationInfo(results, parsedContent);
-  populateIndustryCodes(results, parsedContent);
-
-  log('Parsed DnB Results: ' + JSON.stringify(results));
-  response.Content = JSON.stringify([{ Data: results, Score: confidenceScore ? confidenceScore * 10 : 100 }]);
-} catch (error) {
-  const errorDetails = {
-    name: error?.name,
-    message: error?.message,
-    stack: error?.stack,
-  };
-  log("Authentication failed :" + JSON.stringify(errorDetails));
-}
+Example:
+```javascript
+const tokenResponse = http.send({
+    url: `https://plus.dnb.com/v2/token`,
+    method: "POST",
+    headers: [              
+        {Key: 'Content-Type', Value: 'application/json'},
+        {Key: 'Authorization', Value: `Basic ${base64}`}
+        ],
+    body: { grant_type: 'client_credentials' }
+  });
 ```
