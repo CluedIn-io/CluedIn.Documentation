@@ -622,28 +622,40 @@ Process Response Script:
   } catch (e) {
     // If Content isn't valid JSON, return a safe empty payload
     response.HttpStatus = response.HttpStatus || "OK";
-    response.Content = JSON.stringify([{ Data: { "osPlaces.error": "Invalid JSON in response.Content" }, Score: 0 }]);
+    response.Content = JSON.stringify([
+      {
+        Data: { "osPlaces.error": "Invalid JSON in response.Content" },
+        Score: 0,
+      },
+    ]);
     response.ContentType = "application/x-javascript";
     setHeader("Content-Type", "application/x-javascript");
     return;
   }
 
-  var first = parsed && parsed.results && parsed.results.length ? parsed.results[0] : null;
+  var first =
+    parsed && parsed.results && parsed.results.length
+      ? parsed.results[0]
+      : null;
 
   if (!first || typeof first !== "object") {
     response.HttpStatus = response.HttpStatus || "OK";
-    response.Content = JSON.stringify([{ Data: { "osPlaces.found": false }, Score: 0 }]);
+    response.Content = JSON.stringify([
+      { Data: { "osPlaces.found": false }, Score: 0 },
+    ]);
     response.ContentType = "application/x-javascript";
     setHeader("Content-Type", "application/x-javascript");
     return;
   }
 
-  var source = first.DPA ? "DPA" : (first.LPI ? "LPI" : null);
+  var source = first.DPA ? "DPA" : first.LPI ? "LPI" : null;
   var src = source ? first[source] : null;
 
   if (!src) {
     response.HttpStatus = response.HttpStatus || "OK";
-    response.Content = JSON.stringify([{ Data: { "osPlaces.found": false }, Score: 0 }]);
+    response.Content = JSON.stringify([
+      { Data: { "osPlaces.found": false }, Score: 0 },
+    ]);
     response.ContentType = "application/x-javascript";
     setHeader("Content-Type", "application/x-javascript");
     return;
@@ -665,7 +677,7 @@ Process Response Script:
     "osPlaces.easting": null,
     "osPlaces.northing": null,
     "osPlaces.latitude": null,
-    "osPlaces.longitude": null
+    "osPlaces.longitude": null,
   };
 
   if (source === "DPA") {
@@ -674,8 +686,10 @@ Process Response Script:
     newContent["osPlaces.postcode"] = asStr(src.POSTCODE);
     newContent["osPlaces.town"] = asStr(src.POST_TOWN);
 
-    newContent["osPlaces.street"] = asStr(src.THOROUGHFARE) || asStr(src.DEPENDENT_THOROUGHFARE);
-    newContent["osPlaces.building"] = asStr(src.BUILDING_NAME) || asStr(src.BUILDING_NUMBER);
+    newContent["osPlaces.street"] =
+      asStr(src.THOROUGHFARE) || asStr(src.DEPENDENT_THOROUGHFARE);
+    newContent["osPlaces.building"] =
+      asStr(src.BUILDING_NAME) || asStr(src.BUILDING_NUMBER);
     newContent["osPlaces.subBuilding"] = asStr(src.SUB_BUILDING_NAME);
 
     newContent["osPlaces.organisation"] = asStr(src.ORGANISATION_NAME);
@@ -689,12 +703,19 @@ Process Response Script:
     // LPI
     newContent["osPlaces.uprn"] = asStr(src.UPRN);
     newContent["osPlaces.fullAddress"] = asStr(src.ADDRESS); // may be missing in some LPI responses
-    newContent["osPlaces.postcode"] = asStr(src.POSTCODE_LOCATOR) || asStr(src.POSTCODE);
+    newContent["osPlaces.postcode"] =
+      asStr(src.POSTCODE_LOCATOR) || asStr(src.POSTCODE);
     newContent["osPlaces.town"] = asStr(src.TOWN_NAME) || asStr(src.POST_TOWN);
 
     newContent["osPlaces.street"] = asStr(src.STREET_DESCRIPTION);
-    newContent["osPlaces.building"] = asStr(src.PAO_TEXT) || asStr(src.PAO_START_NUMBER) || asStr(src.PAO_START_SUFFIX);
-    newContent["osPlaces.subBuilding"] = asStr(src.SAO_TEXT) || asStr(src.SAO_START_NUMBER) || asStr(src.SAO_START_SUFFIX);
+    newContent["osPlaces.building"] =
+      asStr(src.PAO_TEXT) ||
+      asStr(src.PAO_START_NUMBER) ||
+      asStr(src.PAO_START_SUFFIX);
+    newContent["osPlaces.subBuilding"] =
+      asStr(src.SAO_TEXT) ||
+      asStr(src.SAO_START_NUMBER) ||
+      asStr(src.SAO_START_SUFFIX);
 
     newContent["osPlaces.organisation"] = asStr(src.ORGANISATION);
     newContent["osPlaces.department"] = asStr(src.DEPARTMENT);
@@ -1079,44 +1100,34 @@ try {
   const authCacheKey = "dnb_auth_token";
   const cachedAuthToken = cache.Get(authCacheKey);
 
-  if (!cachedAuthToken) {
-    // replace key and secret with actual value
-    const key = "{key}";
-    const secret = "{secret}";
+  const key = "{key}";
+  const secret = "{secret}";
 
-    const credentials = `${key}:${secret}`;
+  const credentials = `${key}:${secret}`;
 
-    const base64 = stringEncoder.toBase64(credentials);
-    const tokenResponse = http.send({
-      url: `https://plus.dnb.com/v2/token`,
-      method: "POST",
-      headers: [
-        { Key: "Content-Type", Value: "application/json" },
-        { Key: "Authorization", Value: `Basic ${base64}` },
-      ],
-      body: { grant_type: "client_credentials" },
-    });
+  const base64 = stringEncoder.toBase64(credentials);
 
-    log(JSON.stringify(tokenResponse));
-    if (tokenResponse?.HttpStatus != "OK") {
-      throw new Error(
-        `DnB returned ${tokenResponse?.HttpStatus} - ${tokenResponse?.Content}`
-      );
-    }
+  const token = cache.GetOrSetFactory(
+    "dnb_auth_token",
+    () => {
+      const tokenResponse = http.Send({
+        url: `https://plus.dnb.com/v2/token`,
+        method: "POST",
+        headers: [
+          { Key: "Content-Type", Value: "application/json" },
+          { Key: "Authorization", Value: `Basic ${base64}` },
+        ],
+        body: { grant_type: "client_credentials" },
+      });
 
-    // cache the access token to reduce number of API calls
-    const parsedTokenContent = JSON.parse(tokenResponse.Content);
-    cache.Set(
-      "dnb_auth_token",
-      parsedTokenContent.access_token,
-      parsedTokenContent.expiresIn * 1000
-    );
+      return JSON.parse(tokenResponse.Content).access_token;
+    },
+    3000000
+  );
 
-    response = searchByDuns(parsedTokenContent.access_token);
-  } else {
-    log("Auth token: " + cachedAuthToken);
-    response = searchByDuns(cachedAuthToken);
-  }
+  log(JSON.stringify(token));
+
+  response = searchByDuns(token);
 } catch (error) {
   const errorDetails = {
     name: error?.name,
@@ -1193,20 +1204,22 @@ var decoded = stringEncoder.fromBase64(encoded);
 
 **Cache**
 
-| Function | Signature                                                   | Description                                                                                                |
-| -------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `get`    | `get(key: string): object`                                  | Retrieves a cached value for the current organization. Returns `null` if not found.                        |
-| `set`    | `set(key: string, value: object, expiration: number): void` | Stores a value in cache with an expiration time (in milliseconds). Does nothing if the key already exists. |
+| Function          | Signature                                                                     | Description                                                                                                                                                                                                                                 |
+| ----------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `get`             | `get(key: string): object`                                                    | Retrieves a cached value for the current organization. Returns `null` if not found.                                                                                                                                                         |
+| `set`             | `set(key: string, value: object, expiration: number): void`                   | Stores a value in cache with an expiration time (in milliseconds). Does nothing if the key already exists. It is recommended to use `getOrSetValue` or `getOrSetFactory` instead, as they use distributed locks to prevent race conditions. |
+| `getOrSetValue`   | `getOrSetValue(key: string, value: object, expiration: number): object`       | Returns the cached value if it exists; otherwise, stores the provided value with the given expiration time (in milliseconds) and returns it.                                                                                                |
+| `getOrSetFactory` | `getOrSetFactory(key: string, factory: function, expiration: number): object` | Returns the cached value if it exists; otherwise, calls the factory function to produce the value, stores it with the given expiration time (in milliseconds), and returns it.                                                              |
 
 Example:
 
 ```javascript
-// use cache object
+// use cache object (using )
 var token = cache.get("authToken");
 
 if (!token) {
   token = "new-token";
-  cache.set("authToken", token, 60000);
+  cache.getOrSetValue("authToken", token, 60000);
 }
 ```
 
