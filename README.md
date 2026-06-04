@@ -67,6 +67,7 @@ The REST API documentation under `docs/250-rest-api/` renders a categorized refe
 - **Hand-written descriptions:** `assets/api/descriptions-overlay/<category>.json` — summary, description, and parameter notes per route. Merged onto the spec at split time so the original `swagger.json` stays untouched.
 - **Per-category sub-specs:** `assets/api/categories/<category>.json` — derived artifacts served to the Swagger UI viewer. One file per category (System & health, Entities, etc.) keeps each page fast.
 - **Splitter:** `_tools/split-spec.js` — regenerates the sub-specs from `swagger.json` + overlays.
+- **Viewer:** `assets/api/viewer.html` — renders a sub-spec with Swagger UI. A connection bar at the top requests a bearer token via the resource-owner password grant (`POST <base>/auth/connect/token`, `client_id` = org name) and attaches it to every "Try it out" request, rewriting each request's origin to the connected environment. The base URL and token live in `sessionStorage` so they are shared across category iframes/tabs. Calls are subject to the target environment's CORS policy.
 
 ### Refreshing the reference
 

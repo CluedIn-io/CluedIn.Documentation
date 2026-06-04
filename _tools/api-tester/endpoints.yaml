@@ -1,0 +1,254 @@
+# CluedIn REST API test catalog.
+#
+# Priority levels (run/report order):
+#   graphql  -> the GraphQL-backed surface (CluedIn's primary query mechanism). Tested first.
+#   high     -> the documented priority areas: Search, Rules, Glossary.
+#   normal   -> other product-facing read endpoints.
+#
+# Safety:
+#   * Only read-only (GET) and non-mutating GraphQL/preview calls are enabled by default.
+#   * Anything that writes/deletes is marked `destructive: true` and is SKIPPED unless you
+#     pass --include-mutations. None are enabled here by default on purpose.
+#   * Endpoints with {placeholder} segments are SKIPPED unless you supply the value via
+#     --context key=value (e.g. --context entity_id=<guid>).
+#
+# Field reference: name, category, method, path, priority, uses_graphql, destructive,
+#                  params, body, graphql_query, pass_status, note
+
+endpoints:
+
+  # ----------------------------------------------------------------------------
+  # GraphQL — the only controllers that actually execute GraphQL.
+  # Introspection queries are used as robust liveness checks (no domain-field guessing),
+  # and they also reveal the available root queries (me / entity / latest / upcoming / search).
+  # ----------------------------------------------------------------------------
+  - name: graphql_public_introspection
+    category: GraphQL
+    priority: graphql
+    uses_graphql: true
+    method: POST
+    path: api/v1/graphql
+    base: public           # PublicApi.WebApi -> hosted under /public
+    graphql_query: "query { __schema { queryType { name fields { name } } } }"
+    note: Public GraphQL endpoint (PublicApiGraphQLController). Lists available root queries.
+
+  - name: graphql_public_typename
+    category: GraphQL
+    priority: graphql
+    uses_graphql: true
+    method: POST
+    path: api/v1/graphql
+    base: public
+    graphql_query: "query { __typename }"
+    note: Minimal liveness check of the public GraphQL endpoint.
+
+  - name: graphql_consume_introspection
+    category: GraphQL
+    priority: graphql
+    uses_graphql: true
+    method: POST
+    path: api/graphql
+    base: server           # Consume/GraphQLController lives in Server.WebApi -> /api
+    graphql_query: "query { __schema { queryType { name fields { name } } } }"
+    note: Internal/UI GraphQL endpoint (Consume/GraphQLController).
+
+  # Domain GraphQL query — exercises the real schema. `me` is the current user.
+  # If your schema field differs, adjust here; introspection above shows valid fields.
+  - name: graphql_me
+    category: GraphQL
+    priority: graphql
+    uses_graphql: true
+    method: POST
+    path: api/v1/graphql
+    base: public
+    graphql_query: "query { me { id userName } }"
+    note: Resolves the authenticated user via GraphQL.
+
+  # ----------------------------------------------------------------------------
+  # HIGH PRIORITY — documented areas: Search, Rules, Glossary
+  # ----------------------------------------------------------------------------
+
+  # --- Search ---
+  - name: search_basic
+    category: Search
+    priority: high
+    method: GET
+    path: api/search
+    params: { query: "*", pageSize: 1 }
+    note: Core search. Param names are best-effort; adjust if the instance 400s.
+
+  - name: entity_search
+    category: Search
+    priority: high
+    method: GET
+    path: api/entitysearch
+    params: { query: "*", pageSize: 1 }
+
+  - name: saved_searches
+    category: Search
+    priority: high
+    method: GET
+    path: api/v1/savedsearch
+
+  - name: saved_search_favorites
+    category: Search
+    priority: high
+    method: GET
+    path: api/v1/savedsearch/favorites
+
+  # --- Rules (processing rule builder) ---
+  - name: rules_list
+    category: Rules
+    priority: high
+    method: GET
+    path: api/v1/rules
+
+  - name: rules_actions
+    category: Rules
+    priority: high
+    method: GET
+    path: api/rules/actions
+
+  - name: rules_operators
+    category: Rules
+    priority: high
+    method: GET
+    path: api/rules/operators
+
+  - name: rule_by_id
+    category: Rules
+    priority: high
+    method: GET
+    path: api/rules/{rule_id}
+    note: Supply --context rule_id=<guid> to run.
+
+  # --- Glossary ---
+  - name: glossary_list
+    category: Glossary
+    priority: high
+    method: GET
+    path: api/v1/glossary
+
+  - name: glossary_categories
+    category: Glossary
+    priority: high
+    method: GET
+    path: api/v1/glossary/category
+
+  - name: glossary_tags
+    category: Glossary
+    priority: high
+    method: GET
+    path: api/v1/glossary/tag
+
+  - name: glossary_reference_terms
+    category: Glossary
+    priority: high
+    method: GET
+    path: api/glossary/reference
+
+  # ----------------------------------------------------------------------------
+  # NORMAL — other product-facing read endpoints
+  # ----------------------------------------------------------------------------
+  - name: profile_me
+    category: Profile
+    priority: normal
+    method: GET
+    path: api/profile
+
+  - name: settings
+    category: Settings
+    priority: normal
+    method: GET
+    path: api/v1/settings
+
+  - name: activities
+    category: Activities
+    priority: normal
+    method: GET
+    path: api/activities
+    params: { page: 1, take: 5 }
+
+  - name: vocab_keys
+    category: Vocabularies
+    priority: normal
+    method: GET
+    path: api/vocabs/keys
+    params: { take: 5 }
+
+  - name: configuration_provider_list
+    category: Integrations
+    priority: normal
+    method: GET
+    path: api/configuration/providerlist
+
+  - name: entity_type_info
+    category: EntityTypes
+    priority: normal
+    method: GET
+    path: api/entitytypeinfo
+
+  - name: streams_list
+    category: Consume
+    priority: normal
+    method: GET
+    path: api/streams
+    params: { page: 1, take: 5 }
+
+  - name: hierarchies_list
+    category: Hierarchies
+    priority: normal
+    method: GET
+    path: api/v1/hierarchies
+
+  - name: dedup_projects
+    category: Deduplication
+    priority: normal
+    method: GET
+    path: api/deduplication/projects
+
+  - name: global_data_model
+    category: DataModel
+    priority: normal
+    method: GET
+    path: api/globaldatamodel
+
+  - name: ai_job_skills
+    category: AI
+    priority: normal
+    method: GET
+    path: api/v1/aijobskills
+
+  - name: ai_platform_definitions
+    category: AI
+    priority: normal
+    method: GET
+    path: api/v1/ai/platform-definition
+
+  # Parameterized reads — SKIPPED unless --context supplies the id.
+  - name: entity_by_id
+    category: Entity
+    priority: normal
+    method: GET
+    path: api/entity
+    params: { id: "{entity_id}" }
+    note: Supply --context entity_id=<guid>.
+
+  - name: entity_history
+    category: Entity
+    priority: normal
+    method: GET
+    path: api/entityhistory/{entity_id}
+    note: Supply --context entity_id=<guid>.
+
+  # ----------------------------------------------------------------------------
+  # Example of a DESTRUCTIVE entry (disabled by default; needs --include-mutations).
+  # Left here as a template — uncomment/extend deliberately.
+  # ----------------------------------------------------------------------------
+  # - name: glossary_create_term
+  #   category: Glossary
+  #   priority: high
+  #   method: POST
+  #   path: api/glossary
+  #   destructive: true
+  #   body: { name: "api-tester smoke term", categoryId: "{category_id}" }

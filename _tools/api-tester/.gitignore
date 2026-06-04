@@ -1,0 +1,11 @@
+# Python bytecode and virtualenvs
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local report output from test runs
+run.json
+run.md
+*-run.json
+*-run.md

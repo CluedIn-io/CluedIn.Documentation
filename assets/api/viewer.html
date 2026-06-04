@@ -10,16 +10,121 @@
       body {
         margin: 0;
         background: #fafafa;
+        font-family: system-ui, -apple-system, Segoe UI, sans-serif;
       }
-      /* The auth/server bar is hidden because "Try it out" is disabled in this
-         read-only reference. */
+      /* Swagger's own server/authorize bar is hidden — the connection bar below
+         drives the base URL and bearer token for "Try it out". */
       .swagger-ui .scheme-container {
         display: none;
       }
       .err {
         padding: 24px;
-        font-family: system-ui, -apple-system, Segoe UI, sans-serif;
         color: #b00020;
+      }
+
+      /* Connection bar */
+      .conn {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: #1f2933;
+        color: #fff;
+        padding: 12px 16px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      }
+      .conn form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 12px;
+        align-items: flex-end;
+        margin: 0;
+      }
+      .conn .field {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .conn label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #9aa5b1;
+      }
+      .conn input {
+        font-size: 13px;
+        padding: 6px 8px;
+        border: 1px solid #3e4c59;
+        border-radius: 4px;
+        background: #fff;
+        color: #1f2933;
+        min-width: 180px;
+      }
+      .conn input.small {
+        min-width: 130px;
+      }
+      .conn button {
+        font-size: 13px;
+        font-weight: 600;
+        padding: 7px 16px;
+        border: 0;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .conn .connect {
+        background: #38a169;
+        color: #fff;
+      }
+      .conn .connect:hover {
+        background: #2f855a;
+      }
+      .conn .disconnect {
+        background: #4a5568;
+        color: #fff;
+      }
+      .conn .disconnect:hover {
+        background: #2d3748;
+      }
+      .conn .status {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        margin-left: auto;
+      }
+      .conn .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #cbd2d9;
+      }
+      .conn.connected .dot {
+        background: #48bb78;
+      }
+      .conn .msg {
+        flex-basis: 100%;
+        font-size: 12px;
+        margin-top: 2px;
+      }
+      .conn .msg.error {
+        color: #feb2b2;
+      }
+      .conn .msg.info {
+        color: #9aa5b1;
+      }
+      .conn .advanced {
+        display: none;
+      }
+      .conn.show-advanced .advanced {
+        display: flex;
+      }
+      .conn .toggle-advanced {
+        background: none;
+        border: 0;
+        color: #9aa5b1;
+        font-size: 12px;
+        cursor: pointer;
+        padding: 0;
+        text-decoration: underline;
       }
     </style>
   </head>
@@ -30,29 +135,308 @@
 
       Example: /assets/api/viewer.html?spec=entities
       The sub-spec is fetched from /assets/api/categories/<spec>.json
+
+      The connection bar lets you point "Try it out" at a live CluedIn
+      environment: enter the base URL, email, and password; a bearer token is
+      requested via the resource-owner password grant and attached to every
+      request. The token and base URL are kept in sessionStorage so they are
+      shared across the category pages for the duration of the browser session.
     -->
+    <div class="conn" id="conn">
+      <form id="conn-form" autocomplete="on">
+        <div class="field">
+          <label for="base-url">Base URL</label>
+          <input id="base-url" type="url" placeholder="https://acme.cluedin.com" required />
+        </div>
+        <div class="field">
+          <label for="username">Email</label>
+          <input id="username" type="text" placeholder="you@acme.com" autocomplete="username" required />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" required />
+        </div>
+        <div class="field advanced">
+          <label for="client-id">Client ID</label>
+          <input id="client-id" class="small" type="text" placeholder="(auto from host)" />
+        </div>
+        <div class="field advanced">
+          <label for="api-prefix">API path prefix</label>
+          <input id="api-prefix" class="small" type="text" placeholder="api" title="Gateway prefix for the Server API. Default 'api' for hosted CluedIn; leave blank for a non-proxied/local instance." />
+        </div>
+        <button type="submit" class="connect" id="connect-btn">Connect</button>
+        <button type="button" class="disconnect" id="disconnect-btn" hidden>Disconnect</button>
+        <div class="status">
+          <span class="dot"></span>
+          <span id="status-text">Not connected</span>
+        </div>
+        <div class="msg info" id="conn-msg">
+          Connect to enable <strong>Try it out</strong>.
+          <button type="button" class="toggle-advanced" id="toggle-advanced">Advanced</button>
+        </div>
+      </form>
+    </div>
+
     <div id="swagger-ui"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
     <script>
-      var slug = new URLSearchParams(location.search).get('spec');
-      if (!slug || !/^[a-z0-9-]+$/.test(slug)) {
-        document.getElementById('swagger-ui').innerHTML =
-          '<div class="err">Missing or invalid <code>?spec=&lt;category&gt;</code> parameter.</div>';
-      } else {
-        window.ui = SwaggerUIBundle({
-          url: 'categories/' + slug + '.json',
-          dom_id: '#swagger-ui',
-          presets: [SwaggerUIBundle.presets.apis],
-          deepLinking: true,
-          docExpansion: 'list',
-          filter: true,
-          tagsSorter: 'alpha',
-          operationsSorter: 'alpha',
-          defaultModelsExpandDepth: -1,
-          supportedSubmitMethods: [],
-          validatorUrl: null
+      (function () {
+        'use strict';
+
+        // sessionStorage keys — shared across the category iframes/tabs.
+        var STORE = {
+          baseUrl: 'cluedin.apiTester.baseUrl',
+          username: 'cluedin.apiTester.username',
+          clientId: 'cluedin.apiTester.clientId',
+          apiPrefix: 'cluedin.apiTester.apiPrefix',
+          token: 'cluedin.apiTester.token'
+        };
+
+        // Default Server.WebApi gateway prefix is "api" (see apiPrefixFor()).
+        var storedApiPrefix = sessionStorage.getItem(STORE.apiPrefix);
+
+        var state = {
+          baseOrigin: sessionStorage.getItem(STORE.baseUrl) || '',
+          apiPrefix: storedApiPrefix === null ? 'api' : storedApiPrefix,
+          token: sessionStorage.getItem(STORE.token) || ''
+        };
+
+        var els = {
+          conn: document.getElementById('conn'),
+          form: document.getElementById('conn-form'),
+          baseUrl: document.getElementById('base-url'),
+          username: document.getElementById('username'),
+          password: document.getElementById('password'),
+          clientId: document.getElementById('client-id'),
+          apiPrefix: document.getElementById('api-prefix'),
+          connectBtn: document.getElementById('connect-btn'),
+          disconnectBtn: document.getElementById('disconnect-btn'),
+          statusText: document.getElementById('status-text'),
+          msg: document.getElementById('conn-msg'),
+          toggleAdvanced: document.getElementById('toggle-advanced')
+        };
+
+        // Restore any previously entered values for this session.
+        els.baseUrl.value = sessionStorage.getItem(STORE.baseUrl) || '';
+        els.username.value = sessionStorage.getItem(STORE.username) || '';
+        els.clientId.value = sessionStorage.getItem(STORE.clientId) || '';
+        els.apiPrefix.value = state.apiPrefix;
+
+        function setMessage(text, kind) {
+          els.msg.className = 'msg ' + (kind || 'info');
+          els.msg.innerHTML = text;
+        }
+
+        function originOf(url) {
+          // Accept values with or without a scheme and strip any trailing /api path.
+          var value = (url || '').trim();
+          if (!value) return '';
+          if (!/^https?:\/\//i.test(value)) value = 'https://' + value;
+          return new URL(value).origin;
+        }
+
+        // Hosted CluedIn is reverse-proxied: each backend is served under a path
+        // prefix (auth -> /auth, Server.WebApi -> /api) that the gateway STRIPS
+        // before routing. The documented routes already start with /api/, so to
+        // reach Server.WebApi the request must go to <origin>/api/api/... — i.e.
+        // we re-add the gateway's /api prefix. Root infra paths (/health, /status,
+        // /robots.txt) are served at the gateway root and need no prefix.
+        // The prefix is configurable (Advanced) for instances using a custom
+        // Proxy.ApiPrefix; set it empty for a non-proxied/local dev instance.
+        function apiPrefixFor(pathname) {
+          if (!state.apiPrefix) return '';
+          return /^\/api(\/|$)/.test(pathname) ? '/' + state.apiPrefix : '';
+        }
+
+        // Default client id is the first label of the host (the CluedIn org name).
+        function defaultClientId(origin) {
+          try {
+            return new URL(origin).hostname.split('.')[0];
+          } catch (e) {
+            return '';
+          }
+        }
+
+        function showConnected(origin) {
+          state.baseOrigin = origin;
+          els.conn.classList.add('connected');
+          els.statusText.textContent = 'Connected to ' + origin;
+          els.connectBtn.hidden = true;
+          els.disconnectBtn.hidden = false;
+          var sample = origin + (state.apiPrefix ? '/' + state.apiPrefix : '') + '/api/...';
+          setMessage(
+            'Bearer token attached — use <strong>Try it out</strong> on any endpoint below. ' +
+              'Requests are sent to <code>' + sample + '</code>.',
+            'info'
+          );
+        }
+
+        function showDisconnected() {
+          state.token = '';
+          state.baseOrigin = '';
+          els.conn.classList.remove('connected');
+          els.statusText.textContent = 'Not connected';
+          els.connectBtn.hidden = false;
+          els.disconnectBtn.hidden = true;
+        }
+
+        function disconnect() {
+          sessionStorage.removeItem(STORE.token);
+          sessionStorage.removeItem(STORE.baseUrl);
+          showDisconnected();
+          setMessage('Disconnected. Connect to enable <strong>Try it out</strong>.', 'info');
+        }
+
+        // Resource-owner password grant against CluedIn's IdentityServer
+        // (/auth/connect/token). The public client id is the organization name.
+        function requestToken(origin, username, password, clientId) {
+          var body = new URLSearchParams();
+          body.set('grant_type', 'password');
+          body.set('client_id', clientId);
+          body.set('username', username);
+          body.set('password', password);
+
+          return fetch(origin + '/auth/connect/token', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              Accept: 'application/json'
+            },
+            body: body.toString()
+          }).then(function (res) {
+            return res
+              .json()
+              .catch(function () {
+                return {};
+              })
+              .then(function (data) {
+                if (!res.ok || !data.access_token) {
+                  var detail =
+                    data.error_description || data.error || res.status + ' ' + res.statusText;
+                  throw new Error(detail);
+                }
+                return data.access_token;
+              });
+          });
+        }
+
+        els.form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var origin = originOf(els.baseUrl.value);
+          if (!origin) {
+            setMessage('Enter a valid base URL.', 'error');
+            return;
+          }
+          var username = els.username.value.trim();
+          var password = els.password.value;
+          var clientId = els.clientId.value.trim() || defaultClientId(origin);
+          // Normalise the prefix to a bare segment (strip slashes/whitespace).
+          state.apiPrefix = els.apiPrefix.value.trim().replace(/^\/+|\/+$/g, '');
+
+          els.connectBtn.disabled = true;
+          setMessage('Requesting token…', 'info');
+
+          requestToken(origin, username, password, clientId)
+            .then(function (token) {
+              state.token = token;
+              sessionStorage.setItem(STORE.token, token);
+              sessionStorage.setItem(STORE.baseUrl, origin);
+              sessionStorage.setItem(STORE.username, username);
+              sessionStorage.setItem(STORE.clientId, els.clientId.value.trim());
+              sessionStorage.setItem(STORE.apiPrefix, state.apiPrefix);
+              showConnected(origin);
+            })
+            .catch(function (err) {
+              showDisconnected();
+              setMessage(
+                'Could not get a token: ' +
+                  err.message +
+                  '. Check the credentials and client ID. If the browser blocked the request, the environment must allow CORS from this page\'s origin.',
+                'error'
+              );
+            })
+            .finally(function () {
+              els.connectBtn.disabled = false;
+            });
         });
-      }
+
+        els.disconnectBtn.addEventListener('click', disconnect);
+        els.toggleAdvanced.addEventListener('click', function () {
+          els.conn.classList.toggle('show-advanced');
+        });
+
+        // Restore a connected session on load.
+        if (state.token && state.baseOrigin) {
+          showConnected(state.baseOrigin);
+        }
+
+        // Keep sibling viewers (other category iframes on the page, other tabs)
+        // in sync when the connection changes anywhere in this session.
+        window.addEventListener('storage', function (e) {
+          if (e.key && e.key !== STORE.token) return;
+          var token = sessionStorage.getItem(STORE.token);
+          var origin = sessionStorage.getItem(STORE.baseUrl);
+          if (token && origin) {
+            state.token = token;
+            var p = sessionStorage.getItem(STORE.apiPrefix);
+            state.apiPrefix = p === null ? 'api' : p;
+            showConnected(origin);
+          } else {
+            showDisconnected();
+          }
+        });
+
+        // ---- Swagger UI ----------------------------------------------------
+        var slug = new URLSearchParams(location.search).get('spec');
+        if (!slug || !/^[a-z0-9-]+$/.test(slug)) {
+          document.getElementById('swagger-ui').innerHTML =
+            '<div class="err">Missing or invalid <code>?spec=&lt;category&gt;</code> parameter.</div>';
+          return;
+        }
+
+        // Load the sub-spec ourselves so we can pin a clean server ("/"): every
+        // request URL is then origin + the OpenAPI path, which the request
+        // interceptor rewrites to the connected environment.
+        fetch('categories/' + slug + '.json')
+          .then(function (res) {
+            if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+            return res.json();
+          })
+          .then(function (spec) {
+            spec.servers = [{ url: '/' }];
+            window.ui = SwaggerUIBundle({
+              spec: spec,
+              dom_id: '#swagger-ui',
+              presets: [SwaggerUIBundle.presets.apis],
+              deepLinking: true,
+              docExpansion: 'list',
+              filter: true,
+              tagsSorter: 'alpha',
+              operationsSorter: 'alpha',
+              defaultModelsExpandDepth: -1,
+              validatorUrl: null,
+              requestInterceptor: function (req) {
+                if (state.baseOrigin) {
+                  var u = new URL(req.url, location.href);
+                  req.url = state.baseOrigin + apiPrefixFor(u.pathname) + u.pathname + u.search;
+                  // Visible in DevTools console so the effective target URL is obvious.
+                  if (window.console && console.debug) console.debug('[api-tester] →', req.method, req.url);
+                }
+                if (state.token) {
+                  req.headers['Authorization'] = 'Bearer ' + state.token;
+                }
+                return req;
+              }
+            });
+          })
+          .catch(function (err) {
+            document.getElementById('swagger-ui').innerHTML =
+              '<div class="err">Could not load the API specification: ' +
+              err.message +
+              '</div>';
+          });
+      })();
     </script>
   </body>
 </html>

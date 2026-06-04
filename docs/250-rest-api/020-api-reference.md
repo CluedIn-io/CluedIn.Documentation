@@ -17,6 +17,15 @@ The CluedIn REST API is documented endpoint by endpoint across the categories li
 
 Before making requests, review [Get started](/rest-api/get-started) for base URLs, authentication, and conventions that apply across the whole API.
 
+## Try it out against your environment
+
+Each category page (and the full-screen viewer) includes a connection bar at the top. Enter your environment's **base URL** (for example, `https://acme.cluedin.com`), your **email**, and your **password**, then select **Connect**. The viewer requests a bearer token on your behalf and attaches it to every request, which enables the **Try it out** button on every endpoint so you can send live calls and inspect the responses.
+
+The token and base URL are held in your browser's session storage and shared across the category pages until you close the tab or select **Disconnect**. If your CluedIn organization name differs from the first part of the host, expand **Advanced** to set the **Client ID** explicitly.
+
+{:.important}
+The calls run from your browser, so the target environment must allow cross-origin (CORS) requests from wherever you are viewing this documentation. If a request is blocked, host the documentation on an allowed origin, or use the `curl`/PowerShell examples in [Get started](/rest-api/get-started) instead. Credentials are sent only to the environment you specify and are never stored beyond the browser session.
+
 ## Categories
 
 | Category | Description |
