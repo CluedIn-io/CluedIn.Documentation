@@ -59,6 +59,25 @@ bundle install      # install gems from Gemfile.lock
 bundle update       # update gems to latest allowed versions
 ```
 
+## Diagrams (Mermaid)
+
+Mermaid diagrams are supported natively by the just-the-docs theme — no extra
+plugin is required. Add a fenced code block with the `mermaid` language to any
+page:
+
+````markdown
+```mermaid
+graph TD;
+  A[Client] -->|token| B(Auth /auth);
+  A -->|bearer| C(API /api);
+```
+````
+
+The library is loaded client-side from jsDelivr; the version is pinned by the
+`mermaid:` key in `_config.yml`, and rendering options live in
+`_includes/mermaid_config.js`. Because `_config.yml` is not hot-reloaded,
+restart the server after changing the Mermaid settings.
+
 ## REST API reference
 
 The REST API documentation under `docs/250-rest-api/` renders a categorized reference from a bundled OpenAPI specification. The structure is:
