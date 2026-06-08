@@ -31,28 +31,13 @@ tags: ["api-audit", "rest api audit"]
 >
 > **✅ Action taken (this pass):** every controller marked **Exclude** below, plus the auth red-flag
 > controllers and the loose ends (`DataverseConnector`, `PowerAutomate`), have now been **removed
-> from the published spec**. The reference is down to **744 operations across 54 controllers (swagger
-> tags) in 14 categories**: the *System & health*, *Data ingestion*, and *Workflow & automation*
-> categories were dropped entirely, and a standalone *Deduplication* category was split out of Entities,
-> Rules, Workflow, and Insights. The **Document** and **Document (admin)** tables below describe what
-> remains.
+> from the published spec**. The reference is down to **721 operations across 48 controllers (swagger
+> tags) in 13 categories**: the *System & health*, *Data ingestion*, *Workflow & automation*, and
+> *Insights & UI* categories were dropped entirely, and a standalone *Deduplication* category was split
+> out of Entities, Rules, Workflow, and Insights. The **Document** and **Document (admin)** tables below
+> describe what remains.
 
 ---
-
-## How "customer-facing" is decided here
-
-The previous audit conflated two different "no" reasons (operator-only vs. permission-gated). This
-re-audit separates them with one consistent rule:
-
-- **A feature is customer-facing if a CluedIn *tenant user* — including a tenant admin or data
-  steward — would legitimately call it to operate their own organization.** Requiring an elevated
-  RACI permission (e.g. `Management.RuleBuilder`, `Consume.Streams`) does **not** make an endpoint
-  internal; tenants have their own admins and stewards. Rules, Glossary, Vocabularies, Streams,
-  Dedup, Hierarchies, Clean, GDPR governance, etc. are all customer-facing even though they are
-  permission-gated.
-- **A feature is *not* customer-facing if it is** a CluedIn platform/cluster operator command,
-  infrastructure/health plumbing, internal UI-only support (widgets, layout templates, autocomplete,
-  language-server), an internal service-bus/agent hook, or an explicit debug endpoint.
 
 Each controller gets one of three verdicts:
 
@@ -171,7 +156,7 @@ Each controller gets one of three verdicts:
 | AdminDistributedJobs | `Roles = Admin` | Stale distributed-job maintenance | **Exclude** — operator. |
 | AdminDeadLetterQueue | `Administration.Messaging` | Reprocess dead-letter messages | **Exclude** — operator. |
 
-### 10. Streams, connectors & export — *Document the Consume surface; gate export*
+### 11. Streams, connectors & export — *Document the Consume surface; gate export*
 
 | Controller | Auth | Purpose | Verdict |
 |---|---|---|---|
@@ -185,7 +170,7 @@ Each controller gets one of three verdicts:
 | DataverseConnector | *(controller not found in main tree)* ⚠ | Dataverse export integration (4 POST) | **Exclude** — *locate source & confirm*. |
 | Export | `Administration.Tenant` | Export vocab/entity data to ZIP | **Exclude** — migration. |
 
-### 11. Data preparation & enrichment — *Document Clean & Enricher*
+### 12. Data preparation & enrichment — *Document Clean & Enricher*
 
 | Controller | Auth | Purpose | Verdict |
 |---|---|---|---|
@@ -240,8 +225,8 @@ Each controller gets one of three verdicts:
 |---|---|---|---|
 | Organization | `[Authorize]` | Org usage statistics | **Document**. |
 | OrganizationProfile | `[Authorize]` (+`Administration.Tenant`) | Tenant profile/branding | **Document**. |
-| OrganizationGetProviders | `[Authorize]` | List/inventory providers | **Document**. |
-| OrganizationProviderStatus | `Administration.Provider` | Enable/disable a provider | **Document**. |
+| OrganizationGetProviders | `[Authorize]` | List/inventory providers | **Exclude**. |
+| OrganizationProviderStatus | `Administration.Provider` | Enable/disable a provider | **Exclude**. |
 | OrganizationAddProviders | **no class auth** ⚠ | Add a provider | **Exclude** — *confirm auth first*. |
 | OrganizationUpdateProviders | **no class auth** ⚠ | Update a provider | **Exclude** — *confirm auth first*. |
 | OrganizationEnableProviders | **no class auth** ⚠ | Enable a provider | **Exclude** — *confirm auth first*. |
@@ -252,10 +237,10 @@ Each controller gets one of three verdicts:
 
 | Controller | Auth | Purpose | Verdict |
 |---|---|---|---|
-| Activities | `[Authorize]` | Activity feed / action events | **Document**. |
-| Notification | `[Authorize]` | User/provider notifications | **Document**. |
-| Profile | `[Authorize]` | Current-user profile | **Document**. |
-| Person | `[Authorize]` | Person lookup by entity code | **Document**. |
+| Activities | `[Authorize]` | Activity feed / action events | **Exclude**. |
+| Notification | `[Authorize]` | User/provider notifications | **Exclude**. |
+| Profile | `[Authorize]` | Current-user profile | **Exclude**. |
+| Person | `[Authorize]` | Person lookup by entity code | **Exclude**. |
 | PageTemplate / PageTemplateEntities | `Administration.Tenant` | Page/layout template config | **Exclude** — UI configuration. |
 | GenericWidget | `[Authorize]` | Dashboard widget data | **Exclude** — UI plumbing. |
 | WidgetQuery | `[Authorize]` | Widget entity queries | **Exclude** — UI plumbing. |
@@ -263,51 +248,3 @@ Each controller gets one of three verdicts:
 | NotificationV2 | **no auth attribute** ⚠ | Post AlertManager notification to service bus | **Exclude** — internal alerting. |
 
 ---
-
-## Part 3 — Summary
-
-### Document (core customer surface)
-Entities (Entity/History/Info/TypeInfo/Origin/Source/Topology/Split/Duplicate), Search
-(Search/Saved/Suggested), Vocabularies (Vocabulary/Usage), Glossary (+Search), Hierarchies, Rules
-(builder + dedup) & RuleDataPreview, Streams/Connectors (the Consume suite), Clean & Enricher,
-Workflow (EnterpriseFlows, Task/Approval/RoleRequest/ApprovalItem, Automate), AI
-(Agent/Job/JobSkill/Endpoint-inference/PlatformDefinition/Copilot), GDPR/Audit/Ownership governance,
-Organization profile & providers, and the user-facing Insights endpoints (Activities, Notification,
-Profile, Person, Project, Results, TagMetadata), plus `Setting` and `MeteredBilling`. Authentication
-itself is documented via **ApiToken** (in *Get started*), not the auth-server controllers.
-
-### Document (admin) — keep, but in an Administration/Diagnostics section with a role note
-EntityModification, EntityDataDeletion, EntityActions, GlobalDataModel, RuleErrorLog, ExplainLog,
-Import, Export, OrganizationDataRemoval, StreamLog, MeshCenter, the AI platform/deployment config
-(AiDeployment, AiPlatform, AiEndpoint-admin), ExtendedConfiguration, Configuration, Log,
-AccessControlPolicies, PageTemplate(s).
-
-### Exclude (drop from the public reference)
-All of System & health; the `Admin*` operator controllers (AdminCommands, AdminEntity,
-AdminClusterSettings, AdminIndexCommands, AdminCrawler/OrganizationAdminCrawler,
-AdminDistributedJobs, AdminDeadLetterQueue); internal UI plumbing (GenericWidget, WidgetQuery,
-LayoutTemplate, RulesAutoComplete, Onboarding, Logging); internal services
-(NotificationV2/AlertManager, MeshProcessor, IdentityCounter, DataSource, Enrichers, StrongTyping);
-the PowerFx internals (Evaluation, LanguageServer); the debug endpoint SearchToClean; and
-OrganizationAdminCommands.
-
-### ⚠ Auth red flags to resolve before publishing
-These have **no `[Authorize]`/`[RaciAuthorize]` attribute** in code. Confirm whether auth is applied
-elsewhere (base class / middleware) or genuinely missing — do not publish as customer endpoints until
-clarified:
-`EntityActions`, `Evaluation` (PowerFx), `LanguageServer` (PowerFx), `OrganizationUpload`,
-`OrganizationAddProviders` / `OrganizationUpdateProviders` / `OrganizationEnableProviders` /
-`OrganizationTeamBroadcast`, `NotificationV2`.
-
-### Open questions for the team
-1. **Two "Rules" concepts** — processing **rule builder** (`Management.RuleBuilder`) vs **dedup
-   project** rules (`Management.DeduplicationManagement`). Both are customer-facing; the docs must
-   disambiguate them clearly.
-2. **`DataverseConnector`** appears as a tag with 4 operations but no `*Controller.cs` was found in the
-   main code tree — locate its source (connector plugin?) and confirm it should ship.
-3. **`PowerAutomate`** operations live inside `EntityModificationController` — confirm this is a
-   published Power Automate integration vs. internal wiring.
-4. **Diagnostic tier** — RuleErrorLog, ExplainLog, StreamLog, Log: ship as "Diagnostics" (power-user)
-   or keep internal?
-5. **Versioning** — most endpoints expose both `api/...` and `api/v1/...`; pick one canonical form for
-   the rendered reference.

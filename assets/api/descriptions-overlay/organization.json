@@ -92,25 +92,5 @@
     "parameters": {
       "organizationid": "Organisation identifier."
     }
-  },
-  "GET /api/v1/organization/hasproviders": {
-    "summary": "Check whether organisation has providers",
-    "description": "Returns whether the caller's organisation has any configured providers."
-  },
-  "GET /api/v1/organization/providers": {
-    "summary": "List organization providers",
-    "description": "Returns the providers configured for the caller's organisation with provider name, enabled state, and the user-profile (name/logo) of the user that configured each provider. Multiple overloads accept different filter combinations; passing `id` narrows to a single provider definition. Requires the Administration.Provider RACI claim.",
-    "parameters": {
-      "id": "Optional provider id to filter by."
-    }
-  },
-  "PUT /api/v1/organization/providers": {
-    "summary": "Change organization provider status",
-    "description": "Enables or disables a provider configuration for the caller's organisation. Activating a previously-unapproved provider also approves it; deactivating cancels its scheduled crawls and (for enrichers) cancels recurring enrichment. The action publishes a `ProviderStatusChangeEvent` and is audit-logged with provider-type-specific descriptions. Returns 404 if the provider cannot be found. Requires the Administration.Provider RACI claim.",
-    "parameters": {
-      "id": "Provider id.",
-      "active": "True to enable, false to disable.",
-      "accountId": "Optional account id (used by the multi-account overload)."
-    }
   }
 }

@@ -101,5 +101,23 @@
     "parameters": {
       "objectId": "Identifier of the object to look up."
     }
+  },
+  "GET /api/tag/metadata/{tagName}": {
+    "summary": "Get tag metadata",
+    "description": "Returns metadata for the supplied tag (description, owner, folder, etc.).",
+    "parameters": {
+      "tagName": "Tag name."
+    }
+  },
+  "POST /api/tag/metadata/{tagName}/update": {
+    "summary": "Update tag metadata",
+    "description": "Updates metadata for the supplied tag.",
+    "parameters": {
+      "tagName": "Tag name."
+    }
+  },
+  "POST /api/tag/metadata/folder/rename": {
+    "summary": "Rename tag folder",
+    "description": "Renames a tag folder. All tags inside the folder remain in place but the folder name changes."
   }
 }

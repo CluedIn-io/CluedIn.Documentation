@@ -1,74 +1,5 @@
 {
-  "_about": "Insights & UI category (Insight, GenericWidget, WidgetQuery, PageTemplate, PageTemplateEntities, LayoutTemplate, TagMetadata, Activities, Notification, NotificationV2, Profile, Person, Project, Results). Many endpoints exist to power the CluedIn UI surfaces (dashboards, widgets, notifications). The deduplication `Project` and `Results` endpoints provide the project workflow for the deduplication UI.",
-  "GET /api/v1/activities": {
-    "summary": "List activity feed",
-    "description": "Returns the organisation's activity feed (recent platform activity). Paged via standard query parameters."
-  },
-  "GET /api/v2/activities": {
-    "summary": "List activity feed (v2)",
-    "description": "Version 2 of the activity feed endpoint with refined response shape."
-  },
-  "GET /api/v1/notification/all": {
-    "summary": "List notifications",
-    "description": "Returns the calling user's notifications."
-  },
-  "DELETE /api/v1/notification": {
-    "summary": "Delete notifications",
-    "description": "Deletes one or more notifications for the calling user."
-  },
-  "PUT /api/v1/notification/mark": {
-    "summary": "Mark notification(s) as read",
-    "description": "Marks specific notifications as read."
-  },
-  "PUT /api/v1/notification/markall": {
-    "summary": "Mark all notifications as read",
-    "description": "Marks every notification for the calling user as read."
-  },
-  "PUT /api/v1/notification/markunread": {
-    "summary": "Mark notification(s) as unread",
-    "description": "Marks specific notifications as unread."
-  },
-  "GET /api/v1/providernotification/all": {
-    "summary": "List provider notifications",
-    "description": "Returns provider-related notifications (provider failures, configuration changes) for the organisation."
-  },
-  "PUT /api/v1/provider/count": {
-    "summary": "Clear provider notification count",
-    "description": "Resets the provider notification counter for the caller."
-  },
-  "GET /api/v1/profile": {
-    "summary": "Get user profile",
-    "description": "Returns the calling user's profile (display name, picture, settings)."
-  },
-  "PUT /api/v1/profile": {
-    "summary": "Update user profile",
-    "description": "Updates the calling user's profile."
-  },
-  "GET /api/person/byentitycode/{personreferencecode}": {
-    "summary": "Get person by entity code",
-    "description": "Returns the Person entity matching the supplied reference code (typically a `CluedIn(userId)` style code).",
-    "parameters": {
-      "personreferencecode": "Person entity code."
-    }
-  },
-  "GET /api/tag/metadata/{tagName}": {
-    "summary": "Get tag metadata",
-    "description": "Returns metadata for the supplied tag (description, owner, folder, etc.).",
-    "parameters": {
-      "tagName": "Tag name."
-    }
-  },
-  "POST /api/tag/metadata/{tagName}/update": {
-    "summary": "Update tag metadata",
-    "description": "Updates metadata for the supplied tag.",
-    "parameters": {
-      "tagName": "Tag name."
-    }
-  },
-  "POST /api/tag/metadata/folder/rename": {
-    "summary": "Rename tag folder",
-    "description": "Renames a tag folder. All tags inside the folder remain in place but the folder name changes."
-  },
+  "_about": "Deduplication category (Project, Automate, Results, DuplicateEntities, SplitEntity). Project/Results/Automate routes live under /api/v1/deduplication; SplitEntity/DuplicateEntities descriptions live in the entities-* overlays.",
   "GET /api/deduplication/projects": {
     "summary": "List deduplication projects",
     "description": "Returns paged deduplication projects with optional filters."
@@ -320,6 +251,34 @@
   "GET /api/deduplication/projects/{projectId}/results/histogram": {
     "summary": "Get results histogram",
     "description": "Returns a histogram of the project's result groups (typically group size distribution).",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/automate/automate": {
+    "summary": "Automate deduplication project",
+    "description": "Triggers full automation of a deduplication project (generates and commits results). Returns 400 when the project has no rules or is in a state that does not allow automation, 404 when the project cannot be found. Requires the Management.DeduplicationManagement RACI claim.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/automate/cancel": {
+    "summary": "Cancel deduplication automation",
+    "description": "Cancels an in-progress automation. Returns 400 when the project is in a state that does not allow cancellation, 404 when the project cannot be found. Requires the Management.DeduplicationManagement RACI claim.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/automate/projectcanbeautomated": {
+    "summary": "Check whether deduplication project can be automated",
+    "description": "Returns whether the project meets the preconditions for automation. Returns 404 when the project cannot be found. Requires the Management.DeduplicationManagement RACI claim.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/automate/lastdeduplicationstarttime": {
+    "summary": "Get last automation start time",
+    "description": "Returns the start time of the most recent automation job for the project, as `{ LastJobStartTime }`. Returns 404 when the project cannot be found. Requires the Management.DeduplicationManagement RACI claim.",
     "parameters": {
       "projectId": "Deduplication project identifier."
     }

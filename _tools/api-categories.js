@@ -50,9 +50,6 @@ module.exports = [
     description: 'Settings, logs, and metered billing.',
     tags: ['Setting','Log','MeteredBilling'] },
   { slug: 'organization', title: 'Organization',
-    description: 'Organization profile and provider configuration.',
-    tags: ['Organization','OrganizationProfile','OrganizationGetProviders','OrganizationProviderStatus'] },
-  { slug: 'insights-and-ui', title: 'Insights & UI',
-    description: 'Activity feeds, notifications, and user and person profiles.',
-    tags: ['Activities','Notification','Profile','Person'] }
+    description: 'Organization profile and usage statistics.',
+    tags: ['Organization','OrganizationProfile'] }
 ];

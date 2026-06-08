@@ -33,7 +33,7 @@ graph LR
   API --> AUTO["Automate & augment<br/>Reduce manual effort"]
 
   OP --> admin["Administration & configuration<br/><i>How do I manage settings, logs, and billing?</i>"]
-  OP --> org["Organization<br/><i>How do I manage the org and its providers?</i>"]
+  OP --> org["Organization<br/><i>How do I manage the organization profile?</i>"]
 
   MODEL --> vocab["Vocabularies<br/><i>How is my data typed and described?</i>"]
   MODEL --> gloss["Glossary<br/><i>What do our business terms mean?</i>"]
@@ -45,7 +45,6 @@ graph LR
   MASTER --> prep["Data preparation & enrichment<br/><i>How do I clean and enrich records?</i>"]
 
   FIND --> search["Search<br/><i>How do I find records across the graph?</i>"]
-  FIND --> ui["Insights & UI<br/><i>How do I surface activities and notifications?</i>"]
 
   OUT --> streams["Streams, connectors & export<br/><i>How do I push data to other systems?</i>"]
 
@@ -60,7 +59,7 @@ graph LR
 
   class API root;
   class OP,MODEL,MASTER,FIND,OUT,GOV,AUTO phase;
-  class admin,org,vocab,gloss,hier,ent,dedup,rules,prep,search,ui,streams,acl,ai cat;
+  class admin,org,vocab,gloss,hier,ent,dedup,rules,prep,search,streams,acl,ai cat;
 
   %% Links to each category's API reference page
   click API href "/rest-api/api-reference" "All API reference categories" _self
@@ -74,7 +73,6 @@ graph LR
   click rules href "/rest-api/api-reference/rules-and-evaluation" "Rules & evaluation reference" _self
   click prep href "/rest-api/api-reference/data-preparation-and-enrichment" "Data preparation & enrichment reference" _self
   click search href "/rest-api/api-reference/search" "Search reference" _self
-  click ui href "/rest-api/api-reference/insights-and-ui" "Insights & UI reference" _self
   click streams href "/rest-api/api-reference/streams-and-export" "Streams, connectors & export reference" _self
   click acl href "/rest-api/api-reference/access-control-and-governance" "Access control & governance reference" _self
   click ai href "/rest-api/api-reference/ai" "AI reference" _self
@@ -87,7 +85,7 @@ The table maps every category to the question it answers and links to its refere
 | Phase | Category | The problem it answers | Endpoints |
 |---|---|---|---|
 | Operate the platform | [Administration & configuration](/rest-api/api-reference/administration-and-configuration) | How do I manage settings, logs, and metered billing? | 8 |
-| Operate the platform | [Organization](/rest-api/api-reference/organization) | How do I manage the organization profile and its providers? | 37 |
+| Operate the platform | [Organization](/rest-api/api-reference/organization) | How do I manage the organization profile and usage statistics? | 31 |
 | Model the data | [Vocabularies](/rest-api/api-reference/vocabularies) | How is my data typed and described with vocabulary keys? | 110 |
 | Model the data | [Glossary](/rest-api/api-reference/glossary) | What do our shared business terms mean? | 57 |
 | Model the data | [Hierarchies](/rest-api/api-reference/hierarchies) | How is data organized into hierarchies and the global data model? | 30 |
@@ -96,7 +94,6 @@ The table maps every category to the question it answers and links to its refere
 | Build golden records | [Rules & evaluation](/rest-api/api-reference/rules-and-evaluation) | How are records transformed, merged, and survived; what did a rule do? | 66 |
 | Build golden records | [Data preparation & enrichment](/rest-api/api-reference/data-preparation-and-enrichment) | How do I clean and enrich records? | 40 |
 | Find & explore | [Search](/rest-api/api-reference/search) | How do I find records across the graph and manage saved searches? | 49 |
-| Find & explore | [Insights & UI](/rest-api/api-reference/insights-and-ui) | How do I surface activities and notifications? | 17 |
 | Deliver data out | [Streams, connectors & export](/rest-api/api-reference/streams-and-export) | How do I push trusted data to downstream systems? | 62 |
 | Govern & secure | [Access control & governance](/rest-api/api-reference/access-control-and-governance) | Who can do what; how do I handle ownership, audit, and tags? | 33 |
 | Automate & augment | [AI](/rest-api/api-reference/ai) | How do I use AI agents, jobs, skills, and Copilot? | 59 |

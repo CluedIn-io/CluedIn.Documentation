@@ -156,27 +156,12 @@
   {
     "slug": "organization",
     "title": "Organization",
-    "description": "Organization profile and provider configuration.",
+    "description": "Organization profile and usage statistics.",
     "tags": [
       "Organization",
-      "OrganizationProfile",
-      "OrganizationGetProviders",
-      "OrganizationProviderStatus"
+      "OrganizationProfile"
     ],
-    "operationCount": 37,
+    "operationCount": 31,
     "schemaCount": 7
-  },
-  {
-    "slug": "insights-and-ui",
-    "title": "Insights & UI",
-    "description": "Activity feeds, notifications, and user and person profiles.",
-    "tags": [
-      "Activities",
-      "Notification",
-      "Profile",
-      "Person"
-    ],
-    "operationCount": 17,
-    "schemaCount": 0
   }
 ]

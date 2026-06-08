@@ -42,8 +42,7 @@ The calls run from your browser, so the target environment must allow cross-orig
 | [Data preparation & enrichment](/rest-api/api-reference/data-preparation-and-enrichment) | Clean and enrich records. |
 | [AI](/rest-api/api-reference/ai) | AI agents, jobs, skills, and Copilot. |
 | [Administration & configuration](/rest-api/api-reference/administration-and-configuration) | Settings, logs, and metered billing. |
-| [Organization](/rest-api/api-reference/organization) | Organization profile and provider configuration. |
-| [Insights & UI](/rest-api/api-reference/insights-and-ui) | Activity feeds, notifications, and user and person profiles. |
+| [Organization](/rest-api/api-reference/organization) | Organization profile and usage statistics. |
 
 ## Download the specification
 
