@@ -13,7 +13,7 @@ tags: ["api", "rest api"]
 - TOC
 {:toc}
 
-The CluedIn REST API is documented endpoint by endpoint across the categories listed below. Each category is its own page, with an interactive reference for just that subset of the API. Splitting the reference keeps each page fast even though the full API has more than 1,000 endpoints.
+The CluedIn REST API is documented endpoint by endpoint across the categories listed below. Each category is its own page, with an interactive reference for just that subset of the API. Splitting the reference keeps each page fast even though the full API has more than 900 endpoints.
 
 Before making requests, review [Get started](/rest-api/get-started) for base URLs, authentication, and conventions that apply across the whole API.
 
@@ -30,22 +30,21 @@ The calls run from your browser, so the target environment must allow cross-orig
 
 | Category | Description |
 |---|---|
-| [System & health](/rest-api/api-reference/system) | Status, health, and platform-level endpoints. |
 | [Access control & governance](/rest-api/api-reference/access-control-and-governance) | Access control policies, audit logs, GDPR operations, and ownership. |
 | [Entities](/rest-api/api-reference/entities) | Read, create, modify, merge, split, and inspect golden records. |
-| [Search](/rest-api/api-reference/search) | Query the CluedIn graph and manage saved, suggested, and autocomplete searches. |
-| [Vocabularies](/rest-api/api-reference/vocabularies) | Manage vocabularies, vocabulary keys, and strong typing. |
+| [Search](/rest-api/api-reference/search) | Query the CluedIn graph and manage saved and suggested searches. |
+| [Vocabularies](/rest-api/api-reference/vocabularies) | Manage vocabularies and vocabulary keys. |
 | [Glossary](/rest-api/api-reference/glossary) | Manage glossary categories and terms. |
 | [Hierarchies](/rest-api/api-reference/hierarchies) | Build and manage hierarchies and the global data model. |
 | [Rules & evaluation](/rest-api/api-reference/rules-and-evaluation) | Manage rules, preview rule output, and inspect evaluation logs. |
-| [Data ingestion](/rest-api/api-reference/data-ingestion) | Data sources, file uploads, onboarding, jobs, and crawlers. |
+| [Data ingestion](/rest-api/api-reference/data-ingestion) | File uploads, imports, integrations, and jobs. |
 | [Streams, connectors & export](/rest-api/api-reference/streams-and-export) | Configure, operate, and monitor export streams and connectors. |
 | [Data preparation & enrichment](/rest-api/api-reference/data-preparation-and-enrichment) | Clean and enrich records. |
 | [Workflow & automation](/rest-api/api-reference/workflow-and-automation) | Tasks, approvals, automation flows, and the processing mesh. |
 | [AI](/rest-api/api-reference/ai) | AI agents, jobs, skills, endpoints, deployments, and Copilot. |
-| [Administration & configuration](/rest-api/api-reference/administration-and-configuration) | Cluster settings, admin commands, configuration, logging, and metered billing. |
-| [Organization](/rest-api/api-reference/organization) | Organization profile, provider configuration, and team broadcasts. |
-| [Insights & UI](/rest-api/api-reference/insights-and-ui) | Insights, widgets, page templates, notifications, and other UI-related endpoints. |
+| [Administration & configuration](/rest-api/api-reference/administration-and-configuration) | Configuration, settings, logs, and metered billing. |
+| [Organization](/rest-api/api-reference/organization) | Organization profile and provider configuration. |
+| [Insights & UI](/rest-api/api-reference/insights-and-ui) | Page templates, notifications, profiles, activities, and other UI-related endpoints. |
 
 ## Download the specification
 

@@ -8,7 +8,7 @@ nav_order: 160
 tags: ["api", "rest api"]
 ---
 
-Insights, widgets, page and layout templates, notifications, profiles, and other endpoints used by the CluedIn UI.
+Page templates, notifications, profiles, activities, and other endpoints used by the CluedIn UI.
 
 See [Get started](/rest-api/get-started) for authentication, base URLs, and request conventions that apply to all endpoints in this category.
 
@@ -24,4 +24,4 @@ See [Get started](/rest-api/get-started) for authentication, base URLs, and requ
   loading="lazy">
 </iframe>
 
-This category covers the following API tags: Insight, GenericWidget, WidgetQuery, PageTemplate, PageTemplateEntities, LayoutTemplate, TagMetadata, Activities, Notification, NotificationV2, Profile, Person, Project, Results.
+This category covers the following API tags: PageTemplate, PageTemplateEntities, TagMetadata, Activities, Notification, Profile, Person, Project, Results.

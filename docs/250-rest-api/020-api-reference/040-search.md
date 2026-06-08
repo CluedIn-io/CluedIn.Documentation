@@ -8,7 +8,7 @@ nav_order: 40
 tags: ["api", "rest api"]
 ---
 
-Query the CluedIn graph and manage saved, suggested, and autocomplete searches.
+Query the CluedIn graph and manage saved and suggested searches.
 
 See [Get started](/rest-api/get-started) for authentication, base URLs, and request conventions that apply to all endpoints in this category.
 
@@ -24,4 +24,4 @@ See [Get started](/rest-api/get-started) for authentication, base URLs, and requ
   loading="lazy">
 </iframe>
 
-This category covers the following API tags: Search, SavedSearch, SuggestedSearch, RulesAutoComplete, SearchToClean.
+This category covers the following API tags: Search, SavedSearch, SuggestedSearch.

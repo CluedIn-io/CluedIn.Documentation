@@ -1,133 +1,293 @@
-# CluedIn REST API Documentation Audit
+# CluedIn REST API Documentation Audit (re-audit)
 
-> **Scope:** Documentation-discovery audit of the CluedIn C# / ASP.NET Web API codebase
-> (`C:\Users\AleksandarKovacevic\source\repos\CluedIn`).
-> **Goal:** Identify which API controllers/endpoints should be included in public/product documentation.
+> **Scope:** Customer-facing re-audit of the CluedIn C# / ASP.NET Web API as it is now
+> rendered in the docs (`assets/api/swagger.json` → `assets/api/categories/*.json`,
+> surfaced under `docs/250-rest-api/020-api-reference/`).
+> **Source verified against:** the application code at
+> `C:\Users\AleksandarKovacevic\source\repos\CluedIn` (controller classes, route
+> attributes, and `[Authorize]` / `[RaciAuthorize]` / `[AllowAnonymous]` / `[ApiExplorerSettings]`).
+> **No application code was modified.**
 >
-> **Methodology & caveat:** All 173 `*Controller.cs` classes were swept for route attributes, HTTP verbs,
-> and `[Authorize]` / `[RaciAuthorize]` / `[AllowAnonymous]` decorators. The Search, Rules, and Glossary
-> controllers were read in full detail. For very large controllers (e.g. `EntityController`,
-> `AdminCommandsController`, with 50+ actions each), routes are summarized at the prefix level.
-> **No application code was modified.** "Document" uses a default-deny stance: a controller is only
-> recommended for docs if it is genuinely product/customer-facing.
+> **What changed since the first audit:** all 59 `[Obsolete]` operations (Insight, CluedInClean v1,
+> Search `subscribe`/`count`/`clear`, deprecated Entity-history reads, `Configuration/inactiveproviders`,
+> `Organization/v2/duplicates`, Connector `datatypes`) were removed from the spec first. This file then
+> covered the 1,176 live operations across 116 controllers (swagger tags) that remained, grouped by the
+> 16 documentation categories.
+>
+> **✅ Action taken (this pass):** every controller marked **Exclude** below, plus the auth red-flag
+> controllers and the two "loose ends" (`DataverseConnector`, `PowerAutomate`), have now been **removed
+> from the published spec** — 37 controllers / 257 operations. The reference is down to **919 operations
+> across 79 controllers in 15 categories** (the entire *System & health* category was dropped). The
+> **Document** and **Document (admin)** tables below describe what remains.
 
 ---
 
-## Part 0 — GraphQL is the primary query mechanism (document first)
+## How "customer-facing" is decided here
 
-Of all 173 controllers, **only two actually execute GraphQL** — and they *are* the
-GraphQL endpoints:
+The previous audit conflated two different "no" reasons (operator-only vs. permission-gated). This
+re-audit separates them with one consistent rule:
 
-| Controller | Route | Notes |
+- **A feature is customer-facing if a CluedIn *tenant user* — including a tenant admin or data
+  steward — would legitimately call it to operate their own organization.** Requiring an elevated
+  RACI permission (e.g. `Management.RuleBuilder`, `Consume.Streams`) does **not** make an endpoint
+  internal; tenants have their own admins and stewards. Rules, Glossary, Vocabularies, Streams,
+  Dedup, Hierarchies, Clean, GDPR governance, etc. are all customer-facing even though they are
+  permission-gated.
+- **A feature is *not* customer-facing if it is** a CluedIn platform/cluster operator command,
+  infrastructure/health plumbing, internal UI-only support (widgets, layout templates, autocomplete,
+  language-server), an internal service-bus/agent hook, or an explicit debug endpoint.
+
+Each controller gets one of three verdicts:
+
+| Verdict | Meaning | Doc action |
 |---|---|---|
-| `PublicApiGraphQLController` | `POST api/v1/graphql` | Public GraphQL API |
-| `Consume/GraphQLController`  | `POST api/graphql`    | Internal / UI GraphQL |
-
-Both call `CluedInGraphQLExecuter.ExecuteAsync(...)` against one shared schema
-(`Core.GraphQL/CluedInQuery.cs`) exposing `me`, `entity`, `latest`, `upcoming`, and
-`search`. Other controllers (e.g. `RuleDataPreviewController`, `SearchController.v3`)
-only *import* GraphQL types (`ExecutionError`, `PagingCursor`, `EntityBase`) for
-serialization — they do **not** run queries.
-
-**Implication for docs:** GraphQL is the product's primary read/query path, so the
-GraphQL endpoint (query shape, auth, the `search`/`entity` root fields) should be
-documented **first / with highest priority**, ahead of the equivalent REST reads.
-The accompanying API tester (`_tools/api-tester/`) runs the GraphQL-backed surface
-first for the same reason.
+| **Document** | Core product surface a customer uses directly. | Keep, document as a first-class API. |
+| **Document (admin)** | Real customer feature, but tenant-**admin** setup/config or a diagnostic/power-user tool. | Keep, but place in an "Administration" / "Diagnostics" sub-section with a role note. |
+| **Exclude** | Operator/infra/internal-UI/debug — not a usable customer API. | Drop from the public reference (or move behind an "internal" filter). |
 
 ---
 
-## Part 1 — Priority areas: Search, Rules, Glossary
+## Category-by-category verdict
 
-| Controller | Endpoint / Route | Purpose | Recommendation | Reason |
-|---|---|---|---|---|
-| **SearchController** | `GET api/search`, `api/v1/search`, `/suggest`, `/id`, `api/entitysearch`, `api/dynamicfacets`, `api/joinsearch`, `api/subsearch`, `/morelikethis`, `/terms`, `/facets` | Core search against the CluedIn graph + search index (v1/v2/v3 variants) | **Document** | Primary product-facing search API. Auth: bearer (IdentityServer). |
-| SearchController (obsolete actions) | `api/search/subscribe`, `/unsubscribe`, `/count`, `/clear` | Saved-search subscriptions & counters | **Do not document** | Marked `[Obsolete]` in code. |
-| **SuggestedSearchController** | `GET api/suggestedsearch`, `api/v1/suggestedsearch` | Query suggestions / typeahead | **Document** | Product-facing companion to search. |
-| **SavedSearchController** | `GET/POST/DELETE api/v1/savedsearch`, `/{id}`, `/favorites` | CRUD for user saved & favorite searches | **Document** | Product-facing user feature. |
-| SearchToCleanController | `POST api/v2/searchtoclean/checkquery` | Debug comparison of query translators | **Do not document** | Code comment: "DO NOT USE IN PRODUCTION" — internal debug. |
-| **RulesController** (Management) | `GET/POST/PUT/DELETE api/rules` (+ `/byprocessingorder`, `/{id}/activate`, `/{id}/deactivate`, `/preview`, `/{id}/reprocess`, `/actions`, `/operators`, `/objecttypes`) | Full CRUD + lifecycle for processing rules | **Document** | Explicitly in-scope. Product-facing rule builder (RACI: `Management.RuleBuilder`). |
-| RuleErrorLogController | `GET api/ruleerrorlog/{objectTypeId}/{objectId}` (+ classification/vocab summaries) | Rule engine error logs | **Needs review** | Useful for power users but diagnostic-flavored — confirm if customer-facing. |
-| RuleDataPreviewController | `POST api/ruledatapreview` | Sample rule output preview | **Document** | Directly supports the documented rule-builder workflow. |
-| RulesAutoCompleteController | `GET api/ruleautocomplete/list` | Autocomplete for rule property values | **Needs review** | UI-support helper; document only if exposing rule authoring API. |
-| EvaluationController (PowerFx) | `POST api/powerfx/eval` | Evaluate PowerFx expressions | **Needs review** | **No `[Authorize]` attribute found** — flag to team; likely internal formula-bar support. |
-| LanguageServerController (PowerFx) | `POST api/powerfx/lsp`, `GET api/powerfx/context` | LSP intellisense for formula bar | **Do not document** | Internal IDE/UI protocol, not a usable API. Also no auth attribute. |
-| RulesController (**Deduplication**) | `api/deduplication/projects/{projectId}/rules` (CRUD, activate, order) | Dedup matching rules within projects | **Document** | Product-facing (dedup management) — but note this is a *different* "Rules" than the rule builder; disambiguate in docs. |
-| **GlossaryController** | `GET/POST/PUT/DELETE api/glossary` (+ `/category`, `/tag`, `/termlexicon`, `/endorsement`, `/rating`, `/import`, `/stream`, `/clean`, `/dependencies/{id}`) | CRUD for glossary terms, categories, tags, lexicons | **Document** | Explicitly in-scope. Product-facing (RACI: `Management.Glossary`). |
-| **GlossarySearchController** | `GET api/v1/glossarysearch/entities`, `/metrics`, `/lineage`, `/analytics`, `/pii` | Search & analytics over glossary terms | **Document** | Product-facing glossary analytics. |
+### 1. System & health — *Exclude the whole category*
 
----
-
-## Part 2 — Full audit (remaining controllers, grouped by recommendation)
-
-### Recommend: Document (product / public-facing)
-
-| Controller | Route prefix | Purpose | Reason |
+| Controller | Auth | Purpose | Verdict |
 |---|---|---|---|
-| **PublicApi.WebApi — ClueController** | `api/clue`, `api/v1/clue`, `api/v2/clue` | Submit/process clues (core data ingestion) | The canonical public ingestion API. |
-| **PublicApi.WebApi — PublicApiGraphQLController** | `api/v1/graphql` | GraphQL query API over entity graph | Primary public query interface. |
-| PublicApi.WebApi — EnrichmentReconciliationController | `api/v1/reconciliation/enrichment` | OpenRefine reconciliation + extension API | Documented public integration (OpenRefine). |
-| PublicApi.WebApi — OrganizationLookupController | `api/v1/enrichment/lookup/organization` | Org enrichment lookup | Public enrichment API. |
-| PublicApi.WebApi — PersonLookupController | `api/v1/enrichment/lookup/person` | Person enrichment lookup | Public enrichment API. |
-| PublicApi.WebApi — PublicApiMeshController | `api/v1/mesh` | Data mesh transform/push | Public data API. |
-| PublicApi.WebApi — Excel/OpenRefine Clustering | `api/v1/exceladdin/clustering`, `api/v1/openrefine/clustering` | Clustering for add-ins | Public integration endpoints. |
-| **ApiTokenController** (Auth/PublicApi) | `api/apitoken` | Generate/list/revoke API tokens | Essential — documents *how to authenticate* to all the above. |
-| WebhookController / StaticWebhookController | `services/v{version}/...` | Inbound provider webhooks | Product-facing ingestion (signature-validated). |
-| StreamsController (+ StreamMappings, StreamLog, StreamIngestionLog, ConnectorController, ConnectorHealthController) | `api/streams`, `api/connector`, etc. | Stream/export-target (Consume) management | Product-facing "Consume" feature surface. |
-| VocabularyController / VocabularyUsageController | `api/vocabs`, `api/vocabusage` | Vocabulary & key management/lineage | Core data-modeling feature. |
-| EntityController (top-level) | `api/entity` | Entity retrieval & manipulation (50+ actions) | Core product API (read in summary; recommend a focused doc pass). |
-| EntityHistoryController / EntityOriginController | `api/entityhistory`, `api/entityorigin` | Entity change history & origins | Product-facing. |
-| HierarchiesController | `api/hierarchies` | Entity hierarchy management | Product-facing. |
-| DuplicateEntitiesController + Deduplication (Project/Results/Automate) | `api/duplicates`, `api/deduplication/projects` | Dedup detection & review | Product-facing dedup suite. |
-| CleanController (v2) | `api/v2/clean` | Data cleaning projects | Product-facing. |
-| EnterpriseFlowsController | `api/enterpriseFlows` | Workflow builder | Product-facing. |
-| GlobalDataModelController | `api/globaldatamodel` | Global data model schema | Product-facing. |
-| Tasks (Task / TaskApproval / TaskRoleRequest), ApprovalItem, AuditLog | `api/tasks`, `api/approvalitem`, `api/auditLog` | Tasks, approvals, audit | Product-facing governance UX. |
-| AI product controllers (AiEndpoint, AiPlatformDefinition, AiJob, AiJobSkill, AIAgent) | `api/ai/endpoint`, `api/aijob`, `api/aiagent`, … | AI agents/jobs/endpoints (non-admin) | Product-facing AI features. |
-| ConfigurationController, Integration/Enricher controllers | `api/configuration/providers`, `api/integration/*` | Provider/integration config & listing | Product-facing integration management. |
-| Profile, Setting, Notification, Activities, Blob, Ownership, EntityTypeInfo, Copilot, Widgets/Onboarding | various | User profile, settings, notifications, activity feed, blobs, AI copilot, dashboards | Product-facing UX endpoints. |
+| Status, HealthLiveness, HealthReadiness | anonymous | Service/K8s liveness & readiness probes | **Exclude** — infra/ops. |
+| DefaultRedirect | anonymous (catch-all) | 404 fallback for unmatched routes | **Exclude** — infra. |
+| RobotsTxt | anonymous | Serves `robots.txt` | **Exclude** — infra. |
 
-### Recommend: Do not document (internal / infra / admin / legacy)
+> Recommendation: drop this whole category from the customer reference. At most keep a one-line
+> "health endpoints exist at `/health`" note in *Get started*; the operations themselves don't belong.
 
-| Controller(s) | Route prefix | Why not |
-|---|---|---|
-| **AuthenticationServer auth flows**: Account, Logout, Password, RefreshTokens, External, ExternalSso, SingleSignOn, OAuthLogin, DynamicClientRegistration, ExternalApplicationAuthentication, EntraOrganizationSSO | `api/Account`, `api/External`, `connect/register`, `account/oauth`, … | Internal login/SSO/OAuth/token plumbing — not a product API surface (auth itself is documented via ApiToken, not these). |
-| **All `Admin*` controllers** (13): AdminCommands, AdminEntity, AdminCrawler, AdminClusterSettings, AdminDeadLetterQueue, AdminDistributedJobs, AdminIndexCommands, DataSource, Enrichers, OrganizationAdminCommands, OrganizationAdminCrawler, StreamLog (admin), AuthenticationAdminCommands | `api/admin/*` | Operator/maintenance commands (reprocess, remap, dead-letter, deduplicate). Admin-role gated; internal. |
-| Health/infra: HealthLiveness, HealthReadiness, Status, RobotsTxt, DefaultRedirect, GoogleDomainCheck (×2), SentryController | `/health`, `/status`, catch-all, etc. | Infrastructure/ops endpoints. |
-| Internal services/agents: AgentController, AgentWebApiController, RemoteAgentController, IAgentController, JobController, IdentityCounterController, Notificationv2 (AlertManager), MeshProcessorController, LoggingController | various | Internal job/agent/monitoring plumbing. |
-| Governance admin: GDPRAnonymization, GDPRPII, MeshCenter, EntityDataDeletion, ExplainLog | `api/gdpr`, `api/meshcenter`, `api/entityDataDeletion`, `api/explainLog` | Admin/governance ops; some already `ApiExplorerSettings(IgnoreApi)`. |
-| Tenant admin: CleanUp (delete org), Role, UserRoles, OrganizationAccount, OrganizationProfile, AccessControlPolicies, PageTemplate(s), Migration Export/Import, StrongTyping, Log, ConfigurationController (engine), MeteredBilling | various | Admin-only tenant/role/config management. |
-| Legacy/deprecated: CluedInCleanController (v1, `[Obsolete]`), InsightController (`[Obsolete]`), obsolete actions in Search/Configuration/Organization | `api/v1/clean`, `api/insight` | Explicitly obsolete in code. |
+### 2. Access control & governance — *mostly Document*
 
-### Recommend: Needs review
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| AccessControlPolicies | `Management.AccessControl` | CRUD + activate access-control policies | **Document (admin)** — tenant governance config. |
+| GDPRAnonymization | `Governance.PersonalIdentifiers` | Anonymize / de-anonymize PII | **Document** — compliance feature. |
+| GDPRPII | `Governance.PersonalIdentifiers` | Query PII identifiers & metrics | **Document** — compliance feature. |
+| AuditLog | `[Authorize]` (per-area filtered) | Read audit logs | **Document** — compliance/monitoring. |
+| Ownership | `AnyClaimRaciLevel` (≥ Consultant) | Manage object ownership | **Document** — governance. |
 
-| Controller | Route | Open question |
-|---|---|---|
-| RuleErrorLogController, RulesAutoCompleteController | `api/ruleerrorlog`, `api/ruleautocomplete` | Part of the documented rule-builder UX, or internal helpers? |
-| PowerFx Evaluation/LanguageServer | `api/powerfx/*` | **No `[Authorize]` attribute** — confirm intended exposure before documenting. |
-| Organization Providers controllers (AddProviders, EnableProviders, UpdateProviders, TeamBroadcast, Upload) | `api/v2/organization/providers/*` | Several have **no class-level auth attribute** — confirm whether intentional (RACI may be applied elsewhere) before publishing. |
-| EntityActionsController | `api/entityActions` | Agent reported **missing `[Authorize]`** — verify before documenting. |
-| ExternalFeatureController, ExtendedConfigurationController, DistributedJobsController | various | Mixed product/internal signals. |
-| Two `EntityInfoController` and two `OrganizationController` / `UserController` classes | — | Duplicate class names in different namespaces; pick the canonical one per doc area to avoid route confusion. |
+### 3. Entities — *core; trim the admin/internal pieces*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| Entity | `[Authorize]` | Core get/search/modify golden records | **Document** — flagship API. |
+| EntityHistory | `[Authorize]` | Entity change history | **Document**. |
+| EntityInfo / EntityTypeInfo | `[Authorize]` | Entity-type metadata / schema discovery | **Document**. |
+| EntityOrigin / EntitySource | `[Authorize]` | Lineage & provenance | **Document**. |
+| EntityTopology | `[Authorize]` | Relationship/topology graph | **Document**. |
+| EntityModification | `Administration.Data` | Edit properties/edges (UI workflows) | **Document (admin)**. |
+| EntityDataDeletion | `Administration.Data` | Bulk delete by provider/source/correlation | **Document (admin)** — destructive. |
+| SplitEntity | `[Authorize]` | Topology support for splitting data parts | **Document**. |
+| DuplicateEntities | `Management.Duplicates` | Query potential duplicates | **Document** — dedup. |
+| EntityActions | **no auth attribute** ⚠ | Run/list bulk rule actions on entities | **Document (admin)** — *confirm auth first*. |
+| AdminEntity | `Roles = Admin`, `/api/admin/*` | Raw entity-blob / search-store debugging | **Exclude** — operator debug. |
+| IdentityCounter | `[Authorize]` | Identity-counter plumbing for data generation | **Exclude** — internal. |
+
+### 4. Search — *Document the search surface, drop the helpers*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| Search | `[Authorize]` (IdentityServer) | Query the CluedIn graph + index | **Document** — primary read API. |
+| SavedSearch | `[Authorize]` | CRUD saved & favorite searches | **Document**. |
+| SuggestedSearch | `[Authorize]` | Typeahead / suggestion | **Document**. |
+| RulesAutoComplete | `[Authorize]` | Autocomplete values for the rule builder | **Exclude** — internal UI helper. |
+| SearchToClean | `Preparation.Clean` | Debug query-translator comparison — *"DO NOT USE IN PRODUCTION"* | **Exclude** — debug-only. |
+
+### 5. Vocabularies — *Document the model, drop maintenance*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| Vocabulary | `Management.DataCatalog` | CRUD vocabularies & keys, lineage | **Document** — core modelling. |
+| VocabularyUsage | `Management.DataCatalog` | Key/vocab usage & impact analysis | **Document**. |
+| StrongTyping | `[Authorize]` | Trigger strong-typing reindex upgrade | **Exclude** — maintenance job. |
+
+### 6. Glossary — *Document both*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| Glossary | `Management.Glossary` | CRUD terms/categories/tags/lexicons | **Document**. |
+| GlossarySearch | `Management.Glossary` | Glossary entities, metrics, lineage, analytics | **Document**. |
+
+### 7. Hierarchies — *Document*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| Hierarchies | `Management.Hierarchies` | Build/publish/clone/export hierarchies | **Document**. |
+| GlobalDataModel | `Administration.EntityTypes` | Global entity-relationship schema | **Document (admin)** — schema-level. |
+
+### 8. Rules & evaluation — *Document the builder; gate the rest*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| Rules (Management) | `Management.RuleBuilder` | Processing rule CRUD + lifecycle | **Document** — rule builder. |
+| Rules (Deduplication) | `Management.DeduplicationManagement` | Matching rules within dedup projects | **Document** — *disambiguate from the rule builder*. |
+| RuleDataPreview | `Management.RuleBuilder` | Preview rule output | **Document** — supports the builder. |
+| RuleErrorLog | `Management.RuleBuilder` | Rule execution error logs | **Document (admin)** — diagnostic. |
+| ExplainLog | `Administration.Data` | Trace processing/property changes | **Document (admin)** — diagnostic. |
+| Evaluation (PowerFx) | **no auth attribute** ⚠ | Evaluate PowerFx expressions | **Exclude** — internal formula-bar; *flag missing auth*. |
+
+### 9. Data ingestion — *Document the ingestion/jobs; drop the admin/crawler ops*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| Integration | `[Authorize]` (+anon icon) | List connectors / provider metadata | **Document** — integration discovery. |
+| Blob | `[Authorize]` | Serve stored blobs (images/reports) | **Document**. |
+| Job | `[Authorize]` | Monitor agent job queues | **Document**. |
+| DistributedJobs | `[Authorize]` | Job progress & cancel | **Document**. |
+| OrganizationUpload | **no auth attribute** ⚠ | CSV upload to org blob store | **Document** — *confirm auth first*. |
+| Import | `Administration.Tenant` | Import tenant data from ZIP | **Document (admin)** — migration. |
+| OrganizationDataRemoval | `Administration.Provider` | Reset provider crawl state | **Document (admin)**. |
+| Onboarding | `[Authorize]` | Most-connected-entity onboarding widget | **Exclude** — UI helper. |
+| DataSource | `Roles = Admin` | Datasource upgrade checker | **Exclude** — internal. |
+| AdminCrawler, OrganizationAdminCrawler | `Administration.Provider` | Recrawl / re-run all providers | **Exclude** — operator. |
+| AdminDistributedJobs | `Roles = Admin` | Stale distributed-job maintenance | **Exclude** — operator. |
+| AdminDeadLetterQueue | `Administration.Messaging` | Reprocess dead-letter messages | **Exclude** — operator. |
+
+### 10. Streams, connectors & export — *Document the Consume surface; gate export*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| Streams | `Consume.Streams` | Stream lifecycle | **Document** — core Consume. |
+| StreamMappings | `Consume.Streams` | Stream field mappings | **Document**. |
+| StreamIngestionLog | `Consume.Streams` | Per-entity ingestion audit | **Document**. |
+| StreamLog | `Consume.Streams` | Stream operation/diagnostic logs | **Document (admin)** — diagnostic. |
+| StreamsVocabularyKeyUsage | `Consume.Streams` | Vocab keys used in stream filters | **Document**. |
+| Connector | `Consume.ExportTargets` | Connector/container management | **Document** — core Consume. |
+| ConnectorHealth | `Consume.ExportTargets` | Connector health status | **Document**. |
+| DataverseConnector | *(controller not found in main tree)* ⚠ | Dataverse export integration (4 POST) | **Document** — *locate source & confirm*. |
+| Export | `Administration.Tenant` | Export vocab/entity data to ZIP | **Document (admin)** — migration. |
+
+### 11. Data preparation & enrichment — *Document Clean & Enricher*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| Clean (v2) | `Preparation.Clean` | Data-cleaning project lifecycle | **Document**. |
+| Enricher | `Integrations.Enrichment` (+anon icon) | Configure/trigger enrichers | **Document**. |
+| ExternalFeature | `[Authorize]` | External/dynamic UI feature URLs | **Document (admin)** — *confirm it's a real API, not UI glue*. |
+| Enrichers | `[Authorize]` | Enricher software upgrade check | **Exclude** — maintenance. |
+
+### 12. Workflow & automation — *Document tasks/flows; gate governance & internal*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| EnterpriseFlows | `Management.WorkflowBuilder` | Workflow templates / execution | **Document**. |
+| Task | `[Authorize]` | User tasks & details | **Document**. |
+| TaskApproval | `[Authorize]` | Approve/reject tasks | **Document**. |
+| TaskRoleRequest | `[Authorize]` | Role-request tasks | **Document**. |
+| ApprovalItem | `[Authorize]` | Batch approval processing | **Document**. |
+| Automate (Dedup) | `Management.DeduplicationManagement` | Run/cancel dedup automation | **Document**. |
+| PowerAutomate | (in EntityModification) | Power Automate integration actions | **Document** — *confirm as a published integration*. |
+| MeshCenter | `Preparation.MeshCenter` | GDPR mesh commands / deletion requests | **Document (admin)** — governance. |
+| MeshProcessor | `[Authorize]`, internal | "Can entity accept mesh command" helper | **Exclude** — internal. |
+
+### 13. AI — *Document product AI; gate platform/infra config*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| AIAgent | `Management.AiAgents` | CRUD AI agents | **Document**. |
+| AiJob | `Management.AiAgents` | AI job execution & skills | **Document**. |
+| AiJobSkill | `[Authorize]` | List AI skills | **Document**. |
+| AiEndpoint (inference) | `[Authorize]` | Text/chat completions | **Document**. |
+| AiPlatformDefinition | `[Authorize]` (+anon logo) | AI platform catalog | **Document**. |
+| Copilot | `[Authorize]` | Copilot chat sessions | **Document**. |
+| AiEndpoint (admin), AiDeployment, AiPlatform | `Administration.ArtificialIntelligence` | Configure AI endpoints/deployments/platforms | **Document (admin)** — tenant AI setup. |
+| LanguageServer (PowerFx) | **no auth attribute** ⚠ | LSP intellisense for formula bar | **Exclude** — IDE/UI plumbing. |
+
+### 14. Administration & configuration — *mostly Exclude*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| Setting | `[Authorize]` | User/org key-value settings | **Document**. |
+| MeteredBilling | `[Authorize]` | Consumption/billing measurements | **Document**. |
+| ExtendedConfiguration | `[Authorize]` | Resolve dynamic provider-config options | **Document (admin)** — provider setup. |
+| Configuration | `Engine.ConfigurationGroups` | List configuration groups | **Document (admin)** — *confirm; may be internal*. |
+| Log | `Roles = OrganizationalAdmin` | Stream org logs (live) | **Document (admin)** — diagnostic. |
+| AdminClusterSettings | `Roles = Admin` | Cluster logging/config overrides | **Exclude** — operator. |
+| AdminCommands | `Roles = Admin` | System maintenance commands (84 ops) | **Exclude** — operator. |
+| AdminIndexCommands | `Administration.Data` | Full index remap/reindex | **Exclude** — operator. |
+| Logging | `[Authorize]` | Sink for browser/client logs | **Exclude** — UI plumbing. |
+
+### 15. Organization — *Document provider/profile; gate admin commands*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| Organization | `[Authorize]` | Org usage statistics | **Document**. |
+| OrganizationProfile | `[Authorize]` (+`Administration.Tenant`) | Tenant profile/branding | **Document**. |
+| OrganizationGetProviders | `[Authorize]` | List/inventory providers | **Document**. |
+| OrganizationProviderStatus | `Administration.Provider` | Enable/disable a provider | **Document**. |
+| OrganizationAddProviders | **no class auth** ⚠ | Add a provider | **Document** — *confirm auth first*. |
+| OrganizationUpdateProviders | **no class auth** ⚠ | Update a provider | **Document** — *confirm auth first*. |
+| OrganizationEnableProviders | **no class auth** ⚠ | Enable a provider | **Document** — *confirm auth first*. |
+| OrganizationTeamBroadcast | **no class auth** ⚠ | Email teammates to add a provider | **Document** — *confirm auth first*. |
+| OrganizationAdminCommands | `Administration.Data` | External-search / reprocess commands | **Exclude** — operator. |
+
+### 16. Insights & UI — *mostly Exclude (UI plumbing)*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| Activities | `[Authorize]` | Activity feed / action events | **Document**. |
+| Notification | `[Authorize]` | User/provider notifications | **Document**. |
+| Profile | `[Authorize]` | Current-user profile | **Document**. |
+| Person | `[Authorize]` | Person lookup by entity code | **Document**. |
+| Project | `Management.DeduplicationManagement` | Dedup projects | **Document** — dedup. |
+| Results | `Management.DeduplicationReview` | Dedup match-group review | **Document** — dedup. |
+| TagMetadata | `Governance.Tags` | Tag metadata & folders | **Document** — governance. |
+| PageTemplate / PageTemplateEntities | `Administration.Tenant` | Page/layout template config | **Document (admin)** — UI configuration. |
+| GenericWidget | `[Authorize]` | Dashboard widget data | **Exclude** — UI plumbing. |
+| WidgetQuery | `[Authorize]` | Widget entity queries | **Exclude** — UI plumbing. |
+| LayoutTemplate | `[Authorize]` | UI layout templates | **Exclude** — UI plumbing. |
+| NotificationV2 | **no auth attribute** ⚠ | Post AlertManager notification to service bus | **Exclude** — internal alerting. |
 
 ---
 
 ## Part 3 — Summary
 
-### Should be documented (priority + public surface)
+### Document (core customer surface)
+Entities (Entity/History/Info/TypeInfo/Origin/Source/Topology/Split/Duplicate), Search
+(Search/Saved/Suggested), Vocabularies (Vocabulary/Usage), Glossary (+Search), Hierarchies, Rules
+(builder + dedup) & RuleDataPreview, Streams/Connectors (the Consume suite), Clean & Enricher,
+Workflow (EnterpriseFlows, Task/Approval/RoleRequest/ApprovalItem, Automate), AI
+(Agent/Job/JobSkill/Endpoint-inference/PlatformDefinition/Copilot), GDPR/Audit/Ownership governance,
+Organization profile & providers, and the user-facing Insights endpoints (Activities, Notification,
+Profile, Person, Project, Results, TagMetadata), plus `Setting` and `MeteredBilling`. Authentication
+itself is documented via **ApiToken** (in *Get started*), not the auth-server controllers.
 
-- **Priority:** Search (`SearchController`, `SuggestedSearchController`, `SavedSearchController`), Rules (Management `RulesController` + `RuleDataPreview`, and separately Deduplication `RulesController`), Glossary (`GlossaryController`, `GlossarySearchController`).
-- **Public API project:** `Clue`, `GraphQL`, enrichment `reconciliation`/`lookup`, `mesh`, clustering, and crucially **`ApiTokenController`** (authentication).
-- **Product features:** Streams/Connectors, Vocabularies, Entity (+history/origin), Hierarchies, Deduplication, Clean v2, Enterprise Flows, Tasks/Approvals, AI agents/jobs, Integrations/Providers config, profile/settings/notifications.
+### Document (admin) — keep, but in an Administration/Diagnostics section with a role note
+EntityModification, EntityDataDeletion, EntityActions, GlobalDataModel, RuleErrorLog, ExplainLog,
+Import, Export, OrganizationDataRemoval, StreamLog, MeshCenter, the AI platform/deployment config
+(AiDeployment, AiPlatform, AiEndpoint-admin), ExtendedConfiguration, Configuration, Log,
+AccessControlPolicies, PageTemplate(s).
 
-### Should not be documented
+### Exclude (drop from the public reference)
+All of System & health; the `Admin*` operator controllers (AdminCommands, AdminEntity,
+AdminClusterSettings, AdminIndexCommands, AdminCrawler/OrganizationAdminCrawler,
+AdminDistributedJobs, AdminDeadLetterQueue); internal UI plumbing (GenericWidget, WidgetQuery,
+LayoutTemplate, RulesAutoComplete, Onboarding, Logging); internal services
+(NotificationV2/AlertManager, MeshProcessor, IdentityCounter, DataSource, Enrichers, StrongTyping);
+the PowerFx internals (Evaluation, LanguageServer); the debug endpoint SearchToClean; and
+OrganizationAdminCommands.
 
-- All auth/SSO/OAuth plumbing, all `Admin*` maintenance controllers, health/infra endpoints, internal agent/job/monitoring services, tenant/role admin, governance/deletion ops, and anything marked `[Obsolete]` (Clean v1, Insight).
+### ⚠ Auth red flags to resolve before publishing
+These have **no `[Authorize]`/`[RaciAuthorize]` attribute** in code. Confirm whether auth is applied
+elsewhere (base class / middleware) or genuinely missing — do not publish as customer endpoints until
+clarified:
+`EntityActions`, `Evaluation` (PowerFx), `LanguageServer` (PowerFx), `OrganizationUpload`,
+`OrganizationAddProviders` / `OrganizationUpdateProviders` / `OrganizationEnableProviders` /
+`OrganizationTeamBroadcast`, `NotificationV2`.
 
 ### Open questions for the team
-
-1. **Doc scope** — is the public surface only the `PublicApi.WebApi` project, or the broader `Server.WebApi` product API (Search/Rules/Glossary live here)? This determines ~80 controllers' fate.
-2. **Two "Rules" concepts** — processing **rule builder** vs **deduplication** rules. Should both be documented, and how do we disambiguate them for readers?
-3. **Unauthenticated endpoints** — PowerFx (`api/powerfx/*`), some `OrganizationProviders` controllers, and `EntityActionsController` appear to lack `[Authorize]`. Is this intentional? (Surfaced for awareness — no code change made.)
-4. **Diagnostic endpoints** (`RuleErrorLog`, `RulesAutoComplete`, `StreamLog`) — customer-facing or internal-only?
-5. **Versioning** — most endpoints expose both `api/...` and `api/v1/...`; which should docs present as canonical?
+1. **Two "Rules" concepts** — processing **rule builder** (`Management.RuleBuilder`) vs **dedup
+   project** rules (`Management.DeduplicationManagement`). Both are customer-facing; the docs must
+   disambiguate them clearly.
+2. **`DataverseConnector`** appears as a tag with 4 operations but no `*Controller.cs` was found in the
+   main code tree — locate its source (connector plugin?) and confirm it should ship.
+3. **`PowerAutomate`** operations live inside `EntityModificationController` — confirm this is a
+   published Power Automate integration vs. internal wiring.
+4. **Diagnostic tier** — RuleErrorLog, ExplainLog, StreamLog, Log: ship as "Diagnostics" (power-user)
+   or keep internal?
+5. **Versioning** — most endpoints expose both `api/...` and `api/v1/...`; pick one canonical form for
+   the rendered reference.

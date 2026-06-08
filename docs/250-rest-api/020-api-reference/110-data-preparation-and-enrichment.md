@@ -8,7 +8,7 @@ nav_order: 110
 tags: ["api", "rest api"]
 ---
 
-Clean and enrich records using built-in cleaning, the CluedIn clean service, and enricher providers.
+Clean and enrich records using built-in cleaning and enricher providers.
 
 See [Get started](/rest-api/get-started) for authentication, base URLs, and request conventions that apply to all endpoints in this category.
 
@@ -24,4 +24,4 @@ See [Get started](/rest-api/get-started) for authentication, base URLs, and requ
   loading="lazy">
 </iframe>
 
-This category covers the following API tags: Clean, CluedInClean, Enricher, Enrichers, ExternalFeature.
+This category covers the following API tags: Clean, Enricher, ExternalFeature.

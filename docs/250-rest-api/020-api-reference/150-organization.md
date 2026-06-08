@@ -8,7 +8,7 @@ nav_order: 150
 tags: ["api", "rest api"]
 ---
 
-Organization profile, provider configuration, and team broadcasts.
+Organization profile and provider configuration.
 
 See [Get started](/rest-api/get-started) for authentication, base URLs, and request conventions that apply to all endpoints in this category.
 
@@ -24,4 +24,4 @@ See [Get started](/rest-api/get-started) for authentication, base URLs, and requ
   loading="lazy">
 </iframe>
 
-This category covers the following API tags: Organization, OrganizationProfile, OrganizationAdminCommands, OrganizationAddProviders, OrganizationUpdateProviders, OrganizationEnableProviders, OrganizationGetProviders, OrganizationProviderStatus, OrganizationTeamBroadcast.
+This category covers the following API tags: Organization, OrganizationProfile, OrganizationGetProviders, OrganizationProviderStatus.

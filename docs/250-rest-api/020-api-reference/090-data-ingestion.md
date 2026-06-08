@@ -8,7 +8,7 @@ nav_order: 90
 tags: ["api", "rest api"]
 ---
 
-Data sources, file uploads, onboarding, jobs, and crawlers for getting data into CluedIn.
+File uploads, imports, integrations, and jobs for getting data into CluedIn.
 
 See [Get started](/rest-api/get-started) for authentication, base URLs, and request conventions that apply to all endpoints in this category.
 
@@ -24,4 +24,4 @@ See [Get started](/rest-api/get-started) for authentication, base URLs, and requ
   loading="lazy">
 </iframe>
 
-This category covers the following API tags: DataSource, Import, Integration, Blob, OrganizationUpload, Onboarding, Job, DistributedJobs, AdminDistributedJobs, AdminCrawler, AdminDeadLetterQueue, OrganizationAdminCrawler, OrganizationDataRemoval.
+This category covers the following API tags: Import, Integration, Blob, Job, DistributedJobs, OrganizationDataRemoval.

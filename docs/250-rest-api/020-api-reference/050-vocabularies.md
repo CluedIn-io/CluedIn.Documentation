@@ -8,7 +8,7 @@ nav_order: 50
 tags: ["api", "rest api"]
 ---
 
-Manage vocabularies, vocabulary keys, and the strong-typing system that underpins them.
+Manage vocabularies and vocabulary keys.
 
 See [Get started](/rest-api/get-started) for authentication, base URLs, and request conventions that apply to all endpoints in this category.
 
@@ -24,4 +24,4 @@ See [Get started](/rest-api/get-started) for authentication, base URLs, and requ
   loading="lazy">
 </iframe>
 
-This category covers the following API tags: Vocabulary, VocabularyUsage, StrongTyping.
+This category covers the following API tags: Vocabulary, VocabularyUsage.

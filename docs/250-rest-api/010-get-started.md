@@ -33,11 +33,10 @@ graph LR
   API --> GOV["Govern & secure<br/>Control who does what"]
   API --> AUTO["Automate & augment<br/>Reduce manual effort"]
 
-  OP --> sys["System & health<br/><i>Is the platform reachable and healthy?</i>"]
-  OP --> admin["Administration & configuration<br/><i>How do I configure and run the cluster?</i>"]
+  OP --> admin["Administration & configuration<br/><i>How do I manage configuration, settings, and billing?</i>"]
   OP --> org["Organization<br/><i>How do I manage the org and its providers?</i>"]
 
-  IN --> ingest["Data ingestion<br/><i>How do I load files, sources, and crawlers?</i>"]
+  IN --> ingest["Data ingestion<br/><i>How do I load files, imports, and jobs?</i>"]
 
   MODEL --> vocab["Vocabularies<br/><i>How is my data typed and described?</i>"]
   MODEL --> gloss["Glossary<br/><i>What do our business terms mean?</i>"]
@@ -48,7 +47,7 @@ graph LR
   MASTER --> prep["Data preparation & enrichment<br/><i>How do I clean and enrich records?</i>"]
 
   FIND --> search["Search<br/><i>How do I find records across the graph?</i>"]
-  FIND --> ui["Insights & UI<br/><i>How do I surface insights and widgets?</i>"]
+  FIND --> ui["Insights & UI<br/><i>How do I surface activities and notifications?</i>"]
 
   OUT --> streams["Streams, connectors & export<br/><i>How do I push data to other systems?</i>"]
 
@@ -64,11 +63,10 @@ graph LR
 
   class API root;
   class OP,IN,MODEL,MASTER,FIND,OUT,GOV,AUTO phase;
-  class sys,admin,org,ingest,vocab,gloss,hier,ent,rules,prep,search,ui,streams,acl,flow,ai cat;
+  class admin,org,ingest,vocab,gloss,hier,ent,rules,prep,search,ui,streams,acl,flow,ai cat;
 
   %% Links to each category's API reference page
   click API href "/rest-api/api-reference" "All API reference categories" _self
-  click sys href "/rest-api/api-reference/system" "System & health reference" _self
   click admin href "/rest-api/api-reference/administration-and-configuration" "Administration & configuration reference" _self
   click org href "/rest-api/api-reference/organization" "Organization reference" _self
   click ingest href "/rest-api/api-reference/data-ingestion" "Data ingestion reference" _self
@@ -92,22 +90,21 @@ The table maps every category to the question it answers and links to its refere
 
 | Phase | Category | The problem it answers | Endpoints |
 |---|---|---|---|
-| Operate the platform | [System & health](/rest-api/api-reference/system) | Is the environment reachable and healthy? | 20 |
-| Operate the platform | [Administration & configuration](/rest-api/api-reference/administration-and-configuration) | How do I configure and run the cluster, settings, and logging? | 150 |
-| Operate the platform | [Organization](/rest-api/api-reference/organization) | How do I manage the organization profile and its providers? | 47 |
-| Get data in | [Data ingestion](/rest-api/api-reference/data-ingestion) | How do I bring data in via sources, files, onboarding, jobs, and crawlers? | 50 |
-| Model the data | [Vocabularies](/rest-api/api-reference/vocabularies) | How is my data typed and described with vocabulary keys? | 112 |
+| Operate the platform | [Administration & configuration](/rest-api/api-reference/administration-and-configuration) | How do I manage configuration, settings, logs, and metered billing? | 48 |
+| Operate the platform | [Organization](/rest-api/api-reference/organization) | How do I manage the organization profile and its providers? | 37 |
+| Get data in | [Data ingestion](/rest-api/api-reference/data-ingestion) | How do I bring data in via files, imports, integrations, and jobs? | 23 |
+| Model the data | [Vocabularies](/rest-api/api-reference/vocabularies) | How is my data typed and described with vocabulary keys? | 110 |
 | Model the data | [Glossary](/rest-api/api-reference/glossary) | What do our shared business terms mean? | 57 |
 | Model the data | [Hierarchies](/rest-api/api-reference/hierarchies) | How is data organized into hierarchies and the global data model? | 30 |
-| Build golden records | [Entities](/rest-api/api-reference/entities) | What are my golden records—how do I read, modify, merge, and split them? | 198 |
-| Build golden records | [Rules & evaluation](/rest-api/api-reference/rules-and-evaluation) | How are records transformed, merged, and survived; what did a rule do? | 67 |
-| Build golden records | [Data preparation & enrichment](/rest-api/api-reference/data-preparation-and-enrichment) | How do I clean and enrich records? | 54 |
-| Find & explore | [Search](/rest-api/api-reference/search) | How do I find records across the graph and manage saved searches? | 66 |
-| Find & explore | [Insights & UI](/rest-api/api-reference/insights-and-ui) | How do I surface insights, widgets, templates, and notifications? | 111 |
-| Deliver data out | [Streams, connectors & export](/rest-api/api-reference/streams-and-export) | How do I push trusted data to downstream systems? | 69 |
+| Build golden records | [Entities](/rest-api/api-reference/entities) | What are my golden records—how do I read, modify, merge, and split them? | 136 |
+| Build golden records | [Rules & evaluation](/rest-api/api-reference/rules-and-evaluation) | How are records transformed, merged, and survived; what did a rule do? | 66 |
+| Build golden records | [Data preparation & enrichment](/rest-api/api-reference/data-preparation-and-enrichment) | How do I clean and enrich records? | 42 |
+| Find & explore | [Search](/rest-api/api-reference/search) | How do I find records across the graph and manage saved searches? | 51 |
+| Find & explore | [Insights & UI](/rest-api/api-reference/insights-and-ui) | How do I surface activities, templates, and notifications? | 62 |
+| Deliver data out | [Streams, connectors & export](/rest-api/api-reference/streams-and-export) | How do I push trusted data to downstream systems? | 63 |
 | Govern & secure | [Access control & governance](/rest-api/api-reference/access-control-and-governance) | Who can do what; how do I handle GDPR and audit? | 37 |
-| Automate & augment | [Workflow & automation](/rest-api/api-reference/workflow-and-automation) | How do I automate tasks, approvals, and flows? | 52 |
-| Automate & augment | [AI](/rest-api/api-reference/ai) | How do I use AI agents, jobs, skills, and Copilot? | 115 |
+| Automate & augment | [Workflow & automation](/rest-api/api-reference/workflow-and-automation) | How do I automate tasks, approvals, and flows? | 44 |
+| Automate & augment | [AI](/rest-api/api-reference/ai) | How do I use AI agents, jobs, skills, and Copilot? | 113 |
 
 ## Base URL
 

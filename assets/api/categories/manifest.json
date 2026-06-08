@@ -1,19 +1,5 @@
 [
   {
-    "slug": "system",
-    "title": "System & health",
-    "description": "Status, health, and platform-level endpoints used to verify connectivity and probe the running environment.",
-    "tags": [
-      "Status",
-      "HealthLiveness",
-      "HealthReadiness",
-      "DefaultRedirect",
-      "RobotsTxt"
-    ],
-    "operationCount": 20,
-    "schemaCount": 0
-  },
-  {
     "slug": "access-control-and-governance",
     "title": "Access control & governance",
     "description": "Access control policies, audit logs, GDPR anonymization and PII operations, and entity ownership.",
@@ -33,7 +19,6 @@
     "description": "Read, create, modify, merge, split, and inspect golden records and their metadata.",
     "tags": [
       "Entity",
-      "EntityActions",
       "EntityDataDeletion",
       "EntityHistory",
       "EntityInfo",
@@ -42,38 +27,33 @@
       "EntitySource",
       "EntityTopology",
       "EntityTypeInfo",
-      "AdminEntity",
       "DuplicateEntities",
-      "SplitEntity",
-      "IdentityCounter"
+      "SplitEntity"
     ],
-    "operationCount": 198,
-    "schemaCount": 29
+    "operationCount": 136,
+    "schemaCount": 16
   },
   {
     "slug": "search",
     "title": "Search",
-    "description": "Query the CluedIn graph and manage saved, suggested, and autocomplete searches.",
+    "description": "Query the CluedIn graph and manage saved and suggested searches.",
     "tags": [
       "Search",
       "SavedSearch",
-      "SuggestedSearch",
-      "RulesAutoComplete",
-      "SearchToClean"
+      "SuggestedSearch"
     ],
-    "operationCount": 66,
-    "schemaCount": 8
+    "operationCount": 51,
+    "schemaCount": 2
   },
   {
     "slug": "vocabularies",
     "title": "Vocabularies",
-    "description": "Manage vocabularies, vocabulary keys, and the strong-typing system that underpins them.",
+    "description": "Manage vocabularies and vocabulary keys.",
     "tags": [
       "Vocabulary",
-      "VocabularyUsage",
-      "StrongTyping"
+      "VocabularyUsage"
     ],
-    "operationCount": 112,
+    "operationCount": 110,
     "schemaCount": 14
   },
   {
@@ -106,33 +86,25 @@
       "Rules",
       "RuleDataPreview",
       "RuleErrorLog",
-      "Evaluation",
       "ExplainLog"
     ],
-    "operationCount": 67,
-    "schemaCount": 244
+    "operationCount": 66,
+    "schemaCount": 243
   },
   {
     "slug": "data-ingestion",
     "title": "Data ingestion",
-    "description": "Data sources, file uploads, onboarding, jobs, and crawlers for getting data into CluedIn.",
+    "description": "File uploads, imports, integrations, and jobs for getting data into CluedIn.",
     "tags": [
-      "DataSource",
       "Import",
       "Integration",
       "Blob",
-      "OrganizationUpload",
-      "Onboarding",
       "Job",
       "DistributedJobs",
-      "AdminDistributedJobs",
-      "AdminCrawler",
-      "AdminDeadLetterQueue",
-      "OrganizationAdminCrawler",
       "OrganizationDataRemoval"
     ],
-    "operationCount": 50,
-    "schemaCount": 8
+    "operationCount": 23,
+    "schemaCount": 1
   },
   {
     "slug": "streams-and-export",
@@ -146,25 +118,22 @@
       "StreamsVocabularyKeyUsage",
       "Connector",
       "ConnectorHealth",
-      "DataverseConnector",
       "Export"
     ],
-    "operationCount": 69,
-    "schemaCount": 27
+    "operationCount": 63,
+    "schemaCount": 25
   },
   {
     "slug": "data-preparation-and-enrichment",
     "title": "Data preparation & enrichment",
-    "description": "Clean and enrich records using built-in cleaning, the CluedIn clean service, and enricher providers.",
+    "description": "Clean and enrich records using built-in cleaning and enricher providers.",
     "tags": [
       "Clean",
-      "CluedInClean",
       "Enricher",
-      "Enrichers",
       "ExternalFeature"
     ],
-    "operationCount": 54,
-    "schemaCount": 17
+    "operationCount": 42,
+    "schemaCount": 14
   },
   {
     "slug": "workflow-and-automation",
@@ -172,17 +141,15 @@
     "description": "Tasks, approvals, automation flows, and the processing mesh.",
     "tags": [
       "Automate",
-      "PowerAutomate",
       "EnterpriseFlows",
       "Task",
       "TaskApproval",
       "TaskRoleRequest",
       "ApprovalItem",
-      "MeshCenter",
-      "MeshProcessor"
+      "MeshCenter"
     ],
-    "operationCount": 52,
-    "schemaCount": 19
+    "operationCount": 44,
+    "schemaCount": 18
   },
   {
     "slug": "ai",
@@ -196,69 +163,54 @@
       "AiJobSkill",
       "AiPlatform",
       "AiPlatformDefinition",
-      "Copilot",
-      "LanguageServer"
+      "Copilot"
     ],
-    "operationCount": 115,
-    "schemaCount": 65
+    "operationCount": 113,
+    "schemaCount": 64
   },
   {
     "slug": "administration-and-configuration",
     "title": "Administration & configuration",
-    "description": "Cluster settings, admin commands, index commands, configuration, logging, and metered billing.",
+    "description": "Configuration, settings, logs, and metered billing.",
     "tags": [
-      "AdminClusterSettings",
-      "AdminCommands",
-      "AdminIndexCommands",
       "Configuration",
       "ExtendedConfiguration",
       "Setting",
-      "Logging",
       "Log",
       "MeteredBilling"
     ],
-    "operationCount": 150,
-    "schemaCount": 14
+    "operationCount": 48,
+    "schemaCount": 11
   },
   {
     "slug": "organization",
     "title": "Organization",
-    "description": "Organization profile, provider configuration, and team broadcasts.",
+    "description": "Organization profile and provider configuration.",
     "tags": [
       "Organization",
       "OrganizationProfile",
-      "OrganizationAdminCommands",
-      "OrganizationAddProviders",
-      "OrganizationUpdateProviders",
-      "OrganizationEnableProviders",
       "OrganizationGetProviders",
-      "OrganizationProviderStatus",
-      "OrganizationTeamBroadcast"
+      "OrganizationProviderStatus"
     ],
-    "operationCount": 47,
-    "schemaCount": 8
+    "operationCount": 37,
+    "schemaCount": 7
   },
   {
     "slug": "insights-and-ui",
     "title": "Insights & UI",
-    "description": "Insights, widgets, page and layout templates, notifications, profiles, and other endpoints used by the CluedIn UI.",
+    "description": "Page templates, notifications, profiles, activities, and other endpoints used by the CluedIn UI.",
     "tags": [
-      "Insight",
-      "GenericWidget",
-      "WidgetQuery",
       "PageTemplate",
       "PageTemplateEntities",
-      "LayoutTemplate",
       "TagMetadata",
       "Activities",
       "Notification",
-      "NotificationV2",
       "Profile",
       "Person",
       "Project",
       "Results"
     ],
-    "operationCount": 111,
-    "schemaCount": 23
+    "operationCount": 62,
+    "schemaCount": 20
   }
 ]

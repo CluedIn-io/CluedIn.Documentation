@@ -8,7 +8,7 @@ nav_order: 140
 tags: ["api", "rest api"]
 ---
 
-Cluster settings, admin commands, index commands, configuration, logging, and metered billing.
+Configuration, settings, logs, and metered billing.
 
 See [Get started](/rest-api/get-started) for authentication, base URLs, and request conventions that apply to all endpoints in this category.
 
@@ -24,4 +24,4 @@ See [Get started](/rest-api/get-started) for authentication, base URLs, and requ
   loading="lazy">
 </iframe>
 
-This category covers the following API tags: AdminClusterSettings, AdminCommands, AdminIndexCommands, Configuration, ExtendedConfiguration, Setting, Logging, Log, MeteredBilling.
+This category covers the following API tags: Configuration, ExtendedConfiguration, Setting, Log, MeteredBilling.

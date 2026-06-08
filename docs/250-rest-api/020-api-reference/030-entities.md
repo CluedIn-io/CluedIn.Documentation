@@ -24,4 +24,4 @@ See [Get started](/rest-api/get-started) for authentication, base URLs, and requ
   loading="lazy">
 </iframe>
 
-This category covers the following API tags: Entity, EntityActions, EntityDataDeletion, EntityHistory, EntityInfo, EntityModification, EntityOrigin, EntitySource, EntityTopology, EntityTypeInfo, AdminEntity, DuplicateEntities, SplitEntity, IdentityCounter.
+This category covers the following API tags: Entity, EntityDataDeletion, EntityHistory, EntityInfo, EntityModification, EntityOrigin, EntitySource, EntityTopology, EntityTypeInfo, DuplicateEntities, SplitEntity.
