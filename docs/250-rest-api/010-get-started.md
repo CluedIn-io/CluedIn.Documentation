@@ -16,7 +16,7 @@ This page explains how to connect to the CluedIn REST API: base URLs, authentica
 
 ## How the API is organized
 
-The API has more than 1,000 endpoints, grouped into [categories](/rest-api/api-reference). Rather than listing them alphabetically, the tree below organizes those categories around the **problem each one solves**, following the path data takes through CluedIn—from getting it in, to mastering it, to delivering it back out, plus the categories that operate, secure, and automate the platform around that flow.
+The API has more than 700 endpoints, grouped into [categories](/rest-api/api-reference). Rather than listing them alphabetically, the tree below organizes those categories around the **problem each one solves**, following the path data takes through CluedIn—from modeling and mastering it to delivering it back out, plus the categories that operate, secure, and automate the platform around that flow.
 
 Use it to find the right starting point: identify the question you are trying to answer, then open the matching category in the [API reference](/rest-api/api-reference).
 
@@ -25,7 +25,6 @@ graph LR
   API["CluedIn REST API"]
 
   API --> OP["Operate the platform<br/>Keep CluedIn running"]
-  API --> IN["Get data in<br/>Bring source data into CluedIn"]
   API --> MODEL["Model the data<br/>Give data shared meaning"]
   API --> MASTER["Build golden records<br/>Turn raw data into trusted records"]
   API --> FIND["Find & explore<br/>Make records discoverable"]
@@ -33,16 +32,15 @@ graph LR
   API --> GOV["Govern & secure<br/>Control who does what"]
   API --> AUTO["Automate & augment<br/>Reduce manual effort"]
 
-  OP --> admin["Administration & configuration<br/><i>How do I manage configuration, settings, and billing?</i>"]
+  OP --> admin["Administration & configuration<br/><i>How do I manage settings, logs, and billing?</i>"]
   OP --> org["Organization<br/><i>How do I manage the org and its providers?</i>"]
-
-  IN --> ingest["Data ingestion<br/><i>How do I load files, imports, and jobs?</i>"]
 
   MODEL --> vocab["Vocabularies<br/><i>How is my data typed and described?</i>"]
   MODEL --> gloss["Glossary<br/><i>What do our business terms mean?</i>"]
   MODEL --> hier["Hierarchies<br/><i>How is data organized into hierarchies?</i>"]
 
   MASTER --> ent["Entities<br/><i>What are my golden records?</i>"]
+  MASTER --> dedup["Deduplication<br/><i>How do I find and resolve duplicate records?</i>"]
   MASTER --> rules["Rules & evaluation<br/><i>How are records transformed and merged?</i>"]
   MASTER --> prep["Data preparation & enrichment<br/><i>How do I clean and enrich records?</i>"]
 
@@ -51,9 +49,8 @@ graph LR
 
   OUT --> streams["Streams, connectors & export<br/><i>How do I push data to other systems?</i>"]
 
-  GOV --> acl["Access control & governance<br/><i>Who can do what; GDPR and audit?</i>"]
+  GOV --> acl["Access control & governance<br/><i>Who can do what; ownership and audit?</i>"]
 
-  AUTO --> flow["Workflow & automation<br/><i>How do I automate tasks and approvals?</i>"]
   AUTO --> ai["AI<br/><i>How do I use AI agents, skills, and Copilot?</i>"]
 
   %% CluedIn brand styling: navy root, teal phases, white category cards
@@ -62,25 +59,24 @@ graph LR
   classDef cat fill:#ffffff,stroke:#d1d6dc,stroke-width:1px,color:#0d2547;
 
   class API root;
-  class OP,IN,MODEL,MASTER,FIND,OUT,GOV,AUTO phase;
-  class admin,org,ingest,vocab,gloss,hier,ent,rules,prep,search,ui,streams,acl,flow,ai cat;
+  class OP,MODEL,MASTER,FIND,OUT,GOV,AUTO phase;
+  class admin,org,vocab,gloss,hier,ent,dedup,rules,prep,search,ui,streams,acl,ai cat;
 
   %% Links to each category's API reference page
   click API href "/rest-api/api-reference" "All API reference categories" _self
   click admin href "/rest-api/api-reference/administration-and-configuration" "Administration & configuration reference" _self
   click org href "/rest-api/api-reference/organization" "Organization reference" _self
-  click ingest href "/rest-api/api-reference/data-ingestion" "Data ingestion reference" _self
   click vocab href "/rest-api/api-reference/vocabularies" "Vocabularies reference" _self
   click gloss href "/rest-api/api-reference/glossary" "Glossary reference" _self
   click hier href "/rest-api/api-reference/hierarchies" "Hierarchies reference" _self
   click ent href "/rest-api/api-reference/entities" "Entities reference" _self
+  click dedup href "/rest-api/api-reference/deduplication" "Deduplication reference" _self
   click rules href "/rest-api/api-reference/rules-and-evaluation" "Rules & evaluation reference" _self
   click prep href "/rest-api/api-reference/data-preparation-and-enrichment" "Data preparation & enrichment reference" _self
   click search href "/rest-api/api-reference/search" "Search reference" _self
   click ui href "/rest-api/api-reference/insights-and-ui" "Insights & UI reference" _self
   click streams href "/rest-api/api-reference/streams-and-export" "Streams, connectors & export reference" _self
   click acl href "/rest-api/api-reference/access-control-and-governance" "Access control & governance reference" _self
-  click flow href "/rest-api/api-reference/workflow-and-automation" "Workflow & automation reference" _self
   click ai href "/rest-api/api-reference/ai" "AI reference" _self
 ```
 
@@ -90,21 +86,20 @@ The table maps every category to the question it answers and links to its refere
 
 | Phase | Category | The problem it answers | Endpoints |
 |---|---|---|---|
-| Operate the platform | [Administration & configuration](/rest-api/api-reference/administration-and-configuration) | How do I manage configuration, settings, logs, and metered billing? | 48 |
+| Operate the platform | [Administration & configuration](/rest-api/api-reference/administration-and-configuration) | How do I manage settings, logs, and metered billing? | 8 |
 | Operate the platform | [Organization](/rest-api/api-reference/organization) | How do I manage the organization profile and its providers? | 37 |
-| Get data in | [Data ingestion](/rest-api/api-reference/data-ingestion) | How do I bring data in via files, imports, integrations, and jobs? | 23 |
 | Model the data | [Vocabularies](/rest-api/api-reference/vocabularies) | How is my data typed and described with vocabulary keys? | 110 |
 | Model the data | [Glossary](/rest-api/api-reference/glossary) | What do our shared business terms mean? | 57 |
 | Model the data | [Hierarchies](/rest-api/api-reference/hierarchies) | How is data organized into hierarchies and the global data model? | 30 |
-| Build golden records | [Entities](/rest-api/api-reference/entities) | What are my golden records—how do I read, modify, merge, and split them? | 136 |
+| Build golden records | [Entities](/rest-api/api-reference/entities) | What are my golden records—how do I read, modify, and merge them? | 115 |
+| Build golden records | [Deduplication](/rest-api/api-reference/deduplication) | How do I find, review, and resolve duplicate records? | 61 |
 | Build golden records | [Rules & evaluation](/rest-api/api-reference/rules-and-evaluation) | How are records transformed, merged, and survived; what did a rule do? | 66 |
-| Build golden records | [Data preparation & enrichment](/rest-api/api-reference/data-preparation-and-enrichment) | How do I clean and enrich records? | 42 |
-| Find & explore | [Search](/rest-api/api-reference/search) | How do I find records across the graph and manage saved searches? | 51 |
-| Find & explore | [Insights & UI](/rest-api/api-reference/insights-and-ui) | How do I surface activities, templates, and notifications? | 62 |
-| Deliver data out | [Streams, connectors & export](/rest-api/api-reference/streams-and-export) | How do I push trusted data to downstream systems? | 63 |
-| Govern & secure | [Access control & governance](/rest-api/api-reference/access-control-and-governance) | Who can do what; how do I handle GDPR and audit? | 37 |
-| Automate & augment | [Workflow & automation](/rest-api/api-reference/workflow-and-automation) | How do I automate tasks, approvals, and flows? | 44 |
-| Automate & augment | [AI](/rest-api/api-reference/ai) | How do I use AI agents, jobs, skills, and Copilot? | 113 |
+| Build golden records | [Data preparation & enrichment](/rest-api/api-reference/data-preparation-and-enrichment) | How do I clean and enrich records? | 40 |
+| Find & explore | [Search](/rest-api/api-reference/search) | How do I find records across the graph and manage saved searches? | 49 |
+| Find & explore | [Insights & UI](/rest-api/api-reference/insights-and-ui) | How do I surface activities and notifications? | 17 |
+| Deliver data out | [Streams, connectors & export](/rest-api/api-reference/streams-and-export) | How do I push trusted data to downstream systems? | 62 |
+| Govern & secure | [Access control & governance](/rest-api/api-reference/access-control-and-governance) | Who can do what; how do I handle ownership, audit, and tags? | 33 |
+| Automate & augment | [AI](/rest-api/api-reference/ai) | How do I use AI agents, jobs, skills, and Copilot? | 59 |
 
 ## Base URL
 

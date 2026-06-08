@@ -1,11 +1,5 @@
 {
   "_about": "Hand-written summaries, descriptions, and parameter notes that the splitter merges onto the auto-generated swagger.json. Keys are 'METHOD path' in the /api/v1/... form; the splitter applies the same overlay to the corresponding /api/... variant. To regenerate the per-category sub-specs after editing this file, run: docker exec cluedin-docs node /srv/jekyll/_tools/split-spec.js",
-
-  "POST /api/v1/strongtyping/performupgrade": {
-    "summary": "Start strong-typing reindex job",
-    "description": "Starts a background reindex of strong-typed vocabulary keys through the strong-typing reindex service and returns 202 Accepted with the job result. Run this after schema changes that require Elasticsearch field mappings to be rebuilt."
-  },
-
   "GET /api/v1/vocabusage/vocabulary/{vocabularyId}/key/{vocabularyKeyId}/lineage": {
     "summary": "Get vocabulary key lineage",
     "description": "Returns the lineage of a single vocabulary key: the chain of upstream keys and mappings that contributed to its current values. Used by the UI to render the lineage view next to a key.",
@@ -56,7 +50,6 @@
     "summary": "Preview impact of a vocabulary key update",
     "description": "Returns the services and downstream artifacts that would be affected by a proposed update to a vocabulary key — for example a mapping change or rename. Returns 400 when the proposed change would create a circular mapping (a key mapping to itself, directly or transitively)."
   },
-
   "GET /api/v1/vocabs": {
     "summary": "List vocabularies",
     "description": "Returns a paged list of vocabularies along with the total count. Filter by grouping, integration provider, active state, vocabulary type, and search text; sort by any supported field.",

@@ -1,6 +1,5 @@
 {
   "_about": "Rules & evaluation category (Rules, RuleDataPreview, RuleErrorLog, Evaluation, ExplainLog). Most endpoints require the Management.RuleBuilder RACI claim; ExplainLog requires Administration.Data; the Deduplication-project rules endpoints require Management.DeduplicationManagement.",
-
   "GET /api/v1/rules": {
     "summary": "List processing rules",
     "description": "Returns paged processing rules along with the total count and per-rule failure status and affected-record counts. Filter by active state, creator, search text, and processing rule scope; sort by any supported `OrderRuleBy` value (returns 400 for unknown sort keys).",
@@ -26,27 +25,37 @@
   "GET /api/v1/rules/{id}": {
     "summary": "Get processing rule",
     "description": "Returns a single processing rule by id, augmented with current failure status, affected-record counts, and the available action controls (so the UI can render the right inputs). Returns 400 for empty ids, and 404 when the rule cannot be found in the caller's organisation.",
-    "parameters": { "id": "Rule identifier." }
+    "parameters": {
+      "id": "Rule identifier."
+    }
   },
   "DELETE /api/v1/rules/{id}": {
     "summary": "Delete processing rule",
     "description": "Deletes a processing rule. Returns 400 for empty ids. The action goes through the RACI approval pipeline for rule deletion.",
-    "parameters": { "id": "Rule identifier." }
+    "parameters": {
+      "id": "Rule identifier."
+    }
   },
   "POST /api/v1/rules/{id}/activate": {
     "summary": "Activate processing rule",
     "description": "Marks a processing rule as active. Activated rules participate in clue processing. The action goes through the RACI approval pipeline for rule activation.",
-    "parameters": { "id": "Rule identifier." }
+    "parameters": {
+      "id": "Rule identifier."
+    }
   },
   "POST /api/v1/rules/{id}/deactivate": {
     "summary": "Deactivate processing rule",
     "description": "Marks a processing rule as inactive and publishes a rule-state event. The rule is retained but skipped during clue processing.",
-    "parameters": { "id": "Rule identifier." }
+    "parameters": {
+      "id": "Rule identifier."
+    }
   },
   "GET /api/v1/rules/byprocessingorder": {
     "summary": "Get rules in processing order",
     "description": "Returns the rule order for the supplied scope (defaults to `DataPart`). Use this to power the rule-ordering UI.",
-    "parameters": { "scope": "Processing rule scope. Defaults to `DataPart`." }
+    "parameters": {
+      "scope": "Processing rule scope. Defaults to `DataPart`."
+    }
   },
   "POST /api/v1/rules/setprocessingorder": {
     "summary": "Set rules processing order",
@@ -55,22 +64,30 @@
   "GET /api/v1/rules/{ruleId}/propertiesUsed": {
     "summary": "Get properties used by a rule",
     "description": "Returns the metadata properties and vocabulary keys referenced by a rule's conditions. Useful for impact analysis when changing keys. Returns 404 if the rule cannot be found.",
-    "parameters": { "ruleId": "Rule identifier." }
+    "parameters": {
+      "ruleId": "Rule identifier."
+    }
   },
   "POST /api/v1/rules/{ruleId}/reprocess": {
     "summary": "Reprocess rule against existing data",
     "description": "Starts a reprocessing job that runs the rule against existing entities. Returns 202 Accepted on success, 409 Conflict when a reprocessing job is already running for the rule.",
-    "parameters": { "ruleId": "Rule identifier." }
+    "parameters": {
+      "ruleId": "Rule identifier."
+    }
   },
   "POST /api/v1/rules/{ruleId}/reprocess/abort": {
     "summary": "Abort rule reprocessing",
     "description": "Aborts an in-progress reprocessing job for the rule. Returns 202 Accepted when the abort has been queued.",
-    "parameters": { "ruleId": "Rule identifier." }
+    "parameters": {
+      "ruleId": "Rule identifier."
+    }
   },
   "GET /api/v1/rules/{ruleId}/reprocess/status": {
     "summary": "Get rule reprocessing status",
     "description": "Returns the current reprocessing job status for the rule.",
-    "parameters": { "ruleId": "Rule identifier." }
+    "parameters": {
+      "ruleId": "Rule identifier."
+    }
   },
   "GET /api/v1/rules/properties/{id}": {
     "summary": "List rule property selector options",
@@ -92,7 +109,9 @@
   "GET /api/v1/rules/objecttypes/{usage}": {
     "summary": "List rule object types by usage",
     "description": "Returns the object types the rules engine supports for the supplied `RuleUsageEnum` (for example processing, glossary, deduplication).",
-    "parameters": { "usage": "Rule usage enum value." }
+    "parameters": {
+      "usage": "Rule usage enum value."
+    }
   },
   "POST /api/v1/rules/preview": {
     "summary": "Preview rule actions",
@@ -115,7 +134,9 @@
   "GET /api/v1/rules/entity/{entityId}/rulesapplied": {
     "summary": "List rules applied to an entity",
     "description": "Returns the processing rules that the explain-log shows have fired against the supplied entity. Used by the entity-detail \"rules applied\" view.",
-    "parameters": { "entityId": "Entity identifier." }
+    "parameters": {
+      "entityId": "Entity identifier."
+    }
   },
   "GET /api/v1/rules/rule/{ruleId}/affectedrecords": {
     "summary": "List records affected by a rule",
@@ -131,7 +152,6 @@
       "cursor": "Opaque paging cursor for the next page."
     }
   },
-
   "POST /api/v1/ruledatapreview": {
     "summary": "Preview rule effect on entity data",
     "description": "Runs a rule (or a set of rules + actions) against existing entity data and returns paged preview rows showing the effect, optionally restricted to a list of fields. Set `useFullEntity=true` to receive whole entities instead of just the listed fields. Returns 400 when the supplied cursor is malformed.",
@@ -142,7 +162,6 @@
       "cursor": "Opaque paging cursor."
     }
   },
-
   "GET /api/v1/ruleerrorlog/{objectTypeId}/{objectId}": {
     "summary": "Search rule error log",
     "description": "Returns paged rule-engine error log entries for the object (processing rule or stream) identified by `(objectTypeId, objectId)`. Supports filtering by date range, severity, classification, and either cursor- or page-based paging.",
@@ -177,26 +196,20 @@
       "objectId": "Object identifier."
     }
   },
-
   "POST /api/v1/explainLog/traceEntity": {
     "summary": "Trace entity processing log",
     "description": "Returns the explain-log scopes and operations that produced the supplied entity, with property-change events filtered out (use `tracePropertyChanges` for those). Returns 400 if the entity cannot be found. Requires the Administration.Data RACI claim.",
-    "parameters": { "entityId": "Entity identifier." }
+    "parameters": {
+      "entityId": "Entity identifier."
+    }
   },
   "POST /api/v1/explainLog/tracePropertyChanges": {
     "summary": "Trace property changes for entity",
     "description": "Returns the property-change events recorded for the supplied entity along the explain-log scopes — separated into entity-level and per data-part changes. Returns 400 if the entity cannot be found. Requires the Administration.Data RACI claim.",
-    "parameters": { "entityId": "Entity identifier." }
-  },
-
-  "POST /api/powerfx/eval": {
-    "summary": "Evaluate Power Fx expression",
-    "description": "Evaluates a Power Fx expression with an optional JSON record of parameters in the body, scoped to a `ProcessingRuleScope` (defaults to `Entity`). Returns the evaluated result, the parsed tokens, and the abstract syntax tree. Always returns 200 — runtime errors come back inside the response body as an `error` field. The evaluation is bounded by a 2-second timeout.",
     "parameters": {
-      "scope": "Processing rule scope. Defaults to `Entity`."
+      "entityId": "Entity identifier."
     }
   },
-
   "GET /api/deduplication/projects/{projectId}/rules": {
     "summary": "List deduplication project rules",
     "description": "Returns paged matching rules configured on a deduplication project. Filter by name and active state.",
@@ -211,7 +224,9 @@
   "POST /api/deduplication/projects/{projectId}/rules": {
     "summary": "Create deduplication project rule",
     "description": "Adds a rule to a deduplication project. Returns 400 when the matching/normalization function combination is invalid, the project is in the wrong state, or the model fails validation. The action goes through the RACI approval pipeline for deduplication rule creation.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "GET /api/deduplication/projects/{projectId}/rules/{ruleId}": {
     "summary": "Get deduplication project rule",
@@ -256,7 +271,9 @@
   "POST /api/deduplication/projects/{projectId}/rules/order": {
     "summary": "Change deduplication rule order",
     "description": "Sets the order of rules on a deduplication project. Returns 400 when the project is not in a state that allows reordering, and 404 when the project cannot be found.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "GET /api/deduplication/projects/rules/matchingfunctions": {
     "summary": "List deduplication matching functions",

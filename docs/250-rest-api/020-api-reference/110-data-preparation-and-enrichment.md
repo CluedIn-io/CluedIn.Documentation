@@ -24,4 +24,4 @@ See [Get started](/rest-api/get-started) for authentication, base URLs, and requ
   loading="lazy">
 </iframe>
 
-This category covers the following API tags: Clean, Enricher, ExternalFeature.
+This category covers the following API tags: Clean, Enricher.

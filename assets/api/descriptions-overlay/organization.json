@@ -1,6 +1,5 @@
 {
   "_about": "Organization category (Organization, OrganizationProfile, OrganizationAdminCommands, OrganizationGetProviders, OrganizationProviderStatus, OrganizationAddProviders, OrganizationUpdateProviders, OrganizationEnableProviders, OrganizationTeamBroadcast). Tenant-level profile and configuration endpoints.",
-
   "POST /api/v1/organization/metrics": {
     "summary": "Run organization metrics",
     "description": "Queues archival of metric values and triggers a global metrics recompute for the organisation. Used after material data changes to refresh organisation-level dashboards."
@@ -9,7 +8,6 @@
     "summary": "Get organization usage",
     "description": "Returns the organisation's account usage (data limit, used volume, days left). Falls back to default values if the usage repository cannot be queried."
   },
-
   "GET /api/v1/organization": {
     "summary": "Get current organization profile",
     "description": "Returns the authenticated context organisation profile, application subdomain, and email-domain signup flag."
@@ -55,7 +53,9 @@
   "PUT /api/v1/organization/configurationvalue/v2/{organizationid}": {
     "summary": "Update multiple organization configuration values",
     "description": "Validates and updates multiple organisation configuration settings in one request, returning validation messages when settings are invalid.",
-    "parameters": { "organizationid": "Organisation identifier." }
+    "parameters": {
+      "organizationid": "Organisation identifier."
+    }
   },
   "GET /api/v1/organization/configurationvalue/{organizationid}": {
     "summary": "Get organization configuration value",
@@ -68,24 +68,31 @@
   "PUT /api/v1/organization/configurationvalue/{organizationid}": {
     "summary": "Update organization configuration value",
     "description": "Updates a single organisation configuration setting after validating data type and setting-specific constraints. Secret values are masked in audit records.",
-    "parameters": { "organizationid": "Organisation identifier." }
+    "parameters": {
+      "organizationid": "Organisation identifier."
+    }
   },
   "PUT /api/v1/organization/disablesecurityfilter/{organizationid}": {
     "summary": "Disable organization security filter",
     "description": "Disables account security filtering for the organisation after verifying the path organisation id matches the authenticated user's organisation.",
-    "parameters": { "organizationid": "Organisation identifier." }
+    "parameters": {
+      "organizationid": "Organisation identifier."
+    }
   },
   "PUT /api/v1/organization/enablesecurityfilter/{organizationid}": {
     "summary": "Enable organization security filter",
     "description": "Enables account security filtering for the organisation after verifying the path organisation id matches the authenticated user's organisation.",
-    "parameters": { "organizationid": "Organisation identifier." }
+    "parameters": {
+      "organizationid": "Organisation identifier."
+    }
   },
   "GET /api/v1/organization/securityfilter/{organizationid}": {
     "summary": "Get organization security filter state",
     "description": "Returns whether account security filtering is enabled for the organisation.",
-    "parameters": { "organizationid": "Organisation identifier." }
+    "parameters": {
+      "organizationid": "Organisation identifier."
+    }
   },
-
   "GET /api/v1/organization/hasproviders": {
     "summary": "Check whether organisation has providers",
     "description": "Returns whether the caller's organisation has any configured providers."
@@ -93,7 +100,9 @@
   "GET /api/v1/organization/providers": {
     "summary": "List organization providers",
     "description": "Returns the providers configured for the caller's organisation with provider name, enabled state, and the user-profile (name/logo) of the user that configured each provider. Multiple overloads accept different filter combinations; passing `id` narrows to a single provider definition. Requires the Administration.Provider RACI claim.",
-    "parameters": { "id": "Optional provider id to filter by." }
+    "parameters": {
+      "id": "Optional provider id to filter by."
+    }
   },
   "PUT /api/v1/organization/providers": {
     "summary": "Change organization provider status",
@@ -103,19 +112,5 @@
       "active": "True to enable, false to disable.",
       "accountId": "Optional account id (used by the multi-account overload)."
     }
-  },
-
-  "POST /api/v1/organization/admin/commands/externalsearch/entity": {
-    "summary": "Trigger external search for entity (org-scoped)",
-    "description": "Queues an `ExternalSearchCommand` for the supplied entity within the caller's organisation. Set `ignoreCache=true` (the default) to bypass cached enricher query results. Returns 400 for invalid ids and 404 when the entity cannot be found. Requires the Administration.Data RACI claim.",
-    "parameters": {
-      "id": "Entity identifier.",
-      "ignoreCache": "When true, ignore cached external-search query results. Defaults to true."
-    }
-  },
-  "POST /api/v1/organization/admin/commands/process/entity": {
-    "summary": "Reprocess entity (org-scoped)",
-    "description": "Queues a `PostProcessingEntityCommand` for the supplied entity within the caller's organisation. Returns 400 for invalid ids and 404 when the entity does not exist. Requires the Administration.Data RACI claim.",
-    "parameters": { "id": "Entity identifier." }
   }
 }

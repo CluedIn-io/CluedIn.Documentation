@@ -84,54 +84,9 @@ function applyOverlay(method, p, op) {
   return merged;
 }
 
-// Curated category map. Order in this list controls nav_order in the docs.
-const CATEGORIES = [
-  { slug: 'access-control-and-governance', title: 'Access control & governance',
-    description: 'Access control policies, audit logs, GDPR anonymization and PII operations, and entity ownership.',
-    tags: ['AccessControlPolicies','GDPRAnonymization','GDPRPII','AuditLog','Ownership'] },
-  { slug: 'entities', title: 'Entities',
-    description: 'Read, create, modify, merge, split, and inspect golden records and their metadata.',
-    tags: ['Entity','EntityDataDeletion','EntityHistory','EntityInfo','EntityModification','EntityOrigin','EntitySource','EntityTopology','EntityTypeInfo','DuplicateEntities','SplitEntity'] },
-  { slug: 'search', title: 'Search',
-    description: 'Query the CluedIn graph and manage saved and suggested searches.',
-    tags: ['Search','SavedSearch','SuggestedSearch'] },
-  { slug: 'vocabularies', title: 'Vocabularies',
-    description: 'Manage vocabularies and vocabulary keys.',
-    tags: ['Vocabulary','VocabularyUsage'] },
-  { slug: 'glossary', title: 'Glossary',
-    description: 'Manage glossary categories and terms, and search the glossary.',
-    tags: ['Glossary','GlossarySearch'] },
-  { slug: 'hierarchies', title: 'Hierarchies',
-    description: 'Build and manage hierarchies and the global data model.',
-    tags: ['Hierarchies','GlobalDataModel'] },
-  { slug: 'rules-and-evaluation', title: 'Rules & evaluation',
-    description: 'Manage data, survivorship, and golden record rules; preview rule output and inspect evaluation logs.',
-    tags: ['Rules','RuleDataPreview','RuleErrorLog','ExplainLog'] },
-  { slug: 'data-ingestion', title: 'Data ingestion',
-    description: 'File uploads, imports, integrations, and jobs for getting data into CluedIn.',
-    tags: ['Import','Integration','Blob','Job','DistributedJobs','OrganizationDataRemoval'] },
-  { slug: 'streams-and-export', title: 'Streams, connectors & export',
-    description: 'Configure, operate, and monitor export streams and the connectors they use.',
-    tags: ['Streams','StreamIngestionLog','StreamLog','StreamMappings','StreamsVocabularyKeyUsage','Connector','ConnectorHealth','Export'] },
-  { slug: 'data-preparation-and-enrichment', title: 'Data preparation & enrichment',
-    description: 'Clean and enrich records using built-in cleaning and enricher providers.',
-    tags: ['Clean','Enricher','ExternalFeature'] },
-  { slug: 'workflow-and-automation', title: 'Workflow & automation',
-    description: 'Tasks, approvals, automation flows, and the processing mesh.',
-    tags: ['Automate','EnterpriseFlows','Task','TaskApproval','TaskRoleRequest','ApprovalItem','MeshCenter'] },
-  { slug: 'ai', title: 'AI',
-    description: 'AI agents, jobs, skills, endpoints, deployments, and Copilot.',
-    tags: ['AIAgent','AiDeployment','AiEndpoint','AiJob','AiJobSkill','AiPlatform','AiPlatformDefinition','Copilot'] },
-  { slug: 'administration-and-configuration', title: 'Administration & configuration',
-    description: 'Configuration, settings, logs, and metered billing.',
-    tags: ['Configuration','ExtendedConfiguration','Setting','Log','MeteredBilling'] },
-  { slug: 'organization', title: 'Organization',
-    description: 'Organization profile and provider configuration.',
-    tags: ['Organization','OrganizationProfile','OrganizationGetProviders','OrganizationProviderStatus'] },
-  { slug: 'insights-and-ui', title: 'Insights & UI',
-    description: 'Page templates, notifications, profiles, activities, and other endpoints used by the CluedIn UI.',
-    tags: ['PageTemplate','PageTemplateEntities','TagMetadata','Activities','Notification','Profile','Person','Project','Results'] }
-];
+// Curated category map (single source of truth shared with prune-spec.js).
+// Order in this list controls the order of categories in the manifest.
+const CATEGORIES = require('./api-categories.js');
 
 const spec = JSON.parse(fs.readFileSync(SRC, 'utf8'));
 
@@ -139,13 +94,10 @@ const specTagNames = (spec.tags || []).map(t => t.name);
 const assigned = new Set(CATEGORIES.flatMap(c => c.tags));
 const missing = specTagNames.filter(t => !assigned.has(t));
 if (missing.length) {
-  console.log('UNASSIGNED tags (added to "Other"):', missing);
-  CATEGORIES.push({
-    slug: 'other',
-    title: 'Other',
-    description: 'Endpoints that are not yet assigned to a category.',
-    tags: missing
-  });
+  // Any tag in swagger.json that is not assigned to a category is treated as
+  // excluded and dropped from the rendered reference. Run prune-spec.js to also
+  // remove these operations from the published swagger.json.
+  console.log('DROPPED unassigned tags (not in any category):', missing);
 }
 
 function collectRefs(node, out) {

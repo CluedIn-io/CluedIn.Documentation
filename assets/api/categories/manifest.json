@@ -2,21 +2,20 @@
   {
     "slug": "access-control-and-governance",
     "title": "Access control & governance",
-    "description": "Access control policies, audit logs, GDPR anonymization and PII operations, and entity ownership.",
+    "description": "Access control policies, audit logs, entity ownership, and tag metadata.",
     "tags": [
       "AccessControlPolicies",
-      "GDPRAnonymization",
-      "GDPRPII",
       "AuditLog",
-      "Ownership"
+      "Ownership",
+      "TagMetadata"
     ],
-    "operationCount": 37,
-    "schemaCount": 12
+    "operationCount": 33,
+    "schemaCount": 13
   },
   {
     "slug": "entities",
     "title": "Entities",
-    "description": "Read, create, modify, merge, split, and inspect golden records and their metadata.",
+    "description": "Read, create, modify, merge, and inspect golden records and their metadata.",
     "tags": [
       "Entity",
       "EntityDataDeletion",
@@ -26,23 +25,20 @@
       "EntityOrigin",
       "EntitySource",
       "EntityTopology",
-      "EntityTypeInfo",
-      "DuplicateEntities",
-      "SplitEntity"
+      "EntityTypeInfo"
     ],
-    "operationCount": 136,
-    "schemaCount": 16
+    "operationCount": 115,
+    "schemaCount": 12
   },
   {
     "slug": "search",
     "title": "Search",
-    "description": "Query the CluedIn graph and manage saved and suggested searches.",
+    "description": "Query the CluedIn graph and manage saved searches.",
     "tags": [
       "Search",
-      "SavedSearch",
-      "SuggestedSearch"
+      "SavedSearch"
     ],
-    "operationCount": 51,
+    "operationCount": 49,
     "schemaCount": 2
   },
   {
@@ -79,6 +75,20 @@
     "schemaCount": 21
   },
   {
+    "slug": "deduplication",
+    "title": "Deduplication",
+    "description": "Find, review, and resolve duplicate records: deduplication projects, automation, match results, and entity split.",
+    "tags": [
+      "Project",
+      "Automate",
+      "Results",
+      "DuplicateEntities",
+      "SplitEntity"
+    ],
+    "operationCount": 61,
+    "schemaCount": 20
+  },
+  {
     "slug": "rules-and-evaluation",
     "title": "Rules & evaluation",
     "description": "Manage data, survivorship, and golden record rules; preview rule output and inspect evaluation logs.",
@@ -92,21 +102,6 @@
     "schemaCount": 243
   },
   {
-    "slug": "data-ingestion",
-    "title": "Data ingestion",
-    "description": "File uploads, imports, integrations, and jobs for getting data into CluedIn.",
-    "tags": [
-      "Import",
-      "Integration",
-      "Blob",
-      "Job",
-      "DistributedJobs",
-      "OrganizationDataRemoval"
-    ],
-    "operationCount": 23,
-    "schemaCount": 1
-  },
-  {
     "slug": "streams-and-export",
     "title": "Streams, connectors & export",
     "description": "Configure, operate, and monitor export streams and the connectors they use.",
@@ -117,10 +112,9 @@
       "StreamMappings",
       "StreamsVocabularyKeyUsage",
       "Connector",
-      "ConnectorHealth",
-      "Export"
+      "ConnectorHealth"
     ],
-    "operationCount": 63,
+    "operationCount": 62,
     "schemaCount": 25
   },
   {
@@ -129,58 +123,35 @@
     "description": "Clean and enrich records using built-in cleaning and enricher providers.",
     "tags": [
       "Clean",
-      "Enricher",
-      "ExternalFeature"
+      "Enricher"
     ],
-    "operationCount": 42,
-    "schemaCount": 14
-  },
-  {
-    "slug": "workflow-and-automation",
-    "title": "Workflow & automation",
-    "description": "Tasks, approvals, automation flows, and the processing mesh.",
-    "tags": [
-      "Automate",
-      "EnterpriseFlows",
-      "Task",
-      "TaskApproval",
-      "TaskRoleRequest",
-      "ApprovalItem",
-      "MeshCenter"
-    ],
-    "operationCount": 44,
-    "schemaCount": 18
+    "operationCount": 40,
+    "schemaCount": 10
   },
   {
     "slug": "ai",
     "title": "AI",
-    "description": "AI agents, jobs, skills, endpoints, deployments, and Copilot.",
+    "description": "AI agents, jobs, skills, and Copilot.",
     "tags": [
       "AIAgent",
-      "AiDeployment",
-      "AiEndpoint",
       "AiJob",
       "AiJobSkill",
-      "AiPlatform",
-      "AiPlatformDefinition",
       "Copilot"
     ],
-    "operationCount": 113,
-    "schemaCount": 64
+    "operationCount": 59,
+    "schemaCount": 41
   },
   {
     "slug": "administration-and-configuration",
     "title": "Administration & configuration",
-    "description": "Configuration, settings, logs, and metered billing.",
+    "description": "Settings, logs, and metered billing.",
     "tags": [
-      "Configuration",
-      "ExtendedConfiguration",
       "Setting",
       "Log",
       "MeteredBilling"
     ],
-    "operationCount": 48,
-    "schemaCount": 11
+    "operationCount": 8,
+    "schemaCount": 1
   },
   {
     "slug": "organization",
@@ -198,19 +169,14 @@
   {
     "slug": "insights-and-ui",
     "title": "Insights & UI",
-    "description": "Page templates, notifications, profiles, activities, and other endpoints used by the CluedIn UI.",
+    "description": "Activity feeds, notifications, and user and person profiles.",
     "tags": [
-      "PageTemplate",
-      "PageTemplateEntities",
-      "TagMetadata",
       "Activities",
       "Notification",
       "Profile",
-      "Person",
-      "Project",
-      "Results"
+      "Person"
     ],
-    "operationCount": 62,
-    "schemaCount": 20
+    "operationCount": 17,
+    "schemaCount": 0
   }
 ]

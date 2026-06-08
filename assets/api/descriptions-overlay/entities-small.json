@@ -1,15 +1,5 @@
 {
   "_about": "Entities — small/medium controllers (EntityActions, EntitySource, EntityTopology, SplitEntity, EntityTypeInfo, EntityOrigin, EntityHistory, IdentityCounter, EntityInfo, DuplicateEntities). Entity and EntityDataDeletion live in separate overlay files. AdminEntity lives in its own overlay file.",
-
-  "POST /api/v1/enittyActions/runActions": {
-    "summary": "Run batched entity actions",
-    "description": "Validates and starts a background job that runs the supplied rule actions against entities matching the filter condition. Returns 400 when the condition is missing, the rule actions are empty, any rule has no actions, an action is not allowed in the current context, or an action is broken/misconfigured. Returns 200 with the distributed job id when the job has been started. (The path uses the legacy typo `enittyActions` — `/api/entityActions/runActions` is the alternate non-v1 path.)"
-  },
-  "GET /api/v1/enittyActions/availableActions": {
-    "summary": "List available entity actions",
-    "description": "Returns the rule actions available to the entity-actions runner for the current organisation. Used by the UI to populate the action picker when composing batched actions."
-  },
-
   "GET /api/entitysource/{id}": {
     "summary": "Get entity sources",
     "description": "Returns the source providers that contributed data to the entity with the supplied id. Returns 400 if the id is not a valid GUID, 404 if the entity cannot be found, and 403 if the caller lacks access to the entity's providers.",
@@ -17,7 +7,6 @@
       "id": "Entity identifier (GUID)."
     }
   },
-
   "GET /api/entitytopology/{id}": {
     "summary": "Get entity topology graph",
     "description": "Returns the relationship-topology graph for an entity. Use the query flags to filter the graph — for example, dropping connecting nodes that have only one connection, resolving fuzzy-match relationships, or hiding nodes for missing data parts. Returns 404 if the entity cannot be found.",
@@ -28,7 +17,6 @@
       "filterOutMissingDataPartNodes": "Hide graph nodes that correspond to missing data parts. Defaults to true."
     }
   },
-
   "GET /api/splitentity/datapart/{entityId}/{dataPartId}": {
     "summary": "Get data part node info",
     "description": "Returns topology-graph information for a specific data part on an entity. Used by the split-entity UI to render the source data attached to a node before split.",
@@ -75,7 +63,6 @@
       "entityId": "Entity identifier."
     }
   },
-
   "GET /api/entitytypeinfo": {
     "summary": "Get entity type info",
     "description": "Returns information for a single entity type, optionally filtered by free-text search, the type's usage state, whether to include the page template, and whether to include shadow entity types. Returns 404 if no matching entity type exists.",
@@ -115,7 +102,6 @@
       "entityType": "Entity type technical name to check."
     }
   },
-
   "GET /api/entityorigin/{id}": {
     "summary": "Get entity origins",
     "description": "Returns the origins (the original source records) that contributed to the entity with the supplied id. Returns 400 if the id is not a valid GUID, 404 if the entity cannot be found, and 403 if the caller lacks access.",
@@ -123,23 +109,11 @@
       "id": "Entity identifier (GUID)."
     }
   },
-
   "GET /api/entityhistory/{id}": {
     "summary": "Get entity history",
     "description": "Returns the serialised change history for the entity with the supplied id. Returns 400 if the id is not a valid GUID, 404 if the entity does not exist, and 403 if the caller lacks access.",
     "parameters": {
       "id": "Entity identifier (GUID)."
-    }
-  },
-  "GET /api/entityhistory/summary/{id}": {
-    "summary": "Get entity history summary (deprecated)",
-    "description": "Returns a summary of the entity's change history filtered by source, date range, and sort. **Deprecated** — prefer `GET /api/entityhistory/list/{id}`.",
-    "parameters": {
-      "id": "Entity identifier (GUID).",
-      "sourceName": "Optional source name filter.",
-      "dateFrom": "Optional lower bound on change timestamps.",
-      "dateTo": "Optional upper bound on change timestamps.",
-      "sortedDateFilter": "Optional date sort direction."
     }
   },
   "GET /api/entityhistory/list/{id}": {
@@ -172,30 +146,6 @@
       "id": "Entity identifier (GUID)."
     }
   },
-
-  "GET /api/identityCounter/counters": {
-    "summary": "List identity counters",
-    "description": "Returns every identity counter configured for the organisation along with its name, current minimum id, and current maximum id."
-  },
-  "POST /api/identityCounter/createcounter": {
-    "summary": "Create identity counter",
-    "description": "Creates a new identity counter with the supplied name and optional min/max id range. Returns 400 when the name is missing or when `minId > maxId`, and 409 Conflict if an identity counter with the same name already exists.",
-    "parameters": {
-      "name": "Identity counter name.",
-      "minId": "Optional minimum id.",
-      "maxId": "Optional maximum id."
-    }
-  },
-  "PUT /api/identityCounter/updatecounter": {
-    "summary": "Update identity counter",
-    "description": "Updates the min/max id of an existing identity counter. Returns 400 when the name is missing or when `minId > maxId`, and 404 when no identity counter with that name exists.",
-    "parameters": {
-      "name": "Identity counter name.",
-      "minId": "Optional new minimum id.",
-      "maxId": "Optional new maximum id."
-    }
-  },
-
   "GET /api/v1/entityinfo/minimal": {
     "summary": "Get minimal entity type information",
     "description": "Returns a compact view of the entity types available to the organisation, suitable for selectors and other UI controls that do not need the full entity type record."
@@ -226,7 +176,6 @@
       "page": "0-based page number. Defaults to 0."
     }
   },
-
   "GET /api/v1/duplicates/queries": {
     "summary": "List duplicate entity queries",
     "description": "Returns the duplicate-entity queries registered on the server (the strategies used to find potential duplicates), with their technical name and display name."

@@ -8,7 +8,7 @@ nav_order: 20
 tags: ["api", "rest api"]
 ---
 
-Access control policies, audit logs, GDPR anonymization and PII operations, and entity ownership.
+Access control policies, audit logs, entity ownership, and tag metadata.
 
 See [Get started](/rest-api/get-started) for authentication, base URLs, and request conventions that apply to all endpoints in this category.
 
@@ -24,4 +24,4 @@ See [Get started](/rest-api/get-started) for authentication, base URLs, and requ
   loading="lazy">
 </iframe>
 
-This category covers the following API tags: AccessControlPolicies, GDPRAnonymization, GDPRPII, AuditLog, Ownership.
+This category covers the following API tags: AccessControlPolicies, AuditLog, Ownership, TagMetadata.

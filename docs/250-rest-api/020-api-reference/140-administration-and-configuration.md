@@ -8,7 +8,7 @@ nav_order: 140
 tags: ["api", "rest api"]
 ---
 
-Configuration, settings, logs, and metered billing.
+Settings, logs, and metered billing.
 
 See [Get started](/rest-api/get-started) for authentication, base URLs, and request conventions that apply to all endpoints in this category.
 
@@ -24,4 +24,4 @@ See [Get started](/rest-api/get-started) for authentication, base URLs, and requ
   loading="lazy">
 </iframe>
 
-This category covers the following API tags: Configuration, ExtendedConfiguration, Setting, Log, MeteredBilling.
+This category covers the following API tags: Setting, Log, MeteredBilling.

@@ -1,6 +1,5 @@
 {
   "_about": "Entities — main Entity tag (EntityController + EntityController.Merge + EntityController.Path + EntityDetail.EntityController).",
-
   "GET /api/v1/entity": {
     "summary": "Get entity by id",
     "description": "Returns the entity with the supplied id, augmented with editable-field permissions, suggested searches, and per-provider account data so the UI can render the entity card. The query supports a `full` flag that switches to the raw blob-store serialisation. For Mail entities the body is read from the search store when missing from the primary store, and HTML detection wraps plain text in `<pre>` tags. Returns 400 for invalid GUIDs, 403 when the caller lacks access to any of the entity's providers, and 404 when the entity does not exist.",
@@ -98,30 +97,6 @@
       "relationship": "Relationship (edge) type."
     }
   },
-  "GET /api/v1/entity/history": {
-    "summary": "Get entity version history (deprecated)",
-    "description": "Returns the serialised version history of an entity (a JSON document of the blob-store version history). **Deprecated** — use `GET /api/entityhistory/{id}` on the dedicated history controller instead.",
-    "parameters": {
-      "id": "Entity identifier (GUID)."
-    }
-  },
-  "GET /api/v1/entity/historysummary": {
-    "summary": "Get entity history summary (deprecated)",
-    "description": "Returns a summary of changes to an entity grouped by source, optionally filtered by date range. **Deprecated** — use `GET /api/entityhistory/list/{id}` instead.",
-    "parameters": {
-      "id": "Entity identifier (GUID).",
-      "dateFrom": "Optional lower bound on change timestamps.",
-      "dateTo": "Optional upper bound on change timestamps."
-    }
-  },
-  "GET /api/v1/entity/historydetails": {
-    "summary": "Get entity history detail (deprecated)",
-    "description": "Returns the per-property changes for a single data part in the entity's history. **Deprecated** — use `GET /api/entityhistory/details/{id}/{partId}` instead.",
-    "parameters": {
-      "id": "Entity identifier (GUID).",
-      "partId": "Data part identifier."
-    }
-  },
   "GET /api/v1/entityTypes": {
     "summary": "List entity type facets",
     "description": "Returns the entity-type facets known to the organisation. Optional `entityType` filter narrows the result to a single type. Flags `includeShadowEntities` and `includeExternalData` control whether shadow and external-data entities contribute to the facet counts. (Also exposed as `GET /api/gdpr/entityTypes`.)",
@@ -161,7 +136,6 @@
       "scope": "Property scope. Defaults to `All`."
     }
   },
-
   "GET /api/edges/centeredOnEntity": {
     "summary": "Get edges centered on an entity",
     "description": "Returns the entities and edges reachable within `depth` hops of the supplied entity. Use the toggles to control whether incoming edges, shadow entities, temporal entities, and external data participate. Returns 404 if the centre entity does not exist. The response includes an `IsLimitedByNumberOfRelationships` flag indicating whether `maxNumberOfEdges` was reached.",

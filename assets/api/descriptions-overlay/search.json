@@ -1,6 +1,5 @@
 {
   "_about": "Search category (Search, SavedSearch, SuggestedSearch, RulesAutoComplete, SearchToClean). The Search controller dispatches between V1/V2/V3 implementations at runtime based on `Feature.Search.V3.Enabled` / `V2.Enabled` configuration flags; the v2/v3 paths invoke the same dispatcher with version-specific defaults.",
-
   "GET /api/v1/search": {
     "summary": "Search entities",
     "description": "Free-text search across the CluedIn graph. The controller dispatches to the V1, V2, or V3 implementation depending on the `Feature.Search.V3.Enabled` / `Feature.Search.V2.Enabled` flags. Multiple overloads accept additional combinations of `type`, `dateSort`, `nameSort`, `direction`, `includePreviousFacets`, and `searchUnTokenized` — the spec exposes a single endpoint and the controller resolves the actual signature by `ExactQueryParam` matching. Response is cached for 120 seconds.",
@@ -29,17 +28,23 @@
   "GET /api/v1/search/suggest": {
     "summary": "Get search auto-suggest",
     "description": "Returns auto-suggest completions for a query prefix. Dispatches to V1, V2, or V3 implementation based on the `Search.V3.Enabled` / `Search.V3.AutoSuggestEnabled` / `Search.V2.Enabled` configuration flags. Returns an empty list when the query is empty.",
-    "parameters": { "q": "Query prefix to complete." }
+    "parameters": {
+      "q": "Query prefix to complete."
+    }
   },
   "GET /api/v2/search/suggest": {
     "summary": "Get search auto-suggest (v2)",
     "description": "Version 2 of the auto-suggest endpoint, used when `Search.V2.Enabled` is true and V3 is not.",
-    "parameters": { "q": "Query prefix to complete." }
+    "parameters": {
+      "q": "Query prefix to complete."
+    }
   },
   "GET /api/v3/search/suggest": {
     "summary": "Get search auto-suggest (v3)",
     "description": "Version 3 of the auto-suggest endpoint, used when `Search.V3.Enabled` or `Search.V3.AutoSuggestEnabled` is true.",
-    "parameters": { "q": "Query prefix to complete." }
+    "parameters": {
+      "q": "Query prefix to complete."
+    }
   },
   "GET /api/v1/entitysearch": {
     "summary": "Search inside an entity",
@@ -115,7 +120,9 @@
   "GET /api/v1/search/id": {
     "summary": "Get entity from search store by id",
     "description": "Returns the entity record stored in the search index (Elasticsearch) for the supplied id. Returns 400 for invalid GUIDs.",
-    "parameters": { "q": "Entity identifier (GUID)." }
+    "parameters": {
+      "q": "Entity identifier (GUID)."
+    }
   },
   "GET /api/v1/search/morelikethis": {
     "summary": "More like this",
@@ -155,39 +162,6 @@
       "resolveMappedKeys": "When true, follow mapping chains when running the aggregation."
     }
   },
-  "GET /api/v1/search/count": {
-    "summary": "Get search count (deprecated)",
-    "description": "**Deprecated** — always returns 0. Kept to avoid breaking older UI clients."
-  },
-  "PUT /api/v1/search/count": {
-    "summary": "Clear search count (deprecated)",
-    "description": "**Deprecated** — always returns 0. Kept to avoid breaking older UI clients."
-  },
-  "PUT /api/v1/search/clear": {
-    "summary": "Clear search entities (deprecated)",
-    "description": "**Deprecated** — always returns 0. Kept to avoid breaking older UI clients."
-  },
-  "GET /api/v1/search/subscribe": {
-    "summary": "Get subscribed searches (deprecated)",
-    "description": "**Deprecated** — returns an empty array. Kept to avoid breaking older UI clients."
-  },
-  "POST /api/v1/search/subscribe": {
-    "summary": "Subscribe to search (deprecated)",
-    "description": "**Deprecated** — returns the string `\"Not supported\"`. Kept to avoid breaking older UI clients."
-  },
-  "POST /api/v1/search/unsubscribe": {
-    "summary": "Unsubscribe from search (deprecated)",
-    "description": "**Deprecated** — returns the string `\"Not supported\"`. Kept to avoid breaking older UI clients."
-  },
-
-  "POST /api/v2/searchtoclean/checkquery": {
-    "summary": "Debug clean-project query translation",
-    "description": "Internal debug endpoint that compares the Elasticsearch query produced by the `NestExpressionTranslator` and the `FilterRuleToNestConverter` for a given clean project model. Pick the translator with the `method` query parameter (`NestTranslator` or `QueryBuilder`). **Not for production use.** Requires the Preparation.Clean RACI claim.",
-    "parameters": {
-      "method": "Which translator to run: `NestTranslator` or `QueryBuilder`."
-    }
-  },
-
   "GET /api/v1/savedsearch": {
     "summary": "List saved searches",
     "description": "Returns paged saved searches matching the supplied filter model. Returns 400 with validation details when the filter model is invalid.",
@@ -203,17 +177,23 @@
   "GET /api/v1/savedsearch/{savedSearchId}": {
     "summary": "Get a saved search",
     "description": "Returns a single saved search by id. Returns 404 if the saved search cannot be found.",
-    "parameters": { "savedSearchId": "Saved search identifier." }
+    "parameters": {
+      "savedSearchId": "Saved search identifier."
+    }
   },
   "POST /api/v1/savedsearch/{savedSearchId}": {
     "summary": "Update a saved search",
     "description": "Updates a saved search. Returns 403 if the caller does not have access to update it, 404 if it cannot be found, and 400 when the filter rule fails validation.",
-    "parameters": { "savedSearchId": "Saved search identifier." }
+    "parameters": {
+      "savedSearchId": "Saved search identifier."
+    }
   },
   "DELETE /api/v1/savedsearch/{savedSearchId}": {
     "summary": "Delete a saved search",
     "description": "Deletes a saved search. Returns 403 if the caller does not have access to delete it and 404 if it cannot be found.",
-    "parameters": { "savedSearchId": "Saved search identifier." }
+    "parameters": {
+      "savedSearchId": "Saved search identifier."
+    }
   },
   "GET /api/v1/savedsearch/favorites": {
     "summary": "List favorite saved searches",
@@ -230,26 +210,8 @@
   "DELETE /api/v1/savedsearch/favorites/{favoriteId}": {
     "summary": "Remove favorite saved search",
     "description": "Removes a favorite by id. Returns 404 if the favorite cannot be found.",
-    "parameters": { "favoriteId": "Favorite identifier." }
-  },
-
-  "GET /api/v1/suggestedsearch": {
-    "summary": "Get suggested search results",
-    "description": "Runs a registered related-entities query (`queryKey`) with the supplied `tokens`, returning either the matched entities (as cards augmented with suggested searches) or the related-entity paths. Returns an empty list when the `SuggestedSearches.Enabled` feature flag is off. Response is cached for 1200 seconds.",
     "parameters": {
-      "queryKey": "Name of the related-entities query.",
-      "tokens": "Token string consumed by the query.",
-      "page": "0-based page number. Defaults to 0.",
-      "take": "Page size. Defaults to 10."
-    }
-  },
-
-  "GET /api/v1/ruleautocomplete/list": {
-    "summary": "List rule auto-complete items",
-    "description": "Returns auto-complete suggestions for a rule editor property — the candidate values the property is likely to take, based on the object type. Used by the rules-builder UI to power dropdowns.",
-    "parameters": {
-      "property": "Rule property name.",
-      "objectTypeId": "Object type identifier."
+      "favoriteId": "Favorite identifier."
     }
   }
 }

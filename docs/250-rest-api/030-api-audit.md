@@ -1,3 +1,18 @@
+---
+layout: cluedin
+title: Ongoing REST API Audit
+parent: REST API
+permalink: /rest-api/api-audit
+nav_order: 30
+tags: ["api-audit", "rest api audit"]
+---
+
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
+
 # CluedIn REST API Documentation Audit (re-audit)
 
 > **Scope:** Customer-facing re-audit of the CluedIn C# / ASP.NET Web API as it is now
@@ -15,10 +30,12 @@
 > 16 documentation categories.
 >
 > **✅ Action taken (this pass):** every controller marked **Exclude** below, plus the auth red-flag
-> controllers and the two "loose ends" (`DataverseConnector`, `PowerAutomate`), have now been **removed
-> from the published spec** — 37 controllers / 257 operations. The reference is down to **919 operations
-> across 79 controllers in 15 categories** (the entire *System & health* category was dropped). The
-> **Document** and **Document (admin)** tables below describe what remains.
+> controllers and the loose ends (`DataverseConnector`, `PowerAutomate`), have now been **removed
+> from the published spec**. The reference is down to **744 operations across 54 controllers (swagger
+> tags) in 14 categories**: the *System & health*, *Data ingestion*, and *Workflow & automation*
+> categories were dropped entirely, and a standalone *Deduplication* category was split out of Entities,
+> Rules, Workflow, and Insights. The **Document** and **Document (admin)** tables below describe what
+> remains.
 
 ---
 
@@ -57,18 +74,16 @@ Each controller gets one of three verdicts:
 | DefaultRedirect | anonymous (catch-all) | 404 fallback for unmatched routes | **Exclude** — infra. |
 | RobotsTxt | anonymous | Serves `robots.txt` | **Exclude** — infra. |
 
-> Recommendation: drop this whole category from the customer reference. At most keep a one-line
-> "health endpoints exist at `/health`" note in *Get started*; the operations themselves don't belong.
-
 ### 2. Access control & governance — *mostly Document*
 
 | Controller | Auth | Purpose | Verdict |
 |---|---|---|---|
 | AccessControlPolicies | `Management.AccessControl` | CRUD + activate access-control policies | **Document (admin)** — tenant governance config. |
-| GDPRAnonymization | `Governance.PersonalIdentifiers` | Anonymize / de-anonymize PII | **Document** — compliance feature. |
-| GDPRPII | `Governance.PersonalIdentifiers` | Query PII identifiers & metrics | **Document** — compliance feature. |
+| GDPRAnonymization | `Governance.PersonalIdentifiers` | Anonymize / de-anonymize PII | **Exclude** — compliance feature. |
+| GDPRPII | `Governance.PersonalIdentifiers` | Query PII identifiers & metrics | **Exclude** — compliance feature. |
 | AuditLog | `[Authorize]` (per-area filtered) | Read audit logs | **Document** — compliance/monitoring. |
 | Ownership | `AnyClaimRaciLevel` (≥ Consultant) | Manage object ownership | **Document** — governance. |
+| TagMetadata | `Governance.Tags` | Tag metadata & folders | **Document** — governance. |
 
 ### 3. Entities — *core; trim the admin/internal pieces*
 
@@ -81,9 +96,7 @@ Each controller gets one of three verdicts:
 | EntityTopology | `[Authorize]` | Relationship/topology graph | **Document**. |
 | EntityModification | `Administration.Data` | Edit properties/edges (UI workflows) | **Document (admin)**. |
 | EntityDataDeletion | `Administration.Data` | Bulk delete by provider/source/correlation | **Document (admin)** — destructive. |
-| SplitEntity | `[Authorize]` | Topology support for splitting data parts | **Document**. |
-| DuplicateEntities | `Management.Duplicates` | Query potential duplicates | **Document** — dedup. |
-| EntityActions | **no auth attribute** ⚠ | Run/list bulk rule actions on entities | **Document (admin)** — *confirm auth first*. |
+| EntityActions | **no auth attribute** ⚠ | Run/list bulk rule actions on entities | **Exclude** — *confirm auth first*. |
 | AdminEntity | `Roles = Admin`, `/api/admin/*` | Raw entity-blob / search-store debugging | **Exclude** — operator debug. |
 | IdentityCounter | `[Authorize]` | Identity-counter plumbing for data generation | **Exclude** — internal. |
 
@@ -93,7 +106,7 @@ Each controller gets one of three verdicts:
 |---|---|---|---|
 | Search | `[Authorize]` (IdentityServer) | Query the CluedIn graph + index | **Document** — primary read API. |
 | SavedSearch | `[Authorize]` | CRUD saved & favorite searches | **Document**. |
-| SuggestedSearch | `[Authorize]` | Typeahead / suggestion | **Document**. |
+| SuggestedSearch | `[Authorize]` | Typeahead / suggestion | **Exclude**. |
 | RulesAutoComplete | `[Authorize]` | Autocomplete values for the rule builder | **Exclude** — internal UI helper. |
 | SearchToClean | `Preparation.Clean` | Debug query-translator comparison — *"DO NOT USE IN PRODUCTION"* | **Exclude** — debug-only. |
 
@@ -119,28 +132,39 @@ Each controller gets one of three verdicts:
 | Hierarchies | `Management.Hierarchies` | Build/publish/clone/export hierarchies | **Document**. |
 | GlobalDataModel | `Administration.EntityTypes` | Global entity-relationship schema | **Document (admin)** — schema-level. |
 
-### 8. Rules & evaluation — *Document the builder; gate the rest*
+### 8. Deduplication - *Document*
+
+| Controller | Auth | Purpose | Verdict |
+|---|---|---|---|
+| Rules (Deduplication) | `Management.DeduplicationManagement` | Matching rules within dedup projects | **Document** — *disambiguate from the rule builder*. |
+| Automate (Dedup) | `Management.DeduplicationManagement` | Run/cancel dedup automation | **Document**. |
+| Project | `Management.DeduplicationManagement` | Dedup projects | **Document** — dedup. |
+| Results | `Management.DeduplicationReview` | Dedup match-group review | **Document** — dedup. |
+| SplitEntity | `[Authorize]` | Topology support for splitting data parts | **Document**. |
+| DuplicateEntities | `Management.Duplicates` | Query potential duplicates | **Document** — dedup. |
+
+
+### 9. Rules & evaluation — *Document the builder; gate the rest*
 
 | Controller | Auth | Purpose | Verdict |
 |---|---|---|---|
 | Rules (Management) | `Management.RuleBuilder` | Processing rule CRUD + lifecycle | **Document** — rule builder. |
-| Rules (Deduplication) | `Management.DeduplicationManagement` | Matching rules within dedup projects | **Document** — *disambiguate from the rule builder*. |
 | RuleDataPreview | `Management.RuleBuilder` | Preview rule output | **Document** — supports the builder. |
 | RuleErrorLog | `Management.RuleBuilder` | Rule execution error logs | **Document (admin)** — diagnostic. |
 | ExplainLog | `Administration.Data` | Trace processing/property changes | **Document (admin)** — diagnostic. |
 | Evaluation (PowerFx) | **no auth attribute** ⚠ | Evaluate PowerFx expressions | **Exclude** — internal formula-bar; *flag missing auth*. |
 
-### 9. Data ingestion — *Document the ingestion/jobs; drop the admin/crawler ops*
+### 10. Data ingestion — *Document the ingestion/jobs; drop the admin/crawler ops*
 
 | Controller | Auth | Purpose | Verdict |
 |---|---|---|---|
-| Integration | `[Authorize]` (+anon icon) | List connectors / provider metadata | **Document** — integration discovery. |
-| Blob | `[Authorize]` | Serve stored blobs (images/reports) | **Document**. |
-| Job | `[Authorize]` | Monitor agent job queues | **Document**. |
-| DistributedJobs | `[Authorize]` | Job progress & cancel | **Document**. |
-| OrganizationUpload | **no auth attribute** ⚠ | CSV upload to org blob store | **Document** — *confirm auth first*. |
-| Import | `Administration.Tenant` | Import tenant data from ZIP | **Document (admin)** — migration. |
-| OrganizationDataRemoval | `Administration.Provider` | Reset provider crawl state | **Document (admin)**. |
+| Integration | `[Authorize]` (+anon icon) | List connectors / provider metadata | **Exclude** — integration discovery. |
+| Blob | `[Authorize]` | Serve stored blobs (images/reports) | **Exclude**. |
+| Job | `[Authorize]` | Monitor agent job queues | **Exclude**. |
+| DistributedJobs | `[Authorize]` | Job progress & cancel | **Exclude**. |
+| OrganizationUpload | **no auth attribute** ⚠ | CSV upload to org blob store | **Exclude** — *confirm auth first*. |
+| Import | `Administration.Tenant` | Import tenant data from ZIP | **Exclude** — migration. |
+| OrganizationDataRemoval | `Administration.Provider` | Reset provider crawl state | **Exclude**. |
 | Onboarding | `[Authorize]` | Most-connected-entity onboarding widget | **Exclude** — UI helper. |
 | DataSource | `Roles = Admin` | Datasource upgrade checker | **Exclude** — internal. |
 | AdminCrawler, OrganizationAdminCrawler | `Administration.Provider` | Recrawl / re-run all providers | **Exclude** — operator. |
@@ -158,8 +182,8 @@ Each controller gets one of three verdicts:
 | StreamsVocabularyKeyUsage | `Consume.Streams` | Vocab keys used in stream filters | **Document**. |
 | Connector | `Consume.ExportTargets` | Connector/container management | **Document** — core Consume. |
 | ConnectorHealth | `Consume.ExportTargets` | Connector health status | **Document**. |
-| DataverseConnector | *(controller not found in main tree)* ⚠ | Dataverse export integration (4 POST) | **Document** — *locate source & confirm*. |
-| Export | `Administration.Tenant` | Export vocab/entity data to ZIP | **Document (admin)** — migration. |
+| DataverseConnector | *(controller not found in main tree)* ⚠ | Dataverse export integration (4 POST) | **Exclude** — *locate source & confirm*. |
+| Export | `Administration.Tenant` | Export vocab/entity data to ZIP | **Exclude** — migration. |
 
 ### 11. Data preparation & enrichment — *Document Clean & Enricher*
 
@@ -167,21 +191,20 @@ Each controller gets one of three verdicts:
 |---|---|---|---|
 | Clean (v2) | `Preparation.Clean` | Data-cleaning project lifecycle | **Document**. |
 | Enricher | `Integrations.Enrichment` (+anon icon) | Configure/trigger enrichers | **Document**. |
-| ExternalFeature | `[Authorize]` | External/dynamic UI feature URLs | **Document (admin)** — *confirm it's a real API, not UI glue*. |
+| ExternalFeature | `[Authorize]` | External/dynamic UI feature URLs | **Exclude** — *confirm it's a real API, not UI glue*. |
 | Enrichers | `[Authorize]` | Enricher software upgrade check | **Exclude** — maintenance. |
 
-### 12. Workflow & automation — *Document tasks/flows; gate governance & internal*
+### 12. Workflow & automation — *Exclude tasks/flows; gate governance & internal*
 
 | Controller | Auth | Purpose | Verdict |
 |---|---|---|---|
-| EnterpriseFlows | `Management.WorkflowBuilder` | Workflow templates / execution | **Document**. |
-| Task | `[Authorize]` | User tasks & details | **Document**. |
-| TaskApproval | `[Authorize]` | Approve/reject tasks | **Document**. |
-| TaskRoleRequest | `[Authorize]` | Role-request tasks | **Document**. |
-| ApprovalItem | `[Authorize]` | Batch approval processing | **Document**. |
-| Automate (Dedup) | `Management.DeduplicationManagement` | Run/cancel dedup automation | **Document**. |
-| PowerAutomate | (in EntityModification) | Power Automate integration actions | **Document** — *confirm as a published integration*. |
-| MeshCenter | `Preparation.MeshCenter` | GDPR mesh commands / deletion requests | **Document (admin)** — governance. |
+| EnterpriseFlows | `Management.WorkflowBuilder` | Workflow templates / execution | **Exclude**. |
+| Task | `[Authorize]` | User tasks & details | **Exclude**. |
+| TaskApproval | `[Authorize]` | Approve/reject tasks | **Exclude**. |
+| TaskRoleRequest | `[Authorize]` | Role-request tasks | **Exclude**. |
+| ApprovalItem | `[Authorize]` | Batch approval processing | **Exclude**. |
+| PowerAutomate | (in EntityModification) | Power Automate integration actions | **Exclude** — *confirm as a published integration*. |
+| MeshCenter | `Preparation.MeshCenter` | GDPR mesh commands / deletion requests | **Exclude** — governance. |
 | MeshProcessor | `[Authorize]`, internal | "Can entity accept mesh command" helper | **Exclude** — internal. |
 
 ### 13. AI — *Document product AI; gate platform/infra config*
@@ -191,10 +214,10 @@ Each controller gets one of three verdicts:
 | AIAgent | `Management.AiAgents` | CRUD AI agents | **Document**. |
 | AiJob | `Management.AiAgents` | AI job execution & skills | **Document**. |
 | AiJobSkill | `[Authorize]` | List AI skills | **Document**. |
-| AiEndpoint (inference) | `[Authorize]` | Text/chat completions | **Document**. |
-| AiPlatformDefinition | `[Authorize]` (+anon logo) | AI platform catalog | **Document**. |
+| AiEndpoint (inference) | `[Authorize]` | Text/chat completions | **Exclude**. |
+| AiPlatformDefinition | `[Authorize]` (+anon logo) | AI platform catalog | **Exclude**. |
 | Copilot | `[Authorize]` | Copilot chat sessions | **Document**. |
-| AiEndpoint (admin), AiDeployment, AiPlatform | `Administration.ArtificialIntelligence` | Configure AI endpoints/deployments/platforms | **Document (admin)** — tenant AI setup. |
+| AiEndpoint (admin), AiDeployment, AiPlatform | `Administration.ArtificialIntelligence` | Configure AI endpoints/deployments/platforms | **Exclude** — tenant AI setup. |
 | LanguageServer (PowerFx) | **no auth attribute** ⚠ | LSP intellisense for formula bar | **Exclude** — IDE/UI plumbing. |
 
 ### 14. Administration & configuration — *mostly Exclude*
@@ -203,8 +226,8 @@ Each controller gets one of three verdicts:
 |---|---|---|---|
 | Setting | `[Authorize]` | User/org key-value settings | **Document**. |
 | MeteredBilling | `[Authorize]` | Consumption/billing measurements | **Document**. |
-| ExtendedConfiguration | `[Authorize]` | Resolve dynamic provider-config options | **Document (admin)** — provider setup. |
-| Configuration | `Engine.ConfigurationGroups` | List configuration groups | **Document (admin)** — *confirm; may be internal*. |
+| ExtendedConfiguration | `[Authorize]` | Resolve dynamic provider-config options | **Exclude** — provider setup. |
+| Configuration | `Engine.ConfigurationGroups` | List configuration groups | **Exclude** — *confirm; may be internal*. |
 | Log | `Roles = OrganizationalAdmin` | Stream org logs (live) | **Document (admin)** — diagnostic. |
 | AdminClusterSettings | `Roles = Admin` | Cluster logging/config overrides | **Exclude** — operator. |
 | AdminCommands | `Roles = Admin` | System maintenance commands (84 ops) | **Exclude** — operator. |
@@ -219,10 +242,10 @@ Each controller gets one of three verdicts:
 | OrganizationProfile | `[Authorize]` (+`Administration.Tenant`) | Tenant profile/branding | **Document**. |
 | OrganizationGetProviders | `[Authorize]` | List/inventory providers | **Document**. |
 | OrganizationProviderStatus | `Administration.Provider` | Enable/disable a provider | **Document**. |
-| OrganizationAddProviders | **no class auth** ⚠ | Add a provider | **Document** — *confirm auth first*. |
-| OrganizationUpdateProviders | **no class auth** ⚠ | Update a provider | **Document** — *confirm auth first*. |
-| OrganizationEnableProviders | **no class auth** ⚠ | Enable a provider | **Document** — *confirm auth first*. |
-| OrganizationTeamBroadcast | **no class auth** ⚠ | Email teammates to add a provider | **Document** — *confirm auth first*. |
+| OrganizationAddProviders | **no class auth** ⚠ | Add a provider | **Exclude** — *confirm auth first*. |
+| OrganizationUpdateProviders | **no class auth** ⚠ | Update a provider | **Exclude** — *confirm auth first*. |
+| OrganizationEnableProviders | **no class auth** ⚠ | Enable a provider | **Exclude** — *confirm auth first*. |
+| OrganizationTeamBroadcast | **no class auth** ⚠ | Email teammates to add a provider | **Exclude** — *confirm auth first*. |
 | OrganizationAdminCommands | `Administration.Data` | External-search / reprocess commands | **Exclude** — operator. |
 
 ### 16. Insights & UI — *mostly Exclude (UI plumbing)*
@@ -233,10 +256,7 @@ Each controller gets one of three verdicts:
 | Notification | `[Authorize]` | User/provider notifications | **Document**. |
 | Profile | `[Authorize]` | Current-user profile | **Document**. |
 | Person | `[Authorize]` | Person lookup by entity code | **Document**. |
-| Project | `Management.DeduplicationManagement` | Dedup projects | **Document** — dedup. |
-| Results | `Management.DeduplicationReview` | Dedup match-group review | **Document** — dedup. |
-| TagMetadata | `Governance.Tags` | Tag metadata & folders | **Document** — governance. |
-| PageTemplate / PageTemplateEntities | `Administration.Tenant` | Page/layout template config | **Document (admin)** — UI configuration. |
+| PageTemplate / PageTemplateEntities | `Administration.Tenant` | Page/layout template config | **Exclude** — UI configuration. |
 | GenericWidget | `[Authorize]` | Dashboard widget data | **Exclude** — UI plumbing. |
 | WidgetQuery | `[Authorize]` | Widget entity queries | **Exclude** — UI plumbing. |
 | LayoutTemplate | `[Authorize]` | UI layout templates | **Exclude** — UI plumbing. |

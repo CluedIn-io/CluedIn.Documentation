@@ -1,6 +1,5 @@
 {
   "_about": "Access control & governance endpoints (AccessControlPolicies, GDPRAnonymization, GDPRPII, AuditLog, Ownership).",
-
   "GET /api/v1/accesscontrolpolicies": {
     "summary": "List access control policies",
     "description": "Returns a paged list of access control policies in the organisation along with the total count. Filter by active state, creator, and free-text name; sort by any supported field.",
@@ -65,7 +64,6 @@
     "summary": "Set policy processing order",
     "description": "Sets the processing order of access control policies from the supplied list. Send the policies in the order they should be evaluated."
   },
-
   "GET /api/v1/auditLog/{objectId}/{objectTypeId}": {
     "summary": "Get audit log for an object",
     "description": "Returns the paged audit log entries recorded for a single object. Internally delegates to the bulk endpoint with a single-item array for both ids.",
@@ -89,23 +87,6 @@
       "take": "Page size. Defaults to 20."
     }
   },
-
-  "GET /api/v1/identifiers": {
-    "summary": "List PII identifier facets",
-    "description": "Returns the personally-identifiable-information (PII) identifier facets known to the organisation, used by the UI to drive PII drill-down. An optional `identifierType` query parameter narrows the result to one identifier family.",
-    "parameters": {
-      "identifierType": "Optional identifier type to scope the result to."
-    }
-  },
-  "GET /api/v1/identifying": {
-    "summary": "List personally identifying data",
-    "description": "Returns sensitive data counts grouped by provider, computed from the metrics store. Each entry lists the provider id and name and the counts of records carrying each sensitive data classification (only sensitive classifications with non-zero counts are returned)."
-  },
-  "GET /api/v1/indentifying": {
-    "summary": "List personally identifying data (legacy spelling)",
-    "description": "Alias for `GET /api/v1/identifying` kept under the historical `indentifying` (misspelled) path for backwards compatibility. Same response shape and semantics."
-  },
-
   "POST /api/v1/ownership/object": {
     "summary": "Add object owner",
     "description": "Adds an owner to the supplied object. The caller must hold at least Consultant level on any of their claims. The action goes through the RACI approval pipeline for ownership additions."
@@ -119,14 +100,6 @@
     "description": "Returns the owners registered on a specific object along with the total count.",
     "parameters": {
       "objectId": "Identifier of the object to look up."
-    }
-  },
-
-  "POST /api/v1/pseudo/gdpr": {
-    "summary": "Pseudonymize an entity (GDPR)",
-    "description": "Submits a pseudonymisation request for an entity across every provider definition the caller has write access to. For each allowed provider a `mesh` command is published to the service bus with `IsPseudo=true`; providers the caller cannot access are surfaced to the user via notifications. Returns 202 Accepted with the allowed providers, 404 if the entity does not exist, or 403 if the caller has no provider access for the entity. The reprocess command is queued so the entity is re-processed after the providers act on the request.",
-    "parameters": {
-      "id": "Identifier of the entity to pseudonymise."
     }
   }
 }

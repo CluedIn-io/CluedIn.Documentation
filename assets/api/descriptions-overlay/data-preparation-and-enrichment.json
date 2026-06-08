@@ -1,6 +1,5 @@
 {
   "_about": "Data preparation & enrichment (Clean v2, CluedInClean v1 legacy, Enricher, Enrichers, ExternalFeature). Clean v2 lives on /api/v2/clean; v1 (/api/v1/clean) is deprecated and kept for backward compatibility.",
-
   "POST /api/v2/clean": {
     "summary": "Create clean project (v2)",
     "description": "Creates a clean project from the supplied model. Returns 201 Created with the new project, or 400 when the filter rules fail validation. Requires the Preparation.Clean RACI claim."
@@ -12,132 +11,101 @@
   "GET /api/v2/clean/{projectId}": {
     "summary": "Get clean project",
     "description": "Returns a clean project by id. Returns 404 if it cannot be found.",
-    "parameters": { "projectId": "Clean project identifier." }
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
   },
   "PUT /api/v2/clean/{projectId}": {
     "summary": "Update clean project",
     "description": "Updates a clean project. Returns 400 with validation details when the filter rules are invalid, 404 if the project cannot be found. The action goes through the RACI approval pipeline for clean project updates.",
-    "parameters": { "projectId": "Clean project identifier." }
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
   },
   "DELETE /api/v2/clean/{projectId}": {
     "summary": "Delete clean project",
     "description": "Deletes a clean project. Returns 400 when the project's current state does not allow deletion, 404 if it cannot be found. The action goes through the RACI approval pipeline for clean project deletion.",
-    "parameters": { "projectId": "Clean project identifier." }
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
   },
   "POST /api/v2/clean/{projectId}/generate": {
     "summary": "Generate clean results",
     "description": "Generates the proposed clean changes (results) for a project, transitioning it into the generating state. Returns 400 when the project is in an incompatible state. The action goes through the RACI approval pipeline.",
-    "parameters": { "projectId": "Clean project identifier." }
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
   },
   "GET /api/v2/clean/{projectId}/generationstatus": {
     "summary": "Get generation status",
     "description": "Returns the status of an in-progress generation step. Returns 400 when the project is not currently generating.",
-    "parameters": { "projectId": "Clean project identifier." }
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
   },
   "POST /api/v2/clean/{projectId}/cancelgeneration": {
     "summary": "Cancel generation",
     "description": "Cancels an in-progress generation. Returns 400 when the project is not in a state that allows cancellation.",
-    "parameters": { "projectId": "Clean project identifier." }
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
   },
   "POST /api/v2/clean/{projectId}/commit": {
     "summary": "Commit clean project",
     "description": "Commits the generated changes back to the entities. Body contains the stale-data strategy and `AutoGenerateRules` flag. Returns 400 when the project is not in a state that allows commit. The action goes through the RACI approval pipeline.",
-    "parameters": { "projectId": "Clean project identifier." }
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
   },
   "POST /api/v2/clean/{projectId}/generaterules": {
     "summary": "Generate rules from clean project",
     "description": "Generates processing rules that capture the clean project's transformations. Useful for promoting one-off cleanups into permanent rules.",
-    "parameters": { "projectId": "Clean project identifier." }
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
   },
   "GET /api/v2/clean/{projectId}/committingstatus": {
     "summary": "Get committing status",
     "description": "Returns the status of an in-progress commit step.",
-    "parameters": { "projectId": "Clean project identifier." }
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
   },
   "POST /api/v2/clean/{projectId}/cancelcommit": {
     "summary": "Cancel commit",
     "description": "Cancels an in-progress commit. Returns 400 when the project is not in a state that allows cancellation.",
-    "parameters": { "projectId": "Clean project identifier." }
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
   },
   "POST /api/v2/clean/{projectId}/undochanges": {
     "summary": "Undo clean project changes",
     "description": "Reverts the changes a clean project committed. Returns 400 when the project is not in a state that allows undo.",
-    "parameters": { "projectId": "Clean project identifier." }
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
   },
   "GET /api/v2/clean/{projectId}/undochangesstatus": {
     "summary": "Get undo status",
     "description": "Returns the status of an in-progress undo step.",
-    "parameters": { "projectId": "Clean project identifier." }
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
   },
   "POST /api/v2/clean/{projectId}/cancelundo": {
     "summary": "Cancel undo",
     "description": "Cancels an in-progress undo. Returns 400 when the project is not in a state that allows cancellation.",
-    "parameters": { "projectId": "Clean project identifier." }
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
   },
   "GET /api/v2/clean/{projectId}/cleanedentities": {
     "summary": "List cleaned entities",
     "description": "Returns the entities that have been cleaned by a project.",
-    "parameters": { "projectId": "Clean project identifier." }
-  },
-
-  "POST /api/v1/clean/createprojects": {
-    "summary": "Create OpenRefine clean projects (legacy)",
-    "description": "**Deprecated** (Clean V1). Creates one or more OpenRefine cleaning projects from the supplied model. Use the Clean V2 endpoints instead."
-  },
-  "POST /api/v1/clean/createprojects/entities": {
-    "summary": "Create clean projects for entities (legacy)",
-    "description": "**Deprecated** (Clean V1). Creates cleaning projects for a list of entities. Returns 404 when an entity cannot be found."
-  },
-  "POST /api/v1/clean/createprojects/entity": {
-    "summary": "Create clean project for entity (legacy)",
-    "description": "**Deprecated** (Clean V1). Creates a cleaning project for the supplied entity id, asynchronously. Returns 202 Accepted.",
-    "parameters": { "entityId": "Entity identifier." }
-  },
-  "POST /api/v1/clean/createprojects/related": {
-    "summary": "Create clean projects for related entities (legacy)",
-    "description": "**Deprecated** (Clean V1). Creates cleaning projects for entities related to the supplied entity via the supplied edge type, asynchronously.",
     "parameters": {
-      "entityId": "Source entity identifier.",
-      "edgeEntityType": "Edge entity type to follow."
+      "projectId": "Clean project identifier."
     }
   },
-  "POST /api/v1/clean/saveproject": {
-    "summary": "Save OpenRefine clean project (legacy)",
-    "description": "**Deprecated** (Clean V1). Saves a cleaning project: when `Feature.Clean.CreateClues` is enabled, generates clues from the cleaned data and publishes a commit event. Otherwise returns 200 with `\"Request received but creation of clues is disabled.\"`.",
-    "parameters": { "projectId": "OpenRefine project identifier." }
-  },
-  "GET /api/v1/clean/get-access-token": {
-    "summary": "Get OpenRefine access token (legacy)",
-    "description": "**Deprecated** (Clean V1). Returns an access token that OpenRefine uses when calling back to CluedIn for reconciliation and clustering."
-  },
-  "GET /api/v1/clean/getprojects": {
-    "summary": "List OpenRefine clean projects (legacy)",
-    "description": "**Deprecated** (Clean V1). Returns the cleaning projects in the OpenRefine workspace."
-  },
-  "GET /api/v1/clean/getprojectbyid": {
-    "summary": "Get OpenRefine clean project (legacy)",
-    "description": "**Deprecated** (Clean V1). Returns a cleaning project by id. Returns 500 when the project is missing or corrupt.",
-    "parameters": { "projectId": "OpenRefine project identifier." }
-  },
-  "GET /api/v1/clean/getexportbyid": {
-    "summary": "Get OpenRefine clean project export (legacy)",
-    "description": "**Deprecated** (Clean V1). Returns the exported state of a cleaning project (defaults to JSON).",
-    "parameters": {
-      "projectId": "OpenRefine project identifier.",
-      "returnType": "Export type, defaults to `Json`."
-    }
-  },
-  "DELETE /api/v1/clean/deleteproject": {
-    "summary": "Delete OpenRefine clean project (legacy)",
-    "description": "**Deprecated** (Clean V1). Deletes a cleaning project and publishes a remove event.",
-    "parameters": { "projectId": "OpenRefine project identifier." }
-  },
-  "GET /api/v1/clean/getsuggestedrules": {
-    "summary": "Get suggested rules from clean project (legacy)",
-    "description": "**Deprecated** (Clean V1). Returns rules suggested for a cleaning project.",
-    "parameters": { "projectId": "OpenRefine project identifier." }
-  },
-
   "GET /api/v1/integration/enricher/all": {
     "summary": "List enrichers",
     "description": "Returns the external-search enrichers registered on the platform (id, name, version, priority, type, icon URL, supported domain, properties, etc.). Requires the Integrations.Enrichment RACI claim."
@@ -145,71 +113,78 @@
   "GET /api/v1/integration/enricher/{id}": {
     "summary": "Get enricher",
     "description": "Returns a single enricher by id. Returns 404 if no enricher with that id is registered.",
-    "parameters": { "id": "Enricher identifier." }
+    "parameters": {
+      "id": "Enricher identifier."
+    }
   },
   "GET /api/v1/integration/enricher/{id}/details": {
     "summary": "Get enricher details",
     "description": "Returns detailed metadata for an enricher (enrich source, lookup/returned entity types, lookup/returned vocabularies and keys) read from the enricher's class-level attributes. Returns 404 if the enricher cannot be found.",
-    "parameters": { "id": "Enricher identifier." }
+    "parameters": {
+      "id": "Enricher identifier."
+    }
   },
   "GET /api/v1/integration/enricher/icon/{id}": {
     "summary": "Get enricher icon",
     "description": "Returns the embedded icon resource for an enricher. Allowed anonymously (`AllowAnonymous`). Returns 404 if the enricher or its icon cannot be found, 400 for empty/invalid ids.",
-    "parameters": { "id": "Enricher identifier." }
+    "parameters": {
+      "id": "Enricher identifier."
+    }
   },
   "GET /api/v1/integration/enricher/{providerDefinitionId}/activeJobs": {
     "summary": "List active enricher jobs",
     "description": "Returns the active distributed jobs running for the supplied enricher provider definition.",
-    "parameters": { "providerDefinitionId": "Enricher provider definition identifier." }
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
   },
   "DELETE /api/v1/integration/enricher/{providerDefinitionId}/delete": {
     "summary": "Delete enricher provider definition",
     "description": "Deletes an enricher provider definition.",
-    "parameters": { "providerDefinitionId": "Enricher provider definition identifier." }
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
   },
   "POST /api/v1/integration/enricher/{providerDefinitionId}/enrich": {
     "summary": "Trigger enrichment for entities",
     "description": "Triggers an enrichment job for the entities matching the supplied criteria using the enricher associated with the provider definition.",
-    "parameters": { "providerDefinitionId": "Enricher provider definition identifier." }
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
   },
   "POST /api/v1/integration/enricher/{providerDefinitionId}/uploadIcon": {
     "summary": "Upload enricher icon",
     "description": "Uploads a custom icon for an enricher provider definition.",
-    "parameters": { "providerDefinitionId": "Enricher provider definition identifier." }
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
   },
   "POST /api/v1/integration/enricher/{providerDefinitionId}/resetIcon": {
     "summary": "Reset enricher icon",
     "description": "Resets an enricher provider definition's icon to the enricher's built-in default.",
-    "parameters": { "providerDefinitionId": "Enricher provider definition identifier." }
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
   },
   "POST /api/v1/integration/enricher/{providerId}/verifycredentials": {
     "summary": "Verify enricher credentials",
     "description": "Asks the enricher behind the supplied provider id to verify the authentication data in the body. Returns 400 if the enricher does not implement `IExternalSearchProviderWithVerifyConnection`.",
-    "parameters": { "providerId": "Enricher provider identifier." }
+    "parameters": {
+      "providerId": "Enricher provider identifier."
+    }
   },
   "DELETE /api/v1/integration/enricher/externalSearchQuery/delete/{providerDefinitionId}": {
     "summary": "Delete external search queries",
     "description": "Deletes any persisted external search queries for the supplied enricher provider definition.",
-    "parameters": { "providerDefinitionId": "Enricher provider definition identifier." }
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
   },
   "GET /api/v1/integration/enricher/externalSearchQuery/exists/{providerDefinitionId}": {
     "summary": "Check whether external search queries exist",
     "description": "Returns whether any persisted external search queries exist for the supplied enricher provider definition.",
-    "parameters": { "providerDefinitionId": "Enricher provider definition identifier." }
-  },
-
-  "POST /api/enrichers/checkforupgrades": {
-    "summary": "Check whether enrichers need upgrades",
-    "description": "Returns whether the caller's enrichers need to be upgraded to a newer schema. Used as a pre-check before a platform upgrade."
-  },
-
-  "GET /api/v1/externalfeature/{type}": {
-    "summary": "List external features by type",
-    "description": "Returns visible external features registered on the platform that match the supplied feature type. Used by the UI to discover dynamic tabs and integrations.",
-    "parameters": { "type": "External feature type (case-insensitive)." }
-  },
-  "POST /api/v1/externalfeature/url": {
-    "summary": "Generate external feature URL",
-    "description": "Generates a dynamic URL for a visible external feature given its type, id, and a property dictionary used by the feature to build the URL. Returns 404 when no matching feature is found, 500 (problem details) when the body is missing the type."
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
   }
 }

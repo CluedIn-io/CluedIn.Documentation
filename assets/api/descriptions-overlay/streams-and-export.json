@@ -1,6 +1,5 @@
 {
   "_about": "Streams, connectors & export category (Streams, StreamIngestionLog, StreamLog, StreamMappings, StreamsVocabularyKeyUsage, Connector, ConnectorHealth, DataverseConnector, Export). Most endpoints require the Consume.Streams or Consume.ExportTargets RACI claim.",
-
   "GET /api/v1/streams": {
     "summary": "List streams",
     "description": "Returns paged streams with the total count. Filter by creator, connector provider definition, name, and stream status; sort by any supported field.",
@@ -22,52 +21,72 @@
   "GET /api/v1/streams/{id}": {
     "summary": "Get stream",
     "description": "Returns a single stream by id. Returns 400 for empty ids.",
-    "parameters": { "id": "Stream identifier." }
+    "parameters": {
+      "id": "Stream identifier."
+    }
   },
   "PUT /api/v1/streams/{id}": {
     "summary": "Update stream",
     "description": "Updates a stream. Returns 400 with validation details when the model is invalid or contains unsupported rule actions. The action goes through the RACI approval pipeline for stream updates.",
-    "parameters": { "id": "Stream identifier." }
+    "parameters": {
+      "id": "Stream identifier."
+    }
   },
   "DELETE /api/v1/streams/{id}": {
     "summary": "Delete stream",
     "description": "Deletes a stream. Returns 400 for empty ids. The action goes through the RACI approval pipeline for stream deletion.",
-    "parameters": { "id": "Stream identifier." }
+    "parameters": {
+      "id": "Stream identifier."
+    }
   },
   "POST /api/v1/streams/{id}/start": {
     "summary": "Start stream",
     "description": "Starts a stream. The action goes through the RACI approval pipeline for stream state changes.",
-    "parameters": { "id": "Stream identifier." }
+    "parameters": {
+      "id": "Stream identifier."
+    }
   },
   "POST /api/v1/streams/{id}/pause": {
     "summary": "Pause stream",
     "description": "Pauses a running stream. The action goes through the RACI approval pipeline for stream state changes.",
-    "parameters": { "id": "Stream identifier." }
+    "parameters": {
+      "id": "Stream identifier."
+    }
   },
   "POST /api/v1/streams/{id}/stop": {
     "summary": "Stop stream",
     "description": "Stops a running stream. The action goes through the RACI approval pipeline for stream state changes.",
-    "parameters": { "id": "Stream identifier." }
+    "parameters": {
+      "id": "Stream identifier."
+    }
   },
   "GET /api/v1/streams/{id}/stats": {
     "summary": "Get stream statistics",
     "description": "Returns runtime statistics for a stream (records processed, errors, throughput, etc.).",
-    "parameters": { "id": "Stream identifier." }
+    "parameters": {
+      "id": "Stream identifier."
+    }
   },
   "POST /api/v1/streams/reingest/{streamid}": {
     "summary": "Re-ingest stream initial data",
     "description": "Re-ingests the initial dataset for a stream (re-running historical entities through the configured connector). Useful after rule or mapping changes.",
-    "parameters": { "streamid": "Stream identifier." }
+    "parameters": {
+      "streamid": "Stream identifier."
+    }
   },
   "POST /api/v1/streams/setupconnector/{streamid}": {
     "summary": "Set up stream connector",
     "description": "Associates a connector and data-type mapping with a stream. Validates each mapping against the vocabulary (returns 400 if a vocabulary key does not exist) or the stream-filter property metadata (returns 400 if the metadata property is unknown). The action goes through the RACI approval pipeline for connector setup.",
-    "parameters": { "streamid": "Stream identifier." }
+    "parameters": {
+      "streamid": "Stream identifier."
+    }
   },
   "GET /api/v1/streams/{id}/connectorActions": {
     "summary": "Get stream custom connector actions",
     "description": "Returns the custom actions the connector behind the stream exposes (for connectors implementing `ICustomActionConnector`). Returns an empty list for connectors that do not implement custom actions and 400 when the stream has no connector configured.",
-    "parameters": { "id": "Stream identifier." }
+    "parameters": {
+      "id": "Stream identifier."
+    }
   },
   "POST /api/v1/streams/{id}/connectorActions/{actionName}/execute": {
     "summary": "Execute stream custom connector action",
@@ -80,24 +99,28 @@
   "GET /api/v1/streams/{id}/connectorStatuses": {
     "summary": "Get stream custom connector statuses",
     "description": "Returns the custom status entries the connector behind the stream exposes (for connectors implementing `ICustomStatusConnector`). Returns an empty list when the connector does not implement custom statuses.",
-    "parameters": { "id": "Stream identifier." }
+    "parameters": {
+      "id": "Stream identifier."
+    }
   },
-
   "GET /api/v1/streammapping/{id}": {
     "summary": "Get stream mappings",
     "description": "Returns the projection mappings configured on a stream.",
-    "parameters": { "id": "Stream identifier." }
+    "parameters": {
+      "id": "Stream identifier."
+    }
   },
   "POST /api/v1/streammapping/{id}": {
     "summary": "Set stream mappings",
     "description": "Replaces the projection mappings on a stream with the supplied list. Returns 400 with validation details when the model is invalid.",
-    "parameters": { "id": "Stream identifier." }
+    "parameters": {
+      "id": "Stream identifier."
+    }
   },
   "GET /api/v1/streammapping/options": {
     "summary": "List mapping options",
     "description": "Returns the data types and projection mapping options available to streams (excluding stream-default mappings)."
   },
-
   "GET /api/v1/streamingestionlog/entity/{entityId}": {
     "summary": "Get stream ingestion log for an entity",
     "description": "Returns paged ingestion log entries (timestamp, change type, persist version) for the entity across every stream currently in `Started` or `Paused` state. Stopped or new streams are skipped because their ingestion log table does not contain data for the current entity version.",
@@ -107,7 +130,6 @@
       "take": "Page size. Defaults to 20."
     }
   },
-
   "GET /api/v1/streamlog/{streamId}": {
     "summary": "Get stream history log",
     "description": "Returns paged stream history log entries (change events, exceptions, etc.) for a stream. Supports filtering by date range, severity, and stream history log area.",
@@ -129,49 +151,53 @@
       "priorToDate": "Purge entries created before this date. Defaults to tomorrow."
     }
   },
-
   "GET /api/v1/streamsvocabularykeys/{streamId}": {
     "summary": "Get vocabulary keys used by a stream",
     "description": "Returns the vocabulary keys referenced in the stream's filter condition. Uses the legacy resolver when `Streaming.UseLegacyKeyUsageResolving` is enabled (scrolls Elasticsearch to find keys actually present on entities matched by the condition); otherwise resolves directly from the stored condition.",
-    "parameters": { "streamId": "Stream identifier." }
+    "parameters": {
+      "streamId": "Stream identifier."
+    }
   },
-
   "GET /api/v1/connector/connectorinfo": {
     "summary": "List connector info",
     "description": "Returns the connectors available in the system together with their supported modes. Optional `id` query parameter narrows the response to a specific provider id.",
-    "parameters": { "id": "Optional provider identifier." }
+    "parameters": {
+      "id": "Optional provider identifier."
+    }
   },
   "GET /api/v1/connector/connectorstatus/{providerDefinitionId}": {
     "summary": "Get connector health status",
     "description": "Returns the latest component health for the connector identified by `providerDefinitionId`, augmented with the provider's `IsEnabled` flag.",
-    "parameters": { "providerDefinitionId": "Provider definition identifier." }
+    "parameters": {
+      "providerDefinitionId": "Provider definition identifier."
+    }
   },
   "GET /api/v1/connector/verifyconnection/{providerdefinitionid}": {
     "summary": "Verify saved connector connection",
     "description": "Asks the connector behind a stored provider definition to verify its connection. Returns 404 if the connector cannot be found and 500 (problem details) with the connector's error message when verification fails.",
-    "parameters": { "providerdefinitionid": "Provider definition identifier." }
+    "parameters": {
+      "providerdefinitionid": "Provider definition identifier."
+    }
   },
   "POST /api/v1/connector/verifycredentials/{providerId}": {
     "summary": "Verify connector credentials",
     "description": "Asks the connector behind a provider id to verify the supplied authentication data without saving it. The response is the `ConnectionVerificationResult`; errors are returned with HTTP 200 inside the result body for UI display, not as HTTP failures.",
-    "parameters": { "providerId": "Provider identifier." }
+    "parameters": {
+      "providerId": "Provider identifier."
+    }
   },
   "GET /api/v1/connector/{providerdefinitionid}/containers": {
     "summary": "List connector containers",
     "description": "Returns the containers (tables/folders/datasets, depending on the connector type) available through the supplied connector. Returns 404 if the connector cannot be resolved.",
-    "parameters": { "providerdefinitionid": "Provider definition identifier." }
+    "parameters": {
+      "providerdefinitionid": "Provider definition identifier."
+    }
   },
   "POST /api/v1/connector/{providerdefinitionid}/container": {
     "summary": "Create connector container",
     "description": "Creates a new container via the connector. Returns 404 if the connector cannot be resolved.",
-    "parameters": { "providerdefinitionid": "Provider definition identifier." }
-  },
-  "GET /api/v1/connector/{providerdefinitionid}/container/{id}/datatypes": {
-    "summary": "Get container data types (legacy)",
-    "description": "**Obsolete.** Returns the data types the connector reports for a container. Only supported by legacy connectors that implement `IConnector`; modern `IConnectorV2` connectors return 500. Returns 404 when the connector cannot be resolved.",
     "parameters": {
-      "providerdefinitionid": "Provider definition identifier.",
-      "id": "Container identifier."
+      "providerdefinitionid": "Provider definition identifier."
     }
   },
   "POST /api/v1/connector/{providerdefinitionid}/container/{id}/empty": {
@@ -193,9 +219,10 @@
   "DELETE /api/v1/connector/{id}": {
     "summary": "Delete connector",
     "description": "Deletes a connector by id. Returns 409 Conflict (with a list of the streams currently using it) when the connector cannot be removed because of in-use references, and 404 when the connector cannot be found. The action goes through the RACI approval pipeline for connector deletion.",
-    "parameters": { "id": "Connector identifier." }
+    "parameters": {
+      "id": "Connector identifier."
+    }
   },
-
   "GET /api/v1/connectorhealth/{providerdefinitionid}": {
     "summary": "Get connector health log",
     "description": "Returns paged connector health log entries for a connector. Supports filtering by date range, statuses, and host id.",
@@ -208,31 +235,5 @@
       "page": "0-based page number. Defaults to 0.",
       "take": "Page size. Defaults to 20."
     }
-  },
-
-  "POST /api/v1/dataverse_export_target/{streamId}/update_codes": {
-    "summary": "Dataverse: update entity codes",
-    "description": "Dataverse-export-target webhook endpoint that updates entity codes on the stream. Used by the Dataverse connector to push reciprocal updates back into CluedIn.",
-    "parameters": { "streamId": "Stream identifier." }
-  },
-  "POST /api/v1/dataverse_export_target/{streamId}/update_edge": {
-    "summary": "Dataverse: update entity edges",
-    "description": "Dataverse-export-target webhook endpoint that updates entity edges on the stream.",
-    "parameters": { "streamId": "Stream identifier." }
-  },
-  "POST /api/v1/dataverse_export_target/{streamId}/update_edge_property": {
-    "summary": "Dataverse: update edge property",
-    "description": "Dataverse-export-target webhook endpoint that updates properties on an existing entity edge.",
-    "parameters": { "streamId": "Stream identifier." }
-  },
-  "POST /api/v1/dataverse_export_target/{streamId}/update_entity": {
-    "summary": "Dataverse: update entity",
-    "description": "Dataverse-export-target webhook endpoint that updates entity properties for the supplied stream.",
-    "parameters": { "streamId": "Stream identifier." }
-  },
-
-  "GET /api/migration/export/export": {
-    "summary": "Export tenant migration archive",
-    "description": "Exports a zip archive of the tenant's used vocabularies and dependent configuration, suitable for migration to another environment. Returns 403 unless the caller holds the Administration.Tenant RACI claim at Accountable level or higher, and 500 when `FrontEndGQLEndpoint` is not configured."
   }
 }

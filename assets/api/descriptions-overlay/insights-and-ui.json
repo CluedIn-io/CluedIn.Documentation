@@ -1,6 +1,5 @@
 {
   "_about": "Insights & UI category (Insight, GenericWidget, WidgetQuery, PageTemplate, PageTemplateEntities, LayoutTemplate, TagMetadata, Activities, Notification, NotificationV2, Profile, Person, Project, Results). Many endpoints exist to power the CluedIn UI surfaces (dashboards, widgets, notifications). The deduplication `Project` and `Results` endpoints provide the project workflow for the deduplication UI.",
-
   "GET /api/v1/activities": {
     "summary": "List activity feed",
     "description": "Returns the organisation's activity feed (recent platform activity). Paged via standard query parameters."
@@ -9,106 +8,6 @@
     "summary": "List activity feed (v2)",
     "description": "Version 2 of the activity feed endpoint with refined response shape."
   },
-
-  "GET /api/v1/generic/latest": {
-    "summary": "Widget: latest items",
-    "description": "Returns the most-recent items across the organisation for the dashboard \"Latest\" widget."
-  },
-  "GET /api/v1/generic/latestactivity": {
-    "summary": "Widget: latest activity",
-    "description": "Returns the latest activity entries for the dashboard activity widget."
-  },
-  "GET /api/v1/generic/latestdeals": {
-    "summary": "Widget: latest deals",
-    "description": "Returns the most recent deal entities for the dashboard deals widget."
-  },
-  "GET /api/v1/generic/latestdocuments": {
-    "summary": "Widget: latest documents",
-    "description": "Returns the most recent document entities for the dashboard documents widget."
-  },
-  "GET /api/v1/generic/latestissues": {
-    "summary": "Widget: latest issues",
-    "description": "Returns the most recent issue entities for the dashboard issues widget."
-  },
-  "GET /api/v1/generic/latestorganizations": {
-    "summary": "Widget: latest organizations",
-    "description": "Returns the most recent organisation entities for the dashboard organisations widget."
-  },
-  "GET /api/v1/generic/latesttasks": {
-    "summary": "Widget: latest tasks",
-    "description": "Returns the most recent task entities for the dashboard tasks widget."
-  },
-  "GET /api/v1/generic/yourtools": {
-    "summary": "Widget: your tools",
-    "description": "Returns the tools/integrations available to the current user for the dashboard \"Your Tools\" widget."
-  },
-
-  "GET /api/v1/widget/latest": {
-    "summary": "Widget query: latest items",
-    "description": "Returns the most-recent items used by the configurable widget query infrastructure."
-  },
-  "GET /api/v1/widget/upcoming": {
-    "summary": "Widget query: upcoming items",
-    "description": "Returns upcoming items (calendar/agenda style) for widgets."
-  },
-  "GET /api/v1/widget/upcoming/entity": {
-    "summary": "Widget query: upcoming items for entity",
-    "description": "Returns upcoming items related to a specific entity, for entity-detail widgets."
-  },
-  "GET /api/v1/widget/your": {
-    "summary": "Widget query: your items",
-    "description": "Returns items owned or assigned to the caller for the \"Your\" widget."
-  },
-
-  "GET /api/v1/insight": {
-    "summary": "List insight follows for caller",
-    "description": "Returns the insight subscriptions for the calling user."
-  },
-  "POST /api/v1/insight": {
-    "summary": "Follow insight",
-    "description": "Creates an insight subscription so the caller is notified about updates to the supplied target."
-  },
-  "DELETE /api/v1/insight": {
-    "summary": "Unfollow insight",
-    "description": "Removes an insight subscription."
-  },
-  "GET /api/v1/insight/all": {
-    "summary": "List all insights",
-    "description": "Returns every insight known to the organisation (typically with paging)."
-  },
-  "GET /api/v1/insight/count": {
-    "summary": "Get insight count",
-    "description": "Returns the count of unread/total insights for the caller."
-  },
-  "PUT /api/v1/insight/count": {
-    "summary": "Clear insight count",
-    "description": "Resets the caller's insight counter (typically called after the user opens the insights pane)."
-  },
-  "PUT /api/v1/insight/clear": {
-    "summary": "Clear insights",
-    "description": "Clears the caller's insight queue."
-  },
-  "GET /api/v1/insight/followers": {
-    "summary": "List followers",
-    "description": "Returns users following the supplied target."
-  },
-  "GET /api/v1/insight/followers/details": {
-    "summary": "List followers (with details)",
-    "description": "Returns followers of the supplied target along with profile details."
-  },
-  "GET /api/v1/insight/following": {
-    "summary": "List things caller follows",
-    "description": "Returns the targets the calling user follows."
-  },
-  "GET /api/v1/insight/following/details": {
-    "summary": "List things caller follows (with details)",
-    "description": "Returns the targets the calling user follows along with target details."
-  },
-  "GET /api/v1/insight/trending": {
-    "summary": "List trending insights",
-    "description": "Returns trending insight targets across the organisation."
-  },
-
   "GET /api/v1/notification/all": {
     "summary": "List notifications",
     "description": "Returns the calling user's notifications."
@@ -137,12 +36,6 @@
     "summary": "Clear provider notification count",
     "description": "Resets the provider notification counter for the caller."
   },
-
-  "POST /api/v2/notification": {
-    "summary": "Create notification (v2)",
-    "description": "Creates a notification via the v2 notification API."
-  },
-
   "GET /api/v1/profile": {
     "summary": "Get user profile",
     "description": "Returns the calling user's profile (display name, picture, settings)."
@@ -151,62 +44,31 @@
     "summary": "Update user profile",
     "description": "Updates the calling user's profile."
   },
-
   "GET /api/person/byentitycode/{personreferencecode}": {
     "summary": "Get person by entity code",
     "description": "Returns the Person entity matching the supplied reference code (typically a `CluedIn(userId)` style code).",
-    "parameters": { "personreferencecode": "Person entity code." }
+    "parameters": {
+      "personreferencecode": "Person entity code."
+    }
   },
-
-  "GET /api/pagetemplate": {
-    "summary": "List page templates",
-    "description": "Returns the page templates configured for the organisation. Page templates control how entity-detail pages are laid out."
-  },
-  "POST /api/pagetemplate": {
-    "summary": "Create page template",
-    "description": "Creates a new page template."
-  },
-  "GET /api/pagetemplate/{id}": {
-    "summary": "Get page template",
-    "description": "Returns a page template by id.",
-    "parameters": { "id": "Page template identifier." }
-  },
-  "PUT /api/pagetemplate/{id}": {
-    "summary": "Update page template",
-    "description": "Updates a page template.",
-    "parameters": { "id": "Page template identifier." }
-  },
-  "GET /api/pagetemplateentities/{id}": {
-    "summary": "Get entities linked to page template",
-    "description": "Returns the entities that use the supplied page template.",
-    "parameters": { "id": "Page template identifier." }
-  },
-  "PUT /api/pagetemplateentities/{id}": {
-    "summary": "Update entities linked to page template",
-    "description": "Updates the set of entities (or entity types) that use the supplied page template.",
-    "parameters": { "id": "Page template identifier." }
-  },
-
-  "GET /api/layouttemplate": {
-    "summary": "List layout templates",
-    "description": "Returns the layout templates available to the organisation. Layout templates power widget-grid arrangement on dashboards and entity pages."
-  },
-
   "GET /api/tag/metadata/{tagName}": {
     "summary": "Get tag metadata",
     "description": "Returns metadata for the supplied tag (description, owner, folder, etc.).",
-    "parameters": { "tagName": "Tag name." }
+    "parameters": {
+      "tagName": "Tag name."
+    }
   },
   "POST /api/tag/metadata/{tagName}/update": {
     "summary": "Update tag metadata",
     "description": "Updates metadata for the supplied tag.",
-    "parameters": { "tagName": "Tag name." }
+    "parameters": {
+      "tagName": "Tag name."
+    }
   },
   "POST /api/tag/metadata/folder/rename": {
     "summary": "Rename tag folder",
     "description": "Renames a tag folder. All tags inside the folder remain in place but the folder name changes."
   },
-
   "GET /api/deduplication/projects": {
     "summary": "List deduplication projects",
     "description": "Returns paged deduplication projects with optional filters."
@@ -218,43 +80,58 @@
   "GET /api/deduplication/projects/{projectId}": {
     "summary": "Get deduplication project",
     "description": "Returns a deduplication project by id. Returns 404 if it cannot be found.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "PUT /api/deduplication/projects/{projectId}": {
     "summary": "Update deduplication project",
     "description": "Updates a deduplication project. Returns 400 when the project is in a state that does not allow updates, 404 when it cannot be found.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "DELETE /api/deduplication/projects/{projectId}": {
     "summary": "Delete deduplication project",
     "description": "Deletes a deduplication project. Returns 400 when the project is in a state that does not allow deletion.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "GET /api/deduplication/projects/{projectId}/mergedentities": {
     "summary": "List merged entities",
     "description": "Returns the entities the project has merged.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "POST /api/deduplication/projects/{projectId}/mergedentities/undomerge": {
     "summary": "Undo merge",
     "description": "Undoes a previously committed merge from this project.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "POST /api/deduplication/projects/{projectId}/mergedentities/undomerge/withoptions": {
     "summary": "Undo merge (with options)",
     "description": "Undoes a merge with extra options controlling how downstream effects are reverted.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
-
   "POST /api/deduplication/projects/{projectId}/results/generate": {
     "summary": "Generate deduplication results",
     "description": "Triggers result generation for the deduplication project (running rules to find candidate groups).",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "GET /api/deduplication/projects/{projectId}/results": {
     "summary": "List deduplication result groups",
     "description": "Returns paged candidate-duplicate groups produced by the project.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "GET /api/deduplication/projects/{projectId}/results/{groupId}": {
     "summary": "Get deduplication group",
@@ -324,91 +201,127 @@
   "POST /api/deduplication/projects/{projectId}/results/approve": {
     "summary": "Approve selected groups",
     "description": "Approves a set of selected groups.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "POST /api/deduplication/projects/{projectId}/results/approve/all": {
     "summary": "Approve all groups",
     "description": "Approves every group in the project.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "POST /api/deduplication/projects/{projectId}/results/removeapproval": {
     "summary": "Remove approval from selected groups",
     "description": "Removes approval from a set of selected groups.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "POST /api/deduplication/projects/{projectId}/results/removeapproval/all": {
     "summary": "Remove approval from all groups",
     "description": "Removes approval from every group in the project.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "POST /api/deduplication/projects/{projectId}/results/groups/reject": {
     "summary": "Reject groups",
     "description": "Rejects a set of selected groups.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "POST /api/deduplication/projects/{projectId}/results/merge": {
     "summary": "Merge selected groups",
     "description": "Merges the supplied set of groups.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "POST /api/deduplication/projects/{projectId}/results/merge/all": {
     "summary": "Merge all approved groups",
     "description": "Commits the merges for every approved group in the project.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "POST /api/deduplication/projects/{projectId}/results/cancel": {
     "summary": "Cancel results generation",
     "description": "Cancels an in-progress results generation.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "POST /api/deduplication/projects/{projectId}/results/cancelmerge": {
     "summary": "Cancel merge",
     "description": "Cancels an in-progress merge operation.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "POST /api/deduplication/projects/{projectId}/results/abort": {
     "summary": "Abort results",
     "description": "Aborts the results-generation pipeline for the project.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "POST /api/deduplication/projects/{projectId}/results/abortundo": {
     "summary": "Abort undo",
     "description": "Aborts an in-progress undo operation.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "POST /api/deduplication/projects/{projectId}/results/undo": {
     "summary": "Undo merges",
     "description": "Undoes merges performed by the project.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "GET /api/deduplication/projects/{projectId}/results/undostatus": {
     "summary": "Get undo status",
     "description": "Returns the status of an in-progress undo.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "GET /api/deduplication/projects/{projectId}/results/status": {
     "summary": "Get results status",
     "description": "Returns the current status of the project's results pipeline (generating, committing, idle, etc.).",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "GET /api/deduplication/projects/{projectId}/results/committingstatus": {
     "summary": "Get committing status",
     "description": "Returns the status of the current commit (merge) step.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "GET /api/deduplication/projects/{projectId}/results/groupstatuses": {
     "summary": "Get group statuses",
     "description": "Returns the per-group status (approved, rejected, merged, etc.) for project review.",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "GET /api/deduplication/projects/{projectId}/results/groupstatuses/countonly": {
     "summary": "Get group status counts",
     "description": "Returns just the counts of groups in each status (lightweight version of `groupstatuses`).",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   },
   "GET /api/deduplication/projects/{projectId}/results/histogram": {
     "summary": "Get results histogram",
     "description": "Returns a histogram of the project's result groups (typically group size distribution).",
-    "parameters": { "projectId": "Deduplication project identifier." }
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
   }
 }
