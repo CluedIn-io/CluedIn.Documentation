@@ -6,7 +6,7 @@ grand_parent: Microsoft Integration
 permalink: /microsoft-integration/power-automate/pre-configuration-guide
 title: Power Automate pre-configuration guide
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
-last_modified: 2025-03-13
+last_modified: 2026-06-11
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -147,6 +147,24 @@ Note that when you register a new application in Microsoft Entra ID, a service p
         - Flows.Read.All – Delegated
 
     ![new-app-api-permissions.png]({{ "/assets/images/microsoft-integration/power-automate/new-app-api-permissions.png" | relative_url }})
+
+### Troubleshooting admin consent errors
+
+If you receive the following error before continuing, check the API permissions for the Microsoft Entra app registration again:
+
+`AADSTS65001: The user or administrator has not consented to use the application ... Send an interactive authorization request for this user and resource.`
+
+![power-automate-admin-consent-error.png]({{ "/assets/images/microsoft-integration/power-automate/power-automate-admin-consent-error.png" | relative_url }})
+
+The service application is not granted enough API permissions.
+
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), go to **App registrations**, open your application, and then select **Manage** > **API permissions**.
+
+1. Make sure the permissions listed in this guide have been added.
+
+1. Verify that consent has been granted where required. The permissions should show the green check mark that confirms consent is in place.
+
+If the issue persists, send a screenshot of the **API permissions** page showing the granted consent status to CluedIn support.
 
 ## Next steps
 
