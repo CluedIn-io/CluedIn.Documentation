@@ -1,0 +1,168 @@
+{
+  "_about": "Entities — medium-size controllers (EntityModification, EntityDataDeletion).",
+
+  "POST /api/v1/entityModification/ModifyMultipleOutgoingEntityEdgeByEntityIds": {
+    "summary": "Modify entity edges in bulk",
+    "description": "Creates, modifies, and deletes outgoing entity edges from a single payload, dispatching the modifications as one background job. Returns 400 when all three edge collections (create, modify, delete) are empty. Requires the Administration.Data RACI claim. Returns the distributed job handle on success."
+  },
+  "POST /api/v1/entityModification/ModifyEntityEdgePreviewImage": {
+    "summary": "Modify entity preview image",
+    "description": "Uploads a new preview image (binary body) for an entity. Returns 400 when the request body exceeds the configured upload limit (default in MB) or is not a valid image, 404 if the entity does not exist. If the change is intercepted by an approval workflow, returns 202 Accepted with the `X-CluedIn-SentForPowerAutomateApproval: true` header; otherwise returns 200 with the executing job handle. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "entityId": "Entity identifier."
+    }
+  },
+  "POST /api/v1/entityModification/ModifyEntityPropertiesByEntityId": {
+    "summary": "Modify entity properties",
+    "description": "Applies a property modification (set/clear properties, add/remove aliases, tags, external references, set name/description/displayName/type/URI) to a single entity. Returns 400 when the entity id is empty, the model fails to bind, or the URI is malformed; 403 when the caller lacks the metadata-level Administration.Data claim required for metadata fields (name, description, aliases, tags, etc.); 404 if the entity does not exist. When the modification is intercepted by the approval pipeline, returns 202 Accepted with `X-CluedIn-SentForPowerAutomateApproval: true`; otherwise returns 200 with the executing job handle.",
+    "parameters": {
+      "entityId": "Entity identifier."
+    }
+  },
+  "POST /api/v1/entityModification/ModifyEntityPropertiesByEntityIds": {
+    "summary": "Modify entity properties (bulk)",
+    "description": "Applies property modifications to many entities in a single request, dispatching one batch of commands. Same validation rules as the single-entity variant: 400 for invalid URIs, 403 when the caller lacks the metadata-level Administration.Data claim for metadata fields, 404 when any referenced entity is missing. When any command is intercepted by the approval pipeline, the whole batch returns 202 Accepted with `X-CluedIn-SentForPowerAutomateApproval: true`."
+  },
+
+  "POST /api/v1/entityDataDeletion/deleteByProviderDefinitionId": {
+    "summary": "Delete entity data by provider definition",
+    "description": "Starts a distributed job that deletes all entity data ingested through the given provider definition. Returns the job id on success and 400 if the provider definition id is empty or the criteria is invalid. The action is recorded in the audit log. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "providerDefinitionId": "Provider definition identifier.",
+      "considerManualUserInputInsignificant": "When true, manual user input on affected entities is treated as insignificant and does not block deletion."
+    }
+  },
+  "POST /api/v1/entityDataDeletion/deleteByIngestionSourceId": {
+    "summary": "Delete entity data by ingestion source",
+    "description": "Starts a distributed job that deletes entity data ingested through a specific ingestion source on a provider definition. Returns the job id on success and 400 if either id is empty or the criteria is invalid. Audit-logged. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "providerDefinitionId": "Provider definition identifier.",
+      "ingestionSourceId": "Ingestion source identifier.",
+      "considerManualUserInputInsignificant": "When true, manual user input on affected entities is treated as insignificant and does not block deletion."
+    }
+  },
+  "POST /api/v1/entityDataDeletion/deleteByIngestionCorrelationId": {
+    "summary": "Delete entity data by ingestion correlation id",
+    "description": "Starts a distributed job that deletes entity data ingested with a specific correlation id (typically a single ingestion run) on a provider definition, optionally narrowed by ingestion source. Returns 400 when required ids are empty. Audit-logged. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "providerDefinitionId": "Provider definition identifier.",
+      "ingestionCorrelationId": "Ingestion correlation identifier.",
+      "ingestionSourceId": "Optional ingestion source identifier.",
+      "considerManualUserInputInsignificant": "When true, manual user input on affected entities is treated as insignificant and does not block deletion."
+    }
+  },
+  "POST /api/v1/entityDataDeletion/cancelDeletionByProviderDefinitionId": {
+    "summary": "Cancel ongoing deletion (provider definition)",
+    "description": "Attempts to cancel an in-progress data deletion job for the given provider definition. Returns `{ Sucessful: true|false }` depending on whether a running job was found and cancellation was issued. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "providerDefinitionId": "Provider definition identifier."
+    }
+  },
+  "POST /api/v1/entityDataDeletion/cancelDeletionByIngestionSourceId": {
+    "summary": "Cancel ongoing deletion (ingestion source)",
+    "description": "Attempts to cancel an in-progress data deletion job for the given ingestion source on a provider definition. Returns `{ Sucessful: true|false }`. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "providerDefinitionId": "Provider definition identifier.",
+      "ingestionSourceId": "Ingestion source identifier."
+    }
+  },
+  "POST /api/v1/entityDataDeletion/cancelDeletionByIngestionCorrelationId": {
+    "summary": "Cancel ongoing deletion (ingestion correlation)",
+    "description": "Attempts to cancel an in-progress data deletion job for the given ingestion correlation id, optionally narrowed by ingestion source. Returns `{ Sucessful: true|false }`. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "providerDefinitionId": "Provider definition identifier.",
+      "ingestionCorrelationId": "Ingestion correlation identifier.",
+      "ingestionSourceId": "Optional ingestion source identifier."
+    }
+  },
+  "GET /api/v1/entityDataDeletion/getDeleteByProviderDefinitionIdProgress": {
+    "summary": "Get deletion progress (provider definition)",
+    "description": "Returns the current progress and status of the deletion job for the given provider definition.",
+    "parameters": {
+      "providerDefinitionId": "Provider definition identifier."
+    }
+  },
+  "GET /api/v1/entityDataDeletion/getDeleteByIngestionSourceIdProgress": {
+    "summary": "Get deletion progress (ingestion source)",
+    "description": "Returns the current progress and status of the deletion job for the given ingestion source on a provider definition.",
+    "parameters": {
+      "providerDefinitionId": "Provider definition identifier.",
+      "ingestionSourceId": "Ingestion source identifier."
+    }
+  },
+  "GET /api/v1/entityDataDeletion/getDeleteByIngestionCorrelationIdProgress": {
+    "summary": "Get deletion progress (ingestion correlation)",
+    "description": "Returns the current progress and status of the deletion job for the given ingestion correlation id, optionally narrowed by ingestion source.",
+    "parameters": {
+      "providerDefinitionId": "Provider definition identifier.",
+      "ingestionCorrelationId": "Ingestion correlation identifier.",
+      "ingestionSourceId": "Optional ingestion source identifier."
+    }
+  },
+  "GET /api/v1/entityDataDeletion/getDeleteByProviderDefinitionIdProgressBatch": {
+    "summary": "Get deletion progress for multiple providers",
+    "description": "Returns the current progress and status of deletion jobs for many provider definitions in one call, keyed by provider definition id. Returns 400 if the supplied criteria is invalid.",
+    "parameters": {
+      "providerDefinitionIds": "List of provider definition identifiers."
+    }
+  },
+  "DELETE /api/v1/entityDataDeletion/deleteEntityById": {
+    "summary": "Delete a single entity",
+    "description": "Deletes a single entity by id by dispatching a delete-by-user-action command. Caller must be an administrator, hold Administration.Data RACI at Consultant level or above, or hold Integrations.ManualDataEntryInput at Consultant level or above. Returns 403 when the caller lacks the required claims, 404 when the entity does not exist, and 400 when the entity cannot be deleted (organisation root entity, the caller themselves, an organisation user entity, or partial access). Returns 202 Accepted when the delete command has been queued.",
+    "parameters": {
+      "entityId": "Entity identifier."
+    }
+  },
+  "DELETE /api/v1/entityDataDeletion/deleteEntitiesByIds": {
+    "summary": "Delete entities in bulk",
+    "description": "Deletes a list of entities, dispatching one delete command per entity. Same claim requirements and per-entity safety checks as the single-entity variant (cannot delete the organisation root, the caller themselves, or organisation user entities). Returns 403 / 404 / 400 with details if any item fails validation; on success returns 202 Accepted after all commands have been queued."
+  },
+  "GET /api/v1/entityDataDeletion/DeleteDataPartsJobComplete": {
+    "summary": "Check whether a data-part deletion job is complete",
+    "description": "Returns true when the supplied distributed job is not in progress or stopping (i.e. it has finished, failed, or been cancelled). Returns 404 if the job id cannot be resolved.",
+    "parameters": {
+      "jobId": "Distributed job identifier."
+    }
+  },
+  "GET /api/v1/entityDataDeletion/canDeleteEntity": {
+    "summary": "Check whether an entity can be deleted",
+    "description": "Returns whether the caller can delete the supplied entity along with the reason if they cannot. Reasons include the entity being the organisation root, the caller themselves, an organisation user record, missing RACI claims, or insufficient access-control coverage. Returns 404 if the entity does not exist.",
+    "parameters": {
+      "entityId": "Entity identifier."
+    }
+  },
+  "POST /api/v1/entityDataDeletion/canDeleteEntities": {
+    "summary": "Check whether entities can be deleted",
+    "description": "Returns the per-entity can-delete decision for a list of entity ids. Each entry follows the same rules as the single-entity check. Returns 404 with the offending id if any entity does not exist."
+  },
+  "DELETE /api/v1/entityDataDeletion/DeleteDataPart": {
+    "summary": "Delete a single entity data part",
+    "description": "Deletes one data part from an entity. Returns 404 if the entity or the data part cannot be found, and 400 if the data part cannot be deleted (for example because it is the entity's only contributing data). Returns 202 Accepted with a job handle when the action has been queued. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "entityId": "Entity identifier.",
+      "dataPartId": "Data part identifier."
+    }
+  },
+  "DELETE /api/v1/entityDataDeletion/DeleteDataParts": {
+    "summary": "Delete entity data parts (bulk)",
+    "description": "Deletes multiple data parts on a single entity in one call. Returns 404 if the entity or any data part cannot be found and 400 listing the ids of data parts that cannot be deleted. Returns 202 Accepted with a job handle on success. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "entityId": "Entity identifier."
+    }
+  },
+  "GET /api/v1/entityDataDeletion/CanDeleteDataPart": {
+    "summary": "Check whether a data part can be deleted",
+    "description": "Returns whether a specific data part can be removed from an entity and the reason if it cannot. Returns 404 if the entity or data part does not exist. Requires the Administration.Data RACI claim.",
+    "parameters": {
+      "entityId": "Entity identifier.",
+      "dataPartId": "Data part identifier."
+    }
+  },
+  "POST /api/v1/entityDataDeletion/CanDeleteDataParts": {
+    "summary": "Check whether data parts can be deleted (bulk)",
+    "description": "Returns the per-data-part can-delete decision for a list of data part ids on an entity. If the body is empty, every data part on the entity is checked. Returns 404 if the entity or any data part cannot be found. Requires the Administration.Data RACI claim at View level or above.",
+    "parameters": {
+      "entityId": "Entity identifier."
+    }
+  }
+}

@@ -32,6 +32,16 @@ bundle exec jekyll serve --host 0.0.0.0 --livereload --watch --incremental --des
 make serve
 ```
 
+### Via standalone Docker
+
+If you don't want to use the Dev Containers workflow, the included PowerShell script runs the same Jekyll server in a `ruby:3.3-bookworm` container without VS Code:
+
+```powershell
+pwsh ./run-jekyll-docker.ps1
+```
+
+The first run takes ~5–8 minutes (apt + `bundle install` inside the container); subsequent starts are much faster. The container is named `cluedin-docs`; stop it with `docker stop cluedin-docs`. The script passes `--force_polling` to Jekyll so livereload detects edits through the Windows Docker bind mount.
+
 ## Building the site
 
 To do a one-off build without starting the server:
@@ -48,6 +58,49 @@ The output is written to `_site/` by default (or `/tmp/_site` when using the VS 
 bundle install      # install gems from Gemfile.lock
 bundle update       # update gems to latest allowed versions
 ```
+
+## Diagrams (Mermaid)
+
+Mermaid diagrams are supported natively by the just-the-docs theme — no extra
+plugin is required. Add a fenced code block with the `mermaid` language to any
+page:
+
+````markdown
+```mermaid
+graph TD;
+  A[Client] -->|token| B(Auth /auth);
+  A -->|bearer| C(API /api);
+```
+````
+
+The library is loaded client-side from jsDelivr; the version is pinned by the
+`mermaid:` key in `_config.yml`, and rendering options live in
+`_includes/mermaid_config.js`. Because `_config.yml` is not hot-reloaded,
+restart the server after changing the Mermaid settings.
+
+## REST API reference
+
+The REST API documentation under `docs/250-rest-api/` renders a categorized reference from a bundled OpenAPI specification. The structure is:
+
+- **Source spec:** `assets/api/swagger.json` — point-in-time export of the live API's OpenAPI 3.0 spec.
+- **Hand-written descriptions:** `assets/api/descriptions-overlay/<category>.json` — summary, description, and parameter notes per route. Merged onto the spec at split time so the original `swagger.json` stays untouched.
+- **Per-category sub-specs:** `assets/api/categories/<category>.json` — derived artifacts served to the Swagger UI viewer. One file per category (System & health, Entities, etc.) keeps each page fast.
+- **Splitter:** `_tools/split-spec.js` — regenerates the sub-specs from `swagger.json` + overlays.
+- **Viewer:** `assets/api/viewer.html` — renders a sub-spec with Swagger UI. A connection bar at the top requests a bearer token via the resource-owner password grant (`POST <base>/auth/connect/token`, `client_id` = org name) and attaches it to every "Try it out" request, rewriting each request's origin to the connected environment. The base URL and token live in `sessionStorage` so they are shared across category iframes/tabs. Calls are subject to the target environment's CORS policy.
+
+### Refreshing the reference
+
+After updating `swagger.json` (download a fresh copy from `https://<organization>.<domain>/api/swagger/v1/swagger.json`) or any overlay file, regenerate the per-category sub-specs and commit them:
+
+```bash
+# inside the docker container (if running):
+docker exec cluedin-docs node /srv/jekyll/_tools/split-spec.js
+
+# or natively, from the repo root:
+node _tools/split-spec.js
+```
+
+The splitter rewrites every file under `assets/api/categories/`. The reference picks up the new specs on the next site build.
 
 ## Build performance
 

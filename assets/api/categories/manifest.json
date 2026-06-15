@@ -1,0 +1,167 @@
+[
+  {
+    "slug": "access-control-and-governance",
+    "title": "Access control & governance",
+    "description": "Access control policies, audit logs, entity ownership, and tag metadata.",
+    "tags": [
+      "AccessControlPolicies",
+      "AuditLog",
+      "Ownership",
+      "TagMetadata"
+    ],
+    "operationCount": 33,
+    "schemaCount": 13
+  },
+  {
+    "slug": "entities",
+    "title": "Entities",
+    "description": "Read, create, modify, merge, and inspect golden records and their metadata.",
+    "tags": [
+      "Entity",
+      "EntityDataDeletion",
+      "EntityHistory",
+      "EntityInfo",
+      "EntityModification",
+      "EntityOrigin",
+      "EntitySource",
+      "EntityTopology",
+      "EntityTypeInfo"
+    ],
+    "operationCount": 115,
+    "schemaCount": 12
+  },
+  {
+    "slug": "search",
+    "title": "Search",
+    "description": "Query the CluedIn graph and manage saved searches.",
+    "tags": [
+      "Search",
+      "SavedSearch"
+    ],
+    "operationCount": 49,
+    "schemaCount": 2
+  },
+  {
+    "slug": "vocabularies",
+    "title": "Vocabularies",
+    "description": "Manage vocabularies and vocabulary keys.",
+    "tags": [
+      "Vocabulary",
+      "VocabularyUsage"
+    ],
+    "operationCount": 110,
+    "schemaCount": 14
+  },
+  {
+    "slug": "glossary",
+    "title": "Glossary",
+    "description": "Manage glossary categories and terms, and search the glossary.",
+    "tags": [
+      "Glossary",
+      "GlossarySearch"
+    ],
+    "operationCount": 57,
+    "schemaCount": 18
+  },
+  {
+    "slug": "hierarchies",
+    "title": "Hierarchies",
+    "description": "Build and manage hierarchies and the global data model.",
+    "tags": [
+      "Hierarchies",
+      "GlobalDataModel"
+    ],
+    "operationCount": 30,
+    "schemaCount": 21
+  },
+  {
+    "slug": "deduplication",
+    "title": "Deduplication",
+    "description": "Find, review, and resolve duplicate records: deduplication projects, automation, match results, and entity split.",
+    "tags": [
+      "Project",
+      "Automate",
+      "Results",
+      "DuplicateEntities",
+      "SplitEntity"
+    ],
+    "operationCount": 61,
+    "schemaCount": 20
+  },
+  {
+    "slug": "rules-and-evaluation",
+    "title": "Rules & evaluation",
+    "description": "Manage data, survivorship, and golden record rules; preview rule output and inspect evaluation logs.",
+    "tags": [
+      "Rules",
+      "RuleDataPreview",
+      "RuleErrorLog",
+      "ExplainLog"
+    ],
+    "operationCount": 66,
+    "schemaCount": 243
+  },
+  {
+    "slug": "streams-and-export",
+    "title": "Streams, connectors & export",
+    "description": "Configure, operate, and monitor export streams and the connectors they use.",
+    "tags": [
+      "Streams",
+      "StreamIngestionLog",
+      "StreamLog",
+      "StreamMappings",
+      "StreamsVocabularyKeyUsage",
+      "Connector",
+      "ConnectorHealth"
+    ],
+    "operationCount": 62,
+    "schemaCount": 25
+  },
+  {
+    "slug": "data-preparation-and-enrichment",
+    "title": "Data preparation & enrichment",
+    "description": "Clean and enrich records using built-in cleaning and enricher providers.",
+    "tags": [
+      "Clean",
+      "Enricher"
+    ],
+    "operationCount": 40,
+    "schemaCount": 10
+  },
+  {
+    "slug": "ai",
+    "title": "AI",
+    "description": "AI agents, jobs, skills, and Copilot.",
+    "tags": [
+      "AIAgent",
+      "AiJob",
+      "AiJobSkill",
+      "Copilot"
+    ],
+    "operationCount": 59,
+    "schemaCount": 41
+  },
+  {
+    "slug": "administration-and-configuration",
+    "title": "Administration & configuration",
+    "description": "Settings, logs, and metered billing.",
+    "tags": [
+      "Setting",
+      "Log",
+      "MeteredBilling"
+    ],
+    "operationCount": 8,
+    "schemaCount": 1
+  },
+  {
+    "slug": "organization",
+    "title": "Organization",
+    "description": "Organization profile and usage statistics.",
+    "tags": [
+      "Organization",
+      "OrganizationProfile"
+    ],
+    "operationCount": 31,
+    "schemaCount": 7
+  }
+]

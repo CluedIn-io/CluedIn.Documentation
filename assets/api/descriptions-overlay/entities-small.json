@@ -1,0 +1,253 @@
+{
+  "_about": "Entities — small/medium controllers (EntityActions, EntitySource, EntityTopology, SplitEntity, EntityTypeInfo, EntityOrigin, EntityHistory, IdentityCounter, EntityInfo, DuplicateEntities). Entity and EntityDataDeletion live in separate overlay files. AdminEntity lives in its own overlay file.",
+  "GET /api/entitysource/{id}": {
+    "summary": "Get entity sources",
+    "description": "Returns the source providers that contributed data to the entity with the supplied id. Returns 400 if the id is not a valid GUID, 404 if the entity cannot be found, and 403 if the caller lacks access to the entity's providers.",
+    "parameters": {
+      "id": "Entity identifier (GUID)."
+    }
+  },
+  "GET /api/entitytopology/{id}": {
+    "summary": "Get entity topology graph",
+    "description": "Returns the relationship-topology graph for an entity. Use the query flags to filter the graph — for example, dropping connecting nodes that have only one connection, resolving fuzzy-match relationships, or hiding nodes for missing data parts. Returns 404 if the entity cannot be found.",
+    "parameters": {
+      "id": "Entity identifier.",
+      "filterConnectingNodesWithOnlyOneConnection": "Drop intermediate connecting nodes that have only one connection. Defaults to true.",
+      "resolveFuzzyMatchRelationships": "Include fuzzy-match relationships resolved by the topology service. Defaults to false.",
+      "filterOutMissingDataPartNodes": "Hide graph nodes that correspond to missing data parts. Defaults to true."
+    }
+  },
+  "GET /api/splitentity/datapart/{entityId}/{dataPartId}": {
+    "summary": "Get data part node info",
+    "description": "Returns topology-graph information for a specific data part on an entity. Used by the split-entity UI to render the source data attached to a node before split.",
+    "parameters": {
+      "entityId": "Entity identifier.",
+      "dataPartId": "Data part identifier."
+    }
+  },
+  "GET /api/splitentity/entitycode/{entityId}/{code}": {
+    "summary": "Get entity-code node info",
+    "description": "Returns graph node information for an entity code on an entity. The code segment is URL-decoded before lookup. Returns 400 if the code is malformed.",
+    "parameters": {
+      "entityId": "Entity identifier.",
+      "code": "Entity code, URL-encoded."
+    }
+  },
+  "GET /api/splitentity/deduplication/{entityId}/{mergeDataPartId}": {
+    "summary": "Get deduplication merge node info",
+    "description": "Returns graph node information for a merge that originated from a deduplication project for the given entity and merge data part.",
+    "parameters": {
+      "entityId": "Entity identifier.",
+      "mergeDataPartId": "Merge data part identifier."
+    }
+  },
+  "GET /api/splitentity/manualmerge/{entityId}/{mergeDataPartId}": {
+    "summary": "Get manual merge node info",
+    "description": "Returns graph node information for a manual merge on the given entity and merge data part.",
+    "parameters": {
+      "entityId": "Entity identifier.",
+      "mergeDataPartId": "Merge data part identifier."
+    }
+  },
+  "POST /api/splitentity/preview/{entityId}": {
+    "summary": "Preview entity split",
+    "description": "Returns a preview of the split that would result from applying the supplied split action to an entity, without performing the split. Returns 400 if the action descriptor is malformed and 404 if the entity does not exist.",
+    "parameters": {
+      "entityId": "Entity identifier."
+    }
+  },
+  "POST /api/splitentity/execute/{entityId}": {
+    "summary": "Execute entity split",
+    "description": "Starts a distributed job that splits an entity according to the supplied action. Returns the job handle so callers can poll progress. Returns 400 for invalid actions and 404 if the entity does not exist.",
+    "parameters": {
+      "entityId": "Entity identifier."
+    }
+  },
+  "GET /api/entitytypeinfo": {
+    "summary": "Get entity type info",
+    "description": "Returns information for a single entity type, optionally filtered by free-text search, the type's usage state, whether to include the page template, and whether to include shadow entity types. Returns 404 if no matching entity type exists.",
+    "parameters": {
+      "type": "Entity type (technical name).",
+      "searchName": "Free-text search over display name.",
+      "filterIsUsed": "When set, restrict to entity types that are (or are not) in use.",
+      "includePageTemplate": "When true, include the entity type's page template in the result. Defaults to false.",
+      "includeShadowEntities": "When true, include shadow entity types. Defaults to false."
+    }
+  },
+  "GET /api/entitytypeinfo/paged": {
+    "summary": "List entity type info (paged)",
+    "description": "Returns a paged list of entity types matching the supplied search and source filters. Used by the UI selectors to browse available entity types.",
+    "parameters": {
+      "searchName": "Free-text search over display name.",
+      "filterIsUsed": "When set, restrict to entity types that are (or are not) in use.",
+      "take": "Page size. Defaults to 10.",
+      "page": "0-based page number. Defaults to 0.",
+      "filterSource": "Optional entity-type source filter.",
+      "includePageTemplate": "When true, include the entity type's page template. Defaults to false.",
+      "includeShadowEntities": "When true, include shadow entity types. Defaults to false."
+    }
+  },
+  "PUT /api/entitytypeinfo": {
+    "summary": "Update entity type",
+    "description": "Updates an existing entity type from the supplied model. When the model id is `Guid.Empty` the call is internally redirected to `POST /api/entitytypeinfo` (Elasticsearch-sourced models may not always include a GUID; see internal notes in the controller). Returns 404 if the entity type cannot be found."
+  },
+  "POST /api/entitytypeinfo": {
+    "summary": "Create entity type",
+    "description": "Creates a new entity type from the supplied model. Returns 409 Conflict when an entity type with the same technical name already exists. The action goes through the RACI approval pipeline for entity-type creation and publishes a remote `AddEntityType` event."
+  },
+  "GET /api/entitytypeinfo/exists": {
+    "summary": "Check whether an entity type exists",
+    "description": "Returns whether an entity type with the supplied technical name exists. Returns 400 when `entityType` is empty.",
+    "parameters": {
+      "entityType": "Entity type technical name to check."
+    }
+  },
+  "GET /api/entityorigin/{id}": {
+    "summary": "Get entity origins",
+    "description": "Returns the origins (the original source records) that contributed to the entity with the supplied id. Returns 400 if the id is not a valid GUID, 404 if the entity cannot be found, and 403 if the caller lacks access.",
+    "parameters": {
+      "id": "Entity identifier (GUID)."
+    }
+  },
+  "GET /api/entityhistory/{id}": {
+    "summary": "Get entity history",
+    "description": "Returns the serialised change history for the entity with the supplied id. Returns 400 if the id is not a valid GUID, 404 if the entity does not exist, and 403 if the caller lacks access.",
+    "parameters": {
+      "id": "Entity identifier (GUID)."
+    }
+  },
+  "GET /api/entityhistory/list/{id}": {
+    "summary": "List entity history entries",
+    "description": "Returns the filtered list of entity history entries. Supports filtering by source, origin, vocabulary keys, and date range, and can include the full detail per entry.",
+    "parameters": {
+      "id": "Entity identifier (GUID).",
+      "sourceName": "Optional source name filter.",
+      "origin": "Optional origin filter.",
+      "keys": "Optional list of vocabulary keys to include.",
+      "includeDetail": "When true, include the full per-entry detail.",
+      "dateFrom": "Optional lower bound on change timestamps.",
+      "dateTo": "Optional upper bound on change timestamps.",
+      "sortedDateFilter": "Optional date sort direction."
+    }
+  },
+  "GET /api/entityhistory/details/{id}/{partId}": {
+    "summary": "Get entity history details",
+    "description": "Returns the full detail of a single change (data part) in the entity's history, optionally restricted to a list of vocabulary keys.",
+    "parameters": {
+      "id": "Entity identifier (GUID).",
+      "partId": "Data part identifier.",
+      "keys": "Optional list of vocabulary keys to include."
+    }
+  },
+  "GET /api/entityhistory/{id}/changedkeys": {
+    "summary": "Get changed keys for entity history",
+    "description": "Returns the vocabulary keys that have changed across the entity's history. Useful as a quick summary before drilling into individual change details.",
+    "parameters": {
+      "id": "Entity identifier (GUID)."
+    }
+  },
+  "GET /api/v1/entityinfo/minimal": {
+    "summary": "Get minimal entity type information",
+    "description": "Returns a compact view of the entity types available to the organisation, suitable for selectors and other UI controls that do not need the full entity type record."
+  },
+  "GET /api/v1/entityinfo": {
+    "summary": "List entity types",
+    "description": "Returns the active entity types in the organisation, merged with the entity types discovered in actual data. Supports filtering by exact type, free-text search over display name, and a flag to only return entity types that have data.",
+    "parameters": {
+      "type": "Exact entity type to filter by.",
+      "searchName": "Free-text search over display name.",
+      "onlyFromData": "When true, return only entity types that have data. Defaults to false."
+    }
+  },
+  "PUT /api/v1/entityinfo": {
+    "summary": "Update entity type",
+    "description": "Updates an existing entity type record (active flag, display name, icon, color, layout configuration, route, type, organisation id). If the supplied model id is `Guid.Empty`, the call is internally redirected to `POST /api/v1/entityinfo`. Returns 404 if the entity type does not exist."
+  },
+  "POST /api/v1/entityinfo": {
+    "summary": "Create entity type",
+    "description": "Creates a new entity type record with the supplied active flag, display name, icon, color, layout configuration, route, and type. The action goes through the RACI approval pipeline for entity-type creation and publishes a remote `AddEntityType` event."
+  },
+  "GET /api/v1/entityinfo/paged": {
+    "summary": "List entity types (paged)",
+    "description": "Returns a paged list of entity types matching the search filter, in the legacy paged shape `{ data, total }`.",
+    "parameters": {
+      "searchName": "Free-text search over display name.",
+      "take": "Page size. Defaults to 10.",
+      "page": "0-based page number. Defaults to 0."
+    }
+  },
+  "GET /api/v1/duplicates/queries": {
+    "summary": "List duplicate entity queries",
+    "description": "Returns the duplicate-entity queries registered on the server (the strategies used to find potential duplicates), with their technical name and display name."
+  },
+  "GET /api/v1/duplicate/queries": {
+    "summary": "List duplicate entity queries (alt path)",
+    "description": "Alias for `GET /api/v1/duplicates/queries` exposed under the historical singular `/duplicate` path. Same response shape and semantics."
+  },
+  "GET /api/v1/duplicates/potential-duplicate-entity-groupings": {
+    "summary": "List potential duplicate entity groupings",
+    "description": "Runs the registered duplicate-entity queries (optionally restricted to a comma/semicolon/pipe-separated list of query names) and returns the groupings of potential duplicates each query produced. Returns 404 if any requested query name is not registered.",
+    "parameters": {
+      "queryNames": "Optional list of query names. Supports comma, semicolon, or pipe as separators.",
+      "entityType": "Optional entity type to restrict the search to."
+    }
+  },
+  "GET /api/v1/duplicate/potential-duplicate-entity-groupings": {
+    "summary": "List potential duplicate entity groupings (alt path)",
+    "description": "Alias for `GET /api/v1/duplicates/potential-duplicate-entity-groupings`. Same response shape and semantics.",
+    "parameters": {
+      "queryNames": "Optional list of query names. Supports comma, semicolon, or pipe as separators.",
+      "entityType": "Optional entity type to restrict the search to."
+    }
+  },
+  "GET /api/v1/duplicates/potential-entity-duplicate-instances": {
+    "summary": "List potential duplicate entity instances",
+    "description": "Returns paged entity instances inside a single grouping returned by a duplicate-entity query. Supports cursor- or page-based paging. Returns 404 if the query name is not registered.",
+    "parameters": {
+      "sourceQuery": "Name of the duplicate-entity query.",
+      "resultSetKey": "Result set key inside the query result.",
+      "itemGroupingKey": "Grouping key inside the result set.",
+      "cursor": "Optional opaque paging cursor.",
+      "page": "0-based page number (alternative to cursor).",
+      "pageSize": "Page size when using page-based paging. Defaults to 20."
+    }
+  },
+  "GET /api/v1/duplicate/potential-entity-duplicate-instances": {
+    "summary": "List potential duplicate entity instances (alt path)",
+    "description": "Alias for `GET /api/v1/duplicates/potential-entity-duplicate-instances`. Same response shape and semantics.",
+    "parameters": {
+      "sourceQuery": "Name of the duplicate-entity query.",
+      "resultSetKey": "Result set key inside the query result.",
+      "itemGroupingKey": "Grouping key inside the result set.",
+      "cursor": "Optional opaque paging cursor.",
+      "page": "0-based page number (alternative to cursor).",
+      "pageSize": "Page size when using page-based paging. Defaults to 20."
+    }
+  },
+  "GET /api/v1/duplicates/potential-dynamic-duplicates": {
+    "summary": "Get potential dynamic duplicates",
+    "description": "Returns potential duplicates for an entity type using a dynamic vocabulary-key query — typically a set of keys and a rule type chosen by the caller. Used when the duplicate detection strategy is built on the fly rather than registered as a named query.",
+    "parameters": {
+      "entityType": "Entity type to search inside.",
+      "vocabularyKeys": "List of vocabulary keys to match on.",
+      "ruleType": "Rule type used to combine the key matches."
+    }
+  },
+  "GET /api/v1/duplicate/potential-dynamic-duplicates": {
+    "summary": "Get potential dynamic duplicates (alt path)",
+    "description": "Alias for `GET /api/v1/duplicates/potential-dynamic-duplicates`. Same response shape and semantics.",
+    "parameters": {
+      "entityType": "Entity type to search inside.",
+      "vocabularyKeys": "List of vocabulary keys to match on.",
+      "ruleType": "Rule type used to combine the key matches."
+    }
+  },
+  "POST /api/v1/duplicates/potential-dynamic-duplicates-entities": {
+    "summary": "Get potential dynamic duplicate entities",
+    "description": "Returns the entity instances that match a dynamic key mapping for a given entity type. Pass the key mapping in the body. Returns 400 with validation details when the model is invalid."
+  },
+  "POST /api/v1/duplicate/potential-dynamic-duplicates-entities": {
+    "summary": "Get potential dynamic duplicate entities (alt path)",
+    "description": "Alias for `POST /api/v1/duplicates/potential-dynamic-duplicates-entities`. Same request and response shape."
+  }
+}

@@ -123,6 +123,20 @@ kramdown:
       line_numbers: false
 enable_copy_code_button: true
 
+# Mermaid diagram support (rendered client-side by the just-the-docs theme).
+# Add a fenced code block with the `mermaid` language to any page:
+#
+#     ```mermaid
+#     graph TD;
+#       A-->B;
+#     ```
+#
+# The library is loaded from jsDelivr at the version below. Customise rendering
+# in _includes/mermaid_config.js. NOTE: _config.yml is not hot-reloaded — restart
+# `jekyll serve` after changing this.
+mermaid:
+  version: "10.9.1"
+
 sass:
   quiet_deps: true # https://github.com/just-the-docs/just-the-docs/issues/1541#issuecomment-2401649789
 

@@ -1,0 +1,414 @@
+{
+  "_about": "Hand-written summaries, descriptions, and parameter notes that the splitter merges onto the auto-generated swagger.json. Keys are 'METHOD path' in the /api/v1/... form; the splitter applies the same overlay to the corresponding /api/... variant. To regenerate the per-category sub-specs after editing this file, run: docker exec cluedin-docs node /srv/jekyll/_tools/split-spec.js",
+  "GET /api/v1/vocabusage/vocabulary/{vocabularyId}/key/{vocabularyKeyId}/lineage": {
+    "summary": "Get vocabulary key lineage",
+    "description": "Returns the lineage of a single vocabulary key: the chain of upstream keys and mappings that contributed to its current values. Used by the UI to render the lineage view next to a key.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier.",
+      "vocabularyKeyId": "Vocabulary key identifier."
+    }
+  },
+  "GET /api/v1/vocabusage/vocabulary/{vocabularyId}/key/{vocabularyKeyId}/usage": {
+    "summary": "Get vocabulary key usage",
+    "description": "Returns the places where a vocabulary key is referenced (rules, streams, mappings, glossary terms, etc.). When `resolveMappedKeys=true`, the response also includes usage of keys that map onto this one, giving a fuller blast radius for changes.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier.",
+      "vocabularyKeyId": "Vocabulary key identifier.",
+      "resolveMappedKeys": "When true, follow vocabulary-key-to-key mappings and include usage of mapped keys. Defaults to false."
+    }
+  },
+  "GET /api/v1/vocabusage/vocabulary/{vocabularyId}/usage": {
+    "summary": "Get vocabulary usage",
+    "description": "Returns aggregated usage information for an entire vocabulary — where its keys are referenced and consumed across the platform.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier."
+    }
+  },
+  "GET /api/v1/vocabusage/vocabulary/{vocabularyId}/hasdata": {
+    "summary": "Check whether a vocabulary has data",
+    "description": "Returns whether any indexed data uses keys from this vocabulary. Useful as a quick pre-check before potentially destructive operations such as deleting a vocabulary.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier."
+    }
+  },
+  "GET /api/v1/vocabusage/vocabulary/{vocabularyId}/key/{vocabularyKeyId}/hasdata": {
+    "summary": "Check whether a vocabulary key has data",
+    "description": "Returns whether any indexed data uses this specific vocabulary key. Useful before destructive key operations such as deletion or rename.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier.",
+      "vocabularyKeyId": "Vocabulary key identifier."
+    }
+  },
+  "GET /api/v1/vocabusage/vocabularyimpactedkeys/{key}": {
+    "summary": "List vocabulary keys impacted by a keychain",
+    "description": "Given a keychain expression, returns every vocabulary key it resolves to. The keychain is unravelled with `VocabUtilities.UnravelVocabFromKeychainAsync` so callers can pre-compute the impact of changes to a composite expression.",
+    "parameters": {
+      "key": "Keychain expression to unravel."
+    }
+  },
+  "POST /api/v1/vocabusage/impactfromupdate": {
+    "summary": "Preview impact of a vocabulary key update",
+    "description": "Returns the services and downstream artifacts that would be affected by a proposed update to a vocabulary key — for example a mapping change or rename. Returns 400 when the proposed change would create a circular mapping (a key mapping to itself, directly or transitively)."
+  },
+  "GET /api/v1/vocabs": {
+    "summary": "List vocabularies",
+    "description": "Returns a paged list of vocabularies along with the total count. Filter by grouping, integration provider, active state, vocabulary type, and search text; sort by any supported field.",
+    "parameters": {
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 20.",
+      "filterGrouping": "Filter by vocabulary grouping.",
+      "filterIntegration": "Filter by integration provider id.",
+      "filterIsActive": "When set, only active or inactive vocabularies are returned.",
+      "filterTypes": "Filter by one or more vocabulary types.",
+      "searchName": "Free-text search over vocabulary name.",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction. Defaults to true (ascending).",
+      "filterHasNoSource": "When true, only vocabularies without a source are returned.",
+      "filterIsUsed": "When set, restricts to vocabularies whose keys are (or are not) referenced."
+    }
+  },
+  "GET /api/v1/vocabs/{vocabularyId}/keys": {
+    "summary": "List keys in a vocabulary",
+    "description": "Returns a paged list of vocabulary keys for a single vocabulary along with the total count. Supports rich filtering by data type, provider, classification, key type, obsolete and source state, and free-text search.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier.",
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 20.",
+      "filterDataType": "Filter by vocabulary key data type.",
+      "filterProviderId": "Filter by integration provider id.",
+      "filterClassification": "Filter by data classification (for example PII).",
+      "filterTypes": "Filter by one or more vocabulary types.",
+      "filterIsObsolete": "When set, filter by obsolete state.",
+      "filterHasProvider": "When set, restrict to keys with or without a provider.",
+      "searchName": "Free-text search over key name.",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction. Defaults to true (ascending).",
+      "filterHasNoSource": "When true, only keys without a source are returned.",
+      "filterIsUsed": "When set, restrict to keys that are (or are not) used."
+    }
+  },
+  "GET /api/v1/vocabs/keys": {
+    "summary": "List vocabulary keys across vocabularies",
+    "description": "Returns a paged list of vocabulary keys across one or all vocabularies, with the total count. Use `filterVocabulary` to scope to a single vocabulary; omit it to search the entire catalog. The total count excludes the `filterVocabulary` constraint so the UI can show the global count.",
+    "parameters": {
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 20.",
+      "filterVocabulary": "Optional vocabulary id to scope the results to.",
+      "filterDataType": "Filter by vocabulary key data type.",
+      "filterProviderId": "Filter by integration provider id.",
+      "filterClassification": "Filter by data classification.",
+      "searchName": "Free-text search over key name.",
+      "filterTypes": "Filter by one or more vocabulary types.",
+      "filterIsObsolete": "When set, filter by obsolete state.",
+      "filterHasProvider": "When set, restrict to keys with or without a provider.",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction. Defaults to true (ascending).",
+      "filterHasNoSource": "When true, only keys without a source are returned.",
+      "filterIsUsed": "When set, restrict to keys that are (or are not) used."
+    }
+  },
+  "GET /api/v1/vocabs/allkeys": {
+    "summary": "List vocabulary keys (extended filters)",
+    "description": "Same shape as `GET /vocabs/keys` but exposes the newer obsolete-key filter (`All`, `OnlyObsolete`, `IgnoreObsolete`), a visibility flag, and an option to exclude lookup-only keys. Prefer this endpoint over `/keys` for new clients.",
+    "parameters": {
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 20.",
+      "filterVocabulary": "Optional vocabulary id to scope the results to.",
+      "filterDataType": "Filter by vocabulary key data type.",
+      "filterProviderId": "Filter by integration provider id.",
+      "filterClassification": "Filter by data classification.",
+      "searchName": "Free-text search over key name.",
+      "filterTypes": "Filter by one or more vocabulary types.",
+      "filterIsObsolete": "Obsolete filter: `All`, `OnlyObsolete`, or `IgnoreObsolete`. Defaults to `All`.",
+      "filterHasProvider": "When set, restrict to keys with or without a provider.",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction. Defaults to true (ascending).",
+      "filterHasNoSource": "When true, only keys without a source are returned.",
+      "filterVisibility": "When set, restrict to keys with that visibility.",
+      "filterIsUsed": "When set, restrict to keys that are (or are not) used.",
+      "filterExcludeLookups": "When true, exclude vocabulary keys used only as lookups."
+    }
+  },
+  "GET /api/v1/vocabs/{vocabularyId}/allkeys": {
+    "summary": "List keys in a vocabulary (extended filters)",
+    "description": "Returns paged keys for one vocabulary using the same extended filters as `GET /vocabs/allkeys`, including the tri-state obsolete filter, visibility, and lookup exclusion.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier.",
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 20.",
+      "filterDataType": "Filter by vocabulary key data type.",
+      "filterProviderId": "Filter by integration provider id.",
+      "filterClassification": "Filter by data classification.",
+      "filterTypes": "Filter by one or more vocabulary types.",
+      "filterIsObsolete": "Obsolete filter: `All`, `OnlyObsolete`, or `IgnoreObsolete`. Defaults to `All`.",
+      "filterHasProvider": "When set, restrict to keys with or without a provider.",
+      "searchName": "Free-text search over key name.",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction. Defaults to true (ascending).",
+      "filterHasNoSource": "When true, only keys without a source are returned.",
+      "filterVisibility": "When set, restrict to keys with that visibility.",
+      "filterIsUsed": "When set, restrict to keys that are (or are not) used.",
+      "filterExcludeLookups": "When true, exclude vocabulary keys used only as lookups."
+    }
+  },
+  "POST /api/v1/vocabs/resolveUsedKeysByCondition": {
+    "summary": "Resolve vocabulary keys used in a condition",
+    "description": "Given a rule/filter condition expression, returns the vocabulary keys actually referenced by that condition. Returns 400 if no condition is supplied. Useful to power dependency views and impact analysis for rules and streams."
+  },
+  "POST /api/v1/vocabs/key/getbykeynames": {
+    "summary": "Get vocabulary keys by names (body)",
+    "description": "Returns vocabulary keys whose fully-qualified names match the supplied list. Posting the names in the body lifts the URL-length limit that the equivalent GET form is subject to."
+  },
+  "GET /api/v1/vocabs/key/getbykeynames": {
+    "summary": "Get vocabulary keys by names (query)",
+    "description": "Returns vocabulary keys whose fully-qualified names match the names passed as repeated `keyNames` query parameters. For longer lists, prefer the POST variant."
+  },
+  "POST /api/v1/vocabs/key/getfilteredkeysbyname": {
+    "summary": "Find vocabulary keys by name with filters",
+    "description": "Returns vocabulary keys matching the supplied name search/filter model. Used by the UI for typeahead and selector controls."
+  },
+  "GET /api/v1/vocabs/vocabulary/{vocabularyId}/key/{vocabularyKeyId}": {
+    "summary": "Get a vocabulary key (scoped)",
+    "description": "Returns a single vocabulary key by id. The vocabulary id in the path scopes the lookup; the underlying repository call uses the key id.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier.",
+      "vocabularyKeyId": "Vocabulary key identifier."
+    }
+  },
+  "GET /api/v1/vocabs/key/{vocabularyKeyId}": {
+    "summary": "Get a vocabulary key by id",
+    "description": "Returns a single vocabulary key by id. Equivalent to the scoped variant but without the vocabulary id in the URL.",
+    "parameters": {
+      "vocabularyKeyId": "Vocabulary key identifier."
+    }
+  },
+  "GET /api/v1/vocabs/fullyqualifiedkey/{keyName}": {
+    "summary": "Get a vocabulary key by full name",
+    "description": "Returns a single vocabulary key by its fully-qualified name (for example `user.email`).",
+    "parameters": {
+      "keyName": "Fully-qualified vocabulary key name."
+    }
+  },
+  "POST /api/v1/vocabs/vocabulary": {
+    "summary": "Create a vocabulary",
+    "description": "Creates a new vocabulary from the supplied model. Returns 201 Created with the new vocabulary on success, 409 Conflict if a vocabulary with the same name already exists, or 400 with validation details if the model is invalid. The action goes through the RACI approval pipeline for vocabulary creation."
+  },
+  "PUT /api/v1/vocabs/vocabulary": {
+    "summary": "Update a vocabulary",
+    "description": "Updates an existing vocabulary from the supplied model. Returns 409 Conflict if the change would collide with another vocabulary name, or 400 with validation details if the model is invalid. The action goes through the RACI approval pipeline for vocabulary updates."
+  },
+  "GET /api/v1/vocabs/vocabulary": {
+    "summary": "List all vocabularies (flat)",
+    "description": "Returns a flat (unpaged) list of vocabularies visible to the current organization. Use the paged `GET /vocabs` endpoint when filters or paging are needed."
+  },
+  "PUT /api/v1/vocabs/vocabulary/{vocabularyId}/activate": {
+    "summary": "Activate a vocabulary",
+    "description": "Marks a vocabulary as active so it shows up in selectors and other parts of the system that filter by active state.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier."
+    }
+  },
+  "PUT /api/v1/vocabs/key/{vocabularyKeyId}/activate": {
+    "summary": "Activate a vocabulary key",
+    "description": "Marks a vocabulary key as active so it shows up in selectors and is available for new mappings, rules, and streams.",
+    "parameters": {
+      "vocabularyKeyId": "Vocabulary key identifier."
+    }
+  },
+  "POST /api/v1/vocabs/key": {
+    "summary": "Create a vocabulary key",
+    "description": "Creates a new vocabulary key from the supplied model. Returns 201 Created on success, 409 Conflict if the key name already exists in the vocabulary, or 400 with validation details when the model fails validation. The action goes through the RACI approval pipeline for vocabulary-key creation."
+  },
+  "POST /api/v1/vocabs/keys": {
+    "summary": "Bulk create vocabulary keys",
+    "description": "Creates multiple vocabulary keys in a single call from a list of key models. Returns a per-item result so callers can see which entries succeeded or were rejected."
+  },
+  "PUT /api/v1/vocabs/key": {
+    "summary": "Update a vocabulary key",
+    "description": "Updates an existing vocabulary key from the supplied model. Returns 423 Locked if a reindex is already running for this key, 400 if the change would create a circular mapping, or 400 with validation details when the model fails validation. The action goes through the RACI approval pipeline for vocabulary-key updates."
+  },
+  "PUT /api/v1/vocabs/key/rename": {
+    "summary": "Rename a vocabulary key",
+    "description": "Renames a vocabulary key. Returns 400 if the new name collides with an existing key in the same vocabulary or fails validation. The action goes through the RACI approval pipeline for vocabulary-key rename."
+  },
+  "GET /api/v1/vocabs/refresh": {
+    "summary": "Refresh vocabularies from the database",
+    "description": "Re-initialises the vocabulary cache from the database and returns the full list of vocabularies. Use this when the in-memory state has drifted from persistent storage, for example after an out-of-band update."
+  },
+  "GET /api/v1/vocabs/vocabulary/{vocabularyId}/groups": {
+    "summary": "List groups for a vocabulary",
+    "description": "Returns the grouping structure used to organise keys inside a vocabulary.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier."
+    }
+  },
+  "GET /api/v1/vocabs/vocabulary/{vocabularyId}": {
+    "summary": "Get a vocabulary",
+    "description": "Returns a single vocabulary by id.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier."
+    }
+  },
+  "GET /api/v1/vocabs/vocabularybyname/{name}": {
+    "summary": "Get a vocabulary by name",
+    "description": "Returns a single vocabulary whose name matches the supplied value.",
+    "parameters": {
+      "name": "Vocabulary name."
+    }
+  },
+  "GET /api/v1/vocabs/vocabulary/{vocabularyId}/verifykeyname/{keyName}": {
+    "summary": "Verify a vocabulary key name",
+    "description": "Validates whether the supplied key name is available and well-formed inside the given vocabulary. Used by the UI to check key names before submitting a create or rename request.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier.",
+      "keyName": "Vocabulary key name to validate."
+    }
+  },
+  "POST /api/v1/vocabs/keys/exist": {
+    "summary": "Check whether vocabulary keys exist",
+    "description": "Given a list of fully-qualified key names in the body, returns which of them already exist in the catalog. Useful for bulk-import flows that need to detect collisions before creating keys."
+  },
+  "GET /api/v1/vocabs/vocabulary/prefixexists/{keyPrefix}": {
+    "summary": "Check whether a vocabulary prefix is taken",
+    "description": "Returns true if any vocabulary in the organisation already uses the supplied key prefix (case-insensitive comparison).",
+    "parameters": {
+      "keyPrefix": "Vocabulary key prefix to test."
+    }
+  },
+  "GET /api/v1/vocabs/dataclassifications": {
+    "summary": "List data classifications",
+    "description": "Returns the list of data-classification values (for example `PII`, `Sensitive`) that vocabulary keys can be tagged with."
+  },
+  "GET /api/v1/vocabs/sources": {
+    "summary": "List vocabulary sources",
+    "description": "Returns the providers/sources that vocabularies and keys can be associated with. An optional `ids` query parameter narrows the list to specific source ids.",
+    "parameters": {
+      "ids": "Optional list of source ids to include."
+    }
+  },
+  "GET /api/v1/vocabs/datatypes": {
+    "summary": "List vocabulary key data types",
+    "description": "Returns the supported data types that a vocabulary key can take, used to populate selectors when creating or editing keys."
+  },
+  "DELETE /api/v1/vocabs/vocabulary/{vocabularyId}/key/{vocabularyKeyId}/mapstokey/{mapsToOtherKeyId}": {
+    "summary": "Delete a vocabulary key (with remap)",
+    "description": "Deletes a vocabulary key and remaps its existing references to another key, so dependent rules, streams and mappings continue to work. Returns 400 if the key cannot be deleted because it is still in use beyond what the remap can handle. The action goes through the RACI approval pipeline for vocabulary-key deletion.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier.",
+      "vocabularyKeyId": "Vocabulary key identifier to delete.",
+      "mapsToOtherKeyId": "Identifier of the key that existing references should be remapped to."
+    }
+  },
+  "DELETE /api/v1/vocabs/vocabulary/{vocabularyId}/key/{vocabularyKeyId}": {
+    "summary": "Delete a vocabulary key",
+    "description": "Deletes a vocabulary key. Returns 400 if the key is still in use and cannot be removed safely; use the remap variant if you want to redirect existing references to another key. The action goes through the RACI approval pipeline for vocabulary-key deletion.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier.",
+      "vocabularyKeyId": "Vocabulary key identifier to delete."
+    }
+  },
+  "DELETE /api/v1/vocabs/vocabulary/{vocabularyId}": {
+    "summary": "Delete a vocabulary",
+    "description": "Deletes a vocabulary. Returns 400 if any of its keys are still in use. The action goes through the RACI approval pipeline for vocabulary deletion.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier."
+    }
+  },
+  "GET /api/v1/vocabs/vocabulary/{vocabularyId}/isowner/{userId}": {
+    "summary": "Check whether a user owns a vocabulary",
+    "description": "Returns whether the supplied user id is registered as an owner of the vocabulary.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier.",
+      "userId": "User identifier."
+    }
+  },
+  "GET /api/v1/vocabs/vocabulary/{vocabularyId}/owners": {
+    "summary": "List vocabulary owners",
+    "description": "Returns the users registered as owners of the vocabulary.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier."
+    }
+  },
+  "POST /api/v1/vocabs/vocabulary/{vocabularyId}/owners": {
+    "summary": "Add vocabulary owners",
+    "description": "Adds the supplied user ids as owners of the vocabulary. Pass user ids as repeated `userId` query parameters.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier.",
+      "userId": "One or more user ids to grant ownership to."
+    }
+  },
+  "DELETE /api/v1/vocabs/vocabulary/{vocabularyId}/owners": {
+    "summary": "Remove vocabulary owners",
+    "description": "Removes the supplied user ids from the vocabulary's owner list. Pass user ids as repeated `userId` query parameters.",
+    "parameters": {
+      "vocabularyId": "Vocabulary identifier.",
+      "userId": "One or more user ids to remove from ownership."
+    }
+  },
+  "POST /api/v1/vocabs/reprocesskey/{keyName}": {
+    "summary": "Reprocess a vocabulary key",
+    "description": "Requests a reindex/reprocess of a specific vocabulary key by publishing a vocabulary-key reindex event. Returns 202 Accepted when the request is queued; returns 200 silently if the key cannot be resolved by name (so callers can fire-and-forget).",
+    "parameters": {
+      "keyName": "Fully-qualified vocabulary key name to reprocess."
+    }
+  },
+  "GET /api/v1/vocabs/upgradeprogress": {
+    "summary": "Get strong-typed reindex progress",
+    "description": "Returns the current progress of the strong-typed vocabulary-key reindex across the organisation."
+  },
+  "GET /api/v1/vocabs/typedkeythreshold": {
+    "summary": "Check typed-key field threshold",
+    "description": "Returns whether the organisation is at risk of hitting the Elasticsearch field-mapping explosion threshold given the current set of typed vocabulary keys. Use it to surface a warning before adding more typed keys."
+  },
+  "GET /api/v1/vocabs/reindexrunning/{vocabularyKey}": {
+    "summary": "Check whether a key reindex is running",
+    "description": "Returns whether a reindex is currently running for the supplied vocabulary key. Returns false when the key cannot be resolved.",
+    "parameters": {
+      "vocabularyKey": "Fully-qualified vocabulary key name."
+    }
+  },
+  "GET /api/v1/vocabs/vocabulary/checkprefix": {
+    "summary": "Check whether a vocabulary prefix is unique",
+    "description": "Returns whether the supplied vocabulary key prefix is unique within the organisation. If a collision is found, the matching vocabulary is included in the response so the UI can link to it.",
+    "parameters": {
+      "prefix": "Vocabulary key prefix to test."
+    }
+  },
+  "GET /api/v1/vocabs/vocabularykeymapping/validate/{originalKeyId}/{mappedKeyId}": {
+    "summary": "Validate a vocabulary key mapping",
+    "description": "Validates that mapping `originalKeyId` to `mappedKeyId` is allowed (compatible data types, no cycle, etc.). Returns 404 if either key cannot be found.",
+    "parameters": {
+      "originalKeyId": "Source vocabulary key identifier.",
+      "mappedKeyId": "Target vocabulary key identifier."
+    }
+  },
+  "POST /api/v1/vocabs/vocabularykeysindexfieldmappings": {
+    "summary": "Get index field mappings for vocabulary keys",
+    "description": "Returns the Elasticsearch field names and data types used to index the supplied vocabulary keys. Posting the names in the body lifts the URL-length limit of the equivalent GET form."
+  },
+  "GET /api/v1/vocabs/vocabularykeyindexfieldmapping": {
+    "summary": "Get index field mapping for a vocabulary key",
+    "description": "Returns the Elasticsearch field name and data type used to index a single vocabulary key.",
+    "parameters": {
+      "vocabularyKey": "Fully-qualified vocabulary key name."
+    }
+  },
+  "POST /api/v1/vocabs/keys/linage": {
+    "summary": "Get mapping lineage for vocabulary keys",
+    "description": "Returns mapping chains (lineage) for the supplied vocabulary keys. Keys without any chain are still included in the response with an empty `chains` list, so clients always receive an entry per input key. (Note: the path is `keys/linage` — `linage` is a legacy spelling kept for backwards compatibility.)"
+  },
+  "GET /api/v1/vocabs/keyselectorkeys": {
+    "summary": "List keys for the key selector",
+    "description": "Returns a compact set of vocabulary keys suitable for the UI key-selector control, with the same filter options as `/vocabs/allkeys`.",
+    "parameters": {
+      "filterGrouping": "Filter by vocabulary grouping.",
+      "filterIntegration": "Filter by integration provider id.",
+      "filterIsActive": "When set, only active or inactive keys are returned.",
+      "filterIsObsolete": "Obsolete filter: `All`, `OnlyObsolete`, or `IgnoreObsolete`. Defaults to `All`.",
+      "searchName": "Free-text search over key name.",
+      "filterHasNoSource": "When true, only keys without a source are returned.",
+      "filterIsUsed": "When set, restrict to keys that are (or are not) used.",
+      "filterExcludeLookups": "When true, exclude vocabulary keys used only as lookups."
+    }
+  }
+}
