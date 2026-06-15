@@ -1,9 +1,9 @@
 /*
  * Single source of truth for the customer-facing REST API documentation
- * categories. The grouping and inclusion list here is derived from the
- * "Ongoing REST API Audit" (docs/250-rest-api/030-api-audit.md): every tag
- * listed below is a controller the audit marked **Document** / **Document
- * (admin)**. Any swagger tag that is NOT listed here is treated as **Exclude**
+ * categories. The grouping and inclusion list here is derived from an
+ * internal REST API audit: every tag listed below is a controller the audit
+ * marked **Document** / **Document (admin)**. Any swagger tag that is NOT
+ * listed here is treated as **Exclude**
  * — prune-spec.js removes it from the published swagger.json and split-spec.js
  * drops it from the per-category specifications.
  *

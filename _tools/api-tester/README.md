@@ -4,7 +4,7 @@ A small Python tool that authenticates to a CluedIn instance and smoke-tests its
 REST endpoints. It takes **url + client_id + username + password**, obtains an
 OAuth **bearer token**, and uses that token to call a catalog of endpoints —
 **GraphQL-backed endpoints first**, because GraphQL is CluedIn's primary query
-mechanism (see [`../../docs/250-rest-api/030-api-audit.md`](../../docs/250-rest-api/030-api-audit.md)).
+mechanism.
 
 ## Why GraphQL is prioritised
 
