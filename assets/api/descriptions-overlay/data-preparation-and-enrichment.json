@@ -1,0 +1,190 @@
+{
+  "_about": "Data preparation & enrichment (Clean v2, CluedInClean v1 legacy, Enricher, Enrichers, ExternalFeature). Clean v2 lives on /api/v2/clean; v1 (/api/v1/clean) is deprecated and kept for backward compatibility.",
+  "POST /api/v2/clean": {
+    "summary": "Create clean project (v2)",
+    "description": "Creates a clean project from the supplied model. Returns 201 Created with the new project, or 400 when the filter rules fail validation. Requires the Preparation.Clean RACI claim."
+  },
+  "GET /api/v2/clean": {
+    "summary": "List clean projects",
+    "description": "Returns paged clean projects filtered by the supplied `CleanProjectFilter`. Requires the Preparation.Clean RACI claim."
+  },
+  "GET /api/v2/clean/{projectId}": {
+    "summary": "Get clean project",
+    "description": "Returns a clean project by id. Returns 404 if it cannot be found.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "PUT /api/v2/clean/{projectId}": {
+    "summary": "Update clean project",
+    "description": "Updates a clean project. Returns 400 with validation details when the filter rules are invalid, 404 if the project cannot be found. The action goes through the RACI approval pipeline for clean project updates.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "DELETE /api/v2/clean/{projectId}": {
+    "summary": "Delete clean project",
+    "description": "Deletes a clean project. Returns 400 when the project's current state does not allow deletion, 404 if it cannot be found. The action goes through the RACI approval pipeline for clean project deletion.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "POST /api/v2/clean/{projectId}/generate": {
+    "summary": "Generate clean results",
+    "description": "Generates the proposed clean changes (results) for a project, transitioning it into the generating state. Returns 400 when the project is in an incompatible state. The action goes through the RACI approval pipeline.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "GET /api/v2/clean/{projectId}/generationstatus": {
+    "summary": "Get generation status",
+    "description": "Returns the status of an in-progress generation step. Returns 400 when the project is not currently generating.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "POST /api/v2/clean/{projectId}/cancelgeneration": {
+    "summary": "Cancel generation",
+    "description": "Cancels an in-progress generation. Returns 400 when the project is not in a state that allows cancellation.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "POST /api/v2/clean/{projectId}/commit": {
+    "summary": "Commit clean project",
+    "description": "Commits the generated changes back to the entities. Body contains the stale-data strategy and `AutoGenerateRules` flag. Returns 400 when the project is not in a state that allows commit. The action goes through the RACI approval pipeline.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "POST /api/v2/clean/{projectId}/generaterules": {
+    "summary": "Generate rules from clean project",
+    "description": "Generates processing rules that capture the clean project's transformations. Useful for promoting one-off cleanups into permanent rules.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "GET /api/v2/clean/{projectId}/committingstatus": {
+    "summary": "Get committing status",
+    "description": "Returns the status of an in-progress commit step.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "POST /api/v2/clean/{projectId}/cancelcommit": {
+    "summary": "Cancel commit",
+    "description": "Cancels an in-progress commit. Returns 400 when the project is not in a state that allows cancellation.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "POST /api/v2/clean/{projectId}/undochanges": {
+    "summary": "Undo clean project changes",
+    "description": "Reverts the changes a clean project committed. Returns 400 when the project is not in a state that allows undo.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "GET /api/v2/clean/{projectId}/undochangesstatus": {
+    "summary": "Get undo status",
+    "description": "Returns the status of an in-progress undo step.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "POST /api/v2/clean/{projectId}/cancelundo": {
+    "summary": "Cancel undo",
+    "description": "Cancels an in-progress undo. Returns 400 when the project is not in a state that allows cancellation.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "GET /api/v2/clean/{projectId}/cleanedentities": {
+    "summary": "List cleaned entities",
+    "description": "Returns the entities that have been cleaned by a project.",
+    "parameters": {
+      "projectId": "Clean project identifier."
+    }
+  },
+  "GET /api/v1/integration/enricher/all": {
+    "summary": "List enrichers",
+    "description": "Returns the external-search enrichers registered on the platform (id, name, version, priority, type, icon URL, supported domain, properties, etc.). Requires the Integrations.Enrichment RACI claim."
+  },
+  "GET /api/v1/integration/enricher/{id}": {
+    "summary": "Get enricher",
+    "description": "Returns a single enricher by id. Returns 404 if no enricher with that id is registered.",
+    "parameters": {
+      "id": "Enricher identifier."
+    }
+  },
+  "GET /api/v1/integration/enricher/{id}/details": {
+    "summary": "Get enricher details",
+    "description": "Returns detailed metadata for an enricher (enrich source, lookup/returned entity types, lookup/returned vocabularies and keys) read from the enricher's class-level attributes. Returns 404 if the enricher cannot be found.",
+    "parameters": {
+      "id": "Enricher identifier."
+    }
+  },
+  "GET /api/v1/integration/enricher/icon/{id}": {
+    "summary": "Get enricher icon",
+    "description": "Returns the embedded icon resource for an enricher. Allowed anonymously (`AllowAnonymous`). Returns 404 if the enricher or its icon cannot be found, 400 for empty/invalid ids.",
+    "parameters": {
+      "id": "Enricher identifier."
+    }
+  },
+  "GET /api/v1/integration/enricher/{providerDefinitionId}/activeJobs": {
+    "summary": "List active enricher jobs",
+    "description": "Returns the active distributed jobs running for the supplied enricher provider definition.",
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
+  },
+  "DELETE /api/v1/integration/enricher/{providerDefinitionId}/delete": {
+    "summary": "Delete enricher provider definition",
+    "description": "Deletes an enricher provider definition.",
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
+  },
+  "POST /api/v1/integration/enricher/{providerDefinitionId}/enrich": {
+    "summary": "Trigger enrichment for entities",
+    "description": "Triggers an enrichment job for the entities matching the supplied criteria using the enricher associated with the provider definition.",
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
+  },
+  "POST /api/v1/integration/enricher/{providerDefinitionId}/uploadIcon": {
+    "summary": "Upload enricher icon",
+    "description": "Uploads a custom icon for an enricher provider definition.",
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
+  },
+  "POST /api/v1/integration/enricher/{providerDefinitionId}/resetIcon": {
+    "summary": "Reset enricher icon",
+    "description": "Resets an enricher provider definition's icon to the enricher's built-in default.",
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
+  },
+  "POST /api/v1/integration/enricher/{providerId}/verifycredentials": {
+    "summary": "Verify enricher credentials",
+    "description": "Asks the enricher behind the supplied provider id to verify the authentication data in the body. Returns 400 if the enricher does not implement `IExternalSearchProviderWithVerifyConnection`.",
+    "parameters": {
+      "providerId": "Enricher provider identifier."
+    }
+  },
+  "DELETE /api/v1/integration/enricher/externalSearchQuery/delete/{providerDefinitionId}": {
+    "summary": "Delete external search queries",
+    "description": "Deletes any persisted external search queries for the supplied enricher provider definition.",
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
+  },
+  "GET /api/v1/integration/enricher/externalSearchQuery/exists/{providerDefinitionId}": {
+    "summary": "Check whether external search queries exist",
+    "description": "Returns whether any persisted external search queries exist for the supplied enricher provider definition.",
+    "parameters": {
+      "providerDefinitionId": "Enricher provider definition identifier."
+    }
+  }
+}

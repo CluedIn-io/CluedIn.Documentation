@@ -1,0 +1,22 @@
+{
+  "_about": "Administration & configuration (AdminClusterSettings, AdminCommands, AdminIndexCommands, Configuration, ExtendedConfiguration, Setting, Logging, Log, MeteredBilling). AdminCommands endpoints are admin-only and typically enqueue background processing jobs; Configuration endpoints manage provider definitions and integration configuration.",
+  "GET /api/v1/settings": {
+    "summary": "List user settings",
+    "description": "Returns the user-level settings stored for the calling user. Includes the organisation and user identifiers on each entry."
+  },
+  "POST /api/v1/settings": {
+    "summary": "Create user setting",
+    "description": "Creates a new user setting. Returns 202 Accepted when the setting has been persisted; 400 with validation details when the model is invalid."
+  },
+  "PUT /api/v1/settings": {
+    "summary": "Create or update user setting",
+    "description": "Updates a user setting if a setting with the same key already exists for the caller; otherwise creates it. Returns 202 Accepted."
+  },
+  "GET /api/v1/logs": {
+    "summary": "Stream logs (recent)",
+    "description": "Returns the most recent application logs for the organisation by reading from the RabbitMQ log stream. With no `offset`, returns the last ~1000 entries; supply `offset` to continue from a previous read. The response is `{ consoleMessages: [...] }`. Requires the OrganizationalAdmin role.",
+    "parameters": {
+      "offset": "Optional starting offset (inclusive). When omitted, the server reads from `lastOffset - 999`."
+    }
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "_about": "Deduplication category (Project, Automate, Results, DuplicateEntities, SplitEntity). Project/Results/Automate routes live under /api/v1/deduplication; SplitEntity/DuplicateEntities descriptions live in the entities-* overlays.",
+  "GET /api/deduplication/projects": {
+    "summary": "List deduplication projects",
+    "description": "Returns paged deduplication projects with optional filters."
+  },
+  "POST /api/deduplication/projects": {
+    "summary": "Create deduplication project",
+    "description": "Creates a deduplication project from the supplied model. Returns 400 with validation details when the filter rules are invalid. Requires the Management.DeduplicationManagement RACI claim."
+  },
+  "GET /api/deduplication/projects/{projectId}": {
+    "summary": "Get deduplication project",
+    "description": "Returns a deduplication project by id. Returns 404 if it cannot be found.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "PUT /api/deduplication/projects/{projectId}": {
+    "summary": "Update deduplication project",
+    "description": "Updates a deduplication project. Returns 400 when the project is in a state that does not allow updates, 404 when it cannot be found.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "DELETE /api/deduplication/projects/{projectId}": {
+    "summary": "Delete deduplication project",
+    "description": "Deletes a deduplication project. Returns 400 when the project is in a state that does not allow deletion.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/mergedentities": {
+    "summary": "List merged entities",
+    "description": "Returns the entities the project has merged.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/mergedentities/undomerge": {
+    "summary": "Undo merge",
+    "description": "Undoes a previously committed merge from this project.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/mergedentities/undomerge/withoptions": {
+    "summary": "Undo merge (with options)",
+    "description": "Undoes a merge with extra options controlling how downstream effects are reverted.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/generate": {
+    "summary": "Generate deduplication results",
+    "description": "Triggers result generation for the deduplication project (running rules to find candidate groups).",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/results": {
+    "summary": "List deduplication result groups",
+    "description": "Returns paged candidate-duplicate groups produced by the project.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/results/{groupId}": {
+    "summary": "Get deduplication group",
+    "description": "Returns a single candidate-duplicate group and its members.",
+    "parameters": {
+      "projectId": "Deduplication project identifier.",
+      "groupId": "Result group identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/{groupId}": {
+    "summary": "Update deduplication group",
+    "description": "Updates a group's review state (for example marking members for inclusion/exclusion).",
+    "parameters": {
+      "projectId": "Deduplication project identifier.",
+      "groupId": "Result group identifier."
+    }
+  },
+  "DELETE /api/deduplication/projects/{projectId}/results/{groupId}/{entityId}": {
+    "summary": "Remove entity from group",
+    "description": "Removes an entity from a deduplication result group.",
+    "parameters": {
+      "projectId": "Deduplication project identifier.",
+      "groupId": "Result group identifier.",
+      "entityId": "Entity identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/{groupId}/approve": {
+    "summary": "Approve group",
+    "description": "Approves a single result group for merging.",
+    "parameters": {
+      "projectId": "Deduplication project identifier.",
+      "groupId": "Result group identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/{groupId}/autoselect": {
+    "summary": "Auto-select group members",
+    "description": "Runs the auto-selection algorithm on a single group to pick the survivor and source records.",
+    "parameters": {
+      "projectId": "Deduplication project identifier.",
+      "groupId": "Result group identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/{groupId}/deleteuserdecision": {
+    "summary": "Delete user decision on group",
+    "description": "Clears any manual user decisions on the supplied group, reverting to default behavior.",
+    "parameters": {
+      "projectId": "Deduplication project identifier.",
+      "groupId": "Result group identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/results/{groupId}/preview": {
+    "summary": "Preview group merge",
+    "description": "Returns a preview of what the merged record would look like for a group.",
+    "parameters": {
+      "projectId": "Deduplication project identifier.",
+      "groupId": "Result group identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/{groupId}/removeapproval": {
+    "summary": "Remove group approval",
+    "description": "Removes a previously approved status from a group.",
+    "parameters": {
+      "projectId": "Deduplication project identifier.",
+      "groupId": "Result group identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/approve": {
+    "summary": "Approve selected groups",
+    "description": "Approves a set of selected groups.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/approve/all": {
+    "summary": "Approve all groups",
+    "description": "Approves every group in the project.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/removeapproval": {
+    "summary": "Remove approval from selected groups",
+    "description": "Removes approval from a set of selected groups.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/removeapproval/all": {
+    "summary": "Remove approval from all groups",
+    "description": "Removes approval from every group in the project.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/groups/reject": {
+    "summary": "Reject groups",
+    "description": "Rejects a set of selected groups.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/merge": {
+    "summary": "Merge selected groups",
+    "description": "Merges the supplied set of groups.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/merge/all": {
+    "summary": "Merge all approved groups",
+    "description": "Commits the merges for every approved group in the project.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/cancel": {
+    "summary": "Cancel results generation",
+    "description": "Cancels an in-progress results generation.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/cancelmerge": {
+    "summary": "Cancel merge",
+    "description": "Cancels an in-progress merge operation.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/abort": {
+    "summary": "Abort results",
+    "description": "Aborts the results-generation pipeline for the project.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/abortundo": {
+    "summary": "Abort undo",
+    "description": "Aborts an in-progress undo operation.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/results/undo": {
+    "summary": "Undo merges",
+    "description": "Undoes merges performed by the project.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/results/undostatus": {
+    "summary": "Get undo status",
+    "description": "Returns the status of an in-progress undo.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/results/status": {
+    "summary": "Get results status",
+    "description": "Returns the current status of the project's results pipeline (generating, committing, idle, etc.).",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/results/committingstatus": {
+    "summary": "Get committing status",
+    "description": "Returns the status of the current commit (merge) step.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/results/groupstatuses": {
+    "summary": "Get group statuses",
+    "description": "Returns the per-group status (approved, rejected, merged, etc.) for project review.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/results/groupstatuses/countonly": {
+    "summary": "Get group status counts",
+    "description": "Returns just the counts of groups in each status (lightweight version of `groupstatuses`).",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/results/histogram": {
+    "summary": "Get results histogram",
+    "description": "Returns a histogram of the project's result groups (typically group size distribution).",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/automate/automate": {
+    "summary": "Automate deduplication project",
+    "description": "Triggers full automation of a deduplication project (generates and commits results). Returns 400 when the project has no rules or is in a state that does not allow automation, 404 when the project cannot be found. Requires the Management.DeduplicationManagement RACI claim.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "POST /api/deduplication/projects/{projectId}/automate/cancel": {
+    "summary": "Cancel deduplication automation",
+    "description": "Cancels an in-progress automation. Returns 400 when the project is in a state that does not allow cancellation, 404 when the project cannot be found. Requires the Management.DeduplicationManagement RACI claim.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/automate/projectcanbeautomated": {
+    "summary": "Check whether deduplication project can be automated",
+    "description": "Returns whether the project meets the preconditions for automation. Returns 404 when the project cannot be found. Requires the Management.DeduplicationManagement RACI claim.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  },
+  "GET /api/deduplication/projects/{projectId}/automate/lastdeduplicationstarttime": {
+    "summary": "Get last automation start time",
+    "description": "Returns the start time of the most recent automation job for the project, as `{ LastJobStartTime }`. Returns 404 when the project cannot be found. Requires the Management.DeduplicationManagement RACI claim.",
+    "parameters": {
+      "projectId": "Deduplication project identifier."
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "_about": "Access control & governance endpoints (AccessControlPolicies, GDPRAnonymization, GDPRPII, AuditLog, Ownership).",
+  "GET /api/v1/accesscontrolpolicies": {
+    "summary": "List access control policies",
+    "description": "Returns a paged list of access control policies in the organisation along with the total count. Filter by active state, creator, and free-text name; sort by any supported field.",
+    "parameters": {
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 20.",
+      "filterActive": "When set, restrict to active or inactive policies.",
+      "filterCreator": "Filter by policy creator (user identifier or display name).",
+      "searchName": "Free-text search over policy name.",
+      "orderBy": "Field to order by.",
+      "orderAsc": "Sort direction. Defaults to true (ascending)."
+    }
+  },
+  "POST /api/v1/accesscontrolpolicies": {
+    "summary": "Create access control policy",
+    "description": "Creates a new access control policy from the supplied model. Returns 400 with validation details when the model is invalid, the policy contains rule actions that are not registered on the server, or the filter rules fail validation. The model id is ignored — the server assigns a fresh identifier and returns it."
+  },
+  "GET /api/v1/accesscontrolpolicies/{id}": {
+    "summary": "Get access control policy",
+    "description": "Returns a single access control policy by id, with the action controls appended so the UI can render the correct input controls for each rule. Returns 404 if the policy cannot be found.",
+    "parameters": {
+      "id": "Access control policy identifier."
+    }
+  },
+  "PUT /api/v1/accesscontrolpolicies/{id}": {
+    "summary": "Update access control policy",
+    "description": "Updates an existing access control policy from the supplied model. The path id overrides any id in the body. Returns 400 with validation details when the model fails validation or contains unsupported rule actions. The action goes through the RACI approval pipeline for access control policy updates.",
+    "parameters": {
+      "id": "Access control policy identifier."
+    }
+  },
+  "DELETE /api/v1/accesscontrolpolicies/{id}": {
+    "summary": "Delete access control policy",
+    "description": "Deletes an access control policy. The action goes through the RACI approval pipeline for access control policy deletion.",
+    "parameters": {
+      "id": "Access control policy identifier."
+    }
+  },
+  "POST /api/v1/accesscontrolpolicies/{id}/activate": {
+    "summary": "Activate access control policy",
+    "description": "Marks a policy as active so it is included when access control is evaluated on requests. The action goes through the RACI approval pipeline for policy activation.",
+    "parameters": {
+      "id": "Access control policy identifier."
+    }
+  },
+  "POST /api/v1/accesscontrolpolicies/{id}/deactivate": {
+    "summary": "Deactivate access control policy",
+    "description": "Marks a policy as inactive so it is no longer evaluated, without deleting it. The action goes through the RACI approval pipeline for policy deactivation.",
+    "parameters": {
+      "id": "Access control policy identifier."
+    }
+  },
+  "GET /api/v1/accesscontrolpolicies/actions": {
+    "summary": "List policy rule actions",
+    "description": "Returns every access control policy rule action registered on the server, along with the configurable properties each action exposes. Used by the UI to populate the action picker when building or editing policies."
+  },
+  "GET /api/v1/accesscontrolpolicies/byprocessingorder": {
+    "summary": "Get policies in processing order",
+    "description": "Returns the access control policies arranged in the order they will be evaluated against incoming requests."
+  },
+  "POST /api/v1/accesscontrolpolicies/setprocessingorder": {
+    "summary": "Set policy processing order",
+    "description": "Sets the processing order of access control policies from the supplied list. Send the policies in the order they should be evaluated."
+  },
+  "GET /api/v1/auditLog/{objectId}/{objectTypeId}": {
+    "summary": "Get audit log for an object",
+    "description": "Returns the paged audit log entries recorded for a single object. Internally delegates to the bulk endpoint with a single-item array for both ids.",
+    "parameters": {
+      "objectId": "Identifier of the audited object.",
+      "objectTypeId": "Identifier of the object type.",
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 20."
+    }
+  },
+  "GET /api/v1/auditLog/getByObjectTypeIds": {
+    "summary": "Get audit log by object types",
+    "description": "Returns paged audit log entries filtered by object ids, object types, author, and date range. When `objectTypeIds` is empty, every known object type is considered. The server restricts the requested types to those the caller has at least View permission on (Edit for some sensitive types such as export targets and role administration), so the result may be narrower than requested.",
+    "parameters": {
+      "objectIds": "Optional list of audited object ids.",
+      "objectTypeIds": "Optional list of object type ids. When omitted, every type the caller can read is considered.",
+      "authorId": "Optional filter for the user who made the change.",
+      "fromDate": "Optional lower bound on entry timestamp.",
+      "toDate": "Optional upper bound on entry timestamp.",
+      "page": "0-based page number. Defaults to 0.",
+      "take": "Page size. Defaults to 20."
+    }
+  },
+  "POST /api/v1/ownership/object": {
+    "summary": "Add object owner",
+    "description": "Adds an owner to the supplied object. The caller must hold at least Consultant level on any of their claims. The action goes through the RACI approval pipeline for ownership additions."
+  },
+  "DELETE /api/v1/ownership/object": {
+    "summary": "Remove object owner",
+    "description": "Removes an owner from the supplied object. The caller must hold at least Consultant level on any of their claims. The action goes through the RACI approval pipeline for ownership removals."
+  },
+  "GET /api/v1/ownership/object/{objectId}": {
+    "summary": "List object owners",
+    "description": "Returns the owners registered on a specific object along with the total count.",
+    "parameters": {
+      "objectId": "Identifier of the object to look up."
+    }
+  },
+  "GET /api/tag/metadata/{tagName}": {
+    "summary": "Get tag metadata",
+    "description": "Returns metadata for the supplied tag (description, owner, folder, etc.).",
+    "parameters": {
+      "tagName": "Tag name."
+    }
+  },
+  "POST /api/tag/metadata/{tagName}/update": {
+    "summary": "Update tag metadata",
+    "description": "Updates metadata for the supplied tag.",
+    "parameters": {
+      "tagName": "Tag name."
+    }
+  },
+  "POST /api/tag/metadata/folder/rename": {
+    "summary": "Rename tag folder",
+    "description": "Renames a tag folder. All tags inside the folder remain in place but the folder name changes."
+  }
+}
