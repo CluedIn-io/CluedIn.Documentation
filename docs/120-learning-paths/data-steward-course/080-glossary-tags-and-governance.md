@@ -12,52 +12,207 @@ permalink: /learning-paths/data-steward-course/glossary-tags-and-governance
 - TOC
 {:toc}
 
-A steward eventually outgrows one-off searches. To operate at scale, they need stable ways to group work, label quality concerns, and monitor what is happening over time. In the current docs, glossary and tag monitoring are the strongest documented governance tools for this purpose.
+At some point, stewardship stops being a series of isolated fixes and becomes an operating system for quality work. Glossary terms, tags, and governance views help you name record populations, monitor defects, communicate intent, and turn recurring issues into visible work queues.
 
-## What you should get from this module
+![top_tags_chart_sp.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/top_tags_chart_sp.png" | relative_url }})
 
-- use glossary terms to define reusable sets of records
-- understand how tags surface quality problems operationally
-- use governance views to turn individual issues into monitored queues
+## What this module teaches
+
+By the end of this module, you should be able to:
+
+- explain the difference between glossary terms and tags
+- know when to use each one
+- understand how Tag Monitoring supports stewardship prioritization
+- create better quality queues and named record sets
+- connect governance views back to clean and AI workflows
+
+## Glossary in steward language
+
+A glossary term is a named set of records defined by conditions. Terms live inside categories.
+
+Use glossary when you want:
+
+- a human-readable business grouping
+- a curated set of records with meaning beyond one-off remediation
+- a reusable filter that business users and stewards can refer to
+- a clean basis for downstream usage or stream targeting
+
+Examples:
+
+- “North America customers”
+- “High-confidence suppliers”
+- “Employees missing department assignment”
+
+A glossary term is often a business-facing or collaboration-friendly way to describe a filtered population.
+
+![create-term-1.png]({{ "/assets/images/getting-started/glossary/create-term-1.png" | relative_url }})
+
+## Tag in steward language
+
+A tag is a lightweight label applied to records, usually to mark a condition, state, or issue.
+
+Use tags when you want:
+
+- a fast operational signal
+- a defect marker
+- a way to count and monitor a quality issue
+- a bridge into Tag Monitoring, Clean, or AI jobs
+
+Examples:
+
+- invalid-validation-phone
+- missing-country
+- suspect-duplicate
+- review-required
+
+Tags are especially strong for quality operations because they make defect classes visible.
+
+## Glossary versus tag: the practical difference
+
+Use this rule of thumb:
+
+- use a **glossary term** when the set is meaningful as a named group of records
+- use a **tag** when the label describes a state, issue, or operational flag
+
+A single record set may use both:
+
+- glossary term: “Prospective enterprise customers”
+- tag: “missing-website”
+
+The glossary tells you *what set this is*.  
+The tag tells you *what issue this record has*.
+
+## Tag Monitoring as a steward command center
+
+Tag Monitoring turns individual record flags into an operational governance surface. It lets you see:
+
+- which tags are used
+- how many records carry a tag
+- how tag usage changes over time
+- which records are currently affected
+
+For a steward, this is powerful because it changes defect management from anecdotal to measurable.
 
 ![tag_card.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/tag_card.png" | relative_url }})
 
-## Guided walkthrough
+## Enabling and using Tag Monitoring
 
-First, teach glossary as a formalized reusable grouping tool. A glossary term is more than a saved search with a nicer name. It is a documented, reusable set of records that can support cleaning, downstream streaming, and governance conversations. Show how categories and terms create a shared language for groups like "North America customers" or "records pending quality review".
+If Tag Monitoring is not enabled, the governance view may not appear. Once enabled, you can inspect tag usage by business domain and time period.
 
-Next, teach tags as quality signals. Tags mark records with issues or states that matter operationally. The Tag Monitoring module then turns those tags into governance surfaces by showing:
+A steward should use Tag Monitoring to ask:
 
-- which tags are used
-- how many records are flagged
-- how that count changes over time
-- which rules created the tags
-- which records are currently affected
+- Which quality issues are most common right now?
+- Is a defect class shrinking after remediation?
+- Which business domain is struggling most?
+- Which tag deserves a clean project or AI job next?
 
-This is powerful because it changes stewardship from "I found a bad record" into "I am monitoring the volume and trajectory of a quality issue".
+## From tag to action
 
-Also connect the module to clean projects and AI jobs. From Tag Monitoring, the steward can create a clean project for tagged records or use AI-assisted remediation where appropriate. That means tags are not just labels; they are launch points into action.
+One of the best things about Tag Monitoring is that it is not passive. From the monitored defect set, you can move directly into action:
 
-## Role lens
+- create a clean project
+- create or review an AI job
+- add more tags if the current taxonomy is weak
+- inspect the underlying records
 
-Glossary is best when the steward wants to name and reuse a meaningful population of records. Tags are best when the steward wants to signal a condition or issue that can be monitored, triaged, and reduced over time. Mature stewardship normally uses both.
+This makes Tag Monitoring a prioritization and execution bridge.
 
-## Practice assignment
+## Building a good steward tagging strategy
 
-Build one glossary term and review one tag-driven queue.
+A weak tagging strategy creates vague tags like:
 
-- Create a glossary category and term for a meaningful subset of records.
-- Open Tag Monitoring and inspect one tag in detail.
-- State which rule applies the tag, what fraction of records are affected, and whether the trend looks stable or worsening.
-- Decide whether the next action should be a clean project, an AI job, or an architect escalation.
+- issue
+- invalid
+- fixme
 
-## Exit criteria
+A stronger tagging strategy creates tags that are:
 
-- The learner can explain the operational difference between glossary and tags.
-- The learner can navigate Tag Monitoring and interpret what it shows.
-- The learner can launch an appropriate remediation path from a tagged record set.
+- specific
+- operationally meaningful
+- reusable
+- easy to count over time
 
-## Suggested source material
+Better examples:
 
-- [Work with glossary](/getting-started/glossary)
-- [Tag monitoring](/governance/tag-monitoring)
+- invalid-validation-phone
+- missing-required-job-title
+- source-x-invalid-country
+- duplicate-review-needed
+
+A good tag name often contains the problem class and, if useful, the origin or scope.
+
+## How glossary supports stewardship beyond defects
+
+Glossary is not only for governance optics. It helps stewards:
+
+- preserve useful record populations
+- communicate with business stakeholders
+- define a clean input set for a project
+- simplify stream targeting later
+- create repeatable operating categories
+
+For example, a glossary term can describe a business-owned set of records, while tags describe current issues inside that set.
+
+## When to use glossary, saved search, or tag
+
+These three tools overlap enough to confuse new learners.
+
+### Use a saved search when
+
+- you personally need a reusable working view
+- the main requirement is operational speed
+- collaboration needs are limited
+
+### Use a glossary term when
+
+- the record set should have a business-meaningful name
+- other users need to understand and reuse the set
+- the set may become part of stream or governance workflows
+
+### Use a tag when
+
+- the label marks a problem or status
+- you want monitoring and counts
+- you want defect classes that can drive action
+
+## How governance views change steward behavior
+
+Without governance views, teams tend to work reactively and remember only the issue they saw this morning. With glossary and tags, work becomes more systematic:
+
+- named groups are easier to discuss
+- defect classes become measurable
+- improvements can be verified over time
+- handoffs become clearer
+
+That is how governance supports better stewardship, even for operational users.
+
+## Practice exercise
+
+Design one glossary term and one tag for your learning domain.
+
+For the glossary term, write:
+
+- the category name
+- the term name
+- the conditions that define it
+- why a business user would understand and value it
+
+For the tag, write:
+
+- the tag name
+- the defect or state it marks
+- whether it should be domain-specific
+- what action the tag should usually trigger
+
+## You are ready for the next module when
+
+You can explain:
+
+- the difference between glossary and tag
+- why Tag Monitoring is useful to a steward
+- how named record sets and defect labels support prioritization
+- how governance views connect back to remediation workflows
+
+## What comes next
+
+Next you will learn how AI fits into stewardship. AI can accelerate quality work, but only when the steward controls scope, instructions, validation, and risk.
