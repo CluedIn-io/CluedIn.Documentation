@@ -75,18 +75,6 @@ In order to manage your master data from CluedIn directly in Power Apps Datavers
 
 - You need to have the System Administrator access to the Power Platform of your organization.
 
-### Find your environment ID
-
-1. Sign in to the [Power Platform admin center](https://admin.powerplatform.microsoft.com/).
-    
-1. On the navigation pane, select **Environments**, and then select your intended environment.
-
-1. Find the environment ID in the **Details** section.
-
-    ![env-id.png]({{ "/assets/images/microsoft-integration/power-apps/env-id.png" | relative_url }})
-
-    The environment ID is needed to configure Power Apps integration in CluedIn as described in [Power Apps configuration guide](/microsoft-integration/powerapps/configuration-guide).
-
 ### Create a new security role
 
 1. Sign in to the [Power Platform admin center](https://admin.powerplatform.microsoft.com/).
