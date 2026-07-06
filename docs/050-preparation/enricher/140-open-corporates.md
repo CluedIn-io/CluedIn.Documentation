@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 14
+nav_order: 30
 parent: Enricher
 grand_parent: Preparation
 permalink: /preparation/enricher/open-corporates

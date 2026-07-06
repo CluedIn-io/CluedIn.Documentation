@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 6
+nav_order: 14
 parent: Enricher
 grand_parent: Preparation
 permalink: /preparation/enricher/companies-house

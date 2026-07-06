@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 18
+nav_order: 40
 parent: Enricher
 grand_parent: Preparation
 permalink: /preparation/enricher/build-custom-enricher

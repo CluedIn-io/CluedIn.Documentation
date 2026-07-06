@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 8
+nav_order: 18
 parent: Enricher
 grand_parent: Preparation
 permalink: /preparation/enricher/duckduckgo
@@ -92,4 +92,4 @@ The following table lists the properties that can be added to golden records by 
 | Websites | duckDuckGo.organization.websites |
 | Youtube Channel | duckDuckGo.organization.youtubeChannel |
 
-Additionaly, the DuckDuckGo enricher can add various infobox properties (for example, Formerly Called, Founders, Products, and so on) and related topic properties (brief description with a link to the source). These properties depend on the information that the enricher can find.
+Additionally, the DuckDuckGo enricher can add various infobox properties (for example, Formerly Called, Founders, Products, and so on) and related topic properties (brief description with a link to the source). These properties depend on the information that the enricher can find.
