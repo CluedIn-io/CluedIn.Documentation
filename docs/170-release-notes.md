@@ -20,12 +20,13 @@ This section includes links to release notes for the CluedIn platform as well as
 
 | Version | Technical version | Release notes |
 |--|--|--|
-| 2026.01.00 | 4.7.0 | [View release notes](https://cluedin-io.github.io/Releases/2026.01/2026.01.00) |
+| 2026.02.00 | 4.8.0 | [View release notes](https://cluedin-io.github.io/Releases/2026.02/2026.02.00) |
 
 ### Previous releases
 
 | Version | Technical version | Release notes |
 |--|--|--|
+| 2026.01.00 | 4.7.0 | [View release notes](https://cluedin-io.github.io/Releases/2026.01/2026.01.00) |
 | 2025.09.00 | 4.6.0 | [View release notes](https://cluedin-io.github.io/Releases/2025.09/2025.09.00) |
 | 2025.05.02 | 4.5.2 | [View release notes](https://cluedin-io.github.io/Releases/2025.05/2025.05.02) |
 | 2025.05.01 | 4.5.1 | [View release notes](https://cluedin-io.github.io/Releases/2025.05/2025.05.01) |
