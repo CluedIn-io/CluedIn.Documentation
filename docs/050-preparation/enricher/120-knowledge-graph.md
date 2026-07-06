@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 12
+nav_order: 26
 parent: Enricher
 grand_parent: Preparation
 permalink: /preparation/enricher/knowledge-graph

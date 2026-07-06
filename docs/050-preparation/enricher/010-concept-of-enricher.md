@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 1
+nav_order: 2
 parent: Enricher
 grand_parent: Preparation
 permalink: /preparation/enricher/concept-of-enricher

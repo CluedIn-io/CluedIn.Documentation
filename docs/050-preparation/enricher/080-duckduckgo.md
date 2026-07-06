@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 8
+nav_order: 18
 parent: Enricher
 grand_parent: Preparation
 permalink: /preparation/enricher/duckduckgo

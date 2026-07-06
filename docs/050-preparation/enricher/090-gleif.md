@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 9
+nav_order: 20
 parent: Enricher
 grand_parent: Preparation
 permalink: /preparation/enricher/gleif

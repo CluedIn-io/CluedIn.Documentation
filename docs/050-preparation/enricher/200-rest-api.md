@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 16
+nav_order: 34
 parent: Enricher
 grand_parent: Preparation
 permalink: /preparation/enricher/rest-api
@@ -8,11 +8,9 @@ title: REST API
 ---
 
 ## On this page
-
 {: .no_toc .text-delta }
-
 - TOC
-  {:toc}
+{:toc}
 
 This article explains how to add the REST API enricher. The purpose of this enricher is to retrieve data from a wide variety of endpoints. It provides a flexible way to integrate diverse data sources into your golden records.
 

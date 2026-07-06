@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 11
+nav_order: 24
 parent: Enricher
 grand_parent: Preparation
 permalink: /preparation/enricher/google-maps

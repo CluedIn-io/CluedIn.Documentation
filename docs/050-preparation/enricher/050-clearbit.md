@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-nav_order: 5
+nav_order: 12
 parent: Enricher
 grand_parent: Preparation
 permalink: /preparation/enricher/clearbit
