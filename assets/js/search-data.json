@@ -17296,699 +17296,727 @@
     
     "relUrl": "/paas-operations/upgrade/2026-01-00"
   },"2471": {
+    "doc": "2026.02.00",
+    "title": "On this page",
+    "content": ". | Prerequisites | Guide . | Stage 1: Prepare for upgrade | Stage 2: Run Data Upgrade | Stage 3: Finalize Upgrade | . | . This document covers the upgrade process from 2026.01.00 to 2026.02.00. We do not support upgrading directly to this version from prior to 2026.01.00. ",
+    "url": "/paas-operations/upgrade/2026-02-00#on-this-page",
+    
+    "relUrl": "/paas-operations/upgrade/2026-02-00#on-this-page"
+  },"2472": {
+    "doc": "2026.02.00",
+    "title": "Prerequisites",
+    "content": ". | Access to the Helm chart version 2.8.0. You may need to run helm repo update to grab the latest version. | kubectl | Helm | . ",
+    "url": "/paas-operations/upgrade/2026-02-00#prerequisites",
+    
+    "relUrl": "/paas-operations/upgrade/2026-02-00#prerequisites"
+  },"2473": {
+    "doc": "2026.02.00",
+    "title": "Guide",
+    "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster. This is very important as databases may be upgraded during this process. Stage 1: Prepare for upgrade . | Connect to your cluster using the kubeconfig. | Export your current Helm values file. Keep one copy for the upgrade process and another as a backup. | In the values file, update the following properties: . global: image: tag: \"2026.02.00\" strategy: type: Recreate application: cluedin: components: packages: - name: \"CluedIn.Connector.AzureEventHub\" version: \"4.5.1\" - name: \"CluedIn.Connector.Dataverse\" version: \"4.8.0\" - name: \"CluedIn.Connector.Dataverse.V2\" version: \"4.7.3\" - name: \"CluedIn.Connector.Http\" version: \"4.5.0\" - name: \"CluedIn.EventHub\" version: \"4.7.0\" - name: \"CluedIn.Connector.AmazonS3\" version: \"4.8.0\" - name: \"CluedIn.Connector.AzureDataLake\" version: \"4.8.0\" - name: \"CluedIn.Connector.AzureDedicatedSqlPool\" version: \"4.0.3\" - name: \"CluedIn.Connector.AzureServiceBus\" version: \"4.5.0\" - name: \"CluedIn.Connector.OneLake\" version: \"4.8.0\" - name: \"CluedIn.ExternalSearch.Providers.DuckDuckGo.Provider\" version: \"4.7.1\" - name: \"CluedIn.ExternalSearch.Providers.PermId.Provider\" version: \"4.6.2\" - name: \"CluedIn.ExternalSearch.Providers.Web\" version: \"4.6.2\" - name: \"CluedIn.Provider.ExternalSearch.Bregg\" version: \"4.6.2\" - name: \"CluedIn.Provider.ExternalSearch.ClearBit\" version: \"4.6.2\" - name: \"CluedIn.Provider.ExternalSearch.CompanyHouse\" version: \"4.6.2\" - name: \"CluedIn.Provider.ExternalSearch.CVR\" version: \"4.6.2\" - name: \"CluedIn.Provider.ExternalSearch.Gleif\" version: \"4.6.1\" - name: \"CluedIn.Provider.ExternalSearch.GoogleMaps\" version: \"4.6.2\" - name: \"CluedIn.Provider.ExternalSearch.KnowledgeGraph\" version: \"4.6.2\" - name: \"CluedIn.Provider.ExternalSearch.Libpostal\" version: \"4.6.2\" - name: \"CluedIn.Provider.ExternalSearch.OpenCorporates\" version: \"4.6.1\" - name: \"CluedIn.Provider.ExternalSearch.Providers.VatLayer\" version: \"4.6.2\" - name: \"CluedIn.Purview\" version: \"4.7.3\" - name: \"CluedIn.PowerApps\" version: \"4.8.0\" - name: \"CluedIn.EnterpriseFlows.PowerAutomate\" version: \"4.8.0\" - name: \"CluedIn.Connector.SqlServer\" version: \"4.5.3\" - name: \"CluedIn.Connector.FabricOpenMirroring\" version: \"4.8.0\" - name: \"CluedIn.Provider.ExternalSearch.Providers.AzureOpenAI\" version: \"4.7.1\" - name: \"CluedIn.Provider.ExternalSearch.GoogleImages\" version: \"4.6.2\" - name: \"CluedIn.Provider.ExternalSearch.RestApi\" version: \"4.6.2\" - name: \"CluedIn.Provider.ExternalSearch.Providers.ArtificialIntelligence\" version: \"4.6.1\" - name: \"CluedIn.Provider.ExternalSearch.Providers.BvD\" version: \"4.7.1\" . | Apply the values file from your shell by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.8.0 \\ --values ${CustomValues} \\ --set application.system.upgradeMode=true \\ --set application.system.runDatabaseJobsOnUpgrade=true \\ --set application.system.runNugetFullRestore=true \\ --wait \\ --timeout 10m0s . After a few minutes, it should complete successfully. | Wait until the deployment finishes. | Perform the validation: . | Make sure that all pods are healthy and all jobs are completed. | Ensure that there are no errors in the pod logs. | . | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. Stage 2: Run Data Upgrade . | Apply data upgrade by running following command: kubectl apply -f - &lt;&lt;EOF apiVersion: api.cluedin.com/v1 kind: DataUpgrade metadata: annotations: meta.helm.sh/release-name: cluedin-platform meta.helm.sh/release-namespace: cluedin labels: app: cluedin app.kubernetes.io/instance: cluedin-platform app.kubernetes.io/managed-by: Helm app.kubernetes.io/name: application helm.sh/chart: application-2.8.0 release: cluedin-platform name: data-upgrade-470 namespace: cluedin spec: toVersion: Version470 EOF . | Validation: . | ❗ Confirm the data upgrade completed successfully. | . | . Stage 3: Finalize Upgrade . | Run the final stage of the upgrade to bring the system back online (disable upgrade mode): . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 2.8.0 \\ --values ${CustomValues} \\ --set application.system.upgradeMode=false \\ --set application.system.runDatabaseJobsOnUpgrade=false \\ --set application.system.runNugetFullRestore=false . | Validation: . | Ensure no errors in the pod logs. | Verify the server starts in normal mode. | Ensure cluedin-ui pod is Running.. | . | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
+    "url": "/paas-operations/upgrade/2026-02-00#guide",
+    
+    "relUrl": "/paas-operations/upgrade/2026-02-00#guide"
+  },"2474": {
+    "doc": "2026.02.00",
+    "title": "2026.02.00",
+    "content": " ",
+    "url": "/paas-operations/upgrade/2026-02-00",
+    
+    "relUrl": "/paas-operations/upgrade/2026-02-00"
+  },"2475": {
     "doc": "BvD",
     "title": "On this page",
     "content": ". | Add BvD enricher | BvD enricher flow for different configurations . | BvD ID Present | BvD ID Not Present (Empty/Not Provided) | . | Properties from BvD enricher | Available enrichment properties from BvD API | . This article outlines how to configure the BvD (Bureau van Dijk) enricher. BvD is now part of Moody’s and is a global provider of company and business intelligence data. Its Orbis platform contains information on hundreds of millions of public and private companies worldwide, including company identifiers, financial statements, ownership structures, corporate hierarchies, directors, industry classifications, and legal entity information. The purpose of the BvD enricher is to use the Orbis API to retrieve and enrich golden records with verified business information such as company identifiers, financials, ownership information, directors, corporate hierarchies, and industry classifications. The BvD enricher supports the following endpoints: . | https://api.bvdinfo.com/v1/orbis/Companies/match | https://api.bvdinfo.com/v1/orbis/Companies/data | . ",
     "url": "/preparation/enricher/bvd#on-this-page",
     
     "relUrl": "/preparation/enricher/bvd#on-this-page"
-  },"2472": {
+  },"2476": {
     "doc": "BvD",
     "title": "Add BvD enricher",
     "content": "The enricher requires at least one of the following attributes to search for company information: . | BvD ID – if your golden records have BvD ID, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the BvD ID to search for company information. If your golden records do not have a BvD ID, then the other attributes will be used for search. | Name – if your golden records have organization names, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the organization name to search for company information. If your golden records do not have organization names, then one of the other attributes will be used for search. | Country – if your golden records have country, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the country to search for company information. If your golden records do not have country, then one of the other attributes will be used for search (Recommended for use together with other attributes). | Address – if your golden records have address, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the address to search for company information. If your golden records do not have address, then one of the other attributes will be used for search (Recommended for use together with other attributes). | City – if your golden records have city, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the city to search for company information. If your golden records do not have city, then one of the other attributes will be used for search (Recommended for use together with other attributes). | Post Code – if your golden records have post code, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the post code to search for company information. If your golden records do not have post code, then one of the other attributes will be used for search (Recommended for use together with other attributes). | State – if your golden records have state, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the state to search for company information. If your golden records do not have state, then one of the other attributes will be used for search (Recommended for use together with other attributes). | Website – if your golden records have website, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the website to search for company information. If your golden records do not have website, then one of the other attributes will be used for search (Recommended for use together with other attributes). | Email – if your golden records have email, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the email to search for company information. If your golden records do not have email, then one of the other attributes will be used for search. | Phone number – if your golden records have phone number, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the phone number to search for company information. If your golden records do not have phone number, then one of the other attributes will be used for search. | Fax number – if your golden records have fax number, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the fax number to search for company information. If your golden records do not have fax number, then one of the other attributes will be used for search. | National ID – if your golden records have national ID, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the national ID to search for company information. If your golden records do not have national ID, then one of the other attributes will be used for search. | Ticker – if your golden records have ticker, you can enter the corresponding vocabulary key to configure the enricher. As a result, the enricher will use the ticker to search for company information. If your golden records do not have ticker, then one of the other attributes will be used for search. | . To add the BvD enricher . | On the navigation pane, go to Preparation &gt; Enrich. Then, select Add Enricher. | On the Choose Enricher tab, select BvD, and then select Next. | On the Configure tab, provide the following details: . | API Key – enter the API key for retrieving information from the BvD/Moody’s API. | Accepted Business Domain – enter the business domain to define which golden records will be enriched. | BvD ID – enter the vocabulary key that contains company BvD ID that will be used to search for company information. | Validate BvD ID – toggle to control whether the BvD ID needs to be validated before enrichment. Toggle only visible when BvD ID vocabulary key is provided. | Auto Enrich with First and Highest Score Match – toggle to control whether the enrichment should be based on the first and highest score match if BvD ID validation failed or BvD ID is empty. | Enrichment properties – the properties that should be returned to CluedIn as a result of enrichment (e.g., NAME,CITY,ADDRESS_LINE1). Currently, CluedIn only supports up to 496 properties. Get the available properties from the curl command below (copy the FieldId and paste it into the Enrichment properties field) or see Available properties. curl --location 'https://api.bvdinfo.com/v1/orbis/Companies/metadata/select' \\ --header 'Content-Type: application/json' \\ --header 'ApiToken: {APIKey}' . | Score Limit – the score limit required for matches to be considered in the validation process. (e.g., if you enter 0.5, only matches with scores more than 0.5 will be used for validation). | Name – enter the vocabulary key that contains company name that will be used to search for company information. | Country – enter the vocabulary key that contains country of company that will be used to search for company information. | Address – enter the vocabulary key that contains company address that will be used to search for company information. | City – enter the vocabulary key that contains city of company that will be used to search for company information. | Post Code – enter the vocabulary key that contains post code of company that will be used to search for company information. | State – enter the vocabulary key that contains state of company that will be used to search for company information. | Website – enter the vocabulary key that contains company website that will be used to search for company information. | Email – enter the vocabulary key that contains company email that will be used to search for company information. | Phone number – enter the vocabulary key that contains company phone number that will be used to search for company information. | Fax number – enter the vocabulary key that contains company fax number that will be used to search for company information. | National ID – enter the vocabulary key that contains company national ID that will be used to search for company information. | Ticker – enter the vocabulary key that contains company ticker that will be used to search for company information. | ISIN – enter the vocabulary key that contains company ISIN codes that will be used to search for company information. | . | Select Test Connection to make sure the enricher is properly configured, and then select Add. The BvD enricher is added and has the active status. It means that it will enrich relevant golden records when they are processed or when you trigger external enrichment. | . After the BvD enricher is added, you can modify its details: . | Settings – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values. | Authentication – modify the details you provided while configuring the enricher. | . ",
     "url": "/preparation/enricher/bvd#add-bvd-enricher",
     
     "relUrl": "/preparation/enricher/bvd#add-bvd-enricher"
-  },"2473": {
+  },"2477": {
     "doc": "BvD",
     "title": "BvD enricher flow for different configurations",
     "content": ". | Match endpoint results referring to results returned from https://api.bvdinfo.com/v1/orbis/Companies/match endpoint. | . BvD ID Present . | Validate | Auto Match | Match Endpoint Result | Outcome | . | Disabled | Disabled | Not applicable | Enrich using provided BvD ID | . | Disabled | Enabled | Not applicable | Enrich using provided BvD ID | . | Enabled | Disabled | Empty | Skip (throw) | . | Enabled | Enabled | Empty | Skip (throw) | . | Enabled | Disabled | BvD ID found in matches (pass) | Enrich using provided BvD ID | . | Enabled | Enabled | BvD ID found in matches (pass) | Enrich using provided BvD ID | . | Enabled | Disabled | BvD ID not in matches (fail) | Store Raw_Matches + Bvd_Id_Needs_Attention=true | . | Enabled | Enabled | BvD ID not in matches (fail) | Enrich using first match from match endpoint result | . BvD ID Not Present (Empty/Not Provided) . | Validate | Auto Match | Match Endpoint Result | Outcome | . | Either | Either | Empty | Skip (throw) | . | Disabled | Disabled | Non-empty | Skip (throw) | . | Enabled | Disabled | Non-empty | Store Raw_Matches + Bvd_Id_Needs_Attention=true | . | Disabled | Enabled | Non-empty | Enrich using first match from match endpoint result | . | Enabled | Enabled | Non-empty | Enrich using first match from match endpoint result | . | Note: BvD.organization.bvdIdNeedsAttention=true indicates that the BvD ID is not passing validation and it requires a manual update. ",
     "url": "/preparation/enricher/bvd#bvd-enricher-flow-for-different-configurations",
     
     "relUrl": "/preparation/enricher/bvd#bvd-enricher-flow-for-different-configurations"
-  },"2474": {
+  },"2478": {
     "doc": "BvD",
     "title": "Properties from BvD enricher",
     "content": "| . To quickly find the properties added to golden records from the BvD enricher, use the integrations filter on the Properties page. For a more detailed information about the changes made to a golden record by the BvD enricher, check the corresponding data part on the History page. ",
     "url": "/preparation/enricher/bvd#properties-from-bvd-enricher",
     
     "relUrl": "/preparation/enricher/bvd#properties-from-bvd-enricher"
-  },"2475": {
+  },"2479": {
     "doc": "BvD",
     "title": "Available enrichment properties from BvD API",
     "content": "CF_CRMTable=CRM Table COMPANY_FLAGS=Flags ADDRESS_LINE1=Address line 1 ADDRESS_LINE2=Address line 2 ADDRESS_LINE3=Address line 3 ADDRESS_LINE4=Address line 4 POSTCODE=Postcode CITY=City CITY_STANDARDIZED=Standardized city COUNTRY=Country COUNTRY_ISO_CODE=Country ISO code TERRITORY_ISO_CODE=ISO territory code LATITUDE=Latitude LONGITUDE=Longitude COUNTRY_REGION=Region in country COUNTRY_REGION_TYPE=Type of region in country NUTS1=NUTS1 NUTS2=NUTS2 NUTS3=NUTS3 MSA=Metropolitan Statistical Area WORLD_REGION=World region US_STATE=State or province (in US or Canada) COUNTY=County (in UK) ADDRESS_TYPE=Type PHONE_NUMBER=Telephone number FAX_NUMBER=Fax number DOMAIN=Domain WEBSITE=Website address EMAIL=E-mail address BUILDING=Building STREET=Street STREET_NUMBER=Street number STREET_NUMBER_EXTENSION=Street number extension STREET_AND_STREET_NUMBER=Street &amp; street number STREET_SUPPLEMENT=Street supplement PO_BOX=PO Box MINOR_TOWN=Minor town STANDARDIZED_ADDRESS_LINE1=Address line 1 STANDARDIZED_ADDRESS_LINE2=Address line 2 STANDARDIZED_ADDRESS_LINE3=Address line 3 STANDARDIZED_ADDRESS_LINE4=Address line 4 STANDARDIZED_ADDRESS_LINE5=Address line 5 STANDARDIZED_ADDRESS_LINE6=Address line 6 STANDARDIZED_ADDRESS_LINE7=Address line 7 STANDARDIZED_ADDRESS_LINE8=Address line 8 STANDARDIZED_ADDRESS_LINE9=Address line 9 STANDARDIZED_ADDRESS_LINE10=Address line 10 STANDARDIZED_COUNTRY=Country STANDARDIZED_COUNTRYISO2_CODE=Country ISO 2 code STANDARDIZED_COUNTRYISO3_CODE=Country ISO 3 code STANDARDIZED_VERIFICATION_LEVEL=Verification level STANDARDIZED_BUILDING=Building STANDARDIZED_PREMISE=Premise STANDARDIZED_SUBBUILDING=Sub-building STANDARDIZED_STREET=Street STANDARDIZED_DEPENDENTSTREET=Dependent street STANDARDIZED_SUPERADMINAREA=Super-administrative area STANDARDIZED_ADMINAREA=Administrative area STANDARDIZED_SUBADMINAREA=Sub-administrative area STANDARDIZED_LOCALITY=Locality STANDARDIZED_DEPENDENTLOCALITY=Dependent locality STANDARDIZED_DOUBLEDEPENDENTLOCALITY=Double-dependent locality STANDARDIZED_POSTALCODE=Postal code STANDARDIZED_POSTBOX=Post box ADDRESS_LINE1_ADDITIONAL=Address line 1 ADDRESS_LINE2_ADDITIONAL=Address line 2 ADDRESS_LINE3_ADDITIONAL=Address line 3 ADDRESS_LINE4_ADDITIONAL=Address line 4 POSTCODE_ADDITIONAL=Postcode CITY_ADDITIONAL=City CITY_STANDARDIZED_ADDITIONAL=Additional address(es) - Standardized city COUNTRY_ADDITIONAL=Country COUNTRY_ISO_CODE_ADDITIONAL=Country ISO code LATITUDE_ADDITIONAL=Latitude LONGITUDE_ADDITIONAL=Longitude COUNTRY_REGION_ADDITIONAL=Region in country COUNTRY_REGION_TYPE_ADDITIONAL=Type of region in country ADDRESS_TYPE_ADDITIONAL=Type PHONE_NUMBER_ADDITIONAL=Telephone number FAX_NUMBER_ADDITIONAL=Fax number BUILDING_ADDITIONAL=Building STREET_ADDITIONAL=Street STREET_NUMBER_ADDITIONAL=Street number STREET_NUMBER_EXTENSION_ADDITIONAL=Street number extension STREET_AND_STREET_NUMBER_ADDITIONAL=Street &amp; street number STREET_SUPPLEMENT_ADDITIONAL=Street supplement PO_BOX_ADDITIONAL=PO Box MINOR_TOWN_ADDITIONAL=Minor town TRADE_DESCRIPTION_EN=Trade description (English) TRADE_DESCRIPTION_ORIGINAL=Trade description in original language TRADE_DESCRIPTION_LANGUAGE=Ibid, language PRODUCTS_SERVICES=Products &amp; services DESCRIPTION_HISTORY=Description and history BVD_SECTOR_CORE_LABEL=BvD sectors SPECIALISATION=Specialisation REINSURANCE_COMPANY_INDICATOR=Reinsurance company indicator INDUSTRY_CLASSIFICATION=National industry classification used by the IP INDUSTRY_PRIMARY_CODE=Primary code(s) in this classification INDUSTRY_PRIMARY_LABEL=Ibid, description INDUSTRY_SECONDARY_CODE=Secondary code(s) in this classification INDUSTRY_SECONDARY_LABEL=Ibid, description NACE2_MAIN_SECTION=NACE Rev. 2 main section NACE2_CORE_CODE=NACE Rev. 2, core code (4 digits) NACE2_CORE_LABEL=Ibid, description NACE2_PRIMARY_CODE=NACE Rev. 2, primary code(s) NACE2_PRIMARY_LABEL=Ibid, description NACE2_SECONDARY_CODE=NACE Rev. 2, secondary code(s) NACE2_SECONDARY_LABEL=Ibid, description NAICS2022_CORE_CODE=NAICS 2022, core code (4 digits) NAICS2022_CORE_LABEL=Ibid, description NAICS2022_PRIMARY_CODE=NAICS 2022, primary code(s) NAICS2022_PRIMARY_LABEL=Ibid, description NAICS2022_SECONDARY_CODE=NAICS 2022, secondary code(s) NAICS2022_SECONDARY_LABEL=Ibid, description USSIC_CORE_CODE=US SIC, core code (3 digits) USSIC_CORE_LABEL=Ibid, description USSIC_PRIMARY_CODE=US SIC, primary code(s) USSIC_PRIMARY_LABEL=Ibid, description USSIC_SECONDARY_CODE=US SIC, secondary code(s) USSIC_SECONDARY_LABEL=Ibid, description OPGNAME=Peer Group Name OPGDESC=Peer Group Description OPGSIZE=Peer Group Size OVERVIEW_FULL_OVERVIEW=Full overview OVERVIEW_HISTORY=History OVERVIEW_PRIMARY_BUSINESS_LINE=Primary business line OVERVIEW_SECONDARY_BUSINESS_LINE=Secondary business line OVERVIEW_MAIN_ACTIVITY=Main activity OVERVIEW_SECONDARY_ACTIVITY=Secondary activity OVERVIEW_MAIN_PRODUCTS_SERVICES=Main products and services OVERVIEW_SIZE_ESTIMATE=Size estimate OVERVIEW_STRATEGY_ORGANIZATION_AND_POLICY=Strategy, organization and policy OVERVIEW_STRATEGIC_ALLIANCES=Strategic alliances OVERVIEW_NETWORK_MEMBERSHIP=Membership of a network OVERVIEW_MAIN_BRAND_NAMES=Main brand names OVERVIEW_COUNTRY_NAME=Main domestic country OVERVIEW_MAIN_FOREIGN_COUNTRIES_OR_REGIONS=Main foreign countries or regions OVERVIEW_MAIN_PRODUCTION_SITES=Main production sites OVERVIEW_MAIN_DISTRIBUTION_SITES=Main distribution sites OVERVIEW_MAIN_SALES_REPRESENTATION_SITES=Main sales representation sites OVERVIEW_MAIN_CUSTOMERS=Main customers OVERVIEW_CONCISE_INFORMATION_INDICATOR=Concise information indicator BVD_ID_NUMBER=BvD ID number BVD_ACCOUNT_NUMBER=BvD account number ORBISID=Orbis ID number NATIONAL_ID=National ID NATIONAL_ID_LABEL=National ID label NATIONAL_ID_TYPE=National ID type TRADE_REGISTER_NUMBER=Trade register number VAT_NUMBER=VAT/Tax number EUROPEAN_VAT_NUMBER=European VAT number ECB_FVC_ID=ESCB Financial Vehicle Corporation ID ECB_MFI_ID=ESCB Monetary Financial Institution ID TIN=Tax Identification Number (TIN) LEI=LEI (Legal Entity Identifier) STATISTICAL_NUMBER=Statistical number COMPANY_ID_NUMBER=Other company ID number NATIONAL_ID_PREVIOUS=Previous SIRET number (France) NATIONAL_ID_DATE_PREVIOUS=Previous SIRET number date (France) SWIFT_CODE=SWIFT_CODE INFORMATION_PROVIDER_ID=Information provider ID INFORMATION_PROVIDER_ID_LABEL=Information provider ID label TICKER=Ticker symbol ISIN=ISIN number ISIN_ALL=ISIN number (All) LEI_STATUS=Status LEI_FIRST_ASSIGNMENT_DATE=First assignment date LEI_ANNUAL_RENEWAL_DATE=Annual renewal date LEI_MANAGING_LOCAL_OFFICE_UNIT_STR=Managing Local Operating Unit RELEASE_DATE=Release date INFORMATION_PROVIDER=Information provider INFORMATION_PROVIDER_COLLECTION_DATE=Information provider collection date COMPANY_CATEGORY=Size classification NAME=Company name PREVIOUS_NAME=Previous company name PREVIOUS_NAME_DATE=Name change date AKA_NAME=Also known as name STATUS=Status STATUS_DATE=Status date STATUS_CHANGE_DATE=Status updated date LOCAL_STATUS=Local status LOCAL_STATUS_DATE=Local status date LOCAL_STATUS_CHANGE_DATE=Local status change date STANDARDISED_LEGAL_FORM=Standardized legal form NATIONAL_LEGAL_FORM=National legal form BRANCH_INDICATOR=Branch indicator INCORPORATION_DATE=Date of incorporation INCORPORATION_STATE=State or province of incorporation (in US or Canada) INCORPORATION_STATE_CODE=State or province of incorporation (in US or Canada) ENTITY_TYPE=Type of entity WOMAN_OWNED_INDICATOR=Woman owned indicator (in US) MINORITY_OWNED_INDICATOR=Ethnic minority owned indicator (in US) BANK_HISTORY=History (for banks) CONSOLIDATION_CODE=Consolidation code FILING_TYPE=Filing type CLOSING_DATE_LAST_ANNUAL_ACCOUNTS=Latest annual account closing date CLOSING_DATE_LAST_INTERIM_ACCOUNTS=Latest interim account closing date YEAR_LAST_ACCOUNTS=Last available year LIMITED_FINANCIAL_INDICATOR=Limited financial indicator NO_RECENT_FINANCIAL_INDICATOR=No recent financial indicator NUMBER_YEARS=Number of available years ORIGINAL_CURRENCY=Original currency ACCOUNTING_TEMPLATE=Accounting template ADDITIONAL_ACCOUNTS_PRESENCE_INDICATOR=Additional accounts presence indicator HISTORICAL_RECORD_INDICATOR=Historical record indicator HISTORICAL_RECORD_DATE=Historical record since FILING_EXEMPTION=Reason of filing exemption FILING_EXEMPTION_MOTHER_NAME=Mother deposing liability statements - Name FILING_EXEMPTION_MOTHER_BVD_ID_NUMBER=Mother deposing liability statements - BvD ID number FILING_EXEMPTION_START_DATE=Start date of liability FILING_EXEMPTION_LAST_YEAR=Latest annual account year of liability statement GSIFI_TYPE=Type GSIFI_BUCKET=Bucket GSIFI_DATE=Date GSIFI_SOURCE=Source LEGAL_EVENTS_DATE=Date LEGAL_EVENTS_DESCRIPTION=Description LEGAL_EVENTS_SOURCE=Source LEGAL_EVENTS_ID=Official identifier LEGAL_EVENTS_TYPES_VALUE=Type LEGAL_EVENTS_DETAILS=Details CHARITY_REGISTRATION_DATE=Registration date CHARITY_DATE_ORGANISATION_ESTABLISHED=Date established CHARITY_SIZE=Size CHARITY_OPERATING_COUNTRIES=Countries of operations CHARITY_REGISTER_NAME=Register name CHARITY_TYPE=Charity type CHARITY_BENEFICIARIES=Charity beneficiaries CHARITY_REGISTRATION_STATUS=Registration status CHARITY_LAST_DELIVERY_DATE=Last delivery date CHARITY_NUMBER_OF_RESPONSIBLE_PERSONS=Number of responsible persons GST_Registration_status=Registration status GST_Registration_date=Registration date CLOSING_DATE=Closing date FISCAL_YEAR=Fiscal year QUARTER_YEAR=Quarter year NUMBER_MONTHS=Number of months AUDIT_STATUS=Audit status ACCOUNTS_STATUS=Accounts status ACCOUNTING_PRACTICE=Accounting practice ACCOUNTS_SOURCE_CODE=Source of financials ORIGINAL_UNIT=Original unit ORIGINAL_CURRENCY=Original currency EXCHANGE_RATE=Exchange rate from original currency OPRE=Operating revenue (Turnover) PLBT=P/L before tax PL=P/L for period [=Net income] CF=Cash flow [Net Income before D&amp;A] TOAS=Total assets SHFD=Shareholders funds CURR=Current ratio (x) PRMA=Profit margin (%) RSHF=ROE using P/L before tax (%) RCEM=ROCE using P/L before tax (%) SOLR=Solvency ratio (Asset based) (%) EMPL=Number of employees MODEL_DATA_SUBJECT_CORPORATE_GROUP_LINKAGE_DESCRIPTION=Model data - Subject corporate group linkage description MODEL_DATA_GLOBAL_PARENT_BVDID=Model data - Global parent bvdid MODEL_DATA_GLOBAL_PARENT_OPERATING_REVENUE=Model data - Global parent operating revenue MODEL_DATA_GLOBAL_PARENT_OPERATING_REVENUE_ACCURACY_INDICATOR=Model data - Global parent operating revenue accuracy indicator MODEL_DATA_GLOBAL_PARENT_NUMBER_OF_EMPLOYEES=Model data - Global parent number of employees MODEL_DATA_GLOBAL_PARENT_NUMBER_OF_EMPLOYEES_ACCURACY_INDICATOR=Model data - Global parent number of employees accuracy indicator MODEL_DATA_GLOBAL_PARENT_TOTAL_ASSETS=Model data - Global parent total assets MODEL_DATA_GLOBAL_PARENT_TOTAL_ASSETS_ACCURACY_INDICATOR=Model data - Global parent total assets accuracy indicator MODEL_DATA_CALCULATION_DATE=Model data - Calculation date QUOTED_IN_STR=Listing status MAINEXCHANGE=Main exchange CDS_DATE=Date CDS_SPREAD_5Y=Spread 5 years Senior Unsecurred CDS_RECOVERY_RATE=Recovery rate CDS_RATING_5Y=Rating 5 years CDS_IMPLIED_RATING=Implied rating CDS_DATE_MOST_RECENT=Date CDS_SPREAD_5Y_MOST_RECENT=Spread 5 years Senior Unsecurred CDS_RECOVERY_RATE_MOST_RECENT=Recovery rate CDS_RATING_5Y_MOST_RECENT=Rating 5 years CDS_IMPLIED_RATING_MOST_RECENT=Implied rating MANAGED_FUNDS_NAME=Managed funds - Name MANAGED_FUNDS_BVD_ID_NUMBER=Managed funds - BvD ID number MANAGED_FUNDS_ORBISID=Managed funds - Orbis ID number MANAGED_FUNDS_LEI=Managed funds - Legal Entity Identifier (LEI) MANAGED_FUNDS_COUNTRY_ISO_CODE=Managed funds - Country ISO code MANAGED_FUNDS_CITY=Managed funds - City MANAGED_FUNDS_INFORMATION_DATE=Managed funds - Information date MANAGED_FUNDS_INFORMATION_SOURCE=Managed funds - Information source MANAGED_FUNDS_CURRENT_INDICATOR=Managed funds - Current/Archived MANAGED_FUNDS_NATIONAL_ID=National number MANAGED_FUNDS_AKA_NAME=Also known as name MANAGED_FUNDS_PREVIOUS_NAME=Previously known as name MANAGED_FUNDS_ADDRESS_LINE1=Street, no., building etc, line 1 MANAGED_FUNDS_ADDRESS_LINE2=Street, no., building etc, line 2 MANAGED_FUNDS_ADDRESS_LINE3=Street, no., building etc, line 3 MANAGED_FUNDS_ADDRESS_LINE4=Street, no., building etc, line 4 MANAGED_FUNDS_POSTCODE=Postal code MANAGED_FUNDS_PHONE_NUMBER=Telephone number MANAGED_FUNDS_WEBSITE=Website address CPYCONTACTS_MEMBERSHIP_DIFFERENT_PERSONS_CNT=Number of directors &amp; managers CPYCONTACTS_HEADER_FullNameOriginalLanguagePreferred=Full name CPYCONTACTS_HEADER_IdDirector=UCI (Unique Contact Identifier) CPYCONTACTS_HEADER_BvdId=Corresponding BvDID (when applicable) CPYCONTACTS_MEMBERSHIP_Function=Job title (in English) CPYCONTACTS_MEMBERSHIP_FunctionOriginalOriginalLanguagePreferred=Job title (in local language when available) CPYCONTACTS_MEMBERSHIP_BeginningNominationDate=Appointment date CPYCONTACTS_MEMBERSHIP_EndExpirationDate=Resignation date CPYCONTACTS_MEMBERSHIP_CurrentPrevious=Current or previous CPYCONTACTS_HEADER_BareTitle=Title (i.e. Dr, Lord) CPYCONTACTS_HEADER_PrefixSalutation_Translated=Salutation CPYCONTACTS_HEADER_FirstNameOriginalLanguagePreferred=First name CPYCONTACTS_HEADER_MiddleNameOriginalLanguagePreferred=Middle name CPYCONTACTS_HEADER_LastNameOriginalLanguagePreferred=Last name CPYCONTACTS_HEADER_Suffix=Suffix CPYCONTACTS_HEADER_Gender=Gender CPYCONTACTS_HEADER_Birthdate=Birth date CPYCONTACTS_HEADER_Age=Age CPYCONTACTS_HEADER_AgeRange=Age bracket CPYCONTACTS_HEADER_PLACEOFBIRTH=Birth place CPYCONTACTS_HEADER_MultipleNationalitiesLabel=Country/ies of nationality CPYCONTACTS_MEMBERSHIP_WorkFullAddress=Address CPYCONTACTS_HEADER_CountryLabel=Country CPYCONTACTS_HEADER_Email=E-mail address CPYCONTACTS_HEADER_Biography=Biography CPYCONTACTS_MEMBERSHIP_BoardMnemonic=Type of role CPYCONTACTS_MEMBERSHIP_DepartmentFromHierCo...=Board, committee or department GUO_NAME=Global ultimate owner information Name GUO_BVD_ID_NUMBER=Global ultimate owner information BvD ID number GUO_ORBISID=Global ultimate owner information Orbis ID number GUO_LEI=Global ultimate owner information Legal Entity Identifier (LEI) GUO_TICKER=Global ultimate owner information Ticker symbol GUO_COUNTRY_ISO_CODE=Global ultimate owner information Country ISO code GUO_TERRITORY_ISO_CODE=Territory ISO code GUO_STATE_PROVINCE=Global ultimate owner information State or province (in US or Canada) GUO_CITY=Global ultimate owner information City GUO_ENTITY_TYPE=Global ultimate owner information Type GUO_NACE_CORE_CODE=Global ultimate owner information NACE,Core code GUO_NACE_CORE_LABEL=Global ultimate owner information NACE,text description GUO_NAICS_CORE_CODE=Global ultimate owner information NAICS, Core code GUO_NAICS_CORE_LABEL=Global ultimate owner information NAICS, text description GUO_USSIC_CORE_CODE=Global ultimate owner information US SIC, Core code GUO_USSIC_CORE_LABEL=Global ultimate owner information US SIC, text description GUO_DIRECT_PCT=Global ultimate owner information Direct % GUO_TOTAL_PCT=Global ultimate owner information Total % GUO_INFORMATION_SOURCE=Global ultimate owner information Information source GUO_INFORMATION_DATE=Global ultimate owner information Information date GUO_OPRE=Global ultimate owner information Operating revenue (Turnover) GUO_TOAS=Global ultimate owner information Total assets GUO_EMPL=Global ultimate owner information Number of employees GUO_CURRENT_PREVIOUS_MANAGER=Global ultimate owner information Also a manager GUO_NATIONAL_ID=National number GUO_SWIFT_CODE=SWIFT code GUO_AKA_NAME=Also known as name GUO_PREVIOUS_NAME=Previously known as name GUO_ADDRESS_LINE1=Street, no., building etc, line 1 GUO_ADDRESS_LINE2=Street, no., building etc, line 2 GUO_ADDRESS_LINE3=Street, no., building etc, line 3 GUO_ADDRESS_LINE4=Street, no., building etc, line 4 GUO_POSTCODE=Postal code GUO_PHONE_NUMBER=Telephone number GUO_FAX_NUMBER=Fax number GUO_WEBSITE=Website address GUO_PLBT=Global ultimate owner information P/L before tax GUO_PL=Global ultimate owner information P/L for period [=Net income] GUO_SHFD=Global ultimate owner information Shareholders funds DUO_NAME=Domestic ultimate owner information Name DUO_BVD_ID_NUMBER=Domestic ultimate owner information BvD ID number DUO_ORBISID=Domestic ultimate owner information Orbis ID number DUO_LEI=Domestic ultimate owner information Legal Entity Identifier (LEI) DUO_TICKER=Domestic ultimate owner information Ticker symbol DUO_COUNTRY_ISO_CODE=Domestic ultimate owner information Country ISO code DUO_TERRITORY_ISO_CODE=Territory ISO code DUO_STATE_PROVINCE=Domestic ultimate owner information State or province (in US or Canada) DUO_CITY=Domestic ultimate owner information City DUO_ENTITY_TYPE=Domestic ultimate owner information Type DUO_NACE_CORE_CODE=Domestic ultimate owner information NACE,Core code DUO_NACE_CORE_LABEL=Domestic ultimate owner information NACE,text description DUO_NAICS_CORE_CODE=Domestic ultimate owner information NAICS, Core code DUO_NAICS_CORE_LABEL=Domestic ultimate owner information NAICS, text description DUO_USSIC_CORE_CODE=Domestic ultimate owner information US SIC, Core code DUO_USSIC_CORE_LABEL=Domestic ultimate owner information US SIC, text description DUO_DIRECT_PCT=Domestic ultimate owner information Direct % DUO_TOTAL_PCT=Domestic ultimate owner information Total % DUO_INFORMATION_SOURCE=Domestic ultimate owner information Information source DUO_INFORMATION_DATE=Domestic ultimate owner information Information date DUO_OPRE=Domestic ultimate owner information Operating revenue (Turnover) DUO_TOAS=Domestic ultimate owner information Total assets DUO_EMPL=Domestic ultimate owner information Number of employees DUO_CURRENT_PREVIOUS_MANAGER=Domestic ultimate owner information Also a manager DUO_NATIONAL_ID=National number DUO_SWIFT_CODE=SWIFT code DUO_AKA_NAME=Also known as name DUO_PREVIOUS_NAME=Previously known as name DUO_ADDRESS_LINE1=Street, no., building etc, line 1 DUO_ADDRESS_LINE2=Street, no., building etc, line 2 DUO_ADDRESS_LINE3=Street, no., building etc, line 3 DUO_ADDRESS_LINE4=Street, no., building etc, line 4 DUO_POSTCODE=Postal code DUO_PHONE_NUMBER=Telephone number DUO_FAX_NUMBER=Fax number DUO_WEBSITE=Website address DUO_PLBT=Domestic ultimate owner information P/L before tax DUO_PL=Domestic ultimate owner information P/L for period [=Net income] DUO_SHFD=Domestic ultimate owner information Shareholders funds CSH_NAME=Controlling shareholders Name CSH_BVD_ID_NUMBER=Controlling shareholders BvD ID number CSH_ORBISID=Controlling shareholders Orbis ID number CSH_LEI=Controlling shareholders Legal Entity Identifier (LEI) CSH_TICKER=Controlling shareholders Ticker symbol CSH_COUNTRY_ISO_CODE=Controlling shareholders Country ISO code CSH_TERRITORY_ISO_CODE=Territory ISO code CSH_STATE_PROVINCE=Controlling shareholders State or province (in US or Canada) CSH_CITY=Controlling shareholders City CSH_ENTITY_TYPE=Controlling shareholders Type CSH_NACE_CORE_CODE=Controlling shareholders NACE,Core code CSH_NACE_CORE_LABEL=Controlling shareholders NACE,text description CSH_NAICS_CORE_CODE=Controlling shareholders NAICS, Core code CSH_NAICS_CORE_LABEL=Controlling shareholders NAICS, text description CSH_USSIC_CORE_CODE=Controlling shareholders US SIC, Core code CSH_USSIC_CORE_LABEL=Controlling shareholders US SIC, text description CSH_DIRECT_PCT=Controlling shareholders Direct % CSH_TOTAL_PCT=Controlling shareholders Total % CSH_POSSIBLE_PCT_CHANGE_DESCRIPTION=Controlling shareholders Information on possible change in % CSH_LEVEL=Controlling shareholders Level CSH_INFORMATION_SOURCE=Controlling shareholders Information source CSH_INFORMATION_DATE=Controlling shareholders Information date CSH_SALUTATION=Controlling shareholders Salutation CSH_FIRST_NAME=Controlling shareholders First name CSH_LAST_NAME=Controlling shareholders Last name CSH_UCI=Controlling shareholders UCI CSH_OPRE=Controlling shareholders Operating revenue (Turnover) CSH_TOAS=Controlling shareholders Total assets CSH_EMPL=Controlling shareholders Number of employees CSH_CURRENT_PREVIOUS_MANAGER=Controlling shareholders Also a manager CSH_NATIONAL_ID=National number CSH_SWIFT_CODE=SWIFT code CSH_AKA_NAME=Also known as name CSH_PREVIOUS_NAME=Previously known as name CSH_ADDRESS_LINE1=Street, no., building etc, line 1 CSH_ADDRESS_LINE2=Street, no., building etc, line 2 CSH_ADDRESS_LINE3=Street, no., building etc, line 3 CSH_ADDRESS_LINE4=Street, no., building etc, line 4 CSH_POSTCODE=Postal code CSH_PHONE_NUMBER=Telephone number CSH_FAX_NUMBER=Fax number CSH_WEBSITE=Website address CSH_PLBT=Controlling shareholders P/L before tax CSH_PL=Controlling shareholders P/L for period [=Net income] CSH_SHFD=Controlling shareholders Shareholders funds SUB_COMMENTS=Subsidiary Comments (text) SUB_COUNT=No of subsidiaries ULTIMATELY_OWNED_SUB_INCLUDED_COUNT=No of subsidiaries (ultimately-owned included) SUB_NAME=Subsidiary Name SUB_BVD_ID_NUMBER=Subsidiary BvD ID number SUB_ORBISID=Subsidiary Orbis ID number SUB_LEI=Subsidiary Legal Entity Identifier (LEI) SUB_TICKER=Subsidiary Ticker symbol SUB_COUNTRY_ISO_CODE=Subsidiary Country ISO code SUB_TERRITORY_ISO_CODE=Territory ISO code SUB_STATE_PROVINCE=Subsidiary State or province (in US or Canada) SUB_CITY=Subsidiary City SUB_ENTITY_TYPE=Subsidiary Type SUB_NACE_CORE_CODE=Subsidiary NACE,Core code SUB_NACE_CORE_LABEL=Subsidiary NACE,text description SUB_NAICS_CORE_CODE=Subsidiary NAICS, Core code SUB_NAICS_CORE_LABEL=Subsidiary NAICS, text description SUB_USSIC_CORE_CODE=Subsidiary US SIC, Core code SUB_USSIC_CORE_LABEL=Subsidiary US SIC, text description SUB_LEVEL=Subsidiary Level SUB_DIRECT_PCT=Subsidiary Direct % SUB_TOTAL_PCT=Subsidiary Total % SUB_POSSIBLE_PCT_CHANGE_DESCRIPTION=Subsidiary Information on possible change in % SUB_LINK_TYPE=Subsidiary Status SUB_INFORMATION_SOURCE=Subsidiary Information Source SUB_INFORMATION_DATE=Subsidiary Information date SUB_OPRE=Subsidiary Operating revenue (Turnover) SUB_TOAS=Subsidiary Total assets SUB_EMPL=Subsidiary Number of employees SUB_LIABILITY_INDICATOR=Subsidiary Company for which liability is held SUB_BENEFICIALLY_HELD_INDICATOR=Beneficially held SUB_NATIONAL_ID=National number SUB_SWIFT_CODE=SWIFT code SUB_AKA_NAME=Also known as name SUB_PREVIOUS_NAME=Subsidiary Previously known as name SUB_ADDRESS_LINE1=Street, no., building etc, line 1 SUB_ADDRESS_LINE2=Street, no., building etc, line 2 SUB_ADDRESS_LINE3=Street, no., building etc, line 3 SUB_ADDRESS_LINE4=Street, no., building etc, line 4 SUB_POSTCODE=Postal code SUB_PHONE_NUMBER=Telephone number SUB_FAX_NUMBER=Fax number SUB_WEBSITE=Website address SUB_PLBT=Subsidiary P/L before tax SUB_PL=Subsidiary P/L for period [=Net income] SUB_SHFD=Subsidiary Shareholders funds CURRENT_PORTFOLIO_NAME=Current portfolio Name CURRENT_PORTFOLIO_BVD_ID_NUMBER=Current portfolio BvD ID number CURRENT_PORTFOLIO_COUNTRY_ISO_CODE=Current portfolio Country ISO code CURRENT_PORTFOLIO_STATE_PROVINCE=Current portfolio State or province (in US or Canada) CURRENT_PORTFOLIO_CITY=Current portfolio City CURRENT_PORTFOLIO_ENTITY_TYPE=Current portfolio Type CURRENT_PORTFOLIO_NACE_CORE_CODE=Current portfolio NACE,Core code CURRENT_PORTFOLIO_NACE_CORE_LABEL=Current portfolio NACE,text description CURRENT_PORTFOLIO_NAICS_CORE_CODE=Current portfolio NAICS, Core code CURRENT_PORTFOLIO_NAICS_CORE_LABEL=Current portfolio NAICS, text description CURRENT_PORTFOLIO_USSIC_CORE_CODE=Current portfolio US SIC, Core code CURRENT_PORTFOLIO_USSIC_CORE_LABEL=Current portfolio US SIC, text description CURRENT_PORTFOLIO_ENTRY_DATE=Current portfolio Entry date CONTROLLING_PORTFOLIO_COMPANY_NAME=Controlling portfolio company Name CONTROLLING_PORTFOLIO_COMPANY_BVD_ID_NUMBER=Controlling portfolio company BvD ID number CONTROLLING_PORTFOLIO_COMPANY_COUNTRY_ISO_CODE=Controlling portfolio company Country ISO code CONTROLLING_PORTFOLIO_COMPANY_STATE_PROVINCE=Controlling portfolio company State or province (in US or Canada) CONTROLLING_PORTFOLIO_COMPANY_NACE_CORE_CODE=Controlling portfolio company NACE,Core code CONTROLLING_PORTFOLIO_COMPANY_NACE_CORE_LABEL=Controlling portfolio company NACE,text description CONTROLLING_PORTFOLIO_COMPANY_NAICS_CORE_CODE=Controlling portfolio company NAICS, Core code CONTROLLING_PORTFOLIO_COMPANY_NAICS_CORE_LABEL=Controlling portfolio company SociÃ©tÃ© holding - NAICS, text description CONTROLLING_PORTFOLIO_COMPANY_USSIC_CORE_CODE=Controlling portfolio company US SIC, Core code CONTROLLING_PORTFOLIO_COMPANY_USSIC_CORE_LABEL=Controlling portfolio company US SIC, text description PE_FIRM_NAME=PE firms Name PE_FIRM_BVD_ID_NUMBER=PE firms BvD ID number PE_FIRM_COUNTRY_ISO_CODE=PE firms Country ISO code BRANCH_COUNT=No of branches BRANCH_NAME=Branches Branch - Name BRANCH_BVD_ID_NUMBER=Branches Branch - BvD ID number BRANCH_ORBISID=Branches Branch - Orbis ID number BRANCH_COUNTRY_ISO_CODE=Branches Branch - Country ISO code BRANCH_TERRITORY_ISO_CODE=Territory ISO code BRANCH_STATE_PROVINCE=Branches Branch - State or province (in US or Canada) BRANCH_CITY=Branches Branch - City BRANCH_NACE_CORE_CODE=Branches Branch - NACE,Core code BRANCH_NACE_CORE_LABEL=Branches Branch - NACE,text description BRANCH_NAICS_CORE_CODE=Branches Branch - NAICS, Core code BRANCH_NAICS_CORE_LABEL=Branches Branch - NAICS, text description BRANCH_USSIC_CORE_CODE=Branches Branch - US SIC, Core code BRANCH_USSIC_CORE_LABEL=Branches Branch - US SIC, text description BRANCH_OPRE=Branches Branch - Operating revenue (Turnover) BRANCH_TOAS=Branches Branch - Total assets BRANCH_EMPL=Branches Branch - Number employees BRANCH_NATIONAL_ID=National number BRANCH_SWIFT_CODE=SWIFT code BRANCH_AKA_NAME=Also known as name BRANCH_PREVIOUS_NAME=Branches Branch - Previously known as name BRANCH_ADDRESS_LINE1=Street, no., building etc, line 1 BRANCH_ADDRESS_LINE2=Street, no., building etc, line 2 BRANCH_ADDRESS_LINE3=Street, no., building etc, line 3 BRANCH_ADDRESS_LINE4=Street, no., building etc, line 4 BRANCH_POSTCODE=Postal code BRANCH_PHONE_NUMBER=Telephone number BRANCH_FAX_NUMBER=Fax number BRANCH_WEBSITE=Website address BRANCH_PLBT=Branches Branch - P/L before tax BRANCH_PL=Branches Branch - P/L for period [=Net income] BRANCH_SHFD=Branches Branch - Shareholders funds HQ_NAME=Headquarters Name HQ_BVD_ID_NUMBER=Headquarters BvD ID number HQ_ORBISID=Headquarters Orbis ID number HQ_LEI=Headquarters Shareholder - Legal Entity Identifier (LEI) HQ_TICKER=Headquarters Ticker Symbol HQ_COUNTRY_ISO_CODE=Headquarters Country ISO code HQ_STATE_PROVINCE=Headquarters State or province (in US or Canada) HQ_CITY=Headquarters City HQ_ENTITY_TYPE=Headquarters Type HQ_NACE_CORE_CODE=Headquarters NACE,Core code HQ_NACE_CORE_LABEL=Headquarters NACE,text description HQ_NAICS_CORE_CODE=Headquarters NAICS, Core code HQ_NAICS_CORE_LABEL=Headquarters NAICS, text description HQ_USSIC_CORE_CODE=Headquarters US SIC, Core code HQ_USSIC_CORE_LABEL=Headquarters US SIC, text description HQ_INFORMATION_SOURCE=Headquarters Information source HQ_INFORMATION_DATE=Headquarters Information date HQ_CURRENT_INDICATOR=Headquarters Current/Archived HQ_OPRE=Headquarters Operating revenue (Turnover) HQ_TOAS=Headquarters Total assets HQ_EMPL=Headquarters Number of employees HQ_NATIONAL_ID=National number HQ_SWIFT_CODE=SWIFT code HQ_AKA_NAME=Also known as name HQ_PREVIOUS_NAME=Previously known as name HQ_ADDRESS_LINE1=Street, no., building etc, line 1 HQ_ADDRESS_LINE2=Street, no., building etc, line 2 HQ_ADDRESS_LINE3=Street, no., building etc, line 3 HQ_ADDRESS_LINE4=Street, no., building etc, line 4 HQ_POSTCODE=Postal code HQ_PHONE_NUMBER=Telephone number HQ_FAX_NUMBER=Fax number HQ_WEBSITE=Website address HQ_PLBT=Headquarters HEADQUARTERS - P/L before tax HQ_PL=Headquarters HEADQUARTERS - P/L for period [=Net income] HQ_SHFD=Headquarters HEADQUARTERS - Shareholders funds HQ_FALCON_YEAR=Date of FALCON scores HQ_WVB_YEAR=Date of FALCON scores UPDATE_NUMBER=Update number NEW_COMPANY_DATE=Addition of company in database NAME_UPDATE=Last update - Company name ADDRESS_UPDATE=Last update - Address PHONE_NUMBER_UPDATE=Last update - Telephone number DOMAIN_UPDATE=Last update - Domain update WEBSITE_UPDATE=Last update - Website address EMAIL_UPDATE=Last update - E-mail address IDENTIFIERS_UPDATE=Last update - Identification numbers STATUS_UPDATE=Last update - Status (any change) NATIONAL_LEGAL_FORM_UPDATE=Last update - National legal form COMPANY_CATEGORY_UPDATE=Last update - Size classification INDUSTRY_UPDATE=Last update - Industry classifications NEW_ANNUAL_ACCOUNTS_DATE=Addition of last annual accounts NEW_INTERIM_ACCOUNTS_DATE=Addition of last interim accounts ANNUAL_ACCOUNTS_UPDATE=Last update - Annual accounts INTERIM_ACCOUNTS_UPDATE=Last update - Interim accounts BVD_INDEPENDENCE_INDICATOR_UPDATE=Last update - BvD Independence Indicator . ",
     "url": "/preparation/enricher/bvd#available-enrichment-properties-from-bvd-api",
     
     "relUrl": "/preparation/enricher/bvd#available-enrichment-properties-from-bvd-api"
-  },"2476": {
+  },"2480": {
     "doc": "BvD",
     "title": "BvD",
     "content": " ",
     "url": "/preparation/enricher/bvd",
     
     "relUrl": "/preparation/enricher/bvd"
-  },"2477": {
+  },"2481": {
     "doc": "Training",
     "title": "Training",
     "content": "This training will introduce you to CluedIn, a modern master data management platform built to simplify, automate, and connect enterprise data. It is designed for anyone who works with data—shaping data strategy, overseeing governance, or analyzing business trends. In the course of this training, you will learn how to use CluedIn’s tools to work with trusted, connected data without the rigid setup and complexity of traditional MDM systems. Presented by: Pierre Derval, Chief Product Officer at CluedIn . Presentation: Download PPT . To get your CluedIn instance, refer to our article How to get CluedIn. ",
     "url": "/training",
     
     "relUrl": "/training"
-  },"2478": {
+  },"2482": {
     "doc": "Usecases",
     "title": "Getting Started with CluedIn: Use Case Walkthroughs",
     "content": "As a new user of CluedIn, one of the most effective ways to learn the platform is by walking through real-world use cases. These examples will help you understand not only the features of CluedIn, but also the outcomes you can achieve by putting them into practice. Each walkthrough highlights a typical business challenge and demonstrates how CluedIn solves it end-to-end. ",
     "url": "/usecases#getting-started-with-cluedin-use-case-walkthroughs",
     
     "relUrl": "/usecases#getting-started-with-cluedin-use-case-walkthroughs"
-  },"2479": {
+  },"2483": {
     "doc": "Usecases",
     "title": "1. Customer 360: Building a Unified Customer Profile",
     "content": ". | Challenge: Customer data is fragmented across multiple systems (CRM, ERP, support tools, marketing automation). | CluedIn Walkthrough: . | Ingest data from multiple sources. | Automatically detect duplicates, inconsistencies, and missing values. | Link records into a single “golden record” for each customer. | . | Outcome: A reliable and complete view of each customer, enabling better sales insights, personalized marketing, and improved service. | . ",
     "url": "/usecases#1-customer-360-building-a-unified-customer-profile",
     
     "relUrl": "/usecases#1-customer-360-building-a-unified-customer-profile"
-  },"2480": {
+  },"2484": {
     "doc": "Usecases",
     "title": "2. Data Quality Management",
     "content": ". | Challenge: Inconsistent, incomplete, or poor-quality data is slowing down reporting and analytics. | CluedIn Walkthrough: . | Run automated data profiling to identify quality issues. | Apply CluedIn’s cleaning and enrichment rules to standardize and validate data. | Track improvements through CluedIn’s quality dashboards. | . | Outcome: Data you can trust, with measurable improvements in accuracy and completeness. | . ",
     "url": "/usecases#2-data-quality-management",
     
     "relUrl": "/usecases#2-data-quality-management"
-  },"2481": {
+  },"2485": {
     "doc": "Usecases",
     "title": "3. Master Data Management for Products",
     "content": ". | Challenge: Product data is scattered across e-commerce platforms, ERP, and supplier feeds, causing mismatched records. | CluedIn Walkthrough: . | Consolidate all product records into a central view. | Resolve conflicts in product attributes (e.g., price, category, descriptions). | Publish “golden” product data back to consuming systems. | . | Outcome: Consistent and trusted product information across all channels, reducing errors and improving customer experience. | . ",
     "url": "/usecases#3-master-data-management-for-products",
     
     "relUrl": "/usecases#3-master-data-management-for-products"
-  },"2482": {
+  },"2486": {
     "doc": "Usecases",
     "title": "4. Data Integration for Analytics",
     "content": ". | Challenge: Business intelligence (BI) teams struggle to prepare clean datasets for reporting and machine learning. | CluedIn Walkthrough: . | Use CluedIn to unify data from structured and unstructured sources. | Create business-ready datasets by applying rules, transformations, and governance. | Export to analytics tools (e.g., Power BI, Tableau, Snowflake). | . | Outcome: High-quality, analysis-ready datasets delivered faster and with less manual effort. | . ",
     "url": "/usecases#4-data-integration-for-analytics",
     
     "relUrl": "/usecases#4-data-integration-for-analytics"
-  },"2483": {
+  },"2487": {
     "doc": "Usecases",
     "title": "5. Regulatory Compliance (GDPR/CCPA)",
     "content": ". | Challenge: Compliance teams need a complete and auditable view of personal data across the organization. | CluedIn Walkthrough: . | Automatically discover personal data across systems. | Link and classify records to individuals. | Generate compliance-ready reports and respond to Subject Access Requests (SARs). | . | Outcome: Reduced risk and effort in meeting regulatory requirements, with confidence in auditability. | . ",
     "url": "/usecases#5-regulatory-compliance-gdprccpa",
     
     "relUrl": "/usecases#5-regulatory-compliance-gdprccpa"
-  },"2484": {
+  },"2488": {
     "doc": "Usecases",
     "title": "6. Customer Onboarding Acceleration",
     "content": ". | Challenge: New customers expect fast, accurate, and seamless onboarding. | CluedIn Walkthrough: . | Ingest customer information from forms, contracts, and external systems. | Validate, enrich, and standardize the data. | Deliver complete onboarding records into CRM and workflow systems. | . | Outcome: Faster onboarding cycles, fewer errors, and a better first impression for new customers. | . ",
     "url": "/usecases#6-customer-onboarding-acceleration",
     
     "relUrl": "/usecases#6-customer-onboarding-acceleration"
-  },"2485": {
+  },"2489": {
     "doc": "Usecases",
     "title": "7. Helping with ERP Migration",
     "content": ". | Challenge: It is often the case that you will need to migrate an existing ERP system to a new one, or even many ERP systems into a new ERP system. | CluedIn Walkthrough: . | Ingest materials information from SAP, Navision and other systems. | Validate, enrich, and standardize the data. | Deliver complete onboarding records into ERP and workflow systems. | . | Outcome: Faster onboarding cycles, fewer errors, and a better migration process. | . ",
     "url": "/usecases#7-helping-with-erp-migration",
     
     "relUrl": "/usecases#7-helping-with-erp-migration"
-  },"2486": {
+  },"2490": {
     "doc": "Usecases",
     "title": "Next Steps",
     "content": "Each of these walkthroughs will be explored in detail with guided exercises. As you go through them, you’ll learn how to: . | Connect data sources. | Apply CluedIn’s enrichment and matching capabilities. | Build golden records. | Deliver data back to the systems where it creates the most value. | . By the end of these use cases, you’ll have hands-on experience with CluedIn’s core functionality and a clear understanding of how to apply it to your own business challenges. ",
     "url": "/usecases#next-steps",
     
     "relUrl": "/usecases#next-steps"
-  },"2487": {
+  },"2491": {
     "doc": "Usecases",
     "title": "Usecases",
     "content": " ",
     "url": "/usecases",
     
     "relUrl": "/usecases"
-  },"2488": {
+  },"2492": {
     "doc": "Terms of service",
     "title": "On this page",
     "content": ". | Standard CluedIn contract | SaaS . | SaaS SLA | . | PaaS . | Azure Managed Application SLA | Premium Support SLA | . | . Welcome to CluedIn’s terms of service. These terms set out the legal framework for using our platform and related services, including the standard CluedIn contract and service-level agreements (SLAs). ",
     "url": "/terms-of-service#on-this-page",
     
     "relUrl": "/terms-of-service#on-this-page"
-  },"2489": {
+  },"2493": {
     "doc": "Terms of service",
     "title": "Standard CluedIn contract",
     "content": "The standard CluedIn contract defines the terms under which you use CluedIn’s products and services. It explains what you can expect from CluedIn and what CluedIn expects from you as a customer. The contract covers key topics such as licensing, confidentiality, compliance, and more. ",
     "url": "/terms-of-service#standard-cluedin-contract",
     
     "relUrl": "/terms-of-service#standard-cluedin-contract"
-  },"2490": {
+  },"2494": {
     "doc": "Terms of service",
     "title": "SaaS",
     "content": "SaaS SLA . For CluedIn SaaS customers, CluedIn provides a dedicated service level agreement (SLA), which specifies our commitments to service availability, uptime, and support response times. Download the CluedIn SaaS SLA . ",
     "url": "/terms-of-service#saas",
     
     "relUrl": "/terms-of-service#saas"
-  },"2491": {
+  },"2495": {
     "doc": "Terms of service",
     "title": "PaaS",
     "content": "For CluedIn PaaS customers, maintaining full SLA coverage requires that the CluedIn operations team has direct access to your cluster environment. This means our engineers can securely connect to the cluster without waiting for approvals, or have a jump box available. If direct access is unavailable, SLA response and resolution times may be temporarily paused until access is restored. Azure Managed Application SLA . For environments deployed via Azure Managed Applications, see Azure Managed Application Description &amp; SLA. Premium Support SLA . For customers with Premium Support agreements, see Premium Support Service Level Agreement. ",
     "url": "/terms-of-service#paas",
     
     "relUrl": "/terms-of-service#paas"
-  },"2492": {
+  },"2496": {
     "doc": "Terms of service",
     "title": "Terms of service",
     "content": " ",
     "url": "/terms-of-service",
     
     "relUrl": "/terms-of-service"
-  },"2493": {
+  },"2497": {
     "doc": "REST API",
     "title": "On this page",
     "content": ". | In this section | API at a glance | Functional areas | . CluedIn exposes a comprehensive REST API that lets external systems, scripts, and applications interact with the platform programmatically. In practice, anything you can do in the CluedIn UI—working with entities, rules, streams, vocabularies, the glossary, data sources, and administration—can also be done through the API. The API is described by an OpenAPI 3.0 specification that contains more than 1,000 endpoints grouped into approximately 120 functional areas. You can download the full specification from this site, or browse it by category in the API reference. Download swagger.json . ",
     "url": "/rest-api#on-this-page",
     
     "relUrl": "/rest-api#on-this-page"
-  },"2494": {
+  },"2498": {
     "doc": "REST API",
     "title": "In this section",
     "content": "| Page | Description | . | Get started | Base URLs, authentication, request and response conventions, and code examples. | . | API reference | Interactive, browsable reference for every endpoint, generated from the OpenAPI specification. | . ",
     "url": "/rest-api#in-this-section",
     
     "relUrl": "/rest-api#in-this-section"
-  },"2495": {
+  },"2499": {
     "doc": "REST API",
     "title": "API at a glance",
     "content": "|   |   | . | Specification | OpenAPI 3.0 | . | Base path | /api (and versioned paths such as /api/v1) | . | Authentication | Bearer token (CluedIn API token) | . | Request and response format | JSON | . | Endpoints | 1,000+ across ~120 functional areas | . ",
     "url": "/rest-api#api-at-a-glance",
     
     "relUrl": "/rest-api#api-at-a-glance"
-  },"2496": {
+  },"2500": {
     "doc": "REST API",
     "title": "Functional areas",
     "content": "The endpoints are organized by tag. Some of the most frequently used areas include the following. | Area | Typical use | . | Entity, EntityInfo, EntityModification | Read, create, and modify golden records. | . | Search, SavedSearch, SuggestedSearch | Query the CluedIn graph and manage saved searches. | . | Vocabulary, VocabularyUsage | Manage vocabularies and vocabulary keys. | . | Rules, RuleDataPreview | Manage and preview data, survivorship, and golden record rules. | . | Streams, StreamMappings | Configure and operate export streams. | . | Glossary, GlossarySearch | Manage glossary categories and terms. | . | DataSource, Import, Export | Manage data sources and data ingestion or extraction. | . | Hierarchies | Build and manage hierarchies. | . | Organization, AdminCommands, Configuration | Administration and operational commands. | . For the complete list of areas and every available endpoint, see the API reference. ",
     "url": "/rest-api#functional-areas",
     
     "relUrl": "/rest-api#functional-areas"
-  },"2497": {
+  },"2501": {
     "doc": "REST API",
     "title": "REST API",
     "content": " ",
     "url": "/rest-api",
     
     "relUrl": "/rest-api"
-  },"2498": {
+  },"2502": {
     "doc": "CluedIn Security — Log4j2 CVE-2021-44228",
     "title": "On this page",
     "content": ". | Update: CVE-2021-45046 | Neo4j . | Actions required | . | Elasticsearch . | Actions required | . | OpenRefine . | Actions required | . | Related links | . On December 9th 2021 a high severity vulnerability was disclosed in the Apache Log4j2 library for all versions between 2.0-beta9 and 2.14.1. This library is used by a significant amount of Java based applications and services. At CluedIn, we build .NET and Node.js services that are not impacted by the vulnerability. However, we do utilise some third-party services that are Java based. This announcement details the usage of those services and their exposure to CVE-2021-44228. ",
     "url": "/kb/log4j#on-this-page",
     
     "relUrl": "/kb/log4j#on-this-page"
-  },"2499": {
+  },"2503": {
     "doc": "CluedIn Security — Log4j2 CVE-2021-44228",
     "title": "Update: CVE-2021-45046",
     "content": "After the initial wave of fixes an additional issue was discovered (CVE-2021-45-46) which highlighted that in some cases the proposed fixes for CVE-2021-44228 were insufficient. In all cases, no actions are required for CluedIn services. Notably, Elasticsearch may have false positives, however Elastic reccomends the same changes as for the original CVE. Therefore, there are no additional requirements for fixes with CluedIn. ",
     "url": "/kb/log4j#update-cve-2021-45046",
     
     "relUrl": "/kb/log4j#update-cve-2021-45046"
-  },"2500": {
+  },"2504": {
     "doc": "CluedIn Security — Log4j2 CVE-2021-44228",
     "title": "Neo4j",
     "content": "All versions of CluedIn use the 3.5.x (currently 3.5.29) version of the community edition of Neo4j or an earlier version. As identified in the Neo4j repository, versions prior to 4.2 used a custom logging framework and are not affected by the vulnerability. Additionally – Neo4j is not exposed to the public internet so user crafted requests that could expose the vulnerability cannot be targeted to the service. Actions required . No action is required for the current nor any previous version of CluedIn. ",
     "url": "/kb/log4j#neo4j",
     
     "relUrl": "/kb/log4j#neo4j"
-  },"2501": {
+  },"2505": {
     "doc": "CluedIn Security — Log4j2 CVE-2021-44228",
     "title": "Elasticsearch",
     "content": "CluedIn 3.1.0-3.2.5 uses the 7.8.0 version of Elasticsearch. As identified by Elastic, Elasticsearch version 7.8+ running on JDK9+ are not susceptible. CluedIn 3.0.0 uses 7.6.2 and will require setting a JVM option to prevent exposure. Additionally – Elasticsearch is not exposed to the public internet so user crafted requests that could expose the vulnerability cannot be targeted to the service. Actions required . CluedIn version 3.0.0: . | In your values.yml set the following . elasticsearch: esJavaOpts: “-Dlog4j2.formatMsgNoLookups=true” . | Perform a helm upgrade with the new values.yml . | . No action is required for version 3.1+ of CluedIn. ",
     "url": "/kb/log4j#elasticsearch",
     
     "relUrl": "/kb/log4j#elasticsearch"
-  },"2502": {
+  },"2506": {
     "doc": "CluedIn Security — Log4j2 CVE-2021-44228",
     "title": "OpenRefine",
     "content": "CluedIn 3.2.2-3.2.5 uses the 3.4.1 version of OpenRefine. OpenRefine uses version 1.x of Log4j which does not contain the features which enable exposure to the vulnerability. All earlier versions of CluedIn use the 3.1 version of OpenRefine. Again, version 1.x of Log4j is used, which does not contain the features which enable exposure to the vulnerability. Actions required . No action is required. ",
     "url": "/kb/log4j#openrefine",
     
     "relUrl": "/kb/log4j#openrefine"
-  },"2503": {
+  },"2507": {
     "doc": "CluedIn Security — Log4j2 CVE-2021-44228",
     "title": "Related links",
     "content": ". | https://www.randori.com/blog/cve-2021-44228/ | https://github.com/mubix/CVE-2021-44228-Log4Shell-Hashes | https://msrc-blog.microsoft.com/2021/12/11/microsofts-response-to-cve-2021-44228-apache-log4j2/ | https://www.synopsys.com/blogs/software-security/zero-day-exploit-log4j-analysis/ | https://blog.sonatype.com/a-new-0-day-log4j-vulnerability-discovered-in-the-wild | https://securelist.com/cve-2021-44228-vulnerability-in-apache-log4j-library/105210/ | https://nvd.nist.gov/vuln/detail/CVE-2021-44228 | https://blog.cloudflare.com/inside-the-log4j2-vulnerability-cve-2021-44228/ | https://github.com/neo4j-graphql/neo4j-graphql-java/issues/260 | https://github.com/neo4j/neo4j/issues/12796 | https://www.elastic.co/blog/detecting-log4j2-with-elastic-security | https://discuss.elastic.co/t/apache-log4j2-remote-code-execution-rce-vulnerability-cve-2021-44228-esa-2021-31/291476 | https://blog.cloudflare.com/cve-2021-44228-log4j-rce-0-day-mitigation/ | . ",
     "url": "/kb/log4j#related-links",
     
     "relUrl": "/kb/log4j#related-links"
-  },"2504": {
+  },"2508": {
     "doc": "CluedIn Security — Log4j2 CVE-2021-44228",
     "title": "CluedIn Security — Log4j2 CVE-2021-44228",
     "content": " ",
     "url": "/kb/log4j",
     
     "relUrl": "/kb/log4j"
-  },"2505": {
+  },"2509": {
     "doc": "Frequently asked questions",
     "title": "On this page",
     "content": ". | What happens if I change the default configuration installed using the Azure Marketplace offering? | What is different between CluedIn and other data integration platforms? | What happens with low-quality, invalid, or messy ingested data? | How does CluedIn handle sensitive and personal data? | Does storing raw data in four databases require a lot of storage? | How can I extract data from CluedIn? | Considering that CluedIn uses off-the-shelf (OTS) databases, can I access data directly from there? | What if my systems are highly customized—can CluedIn still integrate them? | If CluedIn connects my data, won’t the data model be messy? | Can I automate CluedIn administration? | What to do if I have made a change that requires me to re-process the data? | Does CluedIn index everything? | How does CluedIn guarantee data consistency across multiple databases? | Why is CluedIn written in C#? | I am not a C# developer. Can I still extend CluedIn? | What type of data is CluedIn not suited for? | . ",
     "url": "/kb/faq#on-this-page",
     
     "relUrl": "/kb/faq#on-this-page"
-  },"2506": {
+  },"2510": {
     "doc": "Frequently asked questions",
     "title": "What happens if I change the default configuration installed using the Azure Marketplace offering?",
     "content": "Any modifications made to the default configuration, except those explicitly documented as post-install adjustments on the documentation portal, will result in the termination of support. This includes: . | Premium Support. | Azure Managed Application. | And any other customer support service. | . The reason for this is the high probability that the cluster may not operate correctly. Changes outside the documented scope are considered out of support, and CluedIn will not provide assistance or troubleshooting for configurations that deviate from the originally installed setup. Allowed changes include the following: . | Adjusting requests and limits on CluedIn operating pods (CPU and memory). | Setting up and receiving assistance with the CluedIn backup solution. | Configuring single sign-on (SSO). | Setting up SMTP details for welcome emails. | Configuring extended alerts via CluedIn (CluedIn-specific alerts only, not customer-specific). | Troubleshooting ad-hoc cluster failures, if determined not to be caused by the customer. | Upgrading environments. | Installing the product using the default configuration. | Using Azure Key Vault to provide secrets to the cluster. | Performing general AKS maintenance on the default configuration. | . Any deviation from this list will be considered out of support. Assistance for such issues is not guaranteed and may incur additional charges. ",
     "url": "/kb/faq#what-happens-if-i-change-the-default-configuration-installed-using-the-azure-marketplace-offering",
     
     "relUrl": "/kb/faq#what-happens-if-i-change-the-default-configuration-installed-using-the-azure-marketplace-offering"
-  },"2507": {
+  },"2511": {
     "doc": "Frequently asked questions",
     "title": "What is different between CluedIn and other data integration platforms?",
     "content": "Whether you use SAP Data Services, Azure Data Factory, SSIS, Talend, Python, SAS Institute, Informatica PowerCenter, or other ETL-based tools, they all hold something in common: you, as the engineer, architect, or business user, must map different systems together. At CluedIn, we have found that identifying which IDs need to be connected between systems to unify or connect records is often the hardest part, and sometimes impossible. CluedIn uses a schema-less based integration pattern that doesn’t require you to define how systems connect. Instead, you provide a much simpler and streamlined mapping, and CluedIn automatically detects relationships between the systems, often uncovering connections that you would not see yourself. ",
     "url": "/kb/faq#what-is-different-between-cluedin-and-other-data-integration-platforms",
     
     "relUrl": "/kb/faq#what-is-different-between-cluedin-and-other-data-integration-platforms"
-  },"2508": {
+  },"2512": {
     "doc": "Frequently asked questions",
     "title": "What happens with low-quality, invalid, or messy ingested data?",
     "content": "CluedIn is an extract-load-transform (ELT) type of integration platform. We ingest data as-is, without cleaning or transformation. CluedIn detects and addresses data quality issues through its processing engine: . | Automated cleaning and normalization into the highest-fidelity format. | Support for “blacklisted values”, with the ability to remove or transform invalid data during processing. | Rules to define what qualifies as valid or invalid data. | . Data that meets standards continues through processing; data that fails is quarantined for review and resolution. ",
     "url": "/kb/faq#what-happens-with-low-quality-invalid-or-messy-ingested-data",
     
     "relUrl": "/kb/faq#what-happens-with-low-quality-invalid-or-messy-ingested-data"
-  },"2509": {
+  },"2513": {
     "doc": "Frequently asked questions",
     "title": "How does CluedIn handle sensitive and personal data?",
     "content": "For personal data: . | CluedIn automatically detects personal data and alerts you to its presence. | Depending on your requirements, you can then choose to mask, anonymize, or remove the data. | . For sensitive data: . | The definition of what is considered sensitive varies across organizations. | For this reason, CluedIn lets you manually flag records as sensitive, building a custom data model that learns and automatically flags similar data over time. | . ",
     "url": "/kb/faq#how-does-cluedin-handle-sensitive-and-personal-data",
     
     "relUrl": "/kb/faq#how-does-cluedin-handle-sensitive-and-personal-data"
-  },"2510": {
+  },"2514": {
     "doc": "Frequently asked questions",
     "title": "Does storing raw data in four databases require a lot of storage?",
     "content": "Not necessarily. You control what data is ingested into CluedIn. For many data types, we extract only what is needed (for example, content and metadata from files), not full copies. All stored data is compressed, so total storage is often much smaller than the source. For example, customers processing hundreds of terabytes of source data typically use 2–3 TB of storage in CluedIn. ",
     "url": "/kb/faq#does-storing-raw-data-in-four-databases-require-a-lot-of-storage",
     
     "relUrl": "/kb/faq#does-storing-raw-data-in-four-databases-require-a-lot-of-storage"
-  },"2511": {
+  },"2515": {
     "doc": "Frequently asked questions",
     "title": "How can I extract data from CluedIn?",
     "content": "CluedIn is designed to sit between source and target systems, making data extraction simple and reliable. Two main options are recommended: . | GraphQL API – Query all data in your CluedIn account, selecting specific properties as needed. Results are returned in JSON format. | Data Streams – Send (push) data directly to a target system (SQL database, Apache Spark, Power BI, or Data Warehouse). | . Avoid using CSV or file exports in production as they can reintroduce data silos. ",
     "url": "/kb/faq#how-can-i-extract-data-from-cluedin",
     
     "relUrl": "/kb/faq#how-can-i-extract-data-from-cluedin"
-  },"2512": {
+  },"2516": {
     "doc": "Frequently asked questions",
     "title": "Considering that CluedIn uses off-the-shelf (OTS) databases, can I access data directly from there?",
     "content": "While technically possible, direct database access is recommended only in developer environments. In production, CluedIn provides GraphQL interfaces to safely query your data without exposing the underlying stores. Native database access is disabled by default in Kubernetes deployments for security reasons. ",
     "url": "/kb/faq#considering-that-cluedin-uses-off-the-shelf-ots-databases-can-i-access-data-directly-from-there",
     
     "relUrl": "/kb/faq#considering-that-cluedin-uses-off-the-shelf-ots-databases-can-i-access-data-directly-from-there"
-  },"2513": {
+  },"2517": {
     "doc": "Frequently asked questions",
     "title": "What if my systems are highly customized—can CluedIn still integrate them?",
     "content": "Yes. CluedIn integrations assume that the source model can be customized. You will still need to map your source objects into CluedIn to achieve optimal results. The integrations handle the connection, scheduling, paging, and data delivery—you simply define the logical mapping to the Clue object. Unlike other platforms, CluedIn does not require you to define every connection. This is handled automatically instead. ",
     "url": "/kb/faq#what-if-my-systems-are-highly-customizedcan-cluedin-still-integrate-them",
     
     "relUrl": "/kb/faq#what-if-my-systems-are-highly-customizedcan-cluedin-still-integrate-them"
-  },"2514": {
+  },"2518": {
     "doc": "Frequently asked questions",
     "title": "If CluedIn connects my data, won’t the data model be messy?",
     "content": "At first, yes—because your data landscape is typically messy. CluedIn’s goal is to reveal the natural connections in your data, not impose an artificial structure. Once those relationships are discovered, you can project clean, business-specific models for different use cases. The underlying graph engine ensures fast, scalable projections. ",
     "url": "/kb/faq#if-cluedin-connects-my-data-wont-the-data-model-be-messy",
     
     "relUrl": "/kb/faq#if-cluedin-connects-my-data-wont-the-data-model-be-messy"
-  },"2515": {
+  },"2519": {
     "doc": "Frequently asked questions",
     "title": "Can I automate CluedIn administration?",
     "content": "Yes. The CluedIn administration UI is built entirely on top of our REST API. Anything you can do in the interface can also be scripted via: . | REST API | PowerShell | Other scripting languages | . This enables full automation of administrative tasks. ",
     "url": "/kb/faq#can-i-automate-cluedin-administration",
     
     "relUrl": "/kb/faq#can-i-automate-cluedin-administration"
-  },"2516": {
+  },"2520": {
     "doc": "Frequently asked questions",
     "title": "What to do if I have made a change that requires me to re-process the data?",
     "content": "Re-processing is common and expected. You can choose the scope of re-processing based on your needs: . | Source level . | Record level . | Custom options like business domain level . | Global re-processing . | . ",
     "url": "/kb/faq#what-to-do-if-i-have-made-a-change-that-requires-me-to-re-process-the-data",
     
     "relUrl": "/kb/faq#what-to-do-if-i-have-made-a-change-that-requires-me-to-re-process-the-data"
-  },"2517": {
+  },"2521": {
     "doc": "Frequently asked questions",
     "title": "Does CluedIn index everything?",
     "content": "Yes. However, you can optimize indexing by specifying vocabulary key data types during setup. This improves search performance and efficiency while keeping all data searchable. ",
     "url": "/kb/faq#does-cluedin-index-everything",
     
     "relUrl": "/kb/faq#does-cluedin-index-everything"
-  },"2518": {
+  },"2522": {
     "doc": "Frequently asked questions",
     "title": "How does CluedIn guarantee data consistency across multiple databases?",
     "content": "CluedIn uses an enterprise service bus (ESB) with an eventual consistency model. Data is ingested into a transactional log, which multiple databases read asynchronously. This guarantees transactional delivery of data and ensures stability even under heavy processing loads. ",
     "url": "/kb/faq#how-does-cluedin-guarantee-data-consistency-across-multiple-databases",
     
     "relUrl": "/kb/faq#how-does-cluedin-guarantee-data-consistency-across-multiple-databases"
-  },"2519": {
+  },"2523": {
     "doc": "Frequently asked questions",
     "title": "Why is CluedIn written in C#?",
     "content": "CluedIn is built on .NET Core and C# for several reasons: . | Proven scalability and performance in large systems. | Strong ecosystem support from Microsoft and the open-source community. | Maintainable architecture with clear separation of concerns. | High speed compared to most modern languages. | . While C# may be slightly less memory-efficient, the trade-off enables faster, more stable delivery. ",
     "url": "/kb/faq#why-is-cluedin-written-in-c",
     
     "relUrl": "/kb/faq#why-is-cluedin-written-in-c"
-  },"2520": {
+  },"2524": {
     "doc": "Frequently asked questions",
     "title": "I am not a C# developer. Can I still extend CluedIn?",
     "content": "Yes. CluedIn communicates via HTTP (REST), so you can use any language that supports REST APIs (Python, R, Go, and so on). However: . | You cannot inject custom logic into the same application domain as CluedIn. | You must host your custom code separately. | Crawler templates are available only in C#. | . ",
     "url": "/kb/faq#i-am-not-a-c-developer-can-i-still-extend-cluedin",
     
     "relUrl": "/kb/faq#i-am-not-a-c-developer-can-i-still-extend-cluedin"
-  },"2521": {
+  },"2525": {
     "doc": "Frequently asked questions",
     "title": "What type of data is CluedIn not suited for?",
     "content": "CluedIn may not be ideal for: . | Internet of things (IoT) or signal data that needs near-real-time dashboards without governance or cataloging. | Simple integrations (for example, connecting Dropbox to a CRM) with clear record relationships. | Use cases that prohibit data movement, because CluedIn works by copying and processing ingested data. | . ",
     "url": "/kb/faq#what-type-of-data-is-cluedin-not-suited-for",
     
     "relUrl": "/kb/faq#what-type-of-data-is-cluedin-not-suited-for"
-  },"2522": {
+  },"2526": {
     "doc": "Frequently asked questions",
     "title": "Frequently asked questions",
     "content": " ",
     "url": "/kb/faq",
     
     "relUrl": "/kb/faq"
-  },"2523": {
+  },"2527": {
     "doc": "Rules running slowly",
     "title": "On this page",
     "content": ". | How Rule Processing Works | Common Reasons Rules Run Slowly . | 1. Large Data Volumes | 2. Complex Rule Conditions | 3. High Number of Active Rules | 4. Data Distribution &amp; Entity Linking | 5. Environment &amp; Resource Constraints | 6. Reprocessing vs. Incremental Runs | . | How to Troubleshoot Slow Rules | Best Practices for Optimizing Rule Performance | Summary | . Rules in CluedIn are a powerful way to clean, standardize, and enrich your data as it flows through the platform. They allow you to automate transformations and enforce business logic at scale. However, in some cases, you may notice that your Rules take longer than expected to process. This article explains the key factors that influence Rule performance, common reasons why execution may be slow, and steps you can take to optimize and troubleshoot. ",
     "url": "/kb/rules-slow#on-this-page",
     
     "relUrl": "/kb/rules-slow#on-this-page"
-  },"2524": {
+  },"2528": {
     "doc": "Rules running slowly",
     "title": "How Rule Processing Works",
     "content": "Before diving into performance issues, it’s important to understand how Rules are executed in CluedIn: . | Trigger – A Rule is triggered when new data is ingested or when a Rule is explicitly re-run on existing data. | Evaluation – The Rule engine evaluates each record against the configured conditions. | Transformation – For matching records, the Rule applies the transformation or enrichment logic. | Propagation – Updates are written back to the affected entities and, if configured, published to downstream systems. | . The time it takes depends on the volume of records, the complexity of the logic, and the resources available in your CluedIn environment. ",
     "url": "/kb/rules-slow#how-rule-processing-works",
     
     "relUrl": "/kb/rules-slow#how-rule-processing-works"
-  },"2525": {
+  },"2529": {
     "doc": "Rules running slowly",
     "title": "Common Reasons Rules Run Slowly",
     "content": "1. Large Data Volumes . | Symptom: Rules that work quickly on small datasets suddenly take much longer on production-scale data. | Explanation: Each Rule must scan through entities to find matches. Processing millions of records inevitably takes more time. | . Tip: Test Rules on smaller sample datasets before applying them to production. 2. Complex Rule Conditions . | Symptom: Rules with multiple conditions, regex patterns, or nested logic perform slower. | Explanation: Each additional condition increases the number of evaluations per record. Regex-based conditions are especially costly. | . Tip: Simplify Rule logic where possible. Split complex Rules into multiple smaller, focused Rules. 3. High Number of Active Rules . | Symptom: Processing slows down as more Rules are added. | Explanation: CluedIn must evaluate every active Rule against incoming records. Even if most Rules don’t apply, they still need to be checked. | . Tip: Review your Rule library and disable Rules that are not actively needed. 4. Data Distribution &amp; Entity Linking . | Symptom: Rules that depend on entity relationships (e.g., linked customers, orders, or products) take longer. | Explanation: Linking requires lookups across multiple entities. Large or poorly matched datasets increase lookup overhead. | . Tip: Ensure entity matching configurations are optimized before running Rules that depend on them. 5. Environment &amp; Resource Constraints . | Symptom: Rules slow down during periods of heavy ingestion or other intensive processing. | Explanation: The Rule engine shares compute resources with ingestion, matching, and enrichment jobs. Resource contention can delay execution. | . Tip: Schedule large Rule runs during off-peak hours or scale your CluedIn deployment to handle higher throughput. 6. Reprocessing vs. Incremental Runs . | Symptom: A Rule re-run on all historical data takes significantly longer than on new incremental data. | Explanation: Full reprocessing forces CluedIn to re-check all records, while incremental runs only apply to newly ingested or updated data. | . Tip: Use incremental runs where possible. Reserve full re-runs for cases where underlying Rule logic has changed. ",
     "url": "/kb/rules-slow#common-reasons-rules-run-slowly",
     
     "relUrl": "/kb/rules-slow#common-reasons-rules-run-slowly"
-  },"2526": {
+  },"2530": {
     "doc": "Rules running slowly",
     "title": "How to Troubleshoot Slow Rules",
     "content": ". | Check Rule Execution Logs . | Navigate to Rules &gt; Execution History. | Look for patterns (e.g., long-running conditions, high record counts). | . | Measure Impact of Individual Rules . | Disable all Rules. | Re-enable them one by one to isolate performance bottlenecks. | . | Profile the Data . | Use Data Quality Profiling to identify large or inconsistent fields that may slow down evaluation (e.g., very long text fields, improperly formatted values). | . | Check System Resources . | Review CluedIn environment metrics (CPU, memory, queue depth). | If resource constraints are observed, consider scaling the environment. | . | Engage with CluedIn Support . | If performance is consistently poor despite optimization, raise a support ticket with logs and execution metrics. | . | . ",
     "url": "/kb/rules-slow#how-to-troubleshoot-slow-rules",
     
     "relUrl": "/kb/rules-slow#how-to-troubleshoot-slow-rules"
-  },"2527": {
+  },"2531": {
     "doc": "Rules running slowly",
     "title": "Best Practices for Optimizing Rule Performance",
     "content": ". | Keep Rules Simple: Favor straightforward conditions over complex regex or nested logic. | Use Targeted Scopes: Apply Rules only to relevant entity types, not globally. | Batch Complex Logic: Break down large transformations into multiple smaller Rules. | Monitor &amp; Review: Regularly audit your Rules and disable ones that are no longer needed. | Test at Scale: Validate Rule performance in staging with production-like volumes. | Leverage Scheduling: Run heavy Rules during low-traffic times. | . ",
     "url": "/kb/rules-slow#best-practices-for-optimizing-rule-performance",
     
     "relUrl": "/kb/rules-slow#best-practices-for-optimizing-rule-performance"
-  },"2528": {
+  },"2532": {
     "doc": "Rules running slowly",
     "title": "Summary",
     "content": "Rules may process slowly for a variety of reasons, most often due to large data volumes, complex conditions, or resource contention. By understanding how Rule execution works and following best practices for optimization, you can ensure that your Rules run efficiently and continue delivering value without bottlenecks. If you’ve optimized your setup and still see performance issues, contact CluedIn Support for advanced troubleshooting. ",
     "url": "/kb/rules-slow#summary",
     
     "relUrl": "/kb/rules-slow#summary"
-  },"2529": {
+  },"2533": {
     "doc": "Rules running slowly",
     "title": "Rules running slowly",
     "content": " ",
     "url": "/kb/rules-slow",
     
     "relUrl": "/kb/rules-slow"
-  },"2530": {
+  },"2534": {
     "doc": "Rules not working as expected",
     "title": "On this page",
     "content": ". | Understanding How Rules Work | Common Reasons Rules Don’t Work . | 1. Incorrect Scope or Target | 2. Conditions That Never Match | 3. Action Misconfiguration | 4. Rule Execution Order | 5. Data Quality Issues | 6. Rule Disabled or Not Published | 7. Running Rules on the Wrong Dataset | . | How to Troubleshoot Non-Working Rules | Best Practices to Avoid Rule Misbehavior | Summary | . CluedIn Rules are designed to help you automate transformations, validations, and enrichment of your data. When they don’t behave as expected, it can be frustrating and may lead to incorrect data outcomes. This article explains the most common reasons Rules may not work, how to troubleshoot them, and best practices to ensure they deliver the results you want. ",
     "url": "/kb/rules-not-working#on-this-page",
     
     "relUrl": "/kb/rules-not-working#on-this-page"
-  },"2531": {
+  },"2535": {
     "doc": "Rules not working as expected",
     "title": "Understanding How Rules Work",
     "content": "At a high level, a Rule in CluedIn consists of: . | Scope: The entities or attributes it applies to. | Conditions: The logic that determines whether the Rule applies. | Actions: The transformation or update to apply when conditions are met. | . If any of these are misconfigured, the Rule may not execute as you expect. ",
     "url": "/kb/rules-not-working#understanding-how-rules-work",
     
     "relUrl": "/kb/rules-not-working#understanding-how-rules-work"
-  },"2532": {
+  },"2536": {
     "doc": "Rules not working as expected",
     "title": "Common Reasons Rules Don’t Work",
     "content": "1. Incorrect Scope or Target . | Symptom: Rule never seems to run. | Cause: The Rule is applied to the wrong entity type or attribute. For example, applying a Customer Rule on Contact entities. | Fix: Double-check the entity type and field mappings in the Rule configuration. | . 2. Conditions That Never Match . | Symptom: Rule exists, but no records are updated. | Cause: Condition logic is too strict or incorrectly defined. | Example: Condition is Country = US, but data uses USA or United States. | Example: Regex pattern doesn’t align with the data format. | . | Fix: Validate the condition logic against sample data. Loosen overly strict conditions where necessary. | . 3. Action Misconfiguration . | Symptom: Rule triggers but doesn’t update fields as intended. | Cause: The action is pointing to the wrong field or uses the wrong transformation. | Fix: Review the action configuration to ensure it references the correct attributes and expected values. | . 4. Rule Execution Order . | Symptom: A Rule appears to run, but results are overridden. | Cause: Another Rule is executing afterwards and undoing or replacing the changes. | Fix: Review the Rule execution order. Consider merging related logic into a single Rule or adjusting order of operations. | . 5. Data Quality Issues . | Symptom: Rule applies inconsistently. | Cause: Input data does not match expected formats or contains null values. | Fix: Run Data Profiling to check data consistency. Create preprocessing Rules to normalize data before applying main transformations. | . 6. Rule Disabled or Not Published . | Symptom: Rule doesn’t run at all. | Cause: The Rule has been saved but not activated, or changes have not been published. | Fix: Check the Rule’s status. Ensure it is active and published. | . 7. Running Rules on the Wrong Dataset . | Symptom: Rule tests fine on samples but doesn’t work in production. | Cause: Rule is only applied on a test dataset or hasn’t been re-run on historical records. | Fix: Re-run the Rule on the correct dataset and confirm scope matches production data. | . ",
     "url": "/kb/rules-not-working#common-reasons-rules-dont-work",
     
     "relUrl": "/kb/rules-not-working#common-reasons-rules-dont-work"
-  },"2533": {
+  },"2537": {
     "doc": "Rules not working as expected",
     "title": "How to Troubleshoot Non-Working Rules",
     "content": ". | Check Rule Execution Logs . | Navigate to Rules &gt; Execution History. | Verify if the Rule ran, how many records matched, and whether any errors occurred. | . | Test on Sample Data . | Run the Rule against a small test dataset. | Confirm that the expected outcome occurs on a controlled set of records. | . | Validate Conditions Against Real Data . | Inspect a few sample records directly in Entity Explorer. | Confirm they satisfy the Rule conditions. | . | Review Dependencies . | Check if other Rules, enrichments, or transformations might be interfering. | . | Simplify the Rule . | Temporarily remove complex conditions. | Reintroduce them one by one until the failure point is found. | . | . ",
     "url": "/kb/rules-not-working#how-to-troubleshoot-non-working-rules",
     
     "relUrl": "/kb/rules-not-working#how-to-troubleshoot-non-working-rules"
-  },"2534": {
+  },"2538": {
     "doc": "Rules not working as expected",
     "title": "Best Practices to Avoid Rule Misbehavior",
     "content": ". | Be Precise with Conditions: Use clear logic that matches real data values. | Use Standardized Data: Normalize data (e.g., country codes, phone formats) before applying Rules. | Keep Rules Modular: Use smaller, focused Rules instead of one overly complex Rule. | Document Each Rule: Add descriptions so others understand what it is intended to do. | Test in Staging First: Validate new Rules on non-production data before applying broadly. | Monitor Execution: Regularly review Rule logs and dashboards for anomalies. | . ",
     "url": "/kb/rules-not-working#best-practices-to-avoid-rule-misbehavior",
     
     "relUrl": "/kb/rules-not-working#best-practices-to-avoid-rule-misbehavior"
-  },"2535": {
+  },"2539": {
     "doc": "Rules not working as expected",
     "title": "Summary",
     "content": "When Rules don’t work as expected in CluedIn, it is usually due to issues with scope, conditions, actions, or execution order. By systematically troubleshooting these areas and following best practices, you can ensure your Rules deliver consistent, predictable results. If you have confirmed your configuration is correct but Rules still fail to execute properly, contact CluedIn Support with execution logs and example records for further investigation. ",
     "url": "/kb/rules-not-working#summary",
     
     "relUrl": "/kb/rules-not-working#summary"
-  },"2536": {
+  },"2540": {
     "doc": "Rules not working as expected",
     "title": "Rules not working as expected",
     "content": " ",
     "url": "/kb/rules-not-working",
     
     "relUrl": "/kb/rules-not-working"
-  },"2537": {
+  },"2541": {
     "doc": "Product Toolkit failing to export or import",
     "title": "On this page",
     "content": ". | Common Reasons for Failures . | 1. Timeouts During Execution | 2. Insufficient Permissions (RACI Access) | 3. Missing or Incomplete Dependencies | 4. Version Mismatches | 5. Environment Resource Constraints | . | How to Troubleshoot | Best Practices for Reliable Toolkit Operations | Summary | . The CluedIn Product Toolkit allows you to export and import configurations such as entities, schemas, and rules between environments. This is essential for promoting changes from development to staging and production. Sometimes, you may encounter failures when running exports or imports. This article explains the most common reasons for failures, how to troubleshoot them, and best practices to ensure smooth operation. ",
     "url": "/kb/product-toolkit-issues#on-this-page",
     
     "relUrl": "/kb/product-toolkit-issues#on-this-page"
-  },"2538": {
+  },"2542": {
     "doc": "Product Toolkit failing to export or import",
     "title": "Common Reasons for Failures",
     "content": "1. Timeouts During Execution . | Symptom: Export or import jobs stall or fail with timeout errors. | Cause: Large datasets or complex configurations can exceed default timeout limits, especially if run on underpowered machines. | Fix: . | Run the Product Toolkit on a dedicated server or cloud VM, not on a personal laptop. | Ensure stable network connectivity with sufficient bandwidth. | For very large jobs, break down exports/imports into smaller, more manageable chunks. | . | . 2. Insufficient Permissions (RACI Access) . | Symptom: Export or import completes partially, or fails with “permission denied” errors. | Cause: The account running the Toolkit does not have Accountable (A) level RACI access to the entities or configurations being moved. | Fix: . | Verify that your account has Accountable permissions for all objects in the scope of the export or import. | If not, request elevated access from your CluedIn administrator. | . | . 3. Missing or Incomplete Dependencies . | Symptom: Import fails due to missing references (e.g., schemas, rules, or entities not found). | Cause: Dependencies were not included in the export package, or were imported out of order. | Fix: . | Ensure you export all dependent configurations together. | Import dependencies (schemas, vocabularies) before higher-level artifacts (rules, pipelines). | . | . 4. Version Mismatches . | Symptom: Import fails due to incompatible format or unexpected fields. | Cause: Export was created in a different CluedIn version than the target environment. | Fix: . | Confirm both environments are running the same version of CluedIn. | If not, upgrade/downgrade to align versions before attempting import. | . | . 5. Environment Resource Constraints . | Symptom: Export/import hangs, crashes, or causes instability. | Cause: The machine running the Toolkit does not have enough memory, CPU, or disk space. | Fix: . | Run the Toolkit on a machine with at least 4 vCPUs and 8GB+ RAM. | Monitor system resources during execution. | Clean up temporary files and ensure adequate disk space is available. | . | . ",
     "url": "/kb/product-toolkit-issues#common-reasons-for-failures",
     
     "relUrl": "/kb/product-toolkit-issues#common-reasons-for-failures"
-  },"2539": {
+  },"2543": {
     "doc": "Product Toolkit failing to export or import",
     "title": "How to Troubleshoot",
     "content": ". | Check Logs . | Review Toolkit log output for specific error messages. | Logs are typically stored in the working directory where you ran the command. | . | Validate Permissions . | Confirm the user has Accountable RACI access for the entire scope of the operation. | . | Test with Smaller Scope . | Try exporting or importing a smaller subset of objects. | If that works, expand gradually until you identify the problematic artifact. | . | Verify Environment Setup . | Ensure the Toolkit is running on a dedicated machine with sufficient resources. | Avoid running from personal laptops or unstable network connections. | . | Check CluedIn Version Compatibility . | Confirm both source and target environments are on the same version. | Align versions if mismatched. | . | Re-run with Debug Mode . | Use debug flags (if available) to capture more detailed logs. | Share logs with CluedIn Support if the issue persists. | . | . ",
     "url": "/kb/product-toolkit-issues#how-to-troubleshoot",
     
     "relUrl": "/kb/product-toolkit-issues#how-to-troubleshoot"
-  },"2540": {
+  },"2544": {
     "doc": "Product Toolkit failing to export or import",
     "title": "Best Practices for Reliable Toolkit Operations",
     "content": ". | Run on a Dedicated Machine: Use a dedicated server or VM for large exports/imports. | Use Accountable RACI Access: Always ensure you have Accountable access before starting. | Export/Import in Logical Order: Move foundational artifacts (schemas, vocabularies) before dependent ones (rules, pipelines). | Monitor Logs and Metrics: Track execution logs and system resource usage. | Align Environments: Keep source and target environments on the same CluedIn version. | Test Before Production: Run exports/imports in staging first before applying to production. | . ",
     "url": "/kb/product-toolkit-issues#best-practices-for-reliable-toolkit-operations",
     
     "relUrl": "/kb/product-toolkit-issues#best-practices-for-reliable-toolkit-operations"
-  },"2541": {
+  },"2545": {
     "doc": "Product Toolkit failing to export or import",
     "title": "Summary",
     "content": "Product Toolkit export/import issues usually arise from timeouts, missing permissions, incomplete dependencies, version mismatches, or resource limitations. By running the Toolkit on a dedicated machine, ensuring Accountable RACI access, and following best practices, you can significantly reduce the risk of failures. If problems persist, collect execution logs and contact CluedIn Support for assistance. ",
     "url": "/kb/product-toolkit-issues#summary",
     
     "relUrl": "/kb/product-toolkit-issues#summary"
-  },"2542": {
+  },"2546": {
     "doc": "Product Toolkit failing to export or import",
     "title": "Product Toolkit failing to export or import",
     "content": " ",
     "url": "/kb/product-toolkit-issues",
     
     "relUrl": "/kb/product-toolkit-issues"
-  },"2543": {
+  },"2547": {
     "doc": "Slow CluedIn performance",
     "title": "On this page",
     "content": ". | What Does “Slow” Mean? | Common Causes of Performance Issues . | 1. High Data Volumes | 2. Complex or Excessive Rules | 3. Resource Constraints | 4. Network or Connectivity Issues | 5. Inefficient Matching Configurations | 6. Running Heavy Jobs on Underpowered Machines | 7. Competing Workloads | . | Troubleshooting Checklist | Best Practices to Maintain Good Performance | Summary | . CluedIn is designed to process large volumes of data at scale, but in some cases you may notice that the platform feels “slow” — whether that’s during ingestion, rule execution, data linking, or even while navigating the user interface. This article explains the typical reasons why CluedIn might perform slowly, how to troubleshoot performance bottlenecks, and best practices to keep your environment running efficiently. ",
     "url": "/kb/slow#on-this-page",
     
     "relUrl": "/kb/slow#on-this-page"
-  },"2544": {
+  },"2548": {
     "doc": "Slow CluedIn performance",
     "title": "What Does “Slow” Mean?",
     "content": "Performance issues in CluedIn can show up in different ways: . | Ingestion Lag: New data takes longer than expected to appear in the platform. | Rule Processing Delays: Rules take longer to apply or complete. | Entity Linking/Matching: Deduplication or linking jobs run slowly. | Export Latency: Exports to downstream systems take longer to complete. | UI Responsiveness: The CluedIn portal feels sluggish when navigating or opening dashboards. | . Identifying which area feels slow is the first step to diagnosing the cause. ",
     "url": "/kb/slow#what-does-slow-mean",
     
     "relUrl": "/kb/slow#what-does-slow-mean"
-  },"2545": {
+  },"2549": {
     "doc": "Slow CluedIn performance",
     "title": "Common Causes of Performance Issues",
     "content": "1. High Data Volumes . | Symptom: Processing slows as more records are ingested. | Explanation: Larger datasets mean more work for ingestion, matching, and rules engines. | Fix: Scale your CluedIn environment to handle growth; consider batching ingestion jobs. | . 2. Complex or Excessive Rules . | Symptom: Rules engine takes a long time to run. | Explanation: Multiple active rules or complex regex conditions can increase evaluation overhead. | Fix: Review active rules, simplify logic, and disable rules that are not essential. | . 3. Resource Constraints . | Symptom: The whole platform (processing + UI) feels sluggish. | Explanation: The CluedIn instance does not have enough CPU, memory, or storage IOPS to handle workload. | Fix: . | Run CluedIn on dedicated infrastructure, not a shared environment. | Scale up VM/container resources. | Monitor system utilization to detect bottlenecks. | . | . 4. Network or Connectivity Issues . | Symptom: Ingestion from external sources and exports to downstream systems are slow. | Explanation: Latency or instability in network connections to source/target systems slows down jobs. | Fix: Ensure stable, high-bandwidth connections between CluedIn and data sources/destinations. | . 5. Inefficient Matching Configurations . | Symptom: Linking and deduplication jobs are disproportionately slow. | Explanation: Overly broad or poorly tuned match rules increase the number of comparisons per entity. | Fix: Optimize matching rules to focus on the most reliable identifiers. | . 6. Running Heavy Jobs on Underpowered Machines . | Symptom: Toolkit exports/imports or processing jobs time out. | Explanation: Running CluedIn utilities (e.g., Product Toolkit) on personal laptops or small VMs can cause slowness. | Fix: Use dedicated servers or cloud VMs with sufficient resources for large-scale jobs. | . 7. Competing Workloads . | Symptom: Performance degrades when multiple ingestion, rules, and export jobs run in parallel. | Explanation: Shared resources are consumed by concurrent jobs. | Fix: Schedule heavy workloads during off-peak hours or stagger job execution. | . ",
     "url": "/kb/slow#common-causes-of-performance-issues",
     
     "relUrl": "/kb/slow#common-causes-of-performance-issues"
-  },"2546": {
+  },"2550": {
     "doc": "Slow CluedIn performance",
     "title": "Troubleshooting Checklist",
     "content": ". | Identify Where It’s Slow . | Is it ingestion, rule execution, linking, exporting, or UI? | . | Check Logs &amp; Dashboards . | Review processing logs for errors or bottlenecks. | Check dashboards for job status and queue lengths. | . | Monitor System Resources . | CPU, memory, and disk usage should be reviewed on the CluedIn host. | . | Audit Rules &amp; Match Configurations . | Disable unnecessary rules. | Simplify complex logic. | Refine match rules. | . | Test Environment Sizing . | Compare resource allocation (CPU/RAM/storage) to recommended CluedIn sizing guidelines. | Scale up if needed. | . | Check Network Performance . | Ensure data source/destination connectivity is reliable and performant. | . | Try Smaller Batches . | Re-run ingestion or exports on smaller subsets to isolate scaling issues. | . | . ",
     "url": "/kb/slow#troubleshooting-checklist",
     
     "relUrl": "/kb/slow#troubleshooting-checklist"
-  },"2547": {
+  },"2551": {
     "doc": "Slow CluedIn performance",
     "title": "Best Practices to Maintain Good Performance",
     "content": ". | Run CluedIn on Dedicated Infrastructure: Avoid running on shared or undersized machines. | Scale with Data Growth: Allocate more resources as your dataset grows. | Schedule Heavy Jobs Strategically: Run big exports/imports or reprocessing during quiet hours. | Regularly Audit Rules: Keep only the Rules that add value; retire unused ones. | Optimize Matching Configurations: Focus on the most discriminating identifiers. | Monitor Continuously: Use system and CluedIn logs/dashboards to stay ahead of bottlenecks. | . ",
     "url": "/kb/slow#best-practices-to-maintain-good-performance",
     
     "relUrl": "/kb/slow#best-practices-to-maintain-good-performance"
-  },"2548": {
+  },"2552": {
     "doc": "Slow CluedIn performance",
     "title": "Summary",
     "content": "When CluedIn feels slow, it is usually due to large data volumes, complex rules, insufficient resources, or network constraints. By identifying where the slowness occurs, monitoring resources, and following optimization best practices, you can significantly improve performance. If slowness persists even after optimization, collect logs and environment metrics and contact CluedIn Support for further assistance. ",
     "url": "/kb/slow#summary",
     
     "relUrl": "/kb/slow#summary"
-  },"2549": {
+  },"2553": {
     "doc": "Slow CluedIn performance",
     "title": "Slow CluedIn performance",
     "content": " ",
     "url": "/kb/slow",
     
     "relUrl": "/kb/slow"
-  },"2550": {
+  },"2554": {
     "doc": "Why can I not delete certain objects in CluedIn",
     "title": "On this page",
     "content": ". | Objects That Cannot Be Deleted . | 1. Business Domains | 2. Vocabularies | 3. Vocabulary Keys | 4. Roles | 5. Golden Record Layouts | 6. Deduplication Projects | 7. Cleaning Projects | . | Why Deletion Is Restricted | Best Practices | Roadmap Note | Summary | . CluedIn provides extensive capabilities for creating, managing, and governing master data assets. However, there are certain object types that cannot currently be deleted once created. These are known product limitations and are on the roadmap for improvement. This article outlines what those objects are, why deletion is not yet supported, and recommended workarounds or best practices. ",
     "url": "/kb/unable-to-delete#on-this-page",
     
     "relUrl": "/kb/unable-to-delete#on-this-page"
-  },"2551": {
+  },"2555": {
     "doc": "Why can I not delete certain objects in CluedIn",
     "title": "Objects That Cannot Be Deleted",
     "content": "1. Business Domains . | Description: Business Domains define the logical areas of your data model (e.g., Customer, Product, Supplier). | Issue: Once created, Business Domains cannot be deleted. | Impact: Unused domains remain visible in the portal. | Workaround: Mark unused domains as Inactive or rename them with a prefix (e.g., ZZ_Obsolete) to indicate they are not in use. | . 2. Vocabularies . | Description: Vocabularies are controlled lists of business terms and definitions used across CluedIn. | Issue: Vocabularies cannot be deleted. | Impact: Test or unused vocabularies can clutter the governance layer. | Workaround: Mark them as Deprecated or rename with an ARCHIVE_ prefix. | . 3. Vocabulary Keys . | Description: Keys represent individual entries within a Vocabulary. | Issue: Vocabulary Keys cannot be removed once added. | Impact: Erroneous or outdated keys persist in dropdowns and rules. | Workaround: Use tagging or mark keys as Inactive/Obsolete and provide clear descriptions that they should not be used. | . 4. Roles . | Description: Roles control user permissions and responsibilities (e.g., Steward, Analyst, Administrator). | Issue: Roles cannot be deleted once created. | Impact: Experimental or obsolete roles remain in the UI. | Workaround: Remove all user assignments from unused roles and rename them with an archival prefix. | . 5. Golden Record Layouts . | Description: Layouts define how Golden Record data is displayed in the portal. | Issue: Layouts cannot be deleted once created. | Impact: Testing and experimentation can create clutter. | Workaround: Rename layouts with an ARCHIVE_ prefix or move them into a separate grouping for clarity. | . 6. Deduplication Projects . | Description: Deduplication Projects configure and test matching rules for resolving duplicate records. | Issue: Deduplication Projects cannot be deleted. | Impact: Old experiments or tests stay visible in the list. | Workaround: Use descriptive naming (e.g., Test_Project_DO_NOT_USE) or archive notes to separate them from active projects. | . 7. Cleaning Projects . | Description: Cleaning Projects are used to standardize and fix bulk data issues. | Issue: Cleaning Projects cannot be deleted. | Impact: Completed or test cleaning jobs remain in the history. | Workaround: Clearly label completed or obsolete projects; they remain valuable for audit and rollback purposes. | . ",
     "url": "/kb/unable-to-delete#objects-that-cannot-be-deleted",
     
     "relUrl": "/kb/unable-to-delete#objects-that-cannot-be-deleted"
-  },"2552": {
+  },"2556": {
     "doc": "Why can I not delete certain objects in CluedIn",
     "title": "Why Deletion Is Restricted",
     "content": "These limitations are primarily due to auditability, lineage, and rollback guarantees: . | CluedIn ensures a full historical view of governance objects and transformations. | Removing these objects would create gaps in audit trails and lineage history. | Certain items (like Cleaning Projects) support undo/rollback, which depends on retaining the original record. | . ",
     "url": "/kb/unable-to-delete#why-deletion-is-restricted",
     
     "relUrl": "/kb/unable-to-delete#why-deletion-is-restricted"
-  },"2553": {
+  },"2557": {
     "doc": "Why can I not delete certain objects in CluedIn",
     "title": "Best Practices",
     "content": ". | Adopt a naming convention: Prefix unused or test objects with ZZ_, ARCHIVE_, or DO_NOT_USE. | Document clearly: Add notes in descriptions indicating the status of the object. | Limit testing clutter: Use a non-production environment (sandbox) for experimenting with Business Domains, Deduplication, or Cleaning Projects. | Govern creation: Restrict who can create these objects to reduce the number of unused items. | . ",
     "url": "/kb/unable-to-delete#best-practices",
     
     "relUrl": "/kb/unable-to-delete#best-practices"
-  },"2554": {
+  },"2558": {
     "doc": "Why can I not delete certain objects in CluedIn",
     "title": "Roadmap Note",
     "content": "Deletion support for these object types is a known product limitation. The CluedIn team is tracking this and working toward improvements to better support archival and lifecycle management of governance objects. ",
     "url": "/kb/unable-to-delete#roadmap-note",
     
     "relUrl": "/kb/unable-to-delete#roadmap-note"
-  },"2555": {
+  },"2559": {
     "doc": "Why can I not delete certain objects in CluedIn",
     "title": "Summary",
     "content": "Currently, the following objects cannot be deleted in CluedIn: . | Business Domains | Vocabularies | Vocabulary Keys | Roles | Golden Record Layouts | Deduplication Projects | Cleaning Projects | . Until deletion support is available, use naming conventions, documentation, and governance controls to manage unused items effectively. ",
     "url": "/kb/unable-to-delete#summary",
     
     "relUrl": "/kb/unable-to-delete#summary"
-  },"2556": {
+  },"2560": {
     "doc": "Why can I not delete certain objects in CluedIn",
     "title": "Why can I not delete certain objects in CluedIn",
     "content": " ",
     "url": "/kb/unable-to-delete",
     
     "relUrl": "/kb/unable-to-delete"
-  },"2557": {
+  },"2561": {
     "doc": "Get better matches in deduplication projects",
     "title": "On this page",
     "content": ". | Key Principles . | 1. Prioritize Deterministic Matching Rules | 2. Use CluedIn Clean to Improve Input Data | 3. Apply Normalisers to Ignore Irrelevant Differences | . | Recommended Approach | Example | Summary | . Deduplication Projects in CluedIn help identify and merge duplicate records across your data sources. Good results depend not only on the rules you configure, but also on the quality and consistency of the data being matched. This article provides practical advice for improving match quality. ",
     "url": "/kb/better-matches#on-this-page",
     
     "relUrl": "/kb/better-matches#on-this-page"
-  },"2558": {
+  },"2562": {
     "doc": "Get better matches in deduplication projects",
     "title": "Key Principles",
     "content": "1. Prioritize Deterministic Matching Rules . It’s tempting to design complex rules to cover every possible variation in your data. However, this often increases false positives and makes matching less predictable. | Instead of chasing perfection, create rules that are as deterministic and strict as possible (e.g., “Exact match on Tax ID” or “Exact match on Email Address”). | Use high-confidence identifiers first: IDs, email, phone numbers, domains. | Apply fuzzy matching sparingly, only where no strong identifier exists. | . 2. Use CluedIn Clean to Improve Input Data . Matching accuracy is only as good as the quality of your input data. Use CluedIn Clean to standardize and normalize data before running matching: . | Clean addresses into a structured, comparable format. | Convert phone numbers to E.164 international format. | Normalize company names (remove “Ltd”, “Inc”, punctuation). | Standardize casing, diacritics, and whitespace. | . By cleaning first, you make it easier for deterministic rules to succeed, rather than relying on fuzzy matching to compensate for poor data quality. 3. Apply Normalisers to Ignore Irrelevant Differences . Normalisers allow you to exclude certain aspects of data from the matching process so that records aren’t incorrectly treated as different: . | Case Normalisation: Treat CLUEdin, CluedIn, and cluedin as identical. | Whitespace Normalisation: Ignore leading/trailing or multiple spaces. | Punctuation Normalisation: Strip characters like commas, periods, or dashes where not significant. | Custom Normalisers: Define rules to remove common “noise” (e.g., Ltd, Inc, GmbH). | . ",
     "url": "/kb/better-matches#key-principles",
     
     "relUrl": "/kb/better-matches#key-principles"
-  },"2559": {
+  },"2563": {
     "doc": "Get better matches in deduplication projects",
     "title": "Recommended Approach",
     "content": ". | Start simple and strict . | Build rules around unique, high-confidence identifiers. | Ensure those identifiers are cleaned and normalised first. | . | Add cleaning steps in CluedIn Clean . | Focus on the data elements used in matching. | Validate that cleaned values align with your rules. | . | Use fuzzy matching only as a fallback . | Apply it after deterministic rules to catch edge cases. | Always review candidates in stewardship before merging. | . | . ",
     "url": "/kb/better-matches#recommended-approach",
     
     "relUrl": "/kb/better-matches#recommended-approach"
-  },"2560": {
+  },"2564": {
     "doc": "Get better matches in deduplication projects",
     "title": "Example",
     "content": ". | Before Cleaning . | Acme Inc. vs. ACME, Incorporated | Phone: 0044 7700 900123 vs. +44 7700 900123 | . | After CluedIn Clean &amp; Normalisation . | Acme vs. Acme | Phone: +447700900123 vs. +447700900123 | . | . Result: Deterministic matching rules (Exact Name + Exact Phone) succeed with confidence, no need for fuzzy fallback. ",
     "url": "/kb/better-matches#example",
     
     "relUrl": "/kb/better-matches#example"
-  },"2561": {
+  },"2565": {
     "doc": "Get better matches in deduplication projects",
     "title": "Summary",
     "content": "To get the best matches in Deduplication Projects: . | Keep rules deterministic and simple. | Clean data with CluedIn Clean so it conforms to your matching rules. | Use normalisers to remove irrelevant differences like case, whitespace, and punctuation. | Reserve fuzzy matching for edge cases where no strong identifiers exist. | . This approach ensures higher accuracy, fewer false positives, and faster stewardship. ",
     "url": "/kb/better-matches#summary",
     
     "relUrl": "/kb/better-matches#summary"
-  },"2562": {
+  },"2566": {
     "doc": "Get better matches in deduplication projects",
     "title": "Get better matches in deduplication projects",
     "content": " ",
     "url": "/kb/better-matches",
     
     "relUrl": "/kb/better-matches"
-  },"2563": {
+  },"2567": {
     "doc": "Supported and unsupported characters",
     "title": "On this page",
     "content": ". | Supported characters | Unsupported characters | . In this article, you’ll find reference information about supported and unsupported characters in clues and entities. If your data contains unsupported characters, remove them before submitting data to CluedIn. ",
     "url": "/kb/supported-characters#on-this-page",
     
     "relUrl": "/kb/supported-characters#on-this-page"
-  },"2564": {
+  },"2568": {
     "doc": "Supported and unsupported characters",
     "title": "Supported characters",
     "content": "All valid Unicode characters are supported. Exceptions include Unicode surrogate blocks, 0xFFFE, and 0xFFFF. Characters: 0x9, 0xA, 0xD, Character Range: 0x20-0xD7FF Character Range: 0xE000-0xFFFD Character Range: 0x10000-0x10FFFF . Unicode control characters or undefined Unicode characters should not be used but are supported. These are within the following character ranges. 0x7F-0x84 0x86-0x9F 0xFDD0-0xFDEF 0x1FFFE-0x1FFFF 0x2FFFE-0x2FFFF 0x3FFFE-0x3FFFF 0x4FFFE-0x4FFFF 0x5FFFE-0x5FFFF 0x6FFFE-0x6FFFF 0x7FFFE-0x7FFFF 0x8FFFE-0x8FFFF 0x9FFFE-0x9FFFF 0xAFFFE-0xAFFFF 0xBFFFE-0xBFFFF 0xCFFFE-0xCFFFF 0xDFFFE-0xDFFFF 0xEFFFE-0xEFFFF 0xFFFFE-0xFFFFF 0x10FFFE-0x10FFFF . ",
     "url": "/kb/supported-characters#supported-characters",
     
     "relUrl": "/kb/supported-characters#supported-characters"
-  },"2565": {
+  },"2569": {
     "doc": "Supported and unsupported characters",
     "title": "Unsupported characters",
     "content": "ASCI control characters are not supported. Exceptions include 0x9, 0xA, and 0xD, which are valid characters. | Character range 0x-0x1F is not supported. | Character 0x7F is technically supported but should not be used. | Unicode surrogate blocks are not supported. | 0xFFFE and 0xFFFF are not supported. | . ",
     "url": "/kb/supported-characters#unsupported-characters",
     
     "relUrl": "/kb/supported-characters#unsupported-characters"
-  },"2566": {
+  },"2570": {
     "doc": "Supported and unsupported characters",
     "title": "Supported and unsupported characters",
     "content": " ",
     "url": "/kb/supported-characters",
     
     "relUrl": "/kb/supported-characters"
-  },"2567": {
+  },"2571": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "On this page",
     "content": ". | Recommendations . | Container images should be deployed from trusted registries only | . | . This document covers Microsoft Defender for Cloud advisories that you may face when installing the CluedIn MDM PaaS variant of the product into your environemnt. It will explain what each advisory means and how to potentially resolve the issue. If the advisory is not listed below, please do reach out to support@cluedin.com who will be able to advise further. ",
     "url": "/kb/defender-for-cloud-recommendations#on-this-page",
     
     "relUrl": "/kb/defender-for-cloud-recommendations#on-this-page"
-  },"2568": {
+  },"2572": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "Recommendations",
     "content": "Container images should be deployed from trusted registries only . The default security policies that are set on Microsoft Defender for Cloud can be quite bare when it comes out of the box. As a result, this particular recommendation gets flagged frequently as a high risk. The CluedIn installation installs an Azure Kubernetes Service (AKS) cluster which pulls images from cluedinprod.azurecr.io with an authorization token. Because cluedinprod.azurecr.io is external to your environment, it gets flagged by this recommendation when using default baseline advisories. Solution . To resolve this issue, please amend the recommendation under remediation steps and add a regex string that can accomodate the CluedIn registry. An example is: ^cluedinprod\\.azurecr\\.io.*$. This will affect all AKS clusters. If you have additional AKS clusters which are for internal services or other products, you may want to use a more loosely defined regex string that can accommodate both CluedIn and other third-party registries. ",
     "url": "/kb/defender-for-cloud-recommendations#recommendations",
     
     "relUrl": "/kb/defender-for-cloud-recommendations#recommendations"
-  },"2569": {
+  },"2573": {
     "doc": "Microsoft Defender for Cloud recommendations",
     "title": "Microsoft Defender for Cloud recommendations",
     "content": " ",
     "url": "/kb/defender-for-cloud-recommendations",
     
     "relUrl": "/kb/defender-for-cloud-recommendations"
-  },"2570": {
+  },"2574": {
     "doc": "CluedIn Security - [NOT impacted] Ingress NGINX Controller vulnerabilities",
     "title": "CluedIn Security - [NOT impacted] Ingress NGINX Controller vulnerabilities",
     "content": "Wiz Research recently disclosed a series of critical unauthenticated Remote Code Execution (RCE) vulnerabilities affecting the Ingress NGINX Controller in Kubernetes (CVE-2025-1097, CVE-2025-1098, CVE-2025-24514, and CVE-2025-1974), collectively known as IngressNightmare. These vulnerabilities could allow attackers to execute arbitrary code and gain unauthorized access to Kubernetes secrets across namespaces. More information can be found in: . | Infosecurity Magazine . | The Hacker News . | . CluedIn is not impacted by these vulnerabilities, as we do not use NGINX as our ingress controller. Instead, CluedIn relies on HAProxy, which is not affected by these issues. If you have deployed CluedIn using the standard setup, you are not impacted. However, customers who have modified their Ingress setup outside of CluedIn’s recommended configuration should review their infrastructure and apply any necessary security updates. Our security team continuously monitors emerging threats and ensures that CluedIn remains secure. For any questions or further assistance, contact CluedIn support team at support@cluedin.com. ",
