@@ -45,6 +45,10 @@ In this article, you will learn how to connect CluedIn to on-premises Master Dat
 >          contract="Microsoft.MasterDataServices.Services.ServiceContracts.IService" />
 >```
 
+3. Recycle the application pool so the configuration changes take effect.
+
+    If you browse to `service.svc` before recycling, you may see a Yellow Screen of Death (an ASP.NET error page) rather than the expected service page. This is expected immediately after editing `web.config` - recycling the application pool (not a full `iisreset`) resolves it.
+
 ## Enable Basic Authentication in IIS
 
 1. In IIS Manager, expand **Sites > Default Web Site > MDS**, and select the **Service** folder - the same one that contains `service.svc`. Then, open the **Authentication** feature.
