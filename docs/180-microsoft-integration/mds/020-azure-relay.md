@@ -146,4 +146,4 @@ In this article, you will learn how to expose on-premises Master Data Services (
 
 ## In CluedIn
 
-When adding the MDS crawler in CluedIn, check the **Connecting via Azure Relay** option and use the relay address as the **MDS Url**, for example `https://yournamespace.servicebus.windows.net/mds`. The **Username**/**Password** fields are still your usual MDS credentials - they are authenticated by MDS itself, the relay does not require its own credentials.
+When adding the MDS crawler in CluedIn, leave **Configuring MDS for CluedIn** unchecked, and use the relay address as the **MDS Url**, for example `https://yournamespace.servicebus.windows.net/mds`. The **Username**/**Password** fields are still your usual MDS credentials - they are authenticated by MDS itself, the relay does not require its own credentials.

@@ -95,7 +95,7 @@ In this article, you will learn how to connect CluedIn to on-premises Master Dat
 
 ## In CluedIn
 
-When adding the MDS crawler in CluedIn, leave **Connecting via Azure Relay** unchecked, and set:
+When adding the MDS crawler in CluedIn, check **Configuring MDS for CluedIn** to confirm you're using this direct connection method, and set:
 
 - **MDS Url** to the new endpoint, for example `https://yourmdsserver/MDS/service/service.svc/cluedin`. This must be HTTPS - Basic authentication sends credentials in a way that is only safe over an encrypted connection.
 
