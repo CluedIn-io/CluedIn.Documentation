@@ -99,10 +99,10 @@
      app.kubernetes.io/name: application
      helm.sh/chart: application-2.8.0
      release: cluedin-platform
-   name: data-upgrade-470
+   name: data-upgrade-480
    namespace: cluedin
  spec:
-   toVersion: Version470
+   toVersion: Version480
 </span><span class="no"> EOF
 </span></code></pre></div> </div> </li> <li> <p>Validation:</p> <ul> <li>❗ Confirm the data upgrade completed successfully.</li> </ul> </li> </ol> <h3 id="stage-3-finalize-upgrade"> <a href="#stage-3-finalize-upgrade" class="anchor-heading" aria-labelledby="stage-3-finalize-upgrade"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Stage 3: Finalize Upgrade </h3> <ol> <li> <p>Run the final stage of the upgrade to bring the system back online (disable upgrade mode):</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c"># ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here.</span>
 
