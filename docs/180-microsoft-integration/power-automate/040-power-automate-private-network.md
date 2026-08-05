@@ -32,6 +32,13 @@ If the Power Automate environment has an Azure VNet injection policy, configure 
 
 You can skip the public DNS and public IP address setup when this option is configured.
 
+For information about configuring Azure VNet support for Power Platform environments, see the Microsoft documentation:
+
+* [Virtual Network support overview](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview)
+* [Set up Virtual Network support for Power Platform](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-setup-configure)
+
+For the Dataverse Connector V2, see [Azure Virtual Network considerations](/consume/export-targets/dataverse-connector-v2#azure-virtual-network-considerations) for guidance on private DNS, routing, and the **Webhook Base URL** setting.
+
 ### Option 2: Public endpoint
 
 When VNet injection is not configured, Power Automate must access CluedIn through a **public URL**. The data flow diagram below illustrates this route.
