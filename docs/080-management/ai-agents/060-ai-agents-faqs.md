@@ -156,3 +156,488 @@ Key rules:
 - All suggestions have a workflow enabled by default, which can be customized for your approval process (for example, to get approval from multiple people).
 - AI agent suggestions can be approved individually or in bulk, but all approvals must be done by a human.
 - An AI agent cannot self-approve any changes.
+
+# Connecting CluedIn MCP to Claude, ChatGPT and Microsoft Copilot
+
+CluedIn exposes a **Model Context Protocol (MCP) server** that allows supported AI assistants and agents to securely interact with CluedIn.
+
+The MCP server is available from your CluedIn instance at:
+
+```text
+https://<your-cluedin-instance>/api/mcp/server
+```
+
+For example:
+
+```text
+https://name.weu.saas.cluedin.com/api/mcp/server
+```
+
+> **Important:** The hostname will be different for each CluedIn environment.
+> The important part is the `/api/mcp/server` path at the end of your CluedIn URL.
+
+For example, if you access CluedIn at:
+
+```text
+https://contoso.neu.saas.cluedin.com
+```
+
+your MCP server URL will be:
+
+```text
+https://contoso.neu.saas.cluedin.com/api/mcp/server
+```
+
+## Authentication
+
+The CluedIn MCP server supports **OAuth authentication**.
+
+You do **not** need to manually create or enter a Client ID or Client Secret when connecting through clients that support MCP OAuth discovery.
+
+When the AI client connects to CluedIn, you will be redirected to CluedIn to:
+
+1. Sign in to your CluedIn account.
+2. Authenticate your identity.
+3. Authorize the MCP connection.
+4. Return automatically to the AI client.
+
+The permissions available through MCP are associated with the authenticated CluedIn user.
+
+---
+
+# Claude
+
+Claude supports remote MCP servers through **Custom Connectors**.
+
+## Add CluedIn to Claude
+
+1. Open Claude.
+
+2. Go to:
+
+   **Customize → Connectors**
+
+3. Select the **+** button next to Connectors.
+
+4. Select:
+
+   **Add custom connector**
+
+5. Enter a name for the connector, for example:
+
+   ```text
+   CluedIn
+   ```
+
+6. Enter your CluedIn MCP server URL:
+
+   ```text
+   https://<your-cluedin-instance>/api/mcp/server
+   ```
+
+   For example:
+
+   ```text
+   https://name.weu.saas.cluedin.com/api/mcp/server
+   ```
+
+7. You do **not** need to enter an OAuth Client ID or Client Secret in **Advanced settings**.
+
+8. Select **Add**.
+
+9. Select **Connect** when prompted.
+
+10. Claude will redirect you to CluedIn.
+
+11. Sign in to CluedIn and approve the connection.
+
+12. Return to Claude once authentication completes.
+
+CluedIn should now appear as a connected service.
+
+## Using CluedIn in Claude
+
+When starting a conversation, you can enable CluedIn from the connector controls in the chat.
+
+You can then ask Claude to use the tools exposed by the CluedIn MCP server.
+
+For example:
+
+```text
+Using CluedIn, find the records with the highest number of data quality issues.
+```
+
+Or:
+
+```text
+Use CluedIn to tell me what data is available for customers.
+```
+
+Or:
+
+```text
+Using CluedIn, investigate this customer and tell me what we know about them.
+```
+
+### Claude Team and Enterprise
+
+For Claude Team and Enterprise environments, an **Owner or Primary Owner** might first need to add the connector for the organization.
+
+The organization owner can go to:
+
+**Organization settings → Connectors → Add → Custom → Web**
+
+and enter the CluedIn MCP server URL.
+
+Individual users can then connect their own CluedIn account using OAuth.
+
+---
+
+# ChatGPT
+
+ChatGPT supports remote MCP servers through **custom apps / MCP connectors**.
+
+Depending on your ChatGPT plan and workspace configuration, an administrator may first need to enable **Developer Mode**.
+
+## Enable Developer Mode
+
+If Developer Mode is not already available, a ChatGPT workspace administrator may need to enable it from:
+
+**Workspace Settings → Permissions & Roles → Connected Data**
+
+Enable the option for:
+
+**Developer mode / Create custom MCP connectors**
+
+Users who have access can then enable Developer Mode from:
+
+**Settings → Apps → Advanced Settings**
+
+> The exact options available depend on your ChatGPT plan and your organization's workspace policies.
+
+## Add CluedIn to ChatGPT
+
+1. Open ChatGPT.
+
+2. Go to:
+
+   **Settings → Apps**
+
+3. Ensure **Developer Mode** is enabled.
+
+4. Select:
+
+   **Create**
+
+5. Enter a name for the app, for example:
+
+   ```text
+   CluedIn
+   ```
+
+6. Enter your CluedIn MCP endpoint:
+
+   ```text
+   https://<your-cluedin-instance>/api/mcp/server
+   ```
+
+   For example:
+
+   ```text
+   https://name.weu.saas.cluedin.com/api/mcp/server
+   ```
+
+7. Select OAuth authentication if ChatGPT asks for the authentication mechanism.
+
+   You do **not** need to manually provide a Client ID or Client Secret for the CluedIn MCP connection.
+
+8. Select **Scan tools**.
+
+ChatGPT will connect to the CluedIn MCP server and discover the tools that CluedIn makes available.
+
+9. When the OAuth authentication window appears, sign in to CluedIn.
+10. Approve the connection.
+11. Return to ChatGPT.
+12. Allow the tool scan to complete.
+13. Select **Create**.
+
+CluedIn should now appear as an available app in ChatGPT.
+
+## Using CluedIn in ChatGPT
+
+Start a new conversation and select **CluedIn** from the available Apps.
+
+You can then ask ChatGPT to work directly with CluedIn.
+
+For example:
+
+```text
+Use CluedIn to show me the data sources that are currently connected.
+```
+
+```text
+Using CluedIn, investigate the data quality of our customer data.
+```
+
+```text
+Ask CluedIn what information we have about Contoso.
+```
+
+```text
+Using CluedIn, find potential duplicate customer records.
+```
+
+Depending on the tools made available by CluedIn, ChatGPT may ask for confirmation before performing operations that modify data.
+
+---
+
+# Microsoft Copilot
+
+The simplest way to connect a remote MCP server to the Microsoft Copilot ecosystem is through **Microsoft Copilot Studio**.
+
+Copilot Studio can add an existing MCP server as a tool for an agent.
+
+## Add CluedIn to a Copilot Studio Agent
+
+1. Open **Microsoft Copilot Studio**.
+
+2. Open the agent that you want to connect to CluedIn.
+
+3. Go to:
+
+   **Tools**
+
+4. Select:
+
+   **Add a tool**
+
+5. Select:
+
+   **New tool**
+
+6. Select:
+
+   **Model Context Protocol**
+
+The MCP onboarding wizard will open.
+
+## Configure the MCP Server
+
+Enter a server name such as:
+
+```text
+CluedIn
+```
+
+Enter a description, for example:
+
+```text
+Provides access to enterprise data, metadata, data quality, master data and other capabilities available through CluedIn.
+```
+
+For **Server URL**, enter:
+
+```text
+https://<your-cluedin-instance>/api/mcp/server
+```
+
+For example:
+
+```text
+https://name.weu.saas.cluedin.com/api/mcp/server
+```
+
+## Configure Authentication
+
+For the authentication type, select:
+
+**OAuth 2.0**
+
+Where available, select:
+
+**Dynamic discovery**
+
+CluedIn supports OAuth discovery, so you should not need to manually provide a Client ID or Client Secret.
+
+Continue through the wizard.
+
+When Copilot establishes the connection, you will be asked to authenticate with CluedIn.
+
+1. Select the option to create/connect the MCP connection.
+2. Sign in to CluedIn.
+3. Authenticate your account.
+4. Approve the requested access.
+5. Return to Copilot Studio.
+6. Select **Add to agent**.
+
+The tools exposed by the CluedIn MCP server will now be available to the agent.
+
+## Using CluedIn from Copilot
+
+Once the MCP server has been added to an agent, Copilot can select CluedIn tools when they are appropriate for the user's request.
+
+For example:
+
+```text
+Check CluedIn and tell me whether we have any data quality problems with this customer.
+```
+
+```text
+Use CluedIn to find everything we know about Contoso.
+```
+
+```text
+Using CluedIn, identify potential duplicate records.
+```
+
+```text
+Ask CluedIn which systems contributed data to this record.
+```
+
+The Copilot agent orchestrator uses the MCP server description and the descriptions of the tools provided by CluedIn to determine when CluedIn should be called.
+
+---
+
+# Finding Your CluedIn MCP URL
+
+Your MCP URL is based on the URL of your CluedIn environment.
+
+If your CluedIn URL is:
+
+```text
+https://name.weu.saas.cluedin.com
+```
+
+your MCP URL is:
+
+```text
+https://name.weu.saas.cluedin.com/api/mcp/server
+```
+
+If your CluedIn URL is:
+
+```text
+https://acme.eus.saas.cluedin.com
+```
+
+your MCP URL is:
+
+```text
+https://acme.eus.saas.cluedin.com/api/mcp/server
+```
+
+The rule is simply:
+
+```text
+<CluedIn URL> + /api/mcp/server
+```
+
+---
+
+# Security and Permissions
+
+Connections to the CluedIn MCP server are authenticated using OAuth.
+
+This means:
+
+* There is no need to share your CluedIn password with Claude, ChatGPT or Copilot.
+* There is no need to copy a Client Secret into the AI application when OAuth discovery is supported.
+* Each user authenticates using their own CluedIn identity.
+* Access is associated with the authenticated user's permissions in CluedIn.
+* Authentication tokens are used rather than repeatedly supplying usernames and passwords.
+* Users can disconnect the integration from the relevant AI client if access is no longer required.
+
+As with any AI integration, administrators should review which CluedIn capabilities and MCP tools are available before making the connection broadly available to users.
+
+---
+
+# Troubleshooting
+
+## The MCP server cannot be found
+
+Check that the URL ends with:
+
+```text
+/api/mcp/server
+```
+
+For example:
+
+```text
+https://name.weu.saas.cluedin.com/api/mcp/server
+```
+
+Do not use only the base CluedIn URL.
+
+---
+
+## I am being asked to authenticate
+
+This is expected.
+
+The CluedIn MCP server uses OAuth. The AI client will redirect you to authenticate with CluedIn before it can access the MCP tools.
+
+---
+
+## I am being asked for a Client ID or Client Secret
+
+For the standard CluedIn MCP OAuth flow, these should not normally be required by clients that support MCP OAuth discovery.
+
+For Claude, leave the optional Client ID and Client Secret fields empty.
+
+For ChatGPT, allow the MCP authentication discovery process to complete when scanning the server.
+
+For Copilot Studio, use:
+
+**OAuth 2.0 → Dynamic discovery**
+
+rather than manually configuring an OAuth Client ID and Client Secret.
+
+---
+
+## Authentication succeeds but I cannot perform an operation
+
+The MCP connection operates using the permissions associated with your authenticated CluedIn account.
+
+Check that your CluedIn user has permission to perform the requested operation.
+
+---
+
+## The connector works for one user but not another
+
+MCP authentication is performed on behalf of the individual user.
+
+Each user may therefore need to connect and authenticate their own CluedIn account, and the MCP tools available to them may be affected by their permissions within CluedIn.
+
+---
+
+# Quick Reference
+
+| AI Platform       | Where to configure                                                   | MCP URL                            | Authentication                |
+| ----------------- | -------------------------------------------------------------------- | ---------------------------------- | ----------------------------- |
+| Claude            | Customize → Connectors → Add custom connector                        | `https://<cluedin>/api/mcp/server` | OAuth                         |
+| ChatGPT           | Settings → Apps → Create                                             | `https://<cluedin>/api/mcp/server` | OAuth                         |
+| Microsoft Copilot | Copilot Studio → Agent → Tools → Add a tool → Model Context Protocol | `https://<cluedin>/api/mcp/server` | OAuth 2.0 → Dynamic discovery |
+
+No Client ID or Client Secret is required when using CluedIn's supported OAuth discovery flow.
+
+---
+
+# Example
+
+For a CluedIn environment hosted at:
+
+```text
+https://name.weu.saas.cluedin.com
+```
+
+use the following MCP server address in Claude, ChatGPT or Copilot:
+
+```text
+https://name.weu.saas.cluedin.com/api/mcp/server
+```
+
+After adding the server, authenticate with your CluedIn account when redirected.
+
+That's it — the AI client can now discover and use the capabilities that CluedIn exposes through MCP.
+
