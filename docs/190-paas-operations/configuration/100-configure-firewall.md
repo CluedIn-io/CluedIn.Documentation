@@ -89,6 +89,7 @@ If you want to use Power Automate integration for [workflows](/workflow) in Clue
 - `https://graph.microsoft.com`
 - `https://api.powerapps.com`
 - `https://*.<region>.logic.azure.com` – for example, `https://prod-251.westeurope.logic.azure.com`
+- `https://<environment-id>.api.powerplatform.com` – for example, `https://a2b5d7282e2ae37c96e263cf126c08.4e.environment.api.powerplatform.com`
 
 Additionally, you need to add the following domains, which are hosts for incoming requests from Power Automate:
 
