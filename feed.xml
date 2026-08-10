@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-08-10T06:56:45+00:00</updated>
+    <updated>2026-08-10T07:33:56+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1686,22 +1686,6 @@
     </entry>
     
     <entry>
-        <title>Power Automate private network configuration guide</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/power-automate/private-network" />
-        <id>https://documentation.cluedin.net/microsoft-integration/power-automate/private-network</id>
-        <updated>2025-06-17T00:00:00+00:00</updated>
-        <summary>
-        
-        Power Automate private network configuration guide.
-        
-        
-        
-        Tags: integration, microsoft, powerapps, dataverse.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Power Fx formulas</title>
         <link href="https://documentation.cluedin.net/management/rules/power-fx-formulas" />
         <id>https://documentation.cluedin.net/management/rules/power-fx-formulas</id>
@@ -1913,6 +1897,22 @@
         Dataverse connector.
         
         
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Power Automate private network configuration guide</title>
+        <link href="https://documentation.cluedin.net/microsoft-integration/power-automate/private-network" />
+        <id>https://documentation.cluedin.net/microsoft-integration/power-automate/private-network</id>
+        <updated>2026-08-10T00:00:00+00:00</updated>
+        <summary>
+        
+        Power Automate private network configuration guide.
+        
+        
+        
+        Tags: integration, microsoft, powerapps, dataverse.
         
         </summary>
     </entry>
