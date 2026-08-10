@@ -6,7 +6,7 @@ grand_parent: Microsoft Integration
 permalink: /microsoft-integration/power-automate/private-network
 title: Power Automate private network configuration guide
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
-last_modified: 2026-08-05
+last_modified: 2026-08-10
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -75,5 +75,13 @@ If you're using **Azure Firewall**, Microsoft provides a **service tag** to simp
 *   Use the service tags: `AzureConnectors` and `LogicApps`
     
 *   This automatically includes all required outbound IP ranges for Power Automate and related services
+
+## Troubleshoot connectivity
+
+Monitor both incoming and outgoing traffic in the network security group (NSG) or firewall that applies to the relevant subnet. This helps identify whether a request is blocked before it reaches CluedIn or while it leaves the CluedIn environment.
+
+To troubleshoot incoming requests from Power Automate, create temporary dummy actions in the generated CluedIn custom connector and call them from a flow. Review the inbound traffic logs to confirm that the request reaches the CluedIn endpoint.
+
+To troubleshoot outgoing requests from CluedIn, send test requests from the CluedIn cluster and review the outbound traffic logs. This confirms that the cluster can reach the required Power Automate or Power Platform endpoint.
 
 ![network-with-power-automate.png]({{ "/assets/images/microsoft-integration/power-automate/network-with-power-automate.png" | relative_url }})
