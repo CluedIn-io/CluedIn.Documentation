@@ -7,78 +7,46 @@ nav_order: 120
 permalink: /learning-paths/data-architect-course/capstone-architecture-review
 ---
 
-## On this page
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Learning outcome
 
-The capstone asks the learner to think like the owner of a CluedIn implementation. Instead of learning one feature at a time, they review an end-to-end design and decide whether it will hold up for stewardship, governance, and consumption.
+Review one CluedIn domain end to end and produce a prioritized architecture improvement plan supported by product evidence.
 
-## What you should get from this module
+## Scenario
 
-- combine the course into one end-to-end architecture review
-- use product behavior as evidence for design quality
-- produce a practical improvement plan rather than a vague critique
+You are taking ownership of an existing domain and must decide whether it is coherent, operable by stewards, governable, safe for downstream consumers, and ready to scale.
 
-![review-mapping-2.png]({{ "/assets/images/integration/data-sources/review-mapping-2.png" | relative_url }})
+## Read
 
-## Guided walkthrough
-
-Choose one domain or dataset and conduct a full review across the platform.
-
-### Semantic design
-- Is the business domain clear?
-- Is the vocabulary disciplined?
-- Are key fields named in ways that support search and reuse?
-
-### Identity and mapping
-- Is the primary identifier safe?
-- Are additional identifiers justified?
-- Do mappings preserve enough information for stewardship and export?
-
-### Record behavior
-- Do processed records look understandable in search?
-- Does History make the record lifecycle intelligible?
-- Are duplicate or relation behaviors aligned with design intent?
-
-### Remediation and governance
-- Could stewards isolate common issues with filters, glossary, or tags?
-- Are clean-project and rule paths obvious?
-- Would Tag Monitoring or AI-assisted remediation produce useful queues?
-
-### Consumption
-- Does the stream design offer a clear downstream contract?
-- Would consumers understand the impact of later merges, cleaning, or relation updates?
-
-End with an improvement plan that distinguishes:
-- immediate fixes
-- near-term design changes
-- steward enablement changes
-- future automation opportunities
-
-## Role lens
-
-A complete architect is not the person who can configure the most features. It is the person who can look at a CluedIn implementation and explain whether it is coherent, teachable, governable, and safe to scale.
-
-## Practice assignment
-
-Write an architecture review memo for one domain with four sections:
-
-1. What is working well
-2. What is confusing or risky
-3. What stewards would struggle with today
-4. What you would change first and why
-
-## Exit criteria
-
-- The learner can assess an implementation end to end rather than feature by feature.
-- The learner produces a concrete improvement plan.
-- The learner can justify recommendations in operational as well as technical terms.
-
-## Suggested source material
+Review the canonical documentation needed for the parts of the implementation you assess:
 
 - [Golden records](/key-terms-and-features/golden-records)
 - [Review mapping](/integration/review-mapping)
 - [Vocabulary](/management/data-catalog/vocabulary)
 - [Tag monitoring](/governance/tag-monitoring)
 - [Stream data](/getting-started/data-streaming)
+
+## Exercise
+
+Review one domain across these areas:
+
+1. Semantic model and vocabulary.
+2. Mapping and identity.
+3. Processed record behavior and History.
+4. Relations and duplicate behavior.
+5. Stewardship remediation and governance signals.
+6. Automation and traceability.
+7. Downstream stream contract.
+8. Environment and release discipline.
+
+For every issue, capture evidence, consequence, recommended change, owner, validation method, and priority.
+
+## Deliverable
+
+An architecture review with four sections: what works, what is risky, what makes stewardship difficult, and a prioritized improvement plan.
+
+## Complete when
+
+- Recommendations are supported by observable CluedIn behavior.
+- The review covers operational as well as technical consequences.
+- Each proposed change has an owner and validation method.
+- The plan distinguishes immediate fixes from structural improvements.

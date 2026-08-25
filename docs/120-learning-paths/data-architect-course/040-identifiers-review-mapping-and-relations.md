@@ -7,69 +7,39 @@ nav_order: 40
 permalink: /learning-paths/data-architect-course/identifiers-review-mapping-and-relations
 ---
 
-## On this page
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Learning outcome
 
-Identifiers are where architectural intent meets identity behavior. The architect needs to understand exactly how primary identifiers, additional identifiers, and relation design will affect merges, edges, and downstream trust.
+Select defensible identifiers and design relations whose identity and business meaning remain clear after processing and export.
 
-## What you should get from this module
+## Scenario
 
-- select primary and additional identifiers responsibly
-- use review mapping as an architecture checkpoint rather than an afterthought
-- design relations and hierarchies that remain understandable downstream
+Your source contains several candidate identifiers and a property that links records to another domain. Choosing convenience over identity could cause false merges or misleading relations.
 
-![review-mapping-3.png]({{ "/assets/images/integration/data-sources/review-mapping-3.png" | relative_url }})
-
-## Guided walkthrough
-
-Use the review-mapping article as the center of this module.
-
-### Primary identifier
-Explain the options clearly:
-- single key
-- auto-generated key
-- compound key
-
-Then teach the practical consequences. A convenient field is not necessarily a safe identifier. The architect should actively test uniqueness and think about change stability. If the chosen identifier can legitimately repeat, it is not an identifier.
-
-### Additional identifiers
-These can improve merge quality, but they also increase merge reach. The architect should use them when they genuinely represent identity, not merely similarity.
-
-### Relation design
-Move from review mapping into the relations guide. Relation setup forces the architect to decide:
-- which property points to the target record
-- whether edge, strict edge, or fuzzy edge is appropriate
-- which edge type expresses the business meaning
-
-This is not just about making a pretty graph. Relation design affects the Relations tab, hierarchy behavior, and exported edge tables downstream.
-
-### Hierarchy
-Then briefly connect to Hierarchy Builder. Even if hierarchy projects are constructed later, the architect should already understand that relation quality, business-domain scoping, and edge export choices influence whether hierarchies remain useful or become noise.
-
-## Role lens
-
-Weak identifiers create false unity. Weak relations create false context. Both damage trust. The architect's responsibility is to make identity and connection behavior explicit, testable, and explainable.
-
-## Practice assignment
-
-Choose one domain and answer:
-
-- what is the primary identifier and why is it safe?
-- what additional identifiers, if any, should exist?
-- what would a false merge look like in this domain?
-- what relation types should commonly exist?
-- should relation creation happen during mapping, via rules, or through later governance structures?
-
-## Exit criteria
-
-- The learner can compare single-key, auto-generated, and compound identifier choices.
-- The learner can explain the role of additional identifiers without overusing them.
-- The learner can design a relation with a clear business meaning and operational consequence.
-
-## Suggested source material
+## Read
 
 - [Review mapping](/integration/review-mapping)
 - [Add relations between records](/getting-started/relations)
 - [Create hierarchies](/getting-started/hierarchy-builder)
+
+## Exercise
+
+1. Evaluate candidate primary identifiers for uniqueness and stability.
+2. Decide whether a single, generated, or compound identity strategy is appropriate.
+3. Review any additional identifiers and state why each represents identity rather than similarity.
+4. Design one relation: source property, target domain, edge type, and matching behavior.
+5. Process representative records and inspect merge and relation outcomes.
+6. Record the failure mode you are trying to prevent.
+
+## Deliverable
+
+An identity and relation decision record with assumptions, test evidence, expected edge behavior, and false-merge risk.
+
+## Complete when
+
+- The primary identifier has a documented identity rationale.
+- Additional identifiers are justified individually.
+- The relation has a clear business meaning and testable outcome.
+
+## Next
+
+Validate these architectural choices from the same search and record surfaces stewards will use.

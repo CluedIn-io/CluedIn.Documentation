@@ -7,69 +7,41 @@ nav_order: 110
 permalink: /learning-paths/data-steward-course/capstone-operating-loop
 ---
 
-## On this page
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Learning outcome
 
-The capstone turns the course into a realistic operating loop. The steward is given a data-quality symptom, then asked to move through the platform in the right order, choose the correct remediation tool, verify the outcome, and decide whether anything should be escalated.
+Resolve one realistic data-quality scenario end to end using evidence, deliberate tool selection, verification, and escalation where necessary.
 
-## What you should get from this module
+## Scenario
 
-- combine search, validation, clean, deduplication, governance, and AI patterns into one operating flow
-- practice tool selection instead of treating every issue the same way
-- self-assess readiness for real stewardship work
+Choose one realistic problem: a rising tagged quality issue, missing required values, suspicious duplicates after a new source, or a recurring pattern that returns after manual correction.
 
-![view_tagged_records.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/view_tagged_records.png" | relative_url }})
+## Read
 
-## Guided walkthrough
-
-Use a realistic scenario such as one of the following:
-
-- a tagged population of records with invalid phone values is rising over time
-- a saved search shows many records with missing key attributes
-- a domain contains suspicious duplicates after a new source was processed
-- a recurring typo pattern keeps returning after being fixed once
-
-Ask the learner to work through the issue in this order:
-
-1. **Define scope** with search, saved search, glossary, or tags.
-2. **Inspect evidence** on the results page and sample records.
-3. **Check lifecycle clues** in History, validations, or review mapping.
-4. **Choose remediation**:
-   - clean project for repeated value issues
-   - deduplication for suspected duplicate populations
-   - AI job for scalable tagged remediation
-   - escalation for mapping or identifier defects
-5. **Verify the result** by returning to the saved search, tag view, or affected records.
-6. **Record the lesson** as a repeatable stewardship practice or an architect handoff.
-
-The main idea is deliberate tool choice. Not every problem needs a clean project. Not every recurring issue should stay manual. Not every duplicate symptom should be merged immediately.
-
-## Role lens
-
-By the end of this capstone, the learner should sound less like a ticket processor and more like an informed operator who understands evidence, scope, remediation, and platform consequences.
-
-## Practice assignment
-
-Run one full scenario end to end and write a short after-action review:
-
-- What was the initial symptom?
-- Which UI surfaces did you use first?
-- What evidence changed your understanding of the problem?
-- Which remediation path did you choose and why?
-- What would you monitor next week to make sure the issue stays fixed?
-
-## Exit criteria
-
-- The learner can select the correct stewardship path for at least one realistic issue.
-- The learner verifies outcomes instead of assuming fixes worked.
-- The learner can distinguish operational remediation from structural escalation.
-
-## Suggested source material
+Review the documentation relevant to the path you expect to use:
 
 - [Search](/key-terms-and-features/search)
 - [Validations](/integration/additional-operations-on-records/validations)
 - [Manage a clean project](/preparation/clean/manage-clean-project)
 - [Deduplicate data](/getting-started/data-deduplication)
 - [Tag monitoring](/governance/tag-monitoring)
+
+## Exercise
+
+1. Define the affected population.
+2. Inspect representative records and lifecycle evidence.
+3. Determine the likely issue level and owner.
+4. Choose the lightest correct remediation path.
+5. Perform or simulate the remediation in a safe environment.
+6. Return to the original population and verify the result.
+7. Record any prevention, monitoring, downstream, or architecture follow-up.
+
+## Deliverable
+
+A completed issue log and a short after-action review describing symptom, scope, evidence, decision, action, verification, and follow-up.
+
+## Complete when
+
+- You can justify why you chose one remediation path over the alternatives.
+- Verification uses the same observable population that established the problem.
+- You distinguish operational remediation from structural escalation.
+- Another steward could repeat your investigation from the evidence you recorded.

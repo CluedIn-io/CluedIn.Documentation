@@ -7,28 +7,25 @@ permalink: /learning-paths/data-architect-course
 has_children: true
 ---
 
-This course is for the person shaping how CluedIn behaves, not just what it displays. The Data Architect defines the semantic model, mapping quality, identifiers, relations, rules, automation surfaces, and downstream contracts that make stewardship effective at scale.
+The Data Architect course is for people responsible for shaping how CluedIn behaves: semantic modeling, mappings, identifiers, relations, processing logic, automation, governance patterns, downstream contracts, and release discipline.
 
-The structure deliberately mirrors the stronger "Getting started" and reference sections in the documentation, but it expands them into a curriculum. Instead of treating each page as a standalone feature article, this course connects them into one architectural journey through the instance.
+The course does not duplicate product instructions. Every module has a **Read** section that points to the relevant product documentation. Use those pages for the mechanics, then complete the architecture exercise and produce the requested design evidence.
 
 ## Course outcomes
 
-By the end of this course, a learner should be able to:
+By the end of the course, you should be able to:
 
-- design a clean business-domain and vocabulary model
-- review mappings and identifiers with an eye toward merge quality and survivorship behavior
-- create relations, hierarchies, and rules that behave predictably in production
-- understand when to use clean projects, enrichers, AI agents, glossary, tag monitoring, and streams
-- promote changes through environments with discipline and explain the expected downstream impact
+- design coherent business domains and vocabularies
+- make mapping and identifier decisions with explicit consequences
+- validate architecture through search, record history, relations, and downstream behavior
+- decide whether logic belongs in a source system, mapping, validation, clean project, rule, enrichment, or AI workflow
+- design stewardship-friendly governance and deduplication patterns
+- define downstream stream contracts
+- promote changes through environments with clear validation gates
 
-## Recommended audience
+## Before you begin
 
-This course fits Data Architects, solution architects, platform owners, implementation consultants, and advanced administrators.
-
-## Suggested duration
-
-- Guided first pass: 3 to 4 half-days
-- Hands-on design and validation: 2 to 3 weeks across a real implementation cycle
+Use a non-production environment and choose one representative domain or dataset that can be used throughout the course. Keep an architecture decision log containing assumptions, decisions, alternatives, expected behavior, validation evidence, and rollback considerations.
 
 ## Module sequence
 
@@ -44,7 +41,3 @@ This course fits Data Architects, solution architects, platform owners, implemen
 10. [Streams, export targets, and downstream contracts](/learning-paths/data-architect-course/streams-export-targets-and-downstream-contracts)
 11. [Release discipline across dev, test, and production](/learning-paths/data-architect-course/release-discipline-across-environments)
 12. [Capstone architecture review checklist](/learning-paths/data-architect-course/capstone-architecture-review)
-
-## What this course is not
-
-This course is not a complete administration manual and it is not a substitute for implementation standards. It is a practical curriculum for learning how the documented CluedIn features fit together into an operating architecture.
