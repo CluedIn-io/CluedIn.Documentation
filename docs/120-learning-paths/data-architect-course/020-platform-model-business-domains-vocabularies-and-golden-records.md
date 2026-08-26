@@ -43,4 +43,4 @@ A semantic-model decision record containing domain boundaries, vocabulary decisi
 
 ## Next
 
-Build the ingestion pipeline that feeds this model with initial and incremental data.
+Continue to [Build ingestion pipelines and support incremental or CDC ingestion](/learning-paths/data-architect-course/ingestion-design-and-mapping-strategy).

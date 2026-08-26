@@ -42,4 +42,4 @@ An ingestion design containing source, connection method, initial-load strategy,
 
 ## Next
 
-Map the incoming data into the semantic model and establish identity and relationships.
+Continue to [Design mappings, identifiers, and edges](/learning-paths/data-architect-course/identifiers-review-mapping-and-relations).

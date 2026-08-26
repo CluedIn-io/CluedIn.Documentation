@@ -40,4 +40,4 @@ An Export Target configuration record containing destination purpose, connector 
 
 ## Next
 
-Build the Stream that defines which trusted records and relationships are published to this destination.
+Continue to [Configure Streams and downstream contracts](/learning-paths/data-architect-course/streams-and-downstream-contracts).

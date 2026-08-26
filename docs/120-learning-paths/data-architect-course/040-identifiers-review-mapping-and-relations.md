@@ -42,4 +42,4 @@ A mapping and identity design containing vocabulary mappings, identifier rationa
 
 ## Next
 
-Use search, record history, and diagnostics to validate the architecture from the resulting records rather than only from configuration screens.
+Continue to [Search, record anatomy, history, and diagnostic workflows](/learning-paths/data-architect-course/search-record-anatomy-and-diagnostics).

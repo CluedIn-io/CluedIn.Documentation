@@ -41,4 +41,4 @@ A mapping-observation note containing the current design, visible consequence, e
 
 ## Next
 
-Use Search and Filters to turn a reported symptom into a reproducible problem population.
+Continue to [Find and inspect records with search, filters, and saved searches](/learning-paths/data-steward-course/search-filters-and-record-inspection).

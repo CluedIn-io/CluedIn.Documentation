@@ -42,4 +42,4 @@ The clean project and an issue-log entry recording scope, transformation, result
 
 ## Next
 
-Investigate a different quality problem where the question is whether records represent the same real-world entity.
+Continue to [Resolve duplicates and understand merge decisions](/learning-paths/data-steward-course/deduplication-and-conflict-resolution).

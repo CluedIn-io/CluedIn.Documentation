@@ -42,4 +42,4 @@ An AI remediation record containing scope, instructions, test evidence, review d
 
 ## Next
 
-Consider who consumes the changed records and what an architect needs to know about downstream consequences.
+Continue to [Understand streams, downstream impact, and architect handoffs](/learning-paths/data-steward-course/streams-downstream-impact-and-handoffs).

@@ -42,4 +42,4 @@ A downstream impact statement and architect handoff note.
 
 ## Next
 
-Combine the full stewardship workflow in an end-to-end capstone.
+Continue to [Capstone operating loop and readiness checklist](/learning-paths/data-steward-course/capstone-operating-loop).

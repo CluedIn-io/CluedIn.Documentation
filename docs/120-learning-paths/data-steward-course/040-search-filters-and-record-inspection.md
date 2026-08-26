@@ -43,4 +43,4 @@ A saved search plus an issue-log entry containing the affected population, three
 
 ## Next
 
-Use validations and mapping checkpoints to test whether the problem originates earlier in the data lifecycle.
+Continue to [Review source quality with validations and mapping checkpoints](/learning-paths/data-steward-course/validations-and-mapping-checkpoints).

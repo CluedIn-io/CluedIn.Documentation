@@ -45,3 +45,7 @@ A completed issue log and a short after-action review describing symptom, scope,
 - Verification uses the same observable population that established the problem.
 - You distinguish operational remediation from structural escalation.
 - Another steward could repeat your investigation from the evidence you recorded.
+
+## Next
+
+You have completed the Data Steward learning path. Return to the [Data Steward course overview](/learning-paths/data-steward-course) to review the full path.

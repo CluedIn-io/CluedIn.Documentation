@@ -43,4 +43,4 @@ A downstream contract containing audience, selection logic, mode, schema expecta
 
 ## Next
 
-Put the architecture under controlled promotion and verification across environments.
+Continue to [Release discipline across dev, test, and production](/learning-paths/data-architect-course/release-discipline-across-environments).

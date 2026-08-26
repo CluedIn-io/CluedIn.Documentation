@@ -48,4 +48,4 @@ A promotion checklist with change scope, development evidence, test gate, produc
 
 ## Next
 
-Apply the entire course by building and validating an end-to-end data pipeline.
+Continue to [Capstone: build and validate an end-to-end data pipeline](/learning-paths/data-architect-course/capstone-architecture-review).

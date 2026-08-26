@@ -59,3 +59,7 @@ An end-to-end architecture package containing the ingestion design, semantic mod
 - Initial rules behave as designed on representative records.
 - Export Targets and Streams pass downstream acceptance tests.
 - Operational remediation responsibilities are explicitly handed to Data Stewards.
+
+## Next
+
+You have completed the Data Architect learning path. Return to the [Data Architect course overview](/learning-paths/data-architect-course) to review the full path.

@@ -42,4 +42,4 @@ An initial rule specification containing purpose, scope, rule type, order, depen
 
 ## Next
 
-Build the matching project that will produce candidate duplicate groups for Data Stewards to review.
+Continue to [Build matching projects and hand review to stewards](/learning-paths/data-architect-course/matching-projects-and-steward-handoff).

@@ -41,4 +41,4 @@ A matching-project design containing scope, matching evidence, tuning decisions,
 
 ## Next
 
-Use AI Agents, where useful, to accelerate the design of the initial architect-owned rule set.
+Continue to [Use AI Agents to accelerate initial rule design](/learning-paths/data-architect-course/ai-assisted-rule-design).

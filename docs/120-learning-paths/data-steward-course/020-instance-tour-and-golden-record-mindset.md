@@ -40,4 +40,4 @@ An issue-log entry for one record showing the visible value, contributing eviden
 
 ## Next
 
-Look earlier in the lifecycle to understand how ingestion and mapping choices create downstream symptoms.
+Continue to [How ingestion, mapping, and processing affect stewardship](/learning-paths/data-steward-course/ingestion-mapping-and-processing-for-stewards).

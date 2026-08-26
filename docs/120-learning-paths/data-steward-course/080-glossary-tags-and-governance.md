@@ -40,4 +40,4 @@ A governance note defining one reusable population, one quality signal, its owne
 
 ## Next
 
-Apply the same discipline when AI is used to accelerate remediation.
+Continue to [Use AI agents safely for stewardship work](/learning-paths/data-steward-course/ai-assisted-stewardship).

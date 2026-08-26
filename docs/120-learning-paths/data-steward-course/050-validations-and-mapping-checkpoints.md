@@ -40,4 +40,4 @@ A short classification note containing evidence, issue level, owner, and recomme
 
 ## Next
 
-For repeatable value-level problems, learn to remediate a defined population through a clean project.
+Continue to [Clean recurring quality issues with clean projects](/learning-paths/data-steward-course/clean-projects-and-remediation).

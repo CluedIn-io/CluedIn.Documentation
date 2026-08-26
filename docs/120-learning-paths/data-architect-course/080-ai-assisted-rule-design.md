@@ -43,4 +43,4 @@ An AI-assisted rule design record containing the original requirement, AI contri
 
 ## Next
 
-Configure the destination that will receive trusted data from CluedIn.
+Continue to [Configure Export Targets](/learning-paths/data-architect-course/export-targets-and-destination-setup).

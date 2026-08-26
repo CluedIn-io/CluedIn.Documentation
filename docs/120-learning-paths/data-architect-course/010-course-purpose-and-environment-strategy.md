@@ -41,4 +41,4 @@ An architecture responsibility charter containing role boundaries, environments,
 
 ## Next
 
-Define the semantic model that the ingestion and processing pipeline will produce.
+Continue to [Business domains, vocabularies, golden records, and the Global Data Model](/learning-paths/data-architect-course/platform-model-business-domains-vocabularies-and-golden-records).

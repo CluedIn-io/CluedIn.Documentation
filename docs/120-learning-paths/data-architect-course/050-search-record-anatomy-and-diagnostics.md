@@ -43,4 +43,4 @@ A diagnostic review showing intended behavior, observed behavior, evidence, and 
 
 ## Next
 
-Decide where repeatable transformation and quality logic should live.
+Continue to [Build the initial rule set and processing logic](/learning-paths/data-architect-course/initial-rules-and-processing-logic).

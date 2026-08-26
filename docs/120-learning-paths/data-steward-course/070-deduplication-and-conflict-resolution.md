@@ -42,4 +42,4 @@ A duplicate-review note containing the candidate evidence, decision, conflict ha
 
 ## Next
 
-Turn recurring populations and quality signals into governed, reusable operating queues.
+Continue to [Use glossary, tags, and governance views to organize work](/learning-paths/data-steward-course/glossary-tags-and-governance).
