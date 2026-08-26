@@ -9,7 +9,7 @@ has_children: true
 
 The Data Steward course is for people responsible for the operational quality and trustworthiness of data in CluedIn. The course teaches you to investigate a reported problem, establish evidence, choose the right remediation path, verify the result, and escalate structural problems with enough context for a Data Architect to act.
 
-The course does not duplicate product instructions. Every module has a **Read** section that points to the relevant product documentation. Read those pages first, then complete the scenario and exercise in CluedIn.
+The course does not duplicate product instructions. Every practical module has a **Read** section that points to the relevant product documentation. Read those pages first, then complete the scenario and exercise in CluedIn. The first page is an orientation to the learning path and explains how the modules work.
 
 ## Course outcomes
 
@@ -28,7 +28,7 @@ Use a non-production environment and choose one training business domain or data
 
 ## Module sequence
 
-1. [Course purpose, setup, and operating model](/learning-paths/data-steward-course/course-purpose-and-setup)
+1. [About this learning path](/learning-paths/data-steward-course/course-purpose-and-setup)
 2. [First tour of the instance and the golden record mindset](/learning-paths/data-steward-course/instance-tour-and-golden-record-mindset)
 3. [How ingestion, mapping, and processing affect stewardship](/learning-paths/data-steward-course/ingestion-mapping-and-processing-for-stewards)
 4. [Find and inspect records with search, filters, and saved searches](/learning-paths/data-steward-course/search-filters-and-record-inspection)
