@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Platform model: business domains, vocabularies, and golden records
+title: Business domains, vocabularies, golden records, and the Global Data Model
 parent: Data Architect course
 grand_parent: Learning paths
 nav_order: 20
@@ -9,36 +9,38 @@ permalink: /learning-paths/data-architect-course/platform-model-business-domains
 
 ## Learning outcome
 
-Design a coherent business domain and vocabulary model and explain how it supports understandable golden records.
+Design the semantic model for a domain and validate that the resulting golden records and Global Data Model express the intended business structure.
 
 ## Scenario
 
-A new entity type must be onboarded. Several teams use different names for the same concepts, and the resulting model needs to support search, stewardship, governance, and downstream reuse.
+A new source uses its own terminology and identifiers. Before building mappings, you need a stable semantic model that downstream teams and Data Stewards can understand.
 
 ## Read
 
 - [Golden records](/key-terms-and-features/golden-records)
 - [Vocabulary](/management/data-catalog/vocabulary)
+- [Business domains](/management/entity-type)
 
 ## Exercise
 
-1. Choose one real or representative entity type.
-2. Define its business domain and explain the boundary of that domain.
-3. Design a vocabulary name, key prefix, ownership, and five to ten important keys.
-4. Identify naming collisions or ambiguous concepts that should be resolved before ingestion.
-5. Describe two stewardship questions and one downstream use case the model must support.
-6. Record the decisions and rejected alternatives in your architecture decision log.
+1. Define the business domain represented by your training data.
+2. Define the vocabulary and naming conventions that should survive beyond any one source system.
+3. Identify the properties that are business identifiers, descriptive attributes, and relationship keys.
+4. Record how source-specific field names map conceptually into the shared model.
+5. Process a representative sample and inspect the resulting golden records.
+6. Open the Global Data Model and verify that the expected business domains and relationships are visible and understandable.
+7. Record any modeling change required before ingestion design continues.
 
 ## Deliverable
 
-A domain and vocabulary design with rationale, ownership, key examples, and operational use cases.
+A semantic-model decision record containing domain boundaries, vocabulary decisions, key properties, expected relationships, and Global Data Model validation notes.
 
 ## Complete when
 
-- Domain boundaries are understandable to someone outside the implementation team.
-- Vocabulary keys use consistent business meaning and naming.
-- You can explain how the design improves search, governance, and golden-record interpretation.
+- The model is expressed in business terms rather than source-system terminology.
+- Golden records expose the properties needed for identity and downstream use.
+- The Global Data Model reflects the intended domain relationships.
 
 ## Next
 
-Apply the semantic model while designing ingestion and mappings.
+Build the ingestion pipeline that feeds this model with initial and incremental data.
