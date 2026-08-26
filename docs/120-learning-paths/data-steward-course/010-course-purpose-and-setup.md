@@ -1,45 +1,63 @@
 ---
 layout: cluedin
-title: Course purpose, setup, and operating model
+title: About this learning path
 parent: Data Steward course
 grand_parent: Learning paths
 nav_order: 10
 permalink: /learning-paths/data-steward-course/course-purpose-and-setup
 ---
 
-## Learning outcome
+This learning path is for Data Stewards who are responsible for the operational quality and trustworthiness of data in CluedIn.
 
-Set up a safe training context and explain the difference between stewardship work and structural architecture work.
+As a Data Steward, you investigate data-quality problems, establish evidence, choose an appropriate remediation, verify the result, and escalate structural issues when they need architectural changes. The goal of this course is to teach that operating loop using realistic tasks rather than repeat the product documentation.
 
-## Scenario
+## What you will learn
 
-You have joined a team that uses CluedIn and have been asked to take responsibility for recurring data-quality issues. Before changing records, you need to agree where you will work, what evidence you will collect, and when an issue must be escalated.
+By working through the modules, you will learn how to:
 
-## Read
+- understand how source data contributes to golden records
+- find and isolate data-quality problems
+- distinguish record-level issues from source, mapping, processing, and identity problems
+- use validations, clean projects, deduplication, glossary, tags, and AI-assisted remediation where appropriate
+- verify that a remediation actually fixed the affected population
+- recognize when a problem belongs to a Data Architect and provide enough evidence for a useful handoff
 
-- [Built-in AI agents](/management/ai-agents/built-in-ai-agents)
-- [Ingest data](/getting-started/data-ingestion)
+## How the learning path works
 
-Use these pages for the documented role context and for setting up or understanding a suitable training dataset.
+The remaining modules follow a consistent structure:
 
-## Exercise
+1. **Learning outcome** – what you should be able to do after completing the module.
+2. **Scenario** – a realistic stewardship problem to solve.
+3. **Read** – links to the canonical CluedIn product documentation for the features used in the module.
+4. **Exercise** – the practical work to complete in CluedIn.
+5. **Deliverable** – the evidence or decision you should produce.
+6. **Complete when** – the conditions that show you are ready to move on.
 
-1. Choose a non-production environment and a training dataset or business domain.
-2. Identify who will act as the Data Architect or escalation owner.
-3. Define what changes you are allowed to make during training.
-4. Create an issue-log format with: symptom, scope, examples, suspected cause, action, verification, and escalation.
-5. Write down how you will decide whether an issue is an isolated data problem, a repeatable stewardship problem, a source problem, or a structural architecture problem.
+The **Read** section is intentionally concise. Use the linked product documentation for feature instructions, configuration details, and reference information. Use the learning path to understand when and why to apply those capabilities as a Data Steward.
 
-## Deliverable
+## Before you begin
 
-A one-page training operating agreement and an empty issue log ready for later modules.
+Use a non-production environment and choose one representative business domain or dataset that you can use throughout the course.
 
-## Complete when
+Keep a simple issue log while you work. For each problem, record:
 
-- You can describe the Data Steward and Data Architect responsibilities in your own words.
-- You have a safe dataset and environment for practice.
-- You know what evidence to capture before changing or escalating an issue.
+- the problem or symptom
+- the affected population
+- evidence and representative records
+- the action taken
+- the verification result
+- any escalation to a Data Architect
+
+Using the same dataset and issue log throughout the course makes it easier to build from investigation through remediation and verification.
+
+## Steward and Architect responsibilities
+
+Data Stewards operate on data-quality problems. They investigate, clean, review duplicate candidates, make merge decisions, govern operational populations, review AI-assisted remediation, and verify outcomes.
+
+Data Architects own structural configuration such as ingestion pipelines, mappings, identifiers, edges, matching-project design, initial rules, Export Targets, and Streams.
+
+When a stewardship investigation shows that the underlying structure needs to change, the Steward should capture the evidence and hand the issue to a Data Architect rather than working around the architecture.
 
 ## Next
 
-Learn how source records and data parts contribute to the golden record you investigate as a steward.
+Continue to [First tour of the instance and the golden record mindset](/learning-paths/data-steward-course/instance-tour-and-golden-record-mindset).
