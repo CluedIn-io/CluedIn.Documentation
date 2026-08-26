@@ -1,6 +1,6 @@
 ---
 layout: cluedin
-title: Identifiers, review mapping, and relation design
+title: Design mappings, identifiers, and edges
 parent: Data Architect course
 grand_parent: Learning paths
 nav_order: 40
@@ -9,37 +9,37 @@ permalink: /learning-paths/data-architect-course/identifiers-review-mapping-and-
 
 ## Learning outcome
 
-Select defensible identifiers and design relations whose identity and business meaning remain clear after processing and export.
+Build mappings that establish stable identity, map source fields into the shared vocabulary, and create the relationships needed by the domain model.
 
 ## Scenario
 
-Your source contains several candidate identifiers and a property that links records to another domain. Choosing convenience over identity could cause false merges or misleading relations.
+The source data is arriving, but records will only become useful if the mapping produces stable identifiers, understandable properties, and correct relationships to other business domains.
 
 ## Read
 
 - [Review mapping](/integration/review-mapping)
 - [Add relations between records](/getting-started/relations)
-- [Create hierarchies](/getting-started/hierarchy-builder)
 
 ## Exercise
 
-1. Evaluate candidate primary identifiers for uniqueness and stability.
-2. Decide whether a single, generated, or compound identity strategy is appropriate.
-3. Review any additional identifiers and state why each represents identity rather than similarity.
-4. Design one relation: source property, target domain, edge type, and matching behavior.
-5. Process representative records and inspect merge and relation outcomes.
-6. Record the failure mode you are trying to prevent.
+1. Review the source fields and choose the primary identifier based on uniqueness and stability.
+2. Identify any additional identifiers needed to match the same business object across sources.
+3. Map source properties into the vocabulary defined earlier in the course.
+4. Identify source keys that should produce edges or relations to other business domains.
+5. Configure the mapping and process a representative sample.
+6. Inspect the resulting golden records and confirm that identifiers and relations behave as designed.
+7. Record at least one failure mode caused by an unstable identifier, incorrect mapping, or missing relationship key.
 
 ## Deliverable
 
-An identity and relation decision record with assumptions, test evidence, expected edge behavior, and false-merge risk.
+A mapping and identity design containing vocabulary mappings, identifier rationale, expected edges, validation evidence, and known failure modes.
 
 ## Complete when
 
-- The primary identifier has a documented identity rationale.
-- Additional identifiers are justified individually.
-- The relation has a clear business meaning and testable outcome.
+- Identity is based on a stable business key rather than convenience.
+- Source-specific fields are translated into the shared model deliberately.
+- Expected edges appear on the resulting records and can be explained from source data.
 
 ## Next
 
-Validate these architectural choices from the same search and record surfaces stewards will use.
+Use search, record history, and diagnostics to validate the architecture from the resulting records rather than only from configuration screens.
