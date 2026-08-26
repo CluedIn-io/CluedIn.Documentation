@@ -1,44 +1,43 @@
 ---
 layout: cluedin
-title: Governance patterns with tags, vocabulary, and quality signals
+title: Configure Export Targets
 parent: Data Architect course
 grand_parent: Learning paths
 nav_order: 90
-permalink: /learning-paths/data-architect-course/governance-patterns-and-quality-signals
+permalink: /learning-paths/data-architect-course/export-targets-and-destination-setup
 ---
 
 ## Learning outcome
 
-Design a measurable quality signal with clear semantics, ownership, monitoring, and remediation paths.
+Configure and validate the destination connection that CluedIn will use to publish trusted data to a downstream system.
 
 ## Scenario
 
-A recurring data-quality issue is known to the team, but nobody can state its current size, trend, owner, or required response. You need to turn it into an operational governance pattern.
+A downstream consumer is ready to receive data from CluedIn. Before building a stream, you need a working Export Target with a tested connection, understood capabilities, and an identified owner.
 
 ## Read
 
-- [Tag monitoring](/governance/tag-monitoring)
-- [Vocabulary](/management/data-catalog/vocabulary)
+- [Export targets](/consume/export-targets)
 
 ## Exercise
 
-1. Choose one quality condition worth monitoring.
-2. Define a tag name and precise meaning.
-3. Define the rule or process that applies the tag.
-4. Define who owns the tag and what a steward should do when it appears.
-5. Define the trend or threshold that should trigger architecture or source-system action.
-6. Verify that the vocabulary fields needed to understand the signal have clear ownership and meaning.
+1. Choose the downstream system for the training scenario.
+2. Select the appropriate Export Target type and document the required connection information.
+3. Configure the Export Target in a non-production environment.
+4. Test the connection and verify that the target is healthy.
+5. Record the streaming modes supported by the target and any connector-specific limitations that affect the downstream contract.
+6. Define ownership, credential-management expectations, and what should happen if the destination becomes unhealthy.
 
 ## Deliverable
 
-A governance signal specification containing condition, tag, owner, response, escalation threshold, and supporting vocabulary.
+An Export Target configuration record containing destination purpose, connector type, connection validation, supported modes, ownership, and operational dependencies.
 
 ## Complete when
 
-- The tag has one unambiguous operational meaning.
-- A steward knows the expected response without guessing.
-- The team can measure whether the condition is improving or worsening.
+- The Export Target connection is healthy and testable.
+- Connector capabilities and limitations are understood before stream design begins.
+- Ownership and failure handling are explicit.
 
 ## Next
 
-Define how trusted records and changes are contracted to downstream consumers.
+Build the Stream that defines which trusted records and relationships are published to this destination.
