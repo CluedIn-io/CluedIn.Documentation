@@ -1,43 +1,44 @@
 ---
 layout: cluedin
-title: Deduplication, glossary, and stewardship enablement
+title: Build matching projects and hand review to stewards
 parent: Data Architect course
 grand_parent: Learning paths
 nav_order: 70
-permalink: /learning-paths/data-architect-course/deduplication-glossary-and-stewardship-enablement
+permalink: /learning-paths/data-architect-course/matching-projects-and-steward-handoff
 ---
 
 ## Learning outcome
 
-Design duplicate-review and governed record populations that are understandable and actionable for Data Stewards.
+Configure a matching project that produces explainable duplicate candidates and define a clean handoff to Data Stewards for review and merge decisions.
 
 ## Scenario
 
-Stewards receive noisy duplicate groups and repeatedly rebuild the same business populations in Search. Architecture needs to reduce ambiguity and make those workflows repeatable.
+The domain contains records that may represent the same business object. You are responsible for configuring how CluedIn identifies candidate matches, but you are not responsible for approving or merging those groups.
 
 ## Read
 
 - [Deduplicate data](/getting-started/data-deduplication)
-- [Work with glossary](/getting-started/glossary)
 
 ## Exercise
 
-1. Review one domain's identity and deduplication strategy.
-2. Define what evidence should make a duplicate group reviewable by a steward.
-3. Design a glossary category and one term for a reusable operational population.
-4. Identify the search columns or vocabulary keys needed for confident review.
-5. Define when a steward can decide independently and when architecture must be involved.
+1. Choose the domain and population to include in the matching project.
+2. Define the properties that provide evidence of identity and the properties that should not be trusted for matching.
+3. Configure the matching rules and generate candidate groups.
+4. Inspect a sample of candidate groups only to evaluate whether the matching logic is producing understandable results.
+5. Tune the matching configuration if the candidate set is too broad, too narrow, or difficult to explain.
+6. Define the evidence a Data Steward should see when deciding whether a candidate group should be merged.
+7. Hand the project over without approving, rejecting, or merging the groups yourself.
 
 ## Deliverable
 
-A stewardship-enablement package containing duplicate-review expectations, glossary structure, required evidence, and escalation boundaries.
+A matching-project design containing scope, matching evidence, tuning decisions, sample validation, and the handoff criteria for Data Stewards.
 
 ## Complete when
 
-- Duplicate candidates are explainable rather than only technically generated.
-- The glossary term represents a stable business population.
-- Stewards have the fields and decision boundaries needed to act confidently.
+- The project produces candidate groups that can be explained from the configured matching evidence.
+- Matching quality has been validated without the Architect becoming the operational reviewer.
+- The Steward handoff clearly separates matching configuration from merge approval.
 
 ## Next
 
-Apply the same requirements for scope, review, and traceability to enrichment and AI automation.
+Use AI Agents, where useful, to accelerate the design of the initial architect-owned rule set.
