@@ -9,40 +9,43 @@ permalink: /learning-paths/data-architect-course/release-discipline-across-envir
 
 ## Learning outcome
 
-Define validation gates for promoting mapping, identity, rule, governance, and stream changes across environments.
+Define validation gates for promoting ingestion, mapping, identity, matching, rule, Export Target, and Stream changes across environments.
 
 ## Scenario
 
-A change works in development and the team wants it in production. You need to prove not only that the configuration can be promoted, but that the resulting records and downstream behavior remain correct.
+An architecture change works in development and the team wants it in production. You need to prove not only that the configuration can be promoted, but that ingestion, golden records, matching behavior, and downstream delivery remain correct.
 
 ## Read
 
 Use the documentation for the change types you are promoting:
 
+- [Ingest data](/getting-started/data-ingestion)
 - [Review mapping](/integration/review-mapping)
+- [Deduplicate data](/getting-started/data-deduplication)
 - [Create rules](/getting-started/rule-builder)
+- [Export targets](/consume/export-targets)
 - [Stream data](/getting-started/data-streaming)
-- [Tag monitoring](/governance/tag-monitoring)
 
 ## Exercise
 
-1. Choose one representative architecture change.
+1. Choose one representative architecture change from the course.
 2. Define what is tested in development and what additional evidence is required in test.
-3. Define record-level validation for mapping, identity, or rule changes.
-4. Define downstream validation for stream-related changes.
-5. Define steward acceptance criteria when the change affects operational workflows.
+3. Define ingestion and record-level validation for mapping, identity, matching, or rule changes.
+4. Define connection and downstream validation for Export Target or Stream changes.
+5. Define Steward acceptance criteria when the change affects matching review or another operational workflow.
 6. Define post-production monitoring and rollback or mitigation steps.
 
 ## Deliverable
 
-A promotion checklist with change scope, dev evidence, test gate, production verification, monitoring, and rollback notes.
+A promotion checklist with change scope, development evidence, test gate, production verification, monitoring, handoff, and rollback notes.
 
 ## Complete when
 
 - Production is not used as an experimentation environment.
-- Each change type has an observable validation gate.
+- Each architect-owned change type has an observable validation gate.
+- Steward acceptance is included where architecture changes alter operational work.
 - Post-release verification and mitigation are planned before promotion.
 
 ## Next
 
-Apply the entire course to an end-to-end architecture review.
+Apply the entire course by building and validating an end-to-end data pipeline.
