@@ -1,84 +1,65 @@
 ---
 layout: cluedin
-title: Capstone architecture review checklist
+title: Capstone: build and validate an end-to-end data pipeline
 parent: Data Architect course
 grand_parent: Learning paths
 nav_order: 120
 permalink: /learning-paths/data-architect-course/capstone-architecture-review
 ---
 
-## On this page
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Learning outcome
 
-The capstone asks the learner to think like the owner of a CluedIn implementation. Instead of learning one feature at a time, they review an end-to-end design and decide whether it will hold up for stewardship, governance, and consumption.
+Build and validate one representative CluedIn pipeline from source ingestion through semantic modeling, matching, initial rules, and downstream publishing, then hand operational decisions to Data Stewards.
 
-## What you should get from this module
+## Scenario
 
-- combine the course into one end-to-end architecture review
-- use product behavior as evidence for design quality
-- produce a practical improvement plan rather than a vague critique
+You are responsible for bringing a new business domain into CluedIn and making it ready for operational stewardship and downstream consumption. The implementation must be structurally sound before Stewards begin cleaning data, reviewing duplicate groups, or approving remediation.
 
-![review-mapping-2.png]({{ "/assets/images/integration/data-sources/review-mapping-2.png" | relative_url }})
+## Read
 
-## Guided walkthrough
+Review the canonical documentation needed for the implementation:
 
-Choose one domain or dataset and conduct a full review across the platform.
-
-### Semantic design
-- Is the business domain clear?
-- Is the vocabulary disciplined?
-- Are key fields named in ways that support search and reuse?
-
-### Identity and mapping
-- Is the primary identifier safe?
-- Are additional identifiers justified?
-- Do mappings preserve enough information for stewardship and export?
-
-### Record behavior
-- Do processed records look understandable in search?
-- Does History make the record lifecycle intelligible?
-- Are duplicate or relation behaviors aligned with design intent?
-
-### Remediation and governance
-- Could stewards isolate common issues with filters, glossary, or tags?
-- Are clean-project and rule paths obvious?
-- Would Tag Monitoring or AI-assisted remediation produce useful queues?
-
-### Consumption
-- Does the stream design offer a clear downstream contract?
-- Would consumers understand the impact of later merges, cleaning, or relation updates?
-
-End with an improvement plan that distinguishes:
-- immediate fixes
-- near-term design changes
-- steward enablement changes
-- future automation opportunities
-
-## Role lens
-
-A complete architect is not the person who can configure the most features. It is the person who can look at a CluedIn implementation and explain whether it is coherent, teachable, governable, and safe to scale.
-
-## Practice assignment
-
-Write an architecture review memo for one domain with four sections:
-
-1. What is working well
-2. What is confusing or risky
-3. What stewards would struggle with today
-4. What you would change first and why
-
-## Exit criteria
-
-- The learner can assess an implementation end to end rather than feature by feature.
-- The learner produces a concrete improvement plan.
-- The learner can justify recommendations in operational as well as technical terms.
-
-## Suggested source material
-
+- [Ingest data](/getting-started/data-ingestion)
 - [Golden records](/key-terms-and-features/golden-records)
 - [Review mapping](/integration/review-mapping)
 - [Vocabulary](/management/data-catalog/vocabulary)
-- [Tag monitoring](/governance/tag-monitoring)
+- [Deduplicate data](/getting-started/data-deduplication)
+- [Create rules](/getting-started/rule-builder)
+- [Export targets](/consume/export-targets)
 - [Stream data](/getting-started/data-streaming)
+
+## Exercise
+
+Build or review one representative domain across these areas:
+
+1. Source integration and initial plus incremental or CDC ingestion.
+2. Business domain and vocabulary design.
+3. Mapping, identifiers, and edges.
+4. Golden-record and Global Data Model validation.
+5. Matching-project configuration and candidate quality.
+6. Initial architect-owned rule set.
+7. Export Target configuration and health.
+8. Stream population, schema, identity, relations, and change behavior.
+9. Promotion and validation gates across environments.
+10. Handoff to Data Stewards for cleaning, duplicate review and merge decisions, enrichers, and routine AI-assisted remediation.
+
+For every architecture decision, capture evidence, expected behavior, validation method, owner, and rollback or mitigation approach.
+
+Do not complete Steward activities as part of the capstone. The goal is to prove that the architecture produces a trustworthy operating surface for Stewards and downstream consumers.
+
+## Deliverable
+
+An end-to-end architecture package containing the ingestion design, semantic model, mapping and identity decisions, matching configuration, initial rules, downstream contract, validation evidence, release checklist, and Steward handoff.
+
+## Complete when
+
+- Initial and incremental data reach CluedIn through a repeatable ingestion path.
+- Golden records, identifiers, edges, and the Global Data Model reflect the intended business model.
+- Matching projects produce explainable candidates without the Architect performing merge review.
+- Initial rules behave as designed on representative records.
+- Export Targets and Streams pass downstream acceptance tests.
+- Operational remediation responsibilities are explicitly handed to Data Stewards.
+
+## Next
+
+You have completed the Data Architect learning path. Return to the [Data Architect course overview](/learning-paths/data-architect-course) to review the full path.

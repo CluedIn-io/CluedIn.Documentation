@@ -1,76 +1,63 @@
 ---
 layout: cluedin
-title: Course purpose, setup, and operating model
+title: About this learning path
 parent: Data Steward course
 grand_parent: Learning paths
 nav_order: 10
 permalink: /learning-paths/data-steward-course/course-purpose-and-setup
 ---
 
-## On this page
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+This learning path is for Data Stewards who are responsible for the operational quality and trustworthiness of data in CluedIn.
 
-The fastest way to fail a Data Steward course is to drop a learner directly into feature screens without explaining the operating model. A steward needs to know what kind of user they are expected to become, what environment they should work in, and how their daily work connects to ingestion, modeling, rules, and downstream consumers.
+As a Data Steward, you investigate data-quality problems, establish evidence, choose an appropriate remediation, verify the result, and escalate structural issues when they need architectural changes. The goal of this course is to teach that operating loop using realistic tasks rather than repeat the product documentation.
 
-## What you should get from this module
+## What you will learn
 
-- understand the difference between stewardship work and architecture work
-- set up a safe learning environment and a repeatable practice dataset
-- adopt the right mental model for how to move through the instance
+By working through the modules, you will learn how to:
 
-![builtin_agents_sp.png]({{ "/assets/images/management/ai-agents/built-in-ai-agents/builtin_agents_sp.png" | relative_url }})
+- understand how source data contributes to golden records
+- find and isolate data-quality problems
+- distinguish record-level issues from source, mapping, processing, and identity problems
+- use validations, clean projects, deduplication, glossary, tags, and AI-assisted remediation where appropriate
+- verify that a remediation actually fixed the affected population
+- recognize when a problem belongs to a Data Architect and provide enough evidence for a useful handoff
 
-## Guided walkthrough
+## How the learning path works
 
-Start with the built-in AI agents page because it quietly states the platform's role distinction. The built-in **Data Steward** agent is documented as focusing on fixing data quality issues and looking for duplicates, while the built-in **Data Architect** agent is documented as focusing on rule creation. That split is useful because it tells the learner where they should spend their energy first: investigate, validate, fix, review, and escalate structural issues rather than redesigning the platform from day one.
+The remaining modules follow a consistent structure:
 
-For training, use a non-production environment and a dataset you are allowed to experiment on. The "Getting started" ingestion guide uses small training files for a reason: a steward learns faster when they can create mistakes, reprocess data, and compare before-and-after behavior without worrying about business impact.
+1. **Learning outcome** – what you should be able to do after completing the module.
+2. **Scenario** – a realistic stewardship problem to solve.
+3. **Read** – links to the canonical CluedIn product documentation for the features used in the module.
+4. **Exercise** – the practical work to complete in CluedIn.
+5. **Deliverable** – the evidence or decision you should produce.
+6. **Complete when** – the conditions that show you are ready to move on.
 
-Define a simple operating model for the course:
+The **Read** section is intentionally concise. Use the linked product documentation for feature instructions, configuration details, and reference information. Use the learning path to understand when and why to apply those capabilities as a Data Steward.
 
-1. Work from **observable symptoms** first.
-2. Trace the symptom back to **source, mapping, or golden-record behavior**.
-3. Pick the lightest correct remediation path:
-   - fix a few values manually
-   - use a clean project for repeatable data issues
-   - review validations
-   - create or review a deduplication project
-   - use tags, glossary terms, or AI-assisted remediation for scalable work
-4. When a problem is structural, hand it off with evidence to a Data Architect.
+## Before you begin
 
-The steward should also keep one small issue log while learning. For each issue, capture the search used, the record examples found, where the issue appears in the UI, and whether the likely fix belongs to stewardship or architecture. That log becomes the learner's first practical runbook.
+Use a non-production environment and choose one representative business domain or dataset that you can use throughout the course.
 
-## Role lens
+Keep a simple issue log while you work. For each problem, record:
 
-A strong steward is not just a person who edits values. A strong steward knows when not to edit values directly. The steward should understand the difference between:
+- the problem or symptom
+- the affected population
+- evidence and representative records
+- the action taken
+- the verification result
+- any escalation to a Data Architect
 
-- an isolated error in a few records
-- a recurring pattern suitable for clean projects or rules
-- a source-data issue that should be fixed upstream
-- a modeling or identifier issue that requires architectural change
+Using the same dataset and issue log throughout the course makes it easier to build from investigation through remediation and verification.
 
-This distinction is what turns the role from reactive cleanup into disciplined operational governance.
+## Steward and Architect responsibilities
 
-## Practice assignment
+Data Stewards operate on data-quality problems. They investigate, clean, review duplicate candidates, make merge decisions, govern operational populations, review AI-assisted remediation, and verify outcomes.
 
-Set up a sandbox or training instance. Write down:
+Data Architects own structural configuration such as ingestion pipelines, mappings, identifiers, edges, matching-project design, initial rules, Export Targets, and Streams.
 
-- which business domain or dataset you will use for practice
-- who plays the role of Data Architect for escalation
-- what evidence you will capture when something looks wrong
-- what change types you are allowed to make directly during training
+When a stewardship investigation shows that the underlying structure needs to change, the Steward should capture the evidence and hand the issue to a Data Architect rather than working around the architecture.
 
-Then review the built-in AI agents page and explain, in your own words, what work belongs to the steward and what belongs to the architect.
+## Next
 
-## Exit criteria
-
-- The learner can explain the stewardship operating loop in plain language.
-- The learner has a safe dataset and environment for practice.
-- The learner knows what evidence to capture before escalating a structural issue.
-
-## Suggested source material
-
-- [Built-in AI agents](/management/ai-agents/built-in-ai-agents)
-- [Ingest data](/getting-started/data-ingestion)
+Continue to [First tour of the instance and the golden record mindset](/learning-paths/data-steward-course/instance-tour-and-golden-record-mindset).

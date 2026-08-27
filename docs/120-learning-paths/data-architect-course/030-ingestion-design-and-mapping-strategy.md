@@ -1,75 +1,45 @@
 ---
 layout: cluedin
-title: Ingestion design and mapping strategy
+title: Build ingestion pipelines and support incremental or CDC ingestion
 parent: Data Architect course
 grand_parent: Learning paths
 nav_order: 30
 permalink: /learning-paths/data-architect-course/ingestion-design-and-mapping-strategy
 ---
 
-## On this page
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Learning outcome
 
-Most long-term CluedIn success or pain is decided during ingestion design. Architects need to think beyond "can we map this file?" and move toward "will this mapping produce stable, searchable, governable records at scale?"
+Design and validate an ingestion pipeline that brings source data into CluedIn reliably for both initial loads and ongoing incremental or CDC-style updates.
 
-## What you should get from this module
+## Scenario
 
-- design ingestion with downstream quality and searchability in mind
-- treat mapping as semantic and operational design, not mere field alignment
-- anticipate architectural failure modes before processing
+A source system must feed CluedIn continuously. A one-time import is not enough: the architecture needs a repeatable ingestion path, a clear update strategy, and evidence that changed source records are reflected correctly in CluedIn.
 
-![create-mapping-6.png]({{ "/assets/images/getting-started/data-ingestion/create-mapping-6.png" | relative_url }})
-
-## Guided walkthrough
-
-Walk through the ingestion guide as an architect, not as a beginner.
-
-### Import strategy
-The source grouping, data source structure, and dataset boundaries should reflect how the organization will reason about origin, change cadence, and accountability.
-
-### Mapping strategy
-The automatic mapping flow is a good accelerator, but it is not the end state. Review:
-- business domain naming
-- vocabulary creation or reuse
-- preview name and description fields
-- data types
-- ignored or retained source fields
-- primary identifier selection
-
-This is where architects should slow down. A poor preview name makes search harder. A poor domain choice weakens filtering. A poor identifier creates bad merges. A poor vocabulary model creates downstream confusion in streams, rules, and governance.
-
-### Processing design
-Processing is where architectural assumptions become visible. If the primary identifier duplicates, you may get accidental merges during processing. If the field model is weak, golden records may look sparse or misleading when searched.
-
-Architects should also think about the questions stewards and consumers will ask later:
-- What should appear in search results?
-- What properties need stable names?
-- Which fields are required for governance or validation?
-- Which source columns should be preserved for diagnostics even if they are not front-and-center operationally?
-
-## Role lens
-
-Architects do not just map fields to make data load. They map fields to make the platform intelligible. That means designing for search, record inspection, governance, remediation, and downstream consumption from the start.
-
-## Practice assignment
-
-Using one training dataset, write a mapping review memo that answers:
-
-- Why is this the right business domain?
-- Should we create a new vocabulary or reuse one?
-- What is the chosen primary identifier and why?
-- Which fields are required for display, diagnostics, stewardship, and export?
-- What specific risks would you want stewards to look for after processing?
-
-## Exit criteria
-
-- The learner can treat mapping as both semantic and operational design.
-- The learner can describe the downstream consequences of poor mapping choices.
-- The learner can specify what to verify immediately after processing.
-
-## Suggested source material
+## Read
 
 - [Ingest data](/getting-started/data-ingestion)
-- [Review mapping](/integration/review-mapping)
+- [Delta crawls](/integration/delts-crawls)
+
+## Exercise
+
+1. Identify the source system, connection method, expected volume, and update frequency.
+2. Define the initial-load strategy and the ongoing incremental or CDC strategy.
+3. Identify the source field or mechanism used to detect inserts and updates.
+4. Configure or document the integration and data source group that will feed the training domain.
+5. Ingest a representative initial sample and verify that the expected data sets arrive.
+6. Change a source record or use a representative incremental batch, run the incremental path, and verify that CluedIn receives the change without requiring a full reload.
+7. Record failure handling, retry expectations, logging, and the evidence used to prove that ingestion is healthy.
+
+## Deliverable
+
+An ingestion design containing source, connection method, initial-load strategy, incremental or CDC strategy, operating frequency, failure handling, and validation evidence.
+
+## Complete when
+
+- The pipeline supports repeatable ingestion rather than a one-off import.
+- Initial and incremental behavior are both defined and tested.
+- A failed or delayed ingestion can be detected and diagnosed.
+
+## Next
+
+Continue to [Design mappings, identifiers, and edges](/learning-paths/data-architect-course/identifiers-review-mapping-and-relations).

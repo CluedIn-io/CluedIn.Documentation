@@ -7,75 +7,38 @@ nav_order: 30
 permalink: /learning-paths/data-steward-course/ingestion-mapping-and-processing-for-stewards
 ---
 
-## On this page
-{: .no_toc .text-delta }
-- TOC
-{:toc}
+## Learning outcome
 
-Stewards are not usually the primary owners of mapping design, but they absolutely need literacy in ingestion, mapping, and processing. Many downstream quality problems are caused long before the steward sees them on the search page.
+Recognize when a quality problem originates in source data, mapping, identifiers, or processing rather than in the golden record itself.
 
-## What you should get from this module
+## Scenario
 
-- understand the basic ingestion flow from file or source to searchable records
-- recognize which mapping decisions create downstream stewardship pain
-- learn what to escalate when a record problem is rooted in ingestion design
+A newly processed dataset produces records that are hard to search and some records appear unexpectedly combined. You need to gather evidence without redesigning the mapping yourself.
 
-![create-mapping-7.png]({{ "/assets/images/getting-started/data-ingestion/create-mapping-7.png" | relative_url }})
-
-## Guided walkthrough
-
-Follow the "Ingest data" guide end to end, but keep the explanation role-specific.
-
-### Import
-Data enters via files or other sources. At this stage, the steward mainly cares that the data is present and inspectable.
-
-### Map
-Mapping is where source columns are translated into the language CluedIn understands. This is a huge stewardship concern because incorrect mapping can make quality work harder in several ways:
-
-- a meaningful field might be ignored
-- the wrong data type might be assigned
-- a business domain might be too broad or too narrow
-- the wrong primary identifier might merge records that should stay separate
-- poor preview naming or descriptions can make search and review harder
-
-### Process
-Processing turns mapped records into searchable golden records. This is where identifier behavior starts to matter in a very visible way. If there are duplicates in the primary identifier, records can be merged during processing before the steward ever reaches deduplication.
-
-Teach the learner to review processed outcomes with two questions in mind:
-
-1. Do the records look complete enough to review?
-2. Do they look distinct enough to trust?
-
-If the answer to either question is no, the steward should not just start fixing symptoms. They should note whether the problem likely comes from missing mapping, weak identifiers, or poor preprocessing.
-
-This is also a good place to teach one key handoff pattern. When you escalate a mapping concern, do not just say "the data looks wrong". Say something more like: "In domain X, values from source column Y appear to be mapped inconsistently, and search results are missing the field we need to review the issue." That kind of feedback is actionable.
-
-## Role lens
-
-For the steward, ingestion literacy is about evidence, not ownership. You need enough knowledge of the ingestion flow to distinguish between:
-
-- a bad source value
-- a bad mapping decision
-- a problem introduced after processing
-
-That distinction determines whether you fix, monitor, or escalate.
-
-## Practice assignment
-
-Use a training dataset and walk through import, mapping preview, and processing. Then answer:
-
-- Which field appears to be the best display name for a steward to inspect?
-- Which field is acting as the primary identifier?
-- If the primary identifier were wrong, what type of visible problem would you expect after processing?
-- Which fields would make stewardship easier if they were exposed in search columns?
-
-## Exit criteria
-
-- The learner can describe the import, map, and process flow.
-- The learner can identify at least three mapping decisions that affect downstream stewardship.
-- The learner can frame a mapping escalation in clear operational terms.
-
-## Suggested source material
+## Read
 
 - [Ingest data](/getting-started/data-ingestion)
 - [Review mapping](/integration/review-mapping)
+
+## Exercise
+
+1. Open a training dataset and review its ingestion and mapping state.
+2. Identify the business domain, mapped vocabulary fields, display information, and primary identifier.
+3. Inspect processed records in Search.
+4. Find one design choice that could make stewardship easier or harder.
+5. Describe the symptom that a weak primary identifier, missing mapping, or incorrect data type could create after processing.
+6. Draft an escalation note using concrete fields, examples, and expected behavior.
+
+## Deliverable
+
+A mapping-observation note containing the current design, visible consequence, example records, and recommended architect review point.
+
+## Complete when
+
+- You can describe the import, mapping, and processing flow at a stewardship level.
+- You can identify mapping choices that affect searchability and identity.
+- You can escalate a structural concern with evidence rather than saying only that the data looks wrong.
+
+## Next
+
+Continue to [Find and inspect records with search, filters, and saved searches](/learning-paths/data-steward-course/search-filters-and-record-inspection).
