@@ -3,6 +3,7 @@ layout: page
 ---
 
 <script src="/assets/js/card.js"></script>
+<script src="/assets/js/nav-groups.js" defer></script>
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2770606.js"></script>
 <!-- End of HubSpot Embed Code -->
@@ -27,5 +28,18 @@ layout: page
   </div>
   {% endif %}
   <h1 class="h1">{{ page.title }}</h1>
+
+  {% if site.show_content_type_badge and page.content_type and page.content_type != "landing" %}
+  <p class="content-type-line">
+    <span class="content-type-badge content-type-{{ page.content_type }}">{{ page.content_type }}</span>
+    <span class="content-type-hint">{{ site.content_types[page.content_type] }}</span>
+  </p>
+  {% endif %}
 </div>
+
 {{ content }}
+
+{% if page.has_children and page.list_children != false %}
+  {% include children.html %}
+{% endif %}
+

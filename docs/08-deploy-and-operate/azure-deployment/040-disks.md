@@ -1,0 +1,16 @@
+---
+layout: cluedin
+title: Disks
+parent: Azure deployment
+grand_parent: Deploy & operate
+nav_order: 40
+permalink: /operate/azure/disks
+content_type: how-to
+redirect_from: ["/deployment/azure/disks"]
+source_path: docs/020-deployment/azure/040-disks.md
+tags: ["deployment", "kubernetes", "azure", "aks", "disk"]
+last_modified: 2021-11-15
+headerIcon: "paas"
+---
+
+By default, AKS creates the disks to keep your data, but these disks will be deleted with the AKS cluster if you decide to recreate it. To preserve your data, you must create [Azure Managed disks](https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview) configure CluedIn instance to use it. We will cover the managed disks configuration in the [Helm](/operate/azure/helm) section. Also, see [Sizing](/operate/azure/aks#sizing) for the recommended disks sizes.

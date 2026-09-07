@@ -1,0 +1,32 @@
+---
+layout: cluedin
+title: Alerts
+parent: Configuration
+grand_parent: Deploy & operate
+nav_order: 90
+permalink: /operate/configuration/configure-alerts
+content_type: how-to
+redirect_from: ["/deployment/infra-how-tos/configure-alerts"]
+source_path: docs/190-paas-operations/configuration/090-configure-alerts.md
+tags: ["deployment", "ama", "marketplace", "azure"]
+last_modified: 2023-06-23
+headerIcon: "paas"
+---
+
+By default, CluedIn contains built-in alerts that are sent to our support team.
+
+![Alerts.png]({{ "/assets/images/ama/howtos/configure-alerts-1.png" | relative_url }})
+
+If you need to set up additional alerts or modify the existing configuration of alerts, you can do it your CluedIn AKS cluster.
+
+**To configure additional alerts**
+
+1. In the Azure portal, navigate to the needed AKS cluster.
+
+1. In the left pane, under **Monitoring**, select **Alerts**.
+
+    ![alerts.png]({{ "/assets/images/ama/howtos/configure-alerts-2.png" | relative_url }})
+
+    You will see the alerts for your CluedIn AKS cluster.
+    
+1. To configure additional alerts, create a new alert rule and set the actions for the alerts rule as described in [Microsoft documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric).
