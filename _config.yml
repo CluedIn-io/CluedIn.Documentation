@@ -39,8 +39,10 @@ exclude:
     "lib/",
     "bin/",
     "README.md",
+    "CONTRIBUTING.md",
     "Rakefile",
     "docs/tests/",
+    "_migration/",
   ]
 
 # Build settings
@@ -49,6 +51,7 @@ remote_theme: just-the-docs/just-the-docs@v0.7.0
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
+  - jekyll-redirect-from
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -142,3 +145,31 @@ sass:
 
 feed:
   disable_in_development: true
+
+# ---------------------------------------------------------------------------
+# Information architecture
+#
+# The documentation is organised around the data lifecycle. `_migration/ia.py`
+# is the source of truth for which article lives where; `_migration/migrate.py`
+# builds docs/ from it and `_migration/validate.py` checks the result.
+# ---------------------------------------------------------------------------
+
+# The eight lifecycle areas make up the primary navigation. Anything with a
+# nav_order at or above `nav_secondary_from` is rendered below a separator as
+# supporting material rather than as part of the product workflow.
+nav_secondary_from: 20
+nav_secondary_label: "Resources"
+nav_archive_label: "Archive"
+
+# Every article declares one of these in its front matter.
+# `_migration/validate.py` fails if one is missing or unrecognised.
+content_types:
+  concept: "Explains how something works"
+  how-to: "Steps to accomplish one task"
+  tutorial: "Guided end-to-end learning"
+  reference: "Facts, options, APIs"
+  troubleshooting: "Symptom, cause, and fix"
+  landing: "Section index"
+
+# Show the content-type badge at the top of each article.
+show_content_type_badge: true

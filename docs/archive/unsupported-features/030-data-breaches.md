@@ -1,0 +1,25 @@
+---
+layout: cluedin
+title: Data Breaches
+parent: Unsupported features
+grand_parent: Archive
+nav_order: 30
+permalink: /archive/unsupported-features/data-breaches
+content_type: reference
+redirect_from: ["/governance/data-breaches"]
+source_path: docs/070-governance/outdated/030-data-breaches.md
+tags: ["governance","data-breaches"]
+published: false
+---
+
+Data Breaches allow you to generate reports that will let you know which Person objects have been sourced from a particular data source. This will help you register data breaches and have CluedIn inform you of what people were affected by that breach. This is due to the requirement of many businesses to be able to quickly report data breaches to local authorites. 
+
+![Diagram](/assets/images/governance/intro-breach.png)  
+
+The Data Breaches feature of CluedIn does not detect breaches, but rather allows you to quickly report on the affected persons after the breach has been detected. 
+
+![Diagram](/assets/images/governance/breach-form.png)  
+
+If you find that you have a Data Subject that requests for a right of portability to data then you will also find that all registered breaches will show up in their respective Subject Access Request report. 
+
+![Diagram](/assets/images/governance/create-new-breach.png)  

@@ -1,0 +1,33 @@
+---
+layout: cluedin
+title: Power Apps
+parent: Solutions & integrations
+nav_order: 20
+has_children: true
+permalink: /solutions/power-apps
+content_type: landing
+summary: Surfacing CluedIn golden records inside Power Apps and Dataverse, and pushing changes made there back into CluedIn.
+redirect_from: ["/microsoft-integration/powerapps"]
+source_path: docs/180-microsoft-integration/010-powerapps.md
+tags: ["integration", "microsoft", "powerapps", "dataverse", "powerautomate"]
+---
+
+Power Apps is a key component of the Power Platform, which is Microsoft's suite of tools designed for low-code development, automation, and data analysis. Power Apps allows you to build custom applications with minimal coding. In Power Apps, you can connect to Dataverse, which provides a unified and simplified data schema that allows you to integrate data from multiple sources into a single store. Dataverse is a scalable data service and app platform that lets you securely store and manage data used by business applications.
+
+Power Apps can be integrated with CluedIn to enable you to **manage your master data directly in the Dataverse platform** and **automatically sync it with CluedIn**.
+
+![power-apps-diagram.png]({{ "/assets/images/microsoft-integration/power-apps/power-apps-diagram.png" | relative_url }})
+
+Power Apps integration offers the following benefits:
+
+- 2-way synchronization of Dataverse metadata to CluedIn business domains and vocabularies and vice versa:
+
+    - CluedIn stream to export golden records from CluedIn to the Dataverse tables.
+
+    - Data ingestion workflow to push data from Dataverse tables to CluedIn ingestion endpoint.
+    
+- Auto-mapping of columns, keys, and relationships.
+
+To achieve a **2-way synchronization between Dataverse and CluedIn**, the Power Apps integration also involves **Power Automate workflows**. However, these workflows should not be confused with the approval workflows that are available in the **Workflow** module in CluedIn. We discuss the approval workflows as part of [Power Automate integration](/solutions/power-automate).
+
+To sync master data between CluedIn and the Dataverse platform, start from the [Power Apps pre-configuration guide](/solutions/power-apps/pre-configuration-guide).
