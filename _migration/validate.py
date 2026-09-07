@@ -9,6 +9,8 @@ plus the failure modes the restructure is specifically meant to prevent:
   * two pages with the same title under the same parent
   * two pages claiming the same URL
   * navigation nested more than three levels deep, which the theme cannot render
+  * a page the sidebar cannot reach, because its parent chain does not climb to
+    a top-level section
   * an internal link pointing at a URL no page serves
 
 Exit code is non-zero if anything fails, so this can gate a build.
@@ -123,6 +125,46 @@ def main():
                 errors.append("%s: %s %r is not a page with has_children" % (rel, key, value))
         if fm.get("grand_parent") and fm.get("has_children") == "true":
             errors.append("%s: fourth navigation level (theme supports three)" % rel)
+        if fm.get("great_grand_parent"):
+            errors.append(
+                "%s: great_grand_parent declares a fourth navigation level. The "
+                "theme renders three, so the key has no effect and is stale" % rel
+            )
+
+    # every published page is reachable from the sidebar
+    #
+    # just-the-docs walks parent -> grand_parent -> top level by title. A page
+    # whose chain does not climb all the way is built and served, but nothing
+    # links to it, so the only way to find it is to already know its URL.
+    top_level = {
+        fm.get("title")
+        for _rel, fm, _b in pages
+        if not fm.get("parent") and fm.get("published") != "false"
+    }
+    children_of = {}
+    for _rel, fm, _b in pages:
+        if fm.get("parent"):
+            children_of.setdefault(fm.get("title"), set()).add(fm.get("parent"))
+
+    unreachable, hidden = [], []
+    for rel, fm, _body in pages:
+        if fm.get("published") == "false":
+            continue                       # deliberately off the live site
+        if fm.get("nav_exclude") == "true":
+            hidden.append(rel)
+            continue
+        parent, grand_parent = fm.get("parent"), fm.get("grand_parent")
+        if not parent:
+            continue                       # a top-level section
+        if grand_parent:
+            if grand_parent not in top_level:
+                unreachable.append((rel, "grand_parent %r is not a top-level section" % grand_parent))
+            elif grand_parent not in children_of.get(parent, set()):
+                unreachable.append((rel, "no page titled %r sits under %r" % (parent, grand_parent)))
+        elif parent not in top_level:
+            unreachable.append((rel, "parent %r is not top level, and no grand_parent is declared" % parent))
+    for rel, why in unreachable:
+        errors.append("%s: not reachable from the sidebar - %s" % (rel, why))
 
     # every internal link resolves to a page or an asset
     prefix = site_baseurl()
@@ -139,6 +181,7 @@ def main():
                 warnings.append("%s: link to %s serves no page" % (rel, url))
 
     print("pages checked : %d" % len(pages))
+    print("nav_exclude   : %d (built and linkable, but not in the sidebar)" % len(hidden))
     print("errors        : %d" % len(errors))
     print("warnings      : %d" % len(warnings))
     for message in errors:

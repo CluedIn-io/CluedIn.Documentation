@@ -39,6 +39,7 @@ exclude:
     "lib/",
     "bin/",
     "README.md",
+    "CONTRIBUTING.md",
     "Rakefile",
     "docs/tests/",
     "_migration/",

@@ -37,5 +37,17 @@ python _migration/validate.py
 
 The output lands in `../docs-new/docs`. Copy it over `docs/` to apply it.
 
-Change where an article lives by editing the routing table in `targets_*.py`,
-not by moving the file — otherwise the next run puts it back.
+While re-running the migration, change where an article lives by editing the
+routing table in `targets_*.py`, not by moving the file — otherwise the next
+run puts it back.
+
+## Adding an article now
+
+The move is done, and `docs/` is authored directly from here on. A new article
+is a new file in `docs/`, not a new entry in the routing table — the routing
+table only describes the pre-restructure tree, and re-running the migration
+would not know about it. See [CONTRIBUTING.md](../CONTRIBUTING.md) for where a
+new article goes and what its front matter has to say.
+
+`validate.py` is not migration-only: it is the ongoing check that the tree is
+sound, and it should pass before any documentation change is pushed.
