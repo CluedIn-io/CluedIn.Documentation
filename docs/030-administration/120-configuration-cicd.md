@@ -583,6 +583,43 @@ jobs:
         with:
           ref: ${{ github.sha }}
 
+      - name: Prepare CluedIn restore directory structure
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+
+          $sourcePath = Join-Path `
+              "${{ github.workspace }}" `
+              "${{ env.CONFIG_PATH }}"
+
+          $requiredDirectories = @(
+              "DataCatalog/Vocab",
+              "DataCatalog/Keys",
+              "Data/SourceSets",
+              "Data/Sources",
+              "Data/Sets",
+              "Rules",
+              "Glossaries",
+              "ExportTargets",
+              "Streams",
+              "CleanProjects",
+              "DeduplicationProjects",
+              "ManualDataEntryProjects"
+          )
+
+          foreach ($directory in $requiredDirectories) {
+              $path = Join-Path $sourcePath $directory
+
+              if (-not (Test-Path $path)) {
+                  Write-Host "Creating empty restore directory: $directory"
+
+                  New-Item `
+                      -ItemType Directory `
+                      -Path $path `
+                      -Force | Out-Null
+              }
+          }
+
       - name: Download CluedIn Product Toolkit
         shell: pwsh
         env:
@@ -704,6 +741,43 @@ jobs:
         with:
           ref: ${{ github.sha }}
 
+      - name: Prepare CluedIn restore directory structure
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+
+          $sourcePath = Join-Path `
+              "${{ github.workspace }}" `
+              "${{ env.CONFIG_PATH }}"
+
+          $requiredDirectories = @(
+              "DataCatalog/Vocab",
+              "DataCatalog/Keys",
+              "Data/SourceSets",
+              "Data/Sources",
+              "Data/Sets",
+              "Rules",
+              "Glossaries",
+              "ExportTargets",
+              "Streams",
+              "CleanProjects",
+              "DeduplicationProjects",
+              "ManualDataEntryProjects"
+          )
+
+          foreach ($directory in $requiredDirectories) {
+              $path = Join-Path $sourcePath $directory
+
+              if (-not (Test-Path $path)) {
+                  Write-Host "Creating empty restore directory: $directory"
+
+                  New-Item `
+                      -ItemType Directory `
+                      -Path $path `
+                      -Force | Out-Null
+              }
+          }
+
       - name: Download CluedIn Product Toolkit
         shell: pwsh
         env:
@@ -814,6 +888,60 @@ jobs:
 
 The `validate` job resolves the Toolkit version once and passes that value to both deployment jobs. This ensures Test and Production use the same Toolkit release during a promotion run, even if the repository variable is changed while the workflow is waiting for a production approval.
 
+### Why the workflow recreates the restore directory structure
+
+The Toolkit exporter always creates its folder structure below `Source/`, including folders for resource types that exported nothing. For example, when `CLUEDIN_VOCABULARIES` is empty, the export still creates `Source/DataCatalog/Vocab` and `Source/DataCatalog/Keys`, but writes no JSON files into them.
+
+Git does not track empty directories, so those folders are lost when the capture is committed:
+
+```text
+DEV export
+   ↓
+Source/DataCatalog/Vocab/   ← empty
+Source/DataCatalog/Keys/    ← empty
+   ↓
+git commit
+   ↓
+empty folders disappear
+   ↓
+promote.yml checks out the commit
+   ↓
+Source/DataCatalog/Vocab does not exist
+```
+
+`Confirm-CluedInConfig.ps1` and `Import-CluedInConfig.ps1` assume that these folders exist and enumerate JSON files from them, for example:
+
+```powershell
+$restoreVocabularies = Get-ChildItem -Path $vocabPath -Filter "*.json"
+```
+
+Without the folder, this fails. The **Prepare CluedIn restore directory structure** step runs in both `deploy-test` and `deploy-production`, immediately after checkout and before the Toolkit scripts, and creates any missing folders so that both jobs see the complete structure:
+
+```text
+Source/
+├── DataCatalog/
+│   ├── Vocab/
+│   └── Keys/
+├── Data/
+│   ├── SourceSets/
+│   ├── Sources/
+│   └── Sets/
+├── Rules/
+├── Glossaries/
+├── ExportTargets/
+├── Streams/
+├── CleanProjects/
+├── DeduplicationProjects/
+└── ManualDataEntryProjects/
+```
+
+Some folders contain JSON files from Git, and some are empty folders created by the workflow. An empty folder simply returns zero files to `Get-ChildItem -Filter "*.json"` instead of failing.
+
+The step covers every resource type folder, not only `DataCatalog/Vocab` and `DataCatalog/Keys`, because any resource type that exports nothing — for example, an environment with no clean projects — has the same problem.
+
+{:.important}
+Do not work around this by adding dummy JSON files to `Source/`. Adding `.gitkeep` files would also preserve the folders, but the recommended separation is: Git stores the actual CluedIn configuration files, the promotion workflow creates the required empty folder scaffolding, and the Toolkit reads the configuration from that structure.
+
 ## Step 7: Protect production
 
 The `deploy-production` job references the `production` GitHub Environment:
@@ -833,9 +961,10 @@ With a required reviewer configured, the flow is:
 5. GitHub waits at the Production environment approval gate.
 6. An authorized reviewer approves the production deployment.
 7. The same Git commit is checked out for Production.
-8. The same Toolkit release used for Test is downloaded again.
-9. The configuration is compared with Production.
-10. The configuration is imported into Production.
+8. Missing empty restore folders are recreated below `Source/`.
+9. The same Toolkit release used for Test is downloaded again.
+10. The configuration is compared with Production.
+11. The configuration is imported into Production.
 
 {:.important}
 If the `production` environment does not have a required reviewer or another blocking protection rule, the Production job can start automatically after Test succeeds.
@@ -948,6 +1077,22 @@ None
 ```
 
 and passes it to `-SelectVocabularies`. No vocabularies are exported in that case. Other selected resource types continue to be exported.
+
+Because no vocabulary files are written, `Source/DataCatalog/Vocab` and `Source/DataCatalog/Keys` are empty and are not stored in Git. The promotion workflow recreates them before running the Toolkit. See the next section.
+
+### `Confirm-CluedInConfig.ps1` fails because `Source/DataCatalog/Vocab` does not exist
+
+During `deploy-test` or `deploy-production`, the **Compare configuration** step fails with an error similar to:
+
+```text
+Get-ChildItem: Cannot find path '/home/runner/work/<repository>/<repository>/Source/DataCatalog/Vocab' because it does not exist.
+```
+
+This happens when a capture exported nothing for a resource type — most commonly when `CLUEDIN_VOCABULARIES` is empty. The exporter created the empty folder, but Git does not track empty directories, so the folder is missing when `promote.yml` checks out the commit. The same failure can occur for any other resource type folder, such as `CleanProjects` or `DeduplicationProjects`.
+
+To fix it, make sure both `deploy-test` and `deploy-production` contain the **Prepare CluedIn restore directory structure** step immediately after **Checkout configuration** and before **Download CluedIn Product Toolkit**, as shown in [Step 6](#step-6-add-the-promotion-workflow). For more details, see [Why the workflow recreates the restore directory structure](#why-the-workflow-recreates-the-restore-directory-structure).
+
+Do not add dummy JSON files to `Source/` to preserve the folders.
 
 ### The Toolkit cannot be downloaded
 
