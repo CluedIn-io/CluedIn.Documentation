@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-09-15T18:51:06+00:00</updated>
+    <updated>2026-09-15T20:06:10+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1913,6 +1913,22 @@
         
         
         Tags: integration, microsoft, powerapps, dataverse.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Configure Microsoft Entra roles for multi-tenant SaaS SSO</title>
+        <link href="https://documentation.cluedin.net/administration/roles/mt-saas-sso-roles" />
+        <id>https://documentation.cluedin.net/administration/roles/mt-saas-sso-roles</id>
+        <updated>2026-09-15T00:00:00+00:00</updated>
+        <summary>
+        
+        Configure Microsoft Entra roles for multi-tenant SaaS SSO.
+        
+        
+        
+        Tags: administration, roles, sso, saas, entra.
         
         </summary>
     </entry>
