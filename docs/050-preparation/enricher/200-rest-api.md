@@ -217,32 +217,6 @@ response.Content = JSON.stringify([{ Data: newContent, Score: 0 }]);
 | `Data`   | `object` | Key-value data extracted from the response. Each key represents a vocabulary key. |
 | `Score`  | `number` | A numeric score indicating the relevance or confidence of the results.            |
 
-### Clearbit
-
-This script takes a company name as input and sends it to the Clearbit Autocomplete API. Then, it extracts the domain and logo of the top matching company and returns that data in a structured format usable by the enricher.
-
-**Method:** GET
-
-**URL**
-
-```
-https://autocomplete.clearbit.com/v1/companies/suggest?query={Vocabulary:organization.name}
-```
-
-**Process response script**
-
-```javascript
-let parsedContent = JSON.parse(response.Content);
-let content = parsedContent[0];
-let image = {
-  "clearbit.organization.domain": content.domain,
-  "clearbit.organization.logo": content.logo,
-};
-
-response.Content = JSON.stringify([{ Data: image, Score: 0 }]);
-log(JSON.stringify(response));
-```
-
 ### Azure OpenAI
 
 This scripts take an organization's name and sends a request to Azure OpenAI GPT-4 asking it to translate the name into Japanese. Then, it ensures the model responds in a defined JSON format and parses and returns the result in a structure compatible with the enricher. Note that you can use the [Azure Open AI enricher](/preparation/enricher/azure-openai) for the same task.
@@ -765,6 +739,72 @@ let results = {
 };
 
 response = JSON.stringify([{ Data: results, Score: 100 }]);
+```
+
+### Logo.dev
+
+This example retrieves a company's logo URL from [Logo.dev](https://www.logo.dev/) by using the website stored on the golden record. It stores a stable Logo.dev image URL and the matched domain; it does not store the binary image response as a property value.
+
+**API Key**
+```
+{APIKeyFromLogoDev}
+```
+
+**Vocabulary and Properties**:
+
+```
+companies.website
+```
+
+**Process script**
+
+```javascript
+// REST API Enricher V2 - Logo.dev logo URL enrichment
+// The {APIKey} placeholder is replaced with the API Key field value.
+
+const website = vocabularies.find((x) => x.Key === "companies.website")?.Value;
+
+if (!website) {
+  response = JSON.stringify([]);
+} else {
+  // Accept a full URL, a bare domain, or a domain with a port.
+  // Logo.dev expects only the hostname.
+  const domain = String(website)
+    .trim()
+    .replace(/^https?:\/\//i, "")
+    .replace(/^www\./i, "")
+    .split("/")[0]
+    .split(":")[0];
+
+  if (!domain) {
+    response = JSON.stringify([]);
+  } else {
+    const logoUrl = `https://img.logo.dev/${encodeURIComponent(domain)}?token={APIKey}`;
+
+    // Request the image so an unavailable logo or API error does not create
+    // an enrichment result. The returned image bytes are intentionally ignored.
+    const logoResponse = http.send({
+      url: logoUrl,
+      method: "GET",
+    });
+
+    const status = String(logoResponse?.HttpStatus || "");
+    if (status === "OK") {
+      response = JSON.stringify([
+        {
+          Data: {
+            "companies.logoUrl": logoUrl,
+            "companies.logoDomain": domain,
+          },
+          Score: 100,
+        },
+      ]);
+    } else {
+      log(`Logo.dev did not return a logo for ${domain}. Status: ${status}`);
+      response = JSON.stringify([]);
+    }
+  }
+}
 ```
 
 ### Dun & Bradstreet
