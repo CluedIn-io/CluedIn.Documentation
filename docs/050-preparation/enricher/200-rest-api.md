@@ -747,7 +747,7 @@ This example retrieves a company's logo URL from [Logo.dev](https://www.logo.dev
 
 **API Key**
 ```
-{APIKeyFromLogoDev}
+your-logo-dev-api-key
 ```
 
 **Vocabulary and Properties**:
