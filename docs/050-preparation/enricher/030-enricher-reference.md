@@ -54,19 +54,6 @@ The BvD enricher retrieves a wide range of information about companies.
 |--|--|--|
 | CluedIn.Provider.ExternalSearch.BvD | 4.4.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.BvD) |
 
-## Clearbit
-
-The [Clearbit](/preparation/enricher/clearbit) enricher retrieves company logo and domain information. It supports the following endpoint:
-
-- `https://autocomplete.clearbit.com/v1/companies/suggest?query=`
-
-| Package name | Package version | Source code |
-|--|--|--|
-| CluedIn.Provider.ExternalSearch.ClearBit | 4.4.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.ClearBit/releases/tag/4.4.0) |
-| CluedIn.Provider.ExternalSearch.ClearBit | 4.1.1 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.ClearBit/releases/tag/4.1.1) |
-| CluedIn.Provider.ExternalSearch.ClearBit | 4.1.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.ClearBit/releases/tag/4.1.0) |
-| CluedIn.Provider.ExternalSearch.ClearBit | 4.0.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.ClearBit/releases/tag/4.0.0) |
-
 ## Companies House
 
 The [Companies House](/preparation/enricher/companies-house) enricher retrieves information about UK companies. This enricher uses the company name to return public information including registered office address, filing history, and so on.
@@ -111,17 +98,19 @@ The [DuckDuckGo](/preparation/enricher/duckduckgo) enricher retrieves general in
 | CluedIn.ExternalSearch.Providers.DuckDuckGo.Provider | 4.0.1 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.DuckDuckGo/releases/tag/4.0.1) |
 | CluedIn.ExternalSearch.Providers.DuckDuckGo.Provider | 4.0.0 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.DuckDuckGo/releases/tag/4.0.0) |
 
-## Duns & Bradstreet
+## Dun and Bradstreet
 
-The Duns & Bradstreet enricher retrieves information about organizations. It supports the following endpoints:
+The [D&B](/preparation/enricher/dnb) enricher retrieves business identity, address, corporate-linkage, contact, industry, financial, and D-U-N-S information about organizations. It supports the following endpoints, relative to the configured D&B Base URL:
 
-- `{hostUrl}/data/duns/{dunsNumber}` – this endpoint is called when the D&B number is provided.
+- `data/duns/{dunsNumber}` – this endpoint is called when a D-U-N-S number is provided.
 
-- `{hostUrl}/v1/match/extendedMatch` – this endpoint is called when the D&B number is not provided.
+- `match/cleanseMatch` – this endpoint returns multiple identity-resolution candidates.
+
+- `match/extendedMatch` – this endpoint returns the best identity-resolution match and the requested product data.
 
 | Package name | Package version | Source code |
 |--|--|--|
-| CluedIn.ExternalSearch.Providers.DNB | - | Contact CluedIn for details |
+| CluedIn.Provider.ExternalSearch.DnB | 4.6.3 | [Source code](https://github.com/CluedIn-io/CluedIn.Enricher.DnB/releases/tag/4.6.3) |
 
 
 ## Gleif
