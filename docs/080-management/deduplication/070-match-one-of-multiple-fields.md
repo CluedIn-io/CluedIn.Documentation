@@ -54,10 +54,10 @@ The two example records would contain the following values:
 
 | Record | `customer.companyName` | `customer.emails` |
 |--|--|--|
-| A | Contoso | `alice@example.com|accounts@contoso.com` |
-| B | Contoso | `info@contoso.com|alice@example.com` |
+| A | Contoso | `alice@example.com\|accounts@contoso.com` |
+| B | Contoso | `info@contoso.com\|alice@example.com` |
 
-{:.note}
+{: .note }
 Choose a delimiter that cannot occur within the individual values.
 
 ## Configure the matching rule
