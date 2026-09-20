@@ -31,7 +31,11 @@ Running in Spark is available only if your organization has the feature enabled.
 
 1. In the confirmation dialog, turn on the **Run in Spark** toggle.
 
+    ![run-in-spark-toggle-enabled.png]({{ "/assets/images/management/rules/run-in-spark-toggle-enabled.png" | relative_url }})
+
     If the toggle is disabled, your rule currently isn't supported in Spark. CluedIn lists the specific reasons underneath the toggle—see [Supported rules](#supported-rules) below for what to check.
+
+    ![run-in-spark-toggle-disabled.png]({{ "/assets/images/management/rules/run-in-spark-toggle-disabled.png" | relative_url }})
 
 1. Confirm your choice.
 

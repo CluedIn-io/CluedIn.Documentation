@@ -28,7 +28,11 @@ Running in Spark is available only if your organization has the feature enabled.
 
 1. In the confirmation dialog, turn on the **Run in Spark** toggle.
 
+    ![run-in-spark-toggle-enabled.png]({{ "/assets/images/management/deduplication/run-in-spark-toggle-enabled.png" | relative_url }})
+
     If the toggle is disabled, your project's matching rules currently aren't supported in Spark. CluedIn lists the specific reasons underneath the toggle—see [Supported matching rules](#supported-matching-rules) below for what to check.
+
+    ![run-in-spark-toggle-disabled.png]({{ "/assets/images/management/deduplication/run-in-spark-toggle-disabled.png" | relative_url }})
 
 1. Confirm your choice.
 
