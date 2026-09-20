@@ -35,6 +35,9 @@ You can edit a rule to make necessary changes in rule name, description, filters
     
     After you confirm that you want to update the rule, your changes will be applied immediately.
 
+    {:.important}
+    For large volumes of records, you can reprocess a rule using Apache Spark instead of the standard pipeline. See [Run rules in Spark](/management/rules/run-rules-in-spark).
+
 1. If you are not the owner of the rule, near the upper-right corner of the rule details page, select **Submit for approval**.
 
     The owner of the rule will receive a notification about your changes and can then approve or reject them.
