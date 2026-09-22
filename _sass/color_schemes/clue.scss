@@ -1,6 +1,12 @@
 $link-color: $blue-000;
 $content-width: 100rem;
 
+.documentation-screenshot img {
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 @media (min-width: 50rem) {
   .site-header {
     border-bottom: 0 !important;
@@ -390,4 +396,3 @@ body {
   font-size: 1.2rem;
   font-weight: 600;
 }
-
