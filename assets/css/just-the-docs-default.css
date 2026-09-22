@@ -271,6 +271,12 @@ pre.highlight {
   color: #0083bb;
 }
 
+.documentation-screenshot img {
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 @media (min-width: 50rem) {
   .site-header {
     border-bottom: 0 !important;
