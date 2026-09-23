@@ -9465,7 +9465,7 @@
   },"1352": {
     "doc": "Multi-match enrichment",
     "title": "On this page",
-    "content": ". | TOC | . This article explains how to review and process multiple enrichment candidates for the same golden record. ",
+    "content": ". | About multi-match enrichment | Review matches | Enriched record statuses | Match statuses | Filter enriched records | Compare candidates | Process all matches | Process all matches for an enriched record | Configure multi-match settings | Configure Auto-select Matches Conditions . | Example Auto-select Conditions | . | Configure Auto-select Matches using AI . | Example AI Prompt for Companies House | . | Recommended review workflow | . This article explains how to review and process multiple enrichment candidates for the same golden record. ",
     "url": "/preparation/enricher/multi-match#on-this-page",
     
     "relUrl": "/preparation/enricher/multi-match#on-this-page"
