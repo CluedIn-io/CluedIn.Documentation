@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-09-23T07:14:09+00:00</updated>
+    <updated>2026-09-23T07:15:49+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1927,6 +1927,20 @@
         <summary>
         
         Power Fx formulas.
+        
+        
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Amazon S3 connector</title>
+        <link href="https://documentation.cluedin.net/consume/export-targets/amazon-s3-connector" />
+        <id>https://documentation.cluedin.net/consume/export-targets/amazon-s3-connector</id>
+        <updated>2026-09-23T00:00:00+00:00</updated>
+        <summary>
+        
+        Amazon S3 connector.
         
         
         
