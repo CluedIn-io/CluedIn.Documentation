@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-09-23T03:33:02+00:00</updated>
+    <updated>2026-09-23T06:18:37+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1686,20 +1686,6 @@
     </entry>
     
     <entry>
-        <title>Power Fx formulas</title>
-        <link href="https://documentation.cluedin.net/management/rules/power-fx-formulas" />
-        <id>https://documentation.cluedin.net/management/rules/power-fx-formulas</id>
-        <updated>2025-07-17T00:00:00+00:00</updated>
-        <summary>
-        
-        Power Fx formulas.
-        
-        
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Plan the upgrade</title>
         <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide/plan-the-upgrade" />
         <id>https://documentation.cluedin.net/paas-operations/upgrade/guide/plan-the-upgrade</id>
@@ -1929,6 +1915,20 @@
         
         
         Tags: administration, roles, sso, saas, entra.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Power Fx formulas</title>
+        <link href="https://documentation.cluedin.net/management/rules/power-fx-formulas" />
+        <id>https://documentation.cluedin.net/management/rules/power-fx-formulas</id>
+        <updated>2026-09-23T00:00:00+00:00</updated>
+        <summary>
+        
+        Power Fx formulas.
+        
+        
         
         </summary>
     </entry>
