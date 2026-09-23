@@ -48,7 +48,6 @@ Use credentials with only the permissions needed for the target bucket. Do not u
 
     1. **Enable Stream Cache (Sync mode only)** – enable this option if you want CluedIn to cache records and write accumulated data when using synchronized stream mode. Leave it disabled if you want records to be written without stream caching.
 
-    ![amazon-s3-connector-configure.png]({{ "/assets/images/consume/export-targets/amazon-s3-connector-configure.png" | relative_url }})
 
 1. Select **Test connection** to verify that CluedIn can connect to the bucket using the supplied credentials.
 
