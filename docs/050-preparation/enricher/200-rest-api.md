@@ -219,14 +219,14 @@ response.Content = JSON.stringify([{ Data: newContent, Score: 0 }]);
 
 ### Azure OpenAI
 
-This scripts take an organization's name and sends a request to Azure OpenAI GPT-4 asking it to translate the name into Japanese. Then, it ensures the model responds in a defined JSON format and parses and returns the result in a structure compatible with the enricher. Note that you can use the [Azure Open AI enricher](/preparation/enricher/azure-openai) for the same task.
+This script takes an organization's name and sends a request to an Azure OpenAI deployment using GPT-5.1 or higher, asking it to translate the name into Japanese. Then, it ensures the model responds in a defined JSON format and parses and returns the result in a structure compatible with the enricher. Note that you can use the [Azure Open AI enricher](/preparation/enricher/azure-openai) for the same task.
 
 **Method:** POST
 
 **URL**
 
 ```
-https://copilot2.openai.azure.com/openai/deployments/gpt-4-32k/chat/completions?api-version=2024-06-01
+https://<your-resource-name>.openai.azure.com/openai/deployments/<your-gpt-5.1-or-higher-deployment-name>/chat/completions?api-version=<api-version>
 ```
 
 **Vocabulary key and properties**
