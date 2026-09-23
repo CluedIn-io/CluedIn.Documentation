@@ -6,7 +6,7 @@ grand_parent: Consume
 permalink: /consume/streams/manage-streams
 title: Manage streams
 tags: ["consume", "data export", "streams"]
-last_modified: 2024-01-16
+last_modified: 2026-09-23
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -32,6 +32,39 @@ Stream controls allows you to manage the process of sending records to the expor
     ![stop-stream.png]({{ "/assets/images/consume/streams/stop-stream.png" | relative_url }})
 
 Think of these stream controls as similar to the controls on a video player. When you select **Pause**, the stream halts temporarily, remembering your playback position and storing records in the queue. This way, when you resume the stream, it continues from where you left off, maintaining your progress. On the other hand, **Stop** leads to a complete termination of the streaming process and clearing of the queue. If you start the stream after it had been stopped, it will start sending records to the export target from the beginning, not from the point at which you stopped the stream.
+
+## Stream actions
+
+In addition to the standard stream controls, a stream can provide **stream actions** that perform operations specific to its configured [export target](/consume/export-targets).
+
+The actions available on a stream depend on the export target itself. This means that two streams can expose different actions even when their stream configuration is otherwise similar.
+
+To view the actions available for a stream, open the stream details page and select **More**. If the configured export target provides additional actions, they appear in this menu.
+
+### Run an export immediately
+
+File-based export targets can provide a **Run Export** action. This allows you to trigger an export immediately instead of waiting for the next configured export schedule.
+
+For example, **Run Export** can be available for export targets such as:
+
+- [Amazon S3](/consume/export-targets/amazon-s3-connector)
+- [Azure Data Lake Storage Gen2](/consume/export-targets/adl-connector)
+- [OneLake](/consume/export-targets/onelake-connector)
+
+To run an export manually:
+
+1. Open the stream.
+
+1. On the stream details page, select **More**.
+
+1. Select **Run Export**.
+
+CluedIn starts an export using the stream's current configuration and export target settings.
+
+Running an export manually does not replace or disable the configured export schedule. The stream continues to run according to its existing schedule after the manual export has been triggered.
+
+{:.important}
+Stream actions are defined by the export target. **Run Export** is therefore not available for every stream, and other export targets can expose different actions.
 
 ## Edit a stream
 
