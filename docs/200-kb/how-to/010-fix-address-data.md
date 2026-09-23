@@ -127,7 +127,7 @@ To validate the address, [create](/management/rules/create-rule) a data part r
 
 - Enter the prompt for the AI engine explaining what to do with the address. For example, `Check the address in {vocabulary:trainingcompany.address} and company name in {vocabulary:trainingcompany.name} and return the full postal address only`.
 
-- Enter the name of Azure OpenAI Service model—`gpt-35-turbo-instruct`.
+- Enter the name of an Azure OpenAI Service deployment using **GPT-5.1 or higher**.
 
 - Select the field for AI-generated full postal address.
 
