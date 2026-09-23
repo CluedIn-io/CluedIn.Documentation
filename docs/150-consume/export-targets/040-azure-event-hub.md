@@ -5,7 +5,7 @@ parent: Export targets
 grand_parent: Consume
 permalink: /consume/export-targets/azure-event-hub-connector
 title: Azure Event Hub connector
-last_modified: 2025-01-08
+last_modified: 2026-09-23
 ---
 
 This article outlines how to configure the Azure Event Hub connector to publish data from CluedIn to Azure Event Hubs.
@@ -37,3 +37,26 @@ This article outlines how to configure the Azure Event Hub connector to publish 
     ![event-hub-configure.png]({{ "/assets/images/consume/export-targets/event-hub-configure.png" | relative_url }})
 
     Now, you can select the Azure Event Hub connector in a stream and start exporting golden records.
+
+## Batch events
+
+The Azure Event Hub connector supports **batching events** before they are sent to Azure Event Hubs.
+
+Batching can reduce the number of individual send operations and can improve throughput when a stream is publishing a high volume of records.
+
+Batching is configured **on the stream that uses the Azure Event Hub export target**, rather than on the export target itself. This means that different streams using the same Azure Event Hub connector can use different batching settings.
+
+To configure batching:
+
+1. Go to **Consume** > **Streams** and open the stream that uses the Azure Event Hub export target.
+
+1. Open the **Export Target Configuration** for the stream.
+
+1. Configure the batching options available for the Azure Event Hub connector.
+
+1. Save the stream configuration.
+
+When batching is enabled, CluedIn groups multiple events and sends them to Azure Event Hubs together instead of sending every event as an individual operation.
+
+{:.important}
+Batching settings are specific to each stream. Changing the batching configuration on one stream does not change the configuration of other streams that use the same Azure Event Hub export target.
