@@ -32,7 +32,7 @@ As of now, CluedIn supports two mechanisms for enabling AI features in CluedIn. 
 
 ### Azure AI Foundry (controlled cloud environment)
 
-[Azure AI Foundry](https://azure.microsoft.com/en-us/products/ai-foundry) supports over 11,000 models, though CluedIn currently supports chat/completion-based LLMs only. It is recommended to use [GPT models](https://platform.openai.com/docs/models), as they are the most tested and widely used with CluedIn.
+[Azure AI Foundry](https://azure.microsoft.com/en-us/products/ai-foundry) supports over 11,000 models, though CluedIn currently supports chat/completion-based LLMs only. For GPT-based deployments, it is recommended to use **GPT-5.1 or higher**, as these are the most current GPT models tested and recommended for use with CluedIn.
 
 How it works:
 - CluedIn application uses the data hosted in CluedIn and sends it securely (over encrypted transport) to the LLM hosted in your Azure tenant.

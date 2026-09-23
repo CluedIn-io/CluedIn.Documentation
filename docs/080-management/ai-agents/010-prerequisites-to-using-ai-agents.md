@@ -51,7 +51,7 @@ The **AI Agents** feature requires you to define the configuration for the follo
 
 - Platform – that is, the environment where your AI model lives. For example, in Azure, the platform is the Azure OpenAI Service.
 
-- Deployment – that is, a specific version of a model you want to use (for example, **gpt-35-turbo** or **gpt-4.1**).
+- Deployment – that is, a specific version of a model you want to use. For GPT-based deployments, we recommend **GPT-5.1 or higher**.
 
 - Endpoint – that is, the address (URL) where your deployed model can be accessed.
 
@@ -79,7 +79,7 @@ A platform is an external AI service provider that hosts and manages the AI mode
 
 ### Configure a deployment
 
-A deployment is a specific instance or configuration of an AI model (such as GPT-3.5 or GPT-4.1) hosted on a platform that AI agents use to perform their tasks. It defines how and where the AI model runs, including the model version, resource allocation, and any customizations applied.
+A deployment is a specific instance or configuration of an AI model hosted on a platform that AI agents use to perform their tasks. For GPT-based deployments, we recommend **GPT-5.1 or higher**. It defines how and where the AI model runs, including the model version, resource allocation, and any customizations applied.
 
 **To configure a deployment**
 
