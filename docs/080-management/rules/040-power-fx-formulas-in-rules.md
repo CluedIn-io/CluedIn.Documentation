@@ -5,7 +5,7 @@ parent: Rules
 grand_parent: Management
 permalink: /management/rules/power-fx-formulas
 title: Power Fx formulas
-last_modified: 2025-07-17
+last_modified: 2026-09-23
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -63,6 +63,8 @@ Custom CluedIn functions are designed to help you with querying and setting data
 - `AddTag` – adds a tag to the golden record's tag collection. This function is analogous to the Add Tag rule action.
 
 - `GetVocabularyKeyValue` – gets a value from the golden record's properties if such value exists; otherwise, it returns `Empty` (null).
+
+- `GetVersionBranches` – returns the data parts associated with a golden record. Use this function to inspect source values that contributed to the golden record or compare the current golden record value with values that still exist on its underlying data parts.
 
 - `SetEntityProperty` – sets a golden record metadata property (for example, `Created Date`, `Aliases`, `Description`).
 
@@ -143,3 +145,59 @@ This section contains some examples of Power Fx formulas in rules.
     ```
 
 
+### Compare a golden record with its data parts
+
+Use `GetVersionBranches(Entity)` to return the data parts associated with the current golden record. This is useful when a rule needs to consider values that exist on the underlying data parts, including values that were not selected as the surviving value on the golden record.
+
+The examples below assume that the rule is running against a golden record.
+
+1. Check whether the current golden record value is greater than every value for the same vocabulary key on its data parts.
+
+    ```powerfx
+    Value(GetVocabularyKeyValue(Entity, "company.revenue")) > Max(GetVersionBranches(Entity), Value(GetVocabularyKeyValue(ThisRecord, "company.revenue")))
+    ```
+
+    This expression returns `true` when the golden record's `company.revenue` value is greater than the highest `company.revenue` value found on any associated data part.
+
+1. Check whether any data part contains a value greater than the value currently selected on the golden record.
+
+    ```powerfx
+    CountRows(
+        Filter(
+            GetVersionBranches(Entity),
+            Value(GetVocabularyKeyValue(ThisRecord, "company.revenue")) > Value(GetVocabularyKeyValue(Entity, "company.revenue"))
+        )
+    ) > 0
+    ```
+
+    This can be useful for identifying cases where survivorship has selected a lower value even though a higher value exists on one of the source data parts.
+
+1. Set a review flag when any data part contains a value greater than the current golden record value.
+
+    ```powerfx
+    SetVocabularyKeyValue(
+        Entity,
+        "company.requiresRevenueReview",
+        CountRows(
+            Filter(
+                GetVersionBranches(Entity),
+                Value(GetVocabularyKeyValue(ThisRecord, "company.revenue")) > Value(GetVocabularyKeyValue(Entity, "company.revenue"))
+            )
+        ) > 0
+    )
+    ```
+
+1. Store the highest value available across all associated data parts.
+
+    ```powerfx
+    SetVocabularyKeyValue(
+        Entity,
+        "company.maximumSourceRevenue",
+        Max(
+            GetVersionBranches(Entity),
+            Value(GetVocabularyKeyValue(ThisRecord, "company.revenue"))
+        )
+    )
+    ```
+
+    This stores the highest source value separately, allowing the surviving value and the maximum source value to be inspected side by side.
