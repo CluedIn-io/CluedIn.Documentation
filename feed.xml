@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-09-23T07:04:12+00:00</updated>
+    <updated>2026-09-23T07:12:09+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1929,6 +1929,22 @@
         Power Fx formulas.
         
         
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Notifications</title>
+        <link href="https://documentation.cluedin.net/user-interface/notifications" />
+        <id>https://documentation.cluedin.net/user-interface/notifications</id>
+        <updated>2026-09-23T00:00:00+00:00</updated>
+        <summary>
+        
+        Notifications.
+        
+        
+        
+        Tags: ui, notifications.
         
         </summary>
     </entry>
