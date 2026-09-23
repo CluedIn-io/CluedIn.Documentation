@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-09-23T06:38:48+00:00</updated>
+    <updated>2026-09-23T07:04:12+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -719,22 +719,6 @@
         <summary>
         
         Create a stream.
-        
-        
-        
-        Tags: consume, data export, streams.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Manage streams</title>
-        <link href="https://documentation.cluedin.net/consume/streams/manage-streams" />
-        <id>https://documentation.cluedin.net/consume/streams/manage-streams</id>
-        <updated>2024-01-16T00:00:00+00:00</updated>
-        <summary>
-        
-        Manage streams.
         
         
         
@@ -1915,6 +1899,22 @@
         
         
         Tags: administration, roles, sso, saas, entra.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Manage streams</title>
+        <link href="https://documentation.cluedin.net/consume/streams/manage-streams" />
+        <id>https://documentation.cluedin.net/consume/streams/manage-streams</id>
+        <updated>2026-09-23T00:00:00+00:00</updated>
+        <summary>
+        
+        Manage streams.
+        
+        
+        
+        Tags: consume, data export, streams.
         
         </summary>
     </entry>
