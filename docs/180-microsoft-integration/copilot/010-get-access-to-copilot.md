@@ -12,11 +12,11 @@ In this article, you will learn what you need to do to make the AI assistant ava
 
 **For Azure Administrators and CluedIn Organization Administrators**
 
-CluedIn does not provide an LLM or API token to interact with Copilot. So, you need to have an API token to interact with one of the available Azure OpenAI models. We recommend using the GPT-3.5-16K token. You cannot use different models for different skills. 
+CluedIn does not provide an LLM or API token to interact with Copilot. You need to provide credentials for one of the available Azure OpenAI models. We recommend using **GPT-5.1 or higher**. You cannot use different models for different skills. 
 
 To make the AI assistant available in CluedIn, you need to fulfill several prerequisites:
 
-1. In your Azure OpenAI resource, make sure that you have created a deployment that uses the **gpt-35-turbo** model.
+1. In your Azure OpenAI resource, make sure that you have created a deployment that uses **GPT-5.1 or higher**.
 
 1. Enable development features for your CluedIn instance. Depending on the type of CluedIn installation, do one of the following:
 
