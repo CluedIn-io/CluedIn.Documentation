@@ -5,6 +5,7 @@ parent: Governance
 nav_order: 1
 permalink: /governance/tag-monitoring
 tags: ["governance", "tag monitoring", "tags"]
+last_modified: 2026-09-23
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -24,6 +25,8 @@ Tags are an essential mechanism that helps you [flag golden records that have da
 In addition to providing insight, the Tag Monitoring module also allows you to act on the information presented to you. In particular, you can do the following:
 
 - [Create new tags](#add-new-tags).
+
+- [Organize tags with folders and colours](#organize-tags-with-folders-and-colours).
 
 - [Fix tagged records using AI agents](#fix-tagged-records-with-ai).
 
@@ -136,6 +139,100 @@ This article explains how to monitor both types of information.
     - [Create a clean project](#create-a-clean-project-for-tagged-records) for the records tagged.
 
     - [Add new tags](#add-new-tags) if the current ones are not sufficient.
+
+## Organize tags with folders and colours
+
+As the number of tags in CluedIn grows, it can become difficult to scan and manage them as one flat list. Tag Monitoring lets you organize tags using **Tag Folders** and **Tag Colours**.
+
+These options do not change which records a tag applies to. They are an organizational layer that helps data stewards and governance teams categorize tags and find related issues more quickly.
+
+### Tag Folders
+
+A **Tag Folder** groups related tags together in the Tag Monitoring panel.
+
+Folders are useful when you have many tags that represent different types of data quality or governance issues. Instead of browsing one long list, you can group tags by business meaning, ownership, or remediation process.
+
+For example, you could create folders such as:
+
+- **Completeness** – tags for missing mandatory values.
+- **Validation** – tags for invalid formats, ranges, or reference values.
+- **Duplicates** – tags related to matching and duplicate-record issues.
+- **Compliance** – tags for privacy, consent, or policy-related exceptions.
+- **Customer Data** – tags specifically related to customer records.
+- **Supplier Data** – tags specifically related to supplier records.
+
+You can choose a folder structure that reflects how your organization manages data quality.
+
+**To organize tags into folders**
+
+1. On the navigation pane, go to **Governance** > **Tag Monitoring**.
+
+1. Create a Tag Folder for the category that you want to use.
+
+1. Assign the relevant tags to the folder.
+
+1. Repeat the process for other categories as needed.
+
+Once tags are grouped, you can use the folder structure to navigate the tag list more efficiently and keep related monitoring items together.
+
+{:.important}
+Tag Folders are for organization only. Moving a tag into a folder does not change the rule that applies the tag, the records that are tagged, or the Tag Monitoring metrics.
+
+### Tag Colours
+
+You can assign a **colour** to a tag to make it easier to identify visually.
+
+Colours are particularly useful when you want related tags to share a consistent visual category. For example:
+
+- Use one colour for **critical data quality issues**.
+- Use another colour for **warnings that require review**.
+- Use a separate colour for **compliance-related tags**.
+- Use the same colour for all tags owned by a particular team or business domain.
+
+A colour can complement a Tag Folder. For example, a **Completeness** folder could contain several missing-data tags, all displayed with the same colour so that they are immediately recognizable.
+
+**To assign a colour to a tag**
+
+1. In **Governance** > **Tag Monitoring**, locate the tag you want to categorize.
+
+1. Edit the tag's organizational settings.
+
+1. Select the colour you want to associate with the tag.
+
+1. Save the changes.
+
+The selected colour is used as a visual cue when working with the tag in Tag Monitoring.
+
+### Using folders and colours together
+
+Folders and colours solve slightly different problems:
+
+| Option | Purpose |
+|--|--|
+| **Tag Folder** | Groups related tags into a logical structure so they are easier to navigate. |
+| **Tag Colour** | Provides a visual cue so the meaning or category of a tag can be recognized quickly. |
+
+For larger implementations, using both provides the clearest result.
+
+For example, you could create a **Customer Data Quality** folder and use colours within that folder to distinguish severity:
+
+- Red – critical issues that block downstream use.
+- Amber – issues that require steward review.
+- Green – informational or resolved-state tags.
+
+Alternatively, you could use colours to represent ownership instead of severity. The important thing is to use a consistent convention across your organization.
+
+### Recommended practices
+
+When designing your tag categories:
+
+- Keep folder names broad enough that they remain useful as the number of tags grows.
+- Avoid creating a separate folder for every individual tag.
+- Use colours consistently. A colour should have the same meaning wherever possible.
+- Choose either **severity**, **ownership**, or **business category** as the primary meaning for colours rather than mixing several conventions.
+- Review your folder structure periodically and consolidate categories that are no longer useful.
+
+A well-organized Tag Monitoring structure makes it easier for data stewards to understand which issues exist, who owns them, and which group of tags should be investigated first.
 
 ## Fix tagged records with AI
 
