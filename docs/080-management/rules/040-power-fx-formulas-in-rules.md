@@ -5,7 +5,7 @@ parent: Rules
 grand_parent: Management
 permalink: /management/rules/power-fx-formulas
 title: Power Fx formulas
-last_modified: 2025-07-17
+last_modified: 2026-09-23
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -63,6 +63,12 @@ Custom CluedIn functions are designed to help you with querying and setting data
 - `AddTag` – adds a tag to the golden record's tag collection. This function is analogous to the Add Tag rule action.
 
 - `GetVocabularyKeyValue` – gets a value from the golden record's properties if such value exists; otherwise, it returns `Empty` (null).
+
+- `GetVersionBranches` – returns the data parts associated with a golden record. Use this function to inspect source values that contributed to the golden record or compare the current golden record value with values that still exist on its underlying data parts.
+
+- `LoadIncomingRelationships` – returns the entities connected to the supplied entity through incoming relationships. Use this function to traverse from the current record to records that point to it.
+
+- `LoadOutgoingRelationships` – returns the entities connected to the supplied entity through outgoing relationships. Use this function to traverse from the current record to records that it points to.
 
 - `SetEntityProperty` – sets a golden record metadata property (for example, `Created Date`, `Aliases`, `Description`).
 
@@ -143,3 +149,169 @@ This section contains some examples of Power Fx formulas in rules.
     ```
 
 
+### Compare a golden record with its data parts
+
+Use `GetVersionBranches(Entity)` to return the data parts associated with the current golden record. This is useful when a rule needs to consider values that exist on the underlying data parts, including values that were not selected as the surviving value on the golden record.
+
+The examples below assume that the rule is running against a golden record.
+
+1. Check whether the current golden record value is greater than every value for the same vocabulary key on its data parts.
+
+    ```powerfx
+    Value(GetVocabularyKeyValue(Entity, "company.revenue")) > Max(GetVersionBranches(Entity), Value(GetVocabularyKeyValue(ThisRecord, "company.revenue")))
+    ```
+
+    This expression returns `true` when the golden record's `company.revenue` value is greater than the highest `company.revenue` value found on any associated data part.
+
+1. Check whether any data part contains a value greater than the value currently selected on the golden record.
+
+    ```powerfx
+    CountRows(
+        Filter(
+            GetVersionBranches(Entity),
+            Value(GetVocabularyKeyValue(ThisRecord, "company.revenue")) > Value(GetVocabularyKeyValue(Entity, "company.revenue"))
+        )
+    ) > 0
+    ```
+
+    This can be useful for identifying cases where survivorship has selected a lower value even though a higher value exists on one of the source data parts.
+
+1. Set a review flag when any data part contains a value greater than the current golden record value.
+
+    ```powerfx
+    SetVocabularyKeyValue(
+        Entity,
+        "company.requiresRevenueReview",
+        CountRows(
+            Filter(
+                GetVersionBranches(Entity),
+                Value(GetVocabularyKeyValue(ThisRecord, "company.revenue")) > Value(GetVocabularyKeyValue(Entity, "company.revenue"))
+            )
+        ) > 0
+    )
+    ```
+
+1. Store the highest value available across all associated data parts.
+
+    ```powerfx
+    SetVocabularyKeyValue(
+        Entity,
+        "company.maximumSourceRevenue",
+        Max(
+            GetVersionBranches(Entity),
+            Value(GetVocabularyKeyValue(ThisRecord, "company.revenue"))
+        )
+    )
+    ```
+
+    This stores the highest source value separately, allowing the surviving value and the maximum source value to be inspected side by side.
+
+
+### Traverse relationships between records
+
+Use `LoadIncomingRelationships(Entity)` and `LoadOutgoingRelationships(Entity)` to navigate the relationships between records in CluedIn.
+
+- `LoadIncomingRelationships(Entity)` returns the related entities that have an incoming relationship to the supplied entity.
+- `LoadOutgoingRelationships(Entity)` returns the related entities that the supplied entity has an outgoing relationship to.
+
+The returned entities can be used with standard Power Fx functions such as `First`, `Filter`, `CountRows`, `Max`, and `ForAll`. You can also pass a returned entity into another relationship function to traverse multiple hops through the graph.
+
+1. Check whether the current entity has any outgoing relationships.
+
+    ```powerfx
+    CountRows(LoadOutgoingRelationships(Entity)) > 0
+    ```
+
+1. Check whether the current entity has any incoming relationships.
+
+    ```powerfx
+    CountRows(LoadIncomingRelationships(Entity)) > 0
+    ```
+
+1. Read a value from the first entity connected through an outgoing relationship.
+
+    ```powerfx
+    GetVocabularyKeyValue(
+        First(LoadOutgoingRelationships(Entity)),
+        "company.name"
+    )
+    ```
+
+    This can be useful when the current record is related to a parent, owner, supplier, account, or another business entity and you need to inspect a value on that related record.
+
+1. Check whether any outgoing related record has a specific vocabulary key value.
+
+    ```powerfx
+    CountRows(
+        Filter(
+            LoadOutgoingRelationships(Entity),
+            GetVocabularyKeyValue(ThisRecord, "company.status") = "Active"
+        )
+    ) > 0
+    ```
+
+    This expression returns `true` when at least one related entity has `company.status` set to `Active`.
+
+1. Compare a value on the current record with values on its outgoing related records.
+
+    ```powerfx
+    Value(GetVocabularyKeyValue(Entity, "company.revenue")) >
+    Max(
+        LoadOutgoingRelationships(Entity),
+        Value(GetVocabularyKeyValue(ThisRecord, "company.revenue"))
+    )
+    ```
+
+    This returns `true` when the current entity's revenue is greater than the revenue of every entity connected through an outgoing relationship.
+
+1. Check a value on an incoming related record.
+
+    ```powerfx
+    CountRows(
+        Filter(
+            LoadIncomingRelationships(Entity),
+            GetVocabularyKeyValue(ThisRecord, "customer.riskRating") = "High"
+        )
+    ) > 0
+    ```
+
+    This can be used when records that point to the current entity contain information that should influence a rule on the current record.
+
+1. Traverse two relationship hops.
+
+    ```powerfx
+    LoadOutgoingRelationships(
+        First(
+            LoadOutgoingRelationships(Entity)
+        )
+    )
+    ```
+
+    This first loads the entities connected to the current record through outgoing relationships, selects the first related entity, and then loads that entity's outgoing relationships.
+
+1. Check whether a record two hops away contains a specific value.
+
+    ```powerfx
+    CountRows(
+        Filter(
+            LoadOutgoingRelationships(
+                First(LoadOutgoingRelationships(Entity))
+            ),
+            GetVocabularyKeyValue(ThisRecord, "location.country") = "Australia"
+        )
+    ) > 0
+    ```
+
+    Multi-hop traversal can be useful when a business rule depends on indirectly related records. For example, you might traverse from a contact to an account, and then from the account to its registered locations.
+
+1. Traverse an outgoing relationship followed by an incoming relationship.
+
+    ```powerfx
+    LoadIncomingRelationships(
+        First(
+            LoadOutgoingRelationships(Entity)
+        )
+    )
+    ```
+
+    Combining incoming and outgoing traversal allows rules to navigate the graph in either direction rather than being limited to the relationships directly exposed on the current record.
