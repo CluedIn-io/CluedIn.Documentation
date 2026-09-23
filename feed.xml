@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-09-23T07:15:49+00:00</updated>
+    <updated>2026-09-23T07:17:28+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -559,22 +559,6 @@
         <summary>
         
         Manage rules.
-        
-        
-        
-        Tags: management, rules.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Rules reference</title>
-        <link href="https://documentation.cluedin.net/management/rules/rules-reference" />
-        <id>https://documentation.cluedin.net/management/rules/rules-reference</id>
-        <updated>2023-11-16T00:00:00+00:00</updated>
-        <summary>
-        
-        Rules reference.
         
         
         
@@ -1929,6 +1913,22 @@
         Power Fx formulas.
         
         
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Rules reference</title>
+        <link href="https://documentation.cluedin.net/management/rules/rules-reference" />
+        <id>https://documentation.cluedin.net/management/rules/rules-reference</id>
+        <updated>2026-09-23T00:00:00+00:00</updated>
+        <summary>
+        
+        Rules reference.
+        
+        
+        
+        Tags: management, rules.
         
         </summary>
     </entry>
