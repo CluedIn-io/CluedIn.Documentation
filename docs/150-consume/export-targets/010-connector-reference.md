@@ -16,6 +16,10 @@ In this article, you will find reference information about built-in connectors i
 {:.important}
 Please note that the connectors are not included in the CluedIn license. Each connector is an open-source package provided by the CluedIn team for free to help you send your golden records to external systems.
 
+## Amazon S3
+
+The [Amazon S3](/consume/export-targets/amazon-s3-connector) connector allows you to publish data from CluedIn to an Amazon S3 bucket.
+
 ## Azure Data Lake
 
 The [Azure Data Lake](/consume/export-targets/adl-connector) connector allows you to publish data to Azure Data Lake Storage Gen2.
