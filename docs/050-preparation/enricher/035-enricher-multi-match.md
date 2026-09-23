@@ -8,11 +8,9 @@ title: Multi-match enrichment
 ---
 
 ## On this page
-
 {: .no_toc .text-delta }
-
 - TOC
-  {:toc}
+{:toc}
 
 This article explains how to review and process multiple enrichment candidates for the same golden record.
 
