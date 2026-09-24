@@ -6,6 +6,7 @@ permalink: /key-terms-and-features/golden-records
 nav_order: 5
 has_children: true
 tags: ["golden record"]
+last_modified: 2026-09-24
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -163,20 +164,97 @@ The following gif animates the previous diagram, illustrating how the golden rec
 
 ## Golden record page
 
-In CluedIn, you can find a golden record using [search](/key-terms-and-features/search). The golden record page contains several tabs where you can find all relevant information about a golden record:
+In CluedIn, you can find a golden record using [search](/key-terms-and-features/search). The golden record page brings together the mastered values, metadata, lineage, relationships, publishing information, and duplicate suggestions for that record.
 
-- Overview – here you can view general information about a golden record, such as entity properties, vocabularies, sources, and more.
+The available tabs include:
 
-- Properties – here you can view all properties that the golden record has as well as add new properties.
+- **Overview** – view general information about the golden record, including important properties, vocabularies, sources, tags, aliases, and other summary information.
 
-- Relations – here you can view which golden records the current golden record is related to.
+- **Properties** – view and edit the properties of the golden record. You can also mark important properties as favourites, set a preview image, and edit multiple properties in one transaction.
 
-- Pending changes
+- **Relations** – view which golden records the current golden record is related to.
 
-- [History](/key-terms-and-features/golden-records/history) – here you can view all data parts (versions of clues that make up a data part) of a golden record as well as all outgoing relations (edges) of a golden record.
+- **Streams** – view the streams that include this golden record.
 
-- Explain log – here you can view detailed information about the operations performed on a golden record and its data parts.
+- **Deduplication** – view suggested duplicate clusters that include this golden record.
 
-- Topology – here you can view the visualization of data parts that form a golden record.
+- **Pending changes** – view changes that are waiting to be applied or approved.
 
-- Hierarchy – here you can view the hierarchy projects that the current golden record is a part of.
+- [**History**](/key-terms-and-features/golden-records/history) – view all data parts (versions of clues that make up a data part) of a golden record as well as all outgoing relations (edges) of a golden record.
+
+- **Explain log** – view detailed information about the operations performed on a golden record and its data parts.
+
+- **Topology** – view a visualization of the data parts that form a golden record.
+
+- **Hierarchy** – view the hierarchy projects that the current golden record is part of.
+
+### Manage tags and aliases manually
+
+You can manually maintain the **tags** and **aliases** associated with a golden record.
+
+This is useful when you need to add business context that is not produced by an automated rule, or when an existing tag or alias is no longer appropriate.
+
+From the golden record page, you can:
+
+- Add a tag to the golden record.
+- Delete a tag from the golden record.
+- Add an alias.
+- Delete an alias.
+
+Manual changes become part of the current golden-record state and can be used alongside tags or aliases that originate from automated processing.
+
+{:.important}
+Before deleting a tag that is also applied by an active rule or another automated process, review how that tag is produced. The automation can apply the tag again when the record is reprocessed if its conditions are still met.
+
+### Set favourite properties
+
+Golden records can contain a large number of entity properties and vocabulary-key values. To make the most important values easier to find, you can mark properties as **favourites**.
+
+Favourite properties let you tailor the golden record page around the fields that matter most for a particular record or use case. This is useful for quickly surfacing values such as customer number, status, revenue, risk classification, product code, or another commonly reviewed property without having to scan the complete property list.
+
+On the **Properties** tab, mark the properties you want to keep readily visible as favourites. You can update the selection whenever your needs change.
+
+### Set a preview image
+
+You can manually set the **preview image** for a golden record from the **Properties** tab.
+
+The preview image gives the record a more recognizable visual identity in parts of CluedIn where record summaries or previews are displayed. This can be useful for records such as products, people, organizations, locations, or assets where an image provides useful context.
+
+Use the **Properties** tab to choose the image value that should be used as the golden record's preview image.
+
+### Edit multiple properties in one transaction
+
+You can edit multiple properties of a golden record together and save those changes as a single transaction.
+
+This is useful when a steward needs to correct several related values at the same time. For example, you might update a customer's address, country, postal code, and region together instead of saving four independent changes.
+
+Making the edits in one transaction keeps the set of changes together and reduces the need to repeatedly save the record while performing a single stewardship task.
+
+To make a bulk property edit, open the **Properties** tab, edit the required values, and save the changes together.
+
+## Streams tab
+
+The **Streams** tab on a golden record shows the streams that include that record.
+
+A stream defines how selected golden records are published from CluedIn to an [export target](/consume/export-targets). The Streams tab gives you a record-centric view of that publishing configuration, so you can understand where the current golden record is being distributed without having to inspect every stream individually.
+
+This is particularly useful when you want to answer questions such as:
+
+- Which downstream feeds include this golden record?
+- Is this record part of a stream to a data lake, database, event platform, or another target?
+- Which publishing configurations should be considered before changing this record?
+- Why is a particular mastered record appearing in a downstream system?
+
+For more information about how streams select and publish golden records, see [Streams](/consume/streams).
+
+## Deduplication tab
+
+The **Deduplication** tab shows when the current golden record is part of one or more **suggested duplicate clusters**.
+
+Suggested duplicate clusters are groups of records that CluedIn has identified as potential duplicates according to the matching configuration in a [deduplication project](/management/deduplication).
+
+The tab gives you a record-centric way to see that a golden record may require duplicate review. Instead of opening each deduplication project and searching for the record, you can start from the golden record and see the relevant suggested clusters.
+
+Use this information to investigate whether the records represent the same real-world entity and should be merged, or whether they are legitimately separate records.
+
+The presence of a suggested duplicate cluster does not by itself mean that the records are duplicates. It indicates that they matched the configured deduplication criteria and should be reviewed according to your deduplication process.
