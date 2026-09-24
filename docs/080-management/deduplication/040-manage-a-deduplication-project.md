@@ -34,6 +34,8 @@ The process of generating matches involves analyzing a specified set of golden r
 
     During the process of generating matches, you can view the number of groups found as well as the percentage of golden records that have been checked for duplicates. When the process is complete, the groups of duplicates are displayed on the page. A group contains duplicate records that can be potentially merged into one golden record.
 
+    CluedIn records when generation started for the current result set. The deduplication project list exposes this as **Last generation**, which helps you understand how fresh a project's matching results are and lets you sort projects by their most recent generation.
+
     Next, [process the groups of duplicates](/management/deduplication/manage-groups-of-duplicates)—open each group one by one to review duplicates and fix conflicting values.
 
 **Sorting and filtering of groups**
