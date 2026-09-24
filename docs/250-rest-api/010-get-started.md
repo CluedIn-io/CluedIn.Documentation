@@ -14,6 +14,14 @@ tags: ["api", "rest api"]
 
 This page explains how to connect to the CluedIn REST API: base URLs, authentication, and the conventions that requests and responses follow. For the full list of endpoints, see the [API reference](/rest-api/api-reference).
 
+## Interactive API explorer
+
+CluedIn exposes its OpenAPI reference through an interactive Scalar-based API explorer. The explorer lets you inspect endpoint paths, parameters, request and response schemas, authentication requirements, and example payloads without having to read the raw OpenAPI document.
+
+The categorized [API reference](/rest-api/api-reference) embeds the interactive explorer for each area of the platform. When connected to your environment, you can also use **Try it out** to send requests and inspect live responses.
+
+Scalar replaces the previous Swagger UI experience; the underlying CluedIn REST API and OpenAPI contract remain the source of truth for available endpoints.
+
 ## How the API is organized
 
 The API has more than 700 endpoints, grouped into [categories](/rest-api/api-reference). Rather than listing them alphabetically, the tree below organizes those categories around the **problem each one solves**, following the path data takes through CluedIn—from modeling and mastering it to delivering it back out, plus the categories that operate, secure, and automate the platform around that flow.
