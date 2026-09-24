@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-09-24T06:18:29+00:00</updated>
+    <updated>2026-09-24T06:42:59+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -2051,6 +2051,22 @@
         
         
         Tags: management, ai agents.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Jobs</title>
+        <link href="https://documentation.cluedin.net/management/jobs" />
+        <id>https://documentation.cluedin.net/management/jobs</id>
+        <updated>2026-09-24T00:00:00+00:00</updated>
+        <summary>
+        
+        Jobs.
+        
+        
+        
+        Tags: management, jobs, scheduling, rules, graphql.
         
         </summary>
     </entry>
