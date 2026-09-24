@@ -495,6 +495,8 @@ Whenever some changes or actions are made in the deduplication project, they are
 - Activate a matching rule
 - Deactivate a matching rule
 - Generate matches
+- Automate project
+- Stop project automation
 - Discard matches
 - Manual conflict resolution
 - Reset manual conflict resolutions
