@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-09-24T06:44:32+00:00</updated>
+    <updated>2026-09-24T06:51:00+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -2035,6 +2035,22 @@
         
         
         Tags: golden record.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>GraphQL actions</title>
+        <link href="https://documentation.cluedin.net/consume/graphql/graphql-actions" />
+        <id>https://documentation.cluedin.net/consume/graphql/graphql-actions</id>
+        <updated>2026-09-24T00:00:00+00:00</updated>
+        <summary>
+        
+        GraphQL actions.
+        
+        
+        
+        Tags: consume, graphql.
         
         </summary>
     </entry>
