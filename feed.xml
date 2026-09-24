@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-09-24T06:07:44+00:00</updated>
+    <updated>2026-09-24T06:15:28+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1989,6 +1989,20 @@
         
         
         Tags: ui, notifications.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Work with CluedIn Copilot</title>
+        <link href="https://documentation.cluedin.net/microsoft-integration/copilot-integration/work-with-copilot" />
+        <id>https://documentation.cluedin.net/microsoft-integration/copilot-integration/work-with-copilot</id>
+        <updated>2026-09-24T00:00:00+00:00</updated>
+        <summary>
+        
+        Work with CluedIn Copilot.
+        
+        
         
         </summary>
     </entry>
