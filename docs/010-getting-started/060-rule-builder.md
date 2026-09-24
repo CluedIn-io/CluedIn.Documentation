@@ -67,9 +67,9 @@ Creating a rule involves configuring a filter and defining the rule action.
 
     1. In the lower-right corner, select **Add Action**. You can add multiple actions to the rule.
 
-1. In the upper-right corner of the rule details page, select **Save**, and then confirm your choice.
+1. In the upper-right corner of the rule details page, select **Save**. If the rule is currently inactive, you can save the changes and activate the rule as part of the same update flow.
 
-1. Activate the rule by turning on the toggle next to the rule status.
+1. If you did not activate the rule while saving, activate it by turning on the toggle next to the rule status.
 
     ![rule-builder-5.png]({{ "/assets/images/getting-started/rule-builder/rule-builder-5.png" | relative_url }})
 
@@ -98,6 +98,8 @@ After you created the rule for the processed data, you need to reprocess the rec
 1. Confirm that you want to reprocess the records associated with the rule.
 
     After the reprocessing is completed, the records associated with the rule are updated in accordance with the rule’s actions.
+
+    Starting and cancelling rule reprocessing are recorded in the rule's audit log, including the user who performed the action.
 
 **To reprocess records using the GraphQL tool**
 
