@@ -236,6 +236,20 @@ This claim governs access to glossary that contains groups of golden records, ca
 - Managing owners of the term: adding or removing users and roles.
 - View changes in term audit log.
 
+**Jobs**
+
+This claim governs access to scheduled and on-demand jobs and to job monitoring. It replaces the earlier separate custom-jobs and job-monitoring claims.
+
+This claim covers the following actions:
+
+- Viewing scheduled and on-demand jobs.
+- Creating and editing user-created jobs.
+- Enabling or disabling scheduled jobs.
+- Running a job immediately.
+- Cancelling an active job execution.
+- Viewing job execution history and monitoring information.
+- Managing system-provided job schedules and editable action configuration where supported.
+
 **Hierarchy Builder**
 
 This claim governs access to the actions for organizing, visualizing, and managing hierarchy relations between golden records within and across different business domains. It covers the following actions:
