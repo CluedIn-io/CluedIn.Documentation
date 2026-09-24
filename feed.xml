@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-09-24T06:42:59+00:00</updated>
+    <updated>2026-09-24T06:44:32+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -2067,6 +2067,22 @@
         
         
         Tags: management, jobs, scheduling, rules, graphql.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Job monitoring</title>
+        <link href="https://documentation.cluedin.net/management/job-monitoring" />
+        <id>https://documentation.cluedin.net/management/job-monitoring</id>
+        <updated>2026-09-24T00:00:00+00:00</updated>
+        <summary>
+        
+        Job monitoring.
+        
+        
+        
+        Tags: management, monitoring, jobs, operations.
         
         </summary>
     </entry>
