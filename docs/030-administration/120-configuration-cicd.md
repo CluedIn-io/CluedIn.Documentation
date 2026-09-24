@@ -11,6 +11,9 @@ This article explains how to use GitHub Actions and [CluedIn.Product.Toolkit](ht
 
 The pipeline described here promotes **CluedIn configuration**. It does not deploy or upgrade the CluedIn application, Kubernetes infrastructure, or platform binaries.
 
+{:.note}
+If you want to move configuration between environments manually without running PowerShell scripts or a CI/CD pipeline, use [Configuration Import / Export](/administration/configuration-import-export) in the CluedIn UI. The UI-based experience complements the Product Deployment Toolkit; it does not replace it.
+
 ## On this page
 {: .no_toc .text-delta }
 - TOC
