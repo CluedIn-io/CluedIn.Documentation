@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-09-24T06:15:28+00:00</updated>
+    <updated>2026-09-24T06:16:03+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -2008,6 +2008,22 @@
     </entry>
     
     <entry>
+        <title>Golden records</title>
+        <link href="https://documentation.cluedin.net/key-terms-and-features/golden-records" />
+        <id>https://documentation.cluedin.net/key-terms-and-features/golden-records</id>
+        <updated>2026-09-24T00:00:00+00:00</updated>
+        <summary>
+        
+        Golden records.
+        
+        
+        
+        Tags: golden record.
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>AI agents</title>
         <link href="https://documentation.cluedin.net/management/ai-agents" />
         <id>https://documentation.cluedin.net/management/ai-agents</id>
@@ -2019,6 +2035,22 @@
         
         
         Tags: management, ai agents.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Configuration import and export</title>
+        <link href="https://documentation.cluedin.net/administration/configuration-import-export" />
+        <id>https://documentation.cluedin.net/administration/configuration-import-export</id>
+        <updated>2026-09-24T00:00:00+00:00</updated>
+        <summary>
+        
+        Configuration import and export.
+        
+        
+        
+        Tags: administration, configuration, deployment, import, export.
         
         </summary>
     </entry>
