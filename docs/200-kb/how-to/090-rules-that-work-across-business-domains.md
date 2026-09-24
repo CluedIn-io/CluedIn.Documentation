@@ -13,6 +13,13 @@ nav_order: 2
 CluedIn Rules don’t just operate within a single entity. In many use cases, you’ll need to **span across business domains** — for example, applying a Customer rule that depends on their Orders, or a Supplier rule that looks at related Products. This is similar to performing a **join** in a traditional database.
 
 CluedIn provides functions and entity graph navigation features that allow rules to traverse relationships between entities and operate on connected data.
+## Schedule cross-domain rules
+
+When a rule depends on data from related entities, the related data and relationships might not be available when the rule is first evaluated.
+
+For example, a rule may be evaluated against one entity before a related entity has been ingested or before the relationship between the entities has been established. When the related data becomes available later, the original entity is not automatically reprocessed solely because the related entity or relationship has changed.
+
+For this reason, rules that evaluate data across related entities should be reprocessed on a schedule after the relevant ingestion and relationship processing has completed. This ensures that the rule is evaluated again using the latest connected data.
 
 ---
 
