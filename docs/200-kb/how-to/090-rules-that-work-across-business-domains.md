@@ -13,6 +13,13 @@ nav_order: 2
 CluedIn Rules don’t just operate within a single entity. In many use cases, you’ll need to **span across business domains** — for example, applying a Customer rule that depends on their Orders, or a Supplier rule that looks at related Products. This is similar to performing a **join** in a traditional database.
 
 CluedIn provides functions and entity graph navigation features that allow rules to traverse relationships between entities and operate on connected data.
+## Schedule cross-domain rules
+
+When a rule depends on data from related entities, the related data and relationships might not be available when the rule is first evaluated.
+
+For example, a rule may be evaluated against one entity before a related entity has been ingested or before the relationship between the entities has been established. When the related data becomes available later, the original entity is not automatically reprocessed solely because the related entity or relationship has changed.
+
+For this reason, rules that evaluate data across related entities should be reprocessed on a schedule after the relevant ingestion and relationship processing has completed. This ensures that the rule is evaluated again using the latest connected data.
 
 ---
 
@@ -25,3 +32,73 @@ CluedIn provides functions and entity graph navigation features that allow rules
         ```powerfx
         LoadByEntityCode("Customer", CustomerEntityCode)
         ```
+
+2. `LoadIncomingRelationships`
+    - Retrieves relationships that point to the entity currently being evaluated.
+    - Useful when a rule needs to evaluate entities that have a relationship to the current entity.
+
+    For example, suppose a rule is evaluated against a Student record and related Address records point to that Student. The following formula checks whether at least one related Address has a specific vocabulary value:
+
+    ```powerfx
+    Not(
+        IsEmpty(
+            Filter(
+                ForAll(
+                    LoadIncomingRelationships(Entity),
+                    LoadEntityByEntityCode(EntityCode)
+                ),
+                GetVocabularyKeyValue(ThisRecord, "address.country") = "UK"
+            )
+        )
+    )
+    ```
+
+    The formula works as follows:
+
+    1. `LoadIncomingRelationships(Entity)` retrieves incoming relationships for the current entity.
+    2. `ForAll(..., LoadEntityByEntityCode(EntityCode))` loads the entity associated with each relationship.
+    3. `Filter(...)` evaluates the loaded entities and keeps those that satisfy the required condition.
+    4. `Not(IsEmpty(...))` returns `true` when at least one related entity meets the condition.
+
+    Replace `address.country` and `UK` with the vocabulary key and value required by your rule.
+
+    You can also filter relationships by edge type when only a specific relationship should be evaluated:
+
+    ```powerfx
+    Filter(
+        LoadIncomingRelationships(Entity),
+        EdgeType = "/AddressOf"
+    )
+    ```
+
+3. `LoadOutgoingRelationships`
+    - Retrieves relationships going from the entity currently being evaluated to other entities.
+    - Useful when the current entity owns the relationship to the related entity.
+
+    For example:
+
+    ```powerfx
+    ForAll(
+        LoadOutgoingRelationships(Entity),
+        LoadEntityByEntityCode(EntityCode)
+    )
+    ```
+
+    This retrieves the outgoing relationships and loads the entity associated with each relationship.
+
+    When an entity has multiple relationship types, filter the relationships by `EdgeType` before applying further logic.
+
+---
+
+## Traversing multiple relationships
+
+Relationship functions can be nested when a rule needs to evaluate entities more than one relationship away.
+
+For example, a rule can:
+
+1. Load incoming relationships for the current entity.
+2. Load the related entity.
+3. Load that entity's outgoing relationships.
+4. Continue evaluating related entities as required.
+
+Use the simplest traversal that satisfies the rule. Loading related entities and traversing multiple relationship levels increases the amount of work performed by the rule, particularly where entities have many relationships.
