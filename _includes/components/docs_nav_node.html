@@ -1,0 +1,32 @@
+{% assign nav_node = include.node %}
+{% assign nav_children = include.pages | where: "parent", nav_node.title | where_exp: "item", "item.grand_parent == nil" | sort: "nav_order" %}
+<li class="nav-list-item">
+  {% if nav_node.has_children and nav_children.size > 0 %}
+    <button class="nav-list-expander btn-reset" aria-label="Toggle {{ nav_node.title }}" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button>
+  {% endif %}
+  <a href="{{ nav_node.url | relative_url }}" class="nav-list-link">{{ nav_node.title | escape }}</a>
+  {% if nav_node.has_children and nav_children.size > 0 %}
+    <ul class="nav-list">
+      {% for child in nav_children %}
+        {% assign nav_grandchildren = include.pages | where: "parent", child.title | where: "grand_parent", nav_node.title | sort: "nav_order" %}
+        <li class="nav-list-item">
+          {% if child.has_children and nav_grandchildren.size > 0 %}
+            <button class="nav-list-expander btn-reset" aria-label="Toggle {{ child.title }}" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+            </button>
+          {% endif %}
+          <a href="{{ child.url | relative_url }}" class="nav-list-link">{{ child.title | escape }}</a>
+          {% if child.has_children and nav_grandchildren.size > 0 %}
+            <ul class="nav-list">
+              {% for grandchild in nav_grandchildren %}
+                <li class="nav-list-item"><a href="{{ grandchild.url | relative_url }}" class="nav-list-link">{{ grandchild.title | escape }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</li>

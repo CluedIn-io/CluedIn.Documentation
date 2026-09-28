@@ -2,6 +2,21 @@
 
 Jekyll-based documentation site for CluedIn.
 
+## Navigation and versions
+
+The sidebar sections are defined in `_data/navigation.yml`. Add each new top-level
+page title to a section there. Child pages keep using their existing `parent` and
+`grand_parent` front matter, so changing a menu group does not change a URL.
+
+The version selector links the current documentation (`master`, at `/`) and the
+May 2025 snapshot (`v2025-05`, at `/v2025-05/`). It attempts to keep the same
+article path in the selected version and returns to that version's homepage if
+the article does not exist there. The deployment workflow builds both branches
+on every `master` deployment and applies the current navigation, theme, and
+selector to the archived content. Keep the archived branch's `baseurl` set to
+`/v2025-05`. To add another archived version, create a snapshot branch with its
+own `baseurl`, add it to the selector, and add a build step in the workflow.
+
 ## Prerequisites
 
 - [Docker](https://www.docker.com/) and [VS Code](https://code.visualstudio.com/) with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)

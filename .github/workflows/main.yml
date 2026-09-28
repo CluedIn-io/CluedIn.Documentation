@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - master
-      - v2025-05
+  pull_request:
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
@@ -26,17 +28,36 @@ jobs:
       - name: Install dependencies
         run: bundle install
 
-      # Build master branch into root (latest)
       - name: Build master version
-        if: github.ref == 'refs/heads/master'
         run: |
           JEKYLL_ENV=production bundle exec jekyll build -d build
 
-      # Deploy both builds into gh-pages branch
+      - name: Checkout archived version
+        uses: actions/checkout@v4
+        with:
+          ref: v2025-05
+          path: archived
+
+      # Keep the archived content fixed while giving it the current navigation and styling.
+      - name: Apply shared documentation shell
+        run: |
+          mkdir -p archived/_data archived/_includes/components archived/assets/js
+          cp _data/navigation.yml archived/_data/navigation.yml
+          cp _includes/components/{site_nav,docs_nav_node,sidebar}.html archived/_includes/components/
+          cp _includes/{head_custom,header_custom,nav_footer_custom}.html archived/_includes/
+          cp _sass/color_schemes/clue.scss archived/_sass/color_schemes/clue.scss
+          cp assets/js/docs-navigation.js archived/assets/js/docs-navigation.js
+
+      - name: Build archived version
+        working-directory: archived
+        run: |
+          JEKYLL_ENV=production bundle exec jekyll build -d ../build/v2025-05
+
       - name: Deploy to GitHub Pages
+        if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./build
-          keep_files: true
+          keep_files: false

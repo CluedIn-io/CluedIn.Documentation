@@ -1,0 +1,22 @@
+<div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="{{ '/' | relative_url }}" class="site-title lh-tight">{% include title.html %}</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+  <div class="docs-sidebar-tools">
+    <label for="docs-version">Documentation version</label>
+    <div class="docs-version-control">
+      <span class="docs-version-dot" aria-hidden="true"></span>
+      <select id="docs-version" data-current-prefix="{{ site.baseurl }}" aria-label="Documentation version">
+        <option value="/" {% if site.baseurl == '' %}selected{% endif %}>Latest</option>
+        <option value="/v2025-05/" {% if site.baseurl == '/v2025-05' %}selected{% endif %}>2025.05</option>
+      </select>
+    </div>
+  </div>
+  {% assign current_section = page.grand_parent | default: page.parent | default: page.title %}
+  {% assign is_home = false %}{% if page.url == '/' %}{% assign is_home = true %}{% endif %}
+  {% include_cached components/site_nav.html section=current_section home=is_home %}
+  {% include nav_footer_custom.html %}
+</div>

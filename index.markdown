@@ -1,66 +1,46 @@
 ---
-layout: cluedin
-title: 
+layout: page
+title:
 nav_order: 0
-description: ""
+description: "Find your way around CluedIn: guides, concepts, integrations, and API reference."
 permalink: /
 ---
 
-<img style="width:60%;margin-top: 0;" src="/assets/images/documention-header.png" alt="Welcome to CluedIn">
+<section class="docs-hero" aria-labelledby="docs-hero-title">
+  <div class="docs-hero-content">
+    <div class="docs-eyebrow"><span></span> CLUEDIN DOCUMENTATION</div>
+    <h1 id="docs-hero-title">Make your data<br><em>work better.</em></h1>
+    <p>Everything you need to connect, clean, govern, and deliver trusted data with CluedIn.</p>
+    <div class="docs-hero-actions">
+      <a class="docs-primary-action" href="{{ '/getting-started/' | relative_url }}">Start building <span aria-hidden="true">↗</span></a>
+      <a class="docs-secondary-action" href="{{ '/quick-feature-tour/' | relative_url }}">Take a quick tour <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+  <div class="docs-hero-art" aria-hidden="true">
+    <div class="docs-orbit docs-orbit-one"></div><div class="docs-orbit docs-orbit-two"></div>
+    <div class="docs-art-card docs-art-card-one"><span class="docs-art-icon">◈</span><span>Connect</span><i></i><i></i></div>
+    <div class="docs-art-card docs-art-card-two"><span class="docs-art-icon">✦</span><span>Trust</span><i></i><i></i></div>
+    <div class="docs-art-card docs-art-card-three"><span class="docs-art-icon">◎</span><span>Activate</span><i></i><i></i></div>
+    <div class="docs-art-core">C<span>.</span></div>
+  </div>
+</section>
 
-<div class="card-line">
-   <div class="card" href="/deployment">
-    <div class="icon"><img src="/assets/icons/installation.svg" alt="getting started"/></div>
-    <div class="title">Installation</div>
-    <div class="content">Follow our straightforward instructions to get CluedIn up and running</div>
+<section class="docs-home-section" aria-labelledby="docs-paths-title">
+  <div class="docs-section-heading"><div><span class="docs-kicker">EXPLORE THE PLATFORM</span><h2 id="docs-paths-title">Find your path</h2></div><p>Start with a workflow, then go deeper when you're ready.</p></div>
+  <div class="docs-feature-grid">
+    <a class="docs-feature-card" href="{{ '/integration/' | relative_url }}"><span class="docs-feature-icon blue">↗</span><span class="docs-feature-number">01 / CONNECT</span><strong>Bring data in</strong><span>Ingest and map data from your sources.</span><b aria-hidden="true">↗</b></a>
+    <a class="docs-feature-card" href="{{ '/Preparation/' | relative_url }}"><span class="docs-feature-icon violet">✧</span><span class="docs-feature-number">02 / PREPARE</span><strong>Improve quality</strong><span>Clean, enrich, and standardize records.</span><b aria-hidden="true">↗</b></a>
+    <a class="docs-feature-card" href="{{ '/management/' | relative_url }}"><span class="docs-feature-icon cyan">◎</span><span class="docs-feature-number">03 / MANAGE</span><strong>Create golden records</strong><span>Apply rules, resolve duplicates, and model relationships.</span><b aria-hidden="true">↗</b></a>
+    <a class="docs-feature-card" href="{{ '/consume/' | relative_url }}"><span class="docs-feature-icon coral">⇢</span><span class="docs-feature-number">04 / ACTIVATE</span><strong>Deliver trusted data</strong><span>Stream clean data to the systems that use it.</span><b aria-hidden="true">↗</b></a>
   </div>
-  <div class="card" href="/getting-started">
-    <div class="icon"><img src="/assets/icons/getting-started.svg" alt="getting started"/></div>
-    <div class="title">Getting Started</div>
-    <div class="content">Explore our step-by-step guides for a seamless introduction to CluedIn</div>
-  </div>
-   <div class="card" href="/release-notes">
-    <div class="icon"><img src="/assets/icons/release-note.svg" alt="getting started"/></div>
-    <div class="title">Release notes</div>
-    <div class="content">Stay updated on the latest enhancements and features in CluedIn</div>
-  </div>
-</div>
+</section>
 
-## Explore our main features
-
-Transform raw data into a unified and organized master data with the help of our intuitive tools and robust functionality
-
-<div class="card-line">
-  <div class="card-smaller" href="/integration">
-    <div class="icon"><img src="/assets/icons/integration.svg" alt="getting started"/></div>
-    <div class="title">Integration</div>
-    <div class="content">Import data, create mapping, and process data</div>
+<section class="docs-home-section docs-home-resources" aria-labelledby="docs-resources-title">
+  <div class="docs-section-heading"><div><span class="docs-kicker">POPULAR RESOURCES</span><h2 id="docs-resources-title">Go further</h2></div></div>
+  <div class="docs-resource-grid">
+    <a href="{{ '/deployment/' | relative_url }}"><span>◉</span><strong>Installation</strong><small>Set up your environment</small><b aria-hidden="true">↗</b></a>
+    <a href="{{ '/microsoft-integration/' | relative_url }}"><span>▦</span><strong>Microsoft integration</strong><small>Connect across your Microsoft stack</small><b aria-hidden="true">↗</b></a>
+    <a href="{{ '/rest-api/' | relative_url }}"><span>{ }</span><strong>REST API</strong><small>Explore endpoints and examples</small><b aria-hidden="true">↗</b></a>
+    <a href="{{ '/release-notes/' | relative_url }}"><span>✳</span><strong>What's new</strong><small>Explore recent releases</small><b aria-hidden="true">↗</b></a>
   </div>
-   <div class="card-smaller" href="/Preparation">
-    <div class="icon"><img src="/assets/icons/preparation.svg" alt="getting started"/></div>
-    <div class="title">Preparation</div>
-    <div class="content">Identify and fix data quality issues, enrich data</div>
-  </div>
-   <!-- <div class="card-smaller" href="/release-notes">
-    <div class="icon"><img src="/assets/icons/governance.svg" alt="getting started"/></div>
-    <div class="title">Governance</div>
-    <div class="content">Explore various data quality metrics</div>
-  </div> -->
-   <div class="card-smaller" href="/management">
-    <div class="icon"><img src="/assets/icons/integration.svg" alt="getting started"/></div>
-    <div class="title">Management</div>
-    <div class="content">Create rules, deduplication projects, hierarchies, and more</div>
-  </div>
-</div>
-<div class="card-line">
-   <div class="card-smaller" href="/consume">
-    <div class="icon"><img src="/assets/icons/preparation.svg" alt="getting started"/></div>
-    <div class="title">Consume</div>
-    <div class="content">Send data from CluedIn to any external destination</div>
-  </div>
-   <div class="card-smaller" href="/administration">
-    <div class="icon"><img src="/assets/icons/governance.svg" alt="getting started"/></div>
-    <div class="title">Administration</div>
-    <div class="content">Manage users, roles, permissions, and system settings</div>
-  </div>
-</div>
+</section>

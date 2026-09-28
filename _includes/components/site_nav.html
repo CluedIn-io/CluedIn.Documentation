@@ -1,0 +1,19 @@
+{% assign nav_pages = site.html_pages | where_exp: "item", "item.title != nil" | where_exp: "item", "item.nav_exclude != true" %}
+{% assign top_pages = nav_pages | where_exp: "item", "item.parent == nil" %}
+<nav aria-label="Documentation sections" id="site-nav" class="site-nav docs-site-nav">
+  {% for group in site.data.navigation %}
+    {% assign expanded = false %}
+    {% if group.items contains include.section or include.home and forloop.first %}{% assign expanded = true %}{% endif %}
+    <details class="docs-nav-group" {% if expanded %}open{% endif %}>
+      <summary class="docs-nav-group-title">{{ group.title }} <span aria-hidden="true">⌄</span></summary>
+      <ul class="nav-list docs-group-list">
+        {% for title in group.items %}
+          {% assign matching_pages = top_pages | where: "title", title %}
+          {% for node in matching_pages %}
+            {% include components/docs_nav_node.html node=node pages=nav_pages %}
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </details>
+  {% endfor %}
+</nav>

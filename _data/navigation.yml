@@ -1,0 +1,34 @@
+- title: Start here
+  items:
+    - Quick feature tour
+    - How to get CluedIn
+    - Installation
+    - Getting access
+    - Getting started
+    - Key terms and features
+- title: Manage your data
+  items:
+    - Ingestion
+    - Preparation
+    - Governance
+    - Management
+    - Workflow
+    - Consume
+- title: Build and integrate
+  items:
+    - Microsoft Integration
+    - REST API
+    - Engine Room
+- title: Learn and operate
+  items:
+    - Learning paths
+    - Training
+    - Usecases
+    - Playbooks
+    - Administration
+    - PaaS operations
+- title: Resources
+  items:
+    - Knowledge base
+    - Release overview
+    - Terms of service
