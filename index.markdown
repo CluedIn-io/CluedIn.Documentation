@@ -13,7 +13,11 @@ permalink: /
     <p>Everything you need to connect, clean, govern, and deliver trusted data with CluedIn.</p>
     <div class="docs-hero-actions">
       <a class="docs-primary-action" href="{{ '/getting-started' | relative_url }}">Start building <span aria-hidden="true">↗</span></a>
+      {% if site.baseurl == '' %}
       <a class="docs-secondary-action" href="{{ '/quick-feature-tour' | relative_url }}">Take a quick tour <span aria-hidden="true">→</span></a>
+      {% else %}
+      <a class="docs-secondary-action" href="{{ '/key-terms-and-features' | relative_url }}">Browse key concepts <span aria-hidden="true">→</span></a>
+      {% endif %}
     </div>
   </div>
   <div class="docs-hero-art" aria-hidden="true">
@@ -40,7 +44,11 @@ permalink: /
   <div class="docs-resource-grid">
     <a href="{{ '/deployment' | relative_url }}"><span>◉</span><strong>Installation</strong><small>Set up your environment</small><b aria-hidden="true">↗</b></a>
     <a href="{{ '/microsoft-integration' | relative_url }}"><span>▦</span><strong>Microsoft integration</strong><small>Connect across your Microsoft stack</small><b aria-hidden="true">↗</b></a>
+    {% if site.baseurl == '' %}
     <a href="{{ '/rest-api' | relative_url }}"><span>{ }</span><strong>REST API</strong><small>Explore endpoints and examples</small><b aria-hidden="true">↗</b></a>
+    {% else %}
+    <a href="{{ '/kb' | relative_url }}"><span>✳</span><strong>Knowledge base</strong><small>Find answers and practical guides</small><b aria-hidden="true">↗</b></a>
+    {% endif %}
     <a href="{{ '/release-notes' | relative_url }}"><span>✳</span><strong>What's new</strong><small>Explore recent releases</small><b aria-hidden="true">↗</b></a>
   </div>
 </section>

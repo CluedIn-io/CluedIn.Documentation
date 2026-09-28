@@ -47,6 +47,7 @@ jobs:
           cp _includes/{head_custom,header_custom,nav_footer_custom}.html archived/_includes/
           cp _sass/color_schemes/clue.scss archived/_sass/color_schemes/clue.scss
           cp assets/js/docs-navigation.js archived/assets/js/docs-navigation.js
+          cp index.markdown archived/index.markdown
 
       - name: Build archived version
         working-directory: archived

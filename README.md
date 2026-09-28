@@ -13,7 +13,7 @@ May 2025 snapshot (`v2025-05`, at `/v2025-05/`). It attempts to keep the same
 article path in the selected version and returns to that version's homepage if
 the article does not exist there. The deployment workflow builds both branches
 on every `master` deployment and applies the current navigation, theme, and
-selector to the archived content. Keep the archived branch's `baseurl` set to
+homepage shell to the archived content. Keep the archived branch's `baseurl` set to
 `/v2025-05`. To add another archived version, create a snapshot branch with its
 own `baseurl`, add it to the selector, and add a build step in the workflow.
 
