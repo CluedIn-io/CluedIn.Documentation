@@ -51,6 +51,7 @@ jobs:
       - name: Build archived version
         working-directory: archived
         run: |
+          bundle install
           JEKYLL_ENV=production bundle exec jekyll build -d ../build/v2025-05
 
       - name: Deploy to GitHub Pages
