@@ -16,6 +16,8 @@ headerIcon: "paas"
 
 In this article, you will learn how to configure single sign-on (SSO) for CluedIn using Microsoft Entra group-managed role membership. The steps described here apply to both PaaS and SaaS. However, for SaaS users, the final step must be completed by our support team.
 
+For users who authenticate with Auth0, see [Sign in with Auth0 through Microsoft Entra](/deployment/infra-how-tos/auth0-entra-sso) for a federation approach using Entra B2B guest access.
+
 ## Overview of SSO for CluedIn
 
 SSO for CluedIn can be enabled in one of the following modes:
