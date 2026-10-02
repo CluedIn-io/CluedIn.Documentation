@@ -117,7 +117,7 @@ The mapping diagram shows the datasets on the left, the golden record vocabulari
 
 ### Data types of new vocabulary keys
 
-Vocabulary keys with the Boolean, DateTime, Duration, Integer, Money, Number, or Time data type are indexed as typed values, so that they can be filtered, sorted, and used in rules. A value that can't be converted to the key's data type is left out of the key's typed values. For this reason, the AI agent only chooses one of these data types when the profiled column values (from up to the first 10,000 rows) can be converted. A few values that can't be converted (up to 5% of the profiled values) are tolerated, and values outside the profiled rows aren't checked. For example:
+Vocabulary keys with the Boolean, DateTime, Duration, Integer, Money, Number, or Time data type are indexed as typed values, so that they can be filtered, sorted, and used in rules. A value that can't be converted to the key's data type is left out of the key's typed values. For this reason, the AI agent only chooses one of these data types when the profiled column values (from up to the first 10,000 rows) can be converted. A few values that can't be converted (in up to 5% of the profiled rows) are tolerated, and values outside the profiled rows aren't checked. For example:
 
 - Boolean only for the values **true** and **false**. Values such as **yes**, **no**, **Y**, or **1** are kept as Text.
 
