@@ -79,7 +79,7 @@ When you approve the plan, the AI agent creates the business domains, vocabulari
 
 1. Wait while the AI agent builds the plan. This usually takes one to three minutes, depending on the number of datasets and columns. While the AI agent is working, the status bar above the message box shows what it is doing, along with a stop button.
 
-    ![onboarding_stop_button.png]({{ "/assets/images/management/ai-agents/onboard-datasets/onboarding_stop_button.png" | relative_url }})
+    ![Status bar above the message box showing what the AI agent is doing, with the stop button]({{ "/assets/images/management/ai-agents/onboard-datasets/onboarding_stop_button.png" | relative_url }})
 
     If you want to stop the AI agent, select the stop button. While the plan is being built, the AI agent stops within a moment and replies **Stopped.** Nothing is created.
 
@@ -89,7 +89,7 @@ When you approve the plan, the AI agent creates the business domains, vocabulari
 
 The plan shows everything that would be created or reused. Items marked 🆕 will be created, and items marked 🔗 already exist and will be reused.
 
-![onboarding_plan.png]({{ "/assets/images/management/ai-agents/onboard-datasets/onboarding_plan.png" | relative_url }})
+![Onboarding plan in the AI agent chat, with new and reused items]({{ "/assets/images/management/ai-agents/onboard-datasets/onboarding_plan.png" | relative_url }})
 
 The plan consists of the following sections:
 
@@ -113,11 +113,11 @@ The plan consists of the following sections:
 
 The mapping diagram shows the datasets on the left, the golden record vocabularies in the middle and, when existing vocabulary keys are mapped onward to other keys, the keys where the values end up on the right. Hover over a row to highlight how its values flow. Use the zoom controls or select **Full screen** to see large plans.
 
-![onboarding_plan_mapping_diagram.png]({{ "/assets/images/management/ai-agents/onboard-datasets/onboarding_plan_mapping_diagram.png" | relative_url }})
+![Mapping diagram showing dataset columns flowing into golden record vocabulary keys]({{ "/assets/images/management/ai-agents/onboard-datasets/onboarding_plan_mapping_diagram.png" | relative_url }})
 
 ### Data types of new vocabulary keys
 
-Vocabulary keys with the Boolean, DateTime, Duration, Integer, Money, Number, or Time data type are indexed as typed values, so that they can be filtered, sorted, and used in rules. A value that can't be converted to the key's data type is left out of the key's typed values. For this reason, the AI agent only chooses one of these data types when the column values can be converted, for example:
+Vocabulary keys with the Boolean, DateTime, Duration, Integer, Money, Number, or Time data type are indexed as typed values, so that they can be filtered, sorted, and used in rules. A value that can't be converted to the key's data type is left out of the key's typed values. For this reason, the AI agent only chooses one of these data types when the profiled column values (from up to the first 10,000 rows) can be converted. A few values that can't be converted (up to 5% of the profiled values) are tolerated, and values outside the profiled rows aren't checked. For example:
 
 - Boolean only for the values **true** and **false**. Values such as **yes**, **no**, **Y**, or **1** are kept as Text.
 
@@ -151,7 +151,7 @@ Below the plan, select one of the following:
 
 - **Reject** – discards the plan. Nothing is created.
 
-![onboarding_plan_approve.png]({{ "/assets/images/management/ai-agents/onboard-datasets/onboarding_plan_approve.png" | relative_url }})
+![Approve and Reject buttons below an onboarding plan]({{ "/assets/images/management/ai-agents/onboard-datasets/onboarding_plan_approve.png" | relative_url }})
 
 {:.important}
 A plan is only executed when you approve it: select **Approve**, or reply **Approve**. The AI agent doesn't treat any other reply as approval. If you change the plan, approve the revised plan.
@@ -162,13 +162,13 @@ If something fails while the plan is executed, the AI agent tells you what was c
 
 After the plan is executed, the datasets are mapped but not yet processed. Process the datasets to create the golden records, either by asking the AI agent to process them or from the dataset. For more information, see [Process data](/integration/process-data).
 
-The AI jobs of the plan are created disabled and unscheduled. Once the datasets are processed, you can see how the AI jobs work before you enable them: ask the AI agent to test them, for example, **Can I see the AI jobs working before I enable them?** A test run is a dry run on a sample of up to 100 golden records: it makes no changes to your golden records, and its results are a preview that can't be approved. You can also review a test run on the AI job's page, see [Test the job](/management/ai-agents/create-configure-and-run-an-ai-agent#test-the-job). When the results meet your expectations, enable the AI job. The results of its regular runs are the ones you review and approve, see [Review the results returned by AI agent](/management/ai-agents/review-the-results-returned-by-an-ai-agent).
+The AI jobs of the plan are created disabled and unscheduled. Once the datasets are processed, you can see how the AI jobs work before you enable them: ask the AI agent to test them, for example, **Can I see the AI jobs working before I enable them?** A test run is a dry run on a sample of up to 100 golden records: it makes no changes to your golden records, and its results are a preview that can't be approved. You can also review a test run on the AI job's page. For more information, see [Test the job](/management/ai-agents/create-configure-and-run-an-ai-agent#test-the-job). When the results meet your expectations, enable the AI job. The results of its regular runs are the ones you review and approve. For more information, see [Review the results returned by AI agent](/management/ai-agents/review-the-results-returned-by-an-ai-agent).
 
 ## Limitations
 
 - Each dataset belongs to one business domain and has its own source vocabulary. Each column maps to one golden record vocabulary key.
 
-- Datasets that are already mapped are only added to: their business domain, source vocabulary, mapped columns, and identifiers are kept.
+- For a dataset that is already mapped, the AI agent only adds to the existing mapping, for example, columns that aren't mapped yet. The existing business domain, source vocabulary, column mappings, and identifiers are kept as they are.
 
 - Records from different datasets merge only through shared identifiers. To find duplicates that don't share an identifier, use deduplication or a deduplication AI job.
 
