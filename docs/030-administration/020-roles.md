@@ -75,7 +75,7 @@ In CluedIn, the following access levels are used:
 - **Consulted** – Read and write access to the claim. The user will be able to add, edit, or delete items within the claim.
 
 {:.important}
-The Responsible and Accountable access levels are reserved for upcoming versions. Currently, the activities represented by these access levels are the same as in the Consulted access level.
+The Responsible access level is reserved for upcoming versions. Currently, the activities represented by this access level are the same as in the Consulted access level. The Accountable access level gives full control over all elements within a feature, including elements owned by other users, and it is required to create elements directly when an approval workflow is enabled for creating them. For more information, see [Feature access](/administration/user-access/feature-access).
 
 ## Managing overlapping roles
 

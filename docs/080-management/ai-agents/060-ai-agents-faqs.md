@@ -68,7 +68,8 @@ Each AI agent is configured with the following elements:
 - Access to one or more datasets, governed by [CluedIn’s access control rules](/management/access-control).
 
 Key principles:
-- AI Agents only have read-only access. They cannot directly modify data or create objects (for example, rules, deduplication projects etc.). It can only suggest recommendations. 
+- AI agent jobs only have read-only access. They cannot directly modify data or create objects (for example, rules, deduplication projects etc.). They can only suggest recommendations.
+- When you chat with an AI agent, it acts on your behalf: it creates objects only after you approve a plan, for example, when it [onboards datasets](/management/ai-agents/onboard-datasets-with-an-ai-agent), and only what you could create yourself with your claim access levels. When you ask it to, it can also process datasets or test AI jobs.
 - Agents run a set of jobs (prompts) toward defined goals.
 - Once an agent completest its run, it produces a set of suggestions for human review.
 

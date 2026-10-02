@@ -65,7 +65,7 @@ When you approve the plan, the AI agent creates the business domains, vocabulari
     | Management | AI Agents | At least Consulted | Create AI jobs. |
 
     {:.important}
-    When creating business domains, vocabularies, or vocabulary keys requires approval in your organization, you need Accountable access to create them. To map the keys of an existing source vocabulary that you don't own, you need Accountable access to the **Data Catalog** claim. If you are missing an access level, the plan says so up front, so you can ask an administrator before you approve it.
+    When creating business domains, vocabularies, or vocabulary keys requires approval in your organization (an approval [workflow](/workflow/create-and-manage-workflows) is enabled for it), you need Accountable access to create them, because with a lower access level CluedIn only submits an approval request. For more information about access levels, see [Feature access](/administration/user-access/feature-access). To map the keys of an existing source vocabulary that you don't own, you need Accountable access to the **Data Catalog** claim. If you are missing an access level, the plan says so up front, so you can ask an administrator before you approve it.
 
 ## Ask an AI agent to onboard datasets
 
@@ -162,7 +162,7 @@ If something fails while the plan is executed, the AI agent tells you what was c
 
 After the plan is executed, the datasets are mapped but not yet processed. Process the datasets to create the golden records, either by asking the AI agent to process them or from the dataset. For more information, see [Process data](/integration/process-data).
 
-The AI jobs of the plan are created disabled and unscheduled. Once the datasets are processed, you can see how the AI jobs work before you enable them: ask the AI agent to test them, for example, **Can I see the AI jobs working before I enable them?** A test run is a dry run on a sample of up to 100 golden records. Its results are not applied until you approve them. For more information, see [Review the results returned by AI agent](/management/ai-agents/review-the-results-returned-by-an-ai-agent).
+The AI jobs of the plan are created disabled and unscheduled. Once the datasets are processed, you can see how the AI jobs work before you enable them: ask the AI agent to test them, for example, **Can I see the AI jobs working before I enable them?** A test run is a dry run on a sample of up to 100 golden records: it makes no changes to your golden records, and its results are a preview that can't be approved. You can also review a test run on the AI job's page, see [Test the job](/management/ai-agents/create-configure-and-run-an-ai-agent#test-the-job). When the results meet your expectations, enable the AI job. The results of its regular runs are the ones you review and approve, see [Review the results returned by AI agent](/management/ai-agents/review-the-results-returned-by-an-ai-agent).
 
 ## Limitations
 
