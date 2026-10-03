@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-09-24T07:01:33+00:00</updated>
+    <updated>2026-10-03T11:31:31+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -2115,6 +2115,118 @@
         
         
         Tags: administration, configuration, deployment, import, export.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Sign in with Auth0 through Microsoft Entra</title>
+        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/auth0-entra-sso" />
+        <id>https://documentation.cluedin.net/deployment/infra-how-tos/auth0-entra-sso</id>
+        <updated>2026-10-01T00:00:00+00:00</updated>
+        <summary>
+        
+        Sign in with Auth0 through Microsoft Entra.
+        
+        
+        
+        Tags: authentication, sso, entra, auth0.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Federate identity providers through Microsoft Entra</title>
+        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/external-idp-entra-sso" />
+        <id>https://documentation.cluedin.net/deployment/infra-how-tos/external-idp-entra-sso</id>
+        <updated>2026-10-01T00:00:00+00:00</updated>
+        <summary>
+        
+        Federate identity providers through Microsoft Entra.
+        
+        
+        
+        Tags: authentication, sso, entra, external-idp.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Sign in with Okta through Microsoft Entra</title>
+        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/okta-entra-sso" />
+        <id>https://documentation.cluedin.net/deployment/infra-how-tos/okta-entra-sso</id>
+        <updated>2026-10-01T00:00:00+00:00</updated>
+        <summary>
+        
+        Sign in with Okta through Microsoft Entra.
+        
+        
+        
+        Tags: authentication, sso, entra, okta.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Sign in with PingOne through Microsoft Entra</title>
+        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/pingone-entra-sso" />
+        <id>https://documentation.cluedin.net/deployment/infra-how-tos/pingone-entra-sso</id>
+        <updated>2026-10-01T00:00:00+00:00</updated>
+        <summary>
+        
+        Sign in with PingOne through Microsoft Entra.
+        
+        
+        
+        Tags: authentication, sso, entra, pingone.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Sign in with OneLogin through Microsoft Entra</title>
+        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/onelogin-entra-sso" />
+        <id>https://documentation.cluedin.net/deployment/infra-how-tos/onelogin-entra-sso</id>
+        <updated>2026-10-01T00:00:00+00:00</updated>
+        <summary>
+        
+        Sign in with OneLogin through Microsoft Entra.
+        
+        
+        
+        Tags: authentication, sso, entra, onelogin.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Sign in with Google Workspace through Microsoft Entra</title>
+        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/google-workspace-entra-sso" />
+        <id>https://documentation.cluedin.net/deployment/infra-how-tos/google-workspace-entra-sso</id>
+        <updated>2026-10-01T00:00:00+00:00</updated>
+        <summary>
+        
+        Sign in with Google Workspace through Microsoft Entra.
+        
+        
+        
+        Tags: authentication, sso, entra, google-workspace.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Sign in with Keycloak through Microsoft Entra</title>
+        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/keycloak-entra-sso" />
+        <id>https://documentation.cluedin.net/deployment/infra-how-tos/keycloak-entra-sso</id>
+        <updated>2026-10-01T00:00:00+00:00</updated>
+        <summary>
+        
+        Sign in with Keycloak through Microsoft Entra.
+        
+        
+        
+        Tags: authentication, sso, entra, keycloak.
         
         </summary>
     </entry>
