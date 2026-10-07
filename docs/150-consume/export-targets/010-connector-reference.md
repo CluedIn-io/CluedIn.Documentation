@@ -83,6 +83,10 @@ The [OneLake](/consume/export-targets/onelake-connector) connector allows you to
 |--|--|--|
 | CluedIn.Connector.OneLake | 4.4.0 | - |
 
+## Snowflake
+
+The [Snowflake](/consume/export-targets/snowflake-connector) guide explains how to find connection settings and configure key-pair authentication for the Snowflake export target.
+
 ##  Sql Server
 
 The [SQL Server](/consume/export-targets/sql-server-connector) connector allows you to publish data to a Microsoft SQL Server database.
