@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-10-03T11:31:31+00:00</updated>
+    <updated>2026-10-07T00:29:01+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -2227,6 +2227,20 @@
         
         
         Tags: authentication, sso, entra, keycloak.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Snowflake connector</title>
+        <link href="https://documentation.cluedin.net/consume/export-targets/snowflake-connector" />
+        <id>https://documentation.cluedin.net/consume/export-targets/snowflake-connector</id>
+        <updated>2026-10-07T00:00:00+00:00</updated>
+        <summary>
+        
+        Snowflake connector.
+        
+        
         
         </summary>
     </entry>
