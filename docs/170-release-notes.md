@@ -20,12 +20,13 @@ This section includes links to release notes for the CluedIn platform as well as
 
 | Version | Technical version | Release notes |
 |--|--|--|
-| 2026.02.00 | 4.8.0 | [View release notes](https://cluedin-io.github.io/Releases/2026.02/2026.02.00) |
+| 2026.03.00 | 5.0.0 | [View release notes](https://cluedin-io.github.io/Releases/2026.03/2026.03.00) |
 
 ### Previous releases
 
 | Version | Technical version | Release notes |
 |--|--|--|
+| 2026.02.00 | 4.8.0 | [View release notes](https://cluedin-io.github.io/Releases/2026.02/2026.02.00) |
 | 2026.01.00 | 4.7.0 | [View release notes](https://cluedin-io.github.io/Releases/2026.01/2026.01.00) |
 | 2025.09.00 | 4.6.0 | [View release notes](https://cluedin-io.github.io/Releases/2025.09/2025.09.00) |
 | 2025.05.02 | 4.5.2 | [View release notes](https://cluedin-io.github.io/Releases/2025.05/2025.05.02) |
@@ -266,7 +267,7 @@ The following table describes each stage of the release process.
 
 To support prompt delivery of patches, security fixes, and features, we use a versioning scheme that allows us to deliver changes as they are available rather than waiting for a full platform release. Starting from Jan 01, 2026, we started using a date and release version based pattern for versioning. By using dates, we can better communicate to our customers how up to date their instance of CluedIn is.
 
-Our date-based version is divided into three parts: `Year`, `Month`, and `Update`.
+Our date-based version is divided into three parts: `Year`, `Release Version`, and `Update`.
 
 - The `Year` is always represented as a four-digit year (e.g. `2024`).
 - The `Release Version` is always represented as a two-digit month (e.g. `01` for the first release of the year).
