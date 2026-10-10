@@ -6,7 +6,7 @@ grand_parent: Consume
 permalink: /consume/streams/manage-streams
 title: Manage streams
 tags: ["consume", "data export", "streams"]
-last_modified: 2026-09-23
+last_modified: 2026-10-10
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -82,6 +82,35 @@ If you change filters or actions in the stream configuration or if you make any 
 1. On the **Export Target Configuration** tab, select **Edit Export Configuration**, and then confirm your choice.
 
 1. Make the needed changes, select **Save**, and then confirm your choice.
+
+## Manage field mappings
+
+Stream mappings control the name that each field has in the data sent to the export target. For example, you can map `customer.firstName` to `FirstName` or `First_Name`, so the field appears under a different name in the exported output than it has in CluedIn.
+
+You can view and manage field mappings on the **Field mappings** tab of the stream details page. Every field mapping also determines whether that field is sent to the export target: removing a mapping stops that field from being exported, and the fields you select on the **Properties to export** tab when you [configure the export target](/consume/streams/create-a-stream#configure-an-export-target) are reflected here as field mappings too.
+
+**To add a field mapping**
+
+1. On the stream details page, select the **Field mappings** tab.
+
+1. Select **Add mapping**.
+
+1. In **Source field**, select the field from your data that you want to export.
+
+1. In **Export field name**, enter the name that the field should have in the exported output. If you keep this the same as the source field, the field keeps its original name on export.
+
+1. Select **Save mappings**.
+
+    ![manage-field-mappings-1.png]({{ "/assets/images/consume/streams/manage-field-mappings-1.png" | relative_url }})
+
+**To edit or remove a field mapping**
+
+- To rename a field in the exported output, update its **Export field name**, and then select **Save mappings**.
+
+- To stop exporting a field, select the delete icon next to its mapping, and then select **Save mappings**.
+
+{:.important}
+If a mapping is missing a source field or an export field name, CluedIn blocks saving and shows a validation message until you fix or remove the incomplete mapping.
 
 ## View stream details
 
