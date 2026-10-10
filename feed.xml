@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-10-10T10:08:25+00:00</updated>
+    <updated>2026-10-10T10:09:05+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -968,24 +968,6 @@
     </entry>
     
     <entry>
-        <title>CluedIn Python SDK</title>
-        <link href="https://documentation.cluedin.net/playbooks/data-engineering-playbook/python-sdk" />
-        <id>https://documentation.cluedin.net/playbooks/data-engineering-playbook/python-sdk</id>
-        <updated>2025-01-14T00:00:00+00:00</updated>
-        <summary>
-        
-        CluedIn Python SDK.
-        
-        
-        CluedIn Python SDK provides powerful REST and GraphQL APIs to interact with your CluedIn instance programmatically.
-        
-        
-        Tags: python.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Query data using GraphQL and Python SDK</title>
         <link href="https://documentation.cluedin.net/playbooks/data-engineering-playbook/search" />
         <id>https://documentation.cluedin.net/playbooks/data-engineering-playbook/search</id>
@@ -1821,6 +1803,24 @@
         
         
         Tags: integration, microsoft, powerapps, dataverse.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>CluedIn Python SDK</title>
+        <link href="https://documentation.cluedin.net/playbooks/data-engineering-playbook/python-sdk" />
+        <id>https://documentation.cluedin.net/playbooks/data-engineering-playbook/python-sdk</id>
+        <updated>2026-09-03T00:00:00+00:00</updated>
+        <summary>
+        
+        CluedIn Python SDK.
+        
+        
+        CluedIn Python SDK provides powerful REST and GraphQL APIs to interact with your CluedIn instance programmatically.
+        
+        
+        Tags: python.
         
         </summary>
     </entry>
