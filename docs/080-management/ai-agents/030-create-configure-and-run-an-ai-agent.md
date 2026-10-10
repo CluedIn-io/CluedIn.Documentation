@@ -31,6 +31,8 @@ An AI agent is a component that uses artificial intelligence to analyze data, pr
 
 1. Provide **Instructions** for the AI agent. Think of instructions as a job description that tells your AI agent what you’d like it to do. For example, **Fix incorrect date formats** or **Check for out-of-range transaction amounts**.
 
+    Use the toolbar above the Instructions field to format your text with bold, italic, inline code, headings, blockquotes, bullet and numbered lists, links, and tables. The formatting is saved as Markdown, so instructions you have already written continue to work without any changes.
+
     {:.important}
     These instructions will apply to all [jobs](#configure-an-ai-agent-job) that the AI agent performs (this way, you won't have to repeat the instructions in each job).
 
