@@ -290,7 +290,8 @@ The five warnings it currently prints are links that were already broken before
 the restructure; they are recorded in `_migration/report.md`. Do not add to them.
 
 It also prints a `nav_exclude` count. Those are pages deliberately kept out of
-the sidebar — reachable only by a direct link — and there are currently four.
+the sidebar — reachable only by a direct link — and there are currently five,
+including the home page.
 Setting `nav_exclude: true` on a new article means accepting that no reader will
 find it by browsing, so do it only when the page exists to be linked to from
 somewhere specific.
