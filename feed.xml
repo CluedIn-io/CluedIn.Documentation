@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-10-08T14:32:10+00:00</updated>
+    <updated>2026-10-10T06:58:33+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -543,22 +543,6 @@
         <summary>
         
         Create a rule.
-        
-        
-        
-        Tags: management, rules.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Manage rules</title>
-        <link href="https://documentation.cluedin.net/management/rules/manage-rules" />
-        <id>https://documentation.cluedin.net/management/rules/manage-rules</id>
-        <updated>2023-11-16T00:00:00+00:00</updated>
-        <summary>
-        
-        Manage rules.
         
         
         
@@ -2241,6 +2225,22 @@
         Snowflake connector.
         
         
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Manage rules</title>
+        <link href="https://documentation.cluedin.net/management/rules/manage-rules" />
+        <id>https://documentation.cluedin.net/management/rules/manage-rules</id>
+        <updated>2026-10-10T00:00:00+00:00</updated>
+        <summary>
+        
+        Manage rules.
+        
+        
+        
+        Tags: management, rules.
         
         </summary>
     </entry>
