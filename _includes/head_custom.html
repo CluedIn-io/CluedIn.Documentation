@@ -1,0 +1,24 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
+
+{%- comment -%}
+Pick the colour scheme before the page paints. The theme compiles one
+stylesheet per scheme (clue / clue-dark); jtd.setTheme swaps between them.
+An explicit choice from the toggle wins, otherwise the OS preference does.
+{%- endcomment %}
+<script>
+  (function () {
+    var theme;
+    try { theme = localStorage.getItem("cluedin-docs-theme"); } catch (e) {}
+    if (theme !== "dark" && theme !== "light") {
+      theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", theme);
+    if (theme === "dark") jtd.setTheme("clue-dark");
+  })();
+</script>
+<style>html[data-theme="dark"] { background: #0e1a24; }</style>
+
+<script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/nav-groups.js' | relative_url }}" defer></script>

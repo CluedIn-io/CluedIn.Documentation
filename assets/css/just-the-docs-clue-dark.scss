@@ -1,0 +1,8 @@
+---
+---
+{%- comment -%}
+Dark variant of the `clue` colour scheme. The theme only compiles the scheme
+named in _config.yml, so every other scheme that jtd.setTheme() can switch to
+needs an entry point like this one.
+{%- endcomment -%}
+{% include css/just-the-docs.scss.liquid color_scheme="clue-dark" %}

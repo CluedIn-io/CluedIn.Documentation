@@ -1,0 +1,35 @@
+// CluedIn dark colour scheme, selected by the toggle in the top bar
+// (assets/css/just-the-docs-clue-dark.scss is its entry point). Starts from the
+// theme's dark scheme for code highlighting, then applies CluedIn colours.
+
+@import "./color_schemes/dark";
+
+$color-scheme: dark;
+
+$body-background-color: #0e1a24;
+$body-heading-color: #eef3f7;
+$body-text-color: #c3cfda;
+$link-color: #4fd1c5;
+$nav-child-link-color: #9fb0c0;
+$sidebar-color: #0b151e;
+$base-button-color: #1a2935;
+$btn-primary-color: #12a39a;
+$code-background-color: #15232f;
+$feedback-color: #0b151e;
+$table-background-color: #13202b;
+$search-background-color: #13202b;
+$search-result-preview-color: #9fb0c0;
+$border-color: #233441;
+
+$ci-accent: #4fd1c5;
+$ci-accent-soft: rgba(79, 209, 197, 0.12);
+$ci-primary: #12a39a;
+$ci-primary-hover: #19b9ae;
+$ci-muted: #8fa1b2;
+$ci-surface: #0e1a24;
+$ci-surface-raised: #13212d;
+$ci-surface-sunken: #0b151e;
+$ci-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+$ci-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.45);
+$ci-dot-new: #4fd1c5;
+$ci-dot-old: #6b9cf0;

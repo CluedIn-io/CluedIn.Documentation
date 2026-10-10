@@ -40,6 +40,8 @@ exclude:
     "bin/",
     "README.md",
     "CONTRIBUTING.md",
+    "AGENTS.md",
+    "CLAUDE.md",
     "Rakefile",
     "docs/tests/",
     "_migration/",
@@ -118,7 +120,18 @@ last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https:/
 
 color_scheme: clue
 logo: "/assets/images/clued-in-logo.svg"
+# Same mark as the header of www.cluedin.com, with white text for dark mode.
+logo_dark: "/assets/images/clued-in-logo-white.svg"
 favicon_ico: "/assets/images/favicon.png"
+
+# Links on the right of the top bar (_includes/header_custom.html). `cta` is
+# rendered as the primary button.
+header_links:
+  changelog: "/release-notes"
+  github: "https://github.com/CluedIn-io/CluedIn.Documentation"
+  cta:
+    label: "Get CluedIn"
+    url: "https://www.cluedin.com/saas-invitation-application"
 
 kramdown:
   syntax_highlighter_opts:
