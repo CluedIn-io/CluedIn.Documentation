@@ -90,6 +90,44 @@ Editing a deduplication project involves two aspects:
 
 You can also add new matching criteria to the rule. To do that, expand the rule, and then select **Add Matching Criteria**. When you are satisfied with the project and matching rules configuration, proceed to generate matches.
 
+## Organize deduplication projects into folders
+
+You can use folders to organize deduplication projects—for example, by business domain or by team. Deduplication projects that aren't assigned to a folder appear in the root list.
+
+![organize-deduplication-projects-folders.png]({{ "/assets/images/management/deduplication/organize-deduplication-projects-folders.png" | relative_url }})
+
+**To assign a deduplication project to a folder**
+
+1. In the list of deduplication projects, find the project that you want to move. Then, open the three-dot menu for the project, and select **Move to folder**.
+
+1. In **Select folder**, choose an existing folder, or type a new folder name to create one.
+
+    ![move-deduplication-project-to-folder.png]({{ "/assets/images/management/deduplication/move-deduplication-project-to-folder.png" | relative_url }})
+
+1. Select **Save**.
+
+You can also drag a deduplication project from the list and drop it onto a folder in the folder bar to move it there.
+
+**To view the deduplication projects in a folder**
+
+- In the folder bar, select the folder that you want to view.
+
+    ![deduplication-project-inside-folder.png]({{ "/assets/images/management/deduplication/deduplication-project-inside-folder.png" | relative_url }})
+
+    Select **Root** to return to the list of deduplication projects that aren't assigned to a folder.
+
+**To move a deduplication project to a different folder**
+
+- Open the three-dot menu for the project, select **Move to folder**, choose the new folder, and then select **Save**. You can also drag the project onto a different folder in the folder bar.
+
+**To remove a deduplication project from its folder**
+
+- Open the three-dot menu for the project, and select **Remove from folder**. The project returns to the root list. You can also drag the project onto **Root** in the folder bar.
+
+**To rename a folder**
+
+- In the folder bar, select the pencil icon next to the folder, enter the new name, and then select **Save**. Renaming a folder updates it for every deduplication project assigned to it.
+
 ## Archive a deduplication project
 
 You can archive a deduplication project if you no longer need it or if you created it by mistake. You can also archive a deduplication project if you’re confident that you won’t need to run it again in the future. Archiving does not affect merges that have been submitted to CluedIn.
