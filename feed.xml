@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-10-10T06:58:33+00:00</updated>
+    <updated>2026-10-10T07:04:05+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -675,22 +675,6 @@
         
         
         Tags: integration.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Create a stream</title>
-        <link href="https://documentation.cluedin.net/consume/streams/create-a-stream" />
-        <id>https://documentation.cluedin.net/consume/streams/create-a-stream</id>
-        <updated>2024-01-16T00:00:00+00:00</updated>
-        <summary>
-        
-        Create a stream.
-        
-        
-        
-        Tags: consume, data export, streams.
         
         </summary>
     </entry>
@@ -1874,22 +1858,6 @@
     </entry>
     
     <entry>
-        <title>Manage streams</title>
-        <link href="https://documentation.cluedin.net/consume/streams/manage-streams" />
-        <id>https://documentation.cluedin.net/consume/streams/manage-streams</id>
-        <updated>2026-09-23T00:00:00+00:00</updated>
-        <summary>
-        
-        Manage streams.
-        
-        
-        
-        Tags: consume, data export, streams.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Azure Event Hub connector</title>
         <link href="https://documentation.cluedin.net/consume/export-targets/azure-event-hub-connector" />
         <id>https://documentation.cluedin.net/consume/export-targets/azure-event-hub-connector</id>
@@ -2225,6 +2193,38 @@
         Snowflake connector.
         
         
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Create a stream</title>
+        <link href="https://documentation.cluedin.net/consume/streams/create-a-stream" />
+        <id>https://documentation.cluedin.net/consume/streams/create-a-stream</id>
+        <updated>2026-10-10T00:00:00+00:00</updated>
+        <summary>
+        
+        Create a stream.
+        
+        
+        
+        Tags: consume, data export, streams.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Manage streams</title>
+        <link href="https://documentation.cluedin.net/consume/streams/manage-streams" />
+        <id>https://documentation.cluedin.net/consume/streams/manage-streams</id>
+        <updated>2026-10-10T00:00:00+00:00</updated>
+        <summary>
+        
+        Manage streams.
+        
+        
+        
+        Tags: consume, data export, streams.
         
         </summary>
     </entry>
