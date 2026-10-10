@@ -95,7 +95,9 @@ You can view and manage field mappings on the **Field mappings** tab of the stre
 
 1. Select **Add mapping**.
 
-1. In **Source field**, select the field from your data that you want to export.
+1. In **Source field**, search for and select the field from your data that you want to export. You can pick an entity property (for example, Description) or a vocabulary key (for example, a customer's first name). If more than one field shares the same name, CluedIn shows the vocabulary it belongs to next to it so you can tell them apart.
+
+    ![manage-field-mappings-2-vocab-search.png]({{ "/assets/images/consume/streams/manage-field-mappings-2-vocab-search.png" | relative_url }})
 
 1. In **Export field name**, enter the name that the field should have in the exported output. If you keep this the same as the source field, the field keeps its original name on export.
 
