@@ -138,6 +138,40 @@ On the stream details page, there are several tabs where you can view stream-rel
 
 - **Monitoring** – you can view real-time data on ingestion, processing, and publishing of records, as well as any exceptions.
 
+## Organize streams into folders
+
+You can use folders to organize streams—for example, by export target or by team. Folders and streams appear together in the same list, similar to files and folders in a file explorer. Streams that aren't assigned to a folder appear in the root list, alongside any folders.
+
+![organize-streams-folders-list.png]({{ "/assets/images/consume/streams/organize-streams-folders-list.png" | relative_url }})
+
+**To create a folder**
+
+1. In the list of streams, select **Create** > **Add folder**.
+
+1. Enter a folder name, and then select **Save**.
+
+The new folder appears as a row in the list.
+
+**To assign a stream to a folder**
+
+- Drag the stream row and drop it onto the folder row.
+
+    ![organize-streams-drag-to-folder.png]({{ "/assets/images/consume/streams/organize-streams-drag-to-folder.png" | relative_url }})
+
+    You can also assign a folder from the stream's **Configuration** tab: in **Folder**, select an existing folder, or type a new folder name to create one, and then select **Save**. This field is also available when you [create a stream](/consume/streams/create-a-stream).
+
+**To view the streams in a folder**
+
+- In the list of streams, select the folder that you want to view.
+
+    ![organize-streams-inside-folder-breadcrumb.png]({{ "/assets/images/consume/streams/organize-streams-inside-folder-breadcrumb.png" | relative_url }})
+
+    The breadcrumb at the top of the list shows **Root > <folder name>**. Select **Root** in the breadcrumb to return to the merged list of folders and unfoldered streams.
+
+**To remove a stream from its folder**
+
+- While viewing the folder's contents, drag the stream row and drop it onto **Root** in the breadcrumb. The stream returns to the root list. You can also remove the stream from the folder from its **Configuration** tab by clearing the **Folder** field and selecting **Save**.
+
 ## Duplicate a stream
 
 Duplicating a stream means creating a new stream with the configuration of the existing stream. This configuration includes filters and actions but does not include the export target configuration. This means that you need to select and configure the export target and choose the properties for export from scratch for the duplicated stream.
