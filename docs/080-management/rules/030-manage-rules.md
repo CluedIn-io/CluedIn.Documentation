@@ -99,6 +99,22 @@ There are two ways to activate and deactivate a rule:
 
 - Near the upper-right corner, turn on or off the status toggle.
 
+## Reprocess rules
+
+You can select multiple rules from the list and reprocess them all at once, instead of reprocessing each rule individually from its details page.
+
+**To reprocess multiple rules**
+
+1. On the navigation pane, go to **Management** > **Rule builder**.
+
+1. Choose the needed type of rule.
+
+1. In the list of rules, select the checkbox next to each rule that you want to reprocess. You can also select the checkbox in the header row to select all rules on the page.
+
+1. Near the upper-right corner of the list of rules, select **Reprocess**.
+
+    Each selected rule starts reprocessing independently; if reprocessing fails to start for one rule, the rest of the selected rules are not affected.
+
 ## Edit rule processing order
 
 The default rule processing order is the order in which the rules were created. However, you have the flexibility to adjust the rule processing sequence. This allows you to prioritize the execution of specific rules over others. For example, if you have two rules with the same filters but different actions, you can determine which rule should be applied to the records first.

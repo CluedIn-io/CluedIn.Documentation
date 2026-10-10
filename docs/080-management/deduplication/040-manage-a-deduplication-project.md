@@ -46,6 +46,18 @@ You can filter the groups of duplicates using the **Min matches – Max matches*
 
 ![sorting-and-filtering.gif]({{ "/assets/images/management/deduplication/sorting-and-filtering.gif" | relative_url }})
 
+**Generate matches for multiple projects at once**
+
+From the list of deduplication projects, you can select multiple projects and generate matches for all of them at once, instead of opening each project individually.
+
+1. On the navigation pane, go to **Management** > **Deduplicate**.
+
+1. In the list of deduplication projects, select the checkbox next to each project that you want to generate matches for. You can also select the checkbox in the header row to select all projects on the page.
+
+1. Near the upper-right corner of the list of deduplication projects, select **Generate matches**.
+
+    Match generation starts independently for each selected project; if it fails to start for one project, the rest of the selected projects are not affected.
+
 ## Discard matches
 
 If you want to change matching rules, modify project filters, or regenerate matches in the deduplication project, you can discard matches. This action does not affect merged golden records.

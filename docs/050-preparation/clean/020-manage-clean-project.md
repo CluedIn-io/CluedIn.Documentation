@@ -160,6 +160,23 @@ Regenerating the results will cause you to lose all previous progress in the cle
 
     As a result, the data that matches the filter from the clean project is loaded to the clean application. Next, you can start the [data cleaning](#clean-data) process.
 
+## Run bulk actions on multiple clean projects
+
+From the list of clean projects, you can select multiple projects and generate results, process, or revert changes for all of them at once, instead of opening each project individually.
+
+**To run a bulk action on clean projects**
+
+1. On the navigation pane, go to **Preparation** > **Clean**.
+
+1. In the list of clean projects, select the checkbox next to each project that you want to apply the action to. You can also select the checkbox in the header row to select all projects on the page.
+
+1. Near the upper-right corner of the list of clean projects, select **Generate results**, **Process**, or **Revert Changes**, and then confirm your choice.
+
+    The action runs independently for each selected project; if it fails for one project, the rest of the selected projects are not affected.
+
+    {:.important}
+    The bulk **Process** action applies the default stale data strategy (**Write stale data**) and does not auto-generate rules. If you need a different stale data strategy or want to auto-generate rules, process the clean project individually instead.
+
 ## Edit a clean project
 
 You can edit a clean project to make necessary changes in project name, description, filters, and properties that you need to clean.

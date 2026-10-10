@@ -33,6 +33,20 @@ Stream controls allows you to manage the process of sending records to the expor
 
 Think of these stream controls as similar to the controls on a video player. When you select **Pause**, the stream halts temporarily, remembering your playback position and storing records in the queue. This way, when you resume the stream, it continues from where you left off, maintaining your progress. On the other hand, **Stop** leads to a complete termination of the streaming process and clearing of the queue. If you start the stream after it had been stopped, it will start sending records to the export target from the beginning, not from the point at which you stopped the stream.
 
+### Start or stop multiple streams at once
+
+From the list of streams, you can select multiple streams and start or stop them all at once, instead of controlling each stream individually from its details page.
+
+**To start or stop multiple streams**
+
+1. On the navigation pane, go to **Consume** > **Streams**.
+
+1. In the list of streams, select the checkbox next to each stream that you want to start or stop. You can also select the checkbox in the header row to select all streams on the page.
+
+1. Near the upper-right corner of the list of streams, select **Start** or **Stop**.
+
+    Each selected stream is started or stopped independently; if the action fails for one stream, the rest of the selected streams are not affected.
+
 ## Stream actions
 
 In addition to the standard stream controls, a stream can provide **stream actions** that perform operations specific to its configured [export target](/consume/export-targets).
