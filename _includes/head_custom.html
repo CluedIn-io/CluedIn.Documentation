@@ -4,10 +4,18 @@
 
 {%- comment -%}
 Pick the colour scheme before the page paints. The theme compiles one
-stylesheet per scheme (clue / clue-dark); jtd.setTheme swaps between them.
+stylesheet per scheme (clue / clue-dark); ciSetScheme swaps between them.
 An explicit choice from the toggle wins, otherwise the OS preference does.
+
+ciSetScheme replaces jtd.setTheme only to add a build-time version to the
+URL: the stylesheets are served without cache headers, so without it a
+browser can keep using a scheme compiled by an earlier build.
 {%- endcomment %}
 <script>
+  window.ciSetScheme = function (scheme) {
+    document.querySelector('[rel="stylesheet"]').setAttribute("href",
+      "{{ '/assets/css/just-the-docs-' | relative_url }}" + scheme + ".css?v={{ site.time | date: '%s' }}");
+  };
   (function () {
     var theme;
     try { theme = localStorage.getItem("cluedin-docs-theme"); } catch (e) {}
@@ -15,7 +23,7 @@ An explicit choice from the toggle wins, otherwise the OS preference does.
       theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
     document.documentElement.setAttribute("data-theme", theme);
-    if (theme === "dark") jtd.setTheme("clue-dark");
+    if (theme === "dark") ciSetScheme("clue-dark");
   })();
 </script>
 <style>html[data-theme="dark"] { background: #0e1a24; }</style>

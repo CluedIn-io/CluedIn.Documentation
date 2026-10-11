@@ -15,7 +15,7 @@
   function apply(theme) {
     document.documentElement.setAttribute("data-theme", theme);
     // "default" is just-the-docs-default.css, compiled from the `clue` scheme.
-    jtd.setTheme(theme === "dark" ? "clue-dark" : "default");
+    window.ciSetScheme(theme === "dark" ? "clue-dark" : "default");
     var toggle = document.getElementById("theme-toggle");
     if (toggle) toggle.setAttribute("aria-checked", theme === "dark" ? "true" : "false");
   }
