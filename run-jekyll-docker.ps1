@@ -5,13 +5,14 @@
 # https://jekyllrb.com/docs/configuration/options/
 # note: can take up to 5 minutes to come up
 # note: serve speed can be sped up by removing the --verbose flag
+# note: mounts the folder this script is in, so it can be run from any directory
 # note: --force_polling is required so livereload detects file changes
 #       through the Windows Docker bind mount (native FS events don't
 #       fire through the mount, so without polling edits don't rebuild)
 docker run --rm --name cluedin-docs `
   -e JEKYLL_ENV=docker `
   -p 4000:4000 -p 35729:35729 `
-  -v "${PWD}:/srv/jekyll" -w /srv/jekyll `
+  -v "${PSScriptRoot}:/srv/jekyll" -w /srv/jekyll `
   ruby:3.3-bookworm `
   bash -lc @'
     apt-get update &&
