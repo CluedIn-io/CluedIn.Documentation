@@ -278,6 +278,25 @@ li.nav-group-label {
   transition: transform 0.2s;
 }
 
+// Below md the top bar sits at the bottom of the open menu, out of reach, so
+// assets/js/theme-toggle.js puts a copy of the switch beside the menu button.
+.header-links .theme-toggle {
+  display: none;
+
+  @include mq(md) {
+    display: inline-flex;
+  }
+}
+
+.site-header .theme-toggle {
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
 .theme-toggle[aria-checked="true"] {
   .theme-toggle-track {
     background: $ci-accent;
