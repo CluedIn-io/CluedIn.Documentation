@@ -1266,3 +1266,11 @@ $ci-badges: (
     color: $ci-muted;
   }
 }
+
+// Screenshots wrapped in {: .documentation-screenshot } get a hairline frame,
+// so a white product screen does not bleed into a white page.
+.documentation-screenshot img {
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

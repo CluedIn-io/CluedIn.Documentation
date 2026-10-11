@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/consume/streams/create-a-stream"]
 source_path: docs/150-consume/streams/010-create-a-stream.md
 tags: ["consume", "data export", "streams"]
-last_modified: 2024-01-16
+last_modified: 2026-10-10
 ---
 
 ## On this page
@@ -87,6 +87,8 @@ You can configure the export target for the stream on the **Export Target Config
     By default, certain properties of the golden records will be sent to the export target. These default properties depend on the export target (for example, for SQL Server Connector the default properties include Id, PersistVersion, PersistHash, OriginEntityCode, EntityType, Timestamp). However, you can send other properties as well. To do that, select **Add Property** > **Add Entity Property**, and then select the needed properties. In a similar way, you can add the vocabulary keys.
 
     If you want to send all vocabulary keys associated with the records matching the stream's filters, select **Auto-select**. All vocabulary keys will be displayed in the table. If you don't want to send a particular vocabulary key, select the checkbox next to it, and then select **Remove Property**.
+
+    By default, a property is sent to the export target under its original name. If you want it to have a different name in the exported output, [manage field mappings](/publish/streams/manage-streams#manage-field-mappings) on the **Field mappings** tab after you save the stream.
 
 1. Near the upper-right corner, select **Save**.
 

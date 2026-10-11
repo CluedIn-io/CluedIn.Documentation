@@ -36,7 +36,7 @@ This claim governs access to the actions for configuring an integration to push 
 
 **Data Source Groups**
 
-This claim governs access to the actions for importing your data into CluedIn, managing the resulting data sources, and processing data. To perform all actions within this claim, you should also have at least Informed access to several other claims: Configured Integrations, Annotation, Data Catalog, and Export Targets. Learn more about getting your data into CluedIn in [Data sources](/integration/data sources).
+This claim governs access to the actions for importing your data into CluedIn, managing the resulting data sources, and processing data. To perform all actions within this claim, you should also have at least Informed access to several other claims: Configured Integrations, Annotation, Data Catalog, and Export Targets. Learn more about getting your data into CluedIn in [Data sources](/ingest/data-sources).
 
 {:.important}
 This claim does not govern access to data from data sources. To get access to data, you need to have appropriate source control and access control permissions.
@@ -239,6 +239,20 @@ This claim governs access to glossary that contains groups of golden records, ca
 - Viewing golden records that match conditions from term configuration.
 - Managing owners of the term: adding or removing users and roles.
 - View changes in term audit log.
+
+**Jobs**
+
+This claim governs access to scheduled and on-demand jobs and to job monitoring. It replaces the earlier separate custom-jobs and job-monitoring claims.
+
+This claim covers the following actions:
+
+- Viewing scheduled and on-demand jobs.
+- Creating and editing user-created jobs.
+- Enabling or disabling scheduled jobs.
+- Running a job immediately.
+- Cancelling an active job execution.
+- Viewing job execution history and monitoring information.
+- Managing system-provided job schedules and editable action configuration where supported.
 
 **Hierarchy Builder**
 

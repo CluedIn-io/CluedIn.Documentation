@@ -38,6 +38,8 @@ The process of generating matches involves analyzing a specified set of golden r
 
     During the process of generating matches, you can view the number of groups found as well as the percentage of golden records that have been checked for duplicates. When the process is complete, the groups of duplicates are displayed on the page. A group contains duplicate records that can be potentially merged into one golden record.
 
+    CluedIn records when generation started for the current result set. The deduplication project list exposes this as **Last generation**, which helps you understand how fresh a project's matching results are and lets you sort projects by their most recent generation.
+
     Next, [process the groups of duplicates](/master/deduplication/manage-groups-of-duplicates)—open each group one by one to review duplicates and fix conflicting values.
 
 **Sorting and filtering of groups**
@@ -47,6 +49,18 @@ You can sort the groups of duplicates using column headers—**Name** and **Numb
 You can filter the groups of duplicates using the **Min matches – Max matches** slider. This allows you to focus on groups that contain a specific number of matches. For example, if you have a lot of groups of duplicates, you might want to start with small groups first. To do this, set the desired number of matches using the slider. Once you've processed the small groups, you can move on to larger groups by adjusting the slider accordingly.
 
 ![sorting-and-filtering.gif]({{ "/assets/images/management/deduplication/sorting-and-filtering.gif" | relative_url }})
+
+**Generate matches for multiple projects at once**
+
+From the list of deduplication projects, you can select multiple projects and generate matches for all of them at once, instead of opening each project individually.
+
+1. On the navigation pane, go to **Management** > **Deduplicate**.
+
+1. In the list of deduplication projects, select the checkbox next to each project that you want to generate matches for. You can also select the checkbox in the header row to select all projects on the page.
+
+1. Near the upper-right corner of the list of deduplication projects, select **Generate matches**.
+
+    Match generation starts independently for each selected project; if it fails to start for one project, the rest of the selected projects are not affected.
 
 ## Discard matches
 

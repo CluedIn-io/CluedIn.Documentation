@@ -20,6 +20,10 @@ In this article, you will find reference information about built-in connectors i
 {:.important}
 Please note that the connectors are not included in the CluedIn license. Each connector is an open-source package provided by the CluedIn team for free to help you send your golden records to external systems.
 
+## Amazon S3
+
+The [Amazon S3](/publish/export-targets/amazon-s3-connector) connector allows you to publish data from CluedIn to an Amazon S3 bucket.
+
 ## Azure Data Lake
 
 The [Azure Data Lake](/publish/export-targets/adl-connector) connector allows you to publish data to Azure Data Lake Storage Gen2.
@@ -82,6 +86,10 @@ The [OneLake](/publish/export-targets/onelake-connector) connector allows you to
 | Package name | Package version | Link to source code |
 |--|--|--|
 | CluedIn.Connector.OneLake | 4.4.0 | - |
+
+## Snowflake
+
+The [Snowflake](/publish/export-targets/snowflake-connector) guide explains how to find connection settings and configure key-pair authentication for the Snowflake export target.
 
 ##  Sql Server
 

@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/management/rules/manage-rules"]
 source_path: docs/080-management/rules/030-manage-rules.md
 tags: ["management", "rules"]
-last_modified: 2023-11-16
+last_modified: 2026-10-10
 ---
 
 ## On this page
@@ -42,6 +42,22 @@ You can edit a rule to make necessary changes in rule name, description, filters
 1. If you are not the owner of the rule, near the upper-right corner of the rule details page, select **Submit for approval**.
 
     The owner of the rule will receive a notification about your changes and can then approve or reject them.
+
+## Reorder actions within a rule
+
+A rule can have multiple actions, and they are applied in the order in which they're listed. You can change this order without having to delete and re-add actions.
+
+**To reorder actions within a rule**
+
+1. On the navigation pane, go to **Management** > **Rule builder**.
+
+1. Choose the needed type of rule, and then open the rule that you want to edit.
+
+1. In the **Actions** section, next to the action that you want to move, select the up or down arrow to move it to the needed position.
+
+    ![reorder-actions-1.png]({{ "/assets/images/management/rules/reorder-actions-1.png" | relative_url }})
+
+1. Near the upper-right corner of the rule details page, select **Save**, and then confirm that you want to save the rule.
 
 ## Delete a rule
 
@@ -86,6 +102,22 @@ There are two ways to activate and deactivate a rule:
 **To activate or deactivate the rule from the rule details page**
 
 - Near the upper-right corner, turn on or off the status toggle.
+
+## Reprocess rules
+
+You can select multiple rules from the list and reprocess them all at once, instead of reprocessing each rule individually from its details page.
+
+**To reprocess multiple rules**
+
+1. On the navigation pane, go to **Management** > **Rule builder**.
+
+1. Choose the needed type of rule.
+
+1. In the list of rules, select the checkbox next to each rule that you want to reprocess. You can also select the checkbox in the header row to select all rules on the page.
+
+1. Near the upper-right corner of the list of rules, select **Reprocess**.
+
+    Each selected rule starts reprocessing independently; if reprocessing fails to start for one rule, the rest of the selected rules are not affected.
 
 ## Edit rule processing order
 

@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/consume/streams/manage-streams"]
 source_path: docs/150-consume/streams/020-manage-streams.md
 tags: ["consume", "data export", "streams"]
-last_modified: 2024-01-16
+last_modified: 2026-10-10
 ---
 
 ## On this page
@@ -37,6 +37,53 @@ Stream controls allows you to manage the process of sending records to the expor
 
 Think of these stream controls as similar to the controls on a video player. When you select **Pause**, the stream halts temporarily, remembering your playback position and storing records in the queue. This way, when you resume the stream, it continues from where you left off, maintaining your progress. On the other hand, **Stop** leads to a complete termination of the streaming process and clearing of the queue. If you start the stream after it had been stopped, it will start sending records to the export target from the beginning, not from the point at which you stopped the stream.
 
+### Start or stop multiple streams at once
+
+From the list of streams, you can select multiple streams and start or stop them all at once, instead of controlling each stream individually from its details page.
+
+**To start or stop multiple streams**
+
+1. On the navigation pane, go to **Consume** > **Streams**.
+
+1. In the list of streams, select the checkbox next to each stream that you want to start or stop. You can also select the checkbox in the header row to select all streams on the page.
+
+1. Near the upper-right corner of the list of streams, select **Start** or **Stop**.
+
+    Each selected stream is started or stopped independently; if the action fails for one stream, the rest of the selected streams are not affected.
+
+## Stream actions
+
+In addition to the standard stream controls, a stream can provide **stream actions** that perform operations specific to its configured [export target](/publish/export-targets).
+
+The actions available on a stream depend on the export target itself. This means that two streams can expose different actions even when their stream configuration is otherwise similar.
+
+To view the actions available for a stream, open the stream details page and select **More**. If the configured export target provides additional actions, they appear in this menu.
+
+### Run an export immediately
+
+File-based export targets can provide a **Run Export** action. This allows you to trigger an export immediately instead of waiting for the next configured export schedule.
+
+For example, **Run Export** can be available for export targets such as:
+
+- [Amazon S3](/publish/export-targets/amazon-s3-connector)
+- [Azure Data Lake Storage Gen2](/publish/export-targets/adl-connector)
+- [OneLake](/publish/export-targets/onelake-connector)
+
+To run an export manually:
+
+1. Open the stream.
+
+1. On the stream details page, select **More**.
+
+1. Select **Run Export**.
+
+CluedIn starts an export using the stream's current configuration and export target settings.
+
+Running an export manually does not replace or disable the configured export schedule. The stream continues to run according to its existing schedule after the manual export has been triggered.
+
+{:.important}
+Stream actions are defined by the export target. **Run Export** is therefore not available for every stream, and other export targets can expose different actions.
+
 ## Edit a stream
 
 You can edit the stream configuration and the export target configuration regardless of the [stream status](/publish/streams/stream-reference#stream-statuses).
@@ -53,6 +100,37 @@ If you change filters or actions in the stream configuration or if you make any 
 1. On the **Export Target Configuration** tab, select **Edit Export Configuration**, and then confirm your choice.
 
 1. Make the needed changes, select **Save**, and then confirm your choice.
+
+## Manage field mappings
+
+Stream mappings control the name that each field has in the data sent to the export target. For example, you can map `customer.firstName` to `FirstName` or `First_Name`, so the field appears under a different name in the exported output than it has in CluedIn.
+
+You can view and manage field mappings on the **Field mappings** tab of the stream details page. Every field mapping also determines whether that field is sent to the export target: removing a mapping stops that field from being exported, and the fields you select on the **Properties to export** tab when you [configure the export target](/publish/streams/create-a-stream#configure-an-export-target) are reflected here as field mappings too.
+
+**To add a field mapping**
+
+1. On the stream details page, select the **Field mappings** tab.
+
+1. Select **Add mapping**.
+
+1. In **Source field**, search for and select the field from your data that you want to export. You can pick an entity property (for example, Description) or a vocabulary key (for example, a customer's first name). If more than one field shares the same name, CluedIn shows the vocabulary it belongs to next to it so you can tell them apart.
+
+    ![manage-field-mappings-2-vocab-search.png]({{ "/assets/images/consume/streams/manage-field-mappings-2-vocab-search.png" | relative_url }})
+
+1. In **Export field name**, enter the name that the field should have in the exported output. If you keep this the same as the source field, the field keeps its original name on export.
+
+1. Select **Save mappings**.
+
+    ![manage-field-mappings-1.png]({{ "/assets/images/consume/streams/manage-field-mappings-1.png" | relative_url }})
+
+**To edit or remove a field mapping**
+
+- To rename a field in the exported output, update its **Export field name**, and then select **Save mappings**.
+
+- To stop exporting a field, select the delete icon next to its mapping, and then select **Save mappings**.
+
+{:.important}
+If a mapping is missing a source field or an export field name, CluedIn blocks saving and shows a validation message until you fix or remove the incomplete mapping.
 
 ## View stream details
 

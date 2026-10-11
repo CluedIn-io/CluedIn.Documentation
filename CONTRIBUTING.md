@@ -107,6 +107,24 @@ their shape.
 feature to move data out — a stream, an export target, a GraphQL query — it is
 Publish & consume. If they write code that calls CluedIn, it is Develop & APIs.
 
+### AI-powered features
+
+AI is not a lifecycle stage, so there is no AI section. An article about an
+AI-powered feature is placed by the task the reader is doing, like any other:
+
+| The article is about… | Home |
+|---|---|
+| the AI agents module itself: what agents are, prerequisites and model endpoints, built-in agents, creating, running and reviewing an agent, reverting its changes | `/govern/ai-agents` |
+| an AI agent doing a task that already has a home | that task's home. Onboarding datasets is `/ingest/mapping` (`onboard-datasets-with-an-ai-agent`). An agent that proposes duplicates goes in `/master/deduplication`, and one that drafts rules goes in `/govern/rules` |
+| AI inside another feature's settings, such as auto-selecting enrichment matches with a prompt | that feature's page (`/govern/enrichment/multi-match`) |
+| the AI enricher | `/govern/enrichment` |
+| CluedIn Copilot, the chat assistant | `/solutions/copilot` |
+| learning to work with AI in CluedIn, as a course | `/learning-paths/ai` |
+| delivering a CluedIn project with AI assistance | `/playbooks` |
+
+When an agent article lands outside `/govern/ai-agents`, link to it from the
+AI agents index, so a reader who starts from the module can still find it.
+
 ### Symptoms
 
 Symptom-first articles go to **Troubleshooting** (`/troubleshooting`), with one
@@ -330,7 +348,7 @@ parentheses.
 | Govern & improve | `05-govern-and-improve` | `/govern` | ai-agents, cleaning, enrichment, rules, tags, workflows |
 | Publish & consume | `06-publish-and-consume` | `/publish` | export-targets, graphql, integration-patterns, streams |
 | Administer | `07-administer` | `/administer` | access-control, ui-configuration, users-and-roles |
-| Deploy & operate | `08-deploy-and-operate` | `/operate` | azure-deployment (`/operate/azure`), azure-marketplace, backup-and-restore, configuration, cost-and-scaling, deployment-options, local-deployment (`/operate/local`), monitoring, operations, security, upgrade |
+| Deploy & operate | `08-deploy-and-operate` | `/operate` | azure-deployment (`/operate/azure`), azure-marketplace, backup-and-restore, configuration, cost-and-scaling, deployment-options, identity-providers, local-deployment (`/operate/local`), monitoring, operations, security, upgrade |
 | Develop & APIs | `09-develop` | `/develop` | api-reference (`/api`), integrations, python-sdk |
 | Solutions & integrations | `11-solutions-and-integrations` | `/solutions` | azure-data-factory, copilot, fabric, master-data-services, power-apps, power-automate, purview, use-cases |
 | Learning paths | `12-learning-paths` | `/learning-paths` | ai-training (`/learning-paths/ai`), data-architect-course (`/learning-paths/data-architect`), data-steward-course (`/learning-paths/data-steward`), fundamentals, role-handbooks |

@@ -36,7 +36,7 @@ As of now, CluedIn supports two mechanisms for enabling AI features in CluedIn. 
 
 ### Azure AI Foundry (controlled cloud environment)
 
-[Azure AI Foundry](https://azure.microsoft.com/en-us/products/ai-foundry) supports over 11,000 models, though CluedIn currently supports chat/completion-based LLMs only. It is recommended to use [GPT models](https://platform.openai.com/docs/models), as they are the most tested and widely used with CluedIn.
+[Azure AI Foundry](https://azure.microsoft.com/en-us/products/ai-foundry) supports over 11,000 models, though CluedIn currently supports chat/completion-based LLMs only. For GPT-based deployments, it is recommended to use **GPT-5.1 or higher**, as these are the most current GPT models tested and recommended for use with CluedIn.
 
 How it works:
 - CluedIn application uses the data hosted in CluedIn and sends it securely (over encrypted transport) to the LLM hosted in your Azure tenant.
@@ -72,7 +72,8 @@ Each AI agent is configured with the following elements:
 - Access to one or more datasets, governed by [CluedIn’s access control rules](/administer/access-control).
 
 Key principles:
-- AI Agents only have read-only access. They cannot directly modify data or create objects (for example, rules, deduplication projects etc.). It can only suggest recommendations. 
+- AI agent jobs only have read-only access. They cannot directly modify data or create objects (for example, rules, deduplication projects etc.). They can only suggest recommendations.
+- When you chat with an AI agent, it acts on your behalf: it creates objects only after you approve a plan, for example, when it [onboards datasets](/ingest/mapping/onboard-datasets-with-an-ai-agent), and only what you could create yourself with your claim access levels. When you ask it to, it can also process datasets or test AI jobs.
 - Agents run a set of jobs (prompts) toward defined goals.
 - Once an agent completest its run, it produces a set of suggestions for human review.
 
