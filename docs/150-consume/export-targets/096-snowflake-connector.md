@@ -195,5 +195,5 @@ A successful connection test does not prove that the complete export can write t
 | Role cannot be used | Confirm that the role is granted to the integration user. If the field is blank, check the user's default role. |
 | Warehouse, database, schema, or table is unavailable | Check the object name and the selected role's privileges. An object may be hidden from a role that cannot access it. |
 | Connection succeeds but export fails | Review stream logs for table column mismatches, missing write privileges, or permissions required for staging and table creation. |
-| Connection is blocked | Check Snowflake network policies and connectivity from the CluedIn environment, including its outbound IP addresses. |
+| Connection is blocked | Check Snowflake network policies and connectivity from the CluedIn environment, including its outbound IP addresses. CluedIn's outbound IP address(es) and CIDR are listed under **Organization Settings &gt; General Settings &gt; Cluster Details**. |
 | Export runs at the wrong local time | Check the UTC schedule. For example, 00:00 UTC is 10:00 in Brisbane. |
