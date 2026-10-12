@@ -6,7 +6,7 @@ grand_parent: Consume
 permalink: /consume/streams/manage-streams
 title: Manage streams
 tags: ["consume", "data export", "streams"]
-last_modified: 2026-10-10
+last_modified: 2026-10-12
 ---
 ## On this page
 {: .no_toc .text-delta }
@@ -135,6 +135,10 @@ On the stream details page, there are several tabs where you can view stream-rel
 - **Preview Condition** – you can view the records that match the filters from the **Configuration** tab.
 
 - **Data** – you can view the records that will be sent to the export target. These records match the filters from the **Configuration** tab and contain the properties you selected on the **Export Target Configuration** tab.
+
+- **Data Quality** – you can view the [data quality metrics](/governance/data-quality-dashboard)—Accuracy, Completeness, Connectivity, and Relevance—for the business domain that this stream's filters target. If the stream's filters target more than one business domain, this tab shows the [Quality by Business Domain](/governance/data-quality-dashboard#quality-by-business-domain) heatmap for all business domains instead.
+
+    ![stream-data-quality-tab.png]({{ "/assets/images/consume/streams/stream-data-quality-tab.png" | relative_url }})
 
 - **Monitoring** – you can view real-time data on ingestion, processing, and publishing of records, as well as any exceptions.
 
