@@ -198,6 +198,44 @@ If you change filters or properties, all previous cleaning progress will be lost
 
     If you changed the name or description, the status of the clean project remains the same. Otherwise, it becomes **Ready for clean**.
 
+## Organize clean projects into folders
+
+You can use folders to organize clean projects—for example, by data domain or by team. Folders and clean projects appear together in the same list, similar to files and folders in a file explorer. Clean projects that aren't assigned to a folder appear in the root list, alongside any folders.
+
+![organize-clean-projects-folders-list.png]({{ "/assets/images/preparation/clean/organize-clean-projects-folders-list.png" | relative_url }})
+
+**To create a folder**
+
+1. In the list of clean projects, select **Create** > **Add folder**.
+
+1. Enter a folder name, and then select **Save**.
+
+    The new folder appears as a row in the list.
+
+**To assign a clean project to a folder**
+
+- Drag the clean project row and drop it onto the folder row.
+
+    ![organize-clean-projects-drag-to-folder.png]({{ "/assets/images/preparation/clean/organize-clean-projects-drag-to-folder.png" | relative_url }})
+
+    You can also open the three-dot menu for the clean project and select **Move to folder**, then choose an existing folder or type a new folder name to create one, and select **Save**. The same **Folder** field is available on the clean project's **Configuration** tab and in the first step of the [create clean project](/govern/cleaning/create-clean-project) wizard.
+
+**To view the clean projects in a folder**
+
+- In the list of clean projects, select the folder that you want to view.
+
+    ![organize-clean-projects-inside-folder-breadcrumb.png]({{ "/assets/images/preparation/clean/organize-clean-projects-inside-folder-breadcrumb.png" | relative_url }})
+
+    The breadcrumb at the top of the list shows **Root > <folder name>**. Select **Root** in the breadcrumb to return to the merged list of folders and unfoldered clean projects.
+
+**To remove a clean project from its folder**
+
+- While viewing the folder's contents, drag the clean project row and drop it onto **Root** in the breadcrumb. You can also open the three-dot menu for the clean project and select **Remove from folder**, or clear the **Folder** field on the **Configuration** tab and select **Save**.
+
+**To rename a folder**
+
+- In the list of clean projects, open the three-dot menu for the folder, and select **Rename folder**. Enter the new name, and then select **Save**. Renaming a folder updates it for every clean project assigned to it.
+
 ## Archive a clean project
 
 You can archive a clean project if you no longer need it or if you created it by mistake. You can also archive a clean project if you're confident that you won't need to run it again in the future or if you've already generated rules to address the same data quality issues.

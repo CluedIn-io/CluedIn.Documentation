@@ -151,6 +151,42 @@ If you are the owner of the rule and somebody else makes changes to the rule, yo
 
     If you approved the change request, the rule is updated accordingly. If you rejected the change request, no changes are made to the rule.
 
+## Organize rules into folders
+
+You can use folders to organize rules—for example, by business domain or by team. Folders and rules appear together in the same list, similar to files and folders in a file explorer. Rules that aren't assigned to a folder appear in the root list, alongside any folders.
+
+![organize-rules-folders-list.png]({{ "/assets/images/management/rules/organize-rules-folders-list.png" | relative_url }})
+
+**To create a folder**
+
+1. On the navigation pane, go to **Management** > **Rule builder**, and then choose the needed type of rule.
+
+1. In the list of rules, select **Create** > **Add folder**.
+
+1. Enter a folder name, and then select **Save**.
+
+The new folder appears as a row in the list.
+
+**To assign a rule to a folder**
+
+- Drag the rule row and drop it onto the folder row.
+
+    ![organize-rules-drag-to-folder.png]({{ "/assets/images/management/rules/organize-rules-drag-to-folder.png" | relative_url }})
+
+    You can also assign a folder from the rule details page: in **Folder**, select an existing folder, or type a new folder name to create one, and then select **Save**. This field is also available when you create a rule.
+
+**To view the rules in a folder**
+
+- In the list of rules, select the folder that you want to view.
+
+    ![organize-rules-inside-folder-breadcrumb.png]({{ "/assets/images/management/rules/organize-rules-inside-folder-breadcrumb.png" | relative_url }})
+
+    The breadcrumb at the top of the list shows **Root > `<folder name>`**. Select **Root** in the breadcrumb to return to the merged list of folders and unfoldered rules.
+
+**To remove a rule from its folder**
+
+- While viewing the folder's contents, drag the rule row and drop it onto **Root** in the breadcrumb. The rule returns to the root list. You can also remove the rule from its folder from the rule details page by clearing the **Folder** field and selecting **Save**.
+
 ## Duplicate a rule
 
 Duplicating a rule means creating a new rule with the configuration of the existing rule. This configuration includes filters and rule actions but does not include the activities performed by the rule. By activities, we mean the changes applied to data parts or golden records according to the rule’s actions. For example, if you duplicate a golden record rule with the action to add tags to all golden records, the new rule will not automatically add the same tags to golden records.

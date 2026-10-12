@@ -27,6 +27,10 @@ To find all the identifiers that uniquely represent a golden record in the syste
 
 ![codes-1.gif]({{ "/assets/images/key-terms-and-features/codes-1.gif" | relative_url }})
 
+The **View Identifiers** panel lists identifiers in a table, with a **Source** column showing an icon for the system the identifier came from.
+
+![codes-identifiers-table.png]({{ "/assets/images/key-terms-and-features/codes-identifiers-table.png" | relative_url }})
+
 The identifiers are divided into two sections:
 
 - [Primary identifier](#primary-identifier) – this is the **primary unique identifier** of a golden record in CluedIn.

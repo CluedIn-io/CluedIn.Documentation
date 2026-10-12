@@ -18,6 +18,42 @@ source_path: docs/080-management/hierarchy-builder/040-manage-hierarchies.md
 
 In this article, you will learn how to manage hierarchies in order to keep them well-organized.
 
+## Organize hierarchies into folders
+
+You can use folders to organize hierarchies—for example, by business domain or by the team that owns them. Folders and hierarchies appear together in the same list, similar to files and folders in a file explorer. Hierarchies that aren't assigned to a folder appear in the root list, alongside any folders.
+
+![organize-hierarchies-folders-list.png](/assets/images/management/hierarchy-builder/organize-hierarchies-into-folders/organize-hierarchies-folders-list.png)
+
+**To create a folder**
+
+1. On the navigation pane, go to **Management** > **Hierarchy Builder**.
+
+1. Select **Create** > **Add folder**.
+
+1. Enter a folder name, and then select **Save**.
+
+The new folder appears as a row in the list.
+
+**To assign a hierarchy to a folder**
+
+- Drag the hierarchy row and drop it onto the folder row.
+
+    ![organize-hierarchies-drag-to-folder.png](/assets/images/management/hierarchy-builder/organize-hierarchies-into-folders/organize-hierarchies-drag-to-folder.png)
+
+    You can also assign a folder from the hierarchy's **Hierarchy Properties** panel: in **Folder**, select an existing folder, or type a new folder name to create one, and then select **Save**. This field is also available on the **General** step of the create-hierarchy panel when you create the hierarchy.
+
+**To view the hierarchies in a folder**
+
+- In the list of hierarchies, select the folder that you want to view.
+
+    ![organize-hierarchies-inside-folder-breadcrumb.png](/assets/images/management/hierarchy-builder/organize-hierarchies-into-folders/organize-hierarchies-inside-folder-breadcrumb.png)
+
+    The breadcrumb at the top of the list shows **Root > `<folder name>`**. Select **Root** in the breadcrumb to return to the merged list of folders and unfoldered hierarchies.
+
+**To remove a hierarchy from its folder**
+
+- While viewing the folder's contents, drag the hierarchy row and drop it onto **Root** in the breadcrumb. The hierarchy returns to the root list. You can also remove the hierarchy from the folder from its **Hierarchy Properties** panel by clearing the **Folder** field and selecting **Save**.
+
 ## Clone a hierarchy
 
 If you want to reuse the configuration of an existing hierarchy project, you can clone it.

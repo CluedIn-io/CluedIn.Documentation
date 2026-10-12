@@ -45,6 +45,42 @@ An AI agent is a component that uses artificial intelligence to analyze data, pr
 
     After you created an AI agent, proceed to configure it by adding jobs.
 
+## Organize AI agents into folders
+
+You can use folders to organize AI agents—for example, by team or by the type of data quality work they perform. Folders and AI agents appear together in the same list, similar to files and folders in a file explorer. AI agents that aren't assigned to a folder appear in the root list, alongside any folders.
+
+![organize-ai-agents-folders-list.png]({{ "/assets/images/management/ai-agents/organize-ai-agents-into-folders/organize-ai-agents-folders-list.png" | relative_url }})
+
+**To create a folder**
+
+1. On the navigation pane, go to **AI Agents** (or, **Management** > **AI Agents**).
+
+1. Select **Create** > **Add folder**.
+
+1. Enter a folder name, and then select **Save**.
+
+The new folder appears as a row in the list.
+
+**To assign an AI agent to a folder**
+
+- Drag the AI agent row and drop it onto the folder row.
+
+    ![organize-ai-agents-drag-to-folder.png]({{ "/assets/images/management/ai-agents/organize-ai-agents-into-folders/organize-ai-agents-drag-to-folder.png" | relative_url }})
+
+    You can also assign a folder from the AI agent's **Settings** tab: in **Folder**, select an existing folder, or type a new folder name to create one, and then select **Save**. This field is also available on the **Create Agent** pane when you [create the AI agent](#create-an-ai-agent).
+
+**To view the AI agents in a folder**
+
+- In the list of AI agents, select the folder that you want to view.
+
+    ![organize-ai-agents-inside-folder-breadcrumb.png]({{ "/assets/images/management/ai-agents/organize-ai-agents-into-folders/organize-ai-agents-inside-folder-breadcrumb.png" | relative_url }})
+
+    The breadcrumb at the top of the list shows **Root > `<folder name>`**. Select **Root** in the breadcrumb to return to the merged list of folders and unfoldered AI agents.
+
+**To remove an AI agent from its folder**
+
+- While viewing the folder's contents, drag the AI agent row and drop it onto **Root** in the breadcrumb. The AI agent returns to the root list. You can also remove the AI agent from the folder from its **Settings** tab by clearing the **Folder** field and selecting **Save**.
+
 ## Configure an AI agent job
 
 To enable an AI agent to perform a specific task, you must create and configure one or more **AI agent jobs**. A job defines a specific task assigned to the agent—such as detecting duplicates, identifying and resolving data quality issues, or generating rules—based on a specific set of golden records.
