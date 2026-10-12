@@ -5,7 +5,7 @@ parent: Management
 nav_order: 100
 permalink: /management/audits
 tags: ["management", "audits", "governance", "data quality"]
-last_modified: 2026-10-11
+last_modified: 2026-10-12
 ---
 
 ## On this page
@@ -27,7 +27,9 @@ At the top of the page, summary cards show:
 - **Open findings** – records marked **Not correct** that have not yet been resolved (see [Resolve findings](#resolve-findings)), regardless of whether their audit is still active.
 - **Failed audits** – audits with at least one record marked **Not correct**.
 
-Below the summary cards, you can filter the audit list by auditor and open any audit to see its details.
+Next to the summary cards, a small chart breaks down every audit by its current status (**Not started**, **Active**, **Stopped**).
+
+Below the summary cards, you can filter the audit list by auditor and open any audit to see its details. Each audit's **Status** is shown as a colored badge — blue for **Not started**, green for **Active**, grey for **Stopped** — so you can tell at a glance which audits are currently running. Select a column header to sort the table by that column.
 
 Select multiple audits using the checkboxes on the left of the table to **Start audits** or **Stop audits** in bulk. Only audits in the right lifecycle state for the action are affected — starting a selection only starts the ones that are **Not started**, and stopping only stops the ones that are **Active**.
 
