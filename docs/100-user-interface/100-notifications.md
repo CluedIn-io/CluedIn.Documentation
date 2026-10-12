@@ -5,7 +5,7 @@ parent: User Interface
 nav_order: 100
 permalink: /user-interface/notifications
 tags: ["ui", "notifications"]
-last_modified: 2026-09-23
+last_modified: 2026-10-12
 ---
 
 ## On this page
@@ -214,3 +214,17 @@ This structure is designed to make notifications useful both when you are quickl
 Notifications can also be used with CluedIn workflows. For example, a CluedIn event can trigger a workflow that sends information or an approval request to external systems such as Outlook or Microsoft Teams.
 
 For more information, see [Create and manage workflows](/workflow/create-and-manage-workflows).
+
+## Unread count in the browser tab
+
+While you have unread notifications, CluedIn shows the unread count in the browser tab title, for example `(3) CluedIn`. The count disappears from the tab title once your unread notifications reach zero.
+
+If you have muted a notification type (see [Notification types](/administration/general-settings#notification-types)), notifications of that type are not included in this count.
+
+## Browser (OS) notifications
+
+In addition to the in-app notification bell, CluedIn can show you operating system (HTML5) notifications — with an audible chime where your browser supports it — so you can notice important activity even when the CluedIn tab isn't focused.
+
+Browser notifications are off by default and are a per-user preference. You turn them on, choose which notification types trigger them, and manage browser permission from **Organization Settings > General Settings > Notifications**. See [General settings](/administration/general-settings#notifications) for details, including what happens if your browser blocks the permission request.
+
+![Browser notifications enabled in General Settings]({{ "/assets/images/user-interface/notifications/os-notifications-toggle.png" | relative_url }})
