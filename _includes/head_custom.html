@@ -9,12 +9,16 @@ An explicit choice from the toggle wins, otherwise the OS preference does.
 
 ciSetScheme replaces jtd.setTheme only to add a build-time version to the
 URL: the stylesheets are served without cache headers, so without it a
-browser can keep using a scheme compiled by an earlier build.
+browser can keep using a scheme compiled by an earlier build. The light
+scheme is re-pointed too, because the theme links it unversioned. The same
+version goes on our own scripts, so a stale theme-toggle.js cannot bring
+back the unversioned jtd.setTheme.
 {%- endcomment %}
+{%- assign asset_version = site.time | date: '%s' %}
 <script>
   window.ciSetScheme = function (scheme) {
     document.querySelector('[rel="stylesheet"]').setAttribute("href",
-      "{{ '/assets/css/just-the-docs-' | relative_url }}" + scheme + ".css?v={{ site.time | date: '%s' }}");
+      "{{ '/assets/css/just-the-docs-' | relative_url }}" + scheme + ".css?v={{ asset_version }}");
   };
   (function () {
     var theme;
@@ -23,10 +27,10 @@ browser can keep using a scheme compiled by an earlier build.
       theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
     document.documentElement.setAttribute("data-theme", theme);
-    if (theme === "dark") ciSetScheme("clue-dark");
+    ciSetScheme(theme === "dark" ? "clue-dark" : "default");
   })();
 </script>
 <style>html[data-theme="dark"] { background: #0e1a24; }</style>
 
-<script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/nav-groups.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/theme-toggle.js' | relative_url }}?v={{ asset_version }}" defer></script>
+<script src="{{ '/assets/js/nav-groups.js' | relative_url }}?v={{ asset_version }}" defer></script>
