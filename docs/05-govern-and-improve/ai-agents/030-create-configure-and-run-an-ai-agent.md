@@ -16,7 +16,34 @@ tags: ["management", "ai agents", "create an ai agent", "configure an ai agent",
 - TOC
 {:toc}
 
-In this article, you will learn how to create, configure, and run an AI agent tailored to your specific business needs.
+Create an AI agent when you want CluedIn to analyze a set of golden records and suggest changes for a specific task, such as fixing data quality issues, finding duplicates, or creating rules. **AI Agents** is a CluedIn product feature: you create the agent, give it one or more jobs, test each job on a sample, and then run it. A run produces suggestions; for most skills, golden records change only when the suggestions are approved.
+
+## Prerequisites
+
+- The **AI Agents** feature is enabled, and a platform, a deployment and a model endpoint are configured. See [Prerequisites to using AI agents](/govern/ai-agents/prerequisites-to-using-ai-agents).
+- Golden records for the job to work on, and the vocabulary keys that hold the values you want the agent to analyze.
+- If you want to check that a built-in agent already covers your task, see [Built-in AI agents](/govern/ai-agents/built-in-ai-agents).
+
+## Inputs
+
+| Where | Field | Required | What it accepts | Example |
+|--|--|--|--|--|
+| AI agent | **Name** | Required | A user-friendly name. | `Financial Data Steward` |
+| AI agent | **Description** | Optional | Text displayed in the CluedIn UI that explains the agent's purpose. | `AI agent that ensures financial data quality` |
+| AI agent | **Instructions** | Optional | Instructions that apply to all jobs of the agent, formatted as Markdown. | `Fix incorrect date formats` |
+| AI agent | **Folder** | Optional | An existing folder, or a new folder name. | `Data Quality Agents` |
+| Job | **Name** | Required | A user-friendly name. | `Fix client data` |
+| Job | **Description** | Optional | What the job does and why. | `A job that fixes data quality issues in client data` |
+| Job | **Endpoint** | Not marked as required | A configured [model endpoint](/govern/ai-agents/prerequisites-to-using-ai-agents#configure-a-model-endpoint). | `gpt-4.1` |
+| Data source | **Name** | Required | A user-friendly name. You refer to the data source by this name in the prompt. | `Clients` |
+| Data source | Type | Required | A data source type. **Query** sends rows of golden record data to the model. | **Query** |
+| Data source | **Sampling**, **Sampling Size** | Optional | A number of golden records to limit the data source to. | `100` |
+| Data source | **Modified Since Last Run** | Optional | On: only golden records modified since the last successful run. Off: all golden records. | On |
+| Data source | **Conditions** | Required | A [filter](/master/filters) that selects the golden records. | Business domain equals `TrainingContact` |
+| Data source | Vocabulary keys | Not marked as required | One or more vocabulary keys that the job analyzes. | `trainingcontact.firstName` |
+| Prompt | Skill | Not stated | One skill from the **Skills** section, such as **Fix Data Quality Issues**, **Find Duplicates** or **Create Data Validation Rules**. | **Fix Data Quality Issues** |
+| Prompt | **Instructions** | Not stated | The task in natural language, with the data source dragged in. | `Fix data quality issues in Clients: capitalize the first letter of trainingcontact.firstName` |
+| Schedule | **Recurring Schedule** | Optional | Once every N minutes, hours, or days. | Every 1 day |
 
 ## Create an AI agent
 
@@ -39,7 +66,7 @@ An AI agent is a component that uses artificial intelligence to analyze data, pr
     {:.important}
     These instructions will apply to all [jobs](#configure-an-ai-agent-job) that the AI agent performs (this way, you won't have to repeat the instructions in each job).
 
-    ![create_agent_pane.png]({{ "/assets/images/management/ai-agents/create-an-ai-agent/create_agent_pane.png" | relative_url }})
+    ![The Create pane for an AI agent, with Name, Description, and formatted Instructions listing the data issues to fix]({{ "/assets/images/management/ai-agents/create-an-ai-agent/create_agent_pane.png" | relative_url }})
 
 1. Select **Create**.
 
@@ -49,7 +76,7 @@ An AI agent is a component that uses artificial intelligence to analyze data, pr
 
 You can use folders to organize AI agents—for example, by team or by the type of data quality work they perform. Folders and AI agents appear together in the same list, similar to files and folders in a file explorer. AI agents that aren't assigned to a folder appear in the root list, alongside any folders.
 
-![organize-ai-agents-folders-list.png]({{ "/assets/images/management/ai-agents/organize-ai-agents-into-folders/organize-ai-agents-folders-list.png" | relative_url }})
+![The AI agents list with the Data Quality Agents folder shown as a row above the AI agents in the root list]({{ "/assets/images/management/ai-agents/organize-ai-agents-into-folders/organize-ai-agents-folders-list.png" | relative_url }})
 
 **To create a folder**
 
@@ -65,7 +92,7 @@ The new folder appears as a row in the list.
 
 - Drag the AI agent row and drop it onto the folder row.
 
-    ![organize-ai-agents-drag-to-folder.png]({{ "/assets/images/management/ai-agents/organize-ai-agents-into-folders/organize-ai-agents-drag-to-folder.png" | relative_url }})
+    ![The AI agents list with the Customer Data Quality Agent row below the Data Quality Agents folder row it is dragged onto]({{ "/assets/images/management/ai-agents/organize-ai-agents-into-folders/organize-ai-agents-drag-to-folder.png" | relative_url }})
 
     You can also assign a folder from the AI agent's **Settings** tab: in **Folder**, select an existing folder, or type a new folder name to create one, and then select **Save**. This field is also available on the **Create Agent** pane when you [create the AI agent](#create-an-ai-agent).
 
@@ -73,7 +100,7 @@ The new folder appears as a row in the list.
 
 - In the list of AI agents, select the folder that you want to view.
 
-    ![organize-ai-agents-inside-folder-breadcrumb.png]({{ "/assets/images/management/ai-agents/organize-ai-agents-into-folders/organize-ai-agents-inside-folder-breadcrumb.png" | relative_url }})
+    ![The contents of the Data Quality Agents folder, with the Root breadcrumb above the list of AI agents in it]({{ "/assets/images/management/ai-agents/organize-ai-agents-into-folders/organize-ai-agents-inside-folder-breadcrumb.png" | relative_url }})
 
     The breadcrumb at the top of the list shows **Root > `<folder name>`**. Select **Root** in the breadcrumb to return to the merged list of folders and unfoldered AI agents.
 
@@ -89,7 +116,7 @@ Setting up an AI agent job involves the following steps:
 
 1. [Creating a job](#create-a-job) – add a new job for an AI agent.
 
-1. [Adding a data source](#add-a-data-source) – specify a set of golden records the agent should operate on.
+1. [Adding a data source](#add-a-data-source) – specify a set of golden records the agent should operate on. This is not an ingestion data source; see [Add a data source](#add-a-data-source).
     
 1. [Configuring a prompt](#configure-a-prompt) – define the instructions the agent should follow to complete the task.
 
@@ -115,7 +142,7 @@ A job is the operational unit within an AI agent. It defines what the agent shou
 
 1. Select the **Endpoint** that the job will use. This is the [API endpoint of a specific deployed AI model](/govern/ai-agents/prerequisites-to-using-ai-agents#configure-a-model-endpoint) that your job will call to perform its task. Choosing the correct endpoint ensures the job uses the right AI capabilities.
 
-    ![create_pane.png]({{ "/assets/images/management/ai-agents/create-ai-agent-job/create_pane.png" | relative_url }})
+    ![The Create pane for an AI agent job, with Name, Description, and the gpt-4.1 endpoint selected]({{ "/assets/images/management/ai-agents/create-ai-agent-job/create_pane.png" | relative_url }})
 
 1. Select **Create**.
 
@@ -125,6 +152,9 @@ A job is the operational unit within an AI agent. It defines what the agent shou
 
 A data source within a job refers to a specific set of golden records that the job will operate on. The data source defines the input data for the AI agent, ensuring that the job processes the correct records for a specific task.
 
+{:.important}
+In an AI agent job, a **data source** is a set of golden records already in CluedIn, selected with filter conditions. It is not an ingestion [data source](/ingest/data-sources): it does not bring records into CluedIn.
+
 **To add a data source**
 
 1. On the navigation pane, go to **AI Agents** (or, **Management** > **AI Agents**).
@@ -133,7 +163,7 @@ A data source within a job refers to a specific set of golden records that the j
 
 1. On the **Configuration** tab of the job page, in the **Data** section, select **Add data source**.
 
-    ![click_add_data_source_btn.png]({{ "/assets/images/management/ai-agents/add-a-data-source/click_add_data_source_btn.png" | relative_url }})
+    ![The Configuration tab of an AI agent job with Add data source highlighted in the Data section]({{ "/assets/images/management/ai-agents/add-a-data-source/click_add_data_source_btn.png" | relative_url }})
 
 1. On the **Create Data Source** pane, do the following:
 
@@ -149,7 +179,7 @@ A data source within a job refers to a specific set of golden records that the j
 
     1. Select **Create**.
 
-        ![create_data_source_pane.png]({{ "/assets/images/management/ai-agents/add-a-data-source/create_data_source_pane.png" | relative_url }})
+        ![The Add data source pane with Name, Sampling, Modified since last run, a business domain condition and vocabulary keys]({{ "/assets/images/management/ai-agents/add-a-data-source/create_data_source_pane.png" | relative_url }})
 
     Once you added the needed data source, proceed to configure the prompt that the job should follow to complete the task.
 
@@ -165,13 +195,13 @@ A prompt in an AI agent job is a set of instructions or natural language input t
 
 1. On the **Configuration** tab of the job page, in the **Skills** section, select the skill that the agent should use to perform the job.
 
-    ![select_skill.png]({{ "/assets/images/management/ai-agents/configure-a-prompt/select_skill.png" | relative_url }})
+    ![The Skills section of the job Configuration tab with Fix Data Quality Issues selected among the available skills]({{ "/assets/images/management/ai-agents/configure-a-prompt/select_skill.png" | relative_url }})
 
 1. In the **Instructions** section, enter a prompt instructing the agent what task it must perform.
 
     Then, select the data source on which the job should run. To do this, drag the needed data source from the **Data** section onto the **Instructions** section.
 
-    ![prompt.png]({{ "/assets/images/management/ai-agents/configure-a-prompt/prompt.png" | relative_url }})
+    ![The Instructions section of the job, with a prompt that refers to the Clients data source and lists three fixes]({{ "/assets/images/management/ai-agents/configure-a-prompt/prompt.png" | relative_url }})
 
     Once you configured the prompt, test the job configuration to make sure that the results meet your expectations and the task is performed correctly.
 
@@ -194,7 +224,7 @@ When you test the job, no changes are made to the your golden records. The purpo
 
 1. In the upper-right corner of the job page, select **Test Now**. The testing process may take some time depending on the amount of data to be processed.
 
-    ![click_test_job_btn.png]({{ "/assets/images/management/ai-agents/test-a-job/click_test_job_btn.png" | relative_url }})
+    ![The AI agent job page with the Test now button highlighted in the upper-right corner]({{ "/assets/images/management/ai-agents/test-a-job/click_test_job_btn.png" | relative_url }})
 
 1. When testing is completed, review the testing results:
 
@@ -203,26 +233,26 @@ When you test the job, no changes are made to the your golden records. The purpo
         {:.important}
         The layout of the **Runs** tab changes depending on the skill selected when [configuring the prompt](#configure-a-prompt). In this example, the images are for the **Fix Data Quality Issues** skill.
 
-        ![locate_the_test_run.png]({{ "/assets/images/management/ai-agents/test-a-job/locate_the_test_run.png" | relative_url }})
+        ![The Runs tab of an AI agent job with a run labelled Test and Completed]({{ "/assets/images/management/ai-agents/test-a-job/locate_the_test_run.png" | relative_url }})
 
     1. Select the test run. You can now review the preliminary suggestions generated during the test run. The values that the AI agent suggested to change are highlighted in green.
 
-        ![test_run_results.png]({{ "/assets/images/management/ai-agents/test-a-job/test_run_results.png" | relative_url }})
+        ![A completed test run on the Runs tab, with the values the AI agent suggests changing highlighted in the table]({{ "/assets/images/management/ai-agents/test-a-job/test_run_results.png" | relative_url }})
 
         {:.important}
         If the test run returns no results, try adjusting the job settings as described in [Troubleshoot an AI agent job](#troubleshoot-an-ai-agent-job).
 
     1. To view the AI agent suggestions, locate a cell highlighted in green. Then, hover over the information icon in that cell to view the current golden record value and how the AI agent suggests to change it.
 
-        ![view_suggestion_details.png]({{ "/assets/images/management/ai-agents/test-a-job/view_suggestion_details.png" | relative_url }})
+        ![A suggestion tooltip showing the current golden record value, the AI-suggested value and the reason for the change]({{ "/assets/images/management/ai-agents/test-a-job/view_suggestion_details.png" | relative_url }})
 
 1. To view input and output data exchanged between CluedIn and the large language model (LLM), go to the **Configuration** tab of the job. Then, expand the **Logs** section.
 
-    ![view_logs_sp.png]({{ "/assets/images/management/ai-agents/test-a-job/view_logs_sp.png" | relative_url }})
+    ![The Logs section of the job Configuration tab, showing the output returned by the LLM and the input prompt and data sent]({{ "/assets/images/management/ai-agents/test-a-job/view_logs_sp.png" | relative_url }})
 
     If the [corresponding setting is enabled](/govern/ai-agents/prerequisites-to-using-ai-agents#configure-organization-wide-settings-for-ai-agents), the **Logs** sections will include the **Show Raw Data** button. The button reveals the raw JSON data for requests and responses exchanged between CluedIn and the LLM. This feature is useful for fine-tuning prompts but is best suited for users with a strong technical background in LLMs and JSON.
 
-    ![view_logs_show_raw_data_sp.png]({{ "/assets/images/management/ai-agents/test-a-job/view_logs_show_raw_data_sp.png" | relative_url }})
+    ![The Logs section of an AI agent job with the Show Raw Data button highlighted below the output]({{ "/assets/images/management/ai-agents/test-a-job/view_logs_show_raw_data_sp.png" | relative_url }})
 
     Once you’re satisfied with the job configuration and preliminary suggestions generated by the AI agent, proceed to run the job.
 
@@ -244,11 +274,11 @@ You can run the job:
 
 1. On the job page, turn on the status toggle to enable the job.
 
-    ![enable_the_job.png]({{ "/assets/images/management/ai-agents/run-a-job/enable_the_job.png" | relative_url }})
+    ![The AI agent job page with the status toggle turned on and showing Enabled]({{ "/assets/images/management/ai-agents/run-a-job/enable_the_job.png" | relative_url }})
 
 1. To run the job now, in the upper-right corner of the job page, select **Run Now**.
 
-    ![run_the_job.png]({{ "/assets/images/management/ai-agents/run-a-job/run_the_job.png" | relative_url }})
+    ![The enabled AI agent job page with the Run now button highlighted]({{ "/assets/images/management/ai-agents/run-a-job/run_the_job.png" | relative_url }})
 
 1. To run the job on a schedule, do the following:
  
@@ -258,7 +288,7 @@ You can run the job:
 
     1.  Specify the schedule for job. You can have the job running once every N hours, days, or minutes.
 
-         ![specify_a_schedule.png]({{ "/assets/images/management/ai-agents/run-a-job/specify_a_schedule.png" | relative_url }})
+         ![The Settings tab of an AI agent job with Recurring schedule enabled to run every 1 day]({{ "/assets/images/management/ai-agents/run-a-job/specify_a_schedule.png" | relative_url }})
 
 1. In the upper-right corner of the job page, select **Save**.
 
@@ -269,11 +299,11 @@ You can run the job:
 
 1. To view input and output data exchanged between CluedIn and the large language model (LLM), go to the **Configuration** tab of the job. Then, expand the **Logs** section.
 
-    ![view_logs_sp.png]({{ "/assets/images/management/ai-agents/test-a-job/view_logs_sp.png" | relative_url }})
+    ![The Logs section of the job Configuration tab, showing the output returned by the LLM and the input prompt and data sent]({{ "/assets/images/management/ai-agents/test-a-job/view_logs_sp.png" | relative_url }})
 
     If the [corresponding setting is enabled](/govern/ai-agents/prerequisites-to-using-ai-agents#configure-organization-wide-settings-for-ai-agents), the **Logs** sections will include the **Show Raw Data** button. The button reveals the raw JSON data for requests and responses exchanged between CluedIn and the LLM. This feature is useful for fine-tuning prompts but is best suited for users with a strong technical background in LLMs and JSON.
 
-    ![view_logs_show_raw_data_sp.png]({{ "/assets/images/management/ai-agents/test-a-job/view_logs_show_raw_data_sp.png" | relative_url }})
+    ![The Logs section of an AI agent job with the Show Raw Data button highlighted below the output]({{ "/assets/images/management/ai-agents/test-a-job/view_logs_show_raw_data_sp.png" | relative_url }})
 
 ### Troubleshoot an AI agent job
 
@@ -289,8 +319,38 @@ If, after configuring and testing the prompt, the **Test History** pane doesn't 
 
 1. In the **Endpoint** list, select the endpoint that you want to use for the AI agent.
 
-    ![select_endpoint.png]({{ "/assets/images/management/ai-agents/troubleshoot-a-job/select_endpoint.png" | relative_url }})
+    ![The Settings tab of an AI agent job with the Endpoint list highlighted]({{ "/assets/images/management/ai-agents/troubleshoot-a-job/select_endpoint.png" | relative_url }})
 
 1. In the upper-right corner of the job page, select **Save**.
 
     You can now retest and rerun the job.
+
+## Verify the result
+
+- **AI agent created**: the agent appears in the list of AI agents, in the folder you assigned, if any.
+- **Data source and skill configured**: on the job's **Configuration** tab, the data source is listed in the **Data** section, and the selected skill is marked in the **Skills** section.
+- **Test finished**: on the **Runs** tab, the run with the **Test** label has the **Completed** status. Its preliminary suggestions are shown on that run. A test makes no changes to golden records.
+- **Run in progress**: a progress bar is shown at the top of the job page. If the **Show "Started Job" notification** [setting](/govern/ai-agents/prerequisites-to-using-ai-agents#configure-organization-wide-settings-for-ai-agents) is on, you also receive a notification when the job starts.
+- **Run finished**: on the **Runs** tab, there is a run with the **Completed** status and without the **Test** label. Its suggestions are listed on the **Results** tab, where you [review them](/govern/ai-agents/review-the-results-returned-by-an-ai-agent).
+- **Schedule set**: on the **Settings** tab, **Recurring Schedule** is enabled with the interval you chose.
+
+## What this changes
+
+- **Creating an agent, a job, a data source and a prompt** only saves configuration.
+- **Testing a job** makes no changes to golden records. It only previews the suggestions.
+- **Running a job** sends the selected golden record values and your instructions to the model endpoint, and produces suggestions. You can see what was exchanged in the job's **Logs** section. Model usage is billed at the token costs set on the [deployment](/govern/ai-agents/prerequisites-to-using-ai-agents#configure-a-deployment).
+- **Suggestions are not applied automatically**, with two exceptions:
+    - For the **Find Duplicates** skill, suggestions are approved automatically, because the resulting matches in a [deduplication project](/master/deduplication) still require approval.
+    - If the **Auto-approve AI suggestions** [setting](/govern/ai-agents/prerequisites-to-using-ai-agents#configure-organization-wide-settings-for-ai-agents) is on, all suggestions are approved as soon as the agent provides them.
+- **An approved suggestion changes the golden record.** The change is recorded in the [golden record history](/master/golden-records/history) as **AI Agent Job Source** - _Agent name_ - _Job name_, and the record is listed on the job's **Affected Records** tab.
+- **Changes can be reverted**, for a whole job or for a single golden record. See [View and revert changes made by an AI agent](/govern/ai-agents/view-and-revert-changes-made-by-ai-agent).
+- **A recurring schedule** runs the job again at the interval you set. With **Modified Since Last Run** on, each run processes only the golden records modified since the last successful run.
+
+## If something goes wrong
+
+- **The test run returns no suggestions.** The job might be using an incorrect endpoint. Select another endpoint as described in [Troubleshoot an AI agent job](#troubleshoot-an-ai-agent-job), and then test again.
+- **Run Now is not available.** The job is disabled. Turn on the status toggle on the job page.
+- **The Results tab is empty after a run.** The suggestions may have been approved automatically, they may already have been approved or rejected, or the job may still be running or never have been run. See [Review the results returned by an AI agent](/govern/ai-agents/review-the-results-returned-by-an-ai-agent).
+- **A run takes a long time.** Depending on the size of the data and the model's performance, a run can take from a few seconds to several days. Use **Sampling** to limit the number of golden records while you refine the job.
+- **The AI agent does not produce all expected suggestions.** Run the job and review the results again. Repeat until the agent produces all expected suggestions.
+- **An approved change is wrong.** [Revert the changes made by the AI agent](/govern/ai-agents/view-and-revert-changes-made-by-ai-agent#revert-changes-made-by-an-ai-agent).
