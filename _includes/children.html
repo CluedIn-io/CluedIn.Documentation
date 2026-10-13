@@ -1,0 +1,36 @@
+{%- comment -%}
+Lists the child pages of the current section, grouped by content type.
+
+Every section index page in this site relies on this include instead of a
+hand-maintained card list, so a page can never be added to a section and then
+be missing from its index.
+{%- endcomment -%}
+
+{%- assign kids = site.pages
+      | where: "parent", page.title
+      | where_exp: "p", "p.published != false"
+      | sort: "nav_order" -%}
+
+{%- if page.grand_parent -%}
+  {%- assign kids = site.pages
+        | where: "parent", page.title
+        | where: "grand_parent", page.parent
+        | where_exp: "p", "p.published != false"
+        | sort: "nav_order" -%}
+{%- endif -%}
+
+{%- if kids.size > 0 -%}
+<h2 class="section-index-heading">In this section</h2>
+<ul class="section-index">
+  {%- for kid in kids -%}
+  <li>
+    <a href="{{ kid.url | relative_url }}">{{ kid.title }}</a>
+    {%- if kid.content_type and kid.content_type != "landing" %}
+    <span class="content-type-badge content-type-{{ kid.content_type }}">{{ kid.content_type }}</span>
+    {%- endif -%}
+    {%- if kid.has_children %}<span class="section-index-count">section</span>{% endif -%}
+    {%- if kid.summary %}<span class="section-index-summary">{{ kid.summary }}</span>{% endif -%}
+  </li>
+  {%- endfor -%}
+</ul>
+{%- endif -%}
