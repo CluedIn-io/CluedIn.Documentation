@@ -131,7 +131,7 @@ header_links:
   github: "https://github.com/CluedIn-io/CluedIn.Documentation"
   cta:
     label: "Get CluedIn"
-    url: "https://www.cluedin.com/saas-invitation-application"
+    url: "https://landing.cluedin.com/signup"
 
 kramdown:
   syntax_highlighter_opts:
