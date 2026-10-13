@@ -70,25 +70,23 @@ Reprocessing a golden record re-runs the existing processing pipeline against it
 
 Splitting undoes a previous merge (a manual merge, a deduplication project merge, or a merge based on a shared identifier), separating a golden record back into the individual records it was made up of. This is the same split capability available from a single golden record's [Entity Topology](/key-terms-and-features/golden-records/golden-record-relations) page, applied to every selected record in turn.
 
+Golden records that have nothing to split (no merged data parts) are skipped automatically — you're only prompted for the ones that can actually be split.
+
 **To split several golden records**
 
 1. [Select](#select-golden-records) the golden records that you want to split.
 
 1. In the toolbar, select **Split**.
 
-    CluedIn reviews the first selected golden record and shows its split details.
+    CluedIn reviews the selected golden records and, for the first one that has data parts to split, shows the split details.
 
-1. Do one of the following:
+1. Review the details, and then do one of the following:
 
-    - If the golden record has data parts that can be split, review the details and select **Confirm split**.
+    - Select **Confirm split** to split the golden record.
 
-    - If the golden record has no merged data parts to split, CluedIn shows a message explaining that it can't be split.
+    - Select **Skip** to move on without splitting it.
 
-        ![split-records-modal.png]({{ "/assets/images/golden-records/split-records-modal.png" | relative_url }})
-
-    - To move on without splitting the current record, select **Skip**.
-
-1. Repeat the previous step for each remaining selected golden record. The dialog shows your progress (for example, _Record 2 of 5_) and closes automatically once every selected record has been reviewed.
+1. Repeat the previous step for each remaining golden record that has data parts to split. The dialog shows your progress (for example, _Record 2 of 5_) and closes automatically once every selected record has been reviewed. A summary tells you how many records were split.
 
 ## Add a tag to golden records
 
