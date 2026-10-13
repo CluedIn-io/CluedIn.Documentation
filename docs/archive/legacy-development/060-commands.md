@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 60
 permalink: /archive/legacy-development/commands
 content_type: reference
-redirect_from: ["/development/commands"]
 source_path: docs/090-development/060-commands.md
 tags: ["development","commands"]
 published: false

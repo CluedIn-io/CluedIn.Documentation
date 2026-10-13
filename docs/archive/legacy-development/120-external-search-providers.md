@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 120
 permalink: /archive/legacy-development/external-search-providers
 content_type: reference
-redirect_from: ["/development/external-search-providers"]
 source_path: docs/090-development/130-external-search-providers.md
 tags: ["development","search-providers"]
 published: false

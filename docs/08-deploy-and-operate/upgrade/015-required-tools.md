@@ -67,7 +67,7 @@ The kubeconfig is a plain-text YAML file that stores access details (credentials
 
     Your administrator can find the kubeconfig file in Azure Portal.
 
-    ![get-kube-config.png]({{ "/assets/images/paas-operations/upgrade/get-kube-config-2.png" | relative_url }})
+    ![An AKS cluster Overview page in Azure Portal with Connect highlighted, and the Connect pane showing the az aks get-credentials command]({{ "/assets/images/paas-operations/upgrade/get-kube-config-2.png" | relative_url }})
 
 1. Store the file in a secure location. 
 

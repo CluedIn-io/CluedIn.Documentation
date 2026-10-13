@@ -82,7 +82,7 @@ If you no longer need the session, you can delete it. This action is irreversibl
 
 1. On the right side of the session row, open the three-dot menu, and then select **Delete**.
 
-    ![manual-data-entry-delete-session.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-delete-session.png" | relative_url }})
+    ![Session row in the manual data entry project with the three-dot menu open and the Delete option highlighted]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-delete-session.png" | relative_url }})
 
 1. Confirm that you want to delete the session.
 

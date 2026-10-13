@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 190
 permalink: /archive/legacy-development/person-entity-type
 content_type: reference
-redirect_from: ["/development/person-entity-type"]
 source_path: docs/090-development/220-person-entity-type.md
 tags: ["development","entity-types","entities"]
 published: false

@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 370
 permalink: /archive/legacy-development/idatapartprocessor
 content_type: reference
-redirect_from: ["/developer/idatapartprocessor"]
 source_path: docs/090-development/450-adding-idatapartprocessorexecutor.md
 tags: ["development","processors"]
 published: false

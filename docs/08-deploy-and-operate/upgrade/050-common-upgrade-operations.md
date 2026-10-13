@@ -188,7 +188,7 @@ Services that depend on these messages may experience failures or degraded perfo
 
     - You can sort the queues by total messages to quickly identify the largest queues within RabbitMQ.
 
-        ![rabbitmq-queues.png]({{ "/assets/images/upgrade/rabbitmq-queues-2.png" | relative_url }})
+        ![RabbitMQ management UI on the Queues and Streams tab, with the queue list sorted by the Total messages column]({{ "/assets/images/upgrade/rabbitmq-queues-2.png" | relative_url }})
 
     - You can also review message rates to determine whether queues are processing the messages as expected:
 
@@ -196,12 +196,12 @@ Services that depend on these messages may experience failures or degraded perfo
 
         - **Deliver/Get** – Indicates that messages from the queue are being consumed by a consumer.
 
-        ![rabbitmq-rates.png]({{ "/assets/images/upgrade/rabbitmq-rates-2.png" | relative_url }})
+        ![RabbitMQ queue list with the Total, incoming and deliver/get message rate columns highlighted]({{ "/assets/images/upgrade/rabbitmq-rates-2.png" | relative_url }})
 
         If you see a large number of **Incoming** messages but no corresponding **Deliver/Get** activity, it may indicate that no consumers are currently available to process those messages.
 
     - To check the number of consumers attached to a queue, click the **+/–** icon on the right-hand side to display the **Consumers** column.
 
-        ![rabbitmq-consumers.png]({{ "/assets/images/upgrade/rabbitmq-consumers-2.png" | relative_url }})
+        ![RabbitMQ queue list with the +/- column toggle and the added Consumers column highlighted]({{ "/assets/images/upgrade/rabbitmq-consumers-2.png" | relative_url }})
 
         In the example above, the queue **RemoteEvents_cluedin-server-processing** is connected to a single consumer, with messages delivered at a rate of 224/s. This indicates that the queue is healthy and functioning as expected.

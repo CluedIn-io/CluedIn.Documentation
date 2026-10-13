@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 320
 permalink: /archive/legacy-development/common-design-decisions
 content_type: reference
-redirect_from: ["/development/common-design-decisions"]
 source_path: docs/090-development/390-common-design-decisions.md
 tags: ["development","architecture"]
 published: false

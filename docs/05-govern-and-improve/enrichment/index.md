@@ -8,7 +8,7 @@ permalink: /govern/enrichment
 content_type: landing
 summary: An enricher fills gaps in your data from an external source - a company register, a mapping service, a search index.
 list_children: false
-redirect_from: ["/preparation/enricher"]
+redirect_from: ["/preparation/enricher", "/preparation/enricher/clearbit", "/govern/enrichment/clearbit"]
 source_path: docs/050-preparation/002-enricher.md
 ---
 
@@ -16,7 +16,7 @@ Enrichers allow you to enhance and improve the quality and completeness of your 
 
 The following diagram shows the basic steps of enriching the data in CluedIn.
 
-![enricher-intro.gif]({{ "/assets/images/preparation/enricher/enricher-intro.gif" | relative_url }})
+![How to enrich your data in CluedIn: 1 choose records for enrichment, 2 add and configure an enricher, 3 review enriched records for new properties]({{ "/assets/images/preparation/enricher/enricher-intro.gif" | relative_url }})
 
 This section covers the following areas:
 

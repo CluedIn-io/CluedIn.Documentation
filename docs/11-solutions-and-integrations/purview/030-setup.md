@@ -6,7 +6,6 @@ grand_parent: Solutions & integrations
 nav_order: 30
 permalink: /solutions/purview/setup
 content_type: how-to
-redirect_from: ["/microsoft-integration/purview/setup"]
 source_path: docs/180-microsoft-integration/purview/020-setup-permissions.md
 tags: ["integration", "microsoft", "azure", "purview"]
 published: false

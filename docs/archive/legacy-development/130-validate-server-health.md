@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 130
 permalink: /archive/legacy-development/validate-server-health
 content_type: reference
-redirect_from: ["/development/validate-server-health"]
 source_path: docs/090-development/150-validate-server-health.md
 tags: ["development","health-check"]
 published: false

@@ -89,7 +89,7 @@ This is the right choice when you want a coexistence period and need to validate
 
 Operationally, Relay-based setups add a small but real footprint. It needs configuration on the MDS side, credential/secret handling, and proper monitoring. If you run this for more than a short transition period, treat it like a production integration with clear ownership, alerts, and a runbook.
 
-![MDS1](/assets/images/playbooks/mds/MDS1.svg)
+![Diagram: on-prem MDS connects through Azure Relay (WCF Relay) to CluedIn ingestion, then Unify, Master and Curate, then Streams and Export Targets such as Event Hub, OneLake, ADLS, SQL and HTTP](/assets/images/playbooks/mds/MDS1.svg)
 
 ---
 
@@ -101,7 +101,7 @@ Choosing this option is essentially saying: "MDS will be treated like another up
 
 The trade-off is that correctness becomes your responsibility. With SQL ingestion, you must be disciplined about schema stability and incremental strategy. If the views change unexpectedly, your ingestion breaks. If hierarchies matter, you need to ensure the extraction surface contains relationship edges or path information rather than only flat attributes. If MDS business rules were acting as an entry-time gate, you will typically re-express that behavior as contract validation and exception handling around publishing, rather than assuming the legacy "hub gate" behavior carries over automatically.
 
-![MDS2](/assets/images/playbooks/mds/MDS2.svg)
+![Diagram: MDS database or extract views feed CluedIn database ingestion, then Unify, Master and Curate, then Streams and Export Targets](/assets/images/playbooks/mds/MDS2.svg)
 
 ---
 
@@ -111,7 +111,7 @@ Hybrid migration is common because it combines safety with forward momentum. You
 
 This approach tends to work best when you have multiple domains and multiple consumers, because it supports a wave-based migration where each wave proves one domain and one contract, while the overall dependency on MDS steadily decreases.
 
-![MDS3](/assets/images/playbooks/mds/MDS3.svg)
+![Diagram: on-prem MDS via Azure Relay and curated extracts or source systems both feed CluedIn, which produces golden records published through Streams and Export Targets](/assets/images/playbooks/mds/MDS3.svg)
 
 ## Migration decision matrix: MDS integration vs SQL ingestion vs Hybrid
 

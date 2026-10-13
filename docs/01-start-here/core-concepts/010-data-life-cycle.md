@@ -32,7 +32,7 @@ When you [process](/ingest/processing/process-data) the data set, the clue becom
 
 The following diagram illustrates the transition from an ingested record to a golden record, including various actions that take place along the way.
 
-![data-life-cycle.png]({{ "/assets/images/key-terms-and-features/data-life-cycle.png" | relative_url }})
+![Diagram: a Record goes through Mapping (property rules, pre-process rules, advanced mapping code) to become a Clue, then through Processing to become a Golden record. Processing covers data part processing (data part rules, enrichment, merging by codes) and golden record processing (relations, survivorship rules, golden record production, golden record rules)]({{ "/assets/images/key-terms-and-features/data-life-cycle.png" | relative_url }})
 
 For more information about the concept of data life cycle in CluedIn, download <a href="/assets/other/data-life-cycle-concept.pdf" download>this file</a>.
 

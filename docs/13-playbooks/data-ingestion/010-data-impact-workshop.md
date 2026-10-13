@@ -21,11 +21,11 @@ source_path: docs/210-playbooks/data-ingestion/001-data-impact-workshop.md
 
 **You are here in the data journey**
 
-![data-ingestion-you-are-here.png]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
+![Data journey diagram: essential requirements and a data discovery workshop lead into the data quality virtuous circle of ingestion, transformation, automation, export and release to production, with a You are here marker on data ingestion]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
 
 This article outlines the importance of the data impact workshop as the first step of your data ingestion process.
 
-![data-impact-workshop-intro.png]({{ "/assets/images/playbooks/data-impact-workshop-intro.png" | relative_url }})
+![Data ingestion steps: Data impact workshop (current), Pick the right tool, Ingest, Map, Process]({{ "/assets/images/playbooks/data-impact-workshop-intro.png" | relative_url }})
 
 The data impact workshop is a collaborative session designed to help you identify your business domains, determine the data sources to ingest, and assess their criticality to your operations.
 
@@ -54,7 +54,7 @@ For a businessperson, seeing a full solution for 10,000 records is a strong pr
 
 The data impact quadrant is a tool that helps you visualize and assess data based on two key criteria: **impact** and **access to data**. The purpose of the data impact quadrant is to help you map your sources of data and your business domains in order to evaluate where you should spend your time first.
 
-![data-impact-quadrant.png]({{ "/assets/images/playbooks/data-impact-quadrant.png" | relative_url }})
+![The data impact quadrant: the vertical axis runs from nice-to-have to critical data for your business, the horizontal axis from hard to easy access to data]({{ "/assets/images/playbooks/data-impact-quadrant.png" | relative_url }})
 
 **What are the goals of your data impact quadrant?**
 
@@ -85,11 +85,11 @@ Follow [this link](https://miro.com/app/board/uXjVLDsv2ww=/?share_link_id=341736
 
 The following image illustrates the data impact quadrant created during a workshop.
 
-![data-impact-quadrant-example.png]({{ "/assets/images/playbooks/data-impact-quadrant-example.png" | relative_url }})
+![A data impact quadrant from a workshop, with sticky notes pairing sources and business domains such as CRM with Customer and ERP with ERP placed by impact and ease of access]({{ "/assets/images/playbooks/data-impact-quadrant-example.png" | relative_url }})
 
 Generally, the data impact workshop consists of 5 steps.
 
-![data-impact-workshop-scenario.png]({{ "/assets/images/playbooks/data-impact-workshop-scenario.png" | relative_url }})
+![The five workshop steps: identify critical data sources, list data sources, list business domains, put sources with domains on the quadrant, create a list with your priorities]({{ "/assets/images/playbooks/data-impact-workshop-scenario.png" | relative_url }})
 
 ### Step 1: Identify critical data sources
 
@@ -148,7 +148,7 @@ It’s important for your team to discuss and align on what they consider “cri
 
 Once you’ve reached an agreement, create a list of data sources, starting from the top right and moving to the bottom left, to establish your priorities. The following image shows the direction in which you should list the data sources.
 
-![data-impact-quadrant-example-order.png]({{ "/assets/images/playbooks/data-impact-quadrant-example-order.png" | relative_url }})
+![A data impact quadrant with an arrow from the critical, easy-access corner toward the hard-access corner, showing the order in which to list sources, labelled Start Here]({{ "/assets/images/playbooks/data-impact-quadrant-example-order.png" | relative_url }})
 
 The following table is an example of what the result of the exercise might look like.
 

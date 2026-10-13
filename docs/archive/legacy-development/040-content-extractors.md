@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 40
 permalink: /archive/legacy-development/content-extractors
 content_type: reference
-redirect_from: ["/development/content-extractors"]
 source_path: docs/090-development/040-content-extractors.md
 tags: ["development","content-extractors"]
 published: false

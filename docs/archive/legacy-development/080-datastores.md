@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 80
 permalink: /archive/legacy-development/datastores
 content_type: reference
-redirect_from: ["/development/datastores"]
 source_path: docs/090-development/080-datastores.md
 tags: ["development","data-stores"]
 published: false

@@ -18,7 +18,7 @@ source_path: docs/180-microsoft-integration/mds/020-azure-relay.md
 
 In this article, you will learn how to expose on-premises Master Data Services (MDS) to CluedIn in Azure by using Azure Relay. Use this approach if CluedIn does not have a routable network path to your on-premises MDS server - for the alternative, see [Direct connection](/solutions/master-data-services/direct-connection).
 
-![mds-configuration-scenario.png]({{ "/assets/images/microsoft-integration/mds/mds-configuration-scenario.png" | relative_url }}) 
+![Diagram: in Azure, the CluedIn Crawler connects to a Service Bus Relay, which connects through the firewall and a barrier labelled NAV (likely meaning NAT) to the WCF Service on the on-premises MDS server]({{ "/assets/images/microsoft-integration/mds/mds-configuration-scenario.png" | relative_url }}) 
 
 **Prerequisites:**
 
@@ -36,7 +36,7 @@ In this article, you will learn how to expose on-premises Master Data Services (
 
 3. Search for **Relay**. Then, select **Create**.
 
-    ![create_resource.png]({{ "/assets/images/microsoft-integration/mds/create_resource.png" | relative_url }}) 
+    ![The Relay resource page in the Azure portal Create a resource gallery, with the Create button]({{ "/assets/images/microsoft-integration/mds/create_resource.png" | relative_url }}) 
 
 4. In the **Subscription** field, select an Azure subscription in which to create the namespace.
 
@@ -46,7 +46,7 @@ In this article, you will learn how to expose on-premises Master Data Services (
 
 7. In the **Location** field, select the country or region in which your namespace should be hosted.
 
-    ![create_namespace.png]({{ "/assets/images/microsoft-integration/mds/create_namespace.png" | relative_url }}) 
+    ![The Create namespace form on the Basics tab, with Subscription, Resource group, Name and Location fields]({{ "/assets/images/microsoft-integration/mds/create_namespace.png" | relative_url }}) 
 
 8. Select **Create**.
 
@@ -62,7 +62,7 @@ In this article, you will learn how to expose on-premises Master Data Services (
 
 4. Clear the **Requires Client Authorization** checkbox. Authorization will be performed by the MDS service itself.  
 
-    ![create_relay.png]({{ "/assets/images/microsoft-integration/mds/create_relay.png" | relative_url }}) 
+    ![The Create WCF Relay pane with Name set to mds, Relay Type set to Http and Requires Client Authorization cleared]({{ "/assets/images/microsoft-integration/mds/create_relay.png" | relative_url }}) 
 
 5. Select **Create**.
 
@@ -78,7 +78,7 @@ In this article, you will learn how to expose on-premises Master Data Services (
 
     - Select the **Copy** button next to **Primary Key**. This action copies the primary key to your clipboard for later use. Paste this value into Notepad or some other temporary location.
 
-    ![get_credentials.png]({{ "/assets/images/microsoft-integration/mds/get_credentials.png" | relative_url }}) 
+    ![The SAS Policy: RootManageSharedAccessKey pane, with the Copy buttons for Primary Key and Primary Connection String highlighted]({{ "/assets/images/microsoft-integration/mds/get_credentials.png" | relative_url }}) 
 
 ## Configure on-premises MDS server
 
@@ -138,15 +138,15 @@ In this article, you will learn how to expose on-premises Master Data Services (
 
     The screenshot below shows MDS installed as its own site. If your MDS is installed as an application under another site instead (for example, Default Web Site), the path in the tree will start from that site - the steps are otherwise the same.
 
-    ![browse_service.png]({{ "/assets/images/microsoft-integration/mds/browse_service.png" | relative_url }}) 
+    ![IIS Manager with numbered steps: select the MDS site, the Service folder, Content View, Service.svc, then Browse]({{ "/assets/images/microsoft-integration/mds/browse_service.png" | relative_url }}) 
 
     As a result, you will see the screenshot similar to the following.
 
-    ![service_loaded.png]({{ "/assets/images/microsoft-integration/mds/service_loaded.png" | relative_url }}) 
+    ![Browser showing the Service.svc page with the message You have created a service and svcutil.exe instructions]({{ "/assets/images/microsoft-integration/mds/service_loaded.png" | relative_url }}) 
 
 2. Verify that the on-premises MDS service has registered successfully with the Relay.
 
-    ![registered.png]({{ "/assets/images/microsoft-integration/mds/registered.png" | relative_url }}) 
+    ![The WCF Relays list in the Azure portal, showing the mds relay with 1 listener highlighted]({{ "/assets/images/microsoft-integration/mds/registered.png" | relative_url }}) 
 
 ## In CluedIn
 

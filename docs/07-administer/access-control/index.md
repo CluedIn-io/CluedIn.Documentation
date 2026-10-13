@@ -8,7 +8,7 @@ permalink: /administer/access-control
 content_type: landing
 summary: Access control policies decide which golden records and which properties a role can see.
 list_children: false
-redirect_from: ["/management/access-control"]
+redirect_from: ["/management/access-control", "/governance/access-control", "/governance/data-privacy", "/administration/permissions"]
 source_path: docs/080-management/050-access.control.md
 ---
 

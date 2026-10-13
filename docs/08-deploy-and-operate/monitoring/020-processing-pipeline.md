@@ -6,7 +6,7 @@ grand_parent: Deploy & operate
 nav_order: 20
 permalink: /operate/monitoring/processing-pipeline
 content_type: concept
-redirect_from: ["/engine-room/processing-pipeline"]
+redirect_from: ["/engine-room/processing-pipeline", "/development/commands", "/development/events", "/developer/iprocessingfilter", "/developer/processing-pipeline", "/developer/preprocessor", "/developer/idatapartprocessor", "/developer/ientitypypeprocessor", "/developer/extending-pipelines", "/preparation/aggregation"]
 source_path: docs/120-engine-room/010-cluedIn-performance-metrics.md
 tags: ["development","performance"]
 ---
@@ -81,7 +81,7 @@ CluedIn provides ways to monitor the processing pipeline’s performance. Admini
 
 - Drill down into each processing step to see throughput rates.
 
-![Diagram]({{ "/assets/images//development/engine-room.png" | relative_url }})
+![Processing pipeline page showing data sets, clue processing queues with message rates, edge, parent and metrics processing steps, and outgoing streams with backlogs]({{ "/assets/images//development/engine-room.png" | relative_url }})
 
 ## Configuring the pipelines
 

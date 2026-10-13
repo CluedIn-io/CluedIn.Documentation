@@ -38,7 +38,7 @@ The **AI Agents** feature is controlled by [feature flags](/administer/feature-f
 
     Once you enable the **AI Agents** feature, the **Artificial Intelligence** feature will become enabled by default.
 
-    ![ai_agents_toggle.png]({{ "/assets/images/management/ai-agents/enable-the-ai-agents-feature/ai_agents_toggle.png" | relative_url }})
+    ![The AI Agents feature card with its toggle Enabled, next to the Artificial Intelligence feature card, which is enabled automatically]({{ "/assets/images/management/ai-agents/enable-the-ai-agents-feature/ai_agents_toggle.png" | relative_url }})
 
     The following takes place:
 
@@ -74,7 +74,7 @@ A platform is an external AI service provider that hosts and manages the AI mode
 
 1. Provide the **API Key** and **Base URL** so that CluedIn can authenticate and send requests to the platform hosting the AI models.
 
-    ![create_platform_pane.png]({{ "/assets/images/management/ai-agents/configure-a-platform/create_platform_pane.png" | relative_url }})
+    ![The Create pane for an AI platform, with Name, Platform set to Azure Open AI, Api Key and Base Url filled in]({{ "/assets/images/management/ai-agents/configure-a-platform/create_platform_pane.png" | relative_url }})
 
 1. Select **Create**.
 
@@ -102,7 +102,7 @@ A deployment is a specific instance or configuration of an AI model hosted on a 
 
 1. In **Max Input Tokens**, enter the maximum number of input tokens allowed when sending instructions to the AI model.
 
-    ![create_a_deployment_pane.png]({{ "/assets/images/management/ai-agents/configure-a-deployment/create_a_deployment_pane.png" | relative_url }})
+    ![The Create pane for an AI deployment, with Display name, Name, Platform, Currency, Cost / Input Token, Cost / Output Token and Max Input Tokens]({{ "/assets/images/management/ai-agents/configure-a-deployment/create_a_deployment_pane.png" | relative_url }})
 
 1. Select **Create**.
 
@@ -131,7 +131,7 @@ An endpoint is the address (URL) through which AI agents communicate with the de
     {:.important}
     The **Endpoint Type** defines the kind of service the model endpoint should handle. Currently, only the **Chat** type is available – it supports conversational interactions with context.
 
-    ![create_endpoint_pane.png]({{ "/assets/images/management/ai-agents/configure-an-endpoint/create_endpoint_pane.png" | relative_url }})
+    ![The Create pane for an AI endpoint, with Name, Deployment set to gpt-4.1, and Endpoint Type set to Chat]({{ "/assets/images/management/ai-agents/configure-an-endpoint/create_endpoint_pane.png" | relative_url }})
 
 1. Select **Create**.
 
@@ -147,13 +147,13 @@ Organization-wide settings apply to all AI agents and AI agent jobs that exist w
 
 1. Scroll down the page until you reach the **AI Agents** section.
 
-    ![ai_agent_settings.png]({{ "/assets/images/management/ai-agents/configure-organization-wide-ai-agent-settings/ai_agent_settings.png" | relative_url }})
+    ![The AI Agents section of Administration Settings, with toggles for Display Show Raw Data button in Chat Details, Show Started Job notifications and Auto-approve AI suggestions]({{ "/assets/images/management/ai-agents/configure-organization-wide-ai-agent-settings/ai_agent_settings.png" | relative_url }})
 
 1. Configure the following settings:
 
     - **Display "Show Raw Data" button in Chat Details** – when enabled, this option adds the **Show Raw Data** button to the AI agent job page (**Configuration** tab > **Logs** section). The button reveals the raw JSON data for requests and responses exchanged between CluedIn and the LLM.
 
-        ![logs_section_show_raw_data_sp.png]({{ "/assets/images/management/ai-agents/configure-organization-wide-ai-agent-settings/logs_section_show_raw_data_sp.png" | relative_url }})
+        ![An AI agent job Configuration tab with the Logs section expanded, showing the Show Raw Data button and the raw JSON request sent to the LLM]({{ "/assets/images/management/ai-agents/configure-organization-wide-ai-agent-settings/logs_section_show_raw_data_sp.png" | relative_url }})
 
         This feature is useful for fine-tuning prompts but is best suited for users with a strong technical background in LLMs and JSON.
 

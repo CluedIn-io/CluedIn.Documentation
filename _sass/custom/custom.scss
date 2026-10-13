@@ -307,6 +307,126 @@ li.nav-group-label {
   }
 }
 
+// Agent mode (assets/js/agent-mode.js). The switch shows the page as the
+// Markdown copy AI agents read; while it is on, the article is hidden.
+.agent-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid $border-color;
+  border-radius: 999px;
+  background: none;
+  color: $body-heading-color;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $ci-accent;
+    color: $ci-accent;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $ci-accent;
+    outline-offset: 2px;
+  }
+
+  &[aria-pressed="true"] {
+    border-color: $ci-accent;
+    background: $ci-accent-soft;
+    color: $ci-primary;
+  }
+}
+
+html[data-agent-mode="on"] #main-content > main {
+  display: none;
+}
+
+// Only for HTML-to-text tools; readers never see it.
+.agent-hint {
+  display: none;
+}
+
+.agent-panel {
+  margin: 1rem 0 2rem;
+}
+
+.agent-panel-intro {
+  color: $ci-muted;
+  font-size: 0.9375rem;
+}
+
+.agent-panel-links {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  color: $ci-muted;
+  font-size: 0.875rem;
+
+  li {
+    margin: 0.2rem 0;
+  }
+}
+
+.agent-panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.agent-panel-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  background: $ci-surface-raised;
+  color: $body-heading-color !important;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $ci-accent;
+    text-decoration: none;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.agent-panel-button-primary {
+  border-color: $ci-primary;
+  background: $ci-primary;
+  color: #fff !important;
+
+  &:hover {
+    background: $ci-primary-hover;
+  }
+}
+
+.agent-panel-source {
+  max-width: 100%;
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  background: $ci-surface-sunken;
+  color: $body-text-color;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 .header-cta {
   display: inline-flex;
   align-items: center;

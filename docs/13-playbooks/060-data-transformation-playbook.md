@@ -14,11 +14,11 @@ source_path: docs/210-playbooks/007-data-transformation-playbook.md
 
 **You are here in the data journey**
 
-![data-journey-data-transformation.png]({{ "/assets/images/playbooks/data-journey-data-transformation.png" | relative_url }})
+![Data journey: essential requirements, then a data discovery workshop, then the data quality virtuous circle of ingestion, transformation, automation, export, and release to production, with a You are here marker on data transformation]({{ "/assets/images/playbooks/data-journey-data-transformation.png" | relative_url }})
 
 Now that you have completed the [data ingestion](/playbooks/data-ingestion) process and generated some [golden records](/get-started/core-concepts/golden-records), it is time to start improving the quality of these records during data transformation.
 
-![data-transformation-steps.png]({{ "/assets/images/playbooks/data-transformation-steps.png" | relative_url }})
+![Data transformation made up of three activities: Clean, Deduplicate, and Enrich]({{ "/assets/images/playbooks/data-transformation-steps.png" | relative_url }})
 
 The data transformation process consists of three aspects:
 
@@ -40,7 +40,7 @@ In this playbook, we will provide the details for each data transformation aspec
 
 For a smooth start of your data transformation journey in CluedIn, learn how to leverage saved search and glossary. Both of these tools help you identify a specific set of golden records for data transformation. However, each tool has its specific practical application.
 
-![saved-search-and-glossary.png]({{ "/assets/images/playbooks/saved-search-and-glossary.png" | relative_url }})
+![Saved search, an easy way to review golden records that match complex filters, beside Glossary, an easy way to document and share them]({{ "/assets/images/playbooks/saved-search-and-glossary.png" | relative_url }})
 
 **Why is saved search important for data transformation?**
 

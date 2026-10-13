@@ -6,7 +6,6 @@ grand_parent: Administer
 nav_order: 60
 permalink: /administer/users-and-roles/permissions
 content_type: reference
-redirect_from: ["/administration/permissions"]
 source_path: docs/030-administration/060-permissions.md
 tags: ["administration", "permissions"]
 published: false

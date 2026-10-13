@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 60
 permalink: /archive/unsupported-features/data-policies
 content_type: reference
-redirect_from: ["/governance/data-policies"]
 source_path: docs/070-governance/outdated/060-data-policies.md
 tags: ["governance","data-policies"]
 published: false

@@ -34,7 +34,7 @@ You need a valid [kubeconfig file](/operate/upgrade/required-tools#kubeconfig-fi
 
     Your administrator can find the kubeconfig file in Azure Portal.
 
-    ![get-kube-config.png]({{ "/assets/images/paas-operations/upgrade/get-kube-config-2.png" | relative_url }})
+    ![The AKS cluster page in Azure Portal with Connect highlighted, opening a Connect pane with the az aks get-credentials command to download cluster credentials]({{ "/assets/images/paas-operations/upgrade/get-kube-config-2.png" | relative_url }})
   
 1. Store the file in a secure location. 
 

@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 220
 permalink: /archive/legacy-development/vocabulary-values
 content_type: reference
-redirect_from: ["/development/vocabulary-values"]
 source_path: docs/090-development/270-vocabulary-values.md
 tags: ["development","vocabularies"]
 published: false

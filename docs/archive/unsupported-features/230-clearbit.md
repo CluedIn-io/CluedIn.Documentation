@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 230
 permalink: /archive/unsupported-features/clearbit
 content_type: reference
-redirect_from: ["/preparation/enricher/clearbit", "/govern/enrichment/clearbit"]
 source_path: docs/050-preparation/enricher/050-clearbit.md
 published: false
 ---

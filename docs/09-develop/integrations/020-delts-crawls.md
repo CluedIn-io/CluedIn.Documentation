@@ -6,7 +6,7 @@ grand_parent: Develop & APIs
 nav_order: 20
 permalink: /develop/integrations/delts-crawls
 content_type: concept
-redirect_from: ["/integration/delts-crawls"]
+redirect_from: ["/integration/delts-crawls", "/developer/ignoring-changes"]
 source_path: docs/040-integration/crawlers/090-delta-crawls.md
 tags: ["integration","delta-crawls"]
 ---

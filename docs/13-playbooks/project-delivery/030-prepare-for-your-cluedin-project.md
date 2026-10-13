@@ -21,7 +21,7 @@ source_path: docs/210-playbooks/003-prepare-for-cluedin-project.md
 
 This article outlines four key steps to prepare for the implementation of you project in CluedIn. Following these steps will ensure that you and your team are ready to proceed with confidence.
 
-![prepare-for-your-cluedin-project.gif]({{ "/assets/images/playbooks/prepare-for-your-cluedin-project.gif" | relative_url }})
+![How to prepare for your CluedIn project: 1 complete self-training, 2 define ownership, 3 onboard your team, 4 prepare use cases]({{ "/assets/images/playbooks/prepare-for-your-cluedin-project.gif" | relative_url }})
 
 ## Complete self-training
 
@@ -45,7 +45,7 @@ Depending on the size of your organization, there are 2 approaches for defining 
 
 - **Large organization** – build a **RACI matrix** (Responsible, Accountable, Consulted, Informed) for each key ownership area and clearly communicate the involvement required from these owners. Even if they won’t be using CluedIn directly, effective data management depends on their active participation.
 
-![raci-table.png]({{ "/assets/images/playbooks/raci-table.png" | relative_url }})
+![Example RACI matrix with Responsible, Accountable, Consulted and Informed columns for IT infrastructure, data owners (CRM, ERP, Support) and business domains]({{ "/assets/images/playbooks/raci-table.png" | relative_url }})
 
 When you add a new source or a new business domain, go back to the RACI matrix and update it accordingly. The RACI matrix should probably be in the first page of your internal wiki, SharePoint, or Confluence site.
 
@@ -53,7 +53,7 @@ When you add a new source or a new business domain, go back to the RACI matrix a
 
 This section offers guidelines to onboard your team for the CluedIn implementation journey. By following these guidelines, your team will be well-equipped to overcome challenges and achieve your data management goals.
 
-![onboard-your-team.png]({{ "/assets/images/playbooks/onboard-your-team.png" | relative_url }})
+![Four team onboarding guidelines: foster team collaboration, encourage self-training, promote experimentation, seek help when needed]({{ "/assets/images/playbooks/onboard-your-team.png" | relative_url }})
 
 To prepare your team to embark on the CluedIn implementation journey, follow these steps:
 

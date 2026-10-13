@@ -54,7 +54,7 @@ This is the easiest and quickest way to start with CluedIn. You don't need an IT
 
 This option gives you access to our experts. You do not need an IT team to install and start using CluedIn.
 
-![saas-committed-deal.gif]({{ "/assets/images/get-cluedin/saas-committed-deal.gif" | relative_url }})
+![Six-step SaaS committed deal onboarding: contact sales, discuss use cases and contract, sign the contract to get a license key, meet Azure requirements, complete the subscription, and receive an email with a link to your CluedIn instance]({{ "/assets/images/get-cluedin/saas-committed-deal.gif" | relative_url }})
 
 **Who can start CluedIn Private SaaS onboarding?**
 
@@ -86,7 +86,7 @@ By onboarding path, we mean the process of purchasing and installing CluedIn. Af
 
 This option gives you full control of CluedIn as you'll be running the platform in your own environment. Also, it has a lower price than pay-as-you-go.
 
-![paas-committed-deal.gif]({{ "/assets/images/get-cluedin/paas-committed-deal.gif" | relative_url }})
+![Seven-step PaaS committed deal onboarding: contact sales, discuss use cases and contract, sign the contract to get a license key, make business decisions, perform pre-installation checks, install from Azure Marketplace, and customize CluedIn]({{ "/assets/images/get-cluedin/paas-committed-deal.gif" | relative_url }})
 
 **What are the steps of CluedIn PaaS committed deal onboarding?**
 

@@ -20,7 +20,7 @@ The upgrade process typically involves the steps outlined below.
 {:.important}
 If issues occur during the upgrade, see [Resolve common upgrade issues](/operate/upgrade/resolve-common-upgrade-issues) for troubleshooting instructions.
 
-![upgrade_process.png]({{ "/assets/images/paas-operations/upgrade/upgrade_process_6.png" | relative_url }})
+![Upgrade process in four stages: 0 prepare the prerequisites, 1 plan the upgrade, 2 prepare for the upgrade, 3 perform the upgrade, each with its sequence of tasks]({{ "/assets/images/paas-operations/upgrade/upgrade_process_6.png" | relative_url }})
 
 **Prerequisites for upgrade**
 

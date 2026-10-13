@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 260
 permalink: /archive/legacy-development/person-vocabulary
 content_type: reference
-redirect_from: ["/development/person-vocabulary"]
 source_path: docs/090-development/310-person-vocabulary.md
 tags: ["development","vocabularies"]
 published: false

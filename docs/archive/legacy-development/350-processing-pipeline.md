@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 350
 permalink: /archive/legacy-development/processing-pipeline
 content_type: reference
-redirect_from: ["/developer/processing-pipeline"]
 source_path: docs/090-development/430-adding-processing-pipeline.md
 tags: ["development","processors"]
 published: false

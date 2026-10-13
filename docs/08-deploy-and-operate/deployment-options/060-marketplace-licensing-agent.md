@@ -45,11 +45,11 @@ The installation of the licensing agent may fail if your subscription includes a
 
 1. Select **Get It Now**.
 
-    ![ama-cluedin-page.png]({{ "/assets/images/deployment/licensing-agent/marketplace_page_get_now_button.png" | relative_url }})
+    ![Azure Marketplace page for CluedIn MDM and Data Quality - PaaS with the Get It Now button highlighted]({{ "/assets/images/deployment/licensing-agent/marketplace_page_get_now_button.png" | relative_url }})
 
 1. In the **Create this app in Azure** window, under **Software plan**, select **CluedIn Licensing Agent**.
 
-    ![licensing-agent-plan.png]({{ "/assets/images/deployment/licensing-agent/licensing-agent-plan-2.png" | relative_url }})
+    ![Create this app in Azure window with CluedIn Licensing Agent selected as the Software plan, and a Continue button]({{ "/assets/images/deployment/licensing-agent/licensing-agent-plan-2.png" | relative_url }})
 
 1. Review your contact information, and then select **Continue**.
 
@@ -59,7 +59,7 @@ The installation of the licensing agent may fail if your subscription includes a
 
     1. In **Resource group**, create a new resource group.
 
-        ![Basics_tab_Project_details.png]({{ "/assets/images/ama/install-guide/ama-install-basic-tab-1.png" | relative_url }})
+        ![Project details on the Basics tab with Subscription CluedIn and a Resource group selected, and a Create new link]({{ "/assets/images/ama/install-guide/ama-install-basic-tab-1.png" | relative_url }})
         
         {:.important}
         You may also select an existing resource group, but it must be empty. If the selected resource group contains other Azure resources, an error will occur.
@@ -84,11 +84,11 @@ The installation of the licensing agent may fail if your subscription includes a
 
         * The managed resource group is usually filled in by default, but you can make changes if needed.
 
-    ![managed-app-details.png]({{ "/assets/images/deployment/licensing-agent/licensing-agent-basics-tab.png" | relative_url }})
+    ![Basics tab instance details (Region, Name, Company Name, Contact Name, Contact Email) and managed application name and managed resource group]({{ "/assets/images/deployment/licensing-agent/licensing-agent-basics-tab.png" | relative_url }})
 
 1. On the **License** tab, keep the installation name as **cluedinlicense**.
 
-    ![Licensing-agent-Name.png]({{ "/assets/images/deployment/licensing-agent/licensing-agent-licesne-tab.png" | relative_url }})
+    ![License tab with Installation Name set to cluedinlicense]({{ "/assets/images/deployment/licensing-agent/licensing-agent-licesne-tab.png" | relative_url }})
 
 1. On the **Review + create** tab, do the following:
 
@@ -106,8 +106,8 @@ An Azure Managed Application enables publishers (such as solution providers) to 
 
 When a consumer installs a Managed Application from the Azure Marketplace or via private offer, the solution’s infrastructure is provisioned into the customer’s subscription but remains managed and governed by the publisher through delegated access permissions.
 
-![azure-script-execution.png]({{ "assets/images/ama/installer/azure-script-execution.png" | relative_url }})
+![Diagram: a publisher creates an Azure managed application, publishes it to a service catalog for internal users or defines an offer published to Azure Marketplace, where external users agree to terms and deploy]({{ "assets/images/ama/installer/azure-script-execution.png" | relative_url }})
 
 ## Licensing agent AMA resources
 
-![azure-deployment-script.png]({{ "assets/images/ama/installer/azure-deployment-script.png" | relative_url }})
+![Diagram: inside a resource group, a deployment script places a script in a storage account and runs it on an Azure Container Instance that mounts that storage]({{ "assets/images/ama/installer/azure-deployment-script.png" | relative_url }})

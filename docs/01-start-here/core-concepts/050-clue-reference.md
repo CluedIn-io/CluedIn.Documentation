@@ -6,7 +6,7 @@ grand_parent: Get started
 nav_order: 50
 permalink: /get-started/core-concepts/clue-reference
 content_type: concept
-redirect_from: ["/key-terms-and-features/clue-reference"]
+redirect_from: ["/key-terms-and-features/clue-reference", "/development/clue", "/development/change-verbs"]
 source_path: docs/110-key-terms-and-features/020-clue-reference.md
 tags: ["clue"]
 ---

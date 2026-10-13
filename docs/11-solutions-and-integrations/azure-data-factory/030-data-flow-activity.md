@@ -47,17 +47,17 @@ Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
 
 1. Select the new Data flow activity on the canvas, and then go to the **Settings** tab to edit its details.
 
-    ![data-flow-settings.png]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-settings.png" | relative_url }})
+    ![A Data flow activity on the pipeline canvas with its Settings tab highlighted, showing the Data flow, Run on (Azure IR) and Compute size fields]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-settings.png" | relative_url }})
 
 ## Configure source
 
 1. Next to the **Data flow** field, select **+ New**.
 
-    ![data-flow-new.png]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-new.png" | relative_url }})
+    ![The Settings tab with the + New button next to the Data flow field highlighted]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-new.png" | relative_url }})
 
 1. Select **Add Source**.
 
-    ![data-flow-add-source.png]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-add-source.png" | relative_url }})
+    ![A new empty data flow canvas with the Add Source box highlighted]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-add-source.png" | relative_url }})
 
 1. On the **Source Settings** tab, do the following:
 
@@ -67,19 +67,19 @@ Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
 
     1. Next to the **Dataset** dropdown list, select **+ New**.
 
-        ![data-flow-new-dataset.png]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-new-dataset.png" | relative_url }})
+        ![The Source settings tab with output stream name Training, source type Dataset and the + New button next to Dataset highlighted]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-new-dataset.png" | relative_url }})
 
 1. In the **New dataset** pane, select your data stored within an Azure storage account (for example, Azure Data Lake Storage Gen2). Then, select **Continue**.
 
-    ![data-flow-new-data-set.png]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-new-data-set.png" | relative_url }})
+    ![The New dataset pane searched for and showing Azure Data Lake Storage Gen2 selected]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-new-data-set.png" | relative_url }})
 
 1. In the **Select format** pane, select **DelimitedText**, and then select **Continue**.
 
-    ![data-flow-delimited-text.png]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-delimited-text.png" | relative_url }})
+    ![The Select format pane with Avro, DelimitedText and Excel options, DelimitedText selected]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-delimited-text.png" | relative_url }})
 
 1. In the **Set properties** pane, enter the name for the dataset. Then, expand the **Linked service** dropdown list, and select **+ New**.
 
-    ![data-flow-set-properties.png]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-set-properties.png" | relative_url }})
+    ![The Set properties pane with name Training and the Linked service dropdown open, + New highlighted]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-set-properties.png" | relative_url }})
 
 1. Configure the service details:
 
@@ -91,13 +91,13 @@ Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
 
     - **Storage account name** – select the name of your Azure Data Lake storage account.
 
-        ![data-flow-new-linked-service.png]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-new-linked-service.png" | relative_url }})
+        ![The New linked service form for Azure Data Lake Storage Gen2 with name, integration runtime, account key authentication and storage account fields]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-new-linked-service.png" | relative_url }})
 
 1. Test the connection and then create the new linked service.
     
 2. On the **Set properties** pane, in the **File path** section, add the path to the appropriate folder/file within your Azure Data Lake.
 
-    ![set-properties.png]({{ "/assets/images/microsoft-integration/azure-data-factory/set-properties.png" | relative_url }})
+    ![The Set properties pane with the linked service selected, a File path set to the training container, and First row as header checked]({{ "/assets/images/microsoft-integration/azure-data-factory/set-properties.png" | relative_url }})
     
 3.  Select **OK**.
 
@@ -105,7 +105,7 @@ Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
 
 1. Next to the data source, select the plus icon, and then find and select **Sink**.
 
-    ![data-flow-sink.png]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-sink.png" | relative_url }})
+    ![The plus menu next to the Training source searched for sink, with Sink highlighted under Destination]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-sink.png" | relative_url }})
 
 1. On the **Sink** tab, do the following:
 
@@ -117,15 +117,15 @@ Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
 
     1. Next to the **Dataset** dropdown list, select **+ New**.
 
-        ![data-flow-sink-configuration.png]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-sink-configuration.png" | relative_url }})
+        ![The Sink tab with incoming stream Training, sink type Dataset and the + New button next to Dataset highlighted]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-sink-configuration.png" | relative_url }})
 
 1. In the **New dataset** pane, find and select **REST**, and then select **Continue**.
 
-    ![new-dataset-rest.png]({{ "/assets/images/microsoft-integration/azure-data-factory/new-dataset-rest.png" | relative_url }})
+    ![The New dataset pane searched for rest, with REST selected]({{ "/assets/images/microsoft-integration/azure-data-factory/new-dataset-rest.png" | relative_url }})
 
 1.  In the **Set properties** pane, enter the name for the dataset. Then, expand the **Linked service** dropdown list and select **+ New**.
 
-    ![rest-set-properties.png]({{ "/assets/images/microsoft-integration/azure-data-factory/rest-set-properties.png" | relative_url }})
+    ![The Set properties pane with name RestResourceTraining and the Linked service dropdown open, + New highlighted]({{ "/assets/images/microsoft-integration/azure-data-factory/rest-set-properties.png" | relative_url }})
 
 1. Configure the service details:
 
@@ -133,7 +133,7 @@ Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
     
     - **Base URL** – enter the URL of the ingestion endpoint in CluedIn. You can find this URL in the data set that you created for ingesting data into CluedIn. For more information, see [Send data](https://documentation.cluedin.net/integration/endpoint#send-data).
 
-        ![set-properties-post-url.png]({{ "/assets/images/microsoft-integration/azure-data-factory/set-properties-post-url.png" | relative_url }})
+        ![The CluedIn Ingestion point instructions dialog with the Post endpoint URL highlighted]({{ "/assets/images/microsoft-integration/azure-data-factory/set-properties-post-url.png" | relative_url }})
     
     - **Authentication type** – select **Anonymous**.
 
@@ -143,11 +143,11 @@ Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
         
         - **Value** – enter **Bearer**, add a space, and then paste the token from CluedIn. You can find the token in CluedIn by going to **Administration** > **API Tokens**.  For more information, see [Send data](https://documentation.cluedin.net/integration/endpoint#send-data).
 
-            ![set-properties-api-token.png]({{ "/assets/images/microsoft-integration/azure-data-factory/set-properties-api-token.png" | relative_url }})
+            ![The API Tokens page in CluedIn with the copy button for the Training token highlighted]({{ "/assets/images/microsoft-integration/azure-data-factory/set-properties-api-token.png" | relative_url }})
 
         As a result, the new linked service should be configured similar to the following.
 
-        ![new-linked-service-rest.png]({{ "/assets/images/microsoft-integration/azure-data-factory/new-linked-service-rest.png" | relative_url }})
+        ![The New linked service form for REST with the CluedIn endpoint Base URL, Anonymous authentication and an Authorization auth header]({{ "/assets/images/microsoft-integration/azure-data-factory/new-linked-service-rest.png" | relative_url }})
 
 1. Test connection, and then select **Create**.
 
@@ -164,7 +164,7 @@ Configuring an ADF pipeline with the Data flow activity consists of 4 steps:
 
     - Set the **Batch size** to **10,000** to ensure smoother transfer.
 
-        ![sink-settings.png]({{ "/assets/images/microsoft-integration/azure-data-factory/sink-settings.png" | relative_url }})
+        ![The sink Settings tab with Insert method POST, other methods None, Http Compression type GZip and Batch size 10000 highlighted]({{ "/assets/images/microsoft-integration/azure-data-factory/sink-settings.png" | relative_url }})
 
 ## Debug pipeline in ADF
 
@@ -174,15 +174,15 @@ Once the source and sink are configured, you can debug the pipeline to ensure it
 
 1. On the toolbar, select **Debug**.
 
-    ![data-flow-debug.png]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-debug.png" | relative_url }})
+    ![The pipeline toolbar with the Debug button highlighted above the Data flow activity]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-debug.png" | relative_url }})
 
 1. In the **Output** tab at the bottom of the window, monitor the pipeline run status.
 
-    ![data-flow-output.png]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-output.png" | relative_url }})
+    ![The Output tab with pipeline status Succeeded and the Data flow1 activity row showing Succeeded highlighted]({{ "/assets/images/microsoft-integration/azure-data-factory/data-flow-output.png" | relative_url }})
 
 ## Validate result in CluedIn
 
 Once the ADF pipeline is triggered successfully, you should see the data flowing into CluedIn. You can view the incoming records on the **Preview** tab of the data set.
 
-![after-debug.png]({{ "/assets/images/microsoft-integration/azure-data-factory/after-debug.png" | relative_url }})
+![The Preview tab of the training-data data set in CluedIn, showing the records received from Azure Data Factory]({{ "/assets/images/microsoft-integration/azure-data-factory/after-debug.png" | relative_url }})
 

@@ -15,11 +15,11 @@ In this article, you will learn how to process the role requests you receive fro
 
 When users are browsing CluedIn and find that they do not have access to certain sections or modules, they can send a request to get access. When this happens, you'll receive a new role request notification.
 
-![role-request-2.png]({{ "/assets/images/administration/roles/role-request-2.png" | relative_url }})
+![New Role request notification saying someone requested consume.streams, with a View Request link]({{ "/assets/images/administration/roles/role-request-2.png" | relative_url }})
 
 The following diagram shows the flow of processing role requests.
 
-![role-request-diagram.gif]({{ "/assets/images/administration/roles/role-request-diagram.gif" | relative_url }})
+![Flow: an authorized user sends an access request; the CluedIn administrator receives it, chooses a role and grants access; the user receives an approval notification, then signs out and in to get the new role]({{ "/assets/images/administration/roles/role-request-diagram.gif" | relative_url }})
 
 **To process a role request**
 
@@ -39,7 +39,7 @@ The following diagram shows the flow of processing role requests.
 
     1. Select a role to assign to the user.
 
-        ![role-request-1.png]({{ "/assets/images/administration/roles/role-request-1.png" | relative_url }})
+        ![Granting Access To consume.streams dialog with (a) the access level Consulted and (b) the role DataArchitect selected, and the Grant Access button]({{ "/assets/images/administration/roles/role-request-1.png" | relative_url }})
 
     1. In the lower-right corner, select **Grant Access**.
 

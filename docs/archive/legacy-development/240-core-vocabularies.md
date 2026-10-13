@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 240
 permalink: /archive/legacy-development/core-vocabularies
 content_type: reference
-redirect_from: ["/development/core-vocabularies"]
 source_path: docs/090-development/290-core-vocabularies.md
 tags: ["development","vocabularies"]
 published: false

@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 150
 permalink: /archive/legacy-development/recurring-time-jobs
 content_type: reference
-redirect_from: ["/development/recurring-time-jobs"]
 source_path: docs/090-development/170-recurring-time-jobs.md
 tags: ["development","jobs"]
 published: false

@@ -6,7 +6,6 @@ grand_parent: Solutions & integrations
 nav_order: 60
 permalink: /solutions/power-apps/external-features
 content_type: concept
-redirect_from: ["/microsoft-integration/powerapps/external-features"]
 source_path: docs/180-microsoft-integration/powerapps/040-external-features.md
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17

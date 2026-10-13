@@ -96,11 +96,11 @@ For example, for release 2024.12.02 on the dev environment, the file should be n
 
     - To learn which package `version` must be used, see the [Release notes](/release-notes#release-notes) section. The **Release notes** column points to the release details.
 
-        ![release_overview_page]({{ "/assets/images/paas-operations/upgrade/release_overview_page.png" | relative_url }})
+        ![Release overview page with the Latest release table and its Release notes column of View release notes links highlighted]({{ "/assets/images/paas-operations/upgrade/release_overview_page.png" | relative_url }})
 
         Package versions are listed in the **Packages** section of the release details page.
 
-        ![package_versions]({{ "/assets/images/paas-operations/upgrade/package_versions.png" | relative_url }})
+        ![Packages section of a release details page with the Version column of the Connectors table highlighted]({{ "/assets/images/paas-operations/upgrade/package_versions.png" | relative_url }})
 
     - An IDE such as [Visual Studio Code](/operate/upgrade/required-tools#visual-studio-code) will highlight any formatting or indentation issues as you edit the YAML file.
 

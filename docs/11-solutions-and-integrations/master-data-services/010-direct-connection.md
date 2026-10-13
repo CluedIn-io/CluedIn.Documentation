@@ -61,11 +61,11 @@ In this article, you will learn how to connect CluedIn to on-premises Master Dat
 
     Basic Authentication must be enabled on this **Service** folder specifically. In many installs it's configured as its own IIS Application, with its own authentication settings that don't automatically inherit from the parent **MDS** node - enabling it on **MDS** alone is not enough.
 
-    ![select_service_authentication.png]({{ "/assets/images/microsoft-integration/mds/select_service_authentication.png" | relative_url }}) 
+    ![IIS Manager with the MDS site and its Service folder selected in Connections, and Authentication highlighted in Service Home]({{ "/assets/images/microsoft-integration/mds/select_service_authentication.png" | relative_url }}) 
 
 2. Select **Basic Authentication**, and then select **Enable**. Leave **Windows Authentication** enabled too, for any existing domain-joined clients that already work.
 
-    ![enable_basic_authentication.png]({{ "/assets/images/microsoft-integration/mds/enable_basic_authentication.png" | relative_url }}) 
+    ![IIS Manager Authentication list for the Service folder with Basic Authentication selected and Enable highlighted in Actions]({{ "/assets/images/microsoft-integration/mds/enable_basic_authentication.png" | relative_url }}) 
 
     If Basic Authentication is greyed out, the role feature may not be installed - add it from Server Manager under Web Server (IIS) > Web Server > Security > Basic Authentication.
 
@@ -83,11 +83,11 @@ In this article, you will learn how to connect CluedIn to on-premises Master Dat
 
 1. Verify the configuration by loading the service endpoint. For this, perform the sequence of steps as displayed on the following screenshot.
 
-    ![browse_service_app.png]({{ "/assets/images/microsoft-integration/mds/browse_service_app.png" | relative_url }}) 
+    ![IIS Manager numbered steps: select MDS, select Service, switch to Content View, select Service.svc, and select Browse]({{ "/assets/images/microsoft-integration/mds/browse_service_app.png" | relative_url }}) 
 
     As a result, you will see the screenshot similar to the following.
 
-    ![service_loaded.png]({{ "/assets/images/microsoft-integration/mds/service_loaded.png" | relative_url }}) 
+    ![Browser showing the Service.svc page loaded, with the svcutil.exe instructions for creating a client]({{ "/assets/images/microsoft-integration/mds/service_loaded.png" | relative_url }}) 
 
 2. Browse to the new endpoint address, for example:
 

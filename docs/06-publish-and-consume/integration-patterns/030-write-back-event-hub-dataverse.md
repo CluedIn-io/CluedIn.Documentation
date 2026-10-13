@@ -48,7 +48,7 @@ CluedIn models data using **Business Domains** and **Vocabularies**. Multiple vo
 
 For each consumer system, create a dedicated **Stream** that emits changes using the consumer’s vocabulary.
 
-![WriteBack](/assets/images/playbooks/writeback/WriteBackModelling.png)
+![Company business domain with a Golden vocabulary plus Customer, Supplier, Dynamics 365, and Salesforce consumer vocabularies, beside a model linking Company, Person, and Address through edges such as WorksFor, hasParent, hasHQin, and LivesIn](/assets/images/playbooks/writeback/WriteBackModelling.png)
 
 ---
 
@@ -78,7 +78,7 @@ The most common approaches are:
 * **Pattern C**: Stream → **Event Hubs + ADLS Gen2** → **Azure Data Factory** → Target
 * **Pattern D**: Stream → **OneLake** → **Fabric Data Pipeline** → Target
 
-![WriteBack](/assets/images/playbooks/writeback/WriteBackHLA.png)
+![High-level architecture: data sources and Purview on the left, Azure Data Factory with ADLS Gen2 between them and CluedIn; inside CluedIn, ingestion points, enrichment, deduplication, rules, cleaning, and Power Automate approvals; streams flow out to analytics, warehouse, and Azure Storage](/assets/images/playbooks/writeback/WriteBackHLA.png)
 
 ---
 
@@ -96,7 +96,7 @@ CluedIn emits entity-change events to **Azure Event Hubs**. **Power Automate** s
 
 ### Flow
 
-![WriteBack](/assets/images/playbooks/writeback/PatternA.svg)
+![Sequence for Pattern A: CluedIn Stream publishes a change event to Azure Event Hubs, a Power Automate flow reads it and upserts to the target system idempotently, retrying transient failures and sending poison or mapping failures to an error store or DLQ](/assets/images/playbooks/writeback/PatternA.svg)
 
 ### Implementation notes
 
@@ -133,7 +133,7 @@ CluedIn writes curated entities to **Microsoft Dataverse** (as tables aligned to
 
 ### Flow
 
-![WriteBack](/assets/images/playbooks/writeback/PatternB.svg)
+![Flow for Pattern B: CluedIn Stream in the consumer vocabulary writes to a Dataverse table, a Power Automate trigger on create or update writes to the target system API, DB, or app, and failures go to an error log or DLQ](/assets/images/playbooks/writeback/PatternB.svg)
 
 ### Implementation notes
 
@@ -170,7 +170,7 @@ CluedIn emits events to **Event Hubs** and also lands data to **Azure Data Lake 
 
 ### Flow
 
-![WriteBack](/assets/images/playbooks/writeback/PatternC.svg)
+![Flow for Pattern C: CluedIn Stream to Event Hubs and ADLS Gen2 raw or curated files, an event-triggered ADF pipeline transforms and validates the data and writes to the target system, and failed records go to quarantine or a DLQ](/assets/images/playbooks/writeback/PatternC.svg)
 
 ### Implementation notes
 
@@ -209,7 +209,7 @@ This pattern is often used when the same mastered data also feeds analytics and 
 
 ### Flow
 
-![WriteBack](/assets/images/playbooks/writeback/PatternD.svg)
+![Flow for Pattern D: CluedIn Stream to the OneLake curated zone, then a Fabric Data Pipeline, Dataflow, or Notebook writes to the target system, with an error or quarantine store and Fabric monitoring and alerts](/assets/images/playbooks/writeback/PatternD.svg)
 
 ### Implementation notes
 

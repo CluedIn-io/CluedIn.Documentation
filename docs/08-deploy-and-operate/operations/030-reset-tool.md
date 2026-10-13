@@ -56,7 +56,7 @@ If you would like to use the reset tool, reach out to CluedIn support at [suppor
 
 The following diagram displays the configuration of the reset tool in your environment.
 
-![reset-tool-diagram.png]({{ "/assets/images/paas-operations/reset-tool-diagram.png" | relative_url }})
+![Diagram: an HTTPS trigger starts the reset runbook in the automation account. The runbook reads a reset manifest file from a storage account, scales and resets CluedIn in Azure Kubernetes Service, and receives deployment and pod state feedback, all within the VNet]({{ "/assets/images/paas-operations/reset-tool-diagram.png" | relative_url }})
 
 ## Run reset tool
 
@@ -68,16 +68,16 @@ Once we set up the reset tool in your environment, you can reset your CluedIn in
 
 1. At the top of the page, select **Start**.
 
-    ![reset-start.png]({{ "/assets/images/paas-operations/reset-start.png" | relative_url }})
+    ![Reset runbook Overview page in the Azure portal with the Start button highlighted in the toolbar]({{ "/assets/images/paas-operations/reset-start.png" | relative_url }})
 
 1. Enter the name of the CluedIn cluster that you want to reset, and then select **OK**.
 
-    ![start-runbook.png]({{ "/assets/images/paas-operations/start-runbook.png" | relative_url }}) 
+    ![Start Runbook pane with the CLUSTERNAME parameter filled in and the OK button]({{ "/assets/images/paas-operations/start-runbook.png" | relative_url }}) 
 
     It takes up to 30 minutes to reset your CluedIn instance. While the reset tool is running, you can view the detailed logs.
 
-    ![runbook-logs.png]({{ "/assets/images/paas-operations/runbook-logs.png" | relative_url }})
+    ![Runbook job page on the All Logs tab, listing output entries as the runbook scales down CluedIn deployments]({{ "/assets/images/paas-operations/runbook-logs.png" | relative_url }})
 
     Once the process is completed, your CluedIn instance will become available again.
 
-    ![runbook-completed.png]({{ "/assets/images/paas-operations/runbook-completed.png" | relative_url }})
+    ![Runbook job page with Status Completed highlighted in the Essentials section]({{ "/assets/images/paas-operations/runbook-completed.png" | relative_url }})

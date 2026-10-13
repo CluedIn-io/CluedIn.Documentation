@@ -34,7 +34,7 @@ To sync Purview data products and data assets into CluedIn data sources, complet
 
 1. Select **new governance domain**.
 
-    ![sync-data-products-new-governance-domain.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-new-governance-domain.png" | relative_url }})
+    ![The Governance domains page in Purview Unified Catalog, with New governance domain highlighted]({{ "/assets/images/microsoft-integration/purview/sync-data-products-new-governance-domain.png" | relative_url }})
 
 1. Enter the **Name** of the governance domain.
 
@@ -42,7 +42,7 @@ To sync Purview data products and data assets into CluedIn data sources, complet
 
 1. Select the **Type** of the governance domain.
 
-    ![sync-data-products-new-governance-domain-creation.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-new-governance-domain-creation.png" | relative_url }})
+    ![The New governance domain pane with Name Customer Domains, a Description, and Type set to Data domain]({{ "/assets/images/microsoft-integration/purview/sync-data-products-new-governance-domain-creation.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -56,7 +56,7 @@ The governance domain should have a dedicated glossary term that acts as a filte
 
 1. Enter the **Name** and **Description** of the term.
 
-    ![sync-data-products-new-glossary-term.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-new-glossary-term.png" | relative_url }})
+    ![The New glossary term pane for the Customer Domains governance domain, with Name Data Product Sync and a Description]({{ "/assets/images/microsoft-integration/purview/sync-data-products-new-glossary-term.png" | relative_url }})
 
 1. Select **Create**.
 
@@ -66,7 +66,7 @@ When the glossary term is created, note two methods for obtaining its identifica
 
 1. The ID of the glossary term, which can be found in the URL.
 
-    ![sync-data-products-glossary-term-identification.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-glossary-term-identification.png" | relative_url }})
+    ![The Data Product Sync glossary term page, with callout a on the term name and callout b on the termId value in the browser URL]({{ "/assets/images/microsoft-integration/purview/sync-data-products-glossary-term-identification.png" | relative_url }})
 
 **To create data products**
 
@@ -78,13 +78,13 @@ When the glossary term is created, note two methods for obtaining its identifica
 
 1. In **Type**, select **Master data and reference data**.
 
-    ![sync-data-products-new-data-product.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-new-data-product.png" | relative_url }})
+    ![The New data product Basic details step, with Name Customer Journey, a Description, and Type set to Master data and reference data]({{ "/assets/images/microsoft-integration/purview/sync-data-products-new-data-product.png" | relative_url }})
 
 1. Select **Next**.
 
 1. Enter the **Use cases** for the data product.
 
-    ![sync-data-products-new-data-product-business-details.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-new-data-product-business-details.png" | relative_url }})
+    ![The New data product Business details step, with Governance domain Customer Domains and the Use cases field filled in]({{ "/assets/images/microsoft-integration/purview/sync-data-products-new-data-product-business-details.png" | relative_url }})
 
 1. In **Next steps**, select **Add data assets**.
 
@@ -96,13 +96,13 @@ When the glossary term is created, note two methods for obtaining its identifica
 
 1. Find and select the data asset that you want to add to the data product.
 
-    ![sync-data-products-find-and-select.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-find-and-select.png" | relative_url }})
+    ![The Find and select pane with the Employee and Customer Azure Data Lake Storage Gen2 assets selected]({{ "/assets/images/microsoft-integration/purview/sync-data-products-find-and-select.png" | relative_url }})
 
 1. Select **Add**.
 
     As a result, the data assets are added to the data product.
 
-    ![sync-data-products-data-assets.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-data-assets.png" | relative_url }})
+    ![The Customer Journey data product details page listing two data assets, Customer and Employee]({{ "/assets/images/microsoft-integration/purview/sync-data-products-data-assets.png" | relative_url }})
 
 **To add a glossary term to the data product**
 
@@ -110,19 +110,19 @@ When the glossary term is created, note two methods for obtaining its identifica
 
 1. Find and select the glossary term that you want to add to the data product.
 
-    ![sync-data-product-select-glossary-term.png]({{ "/assets/images/microsoft-integration/purview/sync-data-product-select-glossary-term.png" | relative_url }})
+    ![The Search and select pane with the Data Product Sync glossary term selected and the Add button]({{ "/assets/images/microsoft-integration/purview/sync-data-product-select-glossary-term.png" | relative_url }})
 
 1. Select **Add**.
 
     As a result, the glossary term is added to the data product.
 
-    ![sync-data-products-details-page.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-details-page.png" | relative_url }})
+    ![The Customer Journey data product page with two data assets and the Data Product Sync glossary term added]({{ "/assets/images/microsoft-integration/purview/sync-data-products-details-page.png" | relative_url }})
 
 **To publish a governance domain**
 
 - On the governance domain details page, select **Publish**.
 
-    ![synd-data-products-publish.png]({{ "/assets/images/microsoft-integration/purview/synd-data-products-publish.png" | relative_url }})
+    ![The Customer Domains governance domain details page in Draft status, with Publish highlighted]({{ "/assets/images/microsoft-integration/purview/synd-data-products-publish.png" | relative_url }})
 
     After successful publishing, the status of the governance domain changes to **Successful**.
 
@@ -150,7 +150,7 @@ When the glossary term is created, note two methods for obtaining its identifica
 
 1. Find and select the Purview service principal.
 
-    ![sync-data-products-data-catalog-reader.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-data-catalog-reader.png" | relative_url }})
+    ![The Data Catalog Reader role pane, with the CluedInPurviewSPN service principal added as a member and highlighted]({{ "/assets/images/microsoft-integration/purview/sync-data-products-data-catalog-reader.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -158,7 +158,7 @@ When the glossary term is created, note two methods for obtaining its identifica
 
 1. Find and select the Purview service principal.
 
-    ![sync-data-products-data-product-owners.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-data-product-owners.png" | relative_url }})
+    ![The Data Product Owners role pane, with the CluedInPurviewSPN service principal added as a member and highlighted]({{ "/assets/images/microsoft-integration/purview/sync-data-products-data-product-owners.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -172,7 +172,7 @@ When the glossary term is created, note two methods for obtaining its identifica
 
 1. If you want to automatically add the asset that has been already synced to CluedIn to the list of data assets of a specific data product, turn on the toggle in **Append Asset to Data Product**.
 
-    ![sync-data-products.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products.png" | relative_url }})
+    ![The Purview settings in CluedIn: Sync Data Products DataSources enabled, a glossary term ID in Sync Data Products Term Pattern, and Append Asset to Data Product enabled]({{ "/assets/images/microsoft-integration/purview/sync-data-products.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -182,26 +182,26 @@ When the glossary term is created, note two methods for obtaining its identifica
 
 Once you enable synchronization of data products, you will receive a notification when the data product is synced.
 
-![sync-data-products-notification.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-notification.png" | relative_url }})
+![CluedIn notifications: Data Product Detected for Customer Journey, and Data source created for the Employee and Customer data sources]({{ "/assets/images/microsoft-integration/purview/sync-data-products-notification.png" | relative_url }})
 
 Additionally, you will receive notifications about the execution of ADF automation pipelines, which create ingestion endpoints in CluedIn and ingest the data from data assets.
 
-![sync-data-products-adf-notification.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-adf-notification.png" | relative_url }})
+![CluedIn notifications: ADF Pipelines Created for EmployeePipeline and CustomerPipeline, and Ingestion Endpoints created for Azure Data Factory]({{ "/assets/images/microsoft-integration/purview/sync-data-products-adf-notification.png" | relative_url }})
 
 **How to check the ingested data in CluedIn?**
 
 As a result of pipeline run, a new data source group is created in CluedIn. The data source group corresponds to Purview data product, and the data sources within the group correspond to data assets within the data product.
 
-![sync-data-products-result.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-result.png" | relative_url }})
+![The CluedIn Data Sources page with the Customer Journey group containing the Customer and Employee endpoint data sources]({{ "/assets/images/microsoft-integration/purview/sync-data-products-result.png" | relative_url }})
 
 After you create the mapping and process the data set, it will be synced to Purview.
 
-![sync-data-products-notification-sync-to-purview.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-notification-sync-to-purview.png" | relative_url }})
+![A CluedIn notification: Data set synced to Purview, for the Customer data set]({{ "/assets/images/microsoft-integration/purview/sync-data-products-notification-sync-to-purview.png" | relative_url }})
 
 As a result, you can view a visual representation of an asset within the CluedIn processing pipeline.
 
-![sync-data-products-sync-to-purview-lineage.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-sync-to-purview-lineage.png" | relative_url }})
+![Purview lineage: the Customer asset flows through Ingest Data, Annotation and Customer - mapping, then Generate Clue into the CluedIn Processing Pipeline]({{ "/assets/images/microsoft-integration/purview/sync-data-products-sync-to-purview-lineage.png" | relative_url }})
 
 Since we enabled **Append Asset to Data Product**, a new asset is created in the data product to represent the entity type that was created in CluedIn.
 
-![sync-data-products-append-assets.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-append-assets.png" | relative_url }})
+![The Customer Journey data product now with three data assets, including a Customer asset of type Cluedin MDM Entity]({{ "/assets/images/microsoft-integration/purview/sync-data-products-append-assets.png" | relative_url }})

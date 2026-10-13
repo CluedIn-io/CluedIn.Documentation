@@ -23,7 +23,7 @@ In this article, we will load data from CluedIn to a Databricks notebook, do bas
 
 Our CluedIn instance has 601_222 entities of `/IMDb/Title`. To load them in Databricks, we need to create an API token in CluedIn. Go to **Administration** > **API Tokens** and create a new token.
 
-<img src="/assets/images/python-sdk/api-token-2.png" alt="CluedIn API token" />
+<img src="/assets/images/python-sdk/api-token-2.png" alt="The API Tokens page in Organization settings, with the Create API Token button and a list of active API tokens" />
 
 ## Databricks
 
@@ -162,7 +162,7 @@ import cluedin
     df_titles.head()
     ```
 
-    <img src="/assets/images/python-sdk/noindex-2.png" alt="no index" />
+    <img src="/assets/images/python-sdk/noindex-2.png" alt="DataFrame head showing five IMDb titles with a default numeric index and the entity id as a regular column" />
 
 1. One thing left to fix here. Let's set the DataFrame's index to Entity Id.
 
@@ -171,7 +171,7 @@ import cluedin
     df_titles.head()
     ```
 
-    <img src="/assets/images/python-sdk/index-2.png" alt="index" />
+    <img src="/assets/images/python-sdk/index-2.png" alt="DataFrame head showing the same five IMDb titles, now indexed by entity id" />
 
 ### Explore data
 
@@ -185,7 +185,7 @@ plt.ylabel('Count')
 plt.show()
 ```
 
-<img src="/assets/images/python-sdk/genres-2.png" alt="genres" />
+<img src="/assets/images/python-sdk/genres-2.png" alt="Bar chart titled Distribution of genres, with Drama highest at about 200,000 titles, followed by Documentary and Comedy" />
 
 ### Create schema
 
@@ -223,4 +223,4 @@ display(df_spark_titles)
 
 Now, we can see our data in the Catalog.
 
-<img src="/assets/images/python-sdk/catalog-2.png" alt="catalog" />
+<img src="/assets/images/python-sdk/catalog-2.png" alt="Databricks Catalog panel showing hive_metastore, cluedin database, and the imdb_titles table with its imdb_title columns" />

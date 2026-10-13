@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 10
 permalink: /archive/unsupported-features/access-control
 content_type: reference
-redirect_from: ["/governance/access-control"]
 source_path: docs/070-governance/outdated/010-access-control.md
 tags: ["governance","access-control"]
 published: false

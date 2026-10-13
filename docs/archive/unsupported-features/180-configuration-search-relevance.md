@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 180
 permalink: /archive/unsupported-features/configuration-search-relevance
 content_type: reference
-redirect_from: ["/consume/configuration-search-relevance"]
 source_path: docs/150-consume/outdated/060-configuration-search-relevance.md
 tags: ["consume","search"]
 published: false

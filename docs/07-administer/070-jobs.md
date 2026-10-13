@@ -5,7 +5,7 @@ parent: Administer
 nav_order: 70
 permalink: /administer/jobs
 content_type: how-to
-redirect_from: ["/management/jobs"]
+redirect_from: ["/management/jobs", "/development/one-time-jobs", "/development/recurring-time-jobs", "/development/scheduled-time-jobs"]
 tags: ["management", "jobs", "scheduling", "rules", "graphql"]
 last_modified: 2026-09-24
 ---

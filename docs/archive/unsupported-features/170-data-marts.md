@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 170
 permalink: /archive/unsupported-features/data-marts
 content_type: reference
-redirect_from: ["/consume/data-marts"]
 source_path: docs/150-consume/outdated/030-data-marts.md
 tags: ["consume"]
 published: false

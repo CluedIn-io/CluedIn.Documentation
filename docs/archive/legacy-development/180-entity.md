@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 180
 permalink: /archive/legacy-development/entity
 content_type: reference
-redirect_from: ["/development/entity"]
 source_path: docs/090-development/200-entity.md
 tags: ["development","entities"]
 published: false

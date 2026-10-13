@@ -6,7 +6,6 @@ grand_parent: Deploy & operate
 nav_order: 20
 permalink: /operate/cost-and-scaling/cost-efficience
 content_type: how-to
-redirect_from: ["/kb/cost-efficience"]
 source_path: docs/200-kb/kb0009-cost-efficience.md
 tags: ["cost"]
 last_modified: 2022-05-09

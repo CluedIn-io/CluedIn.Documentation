@@ -17,7 +17,7 @@ source_path: docs/150-consume/streams/010-concept-of-a-stream.md
 
 In this article, you'll learn about the process of sending golden records from CluedIn to the export target. We'll focus on each step of the process so that you know what to expect when you create a stream yourself.
 
-![stream-concept.gif]({{ "/assets/images/consume/streams/stream-concept.gif" | relative_url }})
+![Three-stage stream process: stream configuration (filters, actions) leads to export target configuration (type of connector, connector properties, golden record properties and relations to export), which leads to sending golden records to the export target]({{ "/assets/images/consume/streams/stream-concept.gif" | relative_url }})
 
 ## Stream configuration
 
@@ -39,11 +39,11 @@ Next, you need to define two **connector properties**:
 
     - **Synchronized stream** – with this mode, golden records in the export target will mirror golden records in CluedIn. It means that every time a golden record is changed in CluedIn, it is automatically changed in the export target. Also, if you delete a golden record in CluedIn, it is automatically deleted in the export target.
 
-        ![synched-stream.gif]({{ "/assets/images/consume/streams/synched-stream.gif" | relative_url }})
+        ![Animation: in synchronized stream mode, a golden record for John Smith in CluedIn is mirrored in the export target, and changes in CluedIn update the same record in the export target]({{ "/assets/images/consume/streams/synched-stream.gif" | relative_url }})
 
     - **Event log stream** – with this mode, each time an action occurs in CluedIn, a corresponding event is sent to the export target (for example, Create, Insert, Update, Delete).
 
-        ![event-log-stream.gif]({{ "/assets/images/consume/streams/event-log-stream.gif" | relative_url }})
+        ![Animation: in event log stream mode, each change to the John Smith golden record in CluedIn adds a new event record to the export target]({{ "/assets/images/consume/streams/event-log-stream.gif" | relative_url }})
 
 Now, it's time to decide if you want to stream **golden record relations**, also known as edges. Relations give you the necessary information to link your data correctly in the export target. You can choose both outgoing relations and incoming relations.
 

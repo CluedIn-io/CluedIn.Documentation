@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 110
 permalink: /archive/unsupported-features/data-quality-metrics
 content_type: reference
-redirect_from: ["/preparation/data-quality-metrics"]
 source_path: docs/070-governance/outdated/110-data-quality-metrics.md
 tags: ["governance","quality-metrics"]
 published: false

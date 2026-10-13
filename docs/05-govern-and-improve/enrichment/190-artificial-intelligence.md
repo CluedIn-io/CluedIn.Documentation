@@ -51,19 +51,19 @@ To use the Artificial Intelligence enricher, you need to have an [Azure OpenAI S
 
 1. Go to **Administration** > **Artificial Intelligence**.
 
-   ![ai-enricher-1.png]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-1.png" | relative_url }})
+   ![Administration - Artificial Intelligence page with Platforms, Deployments and Endpoints cards, each with a View all link]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-1.png" | relative_url }})
 
 1. Create a platform using your Azure OpenAI resource. Enter the **Base URL** for your Azure OpenAI resource in the format similar to the following: `https://{resource-name}.openai.azure.com/`.
 
-   ![ai-enricher-2.png]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-2.png" | relative_url }})
+   ![Create platform pane with name Azure OpenAI, platform Azure Open AI, an API key, and the Base Url of the Azure OpenAI resource]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-2.png" | relative_url }})
 
 1. Create a deployment using the platform created. Please include the cost details for the deployment, if any.
 
-   ![ai-enricher-3.png]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-3.png" | relative_url }})
+   ![Create deployment pane for gpt-4.1 on the Azure OpenAI platform, with currency, cost per input and output token, and max input tokens]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-3.png" | relative_url }})
 
 1. Create an endpoint using the deployment created.
 
-   ![ai-enricher-4.png]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-4.png" | relative_url }})
+   ![Create endpoint pane with name gpt-4.1, deployment gpt-4.1, and endpoint type Chat]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-4.png" | relative_url }})
 
 **To add Artificial Intelligence enricher**
 
@@ -71,7 +71,7 @@ To use the Artificial Intelligence enricher, you need to have an [Azure OpenAI S
 
 1. On the **Choose Enricher** tab, select **Artificial Intelligence**, and then select **Next**.
 
-   ![ai-enricher-5.png]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-5.png" | relative_url }})
+   ![Choose enricher tab of the Add Enricher pane with Artificial Intelligence selected]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-5.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -85,7 +85,7 @@ To use the Artificial Intelligence enricher, you need to have an [Azure OpenAI S
         Using the address in {Vocabulary:companies2.address} provide the country of the organization in {output:Vocabulary:companies2.aiCountry}.
         ```
 
-        ![ai-enricher-6.png]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-6.png" | relative_url }})
+        ![Configure tab of the Add Enricher pane with an Endpoint, Organization as the accepted type, and a prompt with input and output vocabulary keys]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-6.png" | relative_url }})
 
 1. Click **Save**. The Artificial Intelligence enricher is added and has an active status. This means that it will enrich relevant golden records during processing or when you trigger external enrichment.
 
@@ -99,8 +99,8 @@ After the Artificial Intelligence enricher is added, you can modify its details:
 
 You can find the properties added to golden records from the Artificial Intelligence enricher on the **Properties** page. 
 
-![ai-enricher-7.png]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-7.png" | relative_url }})
+![Properties page of a golden record showing an AI Country property whose source is the Artificial Intelligence enricher]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-7.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the Artificial Intelligence enricher, check the corresponding data part on the **History** page.
 
-![ai-enricher-8.png]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-8.png" | relative_url }})
+![History page of a golden record with the expanded Artificial Intelligence data part showing the added AI Country value]({{ "/assets/images/preparation/enricher/ai-enricher/ai-enricher-8.png" | relative_url }})

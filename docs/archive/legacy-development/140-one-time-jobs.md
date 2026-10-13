@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 140
 permalink: /archive/legacy-development/one-time-jobs
 content_type: reference
-redirect_from: ["/development/one-time-jobs"]
 source_path: docs/090-development/160-one-time-jobs.md
 tags: ["development","jobs"]
 published: false

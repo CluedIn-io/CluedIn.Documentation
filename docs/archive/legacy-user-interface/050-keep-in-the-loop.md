@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 50
 permalink: /archive/legacy-user-interface/keep-in-the-loop
 content_type: reference
-redirect_from: ["/user-interface/keep-in-the-loop"]
 source_path: docs/100-user-interface/050-keep-in-the-loop.md
 tags: ["ui"]
 published: false

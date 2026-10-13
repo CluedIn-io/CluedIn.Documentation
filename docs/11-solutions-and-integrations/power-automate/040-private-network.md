@@ -88,4 +88,4 @@ To troubleshoot incoming requests from Power Automate, create temporary dummy ac
 
 To troubleshoot outgoing requests from CluedIn, send test requests from the CluedIn cluster and review the outbound traffic logs. This confirms that the cluster can reach the required Power Automate or Power Platform endpoint.
 
-![network-with-power-automate.png]({{ "/assets/images/microsoft-integration/power-automate/network-with-power-automate.png" | relative_url }})
+![Network diagram: Power Automate reaches the firewall via public DNS and a public IP, traffic goes through an internal load balancer to the private AKS cluster, with Azure Bastion, private DNS zones, private endpoints for Kubernetes API, storage and Key Vault, and Log Analytics monitoring]({{ "/assets/images/microsoft-integration/power-automate/network-with-power-automate.png" | relative_url }})

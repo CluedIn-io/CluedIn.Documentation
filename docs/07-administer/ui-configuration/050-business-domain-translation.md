@@ -6,7 +6,6 @@ grand_parent: Administer
 nav_order: 50
 permalink: /administer/ui-configuration/business-domain-translation
 content_type: how-to
-redirect_from: ["/preparation/entity-type-translation"]
 source_path: docs/080-management/entity-type/020-entity-type-translation.md
 tags: ["management", "entity type"]
 published: false

@@ -6,7 +6,7 @@ grand_parent: Publish & consume
 nav_order: 20
 permalink: /publish/integration-patterns/writing-back-to-operational-systems
 content_type: how-to
-redirect_from: ["/kb/writing-back-to-operational-systems"]
+redirect_from: ["/kb/writing-back-to-operational-systems", "/governance/mesh-api"]
 source_path: docs/200-kb/how-to/150-writing-data-back-to-operational-systems.md
 ---
 

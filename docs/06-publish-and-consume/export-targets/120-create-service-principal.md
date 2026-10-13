@@ -23,36 +23,36 @@ When you register a new application in Microsoft Entra ID, a service principal i
 
 1. Select **Microsoft Entra ID**.
 
-    ![microsoft-entra-id.png]({{ "/assets/images/consume/service-principal/microsoft-entra-id.png" | relative_url }})
+    ![Azure portal Azure services list with Microsoft Entra ID highlighted]({{ "/assets/images/consume/service-principal/microsoft-entra-id.png" | relative_url }})
 
 1. On the left-hand navigation pane, under **Manage**, select **App registrations**.
 
-    ![app-registrations.png]({{ "/assets/images/consume/service-principal/app-registrations.png" | relative_url }})
+    ![Microsoft Entra ID Overview page with App registrations highlighted under Manage in the left pane]({{ "/assets/images/consume/service-principal/app-registrations.png" | relative_url }})
 
 1. Select **New registration**.
 
-    ![new-registration.png]({{ "/assets/images/consume/service-principal/new-registration.png" | relative_url }})
+    ![The App registrations page with the New registration button highlighted]({{ "/assets/images/consume/service-principal/new-registration.png" | relative_url }})
 
 1. Enter the **Name** of service principal, select **Supported account types**, and then select **Register**.
 
-    ![app-registration-fields.png]({{ "/assets/images/consume/service-principal/app-registration-fields.png" | relative_url }})
+    ![The Register an application page with a Name entered, the single-tenant supported account type selected, and the Register button]({{ "/assets/images/consume/service-principal/app-registration-fields.png" | relative_url }})
 
     After successful registration, you can find **Client ID** (a) and **Tenant ID** (b) on the overview page of your service principal (app registration).
 
-    ![client-and-tenant-id.png]({{ "/assets/images/consume/service-principal/client-and-tenant-id.png" | relative_url }})
+    ![App registration Overview page with callouts on the Application (client) ID (a) and the Directory (tenant) ID (b)]({{ "/assets/images/consume/service-principal/client-and-tenant-id.png" | relative_url }})
 
 1. To create **Client Secret**, select the **Add a certificate or secret** link on the overview page of your service principal (app registration).
 
-     ![add-certificate-or-secret.png]({{ "/assets/images/consume/service-principal/add-certificate-or-secret.png" | relative_url }})
+     ![App registration Overview page with the Add a certificate or secret link highlighted next to Client credentials]({{ "/assets/images/consume/service-principal/add-certificate-or-secret.png" | relative_url }})
 
 1. Select **New client secret**.
 
-    ![new-client-secret-1.png]({{ "/assets/images/consume/service-principal/new-client-secret-1.png" | relative_url }})
+    ![The Certificates & secrets page on the Client secrets tab, with New client secret highlighted]({{ "/assets/images/consume/service-principal/new-client-secret-1.png" | relative_url }})
 
 1. In the **Description** field, enter the name of the client secret. In the **Expires** field, select an expiration for the secret. Finally, select **Add**.
 
-    ![new-client-secret-2.png]({{ "/assets/images/consume/service-principal/new-client-secret-2.png" | relative_url }})
+    ![The Add a client secret pane with a Description entered, Expires set to 365 days, and the Add button]({{ "/assets/images/consume/service-principal/new-client-secret-2.png" | relative_url }})
 
     Now, you can find the client secret value under **Certificates & secrets**.
 
-     ![secret-value.png]({{ "/assets/images/consume/service-principal/secret-value.png" | relative_url }})
+     ![The Certificates & secrets page listing the new client secret, with its Value highlighted]({{ "/assets/images/consume/service-principal/secret-value.png" | relative_url }})
