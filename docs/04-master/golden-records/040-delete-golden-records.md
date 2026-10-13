@@ -40,21 +40,21 @@ If you no longer need a specific golden record, you can delete it on the golden 
 
 ## Delete several golden records
 
-If you no longer need a set of golden records, you can select those golden records on the search results page and delete them.
+If you no longer need a set of golden records, you can select those golden records on the search results page and delete them. The search results page also lets you [merge, reprocess, split, or tag](/master/golden-records/bulk-actions-on-search-results) several golden records at once, using the same selection.
 
 **To delete several golden records**
 
 1. On the search results page, find golden records that you want to delete. You can search for golden records by entering a keyword or applying [filters](/master/filters).
 
-1. In the upper-right corner, select the three-dot button (⋮) > **Select for deletion**.
+1. Select the checkboxes next to the golden records that you want to delete.
 
-    ![select-for-deletion.png]({{ "/assets/images/golden-records/select-for-deletion.png" | relative_url }})
+    As soon as you select at least one golden record, a toolbar with the available bulk actions appears above the search results.
 
-1. Select the checkboxes next to golden records that you want to delete.
+    ![bulk-actions-toolbar.png]({{ "/assets/images/golden-records/bulk-actions-toolbar.png" | relative_url }})
 
-1. In the upper-left corner, select **Start deletion**.
+    If you want to select every golden record matching your current search across all pages, not just the ones on the current page, see [Select all golden records across all pages](/master/golden-records/bulk-actions-on-search-results#select-all-golden-records-across-all-pages).
 
-    ![start-deletion.png]({{ "/assets/images/golden-records/start-deletion.png" | relative_url }})
+1. In the toolbar, select the delete icon.
 
 1. Review the details of the golden records that will be deleted, and then select **Next**.
 
