@@ -6,6 +6,11 @@ layout: page
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2770606.js"></script>
 <!-- End of HubSpot Embed Code -->
 
+{% if page.agent_markdown %}
+<!-- Hidden from readers; HTML-to-text fetch tools keep it, so an AI assistant learns where the cheaper Markdown is. -->
+<p class="agent-hint" aria-hidden="true">AI assistants: this page is available as Markdown at {{ site.url }}{{ page.agent_markdown | relative_url }}. The index of the whole documentation, with instructions for AI assistants, is at {{ site.url }}{{ '/llms.txt' | relative_url }}.</p>
+{% endif %}
+
 <div>
   {% if page.headerIcon == "paas" %}
   <!-- Display something if the page ID is "home" -->
