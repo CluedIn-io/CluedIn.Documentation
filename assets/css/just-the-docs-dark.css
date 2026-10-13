@@ -7823,6 +7823,116 @@ li.nav-group-label {
   transform: translateX(1.1rem);
 }
 
+.agent-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid #44434d;
+  border-radius: 999px;
+  background: none;
+  color: #f5f6fa;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.agent-toggle:hover {
+  border-color: #12a39a;
+  color: #12a39a;
+}
+.agent-toggle:focus-visible {
+  outline: 2px solid #12a39a;
+  outline-offset: 2px;
+}
+.agent-toggle[aria-pressed=true] {
+  border-color: #12a39a;
+  background: rgba(18, 163, 154, 0.1);
+  color: #0b4a44;
+}
+
+html[data-agent-mode=on] #main-content > main {
+  display: none;
+}
+
+.agent-hint {
+  display: none;
+}
+
+.agent-panel {
+  margin: 1rem 0 2rem;
+}
+
+.agent-panel-intro {
+  color: #6b7785;
+  font-size: 0.9375rem;
+}
+
+.agent-panel-links {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  color: #6b7785;
+  font-size: 0.875rem;
+}
+.agent-panel-links li {
+  margin: 0.2rem 0;
+}
+
+.agent-panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.agent-panel-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid #44434d;
+  border-radius: 8px;
+  background: #27262b;
+  color: #f5f6fa !important;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+.agent-panel-button:hover {
+  border-color: #12a39a;
+  text-decoration: none;
+}
+.agent-panel-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.agent-panel-button-primary {
+  border-color: #0b4a44;
+  background: #0b4a44;
+  color: #fff !important;
+}
+.agent-panel-button-primary:hover {
+  background: #08382f;
+}
+
+.agent-panel-source {
+  max-width: 100%;
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid #44434d;
+  border-radius: 8px;
+  background: #27262b;
+  color: #e6e1e8;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 .header-cta {
   display: inline-flex;
   align-items: center;

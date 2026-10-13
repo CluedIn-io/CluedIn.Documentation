@@ -1,0 +1,153 @@
+# CluedIn Documentation
+
+> CluedIn is a master data management platform. It ingests records from many sources, models what they mean, merges them into golden records, keeps their quality up, and publishes the trusted result to other systems.
+
+How to use this documentation as an agent:
+
+- Fetch Markdown, not HTML. Every page listed here is a .md URL; for any
+  page on this site, append ".md" to its URL to get the same content
+  without navigation or markup.
+- Navigate rather than load everything. Find the section below, fetch its
+  .md page, and its "In this section" list gives every child page with a
+  one-line description. /llms-full.txt has all product pages in one file
+  when you do need everything.
+- The sections follow the path data takes through CluedIn: Get started,
+  Ingest, Model, Master, Govern & improve, Publish & consume, then
+  Administer (inside the product: users, roles, access), Deploy & operate
+  (the installation: Kubernetes, Azure, upgrades, backup) and Develop &
+  APIs (code: REST API, Python SDK, custom connectors).
+- Each subject is explained in exactly one place. Solutions, learning paths
+  and playbooks link to that place instead of repeating it, so prefer the
+  product sections when you need to know how a feature works.
+- To do something, use a how-to page. To understand something, use a
+  concept page. For exact options, fields or endpoints, use a reference
+  page. If you start from an error or symptom, use Troubleshooting, or
+  Ingest > Troubleshoot ingestion for problems with records arriving.
+- The REST API is described at /api/get-started.md. Each API category page
+  links its OpenAPI document, under /assets/api/categories/<category>.json;
+  the whole specification is /assets/api/swagger.json.
+- A CluedIn instance also exposes an MCP server at
+  https://<instance>/api/mcp/server. How to connect an assistant to it is
+  in /govern/ai-agents/ai-agents-faqs.md, under "Connecting CluedIn MCP".
+- "AI agents" in this documentation is a CluedIn product feature that
+  works on golden records inside CluedIn (/govern/ai-agents.md). It is not
+  you, and not the user's assistant. Setting up an assistant to read these
+  docs is /get-started/ai-assistants.md.
+- Older terms you may meet in user questions: "entity" is now "golden
+  record", "entity type" is now "business domain", "entity code" is now
+  "identifier", and "schema" is now "vocabulary". The full list is at
+  /get-started/terminology.md.
+
+Every page declares one content type: concept (explains how something works), how-to (steps to accomplish one task), tutorial (guided end-to-end learning), reference (facts, options, APIs), troubleshooting (symptom, cause, and fix).
+
+## Get started
+
+- [Get started](https://documentation.cluedin.net/get-started.md): What is CluedIn and how do I begin?
+- [What is CluedIn?](https://documentation.cluedin.net/get-started/what-is-cluedin.md) (concept): CluedIn is a master data management platform.
+- [Quick feature tour](https://documentation.cluedin.net/get-started/quick-feature-tour.md) (tutorial): Welcome to the Quick Feature Tour of CluedIn.
+- [Core concepts](https://documentation.cluedin.net/get-started/core-concepts.md): Short explanations of the ideas the rest of the documentation assumes you know.
+- [Take the in-app product tour](https://documentation.cluedin.net/get-started/product-tour.md) (how-to): Besides the written guides in this section, CluedIn also includes a short, interactive product tour that you can take directly in the application.
+- [Quickstart](https://documentation.cluedin.net/get-started/quickstart.md) (tutorial): This is the shortest complete path through CluedIn: get data in, make it good, and send it somewhere.
+- [Terminology](https://documentation.cluedin.net/get-started/terminology.md) (reference): Each term below has exactly one home in the documentation.
+- [How to get CluedIn](https://documentation.cluedin.net/get-started/get-cluedin.md) (how-to): CluedIn makes doing business easy by giving you flexibility to adopt our platform at your own pace.
+- [Getting access](https://documentation.cluedin.net/get-started/getting-access.md) (how-to): In this article, you will find instructions on how to get access to CluedIn.
+- [Frequently asked questions](https://documentation.cluedin.net/get-started/faq.md) (reference): Any modifications made to the default configuration, except those explicitly documented as post-install adjustments on the documentation portal, will result in the termination of support.
+- [Use this documentation with an AI assistant](https://documentation.cluedin.net/get-started/ai-assistants.md) (how-to): Point an AI assistant such as Claude, ChatGPT, Microsoft Copilot or Cursor at this documentation so it answers CluedIn questions from the current pages instead of from memory, and reads them in a form that costs it fa...
+
+## Ingest
+
+- [Ingest](https://documentation.cluedin.net/ingest.md): How do I get data into CluedIn?
+- [Tutorial: ingest data](https://documentation.cluedin.net/ingest/tutorial-ingest-data.md) (tutorial): Ingesting data to CluedIn involves three basic steps: importing, mapping, and processing data.
+- [Data sources](https://documentation.cluedin.net/ingest/data-sources.md): A data source is where records come from.
+- [Mapping](https://documentation.cluedin.net/ingest/mapping.md): Mapping decides which source column becomes which vocabulary key, which value identifies the record, and what business domain it belongs to.
+- [Processing](https://documentation.cluedin.net/ingest/processing.md): Processing turns mapped records into data parts and golden records.
+- [Troubleshoot ingestion](https://documentation.cluedin.net/ingest/troubleshooting.md): When records do not arrive, or arrive wrong, these are the three places to look: the quarantine holds records that failed validation, the logs say what the source did, and monitoring shows whether processing is keeping up.
+- [Manual data entry](https://documentation.cluedin.net/ingest/manual-data-entry.md): Some data has no source system - it lives in someone's head or a spreadsheet.
+- [Connectors](https://documentation.cluedin.net/ingest/connectors.md): A connector crawls an external system and turns what it finds into clues.
+- [Ingestion patterns](https://documentation.cluedin.net/ingest/patterns.md): Worked patterns for feeding CluedIn from common parts of a modern data stack, and for the case where you have many systems rather than a few.
+
+## Model
+
+- [Model](https://documentation.cluedin.net/model.md): How do I describe my data so CluedIn understands it?
+- [Identifiers](https://documentation.cluedin.net/model/identifiers.md) (concept): An identifier (previously known as code) is a mechanism that CluedIn uses to define the uniqueness of a golden record.
+- [Business domains](https://documentation.cluedin.net/model/business-domains.md): A business domain says what kind of thing a record is - Customer, Product, Organization.
+- [Global Data Model](https://documentation.cluedin.net/model/global-data-model.md) (how-to): The Global Data Model gives you a visual view of the schema represented by the data in CluedIn.
+- [Vocabularies](https://documentation.cluedin.net/model/vocabularies.md): A vocabulary is the set of properties that describe records from a source or a business domain, and a vocabulary key is one of those properties.
+- [Data catalog](https://documentation.cluedin.net/model/data-catalog.md): The data catalog is where every vocabulary, key and data type in your instance can be found and inspected.
+- [Relationships](https://documentation.cluedin.net/model/relationships.md): Relationships - edges - connect one record to another: an employee to an organization, an order to a customer.
+- [Hierarchies](https://documentation.cluedin.net/model/hierarchies.md): A hierarchy arranges golden records into a parent/child structure - a company and its subsidiaries, a product and its variants.
+
+## Master
+
+- [Master](https://documentation.cluedin.net/master.md): How do I turn records into trusted golden records?
+- [Golden records](https://documentation.cluedin.net/master/golden-records.md): How to work with golden records once they exist: see what they are connected to, read their history, understand why a value was chosen, and remove records or individual data parts.
+- [Deduplication](https://documentation.cluedin.net/master/deduplication.md): Deduplication is how CluedIn finds records that describe the same thing and merges them.
+- [Search](https://documentation.cluedin.net/master/search.md) (how-to): In this article, you will learn how to use the search capabilities in CluedIn to efficiently find the golden records you need.
+- [Filters](https://documentation.cluedin.net/master/filters.md) (how-to): Filters play a significant role in various parts of CluedIn.
+
+## Govern & improve
+
+- [Govern & improve](https://documentation.cluedin.net/govern.md): How do I improve and govern the data?
+- [Work with the glossary](https://documentation.cluedin.net/govern/work-with-glossary.md) (how-to): Glossary can help you in documenting groups of golden records that meet specific criteria, simplifying the process of cleaning and streaming these groups of records.
+- [Cleaning](https://documentation.cluedin.net/govern/cleaning.md): A clean project takes a set of golden records, shows you what is wrong with them, and lets you fix it in bulk.
+- [Enrichment](https://documentation.cluedin.net/govern/enrichment.md): An enricher fills gaps in your data from an external source - a company register, a mapping service, a search index.
+- [Rules](https://documentation.cluedin.net/govern/rules.md): Rules apply logic to your data automatically: change a value, add a tag, block a change.
+- [Tags](https://documentation.cluedin.net/govern/tags.md): Tags are labels you attach to golden records and data parts.
+- [AI agents](https://documentation.cluedin.net/govern/ai-agents.md): AI agents do stewardship work for you - proposing fixes for quality problems, suggesting duplicates to merge, drafting rules.
+- [Workflows](https://documentation.cluedin.net/govern/workflows.md): A workflow puts an approval step in front of a change, so that edits to golden records are reviewed before they take effect.
+- [Set retention policies on data](https://documentation.cluedin.net/govern/set-retention.md) (how-to): Retention policies define how long data is stored in CluedIn before it is automatically archived or deleted.
+
+## Publish & consume
+
+- [Publish & consume](https://documentation.cluedin.net/publish.md): How do I get trusted data out?
+- [Streams](https://documentation.cluedin.net/publish/streams.md): A stream is a continuous export: you define which golden records and which properties, point it at an export target, and CluedIn keeps the target up to date as the data changes.
+- [Export targets](https://documentation.cluedin.net/publish/export-targets.md): An export target is the destination a stream writes to.
+- [GraphQL](https://documentation.cluedin.net/publish/graphql.md): GraphQL is the query interface for reading golden records on demand, as opposed to streams, which push them continuously.
+- [Integration patterns](https://documentation.cluedin.net/publish/integration-patterns.md): Worked patterns for getting trusted data out of CluedIn and into the systems that need it, including writing corrected values back to the systems the data came from.
+
+## Administer
+
+- [Administer](https://documentation.cluedin.net/administer.md): How do I manage the product?
+- [Users and roles](https://documentation.cluedin.net/administer/users-and-roles.md): Who can sign in, and what they are allowed to do.
+- [Access control](https://documentation.cluedin.net/administer/access-control.md): Access control policies decide which golden records and which properties a role can see.
+- [UI configuration](https://documentation.cluedin.net/administer/ui-configuration.md): What users see when they open CluedIn: the layout of a golden record page, the items in the navigation menu, and the language the interface uses for your business domains.
+- [Feature flags](https://documentation.cluedin.net/administer/feature-flags.md) (reference): In this article, you will learn about the features in CluedIn that you can turn on or off as needed.
+- [Generate an API token](https://documentation.cluedin.net/administer/api-token.md) (how-to): API tokens allow external systems and applications to authenticate and interact with CluedIn programmatically.
+- [Jobs](https://documentation.cluedin.net/administer/jobs.md) (how-to): The Jobs module lets you schedule recurring work in CluedIn and monitor when that work runs.
+- [General settings](https://documentation.cluedin.net/administer/general-settings.md) (reference): The Notifications section lets you control how you, personally, are notified about activity in CluedIn.
+
+## Deploy & operate
+
+- [Deploy & operate](https://documentation.cluedin.net/operate.md): How do I run the platform?
+- [Architecture overview](https://documentation.cluedin.net/operate/architecture.md) (concept): Below is a high-level design of what gets deployed from the Azure Marketplace Application (AMA) wizard and what you can expect after installing the product.
+- [Queues in CluedIn](https://documentation.cluedin.net/operate/queues-in-cluedin.md) (concept): In this article, you will learn about the queue-based service bus architecture used by CluedIn and find a complete list of queues involved in its operations.
+- [Deployment options](https://documentation.cluedin.net/operate/deployment-options.md): CluedIn runs as a managed SaaS service, as a private SaaS or PaaS deployment in your own Azure subscription, or locally for development.
+- [Azure deployment](https://documentation.cluedin.net/operate/azure.md): Deploying CluedIn into your own Azure subscription: the cluster, the network, the certificates, the storage, and the Helm release that installs the platform onto them.
+- [Azure Marketplace](https://documentation.cluedin.net/operate/azure-marketplace.md): Installing CluedIn from the Azure Marketplace, including the decisions to make and the checks to run before and after the managed application is deployed.
+- [Local deployment](https://documentation.cluedin.net/operate/local.md): Running CluedIn on a single machine for development and evaluation, including how to add extension packages and how to upgrade it.
+- [Configuration](https://documentation.cluedin.net/operate/configuration.md): Configuring a deployed installation: how you connect to it, how it authenticates people, how it reaches the network, and how it stores and secures its data.
+- [External identity providers](https://documentation.cluedin.net/operate/identity-providers.md): CluedIn signs people in through Microsoft Entra, and Entra can federate other identity providers such as Okta, Auth0 or Google Workspace, so people keep using the account they already have.
+- [Upgrade](https://documentation.cluedin.net/operate/upgrade.md): How to upgrade a CluedIn installation, and what each release requires.
+- [Backup and restore](https://documentation.cluedin.net/operate/backup-and-restore.md): Protecting an installation and getting it back.
+- [Monitoring](https://documentation.cluedin.net/operate/monitoring.md): Watching a running installation: the Engine Room shows what the platform is processing right now, and Log Analytics holds the detail when you need to go back through it.
+- [Security](https://documentation.cluedin.net/operate/security.md): The security posture of a CluedIn installation, how to restrict access to individual components, and CluedIn's response to publicly disclosed vulnerabilities.
+- [Cost and scaling](https://documentation.cluedin.net/operate/cost-and-scaling.md): What drives the cost of a CluedIn installation and what you can safely turn down or off when you do not need it.
+- [Day-to-day operations](https://documentation.cluedin.net/operate/operations.md): The recurring operational tasks: promoting configuration between environments, resetting an instance, migrating the database, and knowing what CluedIn support covers.
+
+## Develop & APIs
+
+- [Develop & APIs](https://documentation.cluedin.net/develop.md): How do I automate or extend CluedIn?
+- [Python SDK](https://documentation.cluedin.net/develop/python-sdk.md): The Python SDK is the fastest way to script CluedIn: query golden records, push data in, pull data out, and automate the operations you would otherwise click through.
+- [Build integrations](https://documentation.cluedin.net/develop/integrations.md): Writing your own connector so CluedIn can crawl a system it does not support out of the box.
+- [Build custom enricher](https://documentation.cluedin.net/develop/build-custom-enricher.md) (how-to): In CluedIn, an enricher allows you to take input from data flowing through the processing pipeline and then lookup services (typically external APIs) as to enrich just a single particular entity.
+- [API reference](https://documentation.cluedin.net/api.md): The REST API is generated from CluedIn's OpenAPI specification and covers more than a thousand endpoints, grouped below by the part of the product they act on.
+
+## Optional
+
+- [Terms of service](https://documentation.cluedin.net/terms-of-service.md) (reference): Welcome to CluedIn’s terms of service.
+- [Solutions & integrations](https://documentation.cluedin.net/solutions.md): How does CluedIn fit with the rest of my stack?
+- [Learning paths](https://documentation.cluedin.net/learning-paths.md): How do I learn CluedIn for my role?
+- [Playbooks](https://documentation.cluedin.net/playbooks.md): How do I run a CluedIn project?
+- [Troubleshooting](https://documentation.cluedin.net/troubleshooting.md): Something is not working - what do I check?
+- [Release notes](https://documentation.cluedin.net/release-notes.md): What changed, and what is supported?
+- [Archive](https://documentation.cluedin.net/archive.md): Where did the old material go?

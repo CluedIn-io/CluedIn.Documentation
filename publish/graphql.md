@@ -1,0 +1,319 @@
+---
+title: GraphQL
+url: https://documentation.cluedin.net/publish/graphql
+content_type: landing
+section: Publish & consume
+---
+
+# GraphQL
+
+CluedIn provides GraphQL as a flexible way to pull and query data. The CluedIn GraphQL endpoint integrates multiple datastores to service each query efficiently, using an internal query optimizer to determine which datastore should handle which part of the request.
+
+## How it works
+
+Depending on the query, CluedIn may interact with one or more of the following datastores:
+
+- Search store – For full-text searches and property-based lookups.
+
+- Graph store – For exploring relationships and connected records.
+
+- Blob store – For retrieving complete record histories and raw data.
+
+The query optimizer automatically selects the best datastore combination for each query.
+
+Consider the following example:
+
+- A query that finds all entities in a specific business domain with a certain property value is handled entirely by the Search store.
+
+- If the query also requests the full history of those records, CluedIn first retrieves the results from the Search store, and then asks the Blob store for historical data.
+
+- If the query expands to include related records (for example, entities of the Person type connected to the results), CluedIn adds the Graph store to process that part of the query.
+
+![GraphiQL with a search query on trainingcontact.jobTitle returning totalResults 18, a cursor, and entries whose job title is Systems Administrator](https://documentation.cluedin.net/assets/images/consume/simple-graphql-example-2.png)
+
+## Supported operations
+
+The CluedIn GraphQL endpoint supports a wide range of operations, including:
+
+* Get entities by ID.
+
+* Get entities using a full-text search.
+
+* Get entities by property value.
+
+* Get data metrics.
+
+## Case sensitivity in lookups
+
+By default, all value lookups are case-sensitive. For example, `organisation.industry:Banking` will not match entities where the value is "banking" (lowercase “b”).
+
+While you can modify this behavior, CluedIn encourages using CluedIn Clean to normalize and standardize data values. This ensures that downstream consumers receive consistent data (for example, "Banking" vs "banking") without requiring schema or query adjustments.
+
+You can standardize capitalization and formatting conventions without pushing changes back to the original source systems through the Mesh API.
+
+## Enabling case-insensitive lookups
+
+If you need to enable case-insensitive searches, extend the built-in ElasticEntity model within CluedIn and add custom properties with their respective analyzers to support case-insensitive matching.
+
+## Examples of using GraphQL
+
+To help you get familiar with CluedIn’s GraphQL implementation, the following examples illustrate common queries you can experiment with.
+
+### Get an entity by ID
+
+You can retrieve a specific entity using its unique ID. To begin, you will need to obtain an example ID by searching for your admin user.
+
+![The admin@foobar.com user page in CluedIn, with the entity ID highlighted at the end of the browser address bar URL](https://documentation.cluedin.net/assets/images/consume/01-by-id-01-2.png)
+
+~~~
+{
+  entity(id:"c2d38278-6886-532d-8405-98e97298298f")
+  {
+    name
+  }
+}
+~~~
+
+![GraphiQL with an entity query by ID requesting name, and the result returning the name Lorelei](https://documentation.cluedin.net/assets/images/consume/01-by-id-02-2.png)
+
+### Get entities by search
+
+~~~
+{
+  search(query:"Test")
+  {
+    entries
+    {
+      name
+    }
+  }
+}
+~~~
+
+![GraphiQL with a search query for Raynell requesting entry names, and the result listing two entries named Raynell](https://documentation.cluedin.net/assets/images/consume/02-by-search-2.png)
+
+### Get entities by vocabulary keys
+
+~~~
+{
+  search(query:"properties.user.firstName:Alix")
+  {
+    entries
+    {
+      name
+    }
+  }
+}
+~~~
+
+![GraphiQL with a search query on properties.trainingcontact.firstName:Foster, and the result listing three entries named Foster](https://documentation.cluedin.net/assets/images/consume/03-by-vocab-key-2.png)
+
+### Get entities by a combination of vocabulary keys
+
+~~~
+{
+  search(query: "+properties.user.firstName:Alix +properties.user.lastName:Freke")
+  {
+    entries
+    {
+      name
+    }
+  }
+}
+~~~
+
+![GraphiQL with a search query combining trainingcontact.firstName:Foster and trainingcontact.lastName:Lamb, returning one entry named Foster](https://documentation.cluedin.net/assets/images/consume/04-by-vocab-key-combo-2.png)
+
+### Get all entities that have a value for a certain property
+
+~~~
+{
+  search(query: "properties.user.firstName:A*")
+  {
+    totalResults
+    entries
+    {
+      name
+    }
+  }
+}
+~~~
+
+![GraphiQL with a search query on trainingcontact.firstName:A* returning totalResults 35 and entries such as Andree, Amitie and Aloin](https://documentation.cluedin.net/assets/images/consume/05-certain-prop-2.png)
+
+Alternatively, find out how many records match.
+
+~~~
+{
+  search(query: "properties.user.firstName:A*")
+  {
+    totalResults
+  }
+}
+~~~
+
+![GraphiQL with a search query on trainingcontact.firstName:A* requesting only totalResults, and the result returning 35](https://documentation.cluedin.net/assets/images/consume/05-certain-prop-num-match-2.png)
+
+### Change what properties come back in the results, 4 records at a time
+
+~~~
+{
+  search(query: "properties.user.firstName:A*", pageSize:4)
+  {
+    totalResults
+    entries
+    {
+      name
+      createdDate
+      displayName
+      properties
+    }
+  }
+}
+~~~
+
+![GraphiQL with a search query using pageSize 4 and requesting name, createdDate, displayName and properties, with all properties of each entry in the result](https://documentation.cluedin.net/assets/images/consume/06-what-props-pagesize4-2.png)
+
+### Change what metadata comes out of the properties
+
+~~~
+{
+  search(query: "properties.user.firstName:A*", pageSize:4)
+  {
+    totalResults
+    entries
+    {
+      name
+      properties(propertyNames:["user.lastName", "user.gender"])
+    }
+  }
+}
+~~~
+
+![GraphiQL with a search query requesting only the lastName and jobTitle properties, and four results showing just those two properties](https://documentation.cluedin.net/assets/images/consume/07-what-metadata-2.png)
+
+### Explore edges
+
+~~~
+{
+  search(query: "user.firstName:*", pageSize: 4) {
+    entries {
+      name
+      edges {
+        outgoingOfType(entityType: "/Organization", edgeType: "/PartOf") {
+          entries {
+            name
+          }
+        }
+      }
+    }
+  }
+}
+~~~
+
+![GraphiQL with a search query expanding outgoing edges of type /PartOf to /Organization, and four results where outgoingOfType is null](https://documentation.cluedin.net/assets/images/consume/8-2.png)
+
+### Search for all golden records which comes from certain datasource
+
+Query
+~~~
+query searchQuery($query: String, $filters: [FilterQuery], $cursor: PagingCursor) {
+  search(
+    query: $query
+    filters: $filters
+    pageSize: 10000
+    cursor: $cursor
+    sort: FIELDS
+    sortFields: { field: "id", direction: ASCENDING }
+  ) {
+    totalResults
+    cursor
+    entries {
+      id
+      name
+      entityType
+      properties
+    }
+  }
+}
+~~~
+
+Variable
+~~~
+{
+  "query": "*",
+  "cursor": null,
+  "filters": [
+    {
+      "aggregationName": "providerDefinitionIds_v2",
+      "operator": "OR",
+      "values": [
+        "5158674b-7d18-4bb2-bb49-2e95c17f0b57"
+      ]
+    }
+  ]
+}
+~~~
+
+### Get all record which have failed lookup data
+~~~
+{
+  search(query:"+entityType:/FabricCompany +properties.fabriccompany.country-EntityCode:[Invalid*") {
+    totalResults
+    entries {
+      name
+      properties
+    }
+  }
+}
+~~~
+
+### Filter by Tags
+
+~~~
+query {
+  search(
+    query: "+entityType:/FabricCompany"
+    pageSize: 10000
+    filter: "tags:Invalid Validate that 'fabriccompany.country' contains ISO-2 coded country codes only, two uppercase letters."
+  ) {
+    totalResults
+    entries {
+      tags
+      id
+      name
+      properties
+    }
+  }
+}
+~~~
+
+### Filter "codes" via filters-array and then postProcess
+
+~~~
+query {
+  search(
+    query: "+entityType:/FabricCompany"
+    pageSize: 10000
+    filters: [{
+      fieldName: "codes"
+      operator: OR
+      values: ["/FabricCompany#company:CluedIn(hash-sha1):a57b9dad98e2679de828ef1f4aced537534c600d"]
+    }]
+  ) {
+    totalResults
+    entries {
+      id
+      name
+      properties
+    }
+  }
+}
+~~~
+
+## In this section
+
+- [Add GraphQL entity type resolvers](https://documentation.cluedin.net/publish/graphql/add-graphql-entity-type-resolvers.md) (how-to): You can extend CluedIn’s GraphQL endpoint by adding custom entity resolvers that fetch data based on specific filters.
+- [GraphQL actions](https://documentation.cluedin.net/publish/graphql/graphql-actions.md) (how-to): CluedIn supports GraphQL actions, which allow you to perform bulk operations directly from the GraphQL endpoint.
+
+Up: [Publish & consume](https://documentation.cluedin.net/publish.md)

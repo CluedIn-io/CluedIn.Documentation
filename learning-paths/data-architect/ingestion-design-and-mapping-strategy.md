@@ -1,0 +1,49 @@
+---
+title: Build ingestion pipelines and support incremental or CDC ingestion
+url: https://documentation.cluedin.net/learning-paths/data-architect/ingestion-design-and-mapping-strategy
+content_type: tutorial
+section: Learning paths > Data Architect course
+---
+
+# Build ingestion pipelines and support incremental or CDC ingestion
+
+> tutorial: Guided end-to-end learning.
+
+## Learning outcome
+
+Design and validate an ingestion pipeline that brings source data into CluedIn reliably for both initial loads and ongoing incremental or CDC-style updates.
+
+## Scenario
+
+A source system must feed CluedIn continuously. A one-time import is not enough: the architecture needs a repeatable ingestion path, a clear update strategy, and evidence that changed source records are reflected correctly in CluedIn.
+
+## Read
+
+- [Ingest data](https://documentation.cluedin.net/ingest/tutorial-ingest-data.md)
+- [Delta crawls](https://documentation.cluedin.net/develop/integrations/delts-crawls.md)
+
+## Exercise
+
+1. Identify the source system, connection method, expected volume, and update frequency.
+2. Define the initial-load strategy and the ongoing incremental or CDC strategy.
+3. Identify the source field or mechanism used to detect inserts and updates.
+4. Configure or document the integration and data source group that will feed the training domain.
+5. Ingest a representative initial sample and verify that the expected data sets arrive.
+6. Change a source record or use a representative incremental batch, run the incremental path, and verify that CluedIn receives the change without requiring a full reload.
+7. Record failure handling, retry expectations, logging, and the evidence used to prove that ingestion is healthy.
+
+## Deliverable
+
+An ingestion design containing source, connection method, initial-load strategy, incremental or CDC strategy, operating frequency, failure handling, and validation evidence.
+
+## Complete when
+
+- The pipeline supports repeatable ingestion rather than a one-off import.
+- Initial and incremental behavior are both defined and tested.
+- A failed or delayed ingestion can be detected and diagnosed.
+
+## Next
+
+Continue to [Design mappings, identifiers, and edges](https://documentation.cluedin.net/learning-paths/data-architect/identifiers-review-mapping-and-relations.md).
+
+Up: [Data Architect course](https://documentation.cluedin.net/learning-paths/data-architect.md)

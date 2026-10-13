@@ -7823,6 +7823,116 @@ li.nav-group-label {
   transform: translateX(1.1rem);
 }
 
+.agent-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid #233441;
+  border-radius: 999px;
+  background: none;
+  color: #eef3f7;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.agent-toggle:hover {
+  border-color: #4fd1c5;
+  color: #4fd1c5;
+}
+.agent-toggle:focus-visible {
+  outline: 2px solid #4fd1c5;
+  outline-offset: 2px;
+}
+.agent-toggle[aria-pressed=true] {
+  border-color: #4fd1c5;
+  background: rgba(79, 209, 197, 0.12);
+  color: #12a39a;
+}
+
+html[data-agent-mode=on] #main-content > main {
+  display: none;
+}
+
+.agent-hint {
+  display: none;
+}
+
+.agent-panel {
+  margin: 1rem 0 2rem;
+}
+
+.agent-panel-intro {
+  color: #8fa1b2;
+  font-size: 0.9375rem;
+}
+
+.agent-panel-links {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  color: #8fa1b2;
+  font-size: 0.875rem;
+}
+.agent-panel-links li {
+  margin: 0.2rem 0;
+}
+
+.agent-panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.agent-panel-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid #233441;
+  border-radius: 8px;
+  background: #13212d;
+  color: #eef3f7 !important;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+.agent-panel-button:hover {
+  border-color: #4fd1c5;
+  text-decoration: none;
+}
+.agent-panel-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.agent-panel-button-primary {
+  border-color: #12a39a;
+  background: #12a39a;
+  color: #fff !important;
+}
+.agent-panel-button-primary:hover {
+  background: #19b9ae;
+}
+
+.agent-panel-source {
+  max-width: 100%;
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid #233441;
+  border-radius: 8px;
+  background: #0b151e;
+  color: #c3cfda;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 .header-cta {
   display: inline-flex;
   align-items: center;

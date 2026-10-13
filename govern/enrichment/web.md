@@ -1,0 +1,121 @@
+---
+title: Web enricher
+url: https://documentation.cluedin.net/govern/enrichment/web
+content_type: reference
+section: Govern & improve > Enrichment
+---
+
+# Web enricher
+
+> reference: Facts, options, APIs.
+
+This article outlines how to configure the Web enricher. The purpose of this enricher is to provide information about companies through their websites (for example, description, Facebook and LinkedIn accounts, technologies list, and so on). More details can be found in [Properties from Web enricher](#properties-from-web-enricher).
+
+The Web enricher supports any website provided in the **Website Vocab Key** field of the enricher configuration.
+
+## Add Web enricher
+
+The Web enricher uses the company website as an input for retrieving additional information about a golden record from the internet.
+
+**To add the Web enricher**
+
+1. On the navigation pane, go to **Preparation** > **Enrich**. Then, select **Add Enricher**.
+
+1. On the **Choose Enricher** tab, select **Web**, and then select **Next**.
+
+    ![The Choose enricher tab of the Add Enricher dialog with Web selected](https://documentation.cluedin.net/assets/images/preparation/enricher/web-enricher-1.png)
+
+1. On the **Configure** tab, provide the following details:
+
+    - **Accepted Business Domain** – enter the business domain to define which golden records will be enriched using the Web enricher.
+
+    - **Website Vocabulary Key** – enter the vocabulary key that contains the websites of companies that you want to enrich.
+
+        ![Web enricher settings: Accepted Business Domain set to Organization and Website Vocabulary Key set to organization.website](https://documentation.cluedin.net/assets/images/preparation/enricher/web-enricher-2.png)
+
+1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
+
+    The Web enricher is added and has an active status. This means that it will enrich golden records based on the configuration details during processing or when you trigger external enrichment.
+
+After the Web enricher is added, you can modify its details:
+
+- **Settings** – add a user-friendly display name, select the description for data coming from the enricher, and define the source quality for determining the winning values.
+
+- **Authentication** – modify the details you provided while configuring the enricher.
+
+## Properties from Web enricher
+
+You can find the properties added to golden records from the Web enricher on the **Properties** page.
+
+![The Properties page of the CluedIn golden record with the properties added by the Web enricher highlighted](https://documentation.cluedin.net/assets/images/preparation/enricher/web-enricher-4.png)
+
+For a more detailed information about the changes made to a golden record by the Web enricher, check the corresponding data part on the **History** page.
+
+![The History page of the CluedIn golden record with the Web - Info from companies websites data part highlighted](https://documentation.cluedin.net/assets/images/preparation/enricher/web-enricher-5.png)
+
+The following table lists the properties that can be added to golden records by the Web enricher.
+
+| Display name | Vocabulary key |
+|--|--|
+| Copyright Entity | website.CopyrightEntity |
+| Description | website.Description |
+| Title | website.Title |
+| Copyright Entity | website.CopyrightEntity |
+| Website Description | website.WebsiteDescription |
+| Name | website.Name |
+| URI | website.URI |
+| Phone Number | website.PhoneNumber |
+| Fax Number | website.FaxNumber |
+| Contact Email | website.ContactEmail |
+| Address | website.Address |
+| Country | website.Country |
+| Technologies List Text | website.TechnologiesListText |
+| Address Country | website.AddressCountry |
+| Postal Code | website.PostalCode |
+| Street Address | website.StreetAddress |
+| Founding Date | website.FoundingDate |
+| Duns | website.Duns |
+| Global Location Number | website.GlobalLocationNumber |
+| Isic V4 | website.IsicV4 |
+| Lei Code | website.LeiCode |
+| Naics | website.Naics |
+| Tax Id | website.TaxId |
+| Vat Id | website.VatId |
+| Ticker Symbol | website.TickerSymbol |
+| CVR | website.CVR |
+| Google Analytics | website.GoogleAnalytics |
+
+Additionally, the Web enricher sometimes returns social data. The following table displays social links that can be added to golden records by the Web enricher.
+
+| Display name | Vocabulary key |
+|--|--|
+| Facebook | social.facebook |
+| Linked In | social.linkedIn |
+| Twitter | social.twitter |
+| You Tube | social.youTube |
+| Google Plus | social.googlePlus |
+| Instagram | social.instagram |
+| Four Square | social.fourSquare |
+| Blogger | social.blogger |
+| Flickr | social.flickr |
+| Good Reads | social.goodReads |
+| TripIt | social.tripIt |
+| Tumblr | social.tumblr |
+| Vimeo | social.vimeo |
+| Word Press | social.wordPress |
+| Yahoo | social.yahoo |
+| Pinterest | social.pinterest |
+| Weibo | social.weibo |
+| Xing | social.xing |
+| Git Hub | social.gitHub |
+| Stackoverflow | social.stackoverflow |
+| Klout | social.klout |
+| Gravatar | social.gravatar |
+| Angel Co | social.angelCo |
+| About Me | social.aboutMe |
+| Quora | social.quora |
+| Foursquare | social.foursquare |
+| Picasa | social.picasa |
+| Plan Cast | social.planCast |
+
+Up: [Enrichment](https://documentation.cluedin.net/govern/enrichment.md)

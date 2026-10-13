@@ -1,0 +1,47 @@
+---
+title: Use glossary, tags, and governance views to organize work
+url: https://documentation.cluedin.net/learning-paths/data-steward/glossary-tags-and-governance
+content_type: tutorial
+section: Learning paths > Data Steward course
+---
+
+# Use glossary, tags, and governance views to organize work
+
+> tutorial: Guided end-to-end learning.
+
+## Learning outcome
+
+Use named record populations and quality signals to turn one-off investigations into repeatable stewardship work.
+
+## Scenario
+
+Your team repeatedly investigates the same business population and quality condition. You need a shared way to identify the population, monitor the issue, and decide what action follows.
+
+## Read
+
+- [Work with glossary](https://documentation.cluedin.net/govern/work-with-glossary.md)
+- [Tag monitoring](https://documentation.cluedin.net/govern/tags/tag-monitoring.md)
+
+## Exercise
+
+1. Create or review a glossary term representing a meaningful record population.
+2. Open Tag Monitoring and choose one quality-related tag.
+3. Record the affected count, trend, rule provenance, and sample records.
+4. Decide what the tag should mean operationally and who should respond to it.
+5. Choose the next action: investigation, clean project, AI-assisted remediation, rule/mapping review, or source escalation.
+
+## Deliverable
+
+A governance note defining one reusable population, one quality signal, its owner, and the expected action when the signal appears or increases.
+
+## Complete when
+
+- You can explain when to use a glossary term versus a tag.
+- You can interpret a tag as a monitored quality signal rather than only a label.
+- The signal has a clear owner and response path.
+
+## Next
+
+Continue to [Use AI agents safely for stewardship work](https://documentation.cluedin.net/learning-paths/data-steward/ai-assisted-stewardship.md).
+
+Up: [Data Steward course](https://documentation.cluedin.net/learning-paths/data-steward.md)

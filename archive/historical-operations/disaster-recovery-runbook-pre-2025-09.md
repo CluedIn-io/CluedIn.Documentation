@@ -1,0 +1,52 @@
+---
+title: Disaster recovery runbook - Pre 2025.09.00
+url: https://documentation.cluedin.net/archive/historical-operations/disaster-recovery-runbook-pre-2025-09
+content_type: reference
+section: Archive > Historical operations
+---
+
+# Disaster recovery runbook - Pre 2025.09.00
+
+> reference: Facts, options, APIs.
+
+The disaster recovery runbook can be triggered manually or on a set schedule. It is responsible for orchestrating the backup > copy > restore process.
+
+This runbook is a PowerShell script, which CluedIn will provide as needed.
+
+**Prerequisites**
+
+- An active CluedIn cluster with a valid license (and/or a passive CluedIn cluster)
+- The runbook script
+- An automation account
+- The backup runbook
+- The copy runbook
+- The restore runbook
+- A storage account
+- Sufficient permissions
+
+## Automation account
+
+An automation account must be provided. The runbook will be installed into the the automation account. The three dependent runbooks must already be installed. Typically, the runbook should be scheduled to run once a day outside of office hours.
+
+![Diagram: in the automation account, an orchestrating runbook triggers the backup runbook, which snapshots CluedIn AKS disks into a snapshots resource group; the transfer snapshots runbook copies them to a resource group in the target region (skipped in the same region); the restore runbook then restores them to the target CluedIn AKS](https://documentation.cluedin.net/assets/images/paas-operations/disaster-recovery-runbook.png)
+
+## Input parameters
+
+| Parameter | Default | Description |
+|--|--|--|
+| CustomerName | _required_ | Name of customer |
+| Subscription | _required_ | ID of the Azure subscription |
+| SourceResourceGroup | _required_ | Name of resource group where source AKS cluster is located |
+| TargetResourceGroup | _required_` | Name of resource group where target AKS cluster is located |
+| TargetStorageAccount | _required_ | Name of target storage account |
+| SourceSnapshotResourceGroup | _required_ | Name of resource group containing source snapshots |
+| TargetSnapshotResourceGroup | _required_ | Name of resource group containing copied snapshots |
+| ScaledownDR | `true` | Scales down a DR cluster after a successful restoer |
+
+## Process
+
+![Flowchart: Start, trigger backup, wait for backups to complete, copy snapshots to target, wait for snapshot to fully transfer, restore CluedIn, wait for restore to complete, Stop](https://documentation.cluedin.net/assets/images/paas-operations/disaster-recovery-runbook-process.png)
+
+Scaling down of the DR environment following a successful restore is optional.
+
+Up: [Historical operations](https://documentation.cluedin.net/archive/historical-operations.md)

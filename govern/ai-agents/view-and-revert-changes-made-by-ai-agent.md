@@ -1,0 +1,102 @@
+---
+title: View and revert changes made by AI agent
+url: https://documentation.cluedin.net/govern/ai-agents/view-and-revert-changes-made-by-ai-agent
+content_type: how-to
+section: Govern & improve > AI agents
+---
+
+# View and revert changes made by AI agent
+
+> how-to: Steps to accomplish one task.
+
+All changes that an AI agent makes to golden records are recorded for further review. You can revert any of the changes whenever needed.
+
+## View changes made by an AI agent
+
+You can view the list of all golden records that an AI agent modified, as well as the changes made to a specific golden record.
+
+**To view the changes made by an AI agent**
+
+1. On the navigation pane, go to **AI agents** (or, alternatively, **Management** > **AI Agents**).
+
+1. Select the needed agent in the list. Then, select the needed job.
+
+1. On the job page, go to the **Affected Records** tab. You can now view the list of all golden records that the agent modified.
+
+    ![Affected Records tab of an AI agent job page, listing the golden records the agent modified, with Refresh and Revert changes buttons](https://documentation.cluedin.net/assets/images/management/ai-agents/view-changes-made-by-ai-agents/view_affected_records_sp.png)
+
+1. To view the changes made to a specific record, select that record in the list.
+
+1. On the golden record page, do one of the following:
+
+    - Go to the **History** tab. Then, locate the record named **AI Agent Job Source** - _Agent name_ - _Job name_. For example, **AI Agent Job Source - Client Data Steward - Fix data quality issues**.
+
+        ![History tab of a golden record with the AI Agent Job Source - Financial Data Steward - Fix client data record highlighted](https://documentation.cluedin.net/assets/images/management/ai-agents/view-changes-made-by-ai-agents/view_affected_records_history_tab.png)
+
+        Expand the record to view the list of changes made.
+
+        ![Expanded AI Agent Job Source record on the History tab, listing each changed property with its change type, previous value and new value](https://documentation.cluedin.net/assets/images/management/ai-agents/view-changes-made-by-ai-agents/view_affected_records_history_tab_expanded.png)
+
+    - Go to the **Topology** tab. Then, locate the node that indicates the changes made by the AI agent. Such nodes are marked with the AI agent icon.
+
+        ![Topology tab of a golden record with the node marked with the AI agent icon highlighted](https://documentation.cluedin.net/assets/images/management/ai-agents/view-changes-made-by-ai-agents/view_affected_records_topology_tab.png)
+
+        Click the node to view the list of changes made.
+
+        ![Node pane for the AI agent's record showing its source job and the changed property with its new value, plus a Delete button](https://documentation.cluedin.net/assets/images/management/ai-agents/view-changes-made-by-ai-agents/view_affected_records_topology_tab_node_panel.png)
+
+        In the **Value** column, you can view the new property value that the record received after the AI agent made the changes. If you want to view the values both before and after the changes, use the **History** tab.
+
+## Revert changes made by an AI agent
+
+You can revert the following changes made by an AI agent:
+
+- All changes made as part of a specific job.
+
+- All changes made to a specific golden record.
+
+**To revert all changes that an AI agent made**
+
+1. On the navigation pane, go to **AI agents** (or, alternatively, **Management** > **AI Agents**).
+
+1. Select the needed agent in the list. Then, select the needed job.
+
+1. On the job page, go to the **Affected Records** tab.
+
+1. In the upper-right corner of the **Affected Records** tab, select **Revert changes**.
+
+    ![Affected Records tab of an AI agent job with the Revert changes button highlighted in the upper-right corner](https://documentation.cluedin.net/assets/images/management/ai-agents/revert-changes-made-by-ai-agents/view_affected_records_delete_btn.png)
+
+1. Confirm that you want to revert the changes.
+
+**To revert changes that an AI agent made to a specific golden record**
+
+1. Locate and open the needed golden record. You can do this as follows:
+
+    - Using [search](https://documentation.cluedin.net/master/search.md).
+
+    - From the AI agent page. To do this, on the navigation pane, go to **AI agents**. Select the needed AI agent and AI agent job, and then go to the **Affected Records** tab.
+
+1. To revert the changes, do one of the following:
+
+    - Go to the **History** tab. Then, locate the record named **AI Agent Job Source** - _Agent name_ - _Job name_. For example, **AI Agent Job Source - Client Data Steward - Fix data quality issues**.
+
+        ![History tab of a golden record with the AI Agent Job Source - Financial Data Steward - Fix client data record highlighted](https://documentation.cluedin.net/assets/images/management/ai-agents/view-changes-made-by-ai-agents/view_affected_records_history_tab.png)
+
+        Open the three-dot menu and select **Delete**.
+
+        ![AI Agent Job Source record on the History tab with its three-dot menu in the upper-right corner](https://documentation.cluedin.net/assets/images/management/ai-agents/revert-changes-made-by-ai-agents/delete_data_part_from_history_sp.png)
+
+        Then, confirm that you want to revert the changes.
+
+    - Go to the **Topology** tab. Then, locate and open the node that corresponds to the needed change.
+
+        ![Topology tab of a golden record with the node marked with the AI agent icon highlighted](https://documentation.cluedin.net/assets/images/management/ai-agents/view-changes-made-by-ai-agents/view_affected_records_topology_tab.png)
+
+        In the upper-right corner of the node pane, select **Delete**.
+
+        ![Node pane for the AI agent's record with the Delete button highlighted in the upper-right corner](https://documentation.cluedin.net/assets/images/management/ai-agents/revert-changes-made-by-ai-agents/delete_data_part_from_topology.png)
+
+        Then, confirm that you want to revert the changes.
+
+Up: [AI agents](https://documentation.cluedin.net/govern/ai-agents.md)

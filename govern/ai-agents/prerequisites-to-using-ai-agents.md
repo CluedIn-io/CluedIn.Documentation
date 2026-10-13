@@ -1,0 +1,156 @@
+---
+title: Prerequisites to using AI agents
+url: https://documentation.cluedin.net/govern/ai-agents/prerequisites-to-using-ai-agents
+content_type: reference
+section: Govern & improve > AI agents
+---
+
+# Prerequisites to using AI agents
+
+> reference: Facts, options, APIs.
+
+In this article, you will learn about the steps required to start using the AI agents in CluedIn. Because AI agents depend on platforms that provide access to large language models (LLMs), you need to supply the details of the platform, the deployed model, and the model endpoint configuration for your specific use case.
+
+To use AI agents in CluedIn, take the following steps:
+
+1. [Enable the AI Agents feature](#enable-the-ai-agents-feature)
+
+1. [Configure the AI settings](#configure-ai-settings)
+
+1. [Configure organization-wide settings for AI agents](#configure-organization-wide-settings-for-ai-agents)
+
+## Enable the AI Agents feature
+
+The **AI Agents** feature is controlled by [feature flags](https://documentation.cluedin.net/administer/feature-flags.md) and is not enabled by default. You must enable the feature to use it.
+
+**To enable the AI Agents feature**
+
+1. On the navigation pane, go to **Administration** > **Feature Flags**.
+
+1. Locate the **AI Agents** feature and turn on the corresponding toggle.
+
+    Once you enable the **AI Agents** feature, the **Artificial Intelligence** feature will become enabled by default.
+
+    ![The AI Agents feature card with its toggle Enabled, next to the Artificial Intelligence feature card, which is enabled automatically](https://documentation.cluedin.net/assets/images/management/ai-agents/enable-the-ai-agents-feature/ai_agents_toggle.png)
+
+    The following takes place:
+
+    - The **AI Agents** item becomes available on the navigation pane.
+
+    - The **AI Agents** feature becomes available in the **Management** module.
+
+    - The **Artificial Intelligence** feature becomes available in the **Administration** module.
+
+## Configure AI settings
+
+The **AI Agents** feature requires you to define the configuration for the following:
+
+- Platform – that is, the environment where your AI model lives. For example, in Azure, the platform is the Azure OpenAI Service.
+
+- Deployment – that is, a specific version of a model you want to use. For GPT-based deployments, we recommend **GPT-5.1 or higher**.
+
+- Endpoint – that is, the address (URL) where your deployed model can be accessed.
+
+### Configure a platform
+
+A platform is an external AI service provider that hosts and manages the AI models used by agents. The platform defines the foundational capabilities and APIs that agents interact with. An example of a platform is Azure OpenAI Service.
+
+**To configure a platform**
+
+1. On the navigation pane, go to **Administration** > **Artificial Intelligence**, and then select **Platforms**.
+
+1. Select **Create Platform**.
+
+1. Enter a user-friendly **Name** of the platform.
+
+1. In the **Platform** list, select one of the available platforms. Currently, only the **Azure Open AI** platform is available.
+
+1. Provide the **API Key** and **Base URL** so that CluedIn can authenticate and send requests to the platform hosting the AI models.
+
+    ![The Create pane for an AI platform, with Name, Platform set to Azure Open AI, Api Key and Base Url filled in](https://documentation.cluedin.net/assets/images/management/ai-agents/configure-a-platform/create_platform_pane.png)
+
+1. Select **Create**.
+
+    The platform is created, and you can proceed to configure the deployment.
+
+### Configure a deployment
+
+A deployment is a specific instance or configuration of an AI model hosted on a platform that AI agents use to perform their tasks. For GPT-based deployments, we recommend **GPT-5.1 or higher**. It defines how and where the AI model runs, including the model version, resource allocation, and any customizations applied.
+
+**To configure a deployment**
+
+1. On the navigation pane, go to **Administration** > **Artificial Intelligence**, and then select **Deployments**.
+
+1. Select **Create Deployment**.
+
+1. Enter a user-friendly **Display Name** of the deployment.
+
+1. Enter the **Name** of the deployment as it appears in the platform.
+
+1. Select the **Platform** that hosts the deployment.
+
+1. Select the **Currency** in which the model usage is billed. Then, enter the **Cost Per Input Token** and the **Cost Per Output Token**.
+
+    If the cost per token is free, enter **0** in the corresponding field.
+
+1. In **Max Input Tokens**, enter the maximum number of input tokens allowed when sending instructions to the AI model.
+
+    ![The Create pane for an AI deployment, with Display name, Name, Platform, Currency, Cost / Input Token, Cost / Output Token and Max Input Tokens](https://documentation.cluedin.net/assets/images/management/ai-agents/configure-a-deployment/create_a_deployment_pane.png)
+
+1. Select **Create**.
+
+    The deployment is created, and you can proceed to configure the model endpoint.
+
+### Configure a model endpoint
+
+An endpoint is the address (URL) through which AI agents communicate with the deployed AI model. It serves as the access point for sending requests and receiving responses from the AI service. Typically, each deployment is associated with a unique endpoint, establishing a one-to-one mapping between them.
+
+**To configure an endpoint**
+
+1. On the navigation pane, go to **Administration** > **Artificial Intelligence**, and then select **Endpoints**.
+
+1. Select **Create Endpoint**.
+
+1. Enter a user-friendly **Name** of the endpoint.
+
+1. Select the **Deployment** (model) that is associated with the endpoint.
+
+1. If needed, open the endpoint's advanced settings and configure caching. Endpoint caching can reduce repeated model calls when CluedIn sends the same request more than once.
+
+    - Use a longer cache duration when repeated requests are expected to produce the same acceptable result.
+    - Use a shorter duration when the underlying data, prompt, or expected model response changes frequently.
+    - Caching can reduce model usage and cost, but a long cache duration may reuse an earlier result instead of sending a fresh request to the model.
+
+    The **Endpoint Type** defines the kind of service the model endpoint should handle. Currently, only the **Chat** type is available – it supports conversational interactions with context.
+
+    ![The Create pane for an AI endpoint, with Name, Deployment set to gpt-4.1, and Endpoint Type set to Chat](https://documentation.cluedin.net/assets/images/management/ai-agents/configure-an-endpoint/create_endpoint_pane.png)
+
+1. Select **Create**.
+
+    The model endpoint is created, and you can proceed to [create AI agents and jobs](https://documentation.cluedin.net/govern/ai-agents/create-configure-and-run-an-ai-agent.md).
+
+## Configure organization-wide settings for AI agents
+
+Organization-wide settings apply to all AI agents and AI agent jobs that exist within your organization, regardless of who created an AI agent or an AI agent job.
+
+**To configure organization-wide settings for AI agents**
+
+1. On the navigation pane, go to **Administration** > **Settings**.
+
+1. Scroll down the page until you reach the **AI Agents** section.
+
+    ![The AI Agents section of Administration Settings, with toggles for Display Show Raw Data button in Chat Details, Show Started Job notifications and Auto-approve AI suggestions](https://documentation.cluedin.net/assets/images/management/ai-agents/configure-organization-wide-ai-agent-settings/ai_agent_settings.png)
+
+1. Configure the following settings:
+
+    - **Display "Show Raw Data" button in Chat Details** – when enabled, this option adds the **Show Raw Data** button to the AI agent job page (**Configuration** tab > **Logs** section). The button reveals the raw JSON data for requests and responses exchanged between CluedIn and the LLM.
+
+        ![An AI agent job Configuration tab with the Logs section expanded, showing the Show Raw Data button and the raw JSON request sent to the LLM](https://documentation.cluedin.net/assets/images/management/ai-agents/configure-organization-wide-ai-agent-settings/logs_section_show_raw_data_sp.png)
+
+        This feature is useful for fine-tuning prompts but is best suited for users with a strong technical background in LLMs and JSON.
+
+    - **Show "Started Job" notification** – when enabled, the user will receive a notification every time they start an AI agent job.
+
+    - **Auto-approve AI suggestions** – when enabled, all suggestions returned by an AI agent will be automatically approved. The users will not need to [manually review and approve/reject the suggestions](https://documentation.cluedin.net/govern/ai-agents/review-the-results-returned-by-an-ai-agent.md).
+
+Up: [AI agents](https://documentation.cluedin.net/govern/ai-agents.md)

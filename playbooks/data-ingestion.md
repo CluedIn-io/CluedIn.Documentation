@@ -1,0 +1,54 @@
+---
+title: Data ingestion playbook
+url: https://documentation.cluedin.net/playbooks/data-ingestion
+content_type: landing
+section: Playbooks
+---
+
+# Data ingestion playbook
+
+| Audience | Time to read |
+|--|--|
+| Business User, Data Project Lead, Data Steward, Data Analyst, Data Architect, Data Engineer | 2 min |
+
+**You are here in the data journey**
+
+![Diagram of the data journey: 1. Essential requirements, then 2. Data discovery workshop, then the data quality virtuous circle of data ingestion, transformation, automation, export and release to production, with You are here on Data ingestion](https://documentation.cluedin.net/assets/images/playbooks/data-ingestion-you-are-here.png)
+
+Data ingestion is the first step of your MDM project. In this playbook, you will learn how to organize your MDM project and communicate its complexities and associated risks to your managers and business stakeholders. By understanding these elements, you’ll be better equipped to:
+
+- **Deliver value** by improving critical data and **demonstrate project progress** to stakeholders. Delivering value does not mean using all CluedIn features; it means having **one end-to-end data flow** running in CluedIn that has improved value.
+
+- **Mitigate potential issues** and ensure project success.
+
+The data ingestion process consists of several steps: data impact workshop, picking the right tool, ingesting, mapping, and processing.
+
+![Data ingestion steps in order: Data impact workshop, Pick the right tool, Ingest, Map, Process](https://documentation.cluedin.net/assets/images/playbooks/data-ingestion-process.png)
+
+Before diving into the process of ingesting data into CluedIn, we recommend that you get acquainted with the foundational principles outlined in this playbook. In our experience, we’ve observed that many data teams tend to jump directly into the implementation phase without fully understanding the specificity of CluedIn. Additionally, they often overlook the critical step of defining which data will have the most significant impact on their objectives. If you have a small data team (one or two people), you may opt for a lighter approach. However, we still recommend following the guidelines from this playbook to better structure your MDM project.
+
+**Main data ingestion principle for your first use case**
+
+If you have the opportunity, **focus on the critical data you have access to and start with a simple implementation**. Once completed, organize a demo for your stakeholders and then release it to your production environment.
+
+**Why should you apply this principle?**
+
+![Three benefits of starting with one end-to-end data flow: Improved data, Available in production, and Full cycle of data journey](https://documentation.cluedin.net/assets/images/playbooks/data-ingestion-benefits.png)
+
+1.  **Improved data** – you have one end-to-end data flow that improves a portion of your critical data.
+
+2.  **Available in production** – you went through your IT processes to deploy the production environment according to your organization policies. It means that from now on, it will only get easier.
+
+3.  **Full cycle of data journey** – by delivering a fairly simple use case into production, you’ve completed one full cycle of your MDM project, which you’ll need to repeat every time.
+
+**Where to start with data ingestion?** The first step of data ingestion is the data impact workshop. It is a collaborative session designed to help you identify your business domains, determine the data sources to ingest, and assess their criticality to your operations. Learn more in [Data impact workshop](https://documentation.cluedin.net/playbooks/data-ingestion/data-impact-workshop.md).
+
+## In this section
+
+- [Data impact workshop](https://documentation.cluedin.net/playbooks/data-ingestion/data-impact-workshop.md) (concept): This article outlines the importance of the data impact workshop as the first step of your data ingestion process.
+- [Pick the right tool](https://documentation.cluedin.net/playbooks/data-ingestion/pick-the-right-tool.md) (concept): This article outlines all the possible tools that can be used to ingest data into CluedIn.
+- [Plan the ingestion](https://documentation.cluedin.net/playbooks/data-ingestion/plan-the-ingestion.md) (concept): Now that you have prepared a list of sources and selected a tool for data ingestion, you can start the actual data ingestion process.
+- [Plan the mapping](https://documentation.cluedin.net/playbooks/data-ingestion/plan-the-mapping.md) (concept): Now that you have ingested the data using the tool of your choice, the next step is to create mapping.
+- [Plan the processing](https://documentation.cluedin.net/playbooks/data-ingestion/plan-the-processing.md) (concept): Once your records are mapped, you can now process them.
+
+Up: [Playbooks](https://documentation.cluedin.net/playbooks.md)
