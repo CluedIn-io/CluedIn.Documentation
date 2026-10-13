@@ -172,6 +172,34 @@ Saved searches help you quickly retrieve a set of golden records that meet speci
 
     The golden records matching the saved search filters are displayed on the search results page.
 
+### Saved search tabs
+
+By default, all your saved searches also appear as tabs above the search results page, so that you can quickly switch between them. These tabs are persistent — they stay the same across page reloads and when you navigate away from the search results page and come back.
+
+![saved-search-tabs.png]({{ "/assets/images/key-terms-and-features/saved-search-tabs.png" | relative_url }})
+
+**To apply a saved search from a tab**
+
+- Select the tab with the name of the saved search.
+
+    The golden records matching the saved search filters are displayed on the search results page.
+
+**To close a saved search tab**
+
+- On the tab, select the close icon (**x**).
+
+    The tab is removed from the tab strip. This only hides the tab for you — it does not delete the saved search, and nobody else's tabs are affected. The tab stays hidden even after you reload the page or come back later.
+
+**To show a closed saved search tab again**
+
+1. Open the **Saved Searches** pane as described in [Saved searches](#saved-searches).
+
+1. Next to the saved search that you want to show again, select the pin icon.
+
+    ![saved-search-pin.png]({{ "/assets/images/key-terms-and-features/saved-search-pin.png" | relative_url }})
+
+    The pin icon is only displayed next to saved searches whose tab is currently hidden. Selecting it makes the saved search reappear as a tab above the search results page.
+
 ## Export search results
 
 After performing a search, you can export your results in one of the following formats: JSON, CSV, XLSX, or Parquet.
