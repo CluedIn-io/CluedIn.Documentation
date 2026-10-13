@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-10-13T00:21:31+00:00</updated>
+    <updated>2026-10-13T08:27:31+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -11,13 +11,15 @@
     
     <entry>
         <title>GraphQL</title>
-        <link href="https://documentation.cluedin.net/consume/graphql" />
-        <id>https://documentation.cluedin.net/consume/graphql</id>
+        <link href="https://documentation.cluedin.net/publish/graphql" />
+        <id>https://documentation.cluedin.net/publish/graphql</id>
         <updated>2021-10-08T00:00:00+00:00</updated>
         <summary>
         
         GraphQL.
         
+        
+        GraphQL is the query interface for reading golden records on demand, as opposed to streams, which push them continuously.
         
         
         Tags: consume, graphql.
@@ -27,8 +29,8 @@
     
     <entry>
         <title>AKS</title>
-        <link href="https://documentation.cluedin.net/deployment/azure/aks" />
-        <id>https://documentation.cluedin.net/deployment/azure/aks</id>
+        <link href="https://documentation.cluedin.net/operate/azure/aks" />
+        <id>https://documentation.cluedin.net/operate/azure/aks</id>
         <updated>2021-11-15T00:00:00+00:00</updated>
         <summary>
         
@@ -43,8 +45,8 @@
     
     <entry>
         <title>DNS</title>
-        <link href="https://documentation.cluedin.net/deployment/azure/dns" />
-        <id>https://documentation.cluedin.net/deployment/azure/dns</id>
+        <link href="https://documentation.cluedin.net/operate/azure/dns" />
+        <id>https://documentation.cluedin.net/operate/azure/dns</id>
         <updated>2021-11-15T00:00:00+00:00</updated>
         <summary>
         
@@ -59,8 +61,8 @@
     
     <entry>
         <title>TLS Certificate</title>
-        <link href="https://documentation.cluedin.net/deployment/azure/certificate" />
-        <id>https://documentation.cluedin.net/deployment/azure/certificate</id>
+        <link href="https://documentation.cluedin.net/operate/azure/certificate" />
+        <id>https://documentation.cluedin.net/operate/azure/certificate</id>
         <updated>2021-11-15T00:00:00+00:00</updated>
         <summary>
         
@@ -75,8 +77,8 @@
     
     <entry>
         <title>Disks</title>
-        <link href="https://documentation.cluedin.net/deployment/azure/disks" />
-        <id>https://documentation.cluedin.net/deployment/azure/disks</id>
+        <link href="https://documentation.cluedin.net/operate/azure/disks" />
+        <id>https://documentation.cluedin.net/operate/azure/disks</id>
         <updated>2021-11-15T00:00:00+00:00</updated>
         <summary>
         
@@ -91,8 +93,8 @@
     
     <entry>
         <title>Email</title>
-        <link href="https://documentation.cluedin.net/deployment/azure/email" />
-        <id>https://documentation.cluedin.net/deployment/azure/email</id>
+        <link href="https://documentation.cluedin.net/operate/azure/email" />
+        <id>https://documentation.cluedin.net/operate/azure/email</id>
         <updated>2021-11-15T00:00:00+00:00</updated>
         <summary>
         
@@ -107,8 +109,8 @@
     
     <entry>
         <title>PAT</title>
-        <link href="https://documentation.cluedin.net/deployment/azure/pat" />
-        <id>https://documentation.cluedin.net/deployment/azure/pat</id>
+        <link href="https://documentation.cluedin.net/operate/azure/pat" />
+        <id>https://documentation.cluedin.net/operate/azure/pat</id>
         <updated>2021-11-15T00:00:00+00:00</updated>
         <summary>
         
@@ -123,8 +125,8 @@
     
     <entry>
         <title>Helm</title>
-        <link href="https://documentation.cluedin.net/deployment/azure/helm" />
-        <id>https://documentation.cluedin.net/deployment/azure/helm</id>
+        <link href="https://documentation.cluedin.net/operate/azure/helm" />
+        <id>https://documentation.cluedin.net/operate/azure/helm</id>
         <updated>2021-11-15T00:00:00+00:00</updated>
         <summary>
         
@@ -139,8 +141,8 @@
     
     <entry>
         <title>CluedIn Setup</title>
-        <link href="https://documentation.cluedin.net/deployment/azure/setup" />
-        <id>https://documentation.cluedin.net/deployment/azure/setup</id>
+        <link href="https://documentation.cluedin.net/operate/azure/setup" />
+        <id>https://documentation.cluedin.net/operate/azure/setup</id>
         <updated>2022-01-07T00:00:00+00:00</updated>
         <summary>
         
@@ -155,8 +157,8 @@
     
     <entry>
         <title>About integrations</title>
-        <link href="https://documentation.cluedin.net/integration/introduction" />
-        <id>https://documentation.cluedin.net/integration/introduction</id>
+        <link href="https://documentation.cluedin.net/ingest/connectors/about-integrations" />
+        <id>https://documentation.cluedin.net/ingest/connectors/about-integrations</id>
         <updated>2022-01-12T00:00:00+00:00</updated>
         <summary>
         
@@ -171,8 +173,8 @@
     
     <entry>
         <title>CluedIn Security — Log4j2 CVE-2021-44228</title>
-        <link href="https://documentation.cluedin.net/kb/log4j" />
-        <id>https://documentation.cluedin.net/kb/log4j</id>
+        <link href="https://documentation.cluedin.net/operate/security/log4j" />
+        <id>https://documentation.cluedin.net/operate/security/log4j</id>
         <updated>2022-01-31T00:00:00+00:00</updated>
         <summary>
         
@@ -186,13 +188,13 @@
     </entry>
     
     <entry>
-        <title>Features</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/powerapps/features" />
-        <id>https://documentation.cluedin.net/microsoft-integration/powerapps/features</id>
+        <title>Power Apps features</title>
+        <link href="https://documentation.cluedin.net/solutions/power-apps/features" />
+        <id>https://documentation.cluedin.net/solutions/power-apps/features</id>
         <updated>2023-05-17T00:00:00+00:00</updated>
         <summary>
         
-        Features.
+        Power Apps features.
         
         
         
@@ -203,8 +205,8 @@
     
     <entry>
         <title>Connect to CluedIn cluster</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/connect-to-cluedin" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/connect-to-cluedin</id>
+        <link href="https://documentation.cluedin.net/operate/configuration/connect-to-cluedin" />
+        <id>https://documentation.cluedin.net/operate/configuration/connect-to-cluedin</id>
         <updated>2023-06-20T00:00:00+00:00</updated>
         <summary>
         
@@ -219,8 +221,8 @@
     
     <entry>
         <title>Business decisions</title>
-        <link href="https://documentation.cluedin.net/deployment/azure-marketplace/step-1" />
-        <id>https://documentation.cluedin.net/deployment/azure-marketplace/step-1</id>
+        <link href="https://documentation.cluedin.net/operate/azure-marketplace/step-1" />
+        <id>https://documentation.cluedin.net/operate/azure-marketplace/step-1</id>
         <updated>2023-06-20T00:00:00+00:00</updated>
         <summary>
         
@@ -235,8 +237,8 @@
     
     <entry>
         <title>Installation guide</title>
-        <link href="https://documentation.cluedin.net/deployment/azure-marketplace/step-3" />
-        <id>https://documentation.cluedin.net/deployment/azure-marketplace/step-3</id>
+        <link href="https://documentation.cluedin.net/operate/azure-marketplace/step-3" />
+        <id>https://documentation.cluedin.net/operate/azure-marketplace/step-3</id>
         <updated>2023-06-20T00:00:00+00:00</updated>
         <summary>
         
@@ -251,8 +253,8 @@
     
     <entry>
         <title>Post-installation guide</title>
-        <link href="https://documentation.cluedin.net/deployment/azure-marketplace/step-4" />
-        <id>https://documentation.cluedin.net/deployment/azure-marketplace/step-4</id>
+        <link href="https://documentation.cluedin.net/operate/azure-marketplace/step-4" />
+        <id>https://documentation.cluedin.net/operate/azure-marketplace/step-4</id>
         <updated>2023-06-20T00:00:00+00:00</updated>
         <summary>
         
@@ -267,8 +269,8 @@
     
     <entry>
         <title>Logging</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/configure-logging" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/configure-logging</id>
+        <link href="https://documentation.cluedin.net/operate/configuration/configure-logging" />
+        <id>https://documentation.cluedin.net/operate/configuration/configure-logging</id>
         <updated>2023-06-20T00:00:00+00:00</updated>
         <summary>
         
@@ -283,8 +285,8 @@
     
     <entry>
         <title>TLS certificates</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/configure-certificates" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/configure-certificates</id>
+        <link href="https://documentation.cluedin.net/operate/configuration/configure-certificates" />
+        <id>https://documentation.cluedin.net/operate/configuration/configure-certificates</id>
         <updated>2023-06-20T00:00:00+00:00</updated>
         <summary>
         
@@ -299,8 +301,8 @@
     
     <entry>
         <title>Alerts</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/configure-alerts" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/configure-alerts</id>
+        <link href="https://documentation.cluedin.net/operate/configuration/configure-alerts" />
+        <id>https://documentation.cluedin.net/operate/configuration/configure-alerts</id>
         <updated>2023-06-23T00:00:00+00:00</updated>
         <summary>
         
@@ -315,8 +317,8 @@
     
     <entry>
         <title>Firewall</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/configure-firewall" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/configure-firewall</id>
+        <link href="https://documentation.cluedin.net/operate/configuration/configure-firewall" />
+        <id>https://documentation.cluedin.net/operate/configuration/configure-firewall</id>
         <updated>2023-06-23T00:00:00+00:00</updated>
         <summary>
         
@@ -331,8 +333,8 @@
     
     <entry>
         <title>Local installation checklist</title>
-        <link href="https://documentation.cluedin.net/deployment/local/step-1" />
-        <id>https://documentation.cluedin.net/deployment/local/step-1</id>
+        <link href="https://documentation.cluedin.net/operate/local/step-1" />
+        <id>https://documentation.cluedin.net/operate/local/step-1</id>
         <updated>2023-06-30T00:00:00+00:00</updated>
         <summary>
         
@@ -347,8 +349,8 @@
     
     <entry>
         <title>Local installation guide</title>
-        <link href="https://documentation.cluedin.net/deployment/local/step-2" />
-        <id>https://documentation.cluedin.net/deployment/local/step-2</id>
+        <link href="https://documentation.cluedin.net/operate/local/step-2" />
+        <id>https://documentation.cluedin.net/operate/local/step-2</id>
         <updated>2023-06-30T00:00:00+00:00</updated>
         <summary>
         
@@ -363,8 +365,8 @@
     
     <entry>
         <title>Extension packages</title>
-        <link href="https://documentation.cluedin.net/deployment/local/step-3" />
-        <id>https://documentation.cluedin.net/deployment/local/step-3</id>
+        <link href="https://documentation.cluedin.net/operate/local/step-3" />
+        <id>https://documentation.cluedin.net/operate/local/step-3</id>
         <updated>2023-06-30T00:00:00+00:00</updated>
         <summary>
         
@@ -379,8 +381,8 @@
     
     <entry>
         <title>Local upgrade</title>
-        <link href="https://documentation.cluedin.net/deployment/local/local-upgrade" />
-        <id>https://documentation.cluedin.net/deployment/local/local-upgrade</id>
+        <link href="https://documentation.cluedin.net/operate/local/local-upgrade" />
+        <id>https://documentation.cluedin.net/operate/local/local-upgrade</id>
         <updated>2023-06-30T00:00:00+00:00</updated>
         <summary>
         
@@ -393,8 +395,8 @@
     
     <entry>
         <title>Local</title>
-        <link href="https://documentation.cluedin.net/deployment/local" />
-        <id>https://documentation.cluedin.net/deployment/local</id>
+        <link href="https://documentation.cluedin.net/operate/deployment-options/local" />
+        <id>https://documentation.cluedin.net/operate/deployment-options/local</id>
         <updated>2023-07-04T00:00:00+00:00</updated>
         <summary>
         
@@ -408,41 +410,9 @@
     </entry>
     
     <entry>
-        <title>Logs</title>
-        <link href="https://documentation.cluedin.net/integration/additional-operations-on-records/logs" />
-        <id>https://documentation.cluedin.net/integration/additional-operations-on-records/logs</id>
-        <updated>2023-11-07T00:00:00+00:00</updated>
-        <summary>
-        
-        Logs.
-        
-        
-        
-        Tags: integration, logs.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Define data to ingest</title>
-        <link href="https://documentation.cluedin.net/integration/define-data-to-ingest" />
-        <id>https://documentation.cluedin.net/integration/define-data-to-ingest</id>
-        <updated>2023-11-07T00:00:00+00:00</updated>
-        <summary>
-        
-        Define data to ingest.
-        
-        
-        
-        Tags: integration.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Create mapping</title>
-        <link href="https://documentation.cluedin.net/integration/create-mapping" />
-        <id>https://documentation.cluedin.net/integration/create-mapping</id>
+        <link href="https://documentation.cluedin.net/ingest/mapping/create-mapping" />
+        <id>https://documentation.cluedin.net/ingest/mapping/create-mapping</id>
         <updated>2023-11-07T00:00:00+00:00</updated>
         <summary>
         
@@ -456,9 +426,41 @@
     </entry>
     
     <entry>
+        <title>Define data to ingest</title>
+        <link href="https://documentation.cluedin.net/ingest/data-sources/define-data-to-ingest" />
+        <id>https://documentation.cluedin.net/ingest/data-sources/define-data-to-ingest</id>
+        <updated>2023-11-07T00:00:00+00:00</updated>
+        <summary>
+        
+        Define data to ingest.
+        
+        
+        
+        Tags: integration.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Logs</title>
+        <link href="https://documentation.cluedin.net/ingest/troubleshooting/logs" />
+        <id>https://documentation.cluedin.net/ingest/troubleshooting/logs</id>
+        <updated>2023-11-07T00:00:00+00:00</updated>
+        <summary>
+        
+        Logs.
+        
+        
+        
+        Tags: integration, logs.
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>Review mapping</title>
-        <link href="https://documentation.cluedin.net/integration/review-mapping" />
-        <id>https://documentation.cluedin.net/integration/review-mapping</id>
+        <link href="https://documentation.cluedin.net/ingest/mapping/review-mapping" />
+        <id>https://documentation.cluedin.net/ingest/mapping/review-mapping</id>
         <updated>2023-11-07T00:00:00+00:00</updated>
         <summary>
         
@@ -472,30 +474,16 @@
     </entry>
     
     <entry>
-        <title>Data sources</title>
-        <link href="https://documentation.cluedin.net/integration/data sources" />
-        <id>https://documentation.cluedin.net/integration/data sources</id>
+        <title>Connectors</title>
+        <link href="https://documentation.cluedin.net/ingest/connectors" />
+        <id>https://documentation.cluedin.net/ingest/connectors</id>
         <updated>2023-11-07T00:00:00+00:00</updated>
         <summary>
         
-        Data sources.
+        Connectors.
         
         
-        
-        Tags: integration, data sources.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Crawlers</title>
-        <link href="https://documentation.cluedin.net/integration/crawlers-and-enrichers" />
-        <id>https://documentation.cluedin.net/integration/crawlers-and-enrichers</id>
-        <updated>2023-11-07T00:00:00+00:00</updated>
-        <summary>
-        
-        Crawlers.
-        
+        A connector crawls an external system and turns what it finds into clues.
         
         
         Tags: integration, crawlers.
@@ -504,9 +492,27 @@
     </entry>
     
     <entry>
+        <title>Data sources</title>
+        <link href="https://documentation.cluedin.net/ingest/data-sources" />
+        <id>https://documentation.cluedin.net/ingest/data-sources</id>
+        <updated>2023-11-07T00:00:00+00:00</updated>
+        <summary>
+        
+        Data sources.
+        
+        
+        A data source is where records come from.
+        
+        
+        Tags: integration, data sources.
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>Architecture overview</title>
-        <link href="https://documentation.cluedin.net/deployment/architecture" />
-        <id>https://documentation.cluedin.net/deployment/architecture</id>
+        <link href="https://documentation.cluedin.net/operate/architecture" />
+        <id>https://documentation.cluedin.net/operate/architecture</id>
         <updated>2023-11-08T00:00:00+00:00</updated>
         <summary>
         
@@ -521,8 +527,8 @@
     
     <entry>
         <title>Rule types</title>
-        <link href="https://documentation.cluedin.net/management/rules/rule-types" />
-        <id>https://documentation.cluedin.net/management/rules/rule-types</id>
+        <link href="https://documentation.cluedin.net/govern/rules/rule-types" />
+        <id>https://documentation.cluedin.net/govern/rules/rule-types</id>
         <updated>2023-11-16T00:00:00+00:00</updated>
         <summary>
         
@@ -537,8 +543,8 @@
     
     <entry>
         <title>Create a rule</title>
-        <link href="https://documentation.cluedin.net/management/rules/create-rule" />
-        <id>https://documentation.cluedin.net/management/rules/create-rule</id>
+        <link href="https://documentation.cluedin.net/govern/rules/create-rule" />
+        <id>https://documentation.cluedin.net/govern/rules/create-rule</id>
         <updated>2023-11-16T00:00:00+00:00</updated>
         <summary>
         
@@ -552,41 +558,25 @@
     </entry>
     
     <entry>
-        <title>Streams</title>
-        <link href="https://documentation.cluedin.net/consume/streams" />
-        <id>https://documentation.cluedin.net/consume/streams</id>
+        <title>File</title>
+        <link href="https://documentation.cluedin.net/ingest/data-sources/file" />
+        <id>https://documentation.cluedin.net/ingest/data-sources/file</id>
         <updated>2024-01-15T00:00:00+00:00</updated>
         <summary>
         
-        Streams.
+        File.
         
         
         
-        Tags: consume, data export, streams.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Property rules</title>
-        <link href="https://documentation.cluedin.net/integration/additional-operations-on-records/property-rules" />
-        <id>https://documentation.cluedin.net/integration/additional-operations-on-records/property-rules</id>
-        <updated>2024-01-15T00:00:00+00:00</updated>
-        <summary>
-        
-        Property rules.
-        
-        
-        
-        Tags: integration, property rules.
+        Tags: integration.
         
         </summary>
     </entry>
     
     <entry>
         <title>History</title>
-        <link href="https://documentation.cluedin.net/key-terms-and-features/golden-records/history" />
-        <id>https://documentation.cluedin.net/key-terms-and-features/golden-records/history</id>
+        <link href="https://documentation.cluedin.net/master/golden-records/history" />
+        <id>https://documentation.cluedin.net/master/golden-records/history</id>
         <updated>2024-01-15T00:00:00+00:00</updated>
         <summary>
         
@@ -600,9 +590,41 @@
     </entry>
     
     <entry>
+        <title>Property rules</title>
+        <link href="https://documentation.cluedin.net/ingest/mapping/property-rules" />
+        <id>https://documentation.cluedin.net/ingest/mapping/property-rules</id>
+        <updated>2024-01-15T00:00:00+00:00</updated>
+        <summary>
+        
+        Property rules.
+        
+        
+        
+        Tags: integration, property rules.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Database</title>
+        <link href="https://documentation.cluedin.net/ingest/data-sources/database" />
+        <id>https://documentation.cluedin.net/ingest/data-sources/database</id>
+        <updated>2024-01-15T00:00:00+00:00</updated>
+        <summary>
+        
+        Database.
+        
+        
+        
+        Tags: integration.
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>Pre-process rules</title>
-        <link href="https://documentation.cluedin.net/integration/additional-operations-on-records/preprocess-rules" />
-        <id>https://documentation.cluedin.net/integration/additional-operations-on-records/preprocess-rules</id>
+        <link href="https://documentation.cluedin.net/ingest/mapping/preprocess-rules" />
+        <id>https://documentation.cluedin.net/ingest/mapping/preprocess-rules</id>
         <updated>2024-01-15T00:00:00+00:00</updated>
         <summary>
         
@@ -617,8 +639,8 @@
     
     <entry>
         <title>Advanced mapping code</title>
-        <link href="https://documentation.cluedin.net/integration/additional-operations-on-records/advanced-mapping-code" />
-        <id>https://documentation.cluedin.net/integration/additional-operations-on-records/advanced-mapping-code</id>
+        <link href="https://documentation.cluedin.net/ingest/mapping/advanced-mapping-code" />
+        <id>https://documentation.cluedin.net/ingest/mapping/advanced-mapping-code</id>
         <updated>2024-01-15T00:00:00+00:00</updated>
         <summary>
         
@@ -632,57 +654,27 @@
     </entry>
     
     <entry>
-        <title>File</title>
-        <link href="https://documentation.cluedin.net/integration/file" />
-        <id>https://documentation.cluedin.net/integration/file</id>
+        <title>Streams</title>
+        <link href="https://documentation.cluedin.net/publish/streams" />
+        <id>https://documentation.cluedin.net/publish/streams</id>
         <updated>2024-01-15T00:00:00+00:00</updated>
         <summary>
         
-        File.
+        Streams.
         
         
-        
-        Tags: integration.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Database</title>
-        <link href="https://documentation.cluedin.net/integration/database" />
-        <id>https://documentation.cluedin.net/integration/database</id>
-        <updated>2024-01-15T00:00:00+00:00</updated>
-        <summary>
-        
-        Database.
+        A stream is a continuous export: you define which golden records and which properties, point it at an export target, and CluedIn keeps the target up to date as the data changes.
         
         
-        
-        Tags: integration.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Additional operations</title>
-        <link href="https://documentation.cluedin.net/integration/additional-operations-on-records" />
-        <id>https://documentation.cluedin.net/integration/additional-operations-on-records</id>
-        <updated>2024-01-15T00:00:00+00:00</updated>
-        <summary>
-        
-        Additional operations.
-        
-        
-        
-        Tags: integration.
+        Tags: consume, data export, streams.
         
         </summary>
     </entry>
     
     <entry>
         <title>Stream reference</title>
-        <link href="https://documentation.cluedin.net/consume/streams/stream-reference" />
-        <id>https://documentation.cluedin.net/consume/streams/stream-reference</id>
+        <link href="https://documentation.cluedin.net/publish/streams/stream-reference" />
+        <id>https://documentation.cluedin.net/publish/streams/stream-reference</id>
         <updated>2024-01-16T00:00:00+00:00</updated>
         <summary>
         
@@ -697,8 +689,8 @@
     
     <entry>
         <title>Sync certificates and secrets from AKV to AKS</title>
-        <link href="https://documentation.cluedin.net/kb/sync-aks-to-akv" />
-        <id>https://documentation.cluedin.net/kb/sync-aks-to-akv</id>
+        <link href="https://documentation.cluedin.net/operate/configuration/sync-aks-to-akv" />
+        <id>https://documentation.cluedin.net/operate/configuration/sync-aks-to-akv</id>
         <updated>2024-02-05T00:00:00+00:00</updated>
         <summary>
         
@@ -713,8 +705,8 @@
     
     <entry>
         <title>SSO</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/configure-sso" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/configure-sso</id>
+        <link href="https://documentation.cluedin.net/operate/configuration/configure-sso" />
+        <id>https://documentation.cluedin.net/operate/configuration/configure-sso</id>
         <updated>2024-02-29T00:00:00+00:00</updated>
         <summary>
         
@@ -728,25 +720,9 @@
     </entry>
     
     <entry>
-        <title>Advanced network configuration</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/advanced-network" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/advanced-network</id>
-        <updated>2024-03-01T00:00:00+00:00</updated>
-        <summary>
-        
-        Advanced network configuration.
-        
-        
-        
-        Tags: deployment, ama, marketplace, azure.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Pre-installation checklist</title>
-        <link href="https://documentation.cluedin.net/deployment/azure-marketplace/step-2" />
-        <id>https://documentation.cluedin.net/deployment/azure-marketplace/step-2</id>
+        <link href="https://documentation.cluedin.net/operate/azure-marketplace/step-2" />
+        <id>https://documentation.cluedin.net/operate/azure-marketplace/step-2</id>
         <updated>2024-03-01T00:00:00+00:00</updated>
         <summary>
         
@@ -760,9 +736,25 @@
     </entry>
     
     <entry>
+        <title>Advanced network configuration</title>
+        <link href="https://documentation.cluedin.net/operate/configuration/advanced-network" />
+        <id>https://documentation.cluedin.net/operate/configuration/advanced-network</id>
+        <updated>2024-03-01T00:00:00+00:00</updated>
+        <summary>
+        
+        Advanced network configuration.
+        
+        
+        
+        Tags: deployment, ama, marketplace, azure.
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>AKS upgrade</title>
-        <link href="https://documentation.cluedin.net/paas-operations/upgrade/aks" />
-        <id>https://documentation.cluedin.net/paas-operations/upgrade/aks</id>
+        <link href="https://documentation.cluedin.net/operate/upgrade/aks" />
+        <id>https://documentation.cluedin.net/operate/upgrade/aks</id>
         <updated>2024-03-27T00:00:00+00:00</updated>
         <summary>
         
@@ -777,8 +769,8 @@
     
     <entry>
         <title>Azure requirements</title>
-        <link href="https://documentation.cluedin.net/deployment/saas/requirements" />
-        <id>https://documentation.cluedin.net/deployment/saas/requirements</id>
+        <link href="https://documentation.cluedin.net/operate/azure-marketplace/requirements" />
+        <id>https://documentation.cluedin.net/operate/azure-marketplace/requirements</id>
         <updated>2024-04-08T00:00:00+00:00</updated>
         <summary>
         
@@ -791,8 +783,8 @@
     
     <entry>
         <title>Private SaaS - Azure Market Place</title>
-        <link href="https://documentation.cluedin.net/deployment/saas/installation-guide" />
-        <id>https://documentation.cluedin.net/deployment/saas/installation-guide</id>
+        <link href="https://documentation.cluedin.net/operate/azure-marketplace/installation-guide" />
+        <id>https://documentation.cluedin.net/operate/azure-marketplace/installation-guide</id>
         <updated>2024-04-08T00:00:00+00:00</updated>
         <summary>
         
@@ -805,8 +797,8 @@
     
     <entry>
         <title>DNS</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/configure-dns" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/configure-dns</id>
+        <link href="https://documentation.cluedin.net/operate/configuration/configure-dns" />
+        <id>https://documentation.cluedin.net/operate/configuration/configure-dns</id>
         <updated>2024-05-09T00:00:00+00:00</updated>
         <summary>
         
@@ -821,13 +813,15 @@
     
     <entry>
         <title>Backup and restore</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/ama-backup" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/ama-backup</id>
+        <link href="https://documentation.cluedin.net/operate/backup-and-restore" />
+        <id>https://documentation.cluedin.net/operate/backup-and-restore</id>
         <updated>2024-06-13T00:00:00+00:00</updated>
         <summary>
         
         Backup and restore.
         
+        
+        Protecting an installation and getting it back.
         
         
         Tags: deployment, ama, marketplace, azure, backup, disaster recovery, DR.
@@ -837,8 +831,8 @@
     
     <entry>
         <title>Removal of records</title>
-        <link href="https://documentation.cluedin.net/integration/additional-operations-on-records/remove-records" />
-        <id>https://documentation.cluedin.net/integration/additional-operations-on-records/remove-records</id>
+        <link href="https://documentation.cluedin.net/ingest/processing/remove-records" />
+        <id>https://documentation.cluedin.net/ingest/processing/remove-records</id>
         <updated>2024-08-26T00:00:00+00:00</updated>
         <summary>
         
@@ -851,8 +845,8 @@
     
     <entry>
         <title>HTTP connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/http-connector" />
-        <id>https://documentation.cluedin.net/consume/export-targets/http-connector</id>
+        <link href="https://documentation.cluedin.net/publish/export-targets/http-connector" />
+        <id>https://documentation.cluedin.net/publish/export-targets/http-connector</id>
         <updated>2024-10-28T00:00:00+00:00</updated>
         <summary>
         
@@ -864,9 +858,25 @@
     </entry>
     
     <entry>
+        <title>Process data</title>
+        <link href="https://documentation.cluedin.net/ingest/processing/process-data" />
+        <id>https://documentation.cluedin.net/ingest/processing/process-data</id>
+        <updated>2024-10-31T00:00:00+00:00</updated>
+        <summary>
+        
+        Process data.
+        
+        
+        
+        Tags: integration, processing.
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>Quarantine</title>
-        <link href="https://documentation.cluedin.net/integration/additional-operations-on-records/quarantine" />
-        <id>https://documentation.cluedin.net/integration/additional-operations-on-records/quarantine</id>
+        <link href="https://documentation.cluedin.net/ingest/troubleshooting/quarantine" />
+        <id>https://documentation.cluedin.net/ingest/troubleshooting/quarantine</id>
         <updated>2024-10-31T00:00:00+00:00</updated>
         <summary>
         
@@ -881,8 +891,8 @@
     
     <entry>
         <title>Endpoint</title>
-        <link href="https://documentation.cluedin.net/integration/endpoint" />
-        <id>https://documentation.cluedin.net/integration/endpoint</id>
+        <link href="https://documentation.cluedin.net/ingest/data-sources/endpoint" />
+        <id>https://documentation.cluedin.net/ingest/data-sources/endpoint</id>
         <updated>2024-10-31T00:00:00+00:00</updated>
         <summary>
         
@@ -891,22 +901,6 @@
         
         
         Tags: integration.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Process data</title>
-        <link href="https://documentation.cluedin.net/integration/process-data" />
-        <id>https://documentation.cluedin.net/integration/process-data</id>
-        <updated>2024-10-31T00:00:00+00:00</updated>
-        <summary>
-        
-        Process data.
-        
-        
-        
-        Tags: integration, processing.
         
         </summary>
     </entry>
@@ -921,14 +915,16 @@
         Release 2024.12.
         
         
+        A new home dashboard, access control, golden record export, and workflows.
+        
         
         </summary>
     </entry>
     
     <entry>
         <title>Create a service principal</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/create-service-principal" />
-        <id>https://documentation.cluedin.net/consume/export-targets/create-service-principal</id>
+        <link href="https://documentation.cluedin.net/publish/export-targets/create-service-principal" />
+        <id>https://documentation.cluedin.net/publish/export-targets/create-service-principal</id>
         <updated>2025-01-07T00:00:00+00:00</updated>
         <summary>
         
@@ -941,8 +937,8 @@
     
     <entry>
         <title>Azure Dedicated SQL Pool connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/azure-dedicated-sql-pool-connector" />
-        <id>https://documentation.cluedin.net/consume/export-targets/azure-dedicated-sql-pool-connector</id>
+        <link href="https://documentation.cluedin.net/publish/export-targets/azure-dedicated-sql-pool-connector" />
+        <id>https://documentation.cluedin.net/publish/export-targets/azure-dedicated-sql-pool-connector</id>
         <updated>2025-01-09T00:00:00+00:00</updated>
         <summary>
         
@@ -955,8 +951,8 @@
     
     <entry>
         <title>Azure Service Bus connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/azure-service-bus-connector" />
-        <id>https://documentation.cluedin.net/consume/export-targets/azure-service-bus-connector</id>
+        <link href="https://documentation.cluedin.net/publish/export-targets/azure-service-bus-connector" />
+        <id>https://documentation.cluedin.net/publish/export-targets/azure-service-bus-connector</id>
         <updated>2025-01-09T00:00:00+00:00</updated>
         <summary>
         
@@ -969,15 +965,13 @@
     
     <entry>
         <title>Query data using GraphQL and Python SDK</title>
-        <link href="https://documentation.cluedin.net/playbooks/data-engineering-playbook/search" />
-        <id>https://documentation.cluedin.net/playbooks/data-engineering-playbook/search</id>
+        <link href="https://documentation.cluedin.net/develop/python-sdk/search" />
+        <id>https://documentation.cluedin.net/develop/python-sdk/search</id>
         <updated>2025-01-14T00:00:00+00:00</updated>
         <summary>
         
         Query data using GraphQL and Python SDK.
         
-        
-        How to query data using GraphQL and the CluedIn Python SDK.
         
         
         Tags: python.
@@ -987,15 +981,13 @@
     
     <entry>
         <title>Using Python SDK for Automation</title>
-        <link href="https://documentation.cluedin.net/playbooks/data-engineering-playbook/automation" />
-        <id>https://documentation.cluedin.net/playbooks/data-engineering-playbook/automation</id>
+        <link href="https://documentation.cluedin.net/develop/python-sdk/automation" />
+        <id>https://documentation.cluedin.net/develop/python-sdk/automation</id>
         <updated>2025-01-14T00:00:00+00:00</updated>
         <summary>
         
         Using Python SDK for Automation.
         
-        
-        How to automate tasks using the CluedIn Python SDK.
         
         
         Tags: python.
@@ -1005,15 +997,13 @@
     
     <entry>
         <title>Ingesting data to CluedIn with Python</title>
-        <link href="https://documentation.cluedin.net/playbooks/data-engineering-playbook/ingestion" />
-        <id>https://documentation.cluedin.net/playbooks/data-engineering-playbook/ingestion</id>
+        <link href="https://documentation.cluedin.net/develop/python-sdk/ingestion" />
+        <id>https://documentation.cluedin.net/develop/python-sdk/ingestion</id>
         <updated>2025-01-14T00:00:00+00:00</updated>
         <summary>
         
         Ingesting data to CluedIn with Python.
         
-        
-        How to ingest data to CluedIn Ingestion Endpoints with Python.
         
         
         Tags: python.
@@ -1023,15 +1013,13 @@
     
     <entry>
         <title>Exporting data to and from CluedIn with Python</title>
-        <link href="https://documentation.cluedin.net/playbooks/data-engineering-playbook/export" />
-        <id>https://documentation.cluedin.net/playbooks/data-engineering-playbook/export</id>
+        <link href="https://documentation.cluedin.net/develop/python-sdk/export" />
+        <id>https://documentation.cluedin.net/develop/python-sdk/export</id>
         <updated>2025-01-14T00:00:00+00:00</updated>
         <summary>
         
         Exporting data to and from CluedIn with Python.
         
-        
-        How to export data from CluedIn with Python.
         
         
         Tags: python.
@@ -1041,15 +1029,13 @@
     
     <entry>
         <title>CluedIn Magic</title>
-        <link href="https://documentation.cluedin.net/playbooks/data-engineering-playbook/magic" />
-        <id>https://documentation.cluedin.net/playbooks/data-engineering-playbook/magic</id>
+        <link href="https://documentation.cluedin.net/develop/python-sdk/magic" />
+        <id>https://documentation.cluedin.net/develop/python-sdk/magic</id>
         <updated>2025-01-15T00:00:00+00:00</updated>
         <summary>
         
         CluedIn Magic.
         
-        
-        CluedIn IPython Magic simplifies working with CluedIn in Jupyter notebooks.
         
         
         Tags: python.
@@ -1059,8 +1045,8 @@
     
     <entry>
         <title>Extending CluedIn with Microsoft integrations</title>
-        <link href="https://documentation.cluedin.net/playbooks/data-engineering-playbook/extending-cluedin-with-microsoft-integrations" />
-        <id>https://documentation.cluedin.net/playbooks/data-engineering-playbook/extending-cluedin-with-microsoft-integrations</id>
+        <link href="https://documentation.cluedin.net/playbooks/data-engineering/extending-cluedin-with-microsoft-integrations" />
+        <id>https://documentation.cluedin.net/playbooks/data-engineering/extending-cluedin-with-microsoft-integrations</id>
         <updated>2025-01-16T00:00:00+00:00</updated>
         <summary>
         
@@ -1073,8 +1059,8 @@
     
     <entry>
         <title>Monitoring</title>
-        <link href="https://documentation.cluedin.net/integration/additional-operations-on-records/monitoring" />
-        <id>https://documentation.cluedin.net/integration/additional-operations-on-records/monitoring</id>
+        <link href="https://documentation.cluedin.net/ingest/troubleshooting/monitoring" />
+        <id>https://documentation.cluedin.net/ingest/troubleshooting/monitoring</id>
         <updated>2025-02-04T00:00:00+00:00</updated>
         <summary>
         
@@ -1088,23 +1074,9 @@
     </entry>
     
     <entry>
-        <title>Customization in CluedIn</title>
-        <link href="https://documentation.cluedin.net/playbooks/data-engineering-playbook/customization-in-cluedin" />
-        <id>https://documentation.cluedin.net/playbooks/data-engineering-playbook/customization-in-cluedin</id>
-        <updated>2025-02-05T00:00:00+00:00</updated>
-        <summary>
-        
-        Customization in CluedIn.
-        
-        
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Azure Data Lake connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/adl-connector" />
-        <id>https://documentation.cluedin.net/consume/export-targets/adl-connector</id>
+        <link href="https://documentation.cluedin.net/publish/export-targets/adl-connector" />
+        <id>https://documentation.cluedin.net/publish/export-targets/adl-connector</id>
         <updated>2025-02-05T00:00:00+00:00</updated>
         <summary>
         
@@ -1116,9 +1088,23 @@
     </entry>
     
     <entry>
+        <title>Customization in CluedIn</title>
+        <link href="https://documentation.cluedin.net/playbooks/data-engineering/customization-in-cluedin" />
+        <id>https://documentation.cluedin.net/playbooks/data-engineering/customization-in-cluedin</id>
+        <updated>2025-02-05T00:00:00+00:00</updated>
+        <summary>
+        
+        Customization in CluedIn.
+        
+        
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>OneLake connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/onelake-connector" />
-        <id>https://documentation.cluedin.net/consume/export-targets/onelake-connector</id>
+        <link href="https://documentation.cluedin.net/publish/export-targets/onelake-connector" />
+        <id>https://documentation.cluedin.net/publish/export-targets/onelake-connector</id>
         <updated>2025-02-05T00:00:00+00:00</updated>
         <summary>
         
@@ -1131,8 +1117,8 @@
     
     <entry>
         <title>File name patterns</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/file-name-patterns" />
-        <id>https://documentation.cluedin.net/consume/export-targets/file-name-patterns</id>
+        <link href="https://documentation.cluedin.net/publish/export-targets/file-name-patterns" />
+        <id>https://documentation.cluedin.net/publish/export-targets/file-name-patterns</id>
         <updated>2025-02-05T00:00:00+00:00</updated>
         <summary>
         
@@ -1144,25 +1130,9 @@
     </entry>
     
     <entry>
-        <title>Power Apps pre-configuration guide</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/powerapps/pre-configuration-guide" />
-        <id>https://documentation.cluedin.net/microsoft-integration/powerapps/pre-configuration-guide</id>
-        <updated>2025-03-13T00:00:00+00:00</updated>
-        <summary>
-        
-        Power Apps pre-configuration guide.
-        
-        
-        
-        Tags: integration, microsoft, powerapps, dataverse.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Power Automate pre-configuration guide</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/power-automate/pre-configuration-guide" />
-        <id>https://documentation.cluedin.net/microsoft-integration/power-automate/pre-configuration-guide</id>
+        <link href="https://documentation.cluedin.net/solutions/power-automate/pre-configuration-guide" />
+        <id>https://documentation.cluedin.net/solutions/power-automate/pre-configuration-guide</id>
         <updated>2025-03-13T00:00:00+00:00</updated>
         <summary>
         
@@ -1176,9 +1146,25 @@
     </entry>
     
     <entry>
+        <title>Power Apps pre-configuration guide</title>
+        <link href="https://documentation.cluedin.net/solutions/power-apps/pre-configuration-guide" />
+        <id>https://documentation.cluedin.net/solutions/power-apps/pre-configuration-guide</id>
+        <updated>2025-03-13T00:00:00+00:00</updated>
+        <summary>
+        
+        Power Apps pre-configuration guide.
+        
+        
+        
+        Tags: integration, microsoft, powerapps, dataverse.
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>Power Automate configuration guide</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/power-automate/configuration-guide" />
-        <id>https://documentation.cluedin.net/microsoft-integration/power-automate/configuration-guide</id>
+        <link href="https://documentation.cluedin.net/solutions/power-automate/configuration-guide" />
+        <id>https://documentation.cluedin.net/solutions/power-automate/configuration-guide</id>
         <updated>2025-03-13T00:00:00+00:00</updated>
         <summary>
         
@@ -1193,8 +1179,8 @@
     
     <entry>
         <title>Power Automate post-configuration guide</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/power-automate/post-configuration-guide" />
-        <id>https://documentation.cluedin.net/microsoft-integration/power-automate/post-configuration-guide</id>
+        <link href="https://documentation.cluedin.net/solutions/power-automate/post-configuration-guide" />
+        <id>https://documentation.cluedin.net/solutions/power-automate/post-configuration-guide</id>
         <updated>2025-03-13T00:00:00+00:00</updated>
         <summary>
         
@@ -1208,13 +1194,13 @@
     </entry>
     
     <entry>
-        <title>CluedIn Security - [NOT impacted] Ingress NGINX Controller vulnerabilities</title>
-        <link href="https://documentation.cluedin.net/kb/ingress-nginx-controller" />
-        <id>https://documentation.cluedin.net/kb/ingress-nginx-controller</id>
+        <title>Ingress NGINX vulnerabilities (not impacted)</title>
+        <link href="https://documentation.cluedin.net/operate/security/ingress-nginx-controller" />
+        <id>https://documentation.cluedin.net/operate/security/ingress-nginx-controller</id>
         <updated>2025-03-25T00:00:00+00:00</updated>
         <summary>
         
-        CluedIn Security - [NOT impacted] Ingress NGINX Controller vulnerabilities.
+        Ingress NGINX vulnerabilities (not impacted).
         
         
         
@@ -1225,8 +1211,8 @@
     
     <entry>
         <title>Open Mirroring connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/openmirroring-connector" />
-        <id>https://documentation.cluedin.net/consume/export-targets/openmirroring-connector</id>
+        <link href="https://documentation.cluedin.net/publish/export-targets/openmirroring-connector" />
+        <id>https://documentation.cluedin.net/publish/export-targets/openmirroring-connector</id>
         <updated>2025-03-30T00:00:00+00:00</updated>
         <summary>
         
@@ -1239,8 +1225,8 @@
     
     <entry>
         <title>Configure a manual data entry project</title>
-        <link href="https://documentation.cluedin.net/integration/manual-data-entry/configure-a-manual-data-entry-project" />
-        <id>https://documentation.cluedin.net/integration/manual-data-entry/configure-a-manual-data-entry-project</id>
+        <link href="https://documentation.cluedin.net/ingest/manual-data-entry/configure-a-manual-data-entry-project" />
+        <id>https://documentation.cluedin.net/ingest/manual-data-entry/configure-a-manual-data-entry-project</id>
         <updated>2025-04-01T00:00:00+00:00</updated>
         <summary>
         
@@ -1253,8 +1239,8 @@
     
     <entry>
         <title>Add records in a manual data entry project</title>
-        <link href="https://documentation.cluedin.net/integration/manual-data-entry/add-records-in-a-manual-data-entry-project" />
-        <id>https://documentation.cluedin.net/integration/manual-data-entry/add-records-in-a-manual-data-entry-project</id>
+        <link href="https://documentation.cluedin.net/ingest/manual-data-entry/add-records-in-a-manual-data-entry-project" />
+        <id>https://documentation.cluedin.net/ingest/manual-data-entry/add-records-in-a-manual-data-entry-project</id>
         <updated>2025-04-01T00:00:00+00:00</updated>
         <summary>
         
@@ -1267,8 +1253,8 @@
     
     <entry>
         <title>Manage a manual data entry project</title>
-        <link href="https://documentation.cluedin.net/integration/manual-data-entry/manage-a-manual-data-entry-project" />
-        <id>https://documentation.cluedin.net/integration/manual-data-entry/manage-a-manual-data-entry-project</id>
+        <link href="https://documentation.cluedin.net/ingest/manual-data-entry/manage-a-manual-data-entry-project" />
+        <id>https://documentation.cluedin.net/ingest/manual-data-entry/manage-a-manual-data-entry-project</id>
         <updated>2025-04-01T00:00:00+00:00</updated>
         <summary>
         
@@ -1281,13 +1267,15 @@
     
     <entry>
         <title>Manual data entry</title>
-        <link href="https://documentation.cluedin.net/integration/manual-data-entry" />
-        <id>https://documentation.cluedin.net/integration/manual-data-entry</id>
+        <link href="https://documentation.cluedin.net/ingest/manual-data-entry" />
+        <id>https://documentation.cluedin.net/ingest/manual-data-entry</id>
         <updated>2025-04-01T00:00:00+00:00</updated>
         <summary>
         
         Manual data entry.
         
+        
+        Some data has no source system - it lives in someone&apos;s head or a spreadsheet.
         
         
         </summary>
@@ -1308,23 +1296,9 @@
     </entry>
     
     <entry>
-        <title>Approval</title>
-        <link href="https://documentation.cluedin.net/integration/additional-operations-on-records/approval" />
-        <id>https://documentation.cluedin.net/integration/additional-operations-on-records/approval</id>
-        <updated>2025-04-03T00:00:00+00:00</updated>
-        <summary>
-        
-        Approval.
-        
-        
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Preview</title>
-        <link href="https://documentation.cluedin.net/integration/additional-operations-on-records/preview" />
-        <id>https://documentation.cluedin.net/integration/additional-operations-on-records/preview</id>
+        <link href="https://documentation.cluedin.net/ingest/processing/preview" />
+        <id>https://documentation.cluedin.net/ingest/processing/preview</id>
         <updated>2025-04-03T00:00:00+00:00</updated>
         <summary>
         
@@ -1336,23 +1310,9 @@
     </entry>
     
     <entry>
-        <title>SQL Server connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/sql-server-connector" />
-        <id>https://documentation.cluedin.net/consume/export-targets/sql-server-connector</id>
-        <updated>2025-04-03T00:00:00+00:00</updated>
-        <summary>
-        
-        SQL Server connector.
-        
-        
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Validations</title>
-        <link href="https://documentation.cluedin.net/integration/additional-operations-on-records/validations" />
-        <id>https://documentation.cluedin.net/integration/additional-operations-on-records/validations</id>
+        <link href="https://documentation.cluedin.net/ingest/processing/validations" />
+        <id>https://documentation.cluedin.net/ingest/processing/validations</id>
         <updated>2025-04-03T00:00:00+00:00</updated>
         <summary>
         
@@ -1364,9 +1324,37 @@
     </entry>
     
     <entry>
+        <title>Approval</title>
+        <link href="https://documentation.cluedin.net/ingest/processing/approval" />
+        <id>https://documentation.cluedin.net/ingest/processing/approval</id>
+        <updated>2025-04-03T00:00:00+00:00</updated>
+        <summary>
+        
+        Approval.
+        
+        
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>SQL Server connector</title>
+        <link href="https://documentation.cluedin.net/publish/export-targets/sql-server-connector" />
+        <id>https://documentation.cluedin.net/publish/export-targets/sql-server-connector</id>
+        <updated>2025-04-03T00:00:00+00:00</updated>
+        <summary>
+        
+        SQL Server connector.
+        
+        
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>Best practices for rules</title>
-        <link href="https://documentation.cluedin.net/management/rules/best-practices-for-rules" />
-        <id>https://documentation.cluedin.net/management/rules/best-practices-for-rules</id>
+        <link href="https://documentation.cluedin.net/govern/rules/best-practices-for-rules" />
+        <id>https://documentation.cluedin.net/govern/rules/best-practices-for-rules</id>
         <updated>2025-04-11T00:00:00+00:00</updated>
         <summary>
         
@@ -1379,8 +1367,8 @@
     
     <entry>
         <title>Stream logs</title>
-        <link href="https://documentation.cluedin.net/consume/streams/stream-logs" />
-        <id>https://documentation.cluedin.net/consume/streams/stream-logs</id>
+        <link href="https://documentation.cluedin.net/publish/streams/stream-logs" />
+        <id>https://documentation.cluedin.net/publish/streams/stream-logs</id>
         <updated>2025-04-18T00:00:00+00:00</updated>
         <summary>
         
@@ -1395,8 +1383,8 @@
     
     <entry>
         <title>Purview pre-configuration guide</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/pre-configuration-guide" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/pre-configuration-guide</id>
+        <link href="https://documentation.cluedin.net/solutions/purview/pre-configuration-guide" />
+        <id>https://documentation.cluedin.net/solutions/purview/pre-configuration-guide</id>
         <updated>2025-04-30T00:00:00+00:00</updated>
         <summary>
         
@@ -1409,8 +1397,8 @@
     
     <entry>
         <title>Purview configuration guide</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/configuration-guide" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/configuration-guide</id>
+        <link href="https://documentation.cluedin.net/solutions/purview/configuration-guide" />
+        <id>https://documentation.cluedin.net/solutions/purview/configuration-guide</id>
         <updated>2025-04-30T00:00:00+00:00</updated>
         <summary>
         
@@ -1423,8 +1411,8 @@
     
     <entry>
         <title>Sync data sources</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/sync-data-sources" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/sync-data-sources</id>
+        <link href="https://documentation.cluedin.net/solutions/purview/sync-data-sources" />
+        <id>https://documentation.cluedin.net/solutions/purview/sync-data-sources</id>
         <updated>2025-04-30T00:00:00+00:00</updated>
         <summary>
         
@@ -1437,8 +1425,8 @@
     
     <entry>
         <title>Data factory pipeline run schedule</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/data-factory-pipeline-run-schedule" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/data-factory-pipeline-run-schedule</id>
+        <link href="https://documentation.cluedin.net/solutions/purview/data-factory-pipeline-run-schedule" />
+        <id>https://documentation.cluedin.net/solutions/purview/data-factory-pipeline-run-schedule</id>
         <updated>2025-04-30T00:00:00+00:00</updated>
         <summary>
         
@@ -1451,8 +1439,8 @@
     
     <entry>
         <title>Sync manual data entry to Purview</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/sync-manual-data-entry-to-purview" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/sync-manual-data-entry-to-purview</id>
+        <link href="https://documentation.cluedin.net/solutions/purview/sync-manual-data-entry-to-purview" />
+        <id>https://documentation.cluedin.net/solutions/purview/sync-manual-data-entry-to-purview</id>
         <updated>2025-04-30T00:00:00+00:00</updated>
         <summary>
         
@@ -1465,8 +1453,8 @@
     
     <entry>
         <title>Sync processing rules to Purview</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/sync-processing-rules-to-purview" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/sync-processing-rules-to-purview</id>
+        <link href="https://documentation.cluedin.net/solutions/purview/sync-processing-rules-to-purview" />
+        <id>https://documentation.cluedin.net/solutions/purview/sync-processing-rules-to-purview</id>
         <updated>2025-04-30T00:00:00+00:00</updated>
         <summary>
         
@@ -1479,8 +1467,8 @@
     
     <entry>
         <title>Sync clean projects to Purview</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/sync-clean-projects-to-purview" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/sync-clean-projects-to-purview</id>
+        <link href="https://documentation.cluedin.net/solutions/purview/sync-clean-projects-to-purview" />
+        <id>https://documentation.cluedin.net/solutions/purview/sync-clean-projects-to-purview</id>
         <updated>2025-04-30T00:00:00+00:00</updated>
         <summary>
         
@@ -1493,8 +1481,8 @@
     
     <entry>
         <title>Sync deduplication projects to Purview</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/sync-deduplication-projects-to-purview" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/sync-deduplication-projects-to-purview</id>
+        <link href="https://documentation.cluedin.net/solutions/purview/sync-deduplication-projects-to-purview" />
+        <id>https://documentation.cluedin.net/solutions/purview/sync-deduplication-projects-to-purview</id>
         <updated>2025-04-30T00:00:00+00:00</updated>
         <summary>
         
@@ -1507,8 +1495,8 @@
     
     <entry>
         <title>Sync streams to Purview</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/sync-streams-to-purview" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/sync-streams-to-purview</id>
+        <link href="https://documentation.cluedin.net/solutions/purview/sync-streams-to-purview" />
+        <id>https://documentation.cluedin.net/solutions/purview/sync-streams-to-purview</id>
         <updated>2025-04-30T00:00:00+00:00</updated>
         <summary>
         
@@ -1521,8 +1509,8 @@
     
     <entry>
         <title>Sync Purview glossaries to CluedIn glossaries</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/sync-purview-glossaries-to-cluedin-glossaries" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/sync-purview-glossaries-to-cluedin-glossaries</id>
+        <link href="https://documentation.cluedin.net/solutions/purview/sync-purview-glossaries-to-cluedin-glossaries" />
+        <id>https://documentation.cluedin.net/solutions/purview/sync-purview-glossaries-to-cluedin-glossaries</id>
         <updated>2025-04-30T00:00:00+00:00</updated>
         <summary>
         
@@ -1535,8 +1523,8 @@
     
     <entry>
         <title>Sync Purview glossaries to CluedIn vocabularies</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/sync-purview-glossaries-to-cluedin-vocabularies" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/sync-purview-glossaries-to-cluedin-vocabularies</id>
+        <link href="https://documentation.cluedin.net/solutions/purview/sync-purview-glossaries-to-cluedin-vocabularies" />
+        <id>https://documentation.cluedin.net/solutions/purview/sync-purview-glossaries-to-cluedin-vocabularies</id>
         <updated>2025-04-30T00:00:00+00:00</updated>
         <summary>
         
@@ -1549,8 +1537,8 @@
     
     <entry>
         <title>Sync data products</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/sync-data-products" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/sync-data-products</id>
+        <link href="https://documentation.cluedin.net/solutions/purview/sync-data-products" />
+        <id>https://documentation.cluedin.net/solutions/purview/sync-data-products</id>
         <updated>2025-04-30T00:00:00+00:00</updated>
         <summary>
         
@@ -1563,8 +1551,8 @@
     
     <entry>
         <title>Golden record relations</title>
-        <link href="https://documentation.cluedin.net/key-terms-and-features/golden-records/golden-record-relations" />
-        <id>https://documentation.cluedin.net/key-terms-and-features/golden-records/golden-record-relations</id>
+        <link href="https://documentation.cluedin.net/master/golden-records/golden-record-relations" />
+        <id>https://documentation.cluedin.net/master/golden-records/golden-record-relations</id>
         <updated>2025-05-20T00:00:00+00:00</updated>
         <summary>
         
@@ -1577,8 +1565,8 @@
     
     <entry>
         <title>Explain Log</title>
-        <link href="https://documentation.cluedin.net/key-terms-and-features/golden-records/explain-log" />
-        <id>https://documentation.cluedin.net/key-terms-and-features/golden-records/explain-log</id>
+        <link href="https://documentation.cluedin.net/master/golden-records/explain-log" />
+        <id>https://documentation.cluedin.net/master/golden-records/explain-log</id>
         <updated>2025-05-20T00:00:00+00:00</updated>
         <summary>
         
@@ -1590,9 +1578,41 @@
     </entry>
     
     <entry>
+        <title>Upgrade guide</title>
+        <link href="https://documentation.cluedin.net/operate/upgrade/guide" />
+        <id>https://documentation.cluedin.net/operate/upgrade/guide</id>
+        <updated>2025-09-22T00:00:00+00:00</updated>
+        <summary>
+        
+        Upgrade guide.
+        
+        
+        
+        Tags: deployment, ama, marketplace, azure, aks, kubernetes, upgrade.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Required tools for CluedIn upgrade</title>
+        <link href="https://documentation.cluedin.net/operate/upgrade/required-tools" />
+        <id>https://documentation.cluedin.net/operate/upgrade/required-tools</id>
+        <updated>2025-09-22T00:00:00+00:00</updated>
+        <summary>
+        
+        Required tools for CluedIn upgrade.
+        
+        
+        
+        Tags: deployment, ama, marketplace, azure, aks, kubernetes, upgrade.
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>Plan the upgrade</title>
-        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide/plan-the-upgrade" />
-        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide/plan-the-upgrade</id>
+        <link href="https://documentation.cluedin.net/operate/upgrade/plan-the-upgrade" />
+        <id>https://documentation.cluedin.net/operate/upgrade/plan-the-upgrade</id>
         <updated>2025-09-22T00:00:00+00:00</updated>
         <summary>
         
@@ -1607,8 +1627,8 @@
     
     <entry>
         <title>Prepare for the upgrade</title>
-        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide/prepare-for-the-upgrade" />
-        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide/prepare-for-the-upgrade</id>
+        <link href="https://documentation.cluedin.net/operate/upgrade/prepare-for-the-upgrade" />
+        <id>https://documentation.cluedin.net/operate/upgrade/prepare-for-the-upgrade</id>
         <updated>2025-09-22T00:00:00+00:00</updated>
         <summary>
         
@@ -1623,8 +1643,8 @@
     
     <entry>
         <title>Perform the upgrade</title>
-        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide/perform-the-upgrade" />
-        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide/perform-the-upgrade</id>
+        <link href="https://documentation.cluedin.net/operate/upgrade/perform-the-upgrade" />
+        <id>https://documentation.cluedin.net/operate/upgrade/perform-the-upgrade</id>
         <updated>2025-09-22T00:00:00+00:00</updated>
         <summary>
         
@@ -1639,8 +1659,8 @@
     
     <entry>
         <title>Common upgrade operations</title>
-        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide/common-upgrade-operations" />
-        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide/common-upgrade-operations</id>
+        <link href="https://documentation.cluedin.net/operate/upgrade/common-upgrade-operations" />
+        <id>https://documentation.cluedin.net/operate/upgrade/common-upgrade-operations</id>
         <updated>2025-09-22T00:00:00+00:00</updated>
         <summary>
         
@@ -1655,8 +1675,8 @@
     
     <entry>
         <title>Resolve common upgrade issues</title>
-        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide/resolve-common-upgrade-issues" />
-        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide/resolve-common-upgrade-issues</id>
+        <link href="https://documentation.cluedin.net/operate/upgrade/resolve-common-upgrade-issues" />
+        <id>https://documentation.cluedin.net/operate/upgrade/resolve-common-upgrade-issues</id>
         <updated>2025-09-22T00:00:00+00:00</updated>
         <summary>
         
@@ -1670,41 +1690,9 @@
     </entry>
     
     <entry>
-        <title>Required tools for CluedIn upgrade</title>
-        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide/required-tools" />
-        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide/required-tools</id>
-        <updated>2025-09-22T00:00:00+00:00</updated>
-        <summary>
-        
-        Required tools for CluedIn upgrade.
-        
-        
-        
-        Tags: deployment, ama, marketplace, azure, aks, kubernetes, upgrade.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Upgrade guide</title>
-        <link href="https://documentation.cluedin.net/paas-operations/upgrade/guide" />
-        <id>https://documentation.cluedin.net/paas-operations/upgrade/guide</id>
-        <updated>2025-09-22T00:00:00+00:00</updated>
-        <summary>
-        
-        Upgrade guide.
-        
-        
-        
-        Tags: deployment, ama, marketplace, azure, aks, kubernetes, upgrade.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Power Apps configuration guide</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/powerapps/configuration-guide" />
-        <id>https://documentation.cluedin.net/microsoft-integration/powerapps/configuration-guide</id>
+        <link href="https://documentation.cluedin.net/solutions/power-apps/configuration-guide" />
+        <id>https://documentation.cluedin.net/solutions/power-apps/configuration-guide</id>
         <updated>2025-09-29T00:00:00+00:00</updated>
         <summary>
         
@@ -1719,8 +1707,8 @@
     
     <entry>
         <title>Data factory pipeline automation</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/purview/data-factory-pipeline-automation" />
-        <id>https://documentation.cluedin.net/microsoft-integration/purview/data-factory-pipeline-automation</id>
+        <link href="https://documentation.cluedin.net/solutions/purview/data-factory-pipeline-automation" />
+        <id>https://documentation.cluedin.net/solutions/purview/data-factory-pipeline-automation</id>
         <updated>2025-10-09T00:00:00+00:00</updated>
         <summary>
         
@@ -1733,8 +1721,8 @@
     
     <entry>
         <title>Licensing agent (PAAS)</title>
-        <link href="https://documentation.cluedin.net/deployment/marketplace-licensing-agent" />
-        <id>https://documentation.cluedin.net/deployment/marketplace-licensing-agent</id>
+        <link href="https://documentation.cluedin.net/operate/deployment-options/marketplace-licensing-agent" />
+        <id>https://documentation.cluedin.net/operate/deployment-options/marketplace-licensing-agent</id>
         <updated>2025-11-20T00:00:00+00:00</updated>
         <summary>
         
@@ -1748,13 +1736,13 @@
     </entry>
     
     <entry>
-        <title>Request for Azure Policy Exemption - Deployment Script Storage Accounts</title>
-        <link href="https://documentation.cluedin.net/deployment/azure-policy-exemption" />
-        <id>https://documentation.cluedin.net/deployment/azure-policy-exemption</id>
+        <title>Azure Policy exemption for deployment scripts</title>
+        <link href="https://documentation.cluedin.net/operate/deployment-options/azure-policy-exemption" />
+        <id>https://documentation.cluedin.net/operate/deployment-options/azure-policy-exemption</id>
         <updated>2025-11-20T00:00:00+00:00</updated>
         <summary>
         
-        Request for Azure Policy Exemption - Deployment Script Storage Accounts.
+        Azure Policy exemption for deployment scripts.
         
         
         
@@ -1764,23 +1752,9 @@
     </entry>
     
     <entry>
-        <title>Dataverse connector (legacy)</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/dataverse-connector" />
-        <id>https://documentation.cluedin.net/consume/export-targets/dataverse-connector</id>
-        <updated>2026-04-13T00:00:00+00:00</updated>
-        <summary>
-        
-        Dataverse connector (legacy).
-        
-        
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Dataverse connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/dataverse-connector-v2" />
-        <id>https://documentation.cluedin.net/consume/export-targets/dataverse-connector-v2</id>
+        <link href="https://documentation.cluedin.net/publish/export-targets/dataverse-connector-v2" />
+        <id>https://documentation.cluedin.net/publish/export-targets/dataverse-connector-v2</id>
         <updated>2026-04-13T00:00:00+00:00</updated>
         <summary>
         
@@ -1792,9 +1766,23 @@
     </entry>
     
     <entry>
+        <title>Dataverse connector (legacy)</title>
+        <link href="https://documentation.cluedin.net/publish/export-targets/dataverse-connector" />
+        <id>https://documentation.cluedin.net/publish/export-targets/dataverse-connector</id>
+        <updated>2026-04-13T00:00:00+00:00</updated>
+        <summary>
+        
+        Dataverse connector (legacy).
+        
+        
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>Power Automate private network configuration guide</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/power-automate/private-network" />
-        <id>https://documentation.cluedin.net/microsoft-integration/power-automate/private-network</id>
+        <link href="https://documentation.cluedin.net/solutions/power-automate/private-network" />
+        <id>https://documentation.cluedin.net/solutions/power-automate/private-network</id>
         <updated>2026-08-10T00:00:00+00:00</updated>
         <summary>
         
@@ -1809,15 +1797,13 @@
     
     <entry>
         <title>CluedIn Python SDK</title>
-        <link href="https://documentation.cluedin.net/playbooks/data-engineering-playbook/python-sdk" />
-        <id>https://documentation.cluedin.net/playbooks/data-engineering-playbook/python-sdk</id>
+        <link href="https://documentation.cluedin.net/develop/python-sdk/python-sdk" />
+        <id>https://documentation.cluedin.net/develop/python-sdk/python-sdk</id>
         <updated>2026-09-03T00:00:00+00:00</updated>
         <summary>
         
         CluedIn Python SDK.
         
-        
-        CluedIn Python SDK provides powerful REST and GraphQL APIs to interact with your CluedIn instance programmatically.
         
         
         Tags: python.
@@ -1827,8 +1813,8 @@
     
     <entry>
         <title>Configure Microsoft Entra roles for multi-tenant SaaS SSO</title>
-        <link href="https://documentation.cluedin.net/administration/roles/mt-saas-sso-roles" />
-        <id>https://documentation.cluedin.net/administration/roles/mt-saas-sso-roles</id>
+        <link href="https://documentation.cluedin.net/administer/users-and-roles/mt-saas-sso-roles" />
+        <id>https://documentation.cluedin.net/administer/users-and-roles/mt-saas-sso-roles</id>
         <updated>2026-09-15T00:00:00+00:00</updated>
         <summary>
         
@@ -1843,8 +1829,8 @@
     
     <entry>
         <title>Tag monitoring</title>
-        <link href="https://documentation.cluedin.net/governance/tag-monitoring" />
-        <id>https://documentation.cluedin.net/governance/tag-monitoring</id>
+        <link href="https://documentation.cluedin.net/govern/tags/tag-monitoring" />
+        <id>https://documentation.cluedin.net/govern/tags/tag-monitoring</id>
         <updated>2026-09-23T00:00:00+00:00</updated>
         <summary>
         
@@ -1858,9 +1844,23 @@
     </entry>
     
     <entry>
+        <title>Amazon S3 connector</title>
+        <link href="https://documentation.cluedin.net/publish/export-targets/amazon-s3-connector" />
+        <id>https://documentation.cluedin.net/publish/export-targets/amazon-s3-connector</id>
+        <updated>2026-09-23T00:00:00+00:00</updated>
+        <summary>
+        
+        Amazon S3 connector.
+        
+        
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>Azure Event Hub connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/azure-event-hub-connector" />
-        <id>https://documentation.cluedin.net/consume/export-targets/azure-event-hub-connector</id>
+        <link href="https://documentation.cluedin.net/publish/export-targets/azure-event-hub-connector" />
+        <id>https://documentation.cluedin.net/publish/export-targets/azure-event-hub-connector</id>
         <updated>2026-09-23T00:00:00+00:00</updated>
         <summary>
         
@@ -1872,23 +1872,9 @@
     </entry>
     
     <entry>
-        <title>Power Fx formulas</title>
-        <link href="https://documentation.cluedin.net/management/rules/power-fx-formulas" />
-        <id>https://documentation.cluedin.net/management/rules/power-fx-formulas</id>
-        <updated>2026-09-23T00:00:00+00:00</updated>
-        <summary>
-        
-        Power Fx formulas.
-        
-        
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Rules reference</title>
-        <link href="https://documentation.cluedin.net/management/rules/rules-reference" />
-        <id>https://documentation.cluedin.net/management/rules/rules-reference</id>
+        <link href="https://documentation.cluedin.net/govern/rules/rules-reference" />
+        <id>https://documentation.cluedin.net/govern/rules/rules-reference</id>
         <updated>2026-09-23T00:00:00+00:00</updated>
         <summary>
         
@@ -1903,8 +1889,8 @@
     
     <entry>
         <title>Feature flags</title>
-        <link href="https://documentation.cluedin.net/administration/feature-flags" />
-        <id>https://documentation.cluedin.net/administration/feature-flags</id>
+        <link href="https://documentation.cluedin.net/administer/feature-flags" />
+        <id>https://documentation.cluedin.net/administer/feature-flags</id>
         <updated>2026-09-23T00:00:00+00:00</updated>
         <summary>
         
@@ -1916,13 +1902,13 @@
     </entry>
     
     <entry>
-        <title>Amazon S3 connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/amazon-s3-connector" />
-        <id>https://documentation.cluedin.net/consume/export-targets/amazon-s3-connector</id>
+        <title>Power Fx formulas</title>
+        <link href="https://documentation.cluedin.net/govern/rules/power-fx-formulas" />
+        <id>https://documentation.cluedin.net/govern/rules/power-fx-formulas</id>
         <updated>2026-09-23T00:00:00+00:00</updated>
         <summary>
         
-        Amazon S3 connector.
+        Power Fx formulas.
         
         
         
@@ -1931,8 +1917,8 @@
     
     <entry>
         <title>Global Data Model</title>
-        <link href="https://documentation.cluedin.net/governance/global-data-model" />
-        <id>https://documentation.cluedin.net/governance/global-data-model</id>
+        <link href="https://documentation.cluedin.net/model/global-data-model" />
+        <id>https://documentation.cluedin.net/model/global-data-model</id>
         <updated>2026-09-24T00:00:00+00:00</updated>
         <summary>
         
@@ -1946,23 +1932,9 @@
     </entry>
     
     <entry>
-        <title>Work with CluedIn Copilot</title>
-        <link href="https://documentation.cluedin.net/microsoft-integration/copilot-integration/work-with-copilot" />
-        <id>https://documentation.cluedin.net/microsoft-integration/copilot-integration/work-with-copilot</id>
-        <updated>2026-09-24T00:00:00+00:00</updated>
-        <summary>
-        
-        Work with CluedIn Copilot.
-        
-        
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Golden records</title>
-        <link href="https://documentation.cluedin.net/key-terms-and-features/golden-records" />
-        <id>https://documentation.cluedin.net/key-terms-and-features/golden-records</id>
+        <link href="https://documentation.cluedin.net/get-started/core-concepts/golden-records" />
+        <id>https://documentation.cluedin.net/get-started/core-concepts/golden-records</id>
         <updated>2026-09-24T00:00:00+00:00</updated>
         <summary>
         
@@ -1977,8 +1949,8 @@
     
     <entry>
         <title>GraphQL actions</title>
-        <link href="https://documentation.cluedin.net/consume/graphql/graphql-actions" />
-        <id>https://documentation.cluedin.net/consume/graphql/graphql-actions</id>
+        <link href="https://documentation.cluedin.net/publish/graphql/graphql-actions" />
+        <id>https://documentation.cluedin.net/publish/graphql/graphql-actions</id>
         <updated>2026-09-24T00:00:00+00:00</updated>
         <summary>
         
@@ -1992,41 +1964,23 @@
     </entry>
     
     <entry>
-        <title>AI agents</title>
-        <link href="https://documentation.cluedin.net/management/ai-agents" />
-        <id>https://documentation.cluedin.net/management/ai-agents</id>
+        <title>Work with CluedIn Copilot</title>
+        <link href="https://documentation.cluedin.net/solutions/copilot/work-with-copilot" />
+        <id>https://documentation.cluedin.net/solutions/copilot/work-with-copilot</id>
         <updated>2026-09-24T00:00:00+00:00</updated>
         <summary>
         
-        AI agents.
+        Work with CluedIn Copilot.
         
         
-        
-        Tags: management, ai agents.
-        
-        </summary>
-    </entry>
-    
-    <entry>
-        <title>Jobs</title>
-        <link href="https://documentation.cluedin.net/management/jobs" />
-        <id>https://documentation.cluedin.net/management/jobs</id>
-        <updated>2026-09-24T00:00:00+00:00</updated>
-        <summary>
-        
-        Jobs.
-        
-        
-        
-        Tags: management, jobs, scheduling, rules, graphql.
         
         </summary>
     </entry>
     
     <entry>
         <title>Job monitoring</title>
-        <link href="https://documentation.cluedin.net/management/job-monitoring" />
-        <id>https://documentation.cluedin.net/management/job-monitoring</id>
+        <link href="https://documentation.cluedin.net/operate/monitoring/job-monitoring" />
+        <id>https://documentation.cluedin.net/operate/monitoring/job-monitoring</id>
         <updated>2026-09-24T00:00:00+00:00</updated>
         <summary>
         
@@ -2040,9 +1994,25 @@
     </entry>
     
     <entry>
+        <title>Jobs</title>
+        <link href="https://documentation.cluedin.net/administer/jobs" />
+        <id>https://documentation.cluedin.net/administer/jobs</id>
+        <updated>2026-09-24T00:00:00+00:00</updated>
+        <summary>
+        
+        Jobs.
+        
+        
+        
+        Tags: management, jobs, scheduling, rules, graphql.
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>Configuration import and export</title>
-        <link href="https://documentation.cluedin.net/administration/configuration-import-export" />
-        <id>https://documentation.cluedin.net/administration/configuration-import-export</id>
+        <link href="https://documentation.cluedin.net/operate/configuration/configuration-import-export" />
+        <id>https://documentation.cluedin.net/operate/configuration/configuration-import-export</id>
         <updated>2026-09-24T00:00:00+00:00</updated>
         <summary>
         
@@ -2056,25 +2026,27 @@
     </entry>
     
     <entry>
-        <title>Sign in with Auth0 through Microsoft Entra</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/auth0-entra-sso" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/auth0-entra-sso</id>
-        <updated>2026-10-01T00:00:00+00:00</updated>
+        <title>AI agents</title>
+        <link href="https://documentation.cluedin.net/govern/ai-agents" />
+        <id>https://documentation.cluedin.net/govern/ai-agents</id>
+        <updated>2026-09-24T00:00:00+00:00</updated>
         <summary>
         
-        Sign in with Auth0 through Microsoft Entra.
+        AI agents.
         
         
+        AI agents do stewardship work for you - proposing fixes for quality problems, suggesting duplicates to merge, drafting rules.
         
-        Tags: authentication, sso, entra, auth0.
+        
+        Tags: management, ai agents.
         
         </summary>
     </entry>
     
     <entry>
         <title>Federate identity providers through Microsoft Entra</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/external-idp-entra-sso" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/external-idp-entra-sso</id>
+        <link href="https://documentation.cluedin.net/operate/identity-providers/external-idp-entra-sso" />
+        <id>https://documentation.cluedin.net/operate/identity-providers/external-idp-entra-sso</id>
         <updated>2026-10-01T00:00:00+00:00</updated>
         <summary>
         
@@ -2088,9 +2060,25 @@
     </entry>
     
     <entry>
+        <title>Sign in with Auth0 through Microsoft Entra</title>
+        <link href="https://documentation.cluedin.net/operate/identity-providers/auth0-entra-sso" />
+        <id>https://documentation.cluedin.net/operate/identity-providers/auth0-entra-sso</id>
+        <updated>2026-10-01T00:00:00+00:00</updated>
+        <summary>
+        
+        Sign in with Auth0 through Microsoft Entra.
+        
+        
+        
+        Tags: authentication, sso, entra, auth0.
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>Sign in with Okta through Microsoft Entra</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/okta-entra-sso" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/okta-entra-sso</id>
+        <link href="https://documentation.cluedin.net/operate/identity-providers/okta-entra-sso" />
+        <id>https://documentation.cluedin.net/operate/identity-providers/okta-entra-sso</id>
         <updated>2026-10-01T00:00:00+00:00</updated>
         <summary>
         
@@ -2105,8 +2093,8 @@
     
     <entry>
         <title>Sign in with PingOne through Microsoft Entra</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/pingone-entra-sso" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/pingone-entra-sso</id>
+        <link href="https://documentation.cluedin.net/operate/identity-providers/pingone-entra-sso" />
+        <id>https://documentation.cluedin.net/operate/identity-providers/pingone-entra-sso</id>
         <updated>2026-10-01T00:00:00+00:00</updated>
         <summary>
         
@@ -2121,8 +2109,8 @@
     
     <entry>
         <title>Sign in with OneLogin through Microsoft Entra</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/onelogin-entra-sso" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/onelogin-entra-sso</id>
+        <link href="https://documentation.cluedin.net/operate/identity-providers/onelogin-entra-sso" />
+        <id>https://documentation.cluedin.net/operate/identity-providers/onelogin-entra-sso</id>
         <updated>2026-10-01T00:00:00+00:00</updated>
         <summary>
         
@@ -2137,8 +2125,8 @@
     
     <entry>
         <title>Sign in with Google Workspace through Microsoft Entra</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/google-workspace-entra-sso" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/google-workspace-entra-sso</id>
+        <link href="https://documentation.cluedin.net/operate/identity-providers/google-workspace-entra-sso" />
+        <id>https://documentation.cluedin.net/operate/identity-providers/google-workspace-entra-sso</id>
         <updated>2026-10-01T00:00:00+00:00</updated>
         <summary>
         
@@ -2153,8 +2141,8 @@
     
     <entry>
         <title>Sign in with Keycloak through Microsoft Entra</title>
-        <link href="https://documentation.cluedin.net/deployment/infra-how-tos/keycloak-entra-sso" />
-        <id>https://documentation.cluedin.net/deployment/infra-how-tos/keycloak-entra-sso</id>
+        <link href="https://documentation.cluedin.net/operate/identity-providers/keycloak-entra-sso" />
+        <id>https://documentation.cluedin.net/operate/identity-providers/keycloak-entra-sso</id>
         <updated>2026-10-01T00:00:00+00:00</updated>
         <summary>
         
@@ -2169,8 +2157,8 @@
     
     <entry>
         <title>Snowflake connector</title>
-        <link href="https://documentation.cluedin.net/consume/export-targets/snowflake-connector" />
-        <id>https://documentation.cluedin.net/consume/export-targets/snowflake-connector</id>
+        <link href="https://documentation.cluedin.net/publish/export-targets/snowflake-connector" />
+        <id>https://documentation.cluedin.net/publish/export-targets/snowflake-connector</id>
         <updated>2026-10-07T00:00:00+00:00</updated>
         <summary>
         
@@ -2183,8 +2171,8 @@
     
     <entry>
         <title>Create a stream</title>
-        <link href="https://documentation.cluedin.net/consume/streams/create-a-stream" />
-        <id>https://documentation.cluedin.net/consume/streams/create-a-stream</id>
+        <link href="https://documentation.cluedin.net/publish/streams/create-a-stream" />
+        <id>https://documentation.cluedin.net/publish/streams/create-a-stream</id>
         <updated>2026-10-10T00:00:00+00:00</updated>
         <summary>
         
@@ -2198,25 +2186,9 @@
     </entry>
     
     <entry>
-        <title>Manage streams</title>
-        <link href="https://documentation.cluedin.net/consume/streams/manage-streams" />
-        <id>https://documentation.cluedin.net/consume/streams/manage-streams</id>
-        <updated>2026-10-10T00:00:00+00:00</updated>
-        <summary>
-        
-        Manage streams.
-        
-        
-        
-        Tags: consume, data export, streams.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Manage rules</title>
-        <link href="https://documentation.cluedin.net/management/rules/manage-rules" />
-        <id>https://documentation.cluedin.net/management/rules/manage-rules</id>
+        <link href="https://documentation.cluedin.net/govern/rules/manage-rules" />
+        <id>https://documentation.cluedin.net/govern/rules/manage-rules</id>
         <updated>2026-10-10T00:00:00+00:00</updated>
         <summary>
         
@@ -2230,9 +2202,25 @@
     </entry>
     
     <entry>
+        <title>Manage streams</title>
+        <link href="https://documentation.cluedin.net/publish/streams/manage-streams" />
+        <id>https://documentation.cluedin.net/publish/streams/manage-streams</id>
+        <updated>2026-10-10T00:00:00+00:00</updated>
+        <summary>
+        
+        Manage streams.
+        
+        
+        
+        Tags: consume, data export, streams.
+        
+        </summary>
+    </entry>
+    
+    <entry>
         <title>Notifications</title>
-        <link href="https://documentation.cluedin.net/user-interface/notifications" />
-        <id>https://documentation.cluedin.net/user-interface/notifications</id>
+        <link href="https://documentation.cluedin.net/administer/ui-configuration/notifications" />
+        <id>https://documentation.cluedin.net/administer/ui-configuration/notifications</id>
         <updated>2026-10-12T00:00:00+00:00</updated>
         <summary>
         
@@ -2247,8 +2235,8 @@
     
     <entry>
         <title>General settings</title>
-        <link href="https://documentation.cluedin.net/administration/general-settings" />
-        <id>https://documentation.cluedin.net/administration/general-settings</id>
+        <link href="https://documentation.cluedin.net/administer/general-settings" />
+        <id>https://documentation.cluedin.net/administer/general-settings</id>
         <updated>2026-10-12T00:00:00+00:00</updated>
         <summary>
         
@@ -2257,6 +2245,20 @@
         
         
         Tags: administration, settings, notifications.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Bulk actions on the search results page</title>
+        <link href="https://documentation.cluedin.net/master/golden-records/bulk-actions-on-search-results" />
+        <id>https://documentation.cluedin.net/master/golden-records/bulk-actions-on-search-results</id>
+        <updated>2026-10-13T00:00:00+00:00</updated>
+        <summary>
+        
+        Bulk actions on the search results page.
+        
+        
         
         </summary>
     </entry>
