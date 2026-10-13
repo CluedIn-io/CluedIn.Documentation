@@ -6,7 +6,7 @@ grand_parent: Solutions & integrations
 nav_order: 50
 permalink: /solutions/use-cases/data-quality-use-case
 content_type: concept
-redirect_from: ["/data-quality-use-case"]
+redirect_from: ["/data-quality-use-case", "/preparation/data-quality-metrics", "/preparation/data-quality-metrics/most-used-data-quality-metrics", "/preparation/data-quality-metrics/how-to-add-a-data-quality-metric", "/preparation/data-quality-metrics/data-quality-metric-explanations"]
 source_path: docs/230-usecases/data-quality-management/001-sources.md
 ---
 

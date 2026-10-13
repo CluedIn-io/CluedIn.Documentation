@@ -6,7 +6,7 @@ grand_parent: Model
 nav_order: 10
 permalink: /model/hierarchies/concept-of-hierarchy
 content_type: concept
-redirect_from: ["/management/hierarchy-builder/concept-of-hierarchy"]
+redirect_from: ["/management/hierarchy-builder/concept-of-hierarchy", "/developer/parent-aggregation"]
 source_path: docs/080-management/hierarchy-builder/010-concept-of-hierarchy.md
 tags: ["management","hierarchy builder", "hierarchies"]
 ---

@@ -11,6 +11,7 @@ plus the failure modes the restructure is specifically meant to prevent:
   * navigation nested more than three levels deep, which the theme cannot render
   * a page the sidebar cannot reach, because its parent chain does not climb to
     a top-level section
+  * an old URL redirected from an unpublished page, or claimed twice
   * an internal link pointing at a URL no page serves
 
 Exit code is non-zero if anything fails, so this can gate a build.
@@ -165,6 +166,26 @@ def main():
             unreachable.append((rel, "parent %r is not top level, and no grand_parent is declared" % parent))
     for rel, why in unreachable:
         errors.append("%s: not reachable from the sidebar - %s" % (rel, why))
+
+    # every old URL redirects to a page that is actually built
+    #
+    # jekyll-redirect-from builds a page's redirect stubs only when it builds
+    # the page, so a redirect_from on an unpublished page leaves the old URL
+    # serving a 404. Move the old URL to the live page that replaced it.
+    redirects = {}
+    for rel, fm, _body in pages:
+        for old in re.findall(r'"(/[^"]*)"', fm.get("redirect_from", "")):
+            key = old.rstrip("/") or "/"
+            if fm.get("published") == "false":
+                errors.append(
+                    "%s: redirect_from %s on an unpublished page builds no redirect; "
+                    "move it to the live page that replaced this one" % (rel, old)
+                )
+            if key in urls:
+                errors.append("%s: redirect_from %s is the permalink of %s" % (rel, old, urls[key]))
+            if key in redirects:
+                errors.append("%s: redirect_from %s also claimed by %s" % (rel, old, redirects[key]))
+            redirects[key] = rel
 
     # every internal link resolves to a page or an asset
     prefix = site_baseurl()

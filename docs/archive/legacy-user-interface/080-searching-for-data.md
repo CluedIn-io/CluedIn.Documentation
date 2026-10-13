@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 80
 permalink: /archive/legacy-user-interface/searching-for-data
 content_type: reference
-redirect_from: ["/user-interface/searching-for-data"]
 source_path: docs/100-user-interface/080-searching-for-data.md
 tags: ["ui","search"]
 published: false

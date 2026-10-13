@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 380
 permalink: /archive/legacy-development/ientitypypeprocessor
 content_type: reference
-redirect_from: ["/developer/ientitypypeprocessor"]
 source_path: docs/090-development/460-adding-ientitytypeprocessor.md
 tags: ["development","processors"]
 published: false

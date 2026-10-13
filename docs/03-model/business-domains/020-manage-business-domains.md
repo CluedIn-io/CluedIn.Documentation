@@ -6,7 +6,7 @@ grand_parent: Model
 nav_order: 20
 permalink: /model/business-domains/manage-business-domains
 content_type: how-to
-redirect_from: ["/management/entity-type"]
+redirect_from: ["/management/entity-type", "/preparation/entity-setup", "/preparation/entity-type-translation"]
 source_path: docs/080-management/040-entity-type.md
 ---
 

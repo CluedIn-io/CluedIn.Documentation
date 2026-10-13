@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 210
 permalink: /archive/legacy-development/organization-user-entity
 content_type: reference
-redirect_from: ["/development/organization-user-entity"]
 source_path: docs/090-development/240-organization-user-entity.md
 tags: ["development","entities","entity-types"]
 published: false

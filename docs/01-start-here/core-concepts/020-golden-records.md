@@ -6,7 +6,7 @@ grand_parent: Get started
 nav_order: 20
 permalink: /get-started/core-concepts/golden-records
 content_type: concept
-redirect_from: ["/key-terms-and-features/golden-records"]
+redirect_from: ["/key-terms-and-features/golden-records", "/development/entity", "/development/data-part", "/developer/processedentitymetadata"]
 source_path: docs/110-key-terms-and-features/050-golden-records.md
 tags: ["golden record"]
 last_modified: 2026-09-24

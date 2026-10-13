@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 200
 permalink: /archive/legacy-development/infrastructure-user-entity
 content_type: reference
-redirect_from: ["/development/infrastructure-user-entity"]
 source_path: docs/090-development/230-infrastructure-user-entity.md
 tags: ["development","entities","entity-types"]
 published: false

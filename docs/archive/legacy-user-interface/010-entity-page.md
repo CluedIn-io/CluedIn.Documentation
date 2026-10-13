@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 10
 permalink: /archive/legacy-user-interface/entity-page
 content_type: reference
-redirect_from: ["/user-interface/entity-page"]
 source_path: docs/100-user-interface/010-entity-page.md
 tags: ["ui"]
 published: false

@@ -8,7 +8,7 @@ permalink: /govern/rules
 content_type: landing
 summary: "Rules apply logic to your data automatically: change a value, add a tag, block a change."
 list_children: false
-redirect_from: ["/management/rules"]
+redirect_from: ["/management/rules", "/developer/rules", "/governance/data-policies", "/kb/cel"]
 source_path: docs/080-management/010-rules.md
 tags: ["management","rules"]
 ---

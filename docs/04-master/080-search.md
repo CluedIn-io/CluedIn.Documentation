@@ -5,7 +5,7 @@ parent: Master
 nav_order: 80
 permalink: /master/search
 content_type: how-to
-redirect_from: ["/key-terms-and-features/search"]
+redirect_from: ["/key-terms-and-features/search", "/user-interface/followed-entitie", "/user-interface/keep-in-the-loop", "/user-interface/searching-for-data", "/user-interface/suggested-searches", "/consume/configuration-search-relevance", "/consume/running-searches"]
 source_path: docs/110-key-terms-and-features/030-search.md
 tags: ["search"]
 ---

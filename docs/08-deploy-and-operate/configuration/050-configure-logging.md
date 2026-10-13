@@ -6,7 +6,7 @@ grand_parent: Deploy & operate
 nav_order: 50
 permalink: /operate/configuration/configure-logging
 content_type: how-to
-redirect_from: ["/deployment/infra-how-tos/configure-logging"]
+redirect_from: ["/deployment/infra-how-tos/configure-logging", "/development/building-logging-provider"]
 source_path: docs/190-paas-operations/configuration/050-configure-logging.md
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-06-20

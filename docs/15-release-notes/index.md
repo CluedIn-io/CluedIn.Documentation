@@ -4,6 +4,7 @@ title: Release notes
 nav_order: 24
 has_children: true
 permalink: /release-notes
+redirect_from: ["/kb/platform-versioning"]
 content_type: landing
 source_path: docs/170-release-notes.md
 ---

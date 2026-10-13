@@ -6,7 +6,7 @@ grand_parent: Model
 nav_order: 30
 permalink: /model/vocabularies/vocabulary-keys
 content_type: concept
-redirect_from: ["/management/data-catalog/vocabulary-keys"]
+redirect_from: ["/management/data-catalog/vocabulary-keys", "/development/vocabulary-values"]
 source_path: docs/080-management/data-catalog/030-vocabulary-keys.md
 ---
 

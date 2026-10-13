@@ -6,7 +6,6 @@ grand_parent: Solutions & integrations
 nav_order: 70
 permalink: /solutions/power-apps/sync-entitytypes
 content_type: how-to
-redirect_from: ["/microsoft-integration/powerapps/features/sync-entitytypes"]
 source_path: docs/180-microsoft-integration/powerapps/020-features/010-sync-entitytypes-to-dataverse.md
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17

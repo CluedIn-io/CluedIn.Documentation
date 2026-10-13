@@ -6,7 +6,6 @@ grand_parent: Solutions & integrations
 nav_order: 80
 permalink: /solutions/power-apps/sync-dataverse
 content_type: how-to
-redirect_from: ["/microsoft-integration/powerapps/features/sync-dataverse"]
 source_path: docs/180-microsoft-integration/powerapps/020-features/020-sync-dataverse-to-cluedin.md
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17

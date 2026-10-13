@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 230
 permalink: /archive/legacy-development/vocabulary-groupings
 content_type: reference
-redirect_from: ["/development/vocabulary-groupings"]
 source_path: docs/090-development/280-vocabulary-groupings.md
 tags: ["development","vocabularies"]
 published: false

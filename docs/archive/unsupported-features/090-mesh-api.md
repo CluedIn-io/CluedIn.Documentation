@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 90
 permalink: /archive/unsupported-features/mesh-api
 content_type: reference
-redirect_from: ["/governance/mesh-api"]
 source_path: docs/070-governance/outdated/090-mesh-api.md
 tags: ["governance","mesh-api"]
 last_modified: 2022-01-28

@@ -6,7 +6,7 @@ grand_parent: Master
 nav_order: 20
 permalink: /master/golden-records/history
 content_type: concept
-redirect_from: ["/key-terms-and-features/golden-records/history"]
+redirect_from: ["/key-terms-and-features/golden-records/history", "/user-interface/history"]
 source_path: docs/110-key-terms-and-features/golden-records/020-history.md
 tags: ["golden record history"]
 last_modified: 2024-01-15

@@ -281,6 +281,16 @@ Renaming a page's `title` also changes what its children must declare as
 `parent`. Update them in the same commit; `validate.py` will tell you if you
 miss one.
 
+### Unpublishing or archiving an article
+
+A page with `published: false` is not built, and neither are its redirect
+stubs, so every URL in its `redirect_from` would serve a 404. Before you
+unpublish a page, move its `redirect_from` entries — and its own old
+`permalink` — to the live page that replaces it, or to the nearest section
+index if nothing does. Record the move in
+[`_migration/redirect-successors.md`](_migration/redirect-successors.md).
+`validate.py` rejects a `redirect_from` on an unpublished page.
+
 ---
 
 ## Check it before you push
@@ -303,8 +313,10 @@ quietly broken site:
   served, so nothing looks broken — it is simply impossible to find unless you
   already know the URL
 - an internal link pointing at a URL no page serves
+- an old URL in `redirect_from` on an unpublished page, which builds no
+  redirect, or one claimed by two pages
 
-The five warnings it currently prints are links that were already broken before
+The four warnings it currently prints are links that were already broken before
 the restructure; they are recorded in `_migration/report.md`. Do not add to them.
 
 It also prints a `nav_exclude` count. Those are pages deliberately kept out of

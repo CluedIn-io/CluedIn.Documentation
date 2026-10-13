@@ -6,7 +6,7 @@ grand_parent: Develop & APIs
 nav_order: 130
 permalink: /api/administration-and-configuration
 content_type: reference
-redirect_from: ["/rest-api/api-reference/administration-and-configuration"]
+redirect_from: ["/rest-api/api-reference/administration-and-configuration", "/development/administration-operations"]
 source_path: docs/250-rest-api/020-api-reference/140-administration-and-configuration.md
 tags: ["api", "rest api"]
 ---

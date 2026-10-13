@@ -5,7 +5,7 @@ parent: Govern & improve
 nav_order: 10
 permalink: /govern/work-with-glossary
 content_type: how-to
-redirect_from: ["/getting-started/glossary"]
+redirect_from: ["/getting-started/glossary", "/governance/data-glossary"]
 source_path: docs/010-getting-started/080-glossary.md
 tags: ["getting-started"]
 ---

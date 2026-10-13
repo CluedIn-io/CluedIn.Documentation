@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 30
 permalink: /archive/legacy-development/changing-configuration-settings
 content_type: reference
-redirect_from: ["/development/changing-configuration-settings"]
 source_path: docs/090-development/030-changing-configuration-settings.md
 tags: ["development","configuration"]
 published: false

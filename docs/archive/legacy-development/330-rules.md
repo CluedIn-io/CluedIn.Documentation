@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 330
 permalink: /archive/legacy-development/rules
 content_type: reference
-redirect_from: ["/developer/rules"]
 source_path: docs/090-development/410-rules.md
 tags: ["development","rules"]
 published: false

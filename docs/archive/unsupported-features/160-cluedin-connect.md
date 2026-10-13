@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 160
 permalink: /archive/unsupported-features/cluedin-connect
 content_type: reference
-redirect_from: ["/preparation/cluedin-connect"]
 source_path: docs/050-preparation/outdated/020-cluedIn-connect.md
 tags: ["preparation","cluedin-connect"]
 published: false

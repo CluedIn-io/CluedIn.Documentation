@@ -6,7 +6,6 @@ grand_parent: Deploy & operate
 nav_order: 40
 permalink: /operate/security/sso-auth-cluedin-clean
 content_type: how-to
-redirect_from: ["/kb/sso-auth-cluedin-clean"]
 source_path: docs/200-kb/kb0006-sso-auth-clean.md
 tags: ["security","cluedin-clean","authentication","kubernetes", "sso"]
 last_modified: 2022-03-23

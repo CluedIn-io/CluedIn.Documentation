@@ -5,7 +5,6 @@ parent: Troubleshooting
 nav_order: 40
 permalink: /troubleshooting/elastic-index-rebuild
 content_type: troubleshooting
-redirect_from: ["/kb/elastic-index-rebuild"]
 source_path: docs/200-kb/kb0003-elastic-index-rebuild.md
 tags: ["search","elasticsearch","index","rebuild","reprocess","reindex"]
 last_modified: 2021-10-20

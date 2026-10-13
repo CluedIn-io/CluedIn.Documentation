@@ -5,7 +5,7 @@ parent: Master
 nav_order: 90
 permalink: /master/filters
 content_type: how-to
-redirect_from: ["/key-terms-and-features/filters"]
+redirect_from: ["/key-terms-and-features/filters", "/user-interface/adding-search-filters"]
 source_path: docs/110-key-terms-and-features/040-filters.md
 tags: ["filters"]
 ---

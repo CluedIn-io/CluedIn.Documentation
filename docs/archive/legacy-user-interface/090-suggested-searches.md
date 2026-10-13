@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 90
 permalink: /archive/legacy-user-interface/suggested-searches
 content_type: reference
-redirect_from: ["/user-interface/suggested-searches"]
 source_path: docs/100-user-interface/090-suggested-searches.md
 tags: ["ui","search"]
 last_modified: 2021-10-27

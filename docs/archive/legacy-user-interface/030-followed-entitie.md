@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 30
 permalink: /archive/legacy-user-interface/followed-entitie
 content_type: reference
-redirect_from: ["/user-interface/followed-entitie"]
 source_path: docs/100-user-interface/030-followed-entities.md
 tags: ["ui","entities"]
 published: false

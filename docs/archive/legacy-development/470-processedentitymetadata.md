@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 470
 permalink: /archive/legacy-development/processedentitymetadata
 content_type: reference
-redirect_from: ["/developer/processedentitymetadata"]
 source_path: docs/090-development/560-turning-clues-into-processedentitymetadata.md
 tags: ["development", "clues"]
 published: false

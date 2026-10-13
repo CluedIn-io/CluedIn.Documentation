@@ -6,7 +6,7 @@ grand_parent: Ingest
 nav_order: 30
 permalink: /ingest/data-sources/endpoint
 content_type: how-to
-redirect_from: ["/integration/endpoint"]
+redirect_from: ["/integration/endpoint", "/developer/webhooks"]
 source_path: docs/040-integration/data-sources/150-endpoint.md
 tags: ["integration"]
 last_modified: 2024-10-31

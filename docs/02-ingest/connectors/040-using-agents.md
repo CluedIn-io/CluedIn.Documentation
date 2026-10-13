@@ -6,7 +6,7 @@ grand_parent: Ingest
 nav_order: 40
 permalink: /ingest/connectors/using-agents
 content_type: how-to
-redirect_from: ["/crawling/using-agents"]
+redirect_from: ["/crawling/using-agents", "/developer/agent-jobs"]
 source_path: docs/040-integration/crawlers/130-using-agents.md
 tags: ["crawling","agents"]
 ---

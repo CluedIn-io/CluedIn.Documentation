@@ -8,7 +8,7 @@ permalink: /govern/enrichment
 content_type: landing
 summary: An enricher fills gaps in your data from an external source - a company register, a mapping service, a search index.
 list_children: false
-redirect_from: ["/preparation/enricher"]
+redirect_from: ["/preparation/enricher", "/preparation/enricher/clearbit", "/govern/enrichment/clearbit"]
 source_path: docs/050-preparation/002-enricher.md
 ---
 

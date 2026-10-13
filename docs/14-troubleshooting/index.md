@@ -5,7 +5,7 @@ nav_order: 23
 has_children: true
 permalink: /troubleshooting
 content_type: landing
-redirect_from: ["/kb"]
+redirect_from: ["/kb", "/developer/common-problems", "/kb/elastic-index-rebuild"]
 ---
 
 <div class="audience">

@@ -6,7 +6,6 @@ grand_parent: Solutions & integrations
 nav_order: 90
 permalink: /solutions/power-apps/create-workflow
 content_type: how-to
-redirect_from: ["/microsoft-integration/powerapps/features/create-workflow"]
 source_path: docs/180-microsoft-integration/powerapps/020-features/030-create-ingestion-endpoint-workflow.md
 tags: ["integration", "microsoft", "PowerApps", "dataverse"]
 last_modified: 2023-05-17

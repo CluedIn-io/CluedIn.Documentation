@@ -8,7 +8,7 @@ permalink: /model/data-catalog
 content_type: landing
 summary: The data catalog is where every vocabulary, key and data type in your instance can be found and inspected.
 list_children: false
-redirect_from: ["/management/data-catalog"]
+redirect_from: ["/management/data-catalog", "/governance/data-catalog"]
 source_path: docs/080-management/030-data-catalog.md
 ---
 

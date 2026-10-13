@@ -7,7 +7,7 @@ has_children: true
 permalink: /solutions/power-apps
 content_type: landing
 summary: Surfacing CluedIn golden records inside Power Apps and Dataverse, and pushing changes made there back into CluedIn.
-redirect_from: ["/microsoft-integration/powerapps"]
+redirect_from: ["/microsoft-integration/powerapps", "/microsoft-integration/powerapps/external-features", "/microsoft-integration/powerapps/features/sync-entitytypes", "/microsoft-integration/powerapps/features/sync-dataverse", "/microsoft-integration/powerapps/features/create-workflow", "/microsoft-integration/powerapps/features/create-batch-approval-workflow", "/microsoft-integration/powerapps/features/create-streams"]
 source_path: docs/180-microsoft-integration/010-powerapps.md
 tags: ["integration", "microsoft", "powerapps", "dataverse", "powerautomate"]
 ---

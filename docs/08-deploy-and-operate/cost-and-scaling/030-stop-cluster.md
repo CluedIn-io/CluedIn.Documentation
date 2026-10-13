@@ -6,7 +6,6 @@ grand_parent: Deploy & operate
 nav_order: 30
 permalink: /operate/cost-and-scaling/stop-cluster
 content_type: how-to
-redirect_from: ["/kb/stop-cluster"]
 source_path: docs/200-kb/kb0012-stop-aks-cluster.md
 tags: ["AKS", "cost saving"]
 published: false

@@ -6,7 +6,7 @@ grand_parent: Govern & improve
 nav_order: 40
 permalink: /govern/workflows/manage-approval-requests
 content_type: how-to
-redirect_from: ["/workflow/manage-approval-requests"]
+redirect_from: ["/workflow/manage-approval-requests", "/user-interface/pending-changes"]
 source_path: docs/130-workflow.md/040-manage-approval-requests.md
 ---
 

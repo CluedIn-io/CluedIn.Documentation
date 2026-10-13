@@ -6,7 +6,7 @@ grand_parent: Develop & APIs
 nav_order: 5
 permalink: /api/get-started
 content_type: how-to
-redirect_from: ["/rest-api/get-started"]
+redirect_from: ["/rest-api/get-started", "/consume/rest-api"]
 source_path: docs/250-rest-api/010-get-started.md
 tags: ["api", "rest api"]
 ---

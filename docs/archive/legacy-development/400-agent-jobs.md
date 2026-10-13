@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 400
 permalink: /archive/legacy-development/agent-jobs
 content_type: reference
-redirect_from: ["/developer/agent-jobs"]
 source_path: docs/090-development/480-agent-jobs.md
 tags: ["development","agents","jobs"]
 published: false

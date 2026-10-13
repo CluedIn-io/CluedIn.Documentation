@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 110
 permalink: /archive/legacy-development/deploying-search-provider
 content_type: reference
-redirect_from: ["/development/deploying-search-provider"]
 source_path: docs/090-development/120-deploying-search-provider.md
 tags: ["development","search-providers"]
 published: false

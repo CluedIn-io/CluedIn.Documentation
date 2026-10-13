@@ -5,6 +5,7 @@ parent: Deploy & operate
 nav_order: 100
 has_children: true
 permalink: /operate/security
+redirect_from: ["/kb/basic-auth-cluedin-clean", "/kb/sso-auth-cluedin-clean"]
 content_type: landing
 summary: The security posture of a CluedIn installation, how to restrict access to individual components, and CluedIn's response to publicly disclosed vulnerabilities.
 ---

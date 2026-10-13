@@ -6,7 +6,7 @@ grand_parent: Solutions & integrations
 nav_order: 40
 permalink: /solutions/power-apps/configuration-guide
 content_type: how-to
-redirect_from: ["/microsoft-integration/powerapps/configuration-guide"]
+redirect_from: ["/microsoft-integration/powerapps/configuration-guide", "/microsoft-integration/powerapps/setup-credentials", "/microsoft-integration/powerapps/setup-connections"]
 source_path: docs/180-microsoft-integration/powerapps/020-power-apps-configuration-guide.md
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2025-09-29

@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 440
 permalink: /archive/legacy-development/parent-aggregation
 content_type: reference
-redirect_from: ["/developer/parent-aggregation"]
 source_path: docs/090-development/530-parent-aggregation.md
 tags: ["development"]
 published: false

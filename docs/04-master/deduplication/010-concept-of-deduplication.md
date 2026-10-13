@@ -6,7 +6,7 @@ grand_parent: Master
 nav_order: 10
 permalink: /master/deduplication/concept-of-deduplication
 content_type: concept
-redirect_from: ["/management/deduplication/concept-of-deduplication"]
+redirect_from: ["/management/deduplication/concept-of-deduplication", "/developer/imergepreprocessor"]
 source_path: docs/080-management/deduplication/010-concept-of-deduplication.md
 ---
 

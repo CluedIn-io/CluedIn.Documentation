@@ -6,7 +6,7 @@ grand_parent: Solutions & integrations
 nav_order: 40
 permalink: /solutions/purview/configuration-guide
 content_type: how-to
-redirect_from: ["/microsoft-integration/purview/configuration-guide"]
+redirect_from: ["/microsoft-integration/purview/configuration-guide", "/microsoft-integration/purview/setup"]
 source_path: docs/180-microsoft-integration/purview/020-purview-configuration.guide.md
 last_modified: 2025-04-30
 ---

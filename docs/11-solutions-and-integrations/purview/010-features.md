@@ -6,7 +6,6 @@ grand_parent: Solutions & integrations
 nav_order: 10
 permalink: /solutions/purview/features
 content_type: concept
-redirect_from: ["/microsoft-integration/purview/introduction"]
 source_path: docs/180-microsoft-integration/purview/010-intro.md
 tags: ["integration", "microsoft", "azure", "purview"]
 published: false

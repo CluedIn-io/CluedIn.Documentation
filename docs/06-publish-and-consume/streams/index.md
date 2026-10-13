@@ -8,7 +8,7 @@ permalink: /publish/streams
 content_type: landing
 summary: "A stream is a continuous export: you define which golden records and which properties, point it at an export target, and CluedIn keeps the target up to date as the data changes."
 list_children: false
-redirect_from: ["/consume/streams"]
+redirect_from: ["/consume/streams", "/consume/data-marts", "/consume/outgoing-streams"]
 source_path: docs/150-consume/002-streams.md
 tags: ["consume", "data export", "streams"]
 last_modified: 2024-01-15

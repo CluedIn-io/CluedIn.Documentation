@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 480
 permalink: /archive/legacy-development/workflow-event-handlers
 content_type: reference
-redirect_from: ["/developer/workflow-event-handlers"]
 source_path: docs/090-development/570-workflow-event-handlers.md
 tags: ["development", "workflows"]
 published: false

@@ -6,7 +6,6 @@ grand_parent: Deploy & operate
 nav_order: 80
 permalink: /operate/upgrade/ama-upgrade
 content_type: how-to
-redirect_from: ["/deployment/infra-how-tos/ama-upgrade"]
 source_path: docs/190-paas-operations/configuration/110-ama-upgrade.md
 tags: ["deployment", "ama", "marketplace", "azure"]
 last_modified: 2023-10-06

@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 20
 permalink: /archive/historical-operations/backup-and-restore-draft
 content_type: reference
-redirect_from: ["/deployment/infra-how-tos/ama-backup"]
 source_path: docs/190-paas-operations/_002-backup-and-restore.md
 published: false
 # parent: PaaS operations

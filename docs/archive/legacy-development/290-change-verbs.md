@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 290
 permalink: /archive/legacy-development/change-verbs
 content_type: reference
-redirect_from: ["/development/change-verbs"]
 source_path: docs/090-development/340-change-verbs.md
 tags: ["development","clues"]
 published: false
