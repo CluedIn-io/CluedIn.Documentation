@@ -69,11 +69,11 @@ This section includes links to release notes for the CluedIn platform as well as
 
 The following table outlines the features, updates, and UX improvements we plan to implement between September 2025 and September 2026.
 
-![roadmap-2025-2026.png]({{ "/assets/images/release/roadmap-2025-2026.png" | relative_url }})
+![Roadmap Sep 2025 to Sep 2026 across releases 2025.12 to 2026.03, by features, updates and UX, colour-coded by confidence: e.g. AI-enforced validation, Smart AI modeling, profiling, AI agent skills, unified approvals, new deduplication UX, Fabric and Purview integration]({{ "/assets/images/release/roadmap-2025-2026.png" | relative_url }})
 
 ## Release plan for 2026-2027
 
-![2026-2027.png]({{ "/assets/images/release/2026-2027.png" | relative_url }})
+![Roadmap Sep 2025 to Sep 2026 by features, updates and UX, colour-coded by confidence: e.g. agents redesign, RAG and vectorisation, MCP, data quality metrics, jobs monitor, OpenTelemetry, Streams V3, workflow engine V3, reverse ETL]({{ "/assets/images/release/2026-2027.png" | relative_url }})
 
 The roadmap focuses on four major investment areas:
 
@@ -259,7 +259,7 @@ In this section, you will learn about our release process and the versioning of 
  
 In order to prepare new and requested features, enhancements, and fixes, we follow a 6-stage release process. What is more, we are often in multiple release stages simultaneously across several releases. This approach allows us to efficiently prioritize tasks and ensure that features are released in a timely manner. By overlapping stages, we can quickly adapt to changing requirements and deliver continuous improvements. 
 
-![release-stages-1.png]({{ "/assets/images/release/release-stages-1.png" | relative_url }})
+![Six release stages: pre-planning, planning, development, beta, release candidate, public availability, with releases A, B and C at different stages at the same time]({{ "/assets/images/release/release-stages-1.png" | relative_url }})
 
 The following table describes each stage of the release process.
 

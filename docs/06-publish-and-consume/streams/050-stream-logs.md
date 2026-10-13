@@ -35,7 +35,7 @@ CluedIn offers three types of logs to assist in monitoring and troubleshooting y
 
 Each golden record contains the **Streams** tab, where you can find the stream that exported the golden record and the date it was sent to the export target.
 
-![golden-record-streams.png]({{ "/assets/images/consume/streams/golden-record-streams.png" | relative_url }})
+![The golden record Streams tab listing the Training stream with change type Added, persist version, persist hash and date sent]({{ "/assets/images/consume/streams/golden-record-streams.png" | relative_url }})
 
 This page lists active and paused streams that exported the golden record. However, if the stream is stopped, it is not displayed on the **Streams** tab because all of its logs are cleared. You can select the stream to view its details.
 
@@ -43,7 +43,7 @@ This page lists active and paused streams that exported the golden record. Howev
 
 Each stream contains the **Stream Log** tab, where you’ll find all golden records that were exported by this stream. If the stream encounters an error while exporting golden records, it will be displayed on the page. This way, you can quickly identify and address any issues.
 
-![stream-log.png]({{ "/assets/images/consume/streams/stream-log.png" | relative_url }})
+![The Stream log tab of the Training stream, listing exported records with severity, area Stream ingestion log, and machine name, plus severity and area filters]({{ "/assets/images/consume/streams/stream-log.png" | relative_url }})
 
 You can filter the stream logs by two categories:
 
@@ -63,6 +63,6 @@ This page displays logs only when the stream is active or paused. If you stop th
 
 Each export target contains the **Health Checks** tab, where you can find the health check status of the export target.
 
-![export-target-health-check.png]({{ "/assets/images/consume/streams/export-target-health-check.png" | relative_url }})
+![The Health Check tab of an SQL Server export target, listing health checks with the Healthy state, host and creation time]({{ "/assets/images/consume/streams/export-target-health-check.png" | relative_url }})
 
 CluedIn runs health checks for the export target every 60 seconds. If the export target encounters any issues, its health status will be marked as **Unhealthy**. If the export target becomes **Unhealthy**, the stream associated with that export target is stopped and the corresponding log is added to the **Stream Log** page as well.

@@ -19,7 +19,7 @@ last_modified: 2023-11-07
 
 After the mapping is created, review the mapping details to make sure that your records will be produced and merged in the most efficient way. This article will guide you through the essential aspects to check when reviewing your mapping details.
 
-![review-mapping-1.gif]({{ "/assets/images/integration/data-sources/review-mapping-1.gif" | relative_url }})
+![Infographic: what to check in mapping details - 1 Properties, 2 Identifiers correct for merging, 3 optional Relationships for linking records]({{ "/assets/images/integration/data-sources/review-mapping-1.gif" | relative_url }})
 
 {:.important}
 Before the data is processed, your mapping changes won't affect the existing records in CluedIn.
@@ -70,17 +70,17 @@ Depending on how unique you consider the records to be, you can choose one of th
 
 The following diagram will help you in determining which option to use for generating the primary identifier.
 
-![review-mapping-2.png]({{ "/assets/images/integration/data-sources/review-mapping-2.png" | relative_url }})
+![Decision tree: if the source has a unique identifier, use a single key; if not and the data set is stable over time, use a compound key; otherwise use an auto-generated key]({{ "/assets/images/integration/data-sources/review-mapping-2.png" | relative_url }})
 
 **Example**
 
 We ingested a file with 1,000 records personal data containing the following columns: ID, First Name, Last Name, Email, SSN, and Country Code. To create the mapping, we selected the Auto Mapping type, and CluedIn automatically generated the mapping for the data set. Since our data set included the 'ID' column, it was automatically selected as the primary identifier. This is a favorable option because no empty or duplicate values were found during the current data set check. It means that the ID is a reliable value to uniquely represent the record in CluedIn.
 
-![review-mapping-3.png]({{ "/assets/images/integration/data-sources/review-mapping-3.png" | relative_url }})
+![Primary identifier section in mapping details with trainingcontact.id selected and the Status panel showing no empty and no duplicated values]({{ "/assets/images/integration/data-sources/review-mapping-3.png" | relative_url }})
 
 If we select a column that contains duplicate values (for example, country), the status check will immediately inform us of the number of duplicate values in the data set. By selecting  **View more details**, you can view the number of duplicate values in the data set, which values are duplicates, and the number of times the duplicate value occurs in the data set. Referring to the screenshot below, there are 3 duplicate values in the data set: United States, Canada, and Spain. The value United States occurs in 550 records. If we proceed with this as the primary identifier and process the data, all 550 records will be merged into a single golden record. In this case, the country cannot serve as a unique representation for each record, as it is acceptable for records to share the same country.
 
-![review-mapping-4.png]({{ "/assets/images/integration/data-sources/review-mapping-4.png" | relative_url }})
+![Primary Identifier Status pane warning that the primary identifier has duplicated values, listing job_title values with 49 duplicates and their counts]({{ "/assets/images/integration/data-sources/review-mapping-4.png" | relative_url }})
 
 However, if you are confident that the selected property can uniquely represent the record, you can proceed with processing the data. Records with identical primary identifiers will be automatically merged, eliminating the need for a separate deduplication project.
 
@@ -95,7 +95,7 @@ Even if there are no duplicate values according to the primary identifier, but t
 
 The following diagram will help you in determining if you need to add additional identifiers.
 
-![review-mapping-5.png]({{ "/assets/images/integration/data-sources/review-mapping-5.png" | relative_url }})
+![Decision tree: if there is another unique identifier and you trust your data, add identifiers; if you do not trust it, run a dedup project later; if there is none, do not add identifiers]({{ "/assets/images/integration/data-sources/review-mapping-5.png" | relative_url }})
 
 ### Relationships
 
@@ -125,4 +125,4 @@ We have 2 data sets:
 
 To connect employees to companies in CluedIn, we can create a relationship in the mapping details of the **Employees** data set. In this case, the Company_ID will serve as the property upon which the relationship is built. We select the **Strict Edge** mode because we are aware of the data set to which we want to connect the employees. Once the processing is complete, all employees who work for a particular company will be shown on the **Relations** tab of a company record.
 
-![review-mapping-7.png]({{ "/assets/images/integration/data-sources/review-mapping-7.png" | relative_url }})
+![Relations graph centred on the DB Schenker AG company record, linked by edges such as /BilledTo, /IsRoleOf, /HasContract and /ManagedAs to invoices, an address, a contract and other records]({{ "/assets/images/integration/data-sources/review-mapping-7.png" | relative_url }})

@@ -14,7 +14,7 @@ headerIcon: "saas"
 
 In this article, you will learn about the Azure requirements you need to meet to ensure successful installation of CluedIn SaaS.
 
-![saas-requirements.gif]({{ "/assets/images/deployment/saas-install/saas-requirements.gif" | relative_url }})
+![Checklist for installing CluedIn SaaS: 1 an Azure account, 2 permission for Azure Marketplace purchases, 3 the Contributor role on an Azure subscription]({{ "/assets/images/deployment/saas-install/saas-requirements.gif" | relative_url }})
 
 **Azure account**
 

@@ -31,7 +31,7 @@ Basic Power Apps configuration is required to establish connection between your 
 
 1. In **Base URL**, enter the root address used to access resources within your Power Apps environment. You can find this value in your [Power Apps](https://make.powerapps.com/) environment: in the upper-right corner of the Power Apps page, select the settings icon, and then select **Developer Resources**. Copy the value in **Web API endpoint** and paste it to the **URL** field in CluedIn. You do not need to copy the version of the API (`/api/data/v9.2`).
 
-    ![dev-resources-base-url.png]({{ "/assets/images/microsoft-integration/power-apps/dev-resources-base-url.png" | relative_url }})
+    ![The Power Apps Developer resources pane, with the Web API endpoint URL highlighted]({{ "/assets/images/microsoft-integration/power-apps/dev-resources-base-url.png" | relative_url }})
 
 1. In **Tenant Id**, enter a unique identifier for your Microsoft Entra ID tenant in which your application is registered. This is the application that you created during the pre-configuration stage in [Register a new application](/solutions/power-apps/pre-configuration-guide#register-a-new-application). You can find this value in **Directory (tenant) ID**.
 
@@ -43,7 +43,7 @@ Basic Power Apps configuration is required to establish connection between your 
 
 1. In **Main Owner Email**, enter a valid email address—ideally that of an administrator. This address will be used as the primary contact for system-generated items such as entity types, vocabularies, and streams.
 
-    ![cluedin-power-apps.png]({{ "/assets/images/microsoft-integration/power-apps/cluedin-power-apps-2.png" | relative_url }})
+    ![The PowerApps section of CluedIn settings, with Base Url, Tenant Id, Client Id, Client Secret, Parallel Execution Count and Main Owner Email filled in]({{ "/assets/images/microsoft-integration/power-apps/cluedin-power-apps-2.png" | relative_url }})
 
 1. In the upper-right corner, select **Save**.
 

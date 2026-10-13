@@ -21,7 +21,7 @@ source_path: docs/210-playbooks/data-ingestion/005-process-data.md
 
 **You are here in the data journey**
 
-![data-ingestion-you-are-here.png]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
+![Data journey diagram: essential requirements and a data discovery workshop lead into the data quality virtuous circle of ingestion, transformation, automation, export and release to production, with a You are here marker on data ingestion]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
 
 **Before you start**
 
@@ -35,7 +35,7 @@ source_path: docs/210-playbooks/data-ingestion/005-process-data.md
 
 Once your records are mapped, you can now process them. Processing is the final step of the data ingestion process in CluedIn.
 
-![process-data-intro.png]({{ "/assets/images/playbooks/process-data-intro.png" | relative_url }})
+![Data ingestion steps: Data impact workshop, Pick the right tool, Ingest, Map, and Process (current)]({{ "/assets/images/playbooks/process-data-intro.png" | relative_url }})
 
 The act of processing means **sending mapped records (clues)** to the processing engine so it can either **create new golden records** or **aggregate clues to the existing golden records**.
 
@@ -92,7 +92,7 @@ Keep in mind that **CluedIn will skip the exact same records during processing**
 
 You can find step-by-step instruction for processing records in a dedicated [article](/ingest/processing/process-data). Once the processing is done, you will see the result similar to the following.
 
-![process-records-result.png]({{ "/assets/images/playbooks/process-records-result.png" | relative_url }})
+![The Process tab of the CRM-Company.csv data set, showing 1,000 records processed with Success 1,000]({{ "/assets/images/playbooks/process-records-result.png" | relative_url }})
 
 ## Next steps
 

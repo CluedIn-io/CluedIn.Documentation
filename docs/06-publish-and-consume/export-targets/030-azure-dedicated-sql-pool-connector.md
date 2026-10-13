@@ -28,7 +28,7 @@ This article outlines how to configure the Azure Dedicated SQL Pool connector to
 
 1. On the **Choose Target** tab, select **Azure Dedicated SQL Pool Connector**. Then, select **Next**.
 
-    ![dedicated-sql-pool-choose-target.png]({{ "/assets/images/consume/export-targets/dedicated-sql-pool-choose-target.png" | relative_url }})
+    ![Choose Target tab of the Add Export Target pane with Azure Dedicated SQL Pool Connector selected]({{ "/assets/images/consume/export-targets/dedicated-sql-pool-choose-target.png" | relative_url }})
 
 1. On the **Configure** tab, enter the connection details:
 
@@ -36,25 +36,25 @@ This article outlines how to configure the Azure Dedicated SQL Pool connector to
 
     1. **Host** – dedicated SQL endpoint in the workspace. To find this value, sign in to [Azure Synapse Analytics](https://portal.azure.com/#browse/Microsoft.Synapse%2Fworkspaces), and then select the needed workspace. On the **Overview** page, copy the value from **Dedicated SQL endpoint**.
 
-        ![dedicated-sql-pool-host-sql-endpoint.png]({{ "/assets/images/consume/export-targets/dedicated-sql-pool-host-sql-endpoint.png" | relative_url }})
+        ![Azure Synapse workspace Overview page with the Dedicated SQL endpoint value highlighted]({{ "/assets/images/consume/export-targets/dedicated-sql-pool-host-sql-endpoint.png" | relative_url }})
 
     1. **Database Name** – name of the SQL pool where you want to store the data from CluedIn.
 
-        ![dedicated-sql-pool-database-name.png]({{ "/assets/images/consume/export-targets/dedicated-sql-pool-database-name.png" | relative_url }})
+        ![Analytics pools list in the Azure Synapse workspace with a dedicated SQL pool name highlighted]({{ "/assets/images/consume/export-targets/dedicated-sql-pool-database-name.png" | relative_url }})
 
     1. **Username** – SQL admin username in the workspace.
 
-        ![dedicated-sql-pool-username.png]({{ "/assets/images/consume/export-targets/dedicated-sql-pool-username.png" | relative_url }})
+        ![Azure Synapse workspace Overview page with the SQL admin username value highlighted]({{ "/assets/images/consume/export-targets/dedicated-sql-pool-username.png" | relative_url }})
 
     1. **Password** – SQL admin password, which was provided at the creation of a workspace. If you forget the password, you can reset it by selecting **Reset SQL admin password** as displayed on the screenshot.
 
-        ![dedicated-sql-pool-reset-password.png]({{ "/assets/images/consume/export-targets/dedicated-sql-pool-reset-password.png" | relative_url }})
+        ![Azure Synapse workspace Overview page with the Reset SQL admin password button highlighted in the toolbar]({{ "/assets/images/consume/export-targets/dedicated-sql-pool-reset-password.png" | relative_url }})
 
     1. **Port Number** – this is an optional field. You may provide the port number if it is set up in the database.
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-    ![dedicated-sql-pool-configure.png]({{ "/assets/images/consume/export-targets/dedicated-sql-pool-configure.png" | relative_url }})
+    ![Configure tab of the Add Export Target pane with Name, Host, Database Name, Username and Password filled in, and the Test connection and Add buttons]({{ "/assets/images/consume/export-targets/dedicated-sql-pool-configure.png" | relative_url }})
 
     Now, you can select the Azure Dedicated SQL Pool connector in a stream and start exporting golden records.
 

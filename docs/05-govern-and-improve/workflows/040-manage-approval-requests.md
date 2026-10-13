@@ -30,11 +30,11 @@ If you're an approver in the approval flow or if you made some changes in CluedI
 
 1. To view the approval requests that are assigned to you, go to the **Received** tab. Here, you can also approve or reject a request right away.
 
-    ![view-approvals-1.png]({{ "/assets/images/workflow/view-approvals-1.png" | relative_url }})
+    ![Approvals page on the Received tab, showing request cards from CluedIn Bot, each with Approve and Reject buttons]({{ "/assets/images/workflow/view-approvals-1.png" | relative_url }})
 
 1. To view the approval requests that were sent out on your behalf, go to the **Sent** tab. Here, you can view the status of each request, indicating whether they have been approved, rejected, or still pending.
 
-    ![approvals-sent.png]({{ "/assets/images/workflow/approvals-sent.png" | relative_url }})
+    ![Approvals page on the Sent tab, showing request cards sent to Test User 1, each with the status Awaiting response]({{ "/assets/images/workflow/approvals-sent.png" | relative_url }})
 
 ## Approve or reject an approval request
 
@@ -46,7 +46,7 @@ When a specific activity in CluedIn requires your approval, you receive an email
 
 1. Make an approval decision by selecting **Approve** or **Reject**. Optionally, you can add a comment before sending your approval decision.
 
-    ![email.png]({{ "/assets/images/workflow/email.png" | relative_url }})
+    ![Power Automate approval email for CluedIn: address 2, listing changed properties with Before and After values, and Approve and Reject buttons]({{ "/assets/images/workflow/email.png" | relative_url }})
 
 **To approve or reject a request from the Approvals app in Teams**
 
@@ -54,6 +54,6 @@ When a specific activity in CluedIn requires your approval, you receive an email
 
 1. Make an approval decision by selecting **Approve** or **Reject**. Optionally, you can add a comment before sending your approval decision.
 
-    ![teams.png]({{ "/assets/images/workflow/teams.png" | relative_url }})
+    ![Approval request details in the Teams Approvals app for CluedIn: address 2, with a Comments box and Reassign, Reject, and Approve buttons]({{ "/assets/images/workflow/teams.png" | relative_url }})
 
 If you approved the request, the action that required your approval is automatically performed in CluedIn. Regardless of the approval decision, the user who performed the action receives a notification in CluedIn.

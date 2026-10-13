@@ -20,7 +20,7 @@ To use the **Workflow** module in CluedIn, you need to configure [Power Automate
 
 In this article, you will learn how to create workflows for automating certain approval processes. With workflows, you can easily streamline and track such processes as modifying vocabularies, inviting users, creating rules, and more.
 
-![workflows-can-help-you-with.png]({{ "/assets/images/workflow/workflows-can-help-you-with.png" | relative_url }})
+![Workflows can help you with approval requests for vocabularies, vocabulary keys, rules, entity types, records processing and user invitations, plus stream idle triggers and notifications]({{ "/assets/images/workflow/workflows-can-help-you-with.png" | relative_url }})
 
 ## Workflow templates
 
@@ -49,7 +49,7 @@ If you want to automate the approval process for actions mentioned in the previo
 
 Only SSO users can create workflows in CluedIn. If you see the following message when trying to create a workflow, it means you are not signed in as an SSO user and will not be able to set up a workflow.
 
-![workflow-sso-users.png]({{ "/assets/images/workflow/workflow-sso-users.png" | relative_url }})
+![Workflow Builder message: Workflow Builder is only available for SSO users, sign in to CluedIn with single sign-on]({{ "/assets/images/workflow/workflow-sso-users.png" | relative_url }})
 
 **To create a workflow**
 
@@ -63,7 +63,7 @@ Only SSO users can create workflows in CluedIn. If you see the following message
 
 1. Select **Create**.
 
-    ![create-workflow-1.png]({{ "/assets/images/workflow/create-workflow-1.png" | relative_url }})
+    ![The Create workflow dialog with the name vocab key change and the Vocabulary Key Change Approval template selected]({{ "/assets/images/workflow/create-workflow-1.png" | relative_url }})
 
     Creating a workflow might take some time because it is being sent to Power Automate. After the workflow is created, you can view it in the Power Automate widget in CluedIn.
 
@@ -73,7 +73,7 @@ Only SSO users can create workflows in CluedIn. If you see the following message
 
 1. Turn on the toggle next to the workflow status to enable it.
 
-    ![create-workflow-2.png]({{ "/assets/images/workflow/create-workflow-2.png" | relative_url }})
+    ![A workflow in Workflow Builder with three steps, trigger, Send for approval and Send approval response, and the Enabled toggle on]({{ "/assets/images/workflow/create-workflow-2.png" | relative_url }})
 
     Now, when the action that triggers the workflow is executed, the approval request is sent to the responsible users in Outlook or Approvals app in Teams.
 
@@ -87,8 +87,8 @@ After the workflow is created, it is displayed in the Power Automate widget in C
 
     - **Details** – find the name, status, and creation and modification dates. You can also add or edit the workflow description by selecting **Edit**.
 
-        ![workflow-properties-details.png]({{ "/assets/images/workflow/workflow-properties-details.png" | relative_url }})
+        ![The Details section of workflow properties showing flow name, primary owner, status On, created and modified dates, type and plan]({{ "/assets/images/workflow/workflow-properties-details.png" | relative_url }})
 
     - **28-day run history** – find the flow run history from the last 28 days. To view the details of a specific flow run, select it from the **Start** column. You can view the specific action that triggered the flow and the response that came back to CluedIn.
 
-        ![workflow-properties-history.png]({{ "/assets/images/workflow/workflow-properties-history.png" | relative_url }})
+        ![The 28-day run history section listing one flow run with its start time, duration and Succeeded status]({{ "/assets/images/workflow/workflow-properties-history.png" | relative_url }})

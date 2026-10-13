@@ -11,4 +11,4 @@ redirect_from: ["/playbooks/data-engineering-playbook"]
 source_path: docs/210-playbooks/100-data-engineering-playbook.md
 ---
 
-![data-engineering-playbook.png]({{ "/assets/images/playbooks/data-engineering-playbook.png" | relative_url }})
+![Four topic cards: CluedIn in your data architecture, Microsoft integrations in CluedIn, customization in CluedIn, and the CluedIn Python SDK]({{ "/assets/images/playbooks/data-engineering-playbook.png" | relative_url }})

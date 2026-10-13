@@ -86,7 +86,7 @@ Here are a few things to notice in this query:
 - `cursor` – we ask CluedIn to return a special value that we can pass to our next query to get the next page of results.
 - `"pageSize": 10000` – by default, the page size is 20, so if you have millions of entities, you will get only the first `20`. Setting the page size to its maximum value (`10000`) will decrease the number of requests you send to CluedIn API, but there are situations when you only want to get a few entities from the top, and a query with a smaller page size will be faster.
 
-![GraphQL](/assets/images/python-sdk/gql-2.png)
+![GraphiQL in CluedIn running the searchEntities query with query and pageSize variables, returning a cursor and three Company entries](/assets/images/python-sdk/gql-2.png)
 
 ## CluedIn Python SDK
 

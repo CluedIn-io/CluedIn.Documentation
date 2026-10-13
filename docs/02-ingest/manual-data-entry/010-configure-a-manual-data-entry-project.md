@@ -50,7 +50,7 @@ You can create as many manual data projects as you need. Consider having separat
 
 1. (Optional) Enter the description of the manual data entry project.
 
-    ![manual-data-entry-create-project.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-create-project.png" | relative_url }})
+    ![The Create Manual Data Entry Project dialog with title, business domain and vocabulary filled in and Require records approval enabled]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-create-project.png" | relative_url }})
 
 1. Select **Create**.
 
@@ -90,7 +90,7 @@ A form field is an element in a manual data entry project that represents a prop
 
     1. To add more pick list items, repeat step 6.1.
 
-        ![manual-data-entry-pick-list.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-pick-list.png" | relative_url }})
+        ![Form Field Type set to Pick List, with three items in Added pick list items: Project Manager, Accountant and Delivery Manager]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-pick-list.png" | relative_url }})
 
 1. If the field is required in a record, turn on the toggle for **Is Required**.
 
@@ -100,7 +100,7 @@ A form field is an element in a manual data entry project that represents a prop
 
 1. (Optional) Enter the description of the form field.
 
-    ![manual-data-entry-create-form-field.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-create-form-field.png" | relative_url }})
+    ![The Create Form Field dialog with vocabulary key trainingcontact.firstName, label First Name, type Text Field and Is Required turned on]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-create-form-field.png" | relative_url }})
 
 1. Select **Create**.
 
@@ -112,7 +112,7 @@ A form field is an element in a manual data entry project that represents a prop
 
 On the **Form Fields** tab, the fields are displayed in the order in which they appear when you add a record. You can change the order of the fields if needed. To do this, on the right side of the row, open the three-dot menu, and then select where you want to move the row.
 
-![manual-data-entry-move-field.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-move-field.png" | relative_url }})
+![The three-dot menu of a form field row open, showing Move to top, Move up, Move down and Move to bottom]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-move-field.png" | relative_url }})
 
 ## Review and modify mapping configuration
 
@@ -124,21 +124,21 @@ Note that the default mapping configuration does not include the name for the re
 
 1. In the manual data entry project, go to the **Map** tab. You will see the default mapping configuration.
 
-    ![manual-data-entry-mapping.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-mapping.png" | relative_url }})
+    ![The default mapping on the Map tab: the TrainingContact business domain with an auto-generated primary identifier and its vocabulary keys]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-mapping.png" | relative_url }})
 
 1. Select **Edit mapping**.
 
 1. In the **General details** section, select the field that will be used to produce the name for a record once it has been processed. You can add multiple fields.
 
-    ![manual-data-entry-mapping-general-details.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-mapping-general-details.png" | relative_url }})
+    ![The General details section with trainingcontact.firstName selected as the entity name and an Add one more name key link]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-mapping-general-details.png" | relative_url }})
 
 1. In the **Primary identifier** section, review the default configuration for producing a primary identifier: origin and property (field). You can select another origin and field if needed.
 
-    ![manual-data-entry-mapping-primary-identifier.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-mapping-primary-identifier.png" | relative_url }})
+    ![The Primary Identifier section with an auto-generated origin, an Edit origin link and the Select key field set to Auto-generated]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-mapping-primary-identifier.png" | relative_url }})
 
 1. In the **Identifiers** section, review the default configuration for producing additional identifiers. You can edit or delete the default identifier as well as add new additional identifiers.
 
-    ![manual-data-entry-mapping-identifiers.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-mapping-identifiers.png" | relative_url }})
+    ![The Identifiers section listing the trainingcontact.id identifier with an auto-generated origin, plus Add property and Delete Identifier buttons]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-mapping-identifiers.png" | relative_url }})
 
 1. Select **Finish**.
 
@@ -156,7 +156,7 @@ If you have [survivorship rules](/govern/rules/rule-types#survivorship-rules) th
 
 1. In the **Source Quality** section, define the quality rating for the source by dragging the slider towards **Lower Quality** or **Higher Quality**.
 
-    ![manual-data-entry-quality.png]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-quality.png" | relative_url }})
+    ![The Quality tab of a manual data entry project with a Source category selected and the Source quality slider between Lower and Higher Quality]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-quality.png" | relative_url }})
 
 1. Select **Save**.
 

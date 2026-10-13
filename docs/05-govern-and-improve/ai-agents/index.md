@@ -16,7 +16,7 @@ last_modified: 2026-09-24
 
 The **AI Agents** module in CluedIn is a smart automation component that uses artificial intelligence to assist with key data management tasks.
 
-![ai_agents_module.png]({{ "/assets/images/management/ai-agents/ai-agents/ai_agents_module.png" | relative_url }})
+![AI agents page listing agents such as Financial Data Steward and Team Leader, with columns for Description, Active, Requires review, Cost, Author, and Created at]({{ "/assets/images/management/ai-agents/ai-agents/ai_agents_module.png" | relative_url }})
 
 
 The module helps create business rules, find and resolve data quality issues, and find potential duplicates with minimal manual effort. This enables you to focus on strategic decisions rather than repetitive tasks, while ensuring higher data consistency and reliability.

@@ -57,12 +57,12 @@ Essentially, any task featuring a progress bar in CluedIn is classified as a wor
 
     Enabling **Include Origin Host Information** will send host details such as the pod's name, its allocated memory, and its IP address. This feature is useful for diagnostic purposes.
 
-    ![event-hub-settings.png]({{ "/assets/images/microsoft-integration/event-hub/event-hub-settings.png" | relative_url }})
+    ![EventHub settings in CluedIn: Connection String, Name, and toggles for Send Events, Include Origin Host Information, and workflow started, finished, and failed events]({{ "/assets/images/microsoft-integration/event-hub/event-hub-settings.png" | relative_url }})
 
 After you complete all the required fields in CluedIn settings and enable the necessary features, you'll begin receiving incoming messages on the **Event Hubs Namespace** page in the Azure portal. After at least one event has been generated, it will be displayed in the **Event Hub** section of CluedIn settings. All generated events will dynamically appear there.
 
-![event-hub-settings-dynamic.png]({{ "/assets/images/microsoft-integration/event-hub/event-hub-settings-dynamic.png" | relative_url }})
+![EventHub settings with a newly generated event, Generate Results Cleaning Project Event, highlighted and enabled]({{ "/assets/images/microsoft-integration/event-hub/event-hub-settings-dynamic.png" | relative_url }})
 
 You can also connect VS Code to your event hub to see the XML payload. The following screenshot shows an example of the message you will receive.
 
-![event-hub-message-example.png]({{ "/assets/images/microsoft-integration/event-hub/event-hub-message-example.png" | relative_url }})
+![JSON event message with EventDate, EventType GenerateResultsCleaningProjectEvent, and EventData containing ProjectId and AccountId]({{ "/assets/images/microsoft-integration/event-hub/event-hub-message-example.png" | relative_url }})

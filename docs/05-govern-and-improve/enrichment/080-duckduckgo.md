@@ -31,7 +31,7 @@ The enricher uses the organization name and/or the website to search for informa
 
 1. On the **Choose Enricher** tab, select **DuckDuckGo**, and then select **Next**.
 
-    ![duck-duck-go-enricher-1.png]({{ "/assets/images/preparation/enricher/duck-duck-go-enricher-1.png" | relative_url }})
+    ![The Add Enricher dialog on the Choose enricher tab, with Duck Duck Go selected]({{ "/assets/images/preparation/enricher/duck-duck-go-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -41,7 +41,7 @@ The enricher uses the organization name and/or the website to search for informa
 
     - **Website Vocabulary Key** – enter the vocabulary key that contains the websites of companies that will be used for searching the DuckDuckGo engine.
 
-        ![duck-duck-go-enricher-2.png]({{ "/assets/images/preparation/enricher/duck-duck-go-enricher-2.png" | relative_url }})
+        ![DuckDuckGo enricher settings: Accepted Business Domain Organization, Name Vocabulary Key organization.name, Website Vocabulary Key organization.website]({{ "/assets/images/preparation/enricher/duck-duck-go-enricher-2.png" | relative_url }})
 
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
@@ -57,11 +57,11 @@ After the DuckDuckGo enricher is added, you can modify its details:
 
 You can find the properties added to golden records from the DuckDuckGo enricher on the **Properties** page.
 
-![duck-duck-go-enricher-4.png]({{ "/assets/images/preparation/enricher/duck-duck-go-enricher-4.png" | relative_url }})
+![Golden record Properties page listing Abstract, Abstract Source and Abstract Text properties with Duck Duck Go as the source]({{ "/assets/images/preparation/enricher/duck-duck-go-enricher-4.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the DuckDuckGo enricher, check the corresponding data part on the **History** page.
 
-![duck-duck-go-enricher-5.png]({{ "/assets/images/preparation/enricher/duck-duck-go-enricher-5.png" | relative_url }})
+![Golden record History page with the data part Duck Duck Go - Info from search engine highlighted above the file data source part]({{ "/assets/images/preparation/enricher/duck-duck-go-enricher-5.png" | relative_url }})
 
 The following table lists the properties that can be added to golden records by the DuckDuckGo enricher.
 

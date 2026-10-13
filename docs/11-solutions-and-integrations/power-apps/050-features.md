@@ -33,11 +33,11 @@ There are several ways how you can perform the sync:
 
 1. In **Sync CluedIn Business Domains to Dataverse Table**, turn on the toggle, and then enter the business domain that you want to sync. If you want to sync multiple business domains, separate them with a comma (for example, _/_Type1,/Type2,/Type3_).
 
-    ![Sync Entity Types to Dataverse Tables](/assets/images/microsoft-integration/power-apps-backup/sync-cluedin-entitytypes-setting.png)
+    ![The Sync CluedIn Business Domains to Dataverse Table toggle set to Enabled, with /Dog entered as the business domain](/assets/images/microsoft-integration/power-apps-backup/sync-cluedin-entitytypes-setting.png)
 
     All the vocabulary keys below will be created as columns in the Dataverse table.
 
-    ![Sync Entity Types to Dataverse Tables](/assets/images/microsoft-integration/power-apps-backup/entity-type-dog-details.png)
+    ![The Dog business domain Vocabularies tab, listing the dog vocabulary keys Address, Age, Birthday, Gender, Id and Name with their data types](/assets/images/microsoft-integration/power-apps-backup/entity-type-dog-details.png)
 
     Once the synchronization has been completed, you'll receive two notifications: **Dataverse Table Created** and **Dataverse Column Created/Updated**.
 
@@ -45,7 +45,7 @@ There are several ways how you can perform the sync:
 
 1. Verify the table and columns created in Dataverse.
 
-    ![Sync Entity Types to Dataverse Tables](/assets/images/microsoft-integration/power-apps-backup/dataverse-dog-table-details.png)
+    ![The Dog table in Power Apps, showing its table properties and the Display Name, Address, Age, Birthday, Gender and Name columns](/assets/images/microsoft-integration/power-apps-backup/dataverse-dog-table-details.png)
 
 
 **To sync CluedIn business domains with Dataverse table (from the Business Domains module)**
@@ -62,13 +62,13 @@ There are several ways how you can perform the sync:
     
     1. In **Vocabulary for Dataverse Sync**, enter the names of vocabularies to include in the Dataverse sync. If you enter multiple names, they must be provided as a comma-separated list. To sync all vocabularies associated with this business domain, leave this field empty.
 
-    ![Sync Entity Types to Dataverse Tables](/assets/images/microsoft-integration/power-apps/sync-cluedin-entitytypes-page-setting-2.png)
+    ![The Dog business domain Configuration tab, with the Sync CluedIn Business Domain to Dataverse Table toggle on and the Vocabulary for Dataverse Sync field](/assets/images/microsoft-integration/power-apps/sync-cluedin-entitytypes-page-setting-2.png)
     
 1. In the upper-right corner of the business domain page, select **Save**.
 
     All the vocabulary keys below will be created as columns in the Dataverse table.
 
-    ![Sync Entity Types to Dataverse Tables](/assets/images/microsoft-integration/power-apps-backup/entity-type-dog-details.png)
+    ![The Dog business domain Vocabularies tab, listing the dog vocabulary keys Address, Age, Birthday, Gender, Id and Name with their data types](/assets/images/microsoft-integration/power-apps-backup/entity-type-dog-details.png)
 
     Once the synchronization has been completed, you'll receive two notifications: **Dataverse Table Created** and **Dataverse Column Created/Updated**.
 
@@ -76,7 +76,7 @@ There are several ways how you can perform the sync:
 
 1. Verify the table and columns created in Dataverse.
 
-    ![Sync Entity Types to Dataverse Tables](/assets/images/microsoft-integration/power-apps-backup/dataverse-dog-table-details.png)
+    ![The Dog table in Power Apps, showing its table properties and the Display Name, Address, Age, Birthday, Gender and Name columns](/assets/images/microsoft-integration/power-apps-backup/dataverse-dog-table-details.png)
 
 ## Sync Dataverse table to Cluedin business domains/vocabularies
 
@@ -100,7 +100,7 @@ You'll need to provide the logical name of the Dataverse table. There are the fo
 
 1. In **Sync Dataverse Table/Columns to CluedIn Business Domains and Vocabulary**, turn on the toggle, and then enter the Dataverse table name. The value should be the **logical name** of the table. If you want to sync multiple tables, separate them with a comma (for example, _logical_name1_,logical_name2,logical_name3_).
 
-    ![sync-dataverse-table.png](/assets/images/microsoft-integration/power-apps/sync-dataverse-table.png)
+    ![The Sync Dataverse Table/Columns to CluedIn Business Domains and Vocabulary toggle set to Enabled, with crc_12_customer entered as the table name](/assets/images/microsoft-integration/power-apps/sync-dataverse-table.png)
 
     Once the synchronization has been successfully completed, you'll receive three notifications: **Entity Type Created**, **Vocabulary Created**, and **Vocabulary Keys Created**.
     
@@ -124,11 +124,11 @@ This feature allows you to automate the creation of workflow that will send the 
 
 1. In **Create workflow to Ingest Data to CluedIn**, turn on the toggle.
 
-    ![Create workflow to Ingest Data to CluedIn](/assets/images/microsoft-integration/power-apps-backup/create-workflow-to-ingest-data-setting-3.png)
+    ![The Create workflow to Ingest Data to CluedIn toggle set to Enabled](/assets/images/microsoft-integration/power-apps-backup/create-workflow-to-ingest-data-setting-3.png)
 
 1. (Optional) In **Workflow Access Users List**, enter one or more email addresses in a comma-delimited format to grant access to the created workflow. All addresses must be registered in your Azure organization directory.
 
-    ![Create workflow to Ingest Data to CluedIn](/assets/images/microsoft-integration/power-apps/workflow-access-users-list-2.png)
+    ![The Workflow Access Users List field containing a single email address](/assets/images/microsoft-integration/power-apps/workflow-access-users-list-2.png)
 
 **Ingestion endpoint**
 

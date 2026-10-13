@@ -69,7 +69,7 @@ Depending on the selected [data modeling approach](/model/data-catalog/modeling-
 
 1. Select **Create**.
 
-    ![create-business-domain.png]({{ "/assets/images/management/entity-type/create-business-domain.png" | relative_url }})
+    ![The Create Business Domain pane with Display name, Business domain identifier, Icon, Business Domain Color, Path and Layout fields filled in]({{ "/assets/images/management/entity-type/create-business-domain.png" | relative_url }})
 
     The business domain opens, where you can view and manage business domain details.
 

@@ -21,7 +21,7 @@ In this article, you will learn about the possibility of introducing changes to 
 
 The advanced mapping code is applied to the clues after property and pre-process rules.
 
-![advanced-mapping-code.png]({{ "/assets/images/integration/additional-operations/advanced-mapping-code.png" | relative_url }})
+![Diagram: a record passes through mapping (property rules, then pre-process rules, then advanced mapping code) to become a clue, which processing turns into a golden record]({{ "/assets/images/integration/additional-operations/advanced-mapping-code.png" | relative_url }})
 
 **Prerequisites**
 

@@ -81,7 +81,7 @@ CluedIn provides ways to monitor the processing pipeline’s performance. Admini
 
 - Drill down into each processing step to see throughput rates.
 
-![Diagram]({{ "/assets/images//development/engine-room.png" | relative_url }})
+![Processing pipeline page showing data sets, clue processing queues with message rates, edge, parent and metrics processing steps, and outgoing streams with backlogs]({{ "/assets/images//development/engine-room.png" | relative_url }})
 
 ## Configuring the pipelines
 

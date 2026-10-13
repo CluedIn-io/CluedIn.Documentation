@@ -22,7 +22,7 @@ Quarantine is an area in CluedIn where records that do not meet certain conditio
 
 To find out why the record is in quarantine, select the **View details** icon in the **Details** column. The **Reason** pane will display the rule that led to the record's quarantine. The value that led to the record's quarantine is marked with the information icon.
 
-![quarantine-1.png]({{ "/assets/images/integration/additional-operations/quarantine-1.png" | relative_url }})
+![Quarantine tab of a dataset with the Reason pane open, explaining the record was quarantined because Schema Protection is enabled and it has fields outside the schema]({{ "/assets/images/integration/additional-operations/quarantine-1.png" | relative_url }})
 
 Once a record is in quarantine, you can perform the following actions:
 
@@ -48,7 +48,7 @@ If a record is quarantined due to the [Schema Protection feature](/ingest/data-s
 
     - To process specific records, select checkboxes in the first column for the needed records. You can also process all records by selecting the checkbox in the first column header. Then, in the upper right corner of the table, open the three-dot menu, and select **Process**.
 
-        ![quarantine-3.gif]({{ "/assets/images/integration/additional-operations/quarantine-3.gif" | relative_url }})
+        ![Animation: on the Quarantine tab, selecting records with the checkboxes, opening the three-dot menu, and selecting Process]({{ "/assets/images/integration/additional-operations/quarantine-3.gif" | relative_url }})
 
 1. If you do not want to send the records from quarantine to CluedIn, reject them in one of the following ways:
 

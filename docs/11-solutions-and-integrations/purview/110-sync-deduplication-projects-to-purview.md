@@ -24,19 +24,19 @@ In this article, you will learn how to sync CluedIn deduplication projects to Pu
     
 1. Turn on the toggle in **Sync Deduplications to Purview**.
 
-    ![sync-dedup-projects.png]({{ "/assets/images/microsoft-integration/purview/sync-dedup-projects.png" | relative_url }})
+    ![Sync Deduplications to Purview setting turned on, with the description Create Asset and Lineage for Deduplications]({{ "/assets/images/microsoft-integration/purview/sync-dedup-projects.png" | relative_url }})
 
 1. Select **Save**.
 
 1. Make sure you have an existing deduplication project.
 
-    ![sync-dedup-projects-existing.png]({{ "/assets/images/microsoft-integration/purview/sync-dedup-projects-existing.png" | relative_url }})
+    ![Account Deduplication Project on the Matching Rules tab, with the Account Name Rule matching on account.name]({{ "/assets/images/microsoft-integration/purview/sync-dedup-projects-existing.png" | relative_url }})
 
 ## Feature demonstration
 
 Once you enable synchronization of deduplication projects to Purview, you will receive a notification when the project is synced.
 
-![sync-dedup-projects-notification.png]({{ "/assets/images/microsoft-integration/purview/sync-dedup-projects-notification.png" | relative_url }})
+![CluedIn notification saying the Account Deduplication Project was synced to Purview]({{ "/assets/images/microsoft-integration/purview/sync-dedup-projects-notification.png" | relative_url }})
 
 **To find the asset in Purview**
 
@@ -52,4 +52,4 @@ Once you enable synchronization of deduplication projects to Purview, you will r
 
     The following screenshot shows the application of a deduplication project within the CluedIn processing pipeline. The deduplication project is executed on processed entities, resulting in generating clues. The clues generated from the deduplication project are then sent back to the beginning of the processing pipeline.
 
-    ![sync-dedup-projects-lineage.png]({{ "/assets/images/microsoft-integration/purview/sync-dedup-projects-lineage.png" | relative_url }})
+    ![Purview lineage: processed entities flow into golden record, deduplication and clean branches; the highlighted deduplication step produces a Deduplication asset and generates clues]({{ "/assets/images/microsoft-integration/purview/sync-dedup-projects-lineage.png" | relative_url }})

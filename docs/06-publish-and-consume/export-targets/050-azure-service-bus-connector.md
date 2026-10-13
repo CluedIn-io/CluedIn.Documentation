@@ -21,7 +21,7 @@ This article outlines how to configure the Azure Service Bus connector to publis
 
 1. On the **Choose Target** tab, select **Azure Service Bus Connector**. Then, select **Next**.
 
-    ![service-bus-choose-target.png]({{ "/assets/images/consume/export-targets/service-bus-choose-target.png" | relative_url }})
+    ![The Add Export Target dialog on the Choose Target tab, with Azure Service Bus Connector selected]({{ "/assets/images/consume/export-targets/service-bus-choose-target.png" | relative_url }})
 
 1. On the **Configure** tab, enter the connection details:
 
@@ -31,7 +31,7 @@ This article outlines how to configure the Azure Service Bus connector to publis
 
          To get the connection string to the Service Bus namespace, follow [this instruction](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues?tabs=connection-string#get-the-connection-string) from Microsoft. The following image shows an example of connection string for the namespace.
 
-        ![service-bus-connection-string.png]({{ "/assets/images/consume/export-targets/service-bus-connection-string.png" | relative_url }})
+        ![Azure portal Shared access policies for a Service Bus namespace, with the Primary Connection String of RootManageSharedAccessKey highlighted]({{ "/assets/images/consume/export-targets/service-bus-connection-string.png" | relative_url }})
 
         Alternatively, you can use the connection string to the specific queue.
 
@@ -41,10 +41,10 @@ This article outlines how to configure the Azure Service Bus connector to publis
 
         If you provided the connection string to the queue in step 2b, you can leave the **Queue Name** field empty since the connection string contains the queue name.
 
-       ![service-bus-queue-name.png]({{ "/assets/images/consume/export-targets/service-bus-queue-name.png" | relative_url }})
+       ![Azure portal Queues page of a Service Bus namespace, with the queue name queuetest highlighted]({{ "/assets/images/consume/export-targets/service-bus-queue-name.png" | relative_url }})
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-    ![service-bus-configure.png]({{ "/assets/images/consume/export-targets/service-bus-configure.png" | relative_url }})
+    ![Configure tab with Name, Connection String and Queue Name filled in, and the Test connection and Add buttons]({{ "/assets/images/consume/export-targets/service-bus-configure.png" | relative_url }})
 
     Now, you can select the Azure Service Bus connector in a stream and start exporting golden records.

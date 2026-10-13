@@ -41,13 +41,13 @@ You can add relations in CluedIn in several ways:
 
 1. On the left side of the page, at the top of the settings panel, select **Add Relation**.
 
-    ![add_relation_btn.png]({{ "/assets/images/golden-records/relations/add-relations/Images/add_relation_btn.png" | relative_url }})
+    ![Relations tab of golden record PO-4100 with the Add relation button highlighted above the settings panel, and the relations graph on the right]({{ "/assets/images/golden-records/relations/add-relations/Images/add_relation_btn.png" | relative_url }})
 
    The **Add Edge** panel opens on the right side of the page.
 
 1. On the **Root Record** tab, select whether the relation you want to add is incoming to the current record or outgoing from it. Then, at the bottom of the tab, select **Next**.
 
-    ![add_edge_tab.png]({{ "/assets/images/golden-records/relations/add-relations/Images/add_edge_tab.png" | relative_url }})
+    ![Add relation panel on the Relation type step: relation type /LocatedIn, direction Outgoing, with source record PO-4100 shown below]({{ "/assets/images/golden-records/relations/add-relations/Images/add_edge_tab.png" | relative_url }})
 
 1. On the **Target Record** tab, do the following:
 
@@ -59,21 +59,21 @@ You can add relations in CluedIn in several ways:
 
     1. At the bottom of the tab, select **Next**.
 
-    ![target_record_tab.png]({{ "/assets/images/golden-records/relations/add-relations/Images/target_record_tab.png" | relative_url }})
+    ![Add relation panel on the Target record step: business domain Address and target record Zeppelinstrasse 44 selected]({{ "/assets/images/golden-records/relations/add-relations/Images/target_record_tab.png" | relative_url }})
 
 1. (Optional) On the **Add Properties** tab, add properties that define edge relations between the two records. Then, at the bottom of the tab, select **Next**.
 
-    ![add_properties_tab.png]({{ "/assets/images/golden-records/relations/add-relations/Images/add_properties_tab.png" | relative_url }})
+    ![Add relation panel on the Properties step with an Add property button and the message No edge properties]({{ "/assets/images/golden-records/relations/add-relations/Images/add_properties_tab.png" | relative_url }})
 
 1. On the **Preview Edge** tab, review the details of the relation that you are adding. Then, at the bottom of the tab, select **Add Edge**.
 
-    ![preview_edge_tab.png]({{ "/assets/images/golden-records/relations/add-relations/Images/preview_edge_tab.png" | relative_url }})
+    ![Add relation panel on the Preview step showing source PO-4100, target Zeppelinstrasse 44, relation type /LocatedIn and direction Outgoing, with the Add relation button]({{ "/assets/images/golden-records/relations/add-relations/Images/preview_edge_tab.png" | relative_url }})
 
 1. Confirm that you want to add the relation.
 
     The relation is added and appears in the graph.
 
-    ![relation_added.png]({{ "/assets/images/golden-records/relations/add-relations/Images/relation_added.png" | relative_url }})
+    ![Relations graph of the Marketing department record with the newly added /WorksFor relation from Chris Young highlighted]({{ "/assets/images/golden-records/relations/add-relations/Images/relation_added.png" | relative_url }})
 
 ### Delete relations between golden records
 
@@ -85,17 +85,17 @@ You can delete any direct relation of a golden record.
 
 1. On the left side of the page, at the top of the settings panel, select **Delete Relation**.
 
-    ![delete_relation_btn.png]({{ "/assets/images/golden-records/relations/delete-relations/Images/delete_relation_btn.png" | relative_url }})
+    ![Relations tab of golden record PO-4100 with the Delete relations button highlighted next to Add relation]({{ "/assets/images/golden-records/relations/delete-relations/Images/delete_relation_btn.png" | relative_url }})
 
     The **Delete Edge** panel opens on the right side of the page.
 
 1. On the **Select Edge** tab, select the relation that you want to delete. Then, select **Next**.
 
-    ![delete_edge_panel_select_relation.png]({{ "/assets/images/golden-records/relations/delete-relations/Images/delete_edge_panel_select_relation.png" | relative_url }})
+    ![Delete Edge panel on the Select Edge step, listing outgoing and incoming edges with /DeliversTo Industriestrasse 23 selected]({{ "/assets/images/golden-records/relations/delete-relations/Images/delete_edge_panel_select_relation.png" | relative_url }})
 
 1. On the **Preview Edge** tab, select **Delete Edge**.
 
-    ![delete_edge_panel_preview_tab.png]({{ "/assets/images/golden-records/relations/delete-relations/Images/delete_edge_panel_preview_tab.png" | relative_url }})
+    ![Delete Edge panel on the Preview Edge step: root record PO-4100, target Industriestrasse 23, edge type /DeliversTo, with the Delete Edge button]({{ "/assets/images/golden-records/relations/delete-relations/Images/delete_edge_panel_preview_tab.png" | relative_url }})
 
 1. Confirm the deletion.
 
@@ -107,13 +107,13 @@ Once a golden record is processed, you can view its relations with other golden 
 
 1. Locate the golden record whose relations you want to view. Then, go to the **Relations** tab of the record.
 
-    ![relations_tab_default_view.png]({{ "/assets/images/golden-records/relations/view-relations/Images/relations_tab_default_view.png" | relative_url }})
+    ![Default Relations tab of DB Schenker AG: settings panel with filters, levels and counts on the left, the relations graph in the centre]({{ "/assets/images/golden-records/relations/view-relations/Images/relations_tab_default_view.png" | relative_url }})
 
    Here, you can view all the relations that the record has. As relations are added or removed, the information on the tab is updated accordingly.
 
 1. Use levels to define how deeply you want to go in your graph.
 
-    ![select_graph_level_sp.png]({{ "/assets/images/golden-records/relations/view-relations/Images/select_graph_level_sp.png" | relative_url }})
+    ![Relations tab with the Levels slider set to depth 3, showing more records and 22 relationships in the graph]({{ "/assets/images/golden-records/relations/view-relations/Images/select_graph_level_sp.png" | relative_url }})
 
     Consider this example: parent company – child company – department. When viewing the relations for the department record, levels work as follows:
 
@@ -125,11 +125,11 @@ Once a golden record is processed, you can view its relations with other golden 
 
     - **Direction** – choose whether to display incoming, outgoing, or both types of relations.
 
-        ![select_directions_sp.png]({{ "/assets/images/golden-records/relations/view-relations/Images/select_directions_sp.png" | relative_url }})
+        ![Relations tab with the Direction filter set to Outgoing, showing 17 outgoing relations and no incoming relations]({{ "/assets/images/golden-records/relations/view-relations/Images/select_directions_sp.png" | relative_url }})
 
     - Select which **Business Domains** and **Relationship Types** to include in the graph.
 
-        ![select_domains_and_relation_types_sp.png]({{ "/assets/images/golden-records/relations/view-relations/Images/select_domains_and_relation_types_sp.png" | relative_url }})
+        ![Business domains and Relationship types filter lists with some items cleared, so the graph shows only the selected domains and relation types]({{ "/assets/images/golden-records/relations/view-relations/Images/select_domains_and_relation_types_sp.png" | relative_url }})
 
 1. Configure **Graph Display Settings**:
 
@@ -139,7 +139,7 @@ Once a golden record is processed, you can view its relations with other golden 
 
         In the following example, the author of the **Horizon Campaign Brief** is a shadow record (**Grace Patterson**), and not a regular golden record.
 
-        ![include_shadow_records_sp.png]({{ "/assets/images/golden-records/relations/view-relations/Images/include_shadow_records_sp.png" | relative_url }})
+        ![Graph with Include Shadow Records enabled, showing the Horizon Campaign Brief linked by /Action/CreatedBy to a shadow record whose detail panel shows Record Type Shadow Record]({{ "/assets/images/golden-records/relations/view-relations/Images/include_shadow_records_sp.png" | relative_url }})
 
         {:.important}
         Shadow records are records that exist in CluedIn but are flagged as hidden. This typically happens when a record does not have enough values to be promoted to a golden record and contains only [identifiers](/model/identifiers).
@@ -148,7 +148,7 @@ Once a golden record is processed, you can view its relations with other golden 
 
         In the following example, the **Marketing** department record was added to CluedIn on September 10, 2025. On the same date, several more relations were created.
 
-        ![include_temporal_relations_sp.png]({{ "/assets/images/golden-records/relations/view-relations/Images/include_temporal_relations_sp.png" | relative_url }})
+        ![Graph of PO-4100 with Include temporal relations enabled, showing the date node 2026-05-19 linked to the record]({{ "/assets/images/golden-records/relations/view-relations/Images/include_temporal_relations_sp.png" | relative_url }})
 
    - **Include Enricher Data** – when this option is enabled, the graph will also show records that consist only of data provided by [enrichers](/govern/enrichment).
 
@@ -156,38 +156,38 @@ Once a golden record is processed, you can view its relations with other golden 
 
     - To find records by their display name, on the settings panel on the left side of the page, enter the needed search keyword. In the graph, matching records become highlighted in yellow.
 
-        ![search_records_by_name_sp.png]({{ "/assets/images/golden-records/relations/view-relations/Images/search_records_by_name_sp.png" | relative_url }})
+        ![Search box with Schenker entered, reporting 3 matching golden records that are highlighted in yellow in the graph]({{ "/assets/images/golden-records/relations/view-relations/Images/search_records_by_name_sp.png" | relative_url }})
 
     - To find records that have a specific value (vocabulary key value or relation property value), at the top of the settings panel, select **Advanced Filters**.
 
-        ![select_advanced_filters_sp.png]({{ "/assets/images/golden-records/relations/view-relations/Images/select_advanced_filters_sp.png" | relative_url }})
+        ![Relations tab settings panel with the Advanced filters link highlighted next to Reset filters]({{ "/assets/images/golden-records/relations/view-relations/Images/select_advanced_filters_sp.png" | relative_url }})
 
         Then, in the **Advanced Filters** section, select the values of interest. In the graph, matching records become highlighted in yellow.
 
-        ![find_specific_values_sp.png]({{ "/assets/images/golden-records/relations/view-relations/Images/find_specific_values_sp.png" | relative_url }})
+        ![Advanced filters with vocabulary key cp.invoice.amount and value 37000 selected, one matching record, and the matching invoice node highlighted in the graph]({{ "/assets/images/golden-records/relations/view-relations/Images/find_specific_values_sp.png" | relative_url }})
 
 1. Review the information about the relations and nodes that appear in the graph:
 
     - To view basic information about a relation or a node in the graph, hover over that element. The corresponding information appears in the details panel on the right of the page.
 
-        ![view_node_basic_information_sp.png]({{ "/assets/images/golden-records/relations/view-relations/Images/view_node_basic_information_sp.png" | relative_url }})
+        ![Hovering over the DB Schenker AG node shows a details panel with its business domain, total relationships, direct edge types and direct neighbours by business domain]({{ "/assets/images/golden-records/relations/view-relations/Images/view_node_basic_information_sp.png" | relative_url }})
 
     - To view detailed information about a relation or a node, click that element in the graph.
 
          Example of detailed information for a relation:
 
-        ![view_relation_further_information_sp.png]({{ "/assets/images/golden-records/relations/view-relations/Images/view_relation_further_information_sp.png" | relative_url }})
+        ![Relation detail pane for /IsRoleOf showing relation type, From and To records, an Edit button, and no edge properties]({{ "/assets/images/golden-records/relations/view-relations/Images/view_relation_further_information_sp.png" | relative_url }})
 
         Example of detailed information for a node:
 
-        ![view_node_further_information_sp.png]({{ "/assets/images/golden-records/relations/view-relations/Images/view_node_further_information_sp.png" | relative_url }})
+        ![Golden record detail pane for DB Schenker AG with Vocabulary keys, Properties, Neighbours and Direct relations tabs, listing vocabulary key values and sources]({{ "/assets/images/golden-records/relations/view-relations/Images/view_node_further_information_sp.png" | relative_url }})
 
     - To expand a node and view all of its direct relations, double-click that node in the graph.
 
         As an example, pay attention to the **Project Phoenix** node before being expanded.
 
-        ![node_before_double_click_sp.png]({{ "/assets/images/golden-records/relations/view-relations/Images/node_before_double_click_sp.png" | relative_url }})
+        ![Relations graph with the collapsed Via Roma 12 node highlighted before it is expanded]({{ "/assets/images/golden-records/relations/view-relations/Images/node_before_double_click_sp.png" | relative_url }})
 
         After being expanded, the node reveals three additional relations.
 
-        ![node_after_double_click_sp.png]({{ "/assets/images/golden-records/relations/view-relations/Images/node_after_double_click_sp.png" | relative_url }})
+        ![Relations graph after double-clicking Via Roma 12: its additional relations are shown, and Expanded records lists Via Roma 12 with a Reset expansion link]({{ "/assets/images/golden-records/relations/view-relations/Images/node_after_double_click_sp.png" | relative_url }})

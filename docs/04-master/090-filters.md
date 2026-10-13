@@ -29,11 +29,11 @@ Filters can be as simple or complex as you need. Simple filters consist of a sin
 
 1. **Rule** – a set of parameters that make up a filter condition. It defines what to look for in your data.
 
-    ![filters-1.png]({{ "/assets/images/key-terms-and-features/filters-1.png" | relative_url }})
+    ![A filter with numbered callouts: the AND/OR operator, a group with its own AND/OR operator, and a rule where Business domain equals Company]({{ "/assets/images/key-terms-and-features/filters-1.png" | relative_url }})
 
 Creating a filter is a step-by-step process in which parameters are defined one after another. The following diagram shows the sequence of defining filter parameters.
 
-![filters-2.png]({{ "/assets/images/key-terms-and-features/filters-2.png" | relative_url }})
+![Diagram: filter parameters are defined in sequence: Property type, then Object, then Operation, then Value]({{ "/assets/images/key-terms-and-features/filters-2.png" | relative_url }})
 
 **Property type** is a parameter that defines the type of object in CluedIn. There are the following property types:
 
@@ -47,11 +47,11 @@ Creating a filter is a step-by-step process in which parameters are defined one 
 
 For example, the following filter will return all records where such Property (object type) as Tag (object) Contains (operation) the value Invalid (criteria).
 
-![filters-3.png]({{ "/assets/images/key-terms-and-features/filters-3.png" | relative_url }})
+![A filter rule where Property Tag Contains the value Invalid]({{ "/assets/images/key-terms-and-features/filters-3.png" | relative_url }})
 
 If you want to define several criteria in one filter, you can add more rules to the same filter. For example, the following filter will return all records where such Property (object type) as Tag (object) Contains (operation) the value Invalid or To review (criteria).
 
-![filters-4.png]({{ "/assets/images/key-terms-and-features/filters-4.png" | relative_url }})
+![A filter with the OR operator and two rules: Property Tag Contains Invalid, and Property Tag Contains To review]({{ "/assets/images/key-terms-and-features/filters-4.png" | relative_url }})
 
 When adding more rules to the filter, pay attention to the **AND**/**OR** operator in the upper-left corner of the filter. Selecting **AND** will return only those records where all combined criteria match. Selecting **OR** will return only those records where any of the combined criteria match.
 
@@ -61,11 +61,11 @@ Filters in search help you narrow down the exact records you want to see or use 
 
 - **Basic** – you can filter records by business domains, providers, sources, or tags (if available in the system). You can select multiple values in each filter parameter.
 
-    ![filters-5.png]({{ "/assets/images/key-terms-and-features/filters-5.png" | relative_url }})
+    ![Search Filters pane in basic mode, with TrainingContact selected in the Business Domain quick filter]({{ "/assets/images/key-terms-and-features/filters-5.png" | relative_url }})
 
 - **Advanced** – you can filter records by various properties or vocabulary keys. You can also filter records by their association with a particular glossary. Advanced mode gives you more precision in defining filter criteria. The following screenshot displays the same filters as in the screenshot above, but they are represented in the advanced filter mode.
 
-    ![filters-6.png]({{ "/assets/images/key-terms-and-features/filters-6.png" | relative_url }})
+    ![Search Filters pane with Advanced filter mode on, showing the conditions Business domain Equals TrainingContact AND Provider Contains File Data Source]({{ "/assets/images/key-terms-and-features/filters-6.png" | relative_url }})
 
 After you set up your search filters, you can save them for future use. This eliminates the need to specify filter criteria each time you want to find the same set of records. You can also share saved searches within your organization, making them available to others who need to work with the same set of records. For more information, see [Saved searches](/master/search#saved-searches).
 

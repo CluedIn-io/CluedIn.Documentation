@@ -17,7 +17,7 @@ In this article, you will learn what you need to do to make the AI mapping avail
 
 1. In CluedIn, go to **Administration** > **Feature Flags**, and then enable the **AI Mapping** feature.
 
-    ![ai-mapping-1.png]({{ "/assets/images/microsoft-integration/open-ai/ai-mapping-1.png" | relative_url }})
+    ![The AI Mapping feature flag card, marked Development, with its toggle set to Enabled]({{ "/assets/images/microsoft-integration/open-ai/ai-mapping-1.png" | relative_url }})
 
 1. Go to **Administration** > **Settings**. Scroll down to the **Open AI** section and complete the following fields:
 
@@ -29,7 +29,7 @@ In this article, you will learn what you need to do to make the AI mapping avail
 
     - **Deployment Name** – this is the custom name you chose for your deployment when you deployed a model. You can find this value in your Azure OpenAI resource. In Azure portal, go to **Resource Management** > **Model Deployments**. Alternatively, you can find this value in Azure OpenAI Studio by going to **Management** > **Deployments**.
 
-        ![ai-mapping-2.png]({{ "/assets/images/microsoft-integration/open-ai/ai-mapping-2.png" | relative_url }})
+        ![Open AI section of Administration Settings with API Key, Base Url, Resource Key, and Deployment Name fields filled in]({{ "/assets/images/microsoft-integration/open-ai/ai-mapping-2.png" | relative_url }})
 
         For more information about the required variables, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython&pivots=programming-language-python#retrieve-key-and-endpoint).
 

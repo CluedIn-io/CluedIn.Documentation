@@ -32,7 +32,7 @@ In order to prepare the setup of CluedIn in Azure, you need to have all required
 - Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) for the specific OS you are using ([Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli), [MacOS](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos) or [Linux](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt))
 - Create a folder where you can store the different tools & files you will need for the installation, for example `C:\Users\$env:username\AzureTools`, where `$env:username` contains your user name.
     - Open a PowerShell 7 session
-    ![PowerShell](/assets/images/deployment/step-by-step-install/01-open-powershell.png)
+    ![A new PowerShell 7 window open at the user folder prompt](/assets/images/deployment/step-by-step-install/01-open-powershell.png)
     - Create a new folder using the following command:
 ```powershell
 mkdir C:\Users\$env:username\AzureTools
@@ -41,7 +41,7 @@ mkdir C:\Users\$env:username\AzureTools
 ```powershell
 cd C:\Users\$env:username\AzureTools
 ```
-        ![New Folder](/assets/images/deployment/step-by-step-install/02-create-azure-tools-folder.png)
+        ![PowerShell 7 running mkdir .\AzureTools and cd .\AzureTools, leaving the prompt in the new AzureTools folder](/assets/images/deployment/step-by-step-install/02-create-azure-tools-folder.png)
     - Assign the path of your folder to a new Environment Variable, that you can name **AzureTools** for example:
 ```powershell
 $env:AzureTools = "C:\Users\$env:username\AzureTools"
@@ -72,12 +72,12 @@ $($(CertUtil -hashfile .\kubectl.exe SHA256)[1] -replace " ", "") -eq $(type .\k
 kubectl version --client
 ```
             The results should look like the following
-            ![Kubectl](/assets/images/deployment/step-by-step-install/03-kubectl.png)
+            ![PowerShell downloading kubectl.exe and its sha256 file with curl, verifying the hash as True, and kubectl version --client printing the client version](/assets/images/deployment/step-by-step-install/03-kubectl.png)
             Make sure kubectl is added to your PATH through the AzureTools folder
 ```powershell
 $env:PATH -split ';'
 ```
-            ![Kubectl](/assets/images/deployment/step-by-step-install/04-kubectl-path.png)
+            ![Output of $env:PATH -split ';' with the AzureTools folder highlighted among the PATH entries](/assets/images/deployment/step-by-step-install/04-kubectl-path.png)
 - Install [Helm](https://helm.sh/docs/intro/install/)
     - Choose the latest release that suits your OS [here](https://github.com/helm/helm/releases)
     - Download the appropriate zip, for example: `helm-vX.Y.Z-windows-amd64.zip` for Windows x64
@@ -85,7 +85,7 @@ $env:PATH -split ';'
 
     **After performing the above steps, your Azure Folder should look like the following:**
     
-    ![Azure Folder](/assets/images/deployment/step-by-step-install/05-azure-folder-content.png)
+    ![The AzureTools folder containing helm.exe, kubectl.exe, LICENSE, README.md and kubectl.exe.sha256](/assets/images/deployment/step-by-step-install/05-azure-folder-content.png)
 
 - Check your Azure access & permissions:
     - You must be [added as a user](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory#add-a-new-user) in your company's Azure tenant

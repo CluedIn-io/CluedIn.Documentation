@@ -31,7 +31,7 @@ To use the Knowledge Graph enricher, you must provide the API key. To get the AP
 
 1. On the **Choose Enricher** tab, select **Knowledge Graph**, and then select **Next**.
 
-    ![knowledge-graph-enricher-1.png]({{ "/assets/images/preparation/enricher/knowledge-graph-enricher-1.png" | relative_url }})
+    ![Choose enricher tab of the Add Enricher pane with Knowledge Graph selected]({{ "/assets/images/preparation/enricher/knowledge-graph-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -43,7 +43,7 @@ To use the Knowledge Graph enricher, you must provide the API key. To get the AP
 
     - **Website Vocabulary Key** – enter the vocabulary key that contains the websites of organizations that will be used for searching the Knowledge Graph database.
 
-        ![knowledge-graph-enricher-2.png]({{ "/assets/images/preparation/enricher/knowledge-graph-enricher-2.png" | relative_url }})
+        ![Configure tab with API Key, Accepted Business Domain set to Organization, and the organization name and website vocabulary keys filled in]({{ "/assets/images/preparation/enricher/knowledge-graph-enricher-2.png" | relative_url }})
 
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
@@ -59,11 +59,11 @@ After the Knowledge Graph enricher is added, you can modify its details:
 
 You can find the properties added to golden records from the Knowledge Graph enricher on the **Properties** page.
 
-![knowledge-graph-enricher-4.png]({{ "/assets/images/preparation/enricher/knowledge-graph-enricher-4.png" | relative_url }})
+![Properties page of a golden record listing properties whose Source is Knowledge Graph, such as description and URL]({{ "/assets/images/preparation/enricher/knowledge-graph-enricher-4.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the Knowledge Graph enricher, check the corresponding data part on the **History** page.
 
-![knowledge-graph-enricher-3.png]({{ "/assets/images/preparation/enricher/knowledge-graph-enricher-5.png" | relative_url }})
+![History page of a golden record with the Knowledge Graph data part highlighted above the file data source record]({{ "/assets/images/preparation/enricher/knowledge-graph-enricher-5.png" | relative_url }})
 
 The following table lists the properties that can be added to golden records by the Knowledge Graph enricher.
 

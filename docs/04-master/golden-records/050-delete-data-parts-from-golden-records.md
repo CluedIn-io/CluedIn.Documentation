@@ -43,7 +43,7 @@ On the **History** tab of a golden record, you can find all data parts that form
 
 1. On the right side of the row, select the three-dot button (⋮) > **Delete**.
 
-    ![delete-data-part-history-1.png]({{ "/assets/images/golden-records/delete-data-part-history-1.png" | relative_url }})
+    ![Data part row on the History tab with the three-dot menu open and Delete highlighted]({{ "/assets/images/golden-records/delete-data-part-history-1.png" | relative_url }})
 
     Alternatively, select the record ID. In the data part details pane that opens, select **Delete**.
 
@@ -51,7 +51,7 @@ On the **History** tab of a golden record, you can find all data parts that form
 
 1. Confirm that you want to delete the data part by entering _DELETE_. Then, select **Confirm**.
 
-    ![delete-data-part-history-2.gif]({{ "/assets/images/golden-records/delete-data-part-history-2.gif" | relative_url }})
+    ![Animation: on the History tab, selecting Delete for a data part, reviewing it, selecting Next, entering DELETE, and selecting Confirm]({{ "/assets/images/golden-records/delete-data-part-history-2.gif" | relative_url }})
 
     The data part is removed from the **History** tab. Consequently, all changes that the data part contributed to the golden record are also removed.
 
@@ -69,6 +69,6 @@ On the **Topology** tab of a golden record, you view how the data parts forming 
 
 1. Confirm that you want to delete the data part by entering _DELETE_. Then, select **Confirm**.
 
-    ![delete-data-part-topology.gif]({{ "/assets/images/golden-records/delete-data-part-topology.gif" | relative_url }})
+    ![Animation: on the Topology tab, selecting a data part node such as the Clean project, choosing Delete, reviewing it, entering DELETE, and confirming]({{ "/assets/images/golden-records/delete-data-part-topology.gif" | relative_url }})
 
     The data part is removed from the **Topology** tab. Consequently, all changes that the data part contributed to the golden record are also removed.

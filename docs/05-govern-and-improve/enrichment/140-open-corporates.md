@@ -33,7 +33,7 @@ To use the OpenCorporates enricher, you must provide the API token. To get the A
 
 1. On the **Choose Enricher** tab, select **OpenCorporates**, and then select **Next**.
 
-    ![open-corporates-enricher-1.png]({{ "/assets/images/preparation/enricher/open-corporates-enricher-1.png" | relative_url }})
+    ![The Add Enricher dialog on the Choose enricher tab, with Open Corporates selected]({{ "/assets/images/preparation/enricher/open-corporates-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -43,7 +43,7 @@ To use the OpenCorporates enricher, you must provide the API token. To get the A
 
     - **Lookup Vocabulary Key** – enter the vocabulary key that contains the names of companies that you want to enrich.
 
-        ![open-corporates-enricher-2.png]({{ "/assets/images/preparation/enricher/open-corporates-enricher-2.png" | relative_url }})
+        ![OpenCorporates Configure tab with API Key, Accepted Business Domain Organization and Lookup Vocabulary Key organization.name]({{ "/assets/images/preparation/enricher/open-corporates-enricher-2.png" | relative_url }})
 
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
@@ -59,11 +59,11 @@ After the OpenCorporates enricher is added, you can modify its details:
 
 You can find the properties added to golden records from the OpenCorporates enricher on the **Properties** page.
 
-![open-corporates-enricher-4.png]({{ "/assets/images/preparation/enricher/open-corporates-enricher-4.png" | relative_url }})
+![Golden record Properties page with Open Corporates properties highlighted: Current Status, In Active and Industry Codes]({{ "/assets/images/preparation/enricher/open-corporates-enricher-4.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the OpenCorporates enricher, check the corresponding data part on the **History** page.
 
-![open-corporates-enricher-5.png]({{ "/assets/images/preparation/enricher/open-corporates-enricher-5.png" | relative_url }})
+![Golden record History page with the Open Corporates data part highlighted, showing its record ID, author and sort date]({{ "/assets/images/preparation/enricher/open-corporates-enricher-5.png" | relative_url }})
 
 The following table lists the properties that can be added to golden records by the OpenCorporates enricher.
 

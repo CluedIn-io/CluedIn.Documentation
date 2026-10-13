@@ -21,7 +21,7 @@ source_path: docs/210-playbooks/data-ingestion/004-concept-of-mapping.md
 
 **You are here in the data journey**
 
-![data-ingestion-you-are-here.png]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
+![Data journey diagram: essential requirements, then data discovery workshop, then the data quality virtuous circle of ingestion, transformation, automation, export and release, with You are here on Data ingestion]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
 
 **Before you start**
 
@@ -33,7 +33,7 @@ source_path: docs/210-playbooks/data-ingestion/004-concept-of-mapping.md
 
 Now that you have ingested the data using the tool of your choice, the next step is to create mapping. However, before doing so, we recommend that you get acquainted with the overall concept of mapping. After all, starting the mapping process without understanding the core concepts can lead to issues later. Mapping is one of the most important steps in CluedIn, and we know it can be tricky initially. We understand that the learning curve is a bit steep, but hopefully with these playbooks you will be able to navigate it successfully.
 
-![mapping-intro.png]({{ "/assets/images/playbooks/mapping-intro.png" | relative_url }})
+![Data ingestion steps: data impact workshop, pick the right tool, ingest, map, process, with Map highlighted as the current step]({{ "/assets/images/playbooks/mapping-intro.png" | relative_url }})
 
 ## Core mapping terms
 
@@ -54,13 +54,13 @@ When you create mapping, you are essentially **transforming your initial raw rec
 
 To get a good default mapping configuration, use the **auto-mapping** option.
 
-![mapping-type.png]({{ "/assets/images/playbooks/mapping-type.png" | relative_url }})
+![The Create Mapping pane on the Mapping Type step, with Auto Mapping selected and highlighted]({{ "/assets/images/playbooks/mapping-type.png" | relative_url }})
 
 It is a great way to start and define the most important mapping attributes—**business domain** and **vocabulary**. You can learn more about the process of creating mapping and find step-by-step instructions in a dedicated [article](/ingest/mapping/create-mapping).
 
 For lineage purposes, we recommend **keeping a vocabulary close to the source**. Later, you can map the vocabulary keys to generic, shared vocabulary keys. When you have multiple sources with vocabulary keys mapped directly to the generic, shared vocabulary keys, it can become overwhelming to have more than 10 sources mapping directly to your golden records. In order to avoid confusion for those consuming the records, it is a good practice to map to the source vocabulary first.
 
-![configure-mapping.png]({{ "/assets/images/playbooks/configure-mapping.png" | relative_url }})
+![The Create Mapping Configure step, with Business Domain Company, Vocabulary CRM.Company, id as primary identifier, and a mapping preview of four columns]({{ "/assets/images/playbooks/configure-mapping.png" | relative_url }})
 
 ## Setting up the right identifiers
 
@@ -84,7 +84,7 @@ Sometimes, the key you consider unique is not in fact unique. For example, a SKU
 
 Of course, CluedIn has ways to fix such data quality issues. However, if you blindly choose a key to produce an identifier, it may lead to issues. To avoid this, CluedIn tells you the potential duplicates you have in your records before processing.
 
-![codes-duplicates.png]({{ "/assets/images/playbooks/codes-duplicates.png" | relative_url }})
+![The process confirmation pane, where Identifier Status flags country_code with 83 duplicates while the primary identifier crm.company.id has no duplicates]({{ "/assets/images/playbooks/codes-duplicates.png" | relative_url }})
 
 ## Main decisions in mapping
 

@@ -17,7 +17,7 @@ Rules enable you to establish business logic for managing your records within Cl
 
 A rule consists of a filter and one or more associated actions. Filter tells CluedIn what records should be affected by the rule's action. The following diagram shows the basic steps of creating a rule in CluedIn.
 
-![rules-1.gif]({{ "/assets/images/management/rules/rules-1.gif" | relative_url }})
+![Animation: how to set up rules in CluedIn in four steps: add a filter, add an action, activate the rule, and reprocess records]({{ "/assets/images/management/rules/rules-1.gif" | relative_url }})
 
 This section covers the following areas:
 

@@ -28,7 +28,7 @@ You can configure source record approval for data sources of any type (file, ing
 
 When source record approval is configured for a data source, each record goes through several stages. When a non-owner user processes the data set or when a new ingestion appears for the data set that is in the auto-submission mode, CluedIn first checks if the record should be sent to [quarantine](/ingest/troubleshooting/quarantine). If yes, the record is sent to quarantine and does not move forward in the processing pipeline. When a quarantined record is approved, it moves to the next stage where CluedIn checks if the record requires approval. If yes, the record is sent to the approval area and does not move forward in the processing pipeline. When the record is approved, it moves to processing, resulting in the creation of a new golden record or aggregation to an existing golden record.
 
-![source-record-approval-flow.png]({{ "/assets/images/integration/additional-operations/source-record-approval-flow.png" | relative_url }})
+![Flowchart: a record sent to processing is checked for quarantine, then for approval. Each check, if yes, leads to a review where the record is rejected or approved; approved or unflagged records go on to Process]({{ "/assets/images/integration/additional-operations/source-record-approval-flow.png" | relative_url }})
 
 {:.important}
 After source record approval, the record does not go back to any previous stages in the processing pipeline; it goes straight into processing.
@@ -71,7 +71,7 @@ You can configure source record approval using one of the following methods:
 
         1. In the **Action** dropdown list, select **Require approval**.
 
-            ![source-record-approval-property-rule.png]({{ "/assets/images/integration/additional-operations/source-record-approval-property-rule.png" | relative_url }})
+            ![The Add property rule pane for employee_jobTitle, with the filter Is equal to Accountant and the Require approval action]({{ "/assets/images/integration/additional-operations/source-record-approval-property-rule.png" | relative_url }})
 
         1. Select **Add Rule**.
 
@@ -85,7 +85,7 @@ You can configure source record approval using one of the following methods:
 
         1. In the **Action** dropdown list, select **Require approval**.
 
-            ![source-record-approval-pre-process-rule.png]({{ "/assets/images/integration/additional-operations/source-record-approval-pre-process-rule.png" | relative_url }})
+            ![The Add Pre-process Rule pane named Require approval for new employees, with Apply action to all values and the Require approval action]({{ "/assets/images/integration/additional-operations/source-record-approval-pre-process-rule.png" | relative_url }})
 
         1. Select **Add Rule**.
 
@@ -95,7 +95,7 @@ You can configure source record approval using one of the following methods:
 
         1. On the left side of the page, write the code to define the conditions for sending the source records for approval. You can write any JavaScript code.
 
-            ![source-record-approval-advanced-mapping.png]({{ "/assets/images/integration/additional-operations/source-record-approval-advanced-mapping.png" | relative_url }})
+            ![Advanced mapping code that calls requireApproval() when the employee job title is Accountant and the last name is Ellis]({{ "/assets/images/integration/additional-operations/source-record-approval-advanced-mapping.png" | relative_url }})
 
         1. Select **Save**.
 
@@ -103,7 +103,7 @@ You can configure source record approval using one of the following methods:
 
     Now, when delta records are ingested to CluedIn and they meet the conditions in pre-process rules, property rules, or advanced mapping, a new entry appears on the **Process** tab, informing that these records have been sent for approval.
 
-    ![source-record-approval-process-tab.png]({{ "/assets/images/integration/additional-operations/source-record-approval-process-tab.png" | relative_url }})
+    ![The Process tab of a data set, with a new submission entry showing 3 records sent for approval and Auto submission enabled]({{ "/assets/images/integration/additional-operations/source-record-approval-process-tab.png" | relative_url }})
 
     Additionally, the owners of the data source will receive a notification in CluedIn about the records pending approval. The owners of the data source can now [review](#review-records-pending-approval) these records and approve or reject them.
 
@@ -121,7 +121,7 @@ Source record approval is useful for [manual data entry projects](/ingest/manual
 
 1. In the **Require records approval** section, select the checkbox to enable the approval mechanism.
 
-    ![source-record-approval-manual-configuration.png]({{ "/assets/images/integration/additional-operations/source-record-approval-manual-configuration.png" | relative_url }})
+    ![Manual data entry project settings with the Require records approval checkbox selected]({{ "/assets/images/integration/additional-operations/source-record-approval-manual-configuration.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -141,11 +141,11 @@ To track the records that require your approval, on the navigation pane, go to *
 
 - **Data set records pending review** – this table allows you to track the number of records per data set that are in quarantine or require approval. The table contains information about the data sources for which you are the owner.
 
-    ![source-record-approval-data-set.png]({{ "/assets/images/integration/additional-operations/source-record-approval-data-set.png" | relative_url }})
+    ![The Data set records pending review table on My Tasks, listing a data set with counts in the Quarantine and Requires approval columns]({{ "/assets/images/integration/additional-operations/source-record-approval-data-set.png" | relative_url }})
 
 - **Manual data entry project records pending review** – this table allows you to track the number of records per manual data entry project that require approval. The table contains information about the manual data entry projects for which you are the owner.
 
-    ![source-record-approval-manual-data-entry.png]({{ "/assets/images/integration/additional-operations/source-record-approval-manual-data-entry.png" | relative_url }})
+    ![The Manual data entry project records pending review table on My Tasks, listing two projects with their Requires approval counts]({{ "/assets/images/integration/additional-operations/source-record-approval-manual-data-entry.png" | relative_url }})
 
 **To review records pending approval**
 
@@ -153,7 +153,7 @@ To track the records that require your approval, on the navigation pane, go to *
 
     - In the notification about records being sent for approval, select **View**.
 
-        ![source-record-approval-notification.png]({{ "/assets/images/integration/additional-operations/source-record-approval-notification.png" | relative_url }})
+        ![A notification that the Employees-1 submission has finished and 3 records were sent to approval, with View highlighted]({{ "/assets/images/integration/additional-operations/source-record-approval-notification.png" | relative_url }})
 
     - In the daily email about records pending approval, select the number of records that require your approval.
 
@@ -165,7 +165,7 @@ To track the records that require your approval, on the navigation pane, go to *
 
     - If the source record should be processed, select the check mark in the **Actions** column for this record.
 
-        ![source-record-approval-approval-tab.png]({{ "/assets/images/integration/additional-operations/source-record-approval-approval-tab.png" | relative_url }})
+        ![The Approval tab of a data set listing records pending approval, each with a Details icon and approve and reject icons in the Actions column]({{ "/assets/images/integration/additional-operations/source-record-approval-approval-tab.png" | relative_url }})
 
         You can approve records one by one, or you can approve them in bulk. To approve the records in bulk, select checkboxes in the first column for the needed records. Then, open the three-dot menu, and select **Approve clues**.
 

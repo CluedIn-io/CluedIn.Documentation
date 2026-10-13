@@ -350,6 +350,8 @@ quietly broken site:
 - an internal link pointing at a URL no page serves
 - an old URL in `redirect_from` on an unpublished page, which builds no
   redirect, or one claimed by two pages
+- an image whose alt text is empty or just a file name, which tells a reader
+  using a screen reader, and an AI assistant reading the Markdown copy, nothing
 
 The four warnings it currently prints are links that were already broken before
 the restructure; they are recorded in `_migration/report.md`. Do not add to them.

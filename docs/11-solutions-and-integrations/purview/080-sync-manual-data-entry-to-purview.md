@@ -24,19 +24,19 @@ In this article, you will learn how to sync CluedIn manual data entry projects t
     
 1. Turn on the toggle in **Sync Manual Data Entry to Purview**.
 
-    ![sync-manual-data-entry.png]({{ "/assets/images/microsoft-integration/purview/sync-manual-data-entry.png" | relative_url }})
+    ![The Sync Manual Data Entry to Purview setting with its toggle set to Enabled]({{ "/assets/images/microsoft-integration/purview/sync-manual-data-entry.png" | relative_url }})
 
 1. Select **Save**.
 
 1. Make sure you have an existing manual data entry project that contains some processed data.
 
-    ![sync-manual-data-entry-existing-project.png]({{ "/assets/images/microsoft-integration/purview/sync-manual-data-entry-existing-project.png" | relative_url }})
+    ![The Configuration tab of the manual data entry project Account MDE, with the Account entity type and vocabulary]({{ "/assets/images/microsoft-integration/purview/sync-manual-data-entry-existing-project.png" | relative_url }})
 
 ## Feature demonstration
 
 Once you enable synchronization of manual data entry projects to Purview, you will receive a notification when the project is synced.
 
-![sync-manual-data-entry-notification.png]({{ "/assets/images/microsoft-integration/purview/sync-manual-data-entry-notification.png" | relative_url }})
+![A CluedIn notification saying the manual data entry project Account MDE was synced to Purview]({{ "/assets/images/microsoft-integration/purview/sync-manual-data-entry-notification.png" | relative_url }})
 
 **To find the asset in Purview**
 
@@ -50,4 +50,4 @@ Once you enable synchronization of manual data entry projects to Purview, you wi
 
 1. On the asset details page, go to **Lineage**. Here, you can view a visual representation of how a manual data entry project moves in the CluedIn processing pipeline.
 
-    ![sync-manual-data-entry-lineage.png]({{ "/assets/images/microsoft-integration/purview/sync-manual-data-entry-lineage.png" | relative_url }})
+    ![Purview lineage: the Account MDE project and an Account.csv source each flow through Generate Clue into the CluedIn Processing Pipeline, then on to processing rules]({{ "/assets/images/microsoft-integration/purview/sync-manual-data-entry-lineage.png" | relative_url }})

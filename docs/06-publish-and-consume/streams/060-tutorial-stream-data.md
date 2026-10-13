@@ -38,17 +38,17 @@ An export target is a place where you can send the data out of CluedIn after it 
 
 1. On the **Choose Target** tab, find and select **Sql Server Connector**. Then, select **Next**.
 
-    ![add-export-target-1.png]({{ "/assets/images/getting-started/data-streaming/add-export-target-1.png" | relative_url }})
+    ![The Add Export Target dialog on the Choose Target tab, with a search for sql server returning the Sql Server Connector]({{ "/assets/images/getting-started/data-streaming/add-export-target-1.png" | relative_url }})
 
 1. On the **Configure** tab, enter the database connection details such as **Name**, **Host**, **Database Name**, **Username**, and **Password**. Optionally, you may add **Port Number**, **Schema**, and **Connection pool size**.
 
-    ![add-export-target-2.png]({{ "/assets/images/getting-started/data-streaming/add-export-target-2.png" | relative_url }})
+    ![The Configure tab of the Add Export Target dialog with Name, Host, Database Name, Username, and Password filled in]({{ "/assets/images/getting-started/data-streaming/add-export-target-2.png" | relative_url }})
 
 1. Select **Test Connection**. After you receive a notification that the connection is successful, select **Add**.
 
     The export target is added.
 
-    ![add-export-target-3.png]({{ "/assets/images/getting-started/data-streaming/add-export-target-3.png" | relative_url }})
+    ![The Export Targets list showing the new SQL Server target with Synchronized and Event stream modes, Active status, and Healthy health]({{ "/assets/images/getting-started/data-streaming/add-export-target-3.png" | relative_url }})
 
     Now, you can create a stream.
 
@@ -68,7 +68,7 @@ A stream is a trigger that starts the process of sending the data to the export 
 
 1. On the **Configuration** tab, in the **Filters** section, select **Add First Filter**, and then specify what data you want to share.
 
-    ![create-stream-2.png]({{ "/assets/images/getting-started/data-streaming/create-stream-2.png" | relative_url }})
+    ![The stream Filters section with one rule: Property, Business domain, Equals, with the value TrainingContact]({{ "/assets/images/getting-started/data-streaming/create-stream-2.png" | relative_url }})
 
     The fields for configuring a filter appear one by one. After you complete the previous field, the next field appears.
 
@@ -78,7 +78,7 @@ A stream is a trigger that starts the process of sending the data to the export 
 
 1. On the **Choose Connector** tab, select the Sql Server connector, and then select **Next**.
 
-    ![create-stream-4.png]({{ "/assets/images/getting-started/data-streaming/create-stream-4.png" | relative_url }})  
+    ![The Export Target Configuration tab of the Training stream on the Choose connector step, with the SQL Server export target selected]({{ "/assets/images/getting-started/data-streaming/create-stream-4.png" | relative_url }})  
 
 1. On the **Connector Properties** tab, do the following:
 
@@ -90,27 +90,27 @@ A stream is a trigger that starts the process of sending the data to the export 
 
         - **Event log stream** – every time you make a change in CluedIn, a new record is added to the database instead of replacing the existing record.
 
-        ![create-stream-5.png]({{ "/assets/images/getting-started/data-streaming/create-stream-5.png" | relative_url }})  
+        ![Connector properties with Target name set to Training and Streaming Mode set to Synchronized stream]({{ "/assets/images/getting-started/data-streaming/create-stream-5.png" | relative_url }})  
 
 1. On the **Properties to Export** tab, click **Auto-select**. All vocabulary keys associated with the records in the strem filter will be displayed on the page.
 
-    ![create-stream-6.png]({{ "/assets/images/getting-started/data-streaming/create-stream-6.png" | relative_url }})  
+    ![The Properties to export section after Auto-select, listing trainingcontact vocabulary keys such as email, firstName, id, jobTitle, and lastName]({{ "/assets/images/getting-started/data-streaming/create-stream-6.png" | relative_url }})  
 
 1. Select **Save**. To view the data that will be sent to the database, go to the **Data** tab.
 
 1. Start the stream by selecting the play button. Then, confirm that you want to start the stream.
 
-    ![create-stream-9.png]({{ "/assets/images/getting-started/data-streaming/create-stream-9.png" | relative_url }})
+    ![The Training stream details page with the Start button highlighted next to Pause, Stop, and Edit]({{ "/assets/images/getting-started/data-streaming/create-stream-9.png" | relative_url }})
 
     The **Streaming** and **Exporting** labels appear under the stream name, indicatig that the stream is active.
 
-    ![create-stream-10.png]({{ "/assets/images/getting-started/data-streaming/create-stream-10.png" | relative_url }})
+    ![The Training stream header showing the Streaming and Exporting labels under the stream name]({{ "/assets/images/getting-started/data-streaming/create-stream-10.png" | relative_url }})
 
     On the **Monitoring** tab, you can view different data performance metrics.
 
 1. Go to the database and open the table.
 
-    ![create-stream-11.png]({{ "/assets/images/getting-started/data-streaming/create-stream-11.png" | relative_url }})  
+    ![A SQL query on the dbo.Training table in the export database, with results showing streamed records and trainingcontact columns]({{ "/assets/images/getting-started/data-streaming/create-stream-11.png" | relative_url }})  
 
     The records have been sent to the database.
 

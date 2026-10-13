@@ -45,7 +45,7 @@ The layouts consist of the following elements:
 
 The following screenshot displays the arrangement of nav (a) and main (b) containers on the golden record overview page.
 
-![golden-record-overview.png]({{ "/assets/images/administration/entity-page-layout/golden-record-overview.png" | relative_url }})
+![A golden record Overview tab with the nav container (a) on the left holding properties, vocabularies, sources, and relations, and the main container (b) on the right holding quality metrics and suggested searches]({{ "/assets/images/administration/entity-page-layout/golden-record-overview.png" | relative_url }})
 
 ## Layout details page
 
@@ -79,7 +79,7 @@ If built-in layouts are not sufficient for you, you create your own layout.
 
 1. Select **Create**.
 
-    ![create-layout.gif]({{ "/assets/images/administration/entity-page-layout/create-layout.gif" | relative_url }})
+    ![Animation: selecting Create Layout, entering a display name, choosing a layout template, and selecting Create]({{ "/assets/images/administration/entity-page-layout/create-layout.gif" | relative_url }})
 
     Alternatively, you can create a layout from the business domain page. You can do it when editing the business domain.
 
@@ -117,6 +117,6 @@ You can change the layout configuration and choose the elements that should be d
 
 1. After completing your edits to the layout, select **Save**.
 
-    ![edit-layout.gif]({{ "/assets/images/administration/entity-page-layout/edit-layout.gif" | relative_url }})
+    ![Animation: opening a layout, selecting Edit, adding custom vocabulary keys to the layout configuration, and saving]({{ "/assets/images/administration/entity-page-layout/edit-layout.gif" | relative_url }})
 
     The changes will be automatically applied to the overview pages of all golden records that belong to the business domain associated with the current layout.

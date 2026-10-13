@@ -26,29 +26,29 @@ Before you begin, make sure you have completed the [prerequisites](#prerequisite
 
 1. On the **Choose Target** tab, select **Dataverse Connector**. Then, select **Next**.
 
-    ![choose_target_dataverse_connector.png]({{ "/assets/images/consume/export-targets/choose_target_dataverse_connector.png" | relative_url }})
+    ![Choose Target tab of the Add Export Target pane with Dataverse Connector selected]({{ "/assets/images/consume/export-targets/choose_target_dataverse_connector.png" | relative_url }})
 
 1. On the **Configure** tab, enter the connection details:
 
-    ![dataverse-connector-configure.png]({{ "/assets/images/consume/export-targets/dataverse-connector-configure.png" | relative_url }})
+    ![Configure tab of the Add Export Target pane with Name, Url, Tenant Id, Client Id and Client Secret filled in]({{ "/assets/images/consume/export-targets/dataverse-connector-configure.png" | relative_url }})
 
     1. **Name** – user-friendly name of the export target that will be displayed on the **Export Target** page in CluedIn.
 
     1. **URL** – you can find this value in [Power Apps](https://make.powerapps.com/), in the environment that contains your Dataverse instance. In the upper-right corner of the Power Apps page, select the settings icon, and then select **Developer Resources**. Copy the value in **Web API endpoint** and paste it to the **URL** field in CluedIn. You do not need to copy the version of the API (`/api/data/v9.2`).
 
-        ![web-api-endpoint.png]({{ "/assets/images/consume/export-targets/web-api-endpoint.png" | relative_url }})
+        ![Power Apps Developer resources pane with the Web API endpoint value highlighted]({{ "/assets/images/consume/export-targets/web-api-endpoint.png" | relative_url }})
 
     1. **TenantID** – unique identifier for your Microsoft Entra tenant. You can find this value in the **Overview** section of app registration.
 
-        ![dataverse-tenant-id.png]({{ "/assets/images/consume/export-targets/dataverse-tenant-id.png" | relative_url }})
+        ![App registration Overview page in the Azure portal with the Directory (tenant) ID value highlighted]({{ "/assets/images/consume/export-targets/dataverse-tenant-id.png" | relative_url }})
 
     1. **ClientID** – unique identifier assigned to the Dataverse app when it was registered in the Microsoft identity platform. You can find this value in the **Overview** section of app registration.
 
-        ![dataverse-client-id.png]({{ "/assets/images/consume/export-targets/dataverse-client-id.png" | relative_url }})
+        ![App registration Overview page in the Azure portal with the Application (client) ID value highlighted]({{ "/assets/images/consume/export-targets/dataverse-client-id.png" | relative_url }})
 
     1. **ClientSecret** – confidential string used by your Dataverse app to authenticate itself to the Microsoft identity platform. You can find this value in the **Certificates & secrets** section of app registration.
 
-        ![dataverse-client-secret.png]({{ "/assets/images/consume/export-targets/dataverse-client-secret.png" | relative_url }})
+        ![Certificates and secrets page of the app registration on the Client secrets tab, with the secret Value highlighted]({{ "/assets/images/consume/export-targets/dataverse-client-secret.png" | relative_url }})
 
 1. Test the connection to make sure it works, and then select **Add**.
 
@@ -70,39 +70,39 @@ This section outlines how to create a security role in Power Apps in order to us
 
 1. Sign in to your [Power Apps account](https://make.powerapps.com/) and make sure you are in the intended environment.
 
-    ![power-apps-home-page.png]({{ "/assets/images/consume/export-targets/power-apps-home-page.png" | relative_url }})
+    ![Power Apps home page with the current environment highlighted in the upper-right corner]({{ "/assets/images/consume/export-targets/power-apps-home-page.png" | relative_url }})
 
 1. Select **Power Platform** > **Power Platform Admin Center**.
 
-    ![power-platform-admin-center.png]({{ "/assets/images/consume/export-targets/power-platform-admin-center.png" | relative_url }})
+    ![Power Apps with the Power Platform menu open and Power Platform Admin Center highlighted]({{ "/assets/images/consume/export-targets/power-platform-admin-center.png" | relative_url }})
 
 1. Select **Environments**, and then select your intended environment.
 
-   ![intended-environment.png]({{ "/assets/images/consume/export-targets/intended-environment.png" | relative_url }})
+   ![Power Platform admin center Environments list with the intended environment highlighted]({{ "/assets/images/consume/export-targets/intended-environment.png" | relative_url }})
 
 1. At the top of the page, select **Settings**.
 
-    ![environment-settings.png]({{ "/assets/images/consume/export-targets/environment-settings.png" | relative_url }})
+    ![Environment details page in Power Platform admin center with Settings highlighted in the toolbar]({{ "/assets/images/consume/export-targets/environment-settings.png" | relative_url }})
 
 1. Expand the **Users + permissions** dropdown, and then select **Security roles**.
 
-    ![user-permissions-security-roles.png]({{ "/assets/images/consume/export-targets/user-permissions-security-roles.png" | relative_url }})
+    ![Environment Settings page with Users + permissions expanded and Security roles highlighted]({{ "/assets/images/consume/export-targets/user-permissions-security-roles.png" | relative_url }})
 
 1. At the top of the page, select **New role**. Enter the **Role Name** and select the **Business unit** of your organization. If needed, change the **Member's privilege inheritance** according to your preference. Finally, select **Create**.
 
-    ![create-new-role.png]({{ "/assets/images/consume/export-targets/create-new-role.png" | relative_url }})
+    ![Security roles page with the Create New Role pane showing Role Name, Business unit and Member's privilege inheritance]({{ "/assets/images/consume/export-targets/create-new-role.png" | relative_url }})
 
 1. In the list of all security roles, find and select the role that you've just created.
 
-    ![select-security-role.png]({{ "/assets/images/consume/export-targets/select-security-role.png" | relative_url }})
+    ![Security roles list filtered to the newly created role, with the role name highlighted]({{ "/assets/images/consume/export-targets/select-security-role.png" | relative_url }})
 
 1. Edit the security role's privileges according to the [security role privileges reference](#security-role-privileges). To open the edit mode, select the three-dot button next to the table that you want to edit.
 
-   ![edit-table.png]({{ "/assets/images/consume/export-targets/edit-table.png" | relative_url }})
+   ![Security role privileges on the Tables tab with the three-dot button next to the Solution table highlighted]({{ "/assets/images/consume/export-targets/edit-table.png" | relative_url }})
 
 1. Once you've updated the security role's privileges according to the [security role privileges reference](#security-role-privileges), select **Save**.
 
-   ![save-security-role-update.png]({{ "/assets/images/consume/export-targets/save-security-role-update.png" | relative_url }})
+   ![Security role with unsaved privilege changes and the Save button highlighted in the toolbar]({{ "/assets/images/consume/export-targets/save-security-role-update.png" | relative_url }})
 
 ### Security role privileges
 
@@ -134,23 +134,23 @@ This section outlines how to create an application user in Power Apps in order t
 
 1. Sign in to your [Power Apps account](https://make.powerapps.com/) and make sure you are in the intended environment.
 
-    ![power-apps-home-page.png]({{ "/assets/images/consume/export-targets/power-apps-home-page.png" | relative_url }})
+    ![Power Apps home page with the current environment highlighted in the upper-right corner]({{ "/assets/images/consume/export-targets/power-apps-home-page.png" | relative_url }})
 
 1. Select **Power Platform** > **Power Platform Admin Center**.
 
-    ![power-platform-admin-center.png]({{ "/assets/images/consume/export-targets/power-platform-admin-center.png" | relative_url }})
+    ![Power Apps with the Power Platform menu open and Power Platform Admin Center highlighted]({{ "/assets/images/consume/export-targets/power-platform-admin-center.png" | relative_url }})
 
 1. Select **Environments**, and then select your intended environment.
 
-   ![intended-environment.png]({{ "/assets/images/consume/export-targets/intended-environment.png" | relative_url }})
+   ![Power Platform admin center Environments list with the intended environment highlighted]({{ "/assets/images/consume/export-targets/intended-environment.png" | relative_url }})
 
 1. At the top of the page, select **Settings**.
 
-    ![environment-settings.png]({{ "/assets/images/consume/export-targets/environment-settings.png" | relative_url }})
+    ![Environment details page in Power Platform admin center with Settings highlighted in the toolbar]({{ "/assets/images/consume/export-targets/environment-settings.png" | relative_url }})
 
 1. Expand the **Users + permissions** dropdown, and then select **Application users**.
 
-    ![user-permissions-application-users.png]({{ "/assets/images/consume/export-targets/user-permissions-application-users.png" | relative_url }})
+    ![Environment Settings page with Users + permissions expanded and Application users highlighted]({{ "/assets/images/consume/export-targets/user-permissions-application-users.png" | relative_url }})
 
 1. At the top of the page, select **New app user**.
 
@@ -164,11 +164,11 @@ This section outlines how to create an application user in Power Apps in order t
 
     1. Select **Create**.
 
-        ![create-a-new-app-user.png]({{ "/assets/images/consume/export-targets/create-a-new-app-user.png" | relative_url }})
+        ![Application users page with the Create a new app user pane showing the App, Business unit, and two Security roles]({{ "/assets/images/consume/export-targets/create-a-new-app-user.png" | relative_url }})
 
     As a result, the new application user is created.
 
-    ![new-app-user-successfully-created.png]({{ "/assets/images/consume/export-targets/new-app-user-successfully-created.png" | relative_url }})
+    ![Application users list with a success message and the newly created app user highlighted]({{ "/assets/images/consume/export-targets/new-app-user-successfully-created.png" | relative_url }})
 
 ## Stream requirements
 
@@ -178,7 +178,7 @@ When adding a Dataverse Connector V2 stream, the following constraint applies re
 
 All Dataverse tables are required by Microsoft to have a column named **Name**. To satisfy this constraint, the properties configured for export in the stream must include the **Golden Record Property** called `Name`.
 
-![dataverse-v2-properties-name.png]({{ "/assets/images/consume/export-targets/dataverse-v2-properties-name.png" | relative_url }})
+![Properties to export step of a stream's Export target configuration, with the Name property in the list]({{ "/assets/images/consume/export-targets/dataverse-v2-properties-name.png" | relative_url }})
 
 ## Sync changes back from Dataverse
 
@@ -186,7 +186,7 @@ By default, the Dataverse connector exports data in one direction: from CluedIn 
 
 This feature is configured per stream, in the **Export target configuration** > **Connector properties** section.
 
-![dataverse-v2-sync-options.png]({{ "/assets/images/consume/export-targets/dataverse-v2-sync-options.png" | relative_url }})
+![Connector properties step of a stream with Target name, Streaming mode, the Sync changes back from Dataverse toggle on, and Webhook Base URL]({{ "/assets/images/consume/export-targets/dataverse-v2-sync-options.png" | relative_url }})
 
 Toggle **Sync changes back from Dataverse** to enable it. When the toggle is on, CluedIn automatically registers a Dataverse plug-in and attaches plug-in steps that listen for record change events on the Dataverse tables that belong to the stream. When a change is detected, the plug-in posts the updated data back to CluedIn, which then updates the corresponding golden record. No manual setup in Dataverse is required.
 
@@ -196,7 +196,7 @@ Enabling **Sync changes back from Dataverse** enforces the following additional 
 
 - **Business domain filter** – The stream's filter must contain exactly one condition: a **Business domain** **equals** constraint. This is required to support the case where new rows are added directly in Dataverse: when the plug-in notifies CluedIn of a newly created record, CluedIn needs to know which Business Domain to assign to that record. Without this constraint there is no way to determine the correct Business Domain for the incoming change.
 
-    ![dataverse-v2-sync-filter.png]({{ "/assets/images/consume/export-targets/dataverse-v2-sync-filter.png" | relative_url }})
+    ![Stream Configuration tab with a single filter condition: Property Business domain Equals Material]({{ "/assets/images/consume/export-targets/dataverse-v2-sync-filter.png" | relative_url }})
 
 
 ### Webhook Base URL

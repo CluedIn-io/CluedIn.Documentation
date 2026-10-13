@@ -36,9 +36,9 @@ This migration is designed to run entirely within the AKS cluster, leveraging an
 
 This approach ensures secure, seamless, and auditable data migration without requiring any manual data export/import actions outside of the cluster.
 
-![azure-sql-migration.png]({{ "/assets/images/paas-operations/azure-sql-migration.png" | relative_url }})
+![Diagram: inside the AKS cluster, the SQL Migration job pod reads the in-cluster SQL, writes a BACPAC to a storage account, and connects through a private endpoint to Azure SQL]({{ "/assets/images/paas-operations/azure-sql-migration.png" | relative_url }})
 
-![sql-migration-blocks.png]({{ "/assets/images/paas-operations/sql-migration-blocks.png" | relative_url }})
+![Diagram: the SQL migration job in AKS exports a BACPAC from the in-cluster SQL Server, stores it in the storage account, and imports it into the Azure SQL server through a private endpoint]({{ "/assets/images/paas-operations/sql-migration-blocks.png" | relative_url }})
 
 ## Azure SQL Server Creation
 

@@ -86,7 +86,7 @@ Let's say that you want to load all `/Infrastructure/User` entities.
     %cluedin search --context ctx --query +entityType:/Infrastructure/User
     ```
 
-    <img src="/assets/images/python-sdk/notebook.png" alt="notebook" />
+    <img src="/assets/images/python-sdk/notebook.png" alt="Notebook cell running the cluedin search command, returning a DataFrame with id, name, displayName, description and date columns for one user record" />
 
 1. You can get a sample by providing a limit if you have millions of entities.
 

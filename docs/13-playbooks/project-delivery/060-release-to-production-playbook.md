@@ -21,11 +21,11 @@ source_path: docs/210-playbooks/009-release-to-production-playbook.md
 
 **You are here in the data journey**
 
-![release-to-production-playbook.png]({{ "/assets/images/playbooks/release-to-production-playbook.png" | relative_url }})
+![Data journey diagram: essential requirements, then a data discovery workshop, then the data quality cycle of ingestion, transformation, automation and export, with You are here at Release to production]({{ "/assets/images/playbooks/release-to-production-playbook.png" | relative_url }})
 
 Now that you have implemented your first use case in the test environment, it is time to release your solution to production. This process consists of three steps as shown on the following diagram.
 
-![release-to-production-playbook-steps.png]({{ "/assets/images/playbooks/release-to-production-playbook-steps.png" | relative_url }})
+![Three release steps: 1 configure a CI/CD process, preferably in Azure DevOps, 2 sync configuration between test and production with the product toolkit, 3 update ingestion pipelines and assign user access]({{ "/assets/images/playbooks/release-to-production-playbook-steps.png" | relative_url }})
 
 ## Set up CI/CD process
 

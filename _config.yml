@@ -42,6 +42,7 @@ exclude:
     "CONTRIBUTING.md",
     "AGENTS.md",
     "CLAUDE.md",
+    "TODO.md",
     "Rakefile",
     "docs/tests/",
     "_migration/",

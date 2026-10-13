@@ -23,7 +23,7 @@ Depending on the selected [data modeling approach](/model/data-catalog/modeling-
 
 - **Automatically** – this option is part of the data-first approach. When [creating a mapping](/ingest/mapping/create-mapping) for a data set, you have the option to generate a new vocabulary. CluedIn will then automatically create vocabulary keys and assign data types. You can customize the names of vocabulary keys and data types. Once the mapping is created, you can then open the vocabulary and make additional adjustments to vocabulary keys if needed.
 
-    ![create-vocabulary-key-mapping.gif]({{ "/assets/images/management/data-catalog/create-vocabulary-key-mapping.gif" | relative_url }})
+    ![Animation: creating a mapping for a data set with the option to generate a new vocabulary, so CluedIn creates vocabulary keys automatically from the columns]({{ "/assets/images/management/data-catalog/create-vocabulary-key-mapping.gif" | relative_url }})
 
 - **Manually** – this option is part of the model-first approach, which assumes that you need to create vocabulary keys before creating the mapping for a data set. The following procedure outlines the steps to manually create a vocabulary key.
 
@@ -49,7 +49,7 @@ Depending on the selected [data modeling approach](/model/data-catalog/modeling-
 
 1. Select **Create**.
 
-    ![create-vocabulary-key.gif]({{ "/assets/images/management/data-catalog/create-vocabulary-key.gif" | relative_url }})
+    ![Animation: on the Vocabulary Keys tab, selecting Add Vocabulary Key, filling in the key details, data type, storage, and classification, and selecting Create]({{ "/assets/images/management/data-catalog/create-vocabulary-key.gif" | relative_url }})
 
     The vocabulary key page opens, where you can view and manage vocabulary key details.
 
@@ -70,7 +70,7 @@ Changing the data type, storage, classification, and [mapping](#map-one-vocabula
 
     Depending on the section that you want to edit, you may have to follow different steps. For example, direct editing is not possible for the **Name** and **Data Type** sections; instead, you must select the corresponding button to open the pane for editing.
 
-    ![edit-vocabulary-key.gif]({{ "/assets/images/management/data-catalog/edit-vocabulary-key.gif" | relative_url }})
+    ![Animation: selecting Edit on the customer.phone vocabulary key details page, changing configuration sections, and saving]({{ "/assets/images/management/data-catalog/edit-vocabulary-key.gif" | relative_url }})
 
 ## Map one vocabulary key to another
 
@@ -90,7 +90,7 @@ To demonstrate the importance and efficiency of vocabulary key mapping, let's lo
 
 1. Select **Confirm**.
 
-    ![map-vocabulary-key.gif]({{ "/assets/images/management/data-catalog/map-vocabulary-key.gif" | relative_url }})
+    ![Animation: editing the crm.contact.email key, selecting Add mapping in the Maps to section, choosing a target key, selecting Add Key, and confirming]({{ "/assets/images/management/data-catalog/map-vocabulary-key.gif" | relative_url }})
 
 1. Select **Save**, and then confirm your choice.    
 
@@ -100,7 +100,7 @@ The vocabulary key mapping is executed on the clue level, so the **History** of 
 
 When you try to use a vocabulary key that is mapped to another vocabulary key, a prompt will inform you of the mapping.
 
-![map-vocabulary-key0-2.png]({{ "/assets/images/management/data-catalog/map-vocabulary-key-2.png" | relative_url }})
+![Rule filter using the mapped key crm.contact.email, with a warning icon and a prompt showing that it maps to shared.contact.email]({{ "/assets/images/management/data-catalog/map-vocabulary-key-2.png" | relative_url }})
 
 Throughout the system, the following guidelines are applied to mapped vocabulary keys:
 
@@ -132,6 +132,6 @@ If you no longer need a vocabulary key, you can delete it. The process of deleti
 
 1. On the **Confirm** tab, review the details about the vocabulary key, and select **Confirm**.
 
-    ![delete-vocabulary-key.gif]({{ "/assets/images/management/data-catalog/delete-vocabulary-key.gif" | relative_url }})
+    ![Animation: selecting Edit then Remove on the hr.contact.email key, choosing to map it to an existing key, selecting the target key, and confirming]({{ "/assets/images/management/data-catalog/delete-vocabulary-key.gif" | relative_url }})
 
     If a deleted vocabulary key has been used somewhere in the system, it will be marked as obsolete and will remain in the list of vocabulary keys. Hover over its label to find the vocabulary key it is mapped to. If the deleted vocabulary key is not used anywhere in the system and was not mapped to another vocabulary key, it will be removed from the list of vocabulary keys.

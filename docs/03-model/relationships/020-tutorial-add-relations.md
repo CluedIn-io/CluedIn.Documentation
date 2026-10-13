@@ -90,7 +90,7 @@ This allows you to:
 
     1. Select the edge mode.
 
-        ![add-edge-1.png]({{ "/assets/images/getting-started/relations/add-edge-1.png" | relative_url }})
+        ![The Edge Mode step of the Add Edge dialog with the Company Id property selected and Edge chosen as the edge mode]({{ "/assets/images/getting-started/relations/add-edge-1.png" | relative_url }})
 
     1. In the lower-right corner, select **Next**.
 
@@ -102,7 +102,7 @@ This allows you to:
 
     1. Define the origin of the target data set. It will be displayed after the data has been processed.
 
-        ![entity-mapping-2.png]({{ "/assets/images/getting-started/relations/entity-mapping-2.png" | relative_url }})
+        ![The Configuration step of the Add Edge dialog with edge type /WorksFor, business domain TrainingCompany and custom origin trainingcompanycsv]({{ "/assets/images/getting-started/relations/entity-mapping-2.png" | relative_url }})
 
     1. In the lower-right corner, select **Next**.
 
@@ -118,15 +118,15 @@ After you processed the data and streamed the records, you can view the relation
 
 - In CluedIn: on the **Relations** tab of the golden record details page.
 
-    ![view-relations-1.png]({{ "/assets/images/getting-started/relations/view-relations-1.png" | relative_url }})
+    ![The Relations tab of the golden record Gustavo, linked by a /WorksFor edge to the company Schmidt-Rohan]({{ "/assets/images/getting-started/relations/view-relations-1.png" | relative_url }})
 
     To view the edge relation details, select the arrow that connects the entities.
 
-    ![view-relations-2.png]({{ "/assets/images/getting-started/relations/view-relations-2.png" | relative_url }})
+    ![The /WorksFor relation details panel showing relation type /WorksFor from Gustavo to Schmidt-Rohan]({{ "/assets/images/getting-started/relations/view-relations-2.png" | relative_url }})
 
 - In the database: in the tables named **dbo.xyzOutgoingEdges** and **dbo.xyzIncomingEdges**, where _xyz_ is the target name.
 
-    ![view-relations-3.png]({{ "/assets/images/getting-started/relations/view-relations-3.png" | relative_url }})
+    ![A SQL query on the TrainingEmployeesOutgoingEdges table returning Id, EntityId, EdgeType /WorksFor and ToCode for each relation]({{ "/assets/images/getting-started/relations/view-relations-3.png" | relative_url }})
 
     If you add more edge relations between the records, CluedIn will automatically identify the changes and update the stream with new edge relations.
 

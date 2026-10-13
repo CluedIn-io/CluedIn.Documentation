@@ -27,7 +27,7 @@ Depending on which aspect of the history you want to look at, you can switch bet
 
 - [Relations history](#relations-history) – here, you can view detailed information about all outgoing relations (also referred to as _edges_) of a golden record.
 
-    ![history_switch.png]({{ "/assets/images/golden-records/history_switch.png" | relative_url }})
+    ![The History tab of a golden record with the Golden Record and Relations switch highlighted]({{ "/assets/images/golden-records/history_switch.png" | relative_url }})
 
 ## Golden record history
 
@@ -37,7 +37,7 @@ Every time a data part appears in the history, a _branch_ is created. Branches h
 
 Each branch has a _head_ that contains values from the data parts belonging to that branch. The same golden record property can have different values in each head. By default, the latest value coming to CluedIn or the latest manually modified value is used in the golden record. If you want to determine which value should be used in a golden record property, create a [survivorship rule](/govern/rules). The following diagram illustrates the process of establishing a golden record.
 
-![history-diagram.png]({{ "/assets/images/key-terms-and-features/history-diagram.png" | relative_url }})
+![Diagram: the heads of the file data source, manually added and clean project branches feed a survivorship rule, which produces the golden record]({{ "/assets/images/key-terms-and-features/history-diagram.png" | relative_url }})
 
 By default, the **History** page displays the data parts arranged by the sort date (this is the date when CluedIn received the data part). You can explore the data parts using the following views:
 
@@ -49,13 +49,13 @@ By default, the **History** page displays the data parts arranged by the sort da
 
 The data part view is the default view that shows all data parts that make up a golden record.
 
-![history-1.png]({{ "/assets/images/key-terms-and-features/history-1.png" | relative_url }})
+![The data part view listing two data parts, each with a color circle for its branch, source, record ID, author, dates and an Added status]({{ "/assets/images/key-terms-and-features/history-1.png" | relative_url }})
 
 Each data part has the following attributes:
 
 - A **color circle** that represents a branch. A branch contains the data part versions that appeared from the same source. For example, if you have a crawler that changes some properties of the data part, these changes will be added to the branch as separate data part versions. By selecting the color circle, you can view the branch (1) and its versions (2, 3).
 
-    ![history-2.png]({{ "/assets/images/key-terms-and-features/history-2.png" | relative_url }})
+    ![The History page filtered to the CluedInManualModification branch, showing its two data parts, one Changed and one Added]({{ "/assets/images/key-terms-and-features/history-2.png" | relative_url }})
 
 - An **icon** that represents a source. A source is a place where the data part is coming from. A source can be a clean project, a deduplication project, a manual data entry project, a file, a crawler, and so on.
 
@@ -75,7 +75,7 @@ Each data part is an individual entity, and it is not linked to other data parts
 
 The golden record view appears when you select any metadata properties or vocabulary keys on the filters pane on the left side of the **History** page. This view shows all records (1) where the selected property or vocabulary key is used, along with the value (2) that is used in the golden record (this is the value that is shown on the **Property** tab of the golden record details page). By looking at the sort date, you can track the historical changes in the property value across all data parts.
 
-![history-3.png]({{ "/assets/images/key-terms-and-features/history-3.png" | relative_url }})
+![The golden record view for Job Title: the golden record value Senior Accountant above a table of the value from each data part]({{ "/assets/images/key-terms-and-features/history-3.png" | relative_url }})
 
 {:.important}
 **Part ID** from the golden record view and **Record ID** from the data part view are the same.
@@ -86,7 +86,7 @@ The **History** page contains various filters to help you navigate through the d
 
 - **Data source filter** – you can filter the data parts by the data source that indicates a place where a data part was produced. By default, the data parts from all data sources are displayed on the **History** page.
 
-    ![data-source-filter.png]({{ "/assets/images/golden-records/data-source-filter.png" | relative_url }})
+    ![The History page with the data source filter set to All data sources highlighted next to the total count]({{ "/assets/images/golden-records/data-source-filter.png" | relative_url }})
 
 - **Date filter** – you can filter the data parts by one of the following dates:
 
@@ -98,15 +98,15 @@ The **History** page contains various filters to help you navigate through the d
 
     - **Discovery date** – the date when the data part was created in CluedIn.
 
-        ![date-filter.png]({{ "/assets/images/golden-records/date-filter.png" | relative_url }})
+        ![The sort date dropdown open with the options Sort Date, Modified Date, Created Date and Discovery Date]({{ "/assets/images/golden-records/date-filter.png" | relative_url }})
 
 - **Metadata filter** – you can select any metadata property and see the data parts where it is used.
 
-    ![metadata-filter.png]({{ "/assets/images/golden-records/metadata-filter.png" | relative_url }})
+    ![The Authors metadata property selected on the filters pane, with the matching data parts and their authors shown on the right]({{ "/assets/images/golden-records/metadata-filter.png" | relative_url }})
 
 - **Vocabulary key filter** – you can select any vocabulary key and see the data parts where it is used, as well as the value chosen for the golden record. The medal icon next to the vocabulary key signifies that this vocabulary key is used in the golden record.
 
-    ![vocab-key-filter.png]({{ "/assets/images/golden-records/vocab-key-filter.png" | relative_url }})
+    ![The Vocabulary Keys list on the filters pane with trainingcontact.job Title selected, each key marked with a medal icon]({{ "/assets/images/golden-records/vocab-key-filter.png" | relative_url }})
 
 ## Data part statuses
 
@@ -124,7 +124,7 @@ The relations history page contains detailed information about all outgoing rela
 
 Each relation is presented as a separate table entry that contains the source, ID, type, and properties. To view the relation properties, simply expand the dropdown in the **Properties** column.
 
-![history_relations_properties.png]({{ "/assets/images/golden-records/history_relations_properties.png" | relative_url }})
+![The Relations view of the History page listing outgoing edges with Source, Part Id, Edge Type and Properties columns]({{ "/assets/images/golden-records/history_relations_properties.png" | relative_url }})
 
 You can filter relations by two criteria:
 

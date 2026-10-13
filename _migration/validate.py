@@ -30,6 +30,20 @@ DOCS = os.path.join(SITE, "docs")
 
 VALID_TYPES = {"concept", "how-to", "tutorial", "reference", "troubleshooting", "landing"}
 LINK_RE = re.compile(r'(?:\]\(|href=")(/[^)"\s]*)')
+IMAGE_ALT_RE = re.compile(r'!\[([^\]]*)\]\(|<img\b[^>]*?\balt="([^"]*)"', re.I)
+
+
+def weak_alt(match):
+    """Alt text that is empty, a file name, or a single slug-like token.
+
+    `match` is an IMAGE_ALT_RE.findall tuple: (Markdown alt, <img> alt).
+    """
+    alt = (match[0] or match[1]).strip()
+    return (
+        not alt
+        or re.search(r"\.(png|gif|jpe?g|svg|webp)$", alt, re.I) is not None
+        or re.fullmatch(r"[\w-]+", alt) is not None
+    )
 
 
 def site_baseurl():
@@ -186,6 +200,20 @@ def main():
             if key in redirects:
                 errors.append("%s: redirect_from %s also claimed by %s" % (rel, old, redirects[key]))
             redirects[key] = rel
+
+    # every image says what it shows
+    #
+    # AI assistants read the Markdown copy of each page and never see the image,
+    # so alt text that is just the file name tells them nothing.
+    for rel, fm, body in pages:
+        if fm.get("published") == "false":
+            continue
+        for match in IMAGE_ALT_RE.findall(body):
+            if weak_alt(match):
+                errors.append(
+                    "%s: image alt text %r does not describe the image; say what "
+                    "the reader should see in it" % (rel, match[0] or match[1])
+                )
 
     # every internal link resolves to a page or an asset
     prefix = site_baseurl()

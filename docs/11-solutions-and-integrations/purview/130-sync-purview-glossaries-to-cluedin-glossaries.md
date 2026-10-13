@@ -26,7 +26,7 @@ This section contains the steps required to prepare for syncing glossaries from 
 
 Make sure you have the existing classic type glossaries that contain some terms. In the following screenshot, we have 2 glossaries: CluedIn and Data Synchronization.
 
-![sync-purview-glossary-to-cluedin-glossary-existing.png]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-glossary-existing.png" | relative_url }})
+![The Classic types page in Purview with two glossaries, CluedIn and Data Synchronization, highlighted]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-glossary-existing.png" | relative_url }})
 
 ### Preparation in CluedIn
 
@@ -34,7 +34,7 @@ Make sure you have the existing classic type glossaries that contain some terms.
     
 1. Turn on the toggle in **Sync Purview glossaries to CluedIn glossaries**.
 
-    ![sync-purview-glossaries-to-cluedin-glossaries.png]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossaries-to-cluedin-glossaries.png" | relative_url }})
+    ![The Sync Purview glossaries to CluedIn glossaries setting with its toggle set to Enabled]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossaries-to-cluedin-glossaries.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -42,7 +42,7 @@ Make sure you have the existing classic type glossaries that contain some terms.
 
 Once you enable synchronization of Purview glossaries to CluedIn glossaries, you will receive a notification when the glossary term is created in CluedIn.
 
-![sync-purview-glossary-to-cluedin-glossary-notification.png]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-glossary-notification.png" | relative_url }})
+![Notifications that glossary terms were created in CluedIn from Purview glossary terms, including Sync to CluedIn and CluedInADF]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-glossary-notification.png" | relative_url }})
 
 **To find terms in CluedIn**
 
@@ -50,4 +50,4 @@ Once you enable synchronization of Purview glossaries to CluedIn glossaries, you
 
     On the terms page, you can find the categories (a) and terms (b). The category in CluedIn corresponds to the glossary in Purview.
 
-    ![sync-purview-glossary-to-cluedin-glossary-terms-page.png]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-glossary-terms-page.png" | relative_url }})
+    ![The CluedIn glossary page with the CluedIn category marked a and its synced terms marked b]({{ "/assets/images/microsoft-integration/purview/sync-purview-glossary-to-cluedin-glossary-terms-page.png" | relative_url }})

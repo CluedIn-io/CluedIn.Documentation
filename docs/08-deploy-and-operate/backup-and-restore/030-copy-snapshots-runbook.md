@@ -40,7 +40,7 @@ An automation account must be provided, the runbook will be installed into the t
 
 Snapshot transfers occur over the Microsoft backbone and can take anywhere from 20 minutes for small datasets to several hours for larger ones. Additionally, Azure inter-region transfer costs will apply.
 
-![copy-snapshots-runbook.png]({{ "/assets/images/paas-operations/copy-snapshots-runbook.png" | relative_url }})
+![Diagram: disk snapshots in the source resource group of Instance A (CluedIn AKS, Vnet North Europe) are transferred, if required, to the target resource group of Instance B in a secondary region (Vnet West Europe)]({{ "/assets/images/paas-operations/copy-snapshots-runbook.png" | relative_url }})
 
 ## Input parameters
 
@@ -55,6 +55,6 @@ Snapshot transfers occur over the Microsoft backbone and can take anywhere from 
 
 ## Process
 
-![copy-snapshots-runbook-process.png]({{ "/assets/images/paas-operations/copy-snapshots-runbook-process.png" | relative_url }})
+![Flowchart of the runbook: start, retrieve all snapshots by license key and timestamp, loop through all snapshots, transfer to new location, stop]({{ "/assets/images/paas-operations/copy-snapshots-runbook-process.png" | relative_url }})
 
 When the source and target resource groups are in the same location, the snapshot copy is not neccessary.

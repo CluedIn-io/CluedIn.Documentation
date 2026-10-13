@@ -22,7 +22,7 @@ The built-in AI agents include preconfigured [jobs](/govern/ai-agents/create-con
 
 CluedIn provides two built-in AI agents—Data Steward and Data Architect.
 
-![builtin_agents_sp.png]({{ "/assets/images/management/ai-agents/built-in-ai-agents/builtin_agents_sp.png" | relative_url }})
+![AI agents page listing agents with description, active jobs, cost and author, including the built-in Data Architect and Data Steward agents]({{ "/assets/images/management/ai-agents/built-in-ai-agents/builtin_agents_sp.png" | relative_url }})
 
 
 ## Data Steward

@@ -30,7 +30,7 @@ The REST API enricher requires the URL of an external endpoint to retrieve data.
 
 1. On the **Choose Enricher** tab, select **REST API**, and then select **Next**.
 
-   ![rest-api-enricher-1.png]({{ "/assets/images/preparation/enricher/rest-api-enricher-1.png" | relative_url }})
+   ![Add Enricher dialog on the Choose enricher tab, with REST API selected above Vat Layer and Web]({{ "/assets/images/preparation/enricher/rest-api-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -52,7 +52,7 @@ The REST API enricher requires the URL of an external endpoint to retrieve data.
 
       - `{Vocabulary:vocabularykey}` – this placeholder will be replaced with the value of the specified vocabulary key from the golden record. For example, if the URL contains `{Vocabulary:trainingcontact.country}` and the golden record contains `"trainingcontact.country": "Norway"`, the placeholder will be replaced with `Norway`.
 
-      ![rest-api-enricher-2.png]({{ "/assets/images/preparation/enricher/rest-api-enricher-2.png" | relative_url }})
+      ![REST API enricher Configure tab with Accepted Business Domain Organization, Version V1 (legacy), Method GET, and a URL with a vocabulary key placeholder]({{ "/assets/images/preparation/enricher/rest-api-enricher-2.png" | relative_url }})
 
    1. **API Key** – enter the API key required to authenticate with the endpoint, if applicable. Provide this only if the API requires a key for access. Use `{APIKey}` in **URL (V1)**, **Process Request Script (V1)** and **Process Script (V2)** and the place holder will be replaced by actual API Key value provided.
 
@@ -82,11 +82,11 @@ After the REST API enricher is added, you can modify its details:
 
 You can find the properties added to golden records from the REST API enricher on the **Properties** page. The vocabulary keys added to golden records by the REST API enricher are grouped under **No Source** source type.
 
-![rest-api-enricher-3.png]({{ "/assets/images/preparation/enricher/rest-api-enricher-3.png" | relative_url }})
+![Properties page of the Google golden record filtered to No Source, showing the country.officialName property with the value Kingdom of Norway]({{ "/assets/images/preparation/enricher/rest-api-enricher-3.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the REST API enricher, check the corresponding data part on the **History** page.
 
-![rest-api-enricher-4.png]({{ "/assets/images/preparation/enricher/rest-api-enricher-4.png" | relative_url }})
+![History page of the Google golden record with the REST API data part highlighted above the File Data Source data part]({{ "/assets/images/preparation/enricher/rest-api-enricher-4.png" | relative_url }})
 
 ## Sample (V1)
 
@@ -372,7 +372,7 @@ CluedIn can connect to Melissa through its REST API, sending address data for va
 
 In the following example, ingested company data contains missing or incorrect address details. We will use Melissa REST API calls to send address-related data stored in different vocabulary keys and enrich golden records with validated and parsed addresses.
 
-![data-before-enrichment.png]({{ "/assets/images/preparation/enricher/rest-api/melissa/data-before-enrichment.png" | relative_url }})
+![Ingested company address records with missing or inconsistent City, Zipcode, State, Country, and Type values]({{ "/assets/images/preparation/enricher/rest-api/melissa/data-before-enrichment.png" | relative_url }})
 
 **Configure Melissa REST API enricher**
 
@@ -436,13 +436,13 @@ response.Content = JSON.stringify([{ Data: newContent, Score: 0 }]);
 //log(JSON.stringify(response));
 ```
 
-![configure_tab.png]({{ "/assets/images/preparation/enricher/rest-api/melissa/configure_tab.png" | relative_url }})
+![REST API enricher Configure tab for Melissa: Accepted Business Domain Address, Method GET, the Melissa URL, API Key, Headers, and Process Response Script]({{ "/assets/images/preparation/enricher/rest-api/melissa/configure_tab.png" | relative_url }})
 
 **Example of golden record before and after enrichment**
 
 An example of a golden record before enrichment:
 
-![golden_record_before_enrichment.png]({{ "/assets/images/preparation/enricher/rest-api/melissa/golden_record_before_enrichment.png" | relative_url }})
+![Properties of the Walmart Inc. golden record before enrichment, including Type Organization and Zipcode 72716]({{ "/assets/images/preparation/enricher/rest-api/melissa/golden_record_before_enrichment.png" | relative_url }})
 
 Same record after enrichment:
 
@@ -450,7 +450,7 @@ Same record after enrichment:
 
 - Two new vocabulary keys (**Vocab Key 1** and **Vocab Key 2** were added).
 
-![golden_record_after_enrichment.png]({{ "/assets/images/preparation/enricher/rest-api/melissa/golden_record_after_enrichment.png" | relative_url }})
+![Properties of the Walmart Inc. golden record after enrichment, with Type Business, new Vocab Key 1 and Vocab Key 2 values, and Zipcode 72716-6209 highlighted]({{ "/assets/images/preparation/enricher/rest-api/melissa/golden_record_after_enrichment.png" | relative_url }})
 
 **Sample response**
 

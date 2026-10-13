@@ -44,7 +44,7 @@ Adding a new user might incur costs depending on your [Microsoft Entra ID plan](
 
 1. Create a new user in Microsoft Entra ID following [Microsoft documentation](https://learn.microsoft.com/en-us/entra/fundamentals/how-to-create-delete-users#create-a-new-user).
 
-    ![workflow-user.png]({{ "/assets/images/microsoft-integration/power-automate/workflow-user.png" | relative_url }})
+    ![Overview page of the CluedIn Bot user in Microsoft Entra ID showing its user principal name and member user type]({{ "/assets/images/microsoft-integration/power-automate/workflow-user.png" | relative_url }})
 
     The user in Microsoft Entra ID follows the tenant configuration. The user on the screenshot above is created in CluedIn tenant and therefore it uses `cluedin.com` as the domain name in **User principal name** and CluedIn logo as a profile picture. Your user will have the domain name that you specify when creating the user. You can also edit the profile picture after the user account has been created. To do that, select the camera icon in the lower-right corner of the user's thumbnail.
 
@@ -56,7 +56,7 @@ Adding a new user might incur costs depending on your [Microsoft Entra ID plan](
 
     - **Microsoft Power Automate Free** – having this license grants access to Power Automate and the ability to use connectors to create approval flows.
 
-    ![licenses.png]({{ "/assets/images/microsoft-integration/power-automate/licenses.png" | relative_url }})
+    ![Licenses page of the user with Microsoft 365 Business Standard, Power Apps for Developer, and Power Automate Free assigned and highlighted]({{ "/assets/images/microsoft-integration/power-automate/licenses.png" | relative_url }})
 
     For more information on how to add a license, see [Microsoft documentation](https://learn.microsoft.com/en-us/entra/fundamentals/license-users-groups).
 
@@ -74,17 +74,17 @@ In this environment, the user account created in the previous step is granted Sy
 
 1. Create a new environment in the [Power Platform admin center](https://admin.powerplatform.microsoft.com/) with Dataverse as a data store. To do this, follow the instruction in [Create an environment with a database](https://learn.microsoft.com/en-us/power-platform/admin/create-environment#create-an-environment-with-a-database).
 
-    ![power-automate-create-env.png]({{ "/assets/images/microsoft-integration/power-automate/power-automate-create-env.png" | relative_url }})
+    ![New environment pane in Power Platform admin center with Add a Dataverse data store set to Yes and highlighted]({{ "/assets/images/microsoft-integration/power-automate/power-automate-create-env.png" | relative_url }})
 
 1. Add the user account that you created in the [previous section](#create-a-user-account) to the list of users in the environment. To do this, follow the instruction in [Add users to an environment that has a Dataverse database](https://learn.microsoft.com/en-us/power-platform/admin/add-users-to-environment#add-users-to-an-environment-that-has-a-dataverse-database).
 
     As a result, the user should be available in the list of users for the environment. On the following screenshot, the **Username** has `cluedin.com` as the domain name. This is because the user was created in the CluedIn tenant in Microsoft Entra ID. Your user will have the domain name that you specify when creating a user.
 
-    ![power-apps-env-users.png]({{ "/assets/images/microsoft-integration/power-automate/power-apps-env-users.png" | relative_url }})
+    ![Users list of the environment in Power Platform admin center with the newly added workflow user highlighted]({{ "/assets/images/microsoft-integration/power-automate/power-apps-env-users.png" | relative_url }})
 
 1. Assign the System Administrator security role to the user account that you added in step 2. To do this, follow the instruction in [Assign a security role to a user](https://learn.microsoft.com/en-us/power-platform/admin/assign-security-roles).
 
-    ![system-administrator-role.png]({{ "/assets/images/microsoft-integration/power-automate/system-administrator-role.png" | relative_url }})
+    ![Manage security roles pane for the workflow user with System Administrator selected]({{ "/assets/images/microsoft-integration/power-automate/system-administrator-role.png" | relative_url }})
 
 ## Create a service application
 
@@ -106,21 +106,21 @@ Note that when you register a new application in Microsoft Entra ID, a service p
 
     1. Under **Configure platforms**, select **Single-page application**.
 
-        ![configure-platforms-single-page-application.png]({{ "/assets/images/microsoft-integration/power-automate/configure-platforms-single-page-application.png" | relative_url }})
+        ![Configure platforms pane with Single-page application highlighted]({{ "/assets/images/microsoft-integration/power-automate/configure-platforms-single-page-application.png" | relative_url }})
 
     1. In the **Redirect URIs** section, enter the reply URI in the following format: `https://your-cluedin-domain/admin/workflow/workflow-builder`.
 
-        ![configure-platforms-redirect-uri.png]({{ "/assets/images/microsoft-integration/power-automate/configure-platforms-redirect-uri.png" | relative_url }})
+        ![Configure single-page application pane with the Redirect URI ending in /admin/workflow/workflow-builder]({{ "/assets/images/microsoft-integration/power-automate/configure-platforms-redirect-uri.png" | relative_url }})
 
     1. In the **Implicit grant and hybrid flows** section, select both for **Access tokens** and **ID tokens**.
 
-        ![configure-platforms-implicit-grant-and-hybrid-flows.png]({{ "/assets/images/microsoft-integration/power-automate/configure-platforms-implicit-grant-and-hybrid-flows.png" | relative_url }})
+        ![Implicit grant and hybrid flows section with both Access tokens and ID tokens selected]({{ "/assets/images/microsoft-integration/power-automate/configure-platforms-implicit-grant-and-hybrid-flows.png" | relative_url }})
 
     1. Select **Configure**.
 
 1. In the **Advanced settings** section, in **Allow public client flows**, set the toggle to **Yes**.
 
-    ![allow-public-client-flows.png]({{ "/assets/images/microsoft-integration/power-automate/allow-public-client-flows.png" | relative_url }})
+    ![Advanced settings section with Allow public client flows set to Yes]({{ "/assets/images/microsoft-integration/power-automate/allow-public-client-flows.png" | relative_url }})
 
 1. Go to **Manage** > **API permissions**, and add the following permissions:
 
@@ -150,7 +150,7 @@ Note that when you register a new application in Microsoft Entra ID, a service p
 
         - Flows.Read.All – Delegated
 
-    ![new-app-api-permissions.png]({{ "/assets/images/microsoft-integration/power-automate/new-app-api-permissions.png" | relative_url }})
+    ![API permissions page of the app registration listing granted delegated permissions for Azure Service Management, Dynamics CRM, Microsoft Graph and Power Automate]({{ "/assets/images/microsoft-integration/power-automate/new-app-api-permissions.png" | relative_url }})
 
 ## Next steps
 

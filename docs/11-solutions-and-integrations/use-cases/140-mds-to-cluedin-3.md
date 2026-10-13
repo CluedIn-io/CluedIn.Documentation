@@ -133,7 +133,7 @@ Instead of one schema for everyone:
 ### Step-by-step flow
 
 
-![flowpart3](/assets/images/playbooks/mds/flowpart3.svg)
+![Flowchart: source CRM, ERP and MDS or SQL extracts are ingested into CluedIn, unified and mastered as Customer, checked for quality and exceptions, then published by an analytics contract stream to OneLake or ADLS and an operational contract stream to Azure Event Hubs](/assets/images/playbooks/mds/flowpart3.svg)
 
 Streams and export targets are standard CluedIn mechanisms.
 
@@ -142,7 +142,7 @@ Streams and export targets are standard CluedIn mechanisms.
 ## Cutover plan for the worked example (consumer-by-consumer)
 
 
-![exampleFlow](/assets/images/playbooks/mds/exampleFlow.svg)
+![Sequence diagram: MDS legacy outputs and CluedIn new outputs dual-run to the analytics lake and to Event Hub or CRM integration; after reconciling and validating, each consumer switches to CluedIn and MDS is retired after the last cutover](/assets/images/playbooks/mds/exampleFlow.svg)
 
 ---
 

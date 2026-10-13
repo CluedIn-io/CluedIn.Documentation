@@ -21,7 +21,7 @@ Property rules help you improve the quality of mapped records ([clues](/get-star
 
 Property rules are applied to the clues before pre-process rules and advanced mapping code.
 
-![property-rules-diagram.png]({{ "/assets/images/integration/additional-operations/property-rules-diagram.png" | relative_url }})
+![Diagram: a record goes through mapping (property rules, then pre-process rules, then advanced mapping code) to become a clue, which processing turns into a golden record]({{ "/assets/images/integration/additional-operations/property-rules-diagram.png" | relative_url }})
 
 You can [create property rules on you own](#create-property-rules-on-your-own) or [use the CluedIn AI recommendation engine](#create-property-rules-using-ai) to generate property rules.
 
@@ -65,7 +65,7 @@ You can add multiple rules for one property.
 
 1. Select the **Action** that will be applied to the values of the property.
 
-    ![property-rules-1.png]({{ "/assets/images/integration/additional-operations/property-rules-1.png" | relative_url }})
+    ![Add property rule dialog for trainingcontact_email with a filter Is valid email address, applied when the condition is not met, and the action Quarantine Property]({{ "/assets/images/integration/additional-operations/property-rules-1.png" | relative_url }})
 
 1. In the lower-right corner, select **Add rule**.
 
@@ -88,13 +88,13 @@ To use AI capabilities to create property rules, first complete all the steps de
 
 1. In the pane that opens, expand each property to review suggested validations and actions.
 
-    ![property-rules-2.png]({{ "/assets/images/integration/additional-operations/property-rules-2.png" | relative_url }})
+    ![Property Rules Found pane with the email property expanded, showing the suggested validation Is valid email address with Quarantine if not valid, and the action Lower Case]({{ "/assets/images/integration/additional-operations/property-rules-2.png" | relative_url }})
 
 1. In the lower-right corner, select **Create rules**.
 
     The rules are added next to the properties.
 
-    ![property-rules-3.png]({{ "/assets/images/integration/additional-operations/property-rules-3.png" | relative_url }})
+    ![Map columns to vocabulary key tab where trainingcontact.email shows 1 Rule while other keys show Add property rule]({{ "/assets/images/integration/additional-operations/property-rules-3.png" | relative_url }})
 
     By selecting these rules, you can view, create, or remove rules from the property. The rules will be applied when you process the records.
 
@@ -112,7 +112,7 @@ The following CEL expression removes the first occurrences of the characters `#`
 
 On the screenshot, rows 1 and 3 contain several occurrences of `#` and `$`. The property rule removed only the first occurrences of those characters. To remove all occurrences of specific characters, use the expression from the next section.
 
-![removing-first-occurrence.png]({{ "/assets/images/integration/additional-operations/removing-first-occurrence.png" | relative_url }})
+![Original postal codes, a Custom CEL expression property rule using replace for # and $, and the result where only the first occurrence of each character is removed]({{ "/assets/images/integration/additional-operations/removing-first-occurrence.png" | relative_url }})
 
 **Remove all occurrences of characters**
 
@@ -122,7 +122,7 @@ The following CEL expression removes all occurrences of the characters `#` and `
 ("" + value).replace(/[#\$]/g, "")
 ```
 
-![removing-all-occurrences.png]({{ "/assets/images/integration/additional-operations/removing-all-occurrences.png" | relative_url }})
+![Original postal codes, a Custom CEL expression property rule using a global regex replace for # and $, and the result with all occurrences removed]({{ "/assets/images/integration/additional-operations/removing-all-occurrences.png" | relative_url }})
 
 **Turn non-numeric values to blank or null**
 
@@ -138,4 +138,4 @@ The following CEL expressions turn the value to blank or null if the value is no
 
 If the property contains non-numeric values, applying any of the above expressions will result in golden records without such property. Regardless of the expression you use, the result will be the same.
 
-![property_rule_turn_non-numeric_values_to_blank.png]({{ "/assets/images/integration/additional-operations/property_rule_turn_non-numeric_values_to_blank.png" | relative_url }})
+![Original revenue values including None and N/A, a Custom CEL expression rule that blanks non-numeric values, and the result where those values show No value]({{ "/assets/images/integration/additional-operations/property_rule_turn_non-numeric_values_to_blank.png" | relative_url }})
