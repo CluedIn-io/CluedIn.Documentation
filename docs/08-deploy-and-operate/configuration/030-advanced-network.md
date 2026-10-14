@@ -32,16 +32,15 @@ The following diagram shows the advanced network configuration of CluedIn.
 
 ![advanced-network-architecture.png]({{ "/assets/images/deployment/paas-installation-guide/advanced-network-architecture.png" | relative_url }}){: width="800"}
 
-![advanced-network-diagram.png]({{ "/assets/images/deployment/paas-installation-guide/advanced-network-diagram.png" | relative_url }}){: width="800"}
+<!-- ![advanced-network-diagram.png]({{ "/assets/images/deployment/paas-installation-guide/advanced-network-diagram.png" | relative_url }}){: width="800"}
 
-![advanced-network-key-blue.png]({{ "/assets/images/ama/howtos/advanced-network-key-blue.png" | relative_url }}){: width="200"}
+![advanced-network-key-blue.png]({{ "/assets/images/ama/howtos/advanced-network-key-blue.png" | relative_url }}){: width="200"} -->
 
 **HubVNet**
-This virtual network is hosted by the client. All IP addresses and address ranges in this design are suggestions only and must be validated and finalized by the client according to their internal IP planning policies.
+This virtual network is hosted by the client.
 
 **AzureFirewallSubnet**
 The Azure Firewall service should be provisioned and managed by the client.
-  - IP address ranges shown in this design are placeholders and may be adjusted to align with the client’s networking strategy.
   - The subnet must meet minimum size requirements (at least /26) to support firewall functionality and scaling.
 
 **AzureBastionSubnet**
