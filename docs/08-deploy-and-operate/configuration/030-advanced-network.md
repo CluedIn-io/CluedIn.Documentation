@@ -32,16 +32,11 @@ The following diagram shows the advanced network configuration of CluedIn.
 
 ![Advanced network architecture: a hub network with Firewall and Azure Bastion is peered to a spoke network with private AKS, internal load balancer, and a virtual machine; private connections lead to Kubernetes API, Storage Account, Key Vault, and Azure SQL Server, linked to private DNS zones, with monitoring to Log Analytics]({{ "/assets/images/deployment/paas-installation-guide/advanced-network-architecture.png" | relative_url }}){: width="800"}
 
-![Detailed advanced network diagram: HubVNet holds AzureFirewallSubnet and AzureBastionSubnet; AksVNet holds a route table and AksSubnet with private endpoints, private DNS groups, node pools, and a jumpbox VM reached over RDP via Bastion, connecting privately to Storage Account, Key Vault, and Azure SQL Server]({{ "/assets/images/deployment/paas-installation-guide/advanced-network-diagram.png" | relative_url }}){: width="800"}
-
-![Diagram legend: data flow, DNS traffic, private connection, virtual network link, user-defined routes, and virtual network peering arrows]({{ "/assets/images/ama/howtos/advanced-network-key-blue.png" | relative_url }}){: width="200"}
-
 **HubVNet**
-This virtual network is hosted by the client. All IP addresses and address ranges in this design are suggestions only and must be validated and finalized by the client according to their internal IP planning policies.
+This virtual network is hosted by the client.
 
 **AzureFirewallSubnet**
 The Azure Firewall service should be provisioned and managed by the client.
-  - IP address ranges shown in this design are placeholders and may be adjusted to align with the client’s networking strategy.
   - The subnet must meet minimum size requirements (at least /26) to support firewall functionality and scaling.
 
 **AzureBastionSubnet**
