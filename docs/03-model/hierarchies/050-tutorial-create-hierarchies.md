@@ -40,13 +40,13 @@ In this article, you will learn how to create hierarchies in CluedIn using the H
 
         All records belonging to the selected business domain will be available to build the hierarchy. If you do not select the business domain, then all records existing in the system will be available to build the hierarchy.
 
-        ![create-hierarchy-1.png]({{ "/assets/images/getting-started/hierarchy-builder/create-hierarchy-1.png" | relative_url }})
+        ![The General step of the Create Hierarchy dialog with the name Training Hierarchy and the TrainingCompany business domain selected]({{ "/assets/images/getting-started/hierarchy-builder/create-hierarchy-1.png" | relative_url }})
 
     1. In the lower-right corner, select **Next**.
 
     1. Select the starting point for the hierarchy project: **Blank** (if you do not have existing relations between golden records) or **From existing relations** (if you have existing relations between golden records).
 
-        ![create-hierarchy-2.png]({{ "/assets/images/getting-started/hierarchy-builder/create-hierarchy-2.png" | relative_url }})
+        ![The Hierarchy configuration step with Hierarchy starting point options Blank, selected, and From existing relations]({{ "/assets/images/getting-started/hierarchy-builder/create-hierarchy-2.png" | relative_url }})
 
     1. Select **Create**.
     
@@ -54,7 +54,7 @@ In this article, you will learn how to create hierarchies in CluedIn using the H
 
 1. Build the visual hierarchy by dragging the records from the left pane to the canvas.
 
-    ![create-hierarchy.gif]({{ "/assets/images/getting-started/hierarchy-builder/create-hierarchy.gif" | relative_url }})
+    ![Animation: dragging person records from the left pane onto the canvas to build a hierarchy with one parent and two children]({{ "/assets/images/getting-started/hierarchy-builder/create-hierarchy.gif" | relative_url }})
 
 1. In the upper-right corner of the page, select **Save**.
 
@@ -66,7 +66,7 @@ In this article, you will learn how to create hierarchies in CluedIn using the H
 
 You can view the hierarchy on the **Hierarchy Builder** page or on the **Hierarchies** tab of the golden record page. In addition, you can view the relations between the records on the **Relations** tab of the golden record page.
 
-![relations.png]({{ "/assets/images/getting-started/hierarchy-builder/relations.png" | relative_url }})
+![The Relations tab of a golden record showing ABC Fashion Co. connected to its child companies by hierarchy edges]({{ "/assets/images/getting-started/hierarchy-builder/relations.png" | relative_url }})
 
 To make sure that the data in the Microsoft SQL Server database reflects the relations that you set up, [update the stream configuration](#update-stream-configuration).
 
@@ -76,7 +76,7 @@ After you created the hierarchy, you can do the following actions with the eleme
 
 - Replace elements.
 
-    ![replace-element.gif]({{ "/assets/images/getting-started/hierarchy-builder/replace-element.gif" | relative_url }})
+    ![Animation: replacing an element in the hierarchy by dragging a different record from the left pane onto an existing node]({{ "/assets/images/getting-started/hierarchy-builder/replace-element.gif" | relative_url }})
 
 - Collapse and expand elements. To collapse all elements below a certain element, point to the needed element and select **Collapse**. To expand the collapsed elements, point to the parent element, and select **Expand**.
 
@@ -100,13 +100,13 @@ After you published the hierarchy, update the stream to ensure that the data in 
 
 1. In the **Export Edges** section, turn on the **Outgoing** and **Incoming** toggles.
 
-    ![update-stream-1.png]({{ "/assets/images/getting-started/hierarchy-builder/update-stream-1.png" | relative_url }})
+    ![The Export Edges section of a stream with the Outgoing and Incoming toggles turned on]({{ "/assets/images/getting-started/hierarchy-builder/update-stream-1.png" | relative_url }})
 
 1. In the upper-right corner, select **Save**. Then, confirm that you want to save your changes.
 
     The stream is updated with the relations between records. As a result, new tables are created in the database: **dbo.xyzOutgoingEdges** and **dbo.xyzIncomingEdges**, where _xyz_ is the target name.
 
-    ![update-stream-2.png]({{ "/assets/images/getting-started/hierarchy-builder/update-stream-2.png" | relative_url }})
+    ![A SQL query on the TrainingCustomerIncomingEdges table returning Id, EntityId, EdgeType and FromCode for each relation]({{ "/assets/images/getting-started/hierarchy-builder/update-stream-2.png" | relative_url }})
 
     If you update the hierarchy, the relations between records will be automatically updated in the database.
 

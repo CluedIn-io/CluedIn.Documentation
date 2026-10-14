@@ -7,7 +7,7 @@ has_children: true
 permalink: /solutions/power-apps
 content_type: landing
 summary: Surfacing CluedIn golden records inside Power Apps and Dataverse, and pushing changes made there back into CluedIn.
-redirect_from: ["/microsoft-integration/powerapps"]
+redirect_from: ["/microsoft-integration/powerapps", "/microsoft-integration/powerapps/external-features", "/microsoft-integration/powerapps/features/sync-entitytypes", "/microsoft-integration/powerapps/features/sync-dataverse", "/microsoft-integration/powerapps/features/create-workflow", "/microsoft-integration/powerapps/features/create-batch-approval-workflow", "/microsoft-integration/powerapps/features/create-streams"]
 source_path: docs/180-microsoft-integration/010-powerapps.md
 tags: ["integration", "microsoft", "powerapps", "dataverse", "powerautomate"]
 ---
@@ -16,7 +16,7 @@ Power Apps is a key component of the Power Platform, which is Microsoft's suite 
 
 Power Apps can be integrated with CluedIn to enable you to **manage your master data directly in the Dataverse platform** and **automatically sync it with CluedIn**.
 
-![power-apps-diagram.png]({{ "/assets/images/microsoft-integration/power-apps/power-apps-diagram.png" | relative_url }})
+![Diagram: CluedIn business domains, vocabularies and keys are transformed into Dataverse table metadata in the Power Apps environment; a stream syncs golden records to Dataverse; added or updated Dataverse data triggers a Power Automate data ingestion workflow that sends it to a CluedIn ingestion endpoint with auto-mapping]({{ "/assets/images/microsoft-integration/power-apps/power-apps-diagram.png" | relative_url }})
 
 Power Apps integration offers the following benefits:
 

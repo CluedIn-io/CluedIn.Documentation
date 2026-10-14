@@ -31,7 +31,7 @@ You can have the processing of the cleaning happen in CluedIn, or, you can choos
 
 1. Once you are invited, you can search for and find the CluedIn Cleanse Workload in your Workload Hub.
 
-    ![Fabric2.png]({{ "/assets/images/microsoft-integration/fabric/Fabric2-2.png" | relative_url }})
+    ![The Fabric Workloads page on My workloads, with the CluedIn workload card alongside Microsoft workloads]({{ "/assets/images/microsoft-integration/fabric/Fabric2-2.png" | relative_url }})
 
 1. Attach this Workload to a Workspace or your entire Tenant.
 

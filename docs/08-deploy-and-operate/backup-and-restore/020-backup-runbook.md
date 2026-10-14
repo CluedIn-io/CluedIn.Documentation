@@ -46,13 +46,13 @@ From release 2025.09.00 onward, CluedIn uses Azure SQL.
 
 In this configuration, the backup runbook captures snapshots for five persistent disks. BacPac's are also created for Azure Sql databases which are stored in a storage account.
 
-![backup-runbook-process.png]({{ "/assets/images/paas-operations/backup-with-azure-sql.png" | relative_url }})
+![Diagram: CluedIn AKS uses five persistent disks (elasticsearch, openrefine-data, neo4j, rabbitmq, redis) in the managed resource group, which are snapshotted every 24 hours to the backup resource group. BacPacs of 13 Azure SQL databases are saved to blob storage in the backup resource group every 24 hours]({{ "/assets/images/paas-operations/backup-with-azure-sql.png" | relative_url }})
 
 ### Release 2025.05.02 and earlier
 
 For releases prior to 2025.09.00, the backup runbook captures snapshots for nine persistent disks.
 
-![backup-runbook.png]({{ "/assets/images/paas-operations/backup-runbook.png" | relative_url }})
+![Diagram: CluedIn AKS uses nine persistent disks (elasticsearch, openrefine-data, neo4j, rabbitmq, redis, and sqlserver backup, data, master and translog), which are snapshotted every 24 hours]({{ "/assets/images/paas-operations/backup-runbook.png" | relative_url }})
 
 ## Input parameters
 
@@ -68,7 +68,7 @@ For releases prior to 2025.09.00, the backup runbook captures snapshots for nine
 
 ## Process
 
-![backup-runbook-process.png]({{ "/assets/images/paas-operations/backup-runbook-process.png" | relative_url }})
+![Flowchart: Start, scale down deployments, loop through all disks, take a snapshot of each disk, scale up deployments, Stop]({{ "/assets/images/paas-operations/backup-runbook-process.png" | relative_url }})
 
 Scaling up or down deployments is optional. However, it is recommended to prevent data loss while capturing snapshots.
 

@@ -6,7 +6,7 @@ grand_parent: Model
 nav_order: 10
 permalink: /model/relationships/edges
 content_type: concept
-redirect_from: ["/key-terms-and-features/edges"]
+redirect_from: ["/key-terms-and-features/edges", "/development/edge-types"]
 source_path: docs/110-key-terms-and-features/130-edges.md
 tags: ["development","edges"]
 ---

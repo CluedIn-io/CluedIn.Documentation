@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 310
 permalink: /archive/legacy-development/edge-types
 content_type: reference
-redirect_from: ["/development/edge-types"]
 source_path: docs/090-development/380-edge-types.md
 tags: ["development","edges"]
 published: false

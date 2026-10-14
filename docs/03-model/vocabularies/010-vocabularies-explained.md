@@ -6,7 +6,7 @@ grand_parent: Model
 nav_order: 10
 permalink: /model/vocabularies/vocabularies-explained
 content_type: concept
-redirect_from: ["/key-terms-and-features/vocabularies"]
+redirect_from: ["/key-terms-and-features/vocabularies", "/development/vocabulary-groupings", "/development/core-vocabularies", "/development/dynamic-vocabularies", "/development/person-vocabulary", "/development/organization-vocabulary"]
 source_path: docs/110-key-terms-and-features/110-vocabularies.md
 tags: ["development","vocabularies"]
 ---

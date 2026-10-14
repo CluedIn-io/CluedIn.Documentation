@@ -5,7 +5,7 @@ parent: Develop & APIs
 nav_order: 30
 permalink: /develop/build-custom-enricher
 content_type: how-to
-redirect_from: ["/preparation/enricher/build-custom-enricher"]
+redirect_from: ["/preparation/enricher/build-custom-enricher", "/development/deploying-search-provider", "/development/external-search-providers"]
 source_path: docs/050-preparation/enricher/180-build-enricher.md
 ---
 

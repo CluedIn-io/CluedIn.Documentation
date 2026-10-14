@@ -6,7 +6,6 @@ grand_parent: Deploy & operate
 nav_order: 30
 permalink: /operate/security/basic-auth-cluedin-clean
 content_type: how-to
-redirect_from: ["/kb/basic-auth-cluedin-clean"]
 source_path: docs/200-kb/kb0002-basic-auth-clean.md
 tags: ["security","cluedin-clean","authentication","kubernetes"]
 last_modified: 2022-08-29

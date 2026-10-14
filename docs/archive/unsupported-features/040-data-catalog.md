@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 40
 permalink: /archive/unsupported-features/data-catalog
 content_type: reference
-redirect_from: ["/governance/data-catalog"]
 source_path: docs/070-governance/outdated/040-data-catalog.md
 tags: ["governance","data-catalog"]
 published: false

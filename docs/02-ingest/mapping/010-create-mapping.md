@@ -17,7 +17,7 @@ last_modified: 2023-11-07
 1. TOC
 {:toc}
 
-Mapping is a semantic layer that allows CluedIn to understand the nature of data and process it to produce golden records.
+Create a mapping for a data set so that CluedIn knows which business domain and vocabulary its records belong to, which original field becomes which vocabulary key, and which values identify each record. Mapping is a semantic layer that allows CluedIn to understand the nature of data and process it to produce golden records. A data set needs a mapping before you can [process](/ingest/processing/process-data) it.
 
 <div class="videoFrame">
 <iframe src="https://player.vimeo.com/video/896479907?h=0bd85bd043&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Create mapping and verify mapping details"></iframe>
@@ -25,6 +25,50 @@ Mapping is a semantic layer that allows CluedIn to understand the nature of data
 
 {:.important}
 Mapping encompasses complex tasks, and CluedIn is committed to consistently enhancing the user experience associated with it. Nevertheless, it is crucial to grasp certain mapping concepts to leverage its full potential.
+
+## Prerequisites
+
+- A data set to map, created from a [file](/ingest/data-sources/file), an [ingestion endpoint](/ingest/data-sources/endpoint), or a [database](/ingest/data-sources/database).
+
+- Access to the **Data Sources** module. The claims it needs are listed in [Data sources](/ingest/data-sources).
+
+- For **Existing Mapping**: a mapping already created for another data set with the same fields.
+
+- For **AI Mapping**: the steps in [Prerequisites for AI mapping](#prerequisites-for-ai-mapping).
+
+### Prerequisites for AI mapping
+
+The AI mapping feature is not available by default. To use it, you need to fulfill several prerequisites:
+
+1. Go to **Administration** > **Feature Flags** and enable the **AI Mapping** feature.
+
+    ![The AI Mapping feature flag card with its toggle set to Enabled]({{ "/assets/images/integration/data-sources/openai-1.png" | relative_url }})
+
+1. Go to **Administration** > **Azure Integration** > **Azure AI Services**. Then, complete the following fields:
+
+    - **API Key** – check the following [link](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key) to learn where to find your API Key.
+
+    - **Base Url** – you can find this value in your Azure OpenAI resource, in **Resource Management** > **Keys and Endpoint**, in the **Endpoint** field.
+
+    - **Resource Key** – you can find this value in your Azure OpenAI resource, in **Resource Management** > **Keys and Endpoint**. You can use either **KEY 1** or **KEY 2**.
+
+    - **Deployment Name** – you can find this value in your Azure OpenAI resource, in **Resource Management** > **Model deployments**.
+
+        ![The Open AI settings with the API Key, Base Url, Resource Key and Deployment Name fields filled in]({{ "/assets/images/integration/data-sources/openai-2.png" | relative_url }})
+
+        For more information about the required variables, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython&pivots=programming-language-python#retrieve-key-and-endpoint).
+
+## Inputs
+
+What the **Configure** tab asks for depends on the mapping type.
+
+| Field | Mapping types | Required | What it accepts |
+|--|--|--|--|
+| **Mapping Type** | All | Yes | **Auto Mapping**, **Manual Mapping**, **Existing Mapping**, or **AI Mapping**. See [Choose mapping type](#choose-mapping-type). |
+| **Business domain** | Manual, auto | Yes | An existing business domain, or a name for a new one. A new business domain also needs an icon. With AI mapping, the business domain is suggested for you. |
+| **Vocabulary** | Manual, auto | Yes | An existing vocabulary, or a name for a new one. With AI mapping, the vocabulary is suggested for you. |
+| Existing mapping | Existing | Yes | A mapping to reuse. Its name consists of the mapping type and the data set it was generated for. |
+| Existing data set | Existing | Yes | A data set that contains the same fields as the current data set. |
 
 The process of creating a mapping consists of two parts:
 
@@ -44,25 +88,7 @@ Mapping type defines how you want to configure the mapping of original fields fr
 
  - **AI Mapping** – CluedIn uses AI capabilities to interpret your data and create mapping. You can check the results of AI mapping and make changes if needed.
 
- The AI mapping feature is not available by default. To use it, you need to fulfill several prerequisites:
-
-1. Go to **Administration** > **Feature Flags** and enable the **AI Mapping** feature.
-
-    ![openai-1.png]({{ "/assets/images/integration/data-sources/openai-1.png" | relative_url }})
-
-1. Go to **Administration** > **Azure Integration** > **Azure AI Services**. Then, complete the following fields:
-
-    - **API Key** – check the following [link](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key) to learn where to find your API Key.
-
-    - **Base Url** – you can find this value in your Azure OpenAI resource, in **Resource Management** > **Keys and Endpoint**, in the **Endpoint** field.
-
-    - **Resource Key** – you can find this value in your Azure OpenAI resource, in **Resource Management** > **Keys and Endpoint**. You can use either **KEY 1** or **KEY 2**.
-
-    - **Deployment Name** – you can find this value in your Azure OpenAI resource, in **Resource Management** > **Model deployments**.
-
-        ![openai-2.png]({{ "/assets/images/integration/data-sources/openai-2.png" | relative_url }})
-
-        For more information about the required variables, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython&pivots=programming-language-python#retrieve-key-and-endpoint).
+AI mapping is not available by default. Before you choose it, complete the [prerequisites for AI mapping](#prerequisites-for-ai-mapping).
 
 **To choose the mapping type**
 
@@ -100,7 +126,7 @@ Manual mapping gives you full control over how each field for your data set will
 
     With manual mapping, the mapping preview is not available.
 
-    ![create-mapping-1.png]({{ "/assets/images/integration/data-sources/create-mapping-1.png" | relative_url }})
+    ![The Configure tab of the Create Mapping pane with the required Business domain and Vocabulary fields set to TrainingContact]({{ "/assets/images/integration/data-sources/create-mapping-1.png" | relative_url }})
 
 1. Select **Create Mapping**.
 
@@ -128,7 +154,7 @@ Manual mapping gives you full control over how each field for your data set will
 
     1. If you want to use the field as an alias for the records, turn on the **Use as alias** toggle.
 
-        ![create-mapping-2.png]({{ "/assets/images/integration/data-sources/create-mapping-2.png" | relative_url }})
+        ![The Add mapping pane for first_name with the firstName vocabulary key selected and the Use as alias toggle turned on]({{ "/assets/images/integration/data-sources/create-mapping-2.png" | relative_url }})
 
     1. In the lower-right corner, select **Add Property to Annotation**.
 
@@ -224,19 +250,19 @@ To include a new field in the mapping (and have this field processed), first dis
 
 1. On the **Map** tab of the dataset, locate the fields marked with a **Warning** label. These are the fields outside of the defined schema.
 
-    ![locate_field_to_ignore_sp.png]({{ "/assets/images/integration/data-sources/create-mapping/locate_field_to_ignore_sp.png" | relative_url }})
+    ![The Map tab with fields linked to vocabulary keys, and the unmapped Department and Phone fields marked with warning icons]({{ "/assets/images/integration/data-sources/create-mapping/locate_field_to_ignore_sp.png" | relative_url }})
 
 1. Next to the needed field, select **Ignore Field**.
 
-    ![ignore_field_btn.png]({{ "/assets/images/integration/data-sources/create-mapping/ignore_field_btn.png" | relative_url }})
+    ![The Ignore field link next to the unmapped Department field on the Map tab]({{ "/assets/images/integration/data-sources/create-mapping/ignore_field_btn.png" | relative_url }})
 
 1. On the **Ignore field** panel, select **Ignore field**.
 
-    ![ignore_field_panel.png]({{ "/assets/images/integration/data-sources/create-mapping/ignore_field_panel.png" | relative_url }})
+    ![The Ignore field panel with the Ignore Field option selected and the Ignore field button in the lower-right corner]({{ "/assets/images/integration/data-sources/create-mapping/ignore_field_panel.png" | relative_url }})
 
     The field is marked as ignored and will not be processed. On the **Map** tab, the field is marked with a corresponding icon.
 
-    ![field_ignored_sp.png]({{ "/assets/images/integration/data-sources/create-mapping/field_ignored_sp.png" | relative_url }})
+    ![The Department field on the Map tab marked with the ignored-field icon, an eye with a line through it]({{ "/assets/images/integration/data-sources/create-mapping/field_ignored_sp.png" | relative_url }})
 
 
 ## Reset mapping
@@ -260,3 +286,33 @@ If you’ve created a mapping and are concerned about its accuracy or correctnes
         - Go the **Map** tab, select **Reset**, and then confirm that you want to reset the mapping configuration.
 
     Now, you can create the mapping from scratch.
+
+## Verify the result
+
+- On the **Map** tab of the data set, the original fields are shown connected to the vocabulary keys they map to. In a data set from an endpoint with schema protection, fields outside the mapping carry a **Warning** label, and ignored fields carry the ignored-field icon.
+
+- To check every detail, on the **Map** tab, select **Edit mapping**. The mapping details are on three tabs: **Map columns to vocabulary key**, **Map entity**, and **Add edge relations**. [Review mapping](/ingest/mapping/review-mapping) explains what to check on each, including the primary identifier.
+
+- Before you process the data set, use **View duplicates** on the **Preview** tab to check whether a column contains duplicate values. See [Duplicates](/ingest/processing/preview#duplicates).
+
+## What this changes
+
+- Creating or editing a mapping changes configuration, not records. Before the data is processed, your mapping changes don't affect the existing records in CluedIn.
+
+- The mapping takes effect when you [process the data set](/ingest/processing/process-data). The values used as the primary identifier decide merging: records with identical primary identifiers are merged during processing. See [Review mapping](/ingest/mapping/review-mapping#identifiers).
+
+- Fields with the **Ignored** status, or marked with **Ignore Field**, are not sent to CluedIn during processing and do not appear in the resulting golden records.
+
+- After the data set has been processed, the **Reset** option is not available. You first have to remove the records created from the data set, which removes the golden records or data parts they produced. See [Reset mapping](#reset-mapping) and [Removal of records](/ingest/processing/remove-records).
+
+## If something goes wrong
+
+- **AI Mapping is not available.** Check that the **AI Mapping** feature flag is enabled and the Azure AI Services fields are complete. See [Prerequisites for AI mapping](#prerequisites-for-ai-mapping).
+
+- **There is no mapping preview.** With manual mapping, the mapping preview is not available. Map the fields on the **Map** tab instead.
+
+- **The Reset option is not available.** The data set has already been processed. Follow the steps for a processed data set in [Reset mapping](#reset-mapping).
+
+- **Records from an ingestion endpoint go to quarantine.** With schema protection enabled, records that contain fields outside the mapping are quarantined during processing. [Ignore the unmapped fields](#ignore-fields-for-an-ingestion-endpoint), or map them as described there. See [Quarantine](/ingest/troubleshooting/quarantine).
+
+- **The Logs tab shows mapping errors.** CluedIn validates records during mapping, and any inconsistency appears as a log entry on the **Logs** tab of the data set. See [Logs](/ingest/troubleshooting/logs).

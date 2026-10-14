@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 270
 permalink: /archive/legacy-development/organization-vocabulary
 content_type: reference
-redirect_from: ["/development/organization-vocabulary"]
 source_path: docs/090-development/320-organization-vocabulary.md
 tags: ["development","vocabularies"]
 published: false

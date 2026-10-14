@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 450
 permalink: /archive/legacy-development/clue-preview-image
 content_type: reference
-redirect_from: ["/developer/clue-preview-image"]
 source_path: docs/090-development/540-setting-preview-image-for-clue.md
 tags: ["development", "clues"]
 published: false

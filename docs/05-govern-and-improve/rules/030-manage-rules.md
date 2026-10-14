@@ -35,7 +35,7 @@ You can edit a rule to make necessary changes in rule name, description, filters
 
     If you modified filters or actions, select the checkbox to reprocess the records affected by the previous and current rule configuration. Selecting the checkbox will revert the records affected by the previous rule configuration to their initial state before the rule was applied. Simultaneously, the records affected by the current rule configuration will be adjusted according to the rule's action. If you don't select the checkbox, the rule will be updated but the records won't be reprocessed.
     
-    ![manage-rules-1.png]({{ "/assets/images/management/rules/manage-rules-1.png" | relative_url }})
+    ![The Save changes to the rule? dialog with the Reprocess matching records after saving checkbox selected and the Confirm button]({{ "/assets/images/management/rules/manage-rules-1.png" | relative_url }})
     
     After you confirm that you want to update the rule, your changes will be applied immediately.
 
@@ -55,7 +55,7 @@ A rule can have multiple actions, and they are applied in the order in which the
 
 1. In the **Actions** section, next to the action that you want to move, select the up or down arrow to move it to the needed position.
 
-    ![reorder-actions-1.png]({{ "/assets/images/management/rules/reorder-actions-1.png" | relative_url }})
+    ![The Actions section of a rule listing three actions, each with up and down arrows for reordering, plus delete and edit icons]({{ "/assets/images/management/rules/reorder-actions-1.png" | relative_url }})
 
 1. Near the upper-right corner of the rule details page, select **Save**, and then confirm that you want to save the rule.
 
@@ -155,7 +155,7 @@ If you are the owner of the rule and somebody else makes changes to the rule, yo
 
 You can use folders to organize rules—for example, by business domain or by team. Folders and rules appear together in the same list, similar to files and folders in a file explorer. Rules that aren't assigned to a folder appear in the root list, alongside any folders.
 
-![organize-rules-folders-list.png]({{ "/assets/images/management/rules/organize-rules-folders-list.png" | relative_url }})
+![The Data part rules list showing the Data Quality folder as a row above the Enrichment Rules rule]({{ "/assets/images/management/rules/organize-rules-folders-list.png" | relative_url }})
 
 **To create a folder**
 
@@ -171,7 +171,7 @@ The new folder appears as a row in the list.
 
 - Drag the rule row and drop it onto the folder row.
 
-    ![organize-rules-drag-to-folder.png]({{ "/assets/images/management/rules/organize-rules-drag-to-folder.png" | relative_url }})
+    ![Dragging the Enrichment Rules rule row onto the highlighted Data Quality folder row in the rules list]({{ "/assets/images/management/rules/organize-rules-drag-to-folder.png" | relative_url }})
 
     You can also assign a folder from the rule details page: in **Folder**, select an existing folder, or type a new folder name to create one, and then select **Save**. This field is also available when you create a rule.
 
@@ -179,7 +179,7 @@ The new folder appears as a row in the list.
 
 - In the list of rules, select the folder that you want to view.
 
-    ![organize-rules-inside-folder-breadcrumb.png]({{ "/assets/images/management/rules/organize-rules-inside-folder-breadcrumb.png" | relative_url }})
+    ![Inside the Data Quality folder, with the breadcrumb Root > Data Quality above the list containing the Enrichment Rules rule]({{ "/assets/images/management/rules/organize-rules-inside-folder-breadcrumb.png" | relative_url }})
 
     The breadcrumb at the top of the list shows **Root > `<folder name>`**. Select **Root** in the breadcrumb to return to the merged list of folders and unfoldered rules.
 
@@ -198,13 +198,13 @@ You can duplicate a rule if you want to:
 
 Duplication is a beta feature. To access it, go to **Administration** > **Feature Flags**, and enable the **Duplicate Actions** feature.
 
-![duplicate-actions-feature-flag.png]({{ "/assets/images/shared/duplicate-actions-feature-flag.png" | relative_url }})
+![The Duplicate Actions feature flag card, a beta feature, with its toggle set to Enabled]({{ "/assets/images/shared/duplicate-actions-feature-flag.png" | relative_url }})
 
 **To duplicate a rule**
 
 1. In the list of rules, find a rule that you want to duplicate. Then, open the three-dot menu for the rule, and select **Duplicate**.
 
-    ![duplicate-rule-1.png]({{ "/assets/images/management/rules/duplicate-rule-1.png" | relative_url }})
+    ![The three-dot menu for a rule in the rules list, with the Duplicate option highlighted]({{ "/assets/images/management/rules/duplicate-rule-1.png" | relative_url }})
 
 1. In **Name**, review the default name of the new rule and modify it if needed. The default name is created by adding __duplicate_ to the name of the rule that you're duplicating.
 
@@ -212,7 +212,7 @@ Duplication is a beta feature. To access it, go to **Administration** > **Fea
 
 1. In **Actions**, review the list of rule actions that will be duplicated for the new rule. To view the details of a specific rule action, select **View Action Details**.
 
-    ![duplicate-rule-2.png]({{ "/assets/images/management/rules/duplicate-rule-2.png" | relative_url }})
+    ![The Duplicate rule dialog with the default name Training_duplicate, the conditions and actions to be copied, and the Duplicate button]({{ "/assets/images/management/rules/duplicate-rule-2.png" | relative_url }})
 
 1. Select **Duplicate**.
 

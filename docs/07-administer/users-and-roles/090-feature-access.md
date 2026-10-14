@@ -63,7 +63,7 @@ Initially, the user who created the element—for example, a rule—is its owner
 
 1. In the lower-right corner, select **Add**.
 
-    ![add-owner-role.gif]({{ "/assets/images/administration/user-access/add-owner-role.gif" | relative_url }})
+    ![Animation: on the Owners tab of a rule, selecting Add, choosing users or roles, selecting their checkboxes, and selecting Add]({{ "/assets/images/administration/user-access/add-owner-role.gif" | relative_url }})
 
 When the users or roles appear on the **Owners** tab of the element, they are granted permission to approve or reject change requests submitted by other users. Also, if their access level for the relevant claim is at least Consulted, they can make changes directly without submitting them for approval.
 
@@ -79,7 +79,7 @@ Since both claim access levels and ownership permissions regulate the activities
 
 The Consulted claim access level gives you access to modify elements with a feature. With the ownership permission, you can modify the configuration of an element right away as well as receive and process change requests submitted by other, non-owner users.
 
-![consulted-owner.gif]({{ "/assets/images/administration/user-access/consulted-owner.gif" | relative_url }})
+![Diagram: an owner with Consulted access modifies configuration and changes apply right away; a non-owner with Consulted access submits changes for approval, and the owner approves or rejects them]({{ "/assets/images/administration/user-access/consulted-owner.gif" | relative_url }})
 
 **Informed claim access level with ownership**
 

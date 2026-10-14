@@ -6,7 +6,6 @@ grand_parent: Deploy & operate
 nav_order: 70
 permalink: /operate/security/azure-customer-usage-attribution
 content_type: reference
-redirect_from: ["/kb/azure-customer-usage-attribution"]
 source_path: docs/200-kb/kb0001-pid.md
 tags: ["microsoft","azure","kubernetes","aks"]
 last_modified: 2021-09-20

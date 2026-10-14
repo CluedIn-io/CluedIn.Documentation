@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 210
 permalink: /archive/unsupported-features/running-searches
 content_type: reference
-redirect_from: ["/consume/running-searches"]
 source_path: docs/150-consume/outdated/090-running-searches.md
 tags: ["consume","search"]
 published: false

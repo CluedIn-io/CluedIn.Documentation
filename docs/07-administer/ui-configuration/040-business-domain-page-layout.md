@@ -6,7 +6,6 @@ grand_parent: Administer
 nav_order: 40
 permalink: /administer/ui-configuration/business-domain-page-layout
 content_type: how-to
-redirect_from: ["/preparation/entity-setup"]
 source_path: docs/080-management/entity-type/010-entity-setup.md
 tags: ["management", "entity type"]
 published: false

@@ -6,7 +6,6 @@ grand_parent: Govern & improve
 nav_order: 20
 permalink: /govern/workflows/prerequisites
 content_type: reference
-redirect_from: ["/workflow/prerequisites"]
 source_path: docs/130-workflow.md/020-prerequisites.md
 published: false
 ---

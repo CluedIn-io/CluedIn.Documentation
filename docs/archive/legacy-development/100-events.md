@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 100
 permalink: /archive/legacy-development/events
 content_type: reference
-redirect_from: ["/development/events"]
 source_path: docs/090-development/100-events.md
 tags: ["development","events"]
 published: false

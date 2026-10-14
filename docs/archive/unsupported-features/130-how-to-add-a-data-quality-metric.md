@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 130
 permalink: /archive/unsupported-features/how-to-add-a-data-quality-metric
 content_type: reference
-redirect_from: ["/preparation/data-quality-metrics/how-to-add-a-data-quality-metric"]
 source_path: docs/070-governance/outdated/130-how-to-add-a-data-quality-metric.md
 tags: ["governance","quality-metrics"]
 published: false

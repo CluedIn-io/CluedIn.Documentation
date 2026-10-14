@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 490
 permalink: /archive/legacy-development/webhooks
 content_type: reference
-redirect_from: ["/developer/webhooks"]
 source_path: docs/090-development/580-webhooks.md
 tags: ["development", "webhooks"]
 published: false

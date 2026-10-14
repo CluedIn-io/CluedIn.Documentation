@@ -27,25 +27,25 @@ The CluedIn Excel Add-in is hosted on the internet. If you have a zero-trust cor
 
 1. In Excel, go to the **Home** tab, and then select **Add-ins**.
 
-    ![excel-add-ins.png]({{ "/assets/images/microsoft-integration/excel-add-in/excel-add-ins.png" | relative_url }})
+    ![The Home tab of the Excel ribbon with the Add-ins button highlighted]({{ "/assets/images/microsoft-integration/excel-add-in/excel-add-ins.png" | relative_url }})
 
 1. Select **More Add-ins**. In the search bar, enter _CluedIn_ and then start the search.
 
 1. Next to the CluedIn Excel Add-in, select **Add**.
 
-    ![excel-cluedin-add-in.png]({{ "/assets/images/microsoft-integration/excel-add-in/excel-cluedin-add-in.png" | relative_url }})
+    ![The Office Add-ins store searched for CluedIn, showing the CluedIn Excel Add-in with an Add button]({{ "/assets/images/microsoft-integration/excel-add-in/excel-cluedin-add-in.png" | relative_url }})
 
 1. In the **License terms and privacy policy** dialog, select **Continue**.
 
     A new [group](#actions-in-cluedin-group) called **CluedIn** appears on the ribbon of the **Home** tab in Excel.
 
-    ![cludin-group-inactive.png]({{ "/assets/images/microsoft-integration/excel-add-in/cludin-group-inactive.png" | relative_url }})
+    ![The new CluedIn group on the Excel ribbon, with only Show Taskpane available and the other actions greyed out]({{ "/assets/images/microsoft-integration/excel-add-in/cludin-group-inactive.png" | relative_url }})
 
 1. In the **New Office Add-in** pane, select **Allow and Continue**. If you do not see this pane, select **Show Taskpane** in the CluedIn group.
 
     As a result, the CluedIn Excel Add-in is added to your Excel application.
 
-    ![excel-cluedin-add-in-added.png]({{ "/assets/images/microsoft-integration/excel-add-in/excel-cluedin-add-in-added.png" | relative_url }})
+    ![The CluedIn Excel Add-in task pane on the Connect screen, showing no connections and Connect and New buttons]({{ "/assets/images/microsoft-integration/excel-add-in/excel-cluedin-add-in-added.png" | relative_url }})
 
     Next, connect the add-in to your CluedIn instance.
 
@@ -59,11 +59,11 @@ To enable the CluedIn Excel Add-in to communicate with your CluedIn instance, pr
 
 1. Enter the **Description** and the **Server address** of a CluedIn instance that you want to connect to. Then, select **Create**.
 
-    ![create-connection-to-cluedin.png]({{ "/assets/images/microsoft-integration/excel-add-in/create-connection-to-cluedin.png" | relative_url }})
+    ![The New Connection form with a description and the server address https://cluedin.mycompany.com, and a Create button]({{ "/assets/images/microsoft-integration/excel-add-in/create-connection-to-cluedin.png" | relative_url }})
 
 1. Hover over the newly added connection, and then select the checkbox next to in. Then, select **Connect**.
 
-    ![connect-to-cluedin.png]({{ "/assets/images/microsoft-integration/excel-add-in/connect-to-cluedin.png" | relative_url }})
+    ![The Connect screen with the new connection selected and the Connect button]({{ "/assets/images/microsoft-integration/excel-add-in/connect-to-cluedin.png" | relative_url }})
 
     A new window opens, prompting you to sign in to your CluedIn instance. You can sign in using your username and password, or with SSO if it is enabled for you. After you sign in to CluedIn, you can start [working with the CluedIn Excel Add-in](#work-with-cluedin-excel-add-in).
 
@@ -75,17 +75,17 @@ You can add multiple connections to the CluedIn Excel Add-in. However, you can c
 
     - If you have already connected to a CluedIn instance, select **Change connection**.
 
-        ![change-connection.png]({{ "/assets/images/microsoft-integration/excel-add-in/change-connection.png" | relative_url }})
+        ![The task pane header with the Change connection option highlighted next to Refresh]({{ "/assets/images/microsoft-integration/excel-add-in/change-connection.png" | relative_url }})
 
     - If you have not yet connected to a CluedIn instance, select **New**.
 
-        ![add-new-connection.png]({{ "/assets/images/microsoft-integration/excel-add-in/add-new-connection.png" | relative_url }})
+        ![The Connect screen listing an existing connection, with the New button highlighted]({{ "/assets/images/microsoft-integration/excel-add-in/add-new-connection.png" | relative_url }})
 
 1. Enter the **Description** and the **Server address** of a CluedIn instance that you want to connect to. Then, select **Create**.
 
     A new connection is added to the CluedIn Excel Add-in.
 
-    ![two-connections.png]({{ "/assets/images/microsoft-integration/excel-add-in/two-connections.png" | relative_url }})
+    ![The Connect screen listing two connections, a staging instance and a training instance]({{ "/assets/images/microsoft-integration/excel-add-in/two-connections.png" | relative_url }})
 
     To connect to a specific CluedIn instance, hover over the needed connection, and then select the checkbox next to in. Then, select **Connect**. You will be prompted to sign in to the CluedIn instance.
 
@@ -93,7 +93,7 @@ You can add multiple connections to the CluedIn Excel Add-in. However, you can c
 
 When the CluedIn Excel Add-in is added, a new group called **CluedIn** appears on the ribbon of the **Home** tab in Excel. This group contains several actions for working with the add-in. Note that the actions become available only after you [connect to CluedIn](#connect-cluedin-excel-add-in-to-cluedin).
 
-![actions-in-cluedin-group.png]({{ "/assets/images/microsoft-integration/excel-add-in/actions-in-cluedin-group.png" | relative_url }})
+![The CluedIn ribbon group with Show Taskpane, Create Entity Type, Merge Entity, Delete entity, View entity, Publish and Refresh]({{ "/assets/images/microsoft-integration/excel-add-in/actions-in-cluedin-group.png" | relative_url }})
 
 - **Show Taskpane** – opens the CluedIn Excel Add-in task pane to the right side of the window.
 
@@ -103,7 +103,7 @@ When the CluedIn Excel Add-in is added, a new group called **CluedIn** appears o
 
     To define the records for merging, select multiple cells or rows in the worksheet, and then select **Merge Entity**. In the **CluedIn Excel Add-in** task pane, select the checkbox next to the target record into which you want to merge other records. and then select **Merge**.
 
-    ![merge-entities.png]({{ "/assets/images/microsoft-integration/excel-add-in/merge-entities.png" | relative_url }})
+    ![The Merge Entities pane listing three selected records with one checked as the target, and Merge and Cancel buttons]({{ "/assets/images/microsoft-integration/excel-add-in/merge-entities.png" | relative_url }})
 
     As a result, the merging page opens in CluedIn in your default browser. There, you can select the winning properties for the target record and complete the merging process.
 
@@ -123,19 +123,19 @@ Once you connect to an instance of CluedIn, you can start working with the data 
 
 1. Specify the **Vocabulary Keys** of golden records that you want to load. To add all vocabulary keys associated with the selected business domain, use the **Auto-select** option.
 
-    ![load-data-auto-select.png]({{ "/assets/images/microsoft-integration/excel-add-in/load-data-auto-select.png" | relative_url }})
+    ![The Load Data tab with entity type /TrainingEmployee and all its vocabulary keys added using the highlighted auto-select option]({{ "/assets/images/microsoft-integration/excel-add-in/load-data-auto-select.png" | relative_url }})
 
     Alternatively, start entering the name of the vocabulary key, and then select the needed option.
 
-    ![load-data-vocab-keys.png]({{ "/assets/images/microsoft-integration/excel-add-in/load-data-vocab-keys.png" | relative_url }})
+    ![The Vocabulary Keys field with training typed, suggesting the /TrainingEmployee keys Email, First Name, Full Name and ID]({{ "/assets/images/microsoft-integration/excel-add-in/load-data-vocab-keys.png" | relative_url }})
 
     If you cannot find the needed vocabulary keys, refresh the reference data.
 
-    ![refresh-reference-data.png]({{ "/assets/images/microsoft-integration/excel-add-in/refresh-reference-data.png" | relative_url }})
+    ![The task pane header with the Refresh option highlighted above the Load Data tab]({{ "/assets/images/microsoft-integration/excel-add-in/refresh-reference-data.png" | relative_url }})
 
     If you cannot find the needed vocabulary keys after refreshing the reference data, select the gear icon and clear the **Exclude Non-core Keys** and **Exclude Provider Keys** checkboxes.
 
-    ![load-data-clear-checkboxes.png]({{ "/assets/images/microsoft-integration/excel-add-in/load-data-clear-checkboxes.png" | relative_url }})
+    ![The gear icon next to Vocabulary Keys selected, showing the cleared Exclude Non-core Keys and Exclude Provider Keys checkboxes]({{ "/assets/images/microsoft-integration/excel-add-in/load-data-clear-checkboxes.png" | relative_url }})
 
 1. (Optional) To specify additional filters for loading golden records, use the following options:
 
@@ -149,7 +149,7 @@ Once you connect to an instance of CluedIn, you can start working with the data 
 
         You can enter multiple filters in each field, separated by commas.
 
-        ![load-data-optional-filters.png]({{ "/assets/images/microsoft-integration/excel-add-in/load-data-optional-filters.png" | relative_url }})
+        ![The Optional filters section with Text Filter set to Accountant, empty Providers, Tags and Glossary Terms fields, and a Load button]({{ "/assets/images/microsoft-integration/excel-add-in/load-data-optional-filters.png" | relative_url }})
 
 1. Select **Load**.
 
@@ -157,11 +157,11 @@ Once you connect to an instance of CluedIn, you can start working with the data 
 
     Note that the sheet name corresponds to the business domain of loaded golden records. If you want to load the data of another business domain, just add a new sheet, edit the configuration on the **Load Data** tab, and load the data. and You can have as many sheets as you like.
 
-    ![loaded-data.png]({{ "/assets/images/microsoft-integration/excel-add-in/loaded-data.png" | relative_url }})
+    ![Golden records loaded into a worksheet named TrainingEmployee, with a column for each selected vocabulary key]({{ "/assets/images/microsoft-integration/excel-add-in/loaded-data.png" | relative_url }})
 
     You can view the summary on the latest data load on the **Overview** tab.
 
-    ![load-data-overview.png]({{ "/assets/images/microsoft-integration/excel-add-in/load-data-overview.png" | relative_url }})
+    ![The Overview tab showing entity type /TrainingEmployee and the Last Loaded date, with Last Published empty]({{ "/assets/images/microsoft-integration/excel-add-in/load-data-overview.png" | relative_url }})
 
 ### Modify loaded data in Excel
 
@@ -171,23 +171,23 @@ When the data from CluedIn is loaded to Excel, you can modify it by making chang
 
 1. Make changes to the loaded data. Note that the background of the modified cells is changed to orange.
 
-    ![modify-data-organge.png]({{ "/assets/images/microsoft-integration/excel-add-in/modify-data-organge.png" | relative_url }})
+    ![The worksheet with a modified Job Title cell, Senior Accountant, shown with an orange background]({{ "/assets/images/microsoft-integration/excel-add-in/modify-data-organge.png" | relative_url }})
 
     If you want to undo the changes you have just made, select **Undo** on the Quick Access Toolbar or press Ctrl+Z.  
 
 1. To send your changes to CluedIn, on the **Home** tab, in the **CluedIn** group, select **Publish**.
 
-    ![modify-data-publish.png]({{ "/assets/images/microsoft-integration/excel-add-in/modify-data-publish.png" | relative_url }})
+    ![The CluedIn ribbon group with the Publish button highlighted]({{ "/assets/images/microsoft-integration/excel-add-in/modify-data-publish.png" | relative_url }})
 
     When the changes are published, the background of the modified cells is changed to blue.
 
-    ![published-data-dark-blue.png]({{ "/assets/images/microsoft-integration/excel-add-in/published-data-dark-blue.png" | relative_url }})
+    ![The worksheet after publishing, with the modified Job Title cell now shown with a blue background]({{ "/assets/images/microsoft-integration/excel-add-in/published-data-dark-blue.png" | relative_url }})
 
     To make sure the changes have been saved in CluedIn, refresh the loaded data by selecting **Refresh** in the **CluedIn** [group](#actions-in-cluedin-group) on the **Home** ribbon tab. As a result, the background of the cells returns to its default color (light blue or white).
 
     You can view the summary on the latest published data load on the **Overview** tab.
 
-    ![overview-last-published.png]({{ "/assets/images/microsoft-integration/excel-add-in/overview-last-published.png" | relative_url }})
+    ![The Overview tab with the Last Published date and time highlighted]({{ "/assets/images/microsoft-integration/excel-add-in/overview-last-published.png" | relative_url }})
 
 ### Cluster and edit data in Excel
 
@@ -215,7 +215,7 @@ The Excel add-in automatically parses these rules and applies the corresponding 
 
 1. Select the **Column Name** that you want to cluster, and then select **View Clusters**.
 
-    ![cluster-column-name.png]({{ "/assets/images/microsoft-integration/excel-add-in/cluster-column-name.png" | relative_url }})
+    ![The Cluster tab with Job Title selected as the Column Name and a View Clusters button]({{ "/assets/images/microsoft-integration/excel-add-in/cluster-column-name.png" | relative_url }})
 
     The clustering results page opens in a new window where you can view the clusters identified per the selected column.
 
@@ -225,7 +225,7 @@ The Excel add-in automatically parses these rules and applies the corresponding 
 
     1. Select **Merge & Update Worksheet**.
 
-        ![cluster-details.png]({{ "/assets/images/microsoft-integration/excel-add-in/cluster-details.png" | relative_url }})
+        ![The Cluster and Edit Job Title column view with a tolerance slider, a cluster of two similar values marked for merge, and Merge and Update Worksheet]({{ "/assets/images/microsoft-integration/excel-add-in/cluster-details.png" | relative_url }})
 
         The modified values are highlighted in orange. To send these changes to CluedIn, select **Publish** in the **CluedIn** group on the **Home** ribbon tab.
 

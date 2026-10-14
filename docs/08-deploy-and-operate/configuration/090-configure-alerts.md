@@ -15,7 +15,7 @@ headerIcon: "paas"
 
 By default, CluedIn contains built-in alerts that are sent to our support team.
 
-![Alerts.png]({{ "/assets/images/ama/howtos/configure-alerts-1.png" | relative_url }})
+![List of built-in metric alert rules, such as node CPU utilization above 80, container memory usage above 95, and pod in failed state]({{ "/assets/images/ama/howtos/configure-alerts-1.png" | relative_url }})
 
 If you need to set up additional alerts or modify the existing configuration of alerts, you can do it your CluedIn AKS cluster.
 
@@ -25,7 +25,7 @@ If you need to set up additional alerts or modify the existing configuration of 
 
 1. In the left pane, under **Monitoring**, select **Alerts**.
 
-    ![alerts.png]({{ "/assets/images/ama/howtos/configure-alerts-2.png" | relative_url }})
+    ![Azure portal AKS cluster menu with Alerts highlighted under Monitoring]({{ "/assets/images/ama/howtos/configure-alerts-2.png" | relative_url }})
 
     You will see the alerts for your CluedIn AKS cluster.
     

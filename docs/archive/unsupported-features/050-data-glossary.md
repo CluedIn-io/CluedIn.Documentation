@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 50
 permalink: /archive/unsupported-features/data-glossary
 content_type: reference
-redirect_from: ["/governance/data-glossary"]
 source_path: docs/070-governance/outdated/050-data-glossary.md
 tags: ["governance","data-glossary"]
 published: false

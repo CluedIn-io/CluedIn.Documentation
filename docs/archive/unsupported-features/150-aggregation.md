@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 150
 permalink: /archive/unsupported-features/aggregation
 content_type: reference
-redirect_from: ["/preparation/aggregation"]
 source_path: docs/050-preparation/outdated/010-aggregation.md
 tags: ["preparation","aggregation"]
 published: false

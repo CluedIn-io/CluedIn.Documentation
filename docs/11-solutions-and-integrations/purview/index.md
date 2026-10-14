@@ -7,7 +7,7 @@ has_children: true
 permalink: /solutions/purview
 content_type: landing
 summary: "CluedIn and Purview cover different halves of the same problem: Purview catalogues and governs metadata, CluedIn masters the data itself."
-redirect_from: ["/microsoft-integration/purview"]
+redirect_from: ["/microsoft-integration/purview", "/microsoft-integration/purview/introduction"]
 source_path: docs/180-microsoft-integration/020-purview.md
 tags: ["integration", "microsoft", "azure", "purview"]
 ---

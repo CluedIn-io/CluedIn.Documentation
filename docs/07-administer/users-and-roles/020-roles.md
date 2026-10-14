@@ -68,7 +68,7 @@ To get acquainted with the required claims and access levels for all actions in 
 
     Each role contains the same list of claims, but different access levels. We recommend that you familiarize yourself with the [default CluedIn roles](#default-roles), so that you know which role to assign to users in your organization. If the default configuration is not suitable for you, you can change the access levels in the default roles or create your own roles.
 
-    ![roles-1.png]({{ "/assets/images/administration/roles/roles-1.png" | relative_url }})
+    ![Role claims for the Preparation section: (a) the section name, (b) claims such as Clean, Mesh Center and Prepare, and (c) the access level for each, set to Accountable]({{ "/assets/images/administration/roles/roles-1.png" | relative_url }})
 
 ## Supported access levels
 

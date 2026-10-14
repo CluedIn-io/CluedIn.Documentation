@@ -18,7 +18,7 @@ tags: ["engine-room"]
 
 The Engine Room in CluedIn provides a visual overview of the data processing pipeline—a dependency-based tree of processing steps that define how data flows through the system. Each step depends on previous ones, forming a processing tree that represents CluedIn’s internal data operations. 
 
-![Diagram](/assets/images/preparation/intro-engine-room.png)
+![Engine Room overview slide: the pipeline shown as Pre-Processing, Engine room, and Post-Processing steps, with notes on transparency, drill-down metrics, and full lineage](/assets/images/preparation/intro-engine-room.png)
 
 The Engine Room serves as a visualization of this processing workflow. It provides statistics such as:
 
@@ -42,7 +42,7 @@ If you’ve added an integration to your account, the Engine Room shows the curr
 
 By clicking on a processing step, you can view detailed metrics about that specific step—including processing speed, state, and error rate—helping you understand what is happening in CluedIn in real time.
 
-![Diagram](/assets/images/preparation/quick-view-processing-statistics-2.png)
+![The Status of Configured Integrations panel opened from the header, stating that all integration jobs are up to date, with a View All Configured Integrations link](/assets/images/preparation/quick-view-processing-statistics-2.png)
 
 ## Accessing system statistics
 

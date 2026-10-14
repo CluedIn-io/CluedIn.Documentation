@@ -38,13 +38,13 @@ You can sign in to your CluedIn account in one of the following ways:
 
   The following diagram shows the steps involved in getting access to your CluedIn account by email.
 
-  ![getting-access-diagram.gif]({{ "/assets/images/getting-access/getting-access-diagram.gif" | relative_url }})
+  ![Diagram: the CluedIn administrator adds a user by email; the business user receives an email with an account activation link, creates a password and signs up, then signs in and starts using CluedIn]({{ "/assets/images/getting-access/getting-access-diagram.gif" | relative_url }})
 
 - **Sign in using Single Sign-On (SSO)** – SSO is not enabled by default. If your administrator has set up SSO, you’ll be able to sign in to your CluedIn account by authenticating through your company’s identity provider.
 
   If the SSO method is enabled for your organization, you can select the corresponding button on the CluedIn sign-in page.
 
-  ![sign-in-sso.png]({{ "/assets/images/getting-access/sign-in-sso.png" | relative_url }})
+  ![CluedIn sign-in page with the Sign In using Single Sign-on button highlighted, above the link to use CluedIn account login]({{ "/assets/images/getting-access/sign-in-sso.png" | relative_url }})
 
 ### Sign in by email
 
@@ -54,11 +54,11 @@ After you created password for your account, you can sign in and start using Clu
 
 - On the CluedIn sign-in page, enter your email and password and then select **Sign In**.
 
-  ![sign-in-email-3.png]({{ "/assets/images/getting-access/sign-in-email-3.png" | relative_url }})
+  ![The Sign in page with the Email and Password fields filled in and the Sign In button]({{ "/assets/images/getting-access/sign-in-email-3.png" | relative_url }})
 
   After you sign in for the first time, you may notice that you have read-only access to all sections and modules.
 
-  ![request-access-1.png]({{ "/assets/images/getting-access/request-access-1.png" | relative_url }})
+  ![Integrations tiles shown as read-only, with a tooltip saying you do not have access and require claim integration.datasourcegroups at level Consultant]({{ "/assets/images/getting-access/request-access-1.png" | relative_url }})
 
   To get permissions to specific modules and functions, you need to request access.
 
@@ -68,7 +68,7 @@ To get access to more functions within the platform, contact your CluedIn admini
 
 The following diagram shows the flow of requesting access directly in CluedIn.
 
-![request-access-diagram.gif]({{ "/assets/images/getting-access/request-access-diagram.gif" | relative_url }})
+![Diagram: the business user sends an access request; the administrator receives it, chooses a role and grants access; the user receives a role approval notification, signs out and in again, and uses the features of the new role]({{ "/assets/images/getting-access/request-access-diagram.gif" | relative_url }})
 
 **To request access to CluedIn modules**
 
@@ -80,7 +80,7 @@ The following diagram shows the flow of requesting access directly in CluedIn.
 
    You will see a message similar to the following.
 
-   ![request-access-2.png]({{ "/assets/images/getting-access/request-access-2.png" | relative_url }})
+   ![The You do not have access message with the Return to homescreen and Request Access buttons and a Show required access link]({{ "/assets/images/getting-access/request-access-2.png" | relative_url }})
 
 1. Select **Request Access**.
 
@@ -88,7 +88,7 @@ The following diagram shows the flow of requesting access directly in CluedIn.
 
    When the request gets approved, you'll receive a notification.
 
-   ![request-access-3.png]({{ "/assets/images/getting-access/request-access-3.png" | relative_url }})
+   ![Notification saying Role request approved, asking you to sign out and sign in to get the new role, with a View Request link]({{ "/assets/images/getting-access/request-access-3.png" | relative_url }})
 
 1. Sign out and sign in again for the changes to take the effect.
 

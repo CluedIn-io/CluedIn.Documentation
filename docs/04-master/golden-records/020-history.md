@@ -6,7 +6,7 @@ grand_parent: Master
 nav_order: 20
 permalink: /master/golden-records/history
 content_type: concept
-redirect_from: ["/key-terms-and-features/golden-records/history"]
+redirect_from: ["/key-terms-and-features/golden-records/history", "/user-interface/history"]
 source_path: docs/110-key-terms-and-features/golden-records/020-history.md
 tags: ["golden record history"]
 last_modified: 2024-01-15
@@ -27,7 +27,7 @@ Depending on which aspect of the history you want to look at, you can switch bet
 
 - [Relations history](#relations-history) – here, you can view detailed information about all outgoing relations (also referred to as _edges_) of a golden record.
 
-    ![history_switch.png]({{ "/assets/images/golden-records/history_switch.png" | relative_url }})
+    ![The History tab of a golden record with the Golden Record and Relations switch highlighted]({{ "/assets/images/golden-records/history_switch.png" | relative_url }})
 
 ## Golden record history
 
@@ -37,7 +37,7 @@ Every time a data part appears in the history, a _branch_ is created. Branches h
 
 Each branch has a _head_ that contains values from the data parts belonging to that branch. The same golden record property can have different values in each head. By default, the latest value coming to CluedIn or the latest manually modified value is used in the golden record. If you want to determine which value should be used in a golden record property, create a [survivorship rule](/govern/rules). The following diagram illustrates the process of establishing a golden record.
 
-![history-diagram.png]({{ "/assets/images/key-terms-and-features/history-diagram.png" | relative_url }})
+![Diagram: the heads of the file data source, manually added and clean project branches feed a survivorship rule, which produces the golden record]({{ "/assets/images/key-terms-and-features/history-diagram.png" | relative_url }})
 
 By default, the **History** page displays the data parts arranged by the sort date (this is the date when CluedIn received the data part). You can explore the data parts using the following views:
 
@@ -61,7 +61,7 @@ List, Tree and Timeline share the same left-hand and right-hand panels, and only
 
 The list view is the default view that shows all data parts that make up a golden record, one row per data part, ordered by date, with the **Golden record now** row pinned to the top.
 
-![history-list-view.png]({{ "/assets/images/golden-records/history-list-view.png" | relative_url }})
+![The List view of the History page: the Golden record now row pinned above Merge, Changed and Discovered rows, with the Branches panel on the left and the golden record details on the right]({{ "/assets/images/golden-records/history-list-view.png" | relative_url }})
 
 Each row shows:
 
@@ -81,13 +81,13 @@ Each data part is an individual entity, and it is not linked to other data parts
 
 Selecting a row opens the details panel described above, where you can see every field the data part changed.
 
-![history-list-view-details.png]({{ "/assets/images/golden-records/history-list-view-details.png" | relative_url }})
+![The List view with a Merge row selected, showing its summary, where it sits on its branch, the branches it joined and every field it changed]({{ "/assets/images/golden-records/history-list-view-details.png" | relative_url }})
 
 ### Tree view
 
 The tree view draws the same data parts as a branch tree: one lane per branch, with its data parts placed on the lane in time order. This makes it easy to see, for a golden record built from several sources, which data parts belong together, what the latest data part on each branch is, and where branches were joined.
 
-![history-tree-view.png]({{ "/assets/images/golden-records/history-tree-view.png" | relative_url }})
+![The Tree view showing three branch lanes joined by a merge, with the Golden record now row above them and the details panel on the right]({{ "/assets/images/golden-records/history-tree-view.png" | relative_url }})
 
 - A **Golden record now** row sits above all the lanes. It is a summary, not a branch — selecting it shows how many current golden record values there are and how many branches supplied them.
 
@@ -97,7 +97,7 @@ The tree view draws the same data parts as a branch tree: one lane per branch, w
 
 - The **latest data part on each branch** is marked, so you can tell at a glance whether a branch has moved on since the golden record last picked up a value from it.
 
-![history-tree-merge-details.png]({{ "/assets/images/golden-records/history-tree-merge-details.png" | relative_url }})
+![The details panel for a merge data part, listing the branches it joined and every field it changed]({{ "/assets/images/golden-records/history-tree-merge-details.png" | relative_url }})
 
 If a golden record has more than 24 branches, the 20 most recently active ones each keep their own lane, and the rest are grouped into one grey **Other branches** column. From the details panel of a data part on a grouped branch, you can give that branch its own lane, or group it back.
 
@@ -105,7 +105,7 @@ If a golden record has more than 24 branches, the 20 most recently active ones e
 
 The timeline view plots the same branches on a time axis instead of in a plain sequence, one row per branch, so you can see how far apart in time the data parts on a branch really are. Zoom in to spread out data parts that landed close together, which are otherwise grouped into a single, numbered data part on the timeline. Data parts with no date for the currently selected [date filter](#filters) appear in a separate **Date not set** strip so they do not distort the time axis.
 
-![history-timeline-view.png]({{ "/assets/images/golden-records/history-timeline-view.png" | relative_url }})
+![The Timeline view plotting three branches against a date axis, with zoom controls and the details panel on the right]({{ "/assets/images/golden-records/history-timeline-view.png" | relative_url }})
 
 ### Filters
 
@@ -113,7 +113,7 @@ The **History** page contains various filters to help you navigate through the d
 
 - **Data source filter** – you can filter the data parts by the data source that indicates a place where a data part was produced. By default, the data parts from all data sources are displayed on the **History** page.
 
-    ![data-source-filter.png]({{ "/assets/images/golden-records/data-source-filter.png" | relative_url }})
+    ![The History page with the data source filter set to All data sources highlighted next to the total count]({{ "/assets/images/golden-records/data-source-filter.png" | relative_url }})
 
 - **Date filter** – you can filter the data parts by one of the following dates:
 
@@ -125,7 +125,7 @@ The **History** page contains various filters to help you navigate through the d
 
     - **Discovery date** – the date when the data part was created in CluedIn.
 
-        ![date-filter.png]({{ "/assets/images/golden-records/date-filter.png" | relative_url }})
+        ![The sort date dropdown open with the options Sort Date, Modified Date, Created Date and Discovery Date]({{ "/assets/images/golden-records/date-filter.png" | relative_url }})
 
 - **Status filter** – you can toggle which [data part statuses](#data-part-statuses) are shown: Discovered, Added, Changed, and Merge. Merge is not a status stored on the data part itself; it is shown whenever a data part joined one or more other branches, such as a deduplication or manual merge.
 
@@ -148,7 +148,7 @@ The relations history page contains detailed information about all outgoing rela
 
 Each relation is presented as a separate table entry that contains the source, ID, type, and properties. To view the relation properties, simply expand the dropdown in the **Properties** column.
 
-![history_relations_properties.png]({{ "/assets/images/golden-records/history_relations_properties.png" | relative_url }})
+![The Relations view of the History page listing outgoing edges with Source, Part Id, Edge Type and Properties columns]({{ "/assets/images/golden-records/history_relations_properties.png" | relative_url }})
 
 You can filter relations by two criteria:
 

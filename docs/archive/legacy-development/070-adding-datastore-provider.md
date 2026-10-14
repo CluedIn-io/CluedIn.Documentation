@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 70
 permalink: /archive/legacy-development/adding-datastore-provider
 content_type: reference
-redirect_from: ["/development/adding-datastore-provider"]
 source_path: docs/090-development/070-adding-datastore-provider.md
 tags: ["development","data-stores"]
 published: false

@@ -48,19 +48,19 @@ The Libpostal enricher has its pros and cons, which can help you decide if it wi
 
 Let's consider an example of a CluedIn golden record that contains the address property. This property includes street address details all in one value. To ensure data accuracy and usability, we will use the Libpostal enricher to validate and parse this address.
 
-![libpostal-address-input.png]({{ "/assets/images/kb/how-to/libpostal-address-input.png" | relative_url }})
+![Golden record Properties tab with the Street property highlighted, holding the full street address in a single value]({{ "/assets/images/kb/how-to/libpostal-address-input.png" | relative_url }})
 
 To configure the Libpostal enricher, specify the business domain of golden records that you want to enrich and the vocabulary key that contains the initial address.
 
-![libpostal-settings.png]({{ "/assets/images/kb/how-to/libpostal-settings.png" | relative_url }})
+![Libpostal enricher Settings tab with Accepted Entity Type set to /trainingcompany and Organization Address Vocabulary Key set to trainingcompany.address]({{ "/assets/images/kb/how-to/libpostal-settings.png" | relative_url }})
 
 When the enricher is configured, [trigger](/govern/enrichment/add-enricher#trigger-enrichment) the enrichment for golden records. You can trigger the enrichment for all golden records of the specific business domain using the [GraphQL tool](/publish/graphql/graphql-actions). Alternatively, you can trigger the enrichment manually for each golden record. To do this, on the golden record page, select **More** > **Trigger external enrichment**.
 
-![trigger-external-enrichment.png]({{ "/assets/images/kb/how-to/trigger-external-enrichment.png" | relative_url }})
+![Golden record Properties tab with the toolbar area next to the Edit button highlighted]({{ "/assets/images/kb/how-to/trigger-external-enrichment.png" | relative_url }})
 
 As a result, the CluedIn golden record now contains parsed address with such components as house, house number, level, road, and unit.
 
-![libpostal-enriched.png]({{ "/assets/images/kb/how-to/libpostal-enriched.png" | relative_url }})
+![Golden record Properties tab showing Libpostal parsed address properties: House, House_number, Level, Road and Unit]({{ "/assets/images/kb/how-to/libpostal-enriched.png" | relative_url }})
 
 ## Fixing address data using Google Maps enricher
 
@@ -83,7 +83,7 @@ The Google Maps enricher has its pros and cons, which can help you decide if it 
 
 Let's consider an example of the same CluedIn golden record. To add more context about the company, we will use the Google Maps enricher to retrieve additional information. We are using the same golden record to illustrate the difference between two enrichers.
 
-![google-maps-input.png]({{ "/assets/images/kb/how-to/google-maps-input.png" | relative_url }})
+![Golden record Properties tab for an address record, showing properties such as Street, City, Postal Code and Country]({{ "/assets/images/kb/how-to/google-maps-input.png" | relative_url }})
 
 To configure the Google Maps enricher, specify the following details:
 
@@ -97,13 +97,13 @@ To configure the Google Maps enricher, specify the following details:
 
 - **Organization Address Vocab Key** to define company addresses that will be used for searching the Google Maps Platform.
 
-![google-maps-settings.png]({{ "/assets/images/kb/how-to/google-maps-settings.png" | relative_url }})
+![Google Maps enricher Settings tab with Api Key, Accepted Entity Type, enrichment control key, Organization Name and Organization Address vocabulary keys filled in]({{ "/assets/images/kb/how-to/google-maps-settings.png" | relative_url }})
 
 When the enricher is configured, [trigger](/govern/enrichment/add-enricher#trigger-enrichment) the enrichment for golden records. You can trigger the enrichment for all golden records of the specific business domain using the [GraphQL tool](/publish/graphql/graphql-actions), or you can trigger the enrichment manually for each golden record. Alternatively, you can trigger the enrichment manually for each golden record. To do this, on the golden record page, select **More** > **Trigger external enrichment**.
 
 As a result, the CluedIn golden record now contains a variety of company details from Google Maps, such as administrative area level 1 and 2, business status, country code, and more.
 
-![google-maps-enriched.png]({{ "/assets/images/kb/how-to/google-maps-enriched.png" | relative_url }})
+![Golden record Properties tab listing Google Maps properties such as administrative areas, business status, country code, formatted address, latitude and longitude]({{ "/assets/images/kb/how-to/google-maps-enriched.png" | relative_url }})
 
 ## Fixing address data using AI-based rule action
 
@@ -124,7 +124,7 @@ The AI-based rule action can be used to enhance golden records with additional i
 
 We'll use a Google golden record to illustrate how to validate the address and get full postal address based on the existing address data.
  
-![ai-rules-address-input.png]({{ "/assets/images/kb/how-to/ai-rules-address-input.png" | relative_url }})
+![Company records table with the address value Belgrave House, 76 Buckingham Palace Road highlighted for the Google record]({{ "/assets/images/kb/how-to/ai-rules-address-input.png" | relative_url }})
 
 To validate the address, [create](/govern/rules/create-rule) a data part rule and select an action to add value with CluedIn AI. In the action, do the following:
 
@@ -136,8 +136,8 @@ To validate the address, [create](/govern/rules/create-rule) a data part rule 
 
 - Select the field for AI-generated full postal address.
 
-![ai-rules-address-action.png]({{ "/assets/images/kb/how-to/ai-rules-address-action.png" | relative_url }})
+![The Add action pane with the Add Value with CluedIn AI action, a prompt to return the full postal address, an endpoint, and the target vocabulary key]({{ "/assets/images/kb/how-to/ai-rules-address-action.png" | relative_url }})
 
 Next, save, activate and re-process the rule. To verify that the rule has been applied, find and open the Google golden record. As a result, new field—AI Address—containing full postal address has been added.
 
-![ai-rules-address-output.png]({{ "/assets/images/kb/how-to/ai-rules-address-output.png" | relative_url }})
+![Google golden record Properties tab with the new AI Address property highlighted, holding the full postal address]({{ "/assets/images/kb/how-to/ai-rules-address-output.png" | relative_url }})

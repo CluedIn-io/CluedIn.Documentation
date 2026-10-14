@@ -35,7 +35,7 @@ This runbook is a PowerShell script, which CluedIn will provide as needed.
 
 An automation account must be provided. The runbook will be installed into the the automation account. The three dependent runbooks must already be installed. Typically, the runbook should be scheduled to run once a day outside of office hours.
 
-![disaster-recovery-runbook.png]({{ "/assets/images/paas-operations/disaster-recovery-runbook.png" | relative_url }})
+![Diagram: in the automation account, an orchestrating runbook triggers the backup runbook, which snapshots CluedIn AKS disks into a snapshots resource group; the transfer snapshots runbook copies them to a resource group in the target region (skipped in the same region); the restore runbook then restores them to the target CluedIn AKS]({{ "/assets/images/paas-operations/disaster-recovery-runbook.png" | relative_url }})
 
 ## Input parameters
 
@@ -52,6 +52,6 @@ An automation account must be provided. The runbook will be installed into the t
 
 ## Process
 
-![disaster-recovery-runbook-process.png]({{ "/assets/images/paas-operations/disaster-recovery-runbook-process.png" | relative_url }})
+![Flowchart: Start, trigger backup, wait for backups to complete, copy snapshots to target, wait for snapshot to fully transfer, restore CluedIn, wait for restore to complete, Stop]({{ "/assets/images/paas-operations/disaster-recovery-runbook-process.png" | relative_url }})
 
 Scaling down of the DR environment following a successful restore is optional.

@@ -33,12 +33,12 @@ If an enricher returns only one match for a golden record, that match does not a
 
    The matches table displays the candidates for the selected enriched record.
 
-   ![multi-match-table.png]({{ "/assets/images/preparation/enricher/multi-match/multi-match-table.png" | relative_url }})
+   ![Matches tab of a Companies House enricher: Enriched records list with statuses on the left, and the matches table with Compare links, Status and Comparison score for the selected record]({{ "/assets/images/preparation/enricher/multi-match/multi-match-table.png" | relative_url }})
    {: .documentation-screenshot}
 
 1. Review the values returned by each candidate. Use **Compare** to open the comparison view, where you can inspect the source and candidate values side by side.
 
-   ![multi-match-comparison-view.png]({{ "/assets/images/preparation/enricher/multi-match/multi-match-comparison-view.png" | relative_url }})
+   ![Comparison view for ABF Grain Products Ltd: candidate cards with scores at the top, and source and match values side by side for Identifier, Name and Address]({{ "/assets/images/preparation/enricher/multi-match/multi-match-comparison-view.png" | relative_url }})
    {: .documentation-screenshot}
 
 1. Select one or more candidates and choose **Approve**, **Reject**, or **Revoke**.
@@ -89,7 +89,7 @@ Use the filter above the **Enriched records** list to find records by their aggr
 
 1. Select **Reset** to clear the status filters and show all enriched records again.
 
-![multi-match-enriched-records-filter.gif]({{ "/assets/images/preparation/enricher/multi-match/multi-match-enriched-records-filter.gif" | relative_url }})
+![Animation: filtering the Enriched records list by status, such as Needs review or Auto-selected, and then selecting Reset to show all records]({{ "/assets/images/preparation/enricher/multi-match/multi-match-enriched-records-filter.gif" | relative_url }})
 {: .documentation-screenshot}
 
 ## Compare candidates
@@ -98,21 +98,21 @@ The **Comparison** column opens the comparison view for a candidate. The compari
 
 When AI comparison is enabled for the enricher, the matches table also shows a **Comparison score**. This score is an AI-generated indication of how closely the candidate matches the enriched record. Use it as review guidance, not as the only basis for an approval decision.
 
-![multi-match-comparison.gif]({{ "/assets/images/preparation/enricher/multi-match/multi-match-comparison.gif" | relative_url }})
+![Animation: selecting Compare in the matches table to open the comparison view for a candidate, with its Comparison score]({{ "/assets/images/preparation/enricher/multi-match/multi-match-comparison.gif" | relative_url }})
 {: .documentation-screenshot}
 
 ## Process all matches
 
 To process matches for all enriched records, select the More menu next to Enriched records. If you apply a filter, the action affects only the enriched records that match that filter.
 
-![multi-match-bulk-process.gif]({{ "/assets/images/preparation/enricher/multi-match/multi-match-bulk-process.gif" | relative_url }})
+![Animation: opening the More menu next to Enriched records and processing all matches, after which the records and candidates show Rejected]({{ "/assets/images/preparation/enricher/multi-match/multi-match-bulk-process.gif" | relative_url }})
 {: .documentation-screenshot}
 
 ## Process all matches for an enriched record
 
 To process all candidates for one enriched record, select the **More** menu next to that record in the **Enriched records** list. These actions apply only to the candidates for that enriched record. They do not affect candidates that belong to another enriched record.
 
-![multi-match-process-by-record.gif]({{ "/assets/images/preparation/enricher/multi-match/multi-match-process-by-record.gif" | relative_url }})
+![Animation: opening the More menu next to one enriched record and processing all of its candidates at once]({{ "/assets/images/preparation/enricher/multi-match/multi-match-process-by-record.gif" | relative_url }})
 {: .documentation-screenshot}
 
 ## Configure multi-match settings
@@ -142,24 +142,24 @@ Use **Auto-select Matches Conditions** to define the rules a candidate must meet
 
 CluedIn evaluates the conditions for the available candidates and automatically selects the best matching candidate when the conditions are met. Review auto-selected candidates in the **Matches** tab and adjust the decision when needed.
 
-![multi-match-auto-select-condition-settings.png]({{ "/assets/images/preparation/enricher/multi-match/multi-match-auto-select-condition-settings.png" | relative_url }})
+![Matches Settings with Auto-select Matches turned on and three or conditions on companyNumber and companies2.regNumber; Auto-select Matches using AI is off]({{ "/assets/images/preparation/enricher/multi-match/multi-match-auto-select-condition-settings.png" | relative_url }})
 {: .documentation-screenshot}
 
 ### Example Auto-select Conditions
 
 - Auto-select when the Matches `companyNumber` column equals `00079590`.
 
-![multi-match-auto-select-condition-3.png]({{ "/assets/images/preparation/enricher/multi-match/multi-match-auto-select-condition-3.png" | relative_url }})
+![Auto-select condition: Match Column companyNumber Equals the literal value 00079590]({{ "/assets/images/preparation/enricher/multi-match/multi-match-auto-select-condition-3.png" | relative_url }})
 {: .documentation-screenshot}
 
 - Auto-select when the Matches `companyNumber` column equals the golden record's `companies2.regNumber` value.
 
-![multi-match-auto-select-condition-2.png]({{ "/assets/images/preparation/enricher/multi-match/multi-match-auto-select-condition-2.png" | relative_url }})
+![Auto-select condition: Match Column companyNumber Equals the golden record vocabulary key companies2.regNumber]({{ "/assets/images/preparation/enricher/multi-match/multi-match-auto-select-condition-2.png" | relative_url }})
 {: .documentation-screenshot}
 
 - Auto-select when the golden record's `companies2.regNumber` value equals the Matches `companyNumber` column.
 
-![multi-match-auto-select-condition-1.png]({{ "/assets/images/preparation/enricher/multi-match/multi-match-auto-select-condition-1.png" | relative_url }})
+![Auto-select condition: Vocabulary companies2.regNumber Equals the value {column:companyNumber}]({{ "/assets/images/preparation/enricher/multi-match/multi-match-auto-select-condition-1.png" | relative_url }})
 {: .documentation-screenshot}
 
 ## Configure Auto-select Matches using AI
@@ -176,7 +176,7 @@ Use **Auto-select Matches using AI** when an AI model should evaluate the availa
 
 AI evaluation produces comparison content and a comparison score for the candidate. Use the score as review guidance and verify the result in the comparison view before relying on an automatic selection.
 
-![multi-match-auto-select-ai-settings.png]({{ "/assets/images/preparation/enricher/multi-match/multi-match-auto-select-ai-settings.png" | relative_url }})
+![Matches Settings with Auto-select Matches using AI turned on, the CluedIn-Mini Balanced endpoint selected, and a prompt setting matching priority and field mappings]({{ "/assets/images/preparation/enricher/multi-match/multi-match-auto-select-ai-settings.png" | relative_url }})
 {: .documentation-screenshot}
 
 ### Example AI Prompt for Companies House

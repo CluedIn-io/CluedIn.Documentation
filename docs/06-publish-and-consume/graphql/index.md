@@ -40,7 +40,7 @@ Consider the following example:
 
 - If the query expands to include related records (for example, entities of the Person type connected to the results), CluedIn adds the Graph store to process that part of the query.
 
-![image]({{ "/assets/images/consume/simple-graphql-example-2.png" | relative_url }})
+![GraphiQL with a search query on trainingcontact.jobTitle returning totalResults 18, a cursor, and entries whose job title is Systems Administrator]({{ "/assets/images/consume/simple-graphql-example-2.png" | relative_url }})
 
 ## Supported operations
 
@@ -74,7 +74,7 @@ To help you get familiar with CluedIn’s GraphQL implementation, the following 
 
 You can retrieve a specific entity using its unique ID. To begin, you will need to obtain an example ID by searching for your admin user.
 
-![search for admin]({{ "/assets/images/consume/01-by-id-01-2.png" | relative_url }})
+![The admin@foobar.com user page in CluedIn, with the entity ID highlighted at the end of the browser address bar URL]({{ "/assets/images/consume/01-by-id-01-2.png" | relative_url }})
 
 ~~~
 {
@@ -85,7 +85,7 @@ You can retrieve a specific entity using its unique ID. To begin, you will need 
 }
 ~~~
 
-![image]({{ "/assets/images/consume/01-by-id-02-2.png" | relative_url }})
+![GraphiQL with an entity query by ID requesting name, and the result returning the name Lorelei]({{ "/assets/images/consume/01-by-id-02-2.png" | relative_url }})
 
 ### Get entities by search
 
@@ -101,7 +101,7 @@ You can retrieve a specific entity using its unique ID. To begin, you will need 
 }
 ~~~
 
-![image]({{ "/assets/images/consume/02-by-search-2.png" | relative_url }})
+![GraphiQL with a search query for Raynell requesting entry names, and the result listing two entries named Raynell]({{ "/assets/images/consume/02-by-search-2.png" | relative_url }})
 
 ### Get entities by vocabulary keys
 
@@ -118,7 +118,7 @@ You can retrieve a specific entity using its unique ID. To begin, you will need 
 ~~~
 
 
-![image]({{ "/assets/images/consume/03-by-vocab-key-2.png" | relative_url }})
+![GraphiQL with a search query on properties.trainingcontact.firstName:Foster, and the result listing three entries named Foster]({{ "/assets/images/consume/03-by-vocab-key-2.png" | relative_url }})
 
 ### Get entities by a combination of vocabulary keys
 
@@ -134,7 +134,7 @@ You can retrieve a specific entity using its unique ID. To begin, you will need 
 }
 ~~~
 
-![image]({{ "/assets/images/consume/04-by-vocab-key-combo-2.png" | relative_url }})
+![GraphiQL with a search query combining trainingcontact.firstName:Foster and trainingcontact.lastName:Lamb, returning one entry named Foster]({{ "/assets/images/consume/04-by-vocab-key-combo-2.png" | relative_url }})
 
 ### Get all entities that have a value for a certain property
 
@@ -151,7 +151,7 @@ You can retrieve a specific entity using its unique ID. To begin, you will need 
 }
 ~~~
 
-![image]({{ "/assets/images/consume/05-certain-prop-2.png" | relative_url }})
+![GraphiQL with a search query on trainingcontact.firstName:A* returning totalResults 35 and entries such as Andree, Amitie and Aloin]({{ "/assets/images/consume/05-certain-prop-2.png" | relative_url }})
 
 Alternatively, find out how many records match.
 
@@ -164,7 +164,7 @@ Alternatively, find out how many records match.
 }
 ~~~
 
-![image]({{ "/assets/images/consume/05-certain-prop-num-match-2.png" | relative_url }})
+![GraphiQL with a search query on trainingcontact.firstName:A* requesting only totalResults, and the result returning 35]({{ "/assets/images/consume/05-certain-prop-num-match-2.png" | relative_url }})
 
 ### Change what properties come back in the results, 4 records at a time
 
@@ -184,7 +184,7 @@ Alternatively, find out how many records match.
 }
 ~~~
 
-![image]({{ "/assets/images/consume/06-what-props-pagesize4-2.png" | relative_url }})
+![GraphiQL with a search query using pageSize 4 and requesting name, createdDate, displayName and properties, with all properties of each entry in the result]({{ "/assets/images/consume/06-what-props-pagesize4-2.png" | relative_url }})
 
 ### Change what metadata comes out of the properties
 
@@ -202,7 +202,7 @@ Alternatively, find out how many records match.
 }
 ~~~
 
-![image]({{ "/assets/images/consume/07-what-metadata-2.png" | relative_url }})
+![GraphiQL with a search query requesting only the lastName and jobTitle properties, and four results showing just those two properties]({{ "/assets/images/consume/07-what-metadata-2.png" | relative_url }})
 
 ### Explore edges
 
@@ -223,7 +223,7 @@ Alternatively, find out how many records match.
 }
 ~~~
 
-![image]({{ "/assets/images/consume/8-2.png" | relative_url }})
+![GraphiQL with a search query expanding outgoing edges of type /PartOf to /Organization, and four results where outgoingOfType is null]({{ "/assets/images/consume/8-2.png" | relative_url }})
 
 ### Search for all golden records which comes from certain datasource
 

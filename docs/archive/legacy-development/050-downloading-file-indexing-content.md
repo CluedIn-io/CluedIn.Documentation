@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 50
 permalink: /archive/legacy-development/downloading-file-indexing-content
 content_type: reference
-redirect_from: ["/development/downloading-file-indexing-content"]
 source_path: docs/090-development/050-downloading-file-indexing-content.md
 tags: ["development","indexing"]
 published: false

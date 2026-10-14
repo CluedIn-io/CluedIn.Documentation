@@ -21,10 +21,10 @@ headerIcon: "paas"
 
 1. On the menu bar, select **Connect**.
 
-    ![connect-to-cluedin-1.png]({{ "/assets/images/ama/howtos/connect-to-cluedin-1.png" | relative_url }})
+    ![AKS resource platformdev-aks in the Azure portal with the Connect button highlighted on the menu bar]({{ "/assets/images/ama/howtos/connect-to-cluedin-1.png" | relative_url }})
 
     In the right pane, you'll see the connection details and instructions that you can use to connect to your CluedIn cluster.
 
-    ![connect-to-cluedin-2.png]({{ "/assets/images/ama/howtos/connect-to-cluedin-2.png" | relative_url }})
+    ![Connect to platformdev-aks pane with Cloud shell and Azure CLI tabs, showing az login, az account set, az aks get-credentials, and sample kubectl commands]({{ "/assets/images/ama/howtos/connect-to-cluedin-2.png" | relative_url }})
 
 For additional details, please refer to [Microsoft Documentation](https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli#connect-to-the-cluster).

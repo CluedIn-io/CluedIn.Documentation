@@ -17,16 +17,29 @@ last_modified: 2024-01-15
 - TOC
 {:toc}
 
-In this article, you will learn how to ingest data from files into CluedIn.
+Upload one or more files to CluedIn to create a data set for each file. Use a file when your data is an export you can upload by hand; to push records to CluedIn over HTTP, use an [ingestion endpoint](/ingest/data-sources/endpoint), and to read tables directly from a database, use a [database](/ingest/data-sources/database). Uploading a file does not create golden records yet: that takes [mapping](/ingest/mapping/create-mapping) and [processing](/ingest/processing/process-data).
 
 <div class="videoFrame">
 <iframe src="https://player.vimeo.com/video/896471681?h=297bcecaf9&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Using files for data ingestion"></iframe>
 </div>
 
-You can upload files in CSV, JSON, XLS, XLSX, and Parquet formats. You can upload up to 5 files at once, and the total file size should not exceed 1 GB. Note that uploading Parquet files is a beta feature. To be able to upload Parquet files, go to **Administration** > **Feature Flags**, and enable the **Parquet file support** feature.
+## Prerequisites
+
+- Access to the **Data Sources** module. The claims it needs are listed in [Data sources](/ingest/data-sources): at least Consulted for all **Integration** claims, and at least Informed for **Data Catalog**, **Annotation** and **Export Targets**.
+
+- To upload Parquet files: go to **Administration** > **Feature Flags**, and enable the **Parquet file support** feature. Uploading Parquet files is a beta feature.
+
+- A file that meets the limits in [Inputs](#inputs) and contains only supported characters.
 
 {:.important}
 The maximum number of columns accepted for data ingestion is 490.<br>Before loading data into CluedIn, ensure that it does not contain unsupported characters. Refer to our knowledge base [article](/model/data-catalog/supported-characters) for information about supported and unsupported characters.
+
+## Inputs
+
+| Field | Required | What it accepts | Example |
+|--|--|--|--|
+| **Add files** | Yes | Files in CSV, JSON, XLS, XLSX, or Parquet format. Up to 5 files at once, with a total size of no more than 1 GB, and no more than 490 columns. | `customers.csv` |
+| **Group** | Chosen in step 3 of the procedure | An existing group, or the name of a new group. Every file in one upload goes into this group as a separate data source. | `CRM exports` |
 
 ## Overview of the data ingestion process for files
 
@@ -34,13 +47,7 @@ When you need to upload a large set of records to CluedIn, we recommend that you
 
 CluedIn **file uploader** accommodates structured data, so you can upload the files in CSV, JSON, or basic Excel formats. After you upload a JSON or XLS/XLSX file, we recommend that you download an example file provided by the system. This example serves as a reference to confirm the expected data format. If your file deviates from this format, adjust it according to the example to ensure a smooth data ingestion process.
 
-The **data ingestion process for files** consists of three stages: uploading, parsing, and loading. When your file adheres to the required data format and each stage executes without interruption, the entire process runs seamlessly. However, to efficiently address issues that might arise during the data ingestion process, get acquainted with the potential reasons for failure at each stage:
-
-- If the upload fails, the recovery of the file is not possible. Such a situation may arise if the file upload was initiated but the browser tab was closed while the upload was in progress. To resolve this, remove the data source and upload the file again.
-
-- If the parsing fails—for example, due to the file being corrupted or having invalid data format—you will see a corresponding error message from the parser. To resolve this, remove the data source, fix the file and make sure it conforms to the required data format, and upload the file again.
-
-- If the loading fails, you will see an error message with the number of chunks that could not be loaded. To resolve this, retry to load the data or remove the data source altogether and upload the file again.
+The **data ingestion process for files** consists of three stages: uploading, parsing, and loading. When your file adheres to the required data format and each stage executes without interruption, the entire process runs seamlessly. Each stage can fail for a different reason; see [If something goes wrong](#if-something-goes-wrong).
 
 ## Upload a file
 
@@ -56,4 +63,34 @@ Follow our step-by-step instruction to upload a file.
 
 1. In the lower-right corner, select **Upload**.
 
+    Keep the browser tab open until the upload has finished. If the tab is closed while the upload is in progress, the file cannot be recovered.
+
     The data has been ingested to CluedIn, and you can view it on the [Preview](/ingest/processing/preview) tab of the data set. Next, check the [logs](/ingest/troubleshooting/logs) to make sure all your records are valid. To turn your data into golden records, [create a mapping](/ingest/mapping/create-mapping) and [process the data](/ingest/processing/process-data).
+
+## Verify the result
+
+- On the navigation pane, go to **Integrations** > **Data Sources**. The group you chose contains one data source for each uploaded file.
+
+- Open the data set. The **Preview** tab shows the original, raw records from the file. The data set has not been processed yet, so it shows the **Not Processed** status next to its name.
+
+- On the **Logs** tab, check for entries with the **Error** level. A record with an error is not saved in CluedIn. Warnings mean the record was stored but some values, such as property names, were changed. See [Logs](/ingest/troubleshooting/logs).
+
+- On the **Monitoring** tab, the **Total** section shows the total number of records and original columns, so you can compare them with your file. See [Monitoring](/ingest/troubleshooting/monitoring).
+
+## What this changes
+
+- Uploading creates a data source in the group you chose, and a data set holding the file's records in temporary storage, shown on the **Preview** tab.
+
+- No golden records are created or changed. Records become golden records, or enhance existing ones, only after you [create a mapping](/ingest/mapping/create-mapping) and [process the data](/ingest/processing/process-data).
+
+- To undo an upload, remove the data source.
+
+## If something goes wrong
+
+- **The upload fails.** The file cannot be recovered. This happens, for example, if the browser tab was closed while the upload was in progress. Remove the data source and upload the file again.
+
+- **Parsing fails.** You see an error message from the parser, for example because the file is corrupted or its data format is invalid. Remove the data source, fix the file so that it conforms to the required data format, and upload the file again. For JSON and XLS/XLSX files, compare your file with the example file that CluedIn provides.
+
+- **Loading fails.** You see an error message with the number of chunks that could not be loaded. Retry loading the data (on the **Preview** tab, select **Retry**), or remove the data source and upload the file again. The **Loading Failures** queue on the **Monitoring** tab counts records that could not be fully loaded; see [Monitoring](/ingest/troubleshooting/monitoring#common-monitoring-elements).
+
+- **The Logs tab shows errors.** Each validation message explains what is wrong with the record, for example a record with too many columns or a property with unsupported characters. See [Logs](/ingest/troubleshooting/logs).

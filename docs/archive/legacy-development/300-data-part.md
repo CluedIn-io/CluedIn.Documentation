@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 300
 permalink: /archive/legacy-development/data-part
 content_type: reference
-redirect_from: ["/development/data-part"]
 source_path: docs/090-development/350-data-part.md
 tags: ["development","data-parts","clues"]
 published: false

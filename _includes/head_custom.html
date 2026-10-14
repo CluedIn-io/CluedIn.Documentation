@@ -32,5 +32,24 @@ back the unversioned jtd.setTheme.
 </script>
 <style>html[data-theme="dark"] { background: #0e1a24; }</style>
 
+{%- comment -%}
+Agent mode. Every article has a Markdown copy for AI agents
+(_plugins/agent_markdown.rb); the alternate link lets an agent that fetched
+the HTML find it. The inline script applies the reader's Agent mode choice
+before the page paints, so the article does not flash before the Markdown
+view replaces it (assets/js/agent-mode.js).
+{%- endcomment %}
+{%- if page.agent_markdown %}
+<link rel="alternate" type="text/markdown" href="{{ page.agent_markdown | relative_url }}" title="Markdown for AI agents">
+{%- endif %}
+<script>
+  try {
+    if (localStorage.getItem("cluedin-docs-agent-mode") === "on") {
+      document.documentElement.setAttribute("data-agent-mode", "on");
+    }
+  } catch (e) {}
+</script>
+<script src="{{ '/assets/js/agent-mode.js' | relative_url }}?v={{ asset_version }}" defer></script>
+
 <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}?v={{ asset_version }}" defer></script>
 <script src="{{ '/assets/js/nav-groups.js' | relative_url }}?v={{ asset_version }}" defer></script>

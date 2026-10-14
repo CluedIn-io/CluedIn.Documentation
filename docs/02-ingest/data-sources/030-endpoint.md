@@ -6,7 +6,7 @@ grand_parent: Ingest
 nav_order: 30
 permalink: /ingest/data-sources/endpoint
 content_type: how-to
-redirect_from: ["/integration/endpoint"]
+redirect_from: ["/integration/endpoint", "/developer/webhooks"]
 source_path: docs/040-integration/data-sources/150-endpoint.md
 tags: ["integration"]
 last_modified: 2024-10-31
@@ -38,11 +38,11 @@ When you need to push a large set of records into CluedIn, we recommend that you
 
 After you send an HTTP POST request, CluedIn checks if it is correct based on the built-in logic and limitations. If your JSON is completely invalid, CluedIn won't start ingesting the data, and you'll receive a response with the status "400 Bad Request". The response body will include an array of errors that provide context for fixing them. Once you correct the request, you can try sending it again.
 
-![endpoint-error.png]({{ "/assets/images/integration/data-sources/endpoint-error.png" | relative_url }})
+![Response with status 400 Bad Request and a JSON body whose errors array reports Invalid JSON sent, the data must be a valid array]({{ "/assets/images/integration/data-sources/endpoint-error.png" | relative_url }})
 
 If your JSON contains issues, such as spaces or dots in property names, CluedIn tries to fix them and store the data. These issues are treated as warnings and they are recorded on the **Logs** tab of the data set. You'll receive a response with the status "200 OK", which means that the data has been successfully sent to CluedIn. However, the response body will include an array of warnings explaining how the issues were fixed. 
 
-![endpoint-warning.png]({{ "/assets/images/integration/data-sources/endpoint-warning.png" | relative_url }})
+![Response with status 200 OK and a JSON body whose warnings array explains that spaces in the property first name were replaced]({{ "/assets/images/integration/data-sources/endpoint-warning.png" | relative_url }})
 
 Once CluedIn receives the data, it initially stores it in a temporary storage, accessible through the **Preview** tab. To turn the received data into golden records, you need to map it to the semantic model and then process it.
 
@@ -95,7 +95,7 @@ An ingestion endpoint is a channel through which CluedIn can receive data from e
 
     The ingestion endpoint is added to CluedIn. It has a label **No data sent**, which indicates that CluedIn has not received data for this ingestion endpoint.
 
-    ![ingest-data-1.png]({{ "/assets/images/integration/data-sources/ingest-data-1.png" | relative_url }})
+    ![Employees data source on the Data Sets tab, listing the Employees-1 ingestion endpoint with the No data sent label]({{ "/assets/images/integration/data-sources/ingest-data-1.png" | relative_url }})
 
     Now, you can send data to CluedIn by creating HTTP POST requests.
 
@@ -109,15 +109,15 @@ To be accepted by CluedIn, your HTTP POST request should meet the following prer
 
 - The request's header must contain Authorization key with the value set to `Bearer <Your API token>`. It is very important to include the word _Bearer_ followed by a space before pasting the API token. You can find the API token in CluedIn in **Administration** > **API Tokens**.
 
-    ![ingest-data-6.png]({{ "/assets/images/integration/data-sources/ingest-data-6.png" | relative_url }})
+    ![POST request Headers tab with the Authorization key set to a value starting with Bearer followed by the API token]({{ "/assets/images/integration/data-sources/ingest-data-6.png" | relative_url }})
 
 - The request's body should contain **raw data in JSON format**.
 
-    ![ingest-data-2.png]({{ "/assets/images/integration/data-sources/ingest-data-2.png" | relative_url }})
+    ![POST request Body tab set to raw and JSON, with a JSON array of company records in the body]({{ "/assets/images/integration/data-sources/ingest-data-2.png" | relative_url }})
 
 - The **content-type** in the request's header should be set to **application/json**.
 
-    ![ingest-data-3.png]({{ "/assets/images/integration/data-sources/ingest-data-3.png" | relative_url }})
+    ![POST request Headers tab with the Content-Type key set to application/json]({{ "/assets/images/integration/data-sources/ingest-data-3.png" | relative_url }})
  
 **To send data to CluedIn**
 
@@ -125,7 +125,7 @@ To be accepted by CluedIn, your HTTP POST request should meet the following prer
 
     On the **Ingestion endpoint instructions** pane, find and copy the POST URL that you can use to send data to CluedIn.
 
-    ![ingest-data-4.png]({{ "/assets/images/integration/data-sources/ingest-data-4.png" | relative_url }})
+    ![Ingestion endpoint instructions showing the maximum of 100K rows per request and the Post URL with a copy icon]({{ "/assets/images/integration/data-sources/ingest-data-4.png" | relative_url }})
 
 1. In Postman, paste the URL that you copied to the URL input field of your request. Then, send the request.
 
@@ -149,11 +149,11 @@ The Schema Protection feature as follows:
 
     - If the data contains new fields (outside of the current mapping), these fields appear on the **Map** tab. They are marked with a **Warning** label and remain unmapped.
 
-        ![unmapped_fields.png]({{ "/assets/images/integration/data-sources/endpoint/unmapped_fields.png" | relative_url }})
+        ![Map tab showing Employees-1 fields mapped to Employee vocabulary keys, with the unmapped Department and Phone fields marked with warnings and an Ignore field link]({{ "/assets/images/integration/data-sources/endpoint/unmapped_fields.png" | relative_url }})
 
         You can choose to [ignore](/ingest/mapping/create-mapping#ignore-fields-for-an-ingestion-endpoint) these new fields in the [mapping](/ingest/mapping/create-mapping). When ignored, the fields are skipped during processing and do not appear in the resulting golden records. Ignoring fields is useful to prevent records with new, unmapped fields from being quarantined.
 
-       ![ignore_field_btn.png]({{ "/assets/images/integration/data-sources/endpoint/ignore_field_btn.png" | relative_url }})
+       ![Unmapped Department field with a warning icon and the Ignore field link highlighted]({{ "/assets/images/integration/data-sources/endpoint/ignore_field_btn.png" | relative_url }})
 
 1. When you [process the data](/ingest/processing/process-data), the following takes place:
 
@@ -182,7 +182,7 @@ Schema protection is not enabled by default. You must turn it on before using it
 
 1. On the navigation pane, go to **Administration** > **Feature flags**. Then, locate and enable the **Schema Drift** feature.
 
-    ![schema_protection_feature_flag.png]({{ "/assets/images/integration/data-sources/endpoint/schema_protection_feature_flag.png" | relative_url }})
+    ![Schema Drift feature flag card, marked Beta, with the toggle set to Enabled]({{ "/assets/images/integration/data-sources/endpoint/schema_protection_feature_flag.png" | relative_url }})
 
 1.  On the navigation pane, go to **Ingest** > **Endpoints**.
 
@@ -190,10 +190,10 @@ Schema protection is not enabled by default. You must turn it on before using it
 
 1. On the **Process** tab of the dataset, turn on the **Schema protection** toggle.
 
-    ![schema_protection_toggle_sp.png]({{ "/assets/images/integration/data-sources/endpoint/schema_protection_toggle_sp.png" | relative_url }})
+    ![Process tab of the Employees-1 dataset with the Schema protection toggle turned on and highlighted]({{ "/assets/images/integration/data-sources/endpoint/schema_protection_toggle_sp.png" | relative_url }})
 
 1. Confirm that you want to enable schema protection.
 
     Now, when the endpoint receives fields that are outside of the defined mapping, these fields will appear on the **Map** tab, marked with a **Warning** label. If needed, proceed to [ignore](/ingest/mapping/create-mapping#ignore-fields-for-an-ingestion-endpoint) these fields.
 
-    ![unmapped_fields.png]({{ "/assets/images/integration/data-sources/endpoint/unmapped_fields.png" | relative_url }})
+    ![Map tab showing Employees-1 fields mapped to Employee vocabulary keys, with the unmapped Department and Phone fields marked with warnings and an Ignore field link]({{ "/assets/images/integration/data-sources/endpoint/unmapped_fields.png" | relative_url }})

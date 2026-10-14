@@ -22,7 +22,7 @@ In this article, you will learn how to select multiple golden records on the sea
 
     As soon as you select at least one golden record, a toolbar with the available bulk actions appears above the search results.
 
-    ![bulk-actions-toolbar.png]({{ "/assets/images/golden-records/bulk-actions-toolbar.png" | relative_url }})
+    ![Bulk actions toolbar above the search results with 2 items selected, showing delete, Merge, Reprocess, Split, and Add tag]({{ "/assets/images/golden-records/bulk-actions-toolbar.png" | relative_url }})
 
 ### Select all golden records across all pages
 
@@ -34,11 +34,11 @@ If your search or filter criteria matches more golden records than fit on the cu
 
 1. In the banner that appears above the search results, select **Select all `<number>` items across all pages**.
 
-    ![select-all-across-pages-banner.png]({{ "/assets/images/golden-records/select-all-across-pages-banner.png" | relative_url }})
+    ![Selection banner reading All 1 items are selected on this page, with the link Select all 2 items across all pages]({{ "/assets/images/golden-records/select-all-across-pages-banner.png" | relative_url }})
 
     CluedIn selects every golden record that matches your current search and filters, including the ones on other pages. The banner updates to confirm how many records are selected.
 
-    ![select-all-across-pages-selected.png]({{ "/assets/images/golden-records/select-all-across-pages-selected.png" | relative_url }})
+    ![Selection banner reading Selected all 2 items across all pages, with the Clear all selection link]({{ "/assets/images/golden-records/select-all-across-pages-selected.png" | relative_url }})
 
     The selection is kept as you move between pages. To remove the selection, select **Clear all selection**.
 
@@ -64,7 +64,7 @@ Reprocessing a golden record re-runs the existing processing pipeline against it
 
 1. In the confirmation dialog, select **Reprocess**.
 
-    ![reprocess-confirm-modal.png]({{ "/assets/images/golden-records/reprocess-confirm-modal.png" | relative_url }})
+    ![Reprocess 2 records confirmation dialog with Cancel and Reprocess buttons]({{ "/assets/images/golden-records/reprocess-confirm-modal.png" | relative_url }})
 
     Each selected golden record is reprocessed individually. If reprocessing fails for some of the selected records, a notification tells you how many succeeded and how many failed.
 
@@ -100,7 +100,7 @@ Golden records that have nothing to split (no merged data parts) are skipped aut
 
 1. In the **Tag** field, select an existing tag or enter a name to create a new one. Optionally, select a folder to organize the tag in.
 
-    ![add-tag-modal.png]({{ "/assets/images/golden-records/add-tag-modal.png" | relative_url }})
+    ![Add tag dialog with a Tag field to select or create a tag, an optional folder selector, and an Add link]({{ "/assets/images/golden-records/add-tag-modal.png" | relative_url }})
 
 1. Select **Add**.
 

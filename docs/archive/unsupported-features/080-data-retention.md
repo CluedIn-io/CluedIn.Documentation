@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 80
 permalink: /archive/unsupported-features/data-retention
 content_type: reference
-redirect_from: ["/governance/data-retention"]
 source_path: docs/070-governance/outdated/080-data-retention.md
 tags: ["governance","data-retention"]
 published: false

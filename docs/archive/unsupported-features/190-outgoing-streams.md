@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 190
 permalink: /archive/unsupported-features/outgoing-streams
 content_type: reference
-redirect_from: ["/consume/outgoing-streams"]
 source_path: docs/150-consume/outdated/070-outgoing-streams.md
 tags: ["consume","streams"]
 published: false

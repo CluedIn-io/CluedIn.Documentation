@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 410
 permalink: /archive/legacy-development/common-problems
 content_type: reference
-redirect_from: ["/developer/common-problems"]
 source_path: docs/090-development/500-common-problems.md
 tags: ["development"]
 published: false

@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 220
 permalink: /archive/unsupported-features/modelling
 content_type: reference
-redirect_from: ["/management/modelling"]
 source_path: docs/080-management/030-modelling.md
 published: false
 tags: ["management","modelling"]

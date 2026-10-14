@@ -15,7 +15,34 @@ source_path: docs/080-management/deduplication/030-create-deduplication-project.
 - TOC
 {:toc}
 
-In this article, you will learn how to create a deduplication project and configure matching rules for detecting duplicates. The approach described here ensures that you can easily revert merges when needed.
+Create a deduplication project when you want CluedIn to find golden records that describe the same thing, so that you can review and merge them. The project defines which golden records are checked, and its matching rules define what counts as a duplicate. Creating the project and adding matching rules only saves configuration: duplicates are detected when you [generate matches](/master/deduplication/manage-a-deduplication-project#generate-matches), and golden records change only when you [merge groups](/master/deduplication/manage-groups-of-duplicates#merge-groups). The approach described here ensures that you can easily revert merges when needed.
+
+## Prerequisites
+
+- The **Deduplication Project Management** claim, which covers creating and editing a deduplication project. See [Claims](/administer/users-and-roles/claims#management).
+- Golden records to deduplicate, in the [business domain](/model/business-domains) you want to check or matching the [filters](/master/filters) you plan to use.
+- The vocabulary keys or properties that you want to compare. If equivalent values are stored in several fields, combine them into one vocabulary key first, as described in [Match one of multiple fields](/master/deduplication/match-one-of-multiple-fields).
+
+## Inputs
+
+The project:
+
+| Field | Required | What it accepts | Example |
+|--|--|--|--|
+| **Name** | Required | A name that helps you find the project later. | `Contact duplicates` |
+| **Choose project type** | Required | **By business domain** or **Using advanced filters**. | **By business domain** |
+| Business domain | Required for **By business domain** | One or more business domains. | `TrainingContact` |
+| Filter rules | Required for **Using advanced filters** | One or more [filter rules](/master/filters). | Business domain is Company, and country is Denmark |
+
+Each matching rule:
+
+| Field | Required | What it accepts | Example |
+|--|--|--|--|
+| Matching rule name | Required | A name for the rule. | `Same first and last name` |
+| Matching criteria **Name** | Required | A name for the criterion. | `Similar first name` |
+| **Select property type** | Required | **Vocabulary Key** or **Property**, and then the key or property to compare. | `trainingcontact.firstName` |
+| **Matching Function** | Required | One of the [matching functions](/master/deduplication/deduplication-reference#matching-functions). **Fuzzy match - Sift4** also needs a threshold, a percentage from 0 to 100. | **Equals** |
+| Normalization rules | Optional | One or more [normalization rules](/master/deduplication/deduplication-reference#normalization-rules). Some rules need extra values, such as the separator for **Split text**. | **To lowercase** |
 
 ## Create a deduplication project
 
@@ -43,7 +70,7 @@ Before creating a deduplication project, take the following aspects into account
 
         This option is useful when you are working with a large set of data. You can narrow down the number of golden records and run a deduplication project on a sample set of data to make sure your matching rules work correctly. When you are confident in the effectiveness of your configuration with the sample set, you can then modify the filters and run the project on a larger set of data.
 
-    ![create-dedup-project.png]({{ "/assets/images/management/deduplication/create-dedup-project.png" | relative_url }})
+    ![The Create deduplication project dialog with a name, By business domain selected, and the TrainingContact business domain]({{ "/assets/images/management/deduplication/create-dedup-project.png" | relative_url }})
 
 1. Select **Create**.
 
@@ -73,7 +100,7 @@ In the project, matching rules are combined using the **OR** logical operator, w
 
     1. Choose the [matching function](/master/deduplication/deduplication-reference#matching-functions) for detecting duplicates.
 
-        ![add-matching-rule-criteria.png]({{ "/assets/images/management/deduplication/add-matching-rule-criteria.png" | relative_url }})
+        ![The Matching criteria tab of Add matching rule, with a name, the trainingcontact.firstName vocabulary key and the Equals function]({{ "/assets/images/management/deduplication/add-matching-rule-criteria.png" | relative_url }})
 
     1. (Optional) Select the [normalization rules](/master/deduplication/deduplication-reference#normalization-rules) to apply during duplicate detection. These rules are temporarily applied solely for the purpose of identifying duplicates. For example, selecting **To lower-case** means that the system will convert values to lower case before comparing them to identify duplicates.
 
@@ -88,3 +115,39 @@ In the project, matching rules are combined using the **OR** logical operator, w
     - If you are satisfied with the matching rule configuration, select **Add Rule**.
 
     After you add matching rules, [generate matches](/master/deduplication/manage-a-deduplication-project#generate-matches) to detect duplicates among golden records that correspond to the selected business domain or filter criteria.
+
+## Matching semantics
+
+These rules decide which golden records end up in the same group of duplicates. Check a configuration against them before you generate matches.
+
+- **Rules combine with OR.** Golden records are identified as duplicates if they meet the criteria of at least one matching rule in the project.
+- **Criteria within a rule combine with AND.** A rule identifies golden records as duplicates only if they meet all of its matching criteria.
+- **To require all of several conditions, put them in one rule. To accept any one of them, put each in its own rule.**
+- **Deactivated rules are not used.** A rule whose toggle is turned off is not executed when matches are generated.
+- **A criterion compares the same field on both records.** A criterion on `customer.email1` compares `customer.email1` on one record with `customer.email1` on the other, never with `customer.email2`. To compare values across fields, see [Match one of multiple fields](/master/deduplication/match-one-of-multiple-fields).
+- **Empty values are ignored.** Empty values of the selected property or vocabulary key are ignored when generating matches. With **Equals**, two empty values are never a match.
+- **A matching function decides only its own criterion.** It defines how the two values of one criterion are compared; whether records are duplicates follows from the AND and OR combination above.
+- **Normalization is temporary.** Normalization rules are applied before matching, only for the purpose of identifying duplicates. They do not change the values stored in golden records.
+- **A single-value normalization rule contributes nothing when it changes nothing.** If the transformed value is identical to the input, or the result is empty, no normalized value is emitted.
+- **A multi-value normalization rule produces several candidates, and any one can match.** Rules such as **Split text** or **Person name variations** produce several comparison candidates from one value. If one of the candidates matches, the value is considered a match.
+- **One run is not always enough.** A merged golden record can contain new information that meets a matching rule, so after merging, generate matches again until no more duplicates are found. See [Concept of deduplication](/master/deduplication/concept-of-deduplication).
+
+## Verify the result
+
+- The project appears in the list on the **Deduplication** page. Right after you create it, its status is **Requires configuration**, which means that no matching rules have been added yet.
+- Each rule that you add appears on the **Matching Rules** tab, with its toggle in the **Status** column. Expand a rule to see its matching criteria.
+- Once the project has matching rules, its status is **Ready to generate**: it is configured, and no matches have been generated yet.
+- Creating the project and each rule is recorded on the project's **Audit Log** tab.
+
+For all statuses, see [Project statuses](/master/deduplication/deduplication-reference#project-statuses).
+
+## What this changes
+
+Creating a deduplication project and adding matching rules only saves configuration. No golden records are compared or changed. Generating matches detects duplicates and organizes them into groups for review; golden records change only when you approve and merge groups, and merges made in a deduplication project can be [unmerged](/master/deduplication/manage-groups-of-duplicates#unmerge-records).
+
+## If something goes wrong
+
+- **You need to change the project or its rules after generating matches.** You can edit a project only when its status is **Requires configuration** or **Ready to generate**. [Discard matches](/master/deduplication/manage-a-deduplication-project#discard-matches) first, and then [edit the project](/master/deduplication/manage-a-deduplication-project#edit-a-deduplication-project).
+- **You created the project by mistake.** A deduplication project cannot be deleted. [Archive it](/master/deduplication/manage-a-deduplication-project#archive-a-deduplication-project) instead; archiving cannot be undone. See [Why can I not delete certain objects in CluedIn](/troubleshooting/unable-to-delete).
+- **Expected duplicates are not found.** Check the configuration against [Matching semantics](#matching-semantics): an AND where you meant an OR, empty values, or values stored in different fields. For ways to improve match quality, see [Get better matches in deduplication projects](/master/deduplication/better-matches).
+- **Matching is slow.** Overly broad matching rules increase the number of comparisons. Narrow the project with filters, keep strict and fuzzy functions in separate projects, and see [Slow CluedIn performance](/troubleshooting/slow).

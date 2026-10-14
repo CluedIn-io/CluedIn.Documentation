@@ -196,7 +196,7 @@ Apply rule actions to matching records:
 df.apply(lambda row: apply_actions(actions_with_evaluators, row), axis=1)
 ```
 
-![rules.png]({{ "/assets/images/microsoft-integration/fabric/rules.png" | relative_url }})
+![Employee data frame before and after applying rule actions, with misspelled employee.job values such as Akkounting and aCoUnTiNg normalized to Accounting]({{ "/assets/images/microsoft-integration/fabric/rules.png" | relative_url }})
 
 ## Filter data with evaluators
 

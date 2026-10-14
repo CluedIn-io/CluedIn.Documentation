@@ -56,7 +56,7 @@ To be able to access the database tables in CluedIn, first establish a connectio
 
     The database connection is added to CluedIn.
 
-    ![ingest-data-5.png]({{ "/assets/images/integration/data-sources/ingest-data-5.png" | relative_url }})
+    ![The Employees database connection page, showing the Connected status and the Data Sets, Permissions, Configuration and Quality tabs]({{ "/assets/images/integration/data-sources/ingest-data-5.png" | relative_url }})
 
     Now, you can add database tables to CluedIn.
 

@@ -33,7 +33,7 @@ To use the PermID enricher, you must provide the API key. To get the API key, re
 
 1. On the **Choose Enricher** tab, select **PermID**, and then select **Next**.
 
-    ![permid-enricher-1.png]({{ "/assets/images/preparation/enricher/permid-enricher-1.png" | relative_url }})
+    ![The Add Enricher dialog on the Choose enricher tab, with PermId selected]({{ "/assets/images/preparation/enricher/permid-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -43,7 +43,7 @@ To use the PermID enricher, you must provide the API key. To get the API key, re
 
     - **Organization Name Vocabulary Key** – enter the vocabulary key that contains the names of organizations that will be used for retrieving information from the PermID database.
 
-        ![permid-enricher-2.png]({{ "/assets/images/preparation/enricher/permid-enricher-2.png" | relative_url }})
+        ![Configure tab with API Key, Accepted Business Domain set to Organization, and Organization Name Vocabulary Key set to organization.name]({{ "/assets/images/preparation/enricher/permid-enricher-2.png" | relative_url }})
 
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
@@ -59,11 +59,11 @@ After the PermID enricher is added, you can modify its details:
 
 You can find the properties added to golden records from the OpenCorporates enricher on the **Properties** page.
 
-![permid-enricher-4.png]({{ "/assets/images/preparation/enricher/permid-enricher-4.png" | relative_url }})
+![Properties page of a golden record with Domiciled In, Entity Type and Hq Address properties from PermId highlighted]({{ "/assets/images/preparation/enricher/permid-enricher-4.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the PermID enricher, check the corresponding data part on the **History** page.
 
-![permid-enricher-5.png]({{ "/assets/images/preparation/enricher/permid-enricher-5.png" | relative_url }})
+![History page of a golden record with the PermId data part highlighted above the file data source part]({{ "/assets/images/preparation/enricher/permid-enricher-5.png" | relative_url }})
 
 The following table lists the properties that can be added to golden records by the PermID enricher.
 

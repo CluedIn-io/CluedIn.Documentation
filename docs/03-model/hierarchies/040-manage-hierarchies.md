@@ -22,7 +22,7 @@ In this article, you will learn how to manage hierarchies in order to keep them 
 
 You can use folders to organize hierarchies—for example, by business domain or by the team that owns them. Folders and hierarchies appear together in the same list, similar to files and folders in a file explorer. Hierarchies that aren't assigned to a folder appear in the root list, alongside any folders.
 
-![organize-hierarchies-folders-list.png](/assets/images/management/hierarchy-builder/organize-hierarchies-into-folders/organize-hierarchies-folders-list.png)
+![Hierarchy Builder list showing folders such as Regional Hierarchies at the top, followed by hierarchies not assigned to a folder](/assets/images/management/hierarchy-builder/organize-hierarchies-into-folders/organize-hierarchies-folders-list.png)
 
 **To create a folder**
 
@@ -38,7 +38,7 @@ The new folder appears as a row in the list.
 
 - Drag the hierarchy row and drop it onto the folder row.
 
-    ![organize-hierarchies-drag-to-folder.png](/assets/images/management/hierarchy-builder/organize-hierarchies-into-folders/organize-hierarchies-drag-to-folder.png)
+    ![Hierarchy Builder list after a hierarchy was dropped onto the Regional Hierarchies folder, with a Hierarchy folder updated notification](/assets/images/management/hierarchy-builder/organize-hierarchies-into-folders/organize-hierarchies-drag-to-folder.png)
 
     You can also assign a folder from the hierarchy's **Hierarchy Properties** panel: in **Folder**, select an existing folder, or type a new folder name to create one, and then select **Save**. This field is also available on the **General** step of the create-hierarchy panel when you create the hierarchy.
 
@@ -46,7 +46,7 @@ The new folder appears as a row in the list.
 
 - In the list of hierarchies, select the folder that you want to view.
 
-    ![organize-hierarchies-inside-folder-breadcrumb.png](/assets/images/management/hierarchy-builder/organize-hierarchies-into-folders/organize-hierarchies-inside-folder-breadcrumb.png)
+    ![Inside the Regional Hierarchies folder, with a Root breadcrumb above the list showing Customer Hierarchy](/assets/images/management/hierarchy-builder/organize-hierarchies-into-folders/organize-hierarchies-inside-folder-breadcrumb.png)
 
     The breadcrumb at the top of the list shows **Root > `<folder name>`**. Select **Root** in the breadcrumb to return to the merged list of folders and unfoldered hierarchies.
 
@@ -68,7 +68,7 @@ If you want to reuse the configuration of an existing hierarchy project, you can
 
 1. Select **Clone**.
 
-    ![clone_hierarchy.png](/assets/images/management/hierarchy-builder/clone_hierarchy.png)
+    ![Hierarchy row three-dot menu open with Clone highlighted, above the Delete and Export options](/assets/images/management/hierarchy-builder/clone_hierarchy.png)
 
     Now, you can edit the cloned hierarchy project.
 
@@ -92,7 +92,7 @@ If you want to validate leaf nodes, you can export the hierarchy to a comma-sepa
 
 1. Find the hierarchy that you want to export. In the right corner of the row, open the three-dot menu, and then select **Export**.
 
-    ![export_hierarchy.png](/assets/images/management/hierarchy-builder/export_hierarchy.png)
+    ![Hierarchy row three-dot menu open with Export highlighted, below the Clone and Delete options](/assets/images/management/hierarchy-builder/export_hierarchy.png)
 
     The hierarchy in the CSV format is downloaded to your computer.
 
@@ -110,7 +110,7 @@ If you no longer need a hierarchy, you can delete it. The hierarchy is also dele
 
     - Select the checkbox next to the hierarchy, and then select **Delete**.
 
-        ![delete_hierarchy.png](/assets/images/management/hierarchy-builder/delete_hierarchy.png)
+        ![Hierarchy Builder list with the Org Hierarchy checkbox selected and the Delete button highlighted in the selection bar](/assets/images/management/hierarchy-builder/delete_hierarchy.png)
 
 1. Confirm that you want to delete the hierarchy.
 
@@ -123,14 +123,14 @@ Since you made the hierarchy of your choosing (also multi-domain), you are askin
 
 Well, let's imagine a scenario. In this picture below, we have built the hierarchy involve Business Domain `/Region`, and the business Domain `/Company`, attached this each of the regions.
 
-![HierarchyBuilderExample.png](/assets/images/management/hierarchy-builder/HierarchyBuilderExample.png)
+![Org Hierarchy project canvas: ABC Retail Corp at the top, its group companies below, then legal entities, organizations and warehouses](/assets/images/management/hierarchy-builder/HierarchyBuilderExample.png)
 
 Note: This hierarchy would need to be published in order to expose the relationships as we usually expect, in format of `/HRCHY_<hierarchyName>` (example: `/HRCHY_RegionCompany`)
 
 The next step would be to export the data related to the hierarchy using the CluedIn Stream in a configuration similar to the following:
 
-![StreamFilter.png](/assets/images/management/hierarchy-builder/StreamFilter.png)
-![StreamConfiguration.png](/assets/images/management/hierarchy-builder/StreamConfiguration.png)
+![Export Hierarchy stream Configuration tab with an or filter group: Business domain equals Company, or Business domain equals Region](/assets/images/management/hierarchy-builder/StreamFilter.png)
+![Export Hierarchy stream Export target configuration tab: PreSales SQL target, target name CompanyNRegions, Synchronized mode, outgoing and incoming edges on](/assets/images/management/hierarchy-builder/StreamConfiguration.png)
 
 Note: It is not important which properties you are exporting, as the following script is working with auto-generated columns. It is crucial that you export Outgoing Edges, Incoming Edges are optional.
 
@@ -198,5 +198,5 @@ Now the SQL script to get the parent/child/level format of the table, it would l
 In your case, you would need to replace any occurence of `CompanyNRegions` with your `<TargetTable>` and `/HRCHY_RegionCompany` with your `/HRCHY_<HierarchyName>`
 
 
-![StreamConfiguration.png](/assets/images/management/hierarchy-builder/SQLResult.png)
+![SQL query result listing Id, OriginEntityCode, ParentId, ParentOriginEntityCode and Level, with regions at level 1 and companies under their regions at level 2](/assets/images/management/hierarchy-builder/SQLResult.png)
 

@@ -6,7 +6,7 @@ grand_parent: Model
 nav_order: 10
 permalink: /model/business-domains/business-domains-explained
 content_type: concept
-redirect_from: ["/key-terms-and-features/entity-type"]
+redirect_from: ["/key-terms-and-features/entity-type", "/development/person-entity-type", "/development/infrastructure-user-entity", "/development/organization-user-entity"]
 source_path: docs/110-key-terms-and-features/090-entity-type.md
 tags: ["development","entities","entity-types"]
 ---

@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 40
 permalink: /archive/legacy-user-interface/history
 content_type: reference
-redirect_from: ["/user-interface/history"]
 source_path: docs/100-user-interface/040-history.md
 tags: ["ui","entities"]
 published: false
