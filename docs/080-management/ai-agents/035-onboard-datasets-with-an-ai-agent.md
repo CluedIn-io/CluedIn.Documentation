@@ -15,6 +15,9 @@ tags: ["management", "ai agents", "onboarding", "mapping", "data sets", "vocabul
 
 In this article, you will learn how to ask an AI agent, such as the built-in Data Architect, to onboard datasets that you have uploaded to CluedIn. The AI agent proposes how the datasets map to business domains, vocabularies, and vocabulary keys, shows you the complete plan, and creates nothing until you approve it.
 
+{:.note}
+When you upload one or more datasets, CluedIn notifies you that an AI agent, such as the built-in Data Steward, can help onboard them, with a link straight into that agent's chat. Until you act on it, the number of datasets awaiting onboarding is also shown in the **AI can help onboard** tile, in the **Requires Attention** section of the Home dashboard.
+
 ## What the AI agent does
 
 When you ask an AI agent to onboard one or more datasets, it does the following:
