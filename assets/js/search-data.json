@@ -18857,860 +18857,888 @@
     
     "relUrl": "/govern/enrichment/dnb"
   },"2694": {
+    "doc": "2026-03-00",
+    "title": "On this page",
+    "content": ". | Prerequisites | Guide . | Stage 1: Prepare for upgrade | Stage 2: Stop workloads and back up data | Stage 3: Migrate infrastructure data | Stage 4: Run the application upgrade | Stage 5: Run Data Upgrade | Stage 6: Finalize Upgrade | . | . This document covers the upgrade process from 2026.02.00 to 2026.03.00. This upgrade includes RabbitMQ configuration and data migration, and Elasticsearch index migration. We do not support upgrading directly to this version from prior to 2026.02.00. ",
+    "url": "/paas-operations/upgrade/2026-03-00#on-this-page",
+    
+    "relUrl": "/paas-operations/upgrade/2026-03-00#on-this-page"
+  },"2695": {
+    "doc": "2026-03-00",
+    "title": "Prerequisites",
+    "content": ". | Access to the Helm chart version 3.0.0. You may need to run helm repo update to grab the latest version. | kubectl | Helm | platform-upgrade-v3-stage1.yml values. | platform-upgrade-v3-stage2.yml values. | A single-node Elasticsearch deployment. The supplied migration scripts do not support multi-node clusters; contact CluedIn support for a separate migration procedure. | . ",
+    "url": "/paas-operations/upgrade/2026-03-00#prerequisites",
+    
+    "relUrl": "/paas-operations/upgrade/2026-03-00#prerequisites"
+  },"2696": {
+    "doc": "2026-03-00",
+    "title": "Guide",
+    "content": "Before any upgrade takes place, ensure you have taken a snapshot or backup of all your running PVCs in your AKS cluster and the Azure SQL databases. This is very important as databases will be upgraded during this process. Stage 1: Prepare for upgrade . | Connect to your cluster using the kubeconfig. | Export your current Helm values file. Keep one copy for the upgrade process and another as a backup. | In the values file, update the following properties: . global: image: tag: \"2026.03.00\" strategy: type: Recreate application: cluedin: components: packages: - name: \"CluedIn.Connector.FileStorage.All.500\" version: \"100.0.0\" - name: \"CluedIn.Connector.AzureDedicatedSqlPool.500\" version: \"100.0.0\" - name: \"CluedIn.Connector.AzureEventHub.500\" version: \"100.0.0\" - name: \"CluedIn.Connector.AzureServiceBus.500\" version: \"100.0.0\" - name: \"CluedIn.Connector.Dataverse.500\" version: \"100.0.0\" - name: \"CluedIn.Connector.Dataverse.V2.502\" version: \"100.0.0\" - name: \"CluedIn.Connector.Http.500\" version: \"100.0.0\" - name: \"CluedIn.Connector.Snowflake.500\" version: \"100.0.0\" - name: \"CluedIn.Connector.SqlServer.500\" version: \"100.0.0\" - name: \"CluedIn.EnterpriseFlows.PowerAutomate.500\" version: \"100.0.0\" - name: \"CluedIn.ExternalSearch.Providers.DuckDuckGo.Provider.500\" version: \"100.0.0\" - name: \"CluedIn.ExternalSearch.Providers.PermId.Provider.500\" version: \"100.0.0\" - name: \"CluedIn.ExternalSearch.Providers.Web.500\" version: \"100.0.0\" - name: \"CluedIn.PowerApps.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.Bregg.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.ClearBit.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.CompanyHouse.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.CVR.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.Gleif.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.GoogleImages.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.GoogleMaps.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.KnowledgeGraph.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.Libpostal.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.OpenCorporates.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.Providers.ArtificialIntelligence.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.Providers.AzureOpenAI.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.Providers.BvD.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.Providers.VatLayer.500\" version: \"100.0.0\" - name: \"CluedIn.Provider.ExternalSearch.RestApi.500\" version: \"100.0.0\" - name: \"CluedIn.Purview.500\" version: \"100.0.0\" . | Update the RabbitMQ section in your values file. Remove auth.existingPasswordSecret, auth.existingErlangSecret, extraVolumeMounts using /opt/bitnami/rabbitmq and extraVolumes, as shown below: . infrastructure: rabbitmq: persistence: size: &lt;VOLUME_SIZE&gt; resources: limits: cpu: \"&lt;CPU_LIMITS&gt;\" memory: &lt;MEMORY_LIMITS&gt; requests: cpu: \"&lt;CPU_REQUESTS&gt;\" memory: &lt;MEMORY_REQUESTS&gt; . Keep your existing global.keyvault.secretProviderClasses.cluedin-rabbitmq configuration if you are using Key Vault. | . Stage 2: Stop workloads and back up data . | Apply the stage 1 upgrade values file by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 3.0.0 \\ --values ${CustomValues} \\ --values platform-upgrade-v3-stage1.yml \\ --wait \\ --timeout 10m0s . | . Apply the stage values file last so that it overrides your custom values. | Check the pods. Wait until all CluedIn application pods have stopped. | Take a backup before continuing. Confirm the backup completed successfully. | . The next stage deletes original Elasticsearch 7.x indices after reindexing and verification. This cannot be reversed through a Helm rollback; a pre-migration data backup is required for recovery. Stage 3: Migrate infrastructure data . | Apply the stage 2 upgrade values file by running the following: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 3.0.0 \\ --values ${CustomValues} \\ --values platform-upgrade-v3-stage2.yml \\ --wait \\ --timeout 30m0s . | . Apply the stage values file last so that it overrides your custom values. ❗ The time required depends on the amount of data. The timeout shown is an example; allow sufficient time for your environment. A Helm timeout alone does not mean the migration has stopped or completed. | Monitor the migration logs in elasticsearch: . kubectl get pods -n cluedin kubectl logs cluedin-elasticsearch-0 -n cluedin -c cluedin-upgrade-es8 kubectl logs cluedin-elasticsearch-0 -n cluedin -c cluedin-upgrade-es9 . | Wait until the deployment finishes. | Perform the validation: . | Confirm Elasticsearch is Ready and both init containers completed successfully. | Confirm RabbitMQ is healthy and its existing data was retained. | Review migration logs for failures. Application pods remain stopped during this stage. | . | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. Stage 4: Run the application upgrade . | Apply your custom values without either upgrade stage files: . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 3.0.0 \\ --values ${CustomValues} \\ --set application.system.upgradeMode=true \\ --set application.system.runDatabaseJobsOnUpgrade=true \\ --set application.system.runNugetFullRestore=true \\ --wait \\ --timeout 10m0s . After a few minutes, it should complete successfully. | Wait until the deployment finishes. | Perform the validation: . | Make sure that all pods are healthy and all jobs are completed. | Ensure that there are no errors in the pod logs. | . | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. Stage 5: Run Data Upgrade . | Apply data upgrade by running following command: # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 3.0.0 \\ --values \"${CustomValues}\" \\ --set application.system.upgradeMode=true \\ --set application.bootstrap.dataUpgrade.toVersion=Version500 \\ --wait \\ --timeout 30m0s . | Monitor the server pod logs for the data upgrade progress. | Validation: . | ❗ Confirm the data upgrade completed successfully and its resource reached Active state. | . | . Stage 6: Finalize Upgrade . | Run the final stage of the upgrade to bring the system back online (disable upgrade mode): . # ${CustomValues} refers to the values file you have amended with the above changes. Please type the full path here. helm upgrade cluedin-platform -n cluedin cluedin/cluedin-platform \\ --version 3.0.0 \\ --values ${CustomValues} \\ --set application.system.upgradeMode=false \\ --set application.system.runDatabaseJobsOnUpgrade=false \\ --set application.system.runNugetFullRestore=false \\ --wait \\ --timeout 30m0s . | Validation: . | Ensure no errors in the pod logs. | Verify the server starts in normal mode. | Ensure cluedin-ui pod is Running. | . | . If there are any issues during the upgrade process, please do not hesitate to reach out to CluedIn support. ",
+    "url": "/paas-operations/upgrade/2026-03-00#guide",
+    
+    "relUrl": "/paas-operations/upgrade/2026-03-00#guide"
+  },"2697": {
+    "doc": "2026-03-00",
+    "title": "2026-03-00",
+    "content": " ",
+    "url": "/paas-operations/upgrade/2026-03-00",
+    
+    "relUrl": "/paas-operations/upgrade/2026-03-00"
+  },"2698": {
     "doc": "Golden records",
     "title": "Golden records",
     "content": "How to work with golden records once they exist: see what they are connected to, read their history, understand why a value was chosen, and remove records or individual data parts. For what a golden record is, see Core concepts. ",
     "url": "/master/golden-records",
     
     "relUrl": "/master/golden-records"
-  },"2695": {
+  },"2699": {
     "doc": "Deduplication",
     "title": "Deduplication",
     "content": "The goal of deduplication is to eliminate duplicate records by merging them together into a single, accurate, and consolidated golden record. This process maintains full traceability, allowing you to identify contributing records for the resulting golden record and providing the possibility to revert changes if necessary. You can reduce the number of duplicates in the system proactively even before creating a deduplication project. For this purpose, CluedIn provides the possibility of merging by identifiers: those data parts that have identical primary identifiers or additional identifiers are merged during processing. For more information, see Identifiers. The following diagram shows the basic steps for merging duplicates in CluedIn. This section covers the following areas: . | Concept of deduplication – explore how deduplication works through a simple yet detailed example. | Deduplication in practice – discover the practical application of deduplication guidelines through an example. | Creating a deduplication project – learn how to create a deduplication project and configure matching rules. | Managing a deduplication project – learn how to effectively manage a deduplication project, including generating and discarding results, editing project configuration, and more. | Managing groups of duplicates – learn how to process groups of duplicates, including merging duplicates, verifying merged records, and reverting merges. | Reference information about deduplication projects – find information about matching functions, rule conditions, deduplication project statuses, and group statuses. | Matching one of multiple fields – learn how to identify duplicates when any value from a group of fields matches across records. | . ",
     "url": "/master/deduplication",
     
     "relUrl": "/master/deduplication"
-  },"2696": {
+  },"2700": {
     "doc": "Master",
     "title": "Master",
     "content": "How do I turn records into trusted golden records? . Data stewards and data architects. Mastering is where many records about the same real-world thing become one golden record. Deduplication finds the duplicates, merging resolves them, and the golden record keeps the full history and explanation of how every value was chosen. For what a golden record is, see Core concepts. This section covers how to work with them. ",
     "url": "/master",
     
     "relUrl": "/master"
-  },"2697": {
+  },"2701": {
     "doc": "Vocabularies",
     "title": "Vocabularies",
     "content": "A vocabulary is the set of properties that describe records from a source or a business domain, and a vocabulary key is one of those properties. Mapping connects source columns to vocabulary keys, so the vocabulary is what makes data from different systems comparable. ",
     "url": "/model/vocabularies",
     
     "relUrl": "/model/vocabularies"
-  },"2698": {
+  },"2702": {
     "doc": "Relationships",
     "title": "Relationships",
     "content": "Relationships - edges - connect one record to another: an employee to an organization, an order to a customer. They are part of the model, and they are what makes the graph in CluedIn navigable. For relationships as they appear on a golden record, see Golden record relations. ",
     "url": "/model/relationships",
     
     "relUrl": "/model/relationships"
-  },"2699": {
+  },"2703": {
     "doc": "Business domains",
     "title": "Business domains",
     "content": "A business domain says what kind of thing a record is - Customer, Product, Organization. It drives how records are searched, displayed, resolved and exported. Business domains were called entity types before the 2025.05 release. ",
     "url": "/model/business-domains",
     
     "relUrl": "/model/business-domains"
-  },"2700": {
+  },"2704": {
     "doc": "Hierarchies",
     "title": "Hierarchies",
     "content": "Hierarchy Builder helps you organize, visualize, and manage relations between golden records within and across different business domains. This section covers the following topics: . | Concept of hierarchy – explore hierarchies through an example of Organization-Project-Employee hierarchy. | Create a hierarchy – learn about various options for creating a hierarchy. | Work in a hierarchy project – learn how to modify a hierarchy, load golden records of other business domains into the hierarchy, and use various tools to make working in the hierarchy project more convenient. | Manage hierarchies – learn how to clone, export, and delete a hierarchy. | . Useful links: . | How to build an organizational hierarchy | . ",
     "url": "/model/hierarchies",
     
     "relUrl": "/model/hierarchies"
-  },"2701": {
+  },"2705": {
     "doc": "Data catalog",
     "title": "Data catalog",
     "content": "A data catalog is a collection of metadata that encompasses essential information about the organization, structure, usage, and lineage of data within the system. It comprises vocabularies and vocabulary keys, acting as fundamental building blocks for constructing a comprehensive data model. The following diagram shows the basic steps of defining a data model in CluedIn. This section covers the following areas: . | Modeling approaches – explore the options available for building data models and learn how to use vocabulary key mapping to unify your model across various sources. | Vocabularies – learn how to create and manage vocabularies for storing and organizing groups of vocabulary keys. | Vocabulary keys – learn how to create and manage vocabulary keys for defining characteristics of golden records. | Search the data catalog – learn how to make the process of finding metadata faster and more efficient by using filters. | Data types – find reference information about data types that can be used in vocabulary keys. | . ",
     "url": "/model/data-catalog",
     
     "relUrl": "/model/data-catalog"
-  },"2702": {
+  },"2706": {
     "doc": "Model",
     "title": "Model",
     "content": "How do I describe my data so CluedIn understands it? . Data architects and data modellers. The model is how CluedIn knows that a row is a customer, that two columns mean the same thing, and that one record belongs under another. Business domains classify records, vocabularies describe their properties, identifiers make records findable across systems, and relationships connect them. Get the model right before you master data - entity resolution is only as good as the identifiers and domains you give it. ",
     "url": "/model",
     
     "relUrl": "/model"
-  },"2703": {
+  },"2707": {
     "doc": "Azure Data Factory",
     "title": "Azure Data Factory",
     "content": "With over 90 built-in connectors, Azure Data Factory (ADF) enables you to acquire data from a wide range of sources such as relational databases, big data and NoSQL systems, data lakes and storages, and many more. These connectors empower ADF to extract, transform, and load data from diverse systems for seamless integration and analytics. With ADF integration, you can leverage CluedIn’s core capabilities in data quality and enrichment to ensure that the data is clean, reliable, and ready for insights. For successful integration between ADF and CluedIn, you need to meet a couple of prerequisites: . | Your CluedIn instance must be accessible by ADF. For this, you might need to configure a private link as described here. | You need to create an ingestion endpoint in CluedIn where the data from ADF will be sent. For more information, see Endpoint. | You need to create an API token in CluedIn that will be used to authenticate your post requests. | You need to have a source dataset in ADF ready to be sent to CluedIn. | . ",
     "url": "/solutions/azure-data-factory",
     
     "relUrl": "/solutions/azure-data-factory"
-  },"2704": {
+  },"2708": {
     "doc": "Power Automate",
     "title": "Power Automate",
     "content": "Power Automate is a key component of the Power Platform, which is Microsoft’s suite of tools designed for low-code development, automation, and data analysis. Power Automate allows you to create, manage, execute, and automate workflows between various applications and services. Power Automate can be integrated with CluedIn to capture important events in CluedIn and use them as triggers to start workflows. Such events include creating or modifying a vocabulary key, processing new records, inviting a new user, and more. When the workflow is started, it sends approval requests or notifications to the users in Outlook or the Approvals app in Teams. This way you can stay on top of certain processes in CluedIn, whether you are using the platform at the moment or not. The following image is example of approval request in Outlook. The following image shows an approval request in the Approvals app in Teams. Power Automate can be connected with CluedIn with the help of our CluedIn custom connector. This custom connector enables you to create workflows in the Power Automate widget in CluedIn. This means that even though you create workflows in CluedIn, technically they are created in Power Automate. The following screenshot shows an example of a workflow that is created in the Power Automate widget in CluedIn. The first and third actions of the workflow are provided by the CluedIn custom connector. The second action comes from the Approval connector, which is a standard Power Automate connector. Once you create a workflow in CluedIn, you do not have to configure these actions because they are automatically configured for you. The CluedIn custom connector has predefined triggers that correspond to specific events in CluedIn. To install the CluedIn custom connector, you need to complete our Power Automate pre-configuration guide and Power Automate configuration guide. The CluedIn custom connector is an underlying element of the integration between Power Automate and CluedIn. You cannot create workflows without CluedIn custom connector. The CluedIn custom connector and its connector references are stored in a Dataverse table within a dedicated Power Platform environment. Therefore, it is essential to have a dedicated environment with Dataverse as the data store. Without Dataverse, there is no location to store the CluedIn custom connector, and the workflows will not function. To use workflows in CluedIn, start from the Power Automate pre-configuration guide. ",
     "url": "/solutions/power-automate",
     
     "relUrl": "/solutions/power-automate"
-  },"2705": {
+  },"2709": {
     "doc": "Use cases",
     "title": "Getting the Best Out of the Use Cases",
     "content": "The Use Case walkthroughs in CluedIn are designed to show you how the platform solves real-world data challenges step by step. To get the most value out of these guides, it’s important to approach them not just as tutorials, but as learning opportunities that connect directly to your own data landscape. ",
     "url": "/solutions/use-cases#getting-the-best-out-of-the-use-cases",
     
     "relUrl": "/solutions/use-cases#getting-the-best-out-of-the-use-cases"
-  },"2706": {
+  },"2710": {
     "doc": "Use cases",
     "title": "How to Use These Walkthroughs Effectively",
     "content": "1. Follow Along with Real Data . Where possible, connect a test data source or a subset of your real data. This makes the examples more relevant and helps you see how CluedIn responds to the specific quirks of your data. 2. Treat Each Use Case as a Building Block . Each walkthrough highlights one capability — data quality, entity linking, compliance, analytics, etc. As you progress, you’ll see how they combine into a larger data strategy. 3. Explore Beyond the Steps . The walkthroughs provide a structured path, but CluedIn is flexible. After completing a use case, try adjusting rules, tags, or exports to experiment with different outcomes. 4. Use Tags, Notes, and Comments . As you work through examples, make use of CluedIn’s tagging and annotation features. This builds your own catalog of learnings that you can reuse later. 5. Compare to Your Business Goals . At the end of each walkthrough, ask: . | How does this align with my current data challenges? | What changes would I make to apply this in production? | Which teams would benefit from this outcome? | . ",
     "url": "/solutions/use-cases#how-to-use-these-walkthroughs-effectively",
     
     "relUrl": "/solutions/use-cases#how-to-use-these-walkthroughs-effectively"
-  },"2707": {
+  },"2711": {
     "doc": "Use cases",
     "title": "Best Practices for Success",
     "content": ". | Start Small, Scale Gradually: Run walkthroughs on a small dataset before expanding to production. | Collaborate Across Teams: Involve colleagues from compliance, analytics, and operations so everyone sees the value. | Document as You Go: Capture your findings and decisions. They’ll become the blueprint for your production setup. | Measure Improvements: Use CluedIn dashboards to track data quality, entity resolution rates, and processing times as you apply the use cases. | Iterate Often: The best results come from refining rules, retention policies, and enrichment as your understanding deepens. | . ",
     "url": "/solutions/use-cases#best-practices-for-success",
     
     "relUrl": "/solutions/use-cases#best-practices-for-success"
-  },"2708": {
+  },"2712": {
     "doc": "Use cases",
     "title": "Next Steps",
     "content": ". | Complete each walkthrough in sequence to build a strong foundation. | Apply the lessons learned to your own business data. | Use the CluedIn Documentation Portal to dive deeper into advanced topics like Rules, Matching, and Governance. | Share feedback with your CluedIn team or community — your insights will help others get more value from these use cases. | . ",
     "url": "/solutions/use-cases#next-steps",
     
     "relUrl": "/solutions/use-cases#next-steps"
-  },"2709": {
+  },"2713": {
     "doc": "Use cases",
     "title": "Summary",
     "content": "The use cases are not just step-by-step guides — they are launch pads for success with CluedIn. By following along with real data, connecting the walkthroughs to your business goals, and iterating as you learn, you’ll build both confidence in the platform and a cleaner, more reliable data foundation for your organization. ",
     "url": "/solutions/use-cases#summary",
     
     "relUrl": "/solutions/use-cases#summary"
-  },"2710": {
+  },"2714": {
     "doc": "Use cases",
     "title": "Use cases",
     "content": " ",
     "url": "/solutions/use-cases",
     
     "relUrl": "/solutions/use-cases"
-  },"2711": {
+  },"2715": {
     "doc": "Microsoft Fabric",
     "title": "Microsoft Fabric",
     "content": " ",
     "url": "/solutions/fabric",
     
     "relUrl": "/solutions/fabric"
-  },"2712": {
+  },"2716": {
     "doc": "Power Apps",
     "title": "Power Apps",
     "content": "Power Apps is a key component of the Power Platform, which is Microsoft’s suite of tools designed for low-code development, automation, and data analysis. Power Apps allows you to build custom applications with minimal coding. In Power Apps, you can connect to Dataverse, which provides a unified and simplified data schema that allows you to integrate data from multiple sources into a single store. Dataverse is a scalable data service and app platform that lets you securely store and manage data used by business applications. Power Apps can be integrated with CluedIn to enable you to manage your master data directly in the Dataverse platform and automatically sync it with CluedIn. Power Apps integration offers the following benefits: . | 2-way synchronization of Dataverse metadata to CluedIn business domains and vocabularies and vice versa: . | CluedIn stream to export golden records from CluedIn to the Dataverse tables. | Data ingestion workflow to push data from Dataverse tables to CluedIn ingestion endpoint. | . | Auto-mapping of columns, keys, and relationships. | . To achieve a 2-way synchronization between Dataverse and CluedIn, the Power Apps integration also involves Power Automate workflows. However, these workflows should not be confused with the approval workflows that are available in the Workflow module in CluedIn. We discuss the approval workflows as part of Power Automate integration. To sync master data between CluedIn and the Dataverse platform, start from the Power Apps pre-configuration guide. ",
     "url": "/solutions/power-apps",
     
     "relUrl": "/solutions/power-apps"
-  },"2713": {
+  },"2717": {
     "doc": "Master Data Services",
     "title": "Master Data Services",
     "content": "CluedIn can crawl Microsoft SQL Server Master Data Services (MDS) to bring your master data into CluedIn. MDS only accepts Windows (NTLM/Negotiate) authentication by default. This does not work reliably from CluedIn’s Linux-based crawler containers, so one of the following connection methods is required instead: . | Direct connection - expose a dedicated Basic authentication endpoint on your MDS server, and connect to it directly. Use this if CluedIn has a routable network path to your on-premises MDS server (for example, through a firewall rule or VPN). | Azure Relay - expose your on-premises MDS server to CluedIn through an Azure Relay WCF Relay. Use this if CluedIn does not have a routable network path to your on-premises MDS server. | . MDS can be installed either as its own IIS site, or as an application under an existing site (for example, Default Web Site). The IIS Manager screenshots in these guides show one particular setup as an example - the path shown in the tree will vary depending on how MDS is installed in your environment, but the steps are otherwise the same. ",
     "url": "/solutions/master-data-services",
     
     "relUrl": "/solutions/master-data-services"
-  },"2714": {
+  },"2718": {
     "doc": "Microsoft Purview",
     "title": "Microsoft Purview",
     "content": "CluedIn integrates with your Microsoft Purview instance to synchronize your assets, glossaries, and lineage of your data journey in CluedIn. We have the following assumptions about the customers’ Microsoft Azure setup: . | Customers own only one Purview resource. | When ingesting data from ADF, the ADF pipeline should only do a one-to-one mapping from targeted file on Azure to API endpoint. | . The following table lists the available Purview packages and versions. | Package name | Package version | Source code | . | Azure-Extensions | 4.4.3 | Contact CluedIn for details | . | Azure-Extensions | 4.4.2 | Contact CluedIn for details | . | Azure-Extensions | 4.4.1 | Contact CluedIn for details | . | Azure-Extensions | 4.4.0 | Contact CluedIn for details | . | Azure-Extensions | 4.3.0 | Contact CluedIn for details | . | Azure-Extensions | 4.2.2 | Contact CluedIn for details | . | Azure-Extensions | 4.2.1 | Contact CluedIn for details | . | Azure-Extensions | 4.2.0 | Contact CluedIn for details | . | Azure-Extensions | 4.1.0 | Contact CluedIn for details | . | Azure-Extensions | 4.0.0 | Contact CluedIn for details | . ",
     "url": "/solutions/purview",
     
     "relUrl": "/solutions/purview"
-  },"2715": {
+  },"2719": {
     "doc": "Copilot",
     "title": "Copilot",
     "content": "CluedIn Copilot is an AI assistant designed to streamline your interactions within the CluedIn platform using natural language commands. With the AI assistant, tasks such as adding tags to records based on specific criteria become effortless—simply prompt the assistant, and it automatically generates rules for you. The CluedIn Copilot experience can be personalized according to your language preference. Note that CluedIn Copilot is not enabled by default. For more information, see Get access to CluedIn Copilot. The following diagram shows how CluedIn AI assistant can help you with your day-to-days tasks in CluedIn. Sometimes you may encounter issues with CluedIn Copilot where it does not understand your requests as expected. In such cases, as with any generative AI solution, please start over and create a new chat. Notes on CluedIn’s integration with Azure OpenAI . | CluedIn integrates with Azure OpenAI services solely to enable you to make requests and store responses through our platform. | To interact with Azure OpenAI services via CluedIn’s Rule Engine, AI mapping, or Copilot, you must decide where to host Azure OpenAI, including which tenants and locations to use. CluedIn does not provide a default Azure OpenAI token; you must configure CluedIn with your own Azure OpenAI token. Selection of Azure OpenAI services and models within your environment is entirely at your discretion. | CluedIn transmits your prompts and the data contained within them to Azure OpenAI, giving you full control over the models and deployments used within your environment. Your prompts and results are also stored in CluedIn’s SQL server to preserve your prompt history. | CluedIn cannot comment on how Azure OpenAI manages or processes data internally. Data handling by Azure OpenAI is governed solely by the agreement established directly between you and Microsoft Azure. | . ",
     "url": "/solutions/copilot",
     
     "relUrl": "/solutions/copilot"
-  },"2716": {
+  },"2720": {
     "doc": "Solutions & integrations",
     "title": "Solutions & integrations",
     "content": "How does CluedIn fit with the rest of my stack? . Solution architects and system integrators. Guides for connecting CluedIn to specific ecosystems, and worked use cases showing how the platform is applied to a business problem. These guides link to the product documentation rather than repeating it. ",
     "url": "/solutions",
     
     "relUrl": "/solutions"
-  },"2717": {
+  },"2721": {
     "doc": "Upgrade",
     "title": "Upgrade",
     "content": "When signing up with CluedIn and taking on the Managed Services agreement, product upgrades will be handled for you by the CluedIn team. The team will reach out and work with your requirements to ensure that upgrades happen when it’s most convenient for your business. CluedIn team performs installation activities on all business days except Friday. Deploying on a Friday carries higher risk because issues may not surface immediately and can escalate into weekend incidents with fewer people available to respond. As a best practice, it is recommended to schedule installations earlier in the week (Tuesday–Thursday) to allow time for monitoring, troubleshooting, and stabilization. For some customers, a more tailored agreement exists whereby the management of the cluster and resources are managed by you, including upgrades. This section contains the guides for self-service upgrading of CluedIn. For details about the updates available in a specific release, see Release notes. ",
     "url": "/operate/upgrade",
     
     "relUrl": "/operate/upgrade"
-  },"2718": {
+  },"2722": {
     "doc": "Azure deployment",
     "title": "Azure deployment",
     "content": "Deploying CluedIn into your own Azure subscription: the cluster, the network, the certificates, the storage, and the Helm release that installs the platform onto them. ",
     "url": "/operate/azure",
     
     "relUrl": "/operate/azure"
-  },"2719": {
+  },"2723": {
     "doc": "Monitoring",
     "title": "Monitoring",
     "content": "Watching a running installation: the Engine Room shows what the platform is processing right now, and Log Analytics holds the detail when you need to go back through it. ",
     "url": "/operate/monitoring",
     
     "relUrl": "/operate/monitoring"
-  },"2720": {
+  },"2724": {
     "doc": "Day-to-day operations",
     "title": "Day-to-day operations",
     "content": "The recurring operational tasks: promoting configuration between environments, resetting an instance, migrating the database, and knowing what CluedIn support covers. ",
     "url": "/operate/operations",
     
     "relUrl": "/operate/operations"
-  },"2721": {
+  },"2725": {
     "doc": "External identity providers",
     "title": "External identity providers",
     "content": "CluedIn’s single sign-on is wired to Microsoft Entra ID; setting that up is covered in SSO. When your users authenticate with a different provider, Entra acts as the broker: the provider signs the user in, and Entra issues the token CluedIn consumes. Start with Federate identity providers through Microsoft Entra, which covers the steps common to every provider, then follow the page for yours. Which CluedIn role a signed-in user gets is configured separately, in Users and roles. ",
     "url": "/operate/identity-providers",
     
     "relUrl": "/operate/identity-providers"
-  },"2722": {
+  },"2726": {
     "doc": "Security",
     "title": "Security",
     "content": "The security posture of a CluedIn installation, how to restrict access to individual components, and CluedIn’s response to publicly disclosed vulnerabilities. ",
     "url": "/operate/security",
     
     "relUrl": "/operate/security"
-  },"2723": {
+  },"2727": {
     "doc": "Cost and scaling",
     "title": "Cost and scaling",
     "content": "What drives the cost of a CluedIn installation and what you can safely turn down or off when you do not need it. ",
     "url": "/operate/cost-and-scaling",
     
     "relUrl": "/operate/cost-and-scaling"
-  },"2724": {
+  },"2728": {
     "doc": "Backup and restore",
     "title": "On this page",
     "content": ". | Set up a backup solution | Restore an environment | Runbooks | . ",
     "url": "/operate/backup-and-restore#on-this-page",
     
     "relUrl": "/operate/backup-and-restore#on-this-page"
-  },"2725": {
+  },"2729": {
     "doc": "Backup and restore",
     "title": "Set up a backup solution",
     "content": "To prevent data loss and to ensure the safety and availability of your containerized applications, set up a backup solution for your Azure Kubernetes Service (AKS) clusters. The backup solution is deployed post-installation and can be done by CluedIn on your behalf. If you do not have the backup solution in place, reach out to CluedIn support for assistance. The backup configuration focuses on two core elements for the CluedIn product. These are the helm values and the persistent databases that run inside of your cluster on disk. The process works by leveraging the automation account deployed to your managed resource group to run two main runbooks. One runbook will back up helm, and the other will back up the databases. During the backup run, it will temporarily shut down the instance by scaling down all the pods running in Kubernetes to prevent any potential data loss. It will then take snapshots of each persistent disk and place these inside the managed resource group by default. Once a backup has happened, it will reduce total snapshots to the supplied retention count (default is 7), starting with the oldest existing snapshot before scaling CluedIn up. This process takes roughly 20 minutes to complete and is highly recommended to run out of hours. To set up the schedules . | Navigate to the automation account located in the managed resource group of the environment that you want to back up. | On the left side, select Schedules . | Select Add a schedule, and then specify the appropriate time, time zone, and days to run the backup. Then, select Create. | On the left side, select Runbooks . | Select backup-helm-values. Then, on the left side, select Schedules. | Select Add a schedule, and then select the schedule that you’ve just created. Fill in the parameters. | Repeat the process for backup-cluedin. | . Once the schedules are set up, the automation account should proceed to run backup as per your configuration. For any further information about backup, reach out to CluedIn support. ",
     "url": "/operate/backup-and-restore#set-up-a-backup-solution",
     
     "relUrl": "/operate/backup-and-restore#set-up-a-backup-solution"
-  },"2726": {
+  },"2730": {
     "doc": "Backup and restore",
     "title": "Restore an environment",
     "content": "If you’re ever in a situation where you need to restore an environment, this section will only cover an in-place restore, and not a disaster recovery to another region. It is highly recommended to reach out to CluedIn support in the first instance. To restore an environment . | Scale down the pods on your AKS so no CluedIn pods are running. | Restore the disks in the snapshot location over top of the existing PVCs. The disk name and tags must match during a restore, otherwise you may run into problems during operation. All restored disks must be from the same time. There may be a few minutes between each disk as it runs sequentially. | Once all disks have been restored from the same time, proceed to scale the cluster back up. After 5 minutes, the instance should then be rolled back. | . ",
     "url": "/operate/backup-and-restore#restore-an-environment",
     
     "relUrl": "/operate/backup-and-restore#restore-an-environment"
-  },"2727": {
+  },"2731": {
     "doc": "Backup and restore",
     "title": "Runbooks",
     "content": "To automate backup and restore tasks, use runbooks. These runbooks should be deployed to the required environment using Terraform. | Disaster recovery runbook – responsible for orchestrating the backup &gt; copy &gt; restore process. | Backup runbook – responsible for capturing snapshots of all persistent disks used by CluedIn. | Copy snapshots runbook – responsible for copying snapshots from one Azure location to another. | Restore runbook – responsible for removing all persistent disks and restoring them from snapshots. | . ",
     "url": "/operate/backup-and-restore#runbooks",
     
     "relUrl": "/operate/backup-and-restore#runbooks"
-  },"2728": {
+  },"2732": {
     "doc": "Backup and restore",
     "title": "Backup and restore",
     "content": " ",
     "url": "/operate/backup-and-restore",
     
     "relUrl": "/operate/backup-and-restore"
-  },"2729": {
+  },"2733": {
     "doc": "Local deployment",
     "title": "Local deployment",
     "content": "Running CluedIn on a single machine for development and evaluation, including how to add extension packages and how to upgrade it. ",
     "url": "/operate/local",
     
     "relUrl": "/operate/local"
-  },"2730": {
+  },"2734": {
     "doc": "Configuration",
     "title": "Configuration",
     "content": " ",
     "url": "/operate/configuration",
     
     "relUrl": "/operate/configuration"
-  },"2731": {
+  },"2735": {
     "doc": "Deployment options",
     "title": "Deployment options",
     "content": "CluedIn runs as a managed SaaS service, as a private SaaS or PaaS deployment in your own Azure subscription, or locally for development. Choose the model first - it determines everything else in this section. ",
     "url": "/operate/deployment-options",
     
     "relUrl": "/operate/deployment-options"
-  },"2732": {
+  },"2736": {
     "doc": "Azure Marketplace",
     "title": "Azure Marketplace",
     "content": "Installing CluedIn from the Azure Marketplace, including the decisions to make and the checks to run before and after the managed application is deployed. ",
     "url": "/operate/azure-marketplace",
     
     "relUrl": "/operate/azure-marketplace"
-  },"2733": {
+  },"2737": {
     "doc": "Deploy & operate",
     "title": "Deploy & operate",
     "content": "How do I run the platform? . Platform and DevOps teams running a CluedIn installation. Everything a platform team does to a CluedIn installation: choosing a deployment model, installing it, configuring the cluster, upgrading it, backing it up, watching it, and keeping its cost and security in order. Product administration - users, roles, UI configuration - is Administer. ",
     "url": "/operate",
     
     "relUrl": "/operate"
-  },"2734": {
+  },"2738": {
     "doc": "Data ingestion playbook",
     "title": "Data ingestion playbook",
     "content": "| Audience | Time to read | . | Business User, Data Project Lead, Data Steward, Data Analyst, Data Architect, Data Engineer | 2 min | . You are here in the data journey . Data ingestion is the first step of your MDM project. In this playbook, you will learn how to organize your MDM project and communicate its complexities and associated risks to your managers and business stakeholders. By understanding these elements, you’ll be better equipped to: . | Deliver value by improving critical data and demonstrate project progress to stakeholders. Delivering value does not mean using all CluedIn features; it means having one end-to-end data flow running in CluedIn that has improved value. | Mitigate potential issues and ensure project success. | . The data ingestion process consists of several steps: data impact workshop, picking the right tool, ingesting, mapping, and processing. Before diving into the process of ingesting data into CluedIn, we recommend that you get acquainted with the foundational principles outlined in this playbook. In our experience, we’ve observed that many data teams tend to jump directly into the implementation phase without fully understanding the specificity of CluedIn. Additionally, they often overlook the critical step of defining which data will have the most significant impact on their objectives. If you have a small data team (one or two people), you may opt for a lighter approach. However, we still recommend following the guidelines from this playbook to better structure your MDM project. Main data ingestion principle for your first use case . If you have the opportunity, focus on the critical data you have access to and start with a simple implementation. Once completed, organize a demo for your stakeholders and then release it to your production environment. Why should you apply this principle? . | Improved data – you have one end-to-end data flow that improves a portion of your critical data. | Available in production – you went through your IT processes to deploy the production environment according to your organization policies. It means that from now on, it will only get easier. | Full cycle of data journey – by delivering a fairly simple use case into production, you’ve completed one full cycle of your MDM project, which you’ll need to repeat every time. | . Where to start with data ingestion? The first step of data ingestion is the data impact workshop. It is a collaborative session designed to help you identify your business domains, determine the data sources to ingest, and assess their criticality to your operations. Learn more in Data impact workshop. ",
     "url": "/playbooks/data-ingestion",
     
     "relUrl": "/playbooks/data-ingestion"
-  },"2735": {
+  },"2739": {
     "doc": "Data engineering playbook",
     "title": "Data engineering playbook",
     "content": ". ",
     "url": "/playbooks/data-engineering",
     
     "relUrl": "/playbooks/data-engineering"
-  },"2736": {
+  },"2740": {
     "doc": "Project delivery",
     "title": "Project delivery",
     "content": "How to scope and run a CluedIn project: what to decide before you start, how to sequence the work, and what has to be true before you go to production. ",
     "url": "/playbooks/project-delivery",
     
     "relUrl": "/playbooks/project-delivery"
-  },"2737": {
+  },"2741": {
     "doc": "Playbooks",
     "title": "Playbooks",
     "content": "How do I run a CluedIn project? . Project leads, delivery teams and consultants. Delivery methodology rather than product reference: how to scope a CluedIn project, sequence the work, and get to production. Playbooks link to the product documentation for the mechanics. ",
     "url": "/playbooks",
     
     "relUrl": "/playbooks"
-  },"2738": {
+  },"2742": {
     "doc": "Core concepts",
     "title": "Core concepts",
     "content": "Short explanations of the ideas the rest of the documentation assumes you know. These pages explain what something is; the lifecycle sections explain how to work with it. ",
     "url": "/get-started/core-concepts",
     
     "relUrl": "/get-started/core-concepts"
-  },"2739": {
+  },"2743": {
     "doc": "Get started",
     "title": "Get started",
     "content": "What is CluedIn and how do I begin? . Anyone opening CluedIn for the first time. CluedIn takes messy data from many systems and turns it into golden records you can trust. This section explains what the platform does, defines the terms used everywhere else in the documentation, and walks you through your first end-to-end run. Once you are oriented, the rest of the documentation follows the data lifecycle: Ingest -&gt; Model -&gt; Master -&gt; Govern &amp; improve -&gt; Publish &amp; consume. ",
     "url": "/get-started",
     
     "relUrl": "/get-started"
-  },"2740": {
+  },"2744": {
     "doc": "Build integrations",
     "title": "Build integrations",
     "content": "Writing your own connector so CluedIn can crawl a system it does not support out of the box. Installing and running connectors is covered in Ingest. ",
     "url": "/develop/integrations",
     
     "relUrl": "/develop/integrations"
-  },"2741": {
+  },"2745": {
     "doc": "Python SDK",
     "title": "Python SDK",
     "content": "The Python SDK is the fastest way to script CluedIn: query golden records, push data in, pull data out, and automate the operations you would otherwise click through. ",
     "url": "/develop/python-sdk",
     
     "relUrl": "/develop/python-sdk"
-  },"2742": {
+  },"2746": {
     "doc": "API reference",
     "title": "On this page",
     "content": ". | Try it out against your environment | Categories | Download the specification | . The CluedIn REST API is documented endpoint by endpoint across the categories listed below. Each category is its own page, with an interactive reference for just that subset of the API. Splitting the reference keeps each page fast even though the full API has more than 700 endpoints. Before making requests, review Get started for base URLs, authentication, and conventions that apply across the whole API. ",
     "url": "/api#on-this-page",
     
     "relUrl": "/api#on-this-page"
-  },"2743": {
+  },"2747": {
     "doc": "API reference",
     "title": "Try it out against your environment",
     "content": "Each category page (and the full-screen viewer) includes a connection bar at the top. Enter your environment’s base URL (for example, https://acme.cluedin.com), your email, and your password, then select Connect. The viewer requests a bearer token on your behalf and attaches it to every request, which enables the Try it out button on every endpoint so you can send live calls and inspect the responses. The token and base URL are held in your browser’s session storage and shared across the category pages until you close the tab or select Disconnect. If your CluedIn organization name differs from the first part of the host, expand Advanced to set the Client ID explicitly. The calls run from your browser, so the target environment must allow cross-origin (CORS) requests from wherever you are viewing this documentation. If a request is blocked, host the documentation on an allowed origin, or use the curl/PowerShell examples in Get started instead. Credentials are sent only to the environment you specify and are never stored beyond the browser session. ",
     "url": "/api#try-it-out-against-your-environment",
     
     "relUrl": "/api#try-it-out-against-your-environment"
-  },"2744": {
+  },"2748": {
     "doc": "API reference",
     "title": "Categories",
     "content": "| Category | Description | . | Access control &amp; governance | Access control policies, audit logs, ownership, and tag metadata. | . | Entities | Read, create, modify, merge, and inspect golden records. | . | Search | Query the CluedIn graph and manage saved searches. | . | Vocabularies | Manage vocabularies and vocabulary keys. | . | Glossary | Manage glossary categories and terms. | . | Hierarchies | Build and manage hierarchies and the global data model. | . | Deduplication | Deduplication projects, automation, match results, and entity split. | . | Rules &amp; evaluation | Manage rules, preview rule output, and inspect evaluation logs. | . | Streams, connectors &amp; export | Configure, operate, and monitor export streams and connectors. | . | Data preparation &amp; enrichment | Clean and enrich records. | . | AI | AI agents, jobs, skills, and Copilot. | . | Administration &amp; configuration | Settings, logs, and metered billing. | . | Organization | Organization profile and usage statistics. | . ",
     "url": "/api#categories",
     
     "relUrl": "/api#categories"
-  },"2745": {
+  },"2749": {
     "doc": "API reference",
     "title": "Download the specification",
     "content": "The full CluedIn OpenAPI specification is bundled with this documentation and can be downloaded directly. Per-category specifications are linked from each category page. Download full swagger.json . ",
     "url": "/api#download-the-specification",
     
     "relUrl": "/api#download-the-specification"
-  },"2746": {
+  },"2750": {
     "doc": "API reference",
     "title": "API reference",
     "content": " ",
     "url": "/api",
     
     "relUrl": "/api"
-  },"2747": {
+  },"2751": {
     "doc": "Develop & APIs",
     "title": "Develop & APIs",
     "content": "How do I automate or extend CluedIn? . Developers building on top of CluedIn. Automate CluedIn from Python, call it over REST, and extend it with custom integrations and enrichers. The API reference is generated from the OpenAPI specification and covers every endpoint. ",
     "url": "/develop",
     
     "relUrl": "/develop"
-  },"2748": {
+  },"2752": {
     "doc": "Troubleshooting",
     "title": "Troubleshooting",
     "content": "Something is not working - what do I check? . Anyone hitting a symptom. Symptom-first articles: what you observe, why it happens, and what to do about it. Each article names a symptom, not a feature. This section replaces the old Knowledge Base. Knowledge Base articles that were really feature documentation now live with the feature they describe. ",
     "url": "/troubleshooting",
     
     "relUrl": "/troubleshooting"
-  },"2749": {
+  },"2753": {
     "doc": "Data Architect course",
     "title": "Architect responsibilities",
     "content": "In this learning path, a Data Architect is expected to: . | build ingestion pipelines and feed incremental or CDC data into CluedIn | design business domains, vocabularies, mappings, identifiers, and edges | build and tune matching projects without making operational merge decisions | establish the first set of rules, using AI Agents where useful to accelerate rule design | configure Export Targets and Streams and define downstream contracts | validate that the Global Data Model represents the intended domain relationships | promote architecture changes through environments with explicit validation gates | . A Data Architect is not expected to clean data, turn enrichers on, merge records, or approve routine AI Agent remediation suggestions. Those are operational stewardship activities. Workflow setup is intentionally outside the core course. An organization may choose to have Data Architects bootstrap the first workflows, but the core path assumes operational workflows are enabled and operated by Data Stewards or other process owners. ",
     "url": "/learning-paths/data-architect#architect-responsibilities",
     
     "relUrl": "/learning-paths/data-architect#architect-responsibilities"
-  },"2750": {
+  },"2754": {
     "doc": "Data Architect course",
     "title": "Course outcomes",
     "content": "By the end of the course, you should be able to: . | build an ingestion design that supports initial and incremental data loads | design coherent business domains, vocabularies, mappings, identifiers, and relations | configure matching projects that produce explainable candidate groups for stewards | create an initial rule set and validate its effect on golden records | configure Export Targets and Streams for downstream consumers | validate the resulting Global Data Model and record behavior | promote changes through environments with clear validation gates | . ",
     "url": "/learning-paths/data-architect#course-outcomes",
     
     "relUrl": "/learning-paths/data-architect#course-outcomes"
-  },"2751": {
+  },"2755": {
     "doc": "Data Architect course",
     "title": "Before you begin",
     "content": "Use a non-production environment and choose one representative domain or dataset that can be used throughout the course. Keep an architecture decision log containing assumptions, decisions, alternatives, expected behavior, validation evidence, and rollback considerations. The learner should have authoritative access to the architectural features used in the course. Do not substitute broad organization-administrator access for the specific architecture permissions required by the exercises. ",
     "url": "/learning-paths/data-architect#before-you-begin",
     
     "relUrl": "/learning-paths/data-architect#before-you-begin"
-  },"2752": {
+  },"2756": {
     "doc": "Data Architect course",
     "title": "Module sequence",
     "content": ". | Architect responsibilities and environment strategy | Business domains, vocabularies, golden records, and the Global Data Model | Build ingestion pipelines and support incremental or CDC ingestion | Design mappings, identifiers, and edges | Validate architecture through search, record history, and diagnostics | Build the initial rule set and processing logic | Build matching projects and hand review to stewards | Use AI Agents to accelerate initial rule design | Configure Export Targets | Configure Streams and downstream contracts | Release discipline across dev, test, and production | Capstone: build and validate an end-to-end data pipeline | . ",
     "url": "/learning-paths/data-architect#module-sequence",
     
     "relUrl": "/learning-paths/data-architect#module-sequence"
-  },"2753": {
+  },"2757": {
     "doc": "Data Architect course",
     "title": "Data Architect course",
     "content": "The Data Architect course is for people who build and own the structural data pipeline in CluedIn. Data Architects establish how data enters CluedIn, how it is modeled and matched, how the initial processing logic works, and how trusted data leaves CluedIn. The course does not duplicate product instructions. Every module has a Read section that points to the relevant product documentation. Use those pages for the mechanics, then complete the architecture exercise and produce the requested design evidence. ",
     "url": "/learning-paths/data-architect",
     
     "relUrl": "/learning-paths/data-architect"
-  },"2754": {
+  },"2758": {
     "doc": "Data Steward course",
     "title": "Course outcomes",
     "content": "By the end of the course, you should be able to: . | explain how source data becomes a golden record | isolate a data-quality problem with search and filters | distinguish source, mapping, processing, identity, and record-level issues | use validations, clean projects, deduplication, glossary, tags, and AI-assisted remediation appropriately | verify that remediation worked rather than assuming it did | recognize downstream impact and produce useful handoffs for Data Architects | . ",
     "url": "/learning-paths/data-steward#course-outcomes",
     
     "relUrl": "/learning-paths/data-steward#course-outcomes"
-  },"2755": {
+  },"2759": {
     "doc": "Data Steward course",
     "title": "Before you begin",
     "content": "Use a non-production environment and choose one training business domain or dataset that you can use throughout the course. Keep a simple issue log containing the problem, affected population, evidence, action taken, verification result, and any escalation. ",
     "url": "/learning-paths/data-steward#before-you-begin",
     
     "relUrl": "/learning-paths/data-steward#before-you-begin"
-  },"2756": {
+  },"2760": {
     "doc": "Data Steward course",
     "title": "Module sequence",
     "content": ". | About this learning path | First tour of the instance and the golden record mindset | How ingestion, mapping, and processing affect stewardship | Find and inspect records with search, filters, and saved searches | Review source quality with validations and mapping checkpoints | Clean recurring quality issues with clean projects | Resolve duplicates and understand merge decisions | Use glossary, tags, and governance views to organize work | Use AI agents safely for stewardship work | Understand streams, downstream impact, and architect handoffs | Capstone operating loop and readiness checklist | . ",
     "url": "/learning-paths/data-steward#module-sequence",
     
     "relUrl": "/learning-paths/data-steward#module-sequence"
-  },"2757": {
+  },"2761": {
     "doc": "Data Steward course",
     "title": "Data Steward course",
     "content": "The Data Steward course is for people responsible for the operational quality and trustworthiness of data in CluedIn. The course teaches you to investigate a reported problem, establish evidence, choose the right remediation path, verify the result, and escalate structural problems with enough context for a Data Architect to act. The course does not duplicate product instructions. Every practical module has a Read section that points to the relevant product documentation. Read those pages first, then complete the scenario and exercise in CluedIn. The first page is an orientation to the learning path and explains how the modules work. ",
     "url": "/learning-paths/data-steward",
     
     "relUrl": "/learning-paths/data-steward"
-  },"2758": {
+  },"2762": {
     "doc": "Role handbooks",
     "title": "Role handbooks",
     "content": "One condensed handbook per role: what you are responsible for, what you touch in the product, and the order to learn it in. ",
     "url": "/learning-paths/role-handbooks",
     
     "relUrl": "/learning-paths/role-handbooks"
-  },"2759": {
+  },"2763": {
     "doc": "CluedIn fundamentals",
     "title": "CluedIn fundamentals",
     "content": "Level: Beginner . CluedIn fundamentals is the starting point of a progressive 4-level journey designed to help you master the platform. In this first stage, you’ll learn how to ingest, clean, and explore data using CluedIn’s flexible graph-based model. Presented by: Pierre Derval, Chief Product Officer at CluedIn . Presentation: Download PPT . ",
     "url": "/learning-paths/fundamentals",
     
     "relUrl": "/learning-paths/fundamentals"
-  },"2760": {
+  },"2764": {
     "doc": "AI in CluedIn",
     "title": "AI in CluedIn",
     "content": "Level: Beginner . CluedIn AI training is the second stage in a progressive 4-level journey designed to help you master the platform. In this level, you’ll discover how to use AI to automate data management tasks, improve data quality, and deliver trusted, intelligent insights. Presented by: Pierre Derval, Chief Product Officer at CluedIn . Presentation: Download PPT . ",
     "url": "/learning-paths/ai",
     
     "relUrl": "/learning-paths/ai"
-  },"2761": {
+  },"2765": {
     "doc": "Learning paths",
     "title": "Learning paths",
     "content": "How do I learn CluedIn for my role? . New users following a structured course. Role-based courses that sequence the product documentation into a learning order. Each module explains the why, then links to the canonical article for the how - so there is only ever one explanation of a feature to keep up to date. ",
     "url": "/learning-paths",
     
     "relUrl": "/learning-paths"
-  },"2762": {
+  },"2766": {
     "doc": "Connectors",
     "title": "Connectors",
     "content": " ",
     "url": "/ingest/connectors",
     
     "relUrl": "/ingest/connectors"
-  },"2763": {
+  },"2767": {
     "doc": "Mapping",
     "title": "Mapping",
     "content": "Mapping decides which source column becomes which vocabulary key, which value identifies the record, and what business domain it belongs to. It is the point where raw data meets your model. Property rules and pre-process rules shape values during mapping, before the record becomes a data part. ",
     "url": "/ingest/mapping",
     
     "relUrl": "/ingest/mapping"
-  },"2764": {
+  },"2768": {
     "doc": "Ingestion patterns",
     "title": "Ingestion patterns",
     "content": "Worked patterns for feeding CluedIn from common parts of a modern data stack, and for the case where you have many systems rather than a few. ",
     "url": "/ingest/patterns",
     
     "relUrl": "/ingest/patterns"
-  },"2765": {
+  },"2769": {
     "doc": "Troubleshoot ingestion",
     "title": "Troubleshoot ingestion",
     "content": "When records do not arrive, or arrive wrong, these are the three places to look: the quarantine holds records that failed validation, the logs say what the source did, and monitoring shows whether processing is keeping up. ",
     "url": "/ingest/troubleshooting",
     
     "relUrl": "/ingest/troubleshooting"
-  },"2766": {
+  },"2770": {
     "doc": "Manual data entry",
     "title": "Manual data entry",
     "content": "In addition to loading data from various sources, you can also enter data manually. The Manual data entry module allows you to create records directly in CluedIn. This way, you can capture data that may not be available from other sources but is necessary for your data management purposes. Manual data entry is used to create records in an enforced and structured manner. This means that the Administrator sets up a manual data entry project and defines the schema that will be used to create the records. Data Stewards are then tasked with creating records according to this schema. This section covers the following areas: . | Configuring a manual data entry project – learn how to create and configure a manual data entry project, add form fields, review mapping details, and define the quality rating for the source. | Adding records in a manual data entry project – learn how to add single or multiple the records manually directly to CluedIn. | Managing a manual data entry project – learn how to make changes to the manual data entry project and how to manage access to the manual data entry project and the records created within the project. | . ",
     "url": "/ingest/manual-data-entry",
     
     "relUrl": "/ingest/manual-data-entry"
-  },"2767": {
+  },"2771": {
     "doc": "Data sources",
     "title": "Data sources",
     "content": "In this section, you will learn how to get your data from external sources into CluedIn. All data you ingest into CluedIn is stored in Integrations &gt; Data Sources. One of the main purposes of the Data Sources module is to provide you with the tools to create a semantic layer for your data so that CluedIn can understand it. Each step is explained in detail in a separate article in this section: . | Define data to ingest – explore all the ways you can ingest data into CluedIn and choose the one that works best for your needs. | Ingest data from a file, an endpoint, or a database - find step-by-step instructions for ingesting data into CluedIn. | Create mapping - create a semantic layer for your data and review the mapping details to ensure that your records are produced and merged in the most effective way. | Process data - turn your data into golden records, making it searchable and ready to be cleaned, deduplicated, and streamed. | . In addition to these fundamental steps, we encourage you to explore additional operations on records to discover tools for normalizing and improving the quality of data. To ingest, map, and process the data, you need to have access to different modules in CluedIn. The following table contains a list of claims required to work with the Data Sources module. | Section | Claim | Access level | . | Integration | All claims | at least Consulted | . | Management | Data Catalog | at least Informed | . | Management | Annotation | at least Informed | . | Consume | Export Targets | at least Informed | . ",
     "url": "/ingest/data-sources",
     
     "relUrl": "/ingest/data-sources"
-  },"2768": {
+  },"2772": {
     "doc": "Processing",
     "title": "Processing",
     "content": "Processing turns mapped records into data parts and golden records. Preview and validations let you check what will happen before you commit; approval puts a gate in front of it. ",
     "url": "/ingest/processing",
     
     "relUrl": "/ingest/processing"
-  },"2769": {
+  },"2773": {
     "doc": "Ingest",
     "title": "Ingest",
     "content": "How do I get data into CluedIn? . Data engineers and anyone connecting a source system. Everything that brings records into CluedIn lives here: connecting a source, describing what you want to ingest, mapping source columns onto the model, and processing the result into golden records. The usual order is Data sources -&gt; Mapping -&gt; Processing. Use Troubleshoot ingestion when records do not arrive or land in quarantine. ",
     "url": "/ingest",
     
     "relUrl": "/ingest"
-  },"2770": {
+  },"2774": {
     "doc": "Enrichment",
     "title": "Enrichment",
     "content": "Enrichers allow you to enhance and improve the quality and completeness of your golden records by incorporating additional information from third-party sources. The following diagram shows the basic steps of enriching the data in CluedIn. This section covers the following areas: . | Concept of enricher – explore how an enricher works and where it fits in the data life cycle in CluedIn. | Adding an enricher – learn how to configure and manage an enricher. | Reference information about enrichers – find information about built-in enrichers available in CluedIn. If you need a custom enricher, use the REST API enricher or contact us, and we will build one for you. | . ",
     "url": "/govern/enrichment",
     
     "relUrl": "/govern/enrichment"
-  },"2771": {
+  },"2775": {
     "doc": "Cleaning",
     "title": "Cleaning",
     "content": "Data cleaning helps you identify and correct any issues in your data: normalize value representations, transform capitalization, modify values, and more. After you’ve cleaned your data, you can use it to gain valuable insights that help you make more informed decisions. In this section, you will learn how to fix data quality issues through the use of clean projects. In addition, you will learn how to proactively prevent the same data quality issues by generating rules based on your actions in the clean project. The following diagram shows the basic steps of cleaning the data in CluedIn. This section covers the following areas: . | Creating a clean project – discover different options that you can use to create a clean project. | Managing a clean project – learn how to work with a clean project, fix data issues, and prevent the same issues from happening again. | Reference information about clean projects – find information about clean project statuses and get an understanding of the clean project workflow. | . ",
     "url": "/govern/cleaning",
     
     "relUrl": "/govern/cleaning"
-  },"2772": {
+  },"2776": {
     "doc": "AI agents",
     "title": "Copilot experience for AI agents",
     "content": "AI agents include an embedded Copilot experience that helps you set up and work with an agent through natural conversation. Instead of configuring every part of an agent manually, you can describe the outcome you want and use the Copilot pane to help build the configuration step by step. For example, you can ask the agent to: . | Identify the data it should work on. | Suggest or create jobs for a particular data-management task. | Configure how the agent should analyze or change the data. | Explain what additional information or settings are required. | Help refine the agent configuration before it is run. | Review the outcome of previous jobs and decide what to do next. | . This makes agent setup more accessible for users who understand the business outcome they want but do not want to configure every technical detail themselves. The Copilot experience is contextual to the agent you are working with. It can use the agent’s current configuration, available jobs, and relevant CluedIn context to guide the conversation. To use the Copilot experience, the Copilot model deployment must be configured correctly. If the deployment setting is missing, CluedIn will prompt you to open the Copilot settings and complete the configuration. Use natural language to configure an agent . You can use conversational instructions to describe the job you want the agent to perform. For example: . Create a job that finds customer records with missing websites and enriches them where possible. Or: . Analyze newly ingested Product data, identify the most important data quality issues, and create jobs to resolve them. The Copilot can then help translate that intent into the agent configuration and jobs required to perform the work. This allows the configuration process to become iterative: you can ask questions, refine the scope, test the resulting jobs, and adjust the agent through conversation. ",
     "url": "/govern/ai-agents#copilot-experience-for-ai-agents",
     
     "relUrl": "/govern/ai-agents#copilot-experience-for-ai-agents"
-  },"2773": {
+  },"2777": {
     "doc": "AI agents",
     "title": "Event-driven and proactive agents",
     "content": "AI agents do not have to rely only on a user opening the agent and manually starting a job. Agents can also be triggered by internal CluedIn events, allowing them to react proactively when something important happens in the platform. For example, an agent can react to an event such as: . New data sources have arrived. When this type of event occurs, the agent can proactively begin the appropriate workflow—for example: . | Inspect the newly arrived data. | Profile the data and identify data quality issues. | Suggest or create mappings. | Detect duplicate candidates. | Create cleaning or remediation jobs. | Apply validation logic. | Prepare follow-up work for review or approval. | . This event-driven model allows agents to behave more like ongoing data-management workers rather than one-off AI tools. Instead of waiting for a user to notice that new data has arrived and decide what to do next, an agent can respond to the event and start the relevant analysis automatically. Combine events with human review . An event-triggered agent can still include human checkpoints. For example, an agent could: . | Detect that a new data source has arrived. | Analyze the data and prepare recommended mappings. | Create a test job. | Present the proposed changes for review. | Continue only after the results are approved. | . This makes it possible to combine proactive automation with governance and human oversight. Example scenario . Suppose a new supplier data source is added to CluedIn. An agent could be configured to respond by: . | Detecting the new source. | Describing and profiling the data. | Comparing the data with existing Supplier and Company business domains. | Suggesting mappings. | Checking for duplicate suppliers. | Creating data-quality jobs for missing or invalid values. | Presenting the proposed actions to a data steward. | . The goal is to reduce the amount of manual coordination required after common platform events while still allowing users to review and control important changes. This section covers the following areas: . | Prerequisites to using AI agents – perform the necessary setup to enable the AI agents functionality. | Using built-in AI agents – learn about CluedIn’s built-in AI agents that contain templates for handling common data management tasks. | Creating and configuring an AI agent – learn how to create, configure, and run an AI agent tailored to your specific business needs. | Onboarding datasets with an AI agent – learn how to ask an AI agent to plan how your datasets map to business domains, vocabularies, and vocabulary keys, review and change the plan, and create everything once you approve it. | Reviewing the results returned by an AI agent – learn how to interpret, validate, and take action based on the outputs generated by AI agents. | Viewing and reverting changes made by an AI agent – learn how to view the historical record of the changes made by an AI agent and, if needed, revert any of the changes. | AI agents FAQs – find answers to common questions related to AI agents. | . ",
     "url": "/govern/ai-agents#event-driven-and-proactive-agents",
     
     "relUrl": "/govern/ai-agents#event-driven-and-proactive-agents"
-  },"2774": {
+  },"2778": {
     "doc": "AI agents",
     "title": "AI agents",
     "content": "The AI Agents module in CluedIn is a smart automation component that uses artificial intelligence to assist with key data management tasks. The module helps create business rules, find and resolve data quality issues, and find potential duplicates with minimal manual effort. This enables you to focus on strategic decisions rather than repetitive tasks, while ensuring higher data consistency and reliability. Video coming soon . This section covers the module itself: setting up, running and reviewing an agent. When an agent does a task that has its own home in the documentation, the article for that task lives there. For example, Onboard datasets with an AI agent is part of Mapping. ",
     "url": "/govern/ai-agents",
     
     "relUrl": "/govern/ai-agents"
-  },"2775": {
+  },"2779": {
     "doc": "Rules",
     "title": "Rules",
     "content": "Rules enable you to establish business logic for managing your records within CluedIn. In this section, you will learn how to automate data transformation, capture data quality issues, and determine operational values with the help of different types of rules. A rule consists of a filter and one or more associated actions. Filter tells CluedIn what records should be affected by the rule’s action. The following diagram shows the basic steps of creating a rule in CluedIn. This section covers the following areas: . | Rule types – explore different types of rules to learn which one would be best for your specific needs. | Creating a rule – learn how to create a rule and apply it to the records. | Managing rules – learn how to edit, deactivate, and delete a rule, as well how these actions affect your records. | Reference information about rule’s actions – find information about the actions associated with each type of rule. | . ",
     "url": "/govern/rules",
     
     "relUrl": "/govern/rules"
-  },"2776": {
+  },"2780": {
     "doc": "Workflows",
     "title": "Workflows",
     "content": "The Workflow module is designed to help you streamline and track approvals and notifications for specific activities in CluedIn with the help of Power Automate workflows. This functionality is intended only for SSO users. To use the Workflow module in CluedIn, you need to configure Power Automate integration. This section covers the following areas: . | Concept of workflows – learn about the approval workflow and its participants. | Creating and managing workflows – learn how to create a workflow for automating a specific approval process and how to find the details about the actions that triggered workflow runs. | Manage approval requests – learn how to view, approve, or reject the approval requests. | . ",
     "url": "/govern/workflows",
     
     "relUrl": "/govern/workflows"
-  },"2777": {
+  },"2781": {
     "doc": "Tags",
     "title": "Tags",
     "content": "Tags are labels you attach to golden records and data parts. They do not overwrite anything - they classify, so that rules, filters, streams and reports can act on the classification. ",
     "url": "/govern/tags",
     
     "relUrl": "/govern/tags"
-  },"2778": {
+  },"2782": {
     "doc": "Govern & improve",
     "title": "Govern & improve",
     "content": "How do I improve and govern the data? . Data stewards and data governance managers. Once data is mastered, this is how you keep it good: clean projects fix recurring quality problems, rules apply logic automatically, enrichers fill gaps from external sources, tags and the glossary classify records, and workflows put approvals around changes. ",
     "url": "/govern",
     
     "relUrl": "/govern"
-  },"2779": {
+  },"2783": {
     "doc": "Export targets",
     "title": "On this page",
     "content": ". | Configure an export target | Manage an export target | . Export targets are used for connecting with an integration point (also referred to as target), enabling CluedIn to send records to it using a stream. Examples of integration points include the following: . | Business intelligence tools . | Data warehouse dimension tables . | Machine learning platforms . | Custom applications . | Databases . | . Here are two examples of how to build a new Export Target: . | SQL Server . | Snowflake . | . See the full list of public implementations of CluedIn Export Targets here. In this article, you will learn how to configure and manage an export target that can receive records sent from CluedIn. ",
     "url": "/publish/export-targets#on-this-page",
     
     "relUrl": "/publish/export-targets#on-this-page"
-  },"2780": {
+  },"2784": {
     "doc": "Export targets",
     "title": "Configure an export target",
     "content": "You can configure a predefined export target provided with CluedIn (such as SQL Server Connector or Azure Event Hub Connector). You can also write a custom connector using the CluedIn NuGet package; however, it requires C# knowledge and the actual external service. To configure an export target . | On the navigation pane, go to Consume &gt; Export Targets. Then, select Add Export Target. The Add Export Target pane opens, where you can select and configure the needed export target. | On the Choose Target tab, select the external system you want to establish a connection with. Then, select Next. | On the Configure tab, enter the connection details. The list of fields that you need to complete depends on the selected export target. For example, for the Microsoft SQL Server export target, you need to provide the Name, Host, Database Name, Username, and Password. | Test the connection to make sure it works, and then select Add. You configured the export target. Now, it can be attached to the stream. The user who added the export target is the owner of the export target. | . ",
     "url": "/publish/export-targets#configure-an-export-target",
     
     "relUrl": "/publish/export-targets#configure-an-export-target"
-  },"2781": {
+  },"2785": {
     "doc": "Export targets",
     "title": "Manage an export target",
     "content": "On the export target details page, you can do the following: . | Test the connection to the export target. | View the streaming modes supported by the export target: . | Synchronized – the records in the export target mirror the records in CluedIn. | Event – the records in the export target are written as events (for example, Create, Insert, Update, Delete) each time an action occurs in CluedIn. | . | Activate and deactivate the export target. When activating or deactivating the export target, you can view the streams linked to it as well as start, pause, or stop the needed streams. | Review the export target health checks. Health checks for the export target run every 60 seconds. If, for example, somebody has changed the password for the user connecting to the export target, the health check status would change to Unhealthy, letting you know that you need to check on the export target. After the issue is fixed, the status will go back to Healthy again. The Partially Healthy status indicates that some pods are reporting healthy and others are reporting unhealthy (for example, if there is a network issue where one pod is struggling to connect but the other pods can still connect). If the export target is Unhealthy, you cannot select it in the export target configuration for a stream. Additionally, if you have already configured the stream and the export target becomes Unhealthy, you cannot start such stream. | Edit the connection details. | . ",
     "url": "/publish/export-targets#manage-an-export-target",
     
     "relUrl": "/publish/export-targets#manage-an-export-target"
-  },"2782": {
+  },"2786": {
     "doc": "Export targets",
     "title": "Export targets",
     "content": " ",
     "url": "/publish/export-targets",
     
     "relUrl": "/publish/export-targets"
-  },"2783": {
+  },"2787": {
     "doc": "Streams",
     "title": "Streams",
     "content": "When you have the ready-to-use data in CluedIn, you can send it to any external system where the data can be used for executing various business tasks. The following diagram shows the basic steps of sending the records from CluedIn to an external system. When you start the stream, all records matching the stream’s filters will be sent to the external system (target). If new records appear in CluedIn and they match the stream’s filters, they will be automatically sent to the target. In addition to that, if you make any changes to the records in CluedIn—for example, fix some values by running a clean project—these changes will be automatically made in the corresponding records stored within the target. This section covers the following areas: . | Creating a stream – learn how to create a stream, configure the export target for the stream, and define which golden records and specific properties to send to an external system. | Managing streams – learn how to edit a stream and work with the stream controls, as well how these actions affect the stream. | Reference information about streams – find information about stream statuses and other stream indicators. | . ",
     "url": "/publish/streams",
     
     "relUrl": "/publish/streams"
-  },"2784": {
+  },"2788": {
     "doc": "GraphQL",
     "title": "On this page",
     "content": ". | How it works | Supported operations | Case sensitivity in lookups | Enabling case-insensitive lookups | Examples of using GraphQL . | Get an entity by ID | Get entities by search | Get entities by vocabulary keys | Get entities by a combination of vocabulary keys | Get all entities that have a value for a certain property | Change what properties come back in the results, 4 records at a time | Change what metadata comes out of the properties | Explore edges | Search for all golden records which comes from certain datasource | Get all record which have failed lookup data | Filter by Tags | Filter “codes” via filters-array and then postProcess | . | . CluedIn provides GraphQL as a flexible way to pull and query data. The CluedIn GraphQL endpoint integrates multiple datastores to service each query efficiently, using an internal query optimizer to determine which datastore should handle which part of the request. ",
     "url": "/publish/graphql#on-this-page",
     
     "relUrl": "/publish/graphql#on-this-page"
-  },"2785": {
+  },"2789": {
     "doc": "GraphQL",
     "title": "How it works",
     "content": "Depending on the query, CluedIn may interact with one or more of the following datastores: . | Search store – For full-text searches and property-based lookups. | Graph store – For exploring relationships and connected records. | Blob store – For retrieving complete record histories and raw data. | . The query optimizer automatically selects the best datastore combination for each query. Consider the following example: . | A query that finds all entities in a specific business domain with a certain property value is handled entirely by the Search store. | If the query also requests the full history of those records, CluedIn first retrieves the results from the Search store, and then asks the Blob store for historical data. | If the query expands to include related records (for example, entities of the Person type connected to the results), CluedIn adds the Graph store to process that part of the query. | . ",
     "url": "/publish/graphql#how-it-works",
     
     "relUrl": "/publish/graphql#how-it-works"
-  },"2786": {
+  },"2790": {
     "doc": "GraphQL",
     "title": "Supported operations",
     "content": "The CluedIn GraphQL endpoint supports a wide range of operations, including: . | Get entities by ID. | Get entities using a full-text search. | Get entities by property value. | Get data metrics. | . ",
     "url": "/publish/graphql#supported-operations",
     
     "relUrl": "/publish/graphql#supported-operations"
-  },"2787": {
+  },"2791": {
     "doc": "GraphQL",
     "title": "Case sensitivity in lookups",
     "content": "By default, all value lookups are case-sensitive. For example, organisation.industry:Banking will not match entities where the value is “banking” (lowercase “b”). While you can modify this behavior, CluedIn encourages using CluedIn Clean to normalize and standardize data values. This ensures that downstream consumers receive consistent data (for example, “Banking” vs “banking”) without requiring schema or query adjustments. You can standardize capitalization and formatting conventions without pushing changes back to the original source systems through the Mesh API. ",
     "url": "/publish/graphql#case-sensitivity-in-lookups",
     
     "relUrl": "/publish/graphql#case-sensitivity-in-lookups"
-  },"2788": {
+  },"2792": {
     "doc": "GraphQL",
     "title": "Enabling case-insensitive lookups",
     "content": "If you need to enable case-insensitive searches, extend the built-in ElasticEntity model within CluedIn and add custom properties with their respective analyzers to support case-insensitive matching. ",
     "url": "/publish/graphql#enabling-case-insensitive-lookups",
     
     "relUrl": "/publish/graphql#enabling-case-insensitive-lookups"
-  },"2789": {
+  },"2793": {
     "doc": "GraphQL",
     "title": "Examples of using GraphQL",
     "content": "To help you get familiar with CluedIn’s GraphQL implementation, the following examples illustrate common queries you can experiment with. Get an entity by ID . You can retrieve a specific entity using its unique ID. To begin, you will need to obtain an example ID by searching for your admin user. { entity(id:\"c2d38278-6886-532d-8405-98e97298298f\") { name } } . Get entities by search . { search(query:\"Test\") { entries { name } } } . Get entities by vocabulary keys . { search(query:\"properties.user.firstName:Alix\") { entries { name } } } . Get entities by a combination of vocabulary keys . { search(query: \"+properties.user.firstName:Alix +properties.user.lastName:Freke\") { entries { name } } } . Get all entities that have a value for a certain property . { search(query: \"properties.user.firstName:A*\") { totalResults entries { name } } } . Alternatively, find out how many records match. { search(query: \"properties.user.firstName:A*\") { totalResults } } . Change what properties come back in the results, 4 records at a time . { search(query: \"properties.user.firstName:A*\", pageSize:4) { totalResults entries { name createdDate displayName properties } } } . Change what metadata comes out of the properties . { search(query: \"properties.user.firstName:A*\", pageSize:4) { totalResults entries { name properties(propertyNames:[\"user.lastName\", \"user.gender\"]) } } } . Explore edges . { search(query: \"user.firstName:*\", pageSize: 4) { entries { name edges { outgoingOfType(entityType: \"/Organization\", edgeType: \"/PartOf\") { entries { name } } } } } } . Search for all golden records which comes from certain datasource . Query . query searchQuery($query: String, $filters: [FilterQuery], $cursor: PagingCursor) { search( query: $query filters: $filters pageSize: 10000 cursor: $cursor sort: FIELDS sortFields: { field: \"id\", direction: ASCENDING } ) { totalResults cursor entries { id name entityType properties } } } . Variable . { \"query\": \"*\", \"cursor\": null, \"filters\": [ { \"aggregationName\": \"providerDefinitionIds_v2\", \"operator\": \"OR\", \"values\": [ \"5158674b-7d18-4bb2-bb49-2e95c17f0b57\" ] } ] } . Get all record which have failed lookup data . { search(query:\"+entityType:/FabricCompany +properties.fabriccompany.country-EntityCode:[Invalid*\") { totalResults entries { name properties } } } . Filter by Tags . query { search( query: \"+entityType:/FabricCompany\" pageSize: 10000 filter: \"tags:Invalid Validate that 'fabriccompany.country' contains ISO-2 coded country codes only, two uppercase letters.\" ) { totalResults entries { tags id name properties } } } . Filter “codes” via filters-array and then postProcess . query { search( query: \"+entityType:/FabricCompany\" pageSize: 10000 filters: [{ fieldName: \"codes\" operator: OR values: [\"/FabricCompany#company:CluedIn(hash-sha1):a57b9dad98e2679de828ef1f4aced537534c600d\"] }] ) { totalResults entries { id name properties } } } . ",
     "url": "/publish/graphql#examples-of-using-graphql",
     
     "relUrl": "/publish/graphql#examples-of-using-graphql"
-  },"2790": {
+  },"2794": {
     "doc": "GraphQL",
     "title": "GraphQL",
     "content": " ",
     "url": "/publish/graphql",
     
     "relUrl": "/publish/graphql"
-  },"2791": {
+  },"2795": {
     "doc": "Integration patterns",
     "title": "Integration patterns",
     "content": "Worked patterns for getting trusted data out of CluedIn and into the systems that need it, including writing corrected values back to the systems the data came from. ",
     "url": "/publish/integration-patterns",
     
     "relUrl": "/publish/integration-patterns"
-  },"2792": {
+  },"2796": {
     "doc": "Publish & consume",
     "title": "Publish & consume",
     "content": "How do I get trusted data out? . Data engineers and integration developers. Streams push golden records continuously to an export target; GraphQL and the REST API pull them on demand. Start with the export target you need, then build the stream that feeds it. ",
     "url": "/publish",
     
     "relUrl": "/publish"
-  },"2793": {
+  },"2797": {
     "doc": "Release notes",
     "title": "On this page",
     "content": ". | Release notes . | Latest release | Previous releases | Releases of additional resources | . | Release plan for 2025–2026 | Release plan for 2026-2027 | Featured roadmap items . | Agents Redesign | MCP | Agents can write deterministic code | Performance UI/UX updates | Processing Pipeline Update | Jobs Monitor | OpenTelemetry | Moving Blobs to Blob Storage | Data Contracts | Streams V3 | Export Targets receipts | Lookup AI resolution | Duplicate Clusters AI loop | Rule Inspector | Cost of Running Lowering | Topology Viewer 2 | Workflow Engine V3 | . | Release plan | Roadmap timeline | Release process . | Release stages | Product release versioning . | After 2026 | Before 2026 | . | . | . In this article, you will find links to release notes and learn about our release process and product versioning. ",
     "url": "/release-notes#on-this-page",
     
     "relUrl": "/release-notes#on-this-page"
-  },"2794": {
+  },"2798": {
     "doc": "Release notes",
     "title": "Release notes",
     "content": "This section includes links to release notes for the CluedIn platform as well as links to the releases of additional resources. Latest release . | Version | Technical version | Release notes | . | 2026.03.00 | 5.0.0 | View release notes | . Previous releases . | Version | Technical version | Release notes | . | 2026.02.00 | 4.8.0 | View release notes | . | 2026.01.00 | 4.7.0 | View release notes | . | 2025.09.00 | 4.6.0 | View release notes | . | 2025.05.02 | 4.5.2 | View release notes | . | 2025.05.01 | 4.5.1 | View release notes | . | 2025.05.00 | 4.5.0 | View release notes | . | 2024.12.02 | 4.4.2 | View release notes | . | 2024.12.01 | 4.4.1 | View release notes | . | 2024.12 | 4.4.0 | View release notes | . | 2024.07 | 4.3 | View release notes | . | 2024.04 | 4.3.0 | View release notes | . | 2024.03 | 4.1.0 | View release notes | . | 2024.01 | 4.0.0 | View release notes | . | 2023.07 |   | View release notes | . | 2023.04 |   | View release notes | . | 2022.10 |   | View release notes | . | 2022.06 |   | View release notes | . | 3.3 |   | View release notes | . | 3.2 |   | View release notes | . Releases of additional resources . | Resource | Description | Release | . | Home repo | Contains resources for the local installation of CluedIn. | View releases | . | Charts repo | Contains installation scripts to install CluedIn in Kubernetes. | View releases | . | Integrations releases | Contains releases of installation packages for enrichers and connectors. | View releases | . ",
     "url": "/release-notes#release-notes",
     
     "relUrl": "/release-notes#release-notes"
-  },"2795": {
+  },"2799": {
     "doc": "Release notes",
     "title": "Release plan for 2025–2026",
     "content": "The following table outlines the features, updates, and UX improvements we plan to implement between September 2025 and September 2026. ",
     "url": "/release-notes#release-plan-for-20252026",
     
     "relUrl": "/release-notes#release-plan-for-20252026"
-  },"2796": {
+  },"2800": {
     "doc": "Release notes",
     "title": "Release plan for 2026-2027",
     "content": ". The roadmap focuses on four major investment areas: . | AI-assisted data management | Agent-to-agent interoperability | Platform performance, observability, and cost optimization | Modernized data operations, workflows, and downstream activation | . These improvements are designed to make CluedIn easier to operate at scale, faster to work with day to day, and more capable of supporting AI-driven master data management patterns. In fact, it is laying the foundation for an Agentic Data Management world. ",
     "url": "/release-notes#release-plan-for-2026-2027",
     
     "relUrl": "/release-notes#release-plan-for-2026-2027"
-  },"2797": {
+  },"2801": {
     "doc": "Release notes",
     "title": "Featured roadmap items",
     "content": "Agents Redesign . The Agents experience is being redesigned to support richer AI-assisted workflows across CluedIn. The goal is to make agents easier to configure, easier to monitor, and more effective when working with data quality, lookup resolution, deduplication, rules, and operational workflows. Planned improvements include: . | Self-Valuing Loop – Agents will be able to evaluate the usefulness, confidence, and business value of their own outputs, allowing agent workflows to improve over time and reduce unnecessary manual review. | RAG – Retrieval-augmented generation will allow agents to work with relevant CluedIn context, reducing hallucination risk and improving the quality of recommendations. | Vectorisation – CluedIn will support vector-based representations of records, metadata, rules, and operational context to improve semantic matching, search, recommendations, and AI resolution workflows. | Data Quality Metrics – Agents will use data quality signals to prioritize work, explain recommendations, and help users focus on the highest-impact remediation opportunities. | . MCP . CluedIn will introduce an MCP layer designed for agent-to-agent interoperability. This layer is intended to help other MCP-enabled systems understand how to work with CluedIn, including: . | How to query and interact with CluedIn safely | How to handle errors and exceptions | How to reduce unnecessary token usage | How to optimize requests for cost, accuracy, and performance | How to understand CluedIn’s capabilities, constraints, and recommended interaction patterns | . The goal is to make CluedIn an intelligent participant in wider AI and automation ecosystems, rather than only a destination system. Agents can write deterministic code . Agents will be able to generate Power Fx expressions for CluedIn rules and data operations. This will help users create, test, and refine rules faster by translating natural-language intent into executable rule logic. The capability is expected to support use cases such as: . | Creating validation rules | Generating transformation logic | Recommending rule corrections | Explaining existing Power Fx expressions | Producing safer rule drafts before user approval | . Performance UI/UX updates . CluedIn will continue to receive UI and UX improvements focused on performance, clarity, and day-to-day usability. Planned updates include faster navigation, clearer operational feedback, improved page loading behavior, and more efficient user flows across key stewardship and administration areas. Processing Pipeline Update . The processing pipeline will be updated to improve reliability, throughput, and operational visibility. This work is expected to support larger data volumes, reduce bottlenecks, improve recovery from failed processing steps, and provide a stronger foundation for downstream observability and cost optimization. Jobs Monitor . A new Jobs Monitor experience will provide a clearer view of active, queued, completed, failed, and retried jobs. The goal is to make operational work easier by giving administrators and technical users a single place to understand what is running, what is blocked, and what needs attention. OpenTelemetry . CluedIn will introduce OpenTelemetry support to improve platform observability. This will help teams collect, correlate, and analyze telemetry across services, processing jobs, APIs, and infrastructure. The expected outcome is faster troubleshooting, better performance analysis, and improved operational confidence. Moving Blobs to Blob Storage . Blob handling will be moved to Blob Storage to improve scalability, storage efficiency, and operational separation. This change is expected to reduce pressure on core platform storage, improve handling of large files and payloads, and align blob management with cloud-native storage patterns. Data Contracts . New Data Contracts will provide stronger governance and operational management over data usage, access, movement, and lifecycle. This roadmap item is intended to support enterprise-grade controls around data quality, retention, stewardship, compliance, and downstream activation. Streams V3 . Streams V3 will introduce improvements to stream mapping and projections. The goal is to make streams more flexible, more predictable, and easier to use when preparing data for downstream systems. Planned improvements include better projection design, clearer stream mapping, and stronger support for downstream contracts. Export Targets receipts . Export Targets will support receipts to provide clearer confirmation of what was sent, where it was sent, and whether the receiving target accepted or processed the payload. This will improve traceability for downstream integrations and make export operations easier to audit and troubleshoot. Lookup AI resolution . Lookup resolution will be enhanced with AI-assisted matching and recommendation capabilities. This will help users resolve lookup values more efficiently by suggesting likely matches, identifying ambiguous values, and reducing manual mapping effort. Duplicate Clusters AI loop . Deduplication will be enhanced with an AI-assisted loop for duplicate clusters. The goal is to improve duplicate review workflows by helping users understand why records are clustered, identify risky merges, recommend next actions, and continuously improve deduplication outcomes. Rule Inspector . A new Rule Inspector will help users understand how rules execute, why specific outcomes occurred, and how rule logic can be improved. This will make it easier to troubleshoot rules, validate changes, and reduce the risk of unexpected results in production environments. Cost of Running Lowering . CluedIn will continue to focus on lowering the cost of running the platform. This includes infrastructure efficiency, workload optimization, smarter processing behavior, improved storage patterns, and better observability of expensive operations. Topology Viewer 2 . Topology Viewer 2 will provide an improved way to understand platform, data, and operational topology. The goal is to make dependencies, relationships, flows, and runtime behavior easier to visualize and diagnose. Workflow Engine V3 . Workflow Engine V3 will modernize workflow capabilities across CluedIn. Planned capabilities include: . | Write back / Reverse ETL – Support operational activation by writing trusted data back into target systems. | Custom Data Sources – Allow more flexible workflow-triggered ingestion and operational data source patterns. | Custom Rules – Support more extensible, configurable workflow logic for customer-specific operating models. | . ",
     "url": "/release-notes#featured-roadmap-items",
     
     "relUrl": "/release-notes#featured-roadmap-items"
-  },"2798": {
+  },"2802": {
     "doc": "Release notes",
     "title": "Release plan",
     "content": "The following table outlines the proposed release grouping for the roadmap items. | Release | Theme | Planned items | . | 2026.08.00 | AI foundation and operational improvements | Agents Redesign, Self-Valuing Loop, Processing Pipeline Update, Lower Cost of Running, Performance UI/UX updates | . | 2026.11.00 | AI-assisted modeling and platform visibility | RAG, Vectorisation, MCP, Jobs Monitor, Data Controls, Workflow Engine V3, Streams V3 foundation | . | 2027.04.00 | Observability, activation, and rule workflows | Data Quality Metrics, Agents can write Power Fx, OpenTelemetry, Blob Storage Migration, Streams V3, Export Targets receipts, Rule Debugger, Write back / Reverse ETL | . | 2027.08.00 | AI resolution and topology | Lookup AI Resolution, Duplicate Clusters AI Loop, Topology Viewer 2, Custom Rules, Workflow Engine V3 improvements | . | Continuous updates | Cross-cutting improvements | Performance UI/UX updates, Lower Cost of Running, agent skills, observability improvements, UX polish, stability fixes | . ",
     "url": "/release-notes#release-plan",
     
     "relUrl": "/release-notes#release-plan"
-  },"2799": {
+  },"2803": {
     "doc": "Release notes",
     "title": "Roadmap timeline",
     "content": "| Roadmap item | Category | Confidence | Jul 2026 | Nov 2026 | Apr 2027 | Aug 2027 | Sep 2027 | . | Agents Redesign | Features | 100% | ● | ● |   |   |   | . | Self-Valuing Loop | Features | 60–90% | ● |   |   |   |   | . | RAG &amp; Vectorisation | Features | 60–90% |   | ● |   |   |   | . | Data Quality Metrics | Features | 60–90% |   |   | ● | ● | ● | . | MCP agent-to-agent layer | Features | 60–90% |   | ● | ● |   |   | . | Agents can write Power Fx | Features | 60–90% |   |   | ● | ● |   | . | Lookup AI Resolution | Features | 60–90% |   |   |   | ● | ● | . | Duplicate Clusters AI Loop | Features | &lt;60% |   |   |   | ● | ● | . | Lower Cost of Running | Updates | 100% | ● | ● | ● | ● | ● | . | Processing Pipeline Update | Updates | 60–90% | ● | ● |   |   |   | . | Jobs Monitor | Updates | 60–90% |   | ● | ● | ● |   | . | OpenTelemetry | Updates | 60–90% |   |   | ● | ● | ● | . | Blob Storage Migration | Updates | 60–90% |   |   | ● | ● | ● | . | Streams V3 mapping / projections | Updates | 60–90% |   |   | ● | ● |   | . | Export Targets receipts | Updates | 60–90% |   |   |   | ● | ● | . | Rule Debugger | Updates | 60–90% |   |   |   | ● | ● | . | Performance UI/UX updates | UX | 100% | ● | ● | ● | ● | ● | . | Data Controls | UX | 60–90% |   | ● | ● |   |   | . | Topology Viewer 2 | UX | &lt;60% |   |   | ● | ● | ● | . | Workflow Engine V3 | UX | 60–90% |   | ● | ● | ● | ● | . | Write back / Reverse ETL | UX | 60–90% |   |   | ● | ● | ● | . | Custom Data Sources | UX | 60–90% |   |   | ● | ● |   | . | Custom Rules | UX | 60–90% |   |   |   | ● | ● | . ",
     "url": "/release-notes#roadmap-timeline",
     
     "relUrl": "/release-notes#roadmap-timeline"
-  },"2800": {
+  },"2804": {
     "doc": "Release notes",
     "title": "Release process",
     "content": "In this section, you will learn about our release process and the versioning of product releases. You’ll gain an understanding of the stages that CluedIn features go through before becoming generally available, as well as get to know the versioning scheme that we use to deliver changes. Release stages . In order to prepare new and requested features, enhancements, and fixes, we follow a 6-stage release process. What is more, we are often in multiple release stages simultaneously across several releases. This approach allows us to efficiently prioritize tasks and ensure that features are released in a timely manner. By overlapping stages, we can quickly adapt to changing requirements and deliver continuous improvements. The following table describes each stage of the release process. | Release stage | Description | . | Pre-Planning | This stage is dedicated to the ongoing grooming exercise to keep our backlog up to date.On conclusion of the Planning stage for a given release, we enter the Pre-Planning stage for the subsequent release. The Pre-Planning stage begins with identification of the new top 20 features and improvements and refinement efforts towards them. | . | Planning | During this stage, we assess our groomed backlog items and upcoming customer deadlines. As a result, we create a release manifest detailing expectations and timelines for a given release. | . | Development | This stage is dedicated to active development. This is where the engineering team brings the customer’s ideas to life. It is important for us to stay in communication during this phase to ensure that we are building functionality that brings value to the customer. | . | Beta | This is the first testable version of the release. This is the step where we start regression testing. While this version is available in ACR for customer use, it is not recommended to give access to it without specific relationship management. We recommend using the Beta to demo the functionality and gather feedback.Beta cannot be used in production or with real data. | . | Release Candidate | This is a stable version of the release, with potential for a few outstanding minor issues. We open the Release Candidate for testing by our internal teams and selected customers. If a customer needs specific functionality early, this is the recommended point at which they are upgraded.Even though Release Candidate is a production-ready version of the release, the release assets are not yet ready. | . | Public Availability | This is when our release becomes generally available to customers. The release can be classified as major or minor; this classification affects whether a customer should upgrade. SaaS customers are always on the latest Public Availability release. | . Product release versioning . After 2026 . To support prompt delivery of patches, security fixes, and features, we use a versioning scheme that allows us to deliver changes as they are available rather than waiting for a full platform release. Starting from Jan 01, 2026, we started using a date and release version based pattern for versioning. By using dates, we can better communicate to our customers how up to date their instance of CluedIn is. Our date-based version is divided into three parts: Year, Release Version, and Update. | The Year is always represented as a four-digit year (e.g. 2024). | The Release Version is always represented as a two-digit month (e.g. 01 for the first release of the year). | The Update is always represented as at least a two-digit number (e.g. 01 or 10). | . The parts of the version are then separated by . to supply the final version: . | 2026.01.00 – this would be the first release in 2026. | 2026.01.01 – this would be the first update to the first relase of 2026. | . Before 2026 . To support prompt delivery of patches, security fixes, and features, we use a versioning scheme that allows us to deliver changes as they are available rather than waiting for a full platform release. Starting from June 30, 2022, we started using a date-based pattern for versioning. By using dates, we can better communicate to our customers how up to date their instance of CluedIn is. Our date-based version is divided into three parts: Year, Month, and Update. | The Year is always represented as a four-digit year (e.g. 2024). | The Month is always represented as a two-digit month (e.g. 10 for October). | The Update is always represented as at least a two-digit number (e.g. 01 or 10). | . The parts of the version are then separated by . to supply the final version: . | 2024.10.00 – this would be the first release in October 2024. | 2024.10.01 – this would be the first update to the October 2024 release. | 2024.10.14 – this would be the fourteenth update to the October 2024 release. | . Prior to date-based versioning, the CluedIn platform used a semantic versioning scheme. This is an industry standard approach to versioning that we will keep for each of the services and tools that the platform is built on (e.g., Home, Helm, Crawlers, and so on). Each tool or service is its own product and will release changes and updates as they become available. ",
     "url": "/release-notes#release-process",
     
     "relUrl": "/release-notes#release-process"
-  },"2801": {
+  },"2805": {
     "doc": "Release notes",
     "title": "Release notes",
     "content": "What changed, and what is supported? . Everyone. What shipped in each release, and how CluedIn versions and supports the platform. ",
     "url": "/release-notes",
     
     "relUrl": "/release-notes"
-  },"2802": {
+  },"2806": {
     "doc": "UI configuration",
     "title": "UI configuration",
     "content": "What users see when they open CluedIn: the layout of a golden record page, the items in the navigation menu, and the language the interface uses for your business domains. ",
     "url": "/administer/ui-configuration",
     
     "relUrl": "/administer/ui-configuration"
-  },"2803": {
+  },"2807": {
     "doc": "Access control",
     "title": "Access control",
     "content": "Access control gives you a fine-grained control over who can view and modify specific golden records. Together with source control, access control helps you configure reliable and secure access to golden records in CluedIn. For more information about the combination of source control and access control, see Data access. Limitations of access control . Access control policies are not applied to the data in deduplication projects, clean projects, hierarchy projects, and manual merges. The reason is that the users who are processing groups of duplicates, cleaning data, creating hierarchies, or doing manual merges must be able to view all values to adequately execute their tasks. When you enable access control for the first time, all users in your organization lose access to golden records. To restore their access, you must create access control policies and ensure users have permissions to the sources of the golden records. This section covers the following topics: . | Create access control policy – learn how to create and configure an access control policy. | Manage access control policies – learn how to edit, deactivate, and delete an access control policy, as well how these actions affect user access to data. | Access control reference – learn about the structure of an access control policy and the available actions in the policy rule. | . ",
     "url": "/administer/access-control",
     
     "relUrl": "/administer/access-control"
-  },"2804": {
+  },"2808": {
     "doc": "Users and roles",
     "title": "Users and roles",
     "content": "Who can sign in, and what they are allowed to do. A user gets roles, a role carries claims and permissions, and access control decides which data each role can see. ",
     "url": "/administer/users-and-roles",
     
     "relUrl": "/administer/users-and-roles"
-  },"2805": {
+  },"2809": {
     "doc": "Administer",
     "title": "Administer",
     "content": "How do I manage the product? . CluedIn administrators working inside the product. Everything an administrator does inside CluedIn: who can sign in, what they can see and do, how the interface is configured, and how API access is issued. Running the platform itself - deploying, upgrading, backing up - is Deploy &amp; operate. ",
     "url": "/administer",
     
     "relUrl": "/administer"
-  },"2806": {
+  },"2810": {
     "doc": "Historical operations",
     "title": "Historical operations",
     "content": "Operational runbooks kept for installations that have not yet been upgraded, and superseded drafts. Current runbooks are in Backup and restore. ",
     "url": "/archive/historical-operations",
     
     "relUrl": "/archive/historical-operations"
-  },"2807": {
+  },"2811": {
     "doc": "Legacy user interface documentation",
     "title": "Legacy user interface documentation",
     "content": "Descriptions of the CluedIn interface from before the 2025.05 terminology change, when golden records were called entities. All of these pages carried published: false, and each has been superseded: golden record pages by Master, search by Search. ",
     "url": "/archive/legacy-user-interface",
     
     "relUrl": "/archive/legacy-user-interface"
-  },"2808": {
+  },"2812": {
     "doc": "Unsupported features",
     "title": "Unsupported features",
     "content": "Features that were documented but are no longer supported. These pages come from folders the repository itself named outdated. ",
     "url": "/archive/unsupported-features",
     
     "relUrl": "/archive/unsupported-features"
-  },"2809": {
+  },"2813": {
     "doc": "Legacy development documentation",
     "title": "Legacy development documentation",
     "content": "Developer documentation for earlier versions of the platform. Every page in this set already carried published: false in the source repository, so none of it was on the live site. It is kept here until it can be rewritten against the current platform or deleted. Current developer material is in Develop &amp; APIs. ",
     "url": "/archive/legacy-development",
     
     "relUrl": "/archive/legacy-development"
-  },"2810": {
+  },"2814": {
     "doc": "Archive",
     "title": "Archive",
     "content": "Where did the old material go? . Maintainers. Material kept for reference but no longer part of the supported documentation: features that were withdrawn, developer documentation for older platform versions, and superseded operational runbooks. Nothing here should be linked from the product documentation. Pages keep the published: false flag they already carried, so they do not render on the live site - they are retained so the history is not lost. ",
     "url": "/archive",
     
     "relUrl": "/archive"
-  },"2811": {
+  },"2815": {
     "doc": "",
     "title": "",
-    "content": "Tag: 2.0.0 . | 2024.01 | . Tag: 2.1.0 . | 2024.03 | . Tag: 2.2.0 . | 2024.04 | . Tag: 2.3.0 . | 2024.07 | 2024.07.01 | 2024.07.02 | . Tag: 2.3.1 . | 2024.07.01 | 2024.07.02 | . Tag: 2.3.2 . | 2024.07.03 | . Tag: 2.4.1 . | 2024.12 | 2024.12.01 | . Tag: 2.4.2 . | 2024.12.02 | . Tag: 2.5.0 . | 2025.05.00 | 2025.05.01 | . Tag: 2.5.1 . | 2025.05.02 | . Tag: 2.6.0 . | 2025.09.00 | . Tag: 2.7.0 . | 2026.01.00 Support | 2026.01.00 | . Tag: 2.8.0 . | 2026.02.00 | . Tag: 2024.01 . | 2024.01 | . Tag: 2024.03 . | 2024.03 | . Tag: 2024.04 . | 2024.04 | . Tag: 2024.07 . | 2024.07 | 2024.07.01 | 2024.07.02 | 2024.07.03 | . Tag: 2024.07.01 . | 2024.07.01 | . Tag: 2024.07.02 . | 2024.07.02 | . Tag: 2024.07.03 . | 2024.07.03 | . Tag: 2024.12 . | 2024.12 | 2024.12.01 | . Tag: 2024.12.01 . | 2024.12.01 | . Tag: 2024.12.02 . | 2024.12.02 | . Tag: 2025.05.00 . | 2025.05.00 | . Tag: 2025.05.01 . | 2025.05.01 | . Tag: 2025.05.02 . | 2025.05.02 | . Tag: 2025.09.00 . | 2025.09.00 | . Tag: 2026.01.00 . | 2026.01.00 | . Tag: 2026.01.00 support . | 2026.01.00 Support | . Tag: 2026.02.00 . | 2026.02.00 | . Tag: 4.0.0 . | 2024.01 | . Tag: 4.1.0 . | 2024.03 | . Tag: 4.2.0 . | 2024.04 | . Tag: 4.3.0 . | 2024.07 | 2024.07.01 | 2024.07.02 | 2024.07.03 | . Tag: 4.3.1 . | 2024.07.01 | . Tag: 4.3.2 . | 2024.07.02 | . Tag: 4.3.3 . | 2024.07.03 | . Tag: 4.4.0 . | 2024.12 | 2024.12.01 | . Tag: 4.4.1 . | 2024.12.01 | . Tag: 4.4.2 . | 2024.12.02 | . Tag: 4.5.0 . | 2025.05.00 | . Tag: 4.5.1 . | 2025.05.01 | . Tag: 4.5.2 . | 2025.05.02 | . Tag: 4.6.0 . | 2025.09.00 | . Tag: 4.7.0 . | 2026.01.00 Support | 2026.01.00 | . Tag: 4.8.0 . | 2026.02.00 | . Tag: administration . | User management | Roles | Assign or remove roles | Configure Microsoft Entra roles for multi-tenant SaaS SSO | Process role requests | General settings | Configuration import and export | . Tag: agents . | Crawler validation framework | Use agents | . Tag: ai . | Use this documentation with an AI assistant | . Tag: ai agents . | Prerequisites to using AI agents | Built-in AI agents | Create, configure, and run an AI agent | Review the results returned by AI agent | View and revert changes made by AI agent | AI agents FAQs | Onboard datasets with an AI agent | AI agents | . Tag: ai agents prerequisites . | Prerequisites to using AI agents | . Tag: aks . | AKS | Operating cost reduction | Upgrade guide | Security Inventory | Support scope | Required tools for CluedIn upgrade | Plan the upgrade | CluedIn PaaS | Prepare for the upgrade | Disks | Perform the upgrade | Common upgrade operations | Resolve common upgrade issues | AKS upgrade | Helm | Sync certificates and secrets from AKV to AKS | Upgrade | Configuration | . Tag: akv . | Sync certificates and secrets from AKV to AKS | . Tag: ama . | Architecture overview | Connect to CluedIn cluster | Upgrade guide | Business decisions | Required tools for CluedIn upgrade | SSO | Plan the upgrade | Pre-installation checklist | Advanced network configuration | Prepare for the upgrade | Installation guide | Perform the upgrade | Post-installation guide | Common upgrade operations | Logging | TLS certificates | Resolve common upgrade issues | AKS upgrade | DNS | Alerts | Firewall | Backup and restore | . Tag: api . | Get started with the REST API | Access control &amp; governance | Entities | Search | Vocabularies | Generate an API token | Glossary | Hierarchies | Deduplication | Rules &amp; evaluation | Streams, connectors &amp; export | Data preparation &amp; enrichment | AI | Administration &amp; configuration | Organization | API reference | . Tag: api token . | Generate an API token | . Tag: architecture . | Architecture overview | . Tag: auth0 . | Sign in with Auth0 through Microsoft Entra | . Tag: authentication . | Federate identity providers through Microsoft Entra | Sign in with Auth0 through Microsoft Entra | Sign in with Okta through Microsoft Entra | Sign in with PingOne through Microsoft Entra | Sign in with OneLogin through Microsoft Entra | Sign in with Google Workspace through Microsoft Entra | Sign in with Keycloak through Microsoft Entra | . Tag: azure . | AKS | Architecture overview | Connect to CluedIn cluster | Operating cost reduction | Upgrade guide | Security Inventory | Business decisions | Support scope | Required tools for CluedIn upgrade | SSO | DNS | Plan the upgrade | Pre-installation checklist | Advanced network configuration | CluedIn PaaS | TLS Certificate | Prepare for the upgrade | Installation guide | Disks | Perform the upgrade | Post-installation guide | Common upgrade operations | Logging | Email | TLS certificates | Licensing agent (PAAS) | PAT | Resolve common upgrade issues | AKS upgrade | Azure Policy exemption for deployment scripts | DNS | Helm | CluedIn Setup | Alerts | Firewall | Sync certificates and secrets from AKV to AKS | Microsoft Purview | Upgrade | Backup and restore | Configuration | . Tag: azure-marketplace . | Operating cost reduction | Support scope | CluedIn PaaS | Licensing agent (PAAS) | Azure Policy exemption for deployment scripts | Upgrade | Configuration | . Tag: backup . | Backup and restore | . Tag: built-in ai agents . | Built-in AI agents | . Tag: business domains . | Global Data Model | . Tag: certificate . | TLS Certificate | . Tag: certificates . | TLS certificates | . Tag: ci/cd . | CI/CD for CluedIn configuration with GitHub Actions | . Tag: clean . | Create a clean project | Manage a clean project | Clean project reference | Clean application reference | Cleaning | . Tag: cli . | Install CluedIn using PowerShell | . Tag: Cloud . | 'Microsoft Defender for Cloud recommendations' | . Tag: clue . | Data life cycle | Clue reference | . Tag: cluedin . | Helm | Walkthrough: Install CluedIn on Azure | Install CluedIn using PowerShell | . Tag: clues . | Origin | . Tag: configuration . | Disaster recovery plan | Environment management playbook | Sync configuration between environments | Configuration import and export | CI/CD for CluedIn configuration with GitHub Actions | . Tag: configure an ai agent . | Create, configure, and run an AI agent | . Tag: consume . | Add GraphQL entity type resolvers | Create a stream | GraphQL actions | Manage streams | Stream reference | Stream logs | Export targets | Streams | GraphQL | . Tag: cost . | Operating cost reduction | Support scope | . Tag: crawlers . | Connectors | . Tag: crawling . | Crawling | Crawler validation framework | Use agents | . Tag: create an ai agent . | Create, configure, and run an AI agent | . Tag: data export . | Create a stream | Manage streams | Stream reference | Stream logs | Streams | . Tag: data model . | Global Data Model | . Tag: data sets . | Onboard datasets with an AI agent | . Tag: data sources . | Data sources | . Tag: dataverse . | Power Automate pre-configuration guide | Power Apps pre-configuration guide | Power Automate configuration guide | Power Automate post-configuration guide | Power Apps configuration guide | Power Automate private network configuration guide | Power Apps features | Power Automate | Power Apps | . Tag: Debug . | Rules not working as expected | . Tag: Deduplication . | Get better matches in deduplication projects | . Tag: Defender . | 'Microsoft Defender for Cloud recommendations' | . Tag: Delete . | Why can I not delete certain objects in CluedIn | . Tag: delta-crawls . | Delta crawls | . Tag: Deployment . | Product Toolkit failing to export or import | . Tag: deployment . | AKS | Architecture overview | Connect to CluedIn cluster | Upgrade guide | Local installation checklist | Business decisions | Required tools for CluedIn upgrade | SSO | DNS | Plan the upgrade | Local installation guide | Pre-installation checklist | Advanced network configuration | CluedIn PaaS | TLS Certificate | Prepare for the upgrade | Extension packages | Installation guide | Email | Disks | Local | Perform the upgrade | Post-installation guide | Common upgrade operations | Logging | Email | TLS certificates | Licensing agent (PAAS) | PAT | Resolve common upgrade issues | AKS upgrade | Azure Policy exemption for deployment scripts | DNS | Helm | PVC | CluedIn Setup | Alerts | Walkthrough: Install CluedIn on Azure | Firewall | Install CluedIn using PowerShell | SQL Server | Modify web response headers | Create dedicated stream processing pod | Configuration import and export | CI/CD for CluedIn configuration with GitHub Actions | Upgrade | Backup and restore | Configuration | . Tag: development . | Business domains explained | Relationships (edges) | Identifiers | Vocabularies explained | Processing pipeline | Eventual connectivity | Origin | . Tag: disaster recovery . | Backup and restore | . Tag: disk . | Disks | . Tag: dns . | DNS | DNS | . Tag: docker . | Local | . Tag: docker-compose . | Local | . Tag: domain name system . | DNS | . Tag: DR . | Backup and restore | . Tag: edges . | Relationships (edges) | . Tag: email . | Email | Email | . Tag: engine-room . | Engine Room | . Tag: entities . | Business domains explained | Identifiers | . Tag: entity-codes . | Identifiers | . Tag: entity-types . | Business domains explained | . Tag: entra . | Federate identity providers through Microsoft Entra | Sign in with Auth0 through Microsoft Entra | Sign in with Okta through Microsoft Entra | Configure Microsoft Entra roles for multi-tenant SaaS SSO | Sign in with PingOne through Microsoft Entra | Sign in with OneLogin through Microsoft Entra | Sign in with Google Workspace through Microsoft Entra | Sign in with Keycloak through Microsoft Entra | . Tag: Environment . | Product Toolkit failing to export or import | . Tag: eventual-connectivity . | Eventual connectivity | . Tag: export . | Configuration import and export | . Tag: export-targets . | Export targets | . Tag: external-idp . | Federate identity providers through Microsoft Entra | . Tag: faq . | AI agents FAQs | Frequently asked questions | . Tag: filters . | Filters | . Tag: frontend . | Modify web response headers | Create dedicated stream processing pod | . Tag: getting-started . | Tutorial: ingest data | Work with the glossary | Tutorial: add relations between records | Take the in-app product tour | Tutorial: create hierarchies | Tutorial: clean data | Tutorial: stream data | Tutorial: create rules | Tutorial: deduplicate data | Frequently asked questions | . Tag: github actions . | CI/CD for CluedIn configuration with GitHub Actions | . Tag: golden record . | Data life cycle | Golden records | . Tag: golden record history . | History | . Tag: google-workspace . | Sign in with Google Workspace through Microsoft Entra | . Tag: governance . | Tag monitoring | Global Data Model | . Tag: graphql . | Add GraphQL entity type resolvers | GraphQL actions | Jobs | GraphQL | . Tag: helm . | Helm | . Tag: hierarchies . | Concept of hierarchy | Hierarchies | . Tag: hierarchy builder . | Concept of hierarchy | Hierarchies | . Tag: hoth . | 2024.01 | 2024.03 | 2024.04 | . Tag: import . | Configuration import and export | . Tag: installation . | CluedIn Setup | Walkthrough: Install CluedIn on Azure | Install CluedIn using PowerShell | . Tag: integration . | About integrations | Build an integration | Create mapping | Define data to ingest | Power Automate pre-configuration guide | Power Apps pre-configuration guide | Process data | Quarantine | Power Automate configuration guide | Crawling | Delta crawls | File | Logs | Review mapping | Endpoint | Install integrations | Monitoring | Power Automate post-configuration guide | Property rules | Tips on building robust integrations | Power Apps configuration guide | Database | Pre-process rules | Power Automate private network configuration guide | Advanced mapping code | Power Apps features | Power Automate | Power Apps | Microsoft Purview | Connectors | Data sources | . Tag: jobs . | Job monitoring | Jobs | . Tag: key-vault . | Sync certificates and secrets from AKV to AKS | . Tag: keycloak . | Sign in with Keycloak through Microsoft Entra | . Tag: Known Issue . | Why can I not delete certain objects in CluedIn | . Tag: kubernetes . | AKS | Operating cost reduction | Upgrade guide | Security Inventory | Support scope | Required tools for CluedIn upgrade | Plan the upgrade | CluedIn PaaS | TLS Certificate | Prepare for the upgrade | Email | Disks | Perform the upgrade | Common upgrade operations | PAT | Resolve common upgrade issues | AKS upgrade | Helm | PVC | SQL Server | Modify web response headers | Create dedicated stream processing pod | Sync certificates and secrets from AKV to AKS | Upgrade | Configuration | . Tag: licensing-agent . | Licensing agent (PAAS) | Azure Policy exemption for deployment scripts | . Tag: llms.txt . | Use this documentation with an AI assistant | . Tag: local . | Local installation checklist | Local installation guide | Extension packages | . Tag: local-deployment . | Local | . Tag: logs . | Logs | . Tag: management . | Concept of hierarchy | Prerequisites to using AI agents | Rule types | Built-in AI agents | Create a rule | Create, configure, and run an AI agent | Manage rules | Job monitoring | Review the results returned by AI agent | Rules reference | View and revert changes made by AI agent | AI agents FAQs | Onboard datasets with an AI agent | Jobs | Hierarchies | AI agents | Rules | . Tag: mapping . | Create mapping | Review mapping | Onboard datasets with an AI agent | . Tag: marketplace . | Architecture overview | Connect to CluedIn cluster | Operating cost reduction | Upgrade guide | Business decisions | Support scope | Required tools for CluedIn upgrade | SSO | Plan the upgrade | Pre-installation checklist | Advanced network configuration | CluedIn PaaS | Prepare for the upgrade | Installation guide | Perform the upgrade | Post-installation guide | Common upgrade operations | Logging | TLS certificates | Licensing agent (PAAS) | Resolve common upgrade issues | AKS upgrade | Azure Policy exemption for deployment scripts | DNS | Alerts | Firewall | Upgrade | Backup and restore | Configuration | . Tag: Matching . | Get better matches in deduplication projects | . Tag: mcp . | Use this documentation with an AI assistant | . Tag: microsoft . | Operating cost reduction | Power Automate pre-configuration guide | Power Apps pre-configuration guide | Security Inventory | Support scope | Power Automate configuration guide | CluedIn PaaS | Power Automate post-configuration guide | Power Apps configuration guide | Power Automate private network configuration guide | Power Apps features | Licensing agent (PAAS) | Azure Policy exemption for deployment scripts | Power Automate | Power Apps | Microsoft Purview | Upgrade | Configuration | . Tag: migration . | Disaster recovery plan | Environment management playbook | Sync configuration between environments | . Tag: monitoring . | Monitoring | Job monitoring | . Tag: mssql migrations . | Azure SQL migration | . Tag: notifications . | Notifications | General settings | . Tag: nuget . | PAT | . Tag: okta . | Sign in with Okta through Microsoft Entra | . Tag: onboarding . | Onboard datasets with an AI agent | . Tag: onelogin . | Sign in with OneLogin through Microsoft Entra | . Tag: ontology . | Global Data Model | . Tag: operations . | Job monitoring | . Tag: pat . | PAT | . Tag: Performance . | Slow CluedIn performance | Rules running slowly | . Tag: performance . | Processing pipeline | . Tag: persistence . | PVC | . Tag: pingone . | Sign in with PingOne through Microsoft Entra | . Tag: powerapps . | Power Automate pre-configuration guide | Power Apps pre-configuration guide | Power Automate configuration guide | Power Automate post-configuration guide | Power Apps configuration guide | Power Automate private network configuration guide | Power Apps features | Power Automate | Power Apps | . Tag: powerautomate . | Power Automate | Power Apps | . Tag: powershell . | Install CluedIn using PowerShell | . Tag: pre-process rules . | Pre-process rules | . Tag: preparation . | Create a clean project | Manage a clean project | Clean project reference | Clean application reference | Cleaning | . Tag: prerequisites . | Pre-installation checklist | . Tag: private endpoints . | Private Endpoints | . Tag: private links . | Private Endpoints | . Tag: processing . | Process data | . Tag: product toolkit . | CI/CD for CluedIn configuration with GitHub Actions | . Tag: property rules . | Property rules | Advanced mapping code | . Tag: purview . | Microsoft Purview | . Tag: python . | CluedIn Python SDK | Query data using GraphQL and Python SDK | Using Python SDK for Automation | Ingesting data to CluedIn with Python | Exporting data to and from CluedIn with Python | CluedIn Magic | . Tag: quarantine . | Quarantine | . Tag: recommendations . | 'Microsoft Defender for Cloud recommendations' | . Tag: record . | Data life cycle | . Tag: reducing . | Operating cost reduction | Support scope | . Tag: reduction . | Operating cost reduction | Support scope | . Tag: relationships . | Global Data Model | . Tag: rest api . | Get started with the REST API | Access control &amp; governance | Entities | Search | Vocabularies | Glossary | Hierarchies | Deduplication | Rules &amp; evaluation | Streams, connectors &amp; export | Data preparation &amp; enrichment | AI | Administration &amp; configuration | Organization | API reference | . Tag: review ai agent results . | Review the results returned by AI agent | View and revert changes made by AI agent | . Tag: roles . | Roles | Assign or remove roles | Configure Microsoft Entra roles for multi-tenant SaaS SSO | Process role requests | . Tag: Rules . | Slow CluedIn performance | Rules running slowly | Rules not working as expected | . Tag: rules . | Rule types | Create a rule | Manage rules | Rules reference | Jobs | Rules | . Tag: run an ai agent . | Create, configure, and run an AI agent | . Tag: saas . | Configure Microsoft Entra roles for multi-tenant SaaS SSO | . Tag: scheduling . | Jobs | . Tag: search . | Search | . Tag: security . | CluedIn Security — Log4j2 CVE-2021-44228 | Ingress NGINX vulnerabilities (not impacted) | . Tag: settings . | General settings | . Tag: setup . | CluedIn Setup | Walkthrough: Install CluedIn on Azure | Install CluedIn using PowerShell | . Tag: software . | 2024.01 | 2024.03 | 2024.04 | 2024.07 | 2024.07.01 | 2024.07.02 | 2024.07.03 | 2024.12 | 2024.12.01 | 2024.12.02 | 2025.05.00 | 2025.05.01 | 2025.05.02 | 2025.09.00 | 2026.01.00 Support | 2026.01.00 | 2026.02.00 | . Tag: sqlserver . | SQL Server | . Tag: ssl . | TLS Certificate | TLS certificates | . Tag: sso . | Federate identity providers through Microsoft Entra | Sign in with Auth0 through Microsoft Entra | Sign in with Okta through Microsoft Entra | Configure Microsoft Entra roles for multi-tenant SaaS SSO | Sign in with PingOne through Microsoft Entra | Sign in with OneLogin through Microsoft Entra | Sign in with Google Workspace through Microsoft Entra | Sign in with Keycloak through Microsoft Entra | . Tag: streams . | Create a stream | Manage streams | Stream reference | Stream logs | Streams | . Tag: tag monitoring . | Tag monitoring | . Tag: tags . | Tag monitoring | . Tag: tls . | TLS Certificate | TLS certificates | . Tag: ui . | Notifications | . Tag: upgrade . | Upgrade guide | Required tools for CluedIn upgrade | Plan the upgrade | Prepare for the upgrade | Perform the upgrade | Common upgrade operations | Resolve common upgrade issues | AKS upgrade | 2024.01 | 2024.03 | 2024.04 | 2024.07 | 2024.07.01 | 2024.07.02 | 2024.07.03 | 2024.12 | 2024.12.01 | 2024.12.02 | 2025.05.00 | 2025.05.01 | 2025.05.02 | 2025.09.00 | 2026.01.00 Support | 2026.01.00 | 2026.02.00 | . Tag: users . | User management | . Tag: vocabularies . | Vocabularies explained | Onboard datasets with an AI agent | . Tag: web . | Modify web response headers | Create dedicated stream processing pod | . ",
+    "content": "Tag: 2.0.0 . | 2024.01 | . Tag: 2.1.0 . | 2024.03 | . Tag: 2.2.0 . | 2024.04 | . Tag: 2.3.0 . | 2024.07 | 2024.07.01 | 2024.07.02 | . Tag: 2.3.1 . | 2024.07.01 | 2024.07.02 | . Tag: 2.3.2 . | 2024.07.03 | . Tag: 2.4.1 . | 2024.12 | 2024.12.01 | . Tag: 2.4.2 . | 2024.12.02 | . Tag: 2.5.0 . | 2025.05.00 | 2025.05.01 | . Tag: 2.5.1 . | 2025.05.02 | . Tag: 2.6.0 . | 2025.09.00 | . Tag: 2.7.0 . | 2026.01.00 Support | 2026.01.00 | . Tag: 2.8.0 . | 2026.02.00 | . Tag: 2024.01 . | 2024.01 | . Tag: 2024.03 . | 2024.03 | . Tag: 2024.04 . | 2024.04 | . Tag: 2024.07 . | 2024.07 | 2024.07.01 | 2024.07.02 | 2024.07.03 | . Tag: 2024.07.01 . | 2024.07.01 | . Tag: 2024.07.02 . | 2024.07.02 | . Tag: 2024.07.03 . | 2024.07.03 | . Tag: 2024.12 . | 2024.12 | 2024.12.01 | . Tag: 2024.12.01 . | 2024.12.01 | . Tag: 2024.12.02 . | 2024.12.02 | . Tag: 2025.05.00 . | 2025.05.00 | . Tag: 2025.05.01 . | 2025.05.01 | . Tag: 2025.05.02 . | 2025.05.02 | . Tag: 2025.09.00 . | 2025.09.00 | . Tag: 2026-03-00 . | 2026-03-00 | . Tag: 2026.01.00 . | 2026.01.00 | . Tag: 2026.01.00 support . | 2026.01.00 Support | . Tag: 2026.02.00 . | 2026.02.00 | . Tag: 3.0.0 . | 2026-03-00 | . Tag: 4.0.0 . | 2024.01 | . Tag: 4.1.0 . | 2024.03 | . Tag: 4.2.0 . | 2024.04 | . Tag: 4.3.0 . | 2024.07 | 2024.07.01 | 2024.07.02 | 2024.07.03 | . Tag: 4.3.1 . | 2024.07.01 | . Tag: 4.3.2 . | 2024.07.02 | . Tag: 4.3.3 . | 2024.07.03 | . Tag: 4.4.0 . | 2024.12 | 2024.12.01 | . Tag: 4.4.1 . | 2024.12.01 | . Tag: 4.4.2 . | 2024.12.02 | . Tag: 4.5.0 . | 2025.05.00 | . Tag: 4.5.1 . | 2025.05.01 | . Tag: 4.5.2 . | 2025.05.02 | . Tag: 4.6.0 . | 2025.09.00 | . Tag: 4.7.0 . | 2026.01.00 Support | 2026.01.00 | . Tag: 4.8.0 . | 2026.02.00 | . Tag: 5.0.0 . | 2026-03-00 | . Tag: administration . | User management | Roles | Assign or remove roles | Configure Microsoft Entra roles for multi-tenant SaaS SSO | Process role requests | General settings | Configuration import and export | . Tag: agents . | Crawler validation framework | Use agents | . Tag: ai . | Use this documentation with an AI assistant | . Tag: ai agents . | Prerequisites to using AI agents | Built-in AI agents | Create, configure, and run an AI agent | Review the results returned by AI agent | View and revert changes made by AI agent | AI agents FAQs | Onboard datasets with an AI agent | AI agents | . Tag: ai agents prerequisites . | Prerequisites to using AI agents | . Tag: aks . | AKS | Operating cost reduction | Upgrade guide | Security Inventory | Support scope | Required tools for CluedIn upgrade | Plan the upgrade | CluedIn PaaS | Prepare for the upgrade | Disks | Perform the upgrade | Common upgrade operations | Resolve common upgrade issues | AKS upgrade | Helm | Sync certificates and secrets from AKV to AKS | Upgrade | Configuration | . Tag: akv . | Sync certificates and secrets from AKV to AKS | . Tag: ama . | Architecture overview | Connect to CluedIn cluster | Upgrade guide | Business decisions | Required tools for CluedIn upgrade | SSO | Plan the upgrade | Pre-installation checklist | Advanced network configuration | Prepare for the upgrade | Installation guide | Perform the upgrade | Post-installation guide | Common upgrade operations | Logging | TLS certificates | Resolve common upgrade issues | AKS upgrade | DNS | Alerts | Firewall | Backup and restore | . Tag: api . | Get started with the REST API | Access control &amp; governance | Entities | Search | Vocabularies | Generate an API token | Glossary | Hierarchies | Deduplication | Rules &amp; evaluation | Streams, connectors &amp; export | Data preparation &amp; enrichment | AI | Administration &amp; configuration | Organization | API reference | . Tag: api token . | Generate an API token | . Tag: architecture . | Architecture overview | . Tag: auth0 . | Sign in with Auth0 through Microsoft Entra | . Tag: authentication . | Federate identity providers through Microsoft Entra | Sign in with Auth0 through Microsoft Entra | Sign in with Okta through Microsoft Entra | Sign in with PingOne through Microsoft Entra | Sign in with OneLogin through Microsoft Entra | Sign in with Google Workspace through Microsoft Entra | Sign in with Keycloak through Microsoft Entra | . Tag: azure . | AKS | Architecture overview | Connect to CluedIn cluster | Operating cost reduction | Upgrade guide | Security Inventory | Business decisions | Support scope | Required tools for CluedIn upgrade | SSO | DNS | Plan the upgrade | Pre-installation checklist | Advanced network configuration | CluedIn PaaS | TLS Certificate | Prepare for the upgrade | Installation guide | Disks | Perform the upgrade | Post-installation guide | Common upgrade operations | Logging | Email | TLS certificates | Licensing agent (PAAS) | PAT | Resolve common upgrade issues | AKS upgrade | Azure Policy exemption for deployment scripts | DNS | Helm | CluedIn Setup | Alerts | Firewall | Sync certificates and secrets from AKV to AKS | Microsoft Purview | Upgrade | Backup and restore | Configuration | . Tag: azure-marketplace . | Operating cost reduction | Support scope | CluedIn PaaS | Licensing agent (PAAS) | Azure Policy exemption for deployment scripts | Upgrade | Configuration | . Tag: backup . | Backup and restore | . Tag: built-in ai agents . | Built-in AI agents | . Tag: business domains . | Global Data Model | . Tag: certificate . | TLS Certificate | . Tag: certificates . | TLS certificates | . Tag: ci/cd . | CI/CD for CluedIn configuration with GitHub Actions | . Tag: clean . | Create a clean project | Manage a clean project | Clean project reference | Clean application reference | Cleaning | . Tag: cli . | Install CluedIn using PowerShell | . Tag: Cloud . | 'Microsoft Defender for Cloud recommendations' | . Tag: clue . | Data life cycle | Clue reference | . Tag: cluedin . | Helm | Walkthrough: Install CluedIn on Azure | Install CluedIn using PowerShell | . Tag: clues . | Origin | . Tag: configuration . | Disaster recovery plan | Environment management playbook | Sync configuration between environments | Configuration import and export | CI/CD for CluedIn configuration with GitHub Actions | . Tag: configure an ai agent . | Create, configure, and run an AI agent | . Tag: consume . | Add GraphQL entity type resolvers | Create a stream | GraphQL actions | Manage streams | Stream reference | Stream logs | Export targets | Streams | GraphQL | . Tag: cost . | Operating cost reduction | Support scope | . Tag: crawlers . | Connectors | . Tag: crawling . | Crawling | Crawler validation framework | Use agents | . Tag: create an ai agent . | Create, configure, and run an AI agent | . Tag: data export . | Create a stream | Manage streams | Stream reference | Stream logs | Streams | . Tag: data model . | Global Data Model | . Tag: data sets . | Onboard datasets with an AI agent | . Tag: data sources . | Data sources | . Tag: dataverse . | Power Automate pre-configuration guide | Power Apps pre-configuration guide | Power Automate configuration guide | Power Automate post-configuration guide | Power Apps configuration guide | Power Automate private network configuration guide | Power Apps features | Power Automate | Power Apps | . Tag: Debug . | Rules not working as expected | . Tag: Deduplication . | Get better matches in deduplication projects | . Tag: Defender . | 'Microsoft Defender for Cloud recommendations' | . Tag: Delete . | Why can I not delete certain objects in CluedIn | . Tag: delta-crawls . | Delta crawls | . Tag: Deployment . | Product Toolkit failing to export or import | . Tag: deployment . | AKS | Architecture overview | Connect to CluedIn cluster | Upgrade guide | Local installation checklist | Business decisions | Required tools for CluedIn upgrade | SSO | DNS | Plan the upgrade | Local installation guide | Pre-installation checklist | Advanced network configuration | CluedIn PaaS | TLS Certificate | Prepare for the upgrade | Extension packages | Installation guide | Email | Disks | Local | Perform the upgrade | Post-installation guide | Common upgrade operations | Logging | Email | TLS certificates | Licensing agent (PAAS) | PAT | Resolve common upgrade issues | AKS upgrade | Azure Policy exemption for deployment scripts | DNS | Helm | PVC | CluedIn Setup | Alerts | Walkthrough: Install CluedIn on Azure | Firewall | Install CluedIn using PowerShell | SQL Server | Modify web response headers | Create dedicated stream processing pod | Configuration import and export | CI/CD for CluedIn configuration with GitHub Actions | Upgrade | Backup and restore | Configuration | . Tag: development . | Business domains explained | Relationships (edges) | Identifiers | Vocabularies explained | Processing pipeline | Eventual connectivity | Origin | . Tag: disaster recovery . | Backup and restore | . Tag: disk . | Disks | . Tag: dns . | DNS | DNS | . Tag: docker . | Local | . Tag: docker-compose . | Local | . Tag: domain name system . | DNS | . Tag: DR . | Backup and restore | . Tag: edges . | Relationships (edges) | . Tag: email . | Email | Email | . Tag: engine-room . | Engine Room | . Tag: entities . | Business domains explained | Identifiers | . Tag: entity-codes . | Identifiers | . Tag: entity-types . | Business domains explained | . Tag: entra . | Federate identity providers through Microsoft Entra | Sign in with Auth0 through Microsoft Entra | Sign in with Okta through Microsoft Entra | Configure Microsoft Entra roles for multi-tenant SaaS SSO | Sign in with PingOne through Microsoft Entra | Sign in with OneLogin through Microsoft Entra | Sign in with Google Workspace through Microsoft Entra | Sign in with Keycloak through Microsoft Entra | . Tag: Environment . | Product Toolkit failing to export or import | . Tag: eventual-connectivity . | Eventual connectivity | . Tag: export . | Configuration import and export | . Tag: export-targets . | Export targets | . Tag: external-idp . | Federate identity providers through Microsoft Entra | . Tag: faq . | AI agents FAQs | Frequently asked questions | . Tag: filters . | Filters | . Tag: frontend . | Modify web response headers | Create dedicated stream processing pod | . Tag: getting-started . | Tutorial: ingest data | Work with the glossary | Tutorial: add relations between records | Take the in-app product tour | Tutorial: create hierarchies | Tutorial: clean data | Tutorial: stream data | Tutorial: create rules | Tutorial: deduplicate data | Frequently asked questions | . Tag: github actions . | CI/CD for CluedIn configuration with GitHub Actions | . Tag: golden record . | Data life cycle | Golden records | . Tag: golden record history . | History | . Tag: google-workspace . | Sign in with Google Workspace through Microsoft Entra | . Tag: governance . | Tag monitoring | Global Data Model | . Tag: graphql . | Add GraphQL entity type resolvers | GraphQL actions | Jobs | GraphQL | . Tag: helm . | Helm | . Tag: hierarchies . | Concept of hierarchy | Hierarchies | . Tag: hierarchy builder . | Concept of hierarchy | Hierarchies | . Tag: hoth . | 2024.01 | 2024.03 | 2024.04 | . Tag: import . | Configuration import and export | . Tag: installation . | CluedIn Setup | Walkthrough: Install CluedIn on Azure | Install CluedIn using PowerShell | . Tag: integration . | About integrations | Build an integration | Create mapping | Define data to ingest | Power Automate pre-configuration guide | Power Apps pre-configuration guide | Process data | Quarantine | Power Automate configuration guide | Crawling | Delta crawls | File | Logs | Review mapping | Endpoint | Install integrations | Monitoring | Power Automate post-configuration guide | Property rules | Tips on building robust integrations | Power Apps configuration guide | Database | Pre-process rules | Power Automate private network configuration guide | Advanced mapping code | Power Apps features | Power Automate | Power Apps | Microsoft Purview | Connectors | Data sources | . Tag: jobs . | Job monitoring | Jobs | . Tag: key-vault . | Sync certificates and secrets from AKV to AKS | . Tag: keycloak . | Sign in with Keycloak through Microsoft Entra | . Tag: Known Issue . | Why can I not delete certain objects in CluedIn | . Tag: kubernetes . | AKS | Operating cost reduction | Upgrade guide | Security Inventory | Support scope | Required tools for CluedIn upgrade | Plan the upgrade | CluedIn PaaS | TLS Certificate | Prepare for the upgrade | Email | Disks | Perform the upgrade | Common upgrade operations | PAT | Resolve common upgrade issues | AKS upgrade | Helm | PVC | SQL Server | Modify web response headers | Create dedicated stream processing pod | Sync certificates and secrets from AKV to AKS | Upgrade | Configuration | . Tag: licensing-agent . | Licensing agent (PAAS) | Azure Policy exemption for deployment scripts | . Tag: llms.txt . | Use this documentation with an AI assistant | . Tag: local . | Local installation checklist | Local installation guide | Extension packages | . Tag: local-deployment . | Local | . Tag: logs . | Logs | . Tag: management . | Concept of hierarchy | Prerequisites to using AI agents | Rule types | Built-in AI agents | Create a rule | Create, configure, and run an AI agent | Manage rules | Job monitoring | Review the results returned by AI agent | Rules reference | View and revert changes made by AI agent | AI agents FAQs | Onboard datasets with an AI agent | Jobs | Hierarchies | AI agents | Rules | . Tag: mapping . | Create mapping | Review mapping | Onboard datasets with an AI agent | . Tag: marketplace . | Architecture overview | Connect to CluedIn cluster | Operating cost reduction | Upgrade guide | Business decisions | Support scope | Required tools for CluedIn upgrade | SSO | Plan the upgrade | Pre-installation checklist | Advanced network configuration | CluedIn PaaS | Prepare for the upgrade | Installation guide | Perform the upgrade | Post-installation guide | Common upgrade operations | Logging | TLS certificates | Licensing agent (PAAS) | Resolve common upgrade issues | AKS upgrade | Azure Policy exemption for deployment scripts | DNS | Alerts | Firewall | Upgrade | Backup and restore | Configuration | . Tag: Matching . | Get better matches in deduplication projects | . Tag: mcp . | Use this documentation with an AI assistant | . Tag: microsoft . | Operating cost reduction | Power Automate pre-configuration guide | Power Apps pre-configuration guide | Security Inventory | Support scope | Power Automate configuration guide | CluedIn PaaS | Power Automate post-configuration guide | Power Apps configuration guide | Power Automate private network configuration guide | Power Apps features | Licensing agent (PAAS) | Azure Policy exemption for deployment scripts | Power Automate | Power Apps | Microsoft Purview | Upgrade | Configuration | . Tag: migration . | Disaster recovery plan | Environment management playbook | Sync configuration between environments | . Tag: monitoring . | Monitoring | Job monitoring | . Tag: mssql migrations . | Azure SQL migration | . Tag: notifications . | Notifications | General settings | . Tag: nuget . | PAT | . Tag: okta . | Sign in with Okta through Microsoft Entra | . Tag: onboarding . | Onboard datasets with an AI agent | . Tag: onelogin . | Sign in with OneLogin through Microsoft Entra | . Tag: ontology . | Global Data Model | . Tag: operations . | Job monitoring | . Tag: pat . | PAT | . Tag: Performance . | Slow CluedIn performance | Rules running slowly | . Tag: performance . | Processing pipeline | . Tag: persistence . | PVC | . Tag: pingone . | Sign in with PingOne through Microsoft Entra | . Tag: powerapps . | Power Automate pre-configuration guide | Power Apps pre-configuration guide | Power Automate configuration guide | Power Automate post-configuration guide | Power Apps configuration guide | Power Automate private network configuration guide | Power Apps features | Power Automate | Power Apps | . Tag: powerautomate . | Power Automate | Power Apps | . Tag: powershell . | Install CluedIn using PowerShell | . Tag: pre-process rules . | Pre-process rules | . Tag: preparation . | Create a clean project | Manage a clean project | Clean project reference | Clean application reference | Cleaning | . Tag: prerequisites . | Pre-installation checklist | . Tag: private endpoints . | Private Endpoints | . Tag: private links . | Private Endpoints | . Tag: processing . | Process data | . Tag: product toolkit . | CI/CD for CluedIn configuration with GitHub Actions | . Tag: property rules . | Property rules | Advanced mapping code | . Tag: purview . | Microsoft Purview | . Tag: python . | CluedIn Python SDK | Query data using GraphQL and Python SDK | Using Python SDK for Automation | Ingesting data to CluedIn with Python | Exporting data to and from CluedIn with Python | CluedIn Magic | . Tag: quarantine . | Quarantine | . Tag: recommendations . | 'Microsoft Defender for Cloud recommendations' | . Tag: record . | Data life cycle | . Tag: reducing . | Operating cost reduction | Support scope | . Tag: reduction . | Operating cost reduction | Support scope | . Tag: relationships . | Global Data Model | . Tag: rest api . | Get started with the REST API | Access control &amp; governance | Entities | Search | Vocabularies | Glossary | Hierarchies | Deduplication | Rules &amp; evaluation | Streams, connectors &amp; export | Data preparation &amp; enrichment | AI | Administration &amp; configuration | Organization | API reference | . Tag: review ai agent results . | Review the results returned by AI agent | View and revert changes made by AI agent | . Tag: roles . | Roles | Assign or remove roles | Configure Microsoft Entra roles for multi-tenant SaaS SSO | Process role requests | . Tag: Rules . | Slow CluedIn performance | Rules running slowly | Rules not working as expected | . Tag: rules . | Rule types | Create a rule | Manage rules | Rules reference | Jobs | Rules | . Tag: run an ai agent . | Create, configure, and run an AI agent | . Tag: saas . | Configure Microsoft Entra roles for multi-tenant SaaS SSO | . Tag: scheduling . | Jobs | . Tag: search . | Search | . Tag: security . | CluedIn Security — Log4j2 CVE-2021-44228 | Ingress NGINX vulnerabilities (not impacted) | . Tag: settings . | General settings | . Tag: setup . | CluedIn Setup | Walkthrough: Install CluedIn on Azure | Install CluedIn using PowerShell | . Tag: software . | 2024.01 | 2024.03 | 2024.04 | 2024.07 | 2024.07.01 | 2024.07.02 | 2024.07.03 | 2024.12 | 2024.12.01 | 2024.12.02 | 2025.05.00 | 2025.05.01 | 2025.05.02 | 2025.09.00 | 2026.01.00 Support | 2026.01.00 | 2026.02.00 | 2026-03-00 | . Tag: sqlserver . | SQL Server | . Tag: ssl . | TLS Certificate | TLS certificates | . Tag: sso . | Federate identity providers through Microsoft Entra | Sign in with Auth0 through Microsoft Entra | Sign in with Okta through Microsoft Entra | Configure Microsoft Entra roles for multi-tenant SaaS SSO | Sign in with PingOne through Microsoft Entra | Sign in with OneLogin through Microsoft Entra | Sign in with Google Workspace through Microsoft Entra | Sign in with Keycloak through Microsoft Entra | . Tag: streams . | Create a stream | Manage streams | Stream reference | Stream logs | Streams | . Tag: tag monitoring . | Tag monitoring | . Tag: tags . | Tag monitoring | . Tag: tls . | TLS Certificate | TLS certificates | . Tag: ui . | Notifications | . Tag: upgrade . | Upgrade guide | Required tools for CluedIn upgrade | Plan the upgrade | Prepare for the upgrade | Perform the upgrade | Common upgrade operations | Resolve common upgrade issues | AKS upgrade | 2024.01 | 2024.03 | 2024.04 | 2024.07 | 2024.07.01 | 2024.07.02 | 2024.07.03 | 2024.12 | 2024.12.01 | 2024.12.02 | 2025.05.00 | 2025.05.01 | 2025.05.02 | 2025.09.00 | 2026.01.00 Support | 2026.01.00 | 2026.02.00 | 2026-03-00 | . Tag: users . | User management | . Tag: vocabularies . | Vocabularies explained | Onboard datasets with an AI agent | . Tag: web . | Modify web response headers | Create dedicated stream processing pod | . ",
     "url": "/tag",
     
     "relUrl": "/tag"
-  },"2812": {
+  },"2816": {
     "doc": "Terms of service",
     "title": "On this page",
     "content": ". | Standard CluedIn contract | SaaS . | SaaS SLA | . | PaaS . | Azure Managed Application SLA | Premium Support SLA | . | . Welcome to CluedIn’s terms of service. These terms set out the legal framework for using our platform and related services, including the standard CluedIn contract and service-level agreements (SLAs). ",
     "url": "/terms-of-service#on-this-page",
     
     "relUrl": "/terms-of-service#on-this-page"
-  },"2813": {
+  },"2817": {
     "doc": "Terms of service",
     "title": "Standard CluedIn contract",
     "content": "The standard CluedIn contract defines the terms under which you use CluedIn’s products and services. It explains what you can expect from CluedIn and what CluedIn expects from you as a customer. The contract covers key topics such as licensing, confidentiality, compliance, and more. ",
     "url": "/terms-of-service#standard-cluedin-contract",
     
     "relUrl": "/terms-of-service#standard-cluedin-contract"
-  },"2814": {
+  },"2818": {
     "doc": "Terms of service",
     "title": "SaaS",
     "content": "SaaS SLA . For CluedIn SaaS customers, CluedIn provides a dedicated service level agreement (SLA), which specifies our commitments to service availability, uptime, and support response times. Download the CluedIn SaaS SLA . ",
     "url": "/terms-of-service#saas",
     
     "relUrl": "/terms-of-service#saas"
-  },"2815": {
+  },"2819": {
     "doc": "Terms of service",
     "title": "PaaS",
     "content": "For CluedIn PaaS customers, maintaining full SLA coverage requires that the CluedIn operations team has direct access to your cluster environment. This means our engineers can securely connect to the cluster without waiting for approvals, or have a jump box available. If direct access is unavailable, SLA response and resolution times may be temporarily paused until access is restored. Azure Managed Application SLA . For environments deployed via Azure Managed Applications, see Azure Managed Application Description &amp; SLA. Premium Support SLA . For customers with Premium Support agreements, see Premium Support Service Level Agreement. ",
     "url": "/terms-of-service#paas",
     
     "relUrl": "/terms-of-service#paas"
-  },"2816": {
+  },"2820": {
     "doc": "Terms of service",
     "title": "Terms of service",
     "content": " ",

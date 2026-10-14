@@ -1,0 +1,1508 @@
+# Stage 2 - migrate Elasticsearch indices from 7.x to 9.x.
+#
+# Two init containers run in sequence, each pinning its own image:
+#   cluedin-upgrade-es8 (8.19.16)   exports <index> -> <index>_cluedinmigrate, and
+#                                   migrates system indices/data streams to 8.x.
+#   cluedin-upgrade-es9 (chart tag) imports it back to <index>, now stamped 9.x, and
+#                                   re-migrates system indices/data streams to 9.x.
+#
+# The pod cannot become Ready until both exit 0, so a green pod means the
+# migration finished. Both passes are idempotent and resumable.
+
+global:
+  containerImages:
+    initSql:
+      enabled: false
+    initNeo4J:
+      enabled: false
+    initCluedIn:
+      enabled: false
+
+application:
+  cluedin:
+    roles:
+      main:
+        count: 0
+      processing:
+        count: 0
+      crawling:
+        count: 0
+  cluedincontroller:
+    enabled: false
+  cluedinai:
+    enabled: false
+  datasource:
+    replicas: 0
+  datasourceProcessing:
+    replicas: 0
+  gql:
+    replicas: 0
+  submitter:
+    replicas: 0
+  ui:
+    replicas: 0
+  webapi:
+    replicas: 0
+  oauth2:
+    enabled: false
+  libpostal:
+    enabled: false
+  monitoring:
+    enabled: false
+  openrefine:
+    enabled: false
+
+infrastructure:
+  # cert-manager stays enabled: it issues the Elasticsearch certificate, and
+  # removing then re-adding it leaves a stale webhook CA bundle that breaks the
+  # next helm upgrade.
+
+  # HAProxy must remain enabled. Setting this to false will remove all HAProxy resources,
+  # including the LoadBalancer service. Since the LoadBalancer IP is dynamically assigned,
+  # deleting and recreating the service may result in a different IP address.
+
+  monitoring:
+    enabled: false
+  mssql:
+    enabled: false
+  neo4j:
+    enabled: false
+  # RabbitMQ comes back up here, and the init container below migrates its data volume:
+  # the node directory moves from the volume root into mnesia/, and ownership from uid
+  # 1001 to 999. Without it the broker boots healthy and completely empty, with nothing
+  # in the log to say why.
+  #
+  # ⚠ customScripts.initContainers is a list, so this replaces the chart's own - the
+  # plugin installer has to be repeated here.
+  rabbitmq:
+    enabled: true
+    customScripts:
+      initContainers:
+        - name: cluedin-migrate-bitnami-data
+          image: '{{ include "rabbitmq.image" $ }}'
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            # Only root can chown data owned by uid 1001.
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/rabbitmq
+          command:
+            - sh
+            - -ec
+            - |
+              DATA=/var/lib/rabbitmq
+
+              if ls -d "$DATA"/rabbit@* >/dev/null 2>&1; then
+                echo "[UPGRADE] 👉 - Moving the node directory from the volume root into $DATA/mnesia"
+                mkdir -p "$DATA/mnesia"
+                # Same filesystem, so each mv is an atomic rename: an interrupted run
+                # leaves every entry either at the root or under mnesia/, never both.
+                for source in "$DATA"/rabbit@*; do
+                  name=$(basename "$source")
+                  echo "[UPGRADE] 👉 - Moving $name"
+                  mv "$source" "$DATA/mnesia/$name"
+                done
+                echo "[UPGRADE] ✅ - Node directory moved"
+              else
+                echo "[UPGRADE] 👋 - Nothing at the volume root, the layout is already migrated. Skipping."
+              fi
+
+              # fsGroup only fixes the group, leaving files owned by a uid that does
+              # not exist in the container.
+              echo "[UPGRADE] 👉 - Aligning ownership of $DATA to 999:999"
+              chown -R 999:999 "$DATA"
+
+              echo "[UPGRADE] ✅ - RabbitMQ data volume is ready"
+              exit 0
+        - name: cluedin-plugin-installer
+          image: '{{ printf "%s/%s:%s" $.Values.image.registry "cluedin/rabbitmq-plugin-installer" "v3.13.7" }}'
+          volumeMounts:
+            - name: extra-plugins
+              mountPath: "/plugins"
+          env:
+            - name: CLUEDIN_PLUGIN_OUTPUT_FILE_PATH
+              value: /plugins/cluedin_plugin.ez
+          securityContext:
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
+            runAsNonRoot: true
+            runAsUser: 999
+            runAsGroup: 999
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+  redis:
+    enabled: false
+
+  elasticsearch:
+    # imageTag intentionally unset - the pod runs the chart default (9.x)
+    replicas: 1
+
+    # String form so the chart renders it through `tpl`, letting the init
+    # containers follow the configured registry.
+    # ⚠ Go-templated: do not introduce `{{` below.
+    extraInitContainers: |
+      - name: cluedin-upgrade-es8
+        # Pinned: only 8.19 can read 7.x indices and write 8.x ones
+        image: "{{ .Values.image }}:8.19.16"
+        securityContext:
+          capabilities:
+            drop:
+              - ALL
+          runAsUser: 1000
+          runAsNonRoot: true
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false
+        volumeMounts:
+          - name: cluedin-elasticsearch
+            mountPath: /usr/share/elasticsearch/data
+          - name: elasticsearch-config-directory
+            mountPath: /usr/share/elasticsearch/config
+          - name: elasticsearch-certs
+            mountPath: /usr/share/elasticsearch/config/certs
+            readOnly: true
+          - name: logs
+            mountPath: /usr/share/elasticsearch/logs
+          - name: tmp
+            mountPath: /tmp
+          - name: esconfig
+            mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+            subPath: elasticsearch.yml
+        env:
+          - name: node.name
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: cluster.initial_master_nodes
+            value: "cluedin-elasticsearch-0,"
+          - name: discovery.seed_hosts
+            value: "cluedin-elasticsearch-headless"
+          - name: cluster.name
+            value: "elasticsearch"
+          - name: network.host
+            value: "0.0.0.0"
+          - name: xpack.security.enabled
+            value: "true"
+          - name: xpack.security.transport.ssl.enabled
+            value: "true"
+          - name: xpack.security.http.ssl.enabled
+            value: "false"
+          - name: xpack.security.transport.ssl.verification_mode
+            value: "certificate"
+          - name: xpack.security.transport.ssl.key
+            value: "/usr/share/elasticsearch/config/certs/tls.key"
+          - name: xpack.security.transport.ssl.certificate
+            value: "/usr/share/elasticsearch/config/certs/tls.crt"
+          - name: xpack.security.transport.ssl.certificate_authorities
+            value: "/usr/share/elasticsearch/config/certs/ca.crt"
+          - name: ELASTIC_USERNAME
+            value: "elastic"
+          - name: ELASTIC_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: elasticsearch-credentials
+                key: password
+          - name: UPGRADE_LOG_FILE_PATH
+            value: /usr/share/elasticsearch/data/cluedin-3.0-es8-migration.upgrade.log
+          - name: UPGRADE_LOCK_FILE_PATH
+            value: /usr/share/elasticsearch/data/cluedin-3.0-es8-migration-completed.lock
+        command:
+          - /bin/bash
+          - -c
+        args:
+          - |
+            # Required, not an optimisation: once the 9.x pass has opened this data
+            # directory, booting 8.19 against it is a downgrade Elasticsearch refuses.
+            if [ -f "$UPGRADE_LOCK_FILE_PATH" ]; then
+              echo "[UPGRADE] 👋 - 8.x index migration already completed (lock file exists). Skipping."
+              exit 0
+            fi
+
+            ### LOGGING SETUP
+            counter=1
+            UPGRADE_LOG_FILE_PATH_CURRENT="${UPGRADE_LOG_FILE_PATH%.upgrade.log}.$((counter++)).upgrade.log"
+            while [ -e "$UPGRADE_LOG_FILE_PATH_CURRENT" ]; do
+              UPGRADE_LOG_FILE_PATH_CURRENT="${UPGRADE_LOG_FILE_PATH%.upgrade.log}.$((counter++)).upgrade.log"
+            done
+
+            exec > >(tee "${UPGRADE_LOG_FILE_PATH_CURRENT}") 2>&1
+            echo "✍ Upgrade log file path: $UPGRADE_LOG_FILE_PATH_CURRENT"
+
+            # If script exits too quickly we do not get any output so pausing for 1 second fixes it somehow?!
+            sleep 1
+            ### END LOGGING SETUP
+
+            exit_upon_signal() {
+              echo "❌ Received interrupt signal. Exiting..."
+              exit 1
+            }
+            trap exit_upon_signal SIGINT SIGTERM
+
+            es_host="http://localhost:9200"
+            es_credentials="${ELASTIC_USERNAME}:${ELASTIC_PASSWORD}"
+            ES8_SUFFIX="_cluedinmigrate"
+            # Anything stamped below 8.0.0 cannot be opened by Elasticsearch 9.
+            MIN_INDEX_VERSION=8000000
+            # Private settings that GET returns but PUT rejects.
+            SETTINGS_FILTER="*.settings.index,-*.settings.index.uuid,-*.settings.index.provided_name,-*.settings.index.creation_date,-*.settings.index.version,-*.settings.index.history,-*.settings.index.blocks,-*.settings.index.resize,-*.settings.index.frozen,-*.settings.index.verified_before_close,-*.settings.index.store.snapshot,-*.settings.index.routing.allocation.initial_recovery"
+
+            ###############################################################
+            ############### ELASTICSEARCH HELPERS #########################
+            ###############################################################
+
+            # es_call <method> <path> [body] - prints the response body, fails on HTTP >= 400
+            es_call() {
+              local method="$1"
+              local path="$2"
+              local payload="${3:-}"
+              local response code content
+
+              if [ -n "$payload" ]; then
+                response=$(curl -sS -u "$es_credentials" -X "$method" "${es_host}${path}" \
+                  -H 'Content-Type: application/json' -d "$payload" -w $'\n%{http_code}')
+              else
+                response=$(curl -sS -u "$es_credentials" -X "$method" "${es_host}${path}" -w $'\n%{http_code}')
+              fi
+
+              code="${response##*$'\n'}"
+              content="${response%$'\n'*}"
+
+              case "$code" in
+                2??|3??) ;;
+                *)
+                  echo "[UPGRADE] ❌ - $method $path returned HTTP ${code:-<none>}" >&2
+                  echo "$content" >&2
+                  return 1
+                  ;;
+              esac
+
+              printf '%s' "$content"
+            }
+
+            index_exists() {
+              local code
+              code=$(curl -sS -o /dev/null -w '%{http_code}' -u "$es_credentials" "${es_host}/$1")
+              case "$code" in
+                200) return 0 ;;
+                404) return 1 ;;
+                *)
+                  echo "[UPGRADE] ❌ - Could not determine whether $1 exists; GET /$1 returned HTTP ${code:-<none>}" >&2
+                  exit 1
+                  ;;
+              esac
+            }
+
+            doc_count() {
+              es_call GET "/_cat/count/$1?h=count" | tr -d '[:space:]'
+            }
+
+            # Prints "<index> <version-id>" for every index, including hidden and closed
+            list_index_versions() {
+              local raw
+              raw=$(es_call GET "/_all/_settings/index.version.created?expand_wildcards=all") || return 1
+              printf '%s' "$raw" \
+                | { grep -o '"[^"]*":{"settings":{"index":{"version":{"created":"[0-9]*"}}}}' || true; } \
+                | sed 's/^"\([^"]*\)":{"settings":{"index":{"version":{"created":"\([0-9]*\)"}}}}$/\1 \2/'
+            }
+
+            list_old_indices() {
+              local name version
+              list_index_versions | while read -r name version; do
+                case "$version" in
+                  ''|*[!0-9]*)
+                    echo "[UPGRADE] ❌ - Could not read the created version of index $name (got '${version}')" >&2
+                    exit 1
+                    ;;
+                esac
+
+                if [ "$version" -lt "$MIN_INDEX_VERSION" ]; then
+                  echo "$name"
+                fi
+              done
+            }
+
+            # Prints "<kind> <index>" for every system index and every data stream
+            # backing index. `_resolve/index` reports the former as a `system`
+            # attribute and the latter as a `data_stream` field.
+            list_system_and_backing_indices() {
+              local raw entry name
+              raw=$(es_call GET "/_resolve/index/*?expand_wildcards=all&filter_path=indices.name,indices.attributes,indices.data_stream") || return 1
+              printf '%s' "$raw" \
+                | { grep -o '{"name":"[^"]*"[^}]*}' || true; } \
+                | while IFS= read -r entry; do
+                    name="${entry#\{\"name\":\"}"
+                    name="${name%%\"*}"
+                    case "$entry" in
+                      *'"data_stream":"'*)
+                        echo "data-stream $name"
+                        ;;
+                      *'"system"'*)
+                        echo "system-feature $name"
+                        ;;
+                    esac
+                  done
+            }
+
+            # Reindex copies neither settings nor mappings. Custom analyzers live in
+            # settings and the mapping references them by name, so a destination
+            # created without settings fails the mapping PUT outright.
+            get_clean_settings() {
+              local raw inner
+              raw=$(es_call GET "/$1/_settings?filter_path=${SETTINGS_FILTER}") || return 1
+              case "$raw" in
+                *'"settings":{"index":'*) ;;
+                *)
+                  echo "[UPGRADE] ❌ - Could not read settings for $1; unexpected response: $raw" >&2
+                  return 1
+                  ;;
+              esac
+              inner="${raw#*\"settings\":\{\"index\":}"
+              inner="${inner%\}\}\}}"
+              printf '%s' "$inner"
+            }
+
+            get_mappings() {
+              local raw inner
+              raw=$(es_call GET "/$1/_mapping?filter_path=*.mappings") || return 1
+              case "$raw" in
+                *'"mappings":'*) ;;
+                *)
+                  echo "[UPGRADE] ❌ - Could not read mappings for $1; unexpected response: $raw" >&2
+                  return 1
+                  ;;
+              esac
+              inner="${raw#*\"mappings\":}"
+              inner="${inner%\}\}}"
+              # `boost` was removed as a mapping parameter; 8.x and 9.x reject it with
+              # "Unknown parameter [boost]", and indices created by previous versions
+              # set it. Matches the numeric parameter only, not a field named boost.
+              printf '%s' "$inner" \
+                | sed -e 's/"boost":[0-9][0-9.eE+-]*,//g' \
+                      -e 's/,"boost":[0-9][0-9.eE+-]*//g' \
+                      -e 's/"boost":[0-9][0-9.eE+-]*//g'
+            }
+
+            get_refresh_interval() {
+              local raw
+              raw=$(es_call GET "/$1/_settings/index.refresh_interval") || return 1
+              printf '%s' "$raw" \
+                | { grep -o '"refresh_interval":"[^"]*"' || true; } \
+                | sed -n '1s/.*:"\(.*\)"/\1/p'
+            }
+
+            set_refresh_interval() {
+              local index="$1"
+              local value="$2"
+              if [ -z "$value" ]; then
+                es_call PUT "/${index}/_settings" '{"index":{"refresh_interval":null}}' > /dev/null
+              else
+                es_call PUT "/${index}/_settings" "{\"index\":{\"refresh_interval\":\"${value}\"}}" > /dev/null
+              fi
+            }
+
+            create_index_from() {
+              local source_index="$1"
+              local new_index="$2"
+              local settings mappings
+
+              settings=$(get_clean_settings "$source_index") || return 1
+              mappings=$(get_mappings "$source_index") || return 1
+
+              echo "[UPGRADE] 👉 - Creating index $new_index from the settings and mappings of $source_index"
+              es_call PUT "/${new_index}" "{\"settings\":{\"index\":${settings}},\"mappings\":${mappings}}" > /dev/null
+            }
+
+            reindex_and_poll() {
+              local source_index="$1"
+              local dest_index="$2"
+              local task_id task_json completed total created percent
+
+              echo "[UPGRADE] 👉 - Starting reindex from $source_index to $dest_index"
+
+              task_id=$(es_call POST "/_reindex?slices=auto&wait_for_completion=false" \
+                "{\"source\":{\"index\":\"${source_index}\"},\"dest\":{\"index\":\"${dest_index}\"}}" \
+                | sed -n 's/.*"task":"\([^"]*\)".*/\1/p')
+
+              if [ -z "$task_id" ]; then
+                echo "[UPGRADE] ❌ - Failed to start reindex task for $source_index to $dest_index."
+                return 1
+              fi
+
+              echo "[UPGRADE] 👉 - Polling reindex status with task ID: $task_id"
+
+              while true; do
+                # filter_path keeps each field unique: unfiltered, "total" and "created"
+                # appear in both task.status and response.
+                task_json=$(es_call GET "/_tasks/${task_id}?filter_path=completed,task.status.total,task.status.created,response.failures,error")
+
+                # Progress comes from the task, not a doc count: refresh is disabled
+                # during the bulk load so the destination reports zero until the end.
+                completed=$(echo "$task_json" | { grep -o '"completed":[a-z]*' || true; } | sed 's/.*://')
+                total=$(echo "$task_json" | { grep -o '"total":[0-9]*' || true; } | sed 's/.*://')
+                created=$(echo "$task_json" | { grep -o '"created":[0-9]*' || true; } | sed 's/.*://')
+
+                if [ "$completed" = "true" ]; then
+                  # A task that failed outright carries a top-level error and no response
+                  if echo "$task_json" | grep -q '"error":{'; then
+                    echo "[UPGRADE] ❌ - Reindex task $task_id failed"
+                    echo "$task_json" >&2
+                    return 1
+                  fi
+
+                  # A task can also complete with per-document failures recorded
+                  if echo "$task_json" | grep -q '"failures":\[{'; then
+                    echo "[UPGRADE] ❌ - Reindex task $task_id recorded failures"
+                    echo "$task_json" >&2
+                    return 1
+                  fi
+                  echo "[UPGRADE] ✅ - Reindex from $source_index to $dest_index completed (${created:-0}/${total:-0} documents)"
+                  break
+                fi
+
+                if [ -n "$total" ] && [ "$total" -gt 0 ]; then
+                  percent=$(awk "BEGIN {printf \"%.2f\", (${created:-0}/$total)*100}")
+                else
+                  percent="0.00"
+                fi
+                echo "[UPGRADE] ⏳ - Reindex in progress $source_index -> $dest_index... $percent% (${created:-0}/${total:-0} documents)"
+
+                sleep 10
+              done
+            }
+
+            verify_counts() {
+              local left="$1"
+              local right="$2"
+              local left_count right_count
+
+              # Without this the count reads zero on a reindex that in fact succeeded:
+              # refresh is disabled during the bulk load.
+              es_call POST "/${left}/_refresh" > /dev/null
+              es_call POST "/${right}/_refresh" > /dev/null
+
+              left_count=$(doc_count "$left") || return 1
+              right_count=$(doc_count "$right") || return 1
+
+              if [ "$left_count" != "$right_count" ]; then
+                echo "[UPGRADE] ❌ - Document count mismatch: $left has $left_count, $right has $right_count"
+                return 1
+              fi
+
+              echo "[UPGRADE] ✅ - Document counts match ($left_count) for $left and $right"
+            }
+
+            ###############################################################
+            ############### PHASE 0 - PREFLIGHT ###########################
+            ###############################################################
+
+            preflight() {
+              local nodes node_count frozen_raw frozen old_index
+
+              echo "[UPGRADE] 👉 - Phase 0: preflight"
+
+              nodes=$(es_call GET "/_cat/nodes?h=name") || return 1
+              node_count=$(printf '%s' "$nodes" | grep -c . || true)
+              if [ "$node_count" -ne 1 ]; then
+                echo "[UPGRADE] ⛔ - Found $node_count Elasticsearch nodes. This migration supports single-node clusters only."
+                echo "[UPGRADE] ⛔ - Multi-node clusters must be migrated manually. Do not proceed."
+                return 1
+              fi
+
+              frozen_raw=$(es_call GET "/_all/_settings/index.frozen?expand_wildcards=all") || return 1
+              frozen=$(printf '%s' "$frozen_raw" | { grep -o '"frozen":"true"' || true; })
+              if [ -n "$frozen" ]; then
+                echo "[UPGRADE] ⛔ - Frozen indices found. Elasticsearch 9 removed the ability to read them; unfreeze or delete them first."
+                return 1
+              fi
+
+              for old_index in $(list_old_indices); do
+                case "$old_index" in
+                  *"${ES8_SUFFIX}")
+                    echo "[UPGRADE] ⛔ - Index $old_index already ends in ${ES8_SUFFIX}, which this migration reserves. Rename it first."
+                    return 1
+                    ;;
+                esac
+
+                if [ "${#old_index}" -gt 240 ]; then
+                  echo "[UPGRADE] ⛔ - Index name $old_index is too long to append ${ES8_SUFFIX} within the 255 byte limit."
+                  return 1
+                fi
+              done
+
+              echo "[UPGRADE] ✅ - Preflight passed"
+            }
+
+            ###############################################################
+            ############### PHASE 1 - SYSTEM FEATURES #####################
+            ###############################################################
+
+            # Prints the cluster-wide migration status: the response carries one status
+            # per feature plus a top-level roll-up of the most severe, which this selects.
+            system_features_status() {
+              local raw
+              raw=$(es_call GET "/_migration/system_features?filter_path=migration_status") || return 1
+              printf '%s' "$raw" \
+                | { grep -o '"migration_status":"[A-Z_]*"' || true; } \
+                | sed -n '1s/.*:"\(.*\)"/\1/p'
+            }
+
+            # Must run before phase 3: system indices are protected and cannot be
+            # reindexed or deleted by the per-index loop.
+            migrate_system_features() {
+              local status
+
+              echo "[UPGRADE] 👉 - Phase 1: system feature migration"
+
+              status=$(system_features_status) || return 1
+
+              case "$status" in
+                NO_MIGRATION_NEEDED)
+                  echo "[UPGRADE] ✅ - No system features need migration"
+                  return 0
+                  ;;
+                ERROR)
+                  echo "[UPGRADE] ❌ - A previous system feature migration is in the ERROR state; resolve it before re-running this stage"
+                  es_call GET "/_migration/system_features" || true
+                  return 1
+                  ;;
+                IN_PROGRESS)
+                  echo "[UPGRADE] 👉 - A system feature migration is already running; waiting for it to finish"
+                  ;;
+                MIGRATION_NEEDED)
+                  echo "[UPGRADE] 👉 - Triggering system feature migration"
+                  es_call POST "/_migration/system_features" > /dev/null
+                  ;;
+                *)
+                  echo "[UPGRADE] ❌ - Unrecognised system feature migration status: '${status}'"
+                  return 1
+                  ;;
+              esac
+
+              while true; do
+                status=$(system_features_status) || return 1
+
+                case "$status" in
+                  NO_MIGRATION_NEEDED)
+                    break
+                    ;;
+                  ERROR)
+                    echo "[UPGRADE] ❌ - System feature migration reported ERROR"
+                    es_call GET "/_migration/system_features" || true
+                    return 1
+                    ;;
+                  IN_PROGRESS|MIGRATION_NEEDED)
+                    ;;
+                  *)
+                    echo "[UPGRADE] ❌ - Unrecognised system feature migration status: '${status}'"
+                    return 1
+                    ;;
+                esac
+
+                echo "[UPGRADE] ⏳ - System feature migration in progress..."
+                sleep 5
+              done
+
+              echo "[UPGRADE] ✅ - System feature migration completed"
+            }
+
+            ###############################################################
+            ############### PHASE 2 - DATA STREAMS ########################
+            ###############################################################
+
+            stream_backing_indices() {
+              local raw
+              raw=$(es_call GET "/_data_stream/$1?filter_path=data_streams.indices.index_name") || return 1
+              printf '%s' "$raw" \
+                | { grep -o '"index_name":"[^"]*"' || true; } \
+                | sed 's/"index_name":"\(.*\)"/\1/'
+            }
+
+            migrate_data_streams() {
+              local streams stream backing needs_upgrade status raw
+
+              echo "[UPGRADE] 👉 - Phase 2: data streams"
+
+              raw=$(es_call GET "/_data_stream?expand_wildcards=all&filter_path=data_streams.name") || return 1
+              streams=$(printf '%s' "$raw" \
+                | { grep -o '"name":"[^"]*"' || true; } \
+                | sed 's/"name":"\(.*\)"/\1/')
+
+              for stream in $streams; do
+                needs_upgrade=false
+                for backing in $(stream_backing_indices "$stream"); do
+                  if echo "$OLD_INDICES" | grep -Fqx "$backing"; then
+                    needs_upgrade=true
+                    break
+                  fi
+                done
+
+                if [ "$needs_upgrade" = "false" ]; then
+                  continue
+                fi
+
+                echo "[UPGRADE] 👉 - Upgrading backing indices of data stream $stream"
+
+                # Elasticsearch keeps a reindex status for 24 hours and refuses to
+                # re-run the stream while it exists, so a stale one must be cleared.
+                status=$(es_call GET "/_migration/reindex/${stream}/_status?filter_path=start_time_millis,complete,errors" 2>/dev/null || true)
+                if echo "$status" | grep -q '"start_time_millis"'; then
+                  echo "[UPGRADE] 👉 - Clearing a previous reindex status for $stream before retrying"
+                  es_call POST "/_migration/reindex/${stream}/_cancel" > /dev/null 2>&1 || true
+                fi
+
+                es_call POST "/_migration/reindex" \
+                  "{\"source\":{\"index\":\"${stream}\"},\"mode\":\"upgrade\"}" > /dev/null
+
+                while true; do
+                  status=$(es_call GET "/_migration/reindex/${stream}/_status?filter_path=start_time_millis,complete,errors")
+
+                  if echo "$status" | grep -q '"errors":\[{'; then
+                    echo "[UPGRADE] ❌ - Data stream reindex reported errors for $stream"
+                    echo "$status"
+                    return 1
+                  fi
+
+                  if echo "$status" | grep -q '"complete":true'; then
+                    echo "[UPGRADE] ✅ - Data stream $stream upgraded"
+                    break
+                  fi
+
+                  echo "[UPGRADE] ⏳ - Data stream $stream reindex in progress..."
+                  sleep 10
+                done
+              done
+
+              echo "[UPGRADE] ✅ - Data streams handled"
+            }
+
+            ###############################################################
+            ############### PHASE 3 - REGULAR INDICES #####################
+            ###############################################################
+
+            export_index() {
+              local source_index="$1"
+              local es8_index="${source_index}${ES8_SUFFIX}"
+              local original_refresh
+
+              if index_exists "$es8_index"; then
+                if index_exists "$source_index"; then
+                  # Interrupted: the source is only deleted after counts verify, so it
+                  # is authoritative whenever both exist.
+                  echo "[UPGRADE] 👉 - $es8_index exists alongside $source_index; discarding the partial 8.x index"
+                  es_call DELETE "/${es8_index}" > /dev/null
+                else
+                  echo "[UPGRADE] ✅ - Skipping $source_index, already exported to $es8_index"
+                  return 0
+                fi
+              fi
+
+              echo "[UPGRADE] 👉 - Exporting index: $source_index"
+
+              # Load bearing: a mapping 8.19 rejects fails here, source still intact.
+              create_index_from "$source_index" "$es8_index"
+
+              original_refresh=$(get_refresh_interval "$es8_index") || return 1
+              set_refresh_interval "$es8_index" "-1"
+
+              reindex_and_poll "$source_index" "$es8_index"
+
+              set_refresh_interval "$es8_index" "$original_refresh"
+
+              verify_counts "$source_index" "$es8_index"
+
+              echo "[UPGRADE] 👉 - Deleting original index: $source_index"
+              es_call DELETE "/${source_index}" > /dev/null
+
+              echo "[UPGRADE] ✅ - Finished exporting index: $source_index - $(date)"
+            }
+
+            export_regular_indices() {
+              local old_index system_and_backing kind
+
+              echo "[UPGRADE] 👉 - Phase 3: export regular indices"
+
+              # Read after phases 1 and 2, so it reflects what they left behind.
+              # Anything they did not migrate is caught by the final gate.
+              system_and_backing=$(list_system_and_backing_indices)
+
+              for old_index in $(list_old_indices); do
+                kind=$(printf '%s\n' "$system_and_backing" | awk -v name="$old_index" '$2 == name { print $1; exit }')
+
+                # Non-empty means phase 1 or 2 already handled it; phase 3 cannot
+                if [ -n "$kind" ]; then
+                  echo "[UPGRADE] ⚠ - Skipping $old_index; handled by the $kind migration"
+                  continue
+                fi
+
+                export_index "$old_index"
+              done
+
+              echo "[UPGRADE] ✅ - Regular indices handled"
+            }
+
+            ###############################################################
+            ############### PHASE 4 - FINAL GATE ##########################
+            ###############################################################
+
+            # Re-interrogates the cluster from scratch rather than trusting the phases
+            # above; this is what makes a green pod meaningful.
+            final_gate() {
+              local remaining deprecations features
+
+              echo "[UPGRADE] 👉 - Phase 4: final verification"
+
+              remaining=$(list_old_indices) || return 1
+              if [ -n "$remaining" ]; then
+                echo "[UPGRADE] ❌ - Indices created before 8.0 still present; Elasticsearch 9 will not boot:"
+                echo "$remaining"
+                return 1
+              fi
+
+              # Wildcard expansion excludes system indices, so the check above misses them.
+              features=$(system_features_status) || return 1
+              if [ "$features" != "NO_MIGRATION_NEEDED" ]; then
+                echo "[UPGRADE] ❌ - System features report ${features}:"
+                es_call GET "/_migration/system_features" || true
+                return 1
+              fi
+
+              deprecations=$(es_call GET "/_migration/deprecations") || return 1
+              if echo "$deprecations" | grep -q '"level":"critical"'; then
+                echo "[UPGRADE] ❌ - Critical deprecations reported; resolve these before upgrading to 9.x:"
+                echo "$deprecations"
+                return 1
+              fi
+
+              echo "[UPGRADE] ✅ - No pre-8.0 indices remain, system features are migrated, and no critical deprecations reported"
+            }
+
+            ###############################################################
+            ############### START LOGIC ###################################
+            ###############################################################
+
+            elastic_upgrade() {
+              preflight
+
+              # Captured once; phase 2 cross references backing index names against it
+              OLD_INDICES=$(list_old_indices)
+
+              if [ -z "$OLD_INDICES" ]; then
+                echo "[UPGRADE] ✅ - No indices created before 8.0 found"
+              else
+                echo "[UPGRADE] 👉 - Indices created before 8.0:"
+                echo "$OLD_INDICES"
+              fi
+
+              migrate_system_features
+              migrate_data_streams
+              export_regular_indices
+              final_gate
+            }
+
+            echo "[UPGRADE] 🎁 - Running ES Server in background: /usr/local/bin/docker-entrypoint.sh eswrapper"
+            /usr/local/bin/docker-entrypoint.sh eswrapper &
+            pid=$!
+
+            while true; do
+              echo "[UPGRADE] ⏳ - Waiting for ES Server to be up..."
+
+              HEALTH_STATUS=$(curl -u "${ELASTIC_USERNAME}:${ELASTIC_PASSWORD}" -s "http://localhost:9200/_cat/health?h=status" | tr -d '[:space:]')
+
+              if [ "$HEALTH_STATUS" == "yellow" ] || [ "$HEALTH_STATUS" == "green" ]; then
+                echo "[UPGRADE] ✅ - ES Server is up and ready with status: $HEALTH_STATUS"
+                break
+              fi
+
+              if ! kill -0 $pid 2>/dev/null; then
+                echo "[UPGRADE] ❌ - ES Server exited before becoming available"
+                exit 1
+              fi
+
+              sleep 5s
+            done
+
+            had_error=false
+
+            # Run the migration in a sub shell that stops on any error (exit code != 0)
+            (
+              set -e
+              set -o pipefail
+              elastic_upgrade
+            )
+
+            if [[ "$?" -ne 0 ]]; then
+              had_error=true
+            fi
+
+            kill $pid
+
+            echo "[UPGRADE] ⏳ - Waiting for ES Server (PID: $pid) to stop.."
+            # || true is used to suppress exit code.
+            wait $pid || true
+
+            echo "[UPGRADE] ✅ - ES Server stopped"
+
+            if [[ "$had_error" == "true" ]]; then
+              echo "[UPGRADE] ❌ - There were errors during the migration. The pod will not become Ready."
+              exit 1
+            fi
+
+            # Must be fatal: exiting 0 without the lock leaves nothing to stop a later
+            # restart booting 8.19 against a 9.x data directory - an unrecoverable pod.
+            if ! touch "$UPGRADE_LOCK_FILE_PATH"; then
+              echo "[UPGRADE] ❌ - Could not write lock file: $UPGRADE_LOCK_FILE_PATH"
+              exit 1
+            fi
+            echo "[UPGRADE] 👋 - Migration to 8.x indices is complete. Wrote lock file: $UPGRADE_LOCK_FILE_PATH"
+
+            exit 0
+
+      - name: cluedin-upgrade-es9
+        image: "{{ .Values.image }}:{{ .Values.imageTag }}"
+        securityContext:
+          capabilities:
+            drop:
+              - ALL
+          runAsUser: 1000
+          runAsNonRoot: true
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false
+        volumeMounts:
+          - name: cluedin-elasticsearch
+            mountPath: /usr/share/elasticsearch/data
+          - name: elasticsearch-config-directory
+            mountPath: /usr/share/elasticsearch/config
+          - name: elasticsearch-certs
+            mountPath: /usr/share/elasticsearch/config/certs
+            readOnly: true
+          - name: logs
+            mountPath: /usr/share/elasticsearch/logs
+          - name: tmp
+            mountPath: /tmp
+          - name: esconfig
+            mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+            subPath: elasticsearch.yml
+        env:
+          - name: node.name
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: cluster.initial_master_nodes
+            value: "cluedin-elasticsearch-0,"
+          - name: discovery.seed_hosts
+            value: "cluedin-elasticsearch-headless"
+          - name: cluster.name
+            value: "elasticsearch"
+          - name: network.host
+            value: "0.0.0.0"
+          - name: xpack.security.enabled
+            value: "true"
+          - name: xpack.security.transport.ssl.enabled
+            value: "true"
+          - name: xpack.security.http.ssl.enabled
+            value: "false"
+          - name: xpack.security.transport.ssl.verification_mode
+            value: "certificate"
+          - name: xpack.security.transport.ssl.key
+            value: "/usr/share/elasticsearch/config/certs/tls.key"
+          - name: xpack.security.transport.ssl.certificate
+            value: "/usr/share/elasticsearch/config/certs/tls.crt"
+          - name: xpack.security.transport.ssl.certificate_authorities
+            value: "/usr/share/elasticsearch/config/certs/ca.crt"
+          - name: ELASTIC_USERNAME
+            value: "elastic"
+          - name: ELASTIC_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: elasticsearch-credentials
+                key: password
+          - name: UPGRADE_LOG_FILE_PATH
+            value: /usr/share/elasticsearch/data/cluedin-3.0-es9-migration.upgrade.log
+          - name: UPGRADE_LOCK_FILE_PATH
+            value: /usr/share/elasticsearch/data/cluedin-3.0-es9-migration-completed.lock
+        command:
+          - /bin/bash
+          - -c
+        args:
+          - |
+            if [ -f "$UPGRADE_LOCK_FILE_PATH" ]; then
+              echo "[UPGRADE] 👋 - 9.x index migration already completed (lock file exists). Skipping."
+              exit 0
+            fi
+
+            ### LOGGING SETUP
+            counter=1
+            UPGRADE_LOG_FILE_PATH_CURRENT="${UPGRADE_LOG_FILE_PATH%.upgrade.log}.$((counter++)).upgrade.log"
+            while [ -e "$UPGRADE_LOG_FILE_PATH_CURRENT" ]; do
+              UPGRADE_LOG_FILE_PATH_CURRENT="${UPGRADE_LOG_FILE_PATH%.upgrade.log}.$((counter++)).upgrade.log"
+            done
+
+            exec > >(tee "${UPGRADE_LOG_FILE_PATH_CURRENT}") 2>&1
+            echo "✍ Upgrade log file path: $UPGRADE_LOG_FILE_PATH_CURRENT"
+
+            # If script exits too quickly we do not get any output so pausing for 1 second fixes it somehow?!
+            sleep 1
+            ### END LOGGING SETUP
+
+            exit_upon_signal() {
+              echo "❌ Received interrupt signal. Exiting..."
+              exit 1
+            }
+            trap exit_upon_signal SIGINT SIGTERM
+
+            es_host="http://localhost:9200"
+            es_credentials="${ELASTIC_USERNAME}:${ELASTIC_PASSWORD}"
+            ES8_SUFFIX="_cluedinmigrate"
+            # Indices imported by this pass must be created by 9.x
+            MIN_INDEX_VERSION=9000000
+            # Private settings that GET returns but PUT rejects.
+            SETTINGS_FILTER="*.settings.index,-*.settings.index.uuid,-*.settings.index.provided_name,-*.settings.index.creation_date,-*.settings.index.version,-*.settings.index.history,-*.settings.index.blocks,-*.settings.index.resize,-*.settings.index.frozen,-*.settings.index.verified_before_close,-*.settings.index.store.snapshot,-*.settings.index.routing.allocation.initial_recovery"
+
+            ###############################################################
+            ############### ELASTICSEARCH HELPERS #########################
+            ###############################################################
+
+            # es_call <method> <path> [body] - prints the response body, fails on HTTP >= 400
+            es_call() {
+              local method="$1"
+              local path="$2"
+              local payload="${3:-}"
+              local response code content
+
+              if [ -n "$payload" ]; then
+                response=$(curl -sS -u "$es_credentials" -X "$method" "${es_host}${path}" \
+                  -H 'Content-Type: application/json' -d "$payload" -w $'\n%{http_code}')
+              else
+                response=$(curl -sS -u "$es_credentials" -X "$method" "${es_host}${path}" -w $'\n%{http_code}')
+              fi
+
+              code="${response##*$'\n'}"
+              content="${response%$'\n'*}"
+
+              case "$code" in
+                2??|3??) ;;
+                *)
+                  echo "[UPGRADE] ❌ - $method $path returned HTTP ${code:-<none>}" >&2
+                  echo "$content" >&2
+                  return 1
+                  ;;
+              esac
+
+              printf '%s' "$content"
+            }
+
+            index_exists() {
+              local code
+              code=$(curl -sS -o /dev/null -w '%{http_code}' -u "$es_credentials" "${es_host}/$1")
+              case "$code" in
+                200) return 0 ;;
+                404) return 1 ;;
+                *)
+                  echo "[UPGRADE] ❌ - Could not determine whether $1 exists; GET /$1 returned HTTP ${code:-<none>}" >&2
+                  exit 1
+                  ;;
+              esac
+            }
+
+            doc_count() {
+              es_call GET "/_cat/count/$1?h=count" | tr -d '[:space:]'
+            }
+
+            index_version() {
+              local raw
+              raw=$(es_call GET "/$1/_settings/index.version.created") || return 1
+              printf '%s' "$raw" \
+                | { grep -o '"created":"[0-9]*"' || true; } \
+                | sed -n '1s/.*:"\([0-9]*\)"/\1/p'
+            }
+
+            list_es8_indices() {
+              local raw
+              raw=$(es_call GET "/_cat/indices?h=index&expand_wildcards=all") || return 1
+              printf '%s' "$raw" | tr -d ' ' | grep -E "${ES8_SUFFIX}\$" || true
+            }
+
+            # Reindex copies neither settings nor mappings. Custom analyzers live in
+            # settings and the mapping references them by name, so a destination
+            # created without settings fails the mapping PUT outright.
+            get_clean_settings() {
+              local raw inner
+              raw=$(es_call GET "/$1/_settings?filter_path=${SETTINGS_FILTER}") || return 1
+              case "$raw" in
+                *'"settings":{"index":'*) ;;
+                *)
+                  echo "[UPGRADE] ❌ - Could not read settings for $1; unexpected response: $raw" >&2
+                  return 1
+                  ;;
+              esac
+              inner="${raw#*\"settings\":\{\"index\":}"
+              inner="${inner%\}\}\}}"
+              printf '%s' "$inner"
+            }
+
+            get_mappings() {
+              local raw inner
+              raw=$(es_call GET "/$1/_mapping?filter_path=*.mappings") || return 1
+              case "$raw" in
+                *'"mappings":'*) ;;
+                *)
+                  echo "[UPGRADE] ❌ - Could not read mappings for $1; unexpected response: $raw" >&2
+                  return 1
+                  ;;
+              esac
+              inner="${raw#*\"mappings\":}"
+              inner="${inner%\}\}}"
+              # `boost` was removed as a mapping parameter; 8.x and 9.x reject it with
+              # "Unknown parameter [boost]", and indices created by previous versions
+              # set it. Matches the numeric parameter only, not a field named boost.
+              printf '%s' "$inner" \
+                | sed -e 's/"boost":[0-9][0-9.eE+-]*,//g' \
+                      -e 's/,"boost":[0-9][0-9.eE+-]*//g' \
+                      -e 's/"boost":[0-9][0-9.eE+-]*//g'
+            }
+
+            get_refresh_interval() {
+              local raw
+              raw=$(es_call GET "/$1/_settings/index.refresh_interval") || return 1
+              printf '%s' "$raw" \
+                | { grep -o '"refresh_interval":"[^"]*"' || true; } \
+                | sed -n '1s/.*:"\(.*\)"/\1/p'
+            }
+
+            set_refresh_interval() {
+              local index="$1"
+              local value="$2"
+              if [ -z "$value" ]; then
+                es_call PUT "/${index}/_settings" '{"index":{"refresh_interval":null}}' > /dev/null
+              else
+                es_call PUT "/${index}/_settings" "{\"index\":{\"refresh_interval\":\"${value}\"}}" > /dev/null
+              fi
+            }
+
+            create_index_from() {
+              local source_index="$1"
+              local new_index="$2"
+              local settings mappings
+
+              settings=$(get_clean_settings "$source_index") || return 1
+              mappings=$(get_mappings "$source_index") || return 1
+
+              echo "[UPGRADE] 👉 - Creating index $new_index from the settings and mappings of $source_index"
+              es_call PUT "/${new_index}" "{\"settings\":{\"index\":${settings}},\"mappings\":${mappings}}" > /dev/null
+            }
+
+            reindex_and_poll() {
+              local source_index="$1"
+              local dest_index="$2"
+              local task_id task_json completed total created percent
+
+              echo "[UPGRADE] 👉 - Starting reindex from $source_index to $dest_index"
+
+              task_id=$(es_call POST "/_reindex?slices=auto&wait_for_completion=false" \
+                "{\"source\":{\"index\":\"${source_index}\"},\"dest\":{\"index\":\"${dest_index}\"}}" \
+                | sed -n 's/.*"task":"\([^"]*\)".*/\1/p')
+
+              if [ -z "$task_id" ]; then
+                echo "[UPGRADE] ❌ - Failed to start reindex task for $source_index to $dest_index."
+                return 1
+              fi
+
+              echo "[UPGRADE] 👉 - Polling reindex status with task ID: $task_id"
+
+              while true; do
+                # filter_path keeps each field unique: unfiltered, "total" and "created"
+                # appear in both task.status and response.
+                task_json=$(es_call GET "/_tasks/${task_id}?filter_path=completed,task.status.total,task.status.created,response.failures,error")
+
+                # Progress comes from the task, not a doc count: refresh is disabled
+                # during the bulk load so the destination reports zero until the end.
+                completed=$(echo "$task_json" | { grep -o '"completed":[a-z]*' || true; } | sed 's/.*://')
+                total=$(echo "$task_json" | { grep -o '"total":[0-9]*' || true; } | sed 's/.*://')
+                created=$(echo "$task_json" | { grep -o '"created":[0-9]*' || true; } | sed 's/.*://')
+
+                if [ "$completed" = "true" ]; then
+                  # A task that failed outright carries a top-level error and no response
+                  if echo "$task_json" | grep -q '"error":{'; then
+                    echo "[UPGRADE] ❌ - Reindex task $task_id failed"
+                    echo "$task_json" >&2
+                    return 1
+                  fi
+
+                  # A task can also complete with per-document failures recorded
+                  if echo "$task_json" | grep -q '"failures":\[{'; then
+                    echo "[UPGRADE] ❌ - Reindex task $task_id recorded failures"
+                    echo "$task_json" >&2
+                    return 1
+                  fi
+                  echo "[UPGRADE] ✅ - Reindex from $source_index to $dest_index completed (${created:-0}/${total:-0} documents)"
+                  break
+                fi
+
+                if [ -n "$total" ] && [ "$total" -gt 0 ]; then
+                  percent=$(awk "BEGIN {printf \"%.2f\", (${created:-0}/$total)*100}")
+                else
+                  percent="0.00"
+                fi
+                echo "[UPGRADE] ⏳ - Reindex in progress $source_index -> $dest_index... $percent% (${created:-0}/${total:-0} documents)"
+
+                sleep 10
+              done
+            }
+
+            verify_counts() {
+              local left="$1"
+              local right="$2"
+              local left_count right_count
+
+              # Without this the count reads zero on a reindex that in fact succeeded:
+              # refresh is disabled during the bulk load.
+              es_call POST "/${left}/_refresh" > /dev/null
+              es_call POST "/${right}/_refresh" > /dev/null
+
+              left_count=$(doc_count "$left") || return 1
+              right_count=$(doc_count "$right") || return 1
+
+              if [ "$left_count" != "$right_count" ]; then
+                echo "[UPGRADE] ❌ - Document count mismatch: $left has $left_count, $right has $right_count"
+                return 1
+              fi
+
+              echo "[UPGRADE] ✅ - Document counts match ($left_count) for $left and $right"
+            }
+
+            ###############################################################
+            ############### PHASE 0 - PREFLIGHT ###########################
+            ###############################################################
+
+            preflight() {
+              local nodes node_count
+
+              echo "[UPGRADE] 👉 - Phase 0: preflight"
+
+              nodes=$(es_call GET "/_cat/nodes?h=name") || return 1
+              node_count=$(printf '%s' "$nodes" | grep -c . || true)
+              if [ "$node_count" -ne 1 ]; then
+                echo "[UPGRADE] ⛔ - Found $node_count Elasticsearch nodes. This migration supports single-node clusters only."
+                return 1
+              fi
+
+              echo "[UPGRADE] ✅ - Preflight passed"
+            }
+
+            ###############################################################
+            ############### PHASE 1 - SYSTEM FEATURES #####################
+            ###############################################################
+
+            # Prints the cluster-wide migration status: the response carries one status
+            # per feature plus a top-level roll-up of the most severe, which this selects.
+            system_features_status() {
+              local raw
+              raw=$(es_call GET "/_migration/system_features?filter_path=migration_status") || return 1
+              printf '%s' "$raw" \
+                | { grep -o '"migration_status":"[A-Z_]*"' || true; } \
+                | sed -n '1s/.*:"\(.*\)"/\1/p'
+            }
+
+            migrate_system_features() {
+              local status
+
+              echo "[UPGRADE] 👉 - Phase 1: system feature migration"
+
+              status=$(system_features_status) || return 1
+
+              case "$status" in
+                NO_MIGRATION_NEEDED)
+                  echo "[UPGRADE] ✅ - No system features need migration"
+                  return 0
+                  ;;
+                ERROR)
+                  echo "[UPGRADE] ❌ - A previous system feature migration is in the ERROR state; resolve it before re-running this stage"
+                  es_call GET "/_migration/system_features" || true
+                  return 1
+                  ;;
+                IN_PROGRESS)
+                  echo "[UPGRADE] 👉 - A system feature migration is already running; waiting for it to finish"
+                  ;;
+                MIGRATION_NEEDED)
+                  echo "[UPGRADE] 👉 - Triggering system feature migration"
+                  es_call POST "/_migration/system_features" > /dev/null
+                  ;;
+                *)
+                  echo "[UPGRADE] ❌ - Unrecognised system feature migration status: '${status}'"
+                  return 1
+                  ;;
+              esac
+
+              while true; do
+                status=$(system_features_status) || return 1
+
+                case "$status" in
+                  NO_MIGRATION_NEEDED)
+                    break
+                    ;;
+                  ERROR)
+                    echo "[UPGRADE] ❌ - System feature migration reported ERROR"
+                    es_call GET "/_migration/system_features" || true
+                    return 1
+                    ;;
+                  IN_PROGRESS|MIGRATION_NEEDED)
+                    ;;
+                  *)
+                    echo "[UPGRADE] ❌ - Unrecognised system feature migration status: '${status}'"
+                    return 1
+                    ;;
+                esac
+
+                echo "[UPGRADE] ⏳ - System feature migration in progress..."
+                sleep 5
+              done
+
+              echo "[UPGRADE] ✅ - System feature migration completed"
+            }
+
+            ###############################################################
+            ############### PHASE 2 - DATA STREAMS ########################
+            ###############################################################
+
+            migrate_data_streams() {
+              local streams stream status raw
+
+              echo "[UPGRADE] 👉 - Phase 2: data streams"
+
+              raw=$(es_call GET "/_data_stream?expand_wildcards=all&filter_path=data_streams.name") || return 1
+              streams=$(printf '%s' "$raw" \
+                | { grep -o '"name":"[^"]*"' || true; } \
+                | sed 's/"name":"\(.*\)"/\1/')
+
+              for stream in $streams; do
+                echo "[UPGRADE] 👉 - Checking data stream $stream for pending reindex"
+
+                # Elasticsearch keeps a reindex status for 24 hours and refuses to
+                # re-run the stream while it exists, so a stale one must be cleared.
+                status=$(es_call GET "/_migration/reindex/${stream}/_status?filter_path=start_time_millis,complete,errors" 2>/dev/null || true)
+                if echo "$status" | grep -q '"start_time_millis"'; then
+                  echo "[UPGRADE] 👉 - Clearing a previous reindex status for $stream before retrying"
+                  es_call POST "/_migration/reindex/${stream}/_cancel" > /dev/null 2>&1 || true
+                fi
+
+                es_call POST "/_migration/reindex" \
+                  "{\"source\":{\"index\":\"${stream}\"},\"mode\":\"upgrade\"}" > /dev/null
+
+                while true; do
+                  status=$(es_call GET "/_migration/reindex/${stream}/_status?filter_path=start_time_millis,complete,errors")
+
+                  if echo "$status" | grep -q '"errors":\[{'; then
+                    echo "[UPGRADE] ❌ - Data stream reindex reported errors for $stream"
+                    echo "$status"
+                    return 1
+                  fi
+
+                  if echo "$status" | grep -q '"complete":true'; then
+                    echo "[UPGRADE] ✅ - Data stream $stream checked"
+                    break
+                  fi
+
+                  echo "[UPGRADE] ⏳ - Data stream $stream reindex in progress..."
+                  sleep 10
+                done
+              done
+
+              echo "[UPGRADE] ✅ - Data streams handled"
+            }
+
+            ###############################################################
+            ############### PHASE 3 - IMPORT 8.x INDICES ##################
+            ###############################################################
+
+            import_index() {
+              local es8_index="$1"
+              local original_index="${es8_index%${ES8_SUFFIX}}"
+              local original_refresh
+
+              if index_exists "$original_index"; then
+                # Interrupted. The 8.x index is only deleted after counts verify, so
+                # whenever both exist the 8.x index is authoritative and the imported
+                # index is of unknown completeness.
+                echo "[UPGRADE] 👉 - $original_index exists alongside $es8_index; discarding the partial index"
+                es_call DELETE "/${original_index}" > /dev/null
+              fi
+
+              echo "[UPGRADE] 👉 - Importing $es8_index into $original_index"
+
+              # The 8.x index already carries the real refresh_interval, reapplied at the
+              # end of stage 2, so this reads the intended value rather than -1.
+              create_index_from "$es8_index" "$original_index"
+
+              original_refresh=$(get_refresh_interval "$original_index") || return 1
+              set_refresh_interval "$original_index" "-1"
+
+              reindex_and_poll "$es8_index" "$original_index"
+
+              set_refresh_interval "$original_index" "$original_refresh"
+
+              verify_counts "$es8_index" "$original_index"
+
+              echo "[UPGRADE] 👉 - Deleting 8.x index: $es8_index"
+              es_call DELETE "/${es8_index}" > /dev/null
+
+              echo "[UPGRADE] ✅ - Finished importing: $original_index - $(date)"
+            }
+
+            import_indices() {
+              local es8_index es8_indices
+
+              echo "[UPGRADE] 👉 - Phase 3: importing 8.x indices under their original names"
+
+              es8_indices=$(list_es8_indices) || return 1
+
+              if [ -z "$es8_indices" ]; then
+                echo "[UPGRADE] ✅ - No ${ES8_SUFFIX} 8.x indices found; nothing to import"
+                return 0
+              fi
+
+              echo "[UPGRADE] 👉 - Indices to import:"
+              echo "$es8_indices"
+
+              for es8_index in $es8_indices; do
+                import_index "$es8_index"
+              done
+
+              echo "[UPGRADE] ✅ - All indices imported"
+            }
+
+            ###############################################################
+            ############### PHASE 4 - FINAL GATE ##########################
+            ###############################################################
+
+            # The gate is what makes a green pod meaningful: the cluster is
+            # re-interrogated from scratch rather than trusting that the phase
+            # above believed itself finished.
+            final_gate() {
+              local remaining index version failed features
+
+              echo "[UPGRADE] 👉 - Phase 4: final verification"
+
+              remaining=$(list_es8_indices) || return 1
+              if [ -n "$remaining" ]; then
+                echo "[UPGRADE] ❌ - 8.x indices still present:"
+                echo "$remaining"
+                return 1
+              fi
+
+              # Wildcard expansion excludes system indices, so the check above misses them.
+              features=$(system_features_status) || return 1
+              if [ "$features" != "NO_MIGRATION_NEEDED" ]; then
+                echo "[UPGRADE] ❌ - System features report ${features}:"
+                es_call GET "/_migration/system_features" || true
+                return 1
+              fi
+
+              failed=""
+              for index in $IMPORTED_INDICES; do
+                version=$(index_version "$index") || return 1
+                if [ -z "$version" ] || [ "$version" -lt "$MIN_INDEX_VERSION" ]; then
+                  failed="${failed}${index} (${version:-unknown})"$'\n'
+                fi
+              done
+
+              if [ -n "$failed" ]; then
+                echo "[UPGRADE] ❌ - Imported indices are not stamped 9.x:"
+                echo "$failed"
+                return 1
+              fi
+
+              echo "[UPGRADE] ✅ - No 8.x indices remain, every imported index is stamped 9.x, and system features are migrated"
+            }
+
+            ###############################################################
+            ############### START LOGIC ###################################
+            ###############################################################
+
+            elastic_upgrade() {
+              local es8_index
+
+              preflight
+
+              migrate_system_features
+              migrate_data_streams
+
+              # Recorded before importing so the gate can verify the version stamp
+              # of each index this stage was responsible for
+              IMPORTED_INDICES=""
+              for es8_index in $(list_es8_indices); do
+                IMPORTED_INDICES="${IMPORTED_INDICES}${es8_index%${ES8_SUFFIX}} "
+              done
+
+              import_indices
+              final_gate
+            }
+
+            echo "[UPGRADE] 🎁 - Running ES Server in background: /usr/local/bin/docker-entrypoint.sh eswrapper"
+            /usr/local/bin/docker-entrypoint.sh eswrapper &
+            pid=$!
+
+            while true; do
+              echo "[UPGRADE] ⏳ - Waiting for ES Server to be up..."
+
+              HEALTH_STATUS=$(curl -u "${ELASTIC_USERNAME}:${ELASTIC_PASSWORD}" -s "http://localhost:9200/_cat/health?h=status" | tr -d '[:space:]')
+
+              if [ "$HEALTH_STATUS" == "yellow" ] || [ "$HEALTH_STATUS" == "green" ]; then
+                echo "[UPGRADE] ✅ - ES Server is up and ready with status: $HEALTH_STATUS"
+                break
+              fi
+
+              if ! kill -0 $pid 2>/dev/null; then
+                echo "[UPGRADE] ❌ - ES Server exited before becoming available"
+                exit 1
+              fi
+
+              sleep 5s
+            done
+
+            had_error=false
+
+            # Run the migration in a sub shell that stops on any error (exit code != 0)
+            (
+              set -e
+              set -o pipefail
+              elastic_upgrade
+            )
+
+            if [[ "$?" -ne 0 ]]; then
+              had_error=true
+            fi
+
+            kill $pid
+
+            echo "[UPGRADE] ⏳ - Waiting for ES Server (PID: $pid) to stop.."
+            # || true is used to suppress exit code.
+            wait $pid || true
+
+            echo "[UPGRADE] ✅ - ES Server stopped"
+
+            if [[ "$had_error" == "true" ]]; then
+              echo "[UPGRADE] ❌ - There were errors during the migration. The pod will not become Ready."
+              exit 1
+            fi
+
+            # Must be fatal: exiting 0 without the lock leaves nothing to stop a later
+            # restart booting 8.19 against a 9.x data directory - an unrecoverable pod.
+            if ! touch "$UPGRADE_LOCK_FILE_PATH"; then
+              echo "[UPGRADE] ❌ - Could not write lock file: $UPGRADE_LOCK_FILE_PATH"
+              exit 1
+            fi
+            echo "[UPGRADE] 👋 - Indices imported under 9.x. Wrote lock file: $UPGRADE_LOCK_FILE_PATH"
+            echo "[UPGRADE] 👋 - Continue with the remaining upgrade steps."
+
+            exit 0

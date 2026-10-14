@@ -1,0 +1,71 @@
+# Stage 1 - scale CluedIn workloads to zero so nothing writes to Elasticsearch
+# while stage 2 migrates its indices.
+#
+# ⚠ Do NOT replace this with `application.enabled: false`. The application chart
+# templates the cluedin-data-source and cluedin-init-data PVCs without
+# `helm.sh/resource-policy: keep`, so disabling the subchart deletes them and
+# their data. Per-component flags do not.
+
+global:
+  containerImages:
+    initSql:
+      enabled: false
+    initNeo4J:
+      enabled: false
+    initCluedIn:
+      enabled: false
+
+application:
+  cluedin:
+    roles:
+      main:
+        count: 0
+      processing:
+        count: 0
+      crawling:
+        count: 0
+  cluedincontroller:
+    enabled: false
+  cluedinai:
+    enabled: false
+  datasource:
+    replicas: 0
+  datasourceProcessing:
+    replicas: 0
+  gql:
+    replicas: 0
+  submitter:
+    replicas: 0
+  ui:
+    replicas: 0
+  webapi:
+    replicas: 0
+  oauth2:
+    enabled: false
+  libpostal:
+    enabled: false
+  monitoring:
+    enabled: false
+  openrefine:
+    enabled: false
+
+infrastructure:
+  # cert-manager stays enabled: removing and re-adding it leaves a stale webhook
+  # CA bundle that fails the next helm upgrade.
+
+  # HAProxy must remain enabled. Setting this to false will remove all HAProxy resources,
+  # including the LoadBalancer service. Since the LoadBalancer IP is dynamically assigned,
+  # deleting and recreating the service may result in a different IP address.
+  
+  monitoring:
+    enabled: false
+  mssql:
+    enabled: false
+  neo4j:
+    enabled: false
+  rabbitmq:
+    enabled: false
+  redis:
+    enabled: false
+  elasticsearch:
+    enabled: false
