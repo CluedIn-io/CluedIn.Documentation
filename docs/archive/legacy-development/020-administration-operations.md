@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 20
 permalink: /archive/legacy-development/administration-operations
 content_type: reference
-redirect_from: ["/development/administration-operations"]
 source_path: docs/090-development/020-administration-operations.md
 tags: ["development","administration"]
 published: false

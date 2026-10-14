@@ -19,7 +19,7 @@ You can reduce the number of duplicates in the system proactively even before cr
  
 The following diagram shows the basic steps for merging duplicates in CluedIn.
 
-![dedup-main.gif]({{ "/assets/images/management/deduplication/dedup-main.gif" | relative_url }})
+![How to merge duplicates in CluedIn: 1 configure matching rules, 2 review groups of duplicates, 3 merge duplicates, 4 reevaluate merged records, 5 optionally revert merges]({{ "/assets/images/management/deduplication/dedup-main.gif" | relative_url }})
 
 This section covers the following areas:
 

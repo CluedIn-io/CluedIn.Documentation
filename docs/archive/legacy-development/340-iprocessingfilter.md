@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 340
 permalink: /archive/legacy-development/iprocessingfilter
 content_type: reference
-redirect_from: ["/developer/iprocessingfilter"]
 source_path: docs/090-development/420-adding-iprocessingfilter.md
 tags: ["development","processors"]
 published: false

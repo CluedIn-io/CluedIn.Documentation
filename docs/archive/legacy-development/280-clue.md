@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 280
 permalink: /archive/legacy-development/clue
 content_type: reference
-redirect_from: ["/development/clue"]
 source_path: docs/090-development/330-clue.md
 tags: ["development","clues"]
 published: false

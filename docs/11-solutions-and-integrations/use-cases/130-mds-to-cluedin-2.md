@@ -35,7 +35,7 @@ CluedIn adoption works best when you treat the output as a **product**:
 - improve continuously
 - publish explicit contracts through Streams to Export Targets 
 
-![MindsetShift](/assets/images/playbooks/mds/minsetshift.svg)
+![Diagram: the MDS mindset (hub and UI centric, version cycles, one schema to satisfy all, publish views) leads through a mindset shift to the CluedIn mindset (master across sources, continuous improvement, explicit consumer contracts, streams and connectors)](/assets/images/playbooks/mds/mindsetshift.svg)
 
 ---
 

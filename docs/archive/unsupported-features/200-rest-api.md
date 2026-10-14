@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 200
 permalink: /archive/unsupported-features/rest-api
 content_type: reference
-redirect_from: ["/consume/rest-api"]
 source_path: docs/150-consume/outdated/080-rest-api.md
 tags: ["consume","rest-api"]
 published: false

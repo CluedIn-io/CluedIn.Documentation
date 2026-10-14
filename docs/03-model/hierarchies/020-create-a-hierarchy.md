@@ -52,7 +52,7 @@ Creating a hierarchy manually gives you the possibility to build it from scratch
 
     1. Select **Next**.
 
-        ![create_hierarchy_manually_general_tab.png](/assets/images/management/hierarchy-builder/create_hierarchy_manually_general_tab.png)
+        ![General tab of the Create Hierarchy pane with a hierarchy name entered and TrainingCompany selected as the business domain](/assets/images/management/hierarchy-builder/create_hierarchy_manually_general_tab.png)
 
 1. On the **Hierarchy configuration** tab, do the following:
 
@@ -60,11 +60,11 @@ Creating a hierarchy manually gives you the possibility to build it from scratch
 
     1. Select **Create**.
 
-       ![create_hierarchy_manually_configuration_tab.png](/assets/images/management/hierarchy-builder/create_hierarchy_manually_configuration_tab.png)
+       ![Hierarchy configuration tab of the Create Hierarchy pane with Blank selected as the Hierarchy starting point](/assets/images/management/hierarchy-builder/create_hierarchy_manually_configuration_tab.png)
 
 1. Build the hierarchy by dragging the golden records from the left pane to the project canvas.
 
-    ![create-hierarchy-manual-2.gif](/assets/images/management/hierarchy-builder/create-hierarchy-manual-2.gif)
+    ![Animation: dragging golden records from the left pane onto the hierarchy project canvas to build the hierarchy](/assets/images/management/hierarchy-builder/create-hierarchy-manual-2.gif)
 
     You can load golden records of other entity types and add them to the hierarchy as well. To learn more, see [Work in a hierarchy project](/model/hierarchies/work-in-a-hierarchy-project).
 
@@ -103,11 +103,11 @@ Sometimes your data has natural hierarchies that are represented as relations. Y
 
     1. Select **Next**.
 
-    ![create_hierarchy_from_relations_general_tab.png](/assets/images/management/hierarchy-builder/create_hierarchy_from_relations_general_tab.png)
+    ![General tab of the Create Hierarchy pane with the name Group-Company entered and the Business domain field empty](/assets/images/management/hierarchy-builder/create_hierarchy_from_relations_general_tab.png)
 
 1. On the **Hierarchy configuration** tab, in **Hierarchy starting point**, select **From existing relations**.
 
-    ![create_hierarchy_from_relations_configuration_tab_from_relations_option.png](/assets/images/management/hierarchy-builder/create_hierarchy_from_relations_configuration_tab_from_relations_option.png)
+    ![Hierarchy configuration tab with From existing relations selected, showing the Relation type, Edge direction and top-level options](/assets/images/management/hierarchy-builder/create_hierarchy_from_relations_configuration_tab_from_relations_option.png)
 
 1. In **Relation type**, select the edge type that represents relations between golden records that will be loaded to the hierarchy project. The edge types available depend on the business domain selected on the **General** tab.
 
@@ -127,7 +127,7 @@ Sometimes your data has natural hierarchies that are represented as relations. Y
 
 1. Select **Create**.
 
-    ![create_hierarchy_from_relations_configuration_tab.png](/assets/images/management/hierarchy-builder/create_hierarchy_from_relations_configuration_tab.png)
+    ![Hierarchy configuration tab with relation type /CompanyOf, Incoming edge direction, Automatically top level and Single hierarchy project selected](/assets/images/management/hierarchy-builder/create_hierarchy_from_relations_configuration_tab.png)
 
     The number of hierarchy projects that are created depends on the selected **Multiple hierarchy projects** option. In case of **Single hierarchy project**, the hierarchy project opens right away, and you can review and modify it as needed. In case of **Multiple hierarchy project**, you need to open each project to review and modify it as needed. You can load golden records of other entity types and add them to the hierarchy as well. To learn more, see [Work in a hierarchy project](/model/hierarchies/work-in-a-hierarchy-project).
 

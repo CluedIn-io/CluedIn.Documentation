@@ -43,7 +43,7 @@ If you selected a business domain when creating the hierarchy, only the types of
 
 1. Select **Load Entities**.
 
-    ![load_entities.gif](/assets/images/management/hierarchy-builder/load_entities.gif)
+    ![Animation: selecting Load Entities in a hierarchy project so the previewed golden records are added to the left pane, ready to drag onto the canvas](/assets/images/management/hierarchy-builder/load_entities.gif)
 
     The golden records are added to the hierarchy project canvas in a way that shows their relationships to other golden records. You can load as many golden records as you want.
 
@@ -65,7 +65,7 @@ While working in a hierarchy project, you can replace nodes or delete a node or 
 
 1. After replacing all nodes, turn off the **Replace on drop** mode by clicking the corresponding button.
 
-    ![replace_node.gif](/assets/images/management/hierarchy-builder/replace_node.gif)
+    ![Animation: with Replace on drop turned on, searching the left pane for a node and dragging it onto an existing node on the hierarchy canvas to replace it](/assets/images/management/hierarchy-builder/replace_node.gif)
 
     The node that you replaced is still available in the left pane, so you can drag it to the canvas again if needed.
 
@@ -77,7 +77,7 @@ While working in a hierarchy project, you can replace nodes or delete a node or 
 
     - **Delete Subtree** – all child nodes will be deleted, but the parent node will remain intact.
 
-        ![delete-notes-1.png](/assets/images/management/hierarchy-builder/delete-notes-1.png)
+        ![Node context menu on the hierarchy canvas with the Delete Node and Delete Subtree options highlighted](/assets/images/management/hierarchy-builder/delete-notes-1.png)
 
         The nodes are deleted from the hierarchy. However, they are still available in the left pane, so you can drag them to the canvas again if needed.
 
@@ -91,7 +91,7 @@ While working in a hierarchy project, you can adjust the hierarchy view using va
 
 - To collapse all levels of the hierarchy, in the lower-right corner, select the **Collapse All** button. All subtrees will be collapsed to the top-level parent node.
 
-    ![collapse-hierarchy.png](/assets/images/management/hierarchy-builder/collapse-hierarchy.png)
+    ![Hierarchy canvas with the Collapse All button in the lower-right corner, below the layout button](/assets/images/management/hierarchy-builder/collapse-hierarchy.png)
 
 - To expand all levels of the hierarchy, in the lower-right corner, select the **Expand All** button. All subtrees will be expanded.
 
@@ -101,4 +101,4 @@ While working in a hierarchy project, you can adjust the hierarchy view using va
 
 - To navigate the hierarchy canvas, use the **Zoom In**, **Zoom Out**, **Focus**, and **Full Screen** buttons.
 
-    ![hierarchy_navigation_buttons.png](/assets/images/management/hierarchy-builder/hierarchy_navigation_buttons.png)
+    ![Hierarchy project canvas with the Zoom In, Focus, Zoom Out and Full Screen buttons highlighted on the left side](/assets/images/management/hierarchy-builder/hierarchy_navigation_buttons.png)

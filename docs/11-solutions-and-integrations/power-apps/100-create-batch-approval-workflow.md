@@ -6,7 +6,6 @@ grand_parent: Solutions & integrations
 nav_order: 100
 permalink: /solutions/power-apps/create-batch-approval-workflow
 content_type: how-to
-redirect_from: ["/microsoft-integration/powerapps/features/create-batch-approval-workflow"]
 source_path: docs/180-microsoft-integration/powerapps/020-features/040-create-batch-approval-worrkflow.md
 tags: ["integration", "microsoft", "powerautomate", "approval", "workflow"]
 last_modified: 2023-05-17

@@ -32,13 +32,13 @@ To sync data sources between Purview and CluedIn, complete 2 preparation steps:
 
 1. Select **New glossary**.
 
-    ![sync-data-sources-create-glossary.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-create-glossary.png" | relative_url }})
+    ![The Classic types page of the Purview Unified Catalog, Glossaries tab, with the New glossary button highlighted]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-create-glossary.png" | relative_url }})
 
 1. Enter the **Name** of the glossary.
 
 1. Select the default **Domain** that contains the collections you created in [Create a new collection](/solutions/purview/pre-configuration-guide#create-a-new-collection).
 
-    ![sync-data-sources-new-glossary.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-new-glossary.png" | relative_url }})
+    ![The New glossary form with the name Data Synchronization and the default CluedIn-Purview domain selected]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-new-glossary.png" | relative_url }})
 
 1. Find and select the **Data Steward** and the **Expert** who will manage the glossary.
 
@@ -46,7 +46,7 @@ To sync data sources between Purview and CluedIn, complete 2 preparation steps:
 
     The new glossary is created. Next, add a term to the glossary.
 
-    ![sync-data-sources-glossary-created.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-glossary-created.png" | relative_url }})
+    ![The new Data Synchronization glossary in Purview, with no terms yet]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-glossary-created.png" | relative_url }})
 
 1. To add a term to the glossary:
 
@@ -60,7 +60,7 @@ To sync data sources between Purview and CluedIn, complete 2 preparation steps:
 
     The new term is added to the glossary. Next, add the term to the asset that you want to sync with CluedIn.
 
-    ![sync-data-sources-term-created.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-term-created.png" | relative_url }})
+    ![The Sync to CluedIn term in the Data Synchronization glossary, with no catalog assets associated yet]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-term-created.png" | relative_url }})
 
 1. To add the term to the asset that you want to sync with CluedIn:
 
@@ -74,13 +74,13 @@ To sync data sources between Purview and CluedIn, complete 2 preparation steps:
 
     1. In **Glossary terms**, find and select the term you created in step 7.
 
-        ![sync-data-sources-add-term-to-asset.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-add-term-to-asset.png" | relative_url }})
+        ![Editing the Account.csv asset in Purview, with the Sync to CluedIn term selected under Glossary terms highlighted]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-add-term-to-asset.png" | relative_url }})
 
     1. Select **Save**.
 
     The term is added to the asset that you want to sync with CluedIn. On the term details page, you can find the assets associated with the term.
 
-    ![sync-data-sources-term-with-assets-associated.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-term-with-assets-associated.png" | relative_url }})
+    ![The Sync to CluedIn term page with Catalog assets highlighted, showing one associated asset and a View asset link]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-term-with-assets-associated.png" | relative_url }})
 
     Once you have prepared the data sources that you want to sync, configure the appropriate settings in CluedIn.
 
@@ -92,7 +92,7 @@ To sync data sources between Purview and CluedIn, complete 2 preparation steps:
 
 1. In **Sync CluedIn Data Sources Keywords**, enter the name of the term that is associated with assets you want to sync. If you want to sync all assets, enter an asterisk (*).
 
-    ![sync-data-sources-cluedin-settings.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-cluedin-settings.png" | relative_url }})
+    ![CluedIn Purview settings with Sync CluedIn Data Sources enabled and the keyword Sync to CluedIn entered]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-cluedin-settings.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -106,11 +106,11 @@ This section describes the two methods of data source synchronization: from Purv
 
 When the synchronization is completed, you will receive a notification.
 
-![sync-data-sources-notification.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-notification.png" | relative_url }})
+![A Notification Center message: Data source created, Data source Account.csv created for purview asset]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-notification.png" | relative_url }})
 
 After synchronization, you can view the data source groups in **Integrations** > **Data Sources**. Each Purview asset is created in CluedIn as a separate data source group.
 
-![sync-data-sources-data-sources.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-data-sources.png" | relative_url }})
+![The Data Sources page in CluedIn with an Account.csv group containing the Account.csv endpoint data source, with no data imported yet]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-data-sources.png" | relative_url }})
 
 As a result of synchronization, asset metadata is now available in CluedIn. Synchronization runs every minute, so new assets will be automatically synced with CluedIn.
 
@@ -118,7 +118,7 @@ As a result of synchronization, asset metadata is now available in CluedIn. Sync
 
 Once you create the mapping and process the data set from the data source synced from Purview, you will receive a notification when the data set is synced back to Purview.
 
-![sync-data-sources-data-set-synced-notification.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-data-set-synced-notification.png" | relative_url }})
+![A notification: Data set synced to Purview, Data Set Account.csv synced to Purview]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-data-set-synced-notification.png" | relative_url }})
 
 **To find the asset in Purview**
 
@@ -134,8 +134,8 @@ Once you create the mapping and process the data set from the data source synced
 
     The following screenshot shows the initial data set that has been ingested into CluedIn. The data set is then mapped to standard fields, resulting in clues. Finally, the mapped records (clues) are sent to the processing pipeline.
 
-    ![sync-data-sources-lineage-1.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-lineage-1.png" | relative_url }})
+    ![Purview lineage: Account.csv flows through Ingest Data to the CluedIn data set, through Annotation to mapped fields, and through Generate Clue to the processing pipeline]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-lineage-1.png" | relative_url }})
 
     The following screenshot shows the continuation of the lineage from the previous screenshot. As a result of processing, the data set produced golden records of the Account entity type.
  
-    ![sync-data-sources-lineage-2.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-lineage-2.png" | relative_url }})
+    ![Purview lineage continued: the processing pipeline flows through Process Entities to vocabulary and processed entities, then through Golden Record to Account]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-lineage-2.png" | relative_url }})

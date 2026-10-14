@@ -12,7 +12,7 @@ source_path: docs/110-key-terms-and-features/070-connectors.md
 
 In this article, you will learn about the differences and similarities between the following types of connectors in CluedIn—a crawler, an enricher, and an export target.
 
-![connectors.png]({{ "/assets/images/key-terms-and-features/connectors.png" | relative_url }})
+![Diagram: three connector types, each requiring auth: Crawler gets data in without prerequisites, Enricher gets data in based on a vocabulary key value, Export target pushes golden records out]({{ "/assets/images/key-terms-and-features/connectors.png" | relative_url }})
 
 All connectors link CluedIn with an external system, yet each one has a distinct purpose.
 

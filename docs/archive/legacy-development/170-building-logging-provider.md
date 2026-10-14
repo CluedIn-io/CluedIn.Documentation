@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 170
 permalink: /archive/legacy-development/building-logging-provider
 content_type: reference
-redirect_from: ["/development/building-logging-provider"]
 source_path: docs/090-development/190-building-logging-provider.md
 tags: ["development","logging"]
 published: false

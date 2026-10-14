@@ -31,7 +31,7 @@ The enricher uses the Legal Entity Identifier (LEI) code to search for informati
 
 1. On the **Choose Enricher** tab, select **Gleif**, and then select **Next**.
 
-    ![gleif-enricher-1.png]({{ "/assets/images/preparation/enricher/gleif-enricher-1.png" | relative_url }})
+    ![Add Enricher dialog on the Choose enricher tab with Gleif selected]({{ "/assets/images/preparation/enricher/gleif-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -41,7 +41,7 @@ The enricher uses the Legal Entity Identifier (LEI) code to search for informati
 
     - **Skip Entity Code Creation (Lei Code)** – turn on the toggle if you don't want to add new entity codes that come from the source system to the enriched golden records. Otherwise, new entity codes containing LEI codes will be added to the enriched golden records.
 
-        ![gleif-enricher-5.png]({{ "/assets/images/preparation/enricher/gleif-enricher-5.png" | relative_url }})
+        ![Gleif enricher configuration with Accepted Business Domain set to Organization and Lei Code Vocabulary Key set to organization.codes.lei]({{ "/assets/images/preparation/enricher/gleif-enricher-5.png" | relative_url }})
 
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
@@ -57,11 +57,11 @@ After the Gleif enricher is added, you can modify its details:
 
 To quickly find the properties added to golden records from the Gleif enricher, use the integrations filter on the **Properties** page.
 
-![gleif-enricher-3.png]({{ "/assets/images/preparation/enricher/gleif-enricher-3.png" | relative_url }})
+![Properties page of the Pfizer golden record showing properties such as Entity Category, Entity Status and Address with Gleif as the source]({{ "/assets/images/preparation/enricher/gleif-enricher-3.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the Gleif enricher, check the corresponding data part on the **History** page.
 
-![gleif-enricher-4.png]({{ "/assets/images/preparation/enricher/gleif-enricher-4.png" | relative_url }})
+![History page of the Pfizer golden record with the Gleif data part highlighted]({{ "/assets/images/preparation/enricher/gleif-enricher-4.png" | relative_url }})
 
 The following table lists the properties that can be added to golden records by the Gleif enricher.
 

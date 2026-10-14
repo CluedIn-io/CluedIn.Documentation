@@ -5,7 +5,7 @@ nav_order: 5
 has_children: true
 permalink: /govern
 content_type: landing
-redirect_from: ["/preparation", "/governance", "/management"]
+redirect_from: ["/preparation", "/governance", "/management", "/governance/consent-management", "/governance/data-breaches", "/governance/subject-access-request"]
 ---
 
 <div class="audience">

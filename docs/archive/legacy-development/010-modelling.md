@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 10
 permalink: /archive/legacy-development/modelling
 content_type: reference
-redirect_from: ["/development/modelling"]
 source_path: docs/090-development/010-modelling.md
 tags: ["development","modelling"]
 published: false

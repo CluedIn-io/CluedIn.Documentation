@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 100
 permalink: /archive/unsupported-features/subject-access-request
 content_type: reference
-redirect_from: ["/governance/subject-access-request"]
 source_path: docs/070-governance/outdated/100-subject-access-request.md
 tags: ["governance","access-control"]
 published: false

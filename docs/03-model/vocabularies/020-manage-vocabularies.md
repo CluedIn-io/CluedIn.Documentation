@@ -49,7 +49,7 @@ You can edit any aspect of the vocabulary configuration, with the exception of t
 
 This tab provides the global view of vocabulary usage in the system: number of golden records, streams, glossary terms, and rules where the vocabulary is used. By selecting the respective button, you can access a list of streams, glossary terms, and rules, along with links to the corresponding elements in the system.
 
-![vocabulary-usage.gif]({{ "/assets/images/management/data-catalog/vocabulary-usage.gif" | relative_url }})
+![Animation: the Usage tab of the Customer vocabulary showing counts of entities, streams, glossary terms, and rules, then selecting View stream usage and View rule usage]({{ "/assets/images/management/data-catalog/vocabulary-usage.gif" | relative_url }})
 
 **Owners**
 
@@ -59,7 +59,7 @@ This tab contains a list of users who can manage the vocabulary (Vocabulary Owne
 
 This tab contains groups of vocabulary keys associated with the vocabulary. You can search for specific keys or use [data type](/model/data-catalog/data-types) and classification filters to explore the available metadata within the vocabulary.
 
-![vocabulary-keys.gif]({{ "/assets/images/management/data-catalog/vocabulary-keys.gif" | relative_url }})
+![Animation: the Vocabulary Keys tab of the Customer vocabulary, expanding a key group and using the search box and data type filter]({{ "/assets/images/management/data-catalog/vocabulary-keys.gif" | relative_url }})
 
 For information on how to manage vocabulary keys, see [Vocabulary keys](/model/vocabularies/vocabulary-keys).
 
@@ -105,7 +105,7 @@ Depending on the selected [data modeling approach](/model/data-catalog/modeling-
 
 1. Select **Create**.
 
-    ![create-vocabulary.gif]({{ "/assets/images/management/data-catalog/create-vocabulary.gif" | relative_url }})
+    ![Animation: selecting Create Vocabulary on the All Vocabularies page, entering the vocabulary name, business domain, key prefix, and description, and selecting Create]({{ "/assets/images/management/data-catalog/create-vocabulary.gif" | relative_url }})
 
     The vocabulary page opens, where you can view and manage vocabulary details.
     
@@ -121,4 +121,4 @@ Only Vocabulary Owners and Administrators can edit the vocabulary configuration.
 
 1. Make the needed changes, and then select **Save** and confirm your choice.
 
-    ![edit-vocabulary.gif]({{ "/assets/images/management/data-catalog/edit-vocabulary.gif" | relative_url }})
+    ![Animation: selecting Edit on the Customer vocabulary Configuration tab, changing settings, then selecting Save and confirming]({{ "/assets/images/management/data-catalog/edit-vocabulary.gif" | relative_url }})

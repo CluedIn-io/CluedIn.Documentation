@@ -40,7 +40,7 @@ This runbook is recommended for instances with less than 1M records.
 
 An automation account must be provided. The runbook will be installed into the the automation account. The three dependent runbooks must already be installed. Typically, the runbook should be scheduled to run once a day outside of office hours.
 
-![disaster-recovery-runbook.png]({{ "/assets/images/paas-operations/disaster-recovery-runbook-2026.png" | relative_url }})
+![Architecture: in an automation account, the orchestrate runbook triggers the backup runbook, which snapshots production AKS and Azure SQL; the transfer runbook copies snapshots to the DR region, and the restore runbook restores them to DR AKS and SQL]({{ "/assets/images/paas-operations/disaster-recovery-runbook-2026.png" | relative_url }})
 
 ## Input parameters
 
@@ -88,6 +88,6 @@ The idle CluedIn DR instance in the secondary region is prepared and validated a
 6. Verify that all services start successfully and the system operates without errors.
 7. After validation, scale the CluedIn environment back down to its idle state to optimize cost.
 
-![disaster-recovery-runbook-process.png]({{ "/assets/images/paas-operations/disaster-recovery-runbook-process.png" | relative_url }})
+![Flow: start, trigger backup, wait for backups to complete, copy snapshots to target, wait for transfer, restore CluedIn, wait for restore to complete, stop]({{ "/assets/images/paas-operations/disaster-recovery-runbook-process.png" | relative_url }})
 
 Scaling down of the DR environment following a successful restore is optional.

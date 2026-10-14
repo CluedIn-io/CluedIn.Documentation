@@ -41,7 +41,7 @@ You can add input parameters for the enricher (organization name, country, and C
 
 1. On the **Choose Enricher** tab, select **Companies House**, and then select **Next**.
 
-    ![comapnies-house-enricher-1.png]({{ "/assets/images/preparation/enricher/comapnies-house-enricher-1.png" | relative_url }})
+    ![The Add Enricher dialog on the Choose enricher tab, with Companies House selected]({{ "/assets/images/preparation/enricher/comapnies-house-enricher-1.png" | relative_url }})
 
 1. On the **Configure** tab, provide the following details:
 
@@ -51,13 +51,13 @@ You can add input parameters for the enricher (organization name, country, and C
 
     - **Companies House Number Vocabulary Key** – enter the vocabulary key that contains the Companies House number that will be used for searching the Companies House website.
 
-        ![comapnies-house-enricher-config-1.png]({{ "/assets/images/preparation/enricher/comapnies-house-enricher-config-1.png" | relative_url }})    
+        ![Configure tab with API Key, Accepted Business Domain set to Organization, and Companies House Number Vocabulary Key set to organization.codes.companyHouse]({{ "/assets/images/preparation/enricher/comapnies-house-enricher-config-1.png" | relative_url }})    
 
     - **Country Vocabulary Key** – enter the vocabulary key that contains the countries of companies that will be used for searching the Companies House website.
 
     - **Organization Name Vocabulary Key** – enter the vocabulary key that contains the names of companies that will be used for searching the Companies House website.
 
-        ![comapnies-house-enricher-config-2.png]({{ "/assets/images/preparation/enricher/comapnies-house-enricher-config-2.png" | relative_url }})
+        ![Configure tab with Country Vocabulary Key, Organization Name Vocabulary Key, and the Search using Golden Record Name toggle turned off]({{ "/assets/images/preparation/enricher/comapnies-house-enricher-config-2.png" | relative_url }})
 
 1. Select **Test Connection** to make sure the enricher is properly configured, and then select **Add**.
 
@@ -73,11 +73,11 @@ After the Companies House enricher is added, you can modify its details:
 
 You can find the properties added to golden records from the Companies House enricher on the **Properties** page.
 
-![comapnies-house-enricher-4.png]({{ "/assets/images/preparation/enricher/comapnies-house-enricher-4.png" | relative_url }})
+![Properties page of a golden record listing address line, locality and post code properties whose source is Companies House]({{ "/assets/images/preparation/enricher/comapnies-house-enricher-4.png" | relative_url }})
 
 For a more detailed information about the changes made to a golden record by the Companies House enricher, check the corresponding data part on the **History** page.
 
-![comapnies-house-enricher-5.png]({{ "/assets/images/preparation/enricher/comapnies-house-enricher-5.png" | relative_url }})
+![History page of a golden record with the Companies House data part highlighted above the file data source part]({{ "/assets/images/preparation/enricher/comapnies-house-enricher-5.png" | relative_url }})
 
 The following table lists the properties that can be added to golden records by the Companies House enricher.
 

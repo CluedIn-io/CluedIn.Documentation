@@ -25,15 +25,15 @@ Stream controls allows you to manage the process of sending records to the expor
 
 - **Start** – the stream will start accumulating records in the queue and sending them to the export target.
 
-    ![start-stream.gif]({{ "/assets/images/consume/streams/start-stream.gif" | relative_url }})
+    ![Animation: when the stream is started, CluedIn sends records into the message queue, and the queue sends them on to the export target]({{ "/assets/images/consume/streams/start-stream.gif" | relative_url }})
 
 - **Pause** – the stream will stop sending records to the export target, but it will still continue accumulating records in the queue.
 
-    ![pause-stream.gif]({{ "/assets/images/consume/streams/pause-stream.gif" | relative_url }})
+    ![Animation: when the stream is paused, CluedIn keeps adding records to the message queue, but nothing is sent to the export target]({{ "/assets/images/consume/streams/pause-stream.gif" | relative_url }})
 
 - **Stop** – the stream will stop sending records to the export target and accumulating records in the queue.
 
-    ![stop-stream.png]({{ "/assets/images/consume/streams/stop-stream.png" | relative_url }})
+    ![Diagram of a stopped stream: CluedIn does not accumulate data in the message queue, and the queue does not send data to the export target]({{ "/assets/images/consume/streams/stop-stream.png" | relative_url }})
 
 Think of these stream controls as similar to the controls on a video player. When you select **Pause**, the stream halts temporarily, remembering your playback position and storing records in the queue. This way, when you resume the stream, it continues from where you left off, maintaining your progress. On the other hand, **Stop** leads to a complete termination of the streaming process and clearing of the queue. If you start the stream after it had been stopped, it will start sending records to the export target from the beginning, not from the point at which you stopped the stream.
 
@@ -115,13 +115,13 @@ You can view and manage field mappings on the **Field mappings** tab of the stre
 
 1. In **Source field**, search for and select the field from your data that you want to export. You can pick an entity property (for example, Description) or a vocabulary key (for example, a customer's first name). If more than one field shares the same name, CluedIn shows the vocabulary it belongs to next to it so you can tell them apart.
 
-    ![manage-field-mappings-2-vocab-search.png]({{ "/assets/images/consume/streams/manage-field-mappings-2-vocab-search.png" | relative_url }})
+    ![The Field mappings tab of a stream with first name typed in Source field, suggesting First Name and First Name (Metadata)]({{ "/assets/images/consume/streams/manage-field-mappings-2-vocab-search.png" | relative_url }})
 
 1. In **Export field name**, enter the name that the field should have in the exported output. If you keep this the same as the source field, the field keeps its original name on export.
 
 1. Select **Save mappings**.
 
-    ![manage-field-mappings-1.png]({{ "/assets/images/consume/streams/manage-field-mappings-1.png" | relative_url }})
+    ![The Field mappings tab with two mappings, Authors to Author_Name and Description to FirstName, and a Stream mappings saved message]({{ "/assets/images/consume/streams/manage-field-mappings-1.png" | relative_url }})
 
 **To edit or remove a field mapping**
 
@@ -146,7 +146,7 @@ On the stream details page, there are several tabs where you can view stream-rel
 
 You can use folders to organize streams—for example, by export target or by team. Folders and streams appear together in the same list, similar to files and folders in a file explorer. Streams that aren't assigned to a folder appear in the root list, alongside any folders.
 
-![organize-streams-folders-list.png]({{ "/assets/images/consume/streams/organize-streams-folders-list.png" | relative_url }})
+![The Streams list showing folders such as Finance at the top, followed by streams that are not in a folder]({{ "/assets/images/consume/streams/organize-streams-folders-list.png" | relative_url }})
 
 **To create a folder**
 
@@ -160,7 +160,7 @@ The new folder appears as a row in the list.
 
 - Drag the stream row and drop it onto the folder row.
 
-    ![organize-streams-drag-to-folder.png]({{ "/assets/images/consume/streams/organize-streams-drag-to-folder.png" | relative_url }})
+    ![The Streams list after a stream was dropped onto the Finance folder row, with a Stream folder updated message]({{ "/assets/images/consume/streams/organize-streams-drag-to-folder.png" | relative_url }})
 
     You can also assign a folder from the stream's **Configuration** tab: in **Folder**, select an existing folder, or type a new folder name to create one, and then select **Save**. This field is also available when you [create a stream](/publish/streams/create-a-stream).
 
@@ -168,7 +168,7 @@ The new folder appears as a row in the list.
 
 - In the list of streams, select the folder that you want to view.
 
-    ![organize-streams-inside-folder-breadcrumb.png]({{ "/assets/images/consume/streams/organize-streams-inside-folder-breadcrumb.png" | relative_url }})
+    ![The contents of the Finance folder, with a Root to Finance breadcrumb above the list of its streams]({{ "/assets/images/consume/streams/organize-streams-inside-folder-breadcrumb.png" | relative_url }})
 
     The breadcrumb at the top of the list shows **Root > <folder name>**. Select **Root** in the breadcrumb to return to the merged list of folders and unfoldered streams.
 
@@ -184,13 +184,13 @@ You can duplicate a stream if you want to send the same selection of golden reco
 
 Duplication is a beta feature. To access it, go to **Administration** > **Feature Flags**, and enable the **Duplicate Actions** feature.
 
-![duplicate-actions-feature-flag.png]({{ "/assets/images/shared/duplicate-actions-feature-flag.png" | relative_url }})
+![The Duplicate Actions feature flag, marked Beta, with its toggle set to Enabled]({{ "/assets/images/shared/duplicate-actions-feature-flag.png" | relative_url }})
 
 **To duplicate a stream**
 
 1. In the list of streams, find a stream that you want to duplicate. Then, open the three-dot menu for the stream, and select **Duplicate**.
 
-    ![duplicate-stream-1.png]({{ "/assets/images/consume/streams/duplicate-stream-1.png" | relative_url }})
+    ![The three-dot menu of a stream open, with the Duplicate option highlighted]({{ "/assets/images/consume/streams/duplicate-stream-1.png" | relative_url }})
 
 1. In **Name**, review the default name of the new stream and modify it if needed. The default name is created by adding __duplicate_ to the name of the stream that you're duplicating.
 
@@ -198,7 +198,7 @@ Duplication is a beta feature. To access it, go to **Administration** > **Fea
 
 1. In **Actions**, review the list of actions that will be duplicated for the new stream. To view the details of a specific action, select **View Action Details**.
 
-    ![duplicate-stream-2.png]({{ "/assets/images/consume/streams/duplicate-stream-2.png" | relative_url }})
+    ![The Duplicate stream dialog with the new stream name, the conditions and actions to be duplicated, and a Duplicate button]({{ "/assets/images/consume/streams/duplicate-stream-2.png" | relative_url }})
 
 1. Select **Duplicate**.
 

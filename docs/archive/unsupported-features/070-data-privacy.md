@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 70
 permalink: /archive/unsupported-features/data-privacy
 content_type: reference
-redirect_from: ["/governance/data-privacy"]
 source_path: docs/070-governance/outdated/070-data-privacy.md
 tags: ["governance","data-privacy"]
 published: false

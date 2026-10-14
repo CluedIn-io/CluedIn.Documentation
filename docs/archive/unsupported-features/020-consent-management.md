@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 20
 permalink: /archive/unsupported-features/consent-management
 content_type: reference
-redirect_from: ["/governance/consent-management"]
 source_path: docs/070-governance/outdated/020-consent-management.md
 tags: ["governance","consent-management"]
 published: false

@@ -28,11 +28,11 @@ When you upload the data into CluedIn, it appears on the **Preview** tab that di
 
 You can search through all source records to quickly locate and review particular records. Just enter a key word in the search box and start to search. As a result, all relevant records will be displayed on the page.
 
-![search-key-word.png]({{ "/assets/images/integration/additional-operations/search-key-word.png" | relative_url }})
+![Preview tab with Financial entered in the search box and three matching records shown, each with Financial highlighted in the job_title column]({{ "/assets/images/integration/additional-operations/search-key-word.png" | relative_url }})
 
 If you are working with a data set created from an ingestion endpoint, you can search for records from a specific request send to the endpoint. You can find and copy the request ID on the **Monitoring** tab, and then paste it to the search box on the **Preview** and start to search. As a result, all records that were sent to CluedIn in a specific request will be displayed on the page. For more information about the request ID, see [Monitoring](/ingest/troubleshooting/monitoring).
 
-![search-request-id.png]({{ "/assets/images/integration/additional-operations/search-request-id.png" | relative_url }})
+![Preview tab with a request ID pasted in the search box, showing only the records sent in that request to the ingestion endpoint]({{ "/assets/images/integration/additional-operations/search-request-id.png" | relative_url }})
 
 ## Analyze source records
 
@@ -52,7 +52,7 @@ Profiling for the data set allows you to analyze key metrics for each column of 
 
 - Find the column for which you want to view data set profiling. In the column header, open the three-dot menu, and then and select **View profiling for data set**.
 
-    ![view-profiling-for-data-set.png]({{ "/assets/images/integration/additional-operations/view-profiling-for-data-set.png" | relative_url }})
+    ![Column header three-dot menu with View profiling for data set highlighted, above View Duplicates and View profiling for golden records]({{ "/assets/images/integration/additional-operations/view-profiling-for-data-set.png" | relative_url }})
 
     The **Key metrics** pane opens, where you can view the details about column values.
 
@@ -78,13 +78,13 @@ Profiling for golden records provides a breakdown and distribution of all vocabu
 
 To access profiling for golden records, go to **Administration** > **Feature Flags**, and enable the **Profiling dashboards** feature.
 
-![profiling-feature-flag.png]({{ "/assets/images/integration/additional-operations/profiling-feature-flag.png" | relative_url }})
+![The Profiling dashboards feature flag card, marked Beta, with its toggle set to Enabled]({{ "/assets/images/integration/additional-operations/profiling-feature-flag.png" | relative_url }})
 
 **To view profiling**
 
 - Find the column for which you want to view golden record profiling. In the column header, open the three-dot menu, and then and select **View profiling for golden records**.
 
-    ![view-profiling-for-golden-records.png]({{ "/assets/images/integration/additional-operations/view-profiling-for-golden-records.png" | relative_url }})
+    ![Column header three-dot menu with View profiling for golden records highlighted]({{ "/assets/images/integration/additional-operations/view-profiling-for-golden-records.png" | relative_url }})
 
     The **Profiling** pane opens, where you can view the details about the vocabulary key values in a graphic format.
 
@@ -108,11 +108,11 @@ Once you have created the mapping for the data set, you can check if a specific 
 
 - Find the column for which you want to view duplicates. In the column header, open the three-dot menu, and then and select **View duplicates**.
 
-    ![view-duplicates.png]({{ "/assets/images/integration/additional-operations/view-duplicates.png" | relative_url }})
+    ![Column header three-dot menu for job_title with View Duplicates highlighted]({{ "/assets/images/integration/additional-operations/view-duplicates.png" | relative_url }})
 
     The **Duplicates preview** pane opens, where you can view the total number of duplicate values in the column (a), identify which values are duplicates (b), and see how many times each duplicate value occurs (c).
 
-    ![duplicates-preview.png]({{ "/assets/images/integration/additional-operations/duplicates-preview.png" | relative_url }})
+    ![Duplicates Preview pane for job_title, showing 49 Duplicates (a), the duplicate values such as Account Executive (b), and each value's count (c)]({{ "/assets/images/integration/additional-operations/duplicates-preview.png" | relative_url }})
 
 ## Modify source records
       
@@ -125,7 +125,7 @@ When you switch to the edit mode, the original data set is cloned, so you can re
 
 1. In the upper-right corner of the data set page, select **Switch to edit mode**.
 
-    ![switch-to-edit-mode.png]({{ "/assets/images/integration/additional-operations/switch-to-edit-mode.png" | relative_url }})
+    ![Data set page header for training-data.csv with the Switch to edit mode button highlighted between Remove and Process]({{ "/assets/images/integration/additional-operations/switch-to-edit-mode.png" | relative_url }})
 
 1. Review the instructions about the edit mode, and then confirm that you want to switch to the edit mode.
 
@@ -169,11 +169,11 @@ You can use filters when you need to find incorrect or empty values. Once you fi
 
 - Find the column you want to filter. In the column header, open the three-dot menu, select **Filter**, and then select the needed filtering option.
 
-    ![filter-options.png]({{ "/assets/images/integration/additional-operations/filter-options.png" | relative_url }})
+    ![Column three-dot menu with Filter expanded, listing Search, Is empty, Is not empty, Aggregation, Invalid Fields, and Valid Fields]({{ "/assets/images/integration/additional-operations/filter-options.png" | relative_url }})
 
     As a result, the records matching the filter are displayed on the page. All applied filters are listed on the **Filters** pane.
 
-    ![filters-pane.png]({{ "/assets/images/integration/additional-operations/filters-pane.png" | relative_url }})
+    ![Filters pane showing one filter on job_title, Find empty values on job_title, with its toggle Enabled and a delete icon]({{ "/assets/images/integration/additional-operations/filters-pane.png" | relative_url }})
 
     If you don't need a filter temporarily, you can disable it and enable it again when needed. If you no longer need a filter, you can delete it by selecting the delete icon.
 
@@ -187,13 +187,13 @@ If you notice that your source records contain invalid values, missing values, o
 
 1. Click on the cell containing a value that you want to edit and make the needed changes. The edited value is formatted in bold.
 
-    ![edit-values-manually.png]({{ "/assets/images/integration/additional-operations/edit-values-manually.png" | relative_url }})
+    ![Data set in edit mode with two edited values, Mary and Darwen, shown in bold until the changes are saved]({{ "/assets/images/integration/additional-operations/edit-values-manually.png" | relative_url }})
 
 1. Select **Save**. The bold formatting of the changed value disappears.
 
     The history of your manual changes is displayed on the **Operations** tab.
 
-    ![edit-values-manually-operations.png]({{ "/assets/images/integration/additional-operations/edit-values-manually-operations.png" | relative_url }})
+    ![Operations tab showing a Manual Edition entry with Operation Name Manual Edit and Rows affected 2, plus a delete icon and revert icon]({{ "/assets/images/integration/additional-operations/edit-values-manually-operations.png" | relative_url }})
 
     If you no longer need the change or you made it by mistake, you can revert the change. To do it, select the delete icon next to the operation name or the revert icon in the upper-right corner. Note that changes can only be reverted consecutively, one by one, and not selectively.
 
@@ -228,7 +228,7 @@ You can transform and improve the contents of columns automatically and efficien
 
 - Find the column containing values that you want to transform. In the column header, open the three-dot menu, select **Operations**, and then select the needed operation.
 
-    ![operations-options.png]({{ "/assets/images/integration/additional-operations/operations-options.png" | relative_url }})
+    ![Column three-dot menu with Operations expanded, listing operations from Camel Case through Replace character(s) with space]({{ "/assets/images/integration/additional-operations/operations-options.png" | relative_url }})
 
     As a result, the values in the column are automatically transformed. All applied operations are displayed on the **Operations** pane. If you no longer need the change or you made it by mistake, you can revert the change. To do it, select the delete icon next to the operation name or the revert icon in the upper-right corner. Note that changes can only be reverted consecutively, one by one, and not selectively.
 
@@ -246,7 +246,7 @@ You can add new columns to your dataset. This is useful for combining values fro
 
 1. Enter the column name and select the column type.
 
-    ![add-column-type.png]({{ "/assets/images/integration/additional-operations/add-column-type.png" | relative_url }})
+    ![Add column dialog on the Column type step, with Column name full-name and Computed column selected]({{ "/assets/images/integration/additional-operations/add-column-type.png" | relative_url }})
 
 1. Select **Next**.
 
@@ -258,7 +258,7 @@ You can add new columns to your dataset. This is useful for combining values fro
 
     - (Stored column or computed column) **Expression** – enter a C.E.L supported expression to create values for a new column.
 
-        ![add-column-configuration.png]({{ "/assets/images/integration/additional-operations/add-column-configuration.png" | relative_url }})
+        ![Add column dialog on the Configuration step, with From existing fields selected and Field 1 first_name and Field 2 last_name]({{ "/assets/images/integration/additional-operations/add-column-configuration.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -272,7 +272,7 @@ If you do not need specific source records, you can remove them from the data se
 
  1. Select the checkbox next to the source record that you want to remove.
 
-    ![remove-source-records.png]({{ "/assets/images/integration/additional-operations/remove-source-records.png" | relative_url }})
+    ![Data set in edit mode with the checkboxes selected for two source records, and the delete icon in the toolbar]({{ "/assets/images/integration/additional-operations/remove-source-records.png" | relative_url }})
 
 1. Select the delete icon.
 
@@ -292,7 +292,7 @@ If you are working with a data set created from a file, you can download the ori
 
 1. Near the sorting dropdown list, open the three-dot menu, and then select **Download original file**.
 
-    ![download-original-file.png]({{ "/assets/images/integration/additional-operations/download-original-file.png" | relative_url }})
+    ![Three-dot menu next to the sorting dropdown on the Preview tab, showing the Download original file option]({{ "/assets/images/integration/additional-operations/download-original-file.png" | relative_url }})
 
     As a result, the original file is downloaded to your computer.
 
@@ -306,7 +306,7 @@ You can clear the records regardless of whether the records have been processed 
 
 1. Near the sorting dropdown list, open the three-dot menu, and then select **Clear records**.
 
-    ![clear-records.png]({{ "/assets/images/integration/additional-operations/clear-records.png" | relative_url }})
+    ![Three-dot menu next to the sorting dropdown on the Preview tab of an endpoint data set, showing the Clear records option]({{ "/assets/images/integration/additional-operations/clear-records.png" | relative_url }})
 
 1. In the confirmation dialog, enter _DELETE_, and then select **Confirm**.
 

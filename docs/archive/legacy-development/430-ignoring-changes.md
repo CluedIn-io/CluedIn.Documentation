@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 430
 permalink: /archive/legacy-development/ignoring-changes
 content_type: reference
-redirect_from: ["/developer/ignoring-changes"]
 source_path: docs/090-development/520-ignoring-insignificant-changes.md
 tags: ["development"]
 published: false

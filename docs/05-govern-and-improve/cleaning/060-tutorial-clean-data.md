@@ -42,7 +42,7 @@ Finding the data that needs to be cleaned involves defining search filters and s
 
 1. In the **Business Domains** dropdown list, select the business domain to filter the records.
 
-    ![find-data-1.png]({{ "/assets/images/getting-started/data-cleaning/find-data-1.png" | relative_url }})
+    ![Search page with TrainingContact selected under Business Domain in the Filters pane, and 412 results shown in the Name, Business domain, and Description columns]({{ "/assets/images/getting-started/data-cleaning/find-data-1.png" | relative_url }})
 
     As a result, all records with the selected business domain are displayed on the page. By default, the search results are shown in the following columns: **Name**, **Business Domain**, and **Description**.
 
@@ -56,17 +56,17 @@ Finding the data that needs to be cleaned involves defining search filters and s
 
     1. Move the vocabulary key to the **Selected Vocabulary Keys** section using the arrow pointing to the right.
 
-        ![find-data-2.png]({{ "/assets/images/getting-started/data-cleaning/find-data-2.png" | relative_url }})
+        ![Dialog for adding vocabulary columns, with the TrainingContact Job Title key moved to the selected section on the right and an Add button]({{ "/assets/images/getting-started/data-cleaning/find-data-2.png" | relative_url }})
 
     1. Select **Add Vocabulary Columns**.
 
 1. Turn on the advanced filter mode.
 
-    ![find-data-3.png]({{ "/assets/images/getting-started/data-cleaning/find-data-3.png" | relative_url }})
+    ![Filters pane with the Advanced filter mode toggle turned on and highlighted]({{ "/assets/images/getting-started/data-cleaning/find-data-3.png" | relative_url }})
 
 1. Add a filter rule to display the records containing values that need to be cleaned.
 
-    ![find-data-4.png]({{ "/assets/images/getting-started/data-cleaning/find-data-4.png" | relative_url }})     
+    ![Advanced Filters dialog with a second rule highlighted: vocabulary key trainingcontact.jobTitle Equals Accountant]({{ "/assets/images/getting-started/data-cleaning/find-data-4.png" | relative_url }})     
 
     The fields for configuring a filter rule appear one by one. After you complete the previous field, the next field appears.        
 
@@ -80,17 +80,17 @@ After you have found the data that needs to be cleaned, create a clean project.
 
 1. In the upper-right corner of the search results page, open the three-dot menu, and then select **Clean**.
 
-    ![create-a-clean-project-1.png]({{ "/assets/images/getting-started/data-cleaning/create-a-clean-project-1.png" | relative_url }})
+    ![Search results page with 17 results and the Clean action highlighted in the toolbar]({{ "/assets/images/getting-started/data-cleaning/create-a-clean-project-1.png" | relative_url }})
 
 1. Enter the **Project Name** and then select **Next**.
 
 1. Select the checkboxes next to the properties that do not require fixing, and then select **Remove Property**.
 
-    ![create-a-clean-project-2.png]({{ "/assets/images/getting-started/data-cleaning/create-a-clean-project-2.png" | relative_url }})
+    ![Clean project properties list with four properties selected, all except trainingcontact.jobTitle, and the Remove Property button highlighted]({{ "/assets/images/getting-started/data-cleaning/create-a-clean-project-2.png" | relative_url }})
 
 1. Select **Create**. The clean project is created.
 
-    ![create-a-clean-project-3.png]({{ "/assets/images/getting-started/data-cleaning/create-a-clean-project-3.png" | relative_url }})
+    ![New clean project Fix job title on the Configuration tab, with the Generate results button in the upper-right corner]({{ "/assets/images/getting-started/data-cleaning/create-a-clean-project-3.png" | relative_url }})
 
 1. Select **Generate Results** and then confirm your choice. When the results are generated, the status of the clean project changes to **Ready for clean**. Now, you can proceed to correct the misspelled values.
 
@@ -100,17 +100,17 @@ After you have found the data that needs to be cleaned, create a clean project.
 
     The clean application opens, where you can view the values that should be modified.
 
-    ![modify-data-1.png]({{ "/assets/images/getting-started/data-cleaning/modify-data-1.png" | relative_url }})
+    ![Clean application for the Fix job title project, listing 17 rows of the trainingcontact.jobTitle value Accountant]({{ "/assets/images/getting-started/data-cleaning/modify-data-1.png" | relative_url }})
 
 1. Point to the value than needs to be modified, and then select **Edit**.
 
 1. Enter the correct value, and then select **Apply to all identical cells**.
 
-    ![modify-data-2.png]({{ "/assets/images/getting-started/data-cleaning/modify-data-2.png" | relative_url }})
+    ![Cell editor in the clean application with the value Accountant and the Apply, Apply to all identical cells, and Cancel buttons]({{ "/assets/images/getting-started/data-cleaning/modify-data-2.png" | relative_url }})
 
 1. In the upper-right corner, select **Process**. In the confirmation dialog box, select **Skip** and leave the **Enable automatic generation of data part rules** checkbox cleared. Then, confirm that you want to process the data.
 
-    ![modify-data-3.png]({{ "/assets/images/getting-started/data-cleaning/modify-data-3.png" | relative_url }})
+    ![Process confirmation dialog with Skip selected for golden records modified outside the clean project, and Enable automatic generation of data part rules cleared]({{ "/assets/images/getting-started/data-cleaning/modify-data-3.png" | relative_url }})
 
     CluedIn automatically identifies the changes and updates the records. To verify that your changes have been applied, [retrieve the saved search](/master/search#saved-searches).
 

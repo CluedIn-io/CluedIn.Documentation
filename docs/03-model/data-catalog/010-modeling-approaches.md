@@ -6,7 +6,7 @@ grand_parent: Model
 nav_order: 10
 permalink: /model/data-catalog/modeling-approaches
 content_type: concept
-redirect_from: ["/management/data-catalog/modeling-approaches"]
+redirect_from: ["/management/data-catalog/modeling-approaches", "/development/common-design-decisions", "/management/modelling"]
 source_path: docs/080-management/data-catalog/010-modeling-approaches.md
 ---
 

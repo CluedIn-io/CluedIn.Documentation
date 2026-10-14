@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 160
 permalink: /archive/legacy-development/scheduled-time-jobs
 content_type: reference
-redirect_from: ["/development/scheduled-time-jobs"]
 source_path: docs/090-development/180-scheduled-time-jobs.md
 tags: ["development","jobs"]
 published: false

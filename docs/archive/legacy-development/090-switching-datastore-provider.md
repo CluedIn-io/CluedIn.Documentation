@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 90
 permalink: /archive/legacy-development/switching-datastore-provider
 content_type: reference
-redirect_from: ["/development/switching-datastore-provider"]
 source_path: docs/090-development/090-switching-datastore-provider.md
 tags: ["development","data-stores"]
 published: false

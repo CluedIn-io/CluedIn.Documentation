@@ -17,7 +17,7 @@ source_path: docs/210-playbooks/006-data-ingestion-playbook.md
 
 **You are here in the data journey**
 
-![data-ingestion-you-are-here.png]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
+![Diagram of the data journey: 1. Essential requirements, then 2. Data discovery workshop, then the data quality virtuous circle of data ingestion, transformation, automation, export and release to production, with You are here on Data ingestion]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
 
 Data ingestion is the first step of your MDM project. In this playbook, you will learn how to organize your MDM project and communicate its complexities and associated risks to your managers and business stakeholders. By understanding these elements, you’ll be better equipped to:
 
@@ -27,7 +27,7 @@ Data ingestion is the first step of your MDM project. In this playbook, you will
 
 The data ingestion process consists of several steps: data impact workshop, picking the right tool, ingesting, mapping, and processing.
 
-![data-ingestion-process.png]({{ "/assets/images/playbooks/data-ingestion-process.png" | relative_url }})
+![Data ingestion steps in order: Data impact workshop, Pick the right tool, Ingest, Map, Process]({{ "/assets/images/playbooks/data-ingestion-process.png" | relative_url }})
 
 Before diving into the process of ingesting data into CluedIn, we recommend that you get acquainted with the foundational principles outlined in this playbook. In our experience, we’ve observed that many data teams tend to jump directly into the implementation phase without fully understanding the specificity of CluedIn. Additionally, they often overlook the critical step of defining which data will have the most significant impact on their objectives. If you have a small data team (one or two people), you may opt for a lighter approach. However, we still recommend following the guidelines from this playbook to better structure your MDM project.
 
@@ -37,7 +37,7 @@ If you have the opportunity, **focus on the critical data you have access to and
 
 **Why should you apply this principle?**
 
-![data-ingestion-benefits.png]({{ "/assets/images/playbooks/data-ingestion-benefits.png" | relative_url }})
+![Three benefits of starting with one end-to-end data flow: Improved data, Available in production, and Full cycle of data journey]({{ "/assets/images/playbooks/data-ingestion-benefits.png" | relative_url }})
 
 1.  **Improved data** – you have one end-to-end data flow that improves a portion of your critical data.
 

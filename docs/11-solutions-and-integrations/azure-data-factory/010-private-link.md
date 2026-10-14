@@ -52,7 +52,7 @@ If you have any questions, you can request CluedIn support by sending an email t
 
     Once the managed private endpoint is created, wait for provisioning state to be **Succeeded**.
 
-    ![managed-private-endpoint-succeeded.png]({{ "/assets/images/microsoft-integration/azure-data-factory/managed-private-endpoint-succeeded.png" | relative_url }})
+    ![Azure Data Factory Managed private endpoints page listing cluedin-private-endpoint with provisioning state Succeeded]({{ "/assets/images/microsoft-integration/azure-data-factory/managed-private-endpoint-succeeded.png" | relative_url }})
 
 1. Go to the private link service created in step 1 and approve the managed private endpoint:
 
@@ -62,6 +62,6 @@ If you have any questions, you can request CluedIn support by sending an email t
 
     1. Check and approve the managed private endpoint. Make sure the private endpoint name matches **[adf name].[managed private endpoint name]**.
 
-    ![private-endpoint-connections.png]({{ "/assets/images/microsoft-integration/azure-data-factory/private-endpoint-connections.png" | relative_url }})
+    ![Private link service Private endpoint connections page with a pending connection from the data factory selected, its private endpoint name highlighted, and the Approve button]({{ "/assets/images/microsoft-integration/azure-data-factory/private-endpoint-connections.png" | relative_url }})
 
     Once approved, your ADF should gain connectivity towards CluedIn private endpoint. Next, create ADF pipeline using the [Copy data](/solutions/azure-data-factory/copy-data) or [Data flow](/solutions/azure-data-factory/data-flow-activity) activity to send data to CluedIn.

@@ -6,7 +6,7 @@ grand_parent: Model
 nav_order: 20
 permalink: /model/business-domains/manage-business-domains
 content_type: how-to
-redirect_from: ["/management/entity-type"]
+redirect_from: ["/management/entity-type", "/preparation/entity-setup", "/preparation/entity-type-translation"]
 source_path: docs/080-management/040-entity-type.md
 ---
 
@@ -69,7 +69,7 @@ Depending on the selected [data modeling approach](/model/data-catalog/modeling-
 
 1. Select **Create**.
 
-    ![create-business-domain.png]({{ "/assets/images/management/entity-type/create-business-domain.png" | relative_url }})
+    ![The Create Business Domain pane with Display name, Business domain identifier, Icon, Business Domain Color, Path and Layout fields filled in]({{ "/assets/images/management/entity-type/create-business-domain.png" | relative_url }})
 
     The business domain opens, where you can view and manage business domain details.
 

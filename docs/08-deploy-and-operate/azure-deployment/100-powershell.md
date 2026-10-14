@@ -38,7 +38,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
 - Run the `run-full-install.ps1` script and let it guide you through the whole installation process
 
-![PowerShell](/assets/images/deployment/step-by-step-install/70-run-full-install-script.png)
+![Administrator PowerShell 7 window running Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass followed by .\run-full-install.ps1](/assets/images/deployment/step-by-step-install/70-run-full-install-script.png)
 
 ### Next Steps
 

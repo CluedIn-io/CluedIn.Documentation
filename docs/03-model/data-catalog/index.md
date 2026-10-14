@@ -8,7 +8,7 @@ permalink: /model/data-catalog
 content_type: landing
 summary: The data catalog is where every vocabulary, key and data type in your instance can be found and inspected.
 list_children: false
-redirect_from: ["/management/data-catalog"]
+redirect_from: ["/management/data-catalog", "/governance/data-catalog"]
 source_path: docs/080-management/030-data-catalog.md
 ---
 
@@ -16,7 +16,7 @@ A data catalog is a collection of metadata that encompasses essential informatio
 
 The following diagram shows the basic steps of defining a data model in CluedIn.
 
-![data-catalog.gif]({{ "/assets/images/management/data-catalog/data-catalog.gif" | relative_url }})
+![How to define a data model in CluedIn: 1, create a vocabulary; 2, add vocabulary keys that describe golden records; 3, update the data model iteratively as requirements change]({{ "/assets/images/management/data-catalog/data-catalog.gif" | relative_url }})
 
 This section covers the following areas:
 

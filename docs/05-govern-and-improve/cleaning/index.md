@@ -19,7 +19,7 @@ In this section, you will learn how to fix data quality issues through the use o
 
 The following diagram shows the basic steps of cleaning the data in CluedIn.
 
-![clean-1.gif]({{ "/assets/images/preparation/clean/clean-1.gif" | relative_url }})
+![Diagram: four steps to clean data in CluedIn - 1 identify data to be cleaned, 2 create a clean project choosing data and properties, 3 clean the data by transforming, normalizing and fixing values, 4 process cleaned data to send values to golden records]({{ "/assets/images/preparation/clean/clean-1.gif" | relative_url }})
 
 This section covers the following areas:
 

@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 390
 permalink: /archive/legacy-development/imergepreprocessor
 content_type: reference
-redirect_from: ["/developer/imergepreprocessor"]
 source_path: docs/090-development/470-adding-imergepreprocessor.md
 tags: ["development","processors"]
 published: false

@@ -7,7 +7,7 @@ has_children: true
 permalink: /operate/upgrade
 content_type: landing
 summary: How to upgrade a CluedIn installation, and what each release requires.
-redirect_from: ["/paas-operations/upgrade"]
+redirect_from: ["/paas-operations/upgrade", "/deployment/infra-how-tos/ama-upgrade"]
 source_path: docs/190-paas-operations/004-upgrade.md
 tags: ["deployment", "kubernetes", "azure", "aks", "microsoft", "marketplace", "azure-marketplace"]
 headerIcon: "paas"

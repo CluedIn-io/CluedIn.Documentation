@@ -55,7 +55,7 @@ You can configure a predefined export target provided with CluedIn (such as SQL 
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-    ![export-target-configuration.gif]({{ "/assets/images/consume/export-targets/export-target-configuration.gif" | relative_url }})
+    ![Animation: selecting Add Export Target, choosing a target on the Choose Target tab, entering connection details on the Configure tab, testing the connection, and adding it]({{ "/assets/images/consume/export-targets/export-target-configuration.gif" | relative_url }})
 
     You configured the export target. Now, it can be attached to the stream. The user who added the export target is the owner of the export target.
 
@@ -65,7 +65,7 @@ On the export target details page, you can do the following:
 
 - Test the connection to the export target.
 
-    ![export-targets-1]({{ "/assets/images/consume/export-targets/export-targets-1.png" | relative_url }})
+    ![Export target details page with Test connection, the Active toggle, and the Synchronized and Healthy status labels]({{ "/assets/images/consume/export-targets/export-targets-1.png" | relative_url }})
 
 - View the streaming modes supported by the export target:
 
@@ -75,7 +75,7 @@ On the export target details page, you can do the following:
 
 - Activate and deactivate the export target. When activating or deactivating the export target, you can view the streams linked to it as well as start, pause, or stop the needed streams.
 
-    ![export-targets-2]({{ "/assets/images/consume/export-targets/export-targets-2.png" | relative_url }})
+    ![Deactivate Export Target dialog listing linked streams with start, pause and stop controls, and the Deactivate button]({{ "/assets/images/consume/export-targets/export-targets-2.png" | relative_url }})
 
 - Review the export target health checks.
 

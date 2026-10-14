@@ -47,7 +47,7 @@ There are two ways to activate and deactivate a policy:
 
 1. Near the upper-right corner, select the needed action.
 
-    ![activate-deactive-policy.png]({{ "/assets/images/management/access-control/activate-deactive-policy.png" | relative_url }})
+    ![The Access Control policy list with two policies selected and the Activate and Deactivate actions highlighted in the toolbar]({{ "/assets/images/management/access-control/activate-deactive-policy.png" | relative_url }})
 
 **To activate or deactivate the policy from the policy details page**
 

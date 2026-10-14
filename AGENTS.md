@@ -58,3 +58,9 @@ bundle exec jekyll build
   `_includes/icons/cluedin.html`.
 - Logo: `assets/images/clued-in-logo.svg` is the mark used on www.cluedin.com.
   Don't replace or redraw it.
+- Agent mode: `_plugins/agent_markdown.rb` writes a Markdown copy of every
+  article at its URL plus `.md`, and `/llms.txt` and `/llms-full.txt`, at build
+  time. The instructions at the top of `llms.txt` are `agent_mode` in
+  `_config.yml`. The header switch is `assets/js/agent-mode.js`. Nothing to do
+  per article; set `agent_exclude: true` only on a generated page that is not
+  documentation (such as `/tag`).

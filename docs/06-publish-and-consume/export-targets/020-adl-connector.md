@@ -21,7 +21,7 @@ This article outlines how to configure the Azure Data Lake connector to publish 
 
 1. On the **Choose Target** tab, select **Azure Data Lake Connector**. Then, select **Next**.
 
-    ![adl-connector-1.png]({{ "/assets/images/consume/export-targets/adl-connector-1.png" | relative_url }})
+    ![The Add Export Target dialog on the Choose Target tab, listing Azure DataLake Connector, Azure Dedicated SQL Pool Connector and Azure Event Hub Connector]({{ "/assets/images/consume/export-targets/adl-connector-1.png" | relative_url }})
 
 1. On the **Configure** tab, enter the connection details:
 
@@ -29,34 +29,34 @@ This article outlines how to configure the Azure Data Lake connector to publish 
 
     1. **Account Name** – name of the Azure Data Lake storage account where you want to store the data from CluedIn.
 
-        ![adl-account-name.png]({{ "/assets/images/consume/export-targets/adl-account-name.png" | relative_url }})
+        ![Azure portal storage account Overview page with the storage account name highlighted at the top]({{ "/assets/images/consume/export-targets/adl-account-name.png" | relative_url }})
 
     1. **Authentication Method** – Choose the desired authentication method. In older versions of the connector, this option is not available and you must use Account Key to connect to the Azure Data Lake.
     
-        ![adl-authentication-methods.png]({{ "/assets/images/consume/export-targets/adl-authentication-methods.png" | relative_url }})
+        ![The Configure tab with the Authentication Method dropdown open, offering Access Key or Shared Access Signature Token and Service Principal]({{ "/assets/images/consume/export-targets/adl-authentication-methods.png" | relative_url }})
 
         * **Access Key or Shared Access Signature Token** – you can use either the storage account's Access Key or Shared Access Signature Token for authenticating requests to the Azure Data Lake storage account.
 
             1. Access Key – Access Key can be obtained from the following location 
 
-                ![adl-access-key.png]({{ "/assets/images/consume/export-targets/adl-access-key.png" | relative_url }})
+                ![Azure portal storage account Access keys page with the key1 Key field highlighted]({{ "/assets/images/consume/export-targets/adl-access-key.png" | relative_url }})
 
             1. Shared Access Signature Token – Shared Access signature must be created with at least the following permissions
 
-                ![adl-sas-token.png]({{ "/assets/images/consume/export-targets/adl-sas-token.png" | relative_url }})
+                ![Azure portal Shared access signature page with Blob service, Container and Object resource types, and Read, Write, Delete, List and Create permissions selected]({{ "/assets/images/consume/export-targets/adl-sas-token.png" | relative_url }})
 
         * **Service Principal** – please enter the following items. The Service principal must have Blob Storage Data Contributor or higher role on the storage account if the Service Principal is to be used to directly access the storage account. If the Service Principal is to be used to access an Azure Key Vault (explained below), then the Service Principal must have Key Vault Secrets User or higher role on the Azure Key Vault.
             1. **Client Id** – unique identifier assigned to the Service Principal it was registered in the Microsoft identity platform. You can find this value in the **Overview** section of app registration.
 
-            ![adl-client-id.png]({{ "/assets/images/consume/export-targets/adl-client-id.png" | relative_url }})
+            ![Azure portal app registration Overview page with the Application (client) ID highlighted in the Essentials section]({{ "/assets/images/consume/export-targets/adl-client-id.png" | relative_url }})
 
             1. **Client Secret** – confidential string used by your OneLake app to authenticate itself to the Microsoft identity platform. You can find this value in the **Certificates & secrets** section of app registration.
 
-                ![adl-client-secret.png]({{ "/assets/images/consume/export-targets/adl-client-secret.png" | relative_url }})
+                ![App registration Certificates & secrets page on the Client secrets tab, with the secret Value highlighted]({{ "/assets/images/consume/export-targets/adl-client-secret.png" | relative_url }})
 
             1. **Tenant Id** – unique identifier for your Microsoft Entra tenant. You can find this value in the **Overview** section of app registration.
 
-                ![adl-tenant-id.png]({{ "/assets/images/consume/export-targets/adl-tenant-id.png" | relative_url }})
+                ![Azure portal app registration Overview page with the Directory (tenant) ID highlighted in the Essentials section]({{ "/assets/images/consume/export-targets/adl-tenant-id.png" | relative_url }})
 
             1. (Optional) **Load Access Key or Shared Access Signature Token from Azure Key Vault Secret** – When this is selected, the service principal will be used to access an Azure Key Vault instead of being used to access the storage account directly. 
                 * **Azure Key Vault URI** URI of the Azure Key Vault.
@@ -64,15 +64,15 @@ This article outlines how to configure the Azure Data Lake connector to publish 
 
     1. **File System Name** – name of a container in Azure Data Lake.
 
-        ![adl-file-system-name.png]({{ "/assets/images/consume/export-targets/adl-file-system-name.png" | relative_url }})
+        ![Azure portal Storage browser listing blob containers, with the testfilesystem container highlighted]({{ "/assets/images/consume/export-targets/adl-file-system-name.png" | relative_url }})
 
     1. **Directory Name** – name of a directory inside the container in Azure Data Lake.
 
-        ![adl-directory-name.png]({{ "/assets/images/consume/export-targets/adl-directory-name.png" | relative_url }})
+        ![Azure portal Storage browser inside the testfilesystem container, with the testdirectory folder highlighted]({{ "/assets/images/consume/export-targets/adl-directory-name.png" | relative_url }})
 
     1. **Enable Stream Cache (Sync mode only)** – when stream cache is enabled, CluedIn caches the golden records at intervals, and then writes out accumulated data to one file (JSON, Parquet, or CSV). When stream cache is not enabled, CluedIn streams out golden records one by one, each in a separate JSON file. Stream cache is available only for the synchronized stream mode.
 
-        ![adl-connector-configure-1.png]({{ "/assets/images/consume/export-targets/adl-connector-configure-1.png" | relative_url }})
+        ![The Configure tab with Name, Account Name, Authentication Method, access key, File System Name and Directory Name filled in, and Enable Stream Cache turned on]({{ "/assets/images/consume/export-targets/adl-connector-configure-1.png" | relative_url }})
 
     1. **Output Format** – file format for the exported data. You can choose between JSON, Parquet, and CSV. However, Parquet and CSV formats are available only if you enable stream cache. If stream cache is not enabled, JSON is the default format.
 
@@ -100,6 +100,6 @@ This article outlines how to configure the Azure Data Lake connector to publish 
 
 1. Test the connection to make sure it works, and then select **Add**.
 
-    ![adl-connector-configure-2.png]({{ "/assets/images/consume/export-targets/adl-connector-configure-2.png" | relative_url }})
+    ![Lower part of the Configure tab with Output Format Parquet, Export Schedule Hourly, File Name Pattern, the three Parquet toggles on, and the Test connection and Add buttons]({{ "/assets/images/consume/export-targets/adl-connector-configure-2.png" | relative_url }})
 
     Now, you can select the Azure Data Lake connector in a stream and start exporting golden records.

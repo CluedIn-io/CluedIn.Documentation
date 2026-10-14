@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 70
 permalink: /archive/legacy-user-interface/adding-search-filters
 content_type: reference
-redirect_from: ["/user-interface/adding-search-filters"]
 source_path: docs/100-user-interface/070-adding-search-filters.md
 tags: ["ui","search"]
 published: false

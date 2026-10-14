@@ -24,13 +24,13 @@ In this article, you will learn about advanced network configuration options tha
 
 The following diagram shows the default network configuration of CluedIn after installation.
 
-![network-diagram-1.png]({{ "/assets/images/ama/install-guide/network-diagram-1.png" | relative_url }}){: width="800"}
+![Default CluedIn network architecture: ingress traffic enters through an internal IP and internal load balancer to haproxy-ingress and the CluedIn pods in the AKS subnet; node pools egress through an external load balancer and firewall to cluedinprod.azurecr.io; Helm and kubectl reach the AKS control plane API endpoint via DNS]({{ "/assets/images/ama/install-guide/network-diagram-1.png" | relative_url }}){: width="800"}
 
 ## Advanced network configuration example
 
 The following diagram shows the advanced network configuration of CluedIn.
 
-![advanced-network-architecture.png]({{ "/assets/images/deployment/paas-installation-guide/advanced-network-architecture.png" | relative_url }}){: width="800"}
+![Advanced network architecture: a hub network with Firewall and Azure Bastion is peered to a spoke network with private AKS, internal load balancer, and a virtual machine; private connections lead to Kubernetes API, Storage Account, Key Vault, and Azure SQL Server, linked to private DNS zones, with monitoring to Log Analytics]({{ "/assets/images/deployment/paas-installation-guide/advanced-network-architecture.png" | relative_url }}){: width="800"}
 
 **HubVNet**
 This virtual network is hosted by the client.
@@ -90,7 +90,7 @@ For details on creating custom roles, see [Azure custom roles](https://learn.mic
 ### Private cluster - BYO vNet
 When using your own network (BYON) for private cluster installation, the **Network Contributor** permissions are required for the vNet created outside the managed resource group. To meet this requirement, you can create a **user-managed identity** and assign it the **Network Contributor** role on the specified vNet. During installation, ensure this user-assigned managed identity is specified in the **Network and Monitoring** section.
 
-![adv-network-pc-byov.png]({{ "/assets/images/ama/howtos/adv-network-pc-byov-2.png" | relative_url }})
+![The Network and Monitoring installation tab with Virtual network, AKS subnet, and AKS CNI Mode fields and a User assigned managed identity section with Add]({{ "/assets/images/ama/howtos/adv-network-pc-byov-2.png" | relative_url }})
 
 ## Internal load balancer
 
@@ -164,11 +164,11 @@ As AKS maintains the load balancers, and the vnet is created at deployment time 
 For the `Private Link Service`, ensure that the `Load balancer` is set to `kubernetes-internal` and uses the frontend IP address from the private range. The Source NAT vnet and subnet should default correctly.
 Ensure that Source NAT subnet is set to No and it is best to assign a Static Private IP address.
 
-![adv-network-pls-01.png]({{ "/assets/images/ama/howtos/adv-network-pls-01-2.png" | relative_url }})
+![Create private link service, Outbound settings tab: Load balancer set to kubernetes-internal, a private frontend IP, the AKS subnet as Source NAT subnet, and a static private IP]({{ "/assets/images/ama/howtos/adv-network-pls-01-2.png" | relative_url }})
 
 For the `Private endpoint`, ensure you select the virtual network that will be used to access CluedIn along with the subnet. It is recommended to statically allocate an IP address here as this will be used as the entry point for CluedIn and will be required as part of your DNS at a later stage.
 
-![adv-network-pe-01.png]({{ "/assets/images/ama/howtos/adv-network-pe-01-2.jpg" | relative_url }})
+![Create a private endpoint, Virtual Network tab: a virtual network and subnet selected, with Statically allocate IP address chosen and private IP 10.0.0.40]({{ "/assets/images/ama/howtos/adv-network-pe-01-2.jpg" | relative_url }})
 
 ### Next steps
 The next step is to test access from the private network to CluedIn to ensure that traffic can reach the endpoint as expected.

@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 20
 permalink: /archive/legacy-user-interface/all-properties
 content_type: reference
-redirect_from: ["/user-interface/all-properties"]
 source_path: docs/100-user-interface/020-all-properties.md
 tags: ["ui"]
 published: false

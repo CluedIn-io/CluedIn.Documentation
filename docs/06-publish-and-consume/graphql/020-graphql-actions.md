@@ -256,4 +256,4 @@ In the filter expression:
 
 Filters use Lucene syntax, and you can test your filter expressions directly in the CluedIn search bar.
 
-![gql-search-with-filter.png]({{ "/assets/images/consume/gql-search-with-filter.png" | relative_url }})
+![The CluedIn search bar with the query properties.cp.customer.country:(Switzerland OR Austria), returning five Company records]({{ "/assets/images/consume/gql-search-with-filter.png" | relative_url }})

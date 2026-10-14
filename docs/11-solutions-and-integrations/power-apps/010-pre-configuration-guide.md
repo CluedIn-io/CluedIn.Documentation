@@ -39,19 +39,19 @@ For more information, see [Register an application in Microsoft Entra ID](https:
     
 3. Go to **Identity** > **Applications** > **App registrations**, and then select **New registration**.
 
-    ![new-registration.png]({{ "/assets/images/microsoft-integration/power-apps/new-registration.png" | relative_url }})
+    ![App registrations page in the Microsoft Entra admin center with the New registration button highlighted]({{ "/assets/images/microsoft-integration/power-apps/new-registration.png" | relative_url }})
 
 4.  Enter a **Name** for your application.
     
 5.  Under **Supported account types**, specify who can use the application (**Accounts in this organizational directory only**).
 
-    ![new-registration-name.png]({{ "/assets/images/microsoft-integration/power-apps/new-registration-name.png" | relative_url }})
+    ![Register an application page with the name PowerApps_CluedIn and Accounts in this organizational directory only selected]({{ "/assets/images/microsoft-integration/power-apps/new-registration-name.png" | relative_url }})
 
 1. Select **Register**.
 
     On the application's **Overview** page, you can find the **Application (client) ID** and **Directory (tenant) ID** that you will need to configure Power Apps integration in CluedIn as described in [Power Apps configuration guide](/solutions/power-apps/configuration-guide).
 
-    ![app-overview.png]({{ "/assets/images/microsoft-integration/power-apps/app-overview.png" | relative_url }})
+    ![Overview page of the PowerApps_CluedIn app registration with the Application (client) ID and Directory (tenant) ID highlighted]({{ "/assets/images/microsoft-integration/power-apps/app-overview.png" | relative_url }})
 
 ### Create a client secret
 
@@ -59,15 +59,15 @@ For more information, see [Register an application in Microsoft Entra ID](https:
 
 1. Go to **Certificates & secrets** > **Client secrets** > **New client secret**.
 
-    ![client-secret.png]({{ "/assets/images/microsoft-integration/power-apps/client-secret.png" | relative_url }})
+    ![Certificates and secrets page, Client secrets tab, with the New client secret button highlighted]({{ "/assets/images/microsoft-integration/power-apps/client-secret.png" | relative_url }})
 
 1. Add a description for your client secret. Select an expiration for the secret or specify a custom lifetime. Finally, select **Add**.
 
-    ![add-a-client-secret.png]({{ "/assets/images/microsoft-integration/power-apps/add-a-client-secret.png" | relative_url }})
+    ![Add a client secret pane with the description PowerAppsCluedInSecret and the recommended 180-day expiry, and the Add button]({{ "/assets/images/microsoft-integration/power-apps/add-a-client-secret.png" | relative_url }})
 
 1. Record the **Value** of the client secret. You will need it to configure Power Apps integration in CluedIn as described in [Power Apps configuration guide](/solutions/power-apps/configuration-guide). This secret value is never displayed again after you leave this page.
 
-    ![copy-client-secret.png]({{ "/assets/images/microsoft-integration/power-apps/copy-client-secret.png" | relative_url }})
+    ![Client secrets tab showing the new PowerAppsCluedInSecret with its Value highlighted and copied]({{ "/assets/images/microsoft-integration/power-apps/copy-client-secret.png" | relative_url }})
 
 ## Pre-configuration steps in Power Apps
 
@@ -87,7 +87,7 @@ In order to manage your master data from CluedIn directly in Power Apps Datavers
 
 1. Find the environment ID in the **Details** section.
 
-    ![env-id.png]({{ "/assets/images/microsoft-integration/power-apps/env-id.png" | relative_url }})
+    ![Power Platform environment Details section with the Environment ID highlighted]({{ "/assets/images/microsoft-integration/power-apps/env-id.png" | relative_url }})
 
     The environment ID is needed to configure Power Apps integration in CluedIn as described in [Power Apps configuration guide](/solutions/power-apps/configuration-guide).
 
@@ -108,7 +108,7 @@ In order to manage your master data from CluedIn directly in Power Apps Datavers
     {:.important}
     You must add the **System Customizer** role to Service Principal. This role is required for the Service Principal to automatically access tables created by the PowerApps component or the Dataverse connector.
 
-    ![create-security-role.png]({{ "/assets/images/microsoft-integration/power-apps/create-security-role.png" | relative_url }})
+    ![Create New Role pane with the role name PowerAppsCluedInRole, a business unit, member privilege inheritance, and the Save button]({{ "/assets/images/microsoft-integration/power-apps/create-security-role.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -264,7 +264,7 @@ In order to manage your master data from CluedIn directly in Power Apps Datavers
 
 1. In the **App** field, select **Add an app**, and then find and select the application that you created before in [Register a new application](#register-a-new-application).
 
-    ![create-new-app-user-add-app.png]({{ "/assets/images/microsoft-integration/power-apps/create-new-app-user-add-app.png" | relative_url }})
+    ![Add an app from Microsoft Entra ID pane with the PowerApps_CluedIn app selected, and the Add button]({{ "/assets/images/microsoft-integration/power-apps/create-new-app-user-add-app.png" | relative_url }})
 
 1. Enter the **Business unit**.
     
@@ -272,7 +272,7 @@ In order to manage your master data from CluedIn directly in Power Apps Datavers
     
 3. Select **Create**.
 
-    ![create-new-app-user.png]({{ "/assets/images/microsoft-integration/power-apps/create-new-app-user.png" | relative_url }})
+    ![Create a new app user pane with app PowerApps_CluedIn, a business unit, and the security role PowerAppsCluedInRole, and the Create button]({{ "/assets/images/microsoft-integration/power-apps/create-new-app-user.png" | relative_url }})
 
 ### Create a Dataverse connection
 
@@ -291,11 +291,11 @@ The workflows in Power Apps integration are different in terms of configuration 
 
 1. Find the Dataverse connection and select the one with the green icon.
 
-    ![dataverse-connection-select.png]({{ "/assets/images/microsoft-integration/power-apps/dataverse-connection-select.png" | relative_url }})
+    ![New connection list with the Microsoft Dataverse connection that has the green icon highlighted]({{ "/assets/images/microsoft-integration/power-apps/dataverse-connection-select.png" | relative_url }})
 
 1. Select **Create**.
 
-    ![data-verse-connection.png]({{ "/assets/images/microsoft-integration/power-apps/data-verse-connection.png" | relative_url }})
+    ![Microsoft Dataverse connection dialog with the Create button highlighted]({{ "/assets/images/microsoft-integration/power-apps/data-verse-connection.png" | relative_url }})
 
     The new connector appears under **Connections**.
 
@@ -303,11 +303,11 @@ The workflows in Power Apps integration are different in terms of configuration 
 
 1. Find and select the application user that you created in [Create a new application user](#create-a-new-application-user). Grant the following permissions to the application user: **Can use** or **Can edit**. Then, select **Save**. 
 
-    ![share-dataverse.png]({{ "/assets/images/microsoft-integration/power-apps/share-dataverse.png" | relative_url }})
+    ![Share Dataverse dialog with the PowerApps_CluedIn application user given the Can edit permission]({{ "/assets/images/microsoft-integration/power-apps/share-dataverse.png" | relative_url }})
 
 You will need the ID of Dataverse connection to configure Power Apps integration in CluedIn as described in [Power Apps configuration guide](/solutions/power-apps/configuration-guide). To find the connection ID, open the connection and look for ID in the URL field.
 
-![dataverse-connector-id.png]({{ "/assets/images/microsoft-integration/power-apps/dataverse-connector-id.png" | relative_url }})
+![Dataverse connection details page in Power Apps, with the connection ID highlighted at the end of the browser URL]({{ "/assets/images/microsoft-integration/power-apps/dataverse-connector-id.png" | relative_url }})
 
 ## Next steps
 

@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 60
 permalink: /archive/legacy-user-interface/pending-changes
 content_type: reference
-redirect_from: ["/user-interface/pending-changes"]
 source_path: docs/100-user-interface/060-pending-changes.md
 tags: ["ui","entities"]
 published: false

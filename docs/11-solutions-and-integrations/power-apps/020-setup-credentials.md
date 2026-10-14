@@ -6,7 +6,6 @@ grand_parent: Solutions & integrations
 nav_order: 20
 permalink: /solutions/power-apps/setup-credentials
 content_type: how-to
-redirect_from: ["/microsoft-integration/powerapps/setup-credentials"]
 source_path: docs/180-microsoft-integration/powerapps/010-setup-credentials.md
 tags: ["integration", "microsoft", "powerapps", "dataverse"]
 last_modified: 2023-05-17

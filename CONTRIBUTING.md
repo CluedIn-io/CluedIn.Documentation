@@ -183,6 +183,41 @@ data you supply. Do not write a how-to that opens with three paragraphs of
 background — that is a concept page and a how-to, and they should be two
 articles that link to each other.
 
+### The structure of a how-to
+
+A how-to is read by people and, more and more, by AI assistants that carry
+the task out for them. Both need the same thing: nothing left implied. Use
+these sections, in this order, and leave out a section only when it genuinely
+has nothing to say.
+
+| Section | What goes in it |
+|---|---|
+| *(opening paragraph, no heading)* | The outcome, and when to do this rather than something else. Two or three sentences. |
+| `## Prerequisites` | Roles or permissions, and anything that must already exist — a data set, a business domain, an export target. Link to how to create each. |
+| `## Inputs` | Only when the task asks for values. A table: field, required or optional, default, what it accepts, an example. |
+| `## <Do the task>` | The steps. The heading is the task as an imperative ("Create a deduplication project"). A page can have several, one per task. Keep the heading text when you restructure a page; other pages link to it. |
+| `## Verify the result` | What the reader can observe when it worked: where the result appears, what status it shows. Say whether that means the request was accepted or the work has finished, because many operations run in the background. |
+| `## What this changes` | Side effects: whether the task only saves configuration, or also creates suggestions, changes golden records, merges records, or sends data downstream — and whether that can be undone. |
+| `## If something goes wrong` | Errors the reader can hit, what each means, and what to do. Link to the troubleshooting page where one exists. |
+
+Rules that apply to every section:
+
+- **Write down behaviour; never imply it.** "Run the job and review the
+  results" is not enough: say where the results appear, what "finished" looks
+  like, and whether approving them changes golden records.
+- **Put rules an agent must follow in one place.** If a feature has semantics
+  that decide whether it is configured correctly — matching rules combine with
+  OR, criteria within a rule with AND — give them their own section rather than
+  leaving them inside a step.
+- **Disambiguate overloaded words.** Where a term means something different
+  here from elsewhere in CluedIn ("data source" inside an AI agent job is not an
+  ingestion data source), say so where it is used.
+- **Only document behaviour that is confirmed.** If you cannot find out what
+  happens, leave the section out and raise it, rather than guessing.
+- **Give every image alt text that says what it shows.** Not the file name: what
+  the reader should see in it ("The Add Enricher dialog, on the Choose Enricher
+  tab"). A diagram's alt text describes the flow it draws.
+
 ---
 
 ## Step 5 — File name and front matter
@@ -281,6 +316,16 @@ Renaming a page's `title` also changes what its children must declare as
 `parent`. Update them in the same commit; `validate.py` will tell you if you
 miss one.
 
+### Unpublishing or archiving an article
+
+A page with `published: false` is not built, and neither are its redirect
+stubs, so every URL in its `redirect_from` would serve a 404. Before you
+unpublish a page, move its `redirect_from` entries — and its own old
+`permalink` — to the live page that replaces it, or to the nearest section
+index if nothing does. Record the move in
+[`_migration/redirect-successors.md`](_migration/redirect-successors.md).
+`validate.py` rejects a `redirect_from` on an unpublished page.
+
 ---
 
 ## Check it before you push
@@ -303,8 +348,12 @@ quietly broken site:
   served, so nothing looks broken — it is simply impossible to find unless you
   already know the URL
 - an internal link pointing at a URL no page serves
+- an old URL in `redirect_from` on an unpublished page, which builds no
+  redirect, or one claimed by two pages
+- an image whose alt text is empty or just a file name, which tells a reader
+  using a screen reader, and an AI assistant reading the Markdown copy, nothing
 
-The five warnings it currently prints are links that were already broken before
+The four warnings it currently prints are links that were already broken before
 the restructure; they are recorded in `_migration/report.md`. Do not add to them.
 
 It also prints a `nav_exclude` count. Those are pages deliberately kept out of

@@ -14,7 +14,7 @@ headerIcon: "paas"
 
 CluedIn supports private endpoint connections via an internal load balancer. The architecture below outlines the recommended approach for securely connecting private endpoints to CluedIn.
 
-![private-endpoint.png]({{ "/assets/images/paas-operations/private-endpoint.png" | relative_url }})
+![Diagram: Client A reaches CluedIn over the internet through a firewall to the internal load balancer; Client B uses private DNS and a private endpoint, connected by Private Link to the internal load balancer in front of CluedIn AKS]({{ "/assets/images/paas-operations/private-endpoint.png" | relative_url }})
 
 ## Key Notes
 

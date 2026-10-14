@@ -50,7 +50,7 @@ The tag monitoring functionality is not enabled by default. To use it, you must 
 
 1. On the **Tag Monitoring** card, set the toggle to **Enabled**.
 
-    ![tag_monitoring_feature_flag.png]({{ "/assets/images/governance/tag-monitoring/enable-tag-monitoring-feature/Images/tag_monitoring_feature_flag.png" | relative_url }})
+    ![The Tag Monitoring feature flag card, a beta feature, with its toggle set to Enabled]({{ "/assets/images/governance/tag-monitoring/enable-tag-monitoring-feature/Images/tag_monitoring_feature_flag.png" | relative_url }})
 
     You can now proceed to [monitor tag usage](#monitor-tag-usage).
 
@@ -72,14 +72,14 @@ This article explains how to monitor both types of information.
 
 1. Review the **Top tags by golden record count** chart. It displays up to 5 most-used tags based on the number of records that are currently flagged with them.
 
-    ![top_tags_chart_sp.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/top_tags_chart_sp.png" | relative_url }})
+    ![Home page Golden Records Overview section with the Top tags by golden record count bar chart next to the golden records count by business domain chart]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/top_tags_chart_sp.png" | relative_url }})
 
     {:.important}
     If the chart is not available, this may mean that the Tag Monitoring functionality is not [enabled](#enable-the-tag-monitoring-functionality).
 
 1. Select a tag to view detailed information about it. You are now redirected to the **Tag Monitoring** module, where that tag is already selected in the list for you. For details on how to use the **Tag Monitoring** module, see the following procedure.
 
-    ![top_tags_chart_go_to_tag_monitoring_sp.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/top_tags_chart_go_to_tag_monitoring_sp.png" | relative_url }})
+    ![The Tag Monitoring page with a tag preselected in the tags list and its Data quality in business domains chart on the right]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/top_tags_chart_go_to_tag_monitoring_sp.png" | relative_url }})
 
 **To monitor all tags used**
 
@@ -96,11 +96,11 @@ This article explains how to monitor both types of information.
 
     1. Period of interest.
 
-    ![select_domain_and_period-2.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/select_domain_and_period-2.png" | relative_url }})
+    ![The Tag Monitoring page with callouts on the business domain selector (A), set to TrainingContact, and the Date Range selector (B)]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/select_domain_and_period-2.png" | relative_url }})
 
 1. On the tags panel on the left, select the tag of interest.
 
-    ![select_tag_interest.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/select_tag_interest.png" | relative_url }})
+    ![The Tag Monitoring page with the tags panel on the left highlighted, listing tags with their rule, type, record count and percentage]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/select_tag_interest.png" | relative_url }})
 
     The tags panel shows the following information about a tag:
 
@@ -118,18 +118,18 @@ This article explains how to monitor both types of information.
 
         - If no domain is selected, the percentage refers to the number of tagged records compared to all records in CluedIn.
 
-    ![tag_card.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/tag_card.png" | relative_url }})
+    ![A tag card for Invalid email format with callouts on the rule (A), rule type (B), number of tagged records (C) and percentage (D)]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/tag_card.png" | relative_url }})
 
 1. In the **Data quality in business domains** chart on the right, review the information about the tag usage over time. To view the number of records tagged at a specific time, hover over the corresponding data point in the chart.
 
-    ![view_data_point_sp.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/view_data_point_sp.png" | relative_url }})
+    ![The Data quality in business domains chart with a tooltip on a data point showing the date and Golden record count 3]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/view_data_point_sp.png" | relative_url }})
 
     {:.important} 
     By default, the data in the chart refreshes every 15 minutes. Your administrator can change this interval in **Administration** > **Settings** > **High Time Resolution Metric interval in minutes**.
 
 1. At the bottom of the page, review the list of golden records tagged with the selected tag.
 
-    ![view_tagged_records.png]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/view_tagged_records.png" | relative_url }})
+    ![The Tag Monitoring page with the list of tagged golden records highlighted below the chart, showing three TrainingContact records]({{ "/assets/images/governance/tag-monitoring/monitor-tag-usage/Image/view_tagged_records.png" | relative_url }})
 
     If needed, adjust how the list is displayed:
 
@@ -256,11 +256,11 @@ You can leverage [AI agents](/govern/ai-agents) to fix the golden records flagge
 
 1. On the tags panel on the left, select the tag of interest.
 
-    ![select_tag.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/select_tag.png" | relative_url }})
+    ![The Tag Monitoring tags panel with the Invalid email format tag selected and highlighted]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/select_tag.png" | relative_url }})
 
 1. In the upper-right corner of the page, select **Fix Data Quality Issues with AI**.
 
-    ![fix_with_ai_btn.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/fix_with_ai_btn.png" | relative_url }})
+    ![The Tag Monitoring page with the Fix data quality issues with AI button highlighted in the upper-right corner]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/fix_with_ai_btn.png" | relative_url }})
 
     {:.important}
     If the **Fix Data Quality Issues with AI** button is unavailable, this may mean that the AI agents feature is not [enabled](/govern/ai-agents/prerequisites-to-using-ai-agents).
@@ -275,11 +275,11 @@ You can leverage [AI agents](/govern/ai-agents) to fix the golden records flagge
 
     1. Select **Create AI Job**.
 
-    ![fix_with_ai_panel.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/fix_with_ai_panel.png" | relative_url }})
+    ![The Fix data quality issues with AI panel with AI agent Data Steward, an endpoint selected, the Active toggle on, and the Create AI job button]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/fix_with_ai_panel.png" | relative_url }})
 
     An [AI agent job](/govern/ai-agents/create-configure-and-run-an-ai-agent#create-a-job) is created to handle the selected tagged records. A corresponding label appears in the upper-right corner of the page.
 
-    ![ai_agent_job_creted.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/ai_agent_job_creted.png" | relative_url }})
+    ![The Tag Monitoring page with the Data Steward AI agent job label highlighted in the upper-right corner, with a View results link]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/ai_agent_job_creted.png" | relative_url }})
 
     At this point, the AI agent did not analyze or change the records in any way.
 
@@ -287,7 +287,7 @@ You can leverage [AI agents](/govern/ai-agents) to fix the golden records flagge
 
     1. In the upper-right corner of the page, select **View Results**.
 
-        ![view_results_btn.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/view_results_btn.png" | relative_url }})
+        ![The Data Steward AI agent job label on the Tag Monitoring page, with the View results link highlighted]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/view_results_btn.png" | relative_url }})
 
         You are redirected to the AI agent job page.
 
@@ -296,23 +296,23 @@ You can leverage [AI agents](/govern/ai-agents) to fix the golden records flagge
         {:.important}
         The **Data** section defines the subset of data the AI agent should work on. When you create an AI agent job, CluedIn automatically includes all records flagged with the selected tag (in this example, **invalid-validation-phone**). This selection applies across all business domains, even if you have a domain selected on the **Tag Monitoring** page.
 
-        ![ai_agent_job_data_and_skills.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/ai_agent_job_data_and_skills.png" | relative_url }})
+        ![The AI agent job Configuration tab with the Data section (the Invalid email format tag) and the Skills section (Fix Data Quality Issues selected) highlighted]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/ai_agent_job_data_and_skills.png" | relative_url }})
 
       1. Review the provided **Instructions**. If needed, provide any additional ones.
 
-         ![edit_instructions.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/edit_instructions.png" | relative_url }})
+         ![The AI agent job Configuration tab with the Instructions section highlighted, reading Fix data quality issue for Invalid email format]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/edit_instructions.png" | relative_url }})
 
       1. [Test the job](/govern/ai-agents/create-configure-and-run-an-ai-agent#test-the-job) to verify that it fixes the records as expected.
 
-         ![test_job_btn.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/test_job_btn.png" | relative_url }})
+         ![The AI agent job page with the Test now button highlighted near the upper-right corner]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/test_job_btn.png" | relative_url }})
 
       1. [Run the job](/govern/ai-agents/create-configure-and-run-an-ai-agent#run-the-job) and [review its results](/govern/ai-agents/review-the-results-returned-by-an-ai-agent) to have the records fixed.
 
-         ![run_job_btn.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/run_job_btn.png" | relative_url }})
+         ![The AI agent job page with the Run now button highlighted near the upper-right corner]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/run_job_btn.png" | relative_url }})
 
 1. When done, go back to **Governance** > **Tag Monitoring** to verify that there is a decrease in the number of records flagged with the selected tag.
 
-    ![verify_records_are_fixed_sp.png]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/verify_records_are_fixed_sp.png" | relative_url }})
+    ![The Data quality in business domains chart where the number of tagged records drops at the latest data point, with a tooltip showing Golden Record Count 70]({{ "/assets/images/governance/tag-monitoring/fix-records-with-ai/Images/verify_records_are_fixed_sp.png" | relative_url }})
 
     {:.important}
     By default, the data in the chart refreshes every 15 minutes. Your administrator can change this interval in **Administration** > **Settings** > **High Time Resolution Metric interval in minutes**.
@@ -333,11 +333,11 @@ Clean projects are intended to fix the records manually. You can also leverage t
 
 1. On the tags panel on the left, select the tag of interest.
 
-    ![select_tag.png]({{ "/assets/images/governance/tag-monitoring/create-clean-project/Images/select_tag.png" | relative_url }})
+    ![The Tag Monitoring tags panel with the Invalid email format tag selected and highlighted]({{ "/assets/images/governance/tag-monitoring/create-clean-project/Images/select_tag.png" | relative_url }})
 
 1. Above the list of tagged golden records, open the three-dot menu, and then select **Clean**.
 
-    ![three_dot_menu_clean_btn_sp.png]({{ "/assets/images/governance/tag-monitoring/create-clean-project/Images/three_dot_menu_clean_btn_sp.png" | relative_url }})
+    ![The three-dot menu above the list of tagged golden records opened, with the Clean option highlighted]({{ "/assets/images/governance/tag-monitoring/create-clean-project/Images/three_dot_menu_clean_btn_sp.png" | relative_url }})
 
     The **Create Clean Project** pane opens for you to configure the clean project. Note that the **Filters** section is already filled in so that the project is targeted at records with the selected tag.
 
@@ -347,7 +347,7 @@ Clean projects are intended to fix the records manually. You can also leverage t
 
     1. If needed, add more **Filters** to narrow down the scope of data targeted by the clean project.
 
-        ![create_project_pane_configure_tab.png]({{ "/assets/images/governance/tag-monitoring/create-clean-project/Images/create_project_pane_configure_tab.png" | relative_url }})
+        ![The Create clean project pane on the Configure tab, with a project name and a prefilled filter where Tag contains Invalid email format]({{ "/assets/images/governance/tag-monitoring/create-clean-project/Images/create_project_pane_configure_tab.png" | relative_url }})
 
     1. Select **Next**.
 
@@ -355,11 +355,11 @@ Clean projects are intended to fix the records manually. You can also leverage t
 
     1. Review the list of properties and vocabulary keys pre-selected for this clean project. If needed, remove any of the properties or keys.
 
-        ![remove_property_btn.png]({{ "/assets/images/governance/tag-monitoring/create-clean-project/Images/remove_property_btn.png" | relative_url }})
+        ![The Choose vocabulary keys tab with three properties selected and the Remove Property button highlighted]({{ "/assets/images/governance/tag-monitoring/create-clean-project/Images/remove_property_btn.png" | relative_url }})
 
     1. If you want to load more properties or vocabulary keys into the project, select **Add Property**. Then choose what type of property—record property or vocabulary property—you want to load to the clean project.
 
-        ![add_property_dropdown.png]({{ "/assets/images/governance/tag-monitoring/create-clean-project/Images/add_property_dropdown.png" | relative_url }})
+        ![The Add property dropdown on the Choose vocabulary keys tab, offering Add golden record property and Add vocabulary property]({{ "/assets/images/governance/tag-monitoring/create-clean-project/Images/add_property_dropdown.png" | relative_url }})
 
         Depending on the type of property that you chose, select the record properties or find and select the vocabulary keys that you want to load to the clean project. Then, select **Save Selection**.
 
@@ -383,7 +383,7 @@ You can also use the [Rule Builder module](/govern/rules) to create new tags. Fo
 
 1. In the upper-left corner of the page, select **Add Tag**.
 
-    ![add_tag_btn.png]({{ "/assets/images/governance/tag-monitoring/add-new-tags/Images/add_tag_btn.png" | relative_url }})
+    ![The Tag Monitoring page with the Add button highlighted in the upper-left corner]({{ "/assets/images/governance/tag-monitoring/add-new-tags/Images/add_tag_btn.png" | relative_url }})
 
     The **Add Tag** panel opens on the right of the page.
 
@@ -397,7 +397,7 @@ You can also use the [Rule Builder module](/govern/rules) to create new tags. Fo
 
 1. Use **Filters** to specify the subset or records to which the tag will apply.
 
-    ![add_tag_panel.png]({{ "/assets/images/governance/tag-monitoring/add-new-tags/Images/add_tag_panel.png" | relative_url }})
+    ![The Add tag panel with Tag name Missing job title, Tag Color, Folder, Type set to Golden Record, and a filter where trainingcontact.jobTitle does not exist]({{ "/assets/images/governance/tag-monitoring/add-new-tags/Images/add_tag_panel.png" | relative_url }})
 
 1. Select **Create**.
 
@@ -407,4 +407,4 @@ You can also use the [Rule Builder module](/govern/rules) to create new tags. Fo
 
     - If you want the rule to apply to existing records as well, on the **Add Tag** panel, select **Reprocess existing records**. Then, wait until the processing is completed.
 
-        ![reprocess_golden_records.png]({{ "/assets/images/governance/tag-monitoring/add-new-tags/Images/reprocess_golden_records.png" | relative_url }})
+        ![The Add tag panel confirming that tag rules were created, with the Reprocess golden records button highlighted]({{ "/assets/images/governance/tag-monitoring/add-new-tags/Images/reprocess_golden_records.png" | relative_url }})

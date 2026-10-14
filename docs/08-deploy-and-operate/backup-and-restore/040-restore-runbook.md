@@ -40,7 +40,7 @@ An automation account must be provided. The runbook will be installed into the t
 
 The runbook will optionally scale down the target CluedIn instance after the restore.
 
-![restore-runbook.png]({{ "/assets/images/paas-operations/restore-runbook.png" | relative_url }})
+![Diagram: the runbook loops through nine disk snapshots in the target resource group, removing each disk and restoring it from snapshot (elasticsearch, openrefine-data, neo4j, rabbitmq, redis, and four sqlserver disks) attached to the CluedIn AKS cluster]({{ "/assets/images/paas-operations/restore-runbook.png" | relative_url }})
 
 ## Input parameters
 
@@ -57,7 +57,7 @@ The runbook will optionally scale down the target CluedIn instance after the res
 
 ## Process
 
-![restore-runbook-process.png]({{ "/assets/images/paas-operations/restore-runbook-process.png" | relative_url }})
+![Flowchart: Start, retrieve snapshots by license key and timestamp, scale down deployments and stateful sets, loop through disks, replace each disk from its snapshot, scale everything up, optionally scale down, Stop]({{ "/assets/images/paas-operations/restore-runbook-process.png" | relative_url }})
 
 ## Permissions
 

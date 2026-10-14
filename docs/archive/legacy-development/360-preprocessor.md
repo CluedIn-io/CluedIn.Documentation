@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 360
 permalink: /archive/legacy-development/preprocessor
 content_type: reference
-redirect_from: ["/developer/preprocessor"]
 source_path: docs/090-development/440-adding-preprocessor.md
 tags: ["development","processors"]
 last_modified: 2021-11-29

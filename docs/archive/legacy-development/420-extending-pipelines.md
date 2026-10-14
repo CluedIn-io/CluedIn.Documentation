@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 420
 permalink: /archive/legacy-development/extending-pipelines
 content_type: reference
-redirect_from: ["/developer/extending-pipelines"]
 source_path: docs/090-development/510-extending-existing-pipeline-process.md
 tags: ["development","processors"]
 published: false

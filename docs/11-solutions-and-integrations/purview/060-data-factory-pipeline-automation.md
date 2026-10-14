@@ -71,22 +71,22 @@ Follow these steps to prepare Azure Data Factory (ADF) and Microsoft Purview, an
 1. Create and verify Azure resources:
     1. Create (or identify) an ADF resource in the correct subscription/resource group.
 
-        ![adf-instance.png]({{ "/assets/images/microsoft-integration/purview/adf-instance-2.png" | relative_url }})
+        ![Overview page of the adf-cluedin-weu-dev Azure Data Factory resource in the Azure portal, with the Launch studio button]({{ "/assets/images/microsoft-integration/purview/adf-instance-2.png" | relative_url }})
 
     1. (Optional) Create an Azure Key Vault to hold secrets.
 
-        ![akv-instance.png]({{ "/assets/images/microsoft-integration/purview/akv-instance-2.png" | relative_url }})
+        ![Overview page of the kv-rna-cluedin-test-weu Azure Key Vault in the Azure portal]({{ "/assets/images/microsoft-integration/purview/akv-instance-2.png" | relative_url }})
 
 1. Set up a service principal. Follow the steps outlined in [Create and configure the service principal](#create-and-configure-the-service-principal) to create app registration and client secret. There are no ADF‑specific differences for this step.
 
 1. Assign roles and permissions:
     1. In ADF, assign the service principal the **Contributor** role (or a least‑privileged custom role that allows pipeline authoring and execution).
 
-        ![adf-assign-contributor-role.png]({{ "/assets/images/microsoft-integration/purview/adf-assign-contributor-role.png" | relative_url }})
+        ![Add role assignment page for the data factory with the Contributor role highlighted under Privileged administrator roles]({{ "/assets/images/microsoft-integration/purview/adf-assign-contributor-role.png" | relative_url }})
 
     1. If you are using Key Vault, grant the **Get** and **List** secret permissions.
 
-        ![key-vault-create-access-policy-permissions.png]({{ "/assets/images/microsoft-integration/purview/key-vault-create-access-policy-permissions.png" | relative_url }})
+        ![Create an access policy for a key vault with the Get and List secret permissions selected]({{ "/assets/images/microsoft-integration/purview/key-vault-create-access-policy-permissions.png" | relative_url }})
 
     1. Grant data‑plane access where needed:
         - ADLS Gen2: Storage Blob Data Reader (read) and/or Storage Blob Data Contributor (write) on the target containers.
@@ -107,20 +107,20 @@ Follow these steps to prepare Azure Data Factory (ADF) and Microsoft Purview, an
 
    - Enable **Data Factory Pipeline Automation**.
 
-        ![adf-cluedin-settings.png]({{ "/assets/images/microsoft-integration/purview/adf-cluedin-settings.png" | relative_url }})
+        ![Data Factory settings in CluedIn: base URL, client ID, client secret, tenant ID, Data Factory Pipeline Automation enabled, and Pipeline Automation Term Pattern CluedInADF]({{ "/assets/images/microsoft-integration/purview/adf-cluedin-settings.png" | relative_url }})
 
 1. Validate the setup in ADF:
     1. In ADF Studio, go to **Author** and confirm that CluedIn created the **Pipelines** and **Datasets** for your tagged assets.
 
-        ![adf-pipelines.png]({{ "/assets/images/microsoft-integration/purview/adf-pipelines-3.png" | relative_url }})
+        ![ADF Studio Factory Resources pane showing the AccountCsvPipeline pipeline and two datasets created by CluedIn, highlighted]({{ "/assets/images/microsoft-integration/purview/adf-pipelines-3.png" | relative_url }})
 
     1. Go to **Manage** > **Linked services** and verify the connections (for example, REST to CluedIn, ADLS/SQL/Snowflake as needed).
 
-        ![adf-linked-services.png]({{ "/assets/images/microsoft-integration/purview/adf-linked-services-2.png" | relative_url }})
+        ![ADF Studio Linked services list with Azure Data Lake Storage Gen2, Azure Key Vault and REST linked services highlighted]({{ "/assets/images/microsoft-integration/purview/adf-linked-services-2.png" | relative_url }})
 
     1. Go to **Monitor** > **Pipeline runs** and verify that pipeline execution was successful.
 
-        ![adf-pipeline-runs.png]({{ "/assets/images/microsoft-integration/purview/adf-pipeline-runs.png" | relative_url }})
+        ![ADF Studio Pipeline runs showing AccountCsvPipeline with status Succeeded]({{ "/assets/images/microsoft-integration/purview/adf-pipeline-runs.png" | relative_url }})
 
 
 1. Verify the ingestion in CluedIn. In the target data source in CluedIn, confirm that the following:
@@ -129,7 +129,7 @@ Follow these steps to prepare Azure Data Factory (ADF) and Microsoft Purview, an
 
     - Rows are flowing correctly.
 
-        ![sync-data-products-adf-notification.png]({{ "/assets/images/microsoft-integration/purview/sync-data-products-adf-notification.png" | relative_url }})
+        ![CluedIn notifications: ADF Pipelines Created for two Purview assets, and Ingestion Endpoints created for Azure Data Factory]({{ "/assets/images/microsoft-integration/purview/sync-data-products-adf-notification.png" | relative_url }})
 
 ### Configure data factory pipeline automation using Fabric Data Factory (new flow)
 CluedIn now supports pipeline automation through Fabric Data Factory (FDF). Use this option when you need to automate:
@@ -141,7 +141,7 @@ CluedIn now supports pipeline automation through Fabric Data Factory (FDF). Use 
 **Prerequisites**
 - Ensure that you have a Fabric workspace with the capacity and permissions to create data factory items.
 
-    ![fabric-workspace.png]({{ "/assets/images/microsoft-integration/purview/fabric-workspace-2.png" | relative_url }})
+    ![Fabric workspaces list with the CluedInLakehouse space workspace selected]({{ "/assets/images/microsoft-integration/purview/fabric-workspace-2.png" | relative_url }})
 
 **To configure data factory pipeline automation using Fabric Data Factory**
 
@@ -150,7 +150,7 @@ CluedIn now supports pipeline automation through Fabric Data Factory (FDF). Use 
 
     1. Ensure that the identity has **Contributor** (or equivalent) access for the Fabric workspace.
 
-        ![fabric-workspace-access.png]({{ "/assets/images/microsoft-integration/purview/fabric-workspace-access-2.png" | relative_url }})
+        ![Fabric workspace Manage access pane, adding an identity to the CluedInLakehouse space with the Contributor role highlighted]({{ "/assets/images/microsoft-integration/purview/fabric-workspace-access-2.png" | relative_url }})
 
 1. Prepare Purview. Follow the steps outlined in [Create and apply Purview glossary term](#create-and-apply-purview-glossary-term) to create and apply the term. There are no Fabric‑specific differences for this step.
 
@@ -164,17 +164,17 @@ CluedIn now supports pipeline automation through Fabric Data Factory (FDF). Use 
 
     - Set the **Pipeline Automation Term Pattern** to your Purview term (for example, `CluedIn_Automate`).
 
-    ![adf-cluedin-settings.png]({{ "/assets/images/microsoft-integration/purview/adf-cluedin-settings.png" | relative_url }})
+    ![Data Factory settings in CluedIn: base URL, client ID, client secret, tenant ID, Data Factory Pipeline Automation enabled, and Pipeline Automation Term Pattern CluedInADF]({{ "/assets/images/microsoft-integration/purview/adf-cluedin-settings.png" | relative_url }})
 
 1. Validate the setup in FDF:
 
     1. In your Fabric workspace, go to **Data Factory** and verify that pipelines were created for the tagged assets.
 
-        ![fabric-pipelines.png]({{ "/assets/images/microsoft-integration/purview/fabric-pipelines-2.png" | relative_url }})
+        ![CluedInLakehouse space workspace filtered to pipelines, listing Ingest Data Pipeline items created for CluedIn datasets]({{ "/assets/images/microsoft-integration/purview/fabric-pipelines-2.png" | relative_url }})
 
     1. Run or monitor the pipelines as needed and confirm their successful execution.
 
-        ![fabric-pipeline-runs.png]({{ "/assets/images/microsoft-integration/purview/fabric-pipeline-runs-2.png" | relative_url }})
+        ![Fabric Monitor page filtered to Succeeded, listing Ingest Data Pipeline runs that succeeded]({{ "/assets/images/microsoft-integration/purview/fabric-pipeline-runs-2.png" | relative_url }})
 
 1. Verify the ingestion in CluedIn. In the target data source, confirm that datasets are present and data is flowing.
 
@@ -195,11 +195,11 @@ Use a single service principal (app registration) for automation, or separate on
 
 1. Complete the app registration (Microsoft Entra ID). Register a new application (or choose an existing one dedicated to data movement).
 
-    ![register-app-new-registration.png]({{ "/assets/images/microsoft-integration/purview/register-app-new-registration.png" | relative_url }})
+    ![App registrations page in the Microsoft Entra admin center with the New registration button highlighted]({{ "/assets/images/microsoft-integration/purview/register-app-new-registration.png" | relative_url }})
 
 1. Create a client secret. Copy the value securely. You will store this information in CluedIn (and, optionally, in Key Vault).
 
-    ![register-app-new-client-secret.png]({{ "/assets/images/microsoft-integration/purview/register-app-new-client-secret.png" | relative_url }})
+    ![Certificates and secrets page of the CluedInPurviewSPN app registration with the New client secret button highlighted]({{ "/assets/images/microsoft-integration/purview/register-app-new-client-secret.png" | relative_url }})
 
 1. Record and securely store the following identifiers:
     - **Tenant ID**
@@ -245,7 +245,7 @@ Use a single service principal (app registration) for automation, or separate on
 
     - Enable the desired automation options and set the **Term Pattern** used in Purview.
 
-    ![adf-cluedin-settings.png]({{ "/assets/images/microsoft-integration/purview/adf-cluedin-settings.png" | relative_url }})
+    ![Data Factory settings in CluedIn: base URL, client ID, client secret, tenant ID, Data Factory Pipeline Automation enabled, and Pipeline Automation Term Pattern CluedInADF]({{ "/assets/images/microsoft-integration/purview/adf-cluedin-settings.png" | relative_url }})
 
 ## Create and apply Purview glossary term
 *This section applies to: Azure Data Factory (ADF), Fabric Data Factory (FDF).*
@@ -256,15 +256,15 @@ Use a single glossary term in Microsoft Purview to mark assets for automation. C
 
 1. In the Microsoft Purview portal, go to **Unified Catalog** > **Catalog management** > **Classic types** and create or select your glossary.
 
-    ![sync-data-sources-create-glossary.png]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-create-glossary.png" | relative_url }})
+    ![Microsoft Purview Unified Catalog, Classic types page on the Glossaries tab, with the New glossary button highlighted]({{ "/assets/images/microsoft-integration/purview/sync-data-sources-create-glossary.png" | relative_url }})
 
 1. Create a new term (for example, **CluedInADF**).  
 
-    ![adf-new-term.png]({{ "/assets/images/microsoft-integration/purview/adf-new-term.png" | relative_url }})
+    ![Purview glossary term CluedInADF overview page with no catalog assets associated yet]({{ "/assets/images/microsoft-integration/purview/adf-new-term.png" | relative_url }})
 
 1. Apply the term to each asset that you want CluedIn to ingest (for example, ADLS path, Fabric file or folder, and so on).  
 
-    ![adf-term-with-asset.png]({{ "/assets/images/microsoft-integration/purview/adf-term-with-asset.png" | relative_url }})
+    ![Purview glossary term CluedInADF with Catalog assets showing 1 asset associated and a View asset link, highlighted]({{ "/assets/images/microsoft-integration/purview/adf-term-with-asset.png" | relative_url }})
 
     {:.important}
     In CluedIn settings, you will reference this exact term string as the *term pattern*.

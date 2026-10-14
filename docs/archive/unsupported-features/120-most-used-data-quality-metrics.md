@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 120
 permalink: /archive/unsupported-features/most-used-data-quality-metrics
 content_type: reference
-redirect_from: ["/preparation/data-quality-metrics/most-used-data-quality-metrics"]
 source_path: docs/070-governance/outdated/120-most-used-data-quality-metrics.md
 tags: ["governance","quality-metrics"]
 published: false

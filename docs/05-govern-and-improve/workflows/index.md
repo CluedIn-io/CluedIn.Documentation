@@ -8,7 +8,7 @@ permalink: /govern/workflows
 content_type: landing
 summary: A workflow puts an approval step in front of a change, so that edits to golden records are reviewed before they take effect.
 list_children: false
-redirect_from: ["/workflow"]
+redirect_from: ["/workflow", "/developer/workflow-event-handlers", "/workflow/prerequisites"]
 source_path: docs/110-workflow.md
 ---
 

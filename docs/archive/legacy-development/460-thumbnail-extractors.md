@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 460
 permalink: /archive/legacy-development/thumbnail-extractors
 content_type: reference
-redirect_from: ["/developer/thumbnail-extractors"]
 source_path: docs/090-development/550-thumbnail-extractors.md
 tags: ["development"]
 published: false

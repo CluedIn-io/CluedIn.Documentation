@@ -19,7 +19,7 @@ In this article, you will learn how to standardize dates using two different met
 
 To begin with, we have ingested, mapped, and processed a file containing contact data. Note that the records include dates in various short date and long date patterns typical to the en-US culture. Next, we’ll demonstrate how to apply two standardization methods, both leading to the same result.
 
-![how-to-standardize-dates-input.png]({{ "/assets/images/kb/how-to/how-to-standardize-dates-input.png" | relative_url }})
+![Contact records whose joined_date column, highlighted, mixes short and long en-US date formats such as 04/04/2025 and November 4, 2024]({{ "/assets/images/kb/how-to/how-to-standardize-dates-input.png" | relative_url }})
 
 ## Standardize dates using data part rules
 
@@ -29,11 +29,11 @@ To begin with, we have ingested, mapped, and processed a file containing contact
 
     Both culture and input are optional parameters. If you don’t provide the culture or input format, CluedIn will analyze the values and determine their input date format before converting them to ISO 8601 format.
 
-    ![how-to-standardize-dates-rule-action.png]({{ "/assets/images/kb/how-to/how-to-standardize-dates-rule-action.png" | relative_url }})
+    ![Add action pane of a data part rule with the Normalize Date action, a Field Name selected, Culture set to en-US, and an empty Input Format]({{ "/assets/images/kb/how-to/how-to-standardize-dates-rule-action.png" | relative_url }})
 
 1. Save, activate and re-process the rule. To verify that the rule has been applied, go to the **Data** tab of the data set that initially contained non-standardized dates. As a result, all dates are standardized according to ISO 8601 format.
 
-    ![how-to-standardize-dates-output.png]({{ "/assets/images/kb/how-to/how-to-standardize-dates-output.png" | relative_url }})
+    ![Data tab with the Joined Date column, highlighted, showing all dates in ISO 8601 format such as 2024-09-23T00:00:00]({{ "/assets/images/kb/how-to/how-to-standardize-dates-output.png" | relative_url }})
 
     This method is preferred for standardizing dates as it avoids changing the data type of the original field during mapping to the vocabulary key. Keeping the default data type (Text) helps reduce the likelihood of format validation errors during initial processing.
 
@@ -43,12 +43,12 @@ To begin with, we have ingested, mapped, and processed a file containing contact
 
 1. Enable the **Date Time** setting. By default, this setting is disabled because date normalization using rules is the preferred method.
 
-    ![how-to-standardize-dates-org-settings.png]({{ "/assets/images/kb/how-to/how-to-standardize-dates-org-settings.png" | relative_url }})
+    ![Processing Property Data Type Normalization settings with the Date Time setting highlighted and enabled]({{ "/assets/images/kb/how-to/how-to-standardize-dates-org-settings.png" | relative_url }})
 
 1. When creating mapping for the data set, change the data type for the field containing dates to **DateTime**.
 
-    ![how-to-standardize-dates-mapping-preview.png]({{ "/assets/images/kb/how-to/how-to-standardize-dates-mapping-preview.png" | relative_url }})
+    ![Mapping Preview with the joined_date field highlighted, mapped to joinedDate with the DateTime data type]({{ "/assets/images/kb/how-to/how-to-standardize-dates-mapping-preview.png" | relative_url }})
 
     After processing the data set, the dates will be converted to the ISO 8601 format.
 
-    ![how-to-standardize-dates-output.png]({{ "/assets/images/kb/how-to/how-to-standardize-dates-output.png" | relative_url }})
+    ![Data tab with the Joined Date column, highlighted, showing all dates in ISO 8601 format such as 2024-09-23T00:00:00]({{ "/assets/images/kb/how-to/how-to-standardize-dates-output.png" | relative_url }})

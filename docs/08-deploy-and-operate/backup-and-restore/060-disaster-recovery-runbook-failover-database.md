@@ -42,7 +42,7 @@ Additional costs are incurred as the secondary database must always be running.
 
 An automation account must be provided. The runbook will be installed into the the automation account. The three dependent runbooks must already be installed. Typically, the runbook should be scheduled to run once a day outside of office hours.
 
-![disaster-recovery-runbook.png]({{ "/assets/images/paas-operations/disaster-recovery-runbook-failover-database.png" | relative_url }})
+![Diagram: in the automation account, the orchestrate runbook triggers the backup runbook, transfers snapshots from the production to the DR resource group, then runs the restore runbook; a failover group keeps production and DR Azure SQL in sync]({{ "/assets/images/paas-operations/disaster-recovery-runbook-failover-database.png" | relative_url }})
 
 ## Input parameters
 
@@ -96,6 +96,6 @@ The idle CluedIn DR instance in the secondary region is prepared and validated a
 ### 4. Azure SQL Recovery
 During a failover event the secondary database should be restored via the `Import Database` runbook.
 
-![disaster-recovery-runbook-process.png]({{ "/assets/images/paas-operations/disaster-recovery-runbook-process.png" | relative_url }})
+![Flowchart: start, trigger backup, wait for backups to complete, copy snapshots to target, wait for snapshot to fully transfer, restore CluedIn, wait for restore to complete, stop]({{ "/assets/images/paas-operations/disaster-recovery-runbook-process.png" | relative_url }})
 
 Scaling down of the DR environment following a successful restore is optional.

@@ -17,7 +17,7 @@ last_modified: 2024-10-31
 - TOC
 {:toc}
 
-In this article, you will learn about the processing of data that you ingested into CluedIn. The goal of processing is to turn your records into standalone golden records or to use them to enhance existing golden records.
+Process a data set to turn its records into standalone golden records, or to use them to enhance existing golden records. Process a data set after you have [created](/ingest/mapping/create-mapping) and [reviewed](/ingest/mapping/review-mapping) its mapping; until then, the records exist only in the data set.
 
 Depending on the type of data source, there are three processing options:
 
@@ -27,21 +27,29 @@ Depending on the type of data source, there are three processing options:
 
 - For ingestion endpoint only: [Bridge mode](#bridge-mode)
 
-You can process the data set as many times as you want. In CluedIn, once a record has been processed, it won’t undergo processing again. When the processing is started, CluedIn checks for identical records. If identical records are found, they won’t be processed again. However, if you change the primary identifier for the previously processed records, CluedIn will treat these records as new and process them.
+## Prerequisites
 
-After processing is completed, the following takes place:
+- A data set with a mapping. See [Create mapping](/ingest/mapping/create-mapping).
 
-- [Processing log](#processing-logs) appears in the table.
+- Access to the **Data Sources** module. The claims it needs are listed in [Data sources](/ingest/data-sources).
 
-- Records are moved to [quarantine](/ingest/troubleshooting/quarantine) if:
+- For auto-submission and bridge mode: a data set created from an [ingestion endpoint](/ingest/data-sources/endpoint).
 
-    - They fail to meet specific conditions outlined in [property](/ingest/mapping/property-rules) or [pre-process](/ingest/mapping/preprocess-rules) rules. will be sent to quarantine.
+- Recommended: check the **Logs** tab of the data set for errors before processing. See [Logs](/ingest/troubleshooting/logs).
 
-    - (For data ingested through an [endpoint](/ingest/data-sources/endpoint)) [Schema protection](/ingest/data-sources/endpoint#schema-protection) is enabled, and the records contain fields outside of the defined mapping.
+## How processing decides what to process
 
-- Records that were processed successfully are displayed on the **Data** tab.
+- You can process the data set as many times as you want. In CluedIn, once a record has been processed, it won't undergo processing again. When the processing is started, CluedIn checks for identical records. If identical records are found, they won't be processed again.
 
-If the processing takes a long time, go to the **Monitoring** tab and check the number of messages in the queues. Depending on the type of message queue with a high message count, you can perform specific troubleshooting actions. For further details, see [Monitoring](/ingest/troubleshooting/monitoring).
+- If you change the primary identifier for the previously processed records, CluedIn will treat these records as new and process them.
+
+- Records with identical primary identifiers, or identical identifiers, are merged. The confirmation pane of manual processing shows whether the selected identifier fields contain duplicates in the current data set. See [Identifiers](/ingest/mapping/review-mapping#identifiers).
+
+- Records that fail the conditions in [property](/ingest/mapping/property-rules) or [pre-process](/ingest/mapping/preprocess-rules) rules go to [quarantine](/ingest/troubleshooting/quarantine) instead of becoming golden records. So do records from an [endpoint](/ingest/data-sources/endpoint) with [schema protection](/ingest/data-sources/endpoint#schema-protection) enabled that contain fields outside of the defined mapping.
+
+- If [source record approval](/ingest/processing/approval) is configured for the data source, and the data set is processed by a user who is not its owner or receives data in auto-submission mode, records that meet the approval conditions are sent for approval before they are processed.
+
+- Fields that the mapping ignores are not processed and do not appear in the resulting golden records.
 
 ## Manual processing
 
@@ -68,7 +76,7 @@ Manual processing is available for the data coming from a file, an ingestion end
 
 1. In the lower-right corner, select **Confirm**.
 
-    ![process-data.gif]({{ "/assets/images/integration/data-sources/process-data.gif" | relative_url }})
+    ![Animation: on the Process tab, selecting Process opens the confirmation pane; after Confirm, a processing log shows Success 20]({{ "/assets/images/integration/data-sources/process-data.gif" | relative_url }})
 
 ## Auto-submission
 
@@ -82,7 +90,7 @@ Auto-submission is available for the data coming from an ingestion endpoint. Whe
 
 1. Confirm that you want to enable automatic processing of records once they are received by CluedIn.
 
-    ![auto-submission-1.gif]({{ "/assets/images/integration/data-sources/auto-submission-1.gif" | relative_url }})
+    ![Animation: turning on the Auto submission toggle on the Process tab, confirming, and a notification that auto-submission has been saved]({{ "/assets/images/integration/data-sources/auto-submission-1.gif" | relative_url }})
 
 If you no longer want the records to be processed automatically, turn off the toggle next to **Auto-submission**.
 
@@ -100,7 +108,7 @@ Bridge mode allows you to use less storage and memory, resulting in increased pe
 
 1. Confirm that you want to switch to bridge mode by entering _BRIDGE_. Then, select **Confirm bridge mode**.
 
-    ![bridge-mode-1.gif]({{ "/assets/images/integration/data-sources/bridge-mode-1.gif" | relative_url }})
+    ![Animation: choosing Switch to bridge mode in the Process tab menu, typing BRIDGE, and the data set showing the Bridge Mode label]({{ "/assets/images/integration/data-sources/bridge-mode-1.gif" | relative_url }})
 
 If you no longer want your ingestion endpoint to operate in bridge mode, you can switch it back to the default mode. After switching back to the default mode, the **Preview** tab will appear. However, it will not contain records received while bridge mode was enabled.
 
@@ -112,7 +120,7 @@ If you no longer want your ingestion endpoint to operate in bridge mode, you can
 
 1. Confirm that you want to switch back to default mode by entering _DEFAULT_. Then, select **Confirm default mode**.
 
-    ![default-mode-1.gif]({{ "/assets/images/integration/data-sources/default-mode-1.gif" | relative_url }})
+    ![Animation: choosing Switch to default mode in the Process tab menu, typing DEFAULT, confirming, and the Preview tab returning]({{ "/assets/images/integration/data-sources/default-mode-1.gif" | relative_url }})
 
 ## Processing logs
 
@@ -130,7 +138,7 @@ Removing processing logs frees up disk space without impacting the processed rec
 
 1. Confirm that you want to remove processing logs by entering _DELETE_. Then, select **Purge**.
 
-    ![purge-logs-1.gif]({{ "/assets/images/integration/data-sources/purge-logs-1.gif" | relative_url }})
+    ![Animation: choosing Purge processing logs, keeping the Finished, Aborted and Cancelled statuses selected, typing DELETE, and selecting Purge]({{ "/assets/images/integration/data-sources/purge-logs-1.gif" | relative_url }})
 
     After processing logs are removed, the **Process** tab will display information about the user who removed them and the time of removal.
 
@@ -148,8 +156,42 @@ Retention settings allow you to automatically delete processing logs after a spe
 
 1. Select **Save**.
 
-    ![retention-settings-1.gif]({{ "/assets/images/integration/data-sources/retention-settings-1.gif" | relative_url }})
+    ![Animation: opening Retention settings from the Process tab menu, enabling retention, choosing 2 months old, and saving]({{ "/assets/images/integration/data-sources/retention-settings-1.gif" | relative_url }})
 
 1. If you want to change the retention period, repeat step 1. Then, select another period and save your changes.
 
 1. If you want to remove the retention settings, repeat step 1. Then, clear the checkbox to disable retention and save your changes.
+
+## Verify the result
+
+Processing runs in the background. Selecting **Confirm**, or new data arriving with auto-submission enabled, sends a request for processing; the records then move through the processing queues shown on the **Monitoring** tab.
+
+- **On the Process tab**, a new [processing log](#processing-logs) appears in the table, with the **Source**, the **Total** number of records, the **Stats**, and when it was **Created**. While the records are being processed, the **Stats** column shows a progress indicator and a **Cancel** button is available. When processing has finished, the **Stats** column shows **Success** with the number of records and a check mark.
+
+- **On the Data tab**, records that were processed successfully are displayed.
+
+- **On the Quarantine tab**, records that did not meet the conditions described in [How processing decides what to process](#how-processing-decides-what-to-process) are listed. See [Quarantine](/ingest/troubleshooting/quarantine).
+
+- **On the Monitoring tab**, the queue message counts return to 0 when there is nothing left to process. See [Monitoring](/ingest/troubleshooting/monitoring).
+
+## What this changes
+
+- **Golden records.** Processed records become new golden records, or are added as data parts to existing golden records. Records with identical primary identifiers are merged.
+
+- **Source data.** With manual processing and auto-submission, the original data that was initially sent to CluedIn remains in the temporary storage on the **Preview** tab. In bridge mode, records are not stored there.
+
+- **Undoing processing.** To take the processed records out of CluedIn again, [remove the records](/ingest/processing/remove-records) created from the data set. This removes golden records that consist only of those records, and removes the corresponding data parts from golden records that also have data from other sources.
+
+- **Processing logs.** Removing processing logs frees up disk space without impacting the processed records, but removed logs cannot be recovered. For an ingestion endpoint, the receipts associated with those submissions become orphaned.
+
+## If something goes wrong
+
+- **Processing takes a long time.** Go to the **Monitoring** tab and check the number of messages in the queues. Depending on the type of message queue with a high message count, you can perform specific troubleshooting actions. For further details, see [Monitoring](/ingest/troubleshooting/monitoring).
+
+- **A submission is in the Error state.** On the **Process** tab, select **Retry** for that submission. See [Monitoring](/ingest/troubleshooting/monitoring#ingestion-anomalies).
+
+- **Records are in quarantine.** Open the **Quarantine** tab to see which rule sent each record there, then fix and process the records, or reject them. See [Quarantine](/ingest/troubleshooting/quarantine).
+
+- **Some records were not processed again.** Records that were processed before are skipped. See [How processing decides what to process](#how-processing-decides-what-to-process).
+
+- **More records were merged than expected.** The field used for the primary identifier or an identifier contains duplicate values. Check the identifier status in the confirmation pane before you confirm, and see [Review mapping](/ingest/mapping/review-mapping#identifiers).

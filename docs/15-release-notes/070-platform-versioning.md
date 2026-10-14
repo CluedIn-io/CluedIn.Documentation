@@ -5,7 +5,6 @@ parent: Release notes
 nav_order: 70
 permalink: /release-notes/platform-versioning
 content_type: reference
-redirect_from: ["/kb/platform-versioning"]
 source_path: docs/200-kb/kb0008-platform-versioning.md
 description: "Information on how CluedIn is versioning"
 tags: ["versioning", "platform"]

@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 250
 permalink: /archive/legacy-development/dynamic-vocabularies
 content_type: reference
-redirect_from: ["/development/dynamic-vocabularies"]
 source_path: docs/090-development/300-dynamic-vocabularies.md
 tags: ["development","vocabularies"]
 published: false

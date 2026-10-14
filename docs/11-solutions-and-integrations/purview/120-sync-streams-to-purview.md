@@ -24,7 +24,7 @@ In this article, you will learn how to sync CluedIn streams to Purview assets.
     
 1. Turn on the toggle in **Sync CluedIn Streams**.
 
-    ![sync-streams.png]({{ "/assets/images/microsoft-integration/purview/sync-streams.png" | relative_url }})
+    ![The Sync CluedIn Streams setting with its toggle set to Enabled]({{ "/assets/images/microsoft-integration/purview/sync-streams.png" | relative_url }})
 
 1. Select **Save**.
 
@@ -34,7 +34,7 @@ In this article, you will learn how to sync CluedIn streams to Purview assets.
 
 Once you enable synchronization of deduplication projects to Purview, you will receive a notification when the project is synced.
 
-![sync-streams-notification.png]({{ "/assets/images/microsoft-integration/purview/sync-streams-notification.png" | relative_url }})
+![A notification: Stream synced to Purview, Stream Account Golden Records synced to Purview]({{ "/assets/images/microsoft-integration/purview/sync-streams-notification.png" | relative_url }})
 
 **To find the asset in Purview**
 
@@ -50,4 +50,4 @@ Once you enable synchronization of deduplication projects to Purview, you will r
 
     The following screenshot shows the application of a stream within the CluedIn processing pipeline. The stream is executed on processed entities.
 
-    ![sync-streams-lineage.png]({{ "/assets/images/microsoft-integration/purview/sync-streams-lineage.png" | relative_url }})
+    ![Purview lineage from Processed Entities branching to Golden Record, Deduplication, Clean and Stream, with the Stream step to Account Golden Records highlighted]({{ "/assets/images/microsoft-integration/purview/sync-streams-lineage.png" | relative_url }})

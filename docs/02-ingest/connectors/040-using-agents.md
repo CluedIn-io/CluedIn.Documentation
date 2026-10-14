@@ -6,7 +6,7 @@ grand_parent: Ingest
 nav_order: 40
 permalink: /ingest/connectors/using-agents
 content_type: how-to
-redirect_from: ["/crawling/using-agents"]
+redirect_from: ["/crawling/using-agents", "/developer/agent-jobs"]
 source_path: docs/040-integration/crawlers/130-using-agents.md
 tags: ["crawling","agents"]
 ---
@@ -76,7 +76,7 @@ This gives CluedIn full visibility into the status of each agent and any issues 
 
 Agents execute agent jobs from the CluedIn system against third-party or provider APIs.
 
-![Diagram]({{ "/assets/images/crawling/agent-simple.png" | relative_url }})
+![Diagram: inside the CluedIn cluster, an in-cluster agent reaches the Agent Controller by direct container reference; an on-prem agent across the network boundary calls the Agent Controller WebAPI over HTTPS]({{ "/assets/images/crawling/agent-simple.png" | relative_url }})
 
 Job results (clues) are sent back to CluedIn as payloads.
 
@@ -94,7 +94,7 @@ Agents can be deployed in two main ways:
 
 - Communicates with Agent Controller via a direct container reference.
 
-![Diagram]({{ "/assets/images/crawling/agent-complex.png" | relative_url }})
+![Diagram: a component enqueues jobs into priority queues; the agent gets work from the Agent Controller, runs crawlers, and posts payloads back; the controller updates job statistics and sends clues to the message bus]({{ "/assets/images/crawling/agent-complex.png" | relative_url }})
 
 ### On-prem deployment (outside of CluedIn control)
 - Deployed as VMs within the customer’s environment.

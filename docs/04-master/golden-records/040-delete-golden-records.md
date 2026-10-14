@@ -34,7 +34,7 @@ If you no longer need a specific golden record, you can delete it on the golden 
 
 1. Confirm that you want to delete the golden record by entering _DELETE_. Then, select **Confirm**.
 
-    ![golden-record-delete.gif]({{ "/assets/images/golden-records/golden-record-delete.gif" | relative_url }})
+    ![Animation: on a golden record page, selecting Delete, reviewing the record details, selecting Next, entering DELETE, and selecting Confirm]({{ "/assets/images/golden-records/golden-record-delete.gif" | relative_url }})
 
     The entire golden record is permanently deleted and cannot be restored.
 
@@ -50,7 +50,7 @@ If you no longer need a set of golden records, you can select those golden recor
 
     As soon as you select at least one golden record, a toolbar with the available bulk actions appears above the search results.
 
-    ![bulk-actions-toolbar.png]({{ "/assets/images/golden-records/bulk-actions-toolbar.png" | relative_url }})
+    ![Bulk actions toolbar above the search results with 2 items selected, showing the delete icon, Merge, Reprocess, Split, and Add tag]({{ "/assets/images/golden-records/bulk-actions-toolbar.png" | relative_url }})
 
     If you want to select every golden record matching your current search across all pages, not just the ones on the current page, see [Select all golden records across all pages](/master/golden-records/bulk-actions-on-search-results#select-all-golden-records-across-all-pages).
 
@@ -60,6 +60,6 @@ If you no longer need a set of golden records, you can select those golden recor
 
 1. Confirm that you want to delete golden records by entering _DELETE_. Then, select **Confirm**.
 
-    ![delete-golden-records-search.gif]({{ "/assets/images/golden-records/delete-golden-records-search.gif" | relative_url }})
+    ![Animation: on the search results page, selecting golden records, choosing delete, reviewing them, selecting Next, entering DELETE, and confirming]({{ "/assets/images/golden-records/delete-golden-records-search.gif" | relative_url }})
 
     The selected golden records are permanently deleted and cannot be restored.

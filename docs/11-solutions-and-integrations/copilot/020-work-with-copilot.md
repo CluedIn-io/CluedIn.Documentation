@@ -35,7 +35,7 @@ To ask Copilot what it can do, use prompts similar to:
 
 You'll find the current skill catalogue in [Copilot skills](#copilot-skills).
 
-![functions.gif]({{ "/assets/images/microsoft-integration/copilot/functions.gif" | relative_url }})
+![Animation: opening the Copilot chat from the message icon in the lower-right corner and asking Copilot which functions it can call]({{ "/assets/images/microsoft-integration/copilot/functions.gif" | relative_url }})
 
 ### Chain skills together
 

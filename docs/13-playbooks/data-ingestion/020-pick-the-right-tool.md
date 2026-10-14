@@ -21,7 +21,7 @@ source_path: docs/210-playbooks/data-ingestion/002-pick-the-right-tool.md
 
 **You are here in the data journey**
 
-![data-ingestion-you-are-here.png]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
+![Data journey diagram: essential requirements and a data discovery workshop lead into the data quality virtuous circle of ingestion, transformation, automation, export and release to production, with a You are here marker on data ingestion]({{ "/assets/images/playbooks/data-ingestion-you-are-here.png" | relative_url }})
 
 **Before you start**
 
@@ -29,11 +29,11 @@ source_path: docs/210-playbooks/data-ingestion/002-pick-the-right-tool.md
 
 This article outlines all the possible tools that can be used to ingest data into CluedIn. By understanding the specifics of each tool, you can decide which one will be the most suitable for your use case.
 
-![pick-the-right-tool-intro.png]({{ "/assets/images/playbooks/pick-the-right-tool-intro.png" | relative_url }})
+![Data ingestion steps: Data impact workshop, Pick the right tool (current), Ingest, Map, Process]({{ "/assets/images/playbooks/pick-the-right-tool-intro.png" | relative_url }})
 
 Now that you have a list of sources that you want to use, you can prepare a data ingestion plan. The first decision to make is how to ingest the data. CluedIn provides multiple **out-of-the-box options** for data ingestion (as shown in the diagram below). However, the best way to get the data from the source depends on your infrastructure.
 
-![data-ingestion-options.png]({{ "/assets/images/playbooks/data-ingestion-options.png" | relative_url }})
+![Data ingestion options in CluedIn: File, Endpoint, Azure Data Factory, Microsoft Fabric, Microsoft Purview, Database and Crawler]({{ "/assets/images/playbooks/data-ingestion-options.png" | relative_url }})
 
 ## File
 
@@ -97,7 +97,7 @@ CluedIn can connect to various types of databases, supporting MS SQL, MySQL, and
 
 If you have large databases that need to connect to multiple systems, we recommend using an [Azure Data Factory (ADF) pipeline](#azure-data-factory). This approach ensures that the ingestion process within your data ecosystem is done only once, **reducing the load on your database**. Additionally, it provides **greater extensibility** if you need to add extra pipeline steps to send data to other systems.
 
-![db-and-adf.png]({{ "/assets/images/playbooks/db-and-adf.png" | relative_url }})
+![Diagram: a database feeds an Azure Data Factory pipeline, which sends the data to CluedIn, Microsoft Fabric and other systems]({{ "/assets/images/playbooks/db-and-adf.png" | relative_url }})
 
 ## Crawler
 

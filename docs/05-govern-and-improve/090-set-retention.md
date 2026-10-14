@@ -5,7 +5,7 @@ parent: Govern & improve
 nav_order: 90
 permalink: /govern/set-retention
 content_type: how-to
-redirect_from: ["/kb/set-retention"]
+redirect_from: ["/kb/set-retention", "/governance/data-retention"]
 source_path: docs/200-kb/how-to/050-set-retention-on-data.md
 ---
 

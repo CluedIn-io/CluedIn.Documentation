@@ -30,7 +30,7 @@ If a parameter is omitted, CluedIn applies sensible defaults (see the tables bel
 
 You will paste one of the strings below into the textbox next to your toggle.
 
-![pipeline-run-schedule-settings.png]({{ "/assets/images/microsoft-integration/purview/adf-cluedin-settings.png" | relative_url }})
+![CluedIn Data Factory settings: base URL, client ID, secret, tenant ID, Pipeline Automation enabled and a term pattern]({{ "/assets/images/microsoft-integration/purview/adf-cluedin-settings.png" | relative_url }})
 
 ## TL;DR – Quick examples
 
@@ -238,7 +238,7 @@ Use the following checklist to verify end-to-end behavior.
     - When to capture: Immediately after clicking **Save** with a valid schedule string.
     - Expected text (example): **Pipeline run schedule created for '*Pipeline name*'**.
 
-    ![cluedin-schedule-success.png]({{ "/assets/images/microsoft-integration/purview/cluedin-schedule-success-2.png" | relative_url }})
+    ![CluedIn Notification Center with Pipeline Schedule Created messages listing status, frequency, run times, dates and time zone]({{ "/assets/images/microsoft-integration/purview/cluedin-schedule-success-2.png" | relative_url }})
 
 1. Fabric and Azure – Schedule artifact.
     - What to capture: The corresponding schedule or trigger is created in Microsoft Fabric or Azure Data Factory (ADF).
@@ -248,15 +248,15 @@ Use the following checklist to verify end-to-end behavior.
   
     Fabric example:
 
-    ![fabric-schedule-created.png]({{ "/assets/images/microsoft-integration/purview/fabric-schedule-created-2.png" | relative_url }})
+    ![A Fabric pipeline Schedule pane showing an Every day scheduled run turned on, with six run times and the time zone]({{ "/assets/images/microsoft-integration/purview/fabric-schedule-created-2.png" | relative_url }})
 
     ADF example:
 
-    ![adf-schedule-created.png]({{ "/assets/images/microsoft-integration/purview/adf-schedule-created-2.png" | relative_url }})
+    ![The Azure Data Factory Triggers list with a started CluedIn Automated Schedule trigger and its Edit trigger pane showing daily recurrence]({{ "/assets/images/microsoft-integration/purview/adf-schedule-created-2.png" | relative_url }})
 
 1. CluedIn – Notification about schedule being disabled (toggle off).
     - What to capture: The in-app notification confirming that the schedule was disabled after turning the toggle off (or clearing the textbox and saving).
     - When to capture: Immediately after disabling the setting.
     - Expected text (example): **Pipeline run schedule disabled**.
 
-    ![cluedin-schedule-disabled.png]({{ "/assets/images/microsoft-integration/purview/cluedin-schedule-disabled-2.png" | relative_url }})
+    ![CluedIn Notification Center with Pipeline Schedule Disabled messages for two ingestion pipelines]({{ "/assets/images/microsoft-integration/purview/cluedin-schedule-disabled-2.png" | relative_url }})

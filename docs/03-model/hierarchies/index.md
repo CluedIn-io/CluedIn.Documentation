@@ -15,7 +15,7 @@ tags: ["management","hierarchies", "hierarchy builder"]
 
 Hierarchy Builder helps you organize, visualize, and manage relations between golden records within and across different business domains.
 
-![hierarchy_builder.gif]({{ "/assets/images/management/hierarchy-builder/hierarchy_builder.gif" | relative_url }})
+![How to build hierarchies in CluedIn: 1 select a business domain, 2 select an edge type, 3 select top-level roots, 4 select a hierarchy project mode, 5 review and modify the hierarchy, 6 publish the hierarchy]({{ "/assets/images/management/hierarchy-builder/hierarchy_builder.gif" | relative_url }})
 
 This section covers the following topics:
 

@@ -6,7 +6,6 @@ grand_parent: Archive
 nav_order: 30
 permalink: /archive/unsupported-features/data-breaches
 content_type: reference
-redirect_from: ["/governance/data-breaches"]
 source_path: docs/070-governance/outdated/030-data-breaches.md
 tags: ["governance","data-breaches"]
 published: false
