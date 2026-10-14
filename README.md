@@ -2,6 +2,16 @@
 
 Jekyll-based documentation site for CluedIn.
 
+## Writing documentation
+
+`docs/` is organised around the data lifecycle - ingest, model, master,
+govern & improve, publish & consume - with administration, operations and
+development alongside it. Before adding or moving an article, read
+[CONTRIBUTING.md](CONTRIBUTING.md): it is the procedure for deciding which
+section an article belongs in, which content type it declares, and what its
+front matter has to say. Check the result with `python _migration/validate.py`
+before pushing.
+
 ## Prerequisites
 
 - [Docker](https://www.docker.com/) and [VS Code](https://code.visualstudio.com/) with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
@@ -80,7 +90,7 @@ restart the server after changing the Mermaid settings.
 
 ## REST API reference
 
-The REST API documentation under `docs/250-rest-api/` renders a categorized reference from a bundled OpenAPI specification. The structure is:
+The REST API documentation under `docs/09-develop/api-reference/` renders a categorized reference from a bundled OpenAPI specification. The structure is:
 
 - **Source spec:** `assets/api/swagger.json` — point-in-time export of the live API's OpenAPI 3.0 spec.
 - **Hand-written descriptions:** `assets/api/descriptions-overlay/<category>.json` — summary, description, and parameter notes per route. Merged onto the spec at split time so the original `swagger.json` stays untouched.

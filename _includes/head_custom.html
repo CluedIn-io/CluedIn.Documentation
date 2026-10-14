@@ -1,0 +1,55 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
+
+{%- comment -%}
+Pick the colour scheme before the page paints. The theme compiles one
+stylesheet per scheme (clue / clue-dark); ciSetScheme swaps between them.
+An explicit choice from the toggle wins, otherwise the OS preference does.
+
+ciSetScheme replaces jtd.setTheme only to add a build-time version to the
+URL: the stylesheets are served without cache headers, so without it a
+browser can keep using a scheme compiled by an earlier build. The light
+scheme is re-pointed too, because the theme links it unversioned. The same
+version goes on our own scripts, so a stale theme-toggle.js cannot bring
+back the unversioned jtd.setTheme.
+{%- endcomment %}
+{%- assign asset_version = site.time | date: '%s' %}
+<script>
+  window.ciSetScheme = function (scheme) {
+    document.querySelector('[rel="stylesheet"]').setAttribute("href",
+      "{{ '/assets/css/just-the-docs-' | relative_url }}" + scheme + ".css?v={{ asset_version }}");
+  };
+  (function () {
+    var theme;
+    try { theme = localStorage.getItem("cluedin-docs-theme"); } catch (e) {}
+    if (theme !== "dark" && theme !== "light") {
+      theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", theme);
+    ciSetScheme(theme === "dark" ? "clue-dark" : "default");
+  })();
+</script>
+<style>html[data-theme="dark"] { background: #0e1a24; }</style>
+
+{%- comment -%}
+Agent mode. Every article has a Markdown copy for AI agents
+(_plugins/agent_markdown.rb); the alternate link lets an agent that fetched
+the HTML find it. The inline script applies the reader's Agent mode choice
+before the page paints, so the article does not flash before the Markdown
+view replaces it (assets/js/agent-mode.js).
+{%- endcomment %}
+{%- if page.agent_markdown %}
+<link rel="alternate" type="text/markdown" href="{{ page.agent_markdown | relative_url }}" title="Markdown for AI agents">
+{%- endif %}
+<script>
+  try {
+    if (localStorage.getItem("cluedin-docs-agent-mode") === "on") {
+      document.documentElement.setAttribute("data-agent-mode", "on");
+    }
+  } catch (e) {}
+</script>
+<script src="{{ '/assets/js/agent-mode.js' | relative_url }}?v={{ asset_version }}" defer></script>
+
+<script src="{{ '/assets/js/theme-toggle.js' | relative_url }}?v={{ asset_version }}" defer></script>
+<script src="{{ '/assets/js/nav-groups.js' | relative_url }}?v={{ asset_version }}" defer></script>
