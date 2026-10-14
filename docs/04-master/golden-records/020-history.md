@@ -47,35 +47,41 @@ By default, the **History** page displays the data parts arranged by the sort da
 
 - [Timeline view](#timeline-view) – the same branches plotted against a time axis, so you can see how far apart in time the data parts on each branch really are.
 
-- [Golden record view](#golden-record-view)
-
 Switch between List, Tree and Timeline using the view selector at the top of the **History** page. The data source, date, and vocabulary key filters described in [Filters](#filters) apply to all three views: List hides the data parts that do not match, while Tree and Timeline dim them instead of removing them, so the overall branch structure stays visible.
+
+List, Tree and Timeline share the same left-hand and right-hand panels, and only the middle of the page changes:
+
+- **Left panel** – a **Branches** tab (search branches, show or hide one or all of them, focus a single branch, and see how many data parts and current golden record values each branch supplies) and a **Fields** tab (filter by the fields a version changed).
+
+- **Right panel** – selecting a data part, or the **Golden record now** row, opens the **details panel**, with a plain-language summary of what happened, its place on its branch, who and when, the branches a merge joined, and every field it changed, with the old value, the new value, and whether that value is still the one on the golden record today. Technical details, Open record, Copy link and Delete version are available from here.
+
+- Hovering over a data part (in the Tree and Timeline graphs) shows a tooltip with its title, branch, date and how many fields it added, updated, or removed.
 
 ### List view
 
-The list view is the default view that shows all data parts that make up a golden record, one row per data part, ordered by date.
+The list view is the default view that shows all data parts that make up a golden record, one row per data part, ordered by date, with the **Golden record now** row pinned to the top.
 
-![history-1.png]({{ "/assets/images/key-terms-and-features/history-1.png" | relative_url }})
+![history-list-view.png]({{ "/assets/images/golden-records/history-list-view.png" | relative_url }})
 
-Each data part has the following attributes:
+Each row shows:
 
-- A **color circle** that represents a branch. A branch contains the data part versions that appeared from the same source. For example, if you have a crawler that changes some properties of the data part, these changes will be added to the branch as separate data part versions. By selecting the color circle, you can view the branch (1) and its versions (2, 3).
+- A **title** that consists of the source name and additional details. For example, if the source is a clean project, the title also includes the clean project name.
 
-    ![history-2.png]({{ "/assets/images/key-terms-and-features/history-2.png" | relative_url }})
+- The **branch** the data part belongs to, with the same colour and name as on the Topology tab and the Tree and Timeline views. A branch contains the data part versions that appeared from the same source.
 
-- An **icon** that represents a source. A source is a place where the data part is coming from. A source can be a clean project, a deduplication project, a manual data entry project, a file, a crawler, and so on.
+- The **record ID**, and the date for whichever [date type](#filters) is currently selected.
 
-- A **title** of the data part that consists of the source name and additional details. For example, if the source is the clean project, then the title also includes the clean project name. You can view the source by selecting the title.
+- A **Latest on this branch** label on the newest data part of each branch.
 
-- A **data part ID** (also referred to as record ID). You can view the data part properties (vocabulary keys) by selecting the ID number. These data part properties are used to produce a head, which is then processed by survivorship rules to determine the operational values for the golden record.
+- A **status** badge that indicates the type of change made on the data part level. For more information about each status, see [Data part statuses](#data-part-statuses).
 
-- Data part **details**, such as the user who created the data part and dates associated with the data part. For more information about what each date means, see [Filters](#filters).
-
-- Data part **status** that indicates the type of change made on the data part level. For more information about each status, see [Data part statuses](#data-part-statuses).
-
-By expanding the data part, you can view a table with the metadata properties and vocabulary keys associated with the data part. Each property is marked with the change type label, which indicates whether the property is newly added or changed from one data part version to another.
+- A short summary of how many fields the data part added, updated or removed.
 
 Each data part is an individual entity, and it is not linked to other data parts in any way, except if these data parts belong to one branch. Because each data part is individual, the first data part in the branch is marked with the **Added** status and does not contain previous values. If the subsequent data part within the branch contain some changes compared to the first data part in the branch, then such data parts are marked with the **Changed** status.
+
+Selecting a row opens the details panel described above, where you can see every field the data part changed.
+
+![history-list-view-details.png]({{ "/assets/images/golden-records/history-list-view-details.png" | relative_url }})
 
 ### Tree view
 
@@ -91,34 +97,15 @@ The tree view draws the same data parts as a branch tree: one lane per branch, w
 
 - The **latest data part on each branch** is marked, so you can tell at a glance whether a branch has moved on since the golden record last picked up a value from it.
 
-- Selecting a data part opens the **details panel** on the right, with a plain-language summary of what happened, where the data part sits on its branch, who and when, the branches a merge joined, and every field it changed — with the old value, the new value, and whether that value is still the one on the golden record today.
-
-- Hovering over a data part shows a tooltip with its title, branch, date, and how many fields it added, updated, or removed.
-
 ![history-tree-merge-details.png]({{ "/assets/images/golden-records/history-tree-merge-details.png" | relative_url }})
 
 If a golden record has more than 24 branches, the 20 most recently active ones each keep their own lane, and the rest are grouped into one grey **Other branches** column. From the details panel of a data part on a grouped branch, you can give that branch its own lane, or group it back.
-
-The left-hand panel has two tabs:
-
-- **Branches** – search branches, show or hide one or all of them, and see how many data parts and current golden record values each branch supplies.
-
-- **Fields** – pick one or more changed fields to narrow the tree down to the data parts that touched them.
 
 ### Timeline view
 
 The timeline view plots the same branches on a time axis instead of in a plain sequence, one row per branch, so you can see how far apart in time the data parts on a branch really are. Zoom in to spread out data parts that landed close together, which are otherwise grouped into a single, numbered data part on the timeline. Data parts with no date for the currently selected [date filter](#filters) appear in a separate **Date not set** strip so they do not distort the time axis.
 
 ![history-timeline-view.png]({{ "/assets/images/golden-records/history-timeline-view.png" | relative_url }})
-
-### Golden record view
-
-The golden record view appears when you select any metadata properties or vocabulary keys on the filters pane on the left side of the **History** page. This view shows all records (1) where the selected property or vocabulary key is used, along with the value (2) that is used in the golden record (this is the value that is shown on the **Property** tab of the golden record details page). By looking at the sort date, you can track the historical changes in the property value across all data parts.
-
-![history-3.png]({{ "/assets/images/key-terms-and-features/history-3.png" | relative_url }})
-
-{:.important}
-**Part ID** from the golden record view and **Record ID** from the list view are the same.
 
 ### Filters
 
@@ -142,13 +129,7 @@ The **History** page contains various filters to help you navigate through the d
 
 - **Status filter** – you can toggle which [data part statuses](#data-part-statuses) are shown: Discovered, Added, Changed, and Merge. Merge is not a status stored on the data part itself; it is shown whenever a data part joined one or more other branches, such as a deduplication or manual merge.
 
-- **Metadata filter** – you can select any metadata property and see the data parts where it is used.
-
-    ![metadata-filter.png]({{ "/assets/images/golden-records/metadata-filter.png" | relative_url }})
-
-- **Vocabulary key filter** – you can select any vocabulary key and see the data parts where it is used, as well as the value chosen for the golden record. The medal icon next to the vocabulary key signifies that this vocabulary key is used in the golden record.
-
-    ![vocab-key-filter.png]({{ "/assets/images/golden-records/vocab-key-filter.png" | relative_url }})
+- **Fields filter** – on the **Fields** tab of the left panel, you can select any metadata property or vocabulary key and see the data parts where it is used. A medal icon next to a vocabulary key signifies that it is used in the golden record.
 
 ## Data part statuses
 
