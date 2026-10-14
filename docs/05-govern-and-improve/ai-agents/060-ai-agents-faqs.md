@@ -556,6 +556,18 @@ As with any AI integration, administrators should review which CluedIn capabilit
 
 ---
 
+# Reviewing MCP Activity
+
+Organization administrators can review a log of remote calls made to the CluedIn MCP server from:
+
+**Organization Settings → MCP Calls**
+
+Each entry shows the timestamp, method, operation, status (success or failure), duration, and the caller's IP address. Selecting an entry shows further detail, including a correlation ID and the error message for a failed call.
+
+The log can be filtered by date range and status, and searched by operation or method name. Entries are kept for 30 days.
+
+---
+
 # Troubleshooting
 
 ## The MCP server cannot be found
