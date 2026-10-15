@@ -42,5 +42,6 @@ For details about the updates available in a specific release, see [Release note
 - [2026.01.00 Support](https://documentation.cluedin.net/operate/upgrade/2026-01-00-support.md) (reference): This document covers the upgrade process for 2026.01.00 to its support update.
 - [2026.01.00](https://documentation.cluedin.net/operate/upgrade/2026-01-00.md) (reference): This document covers the upgrade process from 2025.09.00 to 2026.01.00.
 - [2026.02.00](https://documentation.cluedin.net/operate/upgrade/2026-02-00.md) (reference): This document covers the upgrade process from 2026.01.00 to 2026.02.00.
+- [2026.03.00](https://documentation.cluedin.net/operate/upgrade/2026-03-00.md) (reference): This document covers the upgrade process from 2026.02.00 to 2026.03.00.
 
 Up: [Deploy & operate](https://documentation.cluedin.net/operate.md)
