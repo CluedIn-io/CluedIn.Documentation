@@ -1,0 +1,264 @@
+---
+layout: cluedin
+title: Golden records
+parent: Core concepts
+grand_parent: Get started
+nav_order: 20
+permalink: /get-started/core-concepts/golden-records
+content_type: concept
+redirect_from: ["/key-terms-and-features/golden-records", "/development/entity", "/development/data-part", "/developer/processedentitymetadata"]
+source_path: docs/110-key-terms-and-features/050-golden-records.md
+tags: ["golden record"]
+last_modified: 2026-09-24
+---
+
+## On this page
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
+In this article, you will learn what a golden record is, how it is generated, and how you can control the sources contributing to a golden record.
+
+<div class="videoFrame">
+<iframe src="https://player.vimeo.com/video/1036777568?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="What is a golden record in CluedIn"></iframe>
+</div>
+
+A golden record is an **accurate and consolidated representation of a data subject**, such as an organization or an employee, derived from multiple sources. It provides a 360-degree view of a data subject, facilitating a deeper understanding of its current state and the reasons behind it.
+
+A golden record is created through a process of data integration, enrichment, cleaning, deduplication, and manual data entry. Each step in the process is registered as a separate element called a _data part_. A golden record is usually **made up of multiple data parts**. The purpose of creating a golden record is to provide a single source of truth, ensuring data consistency, improving data quality, and enabling better decision-making. A golden record serves as a reliable reference point that can be used by different systems, departments, or stakeholders within the organization.
+
+Golden records in CluedIn are stored for **performance reasons**, but essentially, they are a **projection** of all the sources and rules that you have created. That is why golden records adapt based on the changes that are applied within CluedIn. This makes golden records very **agile**—you can easily **revert changes** and **re-shape your golden records at any point in time**.
+
+## Concept of golden record
+
+A golden record is a **multi-level graph**. A graph structure consists of nodes (discrete objects) that can be connected by relations. Even though this concept can be a bit hard to comprehend at first, once you understand it, you'll appreciate the great flexibility that it gives you.
+
+Golden records can have 2 types of relations:
+
+- [Linking similar records together](#linking-similar-records-together).
+
+- [Linking golden records together](#linking-golden-records-together).
+
+### Linking similar records together
+
+In CluedIn, similar records are grouped together under the same banner called **golden record**. Generally, the golden record is composed of records from multiple sources.
+
+For example, suppose we have a golden record that is composed of 2 records from different sources: one record from CRM and the other record from ERP. These distinct nodes are referred to as **data parts**.
+ 
+![Diagram: a golden record named Bob containing two linked data parts, CRM Bob and ERP Bob]({{ "/assets/images/key-terms-and-features/golden-record-1.png" | relative_url }})
+
+The more sources you add, the bigger your golden record model becomes.
+
+![Diagram: a golden record containing six interconnected data parts from different sources]({{ "/assets/images/key-terms-and-features/golden-record-2.png" | relative_url }})
+
+Since the golden record is a projection of the sources, adding or removing a source is not an issue. This is what gives great flexibility of golden records in CluedIn.
+
+### Linking golden records together
+
+We always say that _a golden record is a graph of a graph_. What it means is that when the golden record is being produced, CluedIn has the ability to link golden records together using **edges**. An edge is simply a relation. You can define an edge using rules or during the mapping. When you define an edge, CluedIn can connect golden records together as shown in the example. 
+
+![Diagram: golden records Bob, John and Anna linked by edges: Bob works for Anna, Bob is managed by John, and John works for Anna]({{ "/assets/images/key-terms-and-features/golden-record-3.png" | relative_url }})
+
+So, when we say that a golden record is a graph of a graph, it is because at the end, the entire view of the models is as follows.
+
+![Diagram: a graph of graphs, where golden records Bob, John and Anna each contain their own network of data parts and are linked by Works for and Managed by edges]({{ "/assets/images/key-terms-and-features/golden-record-4.png" | relative_url }})
+
+## Golden record step by step
+
+To make the golden record generation process easier to understand, we'll start with the simplified explanation that does not include various types of rules. We’ll focus on the records and use the concepts of bronze, silver, and golden layers from the medallion architecture for visual assistance.
+
+
+| Medallion architecture term | CluedIn term | Definition |
+|--|--|--|
+| Bronze layer | Source record | This is a record in its basic, raw format as it was in the source system. |
+| Silver layer | Data part | This is a mapped record with all of the pre-processing rules and changes applied to it. |
+| Golden layer | Golden record | This is a record that you can trust, usually formed by aggregating data parts to the existing golden record.  |
+
+Generally, a new record is associated with the bronze layer. This is the record that comes from a specific source—it may come from a file, an Azure Data Factory pipeline, or a database. We call this record a **source record**.
+
+The process of generating a golden record spans from source records, through data parts, to the golden record. Next, we’ll describe each step that the record goes through to become a new golden record or aggregate into the existing golden record.
+
+![Diagram: the golden record flow from Source record to Data part to Golden record]({{ "/assets/images/key-terms-and-features/golden-record-5.png" | relative_url }})
+
+### Source record (bronze)
+
+A source record is a raw record that has been ingested into CluedIn from a source system. It is generally stored in JSON format. Such record has not been modified in any way. You can see source records on the **Preview** tab of the data set.
+
+### Data part (silver)
+
+When records appear in CluedIn, you need to add a semantic layer to transform them into a format that CluedIn can understand. This process is called [mapping](/playbooks/data-ingestion/plan-the-mapping). Once all the steps of the mapping process have been performed, you get what we call a **data part**. Essentially, a data part is an aggregation of all changes to the record coming from a single source after it has been mapped.
+
+![Diagram: a source record goes through Mapping to become a data part; mapping includes property rules, pre-process rules, advanced mapping code, and quarantine followed by approval]({{ "/assets/images/key-terms-and-features/golden-record-6.png" | relative_url }})
+
+During the mapping process, the source records can go through multiple steps:
+
+- Changes to the values of mapped records via [property rules](/ingest/mapping/property-rules).
+
+- Changes to the mapped records via [pre-process rules](/ingest/mapping/preprocess-rules).
+
+- Changes to mapped records via [advanced mapping code](/ingest/mapping/advanced-mapping-code).
+
+- If the mapped record gets into the [quarantine](/ingest/troubleshooting/quarantine), it should be approved to get to the next stage.
+
+All in all, a data part is a record in a format that CluedIn can understand and that has already gone through multiple processes to ensure it is valid and ready for the production of a golden record.
+
+### Golden record (golden)
+
+When you [process](/ingest/processing/process-data) the data set, CluedIn checks if the data part can be associated with the existing golden record. If the data part can be associated with the existing golden record—they share the same [identifiers](/model/identifiers)—then it is **aggregated to the existing golden record**. In this case, the golden record is re-processed. If the data part cannot be associated with the existing golden record, then a **new golden record is created**.
+
+![Flowchart: a data part goes through Processing; if it can be associated with an existing golden record, it is added to that record as a new data part, otherwise a new golden record is created]({{ "/assets/images/key-terms-and-features/golden-record-8.png" | relative_url }})
+
+**What happens when golden record is re-processed?**
+
+When a new data part is added to the existing golden record, CluedIn incorporates all of its properties into the golden record. However, conflicts can arise between new and existing data parts when the values for the same property differ. We describe the scenarios of handling different values for the same property later in [this article](#building-a-golden-record).
+
+**How can you re-shape a golden record?**
+
+Depending on the projects and processes that are running in CluedIn—[clean projects](/govern/cleaning), [deduplication projects](/master/deduplication), [enrichers](/govern/enrichment), manual modifications, data ingestion—the golden record can be changed. For example, if you create a clean project and it affects a golden record, a new data part is added to that golden record. Similarly, if you have an enricher that affects a golden record, a new data parts with the properties from third-party source is added to the golden record. If you are not satisfied with the changes made to a golden record by a specific data part, you can simply delete such data part.
+
+![Diagram: a golden record made up of a clean project data part, an enricher data part, a deduplication data part, and a source data part]({{ "/assets/images/key-terms-and-features/golden-record-9.png" | relative_url }})
+
+Whenever a new data part or changes to an existing data part appear in CluedIn, they are ordered by the sort date. The **sort date** is determined by selecting the first available date among modified, created, and discovery dates:
+
+- If there is a modified date, then this date is used as the sort date.
+
+- If there is no modified date, but there is a created date, then this date is used as the sort date.
+
+- If there is no modified or created date, then the discovery date is used as the sort date. The discovery date is always present in the data part as it is the date when the data part was created in CluedIn.
+
+The sort date is important because CluedIn uses it by default to determine the winning value for each specific data part, as well as the winning value between different data parts. We’ll explain the specifics of this mechanism in the following sections.
+
+## Building a golden record
+
+In CluedIn, we track the **lineage of source records** with the help of **version branches**. Each source has its own version branch that consists of parts. Whenever the source record is changed, a new part is added to the corresponding version branch. This way you can track the changes of values per source. The parts within a version branch are ordered by sort date. The values from the part with the **most recent sort date** are used in the **data part** that can contribute to the golden record.
+
+![Diagram: a version branch for the CRM source, where Part 1 (discovered 10 min ago), Part 2 and Part 3 (changed 5 and 2 min ago) are ordered by sort date beneath the data part]({{ "/assets/images/key-terms-and-features/golden-record-10.png" | relative_url }})
+
+To explain how a golden record is built, we'll start from the way CluedIn handles changes in source records for a golden record with just one source. Then, we’ll move on to discussing a golden record built from multiple sources.
+
+### One source
+
+Let's consider a simple example of a golden record that is formed by one data part from CRM. Whenever the source record is changed, a new part appears in the version branch of the corresponding source. In case of conflicting values for the same property—in our case, Job Title—CluedIn takes the value from the part with the most recent sort date and uses this value in a data part. 
+
+![Diagram: a CRM version branch where Part 2 (Job Title Sales Coordinator, 5 min ago) overrides Part 1 (Sales Manager), so the data part and golden record show Sales Coordinator]({{ "/assets/images/key-terms-and-features/golden-record-11.png" | relative_url }})
+
+### Multiple sources
+
+Now, let's consider an example of a golden record formed from multiple sources. In this case, each source has its own version branch, and each version branch behaves the same way as described in the section above. However, if there is a property that has different values in each source, then how does CluedIn determine which value should be used in the golden record? The answer is by applying a **default survivorship rule**.
+
+The default survivorship rule is CluedIn's mechanism for determining the winning value among conflicting values from different sources. According to this rule, **manually added changes** are prioritized; otherwise, the **most recent value** wins.
+
+To explain how CluedIn determines the winning value among data parts, we'll use an example of a golden record that is formed from two data parts: one from CRM and the other one from ERP. Each data part has its own version branch that contains a collection of parts. From the section above, you already know how the winning value is defined for a data part. Now, let's find out how CluedIn defines the winner between data parts.
+
+In our example, each data part has a different value for the same property—Job Title. To determine the winning value, CluedIn defines the **winner between version branches**. It is important to emphasize that CluedIn does not evaluate each part from the version branch individually. CluedIn only evaluates the values from each data part. The value from the data part with the most recent sort date wins and is used in the golden record. 
+
+![Diagram: default survivorship rule with CRM and ERP version branches; the ERP data part has the more recent sort date (4 min ago), so the golden record Job Title is Head of Sales]({{ "/assets/images/key-terms-and-features/golden-record-12.png" | relative_url }})
+
+The following gif animates the previous diagram, illustrating how the golden record is changed according to default survivorship rule.
+
+![Animation: the CRM and ERP version branches gaining parts over time, with the golden record Job Title changing to the most recent value under the default survivorship rule]({{ "/assets/images/key-terms-and-features/golden-record-14.gif" | relative_url }})
+
+If the default survivorship rule is not suitable for you, you can **set up your own strategy** for defining the winning value using [survivorship rules](/govern/rules/rule-types#survivorship-rules). For example, you can create a **custom survivorship rule** to prioritize a specific source for determining the value for a specific property. Suppose you want CRM to be the source of truth for the Job Title property. In this case, even though the value from ERP is the most recent one, the golden record uses the value from CRM as defined by the custom survivorship rule.
+
+![Diagram: custom survivorship rule where the CRM source wins, so the golden record Job Title is Sales Coordinator even though the ERP value Head of Sales is more recent]({{ "/assets/images/key-terms-and-features/golden-record-13.png" | relative_url }})
+
+The following gif animates the previous diagram, illustrating how the golden record is changed according to custom survivorship rule.
+
+![Animation: the CRM and ERP version branches gaining parts over time, with the golden record Job Title always taken from CRM under the custom survivorship rule]({{ "/assets/images/key-terms-and-features/golden-record-15.gif" | relative_url }})
+
+## Golden record page
+
+In CluedIn, you can find a golden record using [search](/master/search). The golden record page brings together the mastered values, metadata, lineage, relationships, publishing information, and duplicate suggestions for that record.
+
+The available tabs include:
+
+- **Overview** – view general information about the golden record, including important properties, vocabularies, sources, tags, aliases, and other summary information.
+
+- **Properties** – view and edit the properties of the golden record. You can also mark important properties as favourites, set a preview image, and edit multiple properties in one transaction.
+
+- **Relations** – view which golden records the current golden record is related to.
+
+- **Streams** – view the streams that include this golden record.
+
+- **Deduplication** – view suggested duplicate clusters that include this golden record.
+
+- **Pending changes** – view changes that are waiting to be applied or approved.
+
+- [**History**](/master/golden-records/history) – view all data parts (versions of clues that make up a data part) of a golden record as well as all outgoing relations (edges) of a golden record.
+
+- **Explain log** – view detailed information about the operations performed on a golden record and its data parts.
+
+- **Topology** – view a visualization of the data parts that form a golden record.
+
+- **Hierarchy** – view the hierarchy projects that the current golden record is part of.
+
+### Manage tags and aliases manually
+
+You can manually maintain the **tags** and **aliases** associated with a golden record.
+
+This is useful when you need to add business context that is not produced by an automated rule, or when an existing tag or alias is no longer appropriate.
+
+From the golden record page, you can:
+
+- Add a tag to the golden record.
+- Delete a tag from the golden record.
+- Add an alias.
+- Delete an alias.
+
+Manual changes become part of the current golden-record state and can be used alongside tags or aliases that originate from automated processing.
+
+{:.important}
+Before deleting a tag that is also applied by an active rule or another automated process, review how that tag is produced. The automation can apply the tag again when the record is reprocessed if its conditions are still met.
+
+### Set favourite properties
+
+Golden records can contain a large number of entity properties and vocabulary-key values. To make the most important values easier to find, you can mark properties as **favourites**.
+
+Favourite properties let you tailor the golden record page around the fields that matter most for a particular record or use case. This is useful for quickly surfacing values such as customer number, status, revenue, risk classification, product code, or another commonly reviewed property without having to scan the complete property list.
+
+On the **Properties** tab, mark the properties you want to keep readily visible as favourites. You can update the selection whenever your needs change.
+
+### Set a preview image
+
+You can manually set the **preview image** for a golden record from the **Properties** tab.
+
+The preview image gives the record a more recognizable visual identity in parts of CluedIn where record summaries or previews are displayed. This can be useful for records such as products, people, organizations, locations, or assets where an image provides useful context.
+
+Use the **Properties** tab to choose the image value that should be used as the golden record's preview image.
+
+### Edit multiple properties in one transaction
+
+You can edit multiple properties of a golden record together and save those changes as a single transaction.
+
+This is useful when a steward needs to correct several related values at the same time. For example, you might update a customer's address, country, postal code, and region together instead of saving four independent changes.
+
+Making the edits in one transaction keeps the set of changes together and reduces the need to repeatedly save the record while performing a single stewardship task.
+
+To make a bulk property edit, open the **Properties** tab, edit the required values, and save the changes together.
+
+## Streams tab
+
+The **Streams** tab on a golden record shows the streams that include that record.
+
+A stream defines how selected golden records are published from CluedIn to an [export target](/publish/export-targets). The Streams tab gives you a record-centric view of that publishing configuration, so you can understand where the current golden record is being distributed without having to inspect every stream individually.
+
+This is particularly useful when you want to answer questions such as:
+
+- Which downstream feeds include this golden record?
+- Is this record part of a stream to a data lake, database, event platform, or another target?
+- Which publishing configurations should be considered before changing this record?
+- Why is a particular mastered record appearing in a downstream system?
+
+For more information about how streams select and publish golden records, see [Streams](/publish/streams).
+
+## Deduplication tab
+
+The **Deduplication** tab shows when the current golden record is part of one or more **suggested duplicate clusters**.
+
+Suggested duplicate clusters are groups of records that CluedIn has identified as potential duplicates according to the matching configuration in a [deduplication project](/master/deduplication).
+
+The tab gives you a record-centric way to see that a golden record may require duplicate review. Instead of opening each deduplication project and searching for the record, you can start from the golden record and see the relevant suggested clusters.
+
+Use this information to investigate whether the records represent the same real-world entity and should be merged, or whether they are legitimately separate records.
+
+The presence of a suggested duplicate cluster does not by itself mean that the records are duplicates. It indicates that they matched the configured deduplication criteria and should be reviewed according to your deduplication process.
