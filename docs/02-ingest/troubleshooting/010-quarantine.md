@@ -24,6 +24,9 @@ To find out why the record is in quarantine, select the **View details** icon in
 
 ![Quarantine tab of a dataset with the Reason pane open, explaining the record was quarantined because Schema Protection is enabled and it has fields outside the schema]({{ "/assets/images/integration/additional-operations/quarantine-1.png" | relative_url }})
 
+{:.note}
+The total number of quarantined records across all your sources is also shown in the **Sources** tile on the Home dashboard, when it's greater than zero.
+
 Once a record is in quarantine, you can perform the following actions:
 
 - **Fix and process the record.** The record will disappear from the quarantine table. On the **Process** tab of the dataset, you will find a new entry including the number of records and the processing status. However, keep in mind that the record will remain in its original state on the **Preview** tab of the data set.
