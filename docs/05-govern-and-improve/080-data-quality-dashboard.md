@@ -35,6 +35,20 @@ The dashboard is organized into five tabs:
 - **AI Agent** – the [Quality by AI Agent](#quality-by-ai-agent) summary.
 - **Trust Center** – the [Trust Center](#trust-center) overview, trust dimensions, freshness chart, governance maturity diagram, and improvement guides.
 
+## Recalculating metrics manually
+
+The scores on this dashboard are only as current as the last time the jobs that compute them ran:
+
+- **Global metrics** – computes the organization-wide metric scores shown throughout this dashboard. Runs once a day by default.
+- **High time resolution metrics** – recomputes the metrics this organization keeps at a high time resolution. Runs every 15 minutes by default.
+
+If you've just ingested or changed data and don't want to wait for the next scheduled run, select **Run Global metrics** or **Run High time resolution metrics** at the top of the page to trigger the corresponding job immediately.
+
+![The Data Quality Dashboard header, showing the Run High time resolution metrics and Run Global metrics buttons]({{ "/assets/images/governance/data-quality-dashboard/recalculate-metrics.png" | relative_url }})
+
+{:.note}
+These are the same two jobs listed on the [Jobs](/administer/jobs) page under **System-provided jobs** — running them from here is a shortcut, not a separate action. If your organization requires approval to run jobs, selecting the button sends a request to the job's owner instead of running it immediately.
+
 ## Setting a threshold on a metric
 
 Every metric tile, on the Overview tab and in the Trust Center, lets you set a target threshold:
