@@ -25,7 +25,7 @@ Consistency, Currentness, Provenance, and Explainability are per-record metrics.
 
 - On the navigation pane, go to **Governance** > **Quality metrics**.
 
-    ![data-quality-dashboard-overview.png]({{ "/assets/images/governance/data-quality-dashboard/data-quality-dashboard-overview.png" | relative_url }})
+    ![The Data Quality Dashboard Overview tab, showing the organization-wide score for each data quality metric, a trend chart, and a radar chart]({{ "/assets/images/governance/data-quality-dashboard/data-quality-dashboard-overview.png" | relative_url }})
 
 The dashboard is organized into five tabs:
 
@@ -44,7 +44,7 @@ Every metric tile, on the Overview tab and in the Trust Center, lets you set a t
 - Select the badge at any time to change or clear the threshold.
 - If any metric is below its configured threshold when the dashboard loads, a notification appears listing which ones need attention.
 
-    ![metric-threshold.png]({{ "/assets/images/governance/data-quality-dashboard/metric-threshold.png" | relative_url }})
+    ![A metric tile with a Target badge, colored red because the metric's current score is below the configured threshold]({{ "/assets/images/governance/data-quality-dashboard/metric-threshold.png" | relative_url }})
 
 {:.note}
 A threshold of 0, or no threshold set, means the metric has no target configured — no badge is shown and it's never flagged as below target.
@@ -67,7 +67,7 @@ A source whose records all came from a single ingestion event (for example, a on
 
 If no sources are connected yet, this section shows an empty state instead of the list.
 
-![quality-by-source.png]({{ "/assets/images/governance/data-quality-dashboard/quality-by-source.png" | relative_url }})
+![The Quality by Source list, showing each connected source with its icon and data quality score]({{ "/assets/images/governance/data-quality-dashboard/quality-by-source.png" | relative_url }})
 
 ## Quality by AI Agent
 
@@ -79,13 +79,13 @@ The **Quality by AI Agent** section lists your [AI agents](/govern/ai-agents) an
 
 If no AI agents exist in your environment yet, this section shows an empty state instead of the list.
 
-![quality-by-ai-agent.png]({{ "/assets/images/governance/data-quality-dashboard/quality-by-ai-agent.png" | relative_url }})
+![The Quality by AI Agent list, showing each agent's pending review count and estimated quality improvement]({{ "/assets/images/governance/data-quality-dashboard/quality-by-ai-agent.png" | relative_url }})
 
 ## Trust Center
 
 The **Trust Center** tab brings together an overall trust score, the trust-specific metrics, a view of how fresh your data is, and concrete guidance for improving each metric.
 
-![trust-center.png]({{ "/assets/images/governance/data-quality-dashboard/trust-center.png" | relative_url }})
+![The Trust Center tab, showing the Overall Trust Score, trust dimensions, the Freshness & Decay chart, and improvement guides]({{ "/assets/images/governance/data-quality-dashboard/trust-center.png" | relative_url }})
 
 ### Overall Trust Score
 

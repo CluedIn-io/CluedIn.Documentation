@@ -140,9 +140,9 @@ On the stream details page, there are several tabs where you can view stream-rel
 
 - **Data** – you can view the records that will be sent to the export target. These records match the filters from the **Configuration** tab and contain the properties you selected on the **Export Target Configuration** tab.
 
-- **Data Quality** – you can view the [data quality metrics](/governance/data-quality-dashboard)—Accuracy, Completeness, Connectivity, and Relevance—for the business domain that this stream's filters target. If the stream's filters target more than one business domain, this tab shows the [Quality by Business Domain](/governance/data-quality-dashboard#quality-by-business-domain) heatmap for all business domains instead.
+- **Data Quality** – you can view the [data quality metrics](/govern/data-quality-dashboard)—Accuracy, Completeness, Connectivity, and Relevance—for the business domain that this stream's filters target. If the stream's filters target more than one business domain, this tab shows the [Quality by Business Domain](/govern/data-quality-dashboard#quality-by-business-domain) heatmap for all business domains instead.
 
-    ![stream-data-quality-tab.png]({{ "/assets/images/consume/streams/stream-data-quality-tab.png" | relative_url }})
+    ![The Data Quality tab of a stream, showing its data quality metric scores for the stream's business domain]({{ "/assets/images/consume/streams/stream-data-quality-tab.png" | relative_url }})
 
 - **Monitoring** – you can view real-time data on ingestion, processing, and publishing of records, as well as any exceptions.
 
