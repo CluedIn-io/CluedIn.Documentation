@@ -33,7 +33,7 @@ The dashboard is organized into five tabs:
 - **Business Domain** – the [Quality by Business Domain](#quality-by-business-domain) heatmap.
 - **Source** – the [Quality by Source](#quality-by-source) breakdown.
 - **AI Agent** – the [Quality by AI Agent](#quality-by-ai-agent) summary.
-- **Trust Center** – the [Trust Center](#trust-center) overview, trust dimensions, freshness chart, and improvement guides.
+- **Trust Center** – the [Trust Center](#trust-center) overview, trust dimensions, freshness chart, governance maturity diagram, and improvement guides.
 
 ## Setting a threshold on a metric
 
@@ -60,7 +60,7 @@ A business domain only appears in the heatmap once data quality metrics have bee
 
 ## Quality by Source
 
-The **Quality by Source** section lists every source feeding data into your CluedIn environment — connectors, file uploads, API ingestion endpoints, databases, and enrichers alike — together with its icon or a generic source icon, so you can identify at a glance which systems are behind your data quality scores. Where the data quality metrics have been calculated for a specific source, the corresponding score is shown next to it; otherwise, the entry shows **No data yet**.
+The **Quality by Source** section lists every source feeding data into your CluedIn environment — connectors, file uploads, API ingestion endpoints, databases, and enrichers alike — each shown by its own name (for example, the uploaded file's name or the ingestion endpoint's configured name) together with its icon or a generic source icon, so you can identify at a glance which systems are behind your data quality scores. Where the data quality metrics have been calculated for a specific source, the corresponding score is shown next to it; otherwise, the entry shows **No data yet**.
 
 {:.note}
 A source whose records all came from a single ingestion event (for example, a one-off file upload) can appear more than once if that file was ingested more than once — each ingestion gets its own score.
@@ -83,7 +83,7 @@ If no AI agents exist in your environment yet, this section shows an empty state
 
 ## Trust Center
 
-The **Trust Center** tab brings together an overall trust score, the trust-specific metrics, a view of how fresh your data is, and concrete guidance for improving each metric.
+The **Trust Center** tab brings together an overall trust score, the trust-specific metrics, a view of how fresh your data is, a governance maturity diagram, and concrete guidance for improving each metric.
 
 ![The Trust Center tab, showing the Overall Trust Score, trust dimensions, the Freshness & Decay chart, and improvement guides]({{ "/assets/images/governance/data-quality-dashboard/trust-center.png" | relative_url }})
 
@@ -107,6 +107,21 @@ Rejecting an AI agent suggestion always counts as a human decision. An approval 
 ### Freshness & Decay
 
 This chart groups your records into buckets by how many days have passed since they were last modified, so you can see at a glance how much of your data is fresh versus going stale. It's built from the same Currentness metric shown on the Overview tab.
+
+### Governance Maturity
+
+The **Governance Maturity** radar chart shows how much your organization actually uses five governance practices, each as a percentage from 0–100%:
+
+- **Cleaning** – the percentage of your (non-archived) clean projects that have actually been applied at least once, rather than only ever created.
+- **Matching & Merging** – the percentage of your (non-archived) matching/merging projects that run automatically on a schedule, rather than requiring someone to generate and commit candidates manually every time.
+- **Agent Coverage** – the percentage of your active business domains that are targeted by at least one enabled AI agent job.
+- **Rule Coverage** – the percentage of your vocabulary keys that are referenced by at least one rule.
+- **Data Sharing** – the percentage of your streams that are started and have actually sent at least one record, rather than only ever configured.
+
+{:.note}
+A score of 0% on any axis means that practice hasn't been set up yet for your organization, not that data is missing — the chart always shows all five axes.
+
+![The Governance Maturity radar chart, showing Cleaning, Matching & Merging, Agent Coverage, Rule Coverage, and Data Sharing as percentages]({{ "/assets/images/governance/data-quality-dashboard/governance-maturity.png" | relative_url }})
 
 ### How to improve your score
 
