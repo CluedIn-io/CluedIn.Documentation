@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-10-15T23:03:56+00:00</updated>
+    <updated>2026-10-15T23:12:32+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -2188,22 +2188,6 @@
     </entry>
     
     <entry>
-        <title>Manage streams</title>
-        <link href="https://documentation.cluedin.net/publish/streams/manage-streams" />
-        <id>https://documentation.cluedin.net/publish/streams/manage-streams</id>
-        <updated>2026-10-10T00:00:00+00:00</updated>
-        <summary>
-        
-        Manage streams.
-        
-        
-        
-        Tags: consume, data export, streams.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Work with CluedIn Copilot</title>
         <link href="https://documentation.cluedin.net/solutions/copilot/work-with-copilot" />
         <id>https://documentation.cluedin.net/solutions/copilot/work-with-copilot</id>
@@ -2213,6 +2197,22 @@
         Work with CluedIn Copilot.
         
         
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Manage streams</title>
+        <link href="https://documentation.cluedin.net/publish/streams/manage-streams" />
+        <id>https://documentation.cluedin.net/publish/streams/manage-streams</id>
+        <updated>2026-10-12T00:00:00+00:00</updated>
+        <summary>
+        
+        Manage streams.
+        
+        
+        
+        Tags: consume, data export, streams.
         
         </summary>
     </entry>
@@ -2259,6 +2259,22 @@
         Bulk actions on the search results page.
         
         
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Data Quality Dashboard</title>
+        <link href="https://documentation.cluedin.net/govern/data-quality-dashboard" />
+        <id>https://documentation.cluedin.net/govern/data-quality-dashboard</id>
+        <updated>2026-10-15T00:00:00+00:00</updated>
+        <summary>
+        
+        Data Quality Dashboard.
+        
+        
+        
+        Tags: governance, data quality, metrics, accuracy, completeness, connectivity, relevance, consistency, currentness, iso 25012, business domains, ai agents, trust center, provenance, explainability, human accountability, thresholds.
         
         </summary>
     </entry>

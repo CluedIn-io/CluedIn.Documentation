@@ -129,6 +129,10 @@ On the stream details page, there are several tabs where you can view stream-rel
 
 - **Data** – you can view the records that will be sent to the export target. These records match the filters from the **Configuration** tab and contain the properties you selected on the **Export Target Configuration** tab.
 
+- **Data Quality** – you can view the [data quality metrics](https://documentation.cluedin.net/govern/data-quality-dashboard.md)—Accuracy, Completeness, Connectivity, and Relevance—for the business domain that this stream's filters target. If the stream's filters target more than one business domain, this tab shows the [Quality by Business Domain](https://documentation.cluedin.net/govern/data-quality-dashboard.md#quality-by-business-domain) heatmap for all business domains instead.
+
+    ![The Data Quality tab of a stream, showing its data quality metric scores for the stream's business domain](https://documentation.cluedin.net/assets/images/consume/streams/stream-data-quality-tab.png)
+
 - **Monitoring** – you can view real-time data on ingestion, processing, and publishing of records, as well as any exceptions.
 
 ## Organize streams into folders

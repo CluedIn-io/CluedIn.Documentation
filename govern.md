@@ -20,4 +20,5 @@ Once data is mastered, this is how you keep it good: clean projects fix recurrin
 - [Tags](https://documentation.cluedin.net/govern/tags.md): Tags are labels you attach to golden records and data parts.
 - [AI agents](https://documentation.cluedin.net/govern/ai-agents.md): AI agents do stewardship work for you - proposing fixes for quality problems, suggesting duplicates to merge, drafting rules.
 - [Workflows](https://documentation.cluedin.net/govern/workflows.md): A workflow puts an approval step in front of a change, so that edits to golden records are reviewed before they take effect.
+- [Data Quality Dashboard](https://documentation.cluedin.net/govern/data-quality-dashboard.md) (concept): The Data Quality Dashboard gives you a single, visual overview of the quality of the data mastered in CluedIn.
 - [Set retention policies on data](https://documentation.cluedin.net/govern/set-retention.md) (how-to): Retention policies define how long data is stored in CluedIn before it is automatically archived or deleted.
