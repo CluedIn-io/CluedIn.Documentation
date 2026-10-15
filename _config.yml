@@ -39,8 +39,13 @@ exclude:
     "lib/",
     "bin/",
     "README.md",
+    "CONTRIBUTING.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "TODO.md",
     "Rakefile",
     "docs/tests/",
+    "_migration/",
   ]
 
 # Build settings
@@ -49,6 +54,7 @@ remote_theme: just-the-docs/just-the-docs@v0.7.0
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
+  - jekyll-redirect-from
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -115,7 +121,18 @@ last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https:/
 
 color_scheme: clue
 logo: "/assets/images/clued-in-logo.svg"
+# Same mark as the header of www.cluedin.com, with white text for dark mode.
+logo_dark: "/assets/images/clued-in-logo-white.svg"
 favicon_ico: "/assets/images/favicon.png"
+
+# Links on the right of the top bar (_includes/header_custom.html). `cta` is
+# rendered as the primary button.
+header_links:
+  changelog: "/release-notes"
+  github: "https://github.com/CluedIn-io/CluedIn.Documentation"
+  cta:
+    label: "Get CluedIn"
+    url: "https://landing.cluedin.com/signup"
 
 kramdown:
   syntax_highlighter_opts:
@@ -142,3 +159,73 @@ sass:
 
 feed:
   disable_in_development: true
+
+# ---------------------------------------------------------------------------
+# Information architecture
+#
+# The documentation is organised around the data lifecycle. `_migration/ia.py`
+# is the source of truth for which article lives where; `_migration/migrate.py`
+# builds docs/ from it and `_migration/validate.py` checks the result.
+# ---------------------------------------------------------------------------
+
+# The eight lifecycle areas make up the primary navigation. Anything with a
+# nav_order at or above `nav_secondary_from` is rendered below a separator as
+# supporting material rather than as part of the product workflow.
+nav_secondary_from: 20
+nav_secondary_label: "Resources"
+nav_archive_label: "Archive"
+
+# Every article declares one of these in its front matter.
+# `_migration/validate.py` fails if one is missing or unrecognised.
+content_types:
+  concept: "Explains how something works"
+  how-to: "Steps to accomplish one task"
+  tutorial: "Guided end-to-end learning"
+  reference: "Facts, options, APIs"
+  troubleshooting: "Symptom, cause, and fix"
+  landing: "Section index"
+
+# Show the content-type badge at the top of each article.
+show_content_type_badge: true
+
+# Agent mode (_plugins/agent_markdown.rb). Every page also has a Markdown copy
+# at its URL plus ".md", and /llms.txt is the entry point for AI agents. The
+# instructions below open llms.txt, so write them for an agent, not a person.
+agent_mode:
+  summary: "CluedIn is a master data management platform. It ingests records from many sources, models what they mean, merges them into golden records, keeps their quality up, and publishes the trusted result to other systems."
+  instructions: |
+    How to use this documentation as an agent:
+
+    - Fetch Markdown, not HTML. Every page listed here is a .md URL; for any
+      page on this site, append ".md" to its URL to get the same content
+      without navigation or markup.
+    - Navigate rather than load everything. Find the section below, fetch its
+      .md page, and its "In this section" list gives every child page with a
+      one-line description. /llms-full.txt has all product pages in one file
+      when you do need everything.
+    - The sections follow the path data takes through CluedIn: Get started,
+      Ingest, Model, Master, Govern & improve, Publish & consume, then
+      Administer (inside the product: users, roles, access), Deploy & operate
+      (the installation: Kubernetes, Azure, upgrades, backup) and Develop &
+      APIs (code: REST API, Python SDK, custom connectors).
+    - Each subject is explained in exactly one place. Solutions, learning paths
+      and playbooks link to that place instead of repeating it, so prefer the
+      product sections when you need to know how a feature works.
+    - To do something, use a how-to page. To understand something, use a
+      concept page. For exact options, fields or endpoints, use a reference
+      page. If you start from an error or symptom, use Troubleshooting, or
+      Ingest > Troubleshoot ingestion for problems with records arriving.
+    - The REST API is described at /api/get-started.md. Each API category page
+      links its OpenAPI document, under /assets/api/categories/<category>.json;
+      the whole specification is /assets/api/swagger.json.
+    - A CluedIn instance also exposes an MCP server at
+      https://<instance>/api/mcp/server. How to connect an assistant to it is
+      in /govern/ai-agents/ai-agents-faqs.md, under "Connecting CluedIn MCP".
+    - "AI agents" in this documentation is a CluedIn product feature that
+      works on golden records inside CluedIn (/govern/ai-agents.md). It is not
+      you, and not the user's assistant. Setting up an assistant to read these
+      docs is /get-started/ai-assistants.md.
+    - Older terms you may meet in user questions: "entity" is now "golden
+      record", "entity type" is now "business domain", "entity code" is now
+      "identifier", and "schema" is now "vocabulary". The full list is at
+      /get-started/terminology.md.

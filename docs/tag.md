@@ -1,10 +1,12 @@
 ---
 layout: cluedin
-title:
-has_children: false
+title: ""
 permalink: /tag
+source_path: docs/tag.md
+nav_exclude: true
 nav_exclude: true
 sitemap: false
+agent_exclude: true
 ---
 
 {% assign rawtags = "" %}

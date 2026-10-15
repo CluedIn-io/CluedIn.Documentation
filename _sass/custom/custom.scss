@@ -1,0 +1,1396 @@
+// CluedIn styles, compiled into both colour schemes (clue and clue-dark).
+// Colours come from the scheme's variables, so nothing here is hard-coded to
+// light or dark; `$color-scheme` is checked only where an asset differs.
+
+// The theme also compiles its stock light and dark stylesheets with this file,
+// so every CluedIn token needs a fallback. The clue schemes set them first.
+$ci-accent: #12a39a !default;
+$ci-accent-soft: rgba(18, 163, 154, 0.1) !default;
+$ci-primary: #0b4a44 !default;
+$ci-primary-hover: #08382f !default;
+$ci-muted: #6b7785 !default;
+$ci-surface: $body-background-color !default;
+$ci-surface-raised: $body-background-color !default;
+$ci-surface-sunken: $sidebar-color !default;
+$ci-shadow: 0 1px 2px rgba(0, 0, 0, 0.06) !default;
+$ci-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.12) !default;
+$ci-dot-new: #12a39a !default;
+$ci-dot-old: #2f6fd6 !default;
+
+// ---------------------------------------------------------------------------
+// Typography
+// ---------------------------------------------------------------------------
+
+$ci-heading-font: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.main-content h1,
+.main-content h2,
+.main-content h3 {
+  font-family: $ci-heading-font;
+  letter-spacing: -0.01em;
+}
+
+.main-content h1 {
+  font-weight: 800;
+}
+
+// Line icons from _includes/icons/cluedin.html.
+svg.ci {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+// ---------------------------------------------------------------------------
+// Sidebar: logo, title, grouped navigation
+// ---------------------------------------------------------------------------
+
+.side-bar {
+  background-color: $sidebar-color;
+}
+
+.site-header {
+  @include mq(md) {
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+.site-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-weight: 600;
+  color: $body-heading-color;
+
+  &:hover {
+    background-image: none;
+  }
+}
+
+.site-logo-img {
+  display: block;
+  width: auto;
+  height: 1.75rem;
+}
+
+@if $color-scheme == dark {
+  .site-logo-light {
+    display: none;
+  }
+} @else {
+  .site-logo-dark {
+    display: none;
+  }
+}
+
+.site-title-divider {
+  width: 1px;
+  height: 1.4rem;
+  background: $border-color;
+}
+
+.site-title-text {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.site-nav {
+  padding-top: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+.site-nav > .nav-list > .nav-list-item,
+.site-nav > .nav-list > .nav-list-item > .nav-list > .nav-list-item {
+  > .nav-list-link {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin: 1px 0.6rem;
+    padding-left: 0.75rem;
+    border-radius: 8px;
+    color: $body-text-color;
+    font-size: 0.875rem;
+
+    &:hover {
+      background-image: none;
+      background-color: $ci-accent-soft;
+      color: $body-heading-color;
+    }
+
+    &.active {
+      background-image: none;
+      background-color: $ci-accent-soft;
+      color: $body-heading-color;
+      font-weight: 600;
+
+      .nav-icon {
+        color: $ci-accent;
+      }
+    }
+  }
+
+  > .nav-list-expander {
+    right: 0.6rem;
+    border-radius: 8px;
+    color: $ci-muted;
+
+    &:hover {
+      background-image: none;
+      background-color: $ci-accent-soft;
+    }
+  }
+}
+
+.site-nav > .nav-list > .nav-list-item > .nav-list > .nav-list-item > .nav-list-link {
+  padding-left: 2.6rem;
+  font-size: 0.84rem;
+  color: $nav-child-link-color;
+}
+
+.site-nav .nav-list .nav-list-item .nav-list .nav-list-item .nav-list .nav-list-link {
+  border-radius: 8px;
+  margin-right: 0.6rem;
+
+  &:hover,
+  &.active {
+    background-image: none;
+    background-color: $ci-accent-soft;
+  }
+}
+
+.nav-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: $ci-muted;
+}
+
+// Group headings inserted by assets/js/nav-groups.js.
+li.nav-group-label {
+  list-style: none;
+  margin: 1.25rem 0 0.3rem;
+  padding: 0 1.35rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: $ci-muted;
+}
+
+.site-footer {
+  color: $ci-muted;
+}
+
+// ---------------------------------------------------------------------------
+// Top bar
+// ---------------------------------------------------------------------------
+
+.main-header {
+  background-color: $body-background-color;
+
+  @include mq(md) {
+    align-items: center;
+  }
+}
+
+.main-header .search-input {
+  background-color: transparent;
+}
+
+.header-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.4rem;
+  padding: 0.75rem 1rem;
+
+  @include mq(md) {
+    flex-wrap: nowrap;
+    margin-left: auto;
+    padding: 0 1.5rem 0 1rem;
+  }
+}
+
+.header-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $body-heading-color;
+  white-space: nowrap;
+  text-decoration: none;
+
+  &:hover {
+    color: $ci-accent;
+    text-decoration: none;
+  }
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  border: 0;
+  background: none;
+  color: $body-heading-color;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid $ci-accent;
+    outline-offset: 2px;
+    border-radius: 999px;
+  }
+}
+
+.theme-toggle-track {
+  position: relative;
+  width: 2.5rem;
+  height: 1.4rem;
+  border-radius: 999px;
+  background: $border-color;
+  transition: background-color 0.2s;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 0.15rem;
+  left: 0.15rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+}
+
+// Below md the top bar sits at the bottom of the open menu, out of reach, so
+// assets/js/theme-toggle.js puts a copy of the switch beside the menu button.
+.header-links .theme-toggle {
+  display: none;
+
+  @include mq(md) {
+    display: inline-flex;
+  }
+}
+
+.site-header .theme-toggle {
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.theme-toggle[aria-checked="true"] {
+  .theme-toggle-track {
+    background: $ci-accent;
+  }
+
+  .theme-toggle-thumb {
+    transform: translateX(1.1rem);
+  }
+}
+
+// Agent mode (assets/js/agent-mode.js). The switch shows the page as the
+// Markdown copy AI agents read; while it is on, the article is hidden.
+.agent-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid $border-color;
+  border-radius: 999px;
+  background: none;
+  color: $body-heading-color;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $ci-accent;
+    color: $ci-accent;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $ci-accent;
+    outline-offset: 2px;
+  }
+
+  &[aria-pressed="true"] {
+    border-color: $ci-accent;
+    background: $ci-accent-soft;
+    color: $ci-primary;
+  }
+}
+
+html[data-agent-mode="on"] #main-content > main {
+  display: none;
+}
+
+// Only for HTML-to-text tools; readers never see it.
+.agent-hint {
+  display: none;
+}
+
+.agent-panel {
+  margin: 1rem 0 2rem;
+}
+
+.agent-panel-intro {
+  color: $ci-muted;
+  font-size: 0.9375rem;
+}
+
+.agent-panel-links {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  color: $ci-muted;
+  font-size: 0.875rem;
+
+  li {
+    margin: 0.2rem 0;
+  }
+}
+
+.agent-panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.agent-panel-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  background: $ci-surface-raised;
+  color: $body-heading-color !important;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $ci-accent;
+    text-decoration: none;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.agent-panel-button-primary {
+  border-color: $ci-primary;
+  background: $ci-primary;
+  color: #fff !important;
+
+  &:hover {
+    background: $ci-primary-hover;
+  }
+}
+
+.agent-panel-source {
+  max-width: 100%;
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  background: $ci-surface-sunken;
+  color: $body-text-color;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  background-color: $ci-primary;
+  color: #fff !important;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.15s;
+
+  &:hover {
+    background-color: $ci-primary-hover;
+    text-decoration: none;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Home page (index.md)
+// ---------------------------------------------------------------------------
+
+.home {
+  max-width: 76rem;
+  padding-bottom: 1rem;
+}
+
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+  padding: 1.5rem 0 2rem;
+
+  @media (min-width: 80rem) {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    padding-top: 2.5rem;
+  }
+}
+
+.main-content .home-eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $ci-accent;
+}
+
+.main-content h1.home-title {
+  margin: 0.9rem 0 1rem;
+  max-width: 13ch;
+  font-size: clamp(2.3rem, 4.4vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: $body-heading-color;
+}
+
+.main-content .home-lead {
+  max-width: 34rem;
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: $body-text-color;
+}
+
+// The theme's search, moved here by assets/js/home.js.
+.home-search {
+  max-width: 38rem;
+  margin-top: 1.75rem;
+
+  .search {
+    height: 3.4rem;
+    padding: 0;
+  }
+
+  .search-input-wrap {
+    height: 100%;
+    border: 1px solid $border-color;
+    border-radius: 999px;
+    background: $ci-surface-raised;
+    box-shadow: $ci-shadow;
+  }
+
+  .search-input {
+    padding-left: 3.1rem;
+    padding-right: 5rem;
+    font-size: 1rem;
+    background-color: $ci-surface-raised;
+  }
+
+  .search-label {
+    padding-left: 1.2rem;
+  }
+
+  .search-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  @include mq(md) {
+    .search {
+      position: relative !important;
+      height: 3.4rem !important;
+    }
+
+    .search-input-wrap {
+      position: relative;
+      max-width: none;
+      border-radius: 999px;
+      box-shadow: $ci-shadow;
+    }
+
+    .search-input {
+      padding-left: 3.1rem;
+      font-size: 1rem;
+      background-color: $ci-surface-raised;
+    }
+
+    .search-label {
+      padding-left: 1.2rem;
+    }
+
+    .search-results {
+      top: calc(100% + 0.5rem);
+      width: 100%;
+      border: 1px solid $border-color;
+      border-radius: 12px;
+    }
+  }
+}
+
+.search-active .home-search {
+  @include mq(md) {
+    .search-input-wrap {
+      width: 100%;
+      border-color: $ci-accent;
+      box-shadow: $ci-shadow-hover;
+    }
+
+    .search-input {
+      padding-left: 3.1rem;
+    }
+
+    .search-label {
+      padding-left: 1.2rem;
+    }
+  }
+}
+
+.home-search-kbd {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  padding: 0.15rem 0.45rem;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  background: $ci-surface-sunken;
+  font-family: inherit;
+  font-size: 0.72rem;
+  color: $ci-muted;
+  pointer-events: none;
+
+  @media (max-width: 49.99rem) {
+    display: none;
+  }
+}
+
+// Results now sit inside .main-content, whose list bullets must not apply.
+.main-content .home-search ul.search-results-list {
+  padding-left: 0;
+
+  > li::before {
+    content: none;
+  }
+}
+
+// When the search has moved into the hero, the top bar only holds links.
+.home-search-moved .main-header {
+  justify-content: flex-end;
+}
+
+.home-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.home-chips-label {
+  margin-right: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $body-heading-color;
+}
+
+.home-chip {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid $border-color;
+  border-radius: 999px;
+  background: $ci-surface-sunken;
+  font: inherit;
+  font-size: 0.78rem;
+  color: $body-text-color;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $ci-accent;
+    color: $body-heading-color;
+  }
+}
+
+// Illustration: sources -> CluedIn -> destinations. Every element is placed in
+// percentages of the 520x340 SVG viewBox, so the picture scales as one piece.
+.home-flow {
+  position: relative;
+  display: none;
+  width: 100%;
+  max-width: 34rem;
+  aspect-ratio: 520 / 340;
+  justify-self: end;
+  color: $ci-accent;
+
+  @media (min-width: 80rem) {
+    display: block;
+  }
+}
+
+.home-flow-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+
+  path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+  }
+
+  .home-flow-in path,
+  .home-flow-out path {
+    stroke-dasharray: 3 5;
+    animation: home-flow 1.6s linear infinite;
+  }
+
+  .home-flow-arrow {
+    stroke: $ci-muted;
+    stroke-width: 1.2;
+  }
+}
+
+@keyframes home-flow {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-flow-lines path {
+    animation: none !important;
+  }
+}
+
+.home-flow-tile,
+.home-flow-dest,
+.home-flow-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  background: $ci-surface-raised;
+  box-shadow: $ci-shadow;
+}
+
+.home-flow-tile {
+  justify-content: center;
+  width: 8.46%;
+  height: 12.94%;
+
+  svg.ci {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+.home-flow-hub {
+  position: absolute;
+  left: 40%;
+  top: 38.2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16.15%;
+  height: 24.7%;
+
+  .ci-mark {
+    width: 78%;
+    height: 78%;
+  }
+}
+
+@if $color-scheme == dark {
+  .home-flow-hub {
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.92) 55%, rgba(255, 255, 255, 0) 72%);
+  }
+}
+
+.home-flow-badge {
+  left: 48.08%;
+  top: 67%;
+  transform: translateX(-50%);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  white-space: nowrap;
+  color: $ci-accent;
+}
+
+.home-flow-dest {
+  left: 71.5%;
+  gap: 0.5rem;
+  width: 26.9%;
+  height: 12.94%;
+  padding: 0 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: $body-heading-color;
+}
+
+.main-content .home-flow-note {
+  position: absolute;
+  margin: 0;
+  font-family: "Caveat", cursive;
+  font-size: 1.05rem;
+  line-height: 1.05;
+  color: $ci-muted;
+}
+
+.home-flow-note-top {
+  left: 1%;
+  top: 0;
+  transform: rotate(-6deg);
+}
+
+.home-flow-note-bottom {
+  left: 74%;
+  top: 87%;
+  transform: rotate(-4deg);
+}
+
+// Lifecycle cards.
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 1rem;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.home-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 11rem;
+  padding: 1.35rem 1.25rem 3.25rem;
+  border: 1px solid $border-color;
+  border-radius: 14px;
+  background: $ci-surface-raised;
+  box-shadow: $ci-shadow;
+  color: $body-text-color;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: $ci-accent;
+    box-shadow: $ci-shadow-hover;
+    text-decoration: none;
+
+    .home-card-go {
+      background: $ci-accent;
+      border-color: $ci-accent;
+      color: #fff;
+    }
+  }
+}
+
+svg.home-card-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+  stroke-width: 1.5;
+  color: $ci-accent;
+}
+
+.home-card-title {
+  font-family: $ci-heading-font;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: $body-heading-color;
+}
+
+.home-card-text {
+  margin-top: 0.4rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.home-card-go {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid $border-color;
+  border-radius: 50%;
+  color: $body-heading-color;
+  transition: background-color 0.15s, color 0.15s;
+
+  svg.ci {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+// Popular guides and What's new.
+.home-panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+
+  @media (min-width: 72rem) {
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  }
+}
+
+.home-panel {
+  padding: 1.4rem 1.5rem;
+  border: 1px solid $border-color;
+  border-radius: 14px;
+  background: $ci-surface-raised;
+  box-shadow: $ci-shadow;
+}
+
+.home-panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.main-content h2.home-panel-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: $body-heading-color;
+}
+
+.home-panel-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+
+  svg.ci {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.main-content ul.home-guides,
+.main-content ul.home-releases {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  > li {
+    margin: 0;
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+.home-guides > li + li {
+  border-top: 1px solid $border-color;
+}
+
+.home-guide {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.25rem;
+  color: $body-text-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+
+    .home-guide-title {
+      color: $ci-accent;
+    }
+
+    .home-guide-go {
+      transform: translateX(3px);
+    }
+  }
+}
+
+svg.home-guide-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  stroke-width: 1.5;
+  color: $ci-accent;
+}
+
+.home-guide-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-guide-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $body-heading-color;
+}
+
+.home-guide-desc {
+  font-size: 0.84rem;
+  color: $ci-muted;
+}
+
+svg.home-guide-go {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: $ci-muted;
+  transition: transform 0.15s;
+}
+
+.home-release {
+  position: relative;
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.7rem 0 0.7rem 1.4rem;
+  font-size: 0.84rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0.15rem;
+    top: 1.05rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: $ci-dot-old;
+  }
+
+  &.is-latest::after {
+    background: $ci-dot-new;
+    box-shadow: 0 0 0 4px $ci-accent-soft;
+  }
+
+  a {
+    font-weight: 700;
+    color: $body-heading-color;
+  }
+
+  span {
+    color: $ci-muted;
+  }
+}
+
+.home-callout {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  background: $ci-accent-soft;
+  color: $body-text-color;
+  text-decoration: none;
+
+  svg.ci {
+    color: $ci-accent;
+  }
+
+  strong {
+    display: block;
+    font-size: 0.9rem;
+    color: $body-heading-color;
+  }
+
+  span span {
+    font-size: 0.8rem;
+    color: $ci-muted;
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    .home-guide-go {
+      transform: translateX(3px);
+    }
+  }
+}
+
+.main-content .home-help {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+  font-size: 0.82rem;
+  color: $ci-muted;
+}
+
+// ---------------------------------------------------------------------------
+// Article furniture
+// ---------------------------------------------------------------------------
+
+@include mq(md) {
+  .main-content p img {
+    height: auto;
+    max-width: 60%;
+    margin: 1rem 0;
+  }
+}
+
+.videoFrame {
+  position: relative;
+  width: 920px;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Callouts written as `{:.important}` / `{:.warning}` / `{:.note}`.
+p.important,
+p.warning,
+p.note {
+  max-width: 60rem;
+  padding: 0.8rem 1rem;
+  border-left: 4px solid;
+  border-radius: 8px;
+
+  &::before {
+    display: block;
+    padding-bottom: 0.15rem;
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+}
+
+p.important,
+p.note {
+  background: rgba(47, 111, 214, 0.1);
+  border-left-color: $ci-dot-old;
+
+  &::before {
+    color: $ci-dot-old;
+  }
+}
+
+p.important::before {
+  content: "Important";
+}
+
+p.note::before {
+  content: "Note";
+}
+
+p.warning {
+  background: rgba(221, 46, 46, 0.1);
+  border-left-color: #dd2e2e;
+
+  &::before {
+    content: "Warning";
+    color: #e05252;
+  }
+}
+
+div.feature-icon {
+  display: flex;
+  padding-top: 12px;
+
+  img {
+    width: 64px;
+    max-width: 64px;
+    height: 64px;
+  }
+}
+
+// Quick feature tour page.
+.quick-tour {
+  max-width: 1200px;
+}
+
+.quick-tour h1 {
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.quick-tour .intro {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: $ci-muted;
+}
+
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 24px;
+  max-width: 1000px;
+}
+
+.video-card {
+  flex: 0 0 48%;
+  max-width: 48%;
+  padding: 24px;
+  border: 1px solid $border-color;
+  border-radius: 14px;
+  background: $ci-surface-raised;
+  box-shadow: $ci-shadow;
+}
+
+.video-card-single-row {
+  flex: 0 0 100%;
+  max-width: calc(96% + 24px);
+  height: 240px;
+}
+
+@media (max-width: 950px) {
+  .video-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.video-card h2 {
+  margin: 0 0 0.25rem !important;
+  font-size: 1.4rem;
+}
+
+.video-card .subtitle {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  color: $ci-muted;
+}
+
+.video-wrapper {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.more-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border: 2px dashed $border-color;
+  border-radius: 14px;
+  background: $ci-surface-sunken;
+  text-align: center;
+}
+
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background: $ci-accent;
+}
+
+.plus-icon {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+}
+
+.more-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+// ---------------------------------------------------------------------------
+// Information architecture: content-type badges, section indexes, audience
+// ---------------------------------------------------------------------------
+
+.content-type-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: -0.4rem 0 1.6rem;
+}
+
+.content-type-hint {
+  font-size: 0.75rem;
+  color: $ci-muted;
+}
+
+.content-type-badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+// Badge colours: background, text, border.
+$ci-badges: (
+  concept: (#eef2ff, #3730a3, #c7d2fe),
+  how-to: (#ecfdf5, #065f46, #a7f3d0),
+  tutorial: (#fff7ed, #9a3412, #fed7aa),
+  reference: (#eff6ff, #1e40af, #bfdbfe),
+  troubleshooting: (#fef2f2, #991b1b, #fecaca),
+);
+
+@each $type, $c in $ci-badges {
+  .content-type-#{$type} {
+    @if $color-scheme == dark {
+      background: rgba(nth($c, 3), 0.12);
+      color: nth($c, 3);
+      border-color: rgba(nth($c, 3), 0.35);
+    } @else {
+      background: nth($c, 1);
+      color: nth($c, 2);
+      border-color: nth($c, 3);
+    }
+  }
+}
+
+// Auto-generated "In this section" list on every index page.
+.section-index-heading {
+  margin-top: 2rem;
+}
+
+.main-content ul.section-index {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid $border-color;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  a {
+    font-weight: 500;
+  }
+}
+
+.section-index-count {
+  padding: 0.1rem 0.5rem;
+  border: 1px dashed $border-color;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $ci-muted;
+}
+
+.section-index-summary {
+  flex-basis: 100%;
+  font-size: 0.8rem;
+  color: $ci-muted;
+}
+
+// Audience strip on the lifecycle landing pages.
+.audience {
+  max-width: 46rem;
+  margin: 0 0 1.6rem;
+  padding: 0.9rem 1rem;
+  border-left: 4px solid $ci-accent;
+  border-radius: 8px;
+  background: $ci-accent-soft;
+
+  p {
+    margin: 0;
+  }
+
+  .audience-question {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: $body-heading-color;
+  }
+
+  .audience-who {
+    margin-top: 0.3rem !important;
+    font-size: 0.85rem;
+    color: $ci-muted;
+  }
+}
+
+// Screenshots wrapped in {: .documentation-screenshot } get a hairline frame,
+// so a white product screen does not bleed into a white page.
+.documentation-screenshot img {
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
