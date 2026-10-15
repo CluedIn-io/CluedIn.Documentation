@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-10-15T08:20:42+00:00</updated>
+    <updated>2026-10-15T23:03:56+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1964,20 +1964,6 @@
     </entry>
     
     <entry>
-        <title>Work with CluedIn Copilot</title>
-        <link href="https://documentation.cluedin.net/solutions/copilot/work-with-copilot" />
-        <id>https://documentation.cluedin.net/solutions/copilot/work-with-copilot</id>
-        <updated>2026-09-24T00:00:00+00:00</updated>
-        <summary>
-        
-        Work with CluedIn Copilot.
-        
-        
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Job monitoring</title>
         <link href="https://documentation.cluedin.net/operate/monitoring/job-monitoring" />
         <id>https://documentation.cluedin.net/operate/monitoring/job-monitoring</id>
@@ -2213,6 +2199,20 @@
         
         
         Tags: consume, data export, streams.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Work with CluedIn Copilot</title>
+        <link href="https://documentation.cluedin.net/solutions/copilot/work-with-copilot" />
+        <id>https://documentation.cluedin.net/solutions/copilot/work-with-copilot</id>
+        <updated>2026-10-12T00:00:00+00:00</updated>
+        <summary>
+        
+        Work with CluedIn Copilot.
+        
+        
         
         </summary>
     </entry>

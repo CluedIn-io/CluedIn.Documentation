@@ -17,6 +17,10 @@ CluedIn Copilot is an AI assistant designed to help you with day-to-day data man
 
 You can open the Copilot chat from any place in CluedIn by clicking on the message icon in the lower-right corner of the page. The Copilot pane contains your chats. If you want to rename or delete a chat, select **Copilot** next to the search bar.
 
+The **Home** page also includes an **Ask Copilot** panel so you can send a message and see the reply without leaving Home. It automatically resumes your most recent conversation (sending a message from Home continues that same conversation rather than starting a new one); if you have no prior conversation, the panel shows an empty state and you can start one by sending a message. Next to the message box, a dropdown lets you choose a different AI endpoint to answer with — for example, an external provider such as Claude — if your administrator has configured one.
+
+![The Ask Copilot panel on the Home page, showing a continued conversation with Copilot's reply and the message input box](https://documentation.cluedin.net/assets/images/microsoft-integration/copilot/home-page-ask-copilot.png)
+
 CluedIn Copilot provides a broad set of skills (also called functions) that cover data onboarding, data quality, cleaning, deduplication, rules, AI jobs, streams, vocabularies, search, and other data management tasks.
 
 To ask Copilot what it can do, use prompts similar to:
