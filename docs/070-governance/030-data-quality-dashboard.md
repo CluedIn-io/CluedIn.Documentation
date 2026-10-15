@@ -5,7 +5,7 @@ parent: Governance
 nav_order: 3
 permalink: /governance/data-quality-dashboard
 tags: ["governance", "data quality", "metrics", "accuracy", "completeness", "connectivity", "relevance", "consistency", "currentness", "iso 25012", "business domains", "ai agents", "trust center", "provenance", "explainability", "human accountability", "thresholds"]
-last_modified: 2026-10-13
+last_modified: 2026-10-15
 ---
 
 ## On this page
@@ -26,7 +26,7 @@ Consistency, Currentness, Provenance, and Explainability are per-record metrics.
 
 The dashboard is organized into five tabs:
 
-- **Overview** – each data quality metric as an overall, organization-wide score, plus their trend over time.
+- **Overview** – each data quality metric as an overall, organization-wide score, plus a trend chart showing every metric over time and a radar chart comparing them all at a glance.
 - **Business Domain** – the [Quality by Business Domain](#quality-by-business-domain) heatmap.
 - **Source** – the [Quality by Source](#quality-by-source) breakdown.
 - **AI Agent** – the [Quality by AI Agent](#quality-by-ai-agent) summary.
@@ -57,7 +57,10 @@ A business domain only appears in the heatmap once data quality metrics have bee
 
 ## Quality by Source
 
-The **Quality by Source** section lists every source connected to your CluedIn environment, together with its icon, so you can identify at a glance which systems are feeding data into CluedIn. Where the data quality metrics have been calculated for a specific source, the corresponding score is shown next to it; otherwise, the entry shows **No data yet**.
+The **Quality by Source** section lists every source feeding data into your CluedIn environment — connectors, file uploads, API ingestion endpoints, databases, and enrichers alike — together with its icon or a generic source icon, so you can identify at a glance which systems are behind your data quality scores. Where the data quality metrics have been calculated for a specific source, the corresponding score is shown next to it; otherwise, the entry shows **No data yet**.
+
+{:.note}
+A source whose records all came from a single ingestion event (for example, a one-off file upload) can appear more than once if that file was ingested more than once — each ingestion gets its own score.
 
 If no sources are connected yet, this section shows an empty state instead of the list.
 
