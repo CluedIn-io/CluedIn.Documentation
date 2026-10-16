@@ -32,3 +32,5 @@ This section covers the following topics:
 - [Manage access control policies](/administer/access-control/manage-access-control-policies) – learn how to edit, deactivate, and delete an access control policy, as well how these actions affect user access to data.
 
 - [Access control reference](/administer/access-control/access-control-reference) – learn about the structure of an access control policy and the available actions in the policy rule.
+
+- [RACI matrix](/administer/access-control/raci-matrix) – see who is responsible for which capabilities on which business domains, based on your current access control policies.
