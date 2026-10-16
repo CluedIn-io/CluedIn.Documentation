@@ -3,7 +3,7 @@ layout: cluedin
 title: Common questions
 parent: Day-to-day operations
 grand_parent: Deploy & operate
-nav_order: 50
+nav_order: 60
 permalink: /operate/operations/common-questions
 content_type: reference
 redirect_from: ["/paas-operations/common-questions"]
