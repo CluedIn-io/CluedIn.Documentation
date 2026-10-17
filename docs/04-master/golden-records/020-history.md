@@ -41,44 +41,71 @@ Each branch has a _head_ that contains values from the data parts belonging to t
 
 By default, the **History** page displays the data parts arranged by the sort date (this is the date when CluedIn received the data part). You can explore the data parts using the following views:
 
-- [Data part view](#data-part-view)
+- [List view](#list-view) – the flat, chronological view of every data part.
 
-- [Golden record view](#golden-record-view)
+- [Tree view](#tree-view) – a branch tree that shows, at a glance, which data parts belong to the same branch, where branches were merged, and which data part is the latest on each branch.
 
-### Data part view
+- [Timeline view](#timeline-view) – the same branches plotted against a time axis, so you can see how far apart in time the data parts on each branch really are.
 
-The data part view is the default view that shows all data parts that make up a golden record.
+Switch between List, Tree and Timeline using the view selector at the top of the **History** page. The data source, date, and vocabulary key filters described in [Filters](#filters) apply to all three views: List hides the data parts that do not match, while Tree and Timeline dim them instead of removing them, so the overall branch structure stays visible.
 
-![The data part view listing two data parts, each with a color circle for its branch, source, record ID, author, dates and an Added status]({{ "/assets/images/key-terms-and-features/history-1.png" | relative_url }})
+List, Tree and Timeline share the same left-hand and right-hand panels, and only the middle of the page changes:
 
-Each data part has the following attributes:
+- **Left panel** – a **Branches** tab (search branches, show or hide one or all of them, focus a single branch, and see how many data parts and current golden record values each branch supplies) and a **Fields** tab (filter by the fields a version changed).
 
-- A **color circle** that represents a branch. A branch contains the data part versions that appeared from the same source. For example, if you have a crawler that changes some properties of the data part, these changes will be added to the branch as separate data part versions. By selecting the color circle, you can view the branch (1) and its versions (2, 3).
+- **Right panel** – selecting a data part, or the **Golden record now** row, opens the **details panel**, with a plain-language summary of what happened, its place on its branch, who and when, the branches a merge joined, and every field it changed, with the old value, the new value, and whether that value is still the one on the golden record today. Technical details, Open record, Copy link and Delete version are available from here.
 
-    ![The History page filtered to the CluedInManualModification branch, showing its two data parts, one Changed and one Added]({{ "/assets/images/key-terms-and-features/history-2.png" | relative_url }})
+- Hovering over a data part (in the Tree and Timeline graphs) shows a tooltip with its title, branch, date and how many fields it added, updated, or removed.
 
-- An **icon** that represents a source. A source is a place where the data part is coming from. A source can be a clean project, a deduplication project, a manual data entry project, a file, a crawler, and so on.
+### List view
 
-- A **title** of the data part that consists of the source name and additional details. For example, if the source is the clean project, then the title also includes the clean project name. You can view the source by selecting the title.
+The list view is the default view that shows all data parts that make up a golden record, one row per data part, ordered by date, with the **Golden record now** row pinned to the top.
 
-- A **data part ID** (also referred to as record ID). You can view the data part properties (vocabulary keys) by selecting the ID number. These data part properties are used to produce a head, which is then processed by survivorship rules to determine the operational values for the golden record.
+![The List view of the History page: the Golden record now row pinned above Merge, Changed and Discovered rows, with the Branches panel on the left and the golden record details on the right]({{ "/assets/images/golden-records/history-list-view.png" | relative_url }})
 
-- Data part **details**, such as the user who created the data part and dates associated with the data part. For more information about what each date means, see [Filters](#filters).
+Each row shows:
 
-- Data part **status** that indicates the type of change made on the data part level. For more information about each status, see [Dat part statuses](#data-part-statuses).
+- A **title** that consists of the source name and additional details. For example, if the source is a clean project, the title also includes the clean project name.
 
-By expanding the data part, you can view a table with the metadata properties and vocabulary keys associated with the data part. Each property is marked with the change type label, which indicates whether the property is newly added or changed from one data part version to another.
+- The **branch** the data part belongs to, with the same colour and name as on the Topology tab and the Tree and Timeline views. A branch contains the data part versions that appeared from the same source.
+
+- The **record ID**, and the date for whichever [date type](#filters) is currently selected.
+
+- A **Latest on this branch** label on the newest data part of each branch.
+
+- A **status** badge that indicates the type of change made on the data part level. For more information about each status, see [Data part statuses](#data-part-statuses).
+
+- A short summary of how many fields the data part added, updated or removed.
 
 Each data part is an individual entity, and it is not linked to other data parts in any way, except if these data parts belong to one branch. Because each data part is individual, the first data part in the branch is marked with the **Added** status and does not contain previous values. If the subsequent data part within the branch contain some changes compared to the first data part in the branch, then such data parts are marked with the **Changed** status.
 
-### Golden record view
+Selecting a row opens the details panel described above, where you can see every field the data part changed.
 
-The golden record view appears when you select any metadata properties or vocabulary keys on the filters pane on the left side of the **History** page. This view shows all records (1) where the selected property or vocabulary key is used, along with the value (2) that is used in the golden record (this is the value that is shown on the **Property** tab of the golden record details page). By looking at the sort date, you can track the historical changes in the property value across all data parts.
+![The List view with a Merge row selected, showing its summary, where it sits on its branch, the branches it joined and every field it changed]({{ "/assets/images/golden-records/history-list-view-details.png" | relative_url }})
 
-![The golden record view for Job Title: the golden record value Senior Accountant above a table of the value from each data part]({{ "/assets/images/key-terms-and-features/history-3.png" | relative_url }})
+### Tree view
 
-{:.important}
-**Part ID** from the golden record view and **Record ID** from the data part view are the same.
+The tree view draws the same data parts as a branch tree: one lane per branch, with its data parts placed on the lane in time order. This makes it easy to see, for a golden record built from several sources, which data parts belong together, what the latest data part on each branch is, and where branches were joined.
+
+![The Tree view showing three branch lanes joined by a merge, with the Golden record now row above them and the details panel on the right]({{ "/assets/images/golden-records/history-tree-view.png" | relative_url }})
+
+- A **Golden record now** row sits above all the lanes. It is a summary, not a branch — selecting it shows how many current golden record values there are and how many branches supplied them.
+
+- Each **lane** is named and colored the same way as the matching branch on the Topology tab, and is labeled with the kind of source it is: a data source record, an enricher, a clean project, a deduplication merge, or a manual modification.
+
+- A **merge** (from a deduplication project or a manual merge) is drawn as a hollow data part, with one link to the latest data part of each branch it joined at the time of the merge.
+
+- The **latest data part on each branch** is marked, so you can tell at a glance whether a branch has moved on since the golden record last picked up a value from it.
+
+![The details panel for a merge data part, listing the branches it joined and every field it changed]({{ "/assets/images/golden-records/history-tree-merge-details.png" | relative_url }})
+
+If a golden record has more than 24 branches, the 20 most recently active ones each keep their own lane, and the rest are grouped into one grey **Other branches** column. From the details panel of a data part on a grouped branch, you can give that branch its own lane, or group it back.
+
+### Timeline view
+
+The timeline view plots the same branches on a time axis instead of in a plain sequence, one row per branch, so you can see how far apart in time the data parts on a branch really are. Zoom in to spread out data parts that landed close together, which are otherwise grouped into a single, numbered data part on the timeline. Data parts with no date for the currently selected [date filter](#filters) appear in a separate **Date not set** strip so they do not distort the time axis.
+
+![The Timeline view plotting three branches against a date axis, with zoom controls and the details panel on the right]({{ "/assets/images/golden-records/history-timeline-view.png" | relative_url }})
 
 ### Filters
 
@@ -100,23 +127,20 @@ The **History** page contains various filters to help you navigate through the d
 
         ![The sort date dropdown open with the options Sort Date, Modified Date, Created Date and Discovery Date]({{ "/assets/images/golden-records/date-filter.png" | relative_url }})
 
-- **Metadata filter** – you can select any metadata property and see the data parts where it is used.
+- **Status filter** – you can toggle which [data part statuses](#data-part-statuses) are shown: Discovered, Added, Changed, and Merge. Merge is not a status stored on the data part itself; it is shown whenever a data part joined one or more other branches, such as a deduplication or manual merge.
 
-    ![The Authors metadata property selected on the filters pane, with the matching data parts and their authors shown on the right]({{ "/assets/images/golden-records/metadata-filter.png" | relative_url }})
-
-- **Vocabulary key filter** – you can select any vocabulary key and see the data parts where it is used, as well as the value chosen for the golden record. The medal icon next to the vocabulary key signifies that this vocabulary key is used in the golden record.
-
-    ![The Vocabulary Keys list on the filters pane with trainingcontact.job Title selected, each key marked with a medal icon]({{ "/assets/images/golden-records/vocab-key-filter.png" | relative_url }})
+- **Fields filter** – on the **Fields** tab of the left panel, you can select any metadata property or vocabulary key and see the data parts where it is used. A medal icon next to a vocabulary key signifies that it is used in the golden record.
 
 ## Data part statuses
 
-You can view the data part statuses when you're on the data part view of the **History** page.
+You can view the data part statuses when you're on the list view of the **History** page.
 
 | Status | Description |
 |--|--|
 | Discovered | A data part has been added for the first time in CluedIn. Such data parts do not have the **Created Date** value. The **Previous Value** column in such data part is always empty because this is the first data part in the history.|
 | Added | A new data part has been added, creating a new branch. Such data part has the **Created Date** value. The **Previous Value** column is always empty because this is the first data part in a branch. |
 | Changed | A new data part has been added within the existing branch. The **Previous Value** column contains the value from the previous data part in the branch. |
+| Merge | Shown in the tree and timeline views (and as a filter) whenever a data part joined one or more other branches, such as a deduplication or manual merge. It is not a status stored on the data part itself. |
 
 ## Relations history
 
