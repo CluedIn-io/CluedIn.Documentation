@@ -20,5 +20,6 @@ Who can sign in, and what they are allowed to do. A user gets roles, a role carr
 - [User access](https://documentation.cluedin.net/administer/users-and-roles/user-access.md) (concept): In this section, you will learn about the main aspects that define user access in CluedIn.
 - [Data access](https://documentation.cluedin.net/administer/users-and-roles/data-access.md) (how-to): In this article, you will learn about the main settings for configuring secure and reliable access to the data in CluedIn—source control and access control.
 - [Feature access](https://documentation.cluedin.net/administer/users-and-roles/feature-access.md) (how-to): In this article, you will learn about the main settings that define access to CluedIn features: roles and ownership.
+- [RACI matrix](https://documentation.cluedin.net/administer/users-and-roles/raci-matrix.md) (how-to): The RACI matrix lets you record who is responsible for which CluedIn function—deduplication, cleaning, enrichment, and so on—on which business domain, and see everything you have set up in one place.
 
 Up: [Administer](https://documentation.cluedin.net/administer.md)
