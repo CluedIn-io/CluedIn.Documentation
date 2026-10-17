@@ -24,6 +24,30 @@ The RACI matrix is a planning and documentation tool. Adding a responsibility he
 - The same claim as the [Access Control](/administer/access-control) module, at Informed access or higher. See [Claims](/administer/users-and-roles/claims).
 - The role or user you want to record a responsibility for must already exist. See [Roles](/administer/users-and-roles/roles) and [User management](/administer/users-and-roles/user-management).
 - The business domain you want to record a responsibility for must already be configured. See [Business domains](/model/business-domains).
+- To describe responsibilities in plain language instead of picking them manually, an AI endpoint must be configured for your organization. See [Configure a model endpoint](/govern/ai-agents/prerequisites-to-using-ai-agents#configure-a-model-endpoint).
+
+## Describe responsibilities in plain language
+
+Instead of picking a role or user, functions and business domains one at a time, you can describe what you want in the box at the top of the page and let CluedIn work out the details:
+
+**To generate a proposal**
+
+1. In the text box, describe who should be responsible for what, in your own words—for example, "Make Sarah responsible for all tasks on Company and Employee records. Make Mark responsible just for reviewing duplicates on Company records." You can describe more than one responsibility in a single instruction.
+
+1. Select **Generate**.
+
+1. Review the proposal. Each item shows the role or user, the functions, and the business domains it matched—and anything it couldn't confidently match (a misspelled name, a business domain that isn't configured) in red, so you can see the gap before anything is created.
+
+1. Select the **×** on any item you don't want to create.
+
+1. Select **Add**.
+
+    ![The Copilot box with an instruction describing responsibilities for DataSteward and DataArchitect, and the resulting proposal showing each matched function and business domain]({{ "/assets/images/administration/raci-matrix/raci-matrix-copilot-box.png" | relative_url }})
+
+Only items with at least one matched function and one matched business domain are created—an item that only matched a role or user is kept visible (so you can see what it did and didn't understand) but isn't added. If nothing in your organization's configured AI endpoint matches what you described, the proposal comes back empty; try naming the role, user, function, or business domain more directly.
+
+{:.important}
+Like the manual rule builder, this only creates RACI responsibility records—it never changes what a role or user can actually do in CluedIn, and it only ever uses your organization's real roles, users, functions, and business domains. It cannot invent a role, user, function, or business domain that doesn't already exist.
 
 ## Set up responsibilities
 
