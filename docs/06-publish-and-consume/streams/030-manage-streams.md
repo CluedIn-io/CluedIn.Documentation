@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/consume/streams/manage-streams"]
 source_path: docs/150-consume/streams/020-manage-streams.md
 tags: ["consume", "data export", "streams"]
-last_modified: 2026-10-12
+last_modified: 2026-10-17
 ---
 
 ## On this page
@@ -132,6 +132,40 @@ You can view and manage field mappings on the **Field mappings** tab of the stre
 {:.important}
 If a mapping is missing a source field or an export field name, CluedIn blocks saving and shows a validation message until you fix or remove the incomplete mapping.
 
+## Configure a Data Contract
+
+A Data Contract lets you validate golden records against a set of expectations before they are sent to the export target. A record that fails an expectation is quarantined instead of being exported, so it cannot reach the export target with an invalid value or below your data quality bar. Passing records are exported as usual.
+
+You can configure two kinds of expectations:
+
+- **Vocabulary Key data type** – quarantines a record when a mapped property's value does not match the configured [data type](/model/data-catalog/data-types) of its vocabulary key. This prevents export failures caused by values that the export target cannot accept.
+
+- **Data quality threshold** – quarantines a record when the entity does not meet a minimum score for one of the [data quality metrics](/govern/data-quality-dashboard), such as Accuracy or Completeness. You can add more than one threshold expectation to check several metrics.
+
+A Data Contract is configured per stream and does not affect any other stream.
+
+**To configure a Data Contract**
+
+1. On the stream details page, select the **Data Contract** tab.
+
+1. Turn on **Enable Data Contract**.
+
+1. To check vocabulary key data types, select the **Vocabulary Key data type** checkbox.
+
+1. To check a data quality metric threshold, select **Data quality threshold**. Then, in the row that appears, select a metric and enter the **Minimum score (%)** that a record must meet to pass. Repeat this step to add another threshold expectation.
+
+    ![The Data Contract tab of a stream, with Enable Data Contract turned on, the Vocabulary Key data type expectation selected, and a Data quality threshold expectation being added]({{ "/assets/images/consume/streams/data-contract-tab.png" | relative_url }})
+
+1. Select **Save**.
+
+**To remove an expectation**
+
+- Clear the **Vocabulary Key data type** checkbox, or select the delete icon next to a data quality threshold row. Then, select **Save**.
+
+### View quarantined records
+
+The **Quarantined records** table, at the bottom of the **Data Contract** tab, lists the records that failed an expectation. For each record, it shows the entity, the reason(s) it was quarantined, and when it was quarantined. Select the refresh icon to check for newly quarantined records.
+
 ## View stream details
 
 On the stream details page, there are several tabs where you can view stream-related information:
@@ -145,6 +179,8 @@ On the stream details page, there are several tabs where you can view stream-rel
     ![The Data Quality tab of a stream, showing its data quality metric scores for the stream's business domain]({{ "/assets/images/consume/streams/stream-data-quality-tab.png" | relative_url }})
 
 - **Monitoring** – you can view real-time data on ingestion, processing, and publishing of records, as well as any exceptions.
+
+- **Data Contract** – you can [configure expectations and view quarantined records](#configure-a-data-contract) for this stream.
 
 ## Organize streams into folders
 
