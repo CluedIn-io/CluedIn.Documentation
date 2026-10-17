@@ -7,7 +7,7 @@ permalink: /administer/general-settings
 content_type: reference
 redirect_from: ["/administration/general-settings"]
 tags: ["administration", "settings", "notifications"]
-last_modified: 2026-10-12
+last_modified: 2026-10-17
 ---
 
 ## On this page
@@ -56,4 +56,12 @@ The **UI preferences** section controls whether users see modules in the side me
 
 ## Cluster details
 
-The **Cluster details** section shows read-only information about your CluedIn cluster, including its region, CIDR, and outbound IP address(es). Outbound IP addresses are useful when a customer's export target needs to allowlist CluedIn's traffic — see, for example, the [Snowflake connector](/publish/export-targets/snowflake-connector) documentation.
+The **Cluster details** section shows read-only information about your CluedIn cluster's networking, including its region, CIDR, outbound IP address(es), and ingress URLs.
+
+![Cluster details section, showing region, CIDR, outbound IP address, ingress URLs, and the ingress-vs-egress diagram]({{ "/assets/images/administration/general-settings/cluster-details-section.png" | relative_url }})
+
+- **Region** and **CIDR** are only shown when your deployment has been configured with this information; otherwise they show **Not available**.
+- **Outbound IP address(es)** (egress) are the public IP address(es) CluedIn's traffic comes from when it reaches out to external systems, for example to crawl a data source or export to a target. Add these to a customer's allowlist/whitelist so CluedIn's outbound connections aren't blocked — see, for example, the [Snowflake connector](/publish/export-targets/snowflake-connector) documentation. Like Region and CIDR, this shows **Not available** when not configured for your deployment.
+- **Ingress URL** and **Webhook ingress URL** are the public URLs through which users and external systems reach this CluedIn instance — for general API/sign-in access, and for incoming webhook callbacks, respectively. Unlike Region/CIDR/outbound IP, these are always populated for a running deployment.
+
+An **Ingress vs egress** diagram summarizes the distinction: ingress is inbound traffic — external systems calling into CluedIn, such as a webhook or an API request; egress is outbound traffic — CluedIn calling out to external systems, such as when crawling or exporting data.
