@@ -515,6 +515,7 @@ Whenever some changes or actions are made in the deduplication project, they are
 - Merge approved groups
 - Undo merged entities
 - Undo merge groups
+- Undo merge for entity
 - Abort undo
 - Cancel generating matches
 - Cancel merge

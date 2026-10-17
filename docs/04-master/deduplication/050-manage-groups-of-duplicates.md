@@ -113,6 +113,8 @@ You can unmerge records in one of the following ways:
 
     After you unmerge the records, the group status is changed to **Unmerged**, and you can no longer process the group. If you want to continue working with the same group, you can [discard matches](/master/deduplication/manage-a-deduplication-project#discard-matches) and start again.
 
+- Through the GraphQL API – call `undoDedupResultForEntity` with the deduplication project and the single entity you want to revert, without affecting any other entity or the rest of the project. See [Undo a deduplication project's effect on a single entity](/publish/graphql/graphql-actions#undo-a-deduplication-projects-effect-on-a-single-entity).
+
 ## Verify the result
 
 - **After you approve or reject a group**, its status on the **Matches** tab is **Approved** or **Rejected**. Approving and rejecting change only the group's status; no golden records are changed yet.
