@@ -30,7 +30,7 @@ To make the AI assistant available in CluedIn, you need to fulfill several prere
 
     ![The AI Copilot feature flag card, labelled Development, with its toggle set to Enabled]({{ "/assets/images/key-terms-and-features/copilot-1.png" | relative_url }})
 
-1. In CluedIn, go to **Administration** > **Azure Integration** > **Copilot**. Then, complete the following fields:
+1. Skip this step if you already have exactly one AI endpoint configured under **Administration** > **Artificial Intelligence** (see [Prerequisites to using AI agents]({{ "/govern/ai-agents/prerequisites-to-using-ai-agents" | relative_url }})) - Copilot uses that endpoint automatically in that case. Otherwise, in CluedIn, go to **Administration** > **Azure Integration** > **Copilot**. Then, complete the following fields:
 
     - **Base Url** – you can find this value in your Azure OpenAI resource. In Azure portal, go to **Resource Management** > **Keys and Endpoint**, and then get the value from the **Endpoint** field. Alternatively, you can find this value in Azure OpenAI Studio by going to **Playground** > **View code**.
 
