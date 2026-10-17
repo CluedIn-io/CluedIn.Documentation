@@ -36,9 +36,14 @@ API tokens allow external systems and applications to authenticate and interact 
    - Enter a descriptive name for the token (e.g., `Integration_Snowflake_Export` or `MarketingAutomationSync`).  
    - (Optional) Specify a description to clarify its purpose.  
 
-4. **Set token permissions/scope**.
-   - Select the scope or permissions you want the token to have.  
-   - Choose the minimum necessary permissions to follow security best practices (e.g., read-only vs full write).  
+4. **Set token claims**.
+   - In the **Claims** section, choose an access level for each claim you want the token to use. The claims and access levels are the same ones used by [role RACI approval controls](/administer/users-and-roles/roles#supported-access-levels), grouped by category. See [Claims](/administer/users-and-roles/claims) for what each claim governs.  
+   - Choose the minimum necessary access level for each claim to follow security best practices (e.g., Informed for read-only access instead of Accountable).  
+
+    {:.important}
+    A claim left at **None** is not granted to the token. If you don't set any claims, the token can authenticate but won't be able to perform claim-gated actions.
+
+    ![The Claims section of the Create API token panel, with the Duplicates claim set to Responsible and the rest left at None]({{ "/assets/images/administration/api-token/claims.png" | relative_url }})
 
 5. **(Optional) Set expiry**.
    - If supported in your version, define an expiry date/time for the token.  
