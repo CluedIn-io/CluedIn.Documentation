@@ -7,7 +7,7 @@ nav_order: 105
 permalink: /publish/export-targets/snowflake-connector
 content_type: reference
 redirect_from: ["/consume/export-targets/snowflake-connector"]
-last_modified: 2026-10-07
+last_modified: 2026-10-19
 ---
 
 ## On this page
@@ -122,6 +122,8 @@ If your organisation supplies an unencrypted private key, include its `BEGIN PRI
 
 1. On the **Choose Target** tab, select the Snowflake target, and select **Next**.
 
+    ![Choose Target tab of the Add Export Target pane with Snowflake Connector selected]({{ "/assets/images/consume/export-targets/snowflake-connector-1.png" | relative_url }})
+
 1. On the **Configure** tab, complete the following fields.
 
 | Field | What to enter |
@@ -135,14 +137,22 @@ If your organisation supplies an unencrypted private key, include its `BEGIN PRI
 | **Schema** | The schema within that database, for example, `EXPORTS`. |
 | **Warehouse** | The compute warehouse used for export operations, for example, `CLUEDIN_WH`. |
 | **Role** | A role granted to the integration user that can perform the export. When blank, the user's default role is used. |
-| **Table Name** | The target table name, for example, `CUSTOMERS`, within the configured database and schema. |
-| **Output Format** | Select the required format from the options available in your connector version. This is configured in CluedIn. |
-| **Export Schedule** | Select when CluedIn should export. The schedule uses UTC. This is configured in CluedIn. |
+| **Table Name** | The target table in Snowflake that rows are merged into, for example, `CUSTOMERS`, within the configured database and schema. |
+| **Export Schedule** | Select when CluedIn should export. The schedule uses UTC. Choose **Custom Cron** to enter your own cron expression instead of the preset hourly, daily, or weekly options. |
+
+There is no separate output format field for this connector: Snowflake export always streams rows through the Snowpipe Streaming REST API as JSON, regardless of whether stream cache is enabled.
 
 For example, the values `CLUEDIN_DB`, `EXPORTS`, and `CUSTOMERS` identify the destination `CLUEDIN_DB.EXPORTS.CUSTOMERS`.
 
+![Configure tab of the Add Export Target pane with Name, Account Identifier, User, Private Key, Database, Schema, Warehouse, Role, Table Name, and Export Schedule filled in]({{ "/assets/images/consume/export-targets/snowflake-connector-configure-1.png" | relative_url }})
+
 {:.note}
 Use the exact object names. Snowflake normally stores unquoted identifiers in uppercase; quoted identifiers can be case-sensitive.
+
+**Table Name** can also be a pattern, using the same variable syntax as other connectors' file name patterns: `{StreamId}`, `{ContainerName}`, and `{OutputFormat}` (each can be formatted with a `formatString` modifier, for example `{StreamId:N}`). For example, `{ContainerName}_Table` resolves to a different target table per stream. See [File name patterns](/publish/export-targets/file-name-patterns) for the variable syntax.
+
+{:.important}
+Do not use `{DataTime}` in **Table Name**. The resolved name is reused as the name of the connector's internal landing table and Snowpipe Streaming pipe, both of which must stay the same across every export run for a given stream. Including `{DataTime}` makes connection verification fail.
 
 1. Select **Test connection**.
 
@@ -150,26 +160,21 @@ Use the exact object names. Snowflake normally stores unquoted identifiers in up
 
 The export target is now available when configuring a [stream](/publish/streams). Configure the stream's records and output fields, then run a small sample export.
 
-The connector configuration describes the target table as the table into which rows are merged. Before exporting, confirm the required target columns and whether your connector version creates the table automatically. If it requires an existing table, create one compatible with the stream output.
+If **Table Name** does not already exist in Snowflake, the connector creates it on the first export, with one `VARCHAR` column per exported property (and a `NUMBER` column for the internal persist-version field). As the stream's properties change over time, the connector adds missing columns automatically on later exports; it never removes a column.
 
 ## Snowflake permissions
 
-The integration role must have `USAGE` on the warehouse, database, and schema. For an existing destination table, grant the table privileges needed by the connector's operations.
-
-The following is an example for an existing table. Have your Snowflake administrator adapt it to your export and replace the example names:
+The connector creates everything it writes to itself: an internal landing table, the target table named in **Table Name** (if it does not already exist), and a Snowpipe Streaming pipe. In Snowflake, the role that creates an object automatically becomes its owner, which already carries every privilege the connector's day-to-day operations need against that object. So beyond the key-pair setup above, the integration role only needs the following granted explicitly:
 
 ```sql
 GRANT USAGE ON WAREHOUSE CLUEDIN_WH TO ROLE CLUEDIN_EXPORT_ROLE;
 GRANT USAGE ON DATABASE CLUEDIN_DB TO ROLE CLUEDIN_EXPORT_ROLE;
-GRANT USAGE ON SCHEMA CLUEDIN_DB.EXPORTS TO ROLE CLUEDIN_EXPORT_ROLE;
-
-GRANT SELECT, INSERT, UPDATE ON TABLE CLUEDIN_DB.EXPORTS.CUSTOMERS
-    TO ROLE CLUEDIN_EXPORT_ROLE;
+GRANT USAGE, CREATE TABLE, CREATE PIPE ON SCHEMA CLUEDIN_DB.EXPORTS TO ROLE CLUEDIN_EXPORT_ROLE;
 
 GRANT ROLE CLUEDIN_EXPORT_ROLE TO USER CLUEDIN_EXPORT;
 ```
 
-This example is not a complete permission set for every connector version. Additional privileges may be needed for table creation, staging objects, or delete operations. Scope additional access to the destination used by the export.
+Have your Snowflake administrator adapt these names to your warehouse, database, schema, and role.
 
 See Snowflake's [privilege reference](https://docs.snowflake.com/en/user-guide/security-access-control-privileges).
 
@@ -197,6 +202,7 @@ A successful connection test does not prove that the complete export can write t
 | Private key cannot be read | Paste the entire PEM file with actual line breaks. Confirm the passphrase for an encrypted key. |
 | Role cannot be used | Confirm that the role is granted to the integration user. If the field is blank, check the user's default role. |
 | Warehouse, database, schema, or table is unavailable | Check the object name and the selected role's privileges. An object may be hidden from a role that cannot access it. |
-| Connection succeeds but export fails | Review stream logs for table column mismatches, missing write privileges, or permissions required for staging and table creation. |
+| Connection test fails, mentioning `DataTime` or `Table Name` | Remove `{DataTime}` from **Table Name**. Only `{StreamId}`, `{ContainerName}`, and `{OutputFormat}` are supported there. |
+| Connection succeeds but export fails | Review stream logs. A common cause is the role missing `CREATE TABLE` or `CREATE PIPE` on the schema — see [Snowflake permissions](#snowflake-permissions). |
 | Connection is blocked | Check Snowflake network policies and connectivity from the CluedIn environment, including its outbound IP addresses. CluedIn's outbound IP address(es) and CIDR are listed under **Organization Settings &gt; General Settings &gt; Cluster Details**. |
 | Export runs at the wrong local time | Check the UTC schedule. For example, 00:00 UTC is 10:00 in Brisbane. |
