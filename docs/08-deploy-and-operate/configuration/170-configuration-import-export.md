@@ -156,17 +156,6 @@ A newly imported rule only runs against data that is processed after the import 
 {:.note}
 If you dismiss the prompt, you can still start reprocessing later — select **Reprocess data** on the completed import's row.
 
-### Roll back an import
-
-If an import created configuration you did not intend to apply, select **Rollback** on the completed import's row to remove it.
-
-{:.important}
-Rollback deletes everything the import **created** — rules, streams, clean projects, deduplication projects, export targets, and glossaries. Items the import **updated** instead of creating are left as they are, because reverting an update would require the item's state from before the import, which CluedIn does not keep. Rollback cannot be undone.
-
-Rollback is only available for imports performed after this feature became available in your environment — it has nothing to roll back for older imports.
-
-After a rollback finishes, CluedIn prompts you to reprocess existing data again, since removing rules or streams can also change how existing data should be processed.
-
 ## Recommended Development, Test, and Production flow
 
 A common process is:
