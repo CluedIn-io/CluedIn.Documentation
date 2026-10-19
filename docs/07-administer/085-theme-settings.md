@@ -5,7 +5,7 @@ parent: Administer
 nav_order: 85
 permalink: /administer/theme-settings
 content_type: reference
-tags: ["administration", "settings", "theme", "branding"]
+tags: ["administration", "settings", "theme", "branding", "celebrations"]
 last_modified: 2026-10-19
 ---
 
@@ -59,17 +59,34 @@ Once saved, the selected color scheme — including a **Custom** primary color �
 
 Below the color settings, the **Scheduled theme** section lets CluedIn switch color schemes automatically by time of day instead of always using the single scheme chosen above.
 
-![Scheduled theme section, enabled, with a day theme, night theme, and start times configured]({{ "/assets/images/administration/theme-settings/theme-settings-scheduled-theme.png" | relative_url }})
+![Scheduled theme section, enabled, with Day theme and Night theme dropdowns and Day/Night starts at time pickers configured]({{ "/assets/images/administration/theme-settings/theme-settings-scheduled-theme-dropdowns.png" | relative_url }})
 
 Turn on **Enable scheduled theme**, then set:
 
 | Setting | Description |
 |---|---|
-| Day theme | The preset (from the same list as **Color Scheme**, excluding **Custom**) applied during the day. |
-| Night theme | The preset applied during the night. |
-| Day starts at | The local time of day, in 24-hour `HH:mm` format, the day theme is applied. |
-| Night starts at | The local time of day, in 24-hour `HH:mm` format, the night theme is applied. |
+| Day theme | The preset (from the same list as **Color Scheme**, excluding **Custom**) applied during the day. Choose it from the dropdown. |
+| Night theme | The preset applied during the night. Choose it from the dropdown. |
+| Day starts at | The local time of day the day theme is applied. Pick a time from the list, or type one directly in 24-hour `HH:mm` format. |
+| Night starts at | The local time of day the night theme is applied. Pick a time from the list, or type one directly in 24-hour `HH:mm` format. |
 
-Each time a signed-in user loads CluedIn, it compares their device's local time against these settings and applies whichever theme is currently active. It's checked again on every page load or refresh, but not continuously while a page stays open, so a session that's been open across a day/night boundary picks up the new theme the next time it loads a page rather than switching automatically mid-session. If you enter an unsupported preset name or a time that isn't valid `HH:mm`, CluedIn shows an error and does not save your changes.
+Each time a signed-in user loads CluedIn, it compares their device's local time against these settings and applies whichever theme is currently active. It's checked again on every page load or refresh, but not continuously while a page stays open, so a session that's been open across a day/night boundary picks up the new theme the next time it loads a page rather than switching automatically mid-session.
 
 Select **Save** at the bottom of this section to apply it — this is a separate save action from the **Color Scheme** settings above. The scheduled theme does not apply to the sign-in page, since nobody is signed in there yet to resolve a local time against.
+
+## Celebrations
+
+Below the schedule, the **Celebrations** section lets you choose whether completing actions in CluedIn plays a small celebratory effect.
+
+![Celebrations section, with the Celebration mood dropdown set to Calm]({{ "/assets/images/administration/theme-settings/theme-settings-celebrations.png" | relative_url }})
+
+Choose a **Celebration mood** from the dropdown:
+
+| Mood | Effect |
+|---|---|
+| Off | No effect — the default. |
+| Excited | A confetti burst. |
+| Happy | A few balloons rising up the screen. |
+| Calm | A brief, subtle glow — no particles. |
+
+The effect plays for every signed-in user in your organization whenever they complete an action that shows a success message, such as saving a setting or creating a record. Select **Save** to apply your choice — this is a separate save action from the sections above it. If your device has a reduced-motion preference turned on, CluedIn skips the effect regardless of the mood selected.
