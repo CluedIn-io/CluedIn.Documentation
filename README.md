@@ -1,5 +1,7 @@
 # CluedIn Documentation
 
+<!-- devbot creation-script verification, AB#58819 -->
+
 Jekyll-based documentation site for CluedIn.
 
 ## Writing documentation
