@@ -34,7 +34,7 @@ Use a dedicated integration user and role. A Snowflake administrator should crea
 
 ## Find your Snowflake connection details
 
-Sign in to Snowsight, open your user menu, and select **Connect a tool to Snowflake**. The **Account Details** dialog provides connection settings. For the account identifier, use the organisation and account format, for example, `myorg-myaccount`. Enter the identifier only, without `https://` or `.snowflakecomputing.com`.
+Sign in to Snowflake, open your user menu, and select **Connect a tool to Snowflake**. The **Account Details** dialog provides connection settings. For the account identifier, use the organisation and account format, for example, `myorg-myaccount`. Enter the identifier only, without `https://` or `.snowflakecomputing.com`.
 
 Alternatively, run the following in a Snowflake SQL worksheet:
 
