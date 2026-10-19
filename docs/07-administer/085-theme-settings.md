@@ -90,3 +90,16 @@ Choose a **Celebration mood** from the dropdown:
 | Calm | A brief, subtle glow — no particles. |
 
 The effect plays for every signed-in user in your organization whenever they complete an action that shows a success message, such as saving a setting or creating a record. It also plays when a background notification arrives reporting something finished successfully — such as an AI agent run, a deduplication job, or a clean project — even if you've navigated away from the page that started it. Select **Save** to apply your choice — this is a separate save action from the sections above it. If your device has a reduced-motion preference turned on, CluedIn skips the effect regardless of the mood selected.
+
+### Holiday themes
+
+Around a few popular holidays, the effect for your chosen mood automatically swaps to a themed variant — the mood still controls the intensity (or Off still disables it entirely), only the colors and shapes change:
+
+| Holiday | Window | Theming |
+|---|---|---|
+| Halloween | October 25–31 | Orange, purple and black, with pumpkin, bat, and ghost shapes. |
+| Christmas | December 18–26 | Red, green and gold, with snowflake, tree, and gift shapes. |
+| New Year | December 28 – January 2 | Gold, silver and black, with a bigger double burst for Excited. |
+| Valentine's Day | February 10–14 | Pink and red, with heart shapes. |
+
+This is automatic and not separately configurable — it uses each signed-in user's local date, the same way the sign-in page's daily illustration does.
