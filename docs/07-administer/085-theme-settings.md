@@ -86,7 +86,7 @@ Choose a **Celebration mood** from the dropdown:
 |---|---|
 | Off | No effect — the default. |
 | Excited | A confetti burst. |
-| Happy | A few balloons rising up the screen. |
+| Happy | Balloons, floating hearts, or a sparkle burst — a different one each time, for variety. |
 | Calm | A brief, subtle glow — no particles. |
 
-The effect plays for every signed-in user in your organization whenever they complete an action that shows a success message, such as saving a setting or creating a record. Select **Save** to apply your choice — this is a separate save action from the sections above it. If your device has a reduced-motion preference turned on, CluedIn skips the effect regardless of the mood selected.
+The effect plays for every signed-in user in your organization whenever they complete an action that shows a success message, such as saving a setting or creating a record. It also plays when a background notification arrives reporting something finished successfully — such as an AI agent run, a deduplication job, or a clean project — even if you've navigated away from the page that started it. Select **Save** to apply your choice — this is a separate save action from the sections above it. If your device has a reduced-motion preference turned on, CluedIn skips the effect regardless of the mood selected.
