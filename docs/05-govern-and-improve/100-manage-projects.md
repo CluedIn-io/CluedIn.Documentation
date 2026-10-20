@@ -43,6 +43,21 @@ Creating a project creates an empty folder with the project's name in every part
 
 If a folder could not be created in one of the areas — for example, because of a temporary error — CluedIn does not create the project either, so you never end up with a project that is missing one of its folders. Create the project again with the same name once the underlying problem is resolved.
 
+## Edit a project
+
+1. On the navigation pane, go to **Management** > **Projects**, then select the project.
+1. Select **Edit**.
+1. Change the **Name**, the **Description**, or both. The name must still be unique within your organization.
+1. Select **Save**.
+
+### Verify the result
+
+The project's detail page immediately shows the new name and description.
+
+### What this changes
+
+Renaming a project renames the matching folder in every participating area to keep it in sync, the same way creating a project creates one. If a folder could not be renamed in one of the areas, CluedIn renames the areas that already succeeded back to the original name and the project keeps its original name, so the project and its folders never end up out of sync. Try the rename again once the underlying problem is resolved.
+
 ## Create an item from a project
 
 1. On the navigation pane, go to **Management** > **Projects**, then select the project.
@@ -54,4 +69,4 @@ The new item is placed into the project's folder automatically and appears in th
 
 ## If something goes wrong
 
-**Project name already exists.** Project names must be unique within your organization. Choose a different name, or open the existing project instead.
+**Project name already exists.** Project names must be unique within your organization. Choose a different name, or open the existing project instead. This applies to both creating a project and renaming one.
