@@ -21,14 +21,21 @@ A project is a single place to organize work that spans multiple areas of CluedI
 
 ## Create a project
 
-1. On the navigation pane, go to **Management** > **Projects**.
+1. On the navigation pane, go to **Management** > **Projects**, or select **Create** > **Create Project** from the action center.
 1. Select **Create project**.
 1. Enter a **Name** for the project. The name must be unique within your organization — CluedIn rejects a duplicate name.
+1. Optionally, enter a **Description** and upload an **Image** for the project.
 1. Select **Create project**.
 
 ### Verify the result
 
-CluedIn opens the new project's detail page, which shows a single, empty table for everything that can be filed into the project. The project also now appears in the **Projects** list.
+CluedIn opens the new project's detail page, which shows a single, empty table for everything that can be filed into the project. The project also now appears in the **Projects** list, together with its description and image, if provided.
+
+## Change a project's image
+
+1. On the navigation pane, go to **Management** > **Projects**, then select the project.
+1. Select **Remove image** to remove the current image.
+1. Add a new image the same way as when creating the project.
 
 ### What this changes
 
