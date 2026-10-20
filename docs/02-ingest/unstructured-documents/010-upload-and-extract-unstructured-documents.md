@@ -77,6 +77,27 @@ If a Chat AI endpoint is configured, CluedIn also classifies the document (for e
 
 Select the eye icon next to a processed document to open it. The **Extracted Content** tab shows the text CluedIn extracted, and the classification, if any, appears as a label at the top of the panel.
 
+## Run a custom prompt against a document
+
+Extraction, classification, entity linking and record creation cover the built-in ways CluedIn uses a document's content. For anything else - summarizing it, pulling out a specific value, checking it against a rule you describe in words - the **Custom Processing** tab runs a prompt of your own choosing against the document instead.
+
+**To run a custom prompt against a document**
+
+1. Open a processed document and go to the **Custom Processing** tab.
+1. Enter a **Prompt** describing what you want from the document, and select **Run**.
+
+   CluedIn sends the prompt together with the document's extracted text to the configured Chat AI endpoint and returns its free-text response.
+
+1. Review the result. Running a new prompt replaces the previously stored result for this document.
+
+### Verify the result
+
+The AI's response appears below the prompt, with the date and time it was last run. The result is stored on the document - reopening the document later still shows the last prompt and its result.
+
+### What this changes
+
+Running a custom prompt only reads the document's extracted text and stores the AI's response on the document itself; it does not change any golden record. To update a golden record from a document, see [Create or enrich records from a document](/ingest/unstructured-documents/create-or-enrich-records-from-a-document).
+
 ## If something goes wrong
 
 A document with a status of **Failed** shows the reason in a tooltip on its status badge - for example, a scanned PDF with no Vision endpoint configured, or a corrupted file. Fix the underlying cause (for example, configure a Vision endpoint) and upload the document again.

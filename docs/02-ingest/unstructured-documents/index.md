@@ -13,7 +13,7 @@ Some of the most useful information in an organization never arrives as a clean,
 
 This section covers the following areas:
 
-- [Upload and extract unstructured documents](/ingest/unstructured-documents/upload-and-extract-unstructured-documents) - learn how to upload PDF, Word, PowerPoint, Excel and image files (including by dragging in a whole folder), organize them into folders, and how extraction, OCR and AI classification work.
+- [Upload and extract unstructured documents](/ingest/unstructured-documents/upload-and-extract-unstructured-documents) - learn how to upload PDF, Word, PowerPoint, Excel and image files (including by dragging in a whole folder), organize them into folders, how extraction, OCR and AI classification work, and how to run a custom prompt against a document.
 
 - [Link extracted entities to golden records](/ingest/unstructured-documents/link-extracted-entities-to-golden-records) - learn how CluedIn proposes people, organizations and other entities mentioned in a document as links to existing golden records, and how to review them.
 
