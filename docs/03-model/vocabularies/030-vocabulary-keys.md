@@ -120,6 +120,28 @@ The profiling for a number vocabulary key contains the following dashboards:
 
 - Values over time – a time-series visualization displaying the count of values that appeared in CluedIn over time. The x axis represents the time, and the y axis represents the count of values.
 
+### Column profiling
+
+This tab is separate from the [Profiling](#profiling) tab above and does not require the **Profiling dashboards** feature flag. It gives you a native, always-available breakdown of a vocabulary key's values, built from objective metrics rather than dashboards: null and empty counts, string length statistics, a breakdown of value patterns, and the most common values.
+
+![Column profiling tab of a vocabulary key showing Total records, Null %, Empty %, Distinct values, and Min/Max/Avg length stat tiles, and a Null, empty and filled breakdown donut chart]({{ "/assets/images/management/data-catalog/vocab-key-column-profiling-1.png" | relative_url }})
+
+The tab contains the following sections:
+
+- Stat tiles – total records, null percentage, empty percentage, distinct values, and, for text values, minimum, maximum, and average length.
+
+- Null, empty and filled breakdown – a donut chart showing the proportion of records where the vocabulary key value is null, empty, or filled.
+
+- Pattern frequency – a bar chart of the most common value patterns, with digits replaced by `9` and letters replaced by `A` (for example, `admin@foobar.com` becomes `AAAAA@AAAAAA.AAA`). Point to a bar to see an example value and its count and percentage.
+
+    ![Column profiling tab of a vocabulary key showing the Pattern frequency and Top values bar charts]({{ "/assets/images/management/data-catalog/vocab-key-column-profiling-2.png" | relative_url }})
+
+- Top values – a bar chart of the most common individual values.
+
+If the vocabulary key has no values to profile, the tab shows a message instead of empty charts.
+
+![Column profiling tab of a vocabulary key showing the message No profiling data is available for this key yet]({{ "/assets/images/management/data-catalog/vocab-key-column-profiling-empty.png" | relative_url }})
+
 ### Pending changes and Audit log
 
 The **Pending changes** tab contains tasks for reviewing changes to the vocabulary key submitted by users who are not Vocabulary Owners. The **Audit log** tab contains a detailed history of changes to the vocabulary key.
