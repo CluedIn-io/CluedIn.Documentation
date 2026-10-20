@@ -122,21 +122,37 @@ The profiling for a number vocabulary key contains the following dashboards:
 
 ### Column profiling
 
-This tab is separate from the [Profiling](#profiling) tab above and does not require the **Profiling dashboards** feature flag. It gives you a native, always-available breakdown of a vocabulary key's values, built from objective metrics rather than dashboards: null and empty counts, string length statistics, a breakdown of value patterns, and the most common values.
+This tab is separate from the [Profiling](#profiling) tab above and does not require the **Profiling dashboards** feature flag. It gives you a native, always-available breakdown of a vocabulary key's values, built from objective metrics rather than dashboards, and it adapts to the vocabulary key's [data type](/model/data-catalog/data-types): numeric and date/time keys show a value distribution and outliers instead of value patterns.
 
-![Column profiling tab of a vocabulary key showing Total records, Null %, Empty %, Distinct values, and Min/Max/Avg length stat tiles, and a Null, empty and filled breakdown donut chart]({{ "/assets/images/management/data-catalog/vocab-key-column-profiling-1.png" | relative_url }})
+![Column profiling tab of a vocabulary key showing a completeness gauge, Total records and Distinct values, Null %, Empty %, Min/Max/Avg length stat tiles, and a Null, empty and filled breakdown donut chart]({{ "/assets/images/management/data-catalog/vocab-key-column-profiling-1.png" | relative_url }})
 
-The tab contains the following sections:
+The tab always contains the following sections:
 
-- Stat tiles – total records, null percentage, empty percentage, distinct values, and, for text values, minimum, maximum, and average length.
+- Completeness gauge – the percentage of records where the vocabulary key is filled in, together with a status of **Good**, **Needs attention**, or **Poor** based on how high the null percentage is.
+
+- Stat tiles – null percentage, empty percentage, and, depending on the key's data type, minimum/maximum/average string length, minimum/maximum/average/standard deviation (numeric keys), or earliest/latest date (date and time keys).
 
 - Null, empty and filled breakdown – a donut chart showing the proportion of records where the vocabulary key value is null, empty, or filled.
 
-- Pattern frequency – a bar chart of the most common value patterns, with digits replaced by `9` and letters replaced by `A` (for example, `admin@foobar.com` becomes `AAAAA@AAAAAA.AAA`). Point to a bar to see an example value and its count and percentage.
+For numeric and date/time vocabulary keys, the tab also contains:
 
-    ![Column profiling tab of a vocabulary key showing the Pattern frequency and Top values bar charts]({{ "/assets/images/management/data-catalog/vocab-key-column-profiling-2.png" | relative_url }})
+- Value distribution (numeric keys) or Timeline (date and time keys) – a histogram of how values are spread across the full range, in 10 buckets.
 
-- Top values – a bar chart of the most common individual values.
+- Outliers – values more than two standard deviations from the average, shown as a bar chart. Select an outlier bar to open search results filtered to the records with that value, so you can investigate or fix them.
+
+    ![Column profiling tab of a numeric vocabulary key showing the Value distribution histogram and Outliers bar chart]({{ "/assets/images/management/data-catalog/vocab-key-column-profiling-numeric.png" | relative_url }})
+
+    ![Column profiling tab of a date vocabulary key showing the completeness gauge and the Timeline histogram]({{ "/assets/images/management/data-catalog/vocab-key-column-profiling-date.png" | relative_url }})
+
+For all other vocabulary keys, the tab also contains:
+
+- Pattern frequency – a bar chart of the most common value patterns, with digits replaced by `9` and letters replaced by `A` (for example, `admin@foobar.com` becomes `AAAAA@AAAAAA.AAA`). Point to a bar to see an example value and its count and percentage. Select a bar to open search results filtered to records with that value.
+
+    If one pattern covers at least half of the values, a **Suggest a validation rule** button appears. Selecting it copies a regular expression for the pattern to your clipboard and opens the rule builder, where you can create a **Matches pattern** rule and paste it in to enforce the pattern on future values.
+
+    ![Column profiling tab of a vocabulary key showing the Pattern frequency bar chart with the Suggest a validation rule button, and the Top values bar chart]({{ "/assets/images/management/data-catalog/vocab-key-column-profiling-2.png" | relative_url }})
+
+- Top values – a bar chart of the most common individual values. Select a bar to open search results filtered to records with that value.
 
 If the vocabulary key has no values to profile, the tab shows a message instead of empty charts.
 
