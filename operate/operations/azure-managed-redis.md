@@ -19,6 +19,8 @@ The process is split into two stages:
 
 ### Prerequisites
 
+**Before running this deployment, please ensure that your CluedIn application is already on version 5.0 ([2026.03.00](https://documentation.cluedin.net/operate/upgrade/2026-03-00.md)).** Should you require any assistance or have any inquiries, please contact CluedIn support.
+
 The Automation Account managed identity requires the following permissions:
 
 | Scope | Role | Purpose |

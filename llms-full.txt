@@ -38835,74 +38835,80 @@ This document covers the upgrade process from 2026.02.00 to 2026.03.00. This upg
         cluedin:
           components:
             packages:
-            - name: "CluedIn.Connector.FileStorage.All.500"
-              version: "100.0.0"
-            - name: "CluedIn.Connector.AzureDedicatedSqlPool.500"
-              version: "100.0.0"
-            - name: "CluedIn.Connector.AzureEventHub.500"
-              version: "100.0.0"
-            - name: "CluedIn.Connector.AzureServiceBus.500"
-              version: "100.0.0"
-            - name: "CluedIn.Connector.Dataverse.500"
-              version: "100.0.0"
-            - name: "CluedIn.Connector.Dataverse.V2.502" 
-              version: "100.0.0"
-            - name: "CluedIn.Connector.Http.500"
-              version: "100.0.0"
-            - name: "CluedIn.Connector.Kafka.500"
-              version: "100.0.0"
-            - name: "CluedIn.Connector.Snowflake.500"
-              version: "100.0.0"
-            - name: "CluedIn.Connector.SqlServer.500"
-              version: "100.0.0"
-            - name: "CluedIn.EnterpriseFlows.PowerAutomate.500"
-              version: "100.0.0"
-            - name: "CluedIn.ExternalSearch.DnB.500"
-              version: "100.0.0"
-            - name: "CluedIn.ExternalSearch.Providers.DuckDuckGo.Provider.500"
-              version: "100.0.0"
-            - name: "CluedIn.ExternalSearch.Providers.PermId.Provider.500"
-              version: "100.0.0"
-            - name: "CluedIn.ExternalSearch.Providers.Web.500"
-              version: "100.0.0"
-            - name: "CluedIn.PowerApps.500"
-              version: "100.0.0"
-            - name: "CluedIn.PreSales.Extensions.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.Bregg.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.ClearBit.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.CompanyHouse.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.CVR.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.Gleif.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.GoogleImages.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.GoogleMaps.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.KnowledgeGraph.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.Libpostal.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.OpenCorporates.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.Providers.ArtificialIntelligence.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.Providers.AzureOpenAI.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.Providers.BvD.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.Providers.VatLayer.500"
-              version: "100.0.0"
-            - name: "CluedIn.Provider.ExternalSearch.RestApi.500"
-              version: "100.0.0"
-            - name: "CluedIn.Purview.500"
-              version: "100.0.0"
-            - name: "CluedIn.Server.Mcp.500"
-              version: "100.0.0"
+            - name: CluedIn.Connector.FileStorage.All.500
+              version: 100.0.0
+            - name: CluedIn.Connector.AmazonS3.500
+              version: 100.0.0
+            - name: CluedIn.Connector.AzureDataLake.500
+              version: 100.0.0
+            - name: CluedIn.Connector.AzureDedicatedSqlPool.500
+              version: 100.0.0
+            - name: CluedIn.Connector.AzureEventHub.500
+              version: 100.0.0
+            - name: CluedIn.Connector.AzureServiceBus.500
+              version: 100.0.0
+            - name: CluedIn.Connector.Dataverse.500
+              version: 100.0.0
+            - name: CluedIn.Connector.Dataverse.V2.502
+              version: 100.0.0
+            - name: CluedIn.Connector.FabricOpenMirroring.500
+              version: 100.0.0
+            - name: CluedIn.Connector.Http.500
+              version: 100.0.0
+            - name: CluedIn.Connector.OneLake.500
+              version: 100.0.0
+            - name: CluedIn.Connector.SqlServer.500
+              version: 100.0.0
+            - name: CluedIn.EnterpriseFlows.PowerAutomate.500
+              version: 100.0.0
+            - name: CluedIn.EventHub.500
+              version: 100.0.0
+            - name: CluedIn.ExternalSearch.Providers.DuckDuckGo.Provider.500
+              version: 100.0.0
+            - name: CluedIn.ExternalSearch.Providers.PermId.Provider.500
+              version: 100.0.0
+            - name: CluedIn.ExternalSearch.Providers.Web.500
+              version: 100.0.0
+            - name: CluedIn.PowerApps.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.Bregg.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.ClearBit.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.CompanyHouse.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.CVR.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.DnB.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.Gleif.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.GoogleImages.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.GoogleMaps.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.KnowledgeGraph.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.Libpostal.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.OpenCorporates.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.Providers.ArtificialIntelligence.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.Providers.AzureOpenAI.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.Providers.BvD.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.Providers.VatLayer.500
+              version: 100.0.0
+            - name: CluedIn.Provider.ExternalSearch.RestApi.500
+              version: 100.0.0
+            - name: CluedIn.Purview.500
+              version: 100.0.0
+            - name: CluedIn.Server.Mcp.500
+              version: 100.0.0
+            - name: CluedIn.Vocabularies.CommonDataModel.500
+              version: 100.0.0
 
       ```
 
@@ -40948,6 +40954,8 @@ The process is split into two stages:
 ## Stage 1: Azure Redis creation
 
 ### Prerequisites
+
+**Before running this deployment, please ensure that your CluedIn application is already on version 5.0 ([2026.03.00](https://documentation.cluedin.net/operate/upgrade/2026-03-00.md)).** Should you require any assistance or have any inquiries, please contact CluedIn support.
 
 The Automation Account managed identity requires the following permissions:
 
