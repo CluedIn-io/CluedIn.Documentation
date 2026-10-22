@@ -30,6 +30,7 @@ The project:
 | Field | Required | What it accepts | Example |
 |--|--|--|--|
 | **Name** | Required | A name that helps you find the project later. | `Contact duplicates` |
+| Image | Optional | An image to represent the project in lists, cropped to a circle. PNG or JPEG, up to 1 MB. | A team logo |
 | **Choose project type** | Required | **By business domain** or **Using advanced filters**. | **By business domain** |
 | Business domain | Required for **By business domain** | One or more business domains. | `TrainingContact` |
 | Filter rules | Required for **Using advanced filters** | One or more [filter rules](/master/filters). | Business domain is Company, and country is Denmark |

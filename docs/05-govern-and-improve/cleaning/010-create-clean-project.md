@@ -78,6 +78,8 @@ Creating a clean project from the Preparation module requires more effort than u
 
     1. Enter the name of the clean project.
 
+    1. Optionally, upload an image to represent the project in lists. The image is cropped to a circle; PNG and JPEG are supported, up to 1 MB.
+
     1. In the **Filters** section, define what type of data you want to load to the clean project. Then, in the lower-right corner, select **Next**.
 
         ![Clean project configuration with Project name Clean job title and a filter where vocabulary key trainingcontact.jobTitle is Not Equal to Accountant]({{ "/assets/images/preparation/clean/clean-project-4.png" | relative_url }})

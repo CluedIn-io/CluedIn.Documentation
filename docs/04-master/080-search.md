@@ -41,7 +41,7 @@ The **Business Domains** dropdown list displays up to 8 business domains that co
 
 ## Search results page
 
-By default, the search results page displays golden records in the tabular view in the following columns: **Name**, **Business Domain**, and **Description**. You can customize the search results page to focus on the information that is important to you. In this section, you will find different customization options.
+By default, the search results page displays golden records in the tabular view in the following columns: **Preview Image**, **Name**, **Business Domain**, and **Description**. The **Preview Image** column shows the golden record's own preview image when one is set, or otherwise a placeholder icon based on its entity type. You can customize the search results page to focus on the information that is important to you. In this section, you will find different customization options.
 
 ![Search results page in tabular view with the Name, Business domain, and Description columns, plus sorting, Edit, and Columns controls]({{ "/assets/images/key-terms-and-features/search-results-page-default.png" | relative_url }})
 

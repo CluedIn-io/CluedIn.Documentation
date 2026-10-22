@@ -183,7 +183,7 @@ From the list of clean projects, you can select multiple projects and generate r
 
 ## Edit a clean project
 
-You can edit a clean project to make necessary changes in project name, description, filters, and properties that you need to clean.
+You can edit a clean project to make necessary changes in project name, image, description, filters, and properties that you need to clean.
 
 {:.important}
 If you change filters or properties, all previous cleaning progress will be lost and the project will be regenerated.
