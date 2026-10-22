@@ -55,7 +55,7 @@ To change a saved instance's display name or base URL, or replace its token, sel
 2. Choose a **Direction**:
    - **Push: this instance → \<name\>** ships this environment's configuration to the other one.
    - **Pull: \<name\> → this instance** ships the other environment's configuration into this one.
-3. Review the stat tiles for **This instance** and the selected environment - total rules and total records for each - fetched live over HTTPS.
+3. Review the comparison: total records, plus a count for every configuration content category (rules, vocabularies, data sources, export targets, streams, glossaries, clean projects, deduplication projects, manual data entry projects) - fetched live over HTTPS for both **This instance** and the selected environment, side by side.
 4. Select **Preview changes** to see, per content category, how many items the sync would transfer and how many already exist on the receiving side.
 5. Select **Sync now** and confirm. CluedIn transfers the configuration and imports it on the receiving side.
 
