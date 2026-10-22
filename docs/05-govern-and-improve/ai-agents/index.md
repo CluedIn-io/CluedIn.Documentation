@@ -138,3 +138,5 @@ This section covers the following areas:
 - [Viewing and reverting changes made by an AI agent](/govern/ai-agents/view-and-revert-changes-made-by-ai-agent) – learn how to view the historical record of the changes made by an AI agent and, if needed, revert any of the changes.
 
 - [AI agents FAQs](/govern/ai-agents/ai-agents-faqs) – find answers to common questions related to AI agents.
+
+- [Running Clean, deduplication, and enrichment tools from an AI agent](/govern/ai-agents/run-tools-from-an-ai-agent) – learn how to ask an AI agent to run an existing clean project, deduplication project, or enricher from its **Tools** tab.
