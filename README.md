@@ -2,6 +2,8 @@
 
 Jekyll-based documentation site for CluedIn.
 
+<!-- devbot creation scripts test: AB#58819 -->
+
 ## Writing documentation
 
 `docs/` is organised around the data lifecycle - ingest, model, master,
