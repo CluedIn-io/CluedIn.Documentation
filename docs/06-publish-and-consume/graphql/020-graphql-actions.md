@@ -129,6 +129,25 @@ This reduces client-side orchestration and avoids having to track page numbers, 
 {:.important}
 `executeEntityActions` can apply an operation to a large number of records. Test the query carefully before running destructive or expensive actions such as deletion, deduplication, enrichment, splitting, or reprocessing.
 
+## Undo a deduplication project's effect on a single entity
+
+Use the `undoDedupResultForEntity` mutation to revert only the stitching that one deduplication project created for one entity, without undoing the rest of the project or affecting any other entity. This is useful when a single record was merged incorrectly and you want the automated project to re-evaluate that record on its next run, without rolling back the whole project.
+
+```graphql
+mutation {
+  management {
+    undoDedupResultForEntity(id: "<deduplicationProjectId>", entityId: "<entityId>")
+  }
+}
+```
+
+- `id` is the deduplication project's identifier.
+- `entityId` is the identifier of the entity to revert.
+
+On success, the mutation returns the deduplication project's identifier. If the project or the entity cannot be found, the mutation returns an error.
+
+For the equivalent UI-driven ways to unmerge records, see [Unmerge records](/master/deduplication/manage-groups-of-duplicates#unmerge-records).
+
 ## Split entities in bulk
 
 The following query splits multiple records that match a given search filter.
