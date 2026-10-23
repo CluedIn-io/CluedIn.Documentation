@@ -7,7 +7,7 @@ nav_order: 50
 permalink: /ingest/data-sources/microsoft-fabric
 content_type: how-to
 tags: ["integration", "data sources", "microsoft fabric"]
-last_modified: 2026-10-19
+last_modified: 2026-10-23
 ---
 
 ## On this page
@@ -15,7 +15,7 @@ last_modified: 2026-10-19
 - TOC
 {:toc}
 
-In this article, you will learn how to connect CluedIn to Microsoft Fabric and ingest Fabric tables - including Delta tables, Shortcuts, and tables from Mirrored Databases - as CluedIn ingestion endpoints.
+In this article, you will learn how to connect CluedIn to Microsoft Fabric and ingest Fabric tables - including Delta tables, Shortcuts, and tables from Mirrored Databases - as CluedIn ingestion endpoints, optionally keeping them in sync with Fabric on a schedule.
 
 The process involves three steps:
 
@@ -67,9 +67,18 @@ The **Map** tab also pre-fills the ingestion endpoint's fields from the Fabric t
 
 1. On the **Map** tab, enter a name for the ingestion endpoint, and choose whether to map it to a new entity type or an existing data set.
 
+1. Optional: select **Keep this ingestion endpoint in sync with Microsoft Fabric**, and choose how often to sync - every 15 minutes, hourly, or daily.
+
 1. Select **Add**.
 
     The table is added to CluedIn as an ingestion endpoint. Next, [create mapping](/ingest/mapping/create-mapping) and [process data](/ingest/processing/process-data).
 
-{: .important }
-Onboarding a Fabric table creates an ingestion endpoint; it doesn't continuously sync data from Fabric. To get Fabric rows into CluedIn, push them to the endpoint - for example using the [Fabric notebook approach](/solutions/fabric/connect-fabric-to-cluedin) - or your own pipeline.
+## Keep a Fabric table in sync
+
+If you didn't enable sync while onboarding, or want to change it later, open the ingestion endpoint's data set page. A panel there shows the current sync status:
+
+- If sync was never enabled, it offers the same frequency choice and an **Enable sync** button.
+- If sync is enabled, it shows whether sync is on, when it last ran (and the error, if the last run failed), and a **Run now** button to sync immediately instead of waiting for the next scheduled run.
+
+{: .note }
+Sync pulls new rows from the Fabric table on the schedule you choose; it doesn't need you to push rows yourself. If you'd rather drive ingestion from Fabric side - for large backfills, or your own code-driven schedule - use the [Fabric notebook approach](/solutions/fabric/connect-fabric-to-cluedin) instead, which posts rows to the endpoint directly.
