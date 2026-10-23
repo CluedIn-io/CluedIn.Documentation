@@ -73,7 +73,7 @@ For example, suppose a customer golden record contains data parts from several s
 You can use a Power Fx condition such as:
 
 ```powerfx
-GetVocabularyKeyValue(Entity, "customer.status") = "Active"
+GetVocabularyKeyValue(DataPart, "customer.status") = "Active"
 ```
 
 CluedIn evaluates the formula against each candidate data part. Only data parts where `customer.status` is `Active` are considered, and the latest matching data part supplies the winning value.
@@ -81,14 +81,14 @@ CluedIn evaluates the formula against each candidate data part. Only data parts 
 You can also combine multiple checks. For example, prefer the latest data part where the customer is active and the source has marked the record as verified:
 
 ```powerfx
-GetVocabularyKeyValue(Entity, "customer.status") = "Active" &&
-GetVocabularyKeyValue(Entity, "customer.verified") = true
+GetVocabularyKeyValue(DataPart, "customer.status") = "Active" &&
+Lower(GetVocabularyKeyValue(DataPart, "customer.verified")) = "true"
 ```
 
 Another example is to select from data parts belonging to a particular business process or source classification:
 
 ```powerfx
-GetVocabularyKeyValue(Entity, "customer.sourceTier") = "Authoritative"
+GetVocabularyKeyValue(DataPart, "customer.sourceTier") = "Authoritative"
 ```
 
 This pattern is useful for survivorship requirements such as:
@@ -98,7 +98,7 @@ This pattern is useful for survivorship requirements such as:
 - Select values only from data parts where a required vocabulary key is populated with a specific value.
 - Combine several conditions to model more complex source-governance rules.
 
-Because Power Fx conditions are evaluated against the data part being considered for survivorship, `Entity` represents that candidate data part within the condition.
+The condition is evaluated against the data part being considered for survivorship. It receives two variables: `DataPart`, the candidate data part, and `GoldenRecord`, the golden record it belongs to. There is no `Entity` variable in this condition. Vocabulary values are text, so compare them with text such as `"true"` rather than the Boolean `true`. See [Power Fx formulas](https://documentation.cluedin.net/govern/rules/power-fx-formulas.md#the-context-variables).
 
 > **Important:** If no candidate data part matches the condition, the **Latest Matching Condition** action cannot select a matching data part. Design the rule conditions so that the expected records can satisfy the expression, or use additional survivorship rules to provide an appropriate fallback.
 

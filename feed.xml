@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-10-21T08:31:39+00:00</updated>
+    <updated>2026-10-23T04:58:18+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -1902,20 +1902,6 @@
     </entry>
     
     <entry>
-        <title>Power Fx formulas</title>
-        <link href="https://documentation.cluedin.net/govern/rules/power-fx-formulas" />
-        <id>https://documentation.cluedin.net/govern/rules/power-fx-formulas</id>
-        <updated>2026-09-23T00:00:00+00:00</updated>
-        <summary>
-        
-        Power Fx formulas.
-        
-        
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Global Data Model</title>
         <link href="https://documentation.cluedin.net/model/global-data-model" />
         <id>https://documentation.cluedin.net/model/global-data-model</id>
@@ -2275,6 +2261,34 @@
         
         
         Tags: governance, data quality, metrics, accuracy, completeness, connectivity, relevance, consistency, currentness, iso 25012, business domains, ai agents, trust center, provenance, explainability, human accountability, thresholds.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Power Fx formulas</title>
+        <link href="https://documentation.cluedin.net/govern/rules/power-fx-formulas" />
+        <id>https://documentation.cluedin.net/govern/rules/power-fx-formulas</id>
+        <updated>2026-10-22T00:00:00+00:00</updated>
+        <summary>
+        
+        Power Fx formulas.
+        
+        
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Power Fx advanced reference</title>
+        <link href="https://documentation.cluedin.net/govern/rules/power-fx-advanced-reference" />
+        <id>https://documentation.cluedin.net/govern/rules/power-fx-advanced-reference</id>
+        <updated>2026-10-22T00:00:00+00:00</updated>
+        <summary>
+        
+        Power Fx advanced reference.
+        
+        
         
         </summary>
     </entry>
