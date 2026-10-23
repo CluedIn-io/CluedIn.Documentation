@@ -8,7 +8,7 @@ permalink: /operate/configuration/configuration-import-export
 content_type: how-to
 redirect_from: ["/administration/configuration-import-export"]
 tags: ["administration", "configuration", "deployment", "import", "export"]
-last_modified: 2026-09-24
+last_modified: 2026-10-19
 ---
 
 ## On this page
@@ -63,6 +63,7 @@ The page contains separate areas for:
 
 - **Exports** – create and manage configuration packages produced from the current environment.
 - **Imports** – import a configuration package into the current environment.
+- **How to use** – an in-app summary of the manual flow below, plus guidance on automating it with a CI/CD pipeline (see [Configuration Import / Export vs Product Deployment Toolkit](#configuration-import--export-vs-product-deployment-toolkit)).
 
 ## Export configuration
 
@@ -78,16 +79,43 @@ For example, if Development contains the latest approved configuration, create t
 
 1. Select **Start export**.
 
-1. Configure the export and select the CluedIn configuration that you want to include.
+1. In the **Select content to export** panel, choose which categories to include. Every category is selected by default:
 
-1. Start the export.
+   - Admin settings
+   - Data sources
+   - Vocabularies
+   - Rules
+   - Export targets
+   - Streams
+   - Glossaries
+   - Clean projects
+   - Deduplication projects
+   - Manual data entry projects
 
-CluedIn creates a configuration package that can be transferred to another environment.
+   Clear the checkbox for any category you do not want in the package. A category you leave unchecked is not included in the export.
+
+1. For **Vocabularies**, you can also choose individual vocabularies instead of exporting all of them — clear the checkbox next to any vocabulary you want to leave out.
+
+1. Select **Start export** to confirm the selection and begin the export.
+
+CluedIn creates a configuration package that reflects only the categories and vocabularies you selected.
 
 The export history on the page lets you keep track of configuration exports that have been created.
 
 {:.note}
 The configuration options available for export can vary depending on the CluedIn version and features enabled in the environment.
+
+### Track an export while it runs
+
+While an export has a status of **Running**, select **View progress** next to its status to see which content categories it has finished so far. The list updates automatically and also serves as a log of what the export has done up to that point.
+
+### Download and file naming
+
+Once an export reaches **Completed**, select **Download** to save the configuration package. The downloaded file is named `<organization>_configuration-export_<date>-<time>.zip`, so packages from different organizations or export runs do not overwrite each other when saved to the same folder.
+
+### View what an export produced
+
+Select **View report** next to a completed export to see a breakdown of what it actually contains — the content categories included, how many items are in each, and the name of every individual item.
 
 ## Import configuration
 
@@ -101,15 +129,32 @@ For example, after exporting configuration from Development:
 
 1. Select **Imports**.
 
-1. Start a new import.
+1. Select **Import configuration** and choose the configuration package exported from Development.
 
-1. Provide the configuration package exported from Development.
+1. CluedIn reads the package and opens a **Package contents** panel showing what it found — the categories present, how many items are in each, and (for vocabularies) the name of every individual vocabulary in the package.
 
-1. Review the configuration to be imported.
+1. Choose which categories to import. Every category found in the package is selected by default; clear a checkbox to leave that category out of the import. For **Vocabularies**, you can also choose individual vocabularies the same way you would during export.
 
-1. Run the import.
+1. Select **Import** to apply only the categories and items you selected.
+
+Only the categories and items you selected are imported — anything you left unchecked in the preview is not applied to the environment.
 
 After validating the configuration in Test, you can repeat the process to promote the approved package to Production.
+
+### If the package cannot be imported
+
+If the selected file is not a valid configuration package — for example, it is not a zip file, it is missing its manifest, or it was exported from an incompatible CluedIn version — CluedIn shows an error describing the problem instead of the **Package contents** panel, and the import does not proceed. Export a new package from a compatible environment and try again.
+
+### Track an import while it runs
+
+While an import has a status of **Running**, select **View progress** next to its status to see which content categories it has finished so far, the same way you would for a running export.
+
+### Reprocess existing data after an import
+
+A newly imported rule only runs against data that is processed after the import — it does not automatically re-evaluate records that were already in the environment. When an import finishes, CluedIn prompts you to reprocess existing data so that newly imported rules run against it too. The prompt is optional and can be dismissed.
+
+{:.note}
+If you dismiss the prompt, you can still start reprocessing later — select **Reprocess data** on the completed import's row.
 
 ## Recommended Development, Test, and Production flow
 
