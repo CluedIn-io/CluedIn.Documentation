@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-10-23T04:58:18+00:00</updated>
+    <updated>2026-10-23T06:03:11+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -2128,20 +2128,6 @@
     </entry>
     
     <entry>
-        <title>Snowflake connector</title>
-        <link href="https://documentation.cluedin.net/publish/export-targets/snowflake-connector" />
-        <id>https://documentation.cluedin.net/publish/export-targets/snowflake-connector</id>
-        <updated>2026-10-07T00:00:00+00:00</updated>
-        <summary>
-        
-        Snowflake connector.
-        
-        
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Create a stream</title>
         <link href="https://documentation.cluedin.net/publish/streams/create-a-stream" />
         <id>https://documentation.cluedin.net/publish/streams/create-a-stream</id>
@@ -2261,6 +2247,20 @@
         
         
         Tags: governance, data quality, metrics, accuracy, completeness, connectivity, relevance, consistency, currentness, iso 25012, business domains, ai agents, trust center, provenance, explainability, human accountability, thresholds.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Snowflake connector</title>
+        <link href="https://documentation.cluedin.net/publish/export-targets/snowflake-connector" />
+        <id>https://documentation.cluedin.net/publish/export-targets/snowflake-connector</id>
+        <updated>2026-10-19T00:00:00+00:00</updated>
+        <summary>
+        
+        Snowflake connector.
+        
+        
         
         </summary>
     </entry>
