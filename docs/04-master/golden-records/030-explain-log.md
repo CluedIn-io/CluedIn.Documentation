@@ -98,6 +98,22 @@ The structure of both operations in the Explain Log is the same. Let's consider 
 
 Note that the **Golden Record** section provides information only about survivorship rules and golden record rules. It does not include information about data part rules.  To identify which **data part rules** have been applied to a constituent record, refer to the **Evaluate rules** operation in the **Records** section.
 
+## Explain a single property's value
+
+If you only need to understand one property - for example, why `user.gender` currently shows `M` - you do not need to read through the full Explain Log. On the **Properties** tab, open the ⋮ menu next to the property and select **Explain this value** to open a panel scoped to that one property.
+
+The panel shows:
+
+- The **current value** of the property.
+- A **history** timeline of every recorded source and rule that set or changed the value, oldest first, with the currently winning entry marked **Current**.
+- Which **streams** the property is currently exported on.
+- An **Explain in plain English** button that generates an AI narrative of the same facts, in the same style as [explaining the whole record](#overview).
+
+![The Explain this value panel for organization.name, showing the current value, a History section and an Exported on section]({{ "/assets/images/key-terms-and-features/explain-log-property-panel.png" | relative_url }})
+
+{:.important}
+The history timeline can only show changes CluedIn recorded for the property. If none were recorded - for example, a value that came in on the property's very first data part, which has no earlier value to compare against - the panel says so rather than guessing, and the AI narrative reports the same limitation instead of inventing a chain of events.
+
 ## Troubleshooting using the Explain Log
 
 The Explain Log shows how a golden record would appear **if it were reprocessed right now**. This means the Explain Log reflects the current results of the processing pipeline—not necessarily the current state of the golden record itself. For example, if you modify a golden record rule but do not reprocess the affected golden record, the Explain Log will still show the updated rule logic, even though the golden record has not yet been updated accordingly.
