@@ -42,6 +42,14 @@ Consider the following example:
 
 ![GraphiQL with a search query on trainingcontact.jobTitle returning totalResults 18, a cursor, and entries whose job title is Systems Administrator]({{ "/assets/images/consume/simple-graphql-example-2.png" | relative_url }})
 
+## Try it in the GraphQL Sandbox
+
+Go to **Consume > GraphQL** to open the GraphQL Sandbox, CluedIn's built-in GraphiQL editor. Its **Sample queries** sidebar ships with ready-to-run examples for the most common tasks — get a record by ID, search, get a record by entity code, and run a bulk action — so you can start querying without leaving the product.
+
+Select **Use this query** on a sample to load it into the editor, replace the `<PLACEHOLDER>` values in the Query and Query Variables panes with your own data, then select the Execute button (▶), or press Ctrl+Enter / Cmd+Enter, to run it and view the response.
+
+![The GraphQL Sandbox with the Sample queries sidebar open, listing Get record by ID, Search, Get by entity code, and Run bulk actions]({{ "/assets/images/consume/graphql-sandbox-sample-queries.png" | relative_url }})
+
 ## Supported operations
 
 The CluedIn GraphQL endpoint supports a wide range of operations, including:
