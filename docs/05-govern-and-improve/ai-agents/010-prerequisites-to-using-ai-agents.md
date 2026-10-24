@@ -122,16 +122,19 @@ An endpoint is the address (URL) through which AI agents communicate with the de
 
 1. Select the **Deployment** (model) that is associated with the endpoint.
 
+1. Select the **Endpoint Type** that matches the kind of service the deployment should handle:
+
+    - **Chat** – supports conversational interactions with context. Used by AI agents and the Artificial Intelligence enricher.
+    - **Embeddings** – converts text into vector representations for similarity search and retrieval.
+    - **Image** – extracts text and information from images.
+
+    ![The Create pane for an AI endpoint, with Name, Deployment set to gpt-4.1, and the Endpoint Type dropdown open showing Chat, Embeddings and Image]({{ "/assets/images/management/ai-agents/configure-an-endpoint/create_endpoint_pane.png" | relative_url }})
+
 1. If needed, open the endpoint's advanced settings and configure caching. Endpoint caching can reduce repeated model calls when CluedIn sends the same request more than once.
 
     - Use a longer cache duration when repeated requests are expected to produce the same acceptable result.
     - Use a shorter duration when the underlying data, prompt, or expected model response changes frequently.
     - Caching can reduce model usage and cost, but a long cache duration may reuse an earlier result instead of sending a fresh request to the model.
-
-    {:.important}
-    The **Endpoint Type** defines the kind of service the model endpoint should handle. Currently, only the **Chat** type is available – it supports conversational interactions with context.
-
-    ![The Create pane for an AI endpoint, with Name, Deployment set to gpt-4.1, and Endpoint Type set to Chat]({{ "/assets/images/management/ai-agents/configure-an-endpoint/create_endpoint_pane.png" | relative_url }})
 
 1. Select **Create**.
 
