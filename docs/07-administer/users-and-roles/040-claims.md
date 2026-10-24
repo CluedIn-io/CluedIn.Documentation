@@ -342,6 +342,17 @@ This claim covers the following actions:
 - Managing stream owners: adding or removing users or roles.
 - Viewing changes in stream audit log.
 
+**Writeback**
+
+This claim governs access to writeback jobs, which push curated golden records from CluedIn to an operational system such as HubSpot or Salesforce. Learn more in [Writeback](/publish/writeback).
+
+This claim covers the following actions:
+
+- Viewing all writeback jobs and their run history.
+- Connecting a target system and storing its credentials.
+- Creating, editing, and deleting a writeback job.
+- Running a writeback job manually.
+
 ## Admin
 
 This section focuses on various administrative tasks in CluedIn.
