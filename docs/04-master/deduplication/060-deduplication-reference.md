@@ -39,6 +39,7 @@ Matching functions specify how values of a vocabulary key or property should be 
 | Ends with | Matches two values if one ends with the other. |
 | First token equals | Extracts the first word from both values and compares for exact match ignoring casing. |
 | Email | Matches two email address values if they are semantically equal. |
+| JSON Equals (order-insensitive) | Matches two JSON values if they are structurally equal, ignoring the order of object properties. |
 
 A matching function only defines how the two values of a single criterion are compared—it does not decide on its own whether two records are duplicates. Remember that matching criteria within a rule are combined with **AND**, and rules are combined with **OR**. A function such as **First token equals** is therefore most reliable when used as one criterion alongside others (for example, combined with a matching phone, email, domain, or country).
 
@@ -146,6 +147,18 @@ Email is email-aware equality rather than typo-tolerant matching. After rejectin
 | `john@company.com` | `jon@company.com` | No |
 
 Use Email for email fields instead of **Fuzzy match - Sift4**, because fuzzy matching email addresses is a common source of false positives.
+
+### JSON Equals (order-insensitive)
+
+JSON Equals compares two values as JSON documents rather than as text. It parses both values and compares them structurally, so two JSON objects with the same properties in a different order are still a match. Array order is still significant: two arrays with the same elements in a different order are not a match. If either value is not valid JSON, the function falls back to the same exact, case-sensitive comparison as **Equals**.
+
+| Value 1 | Value 2 | Match? |
+|--|--|--|
+| `{"city":"Berlin","zip":"10115"}` | `{"zip":"10115","city":"Berlin"}` | Yes (same properties, different order) |
+| `{"tags":["a","b"]}` | `{"tags":["b","a"]}` | No (array order matters) |
+| `{"city":"Berlin"}` | `not json` | No (falls back to exact comparison) |
+
+Use this function on vocabulary keys or properties that store JSON, such as structured addresses or custom attributes, where the source system does not guarantee a consistent property order.
 
 ## Normalization rules
 
@@ -487,6 +500,14 @@ The following diagram shows the group of duplicates workflow along with its stat
 
 ![Group of duplicates status workflow: New, fix conflicts, then Approve to Approved or Reject to Rejected; Approved groups can be revoked, rejected or merged to Merge Committed, and then unmerged to Unmerged]({{ "/assets/images/management/deduplication/group-of-duplicates-status-workflow.gif" | relative_url }})
 
+### Match confidence and rule attribution
+
+Each group has a match confidence: how strongly the group's records resemble each other, from 0% to 100%. CluedIn calculates confidence after matches are generated, using the matching rules that are currently enabled in the project—not necessarily the rules that were enabled when the group was first found. Confidence shows as **Not yet calculated** immediately after generating matches, while CluedIn finishes computing it in the background, and in the rare case where none of the project's currently enabled rules match any pair of records in the group—for example, if you changed the rules after the group was created.
+
+Alongside confidence, CluedIn shows which matching rule or rules contributed to the group, and the individual score each rule produced. A group can be attributed to more than one rule if more than one rule's criteria are satisfied by records in the group.
+
+For rules that use an exact matching function such as **Equals** or **Email**, the score is always 100%. For rules that use a fuzzy matching function, the score reflects how similar the compared values are.
+
 ## Deduplication project audit log actions
 
 Whenever some changes or actions are made in the deduplication project, they are recorded and can be found on the **Audit Log** tab. These actions include the following:
@@ -501,6 +522,7 @@ Whenever some changes or actions are made in the deduplication project, they are
 - Generate matches
 - Automate project
 - Stop project automation
+- Auto-merge by confidence
 - Discard matches
 - Manual conflict resolution
 - Reset manual conflict resolutions
@@ -519,3 +541,27 @@ Whenever some changes or actions are made in the deduplication project, they are
 - Cancel generating matches
 - Cancel merge
 - Archive a deduplication project
+
+## Report tab
+
+Each run of generate matches appears as a row on the project's **Report** tab, with the following statistics.
+
+| Statistic | Description |
+|--|--|
+| Status | Whether the run completed, failed, or is still in progress. |
+| Started / Completed | When the run started and finished. |
+| Runtime | How long the run took. |
+| Results | The number of groups the run found. |
+| True positives | Among the groups across the project, how many have been approved or merged as a confirmed match. This is a snapshot of the project's review outcomes at the time the run completed, not a count scoped to only that run's own groups—a project's groups are not tagged with the run that produced them. |
+| Records/sec, Comparisons/sec, Pairs compared, Work avoided (blocking) | Throughput and efficiency statistics for the run. These are reported only when the matching strategy that performed the run calculates them; otherwise, the value shows as **Not available**. **Work avoided (blocking)** counts the comparisons the run skipped because the records involved could not possibly match, based on an indexed field. |
+
+## Run comparison (Audit tab)
+
+The **Audit tab** lets you compare whether two or more runs on the **Report tab** grouped the same records together—a "vote of the crowd" check that is useful when you have generated matches more than once, for example with different matching rules or strategies.
+
+To compare runs, select two or more of them and select **Compare**. For each pair of runs you selected, CluedIn reports:
+
+- **Agreement percentage** – of the records that both runs grouped at all, the percentage for which the two runs agree on every other record in the group. A record only counts if both runs placed it in some group; a record only one of the runs saw is excluded from the percentage.
+- **Disagreements** – the specific records where the two runs did not agree, each with the set of other records it was grouped with in each run.
+
+Two runs agreeing on a record requires its entire set of group-mates to match exactly between the two runs—partial overlap, such as one run finding three of the same four records, still counts as a disagreement, because it is something you should review.

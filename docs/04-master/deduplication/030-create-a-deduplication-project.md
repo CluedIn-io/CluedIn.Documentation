@@ -116,6 +116,20 @@ In the project, matching rules are combined using the **OR** logical operator, w
 
     After you add matching rules, [generate matches](/master/deduplication/manage-a-deduplication-project#generate-matches) to detect duplicates among golden records that correspond to the selected business domain or filter criteria.
 
+## Get rule suggestions from your data
+
+If you are not sure which matching rules to start with, CluedIn can sample the project's golden records and suggest rules based on which vocabulary keys are consistently populated.
+
+**To get rule suggestions**
+
+1. On the **Matching Rules** tab, select **Discover rules**.
+
+    CluedIn samples the project's golden records and proposes one suggested rule for each vocabulary key that is populated on most of the sample, using a matching function and normalization rules suited to that key's data type. If no vocabulary key is populated consistently enough across the sample, CluedIn returns no suggestions.
+
+1. Review the suggestions, and select the ones that you want to add as matching rules.
+
+Rule Discovery proposes a starting point based on what is in your data; it does not know what you consider a duplicate. Review each suggested rule against [Matching semantics](#matching-semantics) before relying on it, and refine it like any other rule.
+
 ## Matching semantics
 
 These rules decide which golden records end up in the same group of duplicates. Check a configuration against them before you generate matches.
