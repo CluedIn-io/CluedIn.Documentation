@@ -78,6 +78,8 @@ Manual processing is available for the data coming from a file, an ingestion end
 
     ![Animation: on the Process tab, selecting Process opens the confirmation pane; after Confirm, a processing log shows Success 20]({{ "/assets/images/integration/data-sources/process-data.gif" | relative_url }})
 
+    You're taken to the **Process** tab automatically once processing starts, even if you selected **Process** from another tab, so you can see the result without navigating there yourself.
+
 ## Auto-submission
 
 Auto-submission is available for the data coming from an ingestion endpoint. When auto-submission is enabled, data received from the ingestion endpoint is processed automatically. With auto-submission, the original data that was initially sent to CluedIn remains in the temporary storage on the **Preview** tab. After the data has been processed, the resulting golden records appear on the **Data** tab.

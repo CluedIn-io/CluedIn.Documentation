@@ -109,6 +109,8 @@ Use the **Sources** filter to control which data sources contribute to the displ
 
 This can help you understand how different source systems contribute to the overall graph and can be particularly useful when validating a newly onboarded source.
 
+From a source's details panel, select **View identifier overlap** to open the [origin viewer](/model/origin-viewer) and compare how that source's records overlap with another source's.
+
 ### Minimum records
 
 Use **Minimum records** to hide very small business domains and focus on domains containing a larger number of records.

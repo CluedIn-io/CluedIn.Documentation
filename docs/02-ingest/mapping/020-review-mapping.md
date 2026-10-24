@@ -42,6 +42,8 @@ On the **Map columns to vocabulary key** tab, check how the original fields will
 
 - Add [property rules](/ingest/mapping/property-rules) to improve the quality of mapped records by normalizing and transforming property values. 
 
+For a field mapped to a vocabulary key that already exists, select the lineage icon next to it to see the key's full lineage: every key it was remapped from or to, each labeled with its vocabulary. This is useful for understanding where a value ends up when a vocabulary key has been merged or superseded by another one.
+
 ### Identifiers
 
 On the **Map entity** tab, review the general mapping details and check the identifiers that will uniquely represent the records in CluedIn—**primary identifier** and **identifiers**.
