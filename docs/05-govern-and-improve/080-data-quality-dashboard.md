@@ -7,8 +7,8 @@ permalink: /govern/data-quality-dashboard
 content_type: concept
 redirect_from: ["/governance/data-quality-dashboard"]
 source_path: docs/070-governance/030-data-quality-dashboard.md
-tags: ["governance", "data quality", "metrics", "accuracy", "completeness", "connectivity", "relevance", "consistency", "currentness", "iso 25012", "business domains", "ai agents", "trust center", "provenance", "explainability", "human accountability", "thresholds", "business outcomes", "trusted sources", "data certification"]
-last_modified: 2026-10-23
+tags: ["governance", "data quality", "metrics", "accuracy", "completeness", "connectivity", "relevance", "consistency", "currentness", "iso 25012", "business domains", "ai agents", "trust center", "provenance", "explainability", "human accountability", "thresholds", "business outcomes", "trusted sources", "data certification", "notifications", "copilot"]
+last_modified: 2026-10-24
 ---
 
 ## On this page
@@ -66,6 +66,9 @@ Every metric tile, on the Overview tab and in the Trust Center, lets you set a t
 {:.note}
 A threshold of 0, or no threshold set, means the metric has no target configured — no badge is shown and it's never flagged as below target.
 
+{:.important}
+The first time a metric drops below its configured threshold, everyone with at least Consultant-level access to **Governance > Quality metrics** also gets a bell-icon notification, independent of whether anyone has the dashboard open at the time. It fires once per breach — recovering above the threshold and then dropping below it again triggers a new notification, but a metric that stays below its threshold across subsequent recalculations doesn't notify again.
+
 ## Business Outcomes
 
 The **Business Outcomes** KPIs, shown on the Overview tab alongside the data quality metric tiles, translate data quality work into concrete, cumulative counts:
@@ -108,6 +111,9 @@ The **Quality by AI Agent** section lists your [AI agents](/govern/ai-agents) an
 If no AI agents exist in your environment yet, this section shows an empty state instead of the list.
 
 ![The Quality by AI Agent list, showing each agent's pending review count and estimated quality improvement]({{ "/assets/images/governance/data-quality-dashboard/quality-by-ai-agent.png" | relative_url }})
+
+{:.note}
+The same breakdown is available outside this dashboard too: ask [CluedIn Copilot](/solutions/copilot) how a given agent is doing, and it calls its `GetAiAgentImpact` skill to report how many of that agent's results — across all of its jobs — were approved, rejected, or are still pending review, by result type. Pair it with a question about the organization's overall data-quality scores, which Copilot answers from the same metrics as the Overview and Trust Center tabs.
 
 ## Trust Center
 
@@ -162,12 +168,18 @@ Marking a source trusted does not by itself change any existing golden record �
 
 ### Data Certification
 
-A **data certification** is a Gold, Silver, or Bronze badge you can apply to a specific golden record to vouch for its reliability — the same three levels used for [glossary term certification](/govern/work-with-glossary). Certify a record from its own page:
+A **data certification** is a Gold, Silver, or Bronze badge you can apply to vouch for the reliability of a golden record, a business domain, or a source — the same three levels used for [glossary term certification](/govern/work-with-glossary). Certify any of the three from its own page:
 
-- Open the record, and on its overview, find the **Data Certification** panel.
-- Choose a certification level, optionally add a note explaining the certification, and select **Save**. Select **Remove** to clear it.
+- **Golden record** – open the record, and on its overview, find the **Data Certification** panel.
+- **Business domain** – open the [business domain](/model/business-domains/business-domains-explained)'s detail page; the **Data Certification** panel appears below its header.
+- **Source** – open the Trust Center's [Trusted Sources](#trusted-sources) panel; each source row has its own certification control next to the trusted-source toggle.
 
-A record's certification, along with who set it and when, is also returned by the [MCP layer](/govern/ai-agents/ai-agents-faqs) and CluedIn Copilot when asking about that record, so agents and other consumers outside the UI can see it too. A record that has never been certified reports no certification, rather than omitting the information.
+In each case, choose a certification level, optionally add a note explaining the certification, and select **Save**. Select **Remove** to clear it.
+
+{:.note}
+Certifying a business domain or a source is a statement about that domain or source as a whole — it is independent of, and does not change, the certification of any individual golden record that belongs to it.
+
+A certification, along with who set it and when, is also returned by the [MCP layer](/govern/ai-agents/ai-agents-faqs) and CluedIn Copilot when asking about the golden record, business domain, or source it applies to, so agents and other consumers outside the UI can see it too. An object that has never been certified reports no certification, rather than omitting the information.
 
 ### How to improve your score
 
