@@ -7,8 +7,8 @@ permalink: /govern/data-quality-dashboard
 content_type: concept
 redirect_from: ["/governance/data-quality-dashboard"]
 source_path: docs/070-governance/030-data-quality-dashboard.md
-tags: ["governance", "data quality", "metrics", "accuracy", "completeness", "connectivity", "relevance", "consistency", "currentness", "iso 25012", "business domains", "ai agents", "trust center", "provenance", "explainability", "human accountability", "thresholds"]
-last_modified: 2026-10-15
+tags: ["governance", "data quality", "metrics", "accuracy", "completeness", "connectivity", "relevance", "consistency", "currentness", "iso 25012", "business domains", "ai agents", "trust center", "provenance", "explainability", "human accountability", "thresholds", "business outcomes", "trusted sources", "data certification"]
+last_modified: 2026-10-23
 ---
 
 ## On this page
@@ -29,11 +29,14 @@ Consistency, Currentness, Provenance, and Explainability are per-record metrics.
 
 The dashboard is organized into five tabs:
 
-- **Overview** – each data quality metric as an overall, organization-wide score, plus a trend chart showing every metric over time and a radar chart comparing them all at a glance.
+- **Overview** – each data quality metric as an overall, organization-wide score, a trend chart showing every metric over time, a radar chart comparing them all at a glance, and the [Business Outcomes](#business-outcomes) KPIs.
 - **Business Domain** – the [Quality by Business Domain](#quality-by-business-domain) heatmap.
 - **Source** – the [Quality by Source](#quality-by-source) breakdown.
 - **AI Agent** – the [Quality by AI Agent](#quality-by-ai-agent) summary.
-- **Trust Center** – the [Trust Center](#trust-center) overview, trust dimensions, freshness chart, governance maturity diagram, and improvement guides.
+- **Trust Center** – the [Trust Center](#trust-center) overview, trust dimensions, freshness chart, governance maturity diagram, [trusted sources](#trusted-sources), [data certification](#data-certification), and improvement guides.
+
+{:.note}
+The dashboard's data is cached for a few minutes at a time, so a change you just made (for example, enabling a rule, or running a clean project) may take a short while to show up here. Select **Run Global metrics** or **Run High time resolution metrics** (see [Recalculating metrics manually](#recalculating-metrics-manually)) if you need the dashboard to reflect a change immediately.
 
 ## Recalculating metrics manually
 
@@ -62,6 +65,17 @@ Every metric tile, on the Overview tab and in the Trust Center, lets you set a t
 
 {:.note}
 A threshold of 0, or no threshold set, means the metric has no target configured — no badge is shown and it's never flagged as below target.
+
+## Business Outcomes
+
+The **Business Outcomes** KPIs, shown on the Overview tab alongside the data quality metric tiles, translate data quality work into concrete, cumulative counts:
+
+- **Records enriched** – the number of records that have at least one property contributed by an enrichment provider (an external search/enrichment integration), as opposed to a plain ingestion source.
+- **Duplicates fixed** – the number of duplicate records removed by committed deduplication (matching & merging) groups. A group of *N* matched records that has been committed counts as *N - 1* duplicates fixed, since one record survives as the golden record.
+- **Data quality issues fixed** – the number of records that have had at least one issue corrected by a [rule](/govern/rules) action.
+
+{:.note}
+These are cumulative, point-in-time counts computed from your organization's actual enrichment, deduplication, and rule data — not estimates. They update on the same schedule as the rest of the dashboard; see [Recalculating metrics manually](#recalculating-metrics-manually).
 
 ## Quality by Business Domain
 
@@ -136,6 +150,24 @@ The **Governance Maturity** radar chart shows how much your organization actuall
 A score of 0% on any axis means that practice hasn't been set up yet for your organization, not that data is missing — the chart always shows all five axes.
 
 ![The Governance Maturity radar chart, showing Cleaning, Matching & Merging, Agent Coverage, Rule Coverage, and Data Sharing as percentages]({{ "/assets/images/governance/data-quality-dashboard/governance-maturity.png" | relative_url }})
+
+### Trusted Sources
+
+The **Trusted Sources** panel lists every source feeding data into your organization and lets you mark any of them as trusted, using the same toggle the [Quality by Source](#quality-by-source) list already shows scores for.
+
+Marking a source trusted makes it win during survivorship: when a golden record's value is decided by the **Best Quality** [rule](/govern/rules) action, a value from a trusted source is always preferred over a value from a non-trusted source, even if the non-trusted source has a higher configured source quality score (set from the source's own [configuration page](/ingest/connectors/about-integrations)). If more than one contributing source is trusted, or none are, the existing source quality score (and then recency) still breaks the tie.
+
+{:.note}
+Marking a source trusted does not by itself change any existing golden record — it only changes which value the Best Quality rule action picks the next time a record is processed.
+
+### Data Certification
+
+A **data certification** is a Gold, Silver, or Bronze badge you can apply to a specific golden record to vouch for its reliability — the same three levels used for [glossary term certification](/govern/work-with-glossary). Certify a record from its own page:
+
+- Open the record, and on its overview, find the **Data Certification** panel.
+- Choose a certification level, optionally add a note explaining the certification, and select **Save**. Select **Remove** to clear it.
+
+A record's certification, along with who set it and when, is also returned by the [MCP layer](/govern/ai-agents/ai-agents-faqs) and CluedIn Copilot when asking about that record, so agents and other consumers outside the UI can see it too. A record that has never been certified reports no certification, rather than omitting the information.
 
 ### How to improve your score
 
