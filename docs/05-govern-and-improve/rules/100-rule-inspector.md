@@ -37,10 +37,11 @@ Open the Inspector either from a specific rule, or on its own across every scope
 
 - From a rule's own **Inspector** tab — the stepper runs only that rule's own scope, and lands on that rule once you run it.
 - From **Rule builder** > the **Rule Inspector** tile, alongside the Data part/Survivorship/Golden record rules tiles. This runs data part, survivorship, and golden record rules together, in one combined run — each rule in the list and the detail panel carries its own scope badge so you can tell them apart.
+- From a golden record's own [Explain Log](/master/golden-records/explain-log) — select **Run Rule Inspector** next to the golden record rules list. This opens the combined, all-scopes run already loaded with that record's current field values and running, so you land straight on the step-through instead of having to search for the record yourself.
 
 **To inspect a rule**
 
-1. Open the Inspector (see above).
+1. Open the Inspector (see above). From a golden record's Explain Log, this is the only step — the record is already loaded and the run has already started.
 2. Either search for and pick an existing record to load its field values, or select **Show manual fields** and then **Add field** to enter a field name and a value by hand. You can combine both — pick a record, then adjust individual fields before running.
 3. Select **Run**.
 
