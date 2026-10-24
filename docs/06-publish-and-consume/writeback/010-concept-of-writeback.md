@@ -15,13 +15,13 @@ last_modified: 2026-10-24
 - TOC
 {:toc}
 
-Writeback pushes curated golden records from CluedIn to an operational system—currently HubSpot and Salesforce—so the teams working in that system see the cleaned-up data without needing to go through CluedIn themselves.
+Writeback pushes curated golden records from CluedIn to an operational system—HubSpot, Salesforce, or any REST API you connect generically—so the teams working in that system see the cleaned-up data without needing to go through CluedIn themselves.
 
 ## How a writeback job is put together
 
 A writeback job has three parts, configured together when you [create the job](/publish/writeback/create-a-writeback-job):
 
-- **A connection** to the target system: which system (HubSpot or Salesforce), and the credentials used to authenticate to it. Credentials are stored encrypted and are never shown again after you save them. A connection can be reused by more than one writeback job.
+- **A connection** to the target system: which system (HubSpot, Salesforce, or Generic REST), and the credentials used to authenticate to it. Credentials are stored encrypted and are never shown again after you save them. A connection can be reused by more than one writeback job.
 - **A source selection**: the CluedIn entity type to push (for example `/Person`), and an optional selection criteria—a CluedIn search query—that narrows it further. Without a selection criteria, every golden record of that entity type is a candidate.
 - **A field mapping**: which CluedIn vocabulary key fills which field on the target object (for example, `person.email` to HubSpot's `email` contact property).
 
@@ -42,7 +42,7 @@ Each run is kept in the job's run history, so you can see what happened on a pre
 | | Streams | Writeback |
 |--|--|--|
 | When it sends data | Continuously, as golden records change | On demand, when you trigger a run |
-| What it sends | Any export target your organization has connected | HubSpot and Salesforce, as of this release |
+| What it sends | Any export target your organization has connected | HubSpot, Salesforce, or any REST API you connect generically |
 | What selects the records | Filter rules and actions | An entity type and a search query |
 | Where the result appears | The stream's log, as records are sent | The run's record counts, once the run finishes |
 
