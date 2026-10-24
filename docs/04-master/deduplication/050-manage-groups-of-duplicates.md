@@ -27,6 +27,8 @@ When you generate matches and CluedIn detects duplicates, they are organized int
 
 ![Group workflow diagram: fix conflicts manually or automatically, approve or reject the group, merge approved groups, and unmerge if not satisfied]({{ "/assets/images/management/deduplication/manage-group-flow.gif" | relative_url }})
 
+On the **Matches** tab, and when you open a group, CluedIn shows its match confidence—how strongly the group's records resemble each other—and which matching rule or rules contributed to the group. See [Match confidence and rule attribution](/master/deduplication/deduplication-reference#match-confidence-and-rule-attribution).
+
 When you open a group of duplicates, you can find the following details:
 
 - Golden records that were identified as possible duplicates.
@@ -69,6 +71,43 @@ To ensure the merged golden records meet your requirements, you need to process 
     ![Animation: on the Matches tab, a group is opened, conflicting values are fixed, and the group is approved or rejected]({{ "/assets/images/management/deduplication/fix-duplicates.gif" | relative_url }})
 
     Once all groups within the project have been processed, proceed to merge the groups.
+
+## Review groups faster
+
+When you are processing many groups in a row, CluedIn preloads the next few groups in the background so that moving between them does not wait on a new page load each time, and offers keyboard shortcuts for the three most common actions on the group review page:
+
+| Key | Action |
+|--|--|
+| A | Approve the group. |
+| R | Reject the group. |
+| S | Skip the group—move to the next group in the list without approving or rejecting it. |
+
+Approving and rejecting with a keyboard shortcut still asks you to confirm, the same as selecting the button. Skipping does not change the group's status; the group remains **New** and you can open it again later. The shortcuts are disabled while you are typing in a text field, so they do not interfere with entering values on the page.
+
+## Approve or reject many groups at once by confidence
+
+Instead of processing groups one by one, you can approve every group above a confidence threshold, or reject every group below one, in a single action. This is useful once you trust a project's matching rules and want to clear out the groups you are confident about, leaving only the uncertain ones for manual review.
+
+**To approve or reject groups by confidence threshold**
+
+1. On the **Matches** tab of the deduplication project, select **Approve all above threshold** or **Reject all below threshold**.
+
+1. Set the confidence threshold. As you adjust it, CluedIn shows how many of the current groups would be affected.
+
+1. Confirm your choice.
+
+    Only groups with the **New** status are affected—a group that has already been approved or rejected is not changed. Groups whose confidence has not yet been calculated are never included, regardless of the threshold.
+
+Approving or rejecting by threshold changes the group's status the same way as approving or rejecting it individually; it does not merge any records. [Merge the approved groups](#merge-groups) as a separate step.
+
+## Get an AI explanation of a group
+
+If you want a plain-language explanation of why CluedIn grouped a set of records together, select **Explain this cluster** on the group review page. CluedIn sends the group's field values, its calculated match confidence, and the matching rules that contributed to it, to the configured AI model, and returns an explanation along with its own assessment of how likely the records are to be the same thing.
+
+{:.important}
+This feature requires an AI model to be configured for your organization. See [AI agents](/govern/ai-agents).
+
+The explanation is a second opinion to help you decide, not a decision CluedIn makes for you—you still approve, reject or skip the group yourself.
 
 ## Merge groups
 
