@@ -43,14 +43,16 @@ Running always walks every rule of the same scope as the one you opened the Insp
 
 ## Step through the rules
 
-After running, the Inspector lands on the rule you opened it from and shows one rule at a time:
+After running, a panel on the left lists every rule that ran, in processing order, each marked with its own match/no-match/error status and whether it's active — a map of the whole run you can scan at a glance. Select any rule in that list to jump straight to it.
+
+The Inspector lands on the rule you opened it from and shows one rule at a time on the right:
 
 - A green check or red cross for whether the rule's overall filter matched, and whether it's active.
 - The filter, shown as a nested tree matching its **AND**/**OR** structure, with a green check or red cross on every branch down to each individual condition.
 - For each action that ran, whether it succeeded and any message it returned.
-- The sample entity's complete field values immediately before and immediately after the rule ran, with any field the rule changed highlighted — not just the fields an action touched.
+- The sample entity's complete field values immediately before and immediately after the rule ran, with any field the rule changed highlighted — not just the fields an action touched. Turn on **Show only changed fields** to hide everything that didn't change.
 
-Use **Previous** and **Next** (or the <kbd>←</kbd>/<kbd>→</kbd> arrow keys, or <kbd>p</kbd>/<kbd>n</kbd>) to step to the previous or next rule in processing order. Keyboard shortcuts are ignored while you're typing in a field.
+Use **Previous** and **Next** (or the <kbd>←</kbd>/<kbd>→</kbd> arrow keys, or <kbd>p</kbd>/<kbd>n</kbd>) to step to the previous or next rule in processing order, or select a rule directly from the list on the left. Keyboard shortcuts are ignored while you're typing in a field.
 
 Because every rule runs in order against the same entity, a later rule's "before" state already reflects every change an earlier rule made — the same as real processing.
 
