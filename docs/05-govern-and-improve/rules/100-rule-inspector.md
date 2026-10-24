@@ -27,23 +27,29 @@ Rule Inspector steps through every rule of a scope against a sample entity the w
 
 | Field | Required | What it accepts |
 |--|--|--|
+| Rule scope | Yes, from the standalone **Rule Inspector** page only | Which of the three rule types to run: data part, golden record, or survivorship. Fixed to the current rule's scope when opened from a rule's own Inspector tab. |
 | Record | No | An existing record to load field values from, picked by searching its name. Loads every vocabulary property and built-in field the record currently has into the field list below, which you can then still edit before running. |
 | Entity field | No | The field to set on the sample entity, for example `Properties[user.email]` for a vocabulary key, or `Name`, `DisplayName`, `Description`, `EntityType` for a built-in field. Fields you don't set are left blank. |
 | Value | No | The value to give that field. |
 
 ## Inspect a rule
 
+Open the Inspector either from a specific rule, or on its own for a whole scope:
+
+- From a rule's own **Inspector** tab — the stepper lands on that rule once you run it.
+- From **Rule builder** > the **Rule Inspector** tile, alongside the Data part/Survivorship/Golden record rules tiles. Pick which of the three scopes to inspect from the **Rule scope** dropdown at the top of the page.
+
 **To inspect a rule**
 
-1. Open the rule, and go to the **Inspector** tab.
-2. Either search for and pick an existing record to load its field values, or select **Add field** and enter a field name and a value by hand. You can combine both — pick a record, then adjust individual fields before running.
+1. Open the Inspector (see above).
+2. Either search for and pick an existing record to load its field values, or select **Show manual fields** and then **Add field** to enter a field name and a value by hand. You can combine both — pick a record, then adjust individual fields before running.
 3. Select **Run**.
 
-Running always walks every rule of the same scope as the one you opened the Inspector from — data part, golden record, or survivorship — in their normal processing order, whether each one is active or not. It is not limited to rules whose conditions match the sample entity.
+Running always walks every rule of the scope — data part, golden record, or survivorship — in their normal processing order, whether each one is active or not. It is not limited to rules whose conditions match the sample entity.
 
 ## Step through the rules
 
-After running, a panel on the left lists every rule that ran, in processing order, each marked with its own match/no-match/error status and whether it's active — a map of the whole run you can scan at a glance. Select any rule in that list to jump straight to it.
+After running, a panel on the left lists every rule that ran, in processing order, each marked with its own match/no-match/error status and whether it's active — a map of the whole run you can scan at a glance. Select any rule in that list to jump straight to it, or turn on **Only show matched** to narrow the list (and Previous/Next) down to the rules whose own condition matched.
 
 The Inspector lands on the rule you opened it from and shows one rule at a time on the right:
 
@@ -56,6 +62,8 @@ The Inspector lands on the rule you opened it from and shows one rule at a time 
 Use **Previous** and **Next** (or the <kbd>←</kbd>/<kbd>→</kbd> arrow keys, or <kbd>p</kbd>/<kbd>n</kbd>) to step to the previous or next rule in processing order, or select a rule directly from the list on the left. Keyboard shortcuts are ignored while you're typing in a field.
 
 Because every rule runs in order against the same entity, a later rule's "before" state already reflects every change an earlier rule made — the same as real processing.
+
+The rule list and the detail panel each scroll on their own, and the step name, status badges, and Previous/Next stay in place at the top of the detail panel — so reading a long entity-state table, or scanning a long rule list, never scrolls the stepping controls out of view.
 
 ## What this changes
 
