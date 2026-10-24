@@ -18,6 +18,9 @@ Compare how the records from 2 or 3 sources overlap, based on which golden recor
 
 Use this to understand, for a given set of sources, how much entity resolution across them is actually happening - for example, to sanity-check that two systems you expect to describe the same customers are in fact merging, or to see how much of a new source's data is net-new versus already represented elsewhere.
 
+{:.note}
+This page is retrospective - it only compares sources that have already been processed. To decide which origin to use *before* a source is processed, see the matching-origin suggestions in [Review mapping](/ingest/mapping/review-mapping#identifiers), available when you select **Edit origin** for an identifier.
+
 ## Prerequisites
 
 - At least 2 sources must have contributed processed records. A source with no processed entities does not appear in the picker.

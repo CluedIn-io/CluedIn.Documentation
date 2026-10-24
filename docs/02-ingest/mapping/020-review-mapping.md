@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/integration/review-mapping"]
 source_path: docs/040-integration/data-sources/180-review-mapping.md
 tags: ["integration", "mapping"]
-last_modified: 2023-11-07
+last_modified: 2026-10-24
 ---
 
 ## On this page
@@ -98,6 +98,15 @@ Even if there are no duplicate values according to the primary identifier, but t
 The following diagram will help you in determining if you need to add additional identifiers.
 
 ![Decision tree: if there is another unique identifier and you trust your data, add identifiers; if you do not trust it, run a dedup project later; if there is none, do not add identifiers]({{ "/assets/images/integration/data-sources/review-mapping-5.png" | relative_url }})
+
+**Matching an identifier's origin to another source**
+
+Two records only merge by an identifier if their business domain, origin, and identifier value are all identical - so for records from different sources to merge, both sources need to use the same origin for the field they share. When you select **Edit origin** for the primary identifier or any other identifier, CluedIn samples that field's values and checks them against identifiers already indexed under every other origin. If an existing origin already has matching values, it's listed with a **Use this origin** button that applies it to that field - for a primary identifier this fills in the origin and still requires **Save**; for any other identifier it applies immediately.
+
+Because each identifier is checked independently, this also surfaces triangulation: a data set with no single field shared by every other source can still line up each of its identifiers with a different one - for example, `Id` matching one source's origin and `PersonId` matching another's - so that it merges with both once processed.
+
+{:.important}
+This check only compares against identifiers that are already indexed, from data sets that have already been processed. It can't tell you about a source that hasn't been processed yet - for that, see the [Process confirmation](/ingest/processing/process-data#manual-processing)'s merge prediction, or the retrospective [origin viewer](/model/origin-viewer).
 
 ### Relationships
 
