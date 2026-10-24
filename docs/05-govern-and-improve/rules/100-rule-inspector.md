@@ -48,8 +48,9 @@ After running, a panel on the left lists every rule that ran, in processing orde
 The Inspector lands on the rule you opened it from and shows one rule at a time on the right:
 
 - A green check or red cross for whether the rule's overall filter matched, and whether it's active.
-- The filter, shown as a nested tree matching its **AND**/**OR** structure, with a green check or red cross on every branch down to each individual condition.
-- For each action that ran, whether it succeeded and any message it returned.
+- The filter, shown as a nested tree matching its **AND**/**OR** structure, with a green check or red cross on every branch down to each individual condition. A Formula Condition shows its Power Fx expression directly, instead of just a pass/fail.
+- Each action group's own condition, if it has one — an action group only runs its actions when its own condition also matches; when it doesn't, the Inspector says so instead of just showing nothing.
+- For each action that ran, whether it succeeded, any message it returned, and its own configured properties (for example a Set Value action's field name and value) — a Formula Action's Power Fx expression is shown the same way a Formula Condition's is.
 - The sample entity's complete field values immediately before and immediately after the rule ran, with any field the rule changed highlighted — not just the fields an action touched. Turn on **Show only changed fields** to hide everything that didn't change.
 
 Use **Previous** and **Next** (or the <kbd>←</kbd>/<kbd>→</kbd> arrow keys, or <kbd>p</kbd>/<kbd>n</kbd>) to step to the previous or next rule in processing order, or select a rule directly from the list on the left. Keyboard shortcuts are ignored while you're typing in a field.
@@ -61,6 +62,8 @@ Because every rule runs in order against the same entity, a later rule's "before
 Nothing. Rule Inspector runs against a disposable, in-memory copy of an entity — seeded from a picked record's current values, or built from the fields you enter by hand — and never reads or changes a real record; nothing it does is saved.
 
 Rule actions that call an external service, such as an AI-powered action or downloading an image, perform that real call when run through the Inspector, the same as they would in a normal preview. Keep that in mind if a rule being inspected uses one of those actions.
+
+A survivorship rule's own condition, and each action group's condition, run against the sample entity exactly as a golden record rule's would. Its actions (Best Quality, Latest Matching Condition, and the rest of the "set golden record value" actions) are different: they resolve a value by comparing a golden record's real underlying source records, which the Inspector's single sample entity can never provide. They always fail when run through the Inspector — read the message under the action for confirmation that this is expected, not a problem with the rule.
 
 ## If something goes wrong
 
