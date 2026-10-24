@@ -26,6 +26,16 @@ The primary action on the deduplication project level is the generation of match
 {:.important}
 Instructions on how to process groups of duplicates, including merging and unmerging, are provided in the [Manage groups of duplicates](/master/deduplication/manage-groups-of-duplicates) article.
 
+## Preview a project's scope
+
+Before you generate matches—or at any later point—you can check which golden records a project's business domain or filters actually resolve to, independent of any matching rule.
+
+**To preview a project's scope**
+
+- On the **Preview** tab, review the sample of records shown, and the total count of records currently in scope.
+
+    CluedIn samples up to 200 records and shows the true total count alongside them. If the total is much larger than expected, or the records shown are not the ones you meant to check, revisit the project's business domain or filters before generating matches.
+
 ## Generate matches
 
 The process of generating matches involves analyzing a specified set of golden records with the goal of finding duplicates among them based on your matching rules.

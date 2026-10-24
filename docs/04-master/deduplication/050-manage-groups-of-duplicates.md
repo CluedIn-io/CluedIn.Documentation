@@ -74,13 +74,15 @@ To ensure the merged golden records meet your requirements, you need to process 
 
 ## Review groups faster
 
-When you are processing many groups in a row, CluedIn preloads the next few groups in the background so that moving between them does not wait on a new page load each time, and offers keyboard shortcuts for the three most common actions on the group review page:
+When you are processing many groups in a row, CluedIn preloads the next several groups in the background so that moving between them does not wait on a new page load each time, and offers keyboard shortcuts for the three most common actions on the group review page:
 
 | Key | Action |
 |--|--|
 | A | Approve the group. |
 | R | Reject the group. |
 | S | Skip the group—move to the next group in the list without approving or rejecting it. |
+
+After you approve, reject, or skip a group, CluedIn takes you straight to the next group in the list rather than back to the **Matches** tab, so you can work through many groups in a row using only the keyboard. You are returned to the **Matches** tab once there is no next group left to show.
 
 Approving and rejecting with a keyboard shortcut still asks you to confirm, the same as selecting the button. Skipping does not change the group's status; the group remains **New** and you can open it again later. The shortcuts are disabled while you are typing in a text field, so they do not interfere with entering values on the page.
 
