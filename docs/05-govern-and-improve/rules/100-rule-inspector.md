@@ -7,7 +7,7 @@ nav_order: 100
 permalink: /govern/rules/rule-inspector
 content_type: how-to
 tags: ["management", "rules"]
-last_modified: 2026-10-23
+last_modified: 2026-10-24
 ---
 
 ## On this page
@@ -15,7 +15,7 @@ last_modified: 2026-10-23
 1. TOC
 {:toc}
 
-Rule Inspector steps through every rule of a scope against a sample entity the way a debugger steps through code: one rule at a time, with the entity's complete field values before and after it ran, and why its filter did or didn't match. Use it to find out why a rule did, or didn't, apply the way you expected, without reprocessing real records.
+Rule Inspector steps through rules against a sample entity the way a debugger steps through code: one rule at a time, with the entity's complete field values before and after it ran, and why its filter did or didn't match. Use it to find out why a rule did, or didn't, apply the way you expected, without reprocessing real records.
 
 ## Prerequisites
 
@@ -27,17 +27,16 @@ Rule Inspector steps through every rule of a scope against a sample entity the w
 
 | Field | Required | What it accepts |
 |--|--|--|
-| Rule scope | Yes, from the standalone **Rule Inspector** page only | Which of the three rule types to run: data part, golden record, or survivorship. Fixed to the current rule's scope when opened from a rule's own Inspector tab. |
 | Record | No | An existing record to load field values from, picked by searching its name. Loads every vocabulary property and built-in field the record currently has into the field list below, which you can then still edit before running. |
 | Entity field | No | The field to set on the sample entity, for example `Properties[user.email]` for a vocabulary key, or `Name`, `DisplayName`, `Description`, `EntityType` for a built-in field. Fields you don't set are left blank. |
 | Value | No | The value to give that field. |
 
 ## Inspect a rule
 
-Open the Inspector either from a specific rule, or on its own for a whole scope:
+Open the Inspector either from a specific rule, or on its own across every scope:
 
-- From a rule's own **Inspector** tab — the stepper lands on that rule once you run it.
-- From **Rule builder** > the **Rule Inspector** tile, alongside the Data part/Survivorship/Golden record rules tiles. Pick which of the three scopes to inspect from the **Rule scope** dropdown at the top of the page.
+- From a rule's own **Inspector** tab — the stepper runs only that rule's own scope, and lands on that rule once you run it.
+- From **Rule builder** > the **Rule Inspector** tile, alongside the Data part/Survivorship/Golden record rules tiles. This runs data part, survivorship, and golden record rules together, in one combined run — each rule in the list and the detail panel carries its own scope badge so you can tell them apart.
 
 **To inspect a rule**
 
@@ -45,15 +44,20 @@ Open the Inspector either from a specific rule, or on its own for a whole scope:
 2. Either search for and pick an existing record to load its field values, or select **Show manual fields** and then **Add field** to enter a field name and a value by hand. You can combine both — pick a record, then adjust individual fields before running.
 3. Select **Run**.
 
-Running always walks every rule of the scope — data part, golden record, or survivorship — in their normal processing order, whether each one is active or not. It is not limited to rules whose conditions match the sample entity.
+Running always walks every rule in scope — data part, golden record, and survivorship when opened from the Rule Builder dashboard, or just the current rule's own scope when opened from a rule's Inspector tab — in their normal processing order, whether each one is active or not. It is not limited to rules whose conditions match the sample entity.
 
 ## Step through the rules
 
-After running, a panel on the left lists every rule that ran, in processing order, each marked with its own match/no-match/error status and whether it's active — a map of the whole run you can scan at a glance. Select any rule in that list to jump straight to it, or turn on **Only show matched** to narrow the list (and Previous/Next) down to the rules whose own condition matched.
+After running, a panel on the left lists every rule that ran, in processing order, each marked with its own match/no-match/error status and whether it's active — a map of the whole run you can scan at a glance. From the standalone page, each entry also shows which of the three scopes it belongs to. Select any rule in that list to jump straight to it, or use the toggles above it to narrow the list (and Previous/Next):
+
+- **Only show active** — hides inactive rules.
+- **Only show matched** — hides rules whose own condition didn't match the sample entity.
+
+Both toggles can be turned on together.
 
 The Inspector lands on the rule you opened it from and shows one rule at a time on the right:
 
-- A green check or red cross for whether the rule's overall filter matched, and whether it's active.
+- A green check or red cross for whether the rule's overall filter matched, whether it's active, and (in a combined run across all three scopes) which scope it belongs to.
 - The filter, shown as a nested tree matching its **AND**/**OR** structure, with a green check or red cross on every branch down to each individual condition. A Formula Condition shows its Power Fx expression directly, instead of just a pass/fail.
 - Each action group's own condition, if it has one — an action group only runs its actions when its own condition also matches; when it doesn't, the Inspector says so instead of just showing nothing.
 - For each action that ran, whether it succeeded, any message it returned, and its own configured properties (for example a Set Value action's field name and value) — a Formula Action's Power Fx expression is shown the same way a Formula Condition's is.
