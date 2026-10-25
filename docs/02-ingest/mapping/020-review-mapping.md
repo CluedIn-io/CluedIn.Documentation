@@ -101,12 +101,17 @@ The following diagram will help you in determining if you need to add additional
 
 **Matching an identifier's origin to another source**
 
-Two records only merge by an identifier if their business domain, origin, and identifier value are all identical - so for records from different sources to merge, both sources need to use the same origin for the field they share. When you select **Edit origin** for the primary identifier or any other identifier, CluedIn samples that field's values and checks them against identifiers already indexed under every other origin. If an existing origin already has matching values, it's listed with a **Use this origin** button that applies it to that field - for a primary identifier this fills in the origin and still requires **Save**; for any other identifier it applies immediately.
+Two records only merge by an identifier if their business domain, origin, and identifier value are all identical - so for records from different sources to merge, both sources need to use the same origin for the field they share. When you select **Edit origin** for the primary identifier or any other identifier, CluedIn samples that field's values and checks them two ways:
+
+- Against identifiers already indexed under every other origin, from data sets that have already been processed.
+- Against every not-yet-processed data set in the same data source set that maps a field to the same vocabulary key - useful when two sources are being mapped around the same time and neither has been processed yet.
+
+If either check finds matching values, it's listed under that field. A match against an already-indexed origin, or against a sibling that already has a concrete origin set for that field, comes with a **Use this origin** button that applies it to that field - for a primary identifier this fills in the origin and still requires **Save**; for any other identifier it applies immediately. A match against a sibling that doesn't have an origin set yet is shown without a button - set a matching origin on both sides to bridge them.
 
 Because each identifier is checked independently, this also surfaces triangulation: a data set with no single field shared by every other source can still line up each of its identifiers with a different one - for example, `Id` matching one source's origin and `PersonId` matching another's - so that it merges with both once processed.
 
-{:.important}
-This check only compares against identifiers that are already indexed, from data sets that have already been processed. It can't tell you about a source that hasn't been processed yet - for that, see the [Process confirmation](/ingest/processing/process-data#manual-processing)'s merge prediction, or the retrospective [origin viewer](/model/origin-viewer).
+{:.note}
+See the [Process confirmation](/ingest/processing/process-data#manual-processing) for a prediction of how many records this data set will actually merge once processed, and the retrospective [origin viewer](/model/origin-viewer) for comparing sources that have already been processed.
 
 ### Relationships
 
