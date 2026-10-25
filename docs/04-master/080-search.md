@@ -57,7 +57,7 @@ If you want to view other golden record properties or vocabulary keys, you can a
 
 1. Select **Add columns**, and then choose the type of column that you want to add to the search results page:
 
-    - **Entity Property** – to select golden record properties such as **Date Created**, **Discovery Date**, or **Date Modified**, or one of the following computed columns: **Quality score** (the record's completeness), **Relationships**, **Properties**, **Clean Projects**, **Deduplication Projects**, or **Enrichers**.
+    - **Entity Property** – to select golden record properties such as **Date Created**, **Discovery Date**, or **Date Modified**, or one of the following computed columns: **Sources** (the source records the golden record was built from, each shown with the icon configured for its connector in [Mapping]({{ "/ingest/mapping" | relative_url }})), **Quality score** (the record's completeness), **Relationships**, **Properties**, **Clean Projects**, **Deduplication Projects**, or **Enrichers**.
 
         {:.important}
         Computed columns are loaded individually for each record shown on the page, so unlike other columns, they cannot be used to sort or filter the search results.
@@ -144,7 +144,7 @@ CluedIn provides two page view options:
 
 ### Preview a record
 
-Instead of opening the full golden record page, you can preview a golden record's key information in a panel on the right: business domain, discovery date, the number of related sources, relationships, and enrichers, its completeness, the names of the source records it was built from, and its tags. To open the preview panel, select the preview image of a golden record on the search results page, or select the checkbox of a single golden record. From the preview panel, select **Open record** to go to the full golden record page.
+Instead of opening the full golden record page, you can preview a golden record's key information in a panel on the right: business domain, discovery date, the number of related sources, relationships, and enrichers, its completeness, the names of the source records it was built from, and its tags. Each source record is shown with the icon configured for its connector in [Mapping]({{ "/ingest/mapping" | relative_url }}), or a generic icon if none is configured. To open the preview panel, select the preview image of a golden record on the search results page, or select the checkbox of a single golden record. From the preview panel, select **Open record** to go to the full golden record page.
 
 ## Saved searches
 
