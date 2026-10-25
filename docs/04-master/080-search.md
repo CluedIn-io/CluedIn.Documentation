@@ -123,21 +123,25 @@ In addition to sorting by relevance, CluedIn provides two alternative sorting op
 
 CluedIn provides two page view options:
 
-- **Tile view** – presents golden records in a visual grid-like format. In this view, golden records are arranged in rectangular tiles, each representing a specific golden record.
+- **Cards** – presents golden records in a visual grid-like format. In this view, golden records are arranged in rectangular cards, each representing a specific golden record.
 
-    ![Search results in tile view, each golden record shown as a tile with name, business domain, discovery time, and description]({{ "/assets/images/key-terms-and-features/search-tile-view.png" | relative_url }})
+    ![Search results in cards view, each golden record shown as a card with name, business domain, discovery time, and description]({{ "/assets/images/key-terms-and-features/search-tile-view.png" | relative_url }})
 
-- **Tabular view** – presents golden records in a structured table format. In this view, golden records are arranged in rows and columns, resembling a spreadsheet or database table.
+- **Table** – presents golden records in a structured table format. In this view, golden records are arranged in rows and columns, resembling a spreadsheet or database table.
 
-    ![Search results in tabular view with rows of golden records under the Name, Business domain, and Description columns]({{ "/assets/images/key-terms-and-features/search-tabular-view.png" | relative_url }})
+    ![Search results in table view with rows of golden records under the Name, Business domain, and Description columns]({{ "/assets/images/key-terms-and-features/search-tabular-view.png" | relative_url }})
 
 **To change the page view**
 
-- In the upper-right corner of the search results page, select the needed page view option: **Tile view** (a) or **Tabular view** (b).
+- In the toolbar above the search results, select the needed page view option: **Table** or **Cards**.
 
-    ![Search results page with the page view buttons marked a for Tile view and b for Tabular view in the upper-right corner]({{ "/assets/images/key-terms-and-features/search-results-page-view.png" | relative_url }})
+    ![Search results page with the Table and Cards page view buttons in the toolbar above the results]({{ "/assets/images/key-terms-and-features/search-results-page-view.png" | relative_url }})
 
     The new view is applied to the search results page.
+
+### Preview a record
+
+Instead of opening the full golden record page, you can select a single golden record on the search results page to preview its key information in a panel on the right: business domain, a summary of its sources and related projects, and its data quality metrics. From the preview panel, select **Open record** to go to the full golden record page.
 
 ## Saved searches
 

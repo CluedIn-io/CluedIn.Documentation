@@ -69,6 +69,8 @@ Filters in search help you narrow down the exact records you want to see or use 
 
 Every filter you apply from either mode appears as a removable chip above the search results, so you can see at a glance which criteria are active and remove one without opening the Filters pane. Select **Add filter** on the chip bar to open the advanced filter mode directly, or select **Clear all** to remove every active filter at once.
 
+For a quicker way to filter by a specific column, select the filter icon in a column header on the search results page (available for vocabulary columns and for the Description column). Choose an operator - such as Contains or Equals - enter a value, and select **Apply**. Like the other filters, this also appears as a removable chip above the search results.
+
 After you set up your search filters, you can save them for future use. This eliminates the need to specify filter criteria each time you want to find the same set of records. You can also share saved searches within your organization, making them available to others who need to work with the same set of records. For more information, see [Saved searches](/master/search#saved-searches).
 
 {:.important}
