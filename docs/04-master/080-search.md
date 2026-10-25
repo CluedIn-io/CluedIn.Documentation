@@ -57,7 +57,10 @@ If you want to view other golden record properties or vocabulary keys, you can a
 
 1. Select **Add columns**, and then choose the type of column that you want to add to the search results page:
 
-    - **Entity Property** – to select the following golden record properties: **Date Created**, **Discovery Date**, or **Date Modified**.
+    - **Entity Property** – to select golden record properties such as **Date Created**, **Discovery Date**, or **Date Modified**, or one of the following computed columns: **Quality score** (the record's completeness), **Relationships**, **Properties**, **Clean Projects**, **Deduplication Projects**, or **Enrichers**.
+
+        {:.important}
+        Computed columns are loaded individually for each record shown on the page, so unlike other columns, they cannot be used to sort or filter the search results.
 
     - **Vocabulary** – to find and select any vocabulary keys.
 
@@ -141,7 +144,7 @@ CluedIn provides two page view options:
 
 ### Preview a record
 
-Instead of opening the full golden record page, you can select a single golden record on the search results page to preview its key information in a panel on the right: business domain, a summary of its sources and related projects, and its data quality metrics. From the preview panel, select **Open record** to go to the full golden record page.
+Instead of opening the full golden record page, you can preview a golden record's key information in a panel on the right: business domain, a summary of its sources and related projects, and its data quality metrics. To open the preview panel, select the preview image of a golden record on the search results page, or select the checkbox of a single golden record. From the preview panel, select **Open record** to go to the full golden record page.
 
 ## Saved searches
 
