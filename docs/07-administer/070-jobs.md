@@ -7,7 +7,7 @@ permalink: /administer/jobs
 content_type: how-to
 redirect_from: ["/management/jobs", "/development/one-time-jobs", "/development/recurring-time-jobs", "/development/scheduled-time-jobs"]
 tags: ["management", "jobs", "scheduling", "rules", "graphql"]
-last_modified: 2026-09-24
+last_modified: 2026-10-26
 ---
 
 ## On this page
@@ -118,6 +118,19 @@ This separates the **selection and operation logic** from the **schedule**:
 
 - GraphQL defines which records are targeted and what action is performed.
 - Jobs defines when the action runs.
+
+## Operational maintenance and governance jobs
+
+Beyond rule and GraphQL scheduling, the Jobs page also exposes a set of actions purpose-built for ongoing operational maintenance and data governance:
+
+- **Incremental Dedupe Sweep** – select one or more deduplication projects that already have automation turned on. On the job's schedule, each selected project is swept incrementally: new duplicate groups are discovered and merged automatically, with no manual review step. Projects that do not have automation turned on are skipped. For more on turning automation on for a project, see [Deduplication](/master/deduplication).
+- **Detect Over-Merged Records** (system job, off by default) – scans merged records for source data that was merged together but carries conflicting names, and flags the merge as a candidate that may need to be split apart. It only reports findings; it does not change or split anything itself. Review flagged merges in the job's run history and split them from the [golden record](/master/golden-records) if the merge was incorrect.
+- **API Token Expiry Warnings** (system job) – evaluates the organization's [API tokens](/administer) and notifies organization admins, by email and in-app notification, when a token is within a configurable number of days of its expiry date.
+- **Retention And Purge** – define the records to purge with the same rule builder used elsewhere in CluedIn. When the job runs, every data part of every record matching the rule is permanently deleted. Because this is destructive, an empty rule is rejected: at least one condition is required, so the job can never be configured to match (and purge) every record by accident.
+- **History Compaction** (system job, off by default) – accepts a maximum number of history entries to keep. For every record with more history entries than that limit, the oldest entries beyond the limit are permanently removed. This runs independently of a record being actively written to, so it also reaches records nothing has touched in a long time.
+
+{:.important}
+Retention And Purge and History Compaction permanently delete data. Review the configuration carefully before saving or enabling either one, and check the job's run result summary - which reports the number of records affected - after it runs.
 
 ## Scheduled and on-demand jobs
 
