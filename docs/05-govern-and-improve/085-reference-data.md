@@ -6,7 +6,7 @@ nav_order: 85
 permalink: /govern/reference-data
 content_type: concept
 tags: ["governance", "reference data", "vocabulary keys", "data quality"]
-last_modified: 2026-10-25
+last_modified: 2026-10-26
 ---
 
 ## On this page
@@ -18,7 +18,7 @@ Reference data is a known-good list of values - such as country codes or currenc
 
 With the **Reference Data** module, you can do the following:
 
-- [Add a reference data set](#add-a-reference-data-set) from the built-in catalog, or by uploading a file.
+- [Add a reference data set](#add-a-reference-data-set) from the built-in catalog, by uploading a file, or by generating one with AI.
 
 - [Link a vocabulary key to a reference data set](#link-a-vocabulary-key-to-a-reference-data-set) to validate and monitor its values.
 
@@ -54,6 +54,25 @@ This is a new module. "From Database" and "From Ingestion Point" are shown as me
 1. Enter a name and, optionally, a description, then upload a CSV file. The first row of the file is used as the column headers.
 
 1. Select **Add**.
+
+**To generate reference data with AI**
+
+Use this when you want a real-world reference list - such as world currencies or country codes - but don't already have a file for it. Instead of creating a reference data set directly, this generates the data and loads it into a new [ingestion endpoint](/ingest/data-sources/endpoint) data set, which you then map yourself the normal way; once it's mapped and onboarded, come back and add a reference data set (from the catalog, a file, or the Rule Builder) using the resulting golden records.
+
+1. On the navigation pane, go to **Governance** > **Reference Data**.
+
+1. Select **Add Reference Data Set**.
+
+1. Enter a name - it's used for both the new data set and, if you continue, the reference data set itself.
+
+1. Under **Don't have the data yet?**, describe the reference data you want (for example, "world currencies with their code and symbol"), and then select **Generate with AI**.
+
+    CluedIn asks AI to generate the data (for a well-known, enumerable set such as world currencies, every standard member is generated, up to 300 rows) and loads it into a new ingestion endpoint data set. When it's done, a link to the new data set appears.
+
+1. Select **Open in Ingest** to go to the new data set, then [map it](/ingest/mapping) like any other ingested data.
+
+{:.important}
+Generating with AI only loads raw data into Ingest - it does not create a reference data set. After mapping and onboarding the generated data, add a reference data set that uses the resulting golden records as its reference values.
 
 ## Link a vocabulary key to a reference data set
 
