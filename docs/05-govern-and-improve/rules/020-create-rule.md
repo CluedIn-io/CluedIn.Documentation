@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/management/rules/create-rule"]
 source_path: docs/080-management/rules/020-create-rule.md
 tags: ["management", "rules"]
-last_modified: 2023-11-16
+last_modified: 2026-10-26
 ---
 
 ## On this page
@@ -77,6 +77,8 @@ Creating a rule involves defining the golden records to which the rule will be a
 
 1. If you want to add more actions to the rule, repeat step 5.
 
+    Before saving, check the **Rule preview** panel on the right to see what the rule would do; see [Preview a rule before saving](#preview-a-rule-before-saving).
+
 1. Near upper-right corner, select **Save**, and then confirm that you want to save the rule.
 
 1. Activate the rule by turning on the toggle next to the rule status.
@@ -84,6 +86,22 @@ Creating a rule involves defining the golden records to which the rule will be a
     ![Animation: creating a golden record rule named Training with a filter and an Add Tag action, then saving and activating it]({{ "/assets/images/management/rules/create-a-rule.gif" | relative_url }})
 
     At this point, the rule has not yet been applied to the golden records. To ensure the rule is configured correctly, we recommend applying it to one golden record to verify the results.
+
+## Preview a rule before saving
+
+While you configure a rule's filters and actions, the **Rule preview** panel on the right side of the **Configuration** tab tests the draft against a sample of real golden records, so you can catch a misconfigured filter or action before you save. The preview is a simulation only: it does not change any records, and it does not require the rule to be saved or active.
+
+![The Rule preview panel showing the Matching records tab, with stat tiles for sampled, match, and would-change counts]({{ "/assets/images/management/rules/rule-preview-panel.png" | relative_url }})
+
+- **Sample size** – Near the top of the panel, choose how many records to sample (25, 100, or 500). Select **Refresh preview** to re-run the preview after changing the filters, actions, or sample size; the preview does not update automatically as you type.
+
+- **Matching records** – The records in the sample that match the rule's filters. Select a record to see a condition-by-condition explanation of why it matched, including its current value for each condition.
+
+- **Action preview** – For each matching record, the before and after value of every field the rule's actions would change. A record the actions would not change is labeled **No change**.
+
+- **Checks** – Issues to review before activating the rule, such as an action that failed or a value an action could not map to a new value (for example, an abbreviation missing from a mapping table). When the sample has any checks, a warning banner appears above the tabs; select **Review** to go to the **Checks** tab.
+
+The preview only ever samples existing records; it does not predict how the rule will behave for records ingested later. After saving and activating the rule, use [Test a rule on one record](#test-a-rule-on-one-record) to confirm the real, saved rule behaves as expected.
 
 ## Test a rule on one record
 
