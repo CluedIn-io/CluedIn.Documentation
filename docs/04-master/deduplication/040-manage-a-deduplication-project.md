@@ -90,6 +90,26 @@ Instead of generating matches once, you can run generate matches with more than 
 
 For the statistics recorded for each run, see [Report tab](/master/deduplication/deduplication-reference#report-tab). For how run comparison works, see [Run comparison (Audit tab)](/master/deduplication/deduplication-reference#run-comparison-audit-tab).
 
+## Choose an ACI partitioning strategy
+
+When you run generate matches with **Run in ACI** selected, on an ACI-compatible project, you can choose how CluedIn splits the work across containers if it needs more than one.
+
+**To choose an ACI partitioning strategy**
+
+1. In the deduplication project, select **Generate matches**, and turn on **Run in ACI**.
+
+1. Under **Advanced options**, select one of the following:
+
+    - **None (default)** – no partitioning strategy; CluedIn uses its default container split.
+    - **MinHash** – groups similar records into the same container using MinHash locality-sensitive hashing, so likely matches are more often compared within the same container.
+    - **BIRCH** – groups records into containers using a hashing-based clustering approach.
+    - **Sorted neighbourhood** – sorts records and assigns neighboring records to the same container.
+
+1. Confirm your choice to generate matches.
+
+{:.important}
+This setting only affects how ACI distributes work across containers when a run needs more than one. It does not change which records are matched, or their calculated confidence.
+
 ## Automate a deduplication project
 
 Automating a deduplication project means that CluedIn generates matches and merges groups on a recurring schedule, without you reviewing each group yourself. Because automation skips manual review, CluedIn only allows it when it can be confident the merges are correct, in one of two ways:
