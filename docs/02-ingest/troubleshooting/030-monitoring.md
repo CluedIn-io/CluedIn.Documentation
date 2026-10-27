@@ -45,6 +45,8 @@ To get better visibility into what is happening with your records, in addition t
 
 If the status of any item is red or orange, it means that something is wrong, and some services probably need to be restarted. To fix the problem, contact the person responsible for maintaining CluedIn for your organization (for example, system administrator) who can restart the needed service.
 
+When the **Processing** or **ServiceBus** component is red, CluedIn also blocks new ingestion and processing in the UI rather than accepting an action that cannot succeed. For example, if the message broker is blocking new messages (for example, because it is running low on disk space), a banner appears explaining why, the file upload dropzone is disabled, and the **Process** confirmation is disabled until the underlying issue is resolved.
+
 The following table provides the description of each queue and corresponding troubleshooting guidelines. If the number of messages doesn't return to 0 or if the number of consumers remains 0, refer to the **Troubleshooting** column for recommended actions.
 
 | Queue | Description | Troubleshooting |
