@@ -544,7 +544,23 @@ Whenever some changes or actions are made in the deduplication project, they are
 
 ## Report tab
 
-Each run of generate matches appears as a row on the project's **Report** tab, with the following statistics.
+The **Report** tab opens with a merge report summarizing what has actually merged in the project so far—scoped to groups that are currently merged, not to every group a run has ever found. It shows:
+
+| Statistic | Description |
+|--|--|
+| Merged groups | The number of groups currently merged. |
+| Records merged | The total number of records across all merged groups. |
+| Records consolidated | How many fewer records exist as a result of merging—records merged minus merged groups. |
+| Average confidence | The average match confidence across merged groups, for groups where confidence was calculated. |
+
+Below the summary, two charts break the merged groups down further:
+
+- **Merged groups by confidence** – how many merged groups fall into each confidence tier: High (85% or above), Medium (60–84%), Low (below 60%), or Unknown, for groups where confidence was never calculated.
+- **Which rule did most of the matching** – how many merged groups each matching rule contributed to. A group can count toward more than one rule if several rules matched it.
+
+Select **Download as PDF** to open your browser's print dialog with the summary and its charts already selected; choose **Save as PDF** (or your browser's equivalent) to save it as a file. The run history below the summary is not included.
+
+Each run of generate matches appears as a row in the **run history** below the summary, with the following statistics.
 
 | Statistic | Description |
 |--|--|
