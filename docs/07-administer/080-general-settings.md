@@ -6,8 +6,8 @@ nav_order: 80
 permalink: /administer/general-settings
 content_type: reference
 redirect_from: ["/administration/general-settings"]
-tags: ["administration", "settings", "notifications"]
-last_modified: 2026-10-12
+tags: ["administration", "settings", "notifications", "connectivity"]
+last_modified: 2026-10-27
 ---
 
 ## On this page
@@ -56,4 +56,17 @@ The **UI preferences** section controls whether users see modules in the side me
 
 ## Cluster details
 
-The **Cluster details** section shows read-only information about your CluedIn cluster, including its region, CIDR, and outbound IP address(es). Outbound IP addresses are useful when a customer's export target needs to allowlist CluedIn's traffic — see, for example, the [Snowflake connector](/publish/export-targets/snowflake-connector) documentation.
+The **Cluster details** section shows read-only information about your CluedIn cluster, including its region, CIDR, and inbound and outbound IP address(es). Outbound IP addresses are useful when a customer's export target needs to allowlist CluedIn's traffic — see, for example, the [Snowflake connector](/publish/export-targets/snowflake-connector) documentation. Inbound IP addresses are useful when an external system needs to allowlist traffic it receives from CluedIn, such as a webhook callback.
+
+### Test outbound connectivity
+
+The **Test outbound connectivity** control lets you check, directly from CluedIn, whether the cluster can reach a specific destination host and port — without having to cross-reference the outbound IP addresses above against a customer's firewall rules yourself, or open a support ticket to confirm.
+
+![The Test outbound connectivity control under Cluster details, with a host and port entered]({{ "/assets/images/administration/general-settings/cluster-details-connectivity-test.png" | relative_url }})
+
+Enter a destination **host or IP address** and a **port**, then select **Test connection**. CluedIn attempts a TCP connection to the destination from the server and reports the result as a notification:
+
+- **Success** shows the resolved IP address and the connection latency in milliseconds.
+- **Failure** shows the reason, such as a timeout or a refused connection.
+
+The destination must resolve to a publicly routable address. A destination that resolves to a loopback, private-network, link-local, or cloud metadata address (for example `169.254.169.254`) is rejected before CluedIn attempts a connection, so the test cannot be used to probe the cluster's own internal network. The test is also rate-limited per organization to prevent it being used to scan ports on other systems; if you hit the limit, wait a minute and try again.
