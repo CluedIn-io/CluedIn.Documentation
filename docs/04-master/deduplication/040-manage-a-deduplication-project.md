@@ -26,6 +26,16 @@ The primary action on the deduplication project level is the generation of match
 {:.important}
 Instructions on how to process groups of duplicates, including merging and unmerging, are provided in the [Manage groups of duplicates](/master/deduplication/manage-groups-of-duplicates) article.
 
+## Preview a project's scope
+
+Before you generate matches—or at any later point—you can check which golden records a project's business domain or filters actually resolve to, independent of any matching rule.
+
+**To preview a project's scope**
+
+- On the **Preview** tab, review the sample of records shown, and the total count of records currently in scope.
+
+    CluedIn samples up to 200 records and shows the true total count alongside them. If the total is much larger than expected, or the records shown are not the ones you meant to check, revisit the project's business domain or filters before generating matches.
+
 ## Generate matches
 
 The process of generating matches involves analyzing a specified set of golden records with the goal of finding duplicates among them based on your matching rules.
@@ -62,6 +72,73 @@ From the list of deduplication projects, you can select multiple projects and ge
 
     Match generation starts independently for each selected project; if it fails to start for one project, the rest of the selected projects are not affected.
 
+## Generate matches with multiple strategies
+
+Instead of generating matches once, you can run generate matches with more than one matching strategy in sequence, and then compare whether the strategies agree on the same groups. This is useful when you are not sure which strategy best fits your data, or want to validate a strategy against another before relying on it.
+
+**To generate matches with multiple strategies**
+
+1. In the deduplication project, select **Generate matches**.
+
+1. Turn on **Compare multiple strategies**, and select the strategies that you want to run.
+
+1. Confirm your choice.
+
+    CluedIn runs each selected strategy in turn, recording each run on the **Report** tab. The groups shown on the **Matches** tab after this finishes are from the last strategy that ran; this is the same result you get from generating matches normally.
+
+1. On the **Audit** tab, select two or more of the runs, and then select **Compare** to see whether they grouped the same records together.
+
+For the statistics recorded for each run, see [Report tab](/master/deduplication/deduplication-reference#report-tab). For how run comparison works, see [Run comparison (Audit tab)](/master/deduplication/deduplication-reference#run-comparison-audit-tab).
+
+## Choose an ACI partitioning strategy
+
+When you run generate matches with **Run in ACI** selected, on an ACI-compatible project, you can choose how CluedIn splits the work across containers if it needs more than one.
+
+**To choose an ACI partitioning strategy**
+
+1. In the deduplication project, select **Generate matches**, and turn on **Run in ACI**.
+
+1. Under **Advanced options**, select one of the following:
+
+    - **None (default)** – no partitioning strategy; CluedIn uses its default container split.
+    - **MinHash** – groups similar records into the same container using MinHash locality-sensitive hashing, so likely matches are more often compared within the same container.
+    - **BIRCH** – groups records into containers using a hashing-based clustering approach.
+    - **Sorted neighbourhood** – sorts records and assigns neighboring records to the same container.
+
+1. Confirm your choice to generate matches.
+
+{:.important}
+This setting only affects how ACI distributes work across containers when a run needs more than one. It does not change which records are matched, or their calculated confidence.
+
+## Automate a deduplication project
+
+Automating a deduplication project means that CluedIn generates matches and merges groups on a recurring schedule, without you reviewing each group yourself. Because automation skips manual review, CluedIn only allows it when it can be confident the merges are correct, in one of two ways:
+
+- **Exact-match rules only** – by default, a project can be automated only if every matching rule uses an exact matching function, such as **Equals** or **Email**, with no fuzzy matching and no normalization rules beyond a small set of safe ones. Matches found this way are merged automatically because there is no ambiguity in what counts as a match.
+
+- **A confidence threshold** – alternatively, you can set a minimum match confidence for the project. Once set, automation is no longer restricted to exact-match rules: any group whose calculated confidence is at or above the threshold is merged automatically, regardless of which matching function found it. A group whose confidence has not yet been calculated is never merged automatically, even if the project's threshold is 0%.
+
+{:.important}
+Setting a confidence threshold is an opt-in, project-level choice. A project that does not set one keeps the original exact-match-only behavior.
+
+**To preview automatic merges before turning on automation**
+
+- In the project configuration, enter a candidate confidence threshold, and select **Preview**. CluedIn shows how many of the project's current groups would be merged at that threshold, without merging anything.
+
+**To automate a deduplication project**
+
+1. In the project configuration, optionally set a confidence threshold, and then save the project.
+
+1. Select **Automate**, and confirm your choice.
+
+    The project status becomes **Automated**. CluedIn generates matches and merges eligible groups on the configured schedule.
+
+**To stop automation**
+
+- In the project, select **Stop automation**.
+
+Merges made through automation appear on the **Merges** tab and can be [unmerged](/master/deduplication/manage-groups-of-duplicates#unmerge-records) like any other merge, and are recorded on the **Audit Log** tab as **Auto-merge by confidence** when a threshold produced them.
+
 ## Discard matches
 
 If you want to change matching rules, modify project filters, or regenerate matches in the deduplication project, you can discard matches. This action does not affect merged golden records.
@@ -73,6 +150,30 @@ If you want to change matching rules, modify project filters, or regenerate matc
     ![Animation: selecting Discard matches in a deduplication project, confirming, and the status changing to Ready to generate]({{ "/assets/images/management/deduplication/discard-results.gif" | relative_url }})
 
     The project status is changed to **Ready to generate**. Now, you can edit the project as needed and generate matches again.
+
+## Export possible matches and import review decisions
+
+You can export a project's possible matches to a file, review them outside CluedIn—for example, with a colleague who does not have access to CluedIn—and then import the decisions back in.
+
+**To export possible matches**
+
+- On the **Matches** tab, select **Export**, and then choose **CSV** or **Excel**.
+
+    The exported file has one row per record, with the group it belongs to, its current status, its match confidence, and the matching rules that contributed to the group—enough to identify which group and record each row refers to.
+
+**To import review decisions**
+
+1. On the **Matches** tab, select **Import decisions**.
+
+1. Choose a CSV or Excel file with a **GroupId** column, an optional **EntityId** column, and a **Decision** column set to **Merge** or **DoNotMerge** for each row. The exported file is already in this format; set the **Decision** column to record your reviewers' choices, and remove rows you do not want to apply.
+
+    Include **EntityId** only when you want to reject a single record out of a group rather than the whole group.
+
+1. Select the file, and confirm the import.
+
+    CluedIn applies **Merge** as approving the group, and **DoNotMerge** as rejecting the group or, when **EntityId** is set, removing that record from the group. After the import finishes, CluedIn reports how many rows were applied and, for any row it could not apply—for example, a group that no longer exists—the reason why.
+
+Applying decisions through import changes group status the same way as approving or rejecting manually; it does not merge any records. [Merge the approved groups](/master/deduplication/manage-groups-of-duplicates#merge-groups) as a separate step.
 
 ## Edit a deduplication project
 

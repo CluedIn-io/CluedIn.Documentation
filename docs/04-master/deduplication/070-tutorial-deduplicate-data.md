@@ -102,19 +102,17 @@ The process of fixing duplicates involves reviewing the values from duplicate re
 
 1. Select the name of the group.
 
-    The **Fix Conflicts** tab opens. Here, you can view the details of the duplicate records. In the **Conflicting** section, you can find the properties that have different values in the duplicate records. In the **Matching** section, you can find the properties that have the same values in the duplicate records.
+    **Fix Conflicts** and **Preview Merge** are shown side by side. In **Fix Conflicts**, you can view the details of the duplicate records. In the **Conflicting** section, you can find the properties that have different values in the duplicate records. In the **Matching** section, you can find the properties that have the same values in the duplicate records.
 
 1. In the **Conflicting** section, select the values that you want to merge into the deduplicated record.
 
     ![Conflicting section of the Fix Conflicts tab with one Email value and one Id value selected from the two duplicate records]({{ "/assets/images/getting-started/deduplication/dedup-9.png" | relative_url }})
 
-1. In the upper-right corner of the page, select **Next**.
-
-    The **Preview Merge** tab opens. Here, you can view the values that will be merged into the deduplicated record.
+    **Preview Merge**, next to it, updates as you select values, showing what the deduplicated record will hold.
 
     ![Preview Merge tab for the group Berri, showing the merged Email and Id values that the deduplicated record will get]({{ "/assets/images/getting-started/deduplication/dedup-10.png" | relative_url }})
 
-1. In the upper-right corner of the page, select **Approve**. Then, confirm that you want to approve your selection of values for the group.
+1. In the upper-right corner of the page, select **Approve**.
 
 1. Select the checkbox next to the group name. Then, select **Merge**.
 
