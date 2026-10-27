@@ -53,12 +53,14 @@ To ensure the merged golden records meet your requirements, you need to process 
 
 1. On the **Matches** tab of the deduplication project, select the group name.
 
-1. On the **Fix Conflicts** tab, review conflicting values and choose the appropriate values to be used in the merged golden record. If you are not certain about the correctness of the selected values, you can **Reset Conflicts** and start again.
+1. In **Fix Conflicts**, review conflicting values and choose the appropriate values to be used in the merged golden record. If you are not certain about the correctness of the selected values, you can **Reset Conflicts** and start again.
+
+    **Fix Conflicts** and **Preview Merge** are shown side by side, so you can see the effect of each choice—or of the **Auto-select** toggle—on the merged record immediately, without switching views.
 
     {:.important}
-    Turning on the **Auto-select** toggle prevents the display of selected values on the **Fix Conflicts** tab. Instead, you can review those values on the next tab (**Preview Merge**).
+    Turning on the **Auto-select** toggle prevents the display of selected values in **Fix Conflicts**. Instead, you can review those values in **Preview Merge** next to it. **Auto-select** is turned on by default for a group you have not yet reviewed; if you turn it off, that choice is remembered for the group.
 
-1. Go to the **Preview Merge** tab and review the property or vocabulary keys values that the merged golden record will hold.
+1. In **Preview Merge**, review the property or vocabulary keys values that the merged golden record will hold.
 
 1. Depending on the results of your review, choose if a group is suitable for merging:
 
@@ -74,17 +76,18 @@ To ensure the merged golden records meet your requirements, you need to process 
 
 ## Review groups faster
 
-When you are processing many groups in a row, CluedIn preloads the next several groups in the background so that moving between them does not wait on a new page load each time, and offers keyboard shortcuts for the three most common actions on the group review page:
+When you are processing many groups in a row, CluedIn preloads the next several groups in the background so that moving between them does not wait on a new page load each time, and offers keyboard shortcuts for the group review page. Each shortcut is also shown next to its button, so you don't need to hover to find it:
 
 | Key | Action |
 |--|--|
 | A | Approve the group. |
 | R | Reject the group. |
-| S | Skip the group—move to the next group in the list without approving or rejecting it. |
+| S or → | Skip the group—move to the next group in the list without approving or rejecting it. |
+| ← | Go to the previous group in the list, also without approving, rejecting, or skipping it. |
 
-After you approve, reject, or skip a group, CluedIn takes you straight to the next group in the list rather than back to the **Matches** tab, so you can work through many groups in a row using only the keyboard. You are returned to the **Matches** tab once there is no next group left to show.
+After you approve, reject, or skip a group, CluedIn takes you straight to the next group in the list rather than back to the **Matches** tab, so you can work through many groups in a row using only the keyboard. You are returned to the **Matches** tab once there is no next or previous group left to show in that direction.
 
-Approving and rejecting with a keyboard shortcut still asks you to confirm, the same as selecting the button. Skipping does not change the group's status; the group remains **New** and you can open it again later. The shortcuts are disabled while you are typing in a text field, so they do not interfere with entering values on the page.
+Approving and rejecting with a keyboard shortcut still asks you to confirm, the same as selecting the button. Skipping and going to the previous group do not change the group's status; the group remains **New** and you can open it again later. The shortcuts are disabled while you are typing in a text field, so they do not interfere with entering values on the page.
 
 ## Approve or reject many groups at once by confidence
 
@@ -104,12 +107,14 @@ Approving or rejecting by threshold changes the group's status the same way as a
 
 ## Get an AI explanation of a group
 
-If you want a plain-language explanation of why CluedIn grouped a set of records together, select **Explain this cluster** on the group review page. CluedIn sends the group's field values, its calculated match confidence, and the matching rules that contributed to it, to the configured AI model, and returns an explanation along with its own assessment of how likely the records are to be the same thing.
+If you want a plain-language explanation of why CluedIn grouped a set of records together, select **Explain this cluster** on the group review page. CluedIn sends the group's field values, its calculated match confidence, and the matching rules that contributed to it, to the configured AI model, and returns an explanation along with its own assessment of how likely the records are to be the same thing, in a panel that slides out from the side of the page.
 
 {:.important}
 This feature requires an AI model to be configured for your organization. See [AI agents](/govern/ai-agents).
 
 The explanation is a second opinion to help you decide, not a decision CluedIn makes for you—you still approve, reject or skip the group yourself.
+
+By default, the panel closes when you move to a different group. Select the pin icon in the panel's header to keep it open instead—while pinned, moving to a different group (including with the keyboard shortcuts) automatically re-explains the new group in the same panel, so you can read an explanation for each group as you review it without reopening the panel every time.
 
 ## Merge groups
 
