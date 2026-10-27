@@ -64,11 +64,11 @@ To ensure the merged golden records meet your requirements, you need to process 
 
 1. Depending on the results of your review, choose if a group is suitable for merging:
 
-    - If you want to merge the group, select **Approve**, and then confirm your choice. This is a preliminary step before merging.
+    - If you want to merge the group, select **Approve**. This is a preliminary step before merging.
 
         If you change your mind, you can **Revoke** the approval, which brings the group back to the **New** status.
 
-    - If you don't want to merge the group, select **Reject**, and then confirm your choice. Rejected groups cannot be merged. However, if you change your mind, you can **Approve** the rejected group later.
+    - If you don't want to merge the group, select **Reject**. Rejected groups cannot be merged. However, if you change your mind, you can **Approve** the rejected group later.
 
     ![Animation: on the Matches tab, a group is opened, conflicting values are fixed, and the group is approved or rejected]({{ "/assets/images/management/deduplication/fix-duplicates.gif" | relative_url }})
 
@@ -87,7 +87,7 @@ When you are processing many groups in a row, CluedIn preloads the next several 
 
 After you approve, reject, or skip a group, CluedIn takes you straight to the next group in the list rather than back to the **Matches** tab, so you can work through many groups in a row using only the keyboard. You are returned to the **Matches** tab once there is no next or previous group left to show in that direction.
 
-Approving and rejecting with a keyboard shortcut still asks you to confirm, the same as selecting the button. Skipping and going to the previous group do not change the group's status; the group remains **New** and you can open it again later. The shortcuts are disabled while you are typing in a text field, so they do not interfere with entering values on the page.
+Approving and rejecting act immediately, whether by the keyboard shortcut or selecting the button—there is no confirmation step, so a review session isn't slowed down by one. Skipping and going to the previous group do not change the group's status; the group remains **New** and you can open it again later. The shortcuts are disabled while you are typing in a text field, so they do not interfere with entering values on the page.
 
 ## Approve or reject many groups at once by confidence
 
