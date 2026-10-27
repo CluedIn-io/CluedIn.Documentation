@@ -56,13 +56,13 @@ Because it costs more to compute, a deeper analysis of the data set is not gener
 
 1. Once it finishes, the card shows three sections:
 
-    ![Advanced analysis card showing a Correlated fields chart with a cost to price bar, and the start of an Anomalies chart for the quantity column]({{ "/assets/images/integration/additional-operations/profile-advanced-results.png" | relative_url }})
+    ![Advanced analysis card showing a Fields that move together chart, with a cost and price bar labeled Very strong match between axis labels Opposite, No link, and Together]({{ "/assets/images/integration/additional-operations/profile-advanced-results.png" | relative_url }})
 
-    - **Correlated fields** – pairs of numeric columns whose values move together, as a Pearson correlation coefficient from -1 (perfectly inverse) to 1 (perfectly aligned). Only pairs with a coefficient of at least 0.5 in either direction are shown.
+    - **Fields that move together** – pairs of numeric columns whose values rise and fall together, or move in opposite directions, labeled **Strong** or **Very strong** rather than as a raw statistic. Only a strong relationship is shown; two columns that merely happen to drift together are left out. Pointing at a bar shows the plain-language relationship and its exact strength.
 
-    - **Anomalies** – numeric columns that have values more than three standard deviations from the column's mean, with how many such values each column has.
+    - **Unusual values** – numeric columns that have values far outside the column's normal range, with how many such values each column has.
 
-    - **Data patterns** – the most common value "shapes" per column, with digits collapsed to `9`, uppercase letters to `A`, and lowercase letters to `a`. This can reveal structure a column's detected type alone does not, such as a text column that is consistently formatted as an email address or a fixed-width code.
+    - **Repeating formats** – the most common value "shapes" per column, with digits collapsed to `9`, uppercase letters to `A`, and lowercase letters to `a`. This can reveal structure a column's detected type alone does not, such as a text column that is consistently formatted as an email address or a fixed-width code.
 
     Any section with nothing to report says so instead of showing an empty chart.
 
