@@ -91,7 +91,7 @@ This claim covers the following actions:
 
 ## Governance
 
-This section focuses on data quality metrics, sensitive data identification, global data metrics, as well as global data model.
+This section focuses on data quality metrics, as well as global data model.
 
 **Global Data Model**
 
@@ -99,11 +99,7 @@ This claim governs access to global data model that allows you to explore connec
 
 **Metrics**
 
-This claim governs access to data quality metrics dashboards and global data metrics dashboards. It covers only one action—viewing respective dashboards.
-
-**Personal Identifiers**
-
-This claim governs access to metrics related to sensitive data. It covers only one action—viewing sensitive data metrics.
+This claim governs access to data quality metrics dashboards. It covers only one action—viewing the dashboards.
 
 ## Preparation
 
@@ -133,17 +129,9 @@ This claim covers the following actions:
 
 This section focuses on various tools for monitoring what is happening inside CluedIn through real-time charts and summaries.
 
-**Configuration Groups**
-
-This claim governs access to configuration groups that contain environment variables, feature flag settings, and other settings that are being used by your CluedIn instance. It covers only one action—viewing configuration groups.
-
 **Processing**
 
 This claim governs access to the processing pipeline, where you can monitor high-level metrics of all the processing that happens in CluedIn such as ingestion, processing, and streaming activities. It covers only one action—viewing processing pipeline.
-
-**Statistics**
-
-This claim governs access to real-time charts showing global CPU and memory stats on the nodes that run your CluedIn instance. It covers only one action—viewing respective charts and dashboards.
 
 ## Management
 
