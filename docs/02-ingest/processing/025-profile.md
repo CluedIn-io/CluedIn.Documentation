@@ -32,7 +32,7 @@ The profile is also structured so that it can be used later to help identify rel
 
 1. Once profiling finishes, the tab shows summary tiles and a table with one row per column.
 
-    ![Profile tab dashboard showing stat tiles for rows, columns, average completeness, and profiled-at time, above a table of the id, cost, price, quantity, email, and discount_code columns, each with its detected type, null percentage, distinct values, example values, pattern, and closely related fields]({{ "/assets/images/integration/additional-operations/profile-dashboard.png" | relative_url }})
+    ![Profile tab dashboard showing stat tiles for rows, columns, average completeness, and profiled-at time, above a table of the id, cost, price, quantity, email, and discount_code columns, each with its detected type, null percentage, distinct values, example values, pattern, closely related fields, and numeric stats]({{ "/assets/images/integration/additional-operations/profile-dashboard.png" | relative_url }})
 
     The summary tiles show the total row count, column count, average completeness across all columns, and when the profile was computed. The table includes the following information for each column:
 
@@ -47,6 +47,8 @@ The profile is also structured so that it can be used later to help identify rel
     - **Pattern** – the column's most common value "shape", with digits collapsed to `9`, uppercase letters to `A`, and lowercase letters to `a`, and the share of the column's values that share it. Only shown when it covers more than a tenth of the column's values; this can reveal structure a column's detected type alone does not, such as a text column that is consistently formatted as an email address or a fixed-width code. A column with nothing to report shows **No repeating pattern**.
 
     - **Closely related fields** – other columns whose values move together with this one, each with a couple of real value pairs so you can see the relationship rather than infer it from a statistic. Only a strong relationship is shown; two columns that merely happen to drift together are left out. A column with nothing to report shows **No closely related fields**.
+
+    - **Numeric stats** – for an Integer or Decimal column, its minimum, maximum, mean, and standard deviation across the column's filled values. A non-numeric column shows **Not numeric**.
 
     Profiling reads at most the first 10,000 rows of a larger data set. When it does, a note under **Columns** says how many of the data set's rows the statistics are based on.
 
