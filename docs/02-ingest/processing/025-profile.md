@@ -50,9 +50,17 @@ The profile is also structured so that it can be used later to help identify rel
 
     Profiling reads at most the first 10,000 rows of a larger data set. When it does, a note under **Columns** says how many of the data set's rows the statistics are based on.
 
+## Refresh the profile
+
+The profile does not update itself as a data set's records change - select **Refresh profile**, above the table, to recompute it from the data set's current data.
+
+![Profile table with a Refresh profile button above it, and the email column's Null % showing 25% with a +25% change since the previous run]({{ "/assets/images/integration/additional-operations/profile-refresh.png" | relative_url }})
+
+If a column's null percentage changed since the last run, the **Null %** cell shows the new value together with the change, for example `25% (+25%)`. The change is only shown once you have refreshed a profile at least once; the first time a data set is profiled, there is nothing yet to compare it to.
+
 ## Verify the result
 
-The **Profile** tab shows one of these states: not started (for a large data set awaiting a manual run), profiling in progress, the computed profile, or an error if profiling failed. Refreshing the data set page after profiling finishes shows the generated results without the need to re-upload the data.
+The **Profile** tab shows one of these states: not started (for a large data set awaiting a manual run), profiling in progress, the computed profile, or an error if profiling failed. Reloading the data set page after profiling finishes shows the generated results without the need to re-upload the data.
 
 ## If something goes wrong
 
