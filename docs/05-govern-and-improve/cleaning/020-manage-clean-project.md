@@ -204,6 +204,8 @@ You can use folders to organize clean projects—for example, by data domain or 
 
 ![The Clean Project list showing two folders and a clean project that is not in a folder]({{ "/assets/images/preparation/clean/organize-clean-projects-folders-list.png" | relative_url }})
 
+A folder that CluedIn creates automatically for a project—rather than one you create yourself—shows that project's image here, if the project has one. If the project's image changes later, its folder's image is updated the next time you upload or remove the project's image.
+
 **To create a folder**
 
 1. In the list of clean projects, select **Create** > **Add folder**.
