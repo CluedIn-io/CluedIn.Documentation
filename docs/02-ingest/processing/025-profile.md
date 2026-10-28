@@ -26,6 +26,10 @@ The profile is also structured so that it can be used later to help identify rel
 
     ![Profile tab showing a Profiling in progress message while the data set's columns are being analyzed]({{ "/assets/images/integration/additional-operations/profile-in-progress.png" | relative_url }})
 
+1. For a data set larger than a size your administrator configures, the tab instead shows a **Profiling not started** message with a **Run profiling** button - profiling such a large data set is not started automatically, to avoid the cost of doing so for every upload. Select **Run profiling** to compute it anyway.
+
+    ![Profile tab showing a Profiling not started message with a Run profiling button]({{ "/assets/images/integration/additional-operations/profile-notstarted.png" | relative_url }})
+
 1. Once profiling finishes, the tab shows summary tiles and a table with one row per column.
 
     ![Profile tab dashboard showing stat tiles for rows, columns, average completeness, and profiled-at time, above a table of the id, cost, price, quantity, email, and discount_code columns, each with its detected type, null percentage, distinct values, example values, pattern, and closely related fields]({{ "/assets/images/integration/additional-operations/profile-dashboard.png" | relative_url }})
@@ -46,7 +50,7 @@ The profile is also structured so that it can be used later to help identify rel
 
     The **Pattern** and **Closely related fields** columns are empty until you run the advanced analysis described below.
 
-    Below the table, a chart shows the columns with the highest percentage of empty values, if any.
+    Profiling reads at most the first 10,000 rows of a larger data set. When it does, a note under **Columns** says how many of the data set's rows the statistics are based on.
 
 ## Run advanced analysis
 
@@ -68,7 +72,7 @@ Because it costs more to compute, filling in the **Pattern** and **Closely relat
 
 ## Verify the result
 
-The **Profile** tab shows one of three states for the basic profile: profiling in progress, the computed profile, or an error if profiling failed. The **Advanced analysis** card shows its own status independently, since it is only computed when requested. Refreshing the data set page after either finishes shows the generated results without the need to re-upload the data.
+The **Profile** tab shows one of these states for the basic profile: not started (for a large data set awaiting a manual run), profiling in progress, the computed profile, or an error if profiling failed. The **Advanced analysis** card shows its own status independently, since it is only computed when requested. Refreshing the data set page after either finishes shows the generated results without the need to re-upload the data.
 
 ## If something goes wrong
 
