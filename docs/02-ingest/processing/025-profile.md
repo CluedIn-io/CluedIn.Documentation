@@ -6,7 +6,7 @@ grand_parent: Ingest
 nav_order: 25
 permalink: /ingest/processing/profile
 content_type: how-to
-last_modified: 2026-10-27
+last_modified: 2026-10-28
 ---
 
 ## On this page
@@ -28,7 +28,7 @@ The profile is also structured so that it can be used later to help identify rel
 
 1. Once profiling finishes, the tab shows summary tiles and a table with one row per column.
 
-    ![Profile tab dashboard showing stat tiles for rows, columns, average completeness, and profiled-at time, above a table of the id, cost, price, quantity, email, and discount_code columns, each with its detected type, null percentage, distinct values, and example values]({{ "/assets/images/integration/additional-operations/profile-dashboard.png" | relative_url }})
+    ![Profile tab dashboard showing stat tiles for rows, columns, average completeness, and profiled-at time, above a table of the id, cost, price, quantity, email, and discount_code columns, each with its detected type, null percentage, distinct values, example values, pattern, and closely related fields]({{ "/assets/images/integration/additional-operations/profile-dashboard.png" | relative_url }})
 
     The summary tiles show the total row count, column count, average completeness across all columns, and when the profile was computed. The table includes the following information for each column:
 
@@ -40,11 +40,17 @@ The profile is also structured so that it can be used later to help identify rel
 
     - **Example values** – a few of the distinct values found in the column.
 
+    - **Pattern** – the column's most common value "shape", with digits collapsed to `9`, uppercase letters to `A`, and lowercase letters to `a`, and the share of the column's values that share it. Only shown when it covers more than a tenth of the column's values; this can reveal structure a column's detected type alone does not, such as a text column that is consistently formatted as an email address or a fixed-width code.
+
+    - **Closely related fields** – other columns whose values move together with this one, each with a couple of real value pairs so you can see the relationship rather than infer it from a statistic. Only a strong relationship is shown; two columns that merely happen to drift together are left out.
+
+    The **Pattern** and **Closely related fields** columns are empty until you run the advanced analysis described below.
+
     Below the table, a chart shows the columns with the highest percentage of empty values, if any.
 
 ## Run advanced analysis
 
-Because it costs more to compute, a deeper analysis of the data set is not generated automatically - you start it from the **Advanced analysis** card at the bottom of the **Profile** tab.
+Because it costs more to compute, filling in the **Pattern** and **Closely related fields** columns is not automatic - you start it from the **Advanced analysis** card at the bottom of the **Profile** tab.
 
 **To run advanced analysis**
 
@@ -54,17 +60,11 @@ Because it costs more to compute, a deeper analysis of the data set is not gener
 
     The card shows an **Analysis in progress** message with a progress indicator while it runs.
 
-1. Once it finishes, the card shows three sections:
+1. Once it finishes, the card confirms completion, and the **Pattern** and **Closely related fields** columns in the table above are filled in.
 
-    ![Advanced analysis card showing a Fields that move together chart, with a cost and price bar labeled Very strong match between axis labels Opposite, No link, and Together]({{ "/assets/images/integration/additional-operations/profile-advanced-results.png" | relative_url }})
+    ![Profile table with the Pattern and Closely related fields columns filled in, including a cost and price row each showing the other as a closely related field with example value pairs]({{ "/assets/images/integration/additional-operations/profile-advanced-results.png" | relative_url }})
 
-    - **Fields that move together** – pairs of numeric columns whose values rise and fall together, or move in opposite directions, labeled **Strong** or **Very strong** rather than as a raw statistic. Only a strong relationship is shown; two columns that merely happen to drift together are left out. Pointing at a bar shows the plain-language relationship and its exact strength.
-
-    - **Unusual values** – numeric columns that have values far outside the column's normal range, with how many such values each column has.
-
-    - **Repeating formats** – the most common value "shapes" per column, with digits collapsed to `9`, uppercase letters to `A`, and lowercase letters to `a`. This can reveal structure a column's detected type alone does not, such as a text column that is consistently formatted as an email address or a fixed-width code.
-
-    Any section with nothing to report says so instead of showing an empty chart.
+    A column with nothing to report shows **No repeating pattern** or **No closely related fields** instead of being left blank.
 
 ## Verify the result
 
