@@ -26,7 +26,7 @@ The profile is also structured so that it can be used later to help identify rel
 
     ![Profile tab showing a Profiling in progress message while the data set's columns are being analyzed]({{ "/assets/images/integration/additional-operations/profile-in-progress.png" | relative_url }})
 
-1. For a data set larger than a size your administrator configures, the tab instead shows a **Profiling not started** message with a **Run profiling** button - profiling such a large data set is not started automatically, to avoid the cost of doing so for every upload. Select **Run profiling** to compute it anyway.
+1. For a data set larger than a configurable row count (1,000,000 rows by default), the tab instead shows a **Profiling not started** message with a **Run profiling** button - profiling such a large data set is not started automatically, to avoid the cost of doing so for every upload. Select **Run profiling** to compute it anyway. An organization admin can change the threshold, or turn automatic profiling back on for large data sets, from **Settings > Advanced settings > Data set profiling**.
 
     ![Profile tab showing a Profiling not started message with a Run profiling button]({{ "/assets/images/integration/additional-operations/profile-notstarted.png" | relative_url }})
 
