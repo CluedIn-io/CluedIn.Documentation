@@ -17,7 +17,7 @@ last_modified: 2026-10-28
 - TOC
 {:toc}
 
-There are four types of rules: data part rules, survivorship rules, golden record rules, and data profile rules. Each rule serves a distinct purpose in managing and optimizing your golden records. The following diagram shows the order in which the first three rule types should be applied to the records in CluedIn. Data profile rules are run on demand against existing records, independently of this pipeline.
+There are four types of rules: data part rules, survivorship rules, golden record rules, and data profile rules. Each rule serves a distinct purpose in managing and optimizing your golden records. The following diagram shows the order in which the first three rule types should be applied to the records in CluedIn. Data profile rules are run on demand or on a schedule against existing records, independently of this pipeline.
 
 ![Diagram: data part rules apply to records, then survivorship rules apply to processed records, then golden record rules apply to golden records]({{ "/assets/images/management/rules/rule-types-1.png" | relative_url }})
 
@@ -55,9 +55,9 @@ The following video explains each action available in the golden record rules.
 
 The purpose of **data profile rules** is to validate the structure and statistical quality of the records of an entity type, rather than the value of a single record. Use a data profile rule to check things like how many records or columns an entity type has, whether a column is complete or unique enough, how two columns correlate, or how fresh the data is.
 
-Unlike data part, survivorship, and golden record rules, a data profile rule is not applied automatically as records are processed. You run it on demand, and it returns a pass or fail result together with the computed value it was evaluated against. See [rules reference](/govern/rules/rules-reference#metrics-in-data-profile-rules) for the full list of available metrics.
+Unlike data part, survivorship, and golden record rules, a data profile rule is not applied automatically as records are processed. Instead, it is evaluated either on demand - by selecting Run on the rule - or automatically, on a recurring schedule, for every active rule in the organization. Either way, it returns a pass or fail result together with the computed value it was evaluated against. See [rules reference](/govern/rules/rules-reference#metrics-in-data-profile-rules) for the full list of available metrics.
 
-Every run is kept, so the rule's detail page shows a chart of its computed value and pass/fail status over time - useful for seeing whether a metric is trending in the right direction, not just whether its most recent run passed.
+Every run is kept, whether triggered manually or by the schedule, so the rule's detail page shows a chart of its computed value and pass/fail status over time - useful for seeing whether a metric is trending in the right direction, not just whether its most recent run passed.
 
 ## Example of using rules
 
