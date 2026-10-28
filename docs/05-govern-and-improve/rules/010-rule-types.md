@@ -9,7 +9,7 @@ content_type: reference
 redirect_from: ["/management/rules/rule-types"]
 source_path: docs/080-management/rules/010-rule-types.md
 tags: ["management", "rules"]
-last_modified: 2026-10-27
+last_modified: 2026-10-28
 ---
 
 ## On this page
@@ -56,6 +56,8 @@ The following video explains each action available in the golden record rules.
 The purpose of **data profile rules** is to validate the structure and statistical quality of the records of an entity type, rather than the value of a single record. Use a data profile rule to check things like how many records or columns an entity type has, whether a column is complete or unique enough, how two columns correlate, or how fresh the data is.
 
 Unlike data part, survivorship, and golden record rules, a data profile rule is not applied automatically as records are processed. You run it on demand, and it returns a pass or fail result together with the computed value it was evaluated against. See [rules reference](/govern/rules/rules-reference#metrics-in-data-profile-rules) for the full list of available metrics.
+
+Every run is kept, so the rule's detail page shows a chart of its computed value and pass/fail status over time - useful for seeing whether a metric is trending in the right direction, not just whether its most recent run passed.
 
 ## Example of using rules
 
