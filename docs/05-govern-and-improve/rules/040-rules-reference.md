@@ -9,7 +9,7 @@ content_type: reference
 redirect_from: ["/management/rules/rules-reference"]
 source_path: docs/080-management/rules/040-rules-reference.md
 tags: ["management", "rules"]
-last_modified: 2026-09-23
+last_modified: 2026-10-27
 ---
 
 ## On this page
@@ -128,3 +128,35 @@ The following table contains a list of actions that you can use within golden re
 | Remove Alias | Removes alias from the record. You need to specify the alias that you want to remove. |
 | Remove All Tags | Removes all tags from the record. |
 | Remove Tag | Removes a tag from the record. You need to specify the tag that you want to remove. |
+
+## Metrics in data profile rules
+
+Every data profile rule computes one metric, then compares the computed value against a threshold using an operator: `=`, `≠`, `<`, `≤`, `>`, `≥`, or `between` (which compares against a lower and an upper threshold). A metric that needs one or two columns expects the exact vocabulary key name of that column, for example `company.name`.
+
+The following table contains a list of metrics that you can use within data profile rules.
+
+| Metric | Columns | Description |
+|--|--|--|
+| Row Count | none | The number of records of the entity type. |
+| Column Count | none | The number of vocabulary keys defined for the entity type. |
+| Duplicate Row Count | one or two | The number of records that are duplicates of another record when grouped by the column (and the second column, if set). |
+| Zeros Count | one | The number of records where the column's value is the numeric value zero. |
+| Completeness | one | The fraction of records where the column has a non-null, non-empty value. |
+| Is Complete | one | Whether every record has a non-null, non-empty value for the column. |
+| Uniqueness | one | The fraction of the column's values that occur in exactly one record. |
+| Is Unique | one | Whether every value of the column occurs in exactly one record. |
+| Column Correlation | two | The Pearson correlation coefficient between the two columns' numeric values. |
+| Distinct Values Count | one | The number of distinct values of the column. |
+| Entropy | one | The Shannon entropy (a measure of how evenly distributed the column's values are) of the column's values. |
+| Mean | one | The arithmetic mean of the column's numeric values. |
+| Standard Deviation | one | The standard deviation of the column's numeric values. |
+| Variance | one | The variance of the column's numeric values. |
+| Range | one | The difference between the maximum and the minimum of the column's numeric values. |
+| Sum | one | The sum of the column's numeric values. |
+| Unique Value Ratio | one | The ratio of distinct values of the column to the total number of records. |
+| Column Length | one | The average character length of the column's values. |
+| Schema Match | none | The similarity, from 0 to 1, between the entity type's vocabulary keys and the vocabulary keys of a reference entity type you choose. |
+| Data Freshness | one | The age, in hours, of the most recent value of the column, which must be a date/time column. |
+
+{:.note}
+Uniqueness, Is Unique, Duplicate Row Count, Entropy, and Column Length are computed over a sample of up to 10,000 records (ordered consistently, so the result stays the same if you run the rule again against the same data) rather than every record, because they need the whole value distribution of a column instead of a single aggregate. The result includes the sample size that was actually used, so you can tell when a result is based on a sample.
