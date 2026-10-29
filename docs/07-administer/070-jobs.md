@@ -7,7 +7,7 @@ permalink: /administer/jobs
 content_type: how-to
 redirect_from: ["/management/jobs", "/development/one-time-jobs", "/development/recurring-time-jobs", "/development/scheduled-time-jobs"]
 tags: ["management", "jobs", "scheduling", "rules", "graphql"]
-last_modified: 2026-09-24
+last_modified: 2026-10-29
 ---
 
 ## On this page
@@ -167,6 +167,18 @@ For each job, you can review:
 The summary cards for the last 24 hours and last 7 days help you quickly identify whether scheduled work is succeeding or failing.
 
 If a job is not behaving as expected, review the job configuration, action, schedule, and recent run information before changing the underlying rule or GraphQL operation.
+
+## View a job's run history and report
+
+Select a job to open its detail page. The **History** tab lists every past run, with its status, when it started, when it finished, and its progress.
+
+For a finished run, select **View report** to open a panel showing what that run found or changed. For example:
+
+- An **API token expiry warnings** run reports whether any tokens were close to expiring, and lists them if so.
+- A **record deduplication by code** run reports how many duplicate records it found and merged.
+- An **over-merge detector** run reports how many potential over-merges it flagged, with details for each.
+
+A run that found nothing shows **No findings.** rather than an empty panel. A run still in progress has no report yet.
 
 ## Pause and resume scheduled work
 
