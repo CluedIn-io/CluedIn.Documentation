@@ -84,3 +84,5 @@ On the export target details page, you can do the following:
     If the export target is **Unhealthy**, you cannot select it in the export target configuration for a stream. Additionally, if you have already configured the stream and the export target becomes **Unhealthy**, you cannot start such stream.
 
 - Edit the connection details.
+
+- On the **Streams** tab, view the streams that export to this export target, and select **Create stream** to [create a new stream](/publish/streams/create-a-stream) without leaving the export target's page.
