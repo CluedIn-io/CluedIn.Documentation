@@ -182,7 +182,7 @@ A run that found nothing shows **No findings.** rather than an empty panel. A ru
 
 Where a finding is about a specific record, select it to open that record directly.
 
-If an **Execution log** section appears below the findings, it summarizes what the run's own logs said: how many information, warning, and error lines it produced, a count of outcomes by processing step, and - expandable - the actual warning and error messages. This section only appears where the environment's log server is configured for this; it's not required for the report itself to work.
+If an **Execution log** section appears below the findings, it summarizes what the run's own logs said: how many information, warning, and error lines it produced, a count of outcomes by processing step, and - expandable - the actual messages, color-coded by level. This section only appears where the environment's log server is configured for this; it's not required for the report itself to work.
 
 ## Pause and resume scheduled work
 
