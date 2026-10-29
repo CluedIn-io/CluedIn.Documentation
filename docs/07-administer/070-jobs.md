@@ -180,6 +180,8 @@ For a finished run, select **View report** to open a panel showing what that run
 
 A run that found nothing shows **No findings.** rather than an empty panel. A run still in progress has no report yet.
 
+Where a finding is about a specific record, select it to open that record directly.
+
 ## Pause and resume scheduled work
 
 When recurring work should temporarily stop, pause the job rather than deleting it.
