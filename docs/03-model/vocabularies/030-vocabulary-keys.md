@@ -58,6 +58,8 @@ This tab contains general information about the vocabulary key, including:
 
 This tab contains the global view of vocabulary key usage in the system: number of golden records, streams, glossary terms, rules, data set mappings, clean projects, deduplication projects, and saved searches where the vocabulary key is used. You can select the **View all** button to view more details and find links to the corresponding elements in the system.
 
+The list of rules also includes any rule that references the vocabulary key only inside a [Formula Action](/govern/rules/rules-reference), since that action refers to the key by name inside its Power Fx formula rather than through the rule's regular condition or action fields.
+
 ![Animation: the Usage tab of a vocabulary key showing counts of entities, streams, rules, mappings and clean projects, then selecting View all]({{ "/assets/images/management/data-catalog/vocabulary-key-usage.gif" | relative_url }})
 
 ### All values
