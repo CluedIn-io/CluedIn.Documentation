@@ -55,15 +55,35 @@ You can configure a predefined export target provided with CluedIn (such as SQL 
 
 1. Test the connection to make sure it works, and then select **Add**.
 
+    If the test fails, select **Run diagnostics** instead of (or after) **Test Connection** to see which part of the connection is the problem. See [Diagnose a connection problem](#diagnose-a-connection-problem).
+
     ![Animation: selecting Add Export Target, choosing a target on the Choose Target tab, entering connection details on the Configure tab, testing the connection, and adding it]({{ "/assets/images/consume/export-targets/export-target-configuration.gif" | relative_url }})
 
     You configured the export target. Now, it can be attached to the stream. The user who added the export target is the owner of the export target.
+
+## Diagnose a connection problem
+
+When **Test Connection** fails, it only tells you that something is wrong, not what. Select **Run diagnostics**, next to **Test Connection**, to break the connection attempt down into individual checks and see exactly which one failed:
+
+- **Gateway** – the diagnostics request reached the CluedIn server.
+- **DNS** – the configured host name resolves.
+- **Network** – the configured port is reachable.
+- **TLS** – the certificate the target presents is trusted (only checked when the target negotiates TLS directly on its port).
+- **Authentication** – the credentials are accepted.
+- **Authorization** – the account has the permissions the export target needs (for example, to create and write to a table). Currently available for SQL Server-based targets.
+- **Sample read/write** – a minimal read and write against the target succeeds. Currently available for SQL Server-based targets.
+
+Each check shows as succeeded, failed, or skipped. A check is skipped, rather than run, when an earlier check it depends on already failed — for example, if DNS resolution fails, the network, authentication, authorization, and sample read/write checks all show as skipped, because none of them can meaningfully run without a resolvable host. A skipped check tells you which earlier check blocked it, so you always know which one to fix first.
+
+Not every check applies to every export target. For example, TLS is skipped as not applicable for a target that does not negotiate TLS directly on its port, and authorization and sample read/write currently only run their full checks for SQL Server-based targets; other export targets still get the network and authentication checks.
+
+![Connectivity diagnostics dialog for a SQL Server export target, with Gateway, DNS, Network, Authentication, Authorization, and Sample read/write all succeeded, and TLS skipped as not applicable]({{ "/assets/images/consume/export-targets/connectivity-diagnostics.png" | relative_url }})
 
 ## Manage an export target
 
 On the export target details page, you can do the following:
 
-- Test the connection to the export target.
+- Test the connection to the export target, or select **Run diagnostics** to see which part of the connection is failing. See [Diagnose a connection problem](#diagnose-a-connection-problem).
 
     ![Export target details page with Test connection, the Active toggle, and the Synchronized and Healthy status labels]({{ "/assets/images/consume/export-targets/export-targets-1.png" | relative_url }})
 
