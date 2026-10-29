@@ -37,6 +37,8 @@ You can add an enricher both before and after processing the data.
 
 1. On the **Configure** tab, enter the authentication details. The list of fields that you need to complete depends on the selected enricher. You can complete the fields now or do it later on the enricher details page.
 
+    Select **Test Connection** to check whether the enricher can connect with the credentials you entered. If it fails, select **Run Diagnostics** to see which part of the connection is the problem - see [Diagnose a connection problem](/publish/export-targets#diagnose-a-connection-problem).
+
 1. Select **Save**.
 
     ![Animation: from Enrich, Add Enricher is selected, an enricher is chosen, its Configure tab is completed, and the details page opens]({{ "/assets/images/preparation/enricher/add-enricher.gif" | relative_url }})
@@ -44,6 +46,8 @@ You can add an enricher both before and after processing the data.
     The enricher details page opens, where you can view and change configuration information and other settings. The enricher is active, which means that the enrichment process will begin immediately after you start [processing](/ingest/processing/process-data). If you have already processed the data before adding an enricher, you can trigger the enrichment for the existing golden records.
 
 On the enricher details page, you can manage the enricher:
+
+- Test the connection, or select **Run Diagnostics** to see which part of a failing connection is the problem - see [Diagnose a connection problem](/publish/export-targets#diagnose-a-connection-problem).
 
 - Change the display name of the enricher. 
 
