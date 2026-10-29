@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/management/rules/create-rule"]
 source_path: docs/080-management/rules/020-create-rule.md
 tags: ["management", "rules"]
-last_modified: 2023-11-16
+last_modified: 2026-10-29
 ---
 
 ## On this page
@@ -56,6 +56,8 @@ In this article, "rule" means a rule created in the rule builder. It is not a [p
 ## Create a rule
 
 Creating a rule involves defining the golden records to which the rule will be applied and specifying the actions to modify these records. The procedure of creating a rule is the same for all types of rules. However, the actions associated with each type of rule are different.
+
+You can also start this procedure from a project: open the project, select **Add** > **Rule**, and choose the rule type on the **Choose a rule type** panel that opens. The rest of the procedure is the same.
 
 **To create a rule**
 
