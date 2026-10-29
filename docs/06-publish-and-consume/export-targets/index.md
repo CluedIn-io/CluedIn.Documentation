@@ -66,6 +66,7 @@ You can configure a predefined export target provided with CluedIn (such as SQL 
 When **Test Connection** fails, it only tells you that something is wrong, not what. Select **Run Diagnostics**, next to **Test Connection**, to break the connection attempt down into individual checks and see exactly which one failed. This is available wherever CluedIn connects to an external service - export targets, [enrichers](/govern/enrichment/add-enricher), and [AI platforms, deployments and endpoints](/govern/ai-agents/prerequisites-to-using-ai-agents) - and the checks are the same wherever it appears:
 
 - **Gateway** – the diagnostics request reached the CluedIn server.
+- **Outbound IP** – the public IP address(es) this CluedIn instance's own requests to the target come from, so you know what to add to the target's firewall allowlist. Shown when an administrator has configured it under **Administration** > **Network**; otherwise this check is skipped.
 - **DNS** – the configured host name resolves.
 - **Network** – the configured port is reachable.
 - **TLS** – the certificate the target presents is trusted (only checked when the target negotiates TLS directly on its port).
