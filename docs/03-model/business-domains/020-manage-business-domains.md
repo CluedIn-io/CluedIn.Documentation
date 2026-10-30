@@ -75,10 +75,13 @@ Depending on the selected [data modeling approach](/model/data-catalog/modeling-
 
 ## Manage a business domain
 
-You can change the following elements of the business domain configuration: display name, icon, layout, and description. You cannot change the business domain identifier and path. Also, you cannot delete the business domain.
+You can change the following elements of the business domain configuration: display name, icon, layout, description, and business domain identifier. You cannot change the path.
 
 **To edit business domain configuration**
 
 1. In the upper-right corner of the business domain page, select **Edit**.
 
 1. Make the needed changes, and then select **Save**.
+
+{:.important}
+Renaming the business domain identifier does not change the unique ID CluedIn uses internally for existing golden records, and it does not merge or split records. If no golden record currently uses the business domain, the new identifier takes effect immediately. If golden records already use it, CluedIn runs a background job to update those records to the new identifier; existing golden records keep working with the old identifier while the job runs.

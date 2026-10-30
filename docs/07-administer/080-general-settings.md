@@ -7,7 +7,7 @@ permalink: /administer/general-settings
 content_type: reference
 redirect_from: ["/administration/general-settings"]
 tags: ["administration", "settings", "notifications"]
-last_modified: 2026-10-12
+last_modified: 2026-10-28
 ---
 
 ## On this page
@@ -15,7 +15,7 @@ last_modified: 2026-10-12
 - TOC
 {:toc}
 
-**General Settings** is the default page under **Organization Settings** (available from the administration menu). It gathers organization-wide and per-user settings that don't belong to a more specific settings area, such as UI preferences, notification preferences, and cluster details.
+**General Settings** is the default page under **Organization Settings** (available from the administration menu). It gathers organization-wide and per-user settings that don't belong to a more specific settings area, such as UI preferences and notification preferences.
 
 ## Notifications
 
@@ -53,7 +53,3 @@ Notifications of a muted type are still generated — you can re-enable a type a
 ## UI preferences
 
 The **UI preferences** section controls whether users see modules in the side menu that they do not have access to. When this is enabled, users can see restricted modules and request access to them directly from the menu.
-
-## Cluster details
-
-The **Cluster details** section shows read-only information about your CluedIn cluster, including its region, CIDR, and outbound IP address(es). Outbound IP addresses are useful when a customer's export target needs to allowlist CluedIn's traffic — see, for example, the [Snowflake connector](/publish/export-targets/snowflake-connector) documentation.
