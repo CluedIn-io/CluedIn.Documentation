@@ -217,6 +217,8 @@ Testing a job is an important step because it helps achieve the following:
 {:.important}
 When you test the job, no changes are made to the your golden records. The purpose of testing is solely to provide a preview of the results that will be generated when the job is run.
 
+If the job has an **Event Trigger** [configured](#run-the-job), testing it also resolves the trigger's `{{FieldName}}` variables and scopes the data set the same way a real occurrence of that event would, using real data from your organization where it exists - so the test shows what the job would actually do, not just the literal `{{FieldName}}` placeholders.
+
 **To test the job**
 
 1. On the navigation pane, go to **AI Agents** (or, **Management** > **AI Agents**).
