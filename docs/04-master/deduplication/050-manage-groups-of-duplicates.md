@@ -53,10 +53,15 @@ To ensure the merged golden records meet your requirements, you need to process 
 
 1. On the **Fix Conflicts** tab, review conflicting values and choose the appropriate values to be used in the merged golden record. If you are not certain about the correctness of the selected values, you can **Reset Conflicts** and start again.
 
+    Each golden record in the group shows a similarity score - how closely it matches the rest of the group. The same score is shown again next to each of that golden record's values as you review conflicting properties and vocabulary keys, so you don't need to scroll back up to check it. A golden record with a low score is marked as a possible outlier and set apart from the others, so you can decide whether it should really be part of this merge.
+
     {:.important}
     Turning on the **Auto-select** toggle prevents the display of selected values on the **Fix Conflicts** tab. Instead, you can review those values on the next tab (**Preview Merge**).
 
 1. Go to the **Preview Merge** tab and review the property or vocabulary keys values that the merged golden record will hold.
+
+    {:.important}
+    Drag the divider between the **Fix Conflicts** and **Preview Merge** panes to resize them - useful when a golden record has many conflicting values to review.
 
 1. Depending on the results of your review, choose if a group is suitable for merging:
 
@@ -93,6 +98,8 @@ Only groups with the **Approved** status can be merged. For additional details o
 All merged golden records produced within the deduplication project are listed on the **Merges** tab. Selecting a golden record takes you to the **Topology** tab, where you can view the records that make up the golden record, linked together in a visual representation. The link between such records is the deduplication project. Having such link allows you to easily unmerge records in needed.
 
 ![Animation: on the Merges tab, a merged golden record is selected and its Topology tab shows the records that make it up]({{ "/assets/images/management/deduplication/check-merged-record.gif" | relative_url }})
+
+Selecting the deduplication project link on the **Topology** tab also shows the matching rule that caused the records to merge. If CluedIn cannot determine the rule - for example, because the rule was changed or removed after the merge - it shows **Not available** instead of leaving the rule blank.
 
 ## Unmerge records
 
