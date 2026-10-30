@@ -301,9 +301,13 @@ You can run the job:
 
     1. From the list, select the event that should start the job, for example **Datasource is Added**.
 
-       The fields of the event's own data become variables you can reference in the job's prompt (and in the agent's instructions) as `{{FieldName}}`. For **Datasource is Added**, this includes `{{ProviderDefinitionId}}`; other events expose their own fields the same way. If the prompt references a variable the event doesn't have, the job still runs with that variable replaced by an empty value.
+       The fields of the event's own data become variables you can reference in the job's prompt (and in the agent's instructions) as `{{FieldName}}`. For **Datasource is Added**, this includes `{{ProviderDefinitionId}}`; other events expose their own fields the same way. If the prompt references a variable the event doesn't have, the job still runs with that variable replaced by an empty value. A field that identifies another record, such as `{{ProviderDefinitionId}}`, `{{RuleId}}`, `{{VocabularyId}}`, or `{{VocabularyKeyId}}`, resolves to a short summary of that record (for example, the data source's name and status) instead of the bare ID, so the agent has something meaningful to work with.
 
     1. On the job's **Configuration** tab, select **Insert event field** next to **+ Add data** to see the event's available fields and add one to the prompt without typing the `{{FieldName}}` syntax by hand.
+
+    1. To see what the event's data would actually look like before it ever occurs, select **Test event**. The preview is built from real data in your organization where available - for example, an existing data source's details for `{{ProviderDefinitionId}}` - so you can check the prompt resolves sensibly without waiting for the event to happen.
+
+       When the event is **Datasource is Added**, the job's data set is also automatically narrowed to the records that came from the data source that triggered the run, so a prompt like "clean its data" acts on that data source instead of everything the data set would otherwise match.
 
 1. In the upper-right corner of the job page, select **Save**.
 
