@@ -44,6 +44,7 @@ Create an AI agent when you want CluedIn to analyze a set of golden records and 
 | Prompt | Skill | Not stated | One skill from the **Skills** section, such as **Fix Data Quality Issues**, **Find Duplicates** or **Create Data Validation Rules**. | **Fix Data Quality Issues** |
 | Prompt | **Instructions** | Not stated | The task in natural language, with the data source dragged in. | `Fix data quality issues in Clients: capitalize the first letter of trainingcontact.firstName` |
 | Schedule | **Recurring Schedule** | Optional | Once every N minutes, hours, or days. | Every 1 day |
+| Schedule | **Event Trigger** | Optional | A platform event that starts the job when it occurs. | `AddDatasource` |
 
 ## Create an AI agent
 
@@ -266,6 +267,8 @@ You can run the job:
 
 - Automatically on a specific schedule. You can have the job running once every N hours, days, or minutes.
 
+- Automatically when a platform event occurs, such as **Datasource is Added**.
+
 **To run a job**
 
 1. On the navigation pane, go to **AI Agents** (or, **Management** > **AI Agents**).
@@ -289,6 +292,18 @@ You can run the job:
     1.  Specify the schedule for job. You can have the job running once every N hours, days, or minutes.
 
          ![The Settings tab of an AI agent job with Recurring schedule enabled to run every 1 day]({{ "/assets/images/management/ai-agents/run-a-job/specify_a_schedule.png" | relative_url }})
+
+1. To run the job automatically whenever a platform event occurs, do the following:
+
+    1. On the job page, go to the **Settings** tab.
+
+    1. In the **Event Trigger** section, select **Enable**.
+
+    1. From the list, select the event that should start the job, for example **Datasource is Added**.
+
+       The fields of the event's own data become variables you can reference in the job's prompt (and in the agent's instructions) as `{{FieldName}}`. For **Datasource is Added**, this includes `{{ProviderDefinitionId}}`; other events expose their own fields the same way. If the prompt references a variable the event doesn't have, the job still runs with that variable replaced by an empty value.
+
+    1. On the job's **Configuration** tab, select **Insert event field** next to **+ Add data** to see the event's available fields and add one to the prompt without typing the `{{FieldName}}` syntax by hand.
 
 1. In the upper-right corner of the job page, select **Save**.
 
@@ -333,6 +348,7 @@ If, after configuring and testing the prompt, the **Test History** pane doesn't 
 - **Run in progress**: a progress bar is shown at the top of the job page. If the **Show "Started Job" notification** [setting](/govern/ai-agents/prerequisites-to-using-ai-agents#configure-organization-wide-settings-for-ai-agents) is on, you also receive a notification when the job starts.
 - **Run finished**: on the **Runs** tab, there is a run with the **Completed** status and without the **Test** label. Its suggestions are listed on the **Results** tab, where you [review them](/govern/ai-agents/review-the-results-returned-by-an-ai-agent).
 - **Schedule set**: on the **Settings** tab, **Recurring Schedule** is enabled with the interval you chose.
+- **Event trigger set**: on the **Settings** tab, **Event Trigger** is enabled with the event you chose. Each time that event occurs anywhere in your organization, a new run starts automatically; it appears on the **Runs** tab like any other run.
 
 ## What this changes
 
@@ -345,6 +361,7 @@ If, after configuring and testing the prompt, the **Test History** pane doesn't 
 - **An approved suggestion changes the golden record.** The change is recorded in the [golden record history](/master/golden-records/history) as **AI Agent Job Source** - _Agent name_ - _Job name_, and the record is listed on the job's **Affected Records** tab.
 - **Changes can be reverted**, for a whole job or for a single golden record. See [View and revert changes made by an AI agent](/govern/ai-agents/view-and-revert-changes-made-by-ai-agent).
 - **A recurring schedule** runs the job again at the interval you set. With **Modified Since Last Run** on, each run processes only the golden records modified since the last successful run.
+- **An event trigger** runs the job every time the selected event occurs, with no manual action. Unlike a recurring schedule, there's no interval to configure - the job can run as often as the event does.
 
 ## If something goes wrong
 
