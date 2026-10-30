@@ -14,11 +14,11 @@ In this article, you will learn what you need to do to make the AI assistant ava
 
 **For Azure Administrators and CluedIn Organization Administrators**
 
-CluedIn does not provide an LLM or API token to interact with Copilot. You need to provide credentials for one of the available Azure OpenAI models. We recommend using **GPT-5.1 or higher**. You cannot use different models for different skills. 
+CluedIn does not provide an LLM or API token to interact with Copilot. You need an [AI endpoint](/govern/ai-agents/prerequisites-to-using-ai-agents#configure-ai-settings) that points at one of the supported models. We recommend using **GPT-5.1 or higher**, or a comparable Claude (Anthropic) model. You cannot use different models for different skills.
 
 To make the AI assistant available in CluedIn, you need to fulfill several prerequisites:
 
-1. In your Azure OpenAI resource, make sure that you have created a deployment that uses **GPT-5.1 or higher**.
+1. [Configure an AI platform, deployment and endpoint](/govern/ai-agents/prerequisites-to-using-ai-agents#configure-ai-settings) for the model you want Copilot to use.
 
 1. Enable development features for your CluedIn instance. Depending on the type of CluedIn installation, do one of the following:
 
@@ -32,16 +32,12 @@ To make the AI assistant available in CluedIn, you need to fulfill several prere
 
 1. In CluedIn, go to **Administration** > **Azure Integration** > **Copilot**. Then, complete the following fields:
 
-    - **Base Url** – you can find this value in your Azure OpenAI resource. In Azure portal, go to **Resource Management** > **Keys and Endpoint**, and then get the value from the **Endpoint** field. Alternatively, you can find this value in Azure OpenAI Studio by going to **Playground** > **View code**.
-
-    - **API Key** – you can find this value in your Azure OpenAI resource. In Azure portal, go to **Resource Management** > **Keys and Endpoint**. You can use either KEY 1 or KEY 2.
-
-    - **Deployment** – specify the custom name you chose for your deployment when you deployed a model. In Azure portal, go to **Resource Management** > **Deployments**. Alternatively, you can find this value in Azure OpenAI Studio by going to **Management** > **Deployments**.
-
-    - **Deployment Max Tokens** – specify the number of tokens that correspond to the [model](https://platform.openai.com/docs/models/moderation) used. The minimum number should be **16384**.
+    - **Endpoint** – select the AI endpoint you configured for Copilot to use. Copilot sends its requests through this endpoint's credentials and deployment, and usage is tracked against it.
 
     - **Minimum Skill Development Stage** – specify which skills—alpha, beta, or production—you want to have available in CluedIn. Currently, almost all skills are **alpha**.
 
-        ![Copilot settings with the Base Url, API Key, Deployment, Deployment Max Tokens (16384) and Minimum Skill Development Stage (Alpha) fields]({{ "/assets/images/key-terms-and-features/copilot-2.png" | relative_url }})
+        ![Copilot settings with the Endpoint dropdown set to gpt-4.1 and Minimum Skill Development Stage set to Alpha]({{ "/assets/images/key-terms-and-features/copilot-2.png" | relative_url }})
 
-        For more information about the required variables, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython&pivots=programming-language-python#retrieve-key-and-endpoint).
+1. Select **Save**.
+
+    If the endpoint's credentials are invalid, or the model does not support a request Copilot sends, test it from **Administration** > **Artificial Intelligence** > **Endpoints** to see the underlying error.
