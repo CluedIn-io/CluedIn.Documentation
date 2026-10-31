@@ -311,6 +311,8 @@ You can run the job:
 
        When the event is **Datasource is Added**, the job's data set is also automatically narrowed to the records that came from the data source that triggered the run, so a prompt like "clean its data" acts on that data source instead of everything the data set would otherwise match.
 
+       To see the actual records this narrowing would include, use **Preview real data** in the same window: choose which properties to show, then select **Load data**.
+
 1. In the upper-right corner of the job page, select **Save**.
 
 1. When the job completes, proceed to [review the results](/govern/ai-agents/review-the-results-returned-by-an-ai-agent) returned by the AI agent.
