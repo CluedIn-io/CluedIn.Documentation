@@ -311,7 +311,7 @@ You can run the job:
 
        When the event is **Datasource is Added**, the job's data set is also automatically narrowed to the records that came from the data source that triggered the run, so a prompt like "clean its data" acts on that data source instead of everything the data set would otherwise match.
 
-       To see the actual records this narrowing would include, use **Preview real data** in the same window: choose which properties to show, then select **Load data**.
+       To see the actual records the triggering data source would produce, use **Preview real data** in the same window: choose which properties to show, then select **Load data**. This works even before the job has a data set added - it previews the records tied to the sample data source directly, so you can check what the agent would see before deciding on a data set configuration.
 
 1. In the upper-right corner of the job page, select **Save**.
 
