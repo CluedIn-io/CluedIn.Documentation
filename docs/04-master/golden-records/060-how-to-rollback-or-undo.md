@@ -88,6 +88,23 @@ Mistakes happen — whether it’s applying a transformation you didn’t mean t
 
 ---
 
+### 5. Undo Manual or Bulk Record Edits (Global Audit Log)
+- **Where**: Administer → Global Audit Log.  
+- **What It Does**:  
+  - Lists manual single-record edits (for example, editing a record's tags, aliases, description, display name, name, business domain, URI, external references or properties from its detail page) and bulk edits applied to many records at once (for example, adding a tag to every record on a page of search results) as individual, revertible entries.  
+  - Reverting an entry restores the fields it changed on the affected record to their value before the edit.  
+- **How to Use**:  
+  1. Go to **Administer > Global Audit Log**.  
+  2. Filter by object type to see record changes.  
+  3. Select one or more revertible entries.  
+  4. Click **Revert** (or **Revert since** a point in time, to revert every revertible entry from then on).  
+- **Notes**:  
+  - A record edit can only be reverted while it is still within the organization's audit log retention period, and only by a user with permission to edit that data.  
+  - Reverting an entry is itself written to the Global Audit Log, including who reverted it, when, and which original entry it reverted.  
+  - If the record was changed again since the entry you are reverting, reverting still applies — it sets the field back to its recorded previous value, which may overwrite that later change.  
+
+---
+
 ## Limitations of Rollback
 - Not all actions are reversible (e.g., permanent deletion of data after retention policy expiry).  
 - Automated pipelines may re-apply transformations after rollback unless the underlying Rule or cleaning logic is adjusted.  
@@ -106,4 +123,4 @@ Mistakes happen — whether it’s applying a transformation you didn’t mean t
 
 ## Summary
 
-CluedIn offers multiple ways to **undo or rollback changes**, including undoing data changes, unmerging Golden Records, and reverting entire cleaning projects. Combined with detailed audit trails and version history, these features give you confidence to manage your data safely — knowing that mistakes can be corrected without permanent damage.
+CluedIn offers multiple ways to **undo or rollback changes**, including undoing data changes, unmerging Golden Records, reverting entire cleaning projects, and reverting manual or bulk record edits from the Global Audit Log. Combined with detailed audit trails and version history, these features give you confidence to manage your data safely — knowing that mistakes can be corrected without permanent damage.
