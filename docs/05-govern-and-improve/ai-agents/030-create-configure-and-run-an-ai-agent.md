@@ -311,6 +311,8 @@ You can run the job:
 
        When the event carries a `{{ProviderDefinitionId}}` - **Datasource is Added** and **Datasource Processing Finished** both do - the job's data set is also automatically narrowed to the records that came from the data source that triggered the run, so a prompt like "clean its data" acts on that data source instead of everything the data set would otherwise match.
 
+       Next to a field that resolves to a summary or narrows the data set, the **Test event** window shows a **Resolved summary** and/or **Narrow data set** toggle. Both are on by default; turn either off per field if you'd rather the bare value substitute into the prompt, or the data set stay unnarrowed by that field.
+
        To see the actual records the triggering data source would produce, use **Preview real data** in the same window: choose which properties to show, then select **Load data**. This works even before the job has a data set added - it previews the records tied to the sample data source directly, so you can check what the agent would see before deciding on a data set configuration.
 
 1. In the upper-right corner of the job page, select **Save**.
