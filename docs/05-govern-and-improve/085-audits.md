@@ -58,3 +58,24 @@ Below the KPI row, **Audit history** lists every audit as a table (Audit, Status
     ![The Audit history table after creating an audit, showing an updated KPI row and the new audit's row and recent-activity entry]({{ "/assets/images/governance/audits/audit-history-populated.png" | relative_url }})
 
 Select an audit's name to open its detail page, where you work through its findings, and - for a manual audit - mark records correct or not correct yourself.
+
+## The audit detail page
+
+![The audit detail page for a stopped audit, showing the Audit outcomes donut chart, the Audit progress card, the findings table, and the all-correct success banner]({{ "/assets/images/governance/audits/audit-detail-overview.png" | relative_url }})
+
+The header's primary action tracks the audit's lifecycle:
+
+- **Not started** - **Start audit** begins it.
+- **Active** - **Stop audit** ends it; an AI-based audit also gets **Run AI audit**, which queues the next evaluation pass.
+- **Stopped** - **Resume audit** reactivates it. Only one audit can be active per person at a time - starting or resuming one while you already have another active fails with an error.
+
+**Export findings** and the **⋮** menu's **Refresh** are available regardless of status.
+
+**Audit outcomes** breaks down every reviewed record so far - records reviewed, correct, not correct, and percent correct - both as four tiles and as a donut chart. **Audit progress** shows the same reviewed count alongside the audit's status; once an audit is stopped, it reads 100% complete, since a stopped audit will not review anything further.
+
+The right-hand panel has two cards:
+
+- **Audit summary** - the audit's type (its template or "Custom"), mode, overall outcome, and who created it.
+- **Activity timeline** - the audit's own real events, in order: created, started, records reviewed, and stopped - whichever of these have actually happened yet.
+
+The findings table below lists every record the audit has reviewed, with tabs for **All records**, **Not correct**, and **Correct**, a search box, and a Source filter. Each row's **⋮** menu opens the record and, for a not-correct finding, marks it resolved (or reopens it) and clears its assignee. When every reviewed record in the audit is correct, a success banner appears below the table.
