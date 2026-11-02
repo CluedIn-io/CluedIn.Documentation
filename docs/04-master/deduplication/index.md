@@ -36,3 +36,5 @@ This section covers the following areas:
 - [Reference information about deduplication projects](/master/deduplication/deduplication-reference) – find information about matching functions, rule conditions, deduplication project statuses, and group statuses.
 
 - [Matching one of multiple fields](/master/deduplication/match-one-of-multiple-fields) – learn how to identify duplicates when any value from a group of fields matches across records.
+
+- [Creating a Split project](/master/deduplication/create-a-split-project) – learn how to re-evaluate merged golden records against a rule set and split apart the ones that no longer match.
