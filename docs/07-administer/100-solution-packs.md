@@ -112,3 +112,11 @@ Any pack — built-in or custom — can be exported as a package: select **Expor
   alongside a Configuration Migration bundle of the Vocabularies it installed. This is also how you turn a
   built-in pack into a starting point for your own custom pack — export it, then upload the result after editing
   it, which registers it as a separate Custom pack rather than replacing the original.
+
+## Remove a custom pack
+
+Open a **Custom** pack's details page and select **Remove** to delete its uploaded package and drop it from the
+catalogue. Remove only appears while the pack is **Not installed** — uninstall it first if it is currently
+installed. This cannot be undone; export the pack first if you might want it again.
+
+Only custom packs can be removed. The built-in catalogue is not affected.
