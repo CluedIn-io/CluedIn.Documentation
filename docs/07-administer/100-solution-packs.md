@@ -15,9 +15,9 @@ last_modified: 2026-11-02
 {:toc}
 
 A Solution Pack is an industry or domain accelerator that bundles prebuilt Rules, Matching configurations,
-Dashboards, Workflow templates, Business Domains, Vocabularies and AI Agents for a specific use case, such as
-retail master data or financial services customer 360. Installing a pack is a faster starting point than building
-the same configuration by hand.
+Dashboards, Workflow templates, Business Domains, Vocabularies, AI Agents, suggested Roles, Golden Record rules,
+Data Profiling rules and Glossary terms for a specific use case, such as retail master data or financial services
+customer 360. Installing a pack is a faster starting point than building the same configuration by hand.
 
 Browse, install, update and uninstall packs from **Settings** > **Marketplace** > **Solution Packs**.
 
@@ -32,11 +32,12 @@ Installed status. Each pack shows:
 - Whether it is CluedIn Verified, its compatibility range and version.
 - How many other organizations have installed it, and when it was last updated.
 - A count of each kind of artifact it includes (Rules, Matching configs, Dashboards, Workflows, Business Domains,
-  Vocabularies, AI Agents).
+  Vocabularies, AI Agents, Roles, Golden Record rules, Data Profiling rules, Glossary terms).
 
-Select **View details** on a pack to see its full description and the individual artifacts it includes.
+Select **View details** on a pack to open its details page, with its full description and every artifact it
+includes, grouped by kind.
 
-![The Solution Pack details panel for Retail Master Data Starter, listing its Rules, Matching configs, Dashboards, Workflows, Business Domains, Vocabularies and AI Agents]({{ "/assets/images/administration/solution-packs/solution-packs-details-panel.png" | relative_url }})
+![The Solution Pack details page for Healthcare Data Quality, listing its Rules, Matching configs, Dashboards, Workflows, Business Domains, Vocabularies, AI Agents, Role, Golden Record rules, Data Profiling rules and Glossary terms]({{ "/assets/images/administration/solution-packs/solution-packs-details-panel.png" | relative_url }})
 
 ### Recommended for your workspace
 
@@ -58,10 +59,11 @@ Installing a pack creates the [Business Domains]({{ "/model/business-domains" | 
 immediately visible on their own pages. A business domain that already exists under the same name is reused
 rather than duplicated.
 
-The pack's other declared artifacts — Rules, Matching configurations, Dashboards, Workflow templates and AI
-Agents — are tracked against the installed pack, and their counts are shown on the pack's card and details panel,
-but they are not yet created as working configuration in their own areas. The pack's details panel marks each
-artifact **Available now** or **Tracked with this pack; not yet available in its own area** accordingly.
+The pack's other declared artifacts — Rules, Matching configurations, Dashboards, Workflow templates, AI Agents,
+suggested Roles, Golden Record rules, Data Profiling rules and Glossary terms — are tracked against the installed
+pack, and their counts are shown on the pack's card and details page, but they are not yet created as working
+configuration in their own areas. The pack's details page marks each artifact **Available now** or **Tracked with
+this pack; not yet available in its own area** accordingly.
 
 ## Update a pack
 
@@ -76,8 +78,9 @@ Vocabularies the pack installed. If a business domain is still referenced by a v
 separately, that business domain is left in place rather than failing the whole uninstall — uninstall always
 clears the pack's own installed-state tracking, even when some of what it created could not be fully removed.
 
-Rules, Matching configurations, Dashboards, Workflows and AI Agents the pack declared are not affected, since
-installing a pack does not yet create them as working configuration — see [What this creates](#what-this-creates).
+Rules, Matching configurations, Dashboards, Workflows, AI Agents, suggested Roles, Golden Record rules, Data
+Profiling rules and Glossary terms the pack declared are not affected, since installing a pack does not yet create
+them as working configuration — see [What this creates](#what-this-creates).
 
 ## Upload a custom pack
 
