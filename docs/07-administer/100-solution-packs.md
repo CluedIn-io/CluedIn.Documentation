@@ -78,3 +78,34 @@ clears the pack's own installed-state tracking, even when some of what it create
 
 Rules, Matching configurations, Dashboards, Workflows and AI Agents the pack declared are not affected, since
 installing a pack does not yet create them as working configuration — see [What this creates](#what-this-creates).
+
+## Upload a custom pack
+
+Besides the built-in catalogue, you can upload your own Solution Pack package. A package is the same zip format
+[Import/Export Configuration]({{ "/operate/configuration/configuration-import-export" | relative_url }}) already uses: a
+`solution-pack-manifest.json` describing the pack, optionally alongside a Configuration Migration bundle of real
+Vocabularies.
+
+1. On the navigation pane, go to **Settings** > **Marketplace** > **Solution Packs**.
+1. Select **Upload pack**, at the top of the catalogue.
+1. Choose a `.zip` package.
+
+The uploaded pack appears in the catalogue tagged **Custom**, alongside the built-in packs, with a status of
+**Not installed**. Installing it works the same way as any other pack — see [Install a pack](#install-a-pack). If
+its package bundled a Configuration Migration bundle of Vocabularies, installing it imports them in one pass
+through the same pipeline Import Configuration uses, rather than one artifact at a time.
+
+An uploaded package must contain a valid `solution-pack-manifest.json`; anything else is rejected with an error
+explaining why.
+
+## Export a pack
+
+Any pack — built-in or custom — can be exported as a package: select **Export** on its row in **Installed packs**.
+
+![The Installed packs table, with View details, Export and Uninstall actions on a row]({{ "/assets/images/administration/solution-packs/solution-packs-installed-actions.png" | relative_url }})
+
+- Exporting a **custom** pack re-downloads exactly what was uploaded for it.
+- Exporting a **built-in** pack builds a package from what your organization actually has installed: its manifest,
+  alongside a Configuration Migration bundle of the Vocabularies it installed. This is also how you turn a
+  built-in pack into a starting point for your own custom pack — export it, then upload the result after editing
+  it, which registers it as a separate Custom pack rather than replacing the original.
