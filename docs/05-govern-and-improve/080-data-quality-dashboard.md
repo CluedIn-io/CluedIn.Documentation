@@ -7,8 +7,8 @@ permalink: /govern/data-quality-dashboard
 content_type: concept
 redirect_from: ["/governance/data-quality-dashboard"]
 source_path: docs/070-governance/030-data-quality-dashboard.md
-tags: ["governance", "data quality", "metrics", "accuracy", "completeness", "connectivity", "relevance", "consistency", "currentness", "iso 25012", "business domains", "sources", "ai agents", "trust center", "provenance", "explainability", "human accountability", "thresholds", "needs attention"]
-last_modified: 2026-11-01
+tags: ["governance", "data quality", "metrics", "accuracy", "completeness", "connectivity", "relevance", "consistency", "currentness", "iso 25012", "business domains", "sources", "ai agents", "trust center", "provenance", "explainability", "human accountability", "thresholds", "needs attention", "trusted vocabularies", "copilot"]
+last_modified: 2026-11-02
 ---
 
 ## On this page
@@ -19,7 +19,7 @@ last_modified: 2026-11-01
 The **Data Quality Dashboard** gives you a single, visual overview of the quality of the data mastered in CluedIn. It is built on nine data quality metrics—**Accuracy**, **Completeness**, **Connectivity**, **Consistency**, **Currentness**, **Relevance**, **Provenance**, **Explainability**, and **Human Accountability**—and breaks them down by business domain, by source, by AI agent, and by overall trust, so you can quickly see where data quality issues are concentrated and act on them.
 
 {:.note}
-Consistency, Currentness, Provenance, and Explainability are per-record metrics. Consistency measures how often different sources agree on the same property value. Currentness measures how recently a record was last modified relative to an expected refresh interval (configurable by an administrator, 90 days by default). Provenance measures whether a record's data can be traced back to a known source. Explainability measures whether a record's properties map to a governed, documented vocabulary key rather than an untracked, free-form value. Human Accountability is the only organization-wide (not per-record) metric of the nine — see [Trust Dimensions](#trust-dimensions) below.
+Consistency, Currentness, Provenance, Explainability, and Relevance are per-record metrics. Consistency measures how often different sources agree on the same property value. Currentness measures how recently a record was last modified relative to an expected refresh interval (configurable by an administrator, 90 days by default). Provenance measures whether a record's data can be traced back to a known source. Explainability measures whether a record's properties map to a governed, documented vocabulary key rather than an untracked, free-form value. Relevance measures the share of a record's mapped vocabulary keys that belong to a vocabulary [marked Trusted](/model/vocabularies/manage-vocabularies#vocabulary-details-page) — a record with most of its mapped keys in a Trusted vocabulary scores higher than one mapped mostly to untrusted vocabularies, regardless of how many vocabularies it touches overall. Human Accountability is the only organization-wide (not per-record) metric of the nine — see [Trust Dimensions](#trust-dimensions) below.
 
 **To open the Data Quality Dashboard**
 
@@ -62,6 +62,21 @@ Every metric tile, on the Overview tab and in the Trust Center, lets you set a t
 
 {:.note}
 A threshold of 0, or no threshold set, means the metric has no target configured — no badge is shown and it's never flagged as below target.
+
+## Metric detail page
+
+Selecting a score — a KPI tile's **View records** link, or a cell in the [Quality by Business Domain](#quality-by-business-domain) or [Quality by Source](#quality-by-source) table — opens a detail page scoped to that specific metric and dimension, so a score of 88% for a business domain's Accuracy takes you straight to the records behind that domain's Accuracy score, not the organization-wide one.
+
+The detail page shows:
+
+- The current value and a trend chart, sorted worst-score-first by default.
+- A **Compare with** selector, grouped by Business Domain and Source, that overlays a second line on the chart for comparison. It never lists crawler or connector types, since comparing a score against a connector type isn't a meaningful axis.
+- A short guidance banner naming what the metric measures and a **Go to** shortcut to the part of the platform that improves it — for example, Accuracy's shortcut goes to Enrichment, and Completeness's goes to Clean.
+- For a metric with a real Copilot skill behind its fix (currently Explainability), a **Fix with AI** action next to the shortcut. It starts a new Copilot chat session with a prompt scoped to the issue and takes you there, so you watch and can refine whatever Copilot proposes before it's applied — it doesn't change anything on its own. This action only appears when Copilot is configured for your organization.
+- An **Entities used for calculation** table listing the golden records contributing to the score.
+
+{:.note}
+The entities table currently lists records only when viewing a metric's organization-wide score. Opening the detail page from a specific business domain or source scopes the chart and the comparison correctly, but the entities table does not yet filter down to that dimension.
 
 ## Needs attention
 
