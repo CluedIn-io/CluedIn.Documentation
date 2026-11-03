@@ -25,6 +25,7 @@ The Home page is made up of individual widgets - KPIs, charts, the Steward Inbox
 - **Steward inbox** - the number of outstanding steward tasks, with a link to the full [Steward Inbox]({{ "/govern-and-improve/workflows" | relative_url }}).
 - **Data quality overview** - the overall percentage of bad data across your organization's quality metrics.
 - **Data quality by source** - the percentage of bad data broken down by data source, worst first.
+- **Data profile rule** - the last result of a Data Profile Rule you choose: its computed value, whether it passed, and when it last ran, with a button to run it again.
 
 A user who has not chosen their own layout, and whose role has no default layout configured, sees the original five widgets (KPIs, Requires attention, Business domains and tags, Statistics, and Useful links) in a single column - the Home page's unchanged default.
 
@@ -53,6 +54,12 @@ Switching shape keeps a widget in its zone when both shapes have a zone with tha
 Once saved, your Home page renders the shape you chose, with each widget in the zone you placed it in.
 
 ![The Home page showing the Steward inbox widget alone in the left column of a two columns, split right layout]({{ "/assets/images/administration/home-page-layout/home-with-widgets.png" | relative_url }})
+
+### The Data profile rule widget
+
+The first time this widget shows on your Home page, it asks which Data Profile Rule to track. Once you pick one, it shows that rule's last result - its computed value, a pass or fail indicator, the metric type, and when it last ran - and a refresh button in its top-right corner to run the rule again on demand. Select the rule's name to pick a different one. This choice is remembered on this device only; it doesn't travel with your saved layout to another device.
+
+![The Data profile rule widget showing a computed value of 1, a green Passed indicator, the Row count metric, and a timestamp]({{ "/assets/images/administration/home-page-layout/data-profile-rule-widget.png" | relative_url }})
 
 ## Configure a default layout per role
 
