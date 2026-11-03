@@ -21,6 +21,8 @@ In this article, you will learn how to do the following:
 
 - Modify the hierarchy.
 
+- Refresh the nodes with the latest golden record details.
+
 - Use various tools to make working with the hierarchy more convenient.
 
 ## Load golden records
@@ -82,6 +84,37 @@ While working in a hierarchy project, you can replace nodes or delete a node or 
         The nodes are deleted from the hierarchy. However, they are still available in the left pane, so you can drag them to the canvas again if needed.
 
 If you accidentally replaced or deleted a node, you can revert the changes using the **Undo** action. To bring the changes back, use the **Redo** action.
+
+## Sync entities
+
+Golden records can change after you add them to a hierarchy project, for example when someone renames a golden record or changes its business domain. To bring the nodes up to date, use the **Sync Entities** button.
+
+**To sync entities**
+
+1. In the toolbar of the hierarchy project page, select **Sync Entities**. The button is between **Redo** and **Delete**.
+
+    For each node in the project, CluedIn finds the golden record and refreshes the node's name, business domain, icon, and preview image.
+
+1. Check the message that appears on the page:
+
+    - **Synced entities** – some nodes were updated.
+
+    - **Synced. All entities are already up to date** – no node needed a change.
+
+    - **Sync failed** – the sync did not complete. Try again.
+
+1. Review the updated nodes. A node can show one of the following:
+
+    - **[NotFound] &lt;name&gt;** – the golden record no longer exists.
+
+    - **Restricted** – you do not have access to the golden record.
+
+1. To keep the changes, select **Save** in the upper-right corner of the page. To update the relations between golden records, select **Publish**.
+
+{: .important }
+**Sync Entities** refreshes only the details of the nodes that are already in the project. It does not load new golden records or pick up changed parent relations, and it does not change which nodes are in the project or how they are connected. The result is an unsaved change until you save the project.
+
+CluedIn records each sync as a **Refresh hierarchy** entry in the audit log.
 
 ## Use hierarchy tools
 
