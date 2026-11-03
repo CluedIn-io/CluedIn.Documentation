@@ -30,7 +30,7 @@ There are several ways to create a hierarchy:
 - [Create a hierarchy based on relations](#create-a-hierarchy-based-on-relations) – choose this option if you want to leverage the existing relations between golden records and visualize them in the hierarchy.
 
 {: .important }
-After you save a hierarchy project, the hierarchy remains static. If any changes are made to the relations or edges outside of the hierarchy project, these changes do not become reflected in the hierarchy.
+After you save a hierarchy project, the hierarchy remains static. If any changes are made to the relations or edges outside of the hierarchy project, these changes do not become reflected in the hierarchy. To refresh node details such as the name and business domain, see [Sync entities](/model/hierarchies/work-in-a-hierarchy-project#sync-entities).
 
 ## Create a hierarchy manually
 
@@ -73,7 +73,7 @@ Creating a hierarchy manually gives you the possibility to build it from scratch
     Now, when you go the **Hierarchies** tab of any golden record from the hierarchy, you can view the created hierarchy.
 
     {: .important }
-    After you save the hierarchy project, the hierarchy remains static. If any changes are made to the relations or edges outside of the hierarchy project, these changes do not become reflected in the hierarchy.
+    After you save the hierarchy project, the hierarchy remains static. If any changes are made to the relations or edges outside of the hierarchy project, these changes do not become reflected in the hierarchy. To refresh node details such as the name and business domain, see [Sync entities](/model/hierarchies/work-in-a-hierarchy-project#sync-entities).
 
 1. To create actual edges between the entities as you have designed in the project, in the upper-right corner of the page, select **Publish**. Then, confirm that you want to publish the hierarchy.
 
@@ -136,7 +136,7 @@ Sometimes your data has natural hierarchies that are represented as relations. Y
     Now, when you go the **Hierarchies** tab of any golden record from the hierarchy, you can view the created hierarchy.
 
     {: .important }
-    After you save the hierarchy project, the hierarchy remains static. If any changes are made to the relations or edges outside of the hierarchy project, these changes do not become reflected in the hierarchy.
+    After you save the hierarchy project, the hierarchy remains static. If any changes are made to the relations or edges outside of the hierarchy project, these changes do not become reflected in the hierarchy. To refresh node details such as the name and business domain, see [Sync entities](/model/hierarchies/work-in-a-hierarchy-project#sync-entities).
 
 1. To create actual edges between the entities as you have designed in the project, select **Publish** in the upper-right corner of the page. Then, confirm that you want to publish the hierarchy.
 
