@@ -30,9 +30,9 @@ A user who has not chosen their own widgets, and whose role has no default layou
 
 ## Customize your own Home page
 
-Select **Customize home page** in the top-right corner of the Home page, then check or clear the widgets you want to see. Your selection is saved to your account and loads the same way the next time you sign in, on any device.
+Open your account menu and select **User Settings**, then under **Home page widgets** select **Customize home page**. Check or clear the widgets you want to see, then select **Save**. Your selection is saved to your account and loads the same way the next time you sign in, on any device.
 
-![The Home page with the Customize home page panel open, showing a checklist of all eight widgets]({{ "/assets/images/administration/home-page-layout/customize-panel.png" | relative_url }})
+![The User Settings page's Home page widgets section, with the Customize home page panel open showing a checklist of all eight widgets]({{ "/assets/images/administration/home-page-layout/customize-panel.png" | relative_url }})
 
 Once saved, the widgets you chose appear on your Home page. The original widgets keep their full-width layout; the Steward inbox and data quality widgets are sized as smaller cards and appear side by side when more than one is enabled.
 
