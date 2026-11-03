@@ -174,6 +174,8 @@ Processing runs in the background. Selecting **Confirm**, or new data arriving w
 
 - **On the Monitoring tab**, the queue message counts return to 0 when there is nothing left to process. See [Monitoring](/ingest/troubleshooting/monitoring).
 
+- **As a notification**, once all processing across the organization has finished, CluedIn proactively surfaces a "Duplicates found" notification if any deduplication project has unresolved duplicate groups, and a "Data quality issues found" notification if any data quality metric is below its configured threshold. See [Deduplication](/master/deduplication) and [Data quality dashboard](/govern/data-quality-dashboard) to review and act on what was found.
+
 ## What this changes
 
 - **Golden records.** Processed records become new golden records, or are added as data parts to existing golden records. Records with identical primary identifiers are merged.

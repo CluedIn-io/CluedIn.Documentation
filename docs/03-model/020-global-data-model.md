@@ -7,7 +7,7 @@ permalink: /model/global-data-model
 content_type: how-to
 redirect_from: ["/governance/global-data-model"]
 tags: ["governance", "data model", "ontology", "business domains", "relationships"]
-last_modified: 2026-09-24
+last_modified: 2026-10-30
 ---
 
 ## On this page
@@ -35,6 +35,7 @@ Depending on the data in your environment, the model can show:
 - **Edge types** – labels that describe the meaning of a relationship, such as `/WorksFor`, `/Contains`, `/ProducedAt`, or `/References`.
 - **Record counts** – the number of records associated with a business domain.
 - **Relationship counts** – the number of relationships represented by an edge.
+- **Trust score** – the mean of a business domain's applicable data quality dimensions (accuracy, completeness, connectivity, consistency, currentness, explainability, provenance, and relevance), shown as a percentage.
 
 The result is a high-level map of the data model that exists across CluedIn.
 
@@ -76,6 +77,8 @@ You can use the graph controls to zoom in and out when working with a large mode
 
 For larger environments, the model can contain many business domains and relationships. Use the filtering and display controls to reduce the amount of information shown at one time.
 
+Select a business domain card to open its detail panel. The panel shows general statistics (including the business domain's Trust score), its vocabularies, and its data quality metrics.
+
 ## Search for business domains
 
 Use the **Search business domains** field to find a specific business domain in the model.
@@ -114,6 +117,12 @@ This can help you understand how different source systems contribute to the over
 Use **Minimum records** to hide very small business domains and focus on domains containing a larger number of records.
 
 This can make a large graph easier to interpret by removing low-volume domains from the current view.
+
+### Minimum trust score
+
+Use **Minimum trust score** to hide business domains whose Trust score falls below a chosen percentage.
+
+A business domain's Trust score is only compared against the threshold when it has at least one applicable data quality dimension. A business domain with no data quality metrics is kept visible rather than filtered out, since there is nothing to judge it against.
 
 ## Control what is displayed
 
