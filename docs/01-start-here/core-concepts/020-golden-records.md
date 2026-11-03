@@ -182,6 +182,8 @@ The available tabs include:
 
 - **Deduplication** – view suggested duplicate clusters that include this golden record.
 
+- **Audit** – view the audits that this golden record has been part of, and whether it was marked correct or not correct in each one.
+
 - **Pending changes** – view changes that are waiting to be applied or approved.
 
 - [**History**](/master/golden-records/history) – view all data parts (versions of clues that make up a data part) of a golden record as well as all outgoing relations (edges) of a golden record.
