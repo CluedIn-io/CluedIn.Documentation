@@ -18,6 +18,8 @@ tags: ["administration", "roles"]
 
 In this article, you will learn how to assign and remove roles for users to manage their access to features within CluedIn.
 
+A role change applies to the user's active session automatically, within moments, so the user does not need to sign out and sign in again. If a change does not seem to have applied yet, the user can speed this up from their account menu in the upper-right corner, by selecting **Refresh my permissions**.
+
 ## Assign roles
 
 After you [add a user to CluedIn](/administer/users-and-roles/user-management), you can give the user access to more features within the platform by adding other roles to the user.
@@ -30,7 +32,7 @@ You can assign roles to the users in two places within the platform:
 
 The following diagram shows the flow of assigning roles to users.
 
-![Flow diagram: a user with the required access level assigns a role to a user; the user receives an email with the role change notification, signs out and signs in to CluedIn, then explores and uses the features granted by the new role]({{ "/assets/images/administration/roles/add-role-diagram.gif" | relative_url }})
+![Flow diagram: a user with the required access level assigns a role to a user; the user receives an email with the role change notification, and explores and uses the features granted by the new role in their active session]({{ "/assets/images/administration/roles/add-role-diagram.gif" | relative_url }})
 
 ### Assign roles in Users
 
@@ -52,7 +54,7 @@ You can review the roles that are already assigned to the user and assign other 
 
     ![The Roles tab of a user's details page listing the assigned OrganizationAdmin role, with the Add role to user button]({{ "/assets/images/administration/roles/add-role-2.png" | relative_url }})
 
-    The user will receive an email about the role changes. For the changes to take effect, the user has to sign out and sign in again.
+    The user will receive an email about the role changes. The change applies to the user's active session automatically; they do not need to sign out and sign in again.
 
 ### Assign roles in Roles
 
@@ -74,13 +76,13 @@ You can review the users who have been already added to the role and add other u
 
     ![The Users tab of the DataGovernance role listing the two users that were added to the role]({{ "/assets/images/administration/roles/add-role-4.png" | relative_url }})
 
-    The users will receive an email about the role changes. For the changes to take effect, the users have to sign out and sign in again.
+    The users will receive an email about the role changes. The change applies to their active session automatically; they do not need to sign out and sign in again.
 
 ## Remove roles
 
 The following diagram shows the flow of removing roles from users.
 
-![Flow diagram: a user with the required access level removes a role from a user; the user receives an email with the role change notification, signs out and signs in to CluedIn, then can no longer access the features granted by the removed role]({{ "/assets/images/administration/roles/remove-role-diagram.gif" | relative_url }})
+![Flow diagram: a user with the required access level removes a role from a user; the user receives an email with the role change notification, and can no longer access the features granted by the removed role in their active session]({{ "/assets/images/administration/roles/remove-role-diagram.gif" | relative_url }})
 
 **To remove roles from a user**
 
@@ -96,4 +98,4 @@ The following diagram shows the flow of removing roles from users.
 
     ![The Users tab of the DataGovernance role with one user selected and the Remove from role action shown]({{ "/assets/images/administration/roles/remove-role-1.png" | relative_url }})
 
-    The role is removed from the user. The user will receive an email about the role changes. For the changes to take the effect, the users have to sign out and sign in again.
+    The role is removed from the user. The user will receive an email about the role changes. The change applies to their active session automatically; they do not need to sign out and sign in again.
