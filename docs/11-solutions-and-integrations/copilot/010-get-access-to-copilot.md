@@ -14,11 +14,11 @@ In this article, you will learn what you need to do to make the AI assistant ava
 
 **For Azure Administrators and CluedIn Organization Administrators**
 
-CluedIn does not provide an LLM or API token to interact with Copilot. You need an [AI endpoint](/govern/ai-agents/prerequisites-to-using-ai-agents#configure-ai-settings) that points at one of the supported models. We recommend using **GPT-5.1 or higher**, or a comparable Claude (Anthropic) model. You cannot use different models for different skills.
+CluedIn does not provide an LLM or API token to interact with Copilot. You need an [AI endpoint](/govern/ai-agents/prerequisites-to-using-ai-agents) that points at one of the supported models. We recommend using **GPT-5.1 or higher**, or a comparable Claude (Anthropic) model. You cannot use different models for different skills.
 
 To make the AI assistant available in CluedIn, you need to fulfill several prerequisites:
 
-1. [Configure an AI platform, deployment and endpoint](/govern/ai-agents/prerequisites-to-using-ai-agents#configure-ai-settings) for the model you want Copilot to use.
+1. [Enable the AI Agents feature, then configure an AI platform, deployment and endpoint](/govern/ai-agents/prerequisites-to-using-ai-agents) for the model you want Copilot to use.
 
 1. Enable development features for your CluedIn instance. Depending on the type of CluedIn installation, do one of the following:
 
