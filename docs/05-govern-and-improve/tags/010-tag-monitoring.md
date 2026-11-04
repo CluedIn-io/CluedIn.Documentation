@@ -33,6 +33,8 @@ In addition to providing insight, the Tag Monitoring module also allows you to a
 
 - [Organize tags with folders and colours](#organize-tags-with-folders-and-colours).
 
+- [Create aggregate tag alerts](#create-aggregate-tag-alerts) to be notified when tag usage crosses a threshold.
+
 - [Fix tagged records using AI agents](#fix-tagged-records-with-ai).
 
 - [Create a clean project](#create-a-clean-project-for-tagged-records) for the tagged records.
@@ -238,6 +240,49 @@ When designing your tag categories:
 - Review your folder structure periodically and consolidate categories that are no longer useful.
 
 A well-organized Tag Monitoring structure makes it easier for data stewards to understand which issues exist, who owns them, and which group of tags should be investigated first.
+
+## Create aggregate tag alerts
+
+Besides monitoring individual tags, you can create **alert rules** that watch the total number of tagged golden records across your organization and notify every user with the OrganizationAdmin role in-app as soon as a condition is met.
+
+An alert rule can be one of the following types:
+
+- **Absolute threshold** – triggers the first time the aggregate tag count reaches a fixed number. For example, "notify me as soon as the aggregate tag count gets over 5000".
+
+- **Rate** – triggers when the aggregate tag count increases by a fixed amount within a rolling time window. For example, "notify me if more than 50 tags are added in 2 minutes".
+
+Once triggered, a rule stays in a triggered state until the condition is no longer met (for a rate rule) or until you disable or delete it (for an absolute threshold rule).
+
+{:.important}
+Alert rules evaluate the aggregate number of tagged golden records across all tags, not a single tag. To be notified about activity on one specific tag, use [Fix tagged records with AI](#fix-tagged-records-with-ai) or review the tag's chart directly instead.
+
+**To create an aggregate tag alert**
+
+1. On the navigation pane, go to **Governance** > **Tag Monitoring**.
+
+1. Above the tags panel, select **Alerts**.
+
+    The **Aggregate tag alerts** panel opens on the right of the page.
+
+1. Enter a **Name** for the rule.
+
+1. Enter the **Threshold** number of tagged golden records.
+
+1. If you want a rate-based rule, enter a **Window (minutes)**. Leave this field empty to create an absolute-threshold rule instead.
+
+1. Select **Add**.
+
+    The rule is created and appears in the list, where you can see whether it is currently triggered.
+
+**To enable, disable, or delete an alert rule**
+
+1. On the navigation pane, go to **Governance** > **Tag Monitoring**, and then select **Alerts**.
+
+1. On the rule you want to change, do one of the following:
+
+    - Use the **Enabled** checkbox to turn the rule on or off. A disabled rule is not evaluated and cannot trigger a notification.
+
+    - Select the delete icon to remove the rule.
 
 ## Fix tagged records with AI
 

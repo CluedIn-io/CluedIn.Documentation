@@ -129,7 +129,7 @@ An endpoint is the address (URL) through which AI agents communicate with the de
     - Caching can reduce model usage and cost, but a long cache duration may reuse an earlier result instead of sending a fresh request to the model.
 
     {:.important}
-    The **Endpoint Type** defines the kind of service the model endpoint should handle. Currently, only the **Chat** type is available – it supports conversational interactions with context.
+    The **Endpoint Type** defines the kind of service the model endpoint should handle. **Chat** supports conversational interactions with context and is used by AI agents. **Embedding** supports generating vector embeddings and can be selected as the embedding endpoint used by [unstructured data ingest](/ingest) to embed the text extracted from unstructured documents.
 
     ![The Create pane for an AI endpoint, with Name, Deployment set to gpt-4.1, and Endpoint Type set to Chat]({{ "/assets/images/management/ai-agents/configure-an-endpoint/create_endpoint_pane.png" | relative_url }})
 

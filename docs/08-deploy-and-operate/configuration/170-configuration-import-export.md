@@ -63,6 +63,7 @@ The page contains separate areas for:
 
 - **Exports** – create and manage configuration packages produced from the current environment.
 - **Imports** – import a configuration package into the current environment.
+- **Instances** – save a direct connection to another CluedIn environment so you can ship configuration to it, or pull configuration from it, without manually downloading and uploading a package each time. See [Saved instances](#saved-instances).
 
 ## Export configuration
 
@@ -110,6 +111,29 @@ For example, after exporting configuration from Development:
 1. Run the import.
 
 After validating the configuration in Test, you can repeat the process to promote the approved package to Production.
+
+## Saved instances
+
+A saved instance is a stored, reusable connection to another CluedIn environment. Instead of exporting a package and manually importing it, you can ship configuration directly to a saved instance, or pull configuration from it.
+
+**To create a saved instance**
+
+1. Go to **Administration** > **Configuration Import / Export**.
+
+1. Select **Instances**.
+
+1. Select **Create instance** (or the equivalent action) and provide the connection details for the other CluedIn environment.
+
+1. Test the connection to confirm that CluedIn can reach the other environment before using it.
+
+Once a saved instance is created, you can:
+
+- **Compare stats** – see a summary comparison between the current environment and the saved instance, so you can tell what differs before shipping or pulling configuration.
+- **Preview a ship** – review what a push of configuration to the saved instance would include before you run it.
+- **Ship configuration** – push the previewed configuration to the saved instance.
+- **Review the sync log** – see the history of configuration that has been shipped to or pulled from the saved instance.
+
+You can edit or delete a saved instance from the **Instances** area at any time.
 
 ## Recommended Development, Test, and Production flow
 
