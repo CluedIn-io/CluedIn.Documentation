@@ -72,6 +72,8 @@ A platform is an external AI service provider that hosts and manages the AI mode
 
 1. In the **Platform** list, select one of the available platforms. Currently, only the **Azure Open AI** platform is available.
 
+    This same platform also covers Claude (Anthropic) models: if you deploy one through Azure AI Foundry's unified endpoint (`services.ai.azure.com`), CluedIn detects the model's provider automatically, so no separate setup is needed.
+
 1. Provide the **API Key** and **Base URL** so that CluedIn can authenticate and send requests to the platform hosting the AI models.
 
     ![The Create pane for an AI platform, with Name, Platform set to Azure Open AI, Api Key and Base Url filled in]({{ "/assets/images/management/ai-agents/configure-a-platform/create_platform_pane.png" | relative_url }})
