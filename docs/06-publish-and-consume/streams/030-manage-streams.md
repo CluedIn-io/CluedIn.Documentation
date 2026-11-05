@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/consume/streams/manage-streams"]
 source_path: docs/150-consume/streams/020-manage-streams.md
 tags: ["consume", "data export", "streams"]
-last_modified: 2026-10-12
+last_modified: 2026-10-19
 ---
 
 ## On this page
@@ -132,6 +132,65 @@ You can view and manage field mappings on the **Field mappings** tab of the stre
 {:.important}
 If a mapping is missing a source field or an export field name, CluedIn blocks saving and shows a validation message until you fix or remove the incomplete mapping.
 
+## Configure a Data Contract
+
+A Data Contract lets you validate golden records against a set of expectations before they are sent to the export target. Passing records are exported as usual. For a record that fails an expectation, the action configured on that expectation decides what happens:
+
+- **Warn** – the record is still exported, but the failed expectation is logged for visibility.
+
+- **Block** – the record is not exported and is not added to the quarantine list.
+
+- **Quarantine** – the record is not exported and is added to the **Quarantined records** table, so you can review it.
+
+If a record fails more than one expectation, CluedIn applies the most severe action among them: Quarantine, then Block, then Warn.
+
+A Data Contract is configured per stream and does not affect any other stream.
+
+You can add the following kinds of expectations:
+
+- **Vocabulary Key data type** – applies its action when a mapped property's value does not match the configured [data type](/model/data-catalog/data-types) of its vocabulary key. This prevents export failures caused by values that the export target cannot accept. This is a single, built-in expectation — it is either on or off.
+
+- **Data quality threshold** – applies its action when the entity does not meet a minimum score for one of the [data quality metrics](/govern/data-quality-dashboard), such as Accuracy or Completeness. You can add more than one threshold expectation to check several metrics.
+
+- **Required field** – applies its action when a specific vocabulary key has no value on the record.
+
+- **Unique value** – applies its action when another entity of the same type already has the same value for a specific vocabulary key. This checks uniqueness across all entities of that type, not just the records matched by this stream.
+
+- **Custom condition** – applies its action when the record matches a condition built with the same [Rule Builder](/govern/rules) used elsewhere in CluedIn, including a raw PowerFx expression. Use this for checks that don't fit the other expectation types, such as a vocabulary key's value having an unexpected length, or a record carrying a specific tag.
+
+**To configure a Data Contract**
+
+1. On the stream details page, select the **Data Contract** tab.
+
+1. Turn on **Enable Data Contract**.
+
+1. To check vocabulary key data types, turn on the **Vocabulary Key data type** toggle.
+
+1. To add any other expectation, select **Add expectation**, and then select the expectation type.
+
+    - For a **Data quality threshold** expectation, select a metric and enter the **Minimum score (%)** that a record must meet to pass.
+    - For a **Required field** or **Unique value** expectation, select the vocabulary key to check.
+    - For a **Custom condition** expectation, select **Add first condition** and build the condition with the Rule Builder, the same way you would when [creating a rule](/govern/rules).
+
+    Repeat this step to add more expectations, including more than one of the same type.
+
+1. For each expectation, select the action it should apply — **Warn**, **Block**, or **Quarantine** — from the dropdown next to it. New expectations default to **Quarantine**.
+
+    ![The Data Contract tab of a stream, with Enable Data Contract turned on and all five expectation types configured]({{ "/assets/images/consume/streams/data-contract-tab.png" | relative_url }})
+
+1. Select **Save**.
+
+{:.important}
+If a Custom condition expectation has an incomplete condition — for example, a row with no property or operator selected — CluedIn blocks saving until you finish or remove it.
+
+**To remove an expectation**
+
+- Turn off the **Vocabulary Key data type** toggle, or select the delete icon next to any other expectation. Then, select **Save**.
+
+### View quarantined records
+
+The **Quarantined records** table, at the bottom of the **Data Contract** tab, lists the records that were quarantined by an expectation whose action is **Quarantine**. For each record, it shows the entity, the reason(s) it was quarantined, and when it was quarantined. Select the refresh icon to check for newly quarantined records. Records that were **Blocked** do not appear here, since they are not placed in quarantine; records that only triggered a **Warn** action are exported as usual and also do not appear here.
+
 ## View stream details
 
 On the stream details page, there are several tabs where you can view stream-related information:
@@ -145,6 +204,8 @@ On the stream details page, there are several tabs where you can view stream-rel
     ![The Data Quality tab of a stream, showing its data quality metric scores for the stream's business domain]({{ "/assets/images/consume/streams/stream-data-quality-tab.png" | relative_url }})
 
 - **Monitoring** – you can view real-time data on ingestion, processing, and publishing of records, as well as any exceptions.
+
+- **Data Contract** – you can [configure expectations and view quarantined records](#configure-a-data-contract) for this stream.
 
 ## Organize streams into folders
 
