@@ -67,7 +67,7 @@ Each data part has the following attributes:
 
 - Data part **status** that indicates the type of change made on the data part level. For more information about each status, see [Dat part statuses](#data-part-statuses).
 
-By expanding the data part, you can view a table with the metadata properties and vocabulary keys associated with the data part. Each property is marked with the change type label, which indicates whether the property is newly added or changed from one data part version to another.
+By expanding the data part, you can view a table with the metadata properties and vocabulary keys associated with the data part. Each property is marked with the change type label, which indicates whether the property is newly added or changed from one data part version to another. If a [rule](/govern/rules) - most commonly a survivorship rule - is what set or changed a property's value, the table's **Rule** column names it; otherwise the column is blank, meaning the change came from the data part's own source.
 
 Each data part is an individual entity, and it is not linked to other data parts in any way, except if these data parts belong to one branch. Because each data part is individual, the first data part in the branch is marked with the **Added** status and does not contain previous values. If the subsequent data part within the branch contain some changes compared to the first data part in the branch, then such data parts are marked with the **Changed** status.
 
