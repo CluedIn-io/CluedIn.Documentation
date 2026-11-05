@@ -7,7 +7,7 @@ nav_order: 10
 permalink: /solutions/fabric/connect-to-onelake-catalog
 content_type: how-to
 tags: ["integration", "microsoft", "fabric", "onelake", "catalog"]
-published: false
+published: true
 ---
 
 ## On this page
