@@ -169,6 +169,26 @@ After the plan is executed, the datasets are mapped but not yet processed. Proce
 
 The AI jobs of the plan are created disabled and unscheduled. Once the datasets are processed, you can see how the AI jobs work before you enable them: ask the AI agent to test them, for example, **Can I see the AI jobs working before I enable them?** A test run is a dry run on a sample of up to 100 golden records: it makes no changes to your golden records, and its results are a preview that can't be approved. You can also review a test run on the AI job's page. For more information, see [Test the job](/govern/ai-agents/create-configure-and-run-an-ai-agent#test-the-job). When the results meet your expectations, enable the AI job. The results of its regular runs are the ones you review and approve. For more information, see [Review the results returned by AI agent](/govern/ai-agents/review-the-results-returned-by-an-ai-agent).
 
+## Create edges from a field with multiple foreign keys
+
+Some sources pack more than one foreign key into a single field — for example, a column with comma-separated identifiers (`"42,43,44"`), or a column holding JSON that embeds a list of identifiers. The AI agent can use [Advanced mapping code](/ingest/mapping/advanced-mapping-code) to extract each foreign key from such a field and create one outgoing edge per key, in addition to the plan's own column-to-column edges.
+
+{:.note}
+This is separate from the mapping plan above: the plan only proposes one edge per source column. Ask for this when a column holds several foreign keys packed into one value.
+
+**To create edges from a packed field**
+
+1. In the chat, ask the AI agent, for example: **The associatedCompanyIds column has comma-separated company IDs - create an edge to Company for each one**, or **Extract the company IDs from the associations.companies array in the JSON column and create edges to Company**.
+
+1. The AI agent generates the JavaScript and shows it to you, along with a preview of the edges it would create from any example values you gave it. Nothing is applied yet.
+
+1. Review the generated script and the preview. If you want changes, for example a different delimiter or a different edge type, tell the AI agent.
+
+1. Once you approve, the AI agent saves the script to the dataset's mapping. From then on, every clue created from that field gets one edge per foreign key found in it, skipping any it already created, so re-processing the dataset doesn't create duplicate edges.
+
+{:.important}
+Advanced mapping code must be turned on for your organization. For more information, see [Advanced mapping code](/ingest/mapping/advanced-mapping-code).
+
 ## Limitations
 
 - Each dataset belongs to one business domain and has its own source vocabulary. Each column maps to one golden record vocabulary key.

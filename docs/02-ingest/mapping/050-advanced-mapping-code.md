@@ -27,6 +27,9 @@ The advanced mapping code is applied to the clues after property and pre-process
 
 To access advanced mapping, go to **Administration** > **Feature Flags**, and then turn on the **Advanced Mapping** feature.
 
+{:.note}
+You don't have to write this code by hand. An AI agent can generate and apply it for you, for example to turn a field that packs several foreign keys into one value into one edge per key. For more information, see [Create edges from a field with multiple foreign keys](/ingest/mapping/onboard-datasets-with-an-ai-agent#create-edges-from-a-field-with-multiple-foreign-keys).
+
 ## Write advanced mapping code
 
 Sometimes, the conditions in property and pre-process rules might appear cumbersome when you need to execute complex logic on your records. In such cases, you can use the advanced mapping capabilities that allow you to modify clues by executing the code. From a security perspective, advanced mapping runs on a virtual machine that does not have access to your network.
