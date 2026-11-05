@@ -34,6 +34,7 @@ You can perform the following actions to manage users:
 
 - [Add user](#add-user-by-email-address)
 - [Deactivate user](#deactivate-user)
+- [Generate a password for a service account](#generate-a-password-for-a-service-account)
 
 ## Add user
 
@@ -99,6 +100,45 @@ The following diagram shows the flow of deactivating a user in CluedIn.
 
     The user won't be able to sign in to CluedIn.
 
+## Generate a password for a service account
+
+A user who signs in to CluedIn via SSO has no local password, because their identity provider authenticates them instead. Some automation tools, such as a Product Deployment Toolkit, need a username and password to authenticate with CluedIn directly. To give such a tool its own credentials, mark the SSO user it runs as a **service account**, then generate a local password for it.
+
+{:.important}
+This action requires a higher access level than the rest of this article: at least **Accountable** on the **Admin** > **Users** claim, not just Consulted.
+
+**To generate a password for a service account**
+
+1. On the navigation pane, go to **Administration** > **User Management**.
+
+1. On the **All users** page, select the SSO user you want to use as a service account.
+
+1. On the user's details page, select the **Settings** tab.
+
+1. Turn on the **Service Account** toggle.
+
+    ![The user Settings tab with the Service Account toggle turned on and the Generate Password button enabled]({{ "/assets/images/administration/user-management/service-account-toggle.png" | relative_url }})
+
+1. Select **Generate Password**.
+
+1. In the confirmation dialog, select **Generate Password** again to confirm.
+
+    The new password is shown once, with a button to copy it to your clipboard. Copy it now: once you close the dialog, CluedIn does not show the password again, and there is no way to retrieve it later.
+
+1. Select **Continue** to close the dialog.
+
+### Verify the result
+
+The service account can sign in with its username and the copied password, in addition to signing in via SSO unless SSO is otherwise disabled for that user.
+
+### What this changes
+
+Generating a password replaces any local password the user already had. Anything that was using the previous password — including a password generated earlier for the same service account — stops working immediately. Turning the **Service Account** toggle off again does not remove the local password; it only changes whether **Generate Password** is available for that user.
+
+### If something goes wrong
+
+**Generate Password is disabled.** The user is not marked as a service account yet. Turn on the **Service Account** toggle first.
+
 ## User management reference
 
 Whenever a new user is added to CluedIn or changes are made to the user details page, they are recorded and can be found on the **Audit Log** tab. These actions include the following:
@@ -110,3 +150,6 @@ Whenever a new user is added to CluedIn or changes are made to the user details 
 - Deactivate a user
 - Delete user invite
 - Complete registration
+- Mark user as service account
+- Unmark user as service account
+- Generate password for user
