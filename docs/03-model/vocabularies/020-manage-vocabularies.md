@@ -43,7 +43,9 @@ This tab contains general information about the vocabulary, including:
 
 - Description – a summary that explains the purpose of the vocabulary. You can add rich formatting to the description, such as bolding, underlining, or italicizing text.
 
-You can edit any aspect of the vocabulary configuration, with the exception of the key prefix. 
+- Icon and colour – a visual identifier for the vocabulary. The icon and colour appear next to the vocabulary's keys wherever they are selected, such as in the vocabulary key picker, so you can tell keys from different vocabularies apart at a glance.
+
+You can edit any aspect of the vocabulary configuration. For a vocabulary created by you or another user (not a core CluedIn vocabulary or one tied to a source), you can also change the key prefix after the vocabulary has been created – see [Change the key prefix](#change-the-key-prefix).
 
 **Usage**
 
@@ -99,7 +101,7 @@ Depending on the selected [data modeling approach](/model/data-catalog/modeling-
 1. Enter the key prefix of the vocabulary that will be added before vocabulary key names.
 
     {:.important}
-    The key prefix cannot start with a number, but it can include numbers in other positions. Additionally, the key prefix must not contain special characters or spaces. Note that it is not possible to edit the key prefix once the vocabulary has been created.
+    The key prefix cannot start with a number, but it can include numbers in other positions. Additionally, the key prefix must not contain special characters or spaces.
 
 1. (Optional) Enter the description of the vocabulary.
 
@@ -113,7 +115,7 @@ Depending on the selected [data modeling approach](/model/data-catalog/modeling-
 
 Once the vocabulary is created, you can edit its configuration based on your requirements to ensure the maintenance of organized and consistent metadata.
 
-Only Vocabulary Owners and Administrators can edit the vocabulary configuration. When you're editing a vocabulary configuration, you can change almost all of its aspects: name, primary business domain, source, and description.
+Only Vocabulary Owners and Administrators can edit the vocabulary configuration. When you're editing a vocabulary configuration, you can change almost all of its aspects: name, primary business domain, source, description, icon, and colour.
 
 **To edit vocabulary configuration**
 
@@ -122,3 +124,12 @@ Only Vocabulary Owners and Administrators can edit the vocabulary configuration.
 1. Make the needed changes, and then select **Save** and confirm your choice.
 
     ![Animation: selecting Edit on the Customer vocabulary Configuration tab, changing settings, then selecting Save and confirming]({{ "/assets/images/management/data-catalog/edit-vocabulary.gif" | relative_url }})
+
+### Change the key prefix
+
+For a vocabulary that is not a core CluedIn vocabulary and not tied to a source, you can change the key prefix the same way you change any other part of the configuration – edit the vocabulary and enter a new key prefix in place of the old one.
+
+{:.important}
+A core CluedIn vocabulary's key prefix can never be changed. A vocabulary tied to a source (such as a connector) also keeps a fixed key prefix, because the source identifies the vocabulary by it.
+
+If none of the vocabulary's keys have a value on any golden record yet, the new key prefix takes effect immediately. If one or more keys already have values, CluedIn runs a background job to copy those values onto the new key prefix so existing golden records, streams, and rules that reference the vocabulary's keys keep working. The job does not block you from continuing to use CluedIn while it runs, and the original values remain in place until it has finished.
