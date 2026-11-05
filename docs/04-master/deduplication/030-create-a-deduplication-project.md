@@ -116,6 +116,40 @@ In the project, matching rules are combined using the **OR** logical operator, w
 
     After you add matching rules, [generate matches](/master/deduplication/manage-a-deduplication-project#generate-matches) to detect duplicates among golden records that correspond to the selected business domain or filter criteria.
 
+## Reorder matching rules and matching criteria
+
+Rules combine with OR and are evaluated in order, so where a rule sits among the others can matter when you are narrowing down why a particular pair of golden records did or did not match. Matching criteria within a rule combine with AND, and their order has no effect on the result, but keeping related criteria together still makes a rule easier to read.
+
+**To reorder matching rules**
+
+1. On the **Matching Rules** tab, select **Reorder rules**.
+
+1. Drag a rule to its new position, or use the up/down arrows.
+
+1. Select **Save order**.
+
+**To reorder the matching criteria within a rule**
+
+1. Expand the rule on the **Matching Rules** tab.
+
+1. On the criterion you want to move, open its menu and select **Move up** or **Move down**.
+
+## Get rule suggestions from your data
+
+If you are not sure which matching rules to start with, CluedIn can sample the project's golden records and suggest rules based on which vocabulary keys are consistently populated.
+
+**To get rule suggestions**
+
+1. On the **Matching Rules** tab, select **Discover rules**.
+
+    CluedIn samples the project's golden records and proposes one suggested rule for each vocabulary key that is populated on most of the sample, using a matching function and normalization rules suited to that key's data type. If no vocabulary key is populated consistently enough across the sample, CluedIn returns no suggestions.
+
+    A real matching rule is often across more than one field rather than just one, since a single common field — a first name, a country — is usually too weak a signal on its own. Where CluedIn finds that two or three such fields are only reliably distinguishing when used together, it additionally proposes one suggestion that combines them into a single multi-criterion rule, alongside the single-field suggestions for each field on its own.
+
+1. Review the suggestions, and select the ones that you want to add as matching rules.
+
+Rule Discovery proposes a starting point based on what is in your data; it does not know what you consider a duplicate. Review each suggested rule against [Matching semantics](#matching-semantics) before relying on it, and refine it like any other rule.
+
 ## Matching semantics
 
 These rules decide which golden records end up in the same group of duplicates. Check a configuration against them before you generate matches.
