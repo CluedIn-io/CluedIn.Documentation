@@ -78,6 +78,15 @@ After you select **Add**, a confirmation message appears and the matrix below up
 
 If you selected a function and/or a business domain in the rule builder without saving yet, a summary line above the matrix already tells you who is responsible for that combination—or, if no one is, says so directly so you can spot the gap before you close the page.
 
+## Responsible assignments and the steward inbox
+
+When you make a role or user Responsible for a function on a business domain, every user who ends up holding that responsibility—directly, or through a role—gets an item in their **Steward Inbox** (under **My tasks**) pointing them at the RACI matrix for that assignment. This happens automatically the next time their inbox refreshes; there's nothing extra to trigger.
+
+This also applies retroactively: if work, messages or tasks already existed for a business domain before someone was made Responsible for it, they still get the inbox item once the assignment is made—you don't need to recreate anything that was generated earlier.
+
+{:.note}
+The inbox item is a pointer back to this page, not a grant of access. As stated above, becoming Responsible never changes what someone can actually do in CluedIn.
+
 ## Roles and users with broad access
 
 Some roles and users already have broad access in CluedIn—the same [claim-based exception](/administer/users-and-roles/data-access) that lets them bypass access control everywhere else. The matrix marks their column with a distinct icon and a tinted background so you can tell at a glance which columns are "everything, because of their claims" rather than responsibilities you set up one by one. Use the toggle above the matrix to hide these columns when you want to focus on the responsibilities that differ from person to person.
