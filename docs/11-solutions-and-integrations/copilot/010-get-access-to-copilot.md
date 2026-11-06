@@ -36,7 +36,7 @@ To make the AI assistant available in CluedIn, you need to fulfill several prere
 
     - **Minimum Skill Development Stage** – specify which skills—alpha, beta, or production—you want to have available in CluedIn. Currently, almost all skills are **alpha**.
 
-        ![Copilot settings with the Endpoint dropdown set to gpt-4.1 and Minimum Skill Development Stage set to Alpha]({{ "/assets/images/key-terms-and-features/copilot-2.png" | relative_url }})
+        ![Copilot settings with an AI endpoint selected in the Endpoint dropdown and Minimum Skill Development Stage set to Alpha]({{ "/assets/images/key-terms-and-features/copilot-2.png" | relative_url }})
 
 1. Select **Save**.
 
