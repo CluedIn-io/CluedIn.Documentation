@@ -45,8 +45,14 @@ The Setup Advisor AI agent reviews your organization's account setup and propose
 
 - Missing descriptions – proposes a description for any rule, glossary term, stream, or vocabulary key that doesn't have one yet, generated from the item's own name and configuration.
 
+- Folder organization – proposes moving an ungrouped rule into a folder named after its scope, or an ungrouped glossary term into a folder named after its existing category.
+
 - Data quality thresholds – proposes a minimum acceptable score for any [data quality metric](/govern/data-quality-dashboard) that has no threshold configured yet.
 
 - AI spend limits – proposes a daily and monthly AI spend limit for an organization that hasn't set either.
 
-Every proposal from Setup Advisor is a suggestion, not an automatic change: review and approve or reject each one the same way as [any other AI agent's results](/govern/ai-agents/review-the-results-returned-by-an-ai-agent) before it takes effect.
+- Vocabulary colors – proposes a color for any vocabulary that doesn't have one yet, so it's easier to tell apart in key selectors.
+
+- Vocabulary key data types – proposes a more specific data type (for example Email or Phone Number) for a vocabulary key whose name clearly indicates one but is still set to the generic Text type.
+
+Every proposal from Setup Advisor is a suggestion, not an automatic change: review and approve or reject each one the same way as [any other AI agent's results](/govern/ai-agents/review-the-results-returned-by-an-ai-agent) before it takes effect. Approving a vocabulary key data type proposal is the one exception worth noting upfront: unlike the other proposals, it reprocesses existing records that use that key, the same as changing a key's data type manually would.
