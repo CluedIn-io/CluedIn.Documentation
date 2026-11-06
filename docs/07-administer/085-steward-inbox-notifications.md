@@ -81,6 +81,8 @@ By default, every Steward Inbox notification type uses the same general layout i
     | `taskType` | The notification type, in a human-readable form (for example "Tag Alert Triggered"). |
     | `dueDate` | The due date, when the notification has one. Otherwise blank. |
     | `itemCount` | The number of items involved, when applicable. Otherwise blank. |
+    | `dueDateLine` | A ready-made "Due: ..." line, including its own line break, when there's a due date — otherwise blank, so the line disappears entirely rather than leaving an empty "Due:" label. |
+    | `itemCountLine` | The same, for a ready-made "Items: ..." line. |
     | `url` | The deep link back into the Steward Inbox for this item. |
 
     ![The notification message template builder with an edited Header block and a newly added Image block]({{ "/assets/images/administration/notification-templates/builder-edited.png" | relative_url }})
