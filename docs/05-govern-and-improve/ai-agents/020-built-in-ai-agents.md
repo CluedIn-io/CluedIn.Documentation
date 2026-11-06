@@ -41,7 +41,7 @@ The Data Architect AI agent designs and implements the technical blueprint for y
 
 ## Setup Advisor
 
-The Setup Advisor AI agent reviews your organization's account setup and proposes safe improvements, so a new account does not stay unconfigured or undocumented. Unlike Data Steward and Data Architect, it does not work against a data source you choose — it reviews your organization as a whole on demand. By default, it reviews:
+The Setup Advisor AI agent reviews your organization's account setup and proposes safe improvements, so a new account does not stay unconfigured or undocumented. Unlike Data Steward and Data Architect, it does not work against a data source you choose — it reviews your organization as a whole on demand. To start a review, go to the agent's detail page and select **Review setup**. By default, it reviews:
 
 - Missing descriptions – proposes a description for any rule, glossary term, or stream that doesn't have one yet, generated from the item's own name and configuration.
 
