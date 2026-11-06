@@ -14,7 +14,7 @@ last_modified: 2026-11-06
 - TOC
 {:toc}
 
-When a new item appears in a user's [Steward Inbox](/govern) — such as a triggered [tag alert](/govern/tags/tag-monitoring#create-aggregate-tag-alerts), an unhealthy rule, or a task assigned to them — CluedIn can post about it to Slack and Microsoft Teams, in addition to the in-app notification. This article covers connecting those two channels, and customizing the layout of the messages CluedIn sends.
+When a new item appears in a user's [Steward Inbox](/govern) — such as a triggered [tag alert](/govern/tags/tag-monitoring#create-tag-alerts), an unhealthy rule, or a task assigned to them — CluedIn can post about it to Slack and Microsoft Teams, in addition to the in-app notification. This article covers connecting those two channels, and customizing the layout of the messages CluedIn sends.
 
 ## Prerequisites
 
