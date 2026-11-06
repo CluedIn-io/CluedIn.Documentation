@@ -62,6 +62,9 @@ The following diagram shows the flow of adding users to CluedIn.
 
     ![The All users page showing the invited user john.smith@foobar.com with the OrganizationUser role and an Active status toggle]({{ "/assets/images/administration/user-management/invite-user-email-2.png" | relative_url }})
 
+    {:.important}
+    When a new user completes registration, every user with the OrganizationAdmin role receives an email and an [in-app notification](/administer/ui-configuration/notifications) naming the user who registered.
+
     By default, the user's role is OrganizationUser. It means that the user can view all sections and modules in a read-only mode. To give the user access to more features within the platform, [add another role to the user](/administer/users-and-roles/assign-roles).
 
 ### Add user via SSO

@@ -45,6 +45,12 @@ This tab contains general information about the business domain, including:
 
 - Layout – a way in which information is arranged on the **Overview** tab of the golden records that belong to the business domain.
 
+## View and sort the list of business domains
+
+On the **Management** > **Business domains** page, the list of business domains includes a **Created date** and a **Modified date** column, in addition to the record count, golden record count, and trust score columns.
+
+Select a column header to sort the list by that column, including by when a business domain was created or last modified.
+
 ## Create a business domain
 
 CluedIn ships with some pre-defined values for common business domains such as Document, File, Organization. However, you might want to have some specific business domains that may not be configured by CluedIn.
