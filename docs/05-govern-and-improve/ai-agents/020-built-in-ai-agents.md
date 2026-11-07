@@ -55,4 +55,6 @@ The Setup Advisor AI agent reviews your organization's account setup and propose
 
 - Vocabulary key data types – proposes a more specific data type (for example Email or Phone Number) for a vocabulary key whose name clearly indicates one but is still set to the generic Text type.
 
+- Ownership – proposes making the creator of a rule, stream, glossary term, or vocabulary its owner, for one that has none yet.
+
 Every proposal from Setup Advisor is a suggestion, not an automatic change: review and approve or reject each one the same way as [any other AI agent's results](/govern/ai-agents/review-the-results-returned-by-an-ai-agent) before it takes effect. Approving a vocabulary key data type proposal is the one exception worth noting upfront: unlike the other proposals, it reprocesses existing records that use that key, the same as changing a key's data type manually would.
