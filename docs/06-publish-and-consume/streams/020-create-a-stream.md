@@ -30,6 +30,7 @@ Create a stream when you want to send golden records from CluedIn to an external
 |--|--|--|--|
 | **Name** | Required | The name of the stream. | `Training` |
 | **Filters** | Optional | [Filter](/master/filters) rules that select the golden records to send. Without filters, all golden records are sent. | Entity Type equals `TrainingContact` |
+| **Only trigger on field changes** | Optional | One or more vocabulary keys. When set, an incoming change only triggers the stream if it changes one of these keys; changes to other properties are ignored even if the record still matches the stream's filters. Without a selection, any change that matches the filters triggers the stream, as before this setting existed. | `trainingcontact.email` |
 | **Actions** | Optional | One or more [actions](/govern/rules/rules-reference#actions-in-data-part-rules) applied to the records before they are sent. | Mask a value |
 | **Description** | Optional | Details about the stream. | |
 | Connector | Required to send records | A configured export target that is not **Unhealthy**. | SQL Server Connector |
