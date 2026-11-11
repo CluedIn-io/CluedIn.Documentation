@@ -70,6 +70,31 @@ To ensure the merged golden records meet your requirements, you need to process 
 
     Once all groups within the project have been processed, proceed to merge the groups.
 
+## Auto-approve matches with AI
+
+Instead of approving every group manually, you can let an AI model evaluate newly discovered groups and automatically approve the ones it considers confident duplicates. This mirrors [Auto-select Matches using AI](/govern/enrichment/multi-match#configure-auto-select-matches-using-ai) for enrichment matches.
+
+An auto-approved group gets the **Approved** status, the same as a group you approve manually, and can be merged like any other approved group. CluedIn never sends a group to the AI if its matching rules could not produce a confidence score for it — such a group is always left for manual review.
+
+**To configure auto-approval with AI**
+
+1. On the deduplication project, select **Matches Settings**.
+
+1. Turn on **Auto-approve Possible Matches using AI**.
+
+1. Select the AI **Endpoint** to use for the evaluation.
+
+1. Enter a **Prompt** that describes how the AI should decide whether the records in a group are genuine duplicates. Include the fields that matter most and any specific matching criteria.
+
+1. Set the **Confidence threshold** — the minimum confidence, as a percentage, the AI must report before CluedIn approves the group. Leave it blank to use the default threshold of 80%.
+
+1. Save the settings.
+
+   ![Matches Settings with Auto-approve Possible Matches using AI turned on, the gpt-4.1 endpoint selected, a prompt describing the matching criteria, and a confidence threshold of 75%]({{ "/assets/images/management/deduplication/manage-groups-auto-approve-ai-settings.png" | relative_url }})
+   {: .documentation-screenshot}
+
+New groups discovered the next time you generate matches are evaluated against these settings. Review the auto-approved groups in the **Matches** tab like any other approved group before merging.
+
 ## Merge groups
 
 Only groups with the **Approved** status can be merged. For additional details on group statuses, see [Deduplication reference](/master/deduplication/deduplication-reference).
