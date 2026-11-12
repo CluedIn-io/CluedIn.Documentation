@@ -20,6 +20,20 @@ In this article, you will learn about claims and access levels, which are the ma
 
 Roles are used to grant permissions to users to perform specific actions in CluedIn. These permissions are only granted to the modules within the platform, not to the data. For information on how to restrict access to data, see [Data access](/administer/users-and-roles/data-access).
 
+## Roles overview
+
+On the navigation pane, go to **Administration** > **Roles** to see every role in your organization.
+
+![The Roles page, showing the Roles & access summary cards, the All roles/System roles/Custom roles tabs, the roles table with Role, Type, Permissions and Assigned users columns, and the Role insights panel]({{ "/assets/images/administration/roles/roles-overview.png" | relative_url }})
+
+The page shows:
+
+- Three summary cards with the total number of roles, how many have at least one assigned user, and how many don't.
+- Tabs to filter the list to **All roles**, **System roles** (the [default roles](#default-roles) CluedIn ships with), or **Custom roles** (roles your organization created).
+- A search box to find a role by name, a filter to narrow the list to roles with a claim in a given category, and an **Export CSV** action.
+- A table listing each role's type, the claim categories it's Responsible or Accountable for, and its assigned user count. Select a role's name, or use its row actions, to view its details.
+- A **Role insights** panel summarizing how many roles still need users assigned.
+
 ## Default roles
 
 All roles are listed in **Administration** > **Roles**. The following table provides a list of default CluedIn roles. In the **Access status** column, you can download a file with details of the default role's access to the features in CluedIn. However, you can change the configuration of the role and extend its access to features according to your needs.
