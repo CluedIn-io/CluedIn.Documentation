@@ -45,6 +45,8 @@ Each stream contains the **Stream Log** tab, where you’ll find all golden reco
 
 ![The Stream log tab of the Training stream, listing exported records with severity, area Stream ingestion log, and machine name, plus severity and area filters]({{ "/assets/images/consume/streams/stream-log.png" | relative_url }})
 
+You can also search the stream logs by the ID of the record (entity) you want to find, to check whether that specific record was exported by this stream, instead of scrolling or exporting the full log.
+
 You can filter the stream logs by two categories:
 
 - **Severity** – the level of importance or urgency of an event or issue. Learn about standard severity levels [here](https://learn.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line#log-level).
