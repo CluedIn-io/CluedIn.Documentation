@@ -43,6 +43,8 @@ This tab contains general information about the vocabulary, including:
 
 - Description – a summary that explains the purpose of the vocabulary. You can add rich formatting to the description, such as bolding, underlining, or italicizing text.
 
+- Trusted – a flag that marks the vocabulary as a reliable source of governed metadata. The [Relevance metric](/govern/data-quality-dashboard) scores a golden record by the share of its mapped vocabulary keys that belong to a Trusted vocabulary, so marking the vocabularies your organization relies on as Trusted raises the relevance score of records mapped to them.
+
 You can edit any aspect of the vocabulary configuration, with the exception of the key prefix. 
 
 **Usage**
@@ -113,7 +115,7 @@ Depending on the selected [data modeling approach](/model/data-catalog/modeling-
 
 Once the vocabulary is created, you can edit its configuration based on your requirements to ensure the maintenance of organized and consistent metadata.
 
-Only Vocabulary Owners and Administrators can edit the vocabulary configuration. When you're editing a vocabulary configuration, you can change almost all of its aspects: name, primary business domain, source, and description.
+Only Vocabulary Owners and Administrators can edit the vocabulary configuration. When you're editing a vocabulary configuration, you can change almost all of its aspects: name, primary business domain, source, description, and whether the vocabulary is Trusted.
 
 **To edit vocabulary configuration**
 
