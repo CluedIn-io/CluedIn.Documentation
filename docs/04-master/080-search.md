@@ -57,7 +57,10 @@ If you want to view other golden record properties or vocabulary keys, you can a
 
 1. Select **Add columns**, and then choose the type of column that you want to add to the search results page:
 
-    - **Entity Property** – to select the following golden record properties: **Date Created**, **Discovery Date**, or **Date Modified**.
+    - **Entity Property** – to select golden record properties such as **Date Created**, **Discovery Date**, or **Date Modified**, or one of the following computed columns: **Sources** (the source records the golden record was built from, each shown with the logo set for that [data source]({{ "/ingest/data-sources" | relative_url }}), or a generic icon if none is set), **Quality score** (the record's completeness), **Relationships**, **Properties**, **Clean Projects**, **Deduplication Projects**, **Enrichers**, **Streams**, or **Agents** (the AI agents that have contributed to the record).
+
+        {:.important}
+        Computed columns are loaded individually for each record shown on the page, so unlike other columns, they cannot be used to sort or filter the search results.
 
     - **Vocabulary** – to find and select any vocabulary keys.
 
@@ -123,21 +126,25 @@ In addition to sorting by relevance, CluedIn provides two alternative sorting op
 
 CluedIn provides two page view options:
 
-- **Tile view** – presents golden records in a visual grid-like format. In this view, golden records are arranged in rectangular tiles, each representing a specific golden record.
+- **Cards** – presents golden records in a visual grid-like format. In this view, golden records are arranged in rectangular cards, each representing a specific golden record.
 
-    ![Search results in tile view, each golden record shown as a tile with name, business domain, discovery time, and description]({{ "/assets/images/key-terms-and-features/search-tile-view.png" | relative_url }})
+    ![Search results in cards view, each golden record shown as a card with name, business domain, discovery time, and description]({{ "/assets/images/key-terms-and-features/search-tile-view.png" | relative_url }})
 
-- **Tabular view** – presents golden records in a structured table format. In this view, golden records are arranged in rows and columns, resembling a spreadsheet or database table.
+- **Table** – presents golden records in a structured table format. In this view, golden records are arranged in rows and columns, resembling a spreadsheet or database table.
 
-    ![Search results in tabular view with rows of golden records under the Name, Business domain, and Description columns]({{ "/assets/images/key-terms-and-features/search-tabular-view.png" | relative_url }})
+    ![Search results in table view with rows of golden records under the Name, Business domain, and Description columns]({{ "/assets/images/key-terms-and-features/search-tabular-view.png" | relative_url }})
 
 **To change the page view**
 
-- In the upper-right corner of the search results page, select the needed page view option: **Tile view** (a) or **Tabular view** (b).
+- In the toolbar above the search results, select the needed page view option: **Table** or **Cards**.
 
-    ![Search results page with the page view buttons marked a for Tile view and b for Tabular view in the upper-right corner]({{ "/assets/images/key-terms-and-features/search-results-page-view.png" | relative_url }})
+    ![Search results page with the Table and Cards page view buttons in the toolbar above the results]({{ "/assets/images/key-terms-and-features/search-results-page-view.png" | relative_url }})
 
     The new view is applied to the search results page.
+
+### Preview a record
+
+Instead of opening the full golden record page, you can preview a golden record's key information in a panel on the right: business domain, discovery date, the number of related sources, relationships, and enrichers, its completeness, the names of the source records it was built from, and its tags. Each source record is shown with the logo set for that [data source]({{ "/ingest/data-sources" | relative_url }}), or a generic icon if none is set. To open the preview panel, select the preview image of a golden record on the search results page, or select the checkbox of a single golden record. From the preview panel, select **Open record** to go to the full golden record page.
 
 ## Saved searches
 
