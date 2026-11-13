@@ -19,6 +19,18 @@ A business domain is a well-known business object that describes the semantic me
 
 In CluedIn, all golden records must have a business domain to ensure the systematic organization and optimization of data management processes. A well-named business domain is global (for example, Person, Organization, Car) and should not be changed across sources. In this article, you will learn how to create and manage business domains to enhance the efficiency and organization of golden records in CluedIn.
 
+## Business domain list
+
+On the navigation pane, go to **Management** > **Business domains** to see every business domain in your environment, with the following columns:
+
+- **Display name** – the user-friendly name of the business domain.
+- **Business domain identifier** – the string that represents the business domain in code.
+- **Record count** – the number of records of this business domain.
+- **Golden record count** – the number of golden records of this business domain, excluding shadow entities.
+- **Trust score** – the mean of the business domain's applicable data quality dimensions, shown as a percentage. A business domain shows no value here until it has at least one applicable data quality metric.
+- **Last updated** – the most recent modification date among this business domain's records.
+- **Sources** – the data sources contributing records to this business domain.
+
 ## Business domain details page
 
 On the business domain details page, you can view relevant information about the business domain and take other actions to manage it.
