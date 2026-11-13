@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/consume/streams/manage-streams"]
 source_path: docs/150-consume/streams/020-manage-streams.md
 tags: ["consume", "data export", "streams"]
-last_modified: 2026-10-12
+last_modified: 2026-11-07
 ---
 
 ## On this page
@@ -50,6 +50,8 @@ From the list of streams, you can select multiple streams and start or stop them
 1. Near the upper-right corner of the list of streams, select **Start** or **Stop**.
 
     Each selected stream is started or stopped independently; if the action fails for one stream, the rest of the selected streams are not affected.
+
+    If your selection includes a [folder](#organize-streams-into-folders), the folder itself is skipped — **Start**, **Pause**, and **Stop** apply only to streams, not folders. If your selection contains only folders, nothing happens and CluedIn tells you to select at least one stream.
 
 ## Stream actions
 
@@ -148,7 +150,7 @@ On the stream details page, there are several tabs where you can view stream-rel
 
 ## Organize streams into folders
 
-You can use folders to organize streams—for example, by export target or by team. Folders and streams appear together in the same list, similar to files and folders in a file explorer. Streams that aren't assigned to a folder appear in the root list, alongside any folders.
+You can use folders to organize streams—for example, by export target or by team. Folders and streams appear together in the same list, similar to files and folders in a file explorer. Streams that aren't assigned to a folder appear in the root list, alongside any folders. Each folder row shows how many streams and subfolders it contains directly, in parentheses next to its name, so you can tell at a glance whether it's empty without opening it.
 
 ![The Streams list showing folders such as Finance at the top, followed by streams that are not in a folder]({{ "/assets/images/consume/streams/organize-streams-folders-list.png" | relative_url }})
 
@@ -158,7 +160,7 @@ You can use folders to organize streams—for example, by export target or by te
 
 1. Enter a folder name, and then select **Save**.
 
-The new folder appears as a row in the list.
+The new folder appears as a row in the list. If you create the folder while you're viewing the contents of another folder, the new folder is created inside that folder instead of at the root—see [Nest folders inside folders](#nest-folders-inside-folders).
 
 **To assign a stream to a folder**
 
@@ -174,11 +176,19 @@ The new folder appears as a row in the list.
 
     ![The contents of the Finance folder, with a Root to Finance breadcrumb above the list of its streams]({{ "/assets/images/consume/streams/organize-streams-inside-folder-breadcrumb.png" | relative_url }})
 
-    The breadcrumb at the top of the list shows **Root > <folder name>**. Select **Root** in the breadcrumb to return to the merged list of folders and unfoldered streams.
+    The breadcrumb at the top of the list shows **Root** followed by the folder's name (for example, **Root > Finance**). Select **Root**, or any folder name earlier in the breadcrumb, to go back to that level.
 
 **To remove a stream from its folder**
 
 - While viewing the folder's contents, drag the stream row and drop it onto **Root** in the breadcrumb. The stream returns to the root list. You can also remove the stream from the folder from its **Configuration** tab by clearing the **Folder** field and selecting **Save**.
+
+### Nest folders inside folders
+
+A folder can contain other folders, not just streams. To create a nested folder, open the parent folder first, and then select **Create** > **Add folder** from inside it—the new folder is created as a subfolder of the one you're viewing. The breadcrumb reflects every level you've navigated into (for example, **Root > Finance > EMEA**), and selecting any earlier level takes you straight to it.
+
+### Search across folders
+
+Searching the list of streams isn't limited to the folder you're currently viewing—it also finds streams nested inside subfolders of that level. Searching from the root finds a matching stream anywhere in the hierarchy, no matter how deeply it's nested; searching from inside a folder finds matches in that folder and its own subfolders. While a search is active, the list shows only matching streams, not folders, since a folder result wouldn't correspond to one browsable level.
 
 ## Duplicate a stream
 
