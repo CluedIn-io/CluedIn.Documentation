@@ -18,9 +18,11 @@ Besides the written guides in this section, CluedIn also includes a short, inter
 
 ## What the tour covers
 
-The tour is a 13-step guided walkthrough covering:
+The tour is a 15-step guided walkthrough covering:
 
 - Welcome and prerequisites
+- Choosing a color theme for your organization
+- Choosing a celebration mood
 - Core concepts
 - First-time setup (connecting data sources and ingesting data)
 - Data modeling and business domains
@@ -37,6 +39,17 @@ The tour is a 13-step guided walkthrough covering:
 Each step gives a short explanation, and most steps include a **Take me there** button that navigates you directly to that area of CluedIn.
 
 ![Welcome step of the product tour]({{ "/assets/images/getting-started/product-tour/tour-welcome-step.png" | relative_url }})
+
+### Make it yours - theme and mood
+
+Right after the welcome step, two short steps let you personalize the organization before the rest of the tour begins:
+
+- **Theme** lets you pick one of CluedIn's built-in color themes for the whole organization.
+- **Mood** lets you pick the celebration effect (or none) CluedIn shows when someone completes an action, such as finishing a job.
+
+![Theme choice step of the product tour, showing the organization's color theme options]({{ "/assets/images/getting-started/product-tour/tour-theme-step.png" | relative_url }})
+
+Both are organization-wide settings, so changing them here changes them for everyone — and you can change either one again later from **Settings**. If your account doesn't have permission to change organization settings, these steps show the current value instead of letting you change it.
 
 ## Starting the tour
 
