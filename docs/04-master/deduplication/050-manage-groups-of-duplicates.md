@@ -68,6 +68,9 @@ To ensure the merged golden records meet your requirements, you need to process 
 
     ![Animation: on the Matches tab, a group is opened, conflicting values are fixed, and the group is approved or rejected]({{ "/assets/images/management/deduplication/fix-duplicates.gif" | relative_url }})
 
+    {: .note }
+    You can also press **A** to approve or **R** to reject the current group — see [Command bar and keyboard shortcuts]({{ "/administer/ui-configuration/command-bar-and-keyboard-shortcuts" | relative_url }}).
+
     Once all groups within the project have been processed, proceed to merge the groups.
 
 ## Merge groups
