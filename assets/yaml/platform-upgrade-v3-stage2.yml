@@ -121,6 +121,70 @@ infrastructure:
 
               echo "[UPGRADE] ✅ - RabbitMQ data volume is ready"
               exit 0
+        - name: cluedin-enable-feature-flags
+          image: '{{ include "rabbitmq.image" $ }}'
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
+            runAsNonRoot: true
+            runAsUser: 999
+            runAsGroup: 999
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/rabbitmq
+            - name: config
+              mountPath: /etc/rabbitmq
+            - name: logs
+              mountPath: /var/log/rabbitmq
+            - name: definitions
+              mountPath: /etc/rabbitmq-definitions/defs.json
+              subPath: '{{ $.Values.definitions.existingSecretKey }}'
+          env:
+            - name: RABBITMQ_USE_LONGNAME
+              value: "true"
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            # Must match the main container: the node name is baked into the data directory.
+            - name: RABBITMQ_NODENAME
+              value: 'rabbit@$(NODE_NAME).{{ include "rabbitmq.fullname" $ }}-headless.{{ include "cloudpirates.namespace" $ }}.svc.{{ $.Values.clusterDomain }}'
+          command:
+            - bash
+            - -ec
+            - |
+              # RabbitMQ only enables flags that are new in this release on a blank node, so the
+              # upgraded broker would otherwise keep running with them off. The next major
+              # release refuses to start until every stable flag of this one is enabled.
+              echo "[UPGRADE] 👉 - Starting RabbitMQ in the background to enable feature flags"
+              rabbitmq-server &
+              pid=$!
+              trap 'kill $pid 2>/dev/null; wait $pid; exit 1' TERM INT
+
+              until rabbitmq-diagnostics -q check_running >/dev/null 2>&1; do
+                if ! kill -0 $pid 2>/dev/null; then
+                  echo "[UPGRADE] ⛔ - RabbitMQ exited before it finished starting"
+                  exit 1
+                fi
+                echo "[UPGRADE] ⏳ - Waiting for RabbitMQ to start.."
+                sleep 5
+              done
+
+              echo "[UPGRADE] 👉 - Enabling all feature flags"
+              rabbitmqctl enable_feature_flag all
+              rabbitmqctl -q list_feature_flags name state stability
+
+              echo "[UPGRADE] 👉 - Stopping RabbitMQ"
+              rabbitmqctl shutdown
+              wait $pid || true
+
+              echo "[UPGRADE] ✅ - All feature flags are enabled"
         - name: cluedin-plugin-installer
           image: '{{ printf "%s/%s:%s" $.Values.image.registry "cluedin/rabbitmq-plugin-installer" "v3.13.7" }}'
           volumeMounts:
