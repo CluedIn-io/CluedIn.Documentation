@@ -220,3 +220,4 @@ Sometimes keys for identifiers are not ready to be made into a unique primary id
 ## Useful resources
 
 - [Origin](/get-started/core-concepts/origin)
+- [Origin viewer](/model/origin-viewer) - compare how sources' identifiers overlap
