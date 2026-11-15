@@ -29,3 +29,5 @@ This section covers the following areas:
 
 - [Reference information about rule's actions](/govern/rules/rules-reference) – find information about the actions associated with each type of rule.
 
+- [Data profile rules](/govern/rules/data-profile-rules) – validate the structure and statistical quality of an entity type's records, and configure alerts for when they stop meeting the bar.
+
