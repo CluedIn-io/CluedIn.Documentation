@@ -110,6 +110,30 @@ Throughout the system, the following guidelines are applied to mapped vocabulary
 
 - When you make changes to the current vocabulary key mapping or to the vocabulary key it is mapped to, the system will evaluate whether these changes are compatible with the vocabulary key configuration.
 
+## Relate vocabulary keys
+
+Relate vocabulary keys from the same vocabulary when their values are usually reviewed together, such as country, city, postal code, and street address. For more information, see [Related vocabulary keys](/model/vocabularies/vocabulary-keys#related-vocabulary-keys).
+
+**To relate vocabulary keys**
+
+1. Open the vocabulary key that you want to relate to other keys.
+
+1. In the upper-right corner of the vocabulary key details page, select **Edit**.
+
+1. In the **Related vocabulary keys** field, select the other vocabulary keys, from the same vocabulary, that should be reviewed together with this one.
+
+    If another key in this vocabulary already belongs to a group, an **Or join an existing group** option appears below the field, listing the existing group. Select it to join that group instead of selecting each member individually.
+
+1. Select **Save**.
+
+**Verify the result**
+
+Open the vocabulary key details page. The **Related vocabulary keys** section shows the other keys as linked pills. Open one of the other related keys and confirm that it now lists this key as related too—you only need to set the relationship on one key for all of them to show it.
+
+**What this changes**
+
+Relating vocabulary keys only changes the vocabulary keys' own configuration; it does not change any golden record property value. Once keys are related, editing any one of them—whether on a vocabulary key's own value, or a key's value on a golden record—shows a reminder naming the other related keys, so you can check whether they also need updating. The other keys' values are never changed or removed automatically.
+
 ## Delete a vocabulary key
 
 If you no longer need a vocabulary key, you can delete it. The process of deleting a vocabulary key is different depending on whether the vocabulary key is used anywhere in the system. If a vocabulary key is used somewhere in the system (for example, in a data set mapping, in a golden record, in a rule, and so on), you need to remap the vocabulary key first, and only then you can delete it.

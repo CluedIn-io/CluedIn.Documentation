@@ -54,6 +54,22 @@ This tab contains general information about the vocabulary key, including:
 
 - [Mapping](#map-one-vocabulary-key-to-another) to another vocabulary key – a section that shows if the current vocabulary key is mapped to another vocabulary key. The purpose of such mapping is to avoid having duplicate values in the system.
 
+- [Related vocabulary keys](#related-vocabulary-keys) – a section where you can group this vocabulary key with other keys from the same vocabulary that are usually reviewed together, such as country, city, postal code, and street address.
+
+## Related vocabulary keys
+
+Related vocabulary keys let you group several vocabulary keys from the same vocabulary that describe one real-world concept together—for example, **Country**, **City**, **Postal code**, and **Street address**, which together describe an address. Grouping them does not merge or change their values. Instead, it helps you keep them consistent by reminding you to check the other keys whenever one of them changes.
+
+Once a group of related vocabulary keys exists:
+
+- Editing any vocabulary key's value on a golden record—whether in the properties table or the single-field edit panel—shows a banner naming the other keys in the group, so you remember to review them. The other keys' values are never changed automatically; editing one key never removes or alters any other property.
+
+- On a vocabulary key's details page, the related keys are shown as a row of linked pills, each opening the related key's own details page.
+
+- In the vocabulary keys list, a vocabulary key that belongs to a group shows a small "Related keys" badge. Hover over it to see the other keys in the group without leaving the list.
+
+You do not need to configure the group on every key separately: adding or removing a member from any one key's related-keys field updates the group on all of them.
+
 ### Usage
 
 This tab contains the global view of vocabulary key usage in the system: number of golden records, streams, glossary terms, rules, data set mappings, clean projects, deduplication projects, and saved searches where the vocabulary key is used. You can select the **View all** button to view more details and find links to the corresponding elements in the system.
