@@ -58,6 +58,26 @@ The **AI Agents** feature requires you to define the configuration for the follo
 
 - Endpoint – that is, the address (URL) where your deployed model can be accessed.
 
+### Add an AI provider with the guided wizard
+
+Instead of configuring the platform, deployment and endpoint as three separate steps, you can use the **Add AI provider** wizard to set up all three in one guided flow. Each step creates its part as soon as you complete it, and carries it into the next step.
+
+**To add an AI provider with the wizard**
+
+1. On the navigation pane, go to **Administration** > **Artificial Intelligence**.
+
+1. Select **Add AI provider**.
+
+1. On the **Platform** step, enter a **Name**, select the **Platform**, and provide the connection details it asks for (for example, an API key). Then select **Next**.
+
+    ![The Add AI provider wizard on the Platform step, with Name set and Claude selected as the platform]({{ "/assets/images/management/ai-agents/add-an-ai-provider/add_ai_provider_wizard_step1.png" | relative_url }})
+
+1. On the **Deployment** step, the platform you just created is preselected. Fill in the remaining deployment details described in [Configure a deployment](#configure-a-deployment), then select **Next**.
+
+1. On the **Endpoint** step, the deployment you just created is preselected. Fill in the remaining endpoint details described in [Configure a model endpoint](#configure-a-model-endpoint), then select **Create**.
+
+You can still configure a platform, deployment, or endpoint on its own at any time, using the steps below - for example, to add a second deployment to a platform you already configured.
+
 ### Configure a platform
 
 A platform is an external AI service provider that hosts and manages the AI models used by agents. The platform defines the foundational capabilities and APIs that agents interact with. An example of a platform is Azure OpenAI Service.
