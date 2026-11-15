@@ -8,7 +8,7 @@ content_type: concept
 redirect_from: ["/governance/data-quality-dashboard"]
 source_path: docs/070-governance/030-data-quality-dashboard.md
 tags: ["governance", "data quality", "metrics", "accuracy", "completeness", "connectivity", "relevance", "consistency", "currentness", "iso 25012", "business domains", "ai agents", "trust center", "provenance", "explainability", "human accountability", "thresholds"]
-last_modified: 2026-10-15
+last_modified: 2026-11-15
 ---
 
 ## On this page
@@ -42,12 +42,12 @@ The scores on this dashboard are only as current as the last time the jobs that 
 - **Global metrics** – computes the organization-wide metric scores shown throughout this dashboard. Runs once a day by default.
 - **High time resolution metrics** – recomputes the metrics this organization keeps at a high time resolution. Runs every 15 minutes by default.
 
-If you've just ingested or changed data and don't want to wait for the next scheduled run, select **Run Global metrics** or **Run High time resolution metrics** at the top of the page to trigger the corresponding job immediately.
+If you've just ingested or changed data and don't want to wait for the next scheduled run, select **Recalculate** at the top of the page. It runs both jobs for you, in the right order, so you don't have to trigger each one yourself.
 
-![The Data Quality Dashboard header, showing the Run High time resolution metrics and Run Global metrics buttons]({{ "/assets/images/governance/data-quality-dashboard/recalculate-metrics.png" | relative_url }})
+![The Data Quality Dashboard header, showing the Recalculate button and its Last run tooltip]({{ "/assets/images/governance/data-quality-dashboard/recalculate-metrics.png" | relative_url }})
 
 {:.note}
-These are the same two jobs listed on the [Jobs](/administer/jobs) page under **System-provided jobs** — running them from here is a shortcut, not a separate action. If your organization requires approval to run jobs, selecting the button sends a request to the job's owner instead of running it immediately.
+These are the same two jobs listed on the [Jobs](/administer/jobs) page under **System-provided jobs** — selecting **Recalculate** is a shortcut for running both in sequence, not a separate action. While it runs, the button shows which of the two jobs is currently in progress. Hover over it afterwards to see when it last ran and, right after a run finishes, which metrics' values changed.
 
 ## Setting a threshold on a metric
 
