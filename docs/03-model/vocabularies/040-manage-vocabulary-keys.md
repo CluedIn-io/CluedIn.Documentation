@@ -58,7 +58,7 @@ Depending on the selected [data modeling approach](/model/data-catalog/modeling-
 You can edit a vocabulary key to make necessary changes to its configuration, ensuring that metadata is organized and consistent.
 
 {:.important}
-Changing the data type, storage, classification, and [mapping](#map-one-vocabulary-key-to-another) will trigger the reprocessing of a vocabulary key. Additionally, if you change the name of the vocabulary key, a new key will be generated, with the existing key automatically mapped to the new one and marked as obsolete.
+Changing the data type, storage, classification, and [mapping](#map-one-vocabulary-key-to-another) will trigger the reprocessing of a vocabulary key. This reprocessing runs in the background, and its progress is shown on the vocabulary key details page until it completes. Additionally, if you change the name of the vocabulary key, a new key will be generated, with the existing key automatically mapped to the new one and marked as obsolete.
 
 **To edit a vocabulary key**
 
