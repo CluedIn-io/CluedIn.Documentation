@@ -15,6 +15,14 @@ content_type: how-to
 
 In this article, you will learn how to connect CluedIn to Microsoft Fabric's OneLake Catalog, so you can search and browse Workspaces and Items across your Fabric tenant - including each item's connections, shortcuts and tags - through CluedIn's REST API.
 
+## Use OneLake Catalog from the CluedIn UI
+
+The operations below are also available from the CluedIn UI, without calling the API directly:
+
+- **Ingest** > **Sources** lists **OneLake Catalog** alongside **Microsoft Fabric** in the source types sidebar. It links to your OneLake Catalog connections, rather than to a list of ingested data - OneLake Catalog only searches and browses Fabric's metadata, it doesn't ingest data on its own.
+- The **Create** page's **Ingestion** section has a **Browse OneLake Catalog** tile that opens the same connect-and-explore wizard.
+- From a connection's Explorer, selecting a Lakehouse, Warehouse or Mirrored Database item shows an **Ingest with Microsoft Fabric** button. It opens CluedIn's existing Microsoft Fabric ingestion wizard, unchanged - OneLake Catalog itself never ingests table or file data; use this button, or the [Microsoft Fabric](/solutions/fabric/connect-fabric-to-cluedin) connection directly, to bring that data into CluedIn.
+
 ## Prerequisites
 
 To connect CluedIn to OneLake Catalog, you need:
@@ -101,6 +109,8 @@ OneLake Catalog is a metadata-discovery API: these operations find and describe 
 ## What this changes
 
 Creating a connection only stores its credentials in CluedIn; it doesn't change any data in Fabric or CluedIn by itself. Calling an operation above reads live from OneLake Catalog - nothing is cached, and none of these operations write to Fabric, except Apply tags and Remove tags, which add or remove tags on the Fabric item you target.
+
+Creating a connection also starts a recurring check, roughly every 15 minutes, for new files, tables or other items in that connection's catalog. Fabric has no event or webhook CluedIn can subscribe to for this today, so this check is a poll rather than a push. The first check only records a baseline of what already exists - it doesn't notify anyone, since everything already in the catalog isn't "new". From the next check onward, every organization admin gets an in-app notification (the same notification list used elsewhere in CluedIn) listing what's newly appeared, if anything has.
 
 ## If something goes wrong
 
