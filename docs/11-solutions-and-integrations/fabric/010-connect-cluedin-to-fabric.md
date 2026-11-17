@@ -228,3 +228,7 @@ display(df_spark_titles)
 Now, you can view the data in the Catalog.
 
 ![Catalog pane showing the imdb_titles table and its columns under hive_metastore, cluedin]({{ "/assets/images/microsoft-integration/fabric/output-4.png" | relative_url }})
+
+## Related
+
+To publish the structure of your CluedIn data - business domains, fields and relationships - to Fabric as a queryable Ontology, rather than writing individual tables, see [Sync the Global Data Model to a Microsoft Fabric Ontology](/publish/integration-patterns/sync-global-data-model-to-fabric-ontology).
