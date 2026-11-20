@@ -78,6 +78,8 @@ The purpose of vocabulary key mapping is to keep data organized and consistent b
 
 To demonstrate the importance and efficiency of vocabulary key mapping, let's look at an example. Suppose you have contact records coming into CluedIn from various sources—Salesforce, SAP, and MS SQL Server—and each source has its unique vocabulary. Some properties in data coming from these sources are the same, and some are different. For example, the _gender_ property exists in data from all three sources. It means that _gender_ values would be stored in three separate vocabulary keys. To keep all _gender_ values under one vocabulary key instead of keeping them in each separate vocabulary key, you can map these three vocabulary keys to one, thus improving the organization and getting better visibility of your data.
 
+To map many keys at once, use the [Semantic model](/model/vocabularies/semantic-model) instead: drag from one key onto another and save all changes together. The following procedure maps one key from its own page.
+
 **To map one vocabulary key to another**
 
 1. Open the vocabulary key that you want to map to another vocabulary key.
