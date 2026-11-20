@@ -22,9 +22,9 @@ Roles are used to grant permissions to users to perform specific actions in Clue
 
 ## Default roles
 
-All roles are listed in **Administration** > **Roles**. The following table provides a list of default CluedIn roles. In the **Access status** column, you can download a file with details of the default role's access to the features in CluedIn. However, you can change the configuration of the role and extend its access to features according to your needs.
+All roles are listed in **Administration** > **Roles**. The following table provides a list of default CluedIn roles. In the **Default access** column, you can download a file with details of the default role's access to the features in CluedIn. You can change the configuration of any role to suit your needs.
 
-| Role name | Description | Access status |
+| Role name | Description | Default access |
 |--|--|--|
 | DataArchitect | Responsible for designing an organization's enterprise data strategy. | <a href="/assets/other/claims/DataArchitect.xlsx" download>Download</a> |
 | DataCompliance | Responsible for daily operations around data compliance. | <a href="/assets/other/claims/DataCompliance.xlsx" download>Download</a> |
@@ -47,7 +47,9 @@ A role acts as a container for two key components:
 
 - Claims – Specific features or operations that can be performed in CluedIn. Most of the time, the name of the claim is the same as the name of the module in CluedIn. Learn more about claims in a dedicated [article](/administer/users-and-roles/claims).
 
-- Access levels – Indicate the type of activity that can be performed with the claim.
+- Access levels – Indicate the type of activity that can be performed with the claim: None, View, Edit or Manage.
+
+A role can also have [responsibilities](/administer/users-and-roles/responsibilities), which say what work the role does, approves, is asked about, or is told about, and decide where Steward Inbox tasks go. Responsibilities don't grant access.
 
 {:.important}
 To get acquainted with the required claims and access levels for all actions in CluedIn, download this <a href="/assets/other/Claims-V1.xlsx" download>file</a>.
@@ -56,30 +58,37 @@ To get acquainted with the required claims and access levels for all actions in 
 
 1. On the navigation pane, go to **Administration** > **Roles**.
 
-2. Select a role to view its claims and access levels.
+    The **Roles** tab lists the roles, with how many users and responsibilities each has. The **All responsibilities** tab lists the responsibilities of every role and person; see [Responsibilities](/administer/users-and-roles/responsibilities).
 
-    You can view the following information:
+1. Select a role. It opens on the **Configuration** tab.
 
-    - The name of the section in CluedIn (a).
+    The features are grouped by section, such as Integration or Preparation, and each has an access level. Select a feature to see, in the panel on the right, what its current access level lets users with this role do. A **Dependencies required** warning means the feature needs access to another feature to work.
 
-    - Claims within that section (b).
+    ![The Configuration tab of the DataSteward role: features grouped by section, each with an access level, and the Access details panel on the right listing what Edit access to Available Integrations allows]({{ "/assets/images/administration/roles/role-configuration-tab.png" | relative_url }})
 
-    - Access levels (c) to each claim.
+    Each role contains the same list of features, but different access levels. We recommend that you familiarize yourself with the [default CluedIn roles](#default-roles), so that you know which role to assign to users in your organization. If the default configuration is not suitable for you, you can change the access levels in the default roles or create your own roles.
 
-    Each role contains the same list of claims, but different access levels. We recommend that you familiarize yourself with the [default CluedIn roles](#default-roles), so that you know which role to assign to users in your organization. If the default configuration is not suitable for you, you can change the access levels in the default roles or create your own roles.
+The other tabs of a role are **Responsibilities**, **Users** and **Audit log**.
 
-    ![Role claims for the Preparation section: (a) the section name, (b) claims such as Clean, Mesh Center and Prepare, and (c) the access level for each, set to Accountable]({{ "/assets/images/administration/roles/roles-1.png" | relative_url }})
+## Change access levels
+
+1. Open the role on the **Configuration** tab.
+
+1. Select the access level of a feature. To change several at once, select the checkboxes next to the features, or next to a section to select all its features, and then pick the level for all of them.
+
+1. Select **Save**.
 
 ## Supported access levels
 
 In CluedIn, the following access levels are used:
 
-- **None** – No access to the claim.
-- **Informed** – Read-only access to the claim. The user will be able to view all information within the claim, but will not be able to add, edit, or delete items within the claim.
-- **Consulted** – Read and write access to the claim. The user will be able to add, edit, or delete items within the claim.
+- **None** – No access to the feature.
+- **View** – Read-only access. Users can open the feature and see its items, but can't change them.
+- **Edit** – Users can view, create, edit and delete items. Changes to items created by others are submitted for approval to the people with **Manage** access to that item.
+- **Manage** – Full control over the feature: users can view, create, edit and delete items, including items created by others, and change the feature's settings. It's also required to create items directly when an approval workflow is enabled for creating them.
 
 {:.important}
-The Responsible access level is reserved for upcoming versions. Currently, the activities represented by this access level are the same as in the Consulted access level. The Accountable access level gives full control over all elements within a feature, including elements owned by other users, and it is required to create elements directly when an approval workflow is enabled for creating them. For more information, see [Feature access](/administer/users-and-roles/feature-access).
+Earlier versions of CluedIn used the levels Informed, Consulted, Responsible and Accountable. Existing roles were moved to the new levels: Informed became View, Consulted and Responsible became Edit, and Accountable became Manage. Who does which work is now set with [responsibilities](/administer/users-and-roles/responsibilities). For how access levels combine with access to a single item, see [Feature access](/administer/users-and-roles/feature-access).
 
 ## Managing overlapping roles
 

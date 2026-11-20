@@ -17,6 +17,9 @@ content_type: how-to
 The RACI matrix lets you record who is responsible for which CluedIn function—deduplication, cleaning, enrichment, and so on—on which business domain, and see everything you have set up in one place. Use it when you need a clear, shared answer to "if there is a data quality problem with Customer records, who owns fixing it?" without digging through role assignments one at a time.
 
 {:.important}
+To set who does, approves, is asked about, or is told about work on a feature, and to route Steward Inbox tasks to them, use [Responsibilities](/administer/users-and-roles/responsibilities) on the role instead.
+
+{:.important}
 The RACI matrix is a planning and documentation tool. Adding a responsibility here does not change what a role or user can actually do in CluedIn—it does not grant claims or create access control policies. To change what someone can access, assign [roles](/administer/users-and-roles/roles) and [claims](/administer/users-and-roles/claims), or configure [access control](/administer/access-control).
 
 ## Prerequisites
