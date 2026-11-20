@@ -56,13 +56,19 @@ The following diagram shows the flow of adding users to CluedIn.
 
 1. On the actions pane, select **Users**. Then, select **Invite User**.
 
-1. On the **Invite User** pane, enter the user's email address. Then, in the lower-right corner, select **Invite**.
+1. On the **Invite User** pane, enter the user's email address.
+
+1. Optionally, in **Roles**, select one or more roles to give the user. You can select several roles in the same invitation.
+
+    ![The Invite User pane with an email address and two roles, DataSteward and DataGovernance, selected]({{ "/assets/images/administration/user-management/invite-user-multiple-roles.png" | relative_url }})
+
+1. In the lower-right corner, select **Invite**.
 
     The user will receive an email with a link to activate their account. After the user follows the link and creates a password, you will see the user on the **All users** page.
 
     ![The All users page showing the invited user john.smith@foobar.com with the OrganizationUser role and an Active status toggle]({{ "/assets/images/administration/user-management/invite-user-email-2.png" | relative_url }})
 
-    By default, the user's role is OrganizationUser. It means that the user can view all sections and modules in a read-only mode. To give the user access to more features within the platform, [add another role to the user](/administer/users-and-roles/assign-roles).
+    If you don't select any role, the user's role is OrganizationUser. It means that the user can view all sections and modules in a read-only mode. To give the user access to more features within the platform, [add another role to the user](/administer/users-and-roles/assign-roles).
 
 ### Add user via SSO
 
