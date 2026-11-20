@@ -7,7 +7,7 @@ permalink: /administer/jobs
 content_type: how-to
 redirect_from: ["/management/jobs", "/development/one-time-jobs", "/development/recurring-time-jobs", "/development/scheduled-time-jobs"]
 tags: ["management", "jobs", "scheduling", "rules", "graphql"]
-last_modified: 2026-09-24
+last_modified: 2026-11-20
 ---
 
 ## On this page
@@ -15,12 +15,13 @@ last_modified: 2026-09-24
 - TOC
 {:toc}
 
-The **Jobs** module lets you schedule recurring work in CluedIn and monitor when that work runs.
+The **Jobs** module lets you schedule recurring work in CluedIn and follow every job execution across your environment, in one place.
 
 Jobs are useful for operations that need to happen repeatedly without a user manually starting them each time. For example, you can create scheduled jobs that:
 
 - Reprocess rules.
 - Run batch GraphQL actions against a selected set of records.
+- Purge records that match a filter (**Retention and Purge**).
 
 The Jobs page also contains system-provided jobs used by CluedIn for recurring platform work.
 
@@ -28,9 +29,17 @@ The Jobs page also contains system-provided jobs used by CluedIn for recurring p
 
 To open Jobs, go to **Management** > **Jobs**.
 
-The page gives you an operational overview of scheduled work and recent executions.
+The page has three tabs:
 
-At the top of the page, summary cards show information such as:
+- **Manage jobs** – the jobs defined in your environment, their schedules, and their recent run results.
+- **Active jobs** – job executions that are running right now, across the whole environment.
+- **History** – finished job executions, including ones that failed or were cancelled.
+
+**Active jobs** and **History** cover more than the jobs listed under **Manage jobs**: they also show system jobs and background work started by other CluedIn features, such as deduplication projects. For details, see [Job monitoring](/operate/monitoring/job-monitoring).
+
+![The Jobs page, showing the Manage jobs, Active jobs and History tabs]({{ "/assets/images/administration/jobs/jobs-page.png" | relative_url }})
+
+On the **Manage jobs** tab, summary cards at the top of the page, summary cards show information such as:
 
 - **All jobs** – total number of jobs.
 - **Scheduled** – jobs configured to run on a schedule.
@@ -40,9 +49,13 @@ At the top of the page, summary cards show information such as:
 - **Runs, last 24 hours** – recent successful and failed runs.
 - **Runs, last 7 days** – run history for the previous seven days.
 
+When any runs have failed, the red failed count is a link. Select it to open **History**, filtered to failed runs.
+
 The job list shows information such as the job name, schedule, current status, last run, next run, and available actions.
 
 You can search and filter the list to focus on jobs by status, type, creator, or action.
+
+To run several jobs at once, select them using the checkboxes in the list, then select **Run _N_ jobs**. If your organization requires approval to run jobs, a request is sent for each selected job instead.
 
 ## Create a job
 
@@ -54,6 +67,22 @@ A job combines two main concepts:
 2. **Schedule** – when CluedIn should do it.
 
 The available action determines the configuration required by the job.
+
+### Choose a schedule
+
+Turn on **Enable recurring schedule**, then pick a preset:
+
+- **Every few minutes** – runs every _N_ minutes. Starts at every 15 minutes; choose a different interval if needed.
+- **Hourly** and **Daily** – run every _N_ hours or days.
+- **Weekly** and **Monthly** – run once a week or once a month.
+- **Custom** – edit the cron expression directly.
+
+The panel previews the schedule in plain language and lists the next few run times. Schedules are evaluated in the server's time zone (UTC).
+
+![Creating a job that runs every 5 minutes]({{ "/assets/images/administration/jobs/create-job-every-few-minutes.png" | relative_url }})
+
+{:.important}
+Pick an interval that leaves the job enough time to finish before its next run, especially for jobs that touch many records.
 
 ## Schedule rule execution
 
@@ -119,6 +148,19 @@ This separates the **selection and operation logic** from the **schedule**:
 - GraphQL defines which records are targeted and what action is performed.
 - Jobs defines when the action runs.
 
+## Purge records with Retention and Purge
+
+A **Retention and Purge** job permanently deletes data from every record that matches the rule you configure. Use it to enforce data retention policies, for example removing records in a business domain once they reach a particular state.
+
+When you create the job, define at least one condition under **Records to purge**. An empty rule would match every record, so the job can't be saved without one.
+
+If a condition can't be evaluated when the job runs (for example, it refers to a value that no longer exists), CluedIn treats it as matching **no** records rather than all of them. In that case nothing is purged.
+
+To see what the job did, open **View details** on the job. For a Retention and Purge job, this shows the configured filter and the latest run's outcome: how many records were purged, and how many failed.
+
+{:.important}
+Purged data can't be recovered from CluedIn. Review the filter carefully before saving the job, and consider running it on demand once before giving it a recurring schedule.
+
 ## Scheduled and on-demand jobs
 
 Jobs can be used in different execution modes.
@@ -152,6 +194,14 @@ Examples can include internal maintenance and metrics-processing jobs.
 
 System-provided jobs make recurring platform activity visible in the same operational view as user-created work.
 
+### Jobs that must run in order
+
+Some system jobs depend on another job having run first. For example, **Archive metrics values** should run after **Global metrics** and **High time resolution metrics**, so it archives their finished values rather than a stale snapshot.
+
+When a job has a dependency like this, its detail page shows a note explaining which jobs to run first. Follow that order if you start these jobs manually.
+
+![The Archive metrics values job detail page, showing its ordering note]({{ "/assets/images/administration/jobs/job-ordering-note.png" | relative_url }})
+
 ## Monitor job execution
 
 Use the Jobs page to monitor recurring work.
@@ -166,7 +216,9 @@ For each job, you can review:
 
 The summary cards for the last 24 hours and last 7 days help you quickly identify whether scheduled work is succeeding or failing.
 
-If a job is not behaving as expected, review the job configuration, action, schedule, and recent run information before changing the underlying rule or GraphQL operation.
+A run that you or another user stopped is shown as **Cancelled**, not **Failed**. A run shown as **Failed** stopped because of an error. Hover over its **Failed** badge to see the failure reason.
+
+If a job is not behaving as expected, review the job configuration, action, schedule, and recent run information before changing the underlying rule or GraphQL operation. To follow individual executions, use the **Active jobs** and **History** tabs.
 
 ## Pause and resume scheduled work
 

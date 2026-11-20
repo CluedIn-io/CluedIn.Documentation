@@ -8,7 +8,7 @@ permalink: /operate/monitoring/job-monitoring
 content_type: how-to
 redirect_from: ["/management/job-monitoring"]
 tags: ["management", "monitoring", "jobs", "operations"]
-last_modified: 2026-09-24
+last_modified: 2026-11-20
 ---
 
 ## On this page
@@ -16,25 +16,25 @@ last_modified: 2026-09-24
 - TOC
 {:toc}
 
-The **Monitoring** page in Management provides a central view of jobs running across your CluedIn environment.
+The **Active jobs** and **History** tabs of the **Jobs** page provide a central view of jobs running across your CluedIn environment.
 
 Use it to track the **status, progress, and outcome** of background work, including both recurring scheduled jobs and jobs started by other CluedIn features.
 
-This is different from the [Jobs](/administer/jobs) page:
+They sit next to the **Manage jobs** tab on the same [Jobs](/administer/jobs) page:
 
-- **Management > Jobs** is where you define and schedule recurring work.
-- **Management > Monitoring** is where you observe job executions across the environment.
+- **Manage jobs** is where you define and schedule recurring work.
+- **Active jobs** and **History** are where you observe job executions across the environment.
 
-Monitoring therefore includes more than user-created schedules. Depending on activity in your environment, you can see system jobs, scheduled jobs, deduplication processing, record operations, and other background work.
+Job monitoring therefore includes more than user-created schedules. Depending on activity in your environment, you can see system jobs, scheduled jobs, deduplication processing, record operations, and other background work.
 
-## Open Monitoring
+## Open job monitoring
 
-On the navigation pane, go to **Management** > **Monitoring**.
-
-The page contains two main tabs:
+On the navigation pane, go to **Management** > **Jobs**, then select one of these tabs:
 
 - **Active jobs** – work that is currently running.
 - **History** – completed and previous job executions.
+
+Older links to the standalone Monitoring page still work.
 
 Together, these views let you understand both what CluedIn is doing now and what has happened previously.
 
@@ -68,9 +68,9 @@ For each execution, the list can show:
 - **Finished** – when execution ended.
 - **Duration** – how long the execution took.
 
-Where available, the job name can link back to the originating object, such as a scheduled job or project, so that you can inspect its configuration.
+Where available, the job name can link back to the originating object, such as a scheduled job, rule, or project, so that you can inspect its configuration. Jobs that relate to another object, such as a rule processing job, also offer a **view job details** callout. It shows the job's own name, state, progress and, for a failed job, the failure reason.
 
-This makes Monitoring useful both for day-to-day operations and for troubleshooting questions such as:
+This makes History useful both for day-to-day operations and for troubleshooting questions such as:
 
 - Did this job actually run?
 - When did it start and finish?
@@ -85,13 +85,15 @@ The **Status** column provides a quick indication of the execution state.
 
 For example, a completed operation can be shown as **Done**.
 
-Active jobs can display an in-progress state while work is still executing.
+Active jobs can display an in-progress state while work is still executing. A job that is being cancelled shows a stopping state until cancellation finishes.
+
+A job that a user stopped is shown as **Cancelled**. **Failed** means the job stopped because of an error. Hover over the **Failed** badge to see the failure reason, so you can often diagnose the problem without contacting support.
 
 Use the status together with the start and finish times to understand whether a job completed normally or still requires investigation.
 
 ## Filter monitored jobs
 
-Monitoring can contain a large number of executions, particularly in environments with frequent scheduled or system activity.
+History can contain a large number of executions, particularly in environments with frequent scheduled or system activity.
 
 Use the filters at the top of the page to narrow the list.
 
@@ -133,7 +135,7 @@ This is particularly useful when investigating an incident or checking activity 
 
 ## Understand system jobs
 
-Some entries in Monitoring are created by CluedIn itself.
+Some entries in **Active jobs** and **History** are created by CluedIn itself.
 
 These jobs are typically marked as being initiated by **System** and can include recurring maintenance or metric-processing operations.
 
@@ -148,17 +150,17 @@ System jobs are visible so administrators can understand what background work is
 
 ## Monitor scheduled jobs
 
-Jobs created in [Management > Jobs](/administer/jobs) appear in Monitoring when they execute.
+Jobs created in [Management > Jobs](/administer/jobs) appear in **Active jobs** and **History** when they execute.
 
-The Management page tells you how the recurring job is configured, including its schedule and next run.
+The **Manage jobs** tab tells you how the recurring job is configured, including its schedule and next run.
 
-Monitoring tells you what happened during each actual execution.
+**Active jobs** and **History** tell you what happened during each actual execution.
 
 For example:
 
 1. A rule reprocessing job is configured to run every night.
-2. **Management > Jobs** shows the schedule and next expected run.
-3. When the schedule triggers, the execution appears under **Management > Monitoring**.
+2. The **Manage jobs** tab shows the schedule and next expected run.
+3. When the schedule triggers, the execution appears under **Active jobs**.
 4. After it finishes, the run remains available in **History** with its status, start time, finish time, and initiator.
 
 This separation makes it possible to manage schedules without losing visibility into individual runs.
@@ -175,17 +177,17 @@ For example, a deduplication project can create jobs to:
 - Generate deduplication results.
 - Merge approved duplicate groups.
 
-These executions can appear in Monitoring with the relevant project as the job kind or source.
+These executions can appear in **Active jobs** and **History** with the relevant project as the job kind or source.
 
 This provides a single operational view instead of requiring administrators to visit every module independently to understand what work has run.
 
-## Use Monitoring for troubleshooting
+## Use job monitoring for troubleshooting
 
-When an operation does not appear to have completed as expected, Monitoring is a useful first place to investigate.
+When an operation does not appear to have completed as expected, the **Active jobs** and **History** tabs are a useful first place to investigate.
 
 A typical troubleshooting workflow is:
 
-1. Open **Management** > **Monitoring**.
+1. Open **Management** > **Jobs**.
 2. Check **Active jobs** to see whether the operation is still running.
 3. If it is no longer active, open **History**.
 4. Filter by status, initiator, kind, or start date.
@@ -194,14 +196,14 @@ A typical troubleshooting workflow is:
 
 This helps distinguish between an operation that never started, one that is still running, and one that already completed.
 
-## Jobs and Monitoring
+## Jobs page tabs
 
-The Jobs and Monitoring pages are complementary.
+The three tabs of the Jobs page are complementary.
 
-| Page | Purpose |
+| Tab | Purpose |
 |--|--|
-| **Management > Jobs** | Create recurring work, define schedules, and manage scheduled or on-demand job definitions. |
-| **Management > Monitoring > Active jobs** | See background work currently running across the environment. |
-| **Management > Monitoring > History** | Review previous executions, outcomes, initiators, and timings. |
+| **Management > Jobs > Manage jobs** | Create recurring work, define schedules, and manage scheduled or on-demand job definitions. |
+| **Management > Jobs > Active jobs** | See background work currently running across the environment. |
+| **Management > Jobs > History** | Review previous executions, outcomes, initiators, and timings. |
 
 For information about defining scheduled rule reprocessing and batch GraphQL actions, see [Jobs](/administer/jobs).
