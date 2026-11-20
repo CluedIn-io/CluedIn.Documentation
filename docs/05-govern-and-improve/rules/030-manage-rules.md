@@ -137,9 +137,9 @@ The default rule processing order is the order in which the rules were created. 
 
 1. Select **Save**.
 
-By default, the list shows active rules only. To see inactive rules as well, turn on **Show inactive rules**. Inactive rules are shown greyed out with an **Inactive** label. They keep their place in the processing order when you save, so a rule picks up from the same position if you activate it again.
+By default, the page shows active rules only. To see inactive rules as well, turn on **Show inactive rules**. Inactive rules are listed in a separate **Inactive rules** section below the processing order, greyed out with an **Inactive** label. Inactive rules aren't processed, so they have no position in the order and you can't reorder them. When you activate a rule, it's added to the end of the processing order.
 
-![The Rule processing order page with Show inactive rules turned on, listing the inactive rule Legacy phone formatting with an Inactive label above two active rules]({{ "/assets/images/management/rules/rule-order-show-inactive.png" | relative_url }})
+![The Rule processing order page with Show inactive rules turned on: two active rules in the reorderable list, and below it an Inactive rules section listing Legacy phone formatting with an Inactive label]({{ "/assets/images/management/rules/rule-order-show-inactive.png" | relative_url }})
 
 ## Export rules to CSV
 
