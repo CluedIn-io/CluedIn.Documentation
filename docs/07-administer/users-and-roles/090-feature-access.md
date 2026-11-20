@@ -15,7 +15,7 @@ source_path: docs/030-administration/user-access/020-feature-access.md
 - TOC
 {:toc}
 
-In this article, you will learn about the main settings that define access to CluedIn features: roles and ownership.
+In this article, you will learn about the main settings that define access to CluedIn features: roles and item access.
 
 <div class="videoFrame">
 <iframe src="https://player.vimeo.com/video/1009084345?h=9c95eebafe&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Roles and ownership"></iframe>
@@ -24,7 +24,7 @@ In this article, you will learn about the main settings that define access to Cl
 {:.important}
 Feature access does not affect access to data in CluedIn. For example, if you have access to the glossary, you still won't be able to view golden records from a glossary term without specific data access. For more information, see [Data access](/administer/users-and-roles/data-access).
 
-Feature access means permissions that allow you to interact with CluedIn modules: Integrations, Governance, Preparation, Engine Room, Management, Consume, and Administration. Every module contains features that enable you to perform specific tasks. For example, in the Preparation module, you can create clean projects and add enrichers for enhancing golden records. Access to those features is managed by CluedIn roles and ownership permissions.
+Feature access means permissions that allow you to interact with CluedIn modules: Integrations, Governance, Preparation, Engine Room, Management, Consume, and Administration. Every module contains features that enable you to perform specific tasks. For example, in the Preparation module, you can create clean projects and add enrichers for enhancing golden records. Access to those features is managed by CluedIn roles and by item access.
 
 ## Roles
 
@@ -39,48 +39,59 @@ The claim access levels within roles define the possible actions a user can perf
 
 - If your access level for the Rule Builder claim is None, you don't have access to the rules at all.
 
-- If your access level for the Rule Builder claim is Informed, you can view all rules.
+- If your access level for the Rule Builder claim is View, you can view all rules.
 
-- If your access level for the Rule Builder claim is Consulted, you can create and manage your own rules. Also, you can make changes to the rules created by other users and submit such changes for approval to the owners of the rule.
+- If your access level for the Rule Builder claim is Edit, you can create and manage your own rules. Also, you can make changes to the rules created by other users and submit such changes for approval to the users and roles with Manage access to the rule.
 
-- If your access level for the Rule Builder claim is Accountable, you can create and manage your own rules as well as manage all rules created by other users. In other words, this claim access level gives you administrator control over all rules.
+- If your access level for the Rule Builder claim is Manage, you can create and manage your own rules as well as manage all rules created by other users. In other words, this claim access level gives you administrator control over all rules.
 
-## Ownership
+## Item access
 
-Ownership defines the right to approve or reject change requests submitted by non-owner users as well as make direct changes.
+Item access gives users and roles access to one element, on top of their role's access level. It replaces the **Owners** tab of earlier versions.
 
-Almost every element in CluedIn has the **Owners** tab with a list of users and/or roles who are considered owners. Such elements include clean projects, enrichers, access control policies, vocabularies, deduplication projects, rules, glossary terms, hierarchies, streams, and export targets.
+Elements with an **Access** tab include clean projects, enrichers, access control policies, vocabularies, deduplication projects, rules, glossary terms, hierarchies, streams, data sources, manual data entry projects and export targets.
 
-Initially, the user who created the element—for example, a rule—is its owner. However, if you trust other users to process change requests related to the element and to make direct changes to the element, you can add those users to the list of owners. You can also add roles to the list of owners; this way, all users who have that role will get the ownership permissions.
+Each entry on the tab has one of these levels:
 
-**To add owners**
+- **View** – the user or role is listed with read access. It doesn't let them open the element if their role has no access to the feature.
+- **Edit** – changes they make to the element apply without approval.
+- **Manage** – they can also change who has access to the element, and they approve or reject change requests submitted by others.
 
-1. Open the element to which you want to add owners, and then go to the **Owners** tab.
+The user who creates an element gets **Manage** access automatically, and is marked with a **Creator** tag. An element always keeps at least one entry with Manage access, so the last one can't be removed or lowered.
 
-1. Select **Add** > **Add Users** or **Add Roles**.
+![The Access tab of a rule: a note about item access, the Add user or role and Access level fields, the list of users and roles with their access level and a Creator tag, and the Who does the work list below]({{ "/assets/images/administration/user-access/item-access-tab.png" | relative_url }})
 
-1. Select the checkboxes next to the users or roles who will be granted ownership.
+**To give a user or role access to an element**
 
-1. In the lower-right corner, select **Add**.
+1. Open the element, and then go to the **Access** tab.
 
-    ![Animation: on the Owners tab of a rule, selecting Add, choosing users or roles, selecting their checkboxes, and selecting Add]({{ "/assets/images/administration/user-access/add-owner-role.gif" | relative_url }})
+1. In **Add user or role**, select a user or role.
 
-When the users or roles appear on the **Owners** tab of the element, they are granted permission to approve or reject change requests submitted by other users. Also, if their access level for the relevant claim is at least Consulted, they can make changes directly without submitting them for approval.
+1. In **Access level**, select **View**, **Edit** or **Manage**. The default is **Edit**.
 
-## Combinations of claim access levels and ownership
+1. Select **Add**.
 
-Since both claim access levels and ownership permissions regulate the activities that can be performed with an element within a CluedIn feature, it is important to understand how they work together. This section does not include the following combinations:
+To change an entry's level, select a new level in its row. To remove an entry, select the delete icon in its row. Changing levels needs Manage access to the element, or the Manage access level for the feature. If you don't have Manage access to the element, adding or removing an entry is submitted for approval.
 
-- None claim access level and ownership – the claim access level is not sufficient to open an element, so the ownership permission doesn't have any practical application in this combination.
+Below the list, **Who does the work** shows the [responsibilities](/administer/users-and-roles/responsibilities) that cover the element, and whether each one is set on this element or applies to all elements of its kind. Change them on the role's **Responsibilities** tab.
 
-- Accountable claim access level and ownership – the claim access level gives full control over all elements within a feature, so the ownership permission doesn't have any practical application in this combination.
+{:.important}
+When CluedIn is upgraded, each existing owner becomes an entry with Manage access, and the user who created the element is marked as its creator.
 
-**Consulted claim access level with ownership**
+## Combinations of claim access levels and item access
 
-The Consulted claim access level gives you access to modify elements with a feature. With the ownership permission, you can modify the configuration of an element right away as well as receive and process change requests submitted by other, non-owner users.
+Since both claim access levels and item access regulate the activities that can be performed with an element within a CluedIn feature, it is important to understand how they work together. This section does not include the following combinations:
 
-![Diagram: an owner with Consulted access modifies configuration and changes apply right away; a non-owner with Consulted access submits changes for approval, and the owner approves or rejects them]({{ "/assets/images/administration/user-access/consulted-owner.gif" | relative_url }})
+- None claim access level and item access – the claim access level is not sufficient to open an element, so item access doesn't have any practical application in this combination.
 
-**Informed claim access level with ownership**
+- Manage claim access level and item access – the claim access level gives full control over all elements within a feature, so item access doesn't have any practical application in this combination.
 
-The Informed claim access level gives you access to view all elements within a feature. However, even if you have the ownership permission, you cannot approve or reject change requests submitted by other, non-owner users.
+**Edit claim access level with Manage access to the element**
+
+The Edit claim access level gives you access to modify elements with a feature. With Manage access to the element, you can modify the configuration of the element right away as well as receive and process change requests submitted by other users.
+
+![Diagram: a user with Manage access to an element modifies its configuration and changes apply right away; another user with the Edit access level submits changes for approval, and the first user approves or rejects them]({{ "/assets/images/administration/user-access/consulted-owner.gif" | relative_url }})
+
+**View claim access level with access to the element**
+
+The View claim access level gives you access to view all elements within a feature. Even with Manage access to an element, you cannot approve or reject change requests submitted by other users.
