@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/consume/streams/manage-streams"]
 source_path: docs/150-consume/streams/020-manage-streams.md
 tags: ["consume", "data export", "streams"]
-last_modified: 2026-10-12
+last_modified: 2026-11-20
 ---
 
 ## On this page
@@ -146,6 +146,14 @@ On the stream details page, there are several tabs where you can view stream-rel
 
 - **Monitoring** – you can view real-time data on ingestion, processing, and publishing of records, as well as any exceptions.
 
+## Sort the list of streams
+
+You can sort the list of streams by any column: **Name**, **Streaming mode**, **Author**, **Date created**, or **Status**. Select the up or down arrow in a column header to sort in ascending or descending order. Select the same arrow again to clear the sort.
+
+The sort applies to all streams, not only the current page. It's kept in the page URL, so it stays the same when you refresh the page or share the link. Folders always stay at the top of the list.
+
+![The Streams list sorted by status in descending order: Stopped, then Paused, then New]({{ "/assets/images/consume/streams/sort-streams-by-status.png" | relative_url }})
+
 ## Organize streams into folders
 
 You can use folders to organize streams—for example, by export target or by team. Folders and streams appear together in the same list, similar to files and folders in a file explorer. Streams that aren't assigned to a folder appear in the root list, alongside any folders.
@@ -179,6 +187,12 @@ The new folder appears as a row in the list.
 **To remove a stream from its folder**
 
 - While viewing the folder's contents, drag the stream row and drop it onto **Root** in the breadcrumb. The stream returns to the root list. You can also remove the stream from the folder from its **Configuration** tab by clearing the **Folder** field and selecting **Save**.
+
+**Folders created by a project**
+
+When you create a project, CluedIn creates a folder with the project's name in Streams and in each other area of the project. To open the project that a folder belongs to, select the vertical ellipsis button on the folder row, and then select **Take me to the project**. The same option is available on project folders in other lists that show folders, such as rules, enrichers, and export targets.
+
+![The menu of the Customer 360 folder row, with the Rename folder and Take me to the project options]({{ "/assets/images/consume/streams/project-folder-take-me-to-project.png" | relative_url }})
 
 ## Duplicate a stream
 
