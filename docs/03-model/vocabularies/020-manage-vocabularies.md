@@ -63,6 +63,10 @@ This tab contains groups of vocabulary keys associated with the vocabulary. You 
 
 For information on how to manage vocabulary keys, see [Vocabulary keys](/model/vocabularies/vocabulary-keys).
 
+**Semantic model**
+
+This tab shows the vocabulary and every vocabulary downstream of it, laid out in layers, with a line for each vocabulary key mapping. You can map keys by dragging, review all changes, and save them at once. For more information, see [Semantic model](/model/vocabularies/semantic-model).
+
 **Pending changes**
 
 This tab contains tasks for reviewing changes to the vocabulary submitted by users who are not Vocabulary Owners.
@@ -75,6 +79,7 @@ This tab contains a detailed history of changes to the vocabulary, such as:
 - Added user to owners
 - Create a vocabulary key
 - Delete a vocabulary key
+- Change the mapping of one of the vocabulary's keys
 
 ## Create a vocabulary
 
