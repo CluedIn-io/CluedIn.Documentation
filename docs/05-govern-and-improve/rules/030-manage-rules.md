@@ -137,6 +137,14 @@ The default rule processing order is the order in which the rules were created. 
 
 1. Select **Save**.
 
+By default, the list shows active rules only. To see inactive rules as well, turn on **Show inactive rules**. Inactive rules are shown greyed out with an **Inactive** label. They keep their place in the processing order when you save, so a rule picks up from the same position if you activate it again.
+
+![The Rule processing order page with Show inactive rules turned on, listing the inactive rule Legacy phone formatting with an Inactive label above two active rules]({{ "/assets/images/management/rules/rule-order-show-inactive.png" | relative_url }})
+
+## Export rules to CSV
+
+To download the list of rules as a CSV file, in the list of rules, select **Export CSV**. When the list has more than one page, you can export the current page or all results. The file contains the columns shown in the list: name, order, status, affected records, author, date created, and folder.
+
 ## Process pending changes
 
 If you are the owner of the rule and somebody else makes changes to the rule, you'll receive a notification about a request for approval. All requests are listed on the **Pending changes** tab of the rule.

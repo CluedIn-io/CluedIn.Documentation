@@ -70,6 +70,10 @@ To get acquainted with the required claims and access levels for all actions in 
 
     ![Role claims for the Preparation section: (a) the section name, (b) claims such as Clean, Mesh Center and Prepare, and (c) the access level for each, set to Accountable]({{ "/assets/images/administration/roles/roles-1.png" | relative_url }})
 
+## Export roles to CSV
+
+On the **Roles** page, select **Export CSV** to download every role in the list. To export only some roles, select the checkboxes next to them, and then select **Export selected to CSV**. The file contains each role's name, type, permissions, number of assigned users, and audit dates.
+
 ## Supported access levels
 
 In CluedIn, the following access levels are used:
