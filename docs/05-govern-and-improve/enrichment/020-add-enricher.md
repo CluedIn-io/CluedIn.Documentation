@@ -149,6 +149,18 @@ According to the [data life cycle](/get-started/core-concepts/data-life-cycle), 
 
 ![Animation: the History tab of the enriched CluedIn golden record, showing the data part that came from the enricher]({{ "/assets/images/preparation/enricher/enricher-history.gif" | relative_url }})
 
+## Organize enrichers into folders
+
+The list of enrichers shows folders and enrichers together, similar to files and folders in a file explorer. When you create a project, CluedIn creates a folder with the project's name here, and every enricher in that folder belongs to the project.
+
+- **To create a folder**, select **Create** > **Add folder**, enter a name, and then select **Save**.
+- **To view the enrichers in a folder**, select the folder. Select **Root** in the breadcrumb to return to the full list.
+- **To move enrichers into a folder**, select the enrichers, select **Move to folder**, choose the folder, and then select **Save**. You can also drag an enricher row onto a folder row. To move enrichers back to the root list, select them and select **Remove from folder**.
+- **To add an enricher to a folder**, open the folder and select **Add enricher**. The new enricher is added to that folder.
+- **To rename a folder**, or **to open the project** that a folder belongs to, select the vertical ellipsis button on the folder row, and then select **Rename folder** or **Take me to the project**.
+
+![The list of enrichers with the Customer 360 project folder and its menu]({{ "/assets/images/preparation/enricher/enricher-project-folder.png" | relative_url }})
+
 ## Verify the result
 
 - **After you save the enricher**, its details page opens and the enricher is active. This means that the configuration is saved; it does not mean that any golden record has been enriched yet.
