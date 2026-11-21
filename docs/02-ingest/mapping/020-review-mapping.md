@@ -126,3 +126,25 @@ We have 2 data sets:
 To connect employees to companies in CluedIn, we can create a relationship in the mapping details of the **Employees** data set. In this case, the Company_ID will serve as the property upon which the relationship is built. We select the **Strict Edge** mode because we are aware of the data set to which we want to connect the employees. Once the processing is complete, all employees who work for a particular company will be shown on the **Relations** tab of a company record.
 
 ![Relations graph centred on the DB Schenker AG company record, linked by edges such as /BilledTo, /IsRoleOf, /HasContract and /ManagedAs to invoices, an address, a contract and other records]({{ "/assets/images/integration/data-sources/review-mapping-7.png" | relative_url }})
+
+### Business domain lineage
+
+Before you process a data set, check what else in CluedIn acts on the business domain you are mapping its records to. On the **Mapping** tab, in the side menu, under **Business domain**, select **Lineage**. The page lists, for the mapping's business domain:
+
+- **Rules** – data part, survivorship and golden record rules whose condition names the business domain, active or not.
+
+- **Workflow and approval rules** – approval rules whose condition, or one of whose steps, names the business domain.
+
+- **Streams** – streams whose filter names the business domain, with whether they are started.
+
+- **Deduplication projects** – deduplication projects scoped to the business domain.
+
+- **Enrichers** – enrichers configured to accept the business domain.
+
+- **AI agents** – AI agents with a job that reads the business domain.
+
+Each item links to its own page. An item matches when its condition names the business domain with the **Equals**, **Contains** or **In** operator, at any level of the condition. A section you don't have permission to view is shown empty. If the data set has no mapping yet, the page asks you to map it to a business domain first.
+
+The page only reads: it doesn't change the mapping or any of the listed items.
+
+![Lineage page on the Mapping tab of a Customer data set, listing two rules, an approval rule and a stream that act on the Customer business domain, with each item's type and whether it is active]({{ "/assets/images/integration/data-sources/mapping-lineage.png" | relative_url }})
