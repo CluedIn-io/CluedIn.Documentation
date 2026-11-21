@@ -90,7 +90,19 @@ Only groups with the **Approved** status can be merged. For additional details o
 
 ## Check merged record
 
-All merged golden records produced within the deduplication project are listed on the **Merges** tab. Selecting a golden record takes you to the **Topology** tab, where you can view the records that make up the golden record, linked together in a visual representation. The link between such records is the deduplication project. Having such link allows you to easily unmerge records in needed.
+All merged golden records produced within the deduplication project are listed on the **Merges** tab. For each golden record, the tab shows:
+
+- **Data parts** – how many data parts the golden record is made of.
+- **Sources** – the sources that those data parts came from.
+- **Merged at** – when the project merged the group into the golden record.
+- **Confidence** – the match confidence of the group that was merged.
+- **Matched by rules** – the matching rules that matched the group, with their scores.
+
+To show, hide, or reorder these columns, select **Columns**. Your choice is kept when you come back to the tab.
+
+![The Merges tab of a deduplication project listing merged golden records with Data parts, Sources, Merged at, Confidence and Matched by rules columns]({{ "/assets/images/management/deduplication/merges-tab-columns.png" | relative_url }})
+
+Selecting a golden record takes you to the **Topology** tab, where you can view the records that make up the golden record, linked together in a visual representation. The link between such records is the deduplication project. Having such link allows you to easily unmerge records in needed.
 
 ![Animation: on the Merges tab, a merged golden record is selected and its Topology tab shows the records that make it up]({{ "/assets/images/management/deduplication/check-merged-record.gif" | relative_url }})
 

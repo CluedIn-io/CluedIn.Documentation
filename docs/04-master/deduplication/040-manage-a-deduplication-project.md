@@ -74,6 +74,18 @@ If you want to change matching rules, modify project filters, or regenerate matc
 
     The project status is changed to **Ready to generate**. Now, you can edit the project as needed and generate matches again.
 
+## Cancel running deduplication projects
+
+You can stop several deduplication projects at once while they are generating matches, merging groups, or unmerging records.
+
+**To cancel running deduplication projects**
+
+1. In the list of deduplication projects, select the checkboxes of the projects that you want to stop.
+
+1. In the bar above the list, select **Cancel running**, and then confirm your choice.
+
+    CluedIn stops whatever each selected project is running. Selected projects that are not running are left as they are, and a message tells you how many projects could not be cancelled.
+
 ## Edit a deduplication project
 
 You can edit a deduplication project only when its [status](/master/deduplication/deduplication-reference#deduplication-project-statuses) is **Requires configuration** or **Ready to generate**. In other statuses, you need to discard matches before editing the project.
@@ -99,6 +111,8 @@ Editing a deduplication project involves two aspects:
     - To deactivate the rule, turn off the toggle. Deactivated rules are not executed during the process of generating matches.
 
     - To delete the rule, select the vertical ellipsis button, and then select **Delete** and confirm your choice. If you delete the rule, it cannot be reverted.
+
+    - To change the order of the rule, select the vertical ellipsis button, and then select **Move up** or **Move down**. The new order is saved straight away. To reorder several rules at once, select **Create** > **Reorder rules** above the list.
 
     - To modify the matching criteria, expand the rule and select the vertical ellipsis button in the needed row. Then select the needed action: **Edit** or **Delete**.
 
