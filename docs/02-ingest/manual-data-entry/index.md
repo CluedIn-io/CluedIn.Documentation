@@ -27,4 +27,6 @@ This section covers the following areas:
 
 - [Adding records in a manual data entry project](/ingest/manual-data-entry/add-records-in-a-manual-data-entry-project) – learn how to add single or multiple the records manually directly to CluedIn.
 
+- [Creating records with AI](/ingest/manual-data-entry/create-records-with-ai) – learn how to describe the records you need, review what AI generates, and add them to a new or existing project.
+
 - [Managing a manual data entry project](/ingest/manual-data-entry/manage-a-manual-data-entry-project) – learn how to make changes to the manual data entry project and how to manage access to the manual data entry project and the records created within the project.
