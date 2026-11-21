@@ -135,6 +135,9 @@ To be accepted by CluedIn, your HTTP POST request should meet the following prer
 
 Ingestion endpoints also accept an array of records in XML format, so you can push data from systems that produce XML without converting it to JSON first. CluedIn uses the **Content-Type** header to tell the two formats apart, and the POST URL is the same for both.
 
+{:.important}
+JSON remains the default format, so existing integrations keep working without any change. CluedIn reads the body as XML only when the **Content-Type** header is explicitly set to **application/xml** or **text/xml**. A request with any other content type is handled exactly as before.
+
 To send XML, set the request's **Content-Type** header to **application/xml** or **text/xml**. In the request body, use a single root element that wraps the records, with each child element of the root representing one record. The names of the root and record elements are up to you.
 
 ```xml
