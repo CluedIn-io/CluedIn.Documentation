@@ -85,9 +85,9 @@ Use the filter above the **Enriched records** list to find records by their aggr
 
 1. Select the filter icon next to the **Search enriched record** field.
 
-1. Under **Group status**, select one or more statuses to show only the matching enriched records.
+1. Under **Status**, select one or more statuses to show only the matching enriched records.
 
-   The number next to each status shows how many enriched record groups have that status. **Needs review** excludes enriched records with auto-selected candidates; use **Auto-selected** to view those records.
+   The number next to each status shows how many enriched records have that status. **Needs review** excludes enriched records with auto-selected candidates; use **Auto-selected** to view those records.
 
 1. Select **Reset** to clear the status filters and show all enriched records again.
 
