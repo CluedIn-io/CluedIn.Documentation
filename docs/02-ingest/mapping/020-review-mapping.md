@@ -153,7 +153,7 @@ To connect employees to companies in CluedIn, we can create a relationship in th
 
 ### Business domain lineage
 
-Before you process a data set, check what else in CluedIn acts on the business domain you are mapping its records to. On the **Mapping** tab, in the side menu, under **Business domain**, select **Lineage**. The page lists, for the mapping's business domain:
+Before you process a data set, check what else in CluedIn acts on the business domain you are mapping its records to. On the **Mapping** tab, the **Overview** reads from left to right: the data set's columns, the record they become, and then a **Business domain lineage** column listing, for the mapping's business domain:
 
 - **Rules** – data part, survivorship and golden record rules whose condition names the business domain, active or not.
 
@@ -163,12 +163,12 @@ Before you process a data set, check what else in CluedIn acts on the business d
 
 - **Deduplication projects** – deduplication projects scoped to the business domain.
 
-- **Enrichers** – enrichers configured to accept the business domain.
+- **Enrichers** – enrichers that run on the business domain, decided the same way enrichment decides it (including an enricher's default and parent business domains).
 
 - **AI agents** – AI agents with a job that reads the business domain.
 
-Each item links to its own page. An item matches when its condition names the business domain with the **Equals**, **Contains** or **In** operator, at any level of the condition. A section you don't have permission to view is shown empty. If the data set has no mapping yet, the page asks you to map it to a business domain first.
+Each card is joined to the record by a line, which is solid and moving when the card lists something and dashed when it's empty. Each item links to its own page. An item matches when its condition names the business domain with the **Equals**, **Contains** or **In** operator, at any level of the condition. A card you don't have permission to view is shown empty. On a narrower screen the overview zooms out to fit the whole width; use the zoom controls above it to zoom back in.
 
-The page only reads: it doesn't change the mapping or any of the listed items.
+The lineage only reads: it doesn't change the mapping or any of the listed items.
 
-![Lineage page on the Mapping tab of a Customer data set, listing two rules, an approval rule and a stream that act on the Customer business domain, with each item's type and whether it is active]({{ "/assets/images/integration/data-sources/mapping-lineage.png" | relative_url }})
+![Mapping Overview of a Customer data set: its columns on the left, the Customer record in the middle, and on the right a Business domain lineage column with two rules, an approval rule and a stream joined to the record by lines, plus empty cards for deduplication projects, enrichers and AI agents]({{ "/assets/images/integration/data-sources/mapping-lineage.png" | relative_url }})
