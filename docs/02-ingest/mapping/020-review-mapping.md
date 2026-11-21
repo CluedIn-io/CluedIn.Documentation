@@ -54,6 +54,8 @@ On the **Map entity** tab, review the general mapping details and check the iden
 
 - Preview image, description, date created, and date modified – record properties that you can find on the search results page and on the record details page. You can select which column should be used for each of these settings.
 
+- Author – the column whose value is added to the **Authors** of each record when the data set is processed, such as a created-by or owner column. Select it in **Author** on the **Meta data** page of the **Mapping** tab. A record where the column is empty gets no author. Like the per-record origin below, the setting is stored as a marked block in the mapping's [advanced mapping code](/ingest/mapping/advanced-mapping-code); change it on the **Meta data** page rather than in the code.
+
 **What is a primary identifier?**
 
 A primary identifier is a unique identifier of the record in CluedIn. If the primary identifiers are identical, the records will be merged. This merging is faster than creating a deduplication project because it is done on the fly and is based on strict equality matching. The deduplication project, on the other hand, is based on fuzzy matching and requires you to define matching criteria, making it a more time-consuming process. Even if you prefer to merge records by running a deduplication project, merging by primary identifiers produces cleaner, "pre-merged" records. As a result, the deduplication project will generate better results and be more performant.

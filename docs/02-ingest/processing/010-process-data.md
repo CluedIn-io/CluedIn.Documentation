@@ -65,8 +65,6 @@ Manual processing is available for the data coming from a file, an ingestion end
 
     - View the number of records that will be processed.
 
-    - Set the author of the records. Select **Set the author of these records**, and then select the **Author**; your own user is proposed. The author is added to the **Authors** of every record the data set produces. The setting is kept with the mapping, so later runs use it too until you change it or clear the check box here.
-
     - Delete the records that are currently in quarantine. This option is useful if you have already processed the data set before and there are some records in quarantine.
 
     - View the result of the primary identifier status check along with the field that was selected for producing the primary identifier.
