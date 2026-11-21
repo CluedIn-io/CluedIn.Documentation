@@ -8,7 +8,7 @@ permalink: /govern/rules/power-fx-formulas
 content_type: reference
 redirect_from: ["/management/rules/power-fx-formulas"]
 source_path: docs/080-management/rules/040-power-fx-formulas-in-rules.md
-last_modified: 2026-10-22
+last_modified: 2026-11-21
 ---
 
 ## On this page
@@ -103,6 +103,20 @@ Custom CluedIn functions are designed to help you with querying and setting data
 | `GetVersionBranches(record)` | Returns the golden record's version history: a table of branches, each with a `Name` and its versions in `Parts`. | Golden record and survivorship rules |
 
 The relationship and history functions return codes and version rows, not ready-to-use records. See [Compare a golden record with its history](#compare-a-golden-record-with-its-history) and [Traverse relationships between records](#traverse-relationships-between-records) for how to read values through them.
+
+## Build a formula with AI
+
+When the **Rule Inspector, AI Formula Builder and Rule Tests** feature is on and your organization has an [AI endpoint](/govern/ai-agents) configured, a Formula condition or Formula action has a **Build with AI** button.
+
+1. Select **Build with AI**.
+1. Describe what the formula should do, or select one of the examples under **Try** and edit it.
+1. Optional: under **Vocabulary keys to use**, pick the keys the formula should read or write. The AI is told their data types. Keys you mention by name in the request are looked up too.
+1. Optional: choose how many suggestions you want (up to 3), and select **Refine the formula in the editor** to change the formula you already have instead of writing a new one.
+1. Select **Generate**.
+
+Each suggestion shows the formula and a sentence on how it differs from the others. Select **Insert** to put a suggestion in the editor, or **Refine** to describe a change to it and generate again.
+
+The AI is given the [context variables](#the-context-variables) and the [custom functions](#custom-functions) available in the rule type, so suggestions read and write vocabulary keys with `GetVocabularyKeyValue` and `SetVocabularyKeyValue`. Every suggestion is checked with the same Power Fx engine that runs the rule before it is shown; one that does not compile is sent back to the AI to correct, so you only see formulas that are valid for the rule type.
 
 ## Power Fx formula examples
 

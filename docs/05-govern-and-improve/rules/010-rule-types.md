@@ -9,7 +9,7 @@ content_type: reference
 redirect_from: ["/management/rules/rule-types"]
 source_path: docs/080-management/rules/010-rule-types.md
 tags: ["management", "rules"]
-last_modified: 2023-11-16
+last_modified: 2026-11-21
 ---
 
 ## On this page
@@ -17,7 +17,7 @@ last_modified: 2023-11-16
 - TOC
 {:toc}
 
-There are three types of rules: data part rules, survivorship rules, and golden record rules. Each rule serves a distinct purpose in managing and optimizing your golden records. The following diagram shows the order in which the rules should be applied to the records in CluedIn.
+There are three types of rules that process records: data part rules, survivorship rules, and golden record rules. A fourth type, [approval rules](#approval-rules), decides which changes need approval before they are applied. Each rule serves a distinct purpose in managing and optimizing your golden records. The following diagram shows the order in which the rules should be applied to the records in CluedIn.
 
 ![Diagram: data part rules apply to records, then survivorship rules apply to processed records, then golden record rules apply to golden records]({{ "/assets/images/management/rules/rule-types-1.png" | relative_url }})
 
@@ -50,6 +50,12 @@ The following video explains each action available in the golden record rules.
 <div class="videoFrame">
 <iframe src="https://player.vimeo.com/video/995011124?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Golden record rules"></iframe>
 </div>
+
+## Approval rules
+
+The purpose of **approval rules** is to hold changes to golden records for review. An approval rule checks each incoming change to a golden record before it is applied. For each changed field, the first matching approval rule in the processing order decides whether the change needs approval and who approves it; a field change that no approval rule matches is applied at once. Approval rules change no data themselves, so they are never reprocessed.
+
+To view approval rules, go to **Management** > **Rule builder** > **Approval rules**.
 
 ## Example of using rules
 
