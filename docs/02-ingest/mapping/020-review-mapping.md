@@ -87,6 +87,28 @@ However, if you are confident that the selected property can uniquely represent 
 {:.important}
 If the primary identifier contains an empty value, it is replaced with a hash. If your data set contains a record that is nearly identical to the one with the hash value, they will not be merged because the hash is a unique value. In such cases, you can initiate a deduplication project as a solution.
 
+**Take the origin from a column**
+
+A primary identifier is made of the business domain, an **origin**, and the value of the selected property, for example `/Customer#crm:C0001`. By default every record of a data set gets the same origin. When the records of one data set come from several systems and the system is a column in the data (for example, a `sourceSystem` column with values such as `crm` or `erp`), you can take the origin from that column instead, so each record's primary identifier says which system it came from.
+
+1. On the **Mapping** tab of the data set, select **Identifiers**, and then select **Edit origin**.
+
+1. Turn on **Take the origin from a column**, and then select the **Column**. Only mapped columns are listed.
+
+1. Select **Save**.
+
+The **Identifiers** page then shows which column the origin is taken from. The setting is kept with the mapping and applies the next time the data set is processed:
+
+- Each record's primary identifier uses the value of the column as its origin. The characters `#` and `:` are removed from the value, because they separate the parts of an identifier.
+
+- A record where the column is empty keeps the origin selected above the toggle, which stays the default.
+
+- Golden records that were already produced keep the primary identifier they were created with, and gain the new identifier when they are processed again. A record created from the new identifier has it as its primary identifier.
+
+The setting is stored as a marked block in the mapping's [advanced mapping code](/ingest/mapping/advanced-mapping-code) (**Code mapping before sending clues**). Change it on the **Identifiers** page rather than in the code.
+
+![Entity Identifiers pane of a golden record whose primary identifier is /Customer#sap:C9999, with sap as the source of its ID identifier, taken from the record's sourceSystem column]({{ "/assets/images/integration/data-sources/origin-from-column-result.png" | relative_url }})
+
 **What are identifiers?**
 
 Identifiers can uniquely represent the record in CluedIn, in addition to the primary identifier. If two identifiers are identical, the records will be merged. CluedIn automatically detects properties that can be used as additional identifiers. For example, if the primary identifier is the ID, then the additional identifier could be the email.
