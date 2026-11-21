@@ -16,7 +16,7 @@ last_modified: 2025-04-01
 - TOC
 {:toc}
 
-In this article you will learn how to manage a manual data entry project: edit the project configuration and form fields and manage access to the project and data from the project.
+In this article you will learn how to manage a manual data entry project: edit the project configuration and form fields, review quarantined records, and manage access to the project and data from the project.
 
 ## Edit manual data entry project configuration
 
@@ -87,6 +87,34 @@ If you no longer need the session, you can delete it. This action is irreversibl
 1. Confirm that you want to delete the session.
 
     The session is no longer listed on the **Sessions** tab. 
+
+## Review quarantined records
+
+The **Quarantine** tab of a manual data entry project lists the records that were held back from processing:
+
+- records that failed the form fields' [validation rules](/ingest/manual-data-entry/configure-a-manual-data-entry-project#create-form-fields) when they were added with quarantine turned on, for example from [Create with AI](/ingest/manual-data-entry/create-records-with-ai);
+
+- records that a [column rule or pre-process rule](/ingest/manual-data-entry/configure-a-manual-data-entry-project#add-rules-to-the-mapping) sent to quarantine.
+
+The **Quarantine reason** column says why each record is held. For a validation failure, the reason names the field and what to fix.
+
+![The Quarantine tab with one record whose quarantine reason is Email: Enter a valid supplier email address]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-quarantine.png" | relative_url }})
+
+**To correct and reprocess a quarantined record**
+
+1. In the manual data entry project, go to the **Quarantine** tab.
+
+1. Select the value you want to correct, edit it, and then click outside the cell. The change is saved to the quarantined record.
+
+1. In the **Actions** column, select the process icon. To reprocess several records, select them, and then select **Process**.
+
+    The records are checked against the form fields' validation rules again. If any record still fails, nothing is sent and a message lists what to fix.
+
+    ![A message saying 1 record still fails validation, so nothing was sent to processing, with the field and what to fix]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-quarantine-still-invalid.png" | relative_url }})
+
+    When the records pass, they are sent to processing and removed from the **Quarantine** tab. The reprocessing appears on the **Process** tab, and the records then appear on the **Data** tab.
+
+To discard a quarantined record instead, select the reject icon in the **Actions** column. **Reject all** discards every quarantined record of the project. Records waiting on the **Approval** tab are not affected.
 
 ## Manage access to manual data entry project
 

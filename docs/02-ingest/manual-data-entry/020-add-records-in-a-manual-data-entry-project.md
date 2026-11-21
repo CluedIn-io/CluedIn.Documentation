@@ -67,6 +67,12 @@ The process of adding a single record consists of filling out all the required f
 
     After the record is processed, you can find it on the **Data** tab of the manual data entry project you selected in step 3. To add more records, repeat steps 2–4.
 
+### Values that fail validation
+
+If a form field has [validation rules](/ingest/manual-data-entry/configure-a-manual-data-entry-project#create-form-fields), a value that fails a rule is outlined in red, the message says what to fix, and the draft record is marked **Validation failed**. In the tabular view, point to the outlined cell to see the message. You cannot publish the records until every value passes. A value that is a link to an image shows a preview of the image.
+
+![The Email field outlined in red with two messages under it, and the draft record marked Validation failed]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-validation-error.png" | relative_url }})
+
 ## Add multiple records
 
 The process of adding multiple records requires creating a session, which represents a workspace with a tabular view. There, you can fill out the fields for all records and then generate the records simultaneously. You can add multiple records in the tabular view.
