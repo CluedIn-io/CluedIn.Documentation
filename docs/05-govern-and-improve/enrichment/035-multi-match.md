@@ -31,7 +31,7 @@ If an enricher returns only one match for a golden record, that match does not a
 
 1. In the **Enriched records** list, select the record whose candidates you want to review.
 
-   The list shows 20 enriched records per page. If there are more, use the arrows at the bottom of the list to move between pages. Moving to another page selects the first record on that page.
+   The list shows 20 enriched records per page. If there are more, use the arrows at the bottom of the list to move between pages, or select the page number and choose or type the page you want. Moving to another page selects the first record on that page.
 
    The matches table displays the candidates for the selected enriched record.
 
