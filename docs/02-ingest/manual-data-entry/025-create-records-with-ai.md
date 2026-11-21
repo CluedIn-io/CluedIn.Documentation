@@ -16,7 +16,7 @@ last_modified: 2026-11-21
 
 In this article, you will learn how to describe the records you need in plain language and let AI draft them. You review the records and correct them before anything is added, either to a new manual data entry project or to an existing one.
 
-This is useful when you need sample or reference records quickly, for example a list of suppliers for a pilot, or test data for a new business domain.
+This is useful when you need sample or reference records quickly, for example a list of suppliers for a pilot, all the countries for a reference list, or test data for a new business domain.
 
 **Prerequisites**
 
@@ -36,7 +36,7 @@ This is useful when you need sample or reference records quickly, for example a 
 
 1. (Optional) In **Columns**, enter the column names you want, separated by commas, such as _Name, Country, Email, Website_. If you leave this empty, AI chooses the columns.
 
-1. (Optional) In **Number of records**, enter how many records to generate. The default is 10 and the maximum is 100.
+1. (Optional) In **Number of records**, enter how many records to generate, up to 300. Leave it empty to get every record the description calls for. For example, _all the countries in the world_ returns every country. If the description doesn't name a complete set, you get 10 records.
 
 1. Select **Generate**.
 
