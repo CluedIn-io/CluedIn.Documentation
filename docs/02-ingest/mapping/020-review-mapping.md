@@ -87,6 +87,28 @@ However, if you are confident that the selected property can uniquely represent 
 {:.important}
 If the primary identifier contains an empty value, it is replaced with a hash. If your data set contains a record that is nearly identical to the one with the hash value, they will not be merged because the hash is a unique value. In such cases, you can initiate a deduplication project as a solution.
 
+**Take the origin from a column**
+
+A primary identifier is made of the business domain, an **origin**, and the value of the selected property, for example `/Customer#crm:C0001`. By default every record of a data set gets the same origin. When the records of one data set come from several systems and the system is a column in the data (for example, a `sourceSystem` column with values such as `crm` or `erp`), you can take the origin from that column instead, so each record's primary identifier says which system it came from.
+
+1. On the **Mapping** tab of the data set, select **Identifiers**, and then select **Edit origin**.
+
+1. Turn on **Take the origin from a column**, and then select the **Column**. Only mapped columns are listed.
+
+1. Select **Save**.
+
+The **Identifiers** page then shows which column the origin is taken from. The setting is kept with the mapping and applies the next time the data set is processed:
+
+- Each record's primary identifier uses the value of the column as its origin. The characters `#` and `:` are removed from the value, because they separate the parts of an identifier.
+
+- A record where the column is empty keeps the origin selected above the toggle, which stays the default.
+
+- Golden records that were already produced keep the primary identifier they were created with, and gain the new identifier when they are processed again. A record created from the new identifier has it as its primary identifier.
+
+The setting is stored as a marked block in the mapping's [advanced mapping code](/ingest/mapping/advanced-mapping-code) (**Code mapping before sending clues**). Change it on the **Identifiers** page rather than in the code.
+
+![Entity Identifiers pane of a golden record whose primary identifier is /Customer#sap:C9999, with sap as the source of its ID identifier, taken from the record's sourceSystem column]({{ "/assets/images/integration/data-sources/origin-from-column-result.png" | relative_url }})
+
 **What are identifiers?**
 
 Identifiers can uniquely represent the record in CluedIn, in addition to the primary identifier. If two identifiers are identical, the records will be merged. CluedIn automatically detects properties that can be used as additional identifiers. For example, if the primary identifier is the ID, then the additional identifier could be the email.
@@ -126,3 +148,25 @@ We have 2 data sets:
 To connect employees to companies in CluedIn, we can create a relationship in the mapping details of the **Employees** data set. In this case, the Company_ID will serve as the property upon which the relationship is built. We select the **Strict Edge** mode because we are aware of the data set to which we want to connect the employees. Once the processing is complete, all employees who work for a particular company will be shown on the **Relations** tab of a company record.
 
 ![Relations graph centred on the DB Schenker AG company record, linked by edges such as /BilledTo, /IsRoleOf, /HasContract and /ManagedAs to invoices, an address, a contract and other records]({{ "/assets/images/integration/data-sources/review-mapping-7.png" | relative_url }})
+
+### Business domain lineage
+
+Before you process a data set, check what else in CluedIn acts on the business domain you are mapping its records to. On the **Mapping** tab, in the side menu, under **Business domain**, select **Lineage**. The page lists, for the mapping's business domain:
+
+- **Rules** – data part, survivorship and golden record rules whose condition names the business domain, active or not.
+
+- **Workflow and approval rules** – approval rules whose condition, or one of whose steps, names the business domain.
+
+- **Streams** – streams whose filter names the business domain, with whether they are started.
+
+- **Deduplication projects** – deduplication projects scoped to the business domain.
+
+- **Enrichers** – enrichers configured to accept the business domain.
+
+- **AI agents** – AI agents with a job that reads the business domain.
+
+Each item links to its own page. An item matches when its condition names the business domain with the **Equals**, **Contains** or **In** operator, at any level of the condition. A section you don't have permission to view is shown empty. If the data set has no mapping yet, the page asks you to map it to a business domain first.
+
+The page only reads: it doesn't change the mapping or any of the listed items.
+
+![Lineage page on the Mapping tab of a Customer data set, listing two rules, an approval rule and a stream that act on the Customer business domain, with each item's type and whether it is active]({{ "/assets/images/integration/data-sources/mapping-lineage.png" | relative_url }})

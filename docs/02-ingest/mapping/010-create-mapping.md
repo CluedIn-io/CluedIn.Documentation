@@ -38,11 +38,7 @@ Mapping encompasses complex tasks, and CluedIn is committed to consistently enha
 
 ### Prerequisites for AI mapping
 
-The AI mapping feature is not available by default. To use it, you need to fulfill several prerequisites:
-
-1. Go to **Administration** > **Feature Flags** and enable the **AI Mapping** feature.
-
-    ![The AI Mapping feature flag card with its toggle set to Enabled]({{ "/assets/images/integration/data-sources/openai-1.png" | relative_url }})
+**AI Mapping** is always listed as a mapping type. Until your organization has an Azure OpenAI connection, the option is unavailable: hover over it to see a link to the settings where you set the connection up. To make it available:
 
 1. Go to **Administration** > **Azure Integration** > **Azure AI Services**. Then, complete the following fields:
 

@@ -59,11 +59,13 @@ Manual processing is available for the data coming from a file, an ingestion end
 
 1. On the navigation pane, go to **Integrations** > **Data Sources**. Then, find and open the data set that you need to process.
 
-1. Go to the **Process** tab, and then select **Process**.
+1. Go to the **Process** tab, and then select **Process**. You can also select **Process** in the upper-right corner of the data set page, from any tab; once you confirm, CluedIn opens the **Process** tab for you so you can follow the run.
 
     The confirmation pane opens, where you can do the following:
 
     - View the number of records that will be processed.
+
+    - Set the author of the records. Select **Set the author of these records**, and then select the **Author**; your own user is proposed. The author is added to the **Authors** of every record the data set produces. The setting is kept with the mapping, so later runs use it too until you change it or clear the check box here.
 
     - Delete the records that are currently in quarantine. This option is useful if you have already processed the data set before and there are some records in quarantine.
 
@@ -167,6 +169,8 @@ Retention settings allow you to automatically delete processing logs after a spe
 Processing runs in the background. Selecting **Confirm**, or new data arriving with auto-submission enabled, sends a request for processing; the records then move through the processing queues shown on the **Monitoring** tab.
 
 - **On the Process tab**, a new [processing log](#processing-logs) appears in the table, with the **Source**, the **Total** number of records, the **Stats**, and when it was **Created**. While the records are being processed, the **Stats** column shows a progress indicator and a **Cancel** button is available. When processing has finished, the **Stats** column shows **Success** with the number of records and a check mark.
+
+- **The Process button is available again** as soon as the run ends, also when only part of the records were processed successfully (for example, when some records went to quarantine or failed). You don't need to cancel the run first. If you select **Cancel** while records are being processed, CluedIn stops the run and refreshes the tab, so the processing log and the **Process** button reflect the stopped run straight away.
 
 - **On the Data tab**, records that were processed successfully are displayed.
 
