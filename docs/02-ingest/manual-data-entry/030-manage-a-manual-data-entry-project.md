@@ -16,7 +16,7 @@ last_modified: 2025-04-01
 - TOC
 {:toc}
 
-In this article you will learn how to manage a manual data entry project: edit the project configuration and form fields, review quarantined records, and manage access to the project and data from the project.
+In this article you will learn how to manage a manual data entry project: edit the project configuration and form fields, process records again, review quarantined records, and manage access to the project and data from the project.
 
 ## Edit manual data entry project configuration
 
@@ -87,6 +87,30 @@ If you no longer need the session, you can delete it. This action is irreversibl
 1. Confirm that you want to delete the session.
 
     The session is no longer listed on the **Sessions** tab. 
+
+## Process records again
+
+Records are processed as soon as they are added, with the mapping the project has at that moment. If you change the mapping afterwards, for example by choosing the field that produces the records' names, the change applies only to new records. To apply it to the records already added, process them again.
+
+**To process records again**
+
+1. In the manual data entry project, select **Process again**.
+
+1. Review the message, and then select **Confirm**.
+
+    Every record the project has added is sent through the project's current mapping, form fields and rules again. CluedIn uses the values the project last sent for each record.
+
+**What this changes**
+
+- Each record updates the golden record it originally made: the golden record keeps its identifier and no new golden records are created. Values from other sources on those golden records are not affected.
+
+- A record that now fails a form field's [validation rules](/ingest/manual-data-entry/configure-a-manual-data-entry-project#create-form-fields) goes to the project's [quarantine](#review-quarantined-records).
+
+**Verify the result**
+
+A new row appears on the **Process** tab with the number of records sent. When it shows **Success**, the golden records on the **Data** tab reflect the current mapping, for example their new names.
+
+![The Process records again confirmation dialog explaining that each record updates the golden record it made]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-process-again.png" | relative_url }})
 
 ## Review quarantined records
 

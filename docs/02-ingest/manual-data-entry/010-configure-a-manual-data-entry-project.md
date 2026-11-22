@@ -158,6 +158,8 @@ Note that the default mapping configuration does not include the name for the re
 
 1. Select **Finish**.
 
+    If records have already been added, a mapping change applies only to new records until you [process the records again](/ingest/manual-data-entry/manage-a-manual-data-entry-project#process-records-again).
+
     Once you have reviewed and modified the mapping configuration as needed, you can proceed to [define](#define-quality-of-manual-data-entry-project-source) the quality of the manual data entry project source. This is only necessary if you use survivorship rules that determine the winning value based on the quality of the source. If you do not use such survivorship rules, you can proceed to [add](/ingest/manual-data-entry/add-records-in-a-manual-data-entry-project) the records manually.
 
 ## Add rules to the mapping
