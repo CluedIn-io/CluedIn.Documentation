@@ -96,6 +96,22 @@ A form field is an element in a manual data entry project that represents a prop
 
 1. If you want to restrict the input in the field to only existing values from the vocabulary key, turn on the toggle for **Only Existing Values**. This option is available only for the **Text Field** type only.
 
+1. (Optional) In **Validation rules**, add the rules a value must meet. Select **Add rule**, select the rule, and enter its value if it takes one. To show your own message when a value fails the rule, enter it in the message box.
+
+    | Rule | Value | A value passes when it… |
+    |---|---|---|
+    | **Minimum length** / **Maximum length** | A number of characters | has at least / at most that many characters |
+    | **Minimum value** / **Maximum value** | A number | is a number greater than or equal to / less than or equal to it |
+    | **Matches pattern** | A regular expression | matches the expression |
+    | **Email address** | — | is an email address |
+    | **URL** | — | is a link starting with `http://` or `https://` |
+    | **Number** / **Whole number** | — | is a number / a whole number |
+    | **Date** | — | is a date, for example `2026-11-21` |
+
+    The rules are checked while records are entered and again when they are added. An empty value is not checked; use **Is Required** for that. A record that fails a rule cannot be published. When records are added in bulk, the failing ones can be sent to the project's [quarantine](/ingest/manual-data-entry/manage-a-manual-data-entry-project#review-quarantined-records) instead.
+
+    ![The Validation rules section of a form field with an Email address rule with a custom message and a Minimum length rule of 6]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-validation-rules.png" | relative_url }})
+
 1. If you want to use the field for producing the identifier for a record, turn on the toggle for **Use as identifier**.
 
 1. (Optional) Enter the description of the form field.
@@ -106,7 +122,7 @@ A form field is an element in a manual data entry project that represents a prop
 
     The form field is added to the **Form Fields** tab of the manual data entry project.
 
-1. To add more form fields, repeat steps 1–11.
+1. To add more form fields, repeat steps 1–12.
 
     Once you have created all the form fields you need, [review](#review-and-modify-mapping-configuration) the mapping configuration for the records that will be created in a project and modify it as needed.
 
@@ -142,7 +158,27 @@ Note that the default mapping configuration does not include the name for the re
 
 1. Select **Finish**.
 
+    If records have already been added, a mapping change applies only to new records until you [process the records again](/ingest/manual-data-entry/manage-a-manual-data-entry-project#process-records-again).
+
     Once you have reviewed and modified the mapping configuration as needed, you can proceed to [define](#define-quality-of-manual-data-entry-project-source) the quality of the manual data entry project source. This is only necessary if you use survivorship rules that determine the winning value based on the quality of the source. If you do not use such survivorship rules, you can proceed to [add](/ingest/manual-data-entry/add-records-in-a-manual-data-entry-project) the records manually.
+
+## Add rules to the mapping
+
+As for an ingestion endpoint, you can add rules to a manual data entry project's mapping on the **Map** tab. The rules run when records are processed.
+
+- **Column rules** – property rules for each form field. A property rule can change a value (for example, to upper case), or quarantine the record or send it for approval when the value matches a condition. Select **Add property rule** next to the field. For more information, see [Property rules](/ingest/mapping/property-rules).
+
+    ![The Column rules page listing the project's form fields, with a rule on Country and Add property rule on the others]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-column-rules.png" | relative_url }})
+
+- **Relations** – edges from the records to other golden records.
+
+- **Code mapping** – code that changes records before they are created or before they are sent. You can save the code; running it against sample records is available only for data sets.
+
+- **Pre-process rules** – rules that run on whole records before processing.
+
+- **Meta data** > **Preview Image** – a text field that holds a link to an image. The image becomes the golden record's preview image.
+
+Records that a rule quarantines appear on the project's [Quarantine](/ingest/manual-data-entry/manage-a-manual-data-entry-project#review-quarantined-records) tab.
 
 ## Define quality of manual data entry project source
 
