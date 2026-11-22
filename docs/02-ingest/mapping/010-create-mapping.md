@@ -38,21 +38,7 @@ Mapping encompasses complex tasks, and CluedIn is committed to consistently enha
 
 ### Prerequisites for AI mapping
 
-**AI Mapping** is always listed as a mapping type. Until your organization has an Azure OpenAI connection, the option is unavailable: hover over it to see a link to the settings where you set the connection up. To make it available:
-
-1. Go to **Administration** > **Azure Integration** > **Azure AI Services**. Then, complete the following fields:
-
-    - **API Key** – check the following [link](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key) to learn where to find your API Key.
-
-    - **Base Url** – you can find this value in your Azure OpenAI resource, in **Resource Management** > **Keys and Endpoint**, in the **Endpoint** field.
-
-    - **Resource Key** – you can find this value in your Azure OpenAI resource, in **Resource Management** > **Keys and Endpoint**. You can use either **KEY 1** or **KEY 2**.
-
-    - **Deployment Name** – you can find this value in your Azure OpenAI resource, in **Resource Management** > **Model deployments**.
-
-        ![The Open AI settings with the API Key, Base Url, Resource Key and Deployment Name fields filled in]({{ "/assets/images/integration/data-sources/openai-2.png" | relative_url }})
-
-        For more information about the required variables, see [Microsoft documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython&pivots=programming-language-python#retrieve-key-and-endpoint).
+**AI Mapping** is always listed as a mapping type. It uses the same AI endpoint as Copilot. Until Copilot has an AI endpoint, the option is unavailable: hover over it to see a link to the **Copilot** section of **Settings**. To make it available, set up Copilot as described in [Get access to Copilot](/solutions/copilot/get-access-to-copilot).
 
 ## Inputs
 
@@ -61,8 +47,8 @@ What the **Configure** tab asks for depends on the mapping type.
 | Field | Mapping types | Required | What it accepts |
 |--|--|--|--|
 | **Mapping Type** | All | Yes | **Auto Mapping**, **Manual Mapping**, **Existing Mapping**, or **AI Mapping**. See [Choose mapping type](#choose-mapping-type). |
-| **Business domain** | Manual, auto | Yes | An existing business domain, or a name for a new one. A new business domain also needs an icon. With AI mapping, the business domain is suggested for you. |
-| **Vocabulary** | Manual, auto | Yes | An existing vocabulary, or a name for a new one. With AI mapping, the vocabulary is suggested for you. |
+| **Business domain** | Manual, auto | Yes | An existing business domain, or a name for a new one. A new business domain also needs an icon. With AI mapping, the business domain is proposed in the review instead. |
+| **Vocabulary** | Manual, auto | Yes | An existing vocabulary, or a name for a new one. With AI mapping, the vocabulary is proposed in the review instead. |
 | Existing mapping | Existing | Yes | A mapping to reuse. Its name consists of the mapping type and the data set it was generated for. |
 | Existing data set | Existing | Yes | A data set that contains the same fields as the current data set. |
 
@@ -82,7 +68,7 @@ Mapping type defines how you want to configure the mapping of original fields fr
 
  - **Existing Mapping** – CluedIn uses the existing mapping configuration. This option is useful if you want to create mapping for the data set that has the exact same structure as the existing data sets.
 
- - **AI Mapping** – CluedIn uses AI capabilities to interpret your data and create mapping. You can check the results of AI mapping and make changes if needed.
+ - **AI Mapping** – CluedIn uses AI to propose the business domain, vocabulary, property rules, identifiers, relations and metadata columns. You review the proposal before the mapping is created.
 
 AI mapping is not available by default. Before you choose it, complete the [prerequisites for AI mapping](#prerequisites-for-ai-mapping).
 
@@ -190,26 +176,38 @@ If you've already created a mapping for a data set and you have another data set
 
 ### AI mapping
 
-CluedIn AI recommendation engine helps you create mapping in a quick and efficient manner.
+AI mapping analyzes the columns and values of your data set, and compares them with the business domains, vocabularies and data already in CluedIn. It then proposes a complete mapping, which you review before anything is created. AI mapping works on data sets that don't have a mapping yet.
 
 {:.important}
-To use AI capabilities to create mapping, first complete all the steps described in [Azure Open AI Integration](/solutions/open-ai-integration).
+AI mapping needs a Copilot AI endpoint. See [Prerequisites for AI mapping](#prerequisites-for-ai-mapping).
 
-AI mapping analyzes your data set and suggests the following details for your mapping:
+**To create mapping with AI**
 
-- Business domain and vocabulary.
+1. On the **Configure** tab, select **AI Mapping**, and then select **Next**.
 
-- Origin – field used to produce the primary unique identifier.
+    CluedIn analyzes the data set. This usually takes less than a minute.
 
-- Codes – fields used to produce additional unique identifiers.
+1. Review the proposal. It has five sections. Clear the checkbox of anything you don't want:
 
-- Mapping of original fields to the vocabulary keys. For more details, see [Mapping preview](#mapping-preview).
+    - **Business domain and vocabulary** – an existing business domain and vocabulary that match the data closely, or new ones when nothing matches well enough. New items are marked **New**, with the reason for the choice.
 
-You need to review AI suggestions and make changes if needed.
+    - **Columns and property rules** – the vocabulary key each column is mapped to, and recommended [property rules](/ingest/mapping/property-rules): **Required** for columns that should always have a value, and a format check (for example, email, URL or UUID) for columns whose values follow a format. Each format rule shows how many of the current values match. Records that break a rule are sent to quarantine. Columns shown as **Not mapped** are not sent to CluedIn.
+
+    - **Identifiers** – the column used for the primary identifier, plus any other columns that identify the record. There can be none or several.
+
+    - **Relations** – columns that hold a foreign key that matches the identifiers of data already in CluedIn. Each relation shows the target data set, the edge type and how many values match.
+
+    - **Meta data** – the columns used for the golden record's **Name**, **Description**, **Created Date**, **Modified Date** and **Author**, as set on the **Meta data** tab of the mapping.
+
+1. Select **Create mapping**.
+
+    The mapping is created with the selected parts. If a part can't be applied, a message tells you which one. Next, [review the mapping details](/ingest/mapping/review-mapping).
+
+If the analysis fails, select **Try again**, or select **Back** to choose another mapping type.
 
 ## Mapping preview
 
-The **Mapping Preview** section is available when creating mapping with the following types: auto mapping and AI mapping. This section contains a table showing how the original fields will be mapped to the vocabulary keys in CluedIn. The table consists of the following columns:
+The **Mapping Preview** section is available when creating mapping with auto mapping. This section contains a table showing how the original fields will be mapped to the vocabulary keys in CluedIn. The table consists of the following columns:
 
 - The checkboxes column that represents the fields that will be sent to CluedIn during processing. If you do not want to send a specific field, clear the checkbox. The status of such field will be changed to **Ignored**.
 
@@ -303,7 +301,9 @@ If you’ve created a mapping and are concerned about its accuracy or correctnes
 
 ## If something goes wrong
 
-- **AI Mapping is not available.** Check that the **AI Mapping** feature flag is enabled and the Azure AI Services fields are complete. See [Prerequisites for AI mapping](#prerequisites-for-ai-mapping).
+- **AI Mapping is not available.** Copilot has no AI endpoint. See [Prerequisites for AI mapping](#prerequisites-for-ai-mapping).
+
+- **AI mapping proposes an identifier or rule you don't want.** Clear its checkbox before you select **Create mapping**. The proposal can differ between runs.
 
 - **There is no mapping preview.** With manual mapping, the mapping preview is not available. Map the fields on the **Map** tab instead.
 
