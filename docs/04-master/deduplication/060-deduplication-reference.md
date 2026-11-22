@@ -25,6 +25,26 @@ For example, in the following configuration, either records with the same email 
 
 ![Two matching rules joined by OR: Same email, matching on email, and Same first and last name, matching on first name AND last name]({{ "/assets/images/management/deduplication/rules.png" | relative_url }})
 
+### Connected records
+
+Besides vocabulary keys and properties, a matching criterion can compare a record's **connected records**: the records it has a relationship with, such as the people who work for a company. Two records match this criterion when they're both connected to at least one same record. You can limit this to connected records of one business domain, such as `/Person`, or select **Connected records of any business domain**.
+
+![The Add matching criteria pane with Connected records selected as the property type and Person as the business domain]({{ "/assets/images/management/deduplication/connected-records-criterion.png" | relative_url }})
+
+This criterion is most useful together with other criteria in the same rule. For example, a rule with these two criteria:
+
+- `organization.name`, **Fuzzy match - JaroWinkler**
+- **Connected records**: `/Person`
+
+identifies `Northwind Traders` and `Northwind Trading` as duplicates when the same contact person works for both. Two companies whose names are just as similar but share no contact aren't identified. With only the name criterion, both pairs would be identified.
+
+Keep the following in mind:
+
+- The criterion always uses the **Equals** matching function and doesn't use normalization rules.
+- Generate matches with **Run in memory** or **Run in ACI** turned on. Without either, and with **Run in Spark**, the project can't generate matches for rules with this criterion.
+- Choose a business domain whose records identify a real relationship. A record that almost everything is connected to, such as a country, makes nearly every record match the criterion, so it adds little evidence and slows matching down.
+- Because this criterion is an exact match, it also lets the in-memory engine narrow down which records to compare in a rule that otherwise only has fuzzy criteria. As a result, such rules can run in memory on larger projects.
+
 ## Matching functions
 
 Matching functions specify how values of a vocabulary key or property should be compared. The following table provides the description of matching functions.
@@ -172,6 +192,12 @@ Normalization rules clean up values before comparing them to identify duplicates
 | Regex split text | Splits text using configured regex separator pattern. |
 | Split text by whitespace | Splits text by whitespace into tokens. |
 | Transliterate | Transliterates text value to an ASCII string. For example, `Ελληνική Δημοκρατία` will be converted to `Ellēnikē Dēmokratia`. |
+| Remove all whitespace | Removes every whitespace character. For example, `GB29 NWBK 6016 1331 9268 19` will be converted to `GB29NWBK60161331926819`. |
+| Digits only | Keeps only the digits. For example, `DK-12 34 56 78` will be converted to `12345678`. |
+| Remove leading zeros | Removes leading zeros from a number. For example, `000123` will be converted to `123`. |
+| Sort words | Sorts the words of a value alphabetically, so that word order doesn't matter. For example, `Smith John` will be converted to `John Smith`. |
+| Website domain | Reduces a website address to its domain. For example, `https://www.Acme.com/about` will be converted to `acme.com`. |
+| Email domain | Reduces an email address to its domain. For example, `Jane@Acme.com` will be converted to `acme.com`. |
 
 Normalization rules are applied **before** matching, so they do not decide duplicates by themselves. Instead, they transform one or more input values into comparison candidates that are then passed to the matching functions.
 
@@ -438,6 +464,74 @@ Converts a value to an ASCII string, trims the result, and removes apostrophes.
 | `O’Connor` | `OConnor` |
 
 Use this when data mixes scripts or contains non-ASCII names that should be compared against ASCII representations. For simple accents only, **Remove diacritic marks** is the narrower choice.
+
+### Remove all whitespace
+
+Removes every whitespace character, including tabs and line breaks, not only leading and trailing ones.
+
+| Input | Normalized value |
+|--|--|
+| `DK 2100` | `DK2100` |
+| `GB29 NWBK 6016 1331 9268 19` | `GB29NWBK60161331926819` |
+
+Use this for postal codes, IBANs, VAT and registration numbers, and other identifiers that are sometimes written with spaces. Unlike **Trim whitespace**, it also removes the spaces inside the value.
+
+### Digits only
+
+Keeps only the digits 0–9 and removes everything else. A value without any digits produces no normalized value.
+
+| Input | Normalized value |
+|--|--|
+| `DK-12 34 56 78` | `12345678` |
+| `+45 (20) 12-34` | `45201234` |
+
+Use this for tax, registration and customer numbers that sources write with different prefixes and separators. Be careful with identifiers whose letters matter: `AB-123` and `XY-123` both become `123`.
+
+### Remove leading zeros
+
+Removes leading zeros from a value. A value made up only of zeros becomes `0`.
+
+| Input | Normalized value |
+|--|--|
+| `000123` | `123` |
+| `0010` | `10` |
+| `0000` | `0` |
+
+Use this for account or customer numbers where one system pads to a fixed length and another doesn't.
+
+### Sort words
+
+Sorts the words of a value alphabetically, ignoring case, and joins them with single spaces.
+
+| Input | Normalized value |
+|--|--|
+| `Smith John` | `John Smith` |
+| `john  SMITH` | `john SMITH` |
+
+Use this when the same name is written in a different word order, for example `Last First` in one source and `First Last` in another. Combine it with **To lowercase** when the casing also differs.
+
+### Website domain
+
+Reduces a website address to its lowercase domain, without the scheme, `www.`, port, path, query, or user name.
+
+| Input | Normalized value |
+|--|--|
+| `https://www.Acme.com/about?x=1` | `acme.com` |
+| `http://acme.com:8080` | `acme.com` |
+| `https://user@shop.acme.com#top` | `shop.acme.com` |
+
+Use this to match organizations on their website, whatever form the address was entered in.
+
+### Email domain
+
+Reduces an email address to its lowercase domain. A value that isn't an email address produces no normalized value.
+
+| Input | Normalized value |
+|--|--|
+| `Jane@Acme.com` | `acme.com` |
+| `Jane Doe <jane.doe@Acme.co.uk>` | `acme.co.uk` |
+
+Use this to relate contacts to an organization, or to compare an organization's website domain with its contacts' email domains. Public email domains, such as `gmail.com`, are shared by many unrelated people, so don't use this rule as the only evidence for a match.
 
 ## Deduplication project
 
