@@ -62,6 +62,55 @@ From the list of deduplication projects, you can select multiple projects and ge
 
     Match generation starts independently for each selected project; if it fails to start for one project, the rest of the selected projects are not affected.
 
+## Review the deduplication report
+
+After you generate matches, the **Report** tab of the deduplication project summarizes what the project proposes to merge and helps you decide where to focus your review.
+
+![Report tab of a deduplication project with tiles for golden records at start and after merging, proposal groups, safe to merge, needs attention and merged, above a table of proposal groups]({{ "/assets/images/management/deduplication/dedup-report-proposal-groups.png" | relative_url }})
+
+The **Proposal groups** section contains the following:
+
+- **Golden records at start** – the number of golden records in the project's scope before any of its groups were merged. Golden records that the project has already merged still count here, so the number doesn't change as you merge groups.
+
+- **Golden records after merging** – the number of golden records that would remain once every group that isn't declined is merged. Golden records that you removed from a group aren't merged, so they aren't subtracted.
+
+- **Proposal groups**, **Safe to merge**, **Needs attention**, and **Merged** – the number of groups in each category. Select a tile to show only the groups in that category; select it again to show all groups.
+
+- A table of the groups. Expand a group to see the golden records in it. For each group, the table shows its category, its confidence, the matching rules that formed it and the score each rule gave, and why the group needs attention. For each golden record, it shows the business domain and its match score—the strongest match it has with any other golden record in the group. Select a group name to open the group, or a golden record name to open the golden record.
+
+A group is **Safe to merge** when none of the following applies; otherwise, it **Needs attention** and the reason is shown in the **Why it needs attention** column:
+
+| Reason | Description |
+|--|--|
+| Confidence below 85% | The group's confidence is lower than 85%. |
+| Confidence not calculated | None of the project's current matching rules matches the golden records in the group—for example, because the rules changed after the matches were generated. |
+| A record matches weakly (below 60%) | At least one golden record in the group matches the others with a score lower than 60%. |
+| Records excluded by a reviewer | Someone removed one or more golden records from the group. |
+| A record no longer exists | A golden record in the group was deleted, or you don't have access to it. |
+| Merge failed | The group was approved, but merging it failed. |
+
+![Report tab filtered to the Needs attention category, with a group expanded to show its golden records, one of them marked as Excluded]({{ "/assets/images/management/deduplication/dedup-report-needs-attention.png" | relative_url }})
+
+Merged groups show the golden records that were merged into the surviving golden record as **Merged into the surviving record**. Declined groups are listed in the table but aren't counted as proposal groups.
+
+**To export the deduplication report**
+
+- On the **Report** tab, select **Export to Excel**.
+
+    CluedIn downloads an Excel workbook with the following sheets:
+
+    - **Summary** – the counts shown in the tiles, including the number of declined groups.
+
+    - **Proposal groups** – one row for each golden record in each group, with the group ID, name, category, status, and confidence; the matching rules; the reason the group needs attention; the golden record ID, name, business domain, and origin code; its match score; and whether it was excluded from the merge.
+
+    - **Safe to merge** – the same columns, only for the groups that are safe to merge.
+
+    - **Needs extra attention** – the same columns, only for the groups that need attention.
+
+    The group ID and golden record ID in each row let you trace the row back to the group and the golden record in CluedIn.
+
+Below the proposal groups, the **Report** tab still shows the **Merge report** of what the project has already merged, which you can download as a PDF, and the history of the project's matching runs.
+
 ## Discard matches
 
 If you want to change matching rules, modify project filters, or regenerate matches in the deduplication project, you can discard matches. This action does not affect merged golden records.
