@@ -189,7 +189,9 @@ AI mapping needs a Copilot AI endpoint. See [Prerequisites for AI mapping](#prer
 
 1. Review the proposal. It has five sections. Clear the checkbox of anything you don't want:
 
-    - **Business domain and vocabulary** – an existing business domain and vocabulary that match the data closely, or new ones when nothing matches well enough. New items are marked **New**, with the reason for the choice.
+    - **Business domain and vocabulary** – an existing business domain and vocabulary that match the data closely, or new ones when nothing matches well enough. AI mapping only reuses business domains and vocabularies that are **Used**, which means they already hold data. New items are marked **New**, with the reason for the choice.
+
+        To use a different business domain or vocabulary, select **Change**. Pick any business domain and vocabulary, existing or new, and then select **Analyse again**. CluedIn proposes the columns, rules, identifiers, relations and metadata again for your choice.
 
     - **Columns and property rules** – the vocabulary key each column is mapped to, and recommended [property rules](/ingest/mapping/property-rules): **Required** for columns that should always have a value, and a format check (for example, email, URL or UUID) for columns whose values follow a format. Each format rule shows how many of the current values match. Records that break a rule are sent to quarantine. Columns shown as **Not mapped** are not sent to CluedIn.
 
