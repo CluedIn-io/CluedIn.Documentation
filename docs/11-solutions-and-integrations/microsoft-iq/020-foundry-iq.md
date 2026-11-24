@@ -31,6 +31,8 @@ You need a Foundry IQ (Azure AI Search) service in a [region that supports agent
 
 ## Configure
 
+In **Administration** > **Azure Integration** > **Microsoft IQ**, select **Add connection** and choose the product. The fields below are the panel's fields, and also the request fields if you use the API.
+
 | Field | Description |
 |--|--|
 | `searchEndpoint` | The search service endpoint, for example `https://my-service.search.windows.net`. Only Azure AI Search endpoints are accepted. |

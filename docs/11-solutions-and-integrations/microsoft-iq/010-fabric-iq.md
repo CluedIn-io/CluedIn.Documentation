@@ -28,7 +28,7 @@ Fabric IQ ontologies are in preview in Microsoft Fabric.
 
 ## Before you start
 
-Fabric IQ reuses an existing **Microsoft Fabric connection** - the one Ingest uses to browse Lakehouses - and needs no credentials of its own. If you don't have one, create it first (see [Microsoft Fabric](/solutions/fabric)).
+Fabric IQ reuses an existing **Microsoft Fabric connection** - the one Ingest uses to browse Lakehouses - and needs no credentials of its own. If you don't have one, create it first under **Administration** > **Azure Integration** > **Microsoft Fabric Connections**.
 
 The connection's service principal needs:
 
@@ -37,6 +37,8 @@ The connection's service principal needs:
 - The tenant setting **Service principals can use Fabric APIs** turned on.
 
 ## Configure
+
+In **Administration** > **Azure Integration** > **Microsoft IQ**, select **Add connection** and choose the product. The fields below are the panel's fields, and also the request fields if you use the API.
 
 | Field | Description |
 |--|--|

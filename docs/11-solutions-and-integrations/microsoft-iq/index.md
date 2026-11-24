@@ -39,7 +39,15 @@ CluedIn's access control policies don't travel with the data. Anyone who can use
 
 ## Manage connections
 
-Microsoft IQ connections are managed through the CluedIn API, under `https://<your CluedIn host>/api/api/microsoft-iq`. Call it with a CluedIn API token or a user token that has the **Consume > Export Targets** claim.
+Go to **Administration** > **Azure Integration** > **Microsoft IQ**. You need the **Consume > Export Targets** claim.
+
+- **Add connection** opens a panel. Choose the product, fill in its settings, and select **Preview** to see what a publish would send, built from your current data. Nothing is sent to Microsoft until you select **Create connection**, which checks the settings with Microsoft first. If they're rejected, the reason appears next to the button.
+- The list shows each connection's status (**Published**, **Failed**, **Pending** or **Not run yet**), its schedule, and the result of its last run.
+- Each row's actions are **Publish now**, **Test connection**, **Edit** and **Delete**. When you edit a connection, leave a secret empty to keep the stored one.
+
+### API
+
+The same operations are available through the CluedIn API, under `https://<your CluedIn host>/api/api/microsoft-iq`. Call it with a CluedIn API token or a user token that has the **Consume > Export Targets** claim.
 
 | Request | What it does |
 |--|--|
@@ -70,4 +78,4 @@ The product pages list the fields each product needs, the permissions to grant, 
 
 ## Copilot web search through Web IQ
 
-CluedIn Copilot and AI agents can search the live web for information that isn't in CluedIn. Microsoft retired the Bing Search APIs in August 2025, and Web IQ is the replacement. To use it, set **Microsoft Web IQ API Key** under **Organization Settings** > **Copilot**, using an API key from [Profile Management](https://webiq.microsoft.ai/profiles) in the Web IQ portal. When it's set, it takes precedence over a Bing Search API key.
+CluedIn Copilot and AI agents can search the live web for information that isn't in CluedIn. Microsoft retired the Bing Search APIs in August 2025, and Web IQ is the replacement. To use it, set **Microsoft Web IQ API Key** under **Administration** > **Azure Integration** > **Copilot**, using an API key from [Profile Management](https://webiq.microsoft.ai/profiles) in the Web IQ portal. When it's set, it takes precedence over a Bing Search API key.

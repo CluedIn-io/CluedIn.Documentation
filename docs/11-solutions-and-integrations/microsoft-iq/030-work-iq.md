@@ -40,6 +40,8 @@ Copilot connectors need Microsoft 365 Copilot or Microsoft Search licensing in t
 
 ## Configure
 
+In **Administration** > **Azure Integration** > **Microsoft IQ**, select **Add connection** and choose the product. The fields below are the panel's fields, and also the request fields if you use the API.
+
 | Field | Description |
 |--|--|
 | `tenantId`, `clientId`, `clientSecret` | The app registration. |

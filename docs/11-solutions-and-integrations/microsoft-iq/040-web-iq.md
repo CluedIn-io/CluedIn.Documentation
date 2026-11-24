@@ -41,6 +41,8 @@ Web IQ takes 10 to 30 minutes to apply a new or changed scope to searches.
 
 ## Configure
 
+In **Administration** > **Azure Integration** > **Microsoft IQ**, select **Add connection** and choose the product. The fields below are the panel's fields, and also the request fields if you use the API.
+
 | Field | Description |
 |--|--|
 | `tenantId`, `clientId`, `clientSecret` | The app registration that has management access. |
