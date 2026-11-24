@@ -47,6 +47,7 @@ Volumes, functions and registered models are shown when you browse, so the list 
     ```
 
 - **CAN USE** permission on a SQL warehouse. CluedIn needs a warehouse to preview and ingest rows, but not to browse. A serverless SQL warehouse is recommended because it starts in seconds. CluedIn starts a stopped warehouse automatically when it needs one.
+- Optional, to record lineage in Unity Catalog: the `CREATE EXTERNAL METADATA` privilege on the metastore, for example ``GRANT CREATE EXTERNAL METADATA ON METASTORE TO `cluedin-ingest`;``. Without it, syncs still work; only the lineage step is skipped. See [Record lineage in Unity Catalog](#record-lineage-in-unity-catalog).
 - Network access from CluedIn to the workspace URL. If the workspace uses IP access lists or Private Link, allow CluedIn's outbound addresses.
 
 ## Connect to Azure Databricks
@@ -111,6 +112,16 @@ On the ingestion endpoint's page, you can see when the sync last ran and any err
 
 After the rows arrive, [map](/ingest/mapping/create-mapping) and [process](/ingest/processing/process-data) them as for any other ingestion endpoint.
 
+## Record lineage in Unity Catalog
+
+After a sync first delivers rows, CluedIn records in Unity Catalog lineage that the table feeds the ingestion endpoint. In Catalog Explorer, the table's **Lineage** tab then shows a downstream node for the endpoint. Its column-level lineage maps each table column to the endpoint column of the same name.
+
+- The endpoint appears as an external metadata object named `cluedin_<organization>_<table>_<data set id>`. Its entity type is **CluedIn ingestion endpoint**. Its URL opens the endpoint in CluedIn, and its properties record the organization, data set id and sync schedule.
+- It's recorded once. If you point the sync at a different table, the next run moves the lineage to the new table. If you delete the sync, the lineage is removed.
+- This uses Unity Catalog external lineage, which is in Public Preview. It needs the `CREATE EXTERNAL METADATA` privilege listed under [Prerequisites](#prerequisites).
+- If lineage can't be recorded, the sync still succeeds. The reason is shown on the endpoint's page under **Azure Databricks sync**, and CluedIn tries again on the next run, so once you grant the privilege, select **Run now**.
+- Only data coming into CluedIn is recorded. Data CluedIn sends out through export targets isn't added to Unity Catalog lineage.
+
 ## Verify the result
 
 - The data source opens with one ingestion endpoint per table, and CluedIn shows a notification such as **2 Azure Databricks tables added**.
@@ -120,7 +131,7 @@ After the rows arrive, [map](/ingest/mapping/create-mapping) and [process](/inge
 
 - Connecting saves the connection, with its secrets encrypted. Nothing is read from Databricks except metadata.
 - Onboarding creates the data source, its ingestion endpoints and, if sync is on, a sync schedule and a CluedIn API token for each endpoint.
-- Sync only **reads** from Azure Databricks; it never writes to Unity Catalog. The rows it submits are processed like any other ingestion endpoint data, so golden records change only when you process them.
+- Sync only **reads** table data from Azure Databricks; it never writes to your tables. The one thing it writes is the lineage metadata described in [Record lineage in Unity Catalog](#record-lineage-in-unity-catalog). The rows it submits are processed like any other ingestion endpoint data, so golden records change only when you process them.
 - Deleting a connection doesn't delete the endpoints or the data already ingested.
 
 ## Manage connections
@@ -152,6 +163,8 @@ If a connection test fails, CluedIn tells you which prerequisite is missing and 
 | The personal access token was rejected | Generate a new token under **Settings** > **Developer** > **Access tokens**. |
 | ...isn't attached to a Unity Catalog metastore | An account admin must assign a metastore to the workspace in the Databricks account console. |
 | ...can't see any Unity Catalog catalogs | Grant the identity `USE CATALOG` on at least one catalog. |
+| Lineage couldn't be recorded in Unity Catalog: grant the connection's identity CREATE EXTERNAL METADATA | Grant `CREATE EXTERNAL METADATA` on the metastore, then select **Run now**. The sync itself isn't affected. |
+| Lineage couldn't be recorded: external lineage (Public Preview) isn't available | The workspace doesn't offer external lineage yet. Syncs still work. |
 | No SQL warehouses are available to this connection | Create a SQL warehouse and grant the identity **CAN USE** on it. You can still browse without one. |
 | The table could not be found, or this connection's identity lacks... | Check the table still exists, and grant `USE CATALOG`, `USE SCHEMA` and `SELECT`. |
 | The SQL warehouse ... did not finish the query | The warehouse was probably still starting. Select **Run now** again, or use a serverless warehouse. |
