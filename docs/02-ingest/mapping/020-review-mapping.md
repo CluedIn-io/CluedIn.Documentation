@@ -54,6 +54,8 @@ On the **Map entity** tab, review the general mapping details and check the iden
 
 - Preview image, description, date created, and date modified – record properties that you can find on the search results page and on the record details page. You can select which column should be used for each of these settings.
 
+- Author – the column whose value is added to the **Authors** of each record when the data set is processed, such as a created-by or owner column. Select it in **Author** on the **Meta data** page of the **Mapping** tab. A record where the column is empty gets no author. Like the per-record origin below, the setting is stored as a marked block in the mapping's [advanced mapping code](/ingest/mapping/advanced-mapping-code); change it on the **Meta data** page rather than in the code.
+
 **What is a primary identifier?**
 
 A primary identifier is a unique identifier of the record in CluedIn. If the primary identifiers are identical, the records will be merged. This merging is faster than creating a deduplication project because it is done on the fly and is based on strict equality matching. The deduplication project, on the other hand, is based on fuzzy matching and requires you to define matching criteria, making it a more time-consuming process. Even if you prefer to merge records by running a deduplication project, merging by primary identifiers produces cleaner, "pre-merged" records. As a result, the deduplication project will generate better results and be more performant.
@@ -86,6 +88,28 @@ However, if you are confident that the selected property can uniquely represent 
 
 {:.important}
 If the primary identifier contains an empty value, it is replaced with a hash. If your data set contains a record that is nearly identical to the one with the hash value, they will not be merged because the hash is a unique value. In such cases, you can initiate a deduplication project as a solution.
+
+**Take the origin from a column**
+
+A primary identifier is made of the business domain, an **origin**, and the value of the selected property, for example `/Customer#crm:C0001`. By default every record of a data set gets the same origin. When the records of one data set come from several systems and the system is a column in the data (for example, a `sourceSystem` column with values such as `crm` or `erp`), you can take the origin from that column instead, so each record's primary identifier says which system it came from.
+
+1. On the **Mapping** tab of the data set, select **Identifiers**, and then select **Edit origin**.
+
+1. Turn on **Take the origin from a column**, and then select the **Column**. Only mapped columns are listed.
+
+1. Select **Save**.
+
+The **Identifiers** page then shows which column the origin is taken from. The setting is kept with the mapping and applies the next time the data set is processed:
+
+- Each record's primary identifier uses the value of the column as its origin. The characters `#` and `:` are removed from the value, because they separate the parts of an identifier.
+
+- A record where the column is empty keeps the origin selected above the toggle, which stays the default.
+
+- Golden records that were already produced keep the primary identifier they were created with, and gain the new identifier when they are processed again. A record created from the new identifier has it as its primary identifier.
+
+The setting is stored as a marked block in the mapping's [advanced mapping code](/ingest/mapping/advanced-mapping-code) (**Code mapping before sending clues**). Change it on the **Identifiers** page rather than in the code.
+
+![Entity Identifiers pane of a golden record whose primary identifier is /Customer#sap:C9999, with sap as the source of its ID identifier, taken from the record's sourceSystem column]({{ "/assets/images/integration/data-sources/origin-from-column-result.png" | relative_url }})
 
 **What are identifiers?**
 
@@ -126,3 +150,25 @@ We have 2 data sets:
 To connect employees to companies in CluedIn, we can create a relationship in the mapping details of the **Employees** data set. In this case, the Company_ID will serve as the property upon which the relationship is built. We select the **Strict Edge** mode because we are aware of the data set to which we want to connect the employees. Once the processing is complete, all employees who work for a particular company will be shown on the **Relations** tab of a company record.
 
 ![Relations graph centred on the DB Schenker AG company record, linked by edges such as /BilledTo, /IsRoleOf, /HasContract and /ManagedAs to invoices, an address, a contract and other records]({{ "/assets/images/integration/data-sources/review-mapping-7.png" | relative_url }})
+
+### Business domain lineage
+
+Before you process a data set, check what else in CluedIn acts on the business domain you are mapping its records to. On the **Mapping** tab, the **Overview** reads from left to right: the data set's columns, the record they become, and then a **Business domain lineage** column listing, for the mapping's business domain:
+
+- **Rules** – data part, survivorship and golden record rules whose condition names the business domain, active or not.
+
+- **Workflow and approval rules** – approval rules whose condition, or one of whose steps, names the business domain.
+
+- **Streams** – streams whose filter names the business domain, with whether they are started.
+
+- **Deduplication projects** – deduplication projects scoped to the business domain.
+
+- **Enrichers** – enrichers that run on the business domain, decided the same way enrichment decides it (including an enricher's default and parent business domains).
+
+- **AI agents** – AI agents with a job that reads the business domain.
+
+Each card is joined to the record by a line, which is solid and moving when the card lists something and dashed when it's empty. Each item links to its own page. An item matches when its condition names the business domain with the **Equals**, **Contains** or **In** operator, at any level of the condition. A card you don't have permission to view is shown empty. On a narrower screen the overview zooms out to fit the whole width; use the zoom controls above it to zoom back in.
+
+The lineage only reads: it doesn't change the mapping or any of the listed items.
+
+![Mapping Overview of a Customer data set: its columns on the left, the Customer record in the middle, and on the right a Business domain lineage column with two rules, an approval rule and a stream joined to the record by lines, plus empty cards for deduplication projects, enrichers and AI agents]({{ "/assets/images/integration/data-sources/mapping-lineage.png" | relative_url }})

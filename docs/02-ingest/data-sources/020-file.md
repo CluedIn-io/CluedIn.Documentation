@@ -40,6 +40,7 @@ The maximum number of columns accepted for data ingestion is 490.<br>Before load
 |--|--|--|--|
 | **Add files** | Yes | Files in CSV, JSON, XLS, XLSX, or Parquet format. Up to 5 files at once, with a total size of no more than 1 GB, and no more than 490 columns. | `customers.csv` |
 | **Group** | Chosen in step 3 of the procedure | An existing group, or the name of a new group. Every file in one upload goes into this group as a separate data source. | `CRM exports` |
+| **Map with AI** | No | Select it to have AI create a mapping for every uploaded file, without review. Available when Copilot has an AI endpoint; see [Prerequisites for AI mapping](/ingest/mapping/create-mapping#prerequisites-for-ai-mapping). | Selected |
 
 ## Overview of the data ingestion process for files
 
@@ -61,11 +62,27 @@ Follow our step-by-step instruction to upload a file.
 
 1. Specify the **Group** where the data source will be stored. You can choose the existing group or create a new group. If you upload several files, they will be stored as separate data sources within a group.
 
+1. Optional: to map all the files with AI, select **Map with AI**. See [Map uploaded files with AI](#map-uploaded-files-with-ai).
+
 1. In the lower-right corner, select **Upload**.
 
     Keep the browser tab open until the upload has finished. If the tab is closed while the upload is in progress, the file cannot be recovered.
 
     The data has been ingested to CluedIn, and you can view it on the [Preview](/ingest/processing/preview) tab of the data set. Next, check the [logs](/ingest/troubleshooting/logs) to make sure all your records are valid. To turn your data into golden records, [create a mapping](/ingest/mapping/create-mapping) and [process the data](/ingest/processing/process-data).
+
+## Map uploaded files with AI
+
+When you select **Map with AI**, you don't need to map the files one by one. Once each file has loaded, CluedIn runs [AI mapping](/ingest/mapping/create-mapping#ai-mapping) on its data set and creates the whole proposal: business domain and vocabulary, property rules, identifiers, relations and meta data. Unlike AI mapping from the **Mapping** tab, there is no review step.
+
+- The files are mapped one at a time, in the background. You can close the panel and leave the page; the upload itself still needs the browser tab open until it has finished.
+
+- While a data set waits or is being mapped, it shows **AI mapping queued** or **AI mapping in progress** next to its status. When it's done, the data set shows its usual status. If it shows **AI mapping failed** or **AI mapping incomplete**, point to the label to see why. A data set that failed has no mapping; [create one](/ingest/mapping/create-mapping) as usual.
+
+- Relations are found only to data already in CluedIn. Two files uploaded together aren't related to each other, because neither has been processed yet.
+
+- The mappings aren't processed automatically. [Review each mapping](/ingest/mapping/review-mapping), change it if needed, and then [process the data](/ingest/processing/process-data).
+
+- AI mapping runs on the CluedIn server. If the server restarts before a file has been mapped, that file isn't mapped; map it from its data set.
 
 ## Verify the result
 
@@ -82,6 +99,8 @@ Follow our step-by-step instruction to upload a file.
 - Uploading creates a data source in the group you chose, and a data set holding the file's records in temporary storage, shown on the **Preview** tab.
 
 - No golden records are created or changed. Records become golden records, or enhance existing ones, only after you [create a mapping](/ingest/mapping/create-mapping) and [process the data](/ingest/processing/process-data).
+
+- With **Map with AI**, each data set also gets a mapping. AI mapping can also create a business domain, a vocabulary and vocabulary keys, the same as when you create the mapping yourself.
 
 - To undo an upload, remove the data source.
 

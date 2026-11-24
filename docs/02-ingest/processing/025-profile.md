@@ -52,6 +52,22 @@ The profile is also structured so that it can be used later to help identify rel
 
     Profiling reads at most the first 10,000 rows of a larger data set. When it does, a note under **Columns** says how many of the data set's rows the statistics are based on.
 
+## Act on profile insights
+
+Above the columns table, the **Insights** card lists what the profile found that is worth acting on, problems first, each with a button that applies the fix or opens the page where you make it:
+
+| Insight | When it shows | Button |
+|---|---|---|
+| A column has no values | Every profiled record leaves the column empty. | **Review mapping** – opens the mapping's **Columns** page, where you can stop mapping the column. |
+| A column is missing in N% of records | At least half of the profiled records leave the column empty. | **Review mapping** |
+| A column has values with leading or trailing spaces | Some of the column's example values start or end with a space. | **Clean in Preview** – opens the **Preview** tab, where you can apply a trim operation to the column. |
+| A column is complete and unique | The column has a value in every profiled record, and no two records share it. Not shown for a column that is already the primary identifier. | **Use as primary identifier** – makes the column's vocabulary key the mapping's primary identifier straight away. If the data set has no mapping yet, or the column is not mapped, the button is **Open identifiers** instead. |
+| A column has the same value in every record | Every profiled record has the same value in the column, so it tells records apart in no way. | **Review mapping** |
+
+Setting the primary identifier from here changes the mapping only: records that were already processed keep their identifiers until you process the data set again. The other buttons only open a page; nothing changes until you make the change there.
+
+![Insights card on the Profile tab with three findings: the customerId column is complete and unique, with a Use as primary identifier button, and the country and receiptId columns have the same value in every record, each with a Review mapping button]({{ "/assets/images/integration/additional-operations/profile-insights.png" | relative_url }})
+
 ## Refresh the profile
 
 The profile does not update itself as a data set's records change - select **Refresh profile**, above the table, to recompute it from the data set's current data.
