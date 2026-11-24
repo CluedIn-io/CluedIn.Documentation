@@ -8,7 +8,7 @@ permalink: /ingest/processing/remove-records
 content_type: how-to
 redirect_from: ["/integration/additional-operations-on-records/remove-records"]
 source_path: docs/040-integration/additional-operations-on-records/100-remove-records.md
-last_modified: 2024-08-26
+last_modified: 2026-11-24
 ---
 
 In this article, you will learn how to remove records (also referred to as data parts) that were created from a specific data source. For more information about records, data parts, and golden records, see [Data life cycle](/get-started/core-concepts/data-life-cycle).
@@ -45,7 +45,22 @@ Removing records from a specific data source is designed to remove the correspon
 
     ![Animation: selecting Remove records on the data source page, entering REMOVE in the Remove processed records dialog, and confirming]({{ "/assets/images/integration/additional-operations/remove-golden-records-2.gif" | relative_url }})
 
-The process of removing records might take some time. During or after the process of removing records, you can make changes in the data set (edit mapping, add or remove property or pre-process rules) or process the data set again.
+The process of removing records might take some time. During the process of removing records, you can make changes in the data set (edit mapping, add or remove property or pre-process rules), but you cannot process it. Processing becomes available again once removal completes.
+
+**Processing while records are being removed**
+
+Removing records deletes all records that the data set has produced at the time the removal runs, including records that were processed after the removal started, and then clears the data set's processing history. To prevent processed records from being lost, the following actions are unavailable for a data set while its records are being removed—whether you removed the records of the whole data source or of that data set only:
+
+- **Process**, on the data set page and on the **Process** tab.
+- Re-processing a previous submission on the **Process** tab.
+- Turning on **Auto submission**.
+- Re-processing records from the **Quarantine** tab.
+
+While removal is in progress, these actions are disabled, and hovering over them shows the following message: _Records are being removed. Processing is available once removal completes_. When removal completes, the actions become available again automatically—you do not need to refresh the page.
+
+![Screenshot: the data set's Process tab while records are being removed. The Process buttons, the re-process actions, and the Auto submission toggle are disabled, and a tooltip explains why.]({{ "/assets/images/integration/additional-operations/process-disabled-during-removal.png" | relative_url }})
+
+The same rule applies to processing requests sent from other browser tabs or through the API. Such requests are rejected with the HTTP status code `409 Conflict` and the error code `RECORDS_REMOVAL_IN_PROGRESS`.
 
 {:.important}
 If you are working with an ingestion endpoint data source, you can also remove records that were produced from a specific request send to that ingestion endpoint. For more details, see [Ingestion reports](/ingest/troubleshooting/monitoring#ingestion-reports).
