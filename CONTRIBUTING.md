@@ -394,7 +394,7 @@ parentheses.
 | Ingest | `02-ingest` | `/ingest` | connectors, data-sources, manual-data-entry, mapping, patterns, processing, troubleshooting |
 | Model | `03-model` | `/model` | business-domains, data-catalog, hierarchies, relationships, vocabularies |
 | Master | `04-master` | `/master` | deduplication, golden-records |
-| Govern & improve | `05-govern-and-improve` | `/govern` | ai-agents, cleaning, enrichment, rules, tags, workflows |
+| Govern & improve | `05-govern-and-improve` | `/govern` | ai-agents, cleaning, enrichment, rest-api-enricher-samples, rules, tags, workflows |
 | Publish & consume | `06-publish-and-consume` | `/publish` | export-targets, graphql, integration-patterns, streams |
 | Administer | `07-administer` | `/administer` | access-control, ui-configuration, users-and-roles |
 | Deploy & operate | `08-deploy-and-operate` | `/operate` | azure-deployment (`/operate/azure`), azure-marketplace, backup-and-restore, configuration, cost-and-scaling, deployment-options, identity-providers, local-deployment (`/operate/local`), monitoring, operations, security, upgrade |
