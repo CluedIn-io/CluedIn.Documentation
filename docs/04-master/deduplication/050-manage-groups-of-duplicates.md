@@ -53,7 +53,7 @@ To ensure the merged golden records meet your requirements, you need to process 
 
 1. On the **Fix Conflicts** tab, review conflicting values and choose the appropriate values to be used in the merged golden record. If you are not certain about the correctness of the selected values, you can **Reset Conflicts** and start again.
 
-    Each golden record in the group shows a similarity score - how closely it matches the rest of the group. The same score is shown again next to each of that golden record's values as you review conflicting properties and vocabulary keys, so you don't need to scroll back up to check it. A golden record with a low score is marked as a possible outlier and set apart from the others, so you can decide whether it should really be part of this merge.
+    Each golden record in the group shows a similarity score (0-100%) - how closely it matches the rest of the group according to the project's matching rules, even when no rule fully matches it. The same score is shown again next to each of that golden record's values as you review conflicting properties and vocabulary keys, so you don't need to scroll back up to check it. A golden record with a low score is marked as a possible outlier and set apart from the others, so you can decide whether it should really be part of this merge.
 
     {:.important}
     Turning on the **Auto-select** toggle prevents the display of selected values on the **Fix Conflicts** tab. Instead, you can review those values on the next tab (**Preview Merge**).
@@ -99,7 +99,7 @@ All merged golden records produced within the deduplication project are listed o
 
 ![Animation: on the Merges tab, a merged golden record is selected and its Topology tab shows the records that make it up]({{ "/assets/images/management/deduplication/check-merged-record.gif" | relative_url }})
 
-Selecting the deduplication project link on the **Topology** tab also shows the matching rule that caused the records to merge. If CluedIn cannot determine the rule - for example, because the rule was changed or removed after the merge - it shows **Not available** instead of leaving the rule blank.
+Selecting the deduplication project link on the **Topology** tab also shows the matching rule that caused the records to merge. CluedIn records the rule when the records are merged, so it stays accurate even if the project's rules change later. For merges where no rule was recorded - for example, records merged before CluedIn started recording this - it shows **Not available** instead of leaving the rule blank.
 
 ## Unmerge records
 
