@@ -222,12 +222,12 @@ For more information, see [Create and manage workflows](/govern/workflows/create
 
 While you have unread notifications, CluedIn shows the unread count in the browser tab title, for example `(3) CluedIn`. The count disappears from the tab title once your unread notifications reach zero.
 
-If you have muted a notification type (see [Notification types](/administer/general-settings#notification-types)), notifications of that type are not included in this count.
+If you have muted a notification type (see [Notification types](/administer/user-settings#notification-types)), notifications of that type are not included in this count.
 
 ## Browser (OS) notifications
 
 In addition to the in-app notification bell, CluedIn can show you operating system (HTML5) notifications — with an audible chime where your browser supports it — so you can notice important activity even when the CluedIn tab isn't focused.
 
-Browser notifications are off by default and are a per-user preference. You turn them on, choose which notification types trigger them, and manage browser permission from **Organization Settings > General Settings > Notifications**. See [General settings](/administer/general-settings#notifications) for details, including what happens if your browser blocks the permission request.
+Browser notifications are off by default and are a per-user preference. You turn them on, choose which notification types trigger them, and manage browser permission from **User Settings > Notifications**. See [User settings](/administer/user-settings#notifications) for details, including what happens if your browser blocks the permission request.
 
-![Browser notifications enabled in General Settings]({{ "/assets/images/user-interface/notifications/os-notifications-toggle.png" | relative_url }})
+![Browser notifications enabled in User Settings]({{ "/assets/images/user-interface/notifications/os-notifications-toggle.png" | relative_url }})
