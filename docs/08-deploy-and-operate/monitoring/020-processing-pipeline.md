@@ -75,13 +75,9 @@ Consider carefully whether you need to ingest all columns from all tables. You c
 
 ## Monitoring the performance
 
-CluedIn provides ways to monitor the processing pipeline’s performance. Administrators can use the Engine Room in the UI to:
+The **Processing pipeline** page in **Engine room** shows every queue in the pipeline with live message counts and rates, highlights items that are failing or backlogged, and lets administrators retry failed messages, purge queues and export what they see. See [Manage the processing pipeline]({{ "/operate/monitoring/manage-processing-pipeline" | relative_url }}).
 
-- View the overall speed of the processing pipeline.
-
-- Drill down into each processing step to see throughput rates.
-
-![Processing pipeline page showing data sets, clue processing queues with message rates, edge, parent and metrics processing steps, and outgoing streams with backlogs]({{ "/assets/images//development/engine-room.png" | relative_url }})
+![The Processing pipeline page in the Grid view, with KPI cards, a banner listing items that need attention, and the pipeline stages stacked with their queues]({{ "/assets/images/operate/processing-pipeline/grid.png" | relative_url }})
 
 ## Configuring the pipelines
 
