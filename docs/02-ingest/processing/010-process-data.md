@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/integration/process-data"]
 source_path: docs/040-integration/data-sources/190-process-data.md
 tags: ["integration", "processing"]
-last_modified: 2024-10-31
+last_modified: 2026-10-24
 ---
 
 ## On this page
@@ -74,9 +74,13 @@ Manual processing is available for the data coming from a file, an ingestion end
         {:.important}
         If any status check shows duplicates, the records containing duplicates will be merged to maintain data integrity and consistency. To learn more about unique identifiers, see [Identifiers](/ingest/mapping/review-mapping#codes).
 
+    - For each identifier field with a known origin, see a prediction of how many of the data set's sampled values will merge with an existing golden record once this data set is processed, and - for any other, not-yet-processed data set in the same data source set that shares the business domain - how many values already overlap with it, so a merge that depends on sources using the same origin can be judged before processing. A field whose origin is set to **Auto-generated** or **Data source name** is left out of the prediction, because that origin is only resolved once the data is actually processed.
+
 1. In the lower-right corner, select **Confirm**.
 
     ![Animation: on the Process tab, selecting Process opens the confirmation pane; after Confirm, a processing log shows Success 20]({{ "/assets/images/integration/data-sources/process-data.gif" | relative_url }})
+
+    You're taken to the **Process** tab automatically once processing starts, even if you selected **Process** from another tab, so you can see the result without navigating there yourself.
 
 ## Auto-submission
 

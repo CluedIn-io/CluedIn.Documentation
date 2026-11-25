@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/integration/review-mapping"]
 source_path: docs/040-integration/data-sources/180-review-mapping.md
 tags: ["integration", "mapping"]
-last_modified: 2023-11-07
+last_modified: 2026-10-24
 ---
 
 ## On this page
@@ -41,6 +41,8 @@ On the **Map columns to vocabulary key** tab, check how the original fields will
 - Map the original field to a different vocabulary key.
 
 - Add [property rules](/ingest/mapping/property-rules) to improve the quality of mapped records by normalizing and transforming property values. 
+
+For a field mapped to a vocabulary key that already exists, select the lineage icon next to it to see the key's full lineage: every key it was remapped from or to, each labeled with its vocabulary. This is useful for understanding where a value ends up when a vocabulary key has been merged or superseded by another one.
 
 ### Identifiers
 
@@ -96,6 +98,20 @@ Even if there are no duplicate values according to the primary identifier, but t
 The following diagram will help you in determining if you need to add additional identifiers.
 
 ![Decision tree: if there is another unique identifier and you trust your data, add identifiers; if you do not trust it, run a dedup project later; if there is none, do not add identifiers]({{ "/assets/images/integration/data-sources/review-mapping-5.png" | relative_url }})
+
+**Matching an identifier's origin to another source**
+
+Two records only merge by an identifier if their business domain, origin, and identifier value are all identical - so for records from different sources to merge, both sources need to use the same origin for the field they share. When you select **Edit origin** for the primary identifier or any other identifier, CluedIn samples that field's values and checks them two ways:
+
+- Against identifiers already indexed under every other origin, from data sets that have already been processed.
+- Against every not-yet-processed data set in the same data source set that maps a field to the same vocabulary key - useful when two sources are being mapped around the same time and neither has been processed yet.
+
+If either check finds matching values, it's listed under that field. A match against an already-indexed origin, or against a sibling that already has a concrete origin set for that field, comes with a **Use this origin** button that applies it to that field - for a primary identifier this fills in the origin and still requires **Save**; for any other identifier it applies immediately. A match against a sibling that doesn't have an origin set yet is shown without a button - set a matching origin on both sides to bridge them.
+
+Because each identifier is checked independently, this also surfaces triangulation: a data set with no single field shared by every other source can still line up each of its identifiers with a different one - for example, `Id` matching one source's origin and `PersonId` matching another's - so that it merges with both once processed.
+
+{:.note}
+See the [Process confirmation](/ingest/processing/process-data#manual-processing) for a prediction of how many records this data set will actually merge once processed, and the retrospective [origin viewer](/model/origin-viewer) for comparing sources that have already been processed.
 
 ### Relationships
 
