@@ -7,7 +7,7 @@ permalink: /model/global-data-model
 content_type: how-to
 redirect_from: ["/governance/global-data-model"]
 tags: ["governance", "data model", "ontology", "business domains", "relationships"]
-last_modified: 2026-09-24
+last_modified: 2026-11-17
 ---
 
 ## On this page
@@ -75,6 +75,8 @@ The graph canvas displays business domains as cards and edges as connections bet
 You can use the graph controls to zoom in and out when working with a large model.
 
 For larger environments, the model can contain many business domains and relationships. Use the filtering and display controls to reduce the amount of information shown at one time.
+
+Select **Sync with Microsoft Fabric Ontology** to publish this model to Microsoft Fabric as an Ontology, kept up to date automatically - see [Sync the Global Data Model to a Microsoft Fabric Ontology](/publish/integration-patterns/sync-global-data-model-to-fabric-ontology).
 
 ## Search for business domains
 
