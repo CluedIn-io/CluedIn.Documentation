@@ -19,6 +19,8 @@ The scripts are starting points. Check the vocabulary keys in each script agains
 
 These samples look up a company in a national business register by its registration number, and add the registered name, status, address and other register details to the golden record. Each one reads a single identifier from a vocabulary key, checks its format before calling the register, and adds properties under its own prefix (for example `brreg.name`).
 
+Use the filter above the table to find a register by country, register or identifier, or to show only the registers that don't need an API key. On each sample page, open **Customize the script** above the process script to enter your own vocabulary keys and cache duration: the script and the **Vocabulary and Properties** field update as you type, ready to copy or download.
+
 | Country | Register | Identifier | API key |
 | ------- | -------- | ---------- | ------- |
 | Australia | [ABN Lookup](/govern/rest-api-enricher-samples/abn-lookup-australia) | ABN | ABN Lookup GUID (free) |

@@ -1394,3 +1394,122 @@ $ci-badges: (
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+// ---------------------------------------------------------------------------
+// REST API enricher samples: registry filter and script configurator
+// (assets/js/rest-enricher-samples.js)
+// ---------------------------------------------------------------------------
+
+.ci-sample-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: flex-end;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.ci-sample-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 14rem;
+
+  label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $body-heading-color;
+  }
+}
+
+.ci-sample-input {
+  padding: 0.4rem 0.6rem;
+  font: inherit;
+  font-size: 0.9rem;
+  color: $body-text-color;
+  background: $ci-surface;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+
+  &:focus {
+    outline: 2px solid $ci-accent;
+    outline-offset: 1px;
+  }
+}
+
+.ci-sample-status {
+  margin: 0.25rem 0 0.5rem !important;
+  font-size: 0.8rem;
+  color: $ci-muted;
+}
+
+.ci-sample-empty td {
+  color: $ci-muted;
+  font-style: italic;
+}
+
+.ci-sample-config {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid $border-color;
+  border-left: 4px solid $ci-accent;
+  border-radius: 8px;
+  background: $ci-surface-sunken;
+
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: $body-heading-color;
+  }
+
+  &[open] summary {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.ci-sample-config-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 0.75rem 1.25rem;
+  margin: 0.75rem 0;
+
+  .ci-sample-input {
+    font-family: $mono-font-family;
+    font-size: 0.85rem;
+  }
+}
+
+.ci-sample-hint {
+  margin: 0 !important;
+  font-size: 0.8rem;
+  color: $ci-muted;
+}
+
+.ci-sample-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ci-sample-button {
+  font-size: 0.85rem;
+}
+
+// The script differs from the published one: say so next to the copy button.
+.ci-sample-customized {
+  position: relative;
+  box-shadow: 0 0 0 2px $ci-accent;
+  border-radius: 4px;
+
+  &::before {
+    content: "Customized";
+    position: absolute;
+    top: -0.7rem;
+    left: 0.75rem;
+    z-index: 1;
+    padding: 0 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: $ci-surface;
+    background: $ci-accent;
+    border-radius: 4px;
+  }
+}
