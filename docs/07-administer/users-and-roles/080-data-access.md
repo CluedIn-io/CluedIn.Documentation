@@ -26,6 +26,9 @@ The operations that users can perform with data depend on the roles assigned to 
 
 Both source control and access control settings are located in **Administration** > **Settings**. This is the starting point where you specify if you want to restrict access to the data in CluedIn. By restricting access, we mean turning on the toggle under **Source Control** and **Access Control**.
 
+{:.note}
+On a new CluedIn instance, **Access Control** is enabled by default. **Source Control** is not. Both toggles can be turned on or off from **Administration** > **Settings**.
+
 ![The Data Access section in Administration Settings with the Source Control and Access Control toggles both enabled]({{ "/assets/images/administration/user-access/data-access-section.png" | relative_url }})
 
 **Exception in data access settings**
