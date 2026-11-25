@@ -53,3 +53,6 @@ view replaces it (assets/js/agent-mode.js).
 
 <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}?v={{ asset_version }}" defer></script>
 <script src="{{ '/assets/js/nav-groups.js' | relative_url }}?v={{ asset_version }}" defer></script>
+{%- if page.url contains '/govern/rest-api-enricher-samples' %}
+<script src="{{ '/assets/js/rest-enricher-samples.js' | relative_url }}?v={{ asset_version }}" defer></script>
+{%- endif %}
