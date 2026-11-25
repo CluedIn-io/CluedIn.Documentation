@@ -57,7 +57,7 @@ A survivorship rule decides each golden record value by comparing the golden rec
 
     ![The Inspector tab of a survivorship rule with a golden record selected and its 4 data parts loaded]({{ "/assets/images/management/rules/inspect-survivorship-rule-1.png" | relative_url }})
 
-    To try out what the rule would do with different data, expand **Edit source records by hand** and change the loaded data parts, or add your own.
+    To try out what the rule would do with different data, expand **Edit source records by hand** and change the loaded data parts, or add your own. Each record's **Entity properties** can be changed too; enter one item per line for Codes, Tags and Aliases.
 
 1. Select **Run**.
 
@@ -66,6 +66,8 @@ A survivorship rule decides each golden record value by comparing the golden rec
     - Its source, when it was last modified, its part ID, and its input source.
     - For each action, whether the data part matches the action's own condition (for example, the condition of a **Latest Matching Condition** action) and whether the action took its values from this data part. **Latest Matching Condition** takes its values from the newest data part that matches.
     - Each value the data part holds, next to the golden record's value after the rule ran. Values that ended up in the golden record are marked **In golden record**.
+    - Its **Entity properties**, such as Name, EntityType, OriginEntityCode, Codes, Tags and dates. Action conditions can check these, so the Inspector runs the rule with them.
+    - Its **Source details**: the Providers it came from, its provider definition ID, and the source's quality and whether it's trusted.
 
     ![A data part that matches the Latest Matching Condition action's condition, with all 9 of its values in the golden record]({{ "/assets/images/management/rules/inspect-survivorship-rule-2.png" | relative_url }})
 
