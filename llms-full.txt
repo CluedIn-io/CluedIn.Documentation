@@ -12543,6 +12543,7 @@ Once data is mastered, this is how you keep it good: clean projects fix recurrin
 - [Work with the glossary](https://documentation.cluedin.net/govern/work-with-glossary.md) (how-to): Glossary can help you in documenting groups of golden records that meet specific criteria, simplifying the process of cleaning and streaming these groups of records.
 - [Cleaning](https://documentation.cluedin.net/govern/cleaning.md): A clean project takes a set of golden records, shows you what is wrong with them, and lets you fix it in bulk.
 - [Enrichment](https://documentation.cluedin.net/govern/enrichment.md): An enricher fills gaps in your data from an external source - a company register, a mapping service, a search index.
+- [REST API enricher samples](https://documentation.cluedin.net/govern/rest-api-enricher-samples.md): Ready-made REST API enricher settings and scripts for specific external services, such as VIES, Dun & Bradstreet, Melissa, and Logo.dev.
 - [Rules](https://documentation.cluedin.net/govern/rules.md): Rules apply logic to your data automatically: change a value, add a tag, block a change.
 - [Tags](https://documentation.cluedin.net/govern/tags.md): Tags are labels you attach to golden records and data parts.
 - [AI agents](https://documentation.cluedin.net/govern/ai-agents.md): AI agents do stewardship work for you - proposing fixes for quality problems, suggesting duplicates to merge, drafting rules.
@@ -16324,7 +16325,7 @@ This article explains how to add the REST API enricher. The purpose of this enri
 
 ## Add REST API enricher
 
-The REST API enricher requires the URL of an external endpoint to retrieve data. You can use JavaScript to customize request construction and response processing for precise control over data extraction. You can find some examples of JavaScript code in the [Sample scripts V1](#sample-v1) and [Sample scripts V2](#sample-v2) section of this page.
+The REST API enricher requires the URL of an external endpoint to retrieve data. You can use JavaScript to customize request construction and response processing for precise control over data extraction. You can find basic examples of JavaScript code in the [Sample (V1)](#sample-v1) and [Sample (V2)](#sample-v2) sections of this page, and ready-made scripts for specific external services in [REST API enricher samples](https://documentation.cluedin.net/govern/rest-api-enricher-samples.md).
 
 **To add REST API enricher**
 
@@ -16389,6 +16390,10 @@ You can find the properties added to golden records from the REST API enricher o
 For a more detailed information about the changes made to a golden record by the REST API enricher, check the corresponding data part on the **History** page.
 
 ![History page of the Google golden record with the REST API data part highlighted above the File Data Source data part](https://documentation.cluedin.net/assets/images/preparation/enricher/rest-api-enricher-4.png)
+
+## Samples for specific services
+
+Ready-made settings and scripts for specific external services are in [REST API enricher samples](https://documentation.cluedin.net/govern/rest-api-enricher-samples.md), with one page per service. The samples for Azure OpenAI, DuckDuckGo, REST Countries, Melissa, AddressBase (OS Places), Logo.dev, and Dun & Bradstreet that used to be on this page are now there, along with VIES (EU VAT validation).
 
 ## Sample (V1)
 
@@ -16522,31 +16527,313 @@ response.Content = JSON.stringify([{ Data: newContent, Score: 0 }]);
 | `Data`   | `object` | Key-value data extracted from the response. Each key represents a vocabulary key. |
 | `Score`  | `number` | A numeric score indicating the relevance or confidence of the results.            |
 
-### Azure OpenAI
+## Sample (V2)
+
+This section provides some sample configuration and scripts that you can use to configure the V2 REST API enricher.
+
+### Sample process script
+
+```javascript
+// companies.country vocabulary key added to Vocabulary and Properties field can be accessed using .find
+const country = vocabularies.find((x) => x.Key === "companies.country")?.Value;
+const url = `https://restcountries.com/v3.1/name/${country}?fullText=true`;
+
+// usee http.send() to make an API call
+const countryResponse = http.send({
+  url: url,
+  method: "GET",
+  // sample headers and body
+  // headers: [
+  //   {Key: 'Content-Type', Value: 'application/json'},
+  //   {Key: 'Authorization', Value: `Bearer ${token}`}
+  // ],
+  // body: { name: 'testName' }
+});
+
+log(JSON.stringify(countryResponse));
+
+let parsedContent = JSON.parse(countryResponse?.Content);
+let results = {
+  "country.officialName": parsedContent[0]?.name?.official,
+};
+
+response = JSON.stringify([{ Data: results, Score: 100 }]);
+```
+
+## Helper functions
+
+You can use the following helper functions in your scripts to facilitate common tasks.
+
+**Logging**
+
+| Function | Signature    | Description                                                                                     |
+| -------- | ------------ | ----------------------------------------------------------------------------------------------- |
+| `log`    | `log(value)` | Writes a message to the application log at **Information** level. Useful for debugging scripts. |
+
+Example:
+
+```javascript
+log("Processing response from API");
+```
+
+**String Encoding**
+
+| Function     | Signature                           | Description                                    |
+| ------------ | ----------------------------------- | ---------------------------------------------- |
+| `toBase64`   | `toBase64(value: string): string`   | Encodes a UTF-8 string into Base64 format.     |
+| `fromBase64` | `fromBase64(value: string): string` | Decodes a Base64-encoded string back to UTF-8. |
+| `urlEncode`  | `urlEncode(value: string): string`  | Encodes a string for safe use in a URL.        |
+| `urlDecode`  | `urlDecode(value: string): string`  | Decodes a URL-encoded string.                  |
+
+Example:
+
+```javascript
+// use stringEncoder object
+var encoded = stringEncoder.toBase64("hello");
+var decoded = stringEncoder.fromBase64(encoded);
+```
+
+**Cache**
+
+| Function          | Signature                                                                     | Description                                                                                                                                                                                                                                 |
+| ----------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `get`             | `get(key: string): object`                                                    | Retrieves a cached value for the current organization. Returns `null` if not found.                                                                                                                                                         |
+| `set`             | `set(key: string, value: object, expiration: number): void`                   | Stores a value in cache with an expiration time (in milliseconds). Does nothing if the key already exists. It is recommended to use `getOrSetValue` or `getOrSetFactory` instead, as they use distributed locks to prevent race conditions. |
+| `getOrSetValue`   | `getOrSetValue(key: string, value: object, expiration: number): object`       | Returns the cached value if it exists; otherwise, stores the provided value with the given expiration time (in milliseconds) and returns it.                                                                                                |
+| `getOrSetFactory` | `getOrSetFactory(key: string, factory: function, expiration: number): object` | Returns the cached value if it exists; otherwise, calls the factory function to produce the value, stores it with the given expiration time (in milliseconds), and returns it.                                                              |
+
+Example:
+
+```javascript
+// use cache object (using )
+var token = cache.get("authToken");
+
+if (!token) {
+  token = "new-token";
+  cache.getOrSetValue("authToken", token, 60000);
+}
+```
+
+**Http (V2)**
+
+| Function | Signature                         | Description                                                                                                                                                                                                                     |
+| -------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `send`   | `send(request: object): Response` | Sends an HTTP request based on the provided request object and return the response. Refer to request [Request and Response Type](#accessing-and-modifying-request-and-response-objects-in-process-request-and-response-scripts) |
+
+Example:
+
+```javascript
+const tokenResponse = http.send({
+  url: `https://plus.dnb.com/v2/token`,
+  method: "POST",
+  headers: [
+    { Key: "Content-Type", Value: "application/json" },
+    { Key: "Authorization", Value: `Basic ${base64}` },
+  ],
+  body: { grant_type: "client_credentials" },
+});
+```
+
+Up: [Enrichment](https://documentation.cluedin.net/govern/enrichment.md)
+
+<!-- https://documentation.cluedin.net/govern/enrichment/dnb -->
+# Dun and Bradstreet
+
+> reference: Facts, options, APIs.
+
+This article explains how to configure the D&B (Dun & Bradstreet) enricher. The enricher uses D&B Direct+ Identity Resolution APIs to enrich organization golden records with business identity, address, corporate-linkage, contact, industry, financial, and D-U-N-S information.
+
+The enricher uses the following D&B API paths, relative to the configured **D&B Base URL**:
+
+- `data/duns/{dunsNumber}` for direct D-U-N-S lookups.
+- `match/cleanseMatch` for multiple identity-resolution candidates.
+- `match/extendedMatch` for the best match and the requested product data.
+
+## Before you begin
+
+You need D&B Direct+ credentials and access to the data product or data blocks that you intend to request. For information about obtaining and using these values, see the [D&B Direct+ documentation](https://directplus.documentation.dnb.com/). Obtain the authentication URL, API key, API secret, authentication request body, base URL, and either:
+
+- a **Version ID** and **Product ID**; or
+- one or more **Block IDs**.
+
+For identity resolution without a D-U-N-S number, golden records must contain both an organization name and a two-letter ISO country code. The enricher can also use the address, registration number, telephone number, website, and email address to improve the match request.
+
+## Add D&B enricher
+
+**To add the D&B enricher**
+
+1. On the navigation pane, go to **Preparation** > **Enrich**. Then, select **Add Enricher**.
+
+1. On the **Choose Enricher** tab, select **DnB**, and then select **Next**.
+
+1. On the **Configure** tab, provide the following details.
+
+   **Authentication**
+
+   - **Auth URL** – the D&B endpoint used to obtain an access token. The default value is `https://plus.dnb.com/v2/token`.
+   - **API Key** – the D&B API key. The enricher sends this value with the API secret as HTTP Basic authentication when requesting an access token. For example: `<D&B API key>`.
+   - **API Secret** – the D&B API secret. For example: `<D&B API secret>`. Do not enter this value in documentation, source control, or screenshots.
+   - **Auth Request Body** – the JSON request body required by the D&B authentication endpoint. The default value is `{"grant_type" : "client_credentials"}`.
+   - **D&B Base URL** – the base URL for the D&B Direct+ APIs. Use the base URL supplied by D&B for your account and API product. For example: `https://<your-D&B-Direct+-API-base-URL>/`.
+
+   **Matching and data retrieval**
+
+   - **Accepted Business Domain** – the business domain that defines the golden records to enrich. For example, `/Organization`.
+   - **Identity Resolution API** – choose one of the following options:
+     - **Cleanse Match** returns multiple match candidates from the `match/cleanseMatch` endpoint.
+     - **Extended Match** returns the best match and requested product data from the `match/extendedMatch` endpoint.
+   - **Get Data Using Matches DUNS** – when enabled, retrieves organization data by using the D-U-N-S number returned by a match candidate.
+   - **Include Last API Call Details** – when enabled, writes the timestamp, status code, and error message from the last D&B API call to the enriched record. This is useful when a request cannot return organization data.
+   - **Match and Append versionId** and **Match and Append productId** – the D&B version and product identifiers. Provide both values together.
+   - **Match and Append blockIDs** – the D&B data block identifier or identifiers to return. Use this instead of the Version ID and Product ID when your D&B product is configured by blocks.
+
+   **Vocabulary keys**
+
+   - **DUNS Vocabulary Key** – the D-U-N-S number. When present, the enricher performs a direct D-U-N-S lookup.
+   - **Organization Name Vocabulary Key** and **Organization Country Code Vocabulary Key** – the organization name and ISO Alpha-2 country code. Both are required when no D-U-N-S number is available.
+   - Optionally provide vocabulary keys for **Registration Number**, **Organization Street Address Line 1**, **Organization Street Address Line 2**, **Organization Postal Code**, **Organization Address Locality**, **Organization Address County**, **Organization Address Region**, **Organization Telephone Number**, **Organization URL**, and **Organization Email**. These values are sent with the identity-resolution request when available.
+
+   **Optional D&B request parameters**
+
+   - **Customer Billing Endorsement** – a reference used during billing.
+   - **Candidate Maximum Quantity** – the maximum number of match candidates to return; the default is `10` and the allowed range is `1` through `100`.
+   - **Confidence Lower Level Threshold Value** – the minimum D&B match confidence level; the default is `4` and the allowed range is `1` through `10`.
+   - **Exclusion Criteria** – comma-separated criteria for excluding candidates, for example `ExcludeNonHeadQuarters,ExcludeNonMarketable,ExcludeOutofBusiness`.
+   - **Is Cleanse and Standardize Information Required** – includes D&B cleanse and standardize information in the response.
+   - **Trade Up** – returns the headquarters D-U-N-S number when the requested organization is a branch. For example, `hq`.
+   - **Order Reason** and **Customer Reference 1** through **Customer Reference 5** – optional D&B order and reconciliation references.
+   - **Industry Code Types** – comma-separated D&B `TypeDnBCode` values that identify the industry codes to add to the result. For example, `19295,37788`.
+   - **Registration Number Types** – comma-separated D&B `TypeDnBCode` values that identify the registration numbers to add to the result. For example, `12897,12444`.
+   - **Property Mappings** – optional custom mappings from the D&B JSON response. For details and examples, see [Property mappings](#property-mappings).
+
+1. Select **Test Connection** to verify the configuration, and then select **Add**.
+
+The D&B enricher is added with active status. It enriches matching golden records when they are processed or when you trigger external enrichment.
+
+After adding the enricher, you can change its **Settings** to set a display name, data description, and source quality, or update the connection values under **Authentication**.
+
+## Matching behavior
+
+The enricher first checks for a D-U-N-S number. If one is available, it calls `data/duns/{dunsNumber}` and returns the organization data directly.
+
+If no D-U-N-S number is available, the enricher requires an organization name and ISO Alpha-2 country code. It calls the selected Identity Resolution API and includes any optional configured input values. The request must also contain either a Version ID and Product ID pair, or Block IDs.
+
+When **Get Data Using Matches DUNS** is enabled, the enricher uses the D-U-N-S number from the D&B match candidate to make a second direct lookup. Otherwise, it enriches the record from the selected identity-resolution response.
+
+## Property mappings
+
+Use **Property Mappings** when the standard D&B vocabulary does not expose a value that you need, or when you want to add a value to a property with a specific name. Each mapping creates or updates the CluedIn property named on the left of the equals sign.
+
+Enter one mapping on each line using this format:
+
+```text
+Property=JSONPath
+```
+
+For example, this mapping adds the value of `organization.email` from the D&B response to an `Email` property:
+
+```text
+Email=$.organization.email
+```
+
+You can use JSONPath to retrieve values nested in the response and to filter arrays. For example, D&B registration numbers include a `typeDnBCode`. The following mapping finds the registration number whose type code is `2080` and writes it to `ValueAddedTaxNumberFR`:
+
+```text
+ValueAddedTaxNumberFR=$.organization.registrationNumbers[?(@.typeDnBCode == 2080)].registrationNumber
+```
+
+Use the same pattern for other country-specific registration-number types, replacing both the destination property name and the D&B type code:
+
+```text
+ValueAddedTaxNumberBE=$.organization.registrationNumbers[?(@.typeDnBCode == 999)].registrationNumber
+ValueAddedTaxNumberCZ=$.organization.registrationNumbers[?(@.typeDnBCode == 1315)].registrationNumber
+ValueAddedTaxNumberHU=$.organization.registrationNumbers[?(@.typeDnBCode == 36137)].registrationNumber
+```
+
+To collect all values from an array, use `[*]`. The enricher combines the matching values into a comma-separated string. For example:
+
+```text
+RegistrationNumbers=$.organization.registrationNumbers[*].registrationNumber
+```
+
+Property mappings are evaluated against the JSON returned by the D&B API. Make sure that your D&B product or selected data blocks return the path you map. If a path has no value, the enricher does not add that mapped property. Invalid mappings are ignored and are recorded as warnings in the application logs.
+
+## Properties from D&B enricher
+
+The D&B enricher adds properties with the `DnB` vocabulary prefix. The exact data returned depends on your D&B product and selected data blocks.
+
+| Property group | Example vocabulary keys |
+| -- | -- |
+| Business identity | `DnB.Duns`, `DnB.PrimaryBusinessName`, `DnB.BusinessEntityTypeDnbCode`, `DnB.BusinessEntityTypeDescription` |
+| Match quality | `DnB.MatchConfidenceCode` |
+| Corporate linkage | `DnB.DomesticUltimateDuns`, `DnB.GlobalUltimateDuns`, `DnB.ParentDuns`, `DnB.HeadQuarterDuns`, `DnB.HierarchyLevel` |
+| Address and contact | `DnB.PrimaryAddressCountry`, `DnB.PrimaryAddressLocality`, `DnB.PrimaryAddressPostalCode`, `DnB.PrimaryAddressStreetLine1`, `DnB.WebsiteUrl`, `DnB.Telephone`, `DnB.Fax` |
+| Status and identifiers | `DnB.OperatingStatusCode`, `DnB.OperatingStatusDescription`, `DnB.DunsControlStatusIsMarketable`, `DnB.RegistrationNumber2` |
+| Organization scale | `DnB.NumberOfEmployees`, `DnB.YearlyRevenue`, `DnB.GlobalUltimateNumberOfEmployees`, `DnB.DomesticUltimateNumberOfEmployees` |
+| Market data | `DnB.StockExchangeTickerName`, `DnB.StockExchangeName`, `DnB.StockExchangeCountryCode`, `DnB.TradeStyleNames` |
+| Selected industry codes (Optional) | `DnB.industry.{index}.code`, `DnB.industry.{index}.description`, `DnB.industry.{index}.typeDnBCode` |
+| Selected registration numbers (Optional) | `DnB.registrationNumbers.{index}.registrationNumber`, `DnB.registrationNumbers.{index}.typeDescription`, `DnB.registrationNumbers.{index}.typeDnBCode` |
+| API-call diagnostics (Optional) | `DnB.LastApiCallTimestamp`, `DnB.LastApiCallStatusCode`, `DnB.LastApiCallErrorMessage` |
+
+Use the integrations filter on the **Properties** page to find properties added by the D&B enricher. To review a particular enrichment, open the relevant data part on the golden record's **History** page.
+
+Up: [Enrichment](https://documentation.cluedin.net/govern/enrichment.md)
+
+<!-- https://documentation.cluedin.net/govern/rest-api-enricher-samples -->
+# REST API enricher samples
+
+The [REST API enricher](https://documentation.cluedin.net/govern/enrichment/rest-api.md) can call almost any external service, but you write the JavaScript that builds the request and reads the response. The pages in this section give you that work already done for specific services: the enricher settings, the vocabulary keys to send, and a script you can paste in and adapt.
+
+Each page is named after the external service it calls. It says which enricher version the script is for (V1 uses a process request script and a process response script, V2 uses a single process script) and whether the service needs an API key. For how to add the enricher and what each setting means, and for the `log`, `cache`, `stringEncoder` and `http` helper functions the scripts use, see [REST API enricher](https://documentation.cluedin.net/govern/enrichment/rest-api.md).
+
+The scripts are starting points. Check the vocabulary keys in each script against your own data model, and review the service's terms and rate limits before you enrich a large number of golden records.
+
+## In this section
+
+- [Azure OpenAI](https://documentation.cluedin.net/govern/rest-api-enricher-samples/azure-openai.md) (reference): Translates an organization name into Japanese with an Azure OpenAI chat completions deployment. V1 script; needs an Azure OpenAI API key.
+- [DuckDuckGo](https://documentation.cluedin.net/govern/rest-api-enricher-samples/duckduckgo.md) (reference): Adds information about an organization from the DuckDuckGo Instant Answer API. V1 script; no API key.
+- [Dun & Bradstreet](https://documentation.cluedin.net/govern/rest-api-enricher-samples/dun-and-bradstreet.md) (reference): Looks up a company by DUNS number in Dun & Bradstreet's Direct+ API. V2 script; needs a D&B API key and secret.
+- [Logo.dev](https://documentation.cluedin.net/govern/rest-api-enricher-samples/logo-dev.md) (reference): Adds a company logo URL from Logo.dev, based on the company's website. V2 script; needs a Logo.dev API key.
+- [Melissa](https://documentation.cluedin.net/govern/rest-api-enricher-samples/melissa.md) (reference): Validates and standardizes addresses with the Melissa Global Address API. V1 script; needs a Melissa license key.
+- [OS Places (AddressBase)](https://documentation.cluedin.net/govern/rest-api-enricher-samples/os-places.md) (reference): Verifies UK addresses with Ordnance Survey's OS Places API (AddressBase). V1 script; needs an OS Data Hub API key.
+- [REST Countries](https://documentation.cluedin.net/govern/rest-api-enricher-samples/rest-countries.md) (reference): Adds the official name of a country from the REST Countries API. V1 and V2 scripts; no API key.
+- [VIES (EU VAT validation)](https://documentation.cluedin.net/govern/rest-api-enricher-samples/vies.md) (reference): Checks EU VAT numbers against the European Commission's VIES service and adds the registered trader name and address. V2 script; no API key.
+
+Up: [Govern & improve](https://documentation.cluedin.net/govern.md)
+
+<!-- https://documentation.cluedin.net/govern/rest-api-enricher-samples/azure-openai -->
+# Azure OpenAI
+
+> reference: Facts, options, APIs.
 
 This script takes an organization's name and sends a request to an Azure OpenAI deployment using GPT-5.1 or higher, asking it to translate the name into Japanese. Then, it ensures the model responds in a defined JSON format and parses and returns the result in a structure compatible with the enricher. Note that you can use the [Azure Open AI enricher](https://documentation.cluedin.net/govern/enrichment/artificial-intelligence.md) for the same task.
 
+**Enricher version:** V1  
+**API key:** your Azure OpenAI API key
+
+To set up the enricher, see [Add REST API enricher](https://documentation.cluedin.net/govern/enrichment/rest-api.md#add-rest-api-enricher), then use the settings and script on this page.
+
 **Method:** POST
 
-**URL**
+## URL
 
 ```
 https://<your-resource-name>.openai.azure.com/openai/deployments/<your-gpt-5.1-or-higher-deployment-name>/chat/completions?api-version=<api-version>
 ```
 
-**Vocabulary key and properties**
+## Vocabulary key and properties
 
 ```
 organization.name
 ```
 
-**Headers**
+## Headers
 
 ```
 api-key={APIKey}
 ```
 
-**Process request script**
+## Process request script
 
 ```javascript
 let prompt = String.raw`Please get {organization.japaneseNameRestApi} by translating {Vocabulary:organization.name} into Japanese.
@@ -16569,7 +16856,7 @@ request.Body = {
 };
 ```
 
-**Process response script**
+## Process response script
 
 ```javascript
 let parsedContent = JSON.parse(response.Content);
@@ -16578,19 +16865,31 @@ response.Content = JSON.stringify([{ Data: JSON.parse(content), Score: 0 }]);
 log(JSON.stringify(response));
 ```
 
-### DuckDuckGo
+Up: [REST API enricher samples](https://documentation.cluedin.net/govern/rest-api-enricher-samples.md)
+
+<!-- https://documentation.cluedin.net/govern/rest-api-enricher-samples/duckduckgo -->
+# DuckDuckGo
+
+> reference: Facts, options, APIs.
 
 This script handles the JSON response returned by a DuckDuckGo API call. The main purpose is to extract useful information from the API response and transform it into a format usable by the enricher.
 
+**Enricher version:** V1  
+**API key:** not needed
+
+CluedIn also has a built-in [DuckDuckGo enricher](https://documentation.cluedin.net/govern/enrichment/duckduckgo.md).
+
+To set up the enricher, see [Add REST API enricher](https://documentation.cluedin.net/govern/enrichment/rest-api.md#add-rest-api-enricher), then use the settings and script on this page.
+
 **Method:** GET
 
-**URL**
+## URL
 
 ```
 https://api.duckduckgo.com?q={Vocabulary:organization.name}&format=json
 ```
 
-**Process response script**
+## Process response script
 
 ```javascript
 function extractStringValues(obj, dict = new Map()) {
@@ -16642,485 +16941,29 @@ try {
 }
 ```
 
-### REST Countries
+Up: [REST API enricher samples](https://documentation.cluedin.net/govern/rest-api-enricher-samples.md)
 
-This script extracts the official name of a country from the response and formats it into a new JSON structure.
+<!-- https://documentation.cluedin.net/govern/rest-api-enricher-samples/dun-and-bradstreet -->
+# Dun & Bradstreet
 
-**Method:** GET
+> reference: Facts, options, APIs.
 
-**URL**
+This script looks up a company by its DUNS number in the Dun & Bradstreet Direct+ API. It adds the company's primary name, operating status, corporate linkage (parent, headquarters, domestic ultimate and global ultimate DUNS numbers), industry codes, and other company details. It gets an access token with your D&B key and secret, and caches the token.
 
-```
-https://restcountries.com/v3.1/name/{Vocabulary:country.country}?fullText=true
-```
+**Enricher version:** V2  
+**API key:** your D&B Direct+ key and secret, entered in the script in place of `{key}` and `{secret}`
 
-**Process response script**
+CluedIn also has a built-in [Dun and Bradstreet enricher](https://documentation.cluedin.net/govern/enrichment/dnb.md).
 
-```javascript
-let parsedContent = JSON.parse(response.Content);
-let content = parsedContent[0];
-let officialName = {
-  "country.officialName": content.name.official,
-};
-response.Content = JSON.stringify([{ Data: officialName, Score: 0 }]);
-log(JSON.stringify(response));
-```
+To set up the enricher, see [Add REST API enricher](https://documentation.cluedin.net/govern/enrichment/rest-api.md#add-rest-api-enricher), then use the settings and script on this page.
 
-### Melissa
-
-[Melissa](https://www.melissa.com/developer/global-address) is a widely used address validation and data quality service that helps organizations keep address data accurate, standardized, and up to date.
-
-CluedIn can connect to Melissa through its REST API, sending address data for validation. The API responds with standardized and enriched results, which CluedIn processes and maps to the appropriate vocabulary keys for storage and further use.
-
-In the following example, ingested company data contains missing or incorrect address details. We will use Melissa REST API calls to send address-related data stored in different vocabulary keys and enrich golden records with validated and parsed addresses.
-
-![Ingested company address records with missing or inconsistent City, Zipcode, State, Country, and Type values](https://documentation.cluedin.net/assets/images/preparation/enricher/rest-api/melissa/data-before-enrichment.png)
-
-**Configure Melissa REST API enricher**
-
-To [add the Melissa REST API enricher](#add-rest-api-enricher), on the **Configure** tab, provide the following information:
-
-**Accepted Business Domain:** In this example, **/Address**.
-
-**Method:** GET.
-
-**URL:**
-
-In this example, the URL references several vocabulary keys that store address-related data.
-
-```
-https://address.melissadata.net/V3/WEB/GlobalAddress/doGlobalAddress?id={APIKey}&a1={Vocabulary:company.address.streetAddress}&loc={Vocabulary:company.address.city}&admarea={Vocabulary:company.address.state}&ctry={Vocabulary:company.address.country}&postal={Vocabulary:company.address.zipcode}
-```
-
-**Headers:**
-
-```
-Content-Type=application/json
-```
-
-**Process response script:**
-
-This script transforms the raw response into a structured format that fits CluedIn’s schema.
-
-```javascript
-let parsedContent = JSON.parse(response.Content);
-let content = parsedContent.Records[0];
-
-let melissaCountryName = content.CountryName;
-let melissaCountryISO = content.CountryISO3166_1_Alpha3;
-let melissaZipcode = content.PostalCode;
-let melissaFullAddress = content.FormattedAddress;
-let melissaCity = content.Locality;
-let melissaState = content.AdministrativeArea;
-let melissaDeliveryIndicator = content.DeliveryIndicator;
-
-let newContent = {
-  "company.address.city": melissaCity,
-  "company.address.zipcode": melissaZipcode,
-  "company.address.state": melissaState,
-  "company.address.country": melissaCountryISO,
-  "company.address.vocabKey2": melissaCountryName,
-  "company.address.vocabKey1": melissaFullAddress,
-  "company.address.type": melissaDeliveryIndicator,
-};
-
-//apply conditions if required
-
-if (melissaDeliveryIndicator === "B") {
-  newContent["company.address.type"] = "Business";
-} else if (melissaDeliveryIndicator === "R") {
-  newContent["company.address.type"] = "Residential";
-} else {
-  newContent["company.address.type"] = "Unknown";
-}
-
-response.Content = JSON.stringify([{ Data: newContent, Score: 0 }]);
-//log(JSON.stringify(response));
-```
-
-![REST API enricher Configure tab for Melissa: Accepted Business Domain Address, Method GET, the Melissa URL, API Key, Headers, and Process Response Script](https://documentation.cluedin.net/assets/images/preparation/enricher/rest-api/melissa/configure_tab.png)
-
-**Example of golden record before and after enrichment**
-
-An example of a golden record before enrichment:
-
-![Properties of the Walmart Inc. golden record before enrichment, including Type Organization and Zipcode 72716](https://documentation.cluedin.net/assets/images/preparation/enricher/rest-api/melissa/golden_record_before_enrichment.png)
-
-Same record after enrichment:
-
-- The values for the **Type** and **Zipcode** properties were updated.
-
-- Two new vocabulary keys (**Vocab Key 1** and **Vocab Key 2** were added).
-
-![Properties of the Walmart Inc. golden record after enrichment, with Type Business, new Vocab Key 1 and Vocab Key 2 values, and Zipcode 72716-6209 highlighted](https://documentation.cluedin.net/assets/images/preparation/enricher/rest-api/melissa/golden_record_after_enrichment.png)
-
-**Sample response**
-
-Provided below is an example of the response you would receive for the same request in Postman. If you need an additional address line in your golden records, select the relevant fields from the response and add them to the [process response script](#configure-melissa-rest-api-enricher) provided earlier on this page. For example, you could include the **Latitude** and **Longitude** fields.
-
-**URL:**
-
-```
-https://address.melissadata.net/V3/WEB/GlobalAddress/doGlobalAddress?id=key&org=Walmart Inc.&a1=702 S.W. 8th St.&loc=Bentonville&admarea=AR&ctry=USA&postal=72716&act=check,verify&format=JSON
-```
-
-**Response:**
-
-```json
-{
-  "Version": "9.4.1.1228",
-  "TransmissionReference": "",
-  "TransmissionResults": "",
-  "TotalRecords": "1",
-  "Records": [
-    {
-      "RecordID": "1",
-      "Results": "AC16,AV24,GS05",
-      "FormattedAddress": "Walmart Inc.;702 SW 8th St;Bentonville AR  72716-6299",
-      "Organization": "Walmart Inc.",
-      "AddressLine1": "702 SW 8th St",
-      "AddressLine2": "Bentonville AR  72716-6299",
-      "AddressLine3": "",
-      "AddressLine4": "",
-      "AddressLine5": "",
-      "AddressLine6": "",
-      "AddressLine7": "",
-      "AddressLine8": "",
-      "SubPremises": "",
-      "DoubleDependentLocality": "",
-      "DependentLocality": "",
-      "Locality": "Bentonville",
-      "SubAdministrativeArea": "Benton",
-      "AdministrativeArea": "AR",
-      "PostalCode": "72716-6299",
-      "PostalCodeType": "U",
-      "AddressType": "F",
-      "AddressKey": "72716629902",
-      "SubNationalArea": "",
-      "CountryName": "United States of America",
-      "CountryISO3166_1_Alpha2": "US",
-      "CountryISO3166_1_Alpha3": "USA",
-      "CountryISO3166_1_Numeric": "840",
-      "CountrySubdivisionCode": "US-AR",
-      "Thoroughfare": "SW 8th St",
-      "ThoroughfarePreDirection": "SW",
-      "ThoroughfareLeadingType": "",
-      "ThoroughfareName": "8th",
-      "ThoroughfareTrailingType": "St",
-      "ThoroughfarePostDirection": "",
-      "DependentThoroughfare": "",
-      "DependentThoroughfarePreDirection": "",
-      "DependentThoroughfareLeadingType": "",
-      "DependentThoroughfareName": "",
-      "DependentThoroughfareTrailingType": "",
-      "DependentThoroughfarePostDirection": "",
-      "Building": "",
-      "PremisesType": "",
-      "PremisesNumber": "702",
-      "SubPremisesType": "",
-      "SubPremisesNumber": "",
-      "PostBox": "",
-      "Latitude": "36.363516",
-      "Longitude": "-94.183177",
-      "DeliveryIndicator": "U",
-      "MelissaAddressKey": "2153275541",
-      "MelissaAddressKeyBase": "",
-      "PostOfficeLocation": "",
-      "SubPremiseLevel": "",
-      "SubPremiseLevelType": "",
-      "SubPremiseLevelNumber": "",
-      "SubBuilding": "",
-      "SubBuildingType": "",
-      "SubBuildingNumber": "",
-      "UTC": "UTC-06:00",
-      "DST": "Y",
-      "DeliveryPointSuffix": "",
-      "CensusKey": "050070205041002",
-      "Extras": {}
-    }
-  ]
-}
-```
-
-### AddressBase (OSData)
-
-AddressBase is a set of diverse APIs one of which is address verification, like OS Places API (https://osdatahub.os.uk/).
-
-METHOD: GET
-URL: https://api.os.uk/search/places/v1/find?key={APIKey}&query={Vocabulary:address.fu[…]s}%20{Vocabulary:address.locality}&maxresults=1&matchprecision=1
-API Key: create your own, premium has 60 day trial
-
-Process Response Script:
-
-```javascript
-// Expects an input object named `response` like:
-// {
-//   HttpStatus: "OK",
-//   Content: "{...OS Places JSON...}",
-//   Headers: [{ Key: "Content-Type", Value: "application/json" }, ...]
-// }
-//
-// Output will be:
-// response.Content = "[{\"Data\":{...},\"Score\":0}]"
-
-(function () {
-  function asStr(v) {
-    if (v === undefined || v === null) return null;
-    v = String(v);
-    return v.length ? v : null;
-  }
-
-  function asNum(v) {
-    if (v === undefined || v === null || v === "") return null;
-    var n = Number(v);
-    return isFinite(n) ? n : null;
-  }
-
-  function setHeader(key, value) {
-    if (!response.Headers) response.Headers = [];
-    var i;
-    for (i = 0; i < response.Headers.length; i++) {
-      if (
-        response.Headers[i] &&
-        typeof response.Headers[i].Key === "string" &&
-        response.Headers[i].Key.toLowerCase() === key.toLowerCase()
-      ) {
-        response.Headers[i].Value = value;
-        return;
-      }
-    }
-    response.Headers.push({ Key: key, Value: value });
-  }
-
-  // Parse incoming OS Places content
-  var parsed;
-  try {
-    parsed = JSON.parse(response.Content || "{}");
-  } catch (e) {
-    // If Content isn't valid JSON, return a safe empty payload
-    response.HttpStatus = response.HttpStatus || "OK";
-    response.Content = JSON.stringify([
-      {
-        Data: { "osPlaces.error": "Invalid JSON in response.Content" },
-        Score: 0,
-      },
-    ]);
-    response.ContentType = "application/x-javascript";
-    setHeader("Content-Type", "application/x-javascript");
-    return;
-  }
-
-  var first =
-    parsed && parsed.results && parsed.results.length
-      ? parsed.results[0]
-      : null;
-
-  if (!first || typeof first !== "object") {
-    response.HttpStatus = response.HttpStatus || "OK";
-    response.Content = JSON.stringify([
-      { Data: { "osPlaces.found": false }, Score: 0 },
-    ]);
-    response.ContentType = "application/x-javascript";
-    setHeader("Content-Type", "application/x-javascript");
-    return;
-  }
-
-  var source = first.DPA ? "DPA" : first.LPI ? "LPI" : null;
-  var src = source ? first[source] : null;
-
-  if (!src) {
-    response.HttpStatus = response.HttpStatus || "OK";
-    response.Content = JSON.stringify([
-      { Data: { "osPlaces.found": false }, Score: 0 },
-    ]);
-    response.ContentType = "application/x-javascript";
-    setHeader("Content-Type", "application/x-javascript");
-    return;
-  }
-
-  // Build normalized dotted-key output (first result only)
-  var newContent = {
-    "osPlaces.found": true,
-    "osPlaces.source": source,
-    "osPlaces.uprn": null,
-    "osPlaces.fullAddress": null,
-    "osPlaces.postcode": null,
-    "osPlaces.town": null,
-    "osPlaces.street": null,
-    "osPlaces.building": null,
-    "osPlaces.subBuilding": null,
-    "osPlaces.organisation": null,
-    "osPlaces.department": null,
-    "osPlaces.easting": null,
-    "osPlaces.northing": null,
-    "osPlaces.latitude": null,
-    "osPlaces.longitude": null,
-  };
-
-  if (source === "DPA") {
-    newContent["osPlaces.uprn"] = asStr(src.UPRN);
-    newContent["osPlaces.fullAddress"] = asStr(src.ADDRESS);
-    newContent["osPlaces.postcode"] = asStr(src.POSTCODE);
-    newContent["osPlaces.town"] = asStr(src.POST_TOWN);
-
-    newContent["osPlaces.street"] =
-      asStr(src.THOROUGHFARE) || asStr(src.DEPENDENT_THOROUGHFARE);
-    newContent["osPlaces.building"] =
-      asStr(src.BUILDING_NAME) || asStr(src.BUILDING_NUMBER);
-    newContent["osPlaces.subBuilding"] = asStr(src.SUB_BUILDING_NAME);
-
-    newContent["osPlaces.organisation"] = asStr(src.ORGANISATION_NAME);
-    newContent["osPlaces.department"] = asStr(src.DEPARTMENT_NAME);
-
-    newContent["osPlaces.easting"] = asNum(src.X_COORDINATE);
-    newContent["osPlaces.northing"] = asNum(src.Y_COORDINATE);
-    newContent["osPlaces.latitude"] = asNum(src.LAT);
-    newContent["osPlaces.longitude"] = asNum(src.LNG);
-  } else {
-    // LPI
-    newContent["osPlaces.uprn"] = asStr(src.UPRN);
-    newContent["osPlaces.fullAddress"] = asStr(src.ADDRESS); // may be missing in some LPI responses
-    newContent["osPlaces.postcode"] =
-      asStr(src.POSTCODE_LOCATOR) || asStr(src.POSTCODE);
-    newContent["osPlaces.town"] = asStr(src.TOWN_NAME) || asStr(src.POST_TOWN);
-
-    newContent["osPlaces.street"] = asStr(src.STREET_DESCRIPTION);
-    newContent["osPlaces.building"] =
-      asStr(src.PAO_TEXT) ||
-      asStr(src.PAO_START_NUMBER) ||
-      asStr(src.PAO_START_SUFFIX);
-    newContent["osPlaces.subBuilding"] =
-      asStr(src.SAO_TEXT) ||
-      asStr(src.SAO_START_NUMBER) ||
-      asStr(src.SAO_START_SUFFIX);
-
-    newContent["osPlaces.organisation"] = asStr(src.ORGANISATION);
-    newContent["osPlaces.department"] = asStr(src.DEPARTMENT);
-
-    newContent["osPlaces.easting"] = asNum(src.X_COORDINATE);
-    newContent["osPlaces.northing"] = asNum(src.Y_COORDINATE);
-    newContent["osPlaces.latitude"] = asNum(src.LAT);
-    newContent["osPlaces.longitude"] = asNum(src.LNG);
-  }
-
-  // Wrap into enricher output format
-  response.HttpStatus = response.HttpStatus || "OK";
-  response.Content = JSON.stringify([{ Data: newContent, Score: 0 }]);
-
-  // Keep response format consistent with your sample
-  response.ContentType = "application/x-javascript";
-  setHeader("Content-Type", "application/x-javascript");
-})();
-```
-
-## Sample (V2)
-
-This section provides some sample configuration and scripts that you can use to configure the V2 REST API enricher.
-
-### Sample process script
-
-```javascript
-// companies.country vocabulary key added to Vocabulary and Properties field can be accessed using .find
-const country = vocabularies.find((x) => x.Key === "companies.country")?.Value;
-const url = `https://restcountries.com/v3.1/name/${country}?fullText=true`;
-
-// usee http.send() to make an API call
-const countryResponse = http.send({
-  url: url,
-  method: "GET",
-  // sample headers and body
-  // headers: [
-  //   {Key: 'Content-Type', Value: 'application/json'},
-  //   {Key: 'Authorization', Value: `Bearer ${token}`}
-  // ],
-  // body: { name: 'testName' }
-});
-
-log(JSON.stringify(countryResponse));
-
-let parsedContent = JSON.parse(countryResponse?.Content);
-let results = {
-  "country.officialName": parsedContent[0]?.name?.official,
-};
-
-response = JSON.stringify([{ Data: results, Score: 100 }]);
-```
-
-### Logo.dev
-
-This example retrieves a company's logo URL from [Logo.dev](https://www.logo.dev/) by using the website stored on the golden record. It stores a stable Logo.dev image URL and the matched domain; it does not store the binary image response as a property value.
-
-**API Key**
-```
-your-logo-dev-api-key
-```
-
-**Vocabulary and Properties**:
-
-```
-companies.website
-```
-
-**Process script**
-
-```javascript
-// REST API Enricher V2 - Logo.dev logo URL enrichment
-// The {APIKey} placeholder is replaced with the API Key field value.
-
-const website = vocabularies.find((x) => x.Key === "companies.website")?.Value;
-
-if (!website) {
-  response = JSON.stringify([]);
-} else {
-  // Accept a full URL, a bare domain, or a domain with a port.
-  // Logo.dev expects only the hostname.
-  const domain = String(website)
-    .trim()
-    .replace(/^https?:\/\//i, "")
-    .replace(/^www\./i, "")
-    .split(/[\/?#]/)[0]
-    .split(":")[0]
-
-  if (!domain) {
-    response = JSON.stringify([]);
-  } else {
-    const logoUrl = `https://img.logo.dev/${encodeURIComponent(domain)}?token={APIKey}`;
-
-    // Request the image so an unavailable logo or API error does not create
-    // an enrichment result. The returned image bytes are intentionally ignored.
-    const logoResponse = http.send({
-      url: logoUrl,
-      method: "GET",
-    });
-
-    const status = String(logoResponse?.HttpStatus || "");
-    if (status === "OK") {
-      response = JSON.stringify([
-        {
-          Data: {
-            "companies.logoUrl": logoUrl,
-            "companies.logoDomain": domain,
-          },
-          Score: 100,
-        },
-      ]);
-    } else {
-      log(`Logo.dev did not return a logo for ${domain}. Status: ${status}`);
-      response = JSON.stringify([]);
-    }
-  }
-}
-```
-
-### Dun & Bradstreet
-
-**Vocabulary key and properties**
+## Vocabulary key and properties
 
 ```
 companies.dunsnumber
 ```
 
-**Process script**
+## Process script
 
 ```javascript
 // REST API Enricher V2 - DnB Search by DUNS - Process Response Script
@@ -17481,17 +17324,498 @@ try {
 }
 ```
 
-### REST Countries
+Up: [REST API enricher samples](https://documentation.cluedin.net/govern/rest-api-enricher-samples.md)
+
+<!-- https://documentation.cluedin.net/govern/rest-api-enricher-samples/logo-dev -->
+# Logo.dev
+
+> reference: Facts, options, APIs.
+
+This example retrieves a company's logo URL from [Logo.dev](https://www.logo.dev/) by using the website stored on the golden record. It stores a stable Logo.dev image URL and the matched domain; it does not store the binary image response as a property value.
+
+**Enricher version:** V2  
+**API key:** your Logo.dev API key
+
+To set up the enricher, see [Add REST API enricher](https://documentation.cluedin.net/govern/enrichment/rest-api.md#add-rest-api-enricher), then use the settings and script on this page.
+
+## API Key
+```
+your-logo-dev-api-key
+```
+
+## Vocabulary and Properties
+
+```
+companies.website
+```
+
+## Process script
+
+```javascript
+// REST API Enricher V2 - Logo.dev logo URL enrichment
+// The {APIKey} placeholder is replaced with the API Key field value.
+
+const website = vocabularies.find((x) => x.Key === "companies.website")?.Value;
+
+if (!website) {
+  response = JSON.stringify([]);
+} else {
+  // Accept a full URL, a bare domain, or a domain with a port.
+  // Logo.dev expects only the hostname.
+  const domain = String(website)
+    .trim()
+    .replace(/^https?:\/\//i, "")
+    .replace(/^www\./i, "")
+    .split(/[\/?#]/)[0]
+    .split(":")[0]
+
+  if (!domain) {
+    response = JSON.stringify([]);
+  } else {
+    const logoUrl = `https://img.logo.dev/${encodeURIComponent(domain)}?token={APIKey}`;
+
+    // Request the image so an unavailable logo or API error does not create
+    // an enrichment result. The returned image bytes are intentionally ignored.
+    const logoResponse = http.send({
+      url: logoUrl,
+      method: "GET",
+    });
+
+    const status = String(logoResponse?.HttpStatus || "");
+    if (status === "OK") {
+      response = JSON.stringify([
+        {
+          Data: {
+            "companies.logoUrl": logoUrl,
+            "companies.logoDomain": domain,
+          },
+          Score: 100,
+        },
+      ]);
+    } else {
+      log(`Logo.dev did not return a logo for ${domain}. Status: ${status}`);
+      response = JSON.stringify([]);
+    }
+  }
+}
+```
+
+Up: [REST API enricher samples](https://documentation.cluedin.net/govern/rest-api-enricher-samples.md)
+
+<!-- https://documentation.cluedin.net/govern/rest-api-enricher-samples/melissa -->
+# Melissa
+
+> reference: Facts, options, APIs.
+
+[Melissa](https://www.melissa.com/developer/global-address) is a widely used address validation and data quality service that helps organizations keep address data accurate, standardized, and up to date.
+
+**Enricher version:** V1  
+**API key:** your Melissa license key
+
+To set up the enricher, see [Add REST API enricher](https://documentation.cluedin.net/govern/enrichment/rest-api.md#add-rest-api-enricher), then use the settings and script on this page.
+
+CluedIn can connect to Melissa through its REST API, sending address data for validation. The API responds with standardized and enriched results, which CluedIn processes and maps to the appropriate vocabulary keys for storage and further use.
+
+In the following example, ingested company data contains missing or incorrect address details. We will use Melissa REST API calls to send address-related data stored in different vocabulary keys and enrich golden records with validated and parsed addresses.
+
+![Ingested company address records with missing or inconsistent City, Zipcode, State, Country, and Type values](https://documentation.cluedin.net/assets/images/preparation/enricher/rest-api/melissa/data-before-enrichment.png)
+
+## Configure Melissa REST API enricher
+
+To [add the Melissa REST API enricher](https://documentation.cluedin.net/govern/enrichment/rest-api.md#add-rest-api-enricher), on the **Configure** tab, provide the following information:
+
+**Accepted Business Domain:** In this example, **/Address**.
+
+**Method:** GET.
+
+### URL
+
+In this example, the URL references several vocabulary keys that store address-related data.
+
+```
+https://address.melissadata.net/V3/WEB/GlobalAddress/doGlobalAddress?id={APIKey}&a1={Vocabulary:company.address.streetAddress}&loc={Vocabulary:company.address.city}&admarea={Vocabulary:company.address.state}&ctry={Vocabulary:company.address.country}&postal={Vocabulary:company.address.zipcode}
+```
+
+### Headers
+
+```
+Content-Type=application/json
+```
+
+### Process response script
+
+This script transforms the raw response into a structured format that fits CluedIn’s schema.
+
+```javascript
+let parsedContent = JSON.parse(response.Content);
+let content = parsedContent.Records[0];
+
+let melissaCountryName = content.CountryName;
+let melissaCountryISO = content.CountryISO3166_1_Alpha3;
+let melissaZipcode = content.PostalCode;
+let melissaFullAddress = content.FormattedAddress;
+let melissaCity = content.Locality;
+let melissaState = content.AdministrativeArea;
+let melissaDeliveryIndicator = content.DeliveryIndicator;
+
+let newContent = {
+  "company.address.city": melissaCity,
+  "company.address.zipcode": melissaZipcode,
+  "company.address.state": melissaState,
+  "company.address.country": melissaCountryISO,
+  "company.address.vocabKey2": melissaCountryName,
+  "company.address.vocabKey1": melissaFullAddress,
+  "company.address.type": melissaDeliveryIndicator,
+};
+
+//apply conditions if required
+
+if (melissaDeliveryIndicator === "B") {
+  newContent["company.address.type"] = "Business";
+} else if (melissaDeliveryIndicator === "R") {
+  newContent["company.address.type"] = "Residential";
+} else {
+  newContent["company.address.type"] = "Unknown";
+}
+
+response.Content = JSON.stringify([{ Data: newContent, Score: 0 }]);
+//log(JSON.stringify(response));
+```
+
+![REST API enricher Configure tab for Melissa: Accepted Business Domain Address, Method GET, the Melissa URL, API Key, Headers, and Process Response Script](https://documentation.cluedin.net/assets/images/preparation/enricher/rest-api/melissa/configure_tab.png)
+
+## Example of golden record before and after enrichment
+
+An example of a golden record before enrichment:
+
+![Properties of the Walmart Inc. golden record before enrichment, including Type Organization and Zipcode 72716](https://documentation.cluedin.net/assets/images/preparation/enricher/rest-api/melissa/golden_record_before_enrichment.png)
+
+Same record after enrichment:
+
+- The values for the **Type** and **Zipcode** properties were updated.
+
+- Two new vocabulary keys (**Vocab Key 1** and **Vocab Key 2** were added).
+
+![Properties of the Walmart Inc. golden record after enrichment, with Type Business, new Vocab Key 1 and Vocab Key 2 values, and Zipcode 72716-6209 highlighted](https://documentation.cluedin.net/assets/images/preparation/enricher/rest-api/melissa/golden_record_after_enrichment.png)
+
+## Sample response
+
+Provided below is an example of the response you would receive for the same request in Postman. If you need an additional address line in your golden records, select the relevant fields from the response and add them to the [process response script](#configure-melissa-rest-api-enricher) provided earlier on this page. For example, you could include the **Latitude** and **Longitude** fields.
+
+### URL
+
+```
+https://address.melissadata.net/V3/WEB/GlobalAddress/doGlobalAddress?id=key&org=Walmart Inc.&a1=702 S.W. 8th St.&loc=Bentonville&admarea=AR&ctry=USA&postal=72716&act=check,verify&format=JSON
+```
+
+### Response
+
+```json
+{
+  "Version": "9.4.1.1228",
+  "TransmissionReference": "",
+  "TransmissionResults": "",
+  "TotalRecords": "1",
+  "Records": [
+    {
+      "RecordID": "1",
+      "Results": "AC16,AV24,GS05",
+      "FormattedAddress": "Walmart Inc.;702 SW 8th St;Bentonville AR  72716-6299",
+      "Organization": "Walmart Inc.",
+      "AddressLine1": "702 SW 8th St",
+      "AddressLine2": "Bentonville AR  72716-6299",
+      "AddressLine3": "",
+      "AddressLine4": "",
+      "AddressLine5": "",
+      "AddressLine6": "",
+      "AddressLine7": "",
+      "AddressLine8": "",
+      "SubPremises": "",
+      "DoubleDependentLocality": "",
+      "DependentLocality": "",
+      "Locality": "Bentonville",
+      "SubAdministrativeArea": "Benton",
+      "AdministrativeArea": "AR",
+      "PostalCode": "72716-6299",
+      "PostalCodeType": "U",
+      "AddressType": "F",
+      "AddressKey": "72716629902",
+      "SubNationalArea": "",
+      "CountryName": "United States of America",
+      "CountryISO3166_1_Alpha2": "US",
+      "CountryISO3166_1_Alpha3": "USA",
+      "CountryISO3166_1_Numeric": "840",
+      "CountrySubdivisionCode": "US-AR",
+      "Thoroughfare": "SW 8th St",
+      "ThoroughfarePreDirection": "SW",
+      "ThoroughfareLeadingType": "",
+      "ThoroughfareName": "8th",
+      "ThoroughfareTrailingType": "St",
+      "ThoroughfarePostDirection": "",
+      "DependentThoroughfare": "",
+      "DependentThoroughfarePreDirection": "",
+      "DependentThoroughfareLeadingType": "",
+      "DependentThoroughfareName": "",
+      "DependentThoroughfareTrailingType": "",
+      "DependentThoroughfarePostDirection": "",
+      "Building": "",
+      "PremisesType": "",
+      "PremisesNumber": "702",
+      "SubPremisesType": "",
+      "SubPremisesNumber": "",
+      "PostBox": "",
+      "Latitude": "36.363516",
+      "Longitude": "-94.183177",
+      "DeliveryIndicator": "U",
+      "MelissaAddressKey": "2153275541",
+      "MelissaAddressKeyBase": "",
+      "PostOfficeLocation": "",
+      "SubPremiseLevel": "",
+      "SubPremiseLevelType": "",
+      "SubPremiseLevelNumber": "",
+      "SubBuilding": "",
+      "SubBuildingType": "",
+      "SubBuildingNumber": "",
+      "UTC": "UTC-06:00",
+      "DST": "Y",
+      "DeliveryPointSuffix": "",
+      "CensusKey": "050070205041002",
+      "Extras": {}
+    }
+  ]
+}
+```
+
+Up: [REST API enricher samples](https://documentation.cluedin.net/govern/rest-api-enricher-samples.md)
+
+<!-- https://documentation.cluedin.net/govern/rest-api-enricher-samples/os-places -->
+# OS Places (AddressBase)
+
+> reference: Facts, options, APIs.
+
+AddressBase is a set of diverse APIs one of which is address verification, like OS Places API (https://osdatahub.os.uk/).
+
+**Enricher version:** V1  
+**API key:** your OS Data Hub API key (create one on the [OS Data Hub](https://osdatahub.os.uk/); the premium plan has a 60-day trial)
+
+To set up the enricher, see [Add REST API enricher](https://documentation.cluedin.net/govern/enrichment/rest-api.md#add-rest-api-enricher), then use the settings and script on this page.
+
+**Method:** GET
+
+## URL
+
+```
+https://api.os.uk/search/places/v1/find?key={APIKey}&query={Vocabulary:address.fu[…]s}%20{Vocabulary:address.locality}&maxresults=1&matchprecision=1
+```
+
+## Process response script
+
+```javascript
+// Expects an input object named `response` like:
+// {
+//   HttpStatus: "OK",
+//   Content: "{...OS Places JSON...}",
+//   Headers: [{ Key: "Content-Type", Value: "application/json" }, ...]
+// }
+//
+// Output will be:
+// response.Content = "[{\"Data\":{...},\"Score\":0}]"
+
+(function () {
+  function asStr(v) {
+    if (v === undefined || v === null) return null;
+    v = String(v);
+    return v.length ? v : null;
+  }
+
+  function asNum(v) {
+    if (v === undefined || v === null || v === "") return null;
+    var n = Number(v);
+    return isFinite(n) ? n : null;
+  }
+
+  function setHeader(key, value) {
+    if (!response.Headers) response.Headers = [];
+    var i;
+    for (i = 0; i < response.Headers.length; i++) {
+      if (
+        response.Headers[i] &&
+        typeof response.Headers[i].Key === "string" &&
+        response.Headers[i].Key.toLowerCase() === key.toLowerCase()
+      ) {
+        response.Headers[i].Value = value;
+        return;
+      }
+    }
+    response.Headers.push({ Key: key, Value: value });
+  }
+
+  // Parse incoming OS Places content
+  var parsed;
+  try {
+    parsed = JSON.parse(response.Content || "{}");
+  } catch (e) {
+    // If Content isn't valid JSON, return a safe empty payload
+    response.HttpStatus = response.HttpStatus || "OK";
+    response.Content = JSON.stringify([
+      {
+        Data: { "osPlaces.error": "Invalid JSON in response.Content" },
+        Score: 0,
+      },
+    ]);
+    response.ContentType = "application/x-javascript";
+    setHeader("Content-Type", "application/x-javascript");
+    return;
+  }
+
+  var first =
+    parsed && parsed.results && parsed.results.length
+      ? parsed.results[0]
+      : null;
+
+  if (!first || typeof first !== "object") {
+    response.HttpStatus = response.HttpStatus || "OK";
+    response.Content = JSON.stringify([
+      { Data: { "osPlaces.found": false }, Score: 0 },
+    ]);
+    response.ContentType = "application/x-javascript";
+    setHeader("Content-Type", "application/x-javascript");
+    return;
+  }
+
+  var source = first.DPA ? "DPA" : first.LPI ? "LPI" : null;
+  var src = source ? first[source] : null;
+
+  if (!src) {
+    response.HttpStatus = response.HttpStatus || "OK";
+    response.Content = JSON.stringify([
+      { Data: { "osPlaces.found": false }, Score: 0 },
+    ]);
+    response.ContentType = "application/x-javascript";
+    setHeader("Content-Type", "application/x-javascript");
+    return;
+  }
+
+  // Build normalized dotted-key output (first result only)
+  var newContent = {
+    "osPlaces.found": true,
+    "osPlaces.source": source,
+    "osPlaces.uprn": null,
+    "osPlaces.fullAddress": null,
+    "osPlaces.postcode": null,
+    "osPlaces.town": null,
+    "osPlaces.street": null,
+    "osPlaces.building": null,
+    "osPlaces.subBuilding": null,
+    "osPlaces.organisation": null,
+    "osPlaces.department": null,
+    "osPlaces.easting": null,
+    "osPlaces.northing": null,
+    "osPlaces.latitude": null,
+    "osPlaces.longitude": null,
+  };
+
+  if (source === "DPA") {
+    newContent["osPlaces.uprn"] = asStr(src.UPRN);
+    newContent["osPlaces.fullAddress"] = asStr(src.ADDRESS);
+    newContent["osPlaces.postcode"] = asStr(src.POSTCODE);
+    newContent["osPlaces.town"] = asStr(src.POST_TOWN);
+
+    newContent["osPlaces.street"] =
+      asStr(src.THOROUGHFARE) || asStr(src.DEPENDENT_THOROUGHFARE);
+    newContent["osPlaces.building"] =
+      asStr(src.BUILDING_NAME) || asStr(src.BUILDING_NUMBER);
+    newContent["osPlaces.subBuilding"] = asStr(src.SUB_BUILDING_NAME);
+
+    newContent["osPlaces.organisation"] = asStr(src.ORGANISATION_NAME);
+    newContent["osPlaces.department"] = asStr(src.DEPARTMENT_NAME);
+
+    newContent["osPlaces.easting"] = asNum(src.X_COORDINATE);
+    newContent["osPlaces.northing"] = asNum(src.Y_COORDINATE);
+    newContent["osPlaces.latitude"] = asNum(src.LAT);
+    newContent["osPlaces.longitude"] = asNum(src.LNG);
+  } else {
+    // LPI
+    newContent["osPlaces.uprn"] = asStr(src.UPRN);
+    newContent["osPlaces.fullAddress"] = asStr(src.ADDRESS); // may be missing in some LPI responses
+    newContent["osPlaces.postcode"] =
+      asStr(src.POSTCODE_LOCATOR) || asStr(src.POSTCODE);
+    newContent["osPlaces.town"] = asStr(src.TOWN_NAME) || asStr(src.POST_TOWN);
+
+    newContent["osPlaces.street"] = asStr(src.STREET_DESCRIPTION);
+    newContent["osPlaces.building"] =
+      asStr(src.PAO_TEXT) ||
+      asStr(src.PAO_START_NUMBER) ||
+      asStr(src.PAO_START_SUFFIX);
+    newContent["osPlaces.subBuilding"] =
+      asStr(src.SAO_TEXT) ||
+      asStr(src.SAO_START_NUMBER) ||
+      asStr(src.SAO_START_SUFFIX);
+
+    newContent["osPlaces.organisation"] = asStr(src.ORGANISATION);
+    newContent["osPlaces.department"] = asStr(src.DEPARTMENT);
+
+    newContent["osPlaces.easting"] = asNum(src.X_COORDINATE);
+    newContent["osPlaces.northing"] = asNum(src.Y_COORDINATE);
+    newContent["osPlaces.latitude"] = asNum(src.LAT);
+    newContent["osPlaces.longitude"] = asNum(src.LNG);
+  }
+
+  // Wrap into enricher output format
+  response.HttpStatus = response.HttpStatus || "OK";
+  response.Content = JSON.stringify([{ Data: newContent, Score: 0 }]);
+
+  // Keep response format consistent with your sample
+  response.ContentType = "application/x-javascript";
+  setHeader("Content-Type", "application/x-javascript");
+})();
+```
+
+Up: [REST API enricher samples](https://documentation.cluedin.net/govern/rest-api-enricher-samples.md)
+
+<!-- https://documentation.cluedin.net/govern/rest-api-enricher-samples/rest-countries -->
+# REST Countries
+
+> reference: Facts, options, APIs.
 
 This script extracts the official name of a country from the response and formats it into a new JSON structure.
 
-**Vocabulary and Properties**
+**Enricher version:** V1 or V2  
+**API key:** not needed
+
+To set up the enricher, see [Add REST API enricher](https://documentation.cluedin.net/govern/enrichment/rest-api.md#add-rest-api-enricher), then use the settings and script on this page.
+
+## V1
+
+**Method:** GET
+
+### URL
+
+```
+https://restcountries.com/v3.1/name/{Vocabulary:country.country}?fullText=true
+```
+
+### Process response script
+
+```javascript
+let parsedContent = JSON.parse(response.Content);
+let content = parsedContent[0];
+let officialName = {
+  "country.officialName": content.name.official,
+};
+response.Content = JSON.stringify([{ Data: officialName, Score: 0 }]);
+log(JSON.stringify(response));
+```
+
+## V2
+
+### Vocabulary and Properties
 
 ```
 companies.country
 ```
 
-**Process script**
+### Process script
 
 ```javascript
 const country = vocabularies.find((x) => x.Key === "companies.country")?.Value;
@@ -17512,224 +17836,279 @@ let results = {
 response = JSON.stringify([{ Data: results, Score: 100 }]);
 ```
 
-## Helper functions
+Up: [REST API enricher samples](https://documentation.cluedin.net/govern/rest-api-enricher-samples.md)
 
-You can use the following helper functions in your scripts to facilitate common tasks.
-
-**Logging**
-
-| Function | Signature    | Description                                                                                     |
-| -------- | ------------ | ----------------------------------------------------------------------------------------------- |
-| `log`    | `log(value)` | Writes a message to the application log at **Information** level. Useful for debugging scripts. |
-
-Example:
-
-```javascript
-log("Processing response from API");
-```
-
-**String Encoding**
-
-| Function     | Signature                           | Description                                    |
-| ------------ | ----------------------------------- | ---------------------------------------------- |
-| `toBase64`   | `toBase64(value: string): string`   | Encodes a UTF-8 string into Base64 format.     |
-| `fromBase64` | `fromBase64(value: string): string` | Decodes a Base64-encoded string back to UTF-8. |
-| `urlEncode`  | `urlEncode(value: string): string`  | Encodes a string for safe use in a URL.        |
-| `urlDecode`  | `urlDecode(value: string): string`  | Decodes a URL-encoded string.                  |
-
-Example:
-
-```javascript
-// use stringEncoder object
-var encoded = stringEncoder.toBase64("hello");
-var decoded = stringEncoder.fromBase64(encoded);
-```
-
-**Cache**
-
-| Function          | Signature                                                                     | Description                                                                                                                                                                                                                                 |
-| ----------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `get`             | `get(key: string): object`                                                    | Retrieves a cached value for the current organization. Returns `null` if not found.                                                                                                                                                         |
-| `set`             | `set(key: string, value: object, expiration: number): void`                   | Stores a value in cache with an expiration time (in milliseconds). Does nothing if the key already exists. It is recommended to use `getOrSetValue` or `getOrSetFactory` instead, as they use distributed locks to prevent race conditions. |
-| `getOrSetValue`   | `getOrSetValue(key: string, value: object, expiration: number): object`       | Returns the cached value if it exists; otherwise, stores the provided value with the given expiration time (in milliseconds) and returns it.                                                                                                |
-| `getOrSetFactory` | `getOrSetFactory(key: string, factory: function, expiration: number): object` | Returns the cached value if it exists; otherwise, calls the factory function to produce the value, stores it with the given expiration time (in milliseconds), and returns it.                                                              |
-
-Example:
-
-```javascript
-// use cache object (using )
-var token = cache.get("authToken");
-
-if (!token) {
-  token = "new-token";
-  cache.getOrSetValue("authToken", token, 60000);
-}
-```
-
-**Http (V2)**
-
-| Function | Signature                         | Description                                                                                                                                                                                                                     |
-| -------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `send`   | `send(request: object): Response` | Sends an HTTP request based on the provided request object and return the response. Refer to request [Request and Response Type](#accessing-and-modifying-request-and-response-objects-in-process-request-and-response-scripts) |
-
-Example:
-
-```javascript
-const tokenResponse = http.send({
-  url: `https://plus.dnb.com/v2/token`,
-  method: "POST",
-  headers: [
-    { Key: "Content-Type", Value: "application/json" },
-    { Key: "Authorization", Value: `Basic ${base64}` },
-  ],
-  body: { grant_type: "client_credentials" },
-});
-```
-
-Up: [Enrichment](https://documentation.cluedin.net/govern/enrichment.md)
-
-<!-- https://documentation.cluedin.net/govern/enrichment/dnb -->
-# Dun and Bradstreet
+<!-- https://documentation.cluedin.net/govern/rest-api-enricher-samples/vies -->
+# VIES (EU VAT validation)
 
 > reference: Facts, options, APIs.
 
-This article explains how to configure the D&B (Dun & Bradstreet) enricher. The enricher uses D&B Direct+ Identity Resolution APIs to enrich organization golden records with business identity, address, corporate-linkage, contact, industry, financial, and D-U-N-S information.
+This example checks an organization's EU VAT number against the European Commission's [VIES](https://ec.europa.eu/taxation_customs/vies/) service by using its official JSON REST API. For each golden record it stores whether the number is valid, together with the registered trader name and address. No API key is needed.
 
-The enricher uses the following D&B API paths, relative to the configured **D&B Base URL**:
+**Enricher version:** V2  
+**API key:** not needed
 
-- `data/duns/{dunsNumber}` for direct D-U-N-S lookups.
-- `match/cleanseMatch` for multiple identity-resolution candidates.
-- `match/extendedMatch` for the best match and the requested product data.
+To set up the enricher, see [Add REST API enricher](https://documentation.cluedin.net/govern/enrichment/rest-api.md#add-rest-api-enricher), then use the settings and script on this page.
 
-## Before you begin
+## Settings
 
-You need D&B Direct+ credentials and access to the data product or data blocks that you intend to request. For information about obtaining and using these values, see the [D&B Direct+ documentation](https://directplus.documentation.dnb.com/). Obtain the authentication URL, API key, API secret, authentication request body, base URL, and either:
+- **Accepted Business Domain** – `/Organization`, or the business domain that holds your companies.
 
-- a **Version ID** and **Product ID**; or
-- one or more **Block IDs**.
+- **Version** – V2 (recommended).
 
-For identity resolution without a D-U-N-S number, golden records must contain both an organization name and a two-letter ISO country code. The enricher can also use the address, registration number, telephone number, website, and email address to improve the match request.
+- **API Key** – leave empty.
 
-## Add D&B enricher
+- **Filters** – we recommend a rule that only accepts golden records where `organization.vat` has a value. Otherwise, every record without a VAT number is listed on the enricher's **Logs** tab as having returned no results.
 
-**To add the D&B enricher**
+## Vocabulary and Properties
 
-1. On the navigation pane, go to **Preparation** > **Enrich**. Then, select **Add Enricher**.
-
-1. On the **Choose Enricher** tab, select **DnB**, and then select **Next**.
-
-1. On the **Configure** tab, provide the following details.
-
-   **Authentication**
-
-   - **Auth URL** – the D&B endpoint used to obtain an access token. The default value is `https://plus.dnb.com/v2/token`.
-   - **API Key** – the D&B API key. The enricher sends this value with the API secret as HTTP Basic authentication when requesting an access token. For example: `<D&B API key>`.
-   - **API Secret** – the D&B API secret. For example: `<D&B API secret>`. Do not enter this value in documentation, source control, or screenshots.
-   - **Auth Request Body** – the JSON request body required by the D&B authentication endpoint. The default value is `{"grant_type" : "client_credentials"}`.
-   - **D&B Base URL** – the base URL for the D&B Direct+ APIs. Use the base URL supplied by D&B for your account and API product. For example: `https://<your-D&B-Direct+-API-base-URL>/`.
-
-   **Matching and data retrieval**
-
-   - **Accepted Business Domain** – the business domain that defines the golden records to enrich. For example, `/Organization`.
-   - **Identity Resolution API** – choose one of the following options:
-     - **Cleanse Match** returns multiple match candidates from the `match/cleanseMatch` endpoint.
-     - **Extended Match** returns the best match and requested product data from the `match/extendedMatch` endpoint.
-   - **Get Data Using Matches DUNS** – when enabled, retrieves organization data by using the D-U-N-S number returned by a match candidate.
-   - **Include Last API Call Details** – when enabled, writes the timestamp, status code, and error message from the last D&B API call to the enriched record. This is useful when a request cannot return organization data.
-   - **Match and Append versionId** and **Match and Append productId** – the D&B version and product identifiers. Provide both values together.
-   - **Match and Append blockIDs** – the D&B data block identifier or identifiers to return. Use this instead of the Version ID and Product ID when your D&B product is configured by blocks.
-
-   **Vocabulary keys**
-
-   - **DUNS Vocabulary Key** – the D-U-N-S number. When present, the enricher performs a direct D-U-N-S lookup.
-   - **Organization Name Vocabulary Key** and **Organization Country Code Vocabulary Key** – the organization name and ISO Alpha-2 country code. Both are required when no D-U-N-S number is available.
-   - Optionally provide vocabulary keys for **Registration Number**, **Organization Street Address Line 1**, **Organization Street Address Line 2**, **Organization Postal Code**, **Organization Address Locality**, **Organization Address County**, **Organization Address Region**, **Organization Telephone Number**, **Organization URL**, and **Organization Email**. These values are sent with the identity-resolution request when available.
-
-   **Optional D&B request parameters**
-
-   - **Customer Billing Endorsement** – a reference used during billing.
-   - **Candidate Maximum Quantity** – the maximum number of match candidates to return; the default is `10` and the allowed range is `1` through `100`.
-   - **Confidence Lower Level Threshold Value** – the minimum D&B match confidence level; the default is `4` and the allowed range is `1` through `10`.
-   - **Exclusion Criteria** – comma-separated criteria for excluding candidates, for example `ExcludeNonHeadQuarters,ExcludeNonMarketable,ExcludeOutofBusiness`.
-   - **Is Cleanse and Standardize Information Required** – includes D&B cleanse and standardize information in the response.
-   - **Trade Up** – returns the headquarters D-U-N-S number when the requested organization is a branch. For example, `hq`.
-   - **Order Reason** and **Customer Reference 1** through **Customer Reference 5** – optional D&B order and reconciliation references.
-   - **Industry Code Types** – comma-separated D&B `TypeDnBCode` values that identify the industry codes to add to the result. For example, `19295,37788`.
-   - **Registration Number Types** – comma-separated D&B `TypeDnBCode` values that identify the registration numbers to add to the result. For example, `12897,12444`.
-   - **Property Mappings** – optional custom mappings from the D&B JSON response. For details and examples, see [Property mappings](#property-mappings).
-
-1. Select **Test Connection** to verify the configuration, and then select **Add**.
-
-The D&B enricher is added with active status. It enriches matching golden records when they are processed or when you trigger external enrichment.
-
-After adding the enricher, you can change its **Settings** to set a display name, data description, and source quality, or update the connection values under **Authentication**.
-
-## Matching behavior
-
-The enricher first checks for a D-U-N-S number. If one is available, it calls `data/duns/{dunsNumber}` and returns the organization data directly.
-
-If no D-U-N-S number is available, the enricher requires an organization name and ISO Alpha-2 country code. It calls the selected Identity Resolution API and includes any optional configured input values. The request must also contain either a Version ID and Product ID pair, or Block IDs.
-
-When **Get Data Using Matches DUNS** is enabled, the enricher uses the D-U-N-S number from the D&B match candidate to make a second direct lookup. Otherwise, it enriches the record from the selected identity-resolution response.
-
-## Property mappings
-
-Use **Property Mappings** when the standard D&B vocabulary does not expose a value that you need, or when you want to add a value to a property with a specific name. Each mapping creates or updates the CluedIn property named on the left of the equals sign.
-
-Enter one mapping on each line using this format:
-
-```text
-Property=JSONPath
+```
+organization.vat
+organization.address.countryCode
 ```
 
-For example, this mapping adds the value of `organization.email` from the D&B response to an `Email` property:
+`organization.vat` holds the VAT number. `organization.address.countryCode` is optional. It is used only when the VAT number has no country prefix, and must contain a 2-letter country code. If your data uses other vocabulary keys, change this field and the `VAT_NUMBER_KEY` and `COUNTRY_CODE_KEY` values at the top of the script.
 
-```text
-Email=$.organization.email
+## Properties added by the enricher
+
+| Property | Example | Description |
+| -------- | ------- | ----------- |
+| `vies.valid` | `True` | `True` if VIES reports the VAT number as valid, otherwise `False`. |
+| `vies.name` | `GOOGLE IRELAND LIMITED` | Registered trader name. Not added when the member state doesn't share it. |
+| `vies.address` | `3RD FLOOR, GORDON HOUSE, BARROW STREET, DUBLIN 4` | Registered trader address on one line. Not added when the member state doesn't share it. |
+| `vies.countryCode` | `IE` | Country code that was checked. VIES uses `EL` for Greece and `XI` for Northern Ireland. |
+| `vies.vatNumber` | `6388047V` | VAT number that was checked, without the country prefix. |
+| `vies.requestDate` | `2026-11-24` | Date when VIES checked the number. |
+
+Where the results go depends on the enricher's **Enable Mapping** setting. It is on by default, and can't be changed after the enricher is created.
+
+- **Enable Mapping on** – the results first appear on the enricher's **Preview** tab, and you map and process them before they're added to golden records (see below).
+
+- **Enable Mapping off** – the `vies.*` properties are added to the golden records directly.
+
+With **Enable Mapping** on, the results look like this on the **Preview** tab:
+
+![Preview tab of the REST API enricher showing VIES results for four companies, with valid, countryCode, vatNumber, requestDate, name, and address columns](https://documentation.cluedin.net/assets/images/preparation/enricher/rest-api-vies-1.png)
+
+To add them to golden records, go to the enricher's **Map** tab, select **Map Data**, and choose **Auto Mapping**. Select the business domain, enter a new vocabulary named `VIES` with the key prefix `vies`, and then create the mapping. Auto mapping also uses `name` as the golden record name, so remove that from the mapping if you want to keep your existing names. Then process the data on the **Process** tab.
+
+![Properties page of the Google Ireland golden record showing the vies.address, vies.countryCode, vies.name, vies.requestDate, vies.valid, and vies.vatNumber properties added by the REST API enricher](https://documentation.cluedin.net/assets/images/preparation/enricher/rest-api-vies-2.png)
+
+## How the script handles input and errors
+
+- Spaces, dots, and dashes are removed from the VAT number, so `ie 6388047-v` is checked as country `IE`, number `6388047V`. A leading `GR` is changed to `EL`, which is the code VIES uses for Greece.
+
+- Golden records without a VAT number, or with a non-EU one (for example, `GB` or `US`), are skipped without calling VIES.
+
+- If VIES can't check a number (for example, because the member state's service is unavailable or the request times out), the script adds nothing. A temporary outage is never stored as `vies.valid` = `False`.
+
+- If VIES reports that it is too busy, the script throws an error that makes the enricher try the golden record again later.
+
+- Successful results are cached for 24 hours per VAT number, so the same number isn't checked repeatedly. To change this, edit `CACHE_MILLISECONDS` in the script.
+
+## Testing the enricher
+
+- **Test connection** checks only that the script runs. It doesn't call VIES.
+
+- To try the setup with VIES test data, temporarily change `VIES_URL` in the script to `https://ec.europa.eu/taxation_customs/vies/rest-api/check-vat-test-service`. For example, the VAT number `DE100` returns a valid result.
+
+## Limitations
+
+- VIES only confirms that a VAT number is registered for trade within the EU (including Northern Ireland). It doesn't validate other tax IDs or VAT numbers from outside the EU.
+
+- VIES relies on each member state's own system. A check usually takes a few seconds, and a member state can be temporarily unavailable.
+
+- Some member states, such as Germany, don't return the trader name or address.
+
+- Matching the trader name and address, and requesting a consultation number, aren't supported.
+
+## Process script
+
+```javascript
+// REST API enricher (V2) - EU VAT number validation with VIES
+//
+// Checks a golden record's EU VAT number against the European Commission's VIES
+// service (https://ec.europa.eu/taxation_customs/vies/) using its official JSON
+// REST API, and adds the result to the golden record as vies.* properties:
+//
+//   vies.valid        "True" / "False" - whether VIES reports the number as valid
+//   vies.name         registered trader name (when the member state returns it)
+//   vies.address      registered trader address (when the member state returns it)
+//   vies.countryCode  country code that was checked (EL for Greece, XI for Northern Ireland)
+//   vies.vatNumber    VAT number that was checked, without the country prefix
+//   vies.requestDate  date VIES answered the check (YYYY-MM-DD)
+//
+// No API key is needed. See README.md next to this file for the enricher settings.
+//
+// A record gets no result (nothing is stored) when it has no usable EU VAT number, or
+// when VIES can't give an answer (invalid input, member state unavailable, time-out,
+// and so on). This keeps an outage from being stored as vies.valid = False.
+
+// ---- Settings -------------------------------------------------------------------------
+
+// Vocabulary keys to read. Add the same keys to the Vocabulary and Properties field.
+const VAT_NUMBER_KEY = "organization.vat";
+// Optional. Only used when the VAT number has no country prefix. Must hold a 2-letter code.
+const COUNTRY_CODE_KEY = "organization.address.countryCode";
+
+// Use .../check-vat-test-service to try the setup against VIES's test data first.
+const VIES_URL = "https://ec.europa.eu/taxation_customs/vies/rest-api/check-vat-number";
+
+// How long to reuse a VIES answer for the same VAT number. 0 turns caching off.
+const CACHE_MILLISECONDS = 24 * 60 * 60 * 1000;
+
+// ---- Script ---------------------------------------------------------------------------
+
+// Country codes VIES accepts. Greece is EL in VIES, not GR. XI is Northern Ireland.
+const VIES_COUNTRY_CODES = [
+  "AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "EL", "ES", "FI", "FR", "HR", "HU",
+  "IE", "IT", "LT", "LU", "LV", "MT", "NL", "PL", "PT", "RO", "SE", "SI", "SK", "XI",
+];
+
+// VIES errors that mean "too busy, try again later". Throwing an error that mentions
+// TooManyRequests makes the enricher retry the record instead of skipping it.
+const VIES_RETRY_ERRORS = [
+  "GLOBAL_MAX_CONCURRENT_REQ",
+  "GLOBAL_MAX_CONCURRENT_REQ_TIME",
+  "MS_MAX_CONCURRENT_REQ",
+  "MS_MAX_CONCURRENT_REQ_TIME",
+];
+
+function getValue(key) {
+  // A plain loop rather than vocabularies.find(...): vocabularies is a .NET list, and when
+  // .find is called from inside a function, later calls return the first call's match.
+  const items = vocabularies || [];
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].Key === key) {
+      const value = items[i].Value;
+      return value === null || value === undefined ? "" : String(value).trim();
+    }
+  }
+  return "";
+}
+
+function toViesCountryCode(code) {
+  const upper = String(code || "").trim().toUpperCase();
+  const mapped = upper === "GR" ? "EL" : upper;
+  return VIES_COUNTRY_CODES.indexOf(mapped) >= 0 ? mapped : null;
+}
+
+// Works out the VIES country code and national number from the record's values.
+// Accepts "DE 123 456 789", "de123456789", "123.456.789" (with a country code key), etc.
+function parseVatNumber(rawVatNumber, rawCountryCode) {
+  const cleaned = rawVatNumber.toUpperCase().replace(/[^A-Z0-9]/g, "");
+  if (!cleaned) {
+    return null;
+  }
+
+  const prefixCountry = /^[A-Z]{2}/.test(cleaned) ? toViesCountryCode(cleaned.substring(0, 2)) : null;
+  if (prefixCountry) {
+    const nationalNumber = cleaned.substring(2);
+    return nationalNumber ? { countryCode: prefixCountry, vatNumber: nationalNumber } : null;
+  }
+
+  const country = toViesCountryCode(rawCountryCode);
+  return country ? { countryCode: country, vatNumber: cleaned } : null;
+}
+
+// VIES returns "---" when a member state doesn't share a value.
+function clean(value) {
+  if (value === null || value === undefined) {
+    return null;
+  }
+  const text = String(value).trim();
+  return text === "" || /^-+$/.test(text) ? null : text;
+}
+
+function parseJson(text) {
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    return null;
+  }
+}
+
+function getViesErrors(body) {
+  const wrappers = body && Array.isArray(body.errorWrappers) ? body.errorWrappers : [];
+  return wrappers.map((x) => x && x.error).filter((x) => !!x);
+}
+
+// Calls VIES. Returns the parsed answer, or null when VIES couldn't give one.
+function checkVatNumber(input) {
+  const viesResponse = http.send({
+    url: VIES_URL,
+    method: "POST",
+    headers: [
+      { Key: "Content-Type", Value: "application/json" },
+      { Key: "Accept", Value: "application/json" },
+    ],
+    body: { countryCode: input.countryCode, vatNumber: input.vatNumber },
+  });
+
+  const status = String(viesResponse.HttpStatus || "");
+  const body = parseJson(viesResponse.Content);
+  const errors = getViesErrors(body);
+
+  if (status === "TooManyRequests" || errors.some((x) => VIES_RETRY_ERRORS.indexOf(x) >= 0)) {
+    throw new Error(`TooManyRequests - VIES is busy (${errors.join(", ") || status}), the record will be retried`);
+  }
+
+  if (status !== "OK" || !body || typeof body.valid !== "boolean" || errors.length > 0) {
+    log(`VIES could not check ${input.countryCode}${input.vatNumber}. HTTP ${status}. ${errors.join(", ") || String(viesResponse.Content || "").substring(0, 200)}`);
+    return null;
+  }
+
+  return body;
+}
+
+function run() {
+  const input = parseVatNumber(getValue(VAT_NUMBER_KEY), getValue(COUNTRY_CODE_KEY));
+  if (!input) {
+    // No EU VAT number on this record (this is also what Test Connection hits, because
+    // it passes placeholder values instead of real ones).
+    return [];
+  }
+
+  const cacheKey = `vies:${input.countryCode}${input.vatNumber}`;
+  const cached = CACHE_MILLISECONDS > 0 ? cache.get(cacheKey) : null;
+  let result = cached ? parseJson(String(cached)) : null;
+
+  if (!result) {
+    result = checkVatNumber(input);
+    if (!result) {
+      return [];
+    }
+    if (CACHE_MILLISECONDS > 0) {
+      cache.set(cacheKey, JSON.stringify(result), CACHE_MILLISECONDS);
+    }
+  }
+
+  const data = {
+    "vies.valid": result.valid,
+    "vies.countryCode": clean(result.countryCode) || input.countryCode,
+    "vies.vatNumber": clean(result.vatNumber) || input.vatNumber,
+    // Date only (YYYY-MM-DD). A full timestamp would be turned into a date in the server's
+    // own format (e.g. 11/24/2026 03:44:18) when the enricher reads the script's result.
+    "vies.requestDate": clean(result.requestDate) ? String(result.requestDate).substring(0, 10) : null,
+    "vies.name": clean(result.name),
+    // VIES puts each address line on its own line; store it on one line.
+    "vies.address": clean(String(result.address || "").trim().replace(/\s*\n\s*/g, ", ")),
+  };
+
+  // Leave out values VIES didn't return, so they don't overwrite existing data with blanks.
+  Object.keys(data).forEach((key) => {
+    if (data[key] === null) {
+      delete data[key];
+    }
+  });
+
+  return [{ Data: data, Score: 100 }];
+}
+
+response = JSON.stringify(run());
 ```
 
-You can use JSONPath to retrieve values nested in the response and to filter arrays. For example, D&B registration numbers include a `typeDnBCode`. The following mapping finds the registration number whose type code is `2080` and writes it to `ValueAddedTaxNumberFR`:
-
-```text
-ValueAddedTaxNumberFR=$.organization.registrationNumbers[?(@.typeDnBCode == 2080)].registrationNumber
-```
-
-Use the same pattern for other country-specific registration-number types, replacing both the destination property name and the D&B type code:
-
-```text
-ValueAddedTaxNumberBE=$.organization.registrationNumbers[?(@.typeDnBCode == 999)].registrationNumber
-ValueAddedTaxNumberCZ=$.organization.registrationNumbers[?(@.typeDnBCode == 1315)].registrationNumber
-ValueAddedTaxNumberHU=$.organization.registrationNumbers[?(@.typeDnBCode == 36137)].registrationNumber
-```
-
-To collect all values from an array, use `[*]`. The enricher combines the matching values into a comma-separated string. For example:
-
-```text
-RegistrationNumbers=$.organization.registrationNumbers[*].registrationNumber
-```
-
-Property mappings are evaluated against the JSON returned by the D&B API. Make sure that your D&B product or selected data blocks return the path you map. If a path has no value, the enricher does not add that mapped property. Invalid mappings are ignored and are recorded as warnings in the application logs.
-
-## Properties from D&B enricher
-
-The D&B enricher adds properties with the `DnB` vocabulary prefix. The exact data returned depends on your D&B product and selected data blocks.
-
-| Property group | Example vocabulary keys |
-| -- | -- |
-| Business identity | `DnB.Duns`, `DnB.PrimaryBusinessName`, `DnB.BusinessEntityTypeDnbCode`, `DnB.BusinessEntityTypeDescription` |
-| Match quality | `DnB.MatchConfidenceCode` |
-| Corporate linkage | `DnB.DomesticUltimateDuns`, `DnB.GlobalUltimateDuns`, `DnB.ParentDuns`, `DnB.HeadQuarterDuns`, `DnB.HierarchyLevel` |
-| Address and contact | `DnB.PrimaryAddressCountry`, `DnB.PrimaryAddressLocality`, `DnB.PrimaryAddressPostalCode`, `DnB.PrimaryAddressStreetLine1`, `DnB.WebsiteUrl`, `DnB.Telephone`, `DnB.Fax` |
-| Status and identifiers | `DnB.OperatingStatusCode`, `DnB.OperatingStatusDescription`, `DnB.DunsControlStatusIsMarketable`, `DnB.RegistrationNumber2` |
-| Organization scale | `DnB.NumberOfEmployees`, `DnB.YearlyRevenue`, `DnB.GlobalUltimateNumberOfEmployees`, `DnB.DomesticUltimateNumberOfEmployees` |
-| Market data | `DnB.StockExchangeTickerName`, `DnB.StockExchangeName`, `DnB.StockExchangeCountryCode`, `DnB.TradeStyleNames` |
-| Selected industry codes (Optional) | `DnB.industry.{index}.code`, `DnB.industry.{index}.description`, `DnB.industry.{index}.typeDnBCode` |
-| Selected registration numbers (Optional) | `DnB.registrationNumbers.{index}.registrationNumber`, `DnB.registrationNumbers.{index}.typeDescription`, `DnB.registrationNumbers.{index}.typeDnBCode` |
-| API-call diagnostics (Optional) | `DnB.LastApiCallTimestamp`, `DnB.LastApiCallStatusCode`, `DnB.LastApiCallErrorMessage` |
-
-Use the integrations filter on the **Properties** page to find properties added by the D&B enricher. To review a particular enrichment, open the relevant data part on the golden record's **History** page.
-
-Up: [Enrichment](https://documentation.cluedin.net/govern/enrichment.md)
+Up: [REST API enricher samples](https://documentation.cluedin.net/govern/rest-api-enricher-samples.md)
 
 <!-- https://documentation.cluedin.net/govern/rules -->
 # Rules

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CluedIn Documentation</title>
     <link href="https://documentation.cluedin.net"/>
-    <updated>2026-11-13T10:26:14+00:00</updated>
+    <updated>2026-11-25T05:32:16+00:00</updated>
     <author>
         <name>CluedIn</name>
     </author>
@@ -474,24 +474,6 @@
     </entry>
     
     <entry>
-        <title>Connectors</title>
-        <link href="https://documentation.cluedin.net/ingest/connectors" />
-        <id>https://documentation.cluedin.net/ingest/connectors</id>
-        <updated>2023-11-07T00:00:00+00:00</updated>
-        <summary>
-        
-        Connectors.
-        
-        
-        A connector crawls an external system and turns what it finds into clues.
-        
-        
-        Tags: integration, crawlers.
-        
-        </summary>
-    </entry>
-    
-    <entry>
         <title>Data sources</title>
         <link href="https://documentation.cluedin.net/ingest/data-sources" />
         <id>https://documentation.cluedin.net/ingest/data-sources</id>
@@ -505,6 +487,24 @@
         
         
         Tags: integration, data sources.
+        
+        </summary>
+    </entry>
+    
+    <entry>
+        <title>Connectors</title>
+        <link href="https://documentation.cluedin.net/ingest/connectors" />
+        <id>https://documentation.cluedin.net/ingest/connectors</id>
+        <updated>2023-11-07T00:00:00+00:00</updated>
+        <summary>
+        
+        Connectors.
+        
+        
+        A connector crawls an external system and turns what it finds into clues.
+        
+        
+        Tags: integration, crawlers.
         
         </summary>
     </entry>
@@ -1130,13 +1130,13 @@
     </entry>
     
     <entry>
-        <title>Power Automate pre-configuration guide</title>
-        <link href="https://documentation.cluedin.net/solutions/power-automate/pre-configuration-guide" />
-        <id>https://documentation.cluedin.net/solutions/power-automate/pre-configuration-guide</id>
+        <title>Power Apps pre-configuration guide</title>
+        <link href="https://documentation.cluedin.net/solutions/power-apps/pre-configuration-guide" />
+        <id>https://documentation.cluedin.net/solutions/power-apps/pre-configuration-guide</id>
         <updated>2025-03-13T00:00:00+00:00</updated>
         <summary>
         
-        Power Automate pre-configuration guide.
+        Power Apps pre-configuration guide.
         
         
         
@@ -1146,13 +1146,13 @@
     </entry>
     
     <entry>
-        <title>Power Apps pre-configuration guide</title>
-        <link href="https://documentation.cluedin.net/solutions/power-apps/pre-configuration-guide" />
-        <id>https://documentation.cluedin.net/solutions/power-apps/pre-configuration-guide</id>
+        <title>Power Automate pre-configuration guide</title>
+        <link href="https://documentation.cluedin.net/solutions/power-automate/pre-configuration-guide" />
+        <id>https://documentation.cluedin.net/solutions/power-automate/pre-configuration-guide</id>
         <updated>2025-03-13T00:00:00+00:00</updated>
         <summary>
         
-        Power Apps pre-configuration guide.
+        Power Automate pre-configuration guide.
         
         
         
