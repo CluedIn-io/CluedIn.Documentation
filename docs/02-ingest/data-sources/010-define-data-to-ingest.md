@@ -22,6 +22,8 @@ You can ingest the data into CluedIn using the following methods:
 
 - **Database** – you can set up a connection with your database and add the needed database tables to CluedIn.
 
+- **Azure Databricks Unity Catalog** – you can connect to an Azure Databricks workspace, browse Unity Catalog, and onboard tables as ingestion endpoints that stay in sync. See [Azure Databricks Unity Catalog](/ingest/data-sources/azure-databricks-unity-catalog).
+
 - **Connector** (also referred to as a provider or crawler) – you can configure a software component to enable seamless interaction and data exchange between different software applications or systems and CluedIn. Currently, the ability to use connectors in CluedIn is different than using the above-mentioned options.
 
 - **Out-of-the-box integration** – CluedIn supports out-of-the-box integration, but it is not covered in this section.
