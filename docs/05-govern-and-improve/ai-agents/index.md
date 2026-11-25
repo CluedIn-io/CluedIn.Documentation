@@ -137,4 +137,6 @@ This section covers the following areas:
 
 - [Viewing and reverting changes made by an AI agent](/govern/ai-agents/view-and-revert-changes-made-by-ai-agent) – learn how to view the historical record of the changes made by an AI agent and, if needed, revert any of the changes.
 
+- [Global audit log](/administer/global-audit-log) – view and, where supported, revert changes to an agent's own configuration (its name, description, and instructions), alongside changes to other parts of CluedIn.
+
 - [AI agents FAQs](/govern/ai-agents/ai-agents-faqs) – find answers to common questions related to AI agents.
