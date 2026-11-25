@@ -8,7 +8,7 @@ permalink: /master/golden-records/explain-log
 content_type: concept
 redirect_from: ["/key-terms-and-features/golden-records/explain-log"]
 source_path: docs/110-key-terms-and-features/golden-records/030-explain-log.md
-last_modified: 2025-05-20
+last_modified: 2026-10-24
 ---
 
 ## On this page
@@ -97,6 +97,8 @@ The structure of both operations in the Explain Log is the same. Let's consider 
     ![The Evaluate rules operation Summaries with the Applied rules table and the Evaluated rules table showing skipped rules and reasons]({{ "/assets/images/key-terms-and-features/explain-log-evaluate-golden-record-rules.png" | relative_url }})
 
 Note that the **Golden Record** section provides information only about survivorship rules and golden record rules. It does not include information about data part rules.  To identify which **data part rules** have been applied to a constituent record, refer to the **Evaluate rules** operation in the **Records** section.
+
+If a rule looks like it did, or did not, apply the way you expected, select **Run Rule Inspector** next to the golden record rules list. This opens [Rule Inspector](/govern/rules/rule-inspector) in a new tab, pre-loaded with this record's current field values and already stepping through every rule in the system against them - available when the `ruleAdvancedTools` organization feature is enabled.
 
 ## Troubleshooting using the Explain Log
 

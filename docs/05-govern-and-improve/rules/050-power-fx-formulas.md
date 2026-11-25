@@ -26,7 +26,7 @@ Power Fx is a general-purpose, low-code, strong-typed, and functional programmin
 
 In CluedIn, you can use Power Fx formulas in the Rule Builder for querying, equality testing, decision making, type conversion, and string manipulation based on the supported properties of a data part or a golden record.
 
-For the full behaviour of every function - parameters, return values, scopes, errors and Spark limits - see [Power Fx advanced reference](/govern/rules/power-fx-advanced-reference).
+For the full behaviour of every function - parameters, return values, scopes, errors and Spark limits - see [Power Fx advanced reference](/govern/rules/power-fx-advanced-reference). To have AI write a formula for you from a plain-language description, see [Generate formulas with AI](/govern/rules/generate-formulas-with-ai).
 
 ## Power Fx formulas in rules
 
