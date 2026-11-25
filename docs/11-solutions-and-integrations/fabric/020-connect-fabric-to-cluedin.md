@@ -15,7 +15,10 @@ source_path: docs/180-microsoft-integration/fabric/020-connect-fabric-to-cluedin
 1. TOC
 {:toc}
 
-In this article, you will learn how to load the data from Microsoft Fabric to CluedIn. As an example, we'll use a table named `imdb_titles` in Microsoft Fabric with 601_222 rows.
+In this article, you will learn how to load the data from Microsoft Fabric to CluedIn using a Fabric notebook that posts rows to an ingestion endpoint. As an example, we'll use a table named `imdb_titles` in Microsoft Fabric with 601_222 rows.
+
+{: .note }
+If you just want to browse your Fabric workspaces and onboard a table interactively from CluedIn, without writing a notebook, see [Microsoft Fabric as a data source](/ingest/data-sources/microsoft-fabric) instead - it also supports keeping the table in sync with Fabric on a schedule. The notebook approach on this page is better suited to large backfills or your own code-driven pipeline.
 
 ![Fabric catalog tree showing the imdb_titles table in the cluedin schema with its imdb_title columns]({{ "/assets/images/microsoft-integration/fabric/output-4.png" | relative_url }})
 

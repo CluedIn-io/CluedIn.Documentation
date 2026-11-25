@@ -24,7 +24,7 @@ Each step is explained in detail in a separate article in this section:
 
 1. [Define data to ingest](/ingest/data-sources/define-data-to-ingest) – explore all the ways you can ingest data into CluedIn and choose the one that works best for your needs.
 
-1. Ingest data from [a file](/ingest/data-sources/file), [an endpoint](/ingest/data-sources/endpoint), or [a database](/ingest/data-sources/database) - find step-by-step instructions for ingesting data into CluedIn.
+1. Ingest data from [a file](/ingest/data-sources/file), [an endpoint](/ingest/data-sources/endpoint), [a database](/ingest/data-sources/database), or [Microsoft Fabric](/ingest/data-sources/microsoft-fabric) - find step-by-step instructions for ingesting data into CluedIn.
 
 1. [Create mapping](/ingest/mapping/create-mapping) - create a semantic layer for your data and [review the mapping details](/ingest/mapping/review-mapping) to ensure that your records are produced and merged in the most effective way.
 
