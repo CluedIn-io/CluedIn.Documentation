@@ -122,3 +122,34 @@ Only Vocabulary Owners and Administrators can edit the vocabulary configuration.
 1. Make the needed changes, and then select **Save** and confirm your choice.
 
     ![Animation: selecting Edit on the Customer vocabulary Configuration tab, changing settings, then selecting Save and confirming]({{ "/assets/images/management/data-catalog/edit-vocabulary.gif" | relative_url }})
+
+## Delete vocabularies
+
+If you no longer need one or more vocabularies, you can delete them from the list of all vocabularies. You can select a single vocabulary or several vocabularies at once, and they are deleted in one action.
+
+If a vocabulary still has vocabulary keys, its keys are deleted together with it. A key that has no data is removed. A key that holds data is either mapped to another vocabulary key that you choose, so the data is kept under that key, or marked as obsolete.
+
+{:.important}
+A vocabulary that is still used elsewhere in the system (for example, in a rule or a stream) cannot be deleted. If you select a mix of vocabularies that can and cannot be deleted, the ones that can be deleted are removed and the ones that cannot are reported as failed.
+
+**To delete vocabularies**
+
+1. On the navigation pane, go to **Management** > **Data Catalog**. Then, select **View All Vocabularies**.
+
+1. Select the checkbox next to each vocabulary that you want to delete.
+
+    ![Two vocabularies selected on the All Vocabularies page, with a toolbar showing "2 items selected" and a Delete button]({{ "/assets/images/management/data-catalog/delete-vocabularies-select.png" | relative_url }})
+
+1. In the toolbar, select **Delete**.
+
+1. In the confirmation dialog, confirm the number of vocabularies that will be deleted, and then select **Confirm**.
+
+    ![The Delete vocabularies confirmation dialog, asking "Are you sure you want to delete the 2 selected vocabularies?" with Cancel and Confirm buttons]({{ "/assets/images/management/data-catalog/delete-vocabularies-confirm.png" | relative_url }})
+
+1. If any of the selected vocabularies still have vocabulary keys, the **Vocabulary keys** pane opens. You make this choice once for all keys in all selected vocabularies:
+
+    - To keep the data that these keys hold, select **Yes**, and then select **Next**. Find and select the vocabulary key that all deleted keys should be mapped to, and then select **Delete**.
+
+    - To delete the keys without mapping them, select **No, just delete the keys**, and then select **Delete**.
+
+    The selected vocabularies are deleted and removed from the list. If any could not be deleted, a message lists the names of the vocabularies that failed so you can address them individually.
