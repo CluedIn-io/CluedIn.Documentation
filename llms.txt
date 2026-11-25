@@ -91,7 +91,7 @@ Every page declares one content type: concept (explains how something works), ho
 - [Work with the glossary](https://documentation.cluedin.net/govern/work-with-glossary.md) (how-to): Glossary can help you in documenting groups of golden records that meet specific criteria, simplifying the process of cleaning and streaming these groups of records.
 - [Cleaning](https://documentation.cluedin.net/govern/cleaning.md): A clean project takes a set of golden records, shows you what is wrong with them, and lets you fix it in bulk.
 - [Enrichment](https://documentation.cluedin.net/govern/enrichment.md): An enricher fills gaps in your data from an external source - a company register, a mapping service, a search index.
-- [REST API enricher samples](https://documentation.cluedin.net/govern/rest-api-enricher-samples.md): Ready-made REST API enricher settings and scripts for specific external services, such as VIES, Dun & Bradstreet, Melissa, and Logo.dev.
+- [REST API enricher samples](https://documentation.cluedin.net/govern/rest-api-enricher-samples.md): Ready-made REST API enricher settings and scripts for specific external services, such as VIES, Dun & Bradstreet, Melissa, Logo.dev, and national company registries.
 - [Rules](https://documentation.cluedin.net/govern/rules.md): Rules apply logic to your data automatically: change a value, add a tag, block a change.
 - [Tags](https://documentation.cluedin.net/govern/tags.md): Tags are labels you attach to golden records and data parts.
 - [AI agents](https://documentation.cluedin.net/govern/ai-agents.md): AI agents do stewardship work for you - proposing fixes for quality problems, suggesting duplicates to merge, drafting rules.

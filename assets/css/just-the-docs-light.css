@@ -8566,4 +8566,111 @@ div.feature-icon img {
   box-sizing: border-box;
 }
 
+.ci-sample-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: flex-end;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.ci-sample-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 14rem;
+}
+.ci-sample-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #27262b;
+}
+
+.ci-sample-input {
+  padding: 0.4rem 0.6rem;
+  font: inherit;
+  font-size: 0.9rem;
+  color: #5c5962;
+  background: #fff;
+  border: 1px solid #eeebee;
+  border-radius: 6px;
+}
+.ci-sample-input:focus {
+  outline: 2px solid #12a39a;
+  outline-offset: 1px;
+}
+
+.ci-sample-status {
+  margin: 0.25rem 0 0.5rem !important;
+  font-size: 0.8rem;
+  color: #6b7785;
+}
+
+.ci-sample-empty td {
+  color: #6b7785;
+  font-style: italic;
+}
+
+.ci-sample-config {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #eeebee;
+  border-left: 4px solid #12a39a;
+  border-radius: 8px;
+  background: #f5f6fa;
+}
+.ci-sample-config summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #27262b;
+}
+.ci-sample-config[open] summary {
+  margin-bottom: 0.5rem;
+}
+
+.ci-sample-config-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 0.75rem 1.25rem;
+  margin: 0.75rem 0;
+}
+.ci-sample-config-fields .ci-sample-input {
+  font-family: "SFMono-Regular", menlo, consolas, monospace;
+  font-size: 0.85rem;
+}
+
+.ci-sample-hint {
+  margin: 0 !important;
+  font-size: 0.8rem;
+  color: #6b7785;
+}
+
+.ci-sample-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ci-sample-button {
+  font-size: 0.85rem;
+}
+
+.ci-sample-customized {
+  position: relative;
+  box-shadow: 0 0 0 2px #12a39a;
+  border-radius: 4px;
+}
+.ci-sample-customized::before {
+  content: "Customized";
+  position: absolute;
+  top: -0.7rem;
+  left: 0.75rem;
+  z-index: 1;
+  padding: 0 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #fff;
+  background: #12a39a;
+  border-radius: 4px;
+}
+
 /*# sourceMappingURL=just-the-docs-light.css.map */
