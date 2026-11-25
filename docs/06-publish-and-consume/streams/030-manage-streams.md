@@ -132,6 +132,9 @@ You can view and manage field mappings on the **Field mappings** tab of the stre
 {:.important}
 If a mapping is missing a source field or an export field name, CluedIn blocks saving and shows a validation message until you fix or remove the incomplete mapping.
 
+{:.important}
+Saving changed field mappings triggers stream reprocessing, the same as changing the export target configuration. Because the mappings define the structure of the exported data, CluedIn archives the existing table or container in the export target, creates a new one with the updated fields, and then sends all matching records to it again. If the stream is new or stopped, CluedIn sends the records when you start the stream. If you save mappings that haven't changed, including the same mappings in a different order, nothing is archived or reprocessed.
+
 ## View stream details
 
 On the stream details page, there are several tabs where you can view stream-related information:
