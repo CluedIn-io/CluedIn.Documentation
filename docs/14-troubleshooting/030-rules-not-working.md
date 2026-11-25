@@ -108,6 +108,17 @@ If any of these are misconfigured, the Rule may not execute as you expect.
 
 ---
 
+## When a Rule Can't Be Saved, Removed, or Loaded
+
+If CluedIn can't complete an operation on a rule, the rule details page shows an error message under the page header. The message tells you what failed (for example, **The rule could not be saved.**) and what to do next:
+
+- **Your changes were rejected.** The message gives the reason, for example a filter or action that isn't valid. Correct the rule configuration and save again.
+- **Something went wrong on the server.** Wait a moment and try again. If the problem continues, contact CluedIn Support and include the **Reference ID** shown in the message. Select the copy icon next to it to copy it.
+
+The Reference ID identifies your request in the server logs, so support can find the exact failure without you reproducing it. Select **Show details** to see the technical message the server returned.
+
+---
+
 ## Best Practices to Avoid Rule Misbehavior
 
 - **Be Precise with Conditions**: Use clear logic that matches real data values.  
