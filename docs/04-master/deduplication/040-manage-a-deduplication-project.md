@@ -148,7 +148,7 @@ You can also drag a deduplication project from the list and drop it onto a folde
 
 You can archive a deduplication project if you no longer need it or if you created it by mistake. You can also archive a deduplication project if you’re confident that you won’t need to run it again in the future. Archiving does not affect merges that have been submitted to CluedIn.
 
-After a deduplication project is archived, it cannot be unarchived. Archived projects are available only for viewing.
+Archived projects are available only for viewing, but you can unarchive a project to work with it again.
 
 You can archive a deduplication project only when its status is **Requires configuration** or **Ready to generate**. In other statuses, you need to discard matches before archiving the project.
 
@@ -166,7 +166,16 @@ You can archive a deduplication project only when its status is **Requires confi
 
     ![Deduplicate page listing deduplication projects, with View archived highlighted in the upper-right corner]({{ "/assets/images/management/deduplication/manage-dedup-project-view-archived.png" | relative_url }})
 
-1. From the list of archived deduplication projects, select the one that you want to view.    
+1. From the list of archived deduplication projects, select the one that you want to view.
+
+**To unarchive a deduplication project**
+
+1. In the upper-right corner of the **Deduplication** page, select **View Archived**.
+1. In the list of archived deduplication projects, find the project that you want to restore, and select **Unarchive**.
+
+    The project is removed from the archived list immediately, without reloading the page, and you can find it back in the main list of deduplication projects, with status **Requires configuration** or **Ready to generate** depending on whether it already has matching rules.
+
+    Unarchiving a deduplication project requires the same permission as archiving one.
 
 ## Duplicate a deduplication project
 
