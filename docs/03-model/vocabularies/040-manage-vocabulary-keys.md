@@ -53,6 +53,29 @@ Depending on the selected [data modeling approach](/model/data-catalog/modeling-
 
     The vocabulary key page opens, where you can view and manage vocabulary key details.
 
+### Create a missing vocabulary key from a golden record
+
+If a property on the **Properties** tab of a golden record shows **Vocabulary key not found**, you can create the missing vocabulary key without leaving the page. The **Add vocabulary key** button (**+**) appears next to the message only if you have permission to create vocabularies and vocabulary keys.
+
+**To create a missing vocabulary key from a golden record**
+
+1. Open the golden record, and then go to the **Properties** tab.
+
+1. Next to the property that shows **Vocabulary key not found**, select **Add vocabulary key** (**+**).
+
+    CluedIn creates the vocabulary key and refreshes the golden record. A message confirms the result:
+
+    - **Vocabulary key created** – the key was created.
+    - **Vocabulary key already exists** – someone else created the key in the meantime. No duplicate is created.
+    - **Vocabulary key requires approval before it can be created** – your organization requires approval for vocabulary changes, so the key is not created until the change is approved.
+
+CluedIn chooses the vocabulary and the key name from the property name:
+
+- If the property name starts with the key prefix of one of the business domain's vocabularies followed by a dot (for example, `contact.jobTitle`), the key is added to that vocabulary with the rest of the property name as its name (`jobTitle`). If several prefixes match, the longest one is used.
+- Otherwise, the key is added to the business domain's core vocabulary, and the whole property name is used as the key name. Because the full vocabulary key always includes the vocabulary's key prefix, the property continues to show **Vocabulary key not found** in this case, even though the key now exists.
+
+The new key gets a display name derived from its name (for example, **Is New User** for `IsNewUser`) and is placed in the **General** group. Its data type is **Boolean** if the property value is `true` or `false`, and **Text** otherwise. You can change these details later on the vocabulary key page, as described in [Edit a vocabulary key](#edit-a-vocabulary-key).
+
 ## Edit a vocabulary key
 
 You can edit a vocabulary key to make necessary changes to its configuration, ensuring that metadata is organized and consistent.
