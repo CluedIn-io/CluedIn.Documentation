@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/management/rules/manage-rules"]
 source_path: docs/080-management/rules/030-manage-rules.md
 tags: ["management", "rules"]
-last_modified: 2026-10-10
+last_modified: 2026-11-11
 ---
 
 ## On this page
@@ -58,6 +58,22 @@ A rule can have multiple actions, and they are applied in the order in which the
     ![The Actions section of a rule listing three actions, each with up and down arrows for reordering, plus delete and edit icons]({{ "/assets/images/management/rules/reorder-actions-1.png" | relative_url }})
 
 1. Near the upper-right corner of the rule details page, select **Save**, and then confirm that you want to save the rule.
+
+## View a step's details
+
+On the **Builder** tab, you can view a step's name, conditions, and action without opening it for editing.
+
+**To view a step's details**
+
+1. On the navigation pane, go to **Management** > **Rule builder**.
+
+1. Choose the needed type of rule, and then open the rule that you want to view.
+
+1. Select the **Builder** tab.
+
+1. Select the step whose details you want to view.
+
+    The step details panel opens in read-only mode. To make changes instead, select the edit icon on the step.
 
 ## Delete a rule
 
