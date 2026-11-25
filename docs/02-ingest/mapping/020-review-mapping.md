@@ -38,7 +38,7 @@ On the **Map columns to vocabulary key** tab, check how the original fields will
 
 - Ignore certain fields if you don't want to have them in CluedIn after the data is processed.
 
-- Map the original field to a different vocabulary key.
+- Map the original field to a different vocabulary key. When choosing a key, you can turn on **Only show keys with values** to narrow the list down to keys that already have a value on at least one golden record.
 
 - Add [property rules](/ingest/mapping/property-rules) to improve the quality of mapped records by normalizing and transforming property values. 
 
