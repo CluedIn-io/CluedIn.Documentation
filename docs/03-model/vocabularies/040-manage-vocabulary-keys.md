@@ -110,6 +110,8 @@ Throughout the system, the following guidelines are applied to mapped vocabulary
 
 - When you make changes to the current vocabulary key mapping or to the vocabulary key it is mapped to, the system will evaluate whether these changes are compatible with the vocabulary key configuration.
 
+- If a vocabulary key is mapped to a key with a different data type, a warning icon appears next to the data type wherever the mapping is listed, such as the vocabulary key list and a vocabulary's own key list, so you can spot the mismatch at a glance.
+
 ## Delete a vocabulary key
 
 If you no longer need a vocabulary key, you can delete it. The process of deleting a vocabulary key is different depending on whether the vocabulary key is used anywhere in the system. If a vocabulary key is used somewhere in the system (for example, in a data set mapping, in a golden record, in a rule, and so on), you need to remap the vocabulary key first, and only then you can delete it.
