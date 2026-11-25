@@ -26,3 +26,5 @@ A user with at least Consulted access level to the Rule Builder claim can modify
 **Is there a connection between external approvals and internal CluedIn change requests?**
 
 When you modify an element in CluedIn, both an internal change request and an external approval request are sent to the owners. The request that is processed first determines the outcome for the element. For example, if an owner approves the internal change request in CluedIn, the element is updated accordingly. However, if another owner rejects the external approval request in Outlook, this rejection is ignored because the element has already been updated. Essentially, the first processed request is applied to the element, and any subsequent request is ignored.
+
+An owner finds their internal change requests in the [Steward Inbox](/govern/steward-inbox), alongside their other stewardship tasks.
