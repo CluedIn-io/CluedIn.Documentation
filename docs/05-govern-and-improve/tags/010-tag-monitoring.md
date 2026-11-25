@@ -33,6 +33,8 @@ In addition to providing insight, the Tag Monitoring module also allows you to a
 
 - [Organize tags with folders and colours](#organize-tags-with-folders-and-colours).
 
+- [Create tag alerts](#create-tag-alerts) to be notified when tag usage crosses a threshold.
+
 - [Fix tagged records using AI agents](#fix-tagged-records-with-ai).
 
 - [Create a clean project](#create-a-clean-project-for-tagged-records) for the tagged records.
@@ -238,6 +240,60 @@ When designing your tag categories:
 - Review your folder structure periodically and consolidate categories that are no longer useful.
 
 A well-organized Tag Monitoring structure makes it easier for data stewards to understand which issues exist, who owns them, and which group of tags should be investigated first.
+
+## Create tag alerts
+
+Besides monitoring individual tags, you can create **alert rules** that watch how many golden records are tagged and notify every user with the OrganizationAdmin role as soon as a condition is met — in-app, in their [Steward Inbox](/govern), and in Slack and/or Microsoft Teams if your organization has [connected them](/administer/steward-inbox-notifications#connect-slack-and-microsoft-teams).
+
+A rule can watch either of the following:
+
+- **All tags** – the total number of tagged golden records across your organization, regardless of which tag was applied.
+
+- **One specific tag** – only golden records tagged with that one tag.
+
+An alert rule can be one of the following types:
+
+- **Absolute threshold** – triggers the first time the watched tag count reaches a fixed number. For example, "notify me as soon as the aggregate tag count gets over 5000" or "notify me as soon as the `invoice` tag is applied to more than 200 golden records".
+
+- **Rate** – triggers when the watched tag count increases by a fixed amount within a rolling time window. For example, "notify me if more than 50 tags are added in 2 minutes".
+
+By default, a rule notifies once when it first triggers, then stays quiet until the condition clears and triggers again. You can instead have it keep reminding you on a fixed schedule for as long as the condition remains true — useful for a breach nobody has acted on yet.
+
+Once triggered, a rule stays in a triggered state until the condition is no longer met (for a rate rule) or until you disable or delete it (for an absolute threshold rule).
+
+**To create a tag alert**
+
+1. On the navigation pane, go to **Governance** > **Tag Monitoring**.
+
+1. Above the tags panel, select **Alerts**.
+
+    The **Tag alerts** panel opens on the right of the page.
+
+1. Enter a **Name** for the rule.
+
+1. Under **Tag**, select the specific tag you want to watch, or leave it set to **All tags** to watch the total across every tag.
+
+1. Enter the **Threshold** number of tagged golden records.
+
+1. If you want a rate-based rule, enter a **Window (minutes)**. Leave this field empty to create an absolute-threshold rule instead.
+
+1. If you want to keep being reminded while the rule stays triggered, select **Keep notifying on a schedule while triggered**, then enter how often, in minutes, under **Repeat every (minutes)**. Leave this unselected to be notified only once, on the rising edge.
+
+    ![The Tag alerts panel, with the Repeat notifications option selected and set to repeat every 1 minute]({{ "/assets/images/governance/tag-monitoring/create-aggregate-tag-alerts/repeat-notifications.png" | relative_url }})
+
+1. Select **Add**.
+
+    The rule is created and appears in the list, where you can see which tag (or **All tags**) it watches and whether it is currently triggered.
+
+**To enable, disable, or delete an alert rule**
+
+1. On the navigation pane, go to **Governance** > **Tag Monitoring**, and then select **Alerts**.
+
+1. On the rule you want to change, do one of the following:
+
+    - Use the **Enabled** checkbox to turn the rule on or off. A disabled rule is not evaluated and cannot trigger a notification.
+
+    - Select the delete icon to remove the rule.
 
 ## Fix tagged records with AI
 

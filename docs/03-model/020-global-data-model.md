@@ -74,6 +74,8 @@ The graph canvas displays business domains as cards and edges as connections bet
 
 You can use the graph controls to zoom in and out when working with a large model.
 
+Select an edge between two business domains to navigate to **Search**, filtered to records belonging to the two business domains that the edge connects. This is useful for quickly inspecting the records involved in a relationship shown on the graph.
+
 For larger environments, the model can contain many business domains and relationships. Use the filtering and display controls to reduce the amount of information shown at one time.
 
 ## Search for business domains
