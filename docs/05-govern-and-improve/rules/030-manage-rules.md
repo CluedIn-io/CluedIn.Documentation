@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/management/rules/manage-rules"]
 source_path: docs/080-management/rules/030-manage-rules.md
 tags: ["management", "rules"]
-last_modified: 2026-10-10
+last_modified: 2026-11-25
 ---
 
 ## On this page
@@ -42,6 +42,36 @@ You can edit a rule to make necessary changes in rule name, description, filters
 1. If you are not the owner of the rule, near the upper-right corner of the rule details page, select **Submit for approval**.
 
     The owner of the rule will receive a notification about your changes and can then approve or reject them.
+
+## Inspect a survivorship rule against a golden record
+
+A survivorship rule decides each golden record value by comparing the golden record's data parts. To check that the rule's actions do what you expect, run the rule against a real golden record in the **Inspector** and step through its data parts one by one. The Inspector only previews the result: nothing is saved to the golden record.
+
+**To inspect a survivorship rule**
+
+1. On the navigation pane, go to **Management** > **Rule builder**, select **Survivorship rules**, and then open the rule.
+
+1. Go to the **Inspector** tab. If the tab isn't shown, the Rule Inspector isn't enabled for your organization.
+
+1. In **Golden record**, search for and select a golden record. Its data parts are loaded, together with its current values, so the rule's own conditions are checked against the real record.
+
+    ![The Inspector tab of a survivorship rule with a golden record selected and its 4 data parts loaded]({{ "/assets/images/management/rules/inspect-survivorship-rule-1.png" | relative_url }})
+
+    To try out what the rule would do with different data, expand **Edit source records by hand** and change the loaded data parts, or add your own. Each record's **Entity properties** can be changed too; enter one item per line for Codes, Tags and Aliases.
+
+1. Select **Run**.
+
+1. In **Data parts**, step through the data parts with the arrow buttons or the Left and Right arrow keys, or select a data part in the list. The data parts are listed in the order survivorship actions consider them, oldest first. For each data part, you can see:
+
+    - Its source, when it was last modified, its part ID, and its input source.
+    - For each action, whether the data part matches the action's own condition (for example, the condition of a **Latest Matching Condition** action) and whether the action took its values from this data part. **Latest Matching Condition** takes its values from the newest data part that matches.
+    - Each value the data part holds, next to the golden record's value after the rule ran. Values that ended up in the golden record are marked **In golden record**.
+    - Its **Entity properties**, such as Name, EntityType, OriginEntityCode, Codes, Tags and dates. Action conditions can check these, so the Inspector runs the rule with them.
+    - Its **Source details**: the Providers it came from, its provider definition ID, and the source's quality and whether it's trusted.
+
+    ![A data part that matches the Latest Matching Condition action's condition, with all 9 of its values in the golden record]({{ "/assets/images/management/rules/inspect-survivorship-rule-2.png" | relative_url }})
+
+    ![A data part that doesn't match the condition, where 6 of its 7 values are in the golden record]({{ "/assets/images/management/rules/inspect-survivorship-rule-3.png" | relative_url }})
 
 ## Reorder actions within a rule
 
