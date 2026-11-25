@@ -26,14 +26,19 @@ Use the filter above the table to find a register by country, register or identi
 | Australia | [ABN Lookup](/govern/rest-api-enricher-samples/abn-lookup-australia) | ABN | ABN Lookup GUID (free) |
 | Brazil | [CNPJ](/govern/rest-api-enricher-samples/cnpj-brazil) | CNPJ | not needed |
 | Canada | [Corporations Canada](/govern/rest-api-enricher-samples/corporations-canada) | Corporation number or business number | ISED API key (free) |
+| Colombia | [RUES](/govern/rest-api-enricher-samples/rues-colombia) | NIT | optional |
 | Estonia | [e-Business Register](/govern/rest-api-enricher-samples/e-business-register-estonia) | Registry code | not needed |
 | Finland | [Finnish Business Information System](/govern/rest-api-enricher-samples/ytj-finland) | Business ID (Y-tunnus) | not needed |
 | Hong Kong | [Companies Registry](/govern/rest-api-enricher-samples/companies-registry-hong-kong) | Business Registration number | not needed |
 | India | [MCA company master data](/govern/rest-api-enricher-samples/mca-india) | CIN | data.gov.in API key (free) |
 | Japan | [gBizINFO](/govern/rest-api-enricher-samples/gbizinfo-japan) | Corporate number | gBizINFO API token (free) |
+| Mexico | [DENUE](/govern/rest-api-enricher-samples/denue-mexico) | DENUE establishment ID | INEGI DENUE token (free) |
 | Netherlands | [KVK](/govern/rest-api-enricher-samples/kvk-netherlands) | KVK number | KVK API key (paid) |
 | New Zealand | [Companies Office NZBN](/govern/rest-api-enricher-samples/nzbn-new-zealand) | NZBN | NZBN API subscription key (free) |
 | Norway | [Brønnøysund Register Centre](/govern/rest-api-enricher-samples/brreg-norway) | Organization number | not needed |
+| Philippines | [SEC](/govern/rest-api-enricher-samples/sec-philippines) | SEC registration number | SEC API Marketplace key and secret |
 | Singapore | [ACRA](/govern/rest-api-enricher-samples/acra-singapore) | UEN | optional |
+| South Africa | [CIPC](/govern/rest-api-enricher-samples/cipc-south-africa) | Enterprise number | CIPC APIVerse subscription key |
 | South Korea | [OpenDART](/govern/rest-api-enricher-samples/opendart-south-korea) | DART corporation code | OpenDART API key (free) |
 | Taiwan | [Ministry of Economic Affairs](/govern/rest-api-enricher-samples/moea-taiwan) | Unified business number | not needed |
+| Thailand | [Open-DBD](/govern/rest-api-enricher-samples/dbd-thailand) | Juristic person registration number | not needed |
