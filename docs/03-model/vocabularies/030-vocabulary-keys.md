@@ -66,17 +66,9 @@ This tab displays all values associated with the key, along with the total numbe
 
 ![Animation: the All Values tab listing each value with its total, then selecting a value to open the matching golden records in search]({{ "/assets/images/management/data-catalog/vocabulary-key-all-values.gif" | relative_url }})
 
-### Lineage
+### Semantic model
 
-This tab shows the transformations of the vocabulary key.
-
-- Integrations – data source from which the vocabulary key originates.
-
-- Source vocabulary keys – vocabulary key that originates from a specific data source (integration).
-
-- Core vocabulary keys – vocabulary key to which the source vocabulary key is mapped.
-
-- Streams – streams where the vocabulary key is used.
+This tab shows where the vocabulary key's value comes from and where it goes: the key itself, every key that maps into it, and every key it maps into, laid out in layers. You can map this key, or map another key into it, by dragging. For more information, see [Semantic model](/model/vocabularies/semantic-model).
 
 ### Profiling
 
