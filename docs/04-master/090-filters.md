@@ -59,13 +59,17 @@ When adding more rules to the filter, pay attention to the **AND**/**OR** operat
 
 Filters in search help you narrow down the exact records you want to see or use for such activities as merge or clean. There are two filter modes in search:
 
-- **Basic** – you can filter records by business domains, providers, sources, or tags (if available in the system). You can select multiple values in each filter parameter.
+- **Basic** – you can filter records by business domains, providers, sources, or tags (if available in the system). You can also filter records by a date range on **Created Date**, **Modified Date**, or **Discovery Date**. You can select multiple values in each filter parameter.
 
     ![Search Filters pane in basic mode, with TrainingContact selected in the Business Domain quick filter]({{ "/assets/images/key-terms-and-features/filters-5.png" | relative_url }})
 
 - **Advanced** – you can filter records by various properties or vocabulary keys. You can also filter records by their association with a particular glossary. Advanced mode gives you more precision in defining filter criteria. The following screenshot displays the same filters as in the screenshot above, but they are represented in the advanced filter mode.
 
     ![Search Filters pane with Advanced filter mode on, showing the conditions Business domain Equals TrainingContact AND Provider Contains File Data Source]({{ "/assets/images/key-terms-and-features/filters-6.png" | relative_url }})
+
+Every filter you apply from either mode appears as a removable chip above the search results, so you can see at a glance which criteria are active and remove one without opening the Filters pane. Select **Clear all** to remove every active filter at once.
+
+For a quicker way to filter by a specific column, select the filter icon in a column header on the search results page (available for vocabulary columns, and for the Description, Primary Identifier, and URI columns). Choose an operator - such as Contains or Equals - enter a value, and select **Apply**. Like the other filters, this also appears as a removable chip above the search results.
 
 After you set up your search filters, you can save them for future use. This eliminates the need to specify filter criteria each time you want to find the same set of records. You can also share saved searches within your organization, making them available to others who need to work with the same set of records. For more information, see [Saved searches](/master/search#saved-searches).
 
