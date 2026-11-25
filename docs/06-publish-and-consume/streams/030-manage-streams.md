@@ -152,6 +152,8 @@ You can use folders to organize streams—for example, by export target or by te
 
 ![The Streams list showing folders such as Finance at the top, followed by streams that are not in a folder]({{ "/assets/images/consume/streams/organize-streams-folders-list.png" | relative_url }})
 
+A folder row shows the number of streams and subfolders directly inside it, next to its name. Its **Streaming mode** and **Status** columns summarize the streams directly inside it: **Streaming mode** shows the shared mode when every stream in the folder agrees, or **Mixed** when they don't; **Status** shows the most active status among them (Streaming takes priority over New, which takes priority over Paused, which takes priority over Stopped).
+
 **To create a folder**
 
 1. In the list of streams, select **Create** > **Add folder**.
