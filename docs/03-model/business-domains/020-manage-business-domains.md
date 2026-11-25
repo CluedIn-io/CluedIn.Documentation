@@ -19,6 +19,14 @@ A business domain is a well-known business object that describes the semantic me
 
 In CluedIn, all golden records must have a business domain to ensure the systematic organization and optimization of data management processes. A well-named business domain is global (for example, Person, Organization, Car) and should not be changed across sources. In this article, you will learn how to create and manage business domains to enhance the efficiency and organization of golden records in CluedIn.
 
+## Business domains list
+
+On the **Business domains** list, you can view and manage all business domains in your organization, including the record count, golden record count, trust score, last updated and modified dates, sources, creator, and folder of each business domain.
+
+To export the list, select the CSV export button in the toolbar, and then choose whether to export the current page or all business domains.
+
+To act on a business domain, select the three-dot (⋮) icon at the end of its row.
+
 ## Business domain details page
 
 On the business domain details page, you can view relevant information about the business domain and take other actions to manage it.
@@ -45,6 +53,12 @@ This tab contains general information about the business domain, including:
 
 - Layout – a way in which information is arranged on the **Overview** tab of the golden records that belong to the business domain.
 
+- Folder – an optional grouping used to organize business domains on the main **Business domains** list.
+
+**Data Certification**
+
+This tab contains the certification level (for example, Gold, Silver, Bronze, or a custom label) and notes for the business domain, if one has been set. A compact certification badge is also shown at the top of the business domain page, with a link to this tab for the full details.
+
 ## Create a business domain
 
 CluedIn ships with some pre-defined values for common business domains such as Document, File, Organization. However, you might want to have some specific business domains that may not be configured by CluedIn.
@@ -67,6 +81,8 @@ Depending on the selected [data modeling approach](/model/data-catalog/modeling-
 
 1. Select the layout for arranging the information on the golden record overview page.
 
+1. Optional: Select or create a folder to organize the business domain into.
+
 1. Select **Create**.
 
     ![The Create Business Domain pane with Display name, Business domain identifier, Icon, Business Domain Color, Path and Layout fields filled in]({{ "/assets/images/management/entity-type/create-business-domain.png" | relative_url }})
@@ -75,10 +91,16 @@ Depending on the selected [data modeling approach](/model/data-catalog/modeling-
 
 ## Manage a business domain
 
-You can change the following elements of the business domain configuration: display name, icon, layout, and description. You cannot change the business domain identifier and path. Also, you cannot delete the business domain.
+You can change the following elements of the business domain configuration: display name, icon, layout, folder, and description. You cannot change the business domain identifier and path.
 
 **To edit business domain configuration**
 
 1. In the upper-right corner of the business domain page, select **Edit**.
 
 1. Make the needed changes, and then select **Save**.
+
+## Delete a business domain
+
+You can delete a business domain only if no entities or vocabularies still reference it. To delete a business domain, select the three-dot (⋮) icon next to it on the **Business domains** list, and then select **Delete**.
+
+If the business domain is still in use, the delete dialog shows how many entities and vocabularies reference it, and links to where you can review and reassign or remove each of them. Once nothing references the business domain, you can delete it.
