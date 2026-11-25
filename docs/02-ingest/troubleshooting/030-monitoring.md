@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/integration/additional-operations-on-records/monitoring"]
 source_path: docs/040-integration/additional-operations-on-records/070-monitoring.md
 tags: ["integration", "monitoring"]
-last_modified: 2025-02-04
+last_modified: 2026-10-31
 ---
 
 ## On this page
@@ -39,11 +39,11 @@ If the number of messages of any type is greater than 0 while the number of cons
 
 ![Processing Messages tile showing 11152 messages and 0 consumers, indicating a processing problem]({{ "/assets/images/integration/additional-operations/monitoring-error.png" | relative_url }})
 
-To get better visibility into what is happening with your records, in addition to monitoring, use **system healthchecks**. You can find them in the upper-right corner of CluedIn.
+To get better visibility into what is happening with your records, in addition to monitoring, use **system healthchecks**. You can find them in the upper-right corner of CluedIn. The panel shows an overall summary of all checks, and each check is labeled **Healthy**, **Degraded**, or **Down**. Use the search box or the **Show issues only** toggle to quickly find a specific check or narrow the list down to the ones that need attention.
 
-![System healthchecks pane with green status indicators for Server, Components, and Data source services]({{ "/assets/images/integration/additional-operations/system-healthchecks.png" | relative_url }})
+![System healthchecks pane showing an overall summary, a search box, and the Server, Components, and Data source services groups, each labeled Healthy]({{ "/assets/images/integration/additional-operations/system-healthchecks.png" | relative_url }})
 
-If the status of any item is red or orange, it means that something is wrong, and some services probably need to be restarted. To fix the problem, contact the person responsible for maintaining CluedIn for your organization (for example, system administrator) who can restart the needed service.
+If the status of any check is **Degraded** or **Down**, it means that something is wrong, and some services probably need to be restarted. To fix the problem, contact the person responsible for maintaining CluedIn for your organization (for example, system administrator) who can restart the needed service.
 
 The following table provides the description of each queue and corresponding troubleshooting guidelines. If the number of messages doesn't return to 0 or if the number of consumers remains 0, refer to the **Troubleshooting** column for recommended actions.
 
