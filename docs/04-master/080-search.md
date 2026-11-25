@@ -101,6 +101,12 @@ If you want to improve the organization of information on the search results pag
 
     Your changes are immediately applied to the search results page. After you reorder or delete the columns, close the **Column Options** pane.
 
+### Quality score
+
+Each golden record's **Quality score** reflects the mean of every data quality dimension (accuracy, completeness, connectivity, consistency, currentness, explainability, provenance, and relevance) that is applicable to that record, shown as a percentage. A dimension with no value for a record is left out of the mean rather than counted as 0%, so the score never defaults to a single dimension unless it is the only one that applies.
+
+You can see the quality score for a record in tile view, and add it as a column in tabular view using [Add columns](#add-columns).
+
 ### Sort search results
 
 By default, the golden records on the search results page are sorted by relevance. This means that CluedIn prioritizes golden records that are most likely to match your search query closely. Sorting by relevance ensures that the most pertinent results are displayed at the top of the page.
