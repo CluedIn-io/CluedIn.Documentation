@@ -90,6 +90,8 @@ The new folder appears as a row in the list.
 
 **To assign an AI agent to a folder**
 
+- When creating an AI agent from inside a folder, that folder is preselected in the **Folder** field. You can still pick a different folder, or clear it.
+
 - Drag the AI agent row and drop it onto the folder row.
 
     ![The AI agents list with the Customer Data Quality Agent row below the Data Quality Agents folder row it is dragged onto]({{ "/assets/images/management/ai-agents/organize-ai-agents-into-folders/organize-ai-agents-drag-to-folder.png" | relative_url }})
