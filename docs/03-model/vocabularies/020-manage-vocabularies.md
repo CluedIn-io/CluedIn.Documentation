@@ -63,6 +63,18 @@ This tab contains groups of vocabulary keys associated with the vocabulary. You 
 
 For information on how to manage vocabulary keys, see [Vocabulary keys](/model/vocabularies/vocabulary-keys).
 
+**Profiling**
+
+This tab lets you compare [column profiling](/model/vocabularies/vocabulary-keys#column-profiling) across every key in the vocabulary, without opening each key individually.
+
+![Profiling tab of the Acceptance User vocabulary showing a stacked Null, empty and filled by key bar chart and a sortable All keys table listing total records, null percentage, empty percentage, and distinct values for each key]({{ "/assets/images/management/data-catalog/vocabulary-column-profiling-1.png" | relative_url }})
+
+It contains the following sections:
+
+- Null, empty and filled by key – a stacked bar chart comparing the proportion of null, empty, and filled records for every key. Keys are sorted by null percentage, from highest to lowest. If the vocabulary has more than 20 keys, only the top 20 are charted; use the table below to see the rest.
+
+- All keys – a table listing every key in the vocabulary with its total records, null percentage, empty percentage, and distinct values. Select a column header to sort the table.
+
 **Pending changes**
 
 This tab contains tasks for reviewing changes to the vocabulary submitted by users who are not Vocabulary Owners.
