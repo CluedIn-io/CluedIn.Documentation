@@ -80,6 +80,8 @@ A platform is an external AI service provider that hosts and manages the AI mode
 
     The platform is created, and you can proceed to configure the deployment.
 
+On the platform's details page, select **Test Connection** to check whether CluedIn can reach the platform with the given API key. If it fails, select **Run Diagnostics** to see which part of the connection is the problem - see [Diagnose a connection problem](/publish/export-targets#diagnose-a-connection-problem).
+
 ### Configure a deployment
 
 A deployment is a specific instance or configuration of an AI model hosted on a platform that AI agents use to perform their tasks. For GPT-based deployments, we recommend **GPT-5.1 or higher**. It defines how and where the AI model runs, including the model version, resource allocation, and any customizations applied.
@@ -107,6 +109,8 @@ A deployment is a specific instance or configuration of an AI model hosted on a 
 1. Select **Create**.
 
     The deployment is created, and you can proceed to configure the model endpoint.
+
+On the deployment's details page, select **Test Connection** to send a short sample chat through the deployment, or select **Run Diagnostics** to see which part of the connection - including the deployment's own sample chat - is the problem. See [Diagnose a connection problem](/publish/export-targets#diagnose-a-connection-problem).
 
 ### Configure a model endpoint
 
@@ -136,6 +140,8 @@ An endpoint is the address (URL) through which AI agents communicate with the de
 1. Select **Create**.
 
     The model endpoint is created, and you can proceed to [create AI agents and jobs](/govern/ai-agents/create-configure-and-run-an-ai-agent).
+
+On the endpoint's details page, select **Test Connection** to send a short sample request through the endpoint, or select **Run Diagnostics** to see which part of the connection is the problem. See [Diagnose a connection problem](/publish/export-targets#diagnose-a-connection-problem).
 
 ## Configure organization-wide settings for AI agents
 
