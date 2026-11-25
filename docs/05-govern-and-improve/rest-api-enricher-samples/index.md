@@ -29,15 +29,24 @@ Use the filter above the table to find a register by country, register or identi
 | Colombia | [RUES](/govern/rest-api-enricher-samples/rues-colombia) | NIT | optional |
 | Estonia | [e-Business Register](/govern/rest-api-enricher-samples/e-business-register-estonia) | Registry code | not needed |
 | Finland | [Finnish Business Information System](/govern/rest-api-enricher-samples/ytj-finland) | Business ID (Y-tunnus) | not needed |
+| Greece | [GEMI](/govern/rest-api-enricher-samples/gemi-greece) | GEMI number or AFM | GEMI Open Data API key (free) |
 | Hong Kong | [Companies Registry](/govern/rest-api-enricher-samples/companies-registry-hong-kong) | Business Registration number | not needed |
 | India | [MCA company master data](/govern/rest-api-enricher-samples/mca-india) | CIN | data.gov.in API key (free) |
+| Israel | [Companies Registrar](/govern/rest-api-enricher-samples/companies-registrar-israel) | Company number | not needed |
 | Japan | [gBizINFO](/govern/rest-api-enricher-samples/gbizinfo-japan) | Corporate number | gBizINFO API token (free) |
+| Latvia | [Enterprise Register](/govern/rest-api-enricher-samples/enterprise-register-latvia) | Registration number | not needed |
+| Malta | [Malta Business Registry](/govern/rest-api-enricher-samples/mbr-malta) | Company registration number | MBR API package (paid) |
 | Mexico | [DENUE](/govern/rest-api-enricher-samples/denue-mexico) | DENUE establishment ID | INEGI DENUE token (free) |
 | Netherlands | [KVK](/govern/rest-api-enricher-samples/kvk-netherlands) | KVK number | KVK API key (paid) |
 | New Zealand | [Companies Office NZBN](/govern/rest-api-enricher-samples/nzbn-new-zealand) | NZBN | NZBN API subscription key (free) |
+| Nigeria | [CAC](/govern/rest-api-enricher-samples/cac-nigeria) | RC number | CAC VAS API key (paid) |
 | Norway | [Brønnøysund Register Centre](/govern/rest-api-enricher-samples/brreg-norway) | Organization number | not needed |
 | Philippines | [SEC](/govern/rest-api-enricher-samples/sec-philippines) | SEC registration number | SEC API Marketplace key and secret |
+| Saudi Arabia | [Wathq Commercial Registration](/govern/rest-api-enricher-samples/wathq-saudi-arabia) | CR number | Wathq API key (paid) |
+| Serbia | [APR](/govern/rest-api-enricher-samples/apr-serbia) | Registration number | not needed |
 | Singapore | [ACRA](/govern/rest-api-enricher-samples/acra-singapore) | UEN | optional |
+| Slovakia | [Register of Legal Entities](/govern/rest-api-enricher-samples/rpo-slovakia) | IČO | not needed |
+| Slovenia | [AJPES Business Register](/govern/rest-api-enricher-samples/ajpes-slovenia) | Registration or tax number | AJPES username and password (paid) |
 | South Africa | [CIPC](/govern/rest-api-enricher-samples/cipc-south-africa) | Enterprise number | CIPC APIVerse subscription key |
 | South Korea | [OpenDART](/govern/rest-api-enricher-samples/opendart-south-korea) | DART corporation code | OpenDART API key (free) |
 | Taiwan | [Ministry of Economic Affairs](/govern/rest-api-enricher-samples/moea-taiwan) | Unified business number | not needed |
