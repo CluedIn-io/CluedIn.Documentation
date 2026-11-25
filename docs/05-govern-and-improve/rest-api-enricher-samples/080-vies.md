@@ -51,11 +51,17 @@ organization.address.countryCode
 | `vies.vatNumber` | `6388047V` | VAT number that was checked, without the country prefix. |
 | `vies.requestDate` | `2026-11-24` | Date when VIES checked the number. |
 
-The enricher results first appear on the enricher's **Preview** tab.
+Where the results go depends on the enricher's **Enable Mapping** setting. It is on by default, and can't be changed after the enricher is created.
+
+- **Enable Mapping on** – the results first appear on the enricher's **Preview** tab, and you map and process them before they're added to golden records (see below).
+
+- **Enable Mapping off** – the `vies.*` properties are added to the golden records directly.
+
+With **Enable Mapping** on, the results look like this on the **Preview** tab:
 
 ![Preview tab of the REST API enricher showing VIES results for four companies, with valid, countryCode, vatNumber, requestDate, name, and address columns]({{ "/assets/images/preparation/enricher/rest-api-vies-1.png" | relative_url }})
 
-To add them to golden records, go to the **Map** tab, select **Map Data**, and choose **Auto Mapping**. Select the business domain, enter a new vocabulary named `VIES` with the key prefix `vies`, and then create the mapping. Auto mapping also uses `name` as the golden record name, so remove that from the mapping if you want to keep your existing names. Then process the data on the **Process** tab.
+To add them to golden records, go to the enricher's **Map** tab, select **Map Data**, and choose **Auto Mapping**. Select the business domain, enter a new vocabulary named `VIES` with the key prefix `vies`, and then create the mapping. Auto mapping also uses `name` as the golden record name, so remove that from the mapping if you want to keep your existing names. Then process the data on the **Process** tab.
 
 ![Properties page of the Google Ireland golden record showing the vies.address, vies.countryCode, vies.name, vies.requestDate, vies.valid, and vies.vatNumber properties added by the REST API enricher]({{ "/assets/images/preparation/enricher/rest-api-vies-2.png" | relative_url }})
 
