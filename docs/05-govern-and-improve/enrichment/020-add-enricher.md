@@ -37,6 +37,8 @@ You can add an enricher both before and after processing the data.
 
 1. On the **Configure** tab, enter the authentication details. The list of fields that you need to complete depends on the selected enricher. You can complete the fields now or do it later on the enricher details page.
 
+1. Optional: select **Configure with AI** to have AI suggest the configuration. See [Configure with AI](#configure-with-ai).
+
 1. Select **Save**.
 
     ![Animation: from Enrich, Add Enricher is selected, an enricher is chosen, its Configure tab is completed, and the details page opens]({{ "/assets/images/preparation/enricher/add-enricher.gif" | relative_url }})
@@ -54,6 +56,48 @@ On the enricher details page, you can manage the enricher:
 - Inactivate the enricher if you no longer need it.
 
 - Manage users who have access to the data coming through the enricher. For more details, see [Data access](/administer/users-and-roles/data-access).
+
+## Configure with AI
+
+Instead of filling in the **Configure** tab yourself, you can have AI suggest the vocabulary keys and, optionally, a filter, a rate limit, or a recurring schedule for the enricher.
+
+![The Configure with AI panel on the Add Enricher dialog's Configure tab, with a Business domain selector, a Prompt field, and a Suggest settings button]({{ "/assets/images/preparation/enricher/configure-with-ai/configure-with-ai-panel.png" | relative_url }})
+{: .documentation-screenshot}
+
+**To configure an enricher with AI**
+
+1. On the **Configure** tab, select **Configure with AI**.
+
+1. Select the **Business domain** to enrich. AI reads the vocabulary keys that belong to this business domain to find candidates for the enricher's fields.
+
+1. Optional: enter a **Prompt** with extra context, or ask AI to add a filter, a rate limit, or a recurring schedule. Drag a vocabulary key from the **Vocabulary keys** list into the prompt to reference it directly.
+
+1. Optional: expand **Advanced** to choose a different AI endpoint. By default, suggestions use the organization's default AI endpoint.
+
+1. Select **Suggest settings**.
+
+   AI fills in the fields on the **Configure** tab with its suggestions. Each suggested field is labeled **AI suggested**, with the reason for that suggestion.
+
+   ![The Configure tab after AI suggested settings: a summary banner showing the business domain, prompt and number of settings suggested, with Undo all and Suggest again buttons]({{ "/assets/images/preparation/enricher/configure-with-ai/ai-suggested-summary.png" | relative_url }})
+   {: .documentation-screenshot}
+
+1. Review the suggestions before saving the enricher:
+
+   - For a vocabulary key field, AI fills in its best match. If more than one vocabulary key is a plausible match, the field is labeled **Requires manual action** and lists the **Possible keys** to choose from.
+   - If your prompt asked for a rate limit or a recurring schedule, review the suggested values under **Rate Limiting** and **Recurring Enrichment** further down the **Configure** tab.
+
+   ![The Website Vocabulary Key field with two AI-suggested possible keys, and Enable Rate Limiting turned on with a reason and a suggested number of calls]({{ "/assets/images/preparation/enricher/configure-with-ai/vocabulary-and-rate-limit-suggestion.png" | relative_url }})
+   {: .documentation-screenshot}
+
+   ![The Recurring Enrichment toggle turned on with an AI-suggested reason, and the Schedule Frequency fields below it showing the suggested repeat interval and days]({{ "/assets/images/preparation/enricher/configure-with-ai/schedule-suggestion.png" | relative_url }})
+   {: .documentation-screenshot}
+
+1. Optional: change any suggested value yourself, select **Suggest again** to rescan with a different prompt or business domain, or select **Undo all** to discard every AI suggestion and restore the values you had before.
+
+1. Select **Save** on the **Configure** tab to save the enricher with the reviewed configuration.
+
+{:.note}
+**Configure with AI** only fills in the fields on the **Configure** tab; it does not save the enricher. Nothing from the AI suggestions is applied until you select **Save**.
 
 ## Trigger enrichment 
 
@@ -117,6 +161,7 @@ According to the [data life cycle](/get-started/core-concepts/data-life-cycle), 
 - **Enrichment changes golden records.** Information from the enricher arrives as a clue with the same primary identifier as the golden record. During processing, CluedIn turns it into a data part and merges it into the existing golden record by identifiers, so the golden record gains new properties and a new data part in its history. See [Concept of enricher](/govern/enrichment/concept-of-enricher).
 - **Triggering enrichment with GraphQL** acts on every golden record that the search query returns, for example all golden records of a business domain.
 - **To remove enriched data**, [delete the enricher's data part](/master/golden-records/delete-data-parts-from-golden-records) from the golden record. A data part from an enricher may appear again, so inactivate the enricher before you delete it.
+- **Selecting Suggest settings only fills in the Configure tab.** AI suggestions are not saved, and the enricher is not created, until you select **Save**.
 
 ## If something goes wrong
 
@@ -124,3 +169,5 @@ According to the [data life cycle](/get-started/core-concepts/data-life-cycle), 
 - **The enricher finds nothing for a golden record.** Check that the golden record has a value in the vocabulary key the enricher searches with, and that the enricher's authentication details are complete on the enricher details page.
 - **Enrichment results wait for review instead of appearing on the golden record.** The enricher returned several candidates. Review them on the **Matches** tab; see [Multi-match enrichment](/govern/enrichment/multi-match).
 - **Deleted enrichment data comes back.** Inactivate the enricher, and then delete the data part again.
+- **Suggest settings is disabled.** Select a **Business domain** first; AI needs it to find vocabulary key candidates.
+- **AI could not suggest a configuration.** This can happen when no AI endpoint is configured, or when the AI request fails. Expand **Advanced** to check or change the AI endpoint, and try **Suggest settings** again. You can still fill in the **Configure** tab yourself.
