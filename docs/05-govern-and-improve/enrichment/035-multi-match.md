@@ -31,6 +31,8 @@ If an enricher returns only one match for a golden record, that match does not a
 
 1. In the **Enriched records** list, select the record whose candidates you want to review.
 
+   The list shows 20 enriched records per page. If there are more, use the arrows at the bottom of the list to move between pages, or select the page number and choose or type the page you want. Moving to another page selects the first record on that page.
+
    The matches table displays the candidates for the selected enriched record.
 
    ![Matches tab of a Companies House enricher: Enriched records list with statuses on the left, and the matches table with Compare links, Status and Comparison score for the selected record]({{ "/assets/images/preparation/enricher/multi-match/multi-match-table.png" | relative_url }})
@@ -83,9 +85,9 @@ Use the filter above the **Enriched records** list to find records by their aggr
 
 1. Select the filter icon next to the **Search enriched record** field.
 
-1. Under **Group status**, select one or more statuses to show only the matching enriched records.
+1. Under **Status**, select one or more statuses to show only the matching enriched records.
 
-   The number next to each status shows how many enriched record groups have that status. **Needs review** excludes enriched records with auto-selected candidates; use **Auto-selected** to view those records.
+   The number next to each status shows how many enriched records have that status. **Needs review** excludes enriched records with auto-selected candidates; use **Auto-selected** to view those records.
 
 1. Select **Reset** to clear the status filters and show all enriched records again.
 
