@@ -18,12 +18,12 @@ summary: Publish CluedIn's mastered data into Microsoft IQ - Fabric IQ, Foundry 
 
 | Product | What CluedIn publishes | Where it lands |
 |--|--|--|
-| [Fabric IQ](/solutions/microsoft-iq/fabric-iq) | The global data model: business domains, their vocabulary keys and relationships | A Fabric IQ **ontology** in a Fabric workspace |
+| [Fabric IQ](/solutions/microsoft-iq/fabric-iq) | The global data model: business domains, their vocabulary keys and relationships, through the existing **Sync with Microsoft Fabric Ontology** | A Fabric IQ **ontology** in a Fabric workspace |
 | [Foundry IQ](/solutions/microsoft-iq/foundry-iq) | Golden records | An Azure AI Search index, a **knowledge source** over it, and a **knowledge base** agents connect to |
 | [Work IQ](/solutions/microsoft-iq/work-iq) | Golden records | A **Microsoft 365 Copilot connector**, so Microsoft 365 Copilot and Work IQ agents can answer questions about them |
 | [Web IQ](/solutions/microsoft-iq/web-iq) | The websites held on golden records | A named Web IQ **scope**, so web grounding can be restricted to, for example, your suppliers' own sites |
 
-Fabric IQ builds on the [global data model](/model/global-data-model) and reuses an existing [Microsoft Fabric connection](/solutions/fabric), so it needs no credentials of its own.
+Fabric IQ is the existing global data model to Fabric ontology sync, managed as a Microsoft IQ connection. It reuses an existing Microsoft Fabric connection, so it needs no credentials of its own.
 
 ## How it works
 
@@ -70,7 +70,7 @@ These fields apply to every connection:
 | `name` | A friendly name. |
 | `product` | `FabricIQ`, `FoundryIQ`, `WorkIQ` or `WebIQ`. Can't be changed later. |
 | `tenantId`, `clientId`, `clientSecret` | The Microsoft Entra ID app registration. Not used by Fabric IQ. |
-| `entityTypes` | The business domains to publish, for example `["/Organization"]`. Empty publishes all of them. |
+| `entityTypes` | The business domains to publish, for example `["/Organization"]`. Empty publishes all of them. Fabric IQ always publishes the whole global data model. |
 | `maxRecords` | The most golden records one run publishes. |
 | `cronSchedule`, `enabled` | The publish schedule. |
 
