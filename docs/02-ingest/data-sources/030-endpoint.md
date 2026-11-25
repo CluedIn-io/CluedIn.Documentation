@@ -9,7 +9,7 @@ content_type: how-to
 redirect_from: ["/integration/endpoint", "/developer/webhooks"]
 source_path: docs/040-integration/data-sources/150-endpoint.md
 tags: ["integration"]
-last_modified: 2024-10-31
+last_modified: 2026-11-20
 ---
 
 ## On this page
@@ -111,11 +111,11 @@ To be accepted by CluedIn, your HTTP POST request should meet the following prer
 
     ![POST request Headers tab with the Authorization key set to a value starting with Bearer followed by the API token]({{ "/assets/images/integration/data-sources/ingest-data-6.png" | relative_url }})
 
-- The request's body should contain **raw data in JSON format**.
+- The request's body should contain **raw data in JSON format** – a JSON array of records. Alternatively, you can send an array of records in XML format; see [Send data in XML format](#send-data-in-xml-format).
 
     ![POST request Body tab set to raw and JSON, with a JSON array of company records in the body]({{ "/assets/images/integration/data-sources/ingest-data-2.png" | relative_url }})
 
-- The **content-type** in the request's header should be set to **application/json**.
+- The **content-type** in the request's header should be set to **application/json** (or to **application/xml** or **text/xml** when you send XML).
 
     ![POST request Headers tab with the Content-Type key set to application/json]({{ "/assets/images/integration/data-sources/ingest-data-3.png" | relative_url }})
  
@@ -130,6 +130,51 @@ To be accepted by CluedIn, your HTTP POST request should meet the following prer
 1. In Postman, paste the URL that you copied to the URL input field of your request. Then, send the request.
 
     The data has been sent to CluedIn. You can now view it on the [Preview](/ingest/processing/preview) tab of the data set. The next steps involve [creating a mapping](/ingest/mapping/create-mapping) and [processing the data](/ingest/processing/process-data).
+
+### Send data in XML format
+
+Ingestion endpoints also accept an array of records in XML format, so you can push data from systems that produce XML without converting it to JSON first. CluedIn uses the **Content-Type** header to tell the two formats apart, and the POST URL is the same for both.
+
+{:.important}
+JSON remains the default format, so existing integrations keep working without any change. CluedIn reads the body as XML only when the **Content-Type** header is explicitly set to **application/xml** or **text/xml**. A request with any other content type is handled exactly as before.
+
+To send XML, set the request's **Content-Type** header to **application/xml** or **text/xml**. In the request body, use a single root element that wraps the records, with each child element of the root representing one record. The names of the root and record elements are up to you.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<customers>
+  <customer id="C-1">
+    <name>Alice Smith</name>
+    <country>NO</country>
+    <code>007</code>
+  </customer>
+  <customer id="C-2">
+    <name>Bob Jones</name>
+    <country>DK</country>
+    <code>042</code>
+  </customer>
+</customers>
+```
+
+CluedIn converts each record into the same structure it would receive from the JSON array `[{"id": "C-1", "name": "Alice Smith", "country": "NO", "code": "007"}, ...]`. From that point, the data goes through the same validation, storage, mapping, and processing as JSON data. When CluedIn converts XML records, the following rules apply:
+
+- Attributes and child elements of a record become its properties.
+
+- All values are kept as text. For example, `007` stays `007`.
+
+- Entities (such as `&amp;`) and `CDATA` sections are decoded. Namespace prefixes are removed from element names.
+
+- A child element that is repeated within a record becomes a list of values, and a child element that contains its own child elements becomes a nested object. Both are handled exactly like an array or object value in a JSON payload.
+
+If the XML can't be read, CluedIn doesn't ingest any of the records. You'll receive a response with the status "400 Bad Request" and an error with the `invalid-xml-sent` message ID that explains the problem. This happens in the following cases:
+
+- The XML is malformed – the error message includes the line and column of the problem.
+
+- The body has more than one root element, or the root element contains text instead of record elements.
+
+- A record contains only text, without child elements or attributes.
+
+- The body contains a `DOCTYPE` declaration, which isn't supported.
 
 ## Schema protection
 
