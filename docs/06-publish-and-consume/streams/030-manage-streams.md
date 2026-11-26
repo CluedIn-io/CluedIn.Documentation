@@ -105,6 +105,9 @@ If you change filters or actions in the stream configuration or if you make any 
 
 Stream mappings control the name that each field has in the data sent to the export target. For example, you can map `customer.firstName` to `FirstName` or `First_Name`, so the field appears under a different name in the exported output than it has in CluedIn.
 
+{: .important }
+The **Field mappings** tab is only available when the **Stream Field Mappings** [feature flag](/administer/feature-flags) is turned on for your organization. To turn it on, go to **Administration** > **Feature flags**, and then enable the **Stream Field Mappings** feature.
+
 You can view and manage field mappings on the **Field mappings** tab of the stream details page. Every field mapping also determines whether that field is sent to the export target: removing a mapping stops that field from being exported, and the fields you select on the **Properties to export** tab when you [configure the export target](/publish/streams/create-a-stream#configure-an-export-target) are reflected here as field mappings too.
 
 **To add a field mapping**
