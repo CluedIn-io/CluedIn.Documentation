@@ -201,13 +201,15 @@ names a formula uses at runtime.
 | `Uri` | Text or blank | Serialized URI |
 | `DocumentMimeType`, `DocumentFileName`, `Encoding` | Text or blank | Document metadata |
 | `DocumentSize` | Number or blank | Document size |
-| `ProviderDefinitionId` | GUID or blank | Provider definition identifier |
+| `ProviderDefinitionId` | GUID or blank | Provider definition identifier of the source that sent a data part |
+| `ProviderDefinitionIds` | Single-column GUID table | Provider definition identifiers of the record's sources. A data part has only its own; a golden record has those of all its data parts |
+| `Providers` | Single-column text table | Origins of the record's identifiers, for example the source name in `/Customer#Salesforce:123` |
 | `OutgoingEdges`, `IncomingEdges` | Tables | Relationship edges carried on the record - see below |
-| `_metadataId` | GUID | Internal identity used by the runtime; do not set it |
+| `_metadataId` | GUID | Internal identity used by the runtime; do not set it. The formula editor does not offer it |
 
 Golden records additionally expose `IsShadowEntity`, `IsExternalData` and `IsDeleted` (Boolean,
-possibly blank), `ProviderDefinitionIds` (single-column GUID table), and `Providers` and
-`VocabulariesUsed` (single-column text tables).
+possibly blank), and `VocabulariesUsed` (single-column text table). Data parts do not have these
+fields, so `DataPart.IsShadowEntity` in a survivorship action condition is an error.
 
 When the result is written back, `BusinessDomain` maps to the native `EntityType`,
 `PrimaryIdentifier` to `OriginEntityCode`, and `Identifiers` to `Codes`. Formulas must use the
@@ -227,10 +229,9 @@ DateTimeValue(Entity.ModifiedDate) > DateTimeValue("2025-01-01")
 
 Guard empty tables before using `First`, and handle blank or invalid date text where it can occur.
 
-{: .warning }
-The formula editor's IntelliSense uses a separate sample schema. It describes dates as date-time values
-and omits `IncomingEdges`, while at runtime dates are text and both edge tables exist. When the editor
-and the runtime disagree, the runtime schema on this page is the one that applies.
+The formula editor's IntelliSense and the AI formula generator offer exactly the fields above, with
+the same types, for each scope: a data part's fields for `Entity` in data part rules and for
+`DataPart` in survivorship action conditions, and a golden record's fields everywhere else.
 
 ### Properties are rows, not fields
 
