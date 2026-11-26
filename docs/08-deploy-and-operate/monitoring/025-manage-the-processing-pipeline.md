@@ -96,7 +96,7 @@ Select the checkbox on each card, or the checkbox in a stage header to select th
 3. Choose the **Format**: **CSV** or **Excel**.
 4. Select **Export**. The file downloads straight away.
 
-![The Export pipeline dialog with the scope options All, Current view and Selected, and the format options CSV and Excel]({{ "/assets/images/operate/processing-pipeline/export.png" | relative_url }})
+![The Export pipeline dialog with a Scope dropdown (All, Current view or Selected) and a Format dropdown (CSV or Excel)]({{ "/assets/images/operate/processing-pipeline/export.png" | relative_url }})
 
 The file has one row per item, with its stage, name, status, message counts, rates, failed messages and queue name.
 
