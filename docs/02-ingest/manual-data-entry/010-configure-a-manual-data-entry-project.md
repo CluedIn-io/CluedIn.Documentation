@@ -8,7 +8,7 @@ permalink: /ingest/manual-data-entry/configure-a-manual-data-entry-project
 content_type: how-to
 redirect_from: ["/integration/manual-data-entry/configure-a-manual-data-entry-project"]
 source_path: docs/040-integration/manual-data-entry/010-configure-a-manual-data-entry-project.md
-last_modified: 2025-04-01
+last_modified: 2026-11-26
 ---
 
 ## On this page
@@ -96,6 +96,22 @@ A form field is an element in a manual data entry project that represents a prop
 
 1. If you want to restrict the input in the field to only existing values from the vocabulary key, turn on the toggle for **Only Existing Values**. This option is available only for the **Text Field** type only.
 
+1. If you want the field to number new records automatically—for example, `CUST-01001`, `CUST-01002`, and so on—turn on the toggle for **Identifier seed (auto-increment)**, and then enter:
+
+    - **Start value** – the number of the first record.
+
+    - **Increment** – how much the number grows from one record to the next.
+
+    - (Optional) **Prefix** – text in front of the number, such as `CUST-`.
+
+    - (Optional) **Minimum digits** – the number is padded with zeros to this many digits.
+
+    The **Next values** line previews the result. This option is available for the **Text Field** type only.
+
+    ![The Edit Form Field panel for Customer ID with Identifier seed (auto-increment) turned on, Start value 1001, Increment 1, Prefix CUST- and Minimum digits 5, previewing CUST-01001, CUST-01002, CUST-01003]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-identifier-seed.png" | relative_url }})
+
+    Every new record gets the next value automatically, in both the Form and Tabular views of a session. CluedIn hands out each value only once, even when several people add records at the same time. A value is not reused when its record is deleted, so the numbers can have gaps. If you later raise the start value above the last value handed out, numbering continues from the new start value.
+
 1. If you want to use the field for producing the identifier for a record, turn on the toggle for **Use as identifier**.
 
 1. (Optional) Enter the description of the form field.
@@ -106,7 +122,7 @@ A form field is an element in a manual data entry project that represents a prop
 
     The form field is added to the **Form Fields** tab of the manual data entry project.
 
-1. To add more form fields, repeat steps 1–11.
+1. To add more form fields, repeat steps 1–12.
 
     Once you have created all the form fields you need, [review](#review-and-modify-mapping-configuration) the mapping configuration for the records that will be created in a project and modify it as needed.
 
