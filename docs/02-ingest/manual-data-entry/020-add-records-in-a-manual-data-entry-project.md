@@ -119,17 +119,46 @@ Go to **Administration** > **Feature Flags**, and then enable the **Manual data 
 
 | Action | How |
 |--|--|
-| Move to the next or previous cell | **Tab** / **Shift+Tab** |
-| Move to the cell below or above | **Enter** or **↓** / **Shift+Enter** or **↑** (in text cells) |
 | Add a record | Type into the next empty row, or select **Add row** |
 | Add many records from Excel or a CSV file | Copy them and paste into the table, or select **Smart paste** |
-| Copy the cell above into the selected cell | **Ctrl+D** (**⌘+D** on a Mac) |
 | Copy the selected cell into the empty cells below it | **Fill down**. Cells that already have a value are not changed. |
-| Undo, redo, save | **Ctrl+Z**, **Ctrl+Shift+Z**, **Ctrl+S** (or the toolbar buttons) |
 | Keep the header row or the first column in view while scrolling | **Freeze** > **Freeze header row** / **Freeze first column** |
 | Show only the rows with a missing required field or a value that breaks a validation rule | **Filter** > **Rows with issues** |
 
-Fill down and **Ctrl+D** are not available in an identifier seed column, so its values stay unique.
+### Keyboard shortcuts
+
+The Tabular view uses the same keyboard shortcuts as Microsoft Excel. As in Excel, a cell is in one of three modes, shown at the left of the status bar above the table:
+
+- **Ready** – the cell is selected. The arrow keys move to another cell, and typing replaces the cell's value.
+- **Enter** – you started typing into the cell. The arrow keys still move to another cell, keeping what you typed.
+- **Edit** – you pressed **F2** or double-clicked the cell. The arrow keys move the cursor within the value.
+
+Selecting a cell with a single click puts it in Ready mode. On a Mac, use **⌘** instead of **Ctrl**.
+
+| Action | Shortcut |
+|--|--|
+| Move one cell | **←**, **→**, **↑**, **↓** (in Ready and Enter mode) |
+| Move to the next or previous cell in the row | **Tab** / **Shift+Tab**. From the last column, **Tab** moves to the start of the next row; from the last cell, it adds a row. |
+| Move to the cell below or above | **Enter** / **Shift+Enter**. After a run of **Tab** presses, **Enter** goes back to the column you started in, on the next row. |
+| Move to the edge of the data | **Ctrl+arrow key** |
+| Move to the first cell of the row | **Home** |
+| Move to the first cell, or to the last cell with data | **Ctrl+Home** / **Ctrl+End** |
+| Move one screen down or up | **Page Down** / **Page Up** |
+| Edit the cell (cursor at the end) | **F2**, or double-click the cell |
+| Cancel what you typed | **Esc** |
+| Clear the selected cells | **Delete** |
+| Clear the cell and start editing it | **Backspace** |
+| Enter the value and stay in the cell; with several cells selected, enter it into all of them | **Ctrl+Enter** |
+| Select cells | **Shift+arrow key**, **Shift+click**, or drag across the cells. **Ctrl+Shift+arrow key** extends to the edge of the data. |
+| Select the column, the row, or all the cells | **Ctrl+Space** / **Shift+Space** / **Ctrl+A** |
+| Fill down / fill right: copy the top row (or left column) of the selection into the rest of it; with one cell selected, copy the cell above (or to the left) | **Ctrl+D** / **Ctrl+R** |
+| Copy the value of the cell above into the cell, to edit it | **Ctrl+'** |
+| Insert the current date / time | **Ctrl+;** / **Ctrl+Shift+;** |
+| Copy, cut, paste | **Ctrl+C**, **Ctrl+X**, **Ctrl+V**. Selected cells are copied as rows of tab-separated values, as Excel does. A single value pasted over several selected cells goes into all of them; a block of cells pasted from Excel opens [Smart paste](#paste-records-from-excel). |
+| Open the list of a list cell (such as a country) | **Alt+↓**, or start typing |
+| Undo, redo, save | **Ctrl+Z**, **Ctrl+Y**, **Ctrl+S**. While typing in a cell, **Ctrl+Z** cancels the typing, as in Excel. |
+
+Fill down, **Ctrl+D**, **Ctrl+R** and clearing don't change an identifier seed column, so its values stay unique.
 
 ### Paste records from Excel
 
