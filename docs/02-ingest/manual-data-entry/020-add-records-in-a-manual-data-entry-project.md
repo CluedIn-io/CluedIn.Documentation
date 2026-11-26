@@ -45,9 +45,11 @@ The process of adding a single record consists of filling out all the required f
 
 1. Fill out the fields for a record.
 
-    ![Session in Form view with a draft record: the auto-save status and required fields progress above the form, Customer ID filled in automatically, the Postal code 400 flagged with the message to enter a valid Australian postal code, and Save & add another at the bottom]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-form-view.png" | relative_url }})
+    ![Session in Form view: auto-save status and required fields progress above the form, cascading State/Region and City set to Queensland and Cairns, and the Email, Website, Founded and Employees fields flagged with their validation messages]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-form-view.png" | relative_url }})
 
-    Every change is saved to the session automatically. Above the form, you can see when the record was last saved and how many of its required fields are filled. A required field that is empty, or a value that breaks one of the field's [validation rules](/ingest/manual-data-entry/configure-a-manual-data-entry-project#create-form-fields), is highlighted in red with the rule's message.
+    Press **Tab** to move to the next field. Every change is saved to the session automatically. Above the form, you can see when the record was last saved and how many of its required fields are filled. A required field that is empty, or a value that breaks one of the field's [validation rules](/ingest/manual-data-entry/validation-rules), is highlighted in red with the rule's message.
+
+    A field whose values depend on another field—for example, a city that depends on the state—shows **Choose … first** until that field has a value, and then offers only the values that fit it.
 
 1. To add another record, select **Save & add another** at the bottom of the page, or press **Ctrl+Enter** (**⌘+Enter** on a Mac). To move between the records of the session, use **Previous** and **Next**, or select a record in the **Draft records** list.
 
@@ -91,9 +93,11 @@ Go to **Administration** > **Feature Flags**, and then enable the **Manual data 
 
 1. On the manual data entry project page, select **Add Record**, and then select **Tabular** in the upper-right corner of the session.
 
-1. Enter the data in the cells. To add more rows, select **Add row**, or press **Enter** in the last row.
+1. Enter the data in the cells. Like a spreadsheet, the table always has empty rows below the records, enough to fill the page: just type into the next one. A row becomes a record as soon as you type into it (and gets its identifier seed, if the project has one); empty rows aren't records, so they aren't checked, saved or published.
 
-    ![Session in Tabular view with the toolbar (Add row, Undo, Redo, Save, Reset, Fill down, Freeze, Filter, AI autofill, Install Excel add-in), lettered columns, three rows of customer data with State/Region filled down, and the active cell and validation summary on the right]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-tabular-view.png" | relative_url }})
+    To add records you already have in Excel or a CSV file, copy the rows and paste them into the table—see [Paste records from Excel](#paste-records-from-excel).
+
+    ![Session in Tabular view with the toolbar (Add row, Undo, Redo, Save, Reset, Fill down, Freeze, Filter, Smart paste, AI autofill, Install Excel add-in), four records including two pasted ones, and empty rows below them]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-tabular-view.png" | relative_url }})
 
     The right side of the toolbar shows the active cell (for example, **D1 · State/Region**), the number of rows, how many required fields are still missing, and how many values break a validation rule. Select the summary to show only the rows that need attention.
 
@@ -117,7 +121,8 @@ Go to **Administration** > **Feature Flags**, and then enable the **Manual data 
 |--|--|
 | Move to the next or previous cell | **Tab** / **Shift+Tab** |
 | Move to the cell below or above | **Enter** or **↓** / **Shift+Enter** or **↑** (in text cells) |
-| Add a row | **Add row**, or **Enter** in the last row |
+| Add a record | Type into the next empty row, or select **Add row** |
+| Add many records from Excel or a CSV file | Copy them and paste into the table, or select **Smart paste** |
 | Copy the cell above into the selected cell | **Ctrl+D** (**⌘+D** on a Mac) |
 | Copy the selected cell into the empty cells below it | **Fill down**. Cells that already have a value are not changed. |
 | Undo, redo, save | **Ctrl+Z**, **Ctrl+Shift+Z**, **Ctrl+S** (or the toolbar buttons) |
@@ -125,6 +130,20 @@ Go to **Administration** > **Feature Flags**, and then enable the **Manual data 
 | Show only the rows with a missing required field or a value that breaks a validation rule | **Filter** > **Rows with issues** |
 
 Fill down and **Ctrl+D** are not available in an identifier seed column, so its values stay unique.
+
+### Paste records from Excel
+
+Copy rows from Excel, Google Sheets or a CSV file—with or without their header row—and paste them anywhere in the table (or select **Smart paste** and paste them into the box).
+
+1. The **Smart paste** panel shows each pasted column, a few of its values, and the field it goes to. Columns are matched to the fields by their names, and AI matches the rest from their names and values—for example, **Town** to **City** or **Staff** to **Employees**. If the first row isn't column names, clear **The first row holds the column names**: the columns then go to the fields in order, starting at the selected column.
+
+    ![The Smart paste panel with columns Company, Country, State, Town, Post code, E-mail and Staff matched to the fields Name, Country, State/Region, City, Postal code, Email and Employees]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-smart-paste.png" | relative_url }})
+
+1. Check the mapping. To change where a column goes, select another field; to leave a column out, clear it (**Don't import**).
+
+1. Select **Add**.
+
+    The rows are added as new records, in one step you can undo. Pick list values are matched regardless of case, and identifier seeds are filled in. The records are checked like any other: fix what is highlighted, and then select **Save**.
 
 ### Fill empty cells with AI
 
