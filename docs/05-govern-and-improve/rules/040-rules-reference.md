@@ -100,6 +100,18 @@ Another example is to select from data parts belonging to a particular business 
 GetVocabularyKeyValue(DataPart, "customer.sourceTier") = "Authoritative"
 ```
 
+To select from data parts sent by a particular source, filter on the data part's provider definition ID, or on the provider names taken from its identifiers:
+
+```powerfx
+!IsEmpty(Filter(DataPart.ProviderDefinitionIds, Value = GUID("03b88b70-d11f-4572-8f3d-ab6260610498")))
+```
+
+```powerfx
+"Salesforce" in DataPart.Providers
+```
+
+A data part's `ProviderDefinitionIds` and `Providers` hold only that data part's own sources, not those of the whole golden record.
+
 This pattern is useful for survivorship requirements such as:
 
 - Use the latest value only from data parts that have passed a validation check.
