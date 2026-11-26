@@ -105,7 +105,7 @@ You can configure the export target for the stream on the **Export Target Config
 
     If you want to send all vocabulary keys associated with the records matching the stream's filters, select **Auto-select**. All vocabulary keys will be displayed in the table. If you don't want to send a particular vocabulary key, select the checkbox next to it, and then select **Remove Property**.
 
-    By default, a property is sent to the export target under its original name. If you want it to have a different name in the exported output, [manage field mappings](/publish/streams/manage-streams#manage-field-mappings) on the **Field mappings** tab after you save the stream.
+    By default, a property is sent to the export target under its original name. If you want it to have a different name in the exported output, [manage field mappings](/publish/streams/manage-streams#manage-field-mappings) on the **Field mappings** tab after you save the stream (requires the **Stream Field Mappings** [feature flag](/administer/feature-flags)).
 
 1. Near the upper-right corner, select **Save**.
 
