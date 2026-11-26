@@ -8,7 +8,7 @@ permalink: /ingest/manual-data-entry/configure-a-manual-data-entry-project
 content_type: how-to
 redirect_from: ["/integration/manual-data-entry/configure-a-manual-data-entry-project"]
 source_path: docs/040-integration/manual-data-entry/010-configure-a-manual-data-entry-project.md
-last_modified: 2025-04-01
+last_modified: 2026-11-26
 ---
 
 ## On this page
@@ -78,9 +78,13 @@ A form field is an element in a manual data entry project that represents a prop
 
     - **Text Field** – an input type where you can enter any text in the field.
 
+    - **Long text**, **Number**, **Date**, **Email address**, **Web address (URL)**, **Phone number** and **Image (link)** – an input made for that kind of value. Each one also checks the value's format; see [field types](/ingest/manual-data-entry/validation-rules#field-types-and-the-format-they-imply). An image link shows a preview of the image.
+
     - **Pick List** – an input type where you can select an option from a predefined list. If you select this form field type, you need to add the options for the list.
 
     - **Toggle** – an input type where you can switch between two states—true or false.
+
+    - **Date and time**, **Time** – a date and time, or a time of day.
 
 1. If you selected **Pick List** in the previous step, add the pick list items:
 
@@ -92,9 +96,41 @@ A form field is an element in a manual data entry project that represents a prop
 
         ![Form Field Type set to Pick List, with three items in Added pick list items: Project Manager, Accountant and Delivery Manager]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-pick-list.png" | relative_url }})
 
+    1. (Optional) To make the list depend on another field—for example, cities that depend on the state—select that field under the list (**Depends on another field**). Then, next to each item, select the value of the other field it belongs to. An item without one is always offered.
+
+        ![A City pick list depending on State/Region, with each city set to its state: Brisbane, Gold Coast and Cairns to Queensland, Sydney and Newcastle to New South Wales]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-pick-list-cascade.png" | relative_url }})
+
+        When records are entered, the list offers only the items for the value chosen in the other field, and stays unavailable until that field has a value.
+
+1. If you selected **Text Field** and the value must come from a list of records—like a vocabulary key of the [Lookup data type](/model/data-catalog/lookup-data-type)—under **Allowed values**, select **Records of a glossary term**, and then select the glossary term. The names of the golden records in the term are the values to choose from.
+
+    ![Allowed values set to Records of a glossary term, with the Customers glossary term selected and an optional field to depend on]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-allowed-values-glossary.png" | relative_url }})
+
+    To narrow the list by another field (cascading), select that field under **Depends on another field**, and then enter the vocabulary key of the records' property that holds the matching value. For example, for a City field whose records have a `city.state` property, depend on the State field and enter `city.state`.
+
 1. If the field is required in a record, turn on the toggle for **Is Required**.
 
 1. If you want to restrict the input in the field to only existing values from the vocabulary key, turn on the toggle for **Only Existing Values**. This option is available only for the **Text Field** type only.
+
+1. If you want the field to number new records automatically—for example, `CUST-01001`, `CUST-01002`, and so on—turn on the toggle for **Identifier seed (auto-increment)**, and then enter:
+
+    - **Start value** – the number of the first record.
+
+    - **Increment** – how much the number grows from one record to the next.
+
+    - (Optional) **Prefix** – text in front of the number, such as `CUST-`.
+
+    - (Optional) **Minimum digits** – the number is padded with zeros to this many digits.
+
+    The **Next values** line previews the result. This option is available for the **Text Field** type only.
+
+    ![The Edit Form Field panel for Customer ID with Identifier seed (auto-increment) turned on, Start value 1001, Increment 1, Prefix CUST- and Minimum digits 5, previewing CUST-01001, CUST-01002, CUST-01003]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-identifier-seed.png" | relative_url }})
+
+    Every new record gets the next value automatically, in both the Form and Tabular views of a session. CluedIn hands out each value only once, even when several people add records at the same time. A value is not reused when its record is deleted, so the numbers can have gaps. If you later raise the start value above the last value handed out, numbering continues from the new start value.
+
+1. (Optional) Under **Validation rules**, select **Add rule** to add the checks the value must pass—for example, a postal code format, "required if another field has a value", a date in the past, or a value unique in the session. For a check none of the rules cover, add a **Custom expression**. A rule's own message replaces the default one. For the full list of rules and the expression language, see [Manual data entry validation rules](/ingest/manual-data-entry/validation-rules).
+
+    ![Validation rules of the Postal code field: Matches pattern with a custom message, and a Custom expression that checks New Zealand postal codes]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-validation-rules.png" | relative_url }})
 
 1. If you want to use the field for producing the identifier for a record, turn on the toggle for **Use as identifier**.
 
@@ -106,7 +142,7 @@ A form field is an element in a manual data entry project that represents a prop
 
     The form field is added to the **Form Fields** tab of the manual data entry project.
 
-1. To add more form fields, repeat steps 1–11.
+1. To add more form fields, repeat steps 1–14.
 
     Once you have created all the form fields you need, [review](#review-and-modify-mapping-configuration) the mapping configuration for the records that will be created in a project and modify it as needed.
 
