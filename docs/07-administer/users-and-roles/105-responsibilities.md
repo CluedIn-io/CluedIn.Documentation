@@ -76,7 +76,7 @@ If two equally specific responsibilities match, both assignees get the task, and
 
 1. Go to **Administration** > **Roles**, and then go to the **All responsibilities** tab.
 
-    The list is grouped by feature. Select a feature in the toolbar to show only that feature, or select **Export CSV** to download the list.
+    The list is grouped by feature. Select a feature in the toolbar to show only that feature, or select **Export CSV** to download the list. To see only the rows that need attention, set **Status** to **Needs attention**, or select **Show only these** in the issues banner.
 
     ![The All responsibilities tab: a banner saying how many issues need attention, and responsibilities grouped by feature, each row showing who it is assigned to, the RACI letter and the scope]({{ "/assets/images/administration/responsibilities/all-responsibilities-tab.png" | relative_url }})
 
@@ -104,7 +104,14 @@ If two equally specific responsibilities match, both assignees get the task, and
 
 1. In **RACI**, select the letter.
 
-The summary at the bottom of the form says, in one sentence, what saving will add. Warnings appear above it when the new responsibility clashes with another one; see [If something goes wrong](#if-something-goes-wrong).
+The summary at the bottom of the form says, in one sentence, what saving will add. Options that would only repeat an existing responsibility are disabled and marked **Already assigned**.
+
+When the new responsibility needs a decision, the form asks in place:
+
+- **[Role] needs more access**: the role doesn't have the access level this RACI letter needs on the feature. **Also give [role] [level] access to [feature]** is ticked by default, and saving then changes the role's access together with the responsibility. For a person, it's their role that gets the access, so it applies to everyone in that role. If you untick it, the responsibility is still added, but the work waits until someone gives the access.
+- **[Name] is already Accountable for this**: only one role or person can approve the same work. Choose **Replace [name] with [assignee]**, which removes the previous Accountable when you add, or **Keep [name]**, which adds nothing.
+
+To start again, select **Clear** next to **Fill in the form**, or **Clear and start over** under what the AI understood. Both empty the prompt and the form, and keep the role when you opened the form from a role page.
 
 ## Edit, reassign or delete a responsibility
 
@@ -127,7 +134,7 @@ Today, responsibilities route these Steward Inbox tasks: duplicate matches waiti
 
 ## If something goes wrong
 
-The form, the list rows and the issues panel show these warnings. On the **All responsibilities** tab, select **View issues** to see them all, with an action to fix each one.
+The list rows and the issues panel show these warnings; the form handles not enough access and a second Accountable as decisions (see [Fill in the responsibility form](#fill-in-the-responsibility-form)), shows overlaps as small notes, and warns about a deactivated person. On the **All responsibilities** tab, select **View issues** to see them all, with an action to fix each one.
 
 ![The issues panel, listing each issue with a short explanation and a fix action such as Add Accountable, Change access or Review]({{ "/assets/images/administration/responsibilities/issues-panel.png" | relative_url }})
 

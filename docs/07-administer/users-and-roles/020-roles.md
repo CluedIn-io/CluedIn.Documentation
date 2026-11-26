@@ -70,11 +70,25 @@ To get acquainted with the required claims and access levels for all actions in 
 
 The other tabs of a role are **Responsibilities**, **Users** and **Audit log**.
 
+## Create a role
+
+1. On the navigation pane, go to **Administration** > **Roles**, and then select **Create role**.
+
+1. Enter a name. It must be unique (letter case doesn't matter) and 100 characters or fewer.
+
+1. Optional: add a description that explains what people with this role do. You can use bold, italic, underline, strikethrough, lists and links. It shows under the role name.
+
+1. Select **Create**.
+
+The role opens on its **Configuration** tab with access level **None** for every feature. Set its access there, then add [responsibilities](/administer/users-and-roles/responsibilities) and users.
+
 ## Change access levels
 
-1. Open the role on the **Configuration** tab.
+1. Open the role on the **Configuration** tab. To see what each access level means, select the info icon next to the **Access level** column header.
 
-1. Select the access level of a feature. To change several at once, select the checkboxes next to the features, or next to a section to select all its features, and then pick the level for all of them.
+1. Select the access level of a feature. To change several at once, select the checkboxes next to the features, or next to a section to select all its features, pick the level in the bar at the top, and then select **Apply**.
+
+    Before anything changes, a confirmation shows how many features get more or less access, how many people in the role it affects, which responsibilities would no longer have enough access, and each feature's level now and after. Select **Change N features** to apply. Right after applying, you can select **Undo** in the message to put the previous levels back.
 
 1. Select **Save**.
 
