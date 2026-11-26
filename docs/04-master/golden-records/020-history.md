@@ -9,7 +9,7 @@ content_type: concept
 redirect_from: ["/key-terms-and-features/golden-records/history", "/user-interface/history"]
 source_path: docs/110-key-terms-and-features/golden-records/020-history.md
 tags: ["golden record history"]
-last_modified: 2024-01-15
+last_modified: 2026-11-26
 ---
 
 ## On this page
@@ -107,6 +107,68 @@ The **History** page contains various filters to help you navigate through the d
 - **Vocabulary key filter** – you can select any vocabulary key and see the data parts where it is used, as well as the value chosen for the golden record. The medal icon next to the vocabulary key signifies that this vocabulary key is used in the golden record.
 
     ![The Vocabulary Keys list on the filters pane with trainingcontact.job Title selected, each key marked with a medal icon]({{ "/assets/images/golden-records/vocab-key-filter.png" | relative_url }})
+
+## Redesigned golden record history
+
+When the **Golden Record History - New Tree View** [feature flag](/administer/feature-flags) is turned on, the **Golden Record** view of the **History** tab uses a redesigned layout. It shows the same versions (data parts) as the views above, but adds filtering, a tree of sources, and a side panel for each version.
+
+![The redesigned golden record history: toolbar, filter chips, Sources and Fields filter pane, and the list of versions grouped by day]({{ "/assets/images/golden-records/history-v2/list-view.png" | relative_url }})
+
+### Toolbar and filters
+
+- **Search values** – finds versions whose old or new values contain the text. Field names are not searched.
+- **List** and **Tree** – switch between a list of versions and the same list with a tree of sources beside it.
+- **Change type** – shows only the selected types: **Discovered**, **Added**, **Changed**, or **Merged**. You can select several.
+- **Date** – limits the versions to **Any time**, or to the last 7, 30, or 90 days.
+- **Sort** – **Newest first** or **Oldest first**.
+- **Sources** and **Fields** – on the filter pane, select one or more sources or fields to show only their versions. Each source shows its latest date, how many current values it supplies (or **Superseded** if it supplies none), and its number of versions. Fields are grouped: metadata first, then one group per vocabulary. Select **Show all** to clear the selection. To collapse the pane, use the chevron on its edge.
+
+Every active filter appears as a chip above the list. Select the **x** on a chip to remove that filter, or **Clear all** to remove them all. Each filter change updates the list, the counts, and the tree immediately and returns you to the first page.
+
+### Versions list
+
+The first row is always the golden record as it stands now. It shows how many current values it has, how many sources supply them, and when it last changed. Select it to see each source and the share of current values it supplies. From that panel, select **View in Properties** to open the **Properties** tab.
+
+The other rows are versions, grouped by day. Each row shows:
+
+- The source, marked by its color and logo.
+- A plain-language title, for example, _SAP ERP updated 2 values_.
+- Up to three changes, each showing the field, the old value (struck through), and the new value.
+- The time, the user, and the version's position among that source's versions.
+- One change type tag.
+
+Select a row to open its version details. Select any field name to open that field's history. The **⋮** menu on a row lets you view details, open the source record, copy a link to the version, or delete the version. Merges can't be deleted; you can undo them instead (see [Version details](#version-details)).
+
+### Tree view
+
+In the tree view, each source has its own column. The logo headers stay visible as you scroll: point to a header to see the source name and its number of versions, or select it to filter by that source. The gold bar with a star at the top joins all sources into the golden record. Merges are drawn as dashed grey lines.
+
+![The tree view: one column per source beside the list, with one source highlighted and a tooltip for the version under the pointer]({{ "/assets/images/golden-records/history-v2/tree-view.png" | relative_url }})
+
+When you point to a node or a row, that source's line, nodes, and rows stay highlighted and the others fade. A tooltip shows the source, change type, version, date, user, and changed fields. Select a node to open that version.
+
+To change the width of the tree, drag its edge, or focus the edge and use the arrow keys. Double-click the edge to reset the width. If the columns get narrow, the logos are replaced by colored dots.
+
+### Version details
+
+The version details panel shows:
+
+- **Versions from source** – that source's versions as numbered steps, with the current one filled in. For more than nine versions, the steps in between are collapsed, and you can use **Jump to version** to open any version. Under the steps, a status line tells you how long after the previous version this one arrived, and whether it still supplies current values or has been superseded.
+- **Changes** – a table of each field, its action (**Added**, **Updated**, or **Removed**), and the value before and after. Switch **Previous version** to **Golden record now** to compare this version's values with the current golden record instead.
+- **Joined sources** – for merges only, the records that were merged. **Undo merge** opens the deduplication project the merge came from, where you can undo it.
+- **Metadata** and **Technical details** – collapsed by default.
+
+![The version details panel: numbered versions from the source, the status line, and the Changes table]({{ "/assets/images/golden-records/history-v2/version-details.png" | relative_url }})
+
+From the panel, select **Copy link to this version** to share a link that opens this version directly, or **Open source record** to see the data part's properties.
+
+### Field history
+
+Select any field name, in the list or in version details, to see the field's current value, the source that supplied it, and every value it has had over time. Select **Back** to return to the previous panel.
+
+![The Field history panel: the current value and its source, then every value the field has had, newest first]({{ "/assets/images/golden-records/history-v2/field-history.png" | relative_url }})
+
+Long values are shortened with an ellipsis. Point to a shortened value, or focus it, to see it in full.
 
 ## Data part statuses
 
