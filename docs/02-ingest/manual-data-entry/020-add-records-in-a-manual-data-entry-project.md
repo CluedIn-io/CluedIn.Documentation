@@ -45,9 +45,9 @@ The process of adding a single record consists of filling out all the required f
 
 1. Fill out the fields for a record.
 
-    ![Session in Form view with a draft record, the Name, Customer ID and Postal code fields filled in, the auto-save status and the required fields progress above the form, and Save & add another at the bottom]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-form-view.png" | relative_url }})
+    ![Session in Form view with a draft record: the auto-save status and required fields progress above the form, Customer ID filled in automatically, the Postal code 400 flagged with the message to enter a valid Australian postal code, and Save & add another at the bottom]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-form-view.png" | relative_url }})
 
-    Every change is saved to the session automatically. Above the form, you can see when the record was last saved and how many of its required fields are filled. A required field that is empty or a value that is too long is highlighted in red.
+    Every change is saved to the session automatically. Above the form, you can see when the record was last saved and how many of its required fields are filled. A required field that is empty, or a value that breaks one of the field's [validation rules](/ingest/manual-data-entry/configure-a-manual-data-entry-project#create-form-fields), is highlighted in red with the rule's message.
 
 1. To add another record, select **Save & add another** at the bottom of the page, or press **Ctrl+Enter** (**⌘+Enter** on a Mac). To move between the records of the session, use **Previous** and **Next**, or select a record in the **Draft records** list.
 
@@ -93,9 +93,9 @@ Go to **Administration** > **Feature Flags**, and then enable the **Manual data 
 
 1. Enter the data in the cells. To add more rows, select **Add row**, or press **Enter** in the last row.
 
-    ![Session in Tabular view with the toolbar (Add row, Undo, Redo, Save, Reset, Fill down, Freeze, Filter, AI autofill, Install Excel add-in), lettered columns, three rows of customer data, and the active cell and validation summary on the right]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-tabular-view.png" | relative_url }})
+    ![Session in Tabular view with the toolbar (Add row, Undo, Redo, Save, Reset, Fill down, Freeze, Filter, AI autofill, Install Excel add-in), lettered columns, three rows of customer data with State/Region filled down, and the active cell and validation summary on the right]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-tabular-view.png" | relative_url }})
 
-    The right side of the toolbar shows the active cell (for example, **D1 · State/Region**), the number of rows, and how many required fields are still missing. Select the summary to show only the rows that need attention.
+    The right side of the toolbar shows the active cell (for example, **D1 · State/Region**), the number of rows, how many required fields are still missing, and how many values break a validation rule. Select the summary to show only the rows that need attention.
 
     To delete a record, select the delete icon in the **Actions** column.
 
@@ -122,7 +122,7 @@ Go to **Administration** > **Feature Flags**, and then enable the **Manual data 
 | Copy the selected cell into the empty cells below it | **Fill down**. Cells that already have a value are not changed. |
 | Undo, redo, save | **Ctrl+Z**, **Ctrl+Shift+Z**, **Ctrl+S** (or the toolbar buttons) |
 | Keep the header row or the first column in view while scrolling | **Freeze** > **Freeze header row** / **Freeze first column** |
-| Show only the rows with a missing required field or a value that is too long | **Filter** > **Rows with issues** |
+| Show only the rows with a missing required field or a value that breaks a validation rule | **Filter** > **Rows with issues** |
 
 Fill down and **Ctrl+D** are not available in an identifier seed column, so its values stay unique.
 
@@ -132,7 +132,7 @@ AI autofill suggests values for the empty cells of the columns you choose, based
 
 **Prerequisites**
 
-Your organization needs an AI endpoint. If none is set up, the **AI autofill** panel tells you so. Ask an administrator to add one.
+AI autofill uses your organization's AI provider, the same one as **Create with AI**. If none is configured, the panel shows an error when you generate suggestions; ask an administrator to configure one.
 
 **To fill empty cells with AI**
 
@@ -144,9 +144,9 @@ Your organization needs an AI endpoint. If none is set up, the **AI autofill** p
 
 1. Select **Generate suggestions**.
 
-    ![The AI autofill panel with Postal code, Country and Street address selected under Columns to fill, and four suggestions in the preview, one of them cleared]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-ai-autofill.png" | relative_url }})
+    ![The AI autofill panel with the columns to fill selected and three suggestions in the preview, each giving Australia as the country of a row]({{ "/assets/images/integration/manual-data-entry/manual-data-entry-ai-autofill.png" | relative_url }})
 
-1. Review the suggestions. Clear the checkbox of any suggestion that you don't want, and then select **Accept**. To discard all suggestions, select **Reject all**.
+1. Review the suggestions. Clear the checkbox of any suggestion that you don't want, and then select **Accept**. A suggestion that breaks a validation rule of its field is already cleared, with the reason next to it. To discard all suggestions, select **Reject all**.
 
     The accepted values are added to the table as one change, which you can undo with **Undo**. Select **Save** to keep them.
 
