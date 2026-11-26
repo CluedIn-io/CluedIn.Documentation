@@ -25,12 +25,12 @@ The **Processing pipeline** page in **Engine room** shows every queue that data 
 
 ## Read the page
 
-Go to **Engine room** > **Processing pipeline**. The page has two tabs, **Pipeline** and **Audit log**, and fills the whole window.
+Go to **Engine room** > **Processing pipeline**. Under the page header are two tabs, **Pipeline** and **Audit log**, and the page fills the whole window.
 
-![The Processing pipeline page in the Grid view: the Live indicator, "Updated N s ago" and Pause at the top right, six KPI cards, a red banner listing one failing and one backlogged item, the toolbar, and the stages stacked with their cards]({{ "/assets/images/operate/processing-pipeline/grid.png" | relative_url }})
+![The Processing pipeline page in the Grid view: the page header with Live, "Updated N s ago" and Pause on the right, the Pipeline and Audit log tabs, six KPI cards, a red banner listing one failing and one backlogged item, the toolbar, and the stages stacked with their cards]({{ "/assets/images/operate/processing-pipeline/grid.png" | relative_url }})
 
-- **Live**, **Updated N s ago** and **Pause** (top right, Pipeline tab only). The numbers refresh every 2 seconds. Select **Pause** to stop refreshing while you read; select **Resume** to start again. Refreshing never closes an open menu, dialog or side panel, and never moves your scroll position.
-- **KPI cards**: messages in the pipeline, combined incoming and outgoing rates, estimated time remaining, the number of items that need attention, and the number of failed messages.
+- **Live**, **Updated N s ago** and **Pause** (in the page header, Pipeline tab only). The numbers refresh every 2 seconds. Select **Pause** to stop refreshing while you read; select **Resume** to start again. Refreshing never closes an open menu, dialog or side panel, and never moves your scroll position.
+- **KPI cards**: incoming and outgoing messages per second, the overall processing speed, the messages waiting across the pipeline, records in, and golden records.
 - **Banner**: lists the items that are failing or backlogged. Select **Show only these** to apply the **Needs attention** filter.
 
 Each card is one queue (or stream) and shows its status as a coloured dot and text, with a matching coloured stroke on its left edge:
@@ -42,7 +42,7 @@ Each card is one queue (or stream) and shows its status as a coloured dot and te
 | **Running** | Messages are coming in or going out. |
 | **Idle** | Nothing is waiting. |
 
-Failed and backlogged items **need attention**; running items are **active**. The steps in **Processing Sub-steps** have no queue of their own and show the numbers of the **Processing** stage, so they are left out of both filters and of the KPI totals.
+Failed and backlogged items **need attention**; running items are **active**. The steps in **Processing Sub-steps** have no queue of their own and show the numbers of the **Processing** stage, so they are left out of both filters and of the message totals.
 
 ## Find items
 
@@ -62,9 +62,9 @@ Use the toolbar above the stages:
 
 ![The Classic view: data sets on the left, the CluedIn box with clue, edge, parent and metrics processing in the middle, commands and enrichers underneath, and outgoing streams on the right]({{ "/assets/images/operate/processing-pipeline/classic.png" | relative_url }})
 
-Select a card to open its side panel. It shows the item's status, stage and live numbers, the actions you can take on it, and, if you have the Admin role, the first messages waiting on its queue.
+Select a card to open its details panel. It shows the item's stage, status, consumers and when it last updated; its messages waiting, failed messages and incoming and outgoing rates; a chart of the incoming and outgoing rates over the last minute; a **Details** table (stage, queue name, consumers, ready and unacknowledged messages, idle since); and, if you have the Admin role, the first messages waiting on its queue. **Retry failed messages** and **Purge queue** are at the bottom, next to **Close**.
 
-![The side panel of the Dead Letter (Recoverable) queue: status Failed, its message counts and rates, the Retry failed messages and Purge buttons, and three waiting messages]({{ "/assets/images/operate/processing-pipeline/panel.png" | relative_url }})
+![The Queue details panel of the Dead Letter (Recoverable) queue: status Failed, four stat tiles, the Last minute chart, the Details table, and Close, Retry failed messages and Purge queue at the bottom]({{ "/assets/images/operate/processing-pipeline/panel.png" | relative_url }})
 
 ## Retry failed messages
 
@@ -72,7 +72,7 @@ Select a card to open its side panel. It shows the item's status, stage and live
 
 1. Open the action in one of three ways:
     - On the card, select the three-dot menu, then **Retry failed messages**.
-    - In the card's side panel, select **Retry failed messages**.
+    - In the card's details panel, select **Retry failed messages**.
     - Select the cards' checkboxes, then select **Retry failed messages** in the bulk actions next to **Export**.
 2. In the confirmation dialog, check how many failed messages will be retried, then select **Retry failed messages**.
 
@@ -82,7 +82,7 @@ Select a card to open its side panel. It shows the item's status, stage and live
 
 **Purge** removes every message waiting on a queue. Purged messages can't be recovered; messages already being processed are not affected.
 
-1. Select **Purge** from the card's three-dot menu, from its side panel, or from the bulk actions with several cards selected.
+1. Select **Purge** from the card's three-dot menu, **Purge queue** in its details panel, or **Purge** in the bulk actions with several cards selected.
 2. In the confirmation dialog, select **Purge**.
 
 ## Work with several items at once
