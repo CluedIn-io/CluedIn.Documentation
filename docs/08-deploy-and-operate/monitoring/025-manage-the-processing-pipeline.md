@@ -52,11 +52,11 @@ Use the toolbar above the stages:
 - The dropdown on the right shows **All**, **Active** or **Needs attention**, each with the number of items it would show.
 - **Grid**, **Flow** and **Classic** switch the layout. The page remembers the last layout you chose, per user.
 
-**Grid** (the default) stacks the stages from top to bottom. Each stage header shows a select-all checkbox, the stage name, the number of items, the stage's totals and a button to collapse it, and stays pinned to the top while you scroll through its cards. Problem items come first. A stage shows two rows of cards; select **Show all** to see the rest.
+**Grid** (the default) stacks the stages from top to bottom, with each stage's icon on a line down the left side; the icon turns red when the stage has a failing item and amber when one is backlogged. Each stage header shows a select-all checkbox, the stage name, the number of items, the stage's totals and a button to collapse it, and stays pinned to the top while you scroll through its cards. Problem items come first. A stage shows two rows of cards; select **Show all** to see the rest.
 
-**Flow** shows the stages as columns from left to right, joined by arrows. Each column fills the height of the page and scrolls on its own. Drag the background to pan, use the zoom control at the top left to zoom in or out or type a percentage, and select **Fit to screen** at the top right to fit every column. Flow always opens at 100%.
+**Flow** shows the stages as columns from left to right, joined by arrows. Each column fills the height of the page and scrolls on its own. When the columns don't fit, scroll sideways or drag the background to pan. Use the zoom control at the top left to zoom in or out or type a percentage, and select the full view button at the top right to fit every column. Flow always opens at 100%.
 
-![The Flow view: stages as columns joined by arrows, the zoom control at the top left showing 100%, and Fit to screen at the top right]({{ "/assets/images/operate/processing-pipeline/flow.png" | relative_url }})
+![The Flow view on a dotted background: stages as columns joined by arrows, the zoom control at the top left showing 100%, and the full view button at the top right]({{ "/assets/images/operate/processing-pipeline/flow.png" | relative_url }})
 
 **Classic** is the original diagram, stretched to the full width of the page, with all text wrapped inside its boxes.
 
