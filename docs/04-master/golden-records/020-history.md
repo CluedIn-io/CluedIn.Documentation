@@ -110,26 +110,38 @@ The **History** page contains various filters to help you navigate through the d
 
 ## Redesigned golden record history
 
-When the **Golden Record History - New Tree View** [feature flag](/administer/feature-flags) is turned on, the **Golden Record** view of the **History** tab uses a redesigned layout. It shows the same versions (data parts) as the views above, but adds filtering, a tree of sources, and a side panel for each version.
+When the **Golden Record History - New Tree View** [feature flag](/administer/feature-flags) is turned on, the **Golden Record** view of the **History** tab uses a redesigned layout. It shows the same versions (data parts) as the views above, but adds filtering, a lineage of sources beside the list, and a side panel for each version.
 
-![The redesigned golden record history: toolbar, filter chips, Sources and Fields filter pane, and the list of versions grouped by day]({{ "/assets/images/golden-records/history-v2/list-view.png" | relative_url }})
+![The redesigned golden record history: toolbar, Sources and Fields filter pane, the collapsed lineage rail, and the list of versions grouped by day]({{ "/assets/images/golden-records/history-v2/list-view.png" | relative_url }})
 
 ### Toolbar and filters
 
-- **Search values** – finds versions whose old or new values contain the text. Field names are not searched.
-- **List** and **Tree** – switch between a list of versions and the same list with a tree of sources beside it.
+- **Search sources, fields or values** – finds versions whose source name, field name, vocabulary key, old value, or new value contains the text. It also narrows the filter pane to the matching sources and fields.
 - **Change type** – shows only the selected types: **Discovered**, **Added**, **Changed**, or **Merged**. You can select several.
 - **Date** – limits the versions to **Any time**, or to the last 7, 30, or 90 days.
 - **Sort** – **Newest first** or **Oldest first**.
-- **Sources** and **Fields** – on the filter pane, select one or more sources or fields to show only their versions. Each source shows its latest date, how many current values it supplies (or **Superseded** if it supplies none), and its number of versions. Fields are grouped: metadata first, then one group per vocabulary. Select **Show all** to clear the selection. To collapse the pane, use the chevron on its edge.
 
-Every active filter appears as a chip above the list. Select the **x** on a chip to remove that filter, or **Clear all** to remove them all. Each filter change updates the list, the counts, and the tree immediately and returns you to the first page.
+Every active filter appears as a chip above the list. Select the **x** on a chip to remove that filter, or **Clear all** to remove them all. Each filter change updates the list, the counts, and the lineage immediately.
+
+### Sources and fields
+
+The filter pane on the left is one list with two categories, **Sources** and **Fields**. Select one or more sources or fields to show only their versions.
+
+- Each source shows its latest date, how many current values it supplies (or **Superseded** if it supplies none), and its number of versions.
+- Fields are grouped: **Metadata** first, then one group per vocabulary. Each field shows its vocabulary key and how many versions changed it.
+- Select a category or group header to collapse or expand it. When something is selected, the header shows how many, with **Clear** to clear them.
+- Sources and each field group show eight items at first. Select **Show all** to see the rest, or **Show fewer** to go back.
+- The category headers stay at the top of the pane while you scroll, and **Fields** also stays at the bottom so you can always reach it.
+
+![The filter pane scrolled down: the Sources header stays at the top, and the Fields header with its Metadata group below]({{ "/assets/images/golden-records/history-v2/filter-panel.png" | relative_url }})
+
+To change the width of the pane, drag its edge (between 240 and 480 pixels). To collapse or expand it, select the chevron on its edge.
 
 ### Versions list
 
 The first row is always the golden record as it stands now. It shows how many current values it has, how many sources supply them, and when it last changed. Select it to see each source and the share of current values it supplies. From that panel, select **View in Properties** to open the **Properties** tab.
 
-The other rows are versions, grouped by day. Each row shows:
+The other rows are every version, in one scrolling list grouped by day. The date header stays at the top while you scroll through that day. Each row shows:
 
 - The source, marked by its color and logo.
 - A plain-language title, for example, _SAP ERP updated 2 values_.
@@ -139,15 +151,19 @@ The other rows are versions, grouped by day. Each row shows:
 
 Select a row to open its version details. Select any field name to open that field's history. The **⋮** menu on a row lets you view details, open the source record, copy a link to the version, or delete the version. Merges can't be deleted; you can undo them instead (see [Version details](#version-details)).
 
-### Tree view
+### Lineage
 
-In the tree view, each source has its own column. The logo headers stay visible as you scroll: point to a header to see the source name and its number of versions, or select it to filter by that source. The gold bar with a star at the top joins all sources into the golden record. Merges are drawn as dashed grey lines.
+The lineage is always to the left of the list. By default it is collapsed to a narrow rail: the golden record's star, one grey line, and one dot in the source's color for each row. A note above the list tells you whether it's collapsed or how many sources it shows.
 
-![The tree view: one column per source beside the list, with one source highlighted and a tooltip for the version under the pointer]({{ "/assets/images/golden-records/history-v2/tree-view.png" | relative_url }})
+To expand or collapse the lineage, select the handle on its edge. To change its width, drag the edge; the width you choose is remembered. Drag the edge back towards the rail to collapse it, or double-click it to reset the width.
 
-When you point to a node or a row, that source's line, nodes, and rows stay highlighted and the others fade. A tooltip shows the source, change type, version, date, user, and changed fields. Select a node to open that version.
+When expanded, each source in the list has its own column. Its line runs from the gold bar at the top, which joins all sources into the golden record, down to its last version in the list, and continues dashed when the source has older versions that aren't shown. Merges are drawn as dashed grey lines.
 
-To change the width of the tree, drag its edge, or focus the edge and use the arrow keys. Double-click the edge to reset the width. If the columns get narrow, the logos are replaced by colored dots.
+![The expanded lineage: one column per source beside the list, with one source highlighted and a tooltip for the version under the pointer]({{ "/assets/images/golden-records/history-v2/lineage.png" | relative_url }})
+
+The logo headers stay visible as you scroll: point to a header to see the source name and its number of versions, or select it to filter by that source. If the columns don't fit, scroll the lineage sideways with a trackpad, with **Shift** and the mouse wheel, or with the scrollbar that appears at the bottom when you point at it.
+
+When you point to a node or a row in the expanded lineage, that source's line, nodes, and rows stay highlighted and the others fade. A tooltip shows the source, change type, version, date, user, and changed fields. Select a node, in the rail or the expanded lineage, to open that version.
 
 ### Version details
 
